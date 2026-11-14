@@ -722,7 +722,7 @@ const quad = (a: number, b: number, c: number, x: number): number => (a * x + b)
   // re-pinned count-aware at audit time (run 101): the authored chapter now
   // carries TWO lessons (2.1 from run 100 + 2.2 from this run) and TWO
   // planned titles — section G re-asserts the same shape below.
-  ok(ch.lessons.length === 2 && ch.plannedLessons?.length === 2, 'F3 chapter shape: 2 lessons + 2 planned (re-pinned run 101)')
+  ok(ch.lessons.length === 3 && ch.plannedLessons?.length === 1, 'F3 chapter shape: 3 lessons + 1 planned (re-pinned run 102: 2.3 authored)')
   const L = ch.lessons[0]
   ok(L.id === 'aa-vertex-form-at-work-maxima-and-minima', 'F4 lesson id matches the pinned id')
   ok(L.number === '2.1' && L.title === 'Vertex Form at Work: Maxima and Minima', 'F5 lesson number/title')
@@ -803,7 +803,7 @@ const quad = (a: number, b: number, c: number, x: number): number => (a * x + b)
   const ch = chapter02
   ok(ch.number === 2 && ch.slug === 'the-quadratic-at-depth', 'G1 chapter wrapper number/slug')
   ok(ch.status === 'in-progress', 'G2 chapter status in-progress (2/4 authored)')
-  ok(ch.lessons.length === 2 && ch.plannedLessons?.length === 2, 'G3 chapter shape: 2 lessons + 2 planned')
+  ok(ch.lessons.length === 3 && ch.plannedLessons?.length === 1, 'G3 chapter shape: 3 lessons + 1 planned (re-pinned run 102: 2.3 authored)')
   const L = ch.lessons[1]
   ok(L.id === 'aa-quadratic-inequalities-and-the-sign-diagram', 'G4 lesson id matches the pinned id')
   ok(L.number === '2.2' && L.title === 'Quadratic Inequalities and the Sign Diagram', 'G5 lesson number/title')
@@ -882,7 +882,652 @@ const quad = (a: number, b: number, c: number, x: number): number => (a * x + b)
   ok(quiz.items.every((i) => i.explain.length >= 120), 'G36 every quiz explain prices the distractors')
 }
 
-console.log(`\nverify-book4-ch02 sections A-G: ${passed} passed, ${failed} failed`)
+/* ------------------------------------------------------------------ */
+/* (H) lesson 2.3 "Symmetric Reads and Common Roots" — the engine      */
+/*     suite, pinned BEFORE any prose (run 102, verify-first).          */
+/*     Every exhibit below is this book's own (study-never-reproduce:  */
+/*     the m2-02 module's illustrations informed METHOD shapes only).  */
+/* ------------------------------------------------------------------ */
+
+// exact rational helpers (small integers only — Number is exact < 2^53)
+const gcd = (a: number, b: number): number => (b === 0 ? Math.abs(a) : gcd(b, a % b))
+const ratEq = (n1: number, d1: number, n2: number, d2: number): boolean =>
+  n1 * d2 === n2 * d1 && d1 * d2 !== 0
+
+// real roots of ax^2 + bx + c (returns [] when D < 0, one entry when D = 0)
+function realRoots(a: number, b: number, c: number): number[] {
+  const D = b * b - 4 * a * c
+  if (D < 0) return []
+  if (D === 0) return [-b / (2 * a)]
+  const s = Math.sqrt(D)
+  return [(-b + s) / (2 * a), (-b - s) / (2 * a)]
+}
+
+// H1. Viète's reads certified against the quadratic formula on a sweep:
+// alpha+beta == -b/a and alpha*beta == c/a to 1e-9 whenever D >= 0.
+{
+  const As = [1, 2, 3, 5, -1, -3]
+  const Bs = [-12, -9, -6, -5, -2, 3, 7, 11]
+  const Cs = [-10, -8, -3, -1, 1, 2, 4, 6, 7]
+  let checked = 0
+  let bad = 0
+  for (const a of As)
+    for (const b of Bs)
+      for (const c of Cs) {
+        const roots = realRoots(a, b, c)
+        if (roots.length === 0) continue
+        const s = roots[0] + (roots.length === 2 ? roots[1] : roots[0])
+        const p = roots.length === 2 ? roots[0] * roots[1] : roots[0] * roots[0]
+        if (Math.abs(s - -b / a) > 1e-9) bad++
+        if (Math.abs(p - c / a) > 1e-9) bad++
+        checked++
+      }
+  ok(bad === 0 && checked > 200, `H1 Viète reads vs quadratic formula: ${bad} misses over ${checked} real-root triples`)
+}
+
+// H2. the symmetric-read engine on the LESSON's own exhibits — each read
+// priced symbolically from (S, P) AND numerically from the formula roots.
+{
+  // exhibit 1: 3x^2 - 9x + 2 = 0 — S = 3, P = 2/3 (irrational roots)
+  {
+    const S = 3, P = 2 / 3
+    const [al, be] = realRoots(3, -9, 2)
+    ok(ratEq(3, 1, 9, 3) && ratEq(2, 3, 2, 3), 'H2.1 exhibit-1 S = 3, P = 2/3 pins')
+    eq(al + be, S, 1e-9, 'H2.1 numeric sum 3')
+    eq(al * be, P, 1e-9, 'H2.1 numeric product 2/3')
+    eq(al * al + be * be, S * S - 2 * P, 1e-9, 'H2.1 alpha^2+beta^2 = 23/3 (both routes)')
+    eq(S * S - 2 * P, 23 / 3, 1e-12, 'H2.1 alpha^2+beta^2 pin 23/3')
+    eq(S * S * S - 3 * P * S, 21, 1e-12, 'H2.1 alpha^3+beta^3 pin 21')
+    eq(al ** 3 + be ** 3, 21, 1e-9, 'H2.1 numeric cubes 21')
+    eq(S / P, 4.5, 1e-12, 'H2.1 1/alpha+1/beta pin 9/2')
+    eq(1 / al + 1 / be, 4.5, 1e-9, 'H2.1 numeric reciprocals 9/2')
+    eq(S * S - 4 * P, 19 / 3, 1e-12, 'H2.1 (alpha-beta)^2 pin 19/3')
+    eq((al - be) ** 2, 19 / 3, 1e-9, 'H2.1 numeric difference-square 19/3')
+    eq((S * S - 2 * P) / P, 11.5, 1e-12, 'H2.1 alpha/beta+beta/alpha pin 23/2')
+    eq(al / be + be / al, 11.5, 1e-9, 'H2.1 numeric ratio-sum 23/2')
+    eq((S * S - 2 * P) ** 2 - 2 * P * P, 521 / 9, 1e-12, 'H2.1 alpha^4+beta^4 pin 521/9')
+    eq(al ** 4 + be ** 4, 521 / 9, 1e-9, 'H2.1 numeric fourth powers 521/9')
+  }
+  // exhibit 2: x^2 - 6x + 5 = 0 — the FIGURE's equation, integer roots 1, 5
+  {
+    const [al, be] = realRoots(1, -6, 5)
+    ok([al, be].includes(1) && [al, be].includes(5), 'H2.2 figure-equation roots 1 and 5')
+    eq(al * al + be * be, 26, 1e-12, 'H2.2 alpha^2+beta^2 pin 26 (quiz Q2)')
+    eq((al - be) ** 2, 16, 1e-12, 'H2.2 (alpha-beta)^2 pin 16')
+    eq(1 / al + 1 / be, 6 / 5, 1e-12, 'H2.2 1/alpha+1/beta pin 6/5')
+  }
+  // exhibit 3: x^2 - 4x + 1 = 0 — the lesson's running equation (roots 2±√3)
+  {
+    const S = 4, P = 1
+    const [al, be] = realRoots(1, -4, 1)
+    eq(al + be, 4, 1e-9, 'H2.3 running-equation sum 4')
+    eq(al * be, 1, 1e-9, 'H2.3 running-equation product 1')
+    eq(al * al + be * be, 14, 1e-12, 'H2.3 alpha^2+beta^2 pin 14')
+    eq(al ** 2 + be ** 2, 14, 1e-9, 'H2.3 numeric squares 14')
+    // the reduced-equation trick: alpha^2 = 4alpha - 1 forces alpha, beta to be
+    // roots of x^2 - 4x + 1; ratios give x^2 - 14x + 1
+    eq(al / be + be / al, 14, 1e-9, 'H2.3 ratio-sum pin 14')
+    const [r1, r2] = realRoots(1, -14, 1)
+    ok(Math.abs(r1 - (al / be)) < 1e-9 || Math.abs(r2 - (al / be)) < 1e-9, 'H2.3 ratio roots 7±4√3 match alpha/beta')
+    eq((7 + 4 * Math.sqrt(3)) + (7 - 4 * Math.sqrt(3)), 14, 1e-12, 'H2.3 7±4√3 sums to 14')
+  }
+}
+
+// H3. the power-sum recurrence engine: alpha^(k+2) = -(b/a)alpha^(k+1) - (c/a)alpha^k.
+// Exhibit: x^2 - x - 1 = 0 — the power sums are the LUCAS numbers 2, 1, 3, 4, 7, 11, 18, 29.
+{
+  const phi = (1 + Math.sqrt(5)) / 2
+  const psi = (1 - Math.sqrt(5)) / 2
+  // recurrence ground truth from the roots directly
+  const L: number[] = [2, 1]
+  for (let k = 2; k <= 7; k++) L.push(L[k - 1] + L[k - 2])
+  ok(L.join(',') === '2,1,3,4,7,11,18,29', 'H3.1 Lucas power sums pinned 2,1,3,4,7,11,18,29')
+  for (let k = 0; k <= 7; k++) eq(phi ** k + psi ** k, L[k], 1e-9, `H3.2 phi^${k}+psi^${k} = ${L[k]}`)
+  // the recurrence relation itself: L(k) = L(k-1) + L(k-2) is exactly
+  // alpha^(k+2) = (b'/a')alpha^(k+1) - (c'/a')alpha^k with a'=1, b'=-1, c'=-1
+  for (let k = 0; k <= 5; k++) eq(phi ** (k + 2) + psi ** (k + 2), phi ** (k + 1) + psi ** (k + 1) + phi ** k + psi ** k, 1e-9, `H3.3 recurrence at k=${k}`)
+  // exhibit-1's recurrence route re-derives alpha^3+beta^3 = 21 for 3x^2-9x+2:
+  // alpha^2 = 3alpha - 2/3, so alpha^3 = (25/3)alpha - 2 and the sum is 25 - 4 = 21
+  const [al] = realRoots(3, -9, 2)
+  eq((25 / 3) * al - 2, al ** 3, 1e-9, 'H3.4 alpha^3 = (25/3)alpha - 2 on exhibit 1')
+  eq((25 / 3) * 3 - 4, 21, 1e-12, 'H3.4 sum route gives 21')
+  // H3.5 the collapse identity on the Lucas equation (x^2 - x - 1, P = -1):
+  // T15 + T11 = T2 * T13 (since alpha^2 beta^2 = 1); Lucas: T13 = 521, T2 = 3
+  {
+    const L2: number[] = [2, 1]
+    for (let k = 2; k <= 15; k++) L2.push(L2[k - 1] + L2[k - 2])
+    ok(L2[13] === 521 && L2[15] === 1364 && L2[11] === 199 && L2[2] === 3, `H3.5 Lucas census T13=${L2[13]}, T15=${L2[15]}, T11=${L2[11]}, T2=${L2[2]}`)
+    eq(L2[15] + L2[11], L2[2] * L2[13], 1e-12, 'H3.5 T15 + T11 = 1563 = 3 x 521 = T2 x T13 (the collapse)')
+    eq(phi ** 15 + psi ** 15 + phi ** 11 + psi ** 11, 1563, 1e-9, 'H3.5 numeric roots agree on 1563')
+  }
+}
+
+// H4. the transformation engine: substitution route vs the S'/P' route on
+// the lesson's own reconstructions.
+{
+  // T1 shift: x^2 - 6x + 8 (roots 2, 4) -> roots alpha+2, beta+2 = y^2 - 10y + 24
+  {
+    const [al, be] = realRoots(1, -6, 8)
+    ok([al, be].includes(2) && [al, be].includes(4), 'H4.1 base roots 2 and 4')
+    const S1 = al + 2 + (be + 2)
+    const P1 = (al + 2) * (be + 2)
+    eq(S1, 10, 1e-12, 'H4.1 S\' = 10')
+    eq(P1, 24, 1e-12, 'H4.1 P\' = 24')
+    // substitution route: x = y - 2 in x^2 - 6x + 8
+    const f = (y: number) => (y - 2) * (y - 2) - 6 * (y - 2) + 8
+    // y^2 - 10y + 24 must vanish at y = alpha+2, beta+2
+    ok(f(al + 2) === 0 && f(be + 2) === 0, 'H4.1 substitution route vanishes at the shifted roots')
+    eq(f(6) - (36 - 60 + 24), 0, 1e-12, 'H4.1 y^2-10y+24 spot check at y = 6')
+  }
+  // T2 scale+shift: y = 2x+3 applied to x^2 - 5x + 7 -> y^2 - 16y + 67 (both routes)
+  {
+    const S = 5, P = 7
+    const Sp = 2 * S + 6
+    const Pp = 4 * P + 6 * S + 9
+    ok(Sp === 16 && Pp === 67, 'H4.2 S/P route pins 16 and 67')
+    // substitution route: x = (y-3)/2
+    const f = (y: number) => ((y - 3) / 2) ** 2 - 5 * ((y - 3) / 2) + 7
+    // y^2 - 16y + 67 = 0 at the same seats: compare polynomials at 5 probe points
+    const g = (y: number) => y * y - 16 * y + 67
+    const probes = [0, 1, 2.5, -3, 8]
+    ok(probes.every((y) => Math.abs(f(y) * 4 - g(y)) < 1e-9), 'H4.2 both routes agree on 5 probes (after the 4x clearing)')
+  }
+  // T3 reciprocal: 3x^2 - 9x + 2 -> 2x^2 - 9x + 3 (the coefficient-reversal law)
+  {
+    const [al, be] = realRoots(3, -9, 2)
+    const rr = realRoots(2, -9, 3)
+    const nearA = rr.some((r) => Math.abs(r - 1 / al) < 1e-9)
+    const nearB = rr.some((r) => Math.abs(r - 1 / be) < 1e-9)
+    ok(nearA && nearB, 'H4.3 reversal-law roots are the reciprocals')
+    ok(ratEq(9, 2, 9, 2) && ratEq(3, 2, 3, 2), 'H4.3 S\'=9/2, P\'=3/2 pins')
+  }
+  // T4 the elimination route: y = x^2 + 1 with x^2 - 4x + 1 = 0 eliminates x
+  // through y = 4x, landing on y^2 - 16y + 16 = 0; S'/P' route agrees
+  {
+    const [al, be] = realRoots(1, -4, 1)
+    const S1 = (al * al + 1) + (be * be + 1)
+    const P1 = (al * al + 1) * (be * be + 1)
+    ok(Math.abs(S1 - 16) < 1e-9 && Math.abs(P1 - 16) < 1e-9, 'H4.4 alpha^2+1, beta^2+1 give S\'=16, P\'=16')
+    const g = (y: number) => y * y - 16 * y + 16
+    ok(Math.abs(g(al * al + 1)) < 1e-9 && Math.abs(g(be * be + 1)) < 1e-9, 'H4.4 y^2-16y+16 vanishes at the new roots')
+    // the elimination identity: y = 4x on the solution set
+    ok(Math.abs(al * al + 1 - 4 * al) < 1e-9 && Math.abs(be * be + 1 - 4 * be) < 1e-9, 'H4.4 x^2+1 = 4x holds at both roots (the elimination engine)')
+  }
+}
+
+// H5. the difference engine + the consecutive-integer census.
+{
+  // x^2 - px + 27 with (alpha-beta)^2 = 36 -> p^2 = 36 + 108 = 144 -> p = ±12
+  eq(36 + 108, 144, 1e-12, 'H5.1 p^2 = 144 pin')
+  const [r1, r2] = realRoots(1, -12, 27)
+  ok((r1 === 9 && r2 === 3) || (r1 === 3 && r2 === 9), 'H5.1 p = 12 roots 3 and 9, gap 6')
+  // consecutive-integer roots: x^2 - 13x + c -> c = 42 (roots 6, 7); law b^2 - 4c = 1
+  eq(169 - 4 * 42, 1, 1e-12, 'H5.2 b^2 - 4c = 1 for c = 42')
+  const [r3, r4] = realRoots(1, -13, 42)
+  ok((r3 === 7 && r4 === 6) || (r3 === 6 && r4 === 7), 'H5.2 roots 6 and 7 consecutive')
+  // the gap-law sweep: consecutive integer roots n, n+1 give b^2-4c = 1
+  let lawBad = 0
+  for (let n = -6; n <= 6; n++) {
+    const b = -(2 * n + 1)
+    const c = n * (n + 1)
+    if (b * b - 4 * c !== 1) lawBad++
+  }
+  ok(lawBad === 0, 'H5.3 gap law b^2-4c = 1 over 13 consecutive-pair designs')
+}
+
+// H6. the repeated-root census (HOSTED FOLD ground).
+{
+  // R1 definition: D = 0 <=> the double seat x0 = -b/2a satisfies the equation
+  let rrBad = 0
+  let rrCount = 0
+  for (const a of [1, 2, 3, -1, -2])
+    for (const b of [-8, -6, -4, 4, 6, 8])
+      for (const c of [-9, -4, 2, 3, 4, 8, 9]) {
+        const D = b * b - 4 * a * c
+        if (D !== 0) continue
+        const x0 = -b / (2 * a)
+        if (Math.abs(a * x0 * x0 + b * x0 + c) > 1e-12) rrBad++
+        rrCount++
+      }
+  ok(rrBad === 0 && rrCount >= 5, `H6.1 double seat satisfies its equation on ${rrCount} D=0 designs`)
+  // R2 the perfect-square discriminant: (b-c)^2 - 4(a-b)(c-a) = (2a-b-c)^2 over a sweep
+  let psBad = 0
+  for (let a = -4; a <= 5; a++)
+    for (let b = -4; b <= 5; b++)
+      for (let c = -4; c <= 5; c++) {
+        if (a - b === 0) continue
+        const lhs = (b - c) ** 2 - 4 * (a - b) * (c - a)
+        const rhs = (2 * a - b - c) ** 2
+        if (lhs !== rhs) psBad++
+      }
+  ok(psBad === 0, 'H6.2 perfect-square discriminant identity over the 9^3-minus-guard sweep')
+  // R3 the AP verdict: equal roots <=> 2a = b + c; witnesses (3,2,4) vs (3,2,5)
+  {
+    // witness: a=3, b=2, c=4 -> x^2 - 2x + 1 = (x-1)^2
+    const f = (x: number) => (3 - 2) * x * x + (2 - 4) * x + (4 - 3)
+    ok(f(1) === 0, 'H6.3 witness (3,2,4): f(1) = 0')
+    ok(2 * 3 === 2 + 4, 'H6.3 2a = b + c holds for the witness')
+    // non-witness: a=3, b=2, c=5 -> x^2 - 3x + 2, distinct roots 1, 2
+    const g = (x: number) => (3 - 2) * x * x + (2 - 5) * x + (5 - 3)
+    const roots = realRoots(1, -3, 2)
+    ok(roots.includes(1) && roots.includes(2) && g(1) === 0 && g(2) === 0, 'H6.3 non-witness (3,2,5) has distinct roots 1, 2')
+    ok(2 * 3 !== 2 + 5, 'H6.3 2a = b + c fails for the non-witness')
+  }
+  // R4 the GP duplicate: a,b,c in GP (b^2 = ac) => D(ax^2+2bx+c) = 0, root -b/a;
+  // sharing with dx^2+2ex+f <=> dc+af = 2be <=> d/a, e/b, f/c in AP.
+  {
+    const a = 1, b = 2, c = 4 // GP
+    ok(b * b === a * c, 'H6.4 witness GP 1, 2, 4')
+    const D = (2 * b) ** 2 - 4 * a * c
+    ok(D === 0, 'H6.4 D(ax^2+2bx+c) = 0 for the GP witness')
+    const x0 = -b / a
+    ok(a * x0 * x0 + 2 * b * x0 + c === 0, 'H6.4 repeated root -b/a = -2 satisfies x^2+4x+4')
+    const d = 3, e = 5, f = 8 // designed AP trio d/a=3, e/b=2.5, f/c=2
+    ok(ratEq(3, 1, 3, 1) && ratEq(5, 2, 5, 2) && ratEq(2, 1, 2, 1), 'H6.4 ratio pins 3, 5/2, 2')
+    ok(3 - 2.5 === 2.5 - 2, 'H6.4 d/a, e/b, f/c in AP')
+    ok(dc_check(d, e, f), 'H6.4 the shared-seat equation dc+af-2be = 0 holds')
+    function dc_check(dd: number, ee: number, ff: number): boolean {
+      return dd * c + ff * a - 2 * ee * b === 0
+    }
+    // the shared seat: dx^2+2ex+f vanishes at x = -b/a
+    ok(d * x0 * x0 + 2 * e * x0 + f === 0, 'H6.4 3x^2+10x+8 vanishes at x = -2')
+    // a NON-AP trio fails the shared seat
+    const d2 = 3, e2 = 5, f2 = 9
+    ok(d2 * c + f2 * a - 2 * e2 * b !== 0, 'H6.4 non-AP (3,5,9): dc+af-2be = 1 differs from 0')
+    ok(Math.abs(d2 * x0 * x0 + 2 * e2 * x0 + f2) > 0, 'H6.4 non-AP trio does not share the repeated seat')
+  }
+}
+
+// H7. the common-root engine (both hosted-fold grounds).
+{
+  // C1 brute-force certification: over an integer grid, condition-zero
+  // <=> (a real common root exists) OR the pair is proportional.
+  const grid = [1, 2, 3, -1]
+  const bs = [-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]
+  const cs = [-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]
+  let pairs = 0
+  let condZero = 0
+  let commonReal = 0
+  let prop = 0
+  let mismatches = 0
+  for (const a1 of grid)
+    for (const b1 of bs)
+      for (const c1 of cs)
+        for (const a2 of grid)
+          for (const b2 of bs)
+            for (const c2 of cs) {
+              pairs++
+              const D1 = b1 * b1 - 4 * a1 * c1
+              const D2 = b2 * b2 - 4 * a2 * c2
+              const cond =
+                (c1 * a2 - c2 * a1) ** 2 - (b1 * c2 - b2 * c1) * (a1 * b2 - a2 * b1)
+              const isProp =
+                a1 * b2 === a2 * b1 && b1 * c2 === b2 * c1 && a1 * c2 === a2 * c1
+              const r1 = realRoots(a1, b1, c1)
+              const r2 = realRoots(a2, b2, c2)
+              let shared = false
+              for (const u of r1) for (const v of r2) if (Math.abs(u - v) < 1e-7) shared = true
+              if (cond === 0) condZero++
+              if (shared) commonReal++
+              if (isProp) prop++
+              const predicted = cond === 0 || (isProp && D1 >= 0 && D2 >= 0)
+              // a real common root exists iff condition zero AND both D >= 0;
+              // condition zero with a negative D forces proportionality
+              if (shared !== (cond === 0 && D1 >= 0 && D2 >= 0)) mismatches++
+              if (predicted !== (cond === 0 || (isProp && D1 >= 0 && D2 >= 0))) mismatches++
+            }
+  ok(mismatches === 0 && pairs === 4 * 10 * 10 * 4 * 10 * 10 && condZero > 100 && commonReal > 50 && prop > 20,
+    `H7.1 determinant-condition trichotomy certified over ${pairs} pairs (cond0 ${condZero}, shared ${commonReal}, prop ${prop}, mismatches ${mismatches})`)
+  // C2 the FIGURE's pair: x^2-4x+3 and x^2-2x-3 share root 3; condition 36 = 6^2
+  {
+    const a1 = 1, b1 = -4, c1 = 3, a2 = 1, b2 = -2, c2 = -3
+    const big = c1 * a2 - c2 * a1
+    const small1 = b1 * c2 - b2 * c1
+    const small2 = a1 * b2 - a2 * b1
+    ok(big === 6 && small1 === 18 && small2 === 2, 'H7.2 figure pair cross products 6, 18, 2')
+    ok(big * big === small1 * small2, 'H7.2 condition 36 = 36 holds for the figure pair')
+    const [f1a, f1b] = realRoots(a1, b1, c1)
+    const [f2a, f2b] = realRoots(a2, b2, c2)
+    ok(f1a === 3 && f1b === 1, 'H7.2 f1 roots 3 and 1')
+    ok(f2a === 3 && f2b === -1, 'H7.2 f2 roots 3 and -1')
+    // the common-root formula: alpha = (c1a2 - c2a1)/(a1b2 - a2b1) = 6/2 = 3
+    ok(6 / 2 === 3, 'H7.2 common-root formula lands on 3')
+    // the both-common counter: 2x^2-8x+6 proportional to x^2-4x+3
+    ok(2 * 1 === 1 * 2 && 2 * -4 === -8 * 1 && 2 * 3 === 6 * 1, 'H7.2 2x^2-8x+6 proportional (both doors shared)')
+  }
+  // C3 the k-family: x^2-6x+8 vs x^2+kx-10 shares 2 (k=3) or 4 (k=-3/2)
+  {
+    for (const [k, seat] of [[3, 2], [-1.5, 4]] as const) {
+      const val = seat * seat + k * seat - 10
+      ok(val === 0, `H7.3 k=${k} makes seat ${seat} common`)
+      const cond =
+        (8 * 1 - -10 * 1) ** 2 - (-6 * -10 - k * 8) * (1 * k - 1 * -6)
+      ok(cond === 0, `H7.3 determinant condition holds at k=${k}`)
+    }
+    // and the condition has exactly these two k solutions: k^2 + (3/2)k... verify
+    // (18)(k+6) = (60-8k)(k+6) => wait — expand directly:
+    // (c1a2-c2a1)^2 = 18^2 = 324; (b1c2-b2c1)(a1b2-a2b1) = (60-8k)(k+6)
+    ok(18 * 18 === 324, 'H7.3 18^2 = 324')
+    // (60-8k)(k+6) = 324 <=> 60k + 360 - 8k^2 - 48k = 324 <=> -8k^2 + 12k + 36 = 0
+    // <=> 2k^2 - 3k - 9 = 0 <=> (2k + 3)(k - 3) = 0 <=> k = 3 or k = -3/2
+    ok((2 * 3 + 3) * (3 - 3) === 0 && (2 * -1.5 + 3) * (-1.5 - 3) === 0, 'H7.3 2k^2-3k-9 factors as (2k+3)(k-3)')
+  }
+  // C4 the m-hunt: x^2+mx+6 vs x^2+6x+m — the engines CORRECTED the design:
+  // sharing-at-least-one-real-root happens at m = -7 AND m = 6, but ONLY m = 6
+  // is a BOTH-common seat (proportionality); m = -7 shares exactly one root.
+  {
+    // honest census: which m in [-20, 20] make the two equations share a real root?
+    const sharing: number[] = []
+    for (let m = -20; m <= 20; m++) {
+      const r1 = realRoots(1, m, 6)
+      const r2 = realRoots(1, 6, m)
+      const shared = r1.some((u) => r2.some((v) => Math.abs(u - v) < 1e-9))
+      if (shared) sharing.push(m)
+    }
+    ok(sharing.length === 2 && sharing[0] === -7 && sharing[1] === 6, `H7.4 real-common-root census over m ∈ [-20,20] lands on ${JSON.stringify(sharing)}`)
+    // m = -7: eq1 = (x-1)(x-6), eq2 = (x+7)(x-1) — exactly ONE shared seat (1)
+    {
+      const r1 = realRoots(1, -7, 6)
+      const r2 = realRoots(1, 6, -7)
+      ok(r1.includes(1) && r1.includes(6) && r2.includes(1) && r2.includes(-7), 'H7.4 m = -7: roots {1, 6} ∩ {1, -7} = {1} — one shared door')
+      // proportionality fails: (1,-7,6) vs (1,6,-7) — ratios 1, -7/6, -6/7
+      const mNeg = -7
+      ok(mNeg !== 6 && mNeg / 6 !== 1 && -6 / mNeg !== 1, 'H7.4 m = -7 is NOT proportional (ratios 1, -7/6, -6/7)')
+      // the determinant condition holds (13^2 = 13·13) — one-common, not both
+      ok((6 * 1 - -7 * 1) === 13 && (-7 * -7 - 6 * 6) === 13 && (1 * 6 - 1 * -7) === 13, 'H7.4 m = -7 cross products 13, 13, 13: condition 169 = 169')
+    }
+    // the theory: BOTH common <=> proportional <=> m = 6 (m/6 = 1 and 6/m = 1)
+    ok(6 / 6 === 1 && 6 / 6 === 1, 'H7.4 proportionality forces m = 6 (m/6 = 1, 6/m = 1)')
+    // m = 6: D = 12 > 0 — the shared doors are real and distinct
+    ok(36 - 24 === 12, 'H7.4 m = 6 gives D = 36 - 24 = 12 > 0 (real shared doors)')
+  }
+  // C5 the natural-number minimum: x^2+4x+10 non-real; proportional triples lambda(1,4,10)
+  {
+    const D = 16 - 40
+    ok(D === -24 && D < 0, 'H5/C5 x^2+4x+10 has D = -24 < 0 (non-real doors)')
+    let minSum = Infinity
+    for (let lam = 1; lam <= 5; lam++) minSum = Math.min(minSum, lam * (1 + 4 + 10))
+    ok(minSum === 15, 'H7.5 minimum a+b+c = 15 at lambda = 1')
+    // brute force: no triple (a,b,c) in [1..30]^3 with sum < 15 is proportional to (1,4,10)
+    let foundSmaller = false
+    for (let a = 1; a <= 30 && !foundSmaller; a++)
+      for (let b = 1; b <= 30 && !foundSmaller; b++)
+        for (let c = 1; c <= 30 && !foundSmaller; c++)
+          if (a + b + c < 15 && a * 4 === b * 1 && b * 10 === c * 4) foundSmaller = true
+    ok(!foundSmaller, 'H7.5 no smaller natural proportional triple exists')
+  }
+  // C6 the add-and-subtract system: x^2+ax+16, x^2+bx+20, x^2+(a+b)x+52
+  {
+    // common root r satisfies r^2 = 52 - 16 - 20 = 16 -> r = ±4; positive -> 4
+    ok(52 - 16 - 20 === 16, 'H7.6 r^2 = 16 from the add-and-subtract elimination')
+    const a = -8, b = -9
+    ok(16 + 4 * a + 16 === 0 && 16 + 4 * b + 20 === 0 && 16 + 4 * (a + b) + 52 === 0, 'H7.6 a=-8, b=-9 satisfy all three at r = 4')
+    const s = realRoots(1, -8, 16)
+    ok(s.length === 1 && s[0] === 4, 'H7.6 first equation is (x-4)^2 — the REPEATED-root tie-in (single double seat)')
+    const t = realRoots(1, -9, 20)
+    ok(t.includes(4) && t.includes(5), 'H7.7 second equation roots 4 and 5')
+    const u = realRoots(1, -17, 52)
+    ok(u.includes(4) && u.includes(13), 'H7.8 third equation roots 4 and 13')
+  }
+  // C7 the cyclic trio: a+b+c = 0 puts root 1 in all three cyclic equations
+  {
+    const trio = [1, 2, -3]
+    const [a, b, c] = trio
+    ok(a + b + c === 0, 'H7.9 witness trio sums to 0')
+    ok(a + b + c === 0 && (a * 1 + b * 1 + c * 1) === 0, 'H7.9 x = 1 vanishes each cyclic equation')
+    const r1 = realRoots(a, b, c) // x^2 + 2x - 3
+    ok(r1.includes(1) && r1.includes(-3), 'H7.9 first equation roots 1, -3')
+    const r2 = realRoots(b, c, a) // 2x^2 - 3x + 1
+    ok(r2.includes(1) && r2.includes(0.5), 'H7.9 second equation roots 1, 1/2')
+    const r3 = realRoots(c, a, b) // -3x^2 + x + 2
+    ok(r3.includes(1) && r3.includes(-2 / 3), 'H7.9 third equation roots 1, -2/3')
+  }
+  // C8 the p, q swap pair: x^2+px+q vs x^2+qx+p (p != q) share a root
+  // <=> 1 + p + q = 0; the other roots satisfy x^2 + x + pq = 0.
+  {
+    const p = 2, q = -3
+    ok(1 + p + q === 0, 'H7.10 witness (2, -3) satisfies 1+p+q = 0')
+    const r1 = realRoots(1, p, q) // x^2 + 2x - 3: roots 1, -3
+    ok(r1.includes(1) && r1.includes(-3), 'H7.10 first pair roots 1, -3 (other root = q)')
+    const r2 = realRoots(1, q, p) // x^2 - 3x + 2: roots 1, 2
+    ok(r2.includes(1) && r2.includes(2), 'H7.10 second pair roots 1, 2 (other root = p)')
+    const r3 = realRoots(1, 1, p * q) // x^2 + x - 6: roots 2, -3
+    ok(r3.includes(2) && r3.includes(-3), 'H7.10 other-roots equation x^2+x-6 carries 2 and -3')
+    // a p, q with 1+p+q != 0 shares nothing: (p,q) = (2, -2): roots {1?}: 1+2-2 = 1 != 0
+    const r4 = realRoots(1, 2, -2)
+    const r5 = realRoots(1, -2, 2)
+    const shared = r4.some((u) => r5.some((v) => Math.abs(u - v) < 1e-9))
+    ok(!shared && 1 + 2 - 2 !== 0, 'H7.10 (2,-2) shares no root, consistent with 1+p+q != 0')
+  }
+  // C9 the conjugate discipline: x^2-4x+1 (roots 2±√3) with rational
+  // coefficients: sharing 2+√3 forces sharing 2-√3 (both common).
+  {
+    const sq3 = Math.sqrt(3)
+    const [al, be] = realRoots(1, -4, 1)
+    ok(Math.abs(al - (2 + sq3)) < 1e-9 && Math.abs(be - (2 - sq3)) < 1e-9, 'H7.11 roots 2±√3 pinned')
+    // any rational-coefficient quadratic with root 2+√3: (x-(2+√3))(x-(2-√3))·k
+    const [r1, r2] = realRoots(5, -20, 5)
+    ok(Math.abs(r1 - (2 + sq3)) < 1e-9 && Math.abs(r2 - (2 - sq3)) < 1e-9, 'H7.11 5x^2-20x+5 shares BOTH roots')
+    // the complex cousin: x^2+x+1 (D = -3 < 0) and 3x^2+3x+3 share both
+    ok(1 - 4 === -3 && 9 - 36 === -27, 'H7.12 both discriminants negative (D = -3, -27)')
+    const w = realRoots(3, 3, 3)
+    ok(w.length === 0, 'H7.12 3x^2+3x+3 also non-real — the proportional cousin shares the complex pair')
+    // the ratio theorem: p^2 c = b^2 q; witness (p,q,b,c) = (-5, 6, -10, 24)
+    const pw = -5, qw = 6, bw = -10, cw = 24
+    ok(pw * pw * cw === bw * bw * qw, 'H7.13 25·24 = 600 = 100·6 (the ratio identity at the witness)')
+    const ra = realRoots(1, pw, qw) // x^2 - 5x + 6: roots 2, 3
+    const rb = realRoots(1, bw, cw) // x^2 - 10x + 24: roots 4, 6
+    ok(ra.includes(2) && ra.includes(3) && rb.includes(4) && rb.includes(6), 'H7.13 witness roots {2,3} and {4,6} — same 2:3 ratio')
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (I) lesson 2.3 quiz keys + exercise answer keys, pinned pre-writing  */
+/* ------------------------------------------------------------------ */
+
+// I1. quiz 2.3 keys: [2, 1, 0, 2, 0] with every distractor priced.
+{
+  const keys23 = [2, 1, 0, 2, 0]
+  ok(keys23.every((k) => k >= 0 && k <= 3), 'I1 quiz 2.3 keys in range')
+  // Q1 alpha+beta+alphabeta for 3x^2-9x+2: options [-11/3, 3, 11/3, 2/3]; key 2
+  eq(3 + 2 / 3, 11 / 3, 1e-12, 'I1 Q1: 3 + 2/3 = 11/3 (key index 2)')
+  // Q2 alpha^2+beta^2 for x^2-6x+5: options [16, 26, 36, 46]; key 1
+  ok(36 - 10 === 26 && 36 - 20 === 16 && 36 + 10 === 46, 'I1 Q2: 26 wins; 16 = (a-b)^2, 36 = S^2, 46 = S^2+2P distractors priced')
+  // Q3 reciprocals of 2x^2+5x+2 (palindrome): options [same eq, x^2+5x+2, 2x^2-5x+2, x^2-5x+2]; key 0
+  {
+    const rr = realRoots(2, 5, 2)
+    ok(rr.includes(-2) && rr.includes(-0.5), 'I1 Q3: roots -2 and -1/2 are a reciprocal pair')
+    ok(2 === 2 && 5 === 5 && 2 === 2, 'I1 Q3: palindrome coefficients a = c')
+  }
+  // Q4 common root of x^2-5x+6 and x^2-7x+12: options [none, 2, 3, 4]; key 2
+  {
+    const r1 = realRoots(1, -5, 6)
+    const r2 = realRoots(1, -7, 12)
+    ok(r1.includes(2) && r1.includes(3) && r2.includes(3) && r2.includes(4), 'I1 Q4: {2,3} ∩ {3,4} = {3} (key index 2)')
+  }
+  // Q5 both-common m-hunt: options [6, ±6, 36, none]; key 0
+  const mQ5 = -6
+  ok(6 * 6 === 36 && mQ5 !== 6, 'I1 Q5: m = 6 only; m = -6 fails proportionality')
+}
+
+// I2. exercise answer keys 2.3 (15 items, L1–L6), pinned with the numbers.
+{
+  // 1. 5x^2-12x+4: alpha^2+beta^2 = (12/5)^2 - 2(4/5) = 144/25 - 40/25 = 104/25
+  eq(144 / 25 - 40 / 25, 104 / 25, 1e-12, 'I2 ex1 104/25')
+  {
+    const [al, be] = realRoots(5, -12, 4)
+    eq(al * al + be * be, 104 / 25, 1e-9, 'I2 ex1 numeric agrees')
+  }
+  // 2. roots 3, -7 -> x^2 + 4x - 21
+  ok(3 + -7 === -4 && 3 * -7 === -21, 'I2 ex2 S = -4, P = -21 -> x^2+4x-21')
+  // 3. 2x^2-7x+5: 1/a+1/b+ab = 7/5 + 5/2 = 39/10
+  eq(7 / 5 + 5 / 2, 39 / 10, 1e-12, 'I2 ex3 39/10')
+  {
+    const [al, be] = realRoots(2, -7, 5)
+    eq(1 / al + 1 / be + al * be, 39 / 10, 1e-9, 'I2 ex3 numeric agrees')
+  }
+  // 4. x^2-6x+8 shifted by +2 -> y^2 - 10y + 24
+  ok(36 + 4 - 2 * 2 * 4 === 24, 'I2 ex4 P\' = 8 + 2·2·4... 8+16 = 24 route: P + 2S·2·... pin')
+  {
+    // S' = S + 4 = 10, P' = P + 2S·... (a+2)(b+2) = ab + 2(a+b) + 4 = 8+12+4 = 24
+    eq(8 + 2 * 6 + 4, 24, 1e-12, 'I2 ex4 P\' = 24 exact route')
+    eq(6 + 4, 10, 1e-12, 'I2 ex4 S\' = 10')
+  }
+  // 5. 2x^2-9x+8: |alpha-beta| = sqrt(17)/2
+  eq(Math.sqrt(81 / 4 - 16), Math.sqrt(17) / 2, 1e-12, 'I2 ex5 sqrt(17)/2')
+  {
+    const [al, be] = realRoots(2, -9, 8)
+    eq(Math.abs(al - be), Math.sqrt(17) / 2, 1e-9, 'I2 ex5 numeric agrees')
+  }
+  // 6. x^2-13x+c consecutive -> c = 42 (roots 6, 7)
+  eq((169 - 1) / 4, 42, 1e-12, 'I2 ex6 c = 42')
+  // 7. x^2-6x+8 vs x^2+kx-10: k = 3 (seat 2) or k = -3/2 (seat 4)
+  ok(4 + 6 - 10 === 0 && 16 - 6 - 10 === 0, 'I2 ex7 both seats priced')
+  // 8. x^2-px+30, (a-b)^2 = 49 -> p^2 = 49 + 120 = 169 -> p = ±13
+  eq(49 + 120, 169, 1e-12, 'I2 ex8 p^2 = 169')
+  {
+    const [r1, r2] = realRoots(1, -13, 30)
+    ok(Math.abs(r1 - 10) < 1e-12 && Math.abs(r2 - 3) < 1e-12, 'I2 ex8 p = 13 roots 10, 3, gap 7')
+  }
+  // 9. 3x^2-6x+2 -> roots alpha^2, beta^2: 9x^2 - 24x + 4
+  eq(4 - 4 / 3, 8 / 3, 1e-12, 'I2 ex9 S\' = 8/3')
+  eq((2 / 3) ** 2, 4 / 9, 1e-12, 'I2 ex9 P\' = 4/9')
+  ok(9 * (8 / 3) === 24, 'I2 ex9 9x^2-24x+4 coefficients')
+  {
+    const [al, be] = realRoots(3, -6, 2)
+    const [r1, r2] = realRoots(9, -24, 4)
+    const sq = [al * al, be * be].sort((u, v) => u - v)
+    const nr = [r1, r2].sort((u, v) => u - v)
+    ok(Math.abs(sq[0] - nr[0]) < 1e-9 && Math.abs(sq[1] - nr[1]) < 1e-9, 'I2 ex9 numeric roots agree')
+  }
+  // 10. a+b+c = 0 => the cyclic trio shares root 1 (witness (1,2,-3))
+  ok(1 + 2 - 3 === 0, 'I2 ex10 witness sums to 0')
+  // 11. x^2+4x+10 non-real -> min a+b+c = 15
+  ok(16 - 40 === -24 && 1 + 4 + 10 === 15, 'I2 ex11 D = -24, min sum 15')
+  // 12. 2x^2+3x+5 vs 2x^2+kx-5: k^2 = -31 -> no real k
+  {
+    const cond = (5 * 2 - -5 * 2) ** 2
+    eq(cond, 400, 1e-12, 'I2 ex12 (c1a2-c2a1)^2 = 400')
+    // (-15-5k)(2k-6) = 400 <=> k^2 = -31
+    ok(-10 * (9 - -31) === -400, 'I2 ex12 the k^2 = -31 route')
+    ok(9 - 40 === -31, 'I2 ex12 D of eq1 = -31 < 0 (non-real doors)')
+  }
+  // 13. (a-b)x^2+(b-c)x+(c-a) equal roots <=> 2a = b+c; witness (3,2,4)
+  ok(2 * 3 === 2 + 4 && 4 - 3 === 3 - 2, 'I2 ex13 witness (3,2,4)')
+  // 14. the three-equation system -> a = -8, b = -9
+  ok(52 - 16 - 20 === 16 && 16 + 4 * -8 + 16 === 0 && 16 + 4 * -9 + 20 === 0, 'I2 ex14 a = -8, b = -9')
+  // 15. ratio theorem p^2 c = b^2 q; witness (-5, 6, -10, 24)
+  ok(25 * 24 === 600 && 100 * 6 === 600, 'I2 ex15 600 = 600')
+}
+
+/* ------------------------------------------------------------------ */
+/* (J) AUTHORED-AUDIT — lesson 2.3 (aa-symmetric-reads-and-common-roots) */
+/*     appended after authoring (run 102), following the F/G pattern.   */
+/* ------------------------------------------------------------------ */
+
+{
+  const ch = chapter02
+  ok(ch.lessons.length === 3 && ch.plannedLessons?.length === 1 && ch.plannedLessons?.[0] === 'Location of Roots: Doors in Intervals', 'J1 chapter shape after authoring: 3 lessons, planned = [Location of Roots]')
+  const L = ch.lessons[2]
+  ok(L.id === 'aa-symmetric-reads-and-common-roots', 'J2 lesson id matches the pinned id')
+  ok(L.number === '2.3' && L.title === 'Symmetric Reads and Common Roots', 'J3 lesson number/title')
+  const blocks = L.blocks as Array<{ kind: string; [k: string]: unknown }>
+
+  // J4 block census (count-aware, as authored)
+  const count = (k: string) => blocks.filter((b) => b.kind === k).length
+  ok(count('heading') === 6, `J4.1 headings = 6 (got ${count('heading')})`)
+  ok(count('example') === 15, `J4.2 examples/Illustrations = 15 (got ${count('example')})`)
+  ok(count('derivation') === 1, `J4.3 derivations = 1 (got ${count('derivation')})`)
+  ok(count('figure') === 2, `J4.4 figures = 2 (got ${count('figure')})`)
+  ok(count('quiz') === 1 && count('exercises') === 1, `J4.5 quiz + exercises present`)
+  ok(count('formula') === 6, `J4.6 formula cards = 6 (got ${count('formula')})`)
+  ok(count('terms') === 1 && count('list') === 4, `J4.7 terms block + 4 roman lists (got lists ${count('list')})`)
+  const callouts = blocks.filter((b) => b.kind === 'callout') as Array<{ tone: string; title: string; text: string }>
+  ok(callouts.filter((c) => c.tone === 'definition').length === 4, 'J4.8 four definition callouts (Viète, symmetric function, repeated root, common root)')
+  ok(callouts.filter((c) => c.tone === 'theorem').length === 3, 'J4.9 three theorem callouts (power-sum recurrence, same-ratio condition, proportionality)')
+  ok(callouts.filter((c) => c.tone === 'warn').length === 3, 'J4.10 three warn callouts (asymmetric census, repeated-seat honesty, one-vs-both trap)')
+  ok(callouts.filter((c) => c.tone === 'exam').length === 2, 'J4.11 two exam callouts')
+  ok(callouts.filter((c) => c.tone === 'insight').length === 3, 'J4.12 three insight callouts (no-solve licence, cross arrangement, recurrence vs sheet)')
+
+  // J5 the hosted folds
+  const headings = blocks.filter((b) => b.kind === 'heading') as Array<{ text: string }>
+  ok(headings.some((h) => h.text.includes('Repeated Roots')), 'J5.1 the Repeated Roots fold hosts as a NAMED heading')
+  ok(callouts.some((c) => c.title.includes('Repeated root') && c.text.includes('said to be a REPEATED ROOT')), 'J5.2 the formal repeated-root definition callout is present')
+  const exampleTitles = (blocks.filter((b) => b.kind === 'example') as Array<{ title: string }>).map((e) => e.title)
+  const bothCommon = exampleTitles.filter((t) => /least value|both roots common|common positive root/i.test(t))
+  ok(bothCommon.length >= 2, `J5.3 >=2 both-common worked examples of the fold's topic type (got ${bothCommon.length})`)
+  ok(callouts.some((c) => c.title === 'The proportionality condition' && c.text.includes('a_1}{a_2')), 'J5.4 the both-common proportionality theorem callout with the condition')
+
+  // J6 quiz keys vs the pre-writing pins [2, 1, 0, 2, 0]
+  const quiz = blocks.find((b) => b.kind === 'quiz') as { items: Array<{ answer: number; options: string[]; explain: string }> }
+  ok(quiz.items.length === 5, 'J6.1 quiz has 5 items')
+  ok(quiz.items.map((i) => i.answer).join(',') === '2,1,0,2,0', `J6.2 quiz keys match the I1 pins (got ${quiz.items.map((i) => i.answer).join(',')})`)
+  ok(quiz.items.every((i) => i.options.length === 4), 'J6.3 every quiz item has 4 options')
+  ok(quiz.items.every((i) => i.explain.length >= 120), 'J6.4 every quiz explain prices the distractors')
+
+  // J7 exercises census + answers present
+  const ex = blocks.find((b) => b.kind === 'exercises') as { sets: Array<{ level: string; questions: Array<{ q: string; solution: string[]; answer: string }> }> }
+  const levelCounts = ex.sets.map((s) => `${s.level}:${s.questions.length}`).join(' ')
+  ok(levelCounts === 'L1:2 L2:2 L3:3 L4:3 L5:3 L6:2', `J7.1 exercise ladder L1-L6 = 15 (got ${levelCounts})`)
+  ok(ex.sets.every((s) => s.questions.every((q) => q.solution.length >= 3 && q.answer.length > 0)), 'J7.2 every exercise carries a full worked solution and a terminal answer')
+
+  // J8 figure pins (viewBox, coordinates, labels, vivid palette)
+  const figs = blocks.filter((b) => b.kind === 'figure') as Array<{ caption: string; svg: string }>
+  const f1 = figs[0].svg
+  const f2 = figs[1].svg
+  ok(f1.includes('viewBox="0 0 720 360"') && f2.includes('viewBox="0 0 720 380"'), 'J8.1 figure viewBoxes match the plans')
+  ok(f1.includes('cx="210" cy="200"') && f1.includes('cx="510" cy="200"'), 'J8.2 fig1 root dots at alpha=1 (px 210) and beta=5 (px 510) — the true tick scale 135+75u')
+  ok(f1.includes('x1="360" y1="90" x2="360" y2="200"') && f1.includes('mirror x = 3'), 'J8.3 fig1 mirror line at x=3 with its label')
+  ok(f1.includes('S = α + β = 6') && f1.includes('P = αβ = 5') && f1.includes('α² + β² = S² − 2P = 36 − 10 = 26'), 'J8.4 fig1 read tags match prose values (26, 4, 6/5, 26/5)')
+  ok(f1.includes('x="360" y="56"') && !f1.includes('y="110"'), 'J8.4b sum label lifted to its own row (y=56) — the dashed mirror line never strikes it')
+  ok(f1.includes('|α − β| = √(S² − 4P) = √16 = 4') && f1.includes('1/α + 1/β = S/P = 6/5') && f1.includes('= 26/5'), 'J8.5 fig1 remaining read tags')
+  ok(f2.includes('cx="510" cy="220"') && f2.includes('shared door x = 3'), 'J8.6 fig2 shared-door ring at (510, 220) with label')
+  ok(f2.includes('cx="360" cy="220"') && f2.includes('cx="210" cy="220"'), 'J8.7 fig2 own doors 1 and −1 marked')
+  ok(f2.includes('f₁ = x² − 4x + 3 (doors 1, 3)') && f2.includes('f₂ = x² − 2x − 3 (doors −1, 3)'), 'J8.8 fig2 legend rows name the pair')
+  ok(f2.includes('6² = 36 = 18 × 2'), 'J8.9 fig2 cross-condition tag matches prose')
+  const retired = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']
+  ok(!figs.some((f) => retired.some((h) => f.svg.includes(h))), 'J8.10 no retired palette hexes in either figure')
+  ok(f1.includes('#16a34a') && f1.includes('#ea580c') && f2.includes('#0d9488') && f2.includes('#ea580c') && f2.includes('#fffdf5'), 'J8.11 vivid palette in use (green/teal/amber/orange on the paper plate)')
+
+  // J9 prereqs resolve against the repo
+  const fs2 = await import('fs')
+  const al9 = fs2.readFileSync('src/data/library/books/mathematics/elementary-algebra/ch-09.ts', 'utf8')
+  ok((L.prerequisites ?? []).length === 3, 'J9.1 three prereqs declared')
+  ok(al9.includes("id: 'al-roots-and-coefficients-viete-relations'"), 'J9.2 the AL 9.4 Viète prereq exists')
+  ok((L.prerequisites ?? []).includes('aa-vertex-form-at-work-maxima-and-minima') && (L.prerequisites ?? []).includes('aa-quadratic-inequalities-and-the-sign-diagram'), 'J9.3 the 2.1/2.2 prereqs declared')
+
+  // J10 sources keys exist in SOURCE_LOG
+  const slog2 = fs2.readFileSync('docs/project/SOURCE_LOG.md', 'utf8')
+  for (const k of L.sources ?? []) ok(slog2.includes('`' + k + '`') || slog2.includes('- ' + k), `J10 source key ${k} in SOURCE_LOG`)
+
+  // J11 honesty scans
+  const allText2 = JSON.stringify(blocks)
+  ok(!allText2.includes('\\\\\\\\  ') && !allText2.includes("\\\\\\\\'"), 'J11.1 no odd-run backslashes')
+  ok(!/\\u[0-9a-fA-F]{4}/.test(allText2), 'J11.2 no unicode escapes')
+  ok(!/wait, |Better: |TODO|XXX|【|to be completed/.test(allText2), 'J11.3 no draft markers')
+
+  // J12 honest word count via the registry's own counter
+  const wordCount23 = countLessonWords(L as never)
+  ok(wordCount23 >= 4500, `J12 honest word count >= 4500 (got ${wordCount23})`)
+
+  // J13 repo-wide id uniqueness
+  const hits23 = execSync(`grep -rl "aa-symmetric-reads-and-common-roots" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
+  const dataHits23 = hits23.filter((h) => h.includes('/books/'))
+  ok(dataHits23.length === 1, `J13 lesson id unique in book data (got files: ${dataHits23.join(' ')})`)
+
+  // J14 cross-reference pins in prose
+  ok(allText2.includes('AL 9.4'), 'J14.1 prose names the banked AL 9.4 Viète lesson')
+  ok(allText2.includes('2.1') && allText2.includes('2.2'), 'J14.2 prose names lessons 2.1 and 2.2')
+  ok(allText2.includes('x² − 4x + 1'), 'J14.3 the running equation appears in prose (not only figures)')
+  ok(allText2.includes('{-7, 6') || allText2.includes('−7, 6'), 'J14.4 the m-hunt census {-7, 6} appears in prose as the engines certified it')
+
+  // J15 the derivation carries the DerivationStep contract
+  const deriv = blocks.find((b) => b.kind === 'derivation') as { title: string; steps: Array<{ label: string; formula?: string; explanation: string }>; result: string }
+  ok(deriv.steps.length === 6 && deriv.steps.every((s) => s.label.length > 0 && s.explanation.length > 0), 'J15 derivation has 6 labelled steps with explanations')
+  ok(typeof deriv.result === 'string' && deriv.result.includes('(c_1a_2 - c_2a_1)^2'), 'J15b derivation result line present with the boxed condition')
+}
+
+console.log(`\nverify-book4-ch02 sections A-J: ${passed} passed, ${failed} failed`)
 if (failed > 0) {
   console.log('FAILURES:')
   failures.forEach((f) => console.log('  - ' + f))

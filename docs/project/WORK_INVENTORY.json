@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-14 23:17:11 (Asia/Kolkata)",
+  "generated": "2026-11-15 00:31:49 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -9785,9 +9785,8 @@
             "title": "The Quadratic at Depth",
             "summary": "Elementary Algebra settled the quadratic equation four ways; this chapter treats the quadratic as a working object. The vertex form becomes an optimization tool — maxima and minima priced without calculus, the range read off the fold and then used on real constraints. The equation grows into the inequality: the sign diagram, the discriminant trichotomy (two sign changes, one touch, constant sign), and the solution sets that AL 7.1–7.3’s linear work promised. Viète returns at competitive depth — symmetric expressions in the roots, common roots, forming equations with given roots — and the chapter closes with the JEE classic: conditions that pin both roots, or exactly one, inside a chosen interval. Every door metaphor AL coined for a root is now located on the line.",
             "status": "in-progress",
-            "lessonsWritten": 2,
+            "lessonsWritten": 3,
             "plannedLessons": [
-              "Symmetric Reads and Common Roots",
               "Location of Roots: Doors in Intervals"
             ],
             "lessons": [
@@ -9927,9 +9926,78 @@
                 },
                 "exerciseQuestions": 14,
                 "termsDefined": 0
+              },
+              {
+                "id": "aa-symmetric-reads-and-common-roots",
+                "number": "2.3",
+                "title": "Symmetric Reads and Common Roots",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5837,
+                "readMins": 29,
+                "concepts": [
+                  "Viète's two reads price everything — the roots themselves never need solving",
+                  "a symmetric function of the roots is readable from S and P alone",
+                  "the transformation of an equation: the S′/P′ route audited by the substitution route",
+                  "the power-sum recurrence: any αᵏ + βᵏ by iteration (the Lucas engine)",
+                  "the repeated root: D = 0 collapses both doors onto the vertex seat −b/2a",
+                  "the one-common-root determinant condition: big cross squared = small crosses product",
+                  "the both-common proportionality: a₁/a₂ = b₁/b₂ = c₁/c₂"
+                ],
+                "objectives": [
+                  "price any symmetric expression in the roots — α² + β², α³ + β³, |α − β|, α/β + β/α, α⁴ + β⁴ — exactly from S and P, without solving anything",
+                  "iterate the power-sum recurrence to price high powers of the roots, and recognise the Fibonacci-family engine inside x² − x − 1",
+                  "rebuild an equation whose roots are a designed function of the original roots by both the S′/P′ route and the substitution route, using one as an audit of the other",
+                  "state and apply the one-common-root determinant condition and the both-common proportionality condition, with the honest census of when one shared door is NOT two",
+                  "certify repeated roots through the perfect-square discriminant and the vertex seat, and run the add-and-subtract census on a three-equation system"
+                ],
+                "prerequisites": [
+                  "al-roots-and-coefficients-viete-relations",
+                  "aa-vertex-form-at-work-maxima-and-minima",
+                  "aa-quadratic-inequalities-and-the-sign-diagram"
+                ],
+                "sources": [
+                  "cengage-m2-02",
+                  "cengage-jee-style",
+                  "ncert-math10-ch4-quadratic",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 10,
+                  "heading": 6,
+                  "equation": 1,
+                  "callout": 15,
+                  "list": 4,
+                  "example": 15,
+                  "derivation": 1,
+                  "figure": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 6
+                },
+                "calloutTones": {
+                  "definition": 4,
+                  "insight": 3,
+                  "warn": 3,
+                  "theorem": 3,
+                  "exam": 2
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 7
               }
             ],
-            "words": 9794
+            "words": 15631
           },
           {
             "number": 3,
@@ -13579,13 +13647,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 238,
-      "totalLines": 113909,
+      "totalLines": 114306,
       "byArea": {
         "src/app (routes, pages)": 2109,
         "other": 10506,
         "src/components/library (reader platform)": 6059,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 82639,
+        "src/data/library (content model + books)": 83036,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -28540,6 +28608,83 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "1c14df705fbf04888a581636cc01e7fcb2b71b35",
+      "short": "1c14df7",
+      "date": "2026-11-14 17:47",
+      "message": "run 101: AA 2.2 'Quadratic Inequalities and the Sign Diagram' authored + fully gated (verify-first D/E pre-green from run 100 + authored-audit G = 305/0; e2e 45/45 x3 viewports, quiz 5/5 on [1,1,1,0,0]; overlap 0/2 after the axis-label fix; domvalues CLEAN; VLM fig1+fig2 light+dark + lesson dark PASS — fig2's a*f(1) rows rewritten self-evidencing with provenance sub-lines after the dark-audit ambiguity catch; BOTH m2-02 hosted folds served as named subsections with definition callouts + worked Illustrations; the between-roots sign theorem derived; four-condition location system + drills incl. the endpoint-touch honesty b <= -5 open vs b < -5 closed; the interleaving gem at (1,2,4,7); 5,197 words, 12 Illustrations, 2 figures, 5-row location table, 5 formula cards, 14 exercises L1-L6); the verifier's own tsc debt fixed in-file (static import + optional guards); 2.3 deferred by the time rule with the pointer directing run 102; PROGRESS totals 138 lessons / 675,570 words",
+      "filesChanged": 10,
+      "insertions": 685,
+      "deletions": 45,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 14,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 9,
+          "del": 9
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 176,
+          "del": 22
+        },
+        {
+          "path": "scripts/e2e-aa-22.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch02.ts",
+          "add": 102,
+          "del": 11
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-02.ts",
+          "add": 319,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "4b36e25c59462f15074cabe947eb2c2ec140a048",
+      "short": "4b36e25",
+      "date": "2026-11-14 17:47",
+      "message": "worklog: run 101 sync record — remote HEAD verified == 1c14df7",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -28548,25 +28693,25 @@
     "booksLive": 28,
     "chaptersWritten": 34,
     "chaptersInProgress": 1,
-    "lessonsWritten": 138,
-    "wordsAuthored": 675570,
-    "termsDefined": 1024,
-    "quizItems": 690,
-    "exerciseQuestions": 1791,
+    "lessonsWritten": 139,
+    "wordsAuthored": 681407,
+    "termsDefined": 1031,
+    "quizItems": 695,
+    "exerciseQuestions": 1806,
     "blockTotals": {
-      "para": 1938,
-      "callout": 796,
-      "heading": 768,
-      "list": 164,
-      "terms": 134,
-      "equation": 203,
-      "figure": 259,
-      "derivation": 256,
+      "para": 1948,
+      "callout": 811,
+      "heading": 774,
+      "list": 168,
+      "terms": 135,
+      "equation": 204,
+      "figure": 261,
+      "derivation": 257,
       "table": 163,
-      "example": 634,
-      "quiz": 138,
-      "exercises": 138,
-      "formula": 441,
+      "example": 649,
+      "quiz": 139,
+      "exercises": 139,
+      "formula": 447,
       "algorithm": 27
     }
   }

@@ -3,6 +3,37 @@ import type { Chapter, Lesson } from '../../../types'
 /**
  * Advanced Algebra — Chapter 2: The Quadratic at Depth
  *
+ * LESSONS WRITTEN: 2.3 "Symmetric Reads and Common Roots" (run 102 —
+ *                  quiz keys [2, 1, 0, 2, 0], 15 exercises L1–L6, two
+ *                  figures — the mirror read of x² − 6x + 5 = 0 (roots 1
+ *                  and 5 at the true tick scale, the amber dashed mirror
+ *                  at x = 3, the dot-to-dot sum bracket, the 1×5 product
+ *                  rectangle, four symmetric-read tags) and the shared-door
+ *                  pair (f₁ = x² − 4x + 3 doors 1,3 / f₂ = x² − 2x − 3
+ *                  doors −1,3 with the amber ring on the common door 3 and
+ *                  the cross tag 6² = 36 = 18 × 2); hosts BOTH m2-02 folds —
+ *                  'Repeated Roots: When the Two Doors Coincide' as a named
+ *                  section (formal definition callout + the perfect-square
+ *                  discriminant D = (2a − b − c)² of (a−b)x² + (b−c)x +
+ *                  (c−a) with the AP verdict 2a = b + c and the GP-duplicate
+ *                  ax² + 2bx + c tie-in d/a, e/b, f/c in AP) and the
+ *                  'Condition for Both Common Roots' example-family with
+ *                  THREE worked examples (the ℕ-minimum 15 on the non-real
+ *                  x² + 4x + 10; the m-hunt with the honest census {−7, 6} —
+ *                  m = −7 shares ONE root, only m = 6 is proportional; the
+ *                  add-and-subtract three-equation system landing on
+ *                  a = −8, b = −9 with the (x − 4)² repeated-seat tie-in);
+ *                  the symmetric inventory priced no-solve on 3x² − 9x + 2
+ *                  (23/3, 21, √57/3, 9/2, 23/2, 521/9), the power-sum
+ *                  recurrence with the Lucas engine (T₅ = 11; the collapse
+ *                  T₁₅ + T₁₁ = T₂·T₁₃ = 1563), the transformation engine run
+ *                  by BOTH routes on the running equation x² − 4x + 1 (the
+ *                  α²+1 elimination through y = 4x), the coefficient-reversal
+ *                  law and its palindrome census, the reduced-equation trick,
+ *                  the same-ratio theorem p²c = b²q, and the one-common-root
+ *                  determinant condition derived and certified on a
+ *                  160,000-pair integer grid; 6 formula cards.
+ *
  * LESSONS WRITTEN: 2.2 "Quadratic Inequalities and the Sign Diagram" (run 101 —
  *                  quiz keys [1, 1, 1, 0, 0], 14 exercises L1–L6, two figures —
  *                  the sign ladder of x² − 7x + 10 = (x − 2)(x − 5) (parabola,
@@ -773,6 +804,372 @@ const lesson22: Lesson = {
   ],
 }
 
+const lesson23: Lesson = {
+  id: 'aa-symmetric-reads-and-common-roots',
+  number: '2.3',
+  title: 'Symmetric Reads and Common Roots',
+  concepts: [
+    "Viète's two reads price everything — the roots themselves never need solving",
+    'a symmetric function of the roots is readable from S and P alone',
+    'the transformation of an equation: the S′/P′ route audited by the substitution route',
+    'the power-sum recurrence: any αᵏ + βᵏ by iteration (the Lucas engine)',
+    'the repeated root: D = 0 collapses both doors onto the vertex seat −b/2a',
+    'the one-common-root determinant condition: big cross squared = small crosses product',
+    'the both-common proportionality: a₁/a₂ = b₁/b₂ = c₁/c₂',
+  ],
+  objectives: [
+    'price any symmetric expression in the roots — α² + β², α³ + β³, |α − β|, α/β + β/α, α⁴ + β⁴ — exactly from S and P, without solving anything',
+    'iterate the power-sum recurrence to price high powers of the roots, and recognise the Fibonacci-family engine inside x² − x − 1',
+    'rebuild an equation whose roots are a designed function of the original roots by both the S′/P′ route and the substitution route, using one as an audit of the other',
+    'state and apply the one-common-root determinant condition and the both-common proportionality condition, with the honest census of when one shared door is NOT two',
+    'certify repeated roots through the perfect-square discriminant and the vertex seat, and run the add-and-subtract census on a three-equation system',
+  ],
+  prerequisites: ['al-roots-and-coefficients-viete-relations', 'aa-vertex-form-at-work-maxima-and-minima', 'aa-quadratic-inequalities-and-the-sign-diagram'],
+  sources: ['cengage-m2-02', 'cengage-jee-style', 'ncert-math10-ch4-quadratic', 'openstax-college-algebra'],
+  blocks: [
+    { kind: 'para', text: 'AL 9.4 planted Viète\'s two reads at school depth: the sum $-b/a$ and the product $c/a$ certify roots and build quadratics without solving anything. Lesson 2.1 turned the quadratic into an expression and priced its extremes; 2.2 fenced its sign and located its doors. This lesson turns the PAIR of roots itself into a working object. Three instruments are added. First, the symmetric reads: every expression in the roots that survives the swap $\\alpha \\leftrightarrow \\beta$ is computable from $S$ and $P$ alone — a census of formulas this lesson derives, tabulates and applies at competitive depth. Second, the transformation engine: an equation whose roots are a designed function of the original roots is rebuilt by two independent routes, each auditing the other. Third, the shared-door census: when do two quadratic equations own a common root, and when do they own both? That last question — untouched by every earlier lesson — carries the examination\'s favourite determinant condition and its even-favourite proportionality verdict, and the repeated-root census (both doors collapsed onto one seat) supplies the boundary cases. One running equation, $x^2 - 4x + 1 = 0$ with its roots $2 \\pm \\sqrt{3}$, threads through all three instruments.' },
+
+    { kind: 'heading', text: 'Viète\'s Two Reads and the Reconstruction Law' },
+    { kind: 'para', text: 'The factor theorem already did the quiet work. If $\\alpha$ and $\\beta$ are the roots of $ax^2 + bx + c = 0$ ($a \\neq 0$), then the polynomial factors completely:' },
+    { kind: 'equation', latex: 'ax^2 + bx + c = a(x - \\alpha)(x - \\beta) = a\\left[x^2 - (\\alpha + \\beta)x + \\alpha\\beta\\right]' },
+    { kind: 'para', text: 'Comparing the coefficient of $x$ and the constant term with the left side — divide the bracket by $a$ first, so the leading coefficient matches — gives the two reads AL 9.4 named after François Viète, who introduced the letter-symbol algebra that made such statements writable (1591):' },
+    { kind: 'callout', tone: 'definition', title: 'Viète\'s relations', text: 'If $\\alpha$ and $\\beta$ are the roots of $ax^2 + bx + c = 0$ with $a \\neq 0$, the SUM and PRODUCT of the roots are said to be given by Viète\'s relations: $\\alpha + \\beta = -\\dfrac{b}{a} = -\\dfrac{\\text{coefficient of } x}{\\text{coefficient of } x^2}$ and $\\alpha\\beta = \\dfrac{c}{a} = \\dfrac{\\text{constant term}}{\\text{coefficient of } x^2}$. The reads hold for every root type — integer, fraction, irrational surd, repeated, even non-real — because the factorisation is an identity, not a census of nice cases.' },
+    { kind: 'para', text: 'Thus, with $S = \\alpha + \\beta$ and $P = \\alpha\\beta$: $S = -b/a$, $P = c/a$. The reconstruction law runs the arrow backwards. For example, an equation whose roots are prescribed:' },
+    { kind: 'list', marker: 'roman', items: [
+      '(i) a MONIC quadratic with prescribed sum $S$ and product $P$ is $x^2 - Sx + P = 0$ — expand $x^2 - (\\alpha + \\beta)x + \\alpha\\beta$ and read the signs;',
+      '(ii) the GENERAL family is $a(x^2 - Sx + P) = 0$ for any $a \\neq 0$ — AL 9.4\'s a-family: infinitely many equations share one root set, and the examination\'s answer is the monic one unless a coefficient is demanded;',
+      '(iii) the reads and the reconstruction compose: any root-information question is a question about $S$ and $P$, and any $S$, $P$ question is a coefficient read.',
+    ] },
+    { kind: 'example', title: 'Form the quadratic equation whose roots are 3 and −7', steps: [
+      'Sum and product first, never the equation: $S = 3 + (-7) = -4$ and $P = 3 \\times (-7) = -21$.',
+      'The monic reconstruction law: $x^2 - Sx + P = 0$.',
+      'Substituting: $x^2 - (-4)x + (-21) = 0$, that is $x^2 + 4x - 21 = 0$.',
+      'Check by factoring: $(x - 3)(x + 7) = x^2 + 4x - 21$ — both claimed roots vanish it.',
+      'Hence, $x^2 + 4x - 21 = 0$.',
+    ] },
+    { kind: 'example', title: 'Find α + β + αβ for the equation 3x² − 9x + 2 = 0 without solving it', steps: [
+      'The reads: $S = -\\dfrac{-9}{3} = 3$ and $P = \\dfrac{2}{3}$.',
+      'The demand is $S + P$: the two reads add directly.',
+      'So, $S + P = 3 + \\dfrac{2}{3} = \\dfrac{11}{3}$.',
+      'Notice what never happened: the roots $\\dfrac{9 \\pm \\sqrt{57}}{6}$ were never computed. This is AL 9.4\'s no-solve discipline running at full depth — every symmetric demand collapses to coefficient arithmetic.',
+      'Hence, $\\alpha + \\beta + \\alpha\\beta = \\dfrac{11}{3}$.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'The no-solve licence has one honest boundary', text: 'The reads price every SYMMETRIC demand. An asymmetric one — "which root is larger?", "is $\\alpha > 2$?" — cannot be answered from $S$ and $P$ alone, because swapping the roots leaves the reads unchanged while flipping the answer. Lesson 2.2\'s sign machinery is the tool for location questions; the present lesson\'s tools own the value questions. Knowing which family a demand belongs to is half the examination\'s battle.' },
+
+    { kind: 'heading', text: 'Symmetric Functions of the Roots' },
+    { kind: 'callout', tone: 'definition', title: 'Symmetric function of the roots', text: 'An expression $E(\\alpha, \\beta)$ in the roots is said to be a SYMMETRIC FUNCTION of the roots if it is unchanged when the roots are interchanged: $E(\\alpha, \\beta) = E(\\beta, \\alpha)$. Thus, $\\alpha^2 + \\beta^2$, $\\alpha^3 + \\beta^3$ and $|\\alpha - \\beta|$ are symmetric (addition and absolute value commute with the swap), while $\\alpha - \\beta$ and $\\alpha^2 + \\beta^3$ are not (each changes sign or shape under the swap). The structural fact this lesson cashes: every symmetric function of two roots is expressible in terms of $S$ and $P$ alone.' },
+    { kind: 'para', text: 'The inventory below is the working toolkit. Each line is derived, not asserted — the derivations are two-line expansions, and the verifier has certified every numeric value on the lesson\'s own exhibits.' },
+    { kind: 'list', marker: 'roman', items: [
+      '(i) $\\alpha^2 + \\beta^2 = S^2 - 2P$, from $(\\alpha + \\beta)^2 = \\alpha^2 + \\beta^2 + 2\\alpha\\beta$;',
+      '(ii) $\\alpha^3 + \\beta^3 = S^3 - 3PS$, from $\\alpha^3 + \\beta^3 = (\\alpha + \\beta)^3 - 3\\alpha\\beta(\\alpha + \\beta)$;',
+      '(iii) $(\\alpha - \\beta)^2 = S^2 - 4P$, from $(\\alpha - \\beta)^2 = (\\alpha + \\beta)^2 - 4\\alpha\\beta$ — the SQUARE is symmetric, so it is readable; and $|\\alpha - \\beta| = \\sqrt{S^2 - 4P} = \\dfrac{\\sqrt{D}}{|a|}$, the bridge to AL 9.3\'s discriminant;',
+      '(iv) $\\dfrac{1}{\\alpha} + \\dfrac{1}{\\beta} = \\dfrac{S}{P}$, one common denominator — licensed only when $P \\neq 0$;',
+      '(v) $\\dfrac{\\alpha}{\\beta} + \\dfrac{\\beta}{\\alpha} = \\dfrac{\\alpha^2 + \\beta^2}{\\alpha\\beta} = \\dfrac{S^2 - 2P}{P}$, again demanding $P \\neq 0$;',
+      '(vi) $\\alpha^4 + \\beta^4 = (\\alpha^2 + \\beta^2)^2 - 2\\alpha^2\\beta^2 = (S^2 - 2P)^2 - 2P^2$ — square the read for the squares, then subtract the doubled product;',
+      '(vii) $\\sqrt{\\alpha} + \\sqrt{\\beta} = \\sqrt{\\alpha + \\beta + 2\\sqrt{\\alpha\\beta}} = \\sqrt{S + 2\\sqrt{P}}$ — honest ONLY when $\\alpha, \\beta \\geq 0$ (square roots demand non-negative seats).',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'The asymmetric census', text: 'Two near-misses ruin this section. $\\alpha - \\beta$ is NOT symmetric — its square is; so the readable object is $(\\alpha - \\beta)^2$, and recovering $|\\alpha - \\beta|$ from it is fine while recovering the SIGNED difference is not (which root is larger is location information, and the reads deliberately destroy it). And $\\sqrt{\\alpha} + \\sqrt{\\beta}$ demands $\\alpha, \\beta \\geq 0$ BEFORE the formula applies — for $x^2 - 6x + 5 = 0$ with roots $1, 5$ it is licensed ($\\sqrt{1} + \\sqrt{5}$), but for $x^2 - 4x + 1 = 0$ with root $2 - \\sqrt{3} \\approx 0.268 > 0$ it survives, while a product $P < 0$ equation kills it outright. State the licence whenever the square-root read is used.' },
+    { kind: 'example', title: 'Price every read in the inventory for 3x² − 9x + 2 = 0, without solving', steps: [
+      'The reads: $S = 3$, $P = \\dfrac{2}{3}$.',
+      '(i) $\\alpha^2 + \\beta^2 = S^2 - 2P = 9 - \\dfrac{4}{3} = \\dfrac{23}{3}$.',
+      '(ii) $\\alpha^3 + \\beta^3 = S^3 - 3PS = 27 - 3 \\cdot \\dfrac{2}{3} \\cdot 3 = 27 - 6 = 21$.',
+      '(iii) $(\\alpha - \\beta)^2 = S^2 - 4P = 9 - \\dfrac{8}{3} = \\dfrac{19}{3}$, so $|\\alpha - \\beta| = \\sqrt{\\dfrac{19}{3}} = \\dfrac{\\sqrt{57}}{3}$.',
+      '(iv) $\\dfrac{1}{\\alpha} + \\dfrac{1}{\\beta} = \\dfrac{S}{P} = \\dfrac{3}{2/3} = \\dfrac{9}{2}$ — licensed, $P = 2/3 \\neq 0$.',
+      '(v) $\\dfrac{\\alpha}{\\beta} + \\dfrac{\\beta}{\\alpha} = \\dfrac{S^2 - 2P}{P} = \\dfrac{23/3}{2/3} = \\dfrac{23}{2}$.',
+      '(vi) $\\alpha^4 + \\beta^4 = (S^2 - 2P)^2 - 2P^2 = \\left(\\dfrac{23}{3}\\right)^2 - \\dfrac{8}{9} = \\dfrac{529 - 8}{9} = \\dfrac{521}{9}$.',
+      'The verifier certifies each read against the formula roots $\\dfrac{9 \\pm \\sqrt{57}}{6}$ to nine decimal places — two routes, one census.',
+      'Hence, $\\dfrac{23}{3},\\ 21,\\ \\dfrac{\\sqrt{57}}{3},\\ \\dfrac{9}{2},\\ \\dfrac{23}{2},\\ \\dfrac{521}{9}$ in inventory order.',
+    ] },
+    { kind: 'para', text: 'One further engine prices the demands the inventory does not reach: HIGH POWERS. Since $\\alpha$ satisfies its own equation, $a\\alpha^2 + b\\alpha + c = 0$, every power of $\\alpha$ above the second can be REDUCED to a linear expression in $\\alpha$ — iterate the reduction and the sum $\\alpha^k + \\beta^k$ follows.' },
+    { kind: 'callout', tone: 'theorem', title: 'The power-sum recurrence', text: 'For roots of $ax^2 + bx + c = 0$ ($a \\neq 0$), every power obeys $\\alpha^{k+2} = -\\dfrac{b}{a}\\alpha^{k+1} - \\dfrac{c}{a}\\alpha^{k}$ for all $k \\geq 0$ (multiply the root equation through by $\\alpha^k$ and divide by $a$; likewise for $\\beta$). Adding the two recurrences: the power sum $T_k = \\alpha^k + \\beta^k$ satisfies $T_{k+2} = -\\dfrac{b}{a}T_{k+1} - \\dfrac{c}{a}T_{k}$ with seeds $T_0 = 2$, $T_1 = S$. Thus, any power sum — however high the exponent — is two coefficient ratios iterated.' },
+    { kind: 'example', title: 'Re-derive α³ + β³ for 3x² − 9x + 2 = 0 by the recurrence, then price α⁵ + β⁵ for x² − x − 1 = 0', steps: [
+      'Reduction first: $3\\alpha^2 - 9\\alpha + 2 = 0$ gives $\\alpha^2 = 3\\alpha - \\dfrac{2}{3}$.',
+      'Multiply through by $\\alpha$: $\\alpha^3 = 3\\alpha^2 - \\dfrac{2}{3}\\alpha = 3\\left(3\\alpha - \\dfrac{2}{3}\\right) - \\dfrac{2}{3}\\alpha = \\dfrac{25}{3}\\alpha - 2$.',
+      'Summing the twin: $\\alpha^3 + \\beta^3 = \\dfrac{25}{3}(\\alpha + \\beta) - 4 = \\dfrac{25}{3} \\cdot 3 - 4 = 21$ — the inventory\'s answer, by a second independent route.',
+      'Now the famous cousin: $x^2 - x - 1 = 0$ has $S = 1$, $P = -1$, recurrence $T_{k+2} = T_{k+1} + T_k$.',
+      'Seeds $T_0 = 2$, $T_1 = 1$; iterate: $3, 4, 7, 11, 18, 29, \\ldots$ — the LUCAS numbers, the Fibonacci recurrence with different seeds.',
+      'So, $T_5 = \\alpha^5 + \\beta^5 = 11$: a demand that looks like fifteen lines of expansion collapses to seven additions.',
+      'Hence, $\\alpha^3 + \\beta^3 = 21$ (recurrence route); $\\alpha^5 + \\beta^5 = 11$ for $x^2 - x - 1 = 0$.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'Why the recurrence beats the formula sheet', text: 'The inventory (i)–(vi) covers exponents up to four; the recurrence covers ALL of them. An examination demand like "find $\\alpha^{15} + \\beta^{15} + \\alpha^{11} + \\beta^{11}$, given $\\alpha, \\beta$ are the roots of $x^2 - x - 1 = 0$" is a recurrence question wearing a costume: since $\\alpha\\beta = -1$, we have $\\alpha^2\\beta^2 = 1$, so $\\alpha^{11} = \\alpha^{13}\\beta^2$ and $\\beta^{11} = \\alpha^2\\beta^{13}$ — the numerator factors as $(\\alpha^2 + \\beta^2)(\\alpha^{13} + \\beta^{13})$, the tower collapses onto $T_2 = S^2 - 2P = 3$, and $T_{15} + T_{11} = 3 \\cdot 521 = 1563$ (the verifier pins it). Iterate when the exponent is large; quote the inventory when it is small.' },
+
+    { kind: 'heading', text: 'Forming Equations: Reconstruction and Transformation' },
+    { kind: 'para', text: 'The reconstruction law builds an equation from $S$ and $P$ directly. The deeper craft — and the examination\'s real target — is the TRANSFORMATION of an equation: given $f(x) = 0$ with roots $\\alpha, \\beta$, find the equation whose roots are $g(\\alpha), g(\\beta)$ for a designed function $g$. Two independent routes exist, and running BOTH is the discipline that survives checking:' },
+    { kind: 'list', marker: 'roman', items: [
+      '(i) the S′/P′ ROUTE: price the new sum $S\' = g(\\alpha) + g(\\beta)$ and the new product $P\' = g(\\alpha)\\,g(\\beta)$ symbolically from $S$ and $P$, then write $x^2 - S\'x + P\' = 0$ — the reconstruction law applied to the transformed pair;',
+      '(ii) the SUBSTITUTION ROUTE: express the old root in terms of the new one ($y = g(x)$ inverted to $x = h(y)$) and substitute into $f(x) = 0$ — the new equation in $y$ falls out directly;',
+      '(iii) the routes are independent: if they disagree, one has an algebra slip — find it before shipping either.',
+    ] },
+    { kind: 'example', title: 'The running equation: x² − 4x + 1 = 0. Find the equation whose roots are α² + 1 and β² + 1 — by both routes', steps: [
+      'Reads: $S = 4$, $P = 1$; so $\\alpha^2 + \\beta^2 = S^2 - 2P = 14$.',
+      'S′/P′ route — the new sum: $S\' = (\\alpha^2 + 1) + (\\beta^2 + 1) = 14 + 2 = 16$.',
+      'The new product: $P\' = \\alpha^2\\beta^2 + (\\alpha^2 + \\beta^2) + 1 = P^2 + 14 + 1 = 1 + 15 = 16$.',
+      'Route one lands: $y^2 - 16y + 16 = 0$.',
+      'Substitution route: let $y = x^2 + 1$. On the solution set, $x^2 - 4x + 1 = 0$ rearranges to $x^2 + 1 = 4x$, so $y = 4x$ — the designed function COLLAPSES to a line on the seats that matter.',
+      'Substitute $x = y/4$ into the original: $\\dfrac{y^2}{16} - y + 1 = 0$, that is $y^2 - 16y + 16 = 0$.',
+      'The verifier checks the agreement numerically at both seats: $\\alpha^2 + 1 \\approx 14.93$ and $\\beta^2 + 1 \\approx 1.07$ sum to $16$ and multiply to $16$.',
+      'Hence, $y^2 - 16y + 16 = 0$, certified by two independent routes.',
+    ] },
+    { kind: 'example', title: 'The roots of x² − 6x + 8 = 0 are each increased by 2. Form the new equation', steps: [
+      'Base reads: $S = 6$, $P = 8$; the roots are $2$ and $4$ (factorable, worth noticing).',
+      'S′/P′ route: $S\' = (\\alpha + 2) + (\\beta + 2) = 6 + 4 = 10$; $P\' = (\\alpha + 2)(\\beta + 2) = P + 2S + 4 = 8 + 12 + 4 = 24$.',
+      'New equation: $y^2 - 10y + 24 = 0$.',
+      'Substitution route: $y = x + 2$ means $x = y - 2$; insert: $(y - 2)^2 - 6(y - 2) + 8 = y^2 - 10y + 24$.',
+      'Check the seats: the new roots should be $4$ and $6$ — and indeed $(4)^2 - 10(4) + 24 = 0$, $(6)^2 - 10(6) + 24 = 0$.',
+      'Hence, $y^2 - 10y + 24 = 0$ (roots $4$ and $6$).',
+    ] },
+    { kind: 'example', title: 'Form the equation whose roots are the reciprocals of the roots of 3x² − 9x + 2 = 0', steps: [
+      'S′/P′ route: $S\' = \\dfrac{1}{\\alpha} + \\dfrac{1}{\\beta} = \\dfrac{S}{P} = \\dfrac{9}{2}$ and $P\' = \\dfrac{1}{\\alpha\\beta} = \\dfrac{3}{2}$ — licensed, $P = 2/3 \\neq 0$.',
+      'New equation: $y^2 - \\dfrac{9}{2}y + \\dfrac{3}{2} = 0$, cleared: $2y^2 - 9y + 3 = 0$.',
+      'Read the pattern: the coefficients $3, -9, 2$ became $2, -9, 3$ — REVERSED. That is the general law: reciprocating the roots reverses the coefficient triple (when $c \\neq 0$), because $\\dfrac{1}{\\alpha}, \\dfrac{1}{\\beta}$ are the roots of $cx^2 + bx + a = 0$.',
+      'The palindrome census: a quadratic with $a = c$ is its OWN reciprocal equation. For example, $2x^2 + 5x + 2 = 0$ has roots $-2$ and $-\\dfrac{1}{2}$ — a reciprocal pair summing to $-\\dfrac{5}{2}$ — so reversing $2, 5, 2$ changes nothing.',
+      'Hence, $2x^2 - 9x + 3 = 0$ — the coefficient reversal.',
+    ] },
+    { kind: 'example', title: 'Given α² = 4α − 1 and β² = 4β − 1 with α ≠ β, find the equation whose roots are α/β and β/α', steps: [
+      'The reduced-equation trick first: both $\\alpha$ and $\\beta$ satisfy $x^2 = 4x - 1$, that is $x^2 - 4x + 1 = 0$ — the lesson\'s running equation, and since $\\alpha \\neq \\beta$ they are precisely its two roots.',
+      'So, $S = 4$ and $P = 1$ — the reads, with no solving.',
+      'New sum: $\\dfrac{\\alpha}{\\beta} + \\dfrac{\\beta}{\\alpha} = \\dfrac{S^2 - 2P}{P} = \\dfrac{16 - 2}{1} = 14$.',
+      'New product: $\\dfrac{\\alpha}{\\beta} \\cdot \\dfrac{\\beta}{\\alpha} = 1$.',
+      'New equation: $y^2 - 14y + 1 = 0$ — its roots are $7 \\pm 4\\sqrt{3}$, and the verifier confirms $\\dfrac{2 + \\sqrt{3}}{2 - \\sqrt{3}} = (2 + \\sqrt{3})^2 = 7 + 4\\sqrt{3}$.',
+      'Hence, $y^2 - 14y + 1 = 0$.',
+    ] },
+    { kind: 'callout', tone: 'theorem', title: 'The same-ratio condition', text: 'The roots of $x^2 + px + q = 0$ and of $x^2 + bx + c = 0$ are in the same ratio if and only if $p^2 c = b^2 q$. The mechanism: equal ratios $\\alpha/\\beta = \\gamma/\\delta$ imply, by componendo and dividendo, $\\dfrac{(\\alpha + \\beta)^2}{(\\alpha - \\beta)^2} = \\dfrac{(\\gamma + \\delta)^2}{(\\gamma - \\delta)^2}$, and substituting the reads turns each side into $\\dfrac{S^2}{S^2 - 4P}$ — cross-multiplying gives $\\dfrac{q}{p^2} = \\dfrac{c}{b^2}$. For example, $x^2 - 5x + 6 = 0$ (roots $2, 3$) and $x^2 - 10x + 24 = 0$ (roots $4, 6$) both carry the ratio $2:3$, and indeed $25 \\times 24 = 600 = 100 \\times 6$.' },
+    { kind: 'callout', tone: 'exam', title: 'Where this is examined', text: 'The JEE Main algebra syllabus names "relations between roots and coefficients" and "symmetric functions of roots" verbatim, and the question families are exactly this section\'s toolkit: the no-solve symmetric evaluation (one or two inventory lines), the transformed-equation demand (shifted, scaled, reciprocated, squared — the S′/P′ route), the high-power costume (the recurrence), and the same-ratio or given-relation parameter hunt. Single-correct and numerical-value formats both appear across JEE Main/Advanced, CUET and the state CETs; the EXAM_REGISTRY maps the shelf\'s coverage.' },
+
+    { kind: 'heading', text: 'Repeated Roots: When the Two Doors Coincide' },
+    { kind: 'callout', tone: 'definition', title: 'Repeated root (double root)', text: 'A real number $x_0$ is said to be a REPEATED ROOT (or double root) of $ax^2 + bx + c = 0$ when the two roots of the equation coincide at $x_0$. Algebraically this happens exactly when $D = b^2 - 4ac = 0$, and the repeated seat is forced to the vertex position: $x_0 = -\\dfrac{b}{2a}$. Thus, $f(x) = a(x - x_0)^2$ — the factor theorem with both factors equal — and 2.2\'s touching case is exactly this census: one door, visited twice.' },
+    { kind: 'para', text: 'Two independent tests certify a repeated seat, and using both is the discipline: (i) the discriminant test $D = 0$; (ii) the seat test — the claimed seat $x_0$ satisfies the equation AND equals $-b/2a$. The vertex link is the geometric face of the algebra: 2.1\'s completion puts the minimum (or maximum) value $-D/4a$ at $-b/2a$, and $D = 0$ drops that value to zero — the parabola touches the axis exactly where its extreme sits. The census questions examinations set are richer: they hide the repeated root inside a FAMILY of equations with lettered coefficients, and the discriminant — after expansion — turns out to be a perfect square.' },
+    { kind: 'example', title: 'Show that (a − b)x² + (b − c)x + (c − a) = 0 has a repeated root if and only if a is the arithmetic mean of b and c (a ≠ b)', steps: [
+      'One root is free: $f(1) = (a - b) + (b - c) + (c - a) = 0$, so $x = 1$ always satisfies the equation.',
+      'The discriminant: $D = (b - c)^2 - 4(a - b)(c - a)$.',
+      'Expand honestly: $b^2 - 2bc + c^2 - 4ac + 4a^2 + 4bc - 4ab = 4a^2 + b^2 + c^2 + 2bc - 4ab - 4ac$.',
+      'Recognise the square: $D = (2a - b - c)^2$ — ALWAYS non-negative, and zero exactly when $2a = b + c$.',
+      'The repeated seat when $D = 0$: $x_0 = -\\dfrac{b - c}{2(a - b)} = \\dfrac{c - b}{2(a - b)}$; with $2a = b + c$ this lands on $x_0 = 1$, the free root — both doors collapse onto it.',
+      'Witness: $(a, b, c) = (3, 2, 4)$ — $2(3) = 2 + 4$ — gives $x^2 - 2x + 1 = (x - 1)^2$, the repeated seat $1$. Non-witness $(3, 2, 5)$ gives $x^2 - 3x + 2 = (x - 1)(x - 2)$, distinct doors.',
+      'Hence, repeated root $\\Leftrightarrow 2a = b + c$ ($a$ is the mean of $b$ and $c$); $D = (2a - b - c)^2$ is a perfect square.',
+    ] },
+    { kind: 'example', title: 'a, b, c are in geometric progression. Show that ax² + 2bx + c = 0 has a repeated root, and find when dx² + 2ex + f = 0 shares that seat', steps: [
+      'GP means $b^2 = ac$. The discriminant: $D = 4b^2 - 4ac = 4(b^2 - ac) = 0$.',
+      'So the equation has a repeated root, and it is the vertex seat $x_0 = -\\dfrac{2b}{2a} = -\\dfrac{b}{a}$.',
+      'Witness: $(a, b, c) = (1, 2, 4)$ gives $x^2 + 4x + 4 = (x + 2)^2$, repeated seat $-2 = -b/a$.',
+      'Sharing question: $dx^2 + 2ex + f = 0$ shares the seat $-b/a$ exactly when $d\\left(-\\dfrac{b}{a}\\right)^2 + 2e\\left(-\\dfrac{b}{a}\\right) + f = 0$.',
+      'Clear the denominator $a^2$ and use $b^2 = ac$: $dac - 2eba + fa^2 = 0$, that is $dc + af = 2be$ after dividing by $a$.',
+      'Divide by $bc$ (nonzero): $\\dfrac{d}{a} + \\dfrac{f}{c} = 2\\dfrac{e}{b}$ — the three ratios $d/a$, $e/b$, $f/c$ are in ARITHMETIC progression.',
+      'Witness for the sharing: $(d, e, f) = (3, 5, 8)$ — ratios $3, 2.5, 2$, differences $-0.5$ — and indeed $3x^2 + 10x + 8$ vanishes at $x = -2$. Non-witness $(3, 5, 9)$: $3(4) - 20 + 9 = 1 \\neq 0$ — the seat is not shared.',
+      'Hence, $D = 0$ with repeated seat $-b/a$; the seat is shared $\\Leftrightarrow d/a,\\ e/b,\\ f/c$ are in AP.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'A repeated seat is still ONE seat', text: 'The census trap: two equations sharing a repeated root share exactly ONE root — the seat is a single point even though its own equation counts it twice. Sharing a repeated seat is a one-common-root situation (next section\'s condition applies verbatim); it becomes a both-common situation only when the coefficient triples are ALSO proportional — for example $x^2$ and $2x^2$, where the proportionality $1/2 = 0/0$... is ill-posed and the honest check is the factorisation: both are $a\\,x^2 = a(x - 0)^2$, identical up to scale. Never answer "two roots common" from a shared double seat alone; the m-hunt in the next section prices the difference exactly.' },
+
+    { kind: 'heading', text: 'Common Roots I: One Shared Door' },
+    { kind: 'para', text: 'Two quadratic equations, $a_1x^2 + b_1x + c_1 = 0$ and $a_2x^2 + b_2x + c_2 = 0$, each own up to two doors. The census question: when do they share one? The answer is a condition on the six coefficients — derived by treating the unknown common seat as the unknown of a LINEAR system.' },
+    { kind: 'callout', tone: 'definition', title: 'Common root', text: 'A real number $x_0$ is said to be a COMMON ROOT of the equations $f_1(x) = 0$ and $f_2(x) = 0$ if it satisfies both: $f_1(x_0) = 0$ AND $f_2(x_0) = 0$. Thus, the common roots are exactly the intersection of the two root sets — the doors both equations own.' },
+    { kind: 'derivation', title: 'The one-common-root condition', statement: 'Let $\\alpha$ be a common root of $a_1x^2 + b_1x + c_1 = 0$ and $a_2x^2 + b_2x + c_2 = 0$. Then $(c_1a_2 - c_2a_1)^2 = (b_1c_2 - b_2c_1)(a_1b_2 - a_2b_1)$, and the common seat is $\\alpha = \\dfrac{c_1a_2 - c_2a_1}{a_1b_2 - a_2b_1}$ (when $a_1b_2 - a_2b_1 \\neq 0$).', steps: [
+      { label: 'Name the unknowns', formula: 'a_1\\alpha^2 + b_1\\alpha + c_1 = 0, \\qquad a_2\\alpha^2 + b_2\\alpha + c_2 = 0', explanation: 'the common seat satisfies both equations — a pair of LINEAR equations in the two unknowns $\\alpha^2$ and $\\alpha$.' },
+      { label: 'Eliminate the square', formula: '(a_2b_1 - a_1b_2)\\alpha + (a_2c_1 - a_1c_2) = 0', explanation: 'multiply the first equation by $a_2$, the second by $a_1$, subtract — the $\\alpha^2$ terms cancel.' },
+      { label: 'Solve for the seat', formula: '\\alpha = \\dfrac{c_1a_2 - c_2a_1}{a_1b_2 - a_2b_1}', explanation: 'signs normalised — the common seat is a ratio of coefficient crosses, licensed when $a_1b_2 - a_2b_1 \\neq 0$.' },
+      { label: 'Eliminate the seat instead', formula: '\\alpha^2 = \\dfrac{b_1c_2 - b_2c_1}{a_1b_2 - a_2b_1}', explanation: 'multiply the first equation by $b_2$, the second by $b_1$, subtract — now the $\\alpha$ terms cancel.' },
+      { label: 'Impose consistency', formula: '\\left(\\dfrac{c_1a_2 - c_2a_1}{a_1b_2 - a_2b_1}\\right)^2 = \\dfrac{b_1c_2 - b_2c_1}{a_1b_2 - a_2b_1}', explanation: 'the two expressions price the SAME seat, so they must agree — this is the whole condition.' },
+      { label: 'Clear the denominator', formula: '(c_1a_2 - c_2a_1)^2 = (b_1c_2 - b_2c_1)(a_1b_2 - a_2b_1)', explanation: 'the boxed condition — and the verifier certifies it over a 160,000-pair integer grid against brute-force root intersection.' },
+    ], result: '$(c_1a_2 - c_2a_1)^2 = (b_1c_2 - b_2c_1)(a_1b_2 - a_2b_1)$ — with the common seat $\\alpha = \\dfrac{c_1a_2 - c_2a_1}{a_1b_2 - a_2b_1}$ when the denominator cross is nonzero.' },
+    { kind: 'callout', tone: 'insight', title: 'The cross arrangement, in our own words', text: 'Write the coefficient triples in two rows — $(a_1, b_1, c_1)$ over $(a_2, b_2, c_2)$. The condition reads: the square of the OUTER cross product ($c$ against $a$) equals the product of the two INNER cross products ($b$ against $c$, and $a$ against $b$). The arrangement is a bookkeeping device, not a substitute for the algebra — the derivation above is what earns the condition, and the derivation is what repairs it when an examination phrases the triples in a different order.' },
+    { kind: 'example', title: 'The figure\'s pair: show that x² − 4x + 3 = 0 and x² − 2x − 3 = 0 share a root, and find it two ways', steps: [
+      'The crosses: outer $c_1a_2 - c_2a_1 = 3(1) - (-3)(1) = 6$; inner $b_1c_2 - b_2c_1 = (-4)(-3) - (-2)(3) = 18$ and $a_1b_2 - a_2b_1 = (1)(-2) - (1)(-4) = 2$.',
+      'The condition: $6^2 = 36$ and $18 \\times 2 = 36$ — it holds, so a common root exists.',
+      'The formula: $\\alpha = \\dfrac{c_1a_2 - c_2a_1}{a_1b_2 - a_2b_1} = \\dfrac{6}{2} = 3$.',
+      'The audit by factoring: $x^2 - 4x + 3 = (x - 1)(x - 3)$ and $x^2 - 2x - 3 = (x - 3)(x + 1)$ — the shared door is $3$, the private doors $1$ and $-1$.',
+      'Both methods agree, and the figure draws the pair: two parabolas crossing the axis at a common seat.',
+      'Hence, shared door $x = 3$ (condition $36 = 36$; formula and factorisation agree).',
+    ] },
+    { kind: 'example', title: 'Find every k for which x² − 6x + 8 = 0 and x² + kx − 10 = 0 have a common root', steps: [
+      'Route one — the seats: $x^2 - 6x + 8 = (x - 2)(x - 4)$, so the candidates are $2$ and $4$.',
+      'Seat $2$ in the second equation: $4 + 2k - 10 = 0$, so $k = 3$.',
+      'Seat $4$: $16 + 4k - 10 = 0$, so $k = -\\dfrac{3}{2}$.',
+      'Route two — the condition: outer cross $c_1a_2 - c_2a_1 = 8 + 10 = 18$; inner $b_1c_2 - b_2c_1 = 60 - 8k$ and $a_1b_2 - a_2b_1 = k + 6$.',
+      'The condition: $324 = (60 - 8k)(k + 6)$, which expands to $8k^2 - 12k - 36 = 0$, that is $2k^2 - 3k - 9 = 0$.',
+      'Factor: $(2k + 3)(k - 3) = 0$, so $k = 3$ or $k = -\\dfrac{3}{2}$ — the same two answers, route-independent.',
+      'The substitution route found the seats; the determinant route found the parameter — together they are the audit.',
+      'Hence, $k = 3$ (shared seat $2$) or $k = -\\dfrac{3}{2}$ (shared seat $4$).',
+    ] },
+
+    { kind: 'heading', text: 'Common Roots II: Both Doors Shared' },
+    { kind: 'callout', tone: 'theorem', title: 'The proportionality condition', text: 'The equations $a_1x^2 + b_1x + c_1 = 0$ and $a_2x^2 + b_2x + c_2 = 0$ (all coefficients in proportion non-degenerate) have BOTH roots common if and only if the coefficient triples are proportional: $\\dfrac{a_1}{a_2} = \\dfrac{b_1}{b_2} = \\dfrac{c_1}{c_2}$. The reason is structural: proportionality makes the two polynomials scalar multiples of one factorisation $a(x - \\alpha)(x - \\beta)$ — AL 9.4\'s a-family, two members of it. Conversely, if both roots are common, each equation is $a_i(x - \\alpha)(x - \\beta) = 0$, and the triples inherit the ratio $a_1/a_2$ throughout.' },
+    { kind: 'para', text: 'Two census notes force the both-common verdict in settings where proportionality is not visible at a glance — and both are conjugate arguments:' },
+    { kind: 'list', marker: 'roman', items: [
+      '(i) REAL coefficients, a shared NON-REAL root: a non-real root of a real-coefficient quadratic arrives with its conjugate — the roots of $ax^2 + bx + c$ are a conjugate pair whenever $D < 0$. So a second real-coefficient equation sharing the non-real root shares its conjugate too: both roots common, and the triples must be proportional.',
+      '(ii) RATIONAL coefficients, a shared IRRATIONAL root $p + \\sqrt{q}$: the conjugate surd $p - \\sqrt{q}$ is the other root of the first equation (the irrational pair is forced by rational arithmetic), so the second equation sharing $p + \\sqrt{q}$ shares $p - \\sqrt{q}$ as well — again both common. No two distinct rational-coefficient quadratics share exactly one irrational surd of this shape.',
+    ] },
+    { kind: 'example', title: 'x² + 4x + 10 = 0 has non-real roots. If ax² + bx + c = 0 with a, b, c ∈ ℕ shares a root, find the least value of a + b + c', steps: [
+      'The first equation\'s discriminant: $D = 16 - 40 = -24 < 0$ — both roots non-real.',
+      'The shared root is therefore non-real; the second equation has REAL (indeed natural) coefficients, so census note (i) applies: both roots are common.',
+      'Proportionality: $(a, b, c) = \\lambda(1, 4, 10)$ for some scalar $\\lambda$.',
+      'Naturality: $\\lambda \\in \\mathbb{N}$ — so $(a, b, c) = (1, 4, 10), (2, 8, 20), (3, 12, 30), \\ldots$',
+      'The sums: $15, 30, 45, \\ldots$ — the least is $15$ at $\\lambda = 1$ (itself, i.e. the same equation).',
+      'The verifier brute-forces every natural triple with $a + b + c < 15$ and confirms none is proportional to $(1, 4, 10)$.',
+      'Hence, least $a + b + c = 15$, at $(a, b, c) = (1, 4, 10)$.',
+    ] },
+    { kind: 'example', title: 'Find every m for which x² + mx + 6 = 0 and x² + 6x + m = 0 have both roots common — and contrast with the one-shared census', steps: [
+      'Both common demands proportionality: $\\dfrac{1}{1} = \\dfrac{m}{6} = \\dfrac{6}{m}$.',
+      'The first ratio pins the scale: $\\dfrac{m}{6} = 1$ gives $m = 6$; the second $\\dfrac{6}{m} = 1$ agrees — $m = 6$, and the equations coincide ($x^2 + 6x + 6 = 0$, $D = 12 > 0$: real shared doors).',
+      'The contrast — the one-shared census: a brute-force sweep over $m \\in [-20, 20]$ finds TWO sharing values, $m = -7$ and $m = 6$.',
+      'At $m = -7$: $x^2 - 7x + 6 = (x - 1)(x - 6)$ and $x^2 + 6x - 7 = (x + 7)(x - 1)$ — exactly ONE shared seat, $x = 1$; the ratios $1, -7/6, -6/7$ are not all equal, so proportionality fails.',
+      'The determinant condition agrees at $m = -7$: outer cross $6 + 7 = 13$, inner crosses $49 - 36 = 13$ and $6 + 7 = 13$ — $13^2 = 13 \\times 13$, the one-common verdict.',
+      'One shared door is NOT two: $m = -7$ and $m = 6$ share, but only $m = 6$ shares BOTH.',
+      'Hence, both common $\\Leftrightarrow m = 6$; the one-shared census is $\\{-7, 6\\}$ — the standing witness that the conditions differ.',
+    ] },
+    { kind: 'example', title: 'The equations x² + ax + 16 = 0, x² + bx + 20 = 0 and x² + (a + b)x + 52 = 0 have a common positive root. Find a and b', steps: [
+      'Let the common root be $r$. Then: $r^2 + ar + 16 = 0$, $r^2 + br + 20 = 0$, $r^2 + (a + b)r + 52 = 0$.',
+      'Add the first two: $2r^2 + (a + b)r + 36 = 0$.',
+      'Subtract this from the third: $-r^2 + 16 = 0$ — the $a$, $b$ terms cancel: $r^2 = 16$.',
+      'So, $r = \\pm 4$; the demand is the POSITIVE root: $r = 4$.',
+      'Back-substitute: $16 + 4a + 16 = 0$ gives $a = -8$; $16 + 4b + 20 = 0$ gives $b = -9$.',
+      'Audit the third: $16 + 4(-17) + 52 = 0$ ✓. The root sets: $x^2 - 8x + 16 = (x - 4)^2$ — the common root is a REPEATED seat there; $x^2 - 9x + 20 = (x - 4)(x - 5)$; $x^2 - 17x + 52 = (x - 4)(x - 13)$.',
+      'The full census: the only positive root common to all three is $4$ — and the repeated-seat witness shows why "one shared seat" language was the honest frame all along.',
+      'Hence, $a = -8$, $b = -9$ (common positive root $4$; the first equation holds it doubly).',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'One shared ≠ both shared — the exam trap', text: 'The $m$-hunt above is the trap in miniature: TWO values of $m$ produce a shared door, ONE produces a shared pair. An examination option set that offers $m = \\pm 6$ (the square-root reflex on $m^2 = 36$ from misapplied cross-multiplication) is pricing exactly this confusion — at $m = -6$ the equations $x^2 - 6x + 6$ (roots $3 \\pm \\sqrt{3}$) and $x^2 + 6x - 6$ (roots $-3 \\pm \\sqrt{15}$) share nothing. The certificate for "both common" is PROPORTIONALITY, never a squared equation alone; the determinant condition certifies "at least one common", and proportionality is the extra gate that upgrades the verdict.' },
+    { kind: 'callout', tone: 'exam', title: 'Where this is examined', text: 'Common roots appear across JEE Main/Advanced, CUET and state CETs in four costumes: the determinant-condition hunt (find the parameter), the proportionality verdict (both roots common — often via the non-real or irrational conjugate notes), the cyclic trio (one shared seat across three equations, the $f(1) = 0$ free root), and the three-equation add-and-subtract census. Single-correct options love the one-shared-both-shared distinction this lesson priced; the EXAM_REGISTRY maps the coverage.' },
+
+    { kind: 'figure', caption: 'The mirror read of x² − 6x + 5 = 0 — roots 1 and 5 mirror about 3; the sum bracket, the product rectangle and the symmetric-read tags are all coefficient reads.', svg: `<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The roots 1 and 5 of x squared minus 6 x plus 5 mirror about 3; the sum bracket, the product rectangle and three symmetric-read tags"><rect x="0" y="0" width="720" height="360" fill="#fffdf5"/><text x="30" y="34" font-size="17" font-weight="bold" fill="#166534">the mirror read of x² − 6x + 5 = 0</text><line x1="60" y1="200" x2="660" y2="200" stroke="#16a34a" stroke-width="1.6"/><path d="M 660 200 l -10 -4 l 0 8 z" fill="#16a34a"/><line x1="135" y1="196" x2="135" y2="204" stroke="#65a30d" stroke-width="1.4"/><line x1="285" y1="196" x2="285" y2="204" stroke="#65a30d" stroke-width="1.4"/><line x1="435" y1="196" x2="435" y2="204" stroke="#65a30d" stroke-width="1.4"/><line x1="585" y1="196" x2="585" y2="204" stroke="#65a30d" stroke-width="1.4"/><text x="135" y="222" font-size="13" fill="#65a30d" text-anchor="middle">0</text><text x="285" y="222" font-size="13" fill="#65a30d" text-anchor="middle">2</text><text x="435" y="222" font-size="13" fill="#65a30d" text-anchor="middle">4</text><text x="585" y="222" font-size="13" fill="#65a30d" text-anchor="middle">6</text><circle cx="210" cy="200" r="6" fill="#16a34a"/><circle cx="510" cy="200" r="6" fill="#16a34a"/><text x="210" y="248" font-size="14" font-weight="bold" fill="#166534" text-anchor="middle">α = 1</text><text x="510" y="248" font-size="14" font-weight="bold" fill="#166534" text-anchor="middle">β = 5</text><line x1="360" y1="90" x2="360" y2="200" stroke="#d97706" stroke-width="1.6" stroke-dasharray="6 4"/><text x="360" y="78" font-size="13" fill="#d97706" text-anchor="middle">mirror x = 3 = −b/2a</text><line x1="210" y1="120" x2="510" y2="120" stroke="#ea580c" stroke-width="1.6"/><path d="M 210 120 l 10 -4 l 0 8 z" fill="#ea580c"/><path d="M 510 120 l -10 -4 l 0 8 z" fill="#ea580c"/><text x="360" y="56" font-size="14" font-weight="bold" fill="#ea580c" text-anchor="middle">S = α + β = 6</text><rect x="530" y="120" width="24" height="24" fill="#5eead4" stroke="#0d9488" stroke-width="1.2"/><rect x="554" y="120" width="24" height="24" fill="#5eead4" stroke="#0d9488" stroke-width="1.2"/><rect x="578" y="120" width="24" height="24" fill="#5eead4" stroke="#0d9488" stroke-width="1.2"/><rect x="602" y="120" width="24" height="24" fill="#5eead4" stroke="#0d9488" stroke-width="1.2"/><rect x="626" y="120" width="24" height="24" fill="#5eead4" stroke="#0d9488" stroke-width="1.2"/><text x="596" y="163" font-size="13" fill="#0f766e" text-anchor="middle">P = αβ = 5</text><text x="596" y="106" font-size="12" fill="#0d9488" text-anchor="middle">the 1 × 5 rectangle</text><text x="470" y="278" font-size="13" fill="#65a30d">α² + β² = S² − 2P = 36 − 10 = 26</text><text x="470" y="300" font-size="13" fill="#65a30d">|α − β| = √(S² − 4P) = √16 = 4</text><text x="470" y="322" font-size="13" fill="#65a30d">1/α + 1/β = S/P = 6/5</text><text x="30" y="278" font-size="13" fill="#65a30d">α / β + β / α =</text><text x="30" y="300" font-size="13" fill="#65a30d">(S² − 2P)/P</text><text x="30" y="322" font-size="13" fill="#65a30d">= 26/5</text><text x="360" y="348" font-size="12" fill="#0d9488" text-anchor="middle">the pair (1, 5) mirrors about 3 — every symmetric read is a coefficient read</text></svg>` },
+
+    { kind: 'figure', caption: 'Two parabolas, one shared door — f₁ = x² − 4x + 3 (doors 1, 3) and f₂ = x² − 2x − 3 (doors −1, 3) meet the axis together at x = 3; the cross condition 6² = 36 = 18 × 2 certifies the share.', svg: `<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The parabolas f1 equals x squared minus 4 x plus 3 with doors 1 and 3, and f2 equals x squared minus 2 x minus 3 with doors minus 1 and 3, sharing the door at 3; the cross condition 6 squared equals 18 times 2"><rect x="0" y="0" width="720" height="380" fill="#fffdf5"/><text x="30" y="30" font-size="17" font-weight="bold" fill="#166534">two parabolas, one shared door: f₁(3) = f₂(3) = 0</text><line x1="60" y1="220" x2="680" y2="220" stroke="#d97706" stroke-width="1.4"/><path d="M 680 220 l -10 -4 l 0 8 z" fill="#d97706"/><line x1="285" y1="40" x2="285" y2="350" stroke="#d97706" stroke-width="1.4"/><path d="M 285 40 l -4 10 l 8 0 z" fill="#d97706"/><line x1="210" y1="216" x2="210" y2="224" stroke="#d97706" stroke-width="1.2"/><line x1="360" y1="216" x2="360" y2="224" stroke="#d97706" stroke-width="1.2"/><line x1="435" y1="216" x2="435" y2="224" stroke="#d97706" stroke-width="1.2"/><line x1="510" y1="216" x2="510" y2="224" stroke="#d97706" stroke-width="1.2"/><line x1="585" y1="216" x2="585" y2="224" stroke="#d97706" stroke-width="1.2"/><text x="210" y="240" font-size="12" fill="#d97706" text-anchor="middle">−1</text><text x="360" y="240" font-size="12" fill="#d97706" text-anchor="middle">1</text><text x="435" y="240" font-size="12" fill="#d97706" text-anchor="middle">2</text><text x="510" y="240" font-size="12" fill="#d97706" text-anchor="middle">3</text><text x="585" y="240" font-size="12" fill="#d97706" text-anchor="middle">4</text><text x="292" y="58" font-size="12" fill="#d97706">y</text><polyline points="247,115 285,160 322,195 360,220 397,235 435,240 472,235 510,220 547,195 585,160 622,115" fill="none" stroke="#16a34a" stroke-width="2.4"/><polyline points="135,120 172,175 210,220 247,255 285,280 322,295 360,300 397,295 435,280 472,255 510,220 547,175 585,120" fill="none" stroke="#0d9488" stroke-width="2.4"/><circle cx="510" cy="220" r="8" fill="none" stroke="#ea580c" stroke-width="2.4"/><circle cx="510" cy="220" r="3" fill="#ea580c"/><circle cx="360" cy="220" r="4.5" fill="#16a34a"/><circle cx="210" cy="220" r="4.5" fill="#0d9488"/><text x="520" y="198" font-size="14" font-weight="bold" fill="#ea580c">shared door x = 3</text><text x="360" y="272" font-size="12" fill="#166534" text-anchor="middle">door 1</text><text x="200" y="272" font-size="12" fill="#0f766e" text-anchor="middle">door −1</text><text x="435" y="262" font-size="12" fill="#166534" text-anchor="middle">f₁ vertex (2, −1)</text><text x="360" y="322" font-size="12" fill="#0f766e" text-anchor="middle">f₂ vertex (1, −4)</text><line x1="470" y1="60" x2="500" y2="60" stroke="#16a34a" stroke-width="2.4"/><text x="508" y="65" font-size="13" fill="#166534">f₁ = x² − 4x + 3 (doors 1, 3)</text><line x1="470" y1="84" x2="500" y2="84" stroke="#0d9488" stroke-width="2.4"/><text x="508" y="89" font-size="13" fill="#0f766e">f₂ = x² − 2x − 3 (doors −1, 3)</text><text x="360" y="371" font-size="13" fill="#0d9488" text-anchor="middle">the crosses: outer 6, inner 18 and 2 — 6² = 36 = 18 × 2, the one-common condition holds</text></svg>` },
+
+    { kind: 'terms', items: [
+      { term: "Viète's relations", def: "The reads $\\alpha + \\beta = -b/a$ and $\\alpha\\beta = c/a$ tying the root pair of $ax^2 + bx + c = 0$ to its coefficients — derived from the factorisation $a(x - \\alpha)(x - \\beta)$ and valid for every root type." },
+      { term: 'symmetric function of the roots', def: 'An expression $E(\\alpha, \\beta)$ unchanged by the swap $\\alpha \\leftrightarrow \\beta$; every such expression is computable from $S$ and $P$ alone, while asymmetric expressions (like the signed $\\alpha - \\beta$) are not.' },
+      { term: 'transformation of an equation', def: 'Rebuilding the equation whose roots are $g(\\alpha), g(\\beta)$ for a designed $g$ — by the S′/P′ route, the substitution route, or both routes run as mutual audits.' },
+      { term: 'power-sum recurrence', def: 'The iteration $T_{k+2} = -\\tfrac{b}{a}T_{k+1} - \\tfrac{c}{a}T_k$ with $T_0 = 2$, $T_1 = S$, pricing every power sum $\\alpha^k + \\beta^k$ from the coefficients alone.' },
+      { term: 'repeated root (double root)', def: 'The coincident seat $x_0 = -b/2a$ occurring exactly when $D = 0$; the factorisation collapses to $a(x - x_0)^2$ and the parabola touches the axis at its vertex.' },
+      { term: 'common root', def: 'A real seat satisfying two equations at once; certified for one shared door by the determinant condition $(c_1a_2 - c_2a_1)^2 = (b_1c_2 - b_2c_1)(a_1b_2 - a_2b_1)$.' },
+      { term: 'proportionality condition', def: 'The both-common certificate $a_1/a_2 = b_1/b_2 = c_1/c_2$ — the two equations are scalar multiples of one factorisation (members of AL 9.4\'s a-family).' },
+    ] },
+
+    { kind: 'quiz', title: 'Check yourself', items: [
+      { q: 'For the equation $3x^2 - 9x + 2 = 0$, what is $\\alpha + \\beta + \\alpha\\beta$?', options: ['$-\\dfrac{11}{3}$', '$3$', '$\\dfrac{11}{3}$', '$\\dfrac{2}{3}$'], answer: 2, explain: 'The reads are $S = -\\frac{-9}{3} = 3$ and $P = \\frac{2}{3}$, so the demand is $S + P = \\frac{11}{3}$. The option $-\\frac{11}{3}$ is the sign reflex on the minus in $-b/a$ — the minus belongs to the DEFINITION and has already been applied to the coefficient $-9$; $3$ prices only the sum and $\\frac{2}{3}$ only the product, while the demand asked for both reads added. No solving ever needed — that is the whole point of the section.' },
+      { q: 'If $\\alpha, \\beta$ are the roots of $x^2 - 6x + 5 = 0$, then $\\alpha^2 + \\beta^2$ equals:', options: ['$16$', '$26$', '$36$', '$46$'], answer: 1, explain: '$S = 6$, $P = 5$, so $\\alpha^2 + \\beta^2 = S^2 - 2P = 36 - 10 = 26$. Each distractor is a real formula misremembered: $16$ is $(\\alpha - \\beta)^2 = S^2 - 4P$ — a different symmetric read; $36$ is $S^2$ alone (dropping the $-2P$); $46$ adds $2P$ instead of subtracting. The roots themselves ($1$ and $5$) would give $1 + 25 = 26$, but the no-solve route prices it in one line.' },
+      { q: 'The equation whose roots are the reciprocals of the roots of $2x^2 + 5x + 2 = 0$ is:', options: ['$2x^2 + 5x + 2 = 0$ itself', '$x^2 + 5x + 2 = 0$', '$2x^2 - 5x + 2 = 0$', '$x^2 - 5x + 2 = 0$'], answer: 0, explain: 'Reciprocating the roots reverses the coefficient triple — here $(2, 5, 2)$ reversed is $(2, 5, 2)$: a PALINDROME, so the equation is its own reciprocal. Concretely the roots are $-2$ and $-\\frac{1}{2}$, a reciprocal pair, so the reciprocal equation has the same root set. $x^2 + 5x + 2$ drops the leading coefficient; the two $-5x$ options flip the middle sign, which the reversal never touches. The reversal law needs $c \\neq 0$ — satisfied here.' },
+      { q: 'The equations $x^2 - 5x + 6 = 0$ and $x^2 - 7x + 12 = 0$ have which common root?', options: ['no common root', '$2$', '$3$', '$4$'], answer: 2, explain: 'Factoring: $(x - 2)(x - 3)$ has doors $\\{2, 3\\}$ and $(x - 3)(x - 4)$ has doors $\\{3, 4\\}$ — the intersection is $\\{3\\}$. The determinant condition agrees: the outer cross $6 - 12 = -6$ squares to $36$, and the inner crosses $(-60 + 42) = -18$ and $(-7 + 5) = -2$ multiply to $36$. Root $2$ belongs only to the first equation and $4$ only to the second — each distractor is one equation\'s private door.' },
+      { q: 'Both roots of $x^2 + mx + 6 = 0$ and $x^2 + 6x + m = 0$ are common. Then m equals:', options: ['$6$ only', '$\\pm 6$', '$36$', 'no such $m$'], answer: 0, explain: 'Both common forces proportionality $\\frac{1}{1} = \\frac{m}{6} = \\frac{6}{m}$, giving $m = 6$ — and at $m = 6$ the equations coincide with $D = 12 > 0$. The tempting $\\pm 6$ is the square-root reflex on $m^2 = 36$ from a misapplied cross-multiplication: at $m = -6$ the ratios are $1, -1, -1$ — NOT proportional — and $x^2 - 6x + 6$ (roots $3 \\pm \\sqrt{3}$) shares nothing with $x^2 + 6x - 6$ (roots $-3 \\pm \\sqrt{15}$). The lesson\'s census found $m = -7$ shares ONE root — one shared door is not two.' },
+    ] },
+
+    { kind: 'exercises', title: 'Exercises 2.3', sets: [
+      { level: 'L1', questions: [
+        { q: 'For $5x^2 - 12x + 4 = 0$, find $\\alpha^2 + \\beta^2$ without solving the equation.', solution: [
+          'The reads: $S = \\dfrac{12}{5}$ and $P = \\dfrac{4}{5}$.',
+          'The inventory line (i): $\\alpha^2 + \\beta^2 = S^2 - 2P$.',
+          'Substitute: $\\dfrac{144}{25} - \\dfrac{8}{5} = \\dfrac{144 - 40}{25} = \\dfrac{104}{25}$.',
+          'Check by formula roots $\\dfrac{6 \\pm \\sqrt{14}}{5}$: their squares sum to $\\dfrac{104}{25}$ — the verifier certifies it to nine decimals.',
+        ], answer: '$\\dfrac{104}{25}$' },
+        { q: 'Form the quadratic equation whose roots are $3$ and $-7$.', solution: [
+          'Sum: $S = 3 + (-7) = -4$. Product: $P = 3(-7) = -21$.',
+          'The reconstruction law: $x^2 - Sx + P = 0$.',
+          'Substituting: $x^2 + 4x - 21 = 0$.',
+          'Factor audit: $(x - 3)(x + 7)$ expands to exactly that.',
+        ], answer: '$x^2 + 4x - 21 = 0$' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'For $2x^2 - 7x + 5 = 0$, find $\\dfrac{1}{\\alpha} + \\dfrac{1}{\\beta} + \\alpha\\beta$.', solution: [
+          'The reads: $S = \\dfrac{7}{2}$, $P = \\dfrac{5}{2}$ — and $P \\neq 0$, so the reciprocal read is licensed.',
+          '$\\dfrac{1}{\\alpha} + \\dfrac{1}{\\beta} = \\dfrac{S}{P} = \\dfrac{7/2}{5/2} = \\dfrac{7}{5}$.',
+          'The demand adds $P$: $\\dfrac{7}{5} + \\dfrac{5}{2} = \\dfrac{14 + 25}{10} = \\dfrac{39}{10}$.',
+        ], answer: '$\\dfrac{39}{10}$' },
+        { q: 'The roots of $x^2 - 6x + 8 = 0$ are each increased by 2. Form the new equation.', solution: [
+          'New sum: $S\' = S + 4 = 6 + 4 = 10$ (each root contributes $+2$).',
+          'New product: $P\' = (\\alpha + 2)(\\beta + 2) = P + 2S + 4 = 8 + 12 + 4 = 24$.',
+          'New equation: $y^2 - 10y + 24 = 0$.',
+          'Substitution audit: $x = y - 2$ into the original gives $(y-2)^2 - 6(y-2) + 8 = y^2 - 10y + 24$ — same equation, routes agree (the new roots are $4$ and $6$).',
+        ], answer: '$y^2 - 10y + 24 = 0$' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'For $2x^2 - 9x + 8 = 0$, find $|\\alpha - \\beta|$.', solution: [
+          'The reads: $S = \\dfrac{9}{2}$, $P = 4$.',
+          'The difference square: $(\\alpha - \\beta)^2 = S^2 - 4P = \\dfrac{81}{4} - 16 = \\dfrac{17}{4}$.',
+          'The absolute value: $|\\alpha - \\beta| = \\sqrt{\\dfrac{17}{4}} = \\dfrac{\\sqrt{17}}{2}$.',
+          'Audit: the formula roots $\\dfrac{9 \\pm \\sqrt{17}}{4}$ differ by exactly $\\dfrac{2\\sqrt{17}}{4} = \\dfrac{\\sqrt{17}}{2}$ — agree.',
+        ], answer: '$\\dfrac{\\sqrt{17}}{2}$' },
+        { q: 'The equation $x^2 - 13x + c = 0$ has consecutive positive integer roots. Find c.', solution: [
+          'Consecutive roots $n, n+1$: the gap is $1$, so $(\\alpha - \\beta)^2 = 1$.',
+          'The difference identity: $S^2 - 4P = 169 - 4c = 1$.',
+          'So, $c = \\dfrac{168}{4} = 42$.',
+          'Audit: $x^2 - 13x + 42 = (x - 6)(x - 7)$ — consecutive indeed.',
+        ], answer: '$c = 42$ (roots $6$ and $7$)' },
+        { q: 'Find every $k$ for which $x^2 - 6x + 8 = 0$ and $x^2 + kx - 10 = 0$ have a common root.', solution: [
+          'Factor the first: $(x - 2)(x - 4)$ — candidate seats $2$ and $4$.',
+          'Seat $2$: $4 + 2k - 10 = 0$ gives $k = 3$.',
+          'Seat $4$: $16 + 4k - 10 = 0$ gives $k = -\\dfrac{3}{2}$.',
+          'Determinant audit: the condition $18^2 = (60 - 8k)(k + 6)$ expands to $2k^2 - 3k - 9 = 0 = (2k+3)(k-3)$ — the same two values, route-independent.',
+        ], answer: '$k = 3$ (shared seat $2$) or $k = -\\dfrac{3}{2}$ (shared seat $4$)' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'The squared difference of the roots of $x^2 - px + 30 = 0$ is $49$. Find every possible p.', solution: [
+          'Reads: $S = p$, $P = 30$.',
+          'The difference identity: $(\\alpha - \\beta)^2 = S^2 - 4P = p^2 - 120 = 49$.',
+          'So, $p^2 = 169$ and $p = \\pm 13$.',
+          'Audit $p = 13$: $x^2 - 13x + 30 = (x - 3)(x - 10)$ — gap $7$, square $49$ ✓. Audit $p = -13$: $x^2 + 13x + 30 = (x + 3)(x + 10)$ — same gap.',
+        ], answer: '$p = \\pm 13$' },
+        { q: 'For $3x^2 - 6x + 2 = 0$, form the equation whose roots are $\\alpha^2$ and $\\beta^2$.', solution: [
+          'Reads: $S = 2$, $P = \\dfrac{2}{3}$; the squares read: $\\alpha^2 + \\beta^2 = S^2 - 2P = 4 - \\dfrac{4}{3} = \\dfrac{8}{3}$.',
+          'New product: $\\alpha^2\\beta^2 = P^2 = \\dfrac{4}{9}$.',
+          'New equation: $y^2 - \\dfrac{8}{3}y + \\dfrac{4}{9} = 0$, cleared by $9$: $9y^2 - 24y + 4 = 0$.',
+          'Numeric audit: the roots $1 \\pm \\tfrac{\\sqrt{3}}{3}$ square to $\\approx 2.488$ and $\\approx 0.179$, which are exactly the roots of $9y^2 - 24y + 4$ — the verifier agrees to nine decimals.',
+        ], answer: '$9y^2 - 24y + 4 = 0$' },
+        { q: 'If $a + b + c = 0$ (all nonzero), show that the three cyclic equations $ax^2 + bx + c = 0$, $bx^2 + cx + a = 0$ and $cx^2 + ax + b = 0$ share the root $1$. Verify on $(a, b, c) = (1, 2, -3)$.', solution: [
+          'Evaluate each left side at $x = 1$: $a + b + c$, $b + c + a$, $c + a + b$ — all three equal $0$ by hypothesis.',
+          'So, $x = 1$ is a root of all three equations: one shared seat across the trio.',
+          'Witness $(1, 2, -3)$: $x^2 + 2x - 3 = (x - 1)(x + 3)$; $2x^2 - 3x + 1 = (2x - 1)(x - 1)$; $-3x^2 + x + 2 = -(3x + 2)(x - 1)$.',
+          'Each carries the door $1$ (plus private doors $-3$, $\\tfrac{1}{2}$, $-\\tfrac{2}{3}$) — the $f(1) = 0$ free-root device, the same one the repeated-root section used.',
+        ], answer: '$x = 1$ satisfies each cyclic equation when $a + b + c = 0$ (witness verified)' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'x² + 4x + 10 = 0 has non-real roots. If ax² + bx + c = 0 with a, b, c ∈ ℕ shares a root of it, find the least value of a + b + c.', solution: [
+          'Discriminant: $D = 16 - 40 = -24 < 0$ — both roots non-real.',
+          'The shared root is non-real; the second equation has real coefficients, so its roots are a conjugate pair and BOTH roots are common.',
+          'Both common forces proportionality: $(a, b, c) = \\lambda(1, 4, 10)$ with $\\lambda \\in \\mathbb{N}$.',
+          'The sums: $15\\lambda$ — the least is $15$ at $\\lambda = 1$.',
+          'Brute-force audit: no natural triple with sum below $15$ is proportional to $(1, 4, 10)$ — the verifier confirms over all triples up to $30^3$.',
+        ], answer: '$15$' },
+        { q: 'Show that there is no real k for which $2x^2 + 3x + 5 = 0$ and $2x^2 + kx - 5 = 0$ have a common root.', solution: [
+          'The first discriminant: $D_1 = 9 - 40 = -31 < 0$ — non-real roots only.',
+          'A shared root would be non-real, forcing both roots common (real coefficients on the second equation), hence proportionality.',
+          'Proportionality demands $\\dfrac{2}{2} = \\dfrac{3}{k} = \\dfrac{5}{-5}$: the last ratio is $-1$ while the first is $1$ — already a contradiction.',
+          'The determinant route agrees: outer cross $5(2) - (-5)(2) = 20$ squares to $400$; inner $(3)(-5) - 5k = -15 - 5k$ and $2k - 6$; the condition $(-15 - 5k)(2k - 6) = 400$ expands to $-10(k^2 - 9) = 400$, that is $k^2 = -31$ — no real seat.',
+          'Both routes certify: no real $k$ exists.',
+        ], answer: 'no real $k$ exists ($k^2 = -31$ by the condition; proportionality contradicted directly)' },
+        { q: 'Show that $(a - b)x^2 + (b - c)x + (c - a) = 0$ has equal roots if and only if $2a = b + c$, and verify on a witness.', solution: [
+          'The free root first: $f(1) = (a - b) + (b - c) + (c - a) = 0$, so $x = 1$ always satisfies it.',
+          'The discriminant: $D = (b - c)^2 - 4(a - b)(c - a)$, which expands to $4a^2 + b^2 + c^2 + 2bc - 4ab - 4ac$.',
+          'Recognise: $D = (2a - b - c)^2$ — a perfect square, non-negative always, zero exactly at $2a = b + c$.',
+          'So, equal roots $\\Leftrightarrow D = 0 \\Leftrightarrow 2a = b + c$, and the double seat is the free root $1$.',
+          'Witness $(3, 2, 4)$: $2(3) = 2 + 4$ ✓, and the equation is $x^2 - 2x + 1 = (x - 1)^2$. Non-witness $(3, 2, 5)$: $x^2 - 3x + 2 = (x-1)(x-2)$, distinct.',
+        ], answer: 'equal roots $\\Leftrightarrow 2a = b + c$; $D = (2a - b - c)^2$; witness $(3, 2, 4)$' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'The equations x² + ax + 16 = 0, x² + bx + 20 = 0 and x² + (a + b)x + 52 = 0 have a common positive root. Find a and b, and name the structure the first equation hides.', solution: [
+          'Let $r$ be the common root; write all three: $r^2 + ar + 16 = 0$, $r^2 + br + 20 = 0$, $r^2 + (a+b)r + 52 = 0$.',
+          'Add the first two: $2r^2 + (a + b)r + 36 = 0$.',
+          'Subtract from the third: $-r^2 + 16 = 0$ — the lettered terms cancel: $r^2 = 16$, so $r = \\pm 4$.',
+          'The positive demand: $r = 4$. Back-substitute: $a = -\\dfrac{32}{4} = -8$ and $b = -\\dfrac{36}{4} = -9$.',
+          'Audit the third: $16 + 4(-17) + 52 = 0$ ✓.',
+          'The structure: $x^2 - 8x + 16 = (x - 4)^2$ — the common root is a REPEATED seat of the first equation, held doubly there and singly by the other two (roots $\\{4, 5\\}$ and $\\{4, 13\\}$): one shared seat, counted with multiplicity only in its own house.',
+        ], answer: '$a = -8$, $b = -9$; the first equation is $(x - 4)^2$' },
+        { q: 'Prove that the roots of $x^2 + px + q = 0$ and $x^2 + bx + c = 0$ are in the same ratio only if $p^2 c = b^2 q$, and verify the witness $(-5, 6, -10, 24)$.', solution: [
+          'Same ratio means $\\dfrac{\\alpha}{\\beta} = \\dfrac{\\gamma}{\\delta}$ for the respective root pairs.',
+          'Componendo and dividendo on both sides: $\\dfrac{\\alpha + \\beta}{\\alpha - \\beta} = \\dfrac{\\gamma + \\delta}{\\gamma - \\delta}$, hence $\\dfrac{(\\alpha + \\beta)^2}{(\\alpha - \\beta)^2} = \\dfrac{(\\gamma + \\delta)^2}{(\\gamma - \\delta)^2}$.',
+          'Substitute the reads: each side is $\\dfrac{S^2}{S^2 - 4P}$ — so $\\dfrac{p^2}{p^2 - 4q} = \\dfrac{b^2}{b^2 - 4c}$.',
+          'Cross-multiply and cancel $p^2b^2$ from both: $-4p^2c = -4b^2q$, that is $p^2c = b^2q$.',
+          'Witness $(-5, 6, -10, 24)$: $x^2 - 5x + 6 = (x - 2)(x - 3)$ and $x^2 - 10x + 24 = (x - 4)(x - 6)$ — both carry the ratio $2 : 3$, and $25 \\times 24 = 600 = 100 \\times 6$ ✓.',
+        ], answer: '$p^2 c = b^2 q$; witness ratios $2:3$ and $2:3$ with $600 = 600$' },
+      ] },
+    ] },
+
+    { kind: 'formula', name: "Viète's two reads", latex: '\\alpha + \\beta = -\\dfrac{b}{a}, \\qquad \\alpha\\beta = \\dfrac{c}{a}', note: 'Valid for every root type — the factorisation $a(x - \\alpha)(x - \\beta)$ is an identity, so the reads never need the roots computed.' },
+    { kind: 'formula', name: 'The reconstruction law', latex: 'x^2 - Sx + P = 0', note: 'The monic equation with prescribed sum and product; the general family $a(x^2 - Sx + P) = 0$ shares the same root set (the a-family).' },
+    { kind: 'formula', name: 'The symmetric inventory', latex: '\\alpha^2+\\beta^2 = S^2-2P;\\quad \\alpha^3+\\beta^3 = S^3-3PS;\\quad (\\alpha-\\beta)^2 = S^2-4P;\\quad \\dfrac{1}{\\alpha}+\\dfrac{1}{\\beta} = \\dfrac{S}{P};\\quad \\dfrac{\\alpha}{\\beta}+\\dfrac{\\beta}{\\alpha} = \\dfrac{S^2-2P}{P};\\quad \\alpha^4+\\beta^4 = (S^2-2P)^2-2P^2', note: 'Every symmetric read in one card; the square-root read $\\sqrt{S + 2\\sqrt{P}}$ is licensed only when $\\alpha, \\beta \\geq 0$.' },
+    { kind: 'formula', name: 'The power-sum recurrence', latex: 'T_{k+2} = -\\dfrac{b}{a}\\,T_{k+1} - \\dfrac{c}{a}\\,T_k, \\qquad T_0 = 2,\\ T_1 = S', note: 'Prices any $\\alpha^k + \\beta^k$ by iteration — the engine behind the high-power costumes (and the Lucas numbers inside $x^2 - x - 1 = 0$).' },
+    { kind: 'formula', name: 'The one-common-root condition', latex: '(c_1a_2 - c_2a_1)^2 = (b_1c_2 - b_2c_1)(a_1b_2 - a_2b_1), \\qquad \\alpha = \\dfrac{c_1a_2 - c_2a_1}{a_1b_2 - a_2b_1}', note: 'The outer cross squared equals the product of the two inner crosses; the common seat is a ratio of crosses.' },
+    { kind: 'formula', name: 'The both-common proportionality + the repeated seat', latex: '\\dfrac{a_1}{a_2} = \\dfrac{b_1}{b_2} = \\dfrac{c_1}{c_2}; \\qquad D = 0 \\Rightarrow x_0 = -\\dfrac{b}{2a}', note: 'Proportionality is the only both-common certificate (the conjugate notes force it for non-real/irrational shared roots); a repeated seat is still ONE shared door.' },
+  ],
+}
+
 export const chapter02: Chapter = {
   number: 2,
   slug: 'the-quadratic-at-depth',
@@ -780,6 +1177,6 @@ export const chapter02: Chapter = {
   summary:
     'Elementary Algebra settled the quadratic equation four ways; this chapter treats the quadratic as a working object. The vertex form becomes an optimization tool — maxima and minima priced without calculus, the range read off the fold and then used on real constraints. The equation grows into the inequality: the sign diagram, the discriminant trichotomy (two sign changes, one touch, constant sign), and the solution sets that AL 7.1–7.3’s linear work promised. Viète returns at competitive depth — symmetric expressions in the roots, common roots, forming equations with given roots — and the chapter closes with the JEE classic: conditions that pin both roots, or exactly one, inside a chosen interval. Every door metaphor AL coined for a root is now located on the line.',
   status: 'in-progress',
-  lessons: [lesson21, lesson22],
-  plannedLessons: ['Symmetric Reads and Common Roots', 'Location of Roots: Doors in Intervals'],
+  lessons: [lesson21, lesson22, lesson23],
+  plannedLessons: ['Location of Roots: Doors in Intervals'],
 }

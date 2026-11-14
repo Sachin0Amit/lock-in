@@ -3,7 +3,7 @@
   "project": "LockIn Library",
   "updated": "2026-11-15",
   "phase": "TOPIC-DEPTH AUDIT (2026-11-13, owner chat directive #2: AA 1.5's modulus/signum promised in the headings but missing their graphs and worked example — 'do such audits on already prewritten books or lessons'): the standing gate scripts/audit-content-completeness.ts grew rule A2 — any section heading naming a graphable function family (modulus, signum, GIF, fractional part, piecewise, envelope, exponential, logarithm, trig graphs, quadratic/parabola, reciprocal, hyperbola/ellipse) must carry BOTH its figure and worked craft INSIDE the section; graph-subject headings must contain a figure; congruence-modulus guarded out. Sweep of all 130 written lessons: 10 real errors → 0 after 8 new figures + 1 new worked example — AA 1.5 +5 (fare machine, modulus V + distance read, signum graph + size×sign rebuild, sawtooth pair-law witnesses, min-envelope) + modulus example; AA 1.7 +1 (four modulus wraps); AL 10.1 +1 (walls and probes on the identity section); FM 10.2 +1 (bar/line/pie chooser). Two REAL figure defects caught by the §4 pipeline and fixed: the FM pie's arcs (banana drew ~58°, guava ~178° — pixel measurement confirmed the VLM; endpoints fixed, re-measured 116/150/86) and the AL h = 0 probe vanishing under the y-axis (now thick amber dashes riding it, caption explicit). gifSawtooth's 15 pre-existing layer-1 overlaps repaired; |−3| = |3| = 6 → 3 in lessons 1.4 and 1.5. Verifiers re-pinned green with reasons (book4-ch01 figs 7/3; book3-ch10 1135/1135 incl. the two stale-at-HEAD snapshot pins — 9/12 AL chapters honest, 130 library lessons). Gates all green: audit PASS 0 errors, tsc clean, lint 0 errors, overlap 0 on all four touched lessons, e2e 45/0 × 3 viewports on aa-15/aa-17/al-101 + fm-102 smoke, all nine new figures VLM PASS. AA ch.1 remains COMPLETE from run 94. This deepens the earlier structural pass (commit 73221d6, 130 lessons, 0 errors) into the depth dimension the owner named.",
-  "awaiting": "run 101 authors AA 2.2 'Quadratic Inequalities and the Sign Diagram' (its verifier sections D/E are already green; the m2scan ground for 2.36–2.38 + 2.9–2.11 is banked in temporary-references/m2scan/), then 2.3 if the window allows; the unit review + chapter close ride the completing run. NOTE: the run-99 'awaiting' text here (author AA 1.7+1.8) was STALE — AA ch.1 had closed in run 94; run 100 planned from the shipped tree per the first-shipped-stands law and opened ch.2 instead.",
+  "awaiting": "run 103 authors AA 2.4 'Location of Roots: Doors in Intervals' STRICTLY FIRST (grow scripts/verify-book4-ch02.ts's 2.4 engine sections green BEFORE any prose; the four-condition system is 2.2's — 2.4 goes DEEPER: the full k-system, interleaving's proof-shape, Rolle's honesty note; module ground printed 2.31–2.37 — re-download the m2-02 PDF per SOURCE_LOG if temporary-references/ was wiped; banked transcription tr-2.36-2.38.txt may already cover part of it). The chapter-2 unit review + chapter close ride the COMPLETING run (2.4 + 2.R in the same run is allowed — the run-99 12.3 + 12.R precedent — but never a NEW chapter in the same run).",
   "platform": {
     "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
     "stack": "Next.js 16 App Router (SSG library routes + dynamic builder routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk · Prisma/SQLite (Custom Book Builder user data) · pdfjs-dist + poppler/tesseract (syllabus PDF extraction)",
@@ -111,10 +111,10 @@
         "status": "in-progress",
         "chaptersPlanned": 10,
         "chaptersWritten": 1,
-        "lessonsWritten": 11,
+        "lessonsWritten": 12,
         "lessonsPlanned": 57,
-        "termsAvailableForFlashcards": 40,
-        "notes": "PROMOTED (run 89) — 10 chapters / 57 planned lessons; ch. 1 'Functions as Objects' COMPLETE (9 lessons incl. the unit review, run 94; figure/depth audits rode later runs); ch. 2 'The Quadratic at Depth' OPENED (run 100): 2.1 'Vertex Form at Work: Maxima and Minima' written (4,597 words, quiz [1,1,2,1,2], 15 exercises, 2 figures, verifier 264/0), 2.2 'Quadratic Inequalities and the Sign Diagram' written (run 101 — 5,197 words, quiz [1,1,1,0,0], 14 exercises L1–L6, 2 figures, 1 derivation, 12 Illustrations, the location-question table, verifier 305/0, BOTH m2-02 hosted folds served as named subsections), 2.3–2.4 + the unit review remain (2.3 'Symmetric Reads and Common Roots' next — grow the verifier's 2.3 sections first per the master plan). aa- id prefix reserved."
+        "termsAvailableForFlashcards": 47,
+        "notes": "PROMOTED (run 89) — 10 chapters / 57 planned lessons; ch. 1 'Functions as Objects' COMPLETE (9 lessons incl. the unit review, run 94; figure/depth audits rode later runs); ch. 2 'The Quadratic at Depth' OPENED (run 100): 2.1 'Vertex Form at Work: Maxima and Minima' written (4,597 words, quiz [1,1,2,1,2], 15 exercises, 2 figures, verifier 264/0), 2.2 'Quadratic Inequalities and the Sign Diagram' written (run 101 — 5,197 words, quiz [1,1,1,0,0], 14 exercises L1–L6, 2 figures, 1 derivation, 12 Illustrations, the location-question table, verifier 305/0, BOTH m2-02 hosted folds served as named subsections), 2.3–2.4 + the unit review remain (2.3 'Symmetric Reads and Common Roots' next — grow the verifier's 2.3 sections first per the master plan). aa- id prefix reserved. Ch. 2 run 102: 2.3 'Symmetric Reads and Common Roots' written (5,837 words, quiz [2,1,0,2,0], 15 exercises L1–L6, both m2-02 folds hosted — 'Repeated Roots' named section + the both-common example-family with three worked examples; the determinant condition certified on a 160,000-pair grid; the m-hunt census {−7, 6} taught honestly; the Lucas power-sum engine; figures: the mirror read of x² − 6x + 5 and the shared-door pair x² − 4x + 3 / x² − 2x − 3)."
       },
       {
         "id": "geometry",
@@ -353,15 +353,15 @@
         "notes": "PLANNED (topic-inclusion guarantee pass, 2026-11-10) — 11 ch / 39 planned lessons, `qa-` prefix reserved; research: the Khattar aptitude census (40 chapters, khattar-qa-4e) + the EXAM_REGISTRY exam scope (CAT/SSC CGL/IBPS/SBI/RBI/CSAT/CA Foundation + SAT/GRE/GMAT quant word problems). The commercial-aptitude family's own home; no-duplication contract in the header. Authoring opens in backlog order after Advanced Algebra completes."
       }
     ],
-    "lessonsWritten": 138,
-    "wordsAuthored": 675570,
+    "lessonsWritten": 139,
+    "wordsAuthored": 681407,
     "termsAvailableForFlashcards": 1027,
     "totals": {
-      "lessons": 138,
-      "words": 675570,
-      "terms": 1027,
-      "quiz": 690,
-      "exercises": 1790
+      "lessons": 139,
+      "words": 681407,
+      "terms": 1034,
+      "quiz": 695,
+      "exercises": 1805
     },
     "chaptersWritten": 33,
     "chaptersInProgress": 1,
