@@ -3,7 +3,7 @@
   "project": "LockIn Library",
   "updated": "2026-11-15",
   "phase": "TOPIC-DEPTH AUDIT (2026-11-13, owner chat directive #2: AA 1.5's modulus/signum promised in the headings but missing their graphs and worked example — 'do such audits on already prewritten books or lessons'): the standing gate scripts/audit-content-completeness.ts grew rule A2 — any section heading naming a graphable function family (modulus, signum, GIF, fractional part, piecewise, envelope, exponential, logarithm, trig graphs, quadratic/parabola, reciprocal, hyperbola/ellipse) must carry BOTH its figure and worked craft INSIDE the section; graph-subject headings must contain a figure; congruence-modulus guarded out. Sweep of all 130 written lessons: 10 real errors → 0 after 8 new figures + 1 new worked example — AA 1.5 +5 (fare machine, modulus V + distance read, signum graph + size×sign rebuild, sawtooth pair-law witnesses, min-envelope) + modulus example; AA 1.7 +1 (four modulus wraps); AL 10.1 +1 (walls and probes on the identity section); FM 10.2 +1 (bar/line/pie chooser). Two REAL figure defects caught by the §4 pipeline and fixed: the FM pie's arcs (banana drew ~58°, guava ~178° — pixel measurement confirmed the VLM; endpoints fixed, re-measured 116/150/86) and the AL h = 0 probe vanishing under the y-axis (now thick amber dashes riding it, caption explicit). gifSawtooth's 15 pre-existing layer-1 overlaps repaired; |−3| = |3| = 6 → 3 in lessons 1.4 and 1.5. Verifiers re-pinned green with reasons (book4-ch01 figs 7/3; book3-ch10 1135/1135 incl. the two stale-at-HEAD snapshot pins — 9/12 AL chapters honest, 130 library lessons). Gates all green: audit PASS 0 errors, tsc clean, lint 0 errors, overlap 0 on all four touched lessons, e2e 45/0 × 3 viewports on aa-15/aa-17/al-101 + fm-102 smoke, all nine new figures VLM PASS. AA ch.1 remains COMPLETE from run 94. This deepens the earlier structural pass (commit 73221d6, 130 lessons, 0 errors) into the depth dimension the owner named.",
-  "awaiting": "run 100 opens the next unit: Advanced Algebra ch. 1 'Functions as Objects' — 1.7 + 1.8 then the unit-1 completion review per the run-89 promotion plan (read docs/research/AA_CH01_MASTER_PLAN.md at research time); never open a new chapter and close it plus review in one run — 1.8's review ships with the run that completes the chapter",
+  "awaiting": "run 101 authors AA 2.2 'Quadratic Inequalities and the Sign Diagram' (its verifier sections D/E are already green; the m2scan ground for 2.36–2.38 + 2.9–2.11 is banked in temporary-references/m2scan/), then 2.3 if the window allows; the unit review + chapter close ride the completing run. NOTE: the run-99 'awaiting' text here (author AA 1.7+1.8) was STALE — AA ch.1 had closed in run 94; run 100 planned from the shipped tree per the first-shipped-stands law and opened ch.2 instead.",
   "platform": {
     "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
     "stack": "Next.js 16 App Router (SSG library routes + dynamic builder routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk · Prisma/SQLite (Custom Book Builder user data) · pdfjs-dist + poppler/tesseract (syllabus PDF extraction)",
@@ -110,11 +110,11 @@
         "title": "Advanced Algebra",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 0,
-        "lessonsWritten": 9,
-        "lessonsPlanned": 35,
+        "chaptersWritten": 1,
+        "lessonsWritten": 10,
+        "lessonsPlanned": 57,
         "termsAvailableForFlashcards": 40,
-        "notes": "PROMOTED (run 89) — 10 chapters / 36 planned lessons; ch. 1 'Functions as Objects' in progress: 1.1–1.6 written (runs 90–92), 1.7 + 1.8 + unit review remain. aa- id prefix reserved."
+        "notes": "PROMOTED (run 89) — 10 chapters / 57 planned lessons; ch. 1 'Functions as Objects' COMPLETE (9 lessons incl. the unit review, run 94; figure/depth audits rode later runs); ch. 2 'The Quadratic at Depth' OPENED (run 100): 2.1 'Vertex Form at Work: Maxima and Minima' written (4,597 words, quiz [1,1,2,1,2], 15 exercises, 2 figures, verifier 264/0), 2.2–2.4 + the unit review remain (2.2 next — its pre-writing verifier sections D/E are already green). aa- id prefix reserved."
       },
       {
         "id": "geometry",
@@ -353,18 +353,18 @@
         "notes": "PLANNED (topic-inclusion guarantee pass, 2026-11-10) — 11 ch / 39 planned lessons, `qa-` prefix reserved; research: the Khattar aptitude census (40 chapters, khattar-qa-4e) + the EXAM_REGISTRY exam scope (CAT/SSC CGL/IBPS/SBI/RBI/CSAT/CA Foundation + SAT/GRE/GMAT quant word problems). The commercial-aptitude family's own home; no-duplication contract in the header. Authoring opens in backlog order after Advanced Algebra completes."
       }
     ],
-    "lessonsWritten": 136,
-    "wordsAuthored": 665776,
+    "lessonsWritten": 137,
+    "wordsAuthored": 670373,
     "termsAvailableForFlashcards": 1027,
     "totals": {
-      "lessons": 136,
-      "words": 665776,
+      "lessons": 137,
+      "words": 670373,
       "terms": 1027,
-      "quiz": 680,
-      "exercises": 1761
+      "quiz": 685,
+      "exercises": 1776
     },
-    "chaptersWritten": 32,
-    "chaptersInProgress": 0,
+    "chaptersWritten": 33,
+    "chaptersInProgress": 1,
     "termsDefined": 921,
     "quizItems": 680,
     "exerciseQuestions": 1761,
@@ -697,9 +697,9 @@
     "citationKeys": "NEW ncert-math7-gp-ch4 (gegp104) + ncert-math6-ch11 (matchstick charter) + ncert-math7-ch4 (Simple Equations, the balance-method charter); zero downloads"
   },
   "lastCompleted": {
-    "run": 90,
-    "date": "2026-11-11",
-    "what": "AA chapter 1 opened: lessons 1.1 (Relations: the Set-of-Pairs View) + 1.2 (One-One and Onto: Classifying the Machines) — the owner's full research protocol executed (Drive download, VLM page transcription, internet research, master plan, verify-first audit) and both lessons fully gated"
+    "run": 100,
+    "date": "2026-11-15",
+    "what": "AA ch. 2 OPENED: lesson 2.1 'Vertex Form at Work: Maxima and Minima' authored + fully gated (verify-first 232/0 pre-writing + 264/0 with the authored audit; e2e 45/45 x3 viewports; overlap 0/2 after 19+2 figure fixes; VLM light+dark PASS; 2.2 deferred by the time rule). The run-99 pointer's AA-1.7/1.8 directive was a stale-memory misread — the shipped tree showed ch.1 complete, so ch.2 opened per docs/research/AA_CH02_MASTER_PLAN.md."
   },
   "run55Extras": {
     "fired": "2026-11-05 23:11 IST from job 504365 (the correct two-lesson job; job 498279 idle this window — no ninth fire logged)",

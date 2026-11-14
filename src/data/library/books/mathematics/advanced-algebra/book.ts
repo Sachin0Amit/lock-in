@@ -1,5 +1,6 @@
 import type { Book, Chapter } from '../../../types'
 import { chapter01 } from './ch-01'
+import { chapter02 } from './ch-02'
 
 /**
  * Advanced Algebra — the fourth book of the Mathematics shelf.
@@ -104,21 +105,7 @@ import { chapter01 } from './ch-01'
  */
 const chapters: Chapter[] = [
   chapter01,
-  {
-    number: 2,
-    slug: 'the-quadratic-at-depth',
-    title: 'The Quadratic at Depth',
-    summary:
-      'Elementary Algebra settled the quadratic equation four ways; this chapter treats the quadratic as a working object. The vertex form becomes an optimization tool — maxima and minima priced without calculus, the range read off the fold and then used on real constraints. The equation grows into the inequality: the sign diagram, the discriminant trichotomy (two sign changes, one touch, constant sign), and the solution sets that AL 7.1–7.3’s linear work promised. Viète returns at competitive depth — symmetric expressions in the roots, common roots, forming equations with given roots — and the chapter closes with the JEE classic: conditions that pin both roots, or exactly one, inside a chosen interval. Every door metaphor AL coined for a root is now located on the line.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'Vertex Form at Work: Maxima and Minima',
-      'Quadratic Inequalities and the Sign Diagram',
-      'Symmetric Reads and Common Roots',
-      'Location of Roots: Doors in Intervals',
-    ],
-  },
+  chapter02,
   {
     number: 3,
     slug: 'complex-numbers',

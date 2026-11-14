@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-15",
+  "generated": "2026-11-14 22:40:39 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -3188,14 +3188,14 @@
                   "khattar-qa-4e"
                 ],
                 "blockCounts": {
-                  "para": 16,
+                  "para": 17,
                   "heading": 8,
                   "callout": 4,
                   "list": 3,
                   "table": 1,
                   "derivation": 2,
                   "equation": 2,
-                  "figure": 2,
+                  "figure": 3,
                   "example": 6,
                   "formula": 3,
                   "terms": 1,
@@ -3211,13 +3211,13 @@
                 "quizItems": 5,
                 "exercisesByLevel": {
                   "L1": 2,
-                  "L2": 2,
+                  "L2": 3,
                   "L3": 2,
                   "L4": 2,
                   "L5": 2,
                   "L6": 2
                 },
-                "exerciseQuestions": 12,
+                "exerciseQuestions": 13,
                 "termsDefined": 8
               },
               {
@@ -3357,7 +3357,7 @@
                 "termsDefined": 6
               }
             ],
-            "words": 12917
+            "words": 13668
           }
         ]
       },
@@ -9784,16 +9784,85 @@
             "slug": "the-quadratic-at-depth",
             "title": "The Quadratic at Depth",
             "summary": "Elementary Algebra settled the quadratic equation four ways; this chapter treats the quadratic as a working object. The vertex form becomes an optimization tool — maxima and minima priced without calculus, the range read off the fold and then used on real constraints. The equation grows into the inequality: the sign diagram, the discriminant trichotomy (two sign changes, one touch, constant sign), and the solution sets that AL 7.1–7.3’s linear work promised. Viète returns at competitive depth — symmetric expressions in the roots, common roots, forming equations with given roots — and the chapter closes with the JEE classic: conditions that pin both roots, or exactly one, inside a chosen interval. Every door metaphor AL coined for a root is now located on the line.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 1,
             "plannedLessons": [
-              "Vertex Form at Work: Maxima and Minima",
               "Quadratic Inequalities and the Sign Diagram",
               "Symmetric Reads and Common Roots",
               "Location of Roots: Doors in Intervals"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "aa-vertex-form-at-work-maxima-and-minima",
+                "number": "2.1",
+                "title": "Vertex Form at Work: Maxima and Minima",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4597,
+                "readMins": 23,
+                "concepts": [
+                  "the completion identity: ax² + bx + c = a(x + b/2a)² − D/4a",
+                  "the vertex (−b/2a, −D/4a) and the axis x = −b/2a",
+                  "the range law: a > 0 ⇒ [−D/4a, ∞), a < 0 ⇒ (−∞, −D/4a]",
+                  "the six sign cases and the always-sign law: a > 0 AND D ≤ 0",
+                  "max/min without calculus: the squared term is the whole argument",
+                  "the two-family gap: max f < min g as a quadratic condition on the parameter",
+                  "the discriminant-range method: real solutions force D ≥ 0"
+                ],
+                "objectives": [
+                  "derive the completion identity and read the vertex and axis from any quadratic in seconds",
+                  "state the range law in both directions and apply it without completing the square twice",
+                  "decide always-positive / always-negative questions with the conjunctive law, never half of it",
+                  "solve fence, number-pair and two-family optimization problems by locating the vertex",
+                  "rebuild a quadratic from its vertex and one value",
+                  "find the range of rational quadratic expressions by the discriminant method, with attainment checked"
+                ],
+                "prerequisites": [
+                  "al-completing-the-square-derived",
+                  "al-the-parabola-quadratic-graphs-and-vertices",
+                  "al-the-quadratic-formula-and-the-discriminant"
+                ],
+                "sources": [
+                  "cengage-m2-02",
+                  "cengage-jee-style",
+                  "ncert-math10-ch4-quadratic",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 9,
+                  "heading": 6,
+                  "derivation": 1,
+                  "callout": 7,
+                  "example": 10,
+                  "figure": 2,
+                  "table": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 5
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 2,
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 0
+              }
+            ],
+            "words": 4597
           },
           {
             "number": 3,
@@ -13443,13 +13512,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 237,
-      "totalLines": 112844,
+      "totalLines": 113123,
       "byArea": {
         "src/app (routes, pages)": 2109,
         "other": 10506,
         "src/components/library (reader platform)": 6059,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 81574,
+        "src/data/library (content model + books)": 81853,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -28149,6 +28218,174 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "6fd69570893ab7b7528dff34785aec88a7bb64b8",
+      "short": "6fd6957",
+      "date": "2026-11-14 13:49",
+      "message": "run 99: AL 12.3 'Continued Proportion, Mean Proportionals and Applications' + the 12.R unit review — chapter 12 CLOSES COMPLETE (4/4), the prewritten-books gap queue RETIRES, Elementary Algebra RE-COMPLETES (12 ch / 43 lessons / 200,202 words, book status 'complete'); verify-book3-ch12 G-H pre-writing 1583/0 (engines corrected the author's census pre-prose: 96 ladders not 257; six 4-term ladders incl. descending 8,4,2,1) + I authored audit, final 1778/0; e2e-al-123 + e2e-al-12r 45/45 x3 viewports each; overlap 0/3 (fig1 '=' label + review rail overflow fixed); domvalues CLEAN; VLM fig1+fig2+figR+light+dark PASS; H&K working copies deleted (unit completes)",
+      "filesChanged": 13,
+      "insertions": 1744,
+      "deletions": 70,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 18,
+          "del": 18
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 278,
+          "del": 32
+        },
+        {
+          "path": "scripts/e2e-al-123.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-123.sh",
+          "add": 86,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-12r.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-12r.sh",
+          "add": 86,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch12.ts",
+          "add": 591,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 18,
+          "del": 9
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-12.ts",
+          "add": 554,
+          "del": 5
+        }
+      ]
+    },
+    {
+      "sha": "4f35deea9b2823550e34c188db477e937e0c182c",
+      "short": "4f35dee",
+      "date": "2026-11-14 13:49",
+      "message": "worklog: run 99 sync record — remote HEAD verified == 6fd6957",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "c4e83a3f9deb77975d1e5f03d6d0cf6bb099a794",
+      "short": "c4e83a3",
+      "date": "2026-11-14 15:09",
+      "message": "audit: fm-patterns-and-rules — A:2fig+1fix B:7sol C:1bodyfig+1ex",
+      "filesChanged": 13,
+      "insertions": 617,
+      "deletions": 20,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 59,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 7,
+          "del": 5
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 5,
+          "del": 5
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "scripts/audit-bot-census-sync.ts",
+          "add": 63,
+          "del": 0
+        },
+        {
+          "path": "scripts/audit-bot-dump-figs.ts",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/audit-bot-pick-target.ts",
+          "add": 69,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-11.ts",
+          "add": 49,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-11.ts",
+          "add": 295,
+          "del": 3
+        }
+      ]
     }
   ],
   "totals": {
@@ -28156,26 +28393,26 @@
     "booksPlannedBacklog": 277,
     "booksLive": 28,
     "chaptersWritten": 34,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 136,
-    "wordsAuthored": 665025,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 137,
+    "wordsAuthored": 670373,
     "termsDefined": 1024,
-    "quizItems": 680,
-    "exerciseQuestions": 1761,
+    "quizItems": 685,
+    "exerciseQuestions": 1777,
     "blockTotals": {
-      "para": 1914,
-      "callout": 781,
-      "heading": 756,
+      "para": 1924,
+      "callout": 788,
+      "heading": 762,
       "list": 162,
       "terms": 134,
       "equation": 203,
-      "figure": 254,
-      "derivation": 254,
-      "table": 161,
-      "example": 612,
-      "quiz": 136,
-      "exercises": 136,
-      "formula": 431,
+      "figure": 257,
+      "derivation": 255,
+      "table": 162,
+      "example": 622,
+      "quiz": 137,
+      "exercises": 137,
+      "formula": 436,
       "algorithm": 27
     }
   }
