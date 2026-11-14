@@ -15,11 +15,20 @@ import { chapter12 } from './ch-12'
 /**
  * Elementary Algebra — the third book of the Mathematics shelf.
  *
- * STATUS: COMPLETE (run 88, 2026-11-10) — 11 chapters / 37 lessons,
- * authored unit by unit across runs 67–88 (two lessons per run, strictly
- * sequential, every number verifier-priced before prose). The full TOC
- * below is the researched chapter plan (11 chapters / 37 lessons) — fully
- * written. Authoring opened at chapter 1 in run 67 (1.1 + 1.2) and CLOSED it in run
+ * STATUS: COMPLETE (run 99, 2026-11-14) — 12 chapters / 41 lessons:
+ * runs 67-88 authored chapters 1-11 (37 lessons) unit by unit; the
+ * 2026-11-11 prewritten-books audit then found the missing classical
+ * layer (H&K XXXII: the algebraic ratio/proportion/variation chapter)
+ * and queued it as chapter 12 with three lessons; runs 97-98 shipped
+ * 12.1 + 12.2, and run 99 shipped 12.3 'Continued Proportion, Mean
+ * Proportionals and Applications' + the unit review 12.R — CLOSING the
+ * chapter (4/4 incl. the review), paying the gap queue in full and
+ * re-completing the book.
+ *
+ * The per-chapter history of the original 11-chapter arc: every lesson
+ * authored with two lessons per run, strictly sequential, every number
+ * verifier-priced before prose. Authoring opened at chapter 1 in run 67
+ * (1.1 + 1.2) and CLOSED it in run
  * 68 (1.3 + 1.4 + the unit-1 completion review): chapter 1 COMPLETE 4/4.
  * Chapter 2 opened in run 69 (2.1 + 2.2) and CLOSED in run 70 (2.3 + the
  * unit-2 completion review): chapter 2 COMPLETE 3/3. Chapter 3 'Polynomials'
@@ -138,9 +147,9 @@ import { chapter12 } from './ch-12'
  * lesson 4.5; (b) H&K XXVI — simultaneous quadratic equations (one
  * linear + one quadratic, symmetric systems) — queued as lesson 6.4;
  * (c) H&K XXXII + Khattar ch. 7 — the algebraic ratio/proportion/
- * variation layer — queued as the new chapter 12. Status flipped to
- * 'in-progress' until the gap lessons ship; the audit doc carries the
- * per-lesson authoring plans and the closure queue.
+ * variation layer — was queued as the new chapter 12, shipped across
+ * runs 97-99 (12.1, 12.2, 12.3 + the 12.R unit review), and the gap
+ * queue is now RETIRED — the book stands complete.
  */
 export const elementaryAlgebra: Book = {
   id: 'elementary-algebra',
@@ -150,7 +159,7 @@ export const elementaryAlgebra: Book = {
   level: 'Class 6–10 algebra → the doorway to higher algebra',
   description:
     'The book where arithmetic grows up. Foundation Mathematics opened the doorstep — patterns into formulas, a letter for the unknown; Arithmetic and Number Systems proved the ground the letters stand on. This book opens the door: expressions built and simplified by the laws, the exponent family completed with zero and negative powers, polynomials added, multiplied and divided, factorization as multiplication undone (with the remainder and factor theorems proved, not recited), linear equations settled by lawful balance, simultaneous equations by substitution and elimination, inequalities on the real line, algebraic fractions with their excluded values kept honest, and the quadratic equation finally met four ways — factoring, completing the square (derived), the quadratic formula (proved), and Viète’s roots-and-coefficients relations. Graphs turn every solution into geometry, and the book ends where algebra ends: at the idea of a function. Cross-references Foundation Mathematics and Arithmetic and Number Systems throughout; hands off to Advanced Algebra, Coordinate Geometry and Calculus.',
-  status: 'in-progress',
+  status: 'complete',
   accent: ['#65a30d', '#166534'],
   chapters: [
     chapter01,

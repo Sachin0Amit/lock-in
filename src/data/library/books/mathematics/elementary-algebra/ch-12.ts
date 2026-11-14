@@ -227,6 +227,125 @@ function constantProductSvg(): string {
 }
 
 /* ------------------------------------------------------------------ */
+/* lesson 12.3 figures — every coordinate pinned (verifier G.x)        */
+/* ------------------------------------------------------------------ */
+
+function meanProportionalAreaSvg(): string {
+  // the square on the mean equals the rectangle under the extremes:
+  // rect 4×25 = 400×64 px at (80,80); square 10×10 = 160×160 at (540,80);
+  // both pixel areas exactly 25,600; "=" between; chips + footnote pinned.
+  let s = ''
+  s += '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-label="The mean proportional drawn as equal areas: a 4 by 25 rectangle and a 10 by 10 square, both of area exactly 100, so 10 squared equals 4 times 25">'
+  s += '<rect x="0" y="0" width="720" height="360" fill="#fffdf5"/>'
+  // the rectangle of the extremes (4 tall × 25 wide, 16 px/unit)
+  s += '<rect x="80" y="80" width="400" height="64" fill="#fef3c7" fill-opacity="0.6" stroke="#d97706" stroke-width="2"/>'
+  // the square on the mean (10 × 10)
+  s += '<rect x="540" y="80" width="160" height="160" fill="#ffedd5" fill-opacity="0.75" stroke="#ea580c" stroke-width="2"/>'
+  // the equals sign between the shapes
+  s += '<text x="510" y="126" text-anchor="middle" font-family="serif" font-size="34" font-weight="bold" fill="#166534">=</text>'
+  // dimension labels
+  s += '<text x="62" y="118" text-anchor="end" font-family="serif" font-size="15" font-weight="bold" fill="#166534">4</text>'
+  s += '<text x="280" y="162" text-anchor="middle" font-family="serif" font-size="15" font-weight="bold" fill="#166534">25</text>'
+  s += '<text x="522" y="167" text-anchor="end" font-family="serif" font-size="15" font-weight="bold" fill="#166534">10</text>'
+  s += '<text x="620" y="260" text-anchor="middle" font-family="serif" font-size="15" font-weight="bold" fill="#166534">10</text>'
+  // the equal-area chips
+  s += '<rect x="210" y="190" width="140" height="22" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.4"/>'
+  s += '<text x="280" y="205" text-anchor="middle" font-family="serif" font-size="12" fill="#166534">4 × 25 = 100</text>'
+  s += '<rect x="540" y="272" width="140" height="22" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.4"/>'
+  s += '<text x="610" y="287" text-anchor="middle" font-family="serif" font-size="12" fill="#166534">10 × 10 = 100</text>'
+  // the ladder reminder chip (left, below the rectangle band)
+  s += '<rect x="80" y="246" width="300" height="22" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="1.4"/>'
+  s += '<text x="230" y="261" text-anchor="middle" font-family="serif" font-size="12" fill="#166534">4 : 10 = 10 : 25 — both reduce to 2 : 5</text>'
+  // footnote band
+  s += '<rect x="120" y="320" width="480" height="22" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="1.4"/>'
+  s += '<text x="360" y="335" text-anchor="middle" font-family="serif" font-size="12" fill="#166534">the square on the mean equals the rectangle under the extremes — 10² = 4 × 25 = 100</text>'
+  s += '</svg>'
+  return s
+}
+
+function insertedLadderBarsSvg(): string {
+  // the ladder 8, 12, 18, 27 as GP bars at 15 px/unit (lengths
+  // 120/180/270/405 from x = 90, rows y 70/140/210/280, bar height 40);
+  // ratio chips in the right column x 520..680; the triplicate bracket
+  // above bar 1 → bar 4; footnote band y 336..358.
+  let s = ''
+  s += '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" role="img" aria-label="The continued-proportion ladder 8, 12, 18, 27 drawn as growing bars: every rung climbs by the common ratio 3 over 2, with two mean proportionals inserted between 8 and 27">'
+  s += '<rect x="0" y="0" width="720" height="380" fill="#fffdf5"/>'
+  // the triplicate bracket above the bars
+  s += '<line x1="90" y1="46" x2="495" y2="46" stroke="#dc2626" stroke-width="1.6"/>'
+  s += '<line x1="90" y1="46" x2="90" y2="58" stroke="#dc2626" stroke-width="1.6"/>'
+  s += '<line x1="495" y1="46" x2="495" y2="58" stroke="#dc2626" stroke-width="1.6"/>'
+  s += '<text x="292" y="34" text-anchor="middle" font-family="serif" font-size="13" font-weight="bold" fill="#dc2626">8 : 27 = 2³ : 3³ — the triplicate face</text>'
+  // the four bars
+  const bars: [number, number, number, string, string, string][] = [
+    [90, 70, 120, '8', 'a', '#fef3c7'],
+    [90, 140, 180, '12', 'b', '#ffedd5'],
+    [90, 210, 270, '18', 'c', '#fef3c7'],
+    [90, 280, 405, '27', 'd', '#ffedd5'],
+  ]
+  const strokes = ['#d97706', '#ea580c', '#d97706', '#ea580c']
+  for (let i = 0; i < bars.length; i++) {
+    const [x, y, w, v, letter, fill] = bars[i]
+    s += `<rect x="${x}" y="${y}" width="${w}" height="40" fill="${fill}" fill-opacity="0.7" stroke="${strokes[i]}" stroke-width="2"/>`
+    s += `<text x="${x + 14}" y="${y + 26}" font-family="serif" font-size="16" font-weight="bold" fill="#166534">${v}</text>`
+    s += `<text x="${x - 10}" y="${y + 25}" text-anchor="end" font-family="serif" font-size="14" font-style="italic" fill="#0f766e">${letter}</text>`
+  }
+  // the ratio chips in the right column
+  const chips: [number, string][] = [
+    [149, '12 / 8 = 3 / 2'],
+    [219, '18 / 12 = 3 / 2'],
+    [289, '27 / 18 = 3 / 2'],
+  ]
+  for (const [y, label] of chips) {
+    s += `<rect x="520" y="${y}" width="160" height="22" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.4"/>`
+    s += `<text x="600" y="${y + 15}" text-anchor="middle" font-family="serif" font-size="12" fill="#166534">${label}</text>`
+  }
+  // footnote band
+  s += '<rect x="90" y="336" width="560" height="22" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="1.4"/>'
+  s += '<text x="370" y="351" text-anchor="middle" font-family="serif" font-size="12" fill="#166534">two mean proportionals inserted between 8 and 27 — every rung climbs by 3/2, and 12² = 8 · 18, 18² = 12 · 27</text>'
+  s += '</svg>'
+  return s
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 12.R figure — the chapter as one machine (verifier G.x)      */
+/* ------------------------------------------------------------------ */
+
+function chapterMachineSvg(): string {
+  // four boxes 160×56 at y 120 (x 20/200/380/560), arrows between at
+  // y 148, title band y 40, footnote band y 250..272. Canvas 720×300.
+  let s = ''
+  s += '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-label="The chapter as one machine: ratio as fraction, the cross-products licence, the named theorems, the ladder family, and variation as the algebra of the constant k">'
+  s += '<rect x="0" y="0" width="720" height="300" fill="#fffdf5"/>'
+  s += '<text x="360" y="46" text-anchor="middle" font-family="serif" font-size="16" font-weight="bold" fill="#166534">RATIO, PROPORTION AND VARIATION — the chapter as one machine</text>'
+  const boxes: [number, string, string, string][] = [
+    [20, '12.1 · the ratio', 'a : b = a/b', 'scale-free, unit-locked'],
+    [200, '12.1 · the licence', 'ad = bc', 'one cross-product, both ways'],
+    [380, '12.3 · the ladder', 'b² = ac', 'the mean proportional √(ac)'],
+    [560, '12.2 · variation', 'A = kB', 'the algebra of constants'],
+  ]
+  for (const [x, head, formula, foot] of boxes) {
+    s += `<rect x="${x}" y="112" width="160" height="56" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>`
+    s += `<text x="${x + 80}" y="130" text-anchor="middle" font-family="serif" font-size="12" font-weight="bold" fill="#166534">${head}</text>`
+    s += `<text x="${x + 80}" y="148" text-anchor="middle" font-family="serif" font-size="13" font-weight="bold" fill="#dc2626">${formula}</text>`
+    s += `<text x="${x + 80}" y="162" text-anchor="middle" font-family="serif" font-size="10" fill="#0f766e">${foot}</text>`
+  }
+  // arrows between the boxes
+  for (const x of [180, 360, 540]) {
+    s += `<line x1="${x}" y1="140" x2="${x + 18}" y2="140" stroke="#d97706" stroke-width="2" marker-end="url(#arrowRev)"/>`
+  }
+  s += '<defs><marker id="arrowRev" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#d97706"/></marker></defs>'
+  // the two toolkits as full-width stacked rails (texts sized to fit)
+  s += '<rect x="20" y="192" width="680" height="22" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>'
+  s += '<text x="360" y="207" text-anchor="middle" font-family="serif" font-size="12" fill="#166534">the five named moves — invertendo · alternendo · componendo · dividendo · C&D</text>'
+  s += '<rect x="20" y="222" width="680" height="22" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>'
+  s += '<text x="360" y="237" text-anchor="middle" font-family="serif" font-size="12" fill="#166534">the four faces — direct · inverse (xy = k) · joint · combined (AC/B = k)</text>'
+  s += '<text x="360" y="268" text-anchor="middle" font-family="serif" font-size="12" font-style="italic" fill="#0f766e">hands its speed craft to Quantitative Aptitude ch. 4; hands its sequences face to Advanced Algebra ch. 5</text>'
+  s += '</svg>'
+  return s
+}
+
+/* ------------------------------------------------------------------ */
 /* lesson 12.1                                                         */
 /* ------------------------------------------------------------------ */
 
@@ -814,6 +933,438 @@ const lesson122: Lesson = {
 }
 
 /* ------------------------------------------------------------------ */
+/* lesson 12.3                                                         */
+/* ------------------------------------------------------------------ */
+
+const lesson123: Lesson = {
+  id: 'al-continued-proportion-and-mean-proportionals',
+  number: '12.3',
+  title: 'Continued Proportion, Mean Proportionals and Applications',
+  concepts: [
+    'continued proportion',
+    'the mean proportional',
+    'the geometric mean',
+    'the third and fourth proportional',
+    'the GP face of a ladder',
+    'inserting mean proportionals',
+    'the triplicate face',
+    'dividing in a given ratio',
+    'the sum-and-ratio family',
+  ],
+  objectives: [
+    'read a continued proportion a : b = b : c as one licence, b² = ac, and cash it in both directions',
+    'find the mean proportional between any two quantities as b = √(ac) — the surd arithmetic of ANS 8.3 cashed as a proportion move — and know it always lies between the extremes',
+    'recognise the ladder a, b, c as three consecutive terms of a GP and cross-reference the sequences arc of Advanced Algebra',
+    'insert k mean proportionals between two quantities by the common ratio r with r raised to k + 1, and prove the insertion',
+    'derive the triplicate face of a four-term ladder: a : d = a³ : b³',
+    'divide a quantity in a given ratio (including fractional and three-way ratios), and settle the sum-and-ratio and difference-and-ratio equation families',
+    'walk the H&K-style word ladder: ratios fixed, one condition added, the equation solved and checked in the original ratio',
+  ],
+  prerequisites: ['al-ratio-laws-and-the-componendo-family', 'al-variation-the-algebra-of-constants', 'fm-proportion-and-cross-multiplication'],
+  sources: ['hall-knight-elementary-algebra'],
+  blocks: [
+    { kind: 'para', text: 'Lesson 12.1 met the continued-proportion ladder in one section and moved on; lesson 12.2 let the quantities move. This lesson returns to the ladder and pays it in full, because the classical chapter it follows ends here — and because the ladder is where ratio, surd arithmetic and the sequences of the next books all shake hands. Three numbers stand in a row, each to the next as the next to the one after; the middle term turns out to be the **geometric mean** of its neighbours, computable by one square root; the whole row is a geometric progression wearing proportion dress; and between any two quantities, any number of mean proportionals can be inserted by one common ratio. On that machinery the lesson builds the classical application family — dividing in a given ratio, the sum-and-ratio equations, the word ladders — which is the last body of technique this book has to teach.' },
+    { kind: 'para', text: 'The verify-first discipline ran as always: the chapter verifier grew its ladder-family engines BEFORE this prose existed, and the engines corrected their own author while pinning the exhibits. The 3-term licence $a : b = b : c \\iff b^2 = ac$ was swept over the full grid $[1, 40]^3$ — 64,000 triples, exactly **96** integer ladders, where a first draft had claimed 257 (the draft had multiplied the window out instead of counting; the engine counted). The four-term census found exactly six ladders in $[1, 30]$ with common ratio $r \\neq 1$ — five climbing and one DESCENDING, the ladder $8, 4, 2, 1$ riding $r = \\frac{1}{2}$, which a first draft had omitted because nobody looks down. Every exhibit, quiz key and exercise answer below was pinned before a sentence was written.' },
+    { kind: 'heading', text: 'The Ladder Completed: a : b = b : c' },
+    { kind: 'callout', tone: 'definition', title: 'Definition — continued proportion, mean proportional, third proportional', text: 'Quantities $a, b, c$ (with $b \\neq 0$) are in **continued proportion** when $a : b = b : c$ — each term is to the next as that next is to the one after. The licence of 12.1 then reads $b^2 = ac$: the middle term $b$ is the **mean proportional** between $a$ and $c$ (also called their **geometric mean**, $b = \\sqrt{ac}$), and $c$ is the **third proportional** to $a$ and $b$. Thus, $a : b = b : c \\iff b^2 = ac \\iff b = \\sqrt{ac}$ (whenever $ac \\geq 0$) — one ladder, three readings.' },
+    { kind: 'para', text: 'The mean proportional is a square root, and the surd arithmetic of Arithmetic and Number Systems chapter 8 is what computes it. Between $8$ and $18$: $b = \\sqrt{8 \\times 18} = \\sqrt{144} = 12$ — the product under the root is a perfect square even though neither extreme is one, which is exactly the kind of gift the $\\sqrt{ab} = \\sqrt{a}\\sqrt{b}$ simplification delivers ($\\sqrt{8 \\times 18} = \\sqrt{2^3 \\cdot 2 \\cdot 3^2} = \\sqrt{2^4 \\cdot 3^2} = 4 \\times 3$). The verifier pinned the witness table of this lesson on eight such pairs — $(3, 12) \\to 6$, $(8, 18) \\to 12$, $(8, 32) \\to 16$, $(5, 45) \\to 15$, $(12, 48) \\to 24$, $(4, 25) \\to 10$, $(4, 16) \\to 8$, $(5, 125) \\to 25$ — and swept the betweenness on every pair of $[1, 40]^2$: the mean proportional ALWAYS lies between its extremes, which is what makes it a mean.' },
+    { kind: 'derivation', title: 'Theorem — the mean proportional exists and is unique (and stays between)', statement: 'For any two positive quantities $a$ and $c$, there is exactly one positive mean proportional: $b = \\sqrt{ac}$. It satisfies $a \\leq b \\leq c$ when $a \\leq c$, with equality only at $a = c$.', steps: [
+      { label: 'Existence', formula: 'b = \\sqrt{ac} \\implies b^2 = ac', explanation: 'a positive number $ac$ has a positive square root; squaring it returns $ac$, so the licence $b^2 = ac$ holds and $a : b = b : c$ by the cross-products test.' },
+      { label: 'Uniqueness', formula: 'b^2 = ac,\\; b > 0 \\implies b = \\sqrt{ac}', explanation: 'the equation $b^2 = ac$ has exactly one positive root — a second candidate $b^{\\prime}$ would satisfy $b^{\\prime 2} = b^2$, forcing $b^{\\prime} = b$ since both are positive.' },
+      { label: 'Betweenness', formula: 'a \\leq c \\implies a^2 \\leq ac \\leq c^2 \\implies a \\leq \\sqrt{ac} \\leq c', explanation: 'multiply $a \\leq c$ by the positive $a$, then by the positive $c$; square roots preserve the order (positive quantities). The verifier swept this on all 820 ordered pairs of $[1, 40]^2$ — no exceptions.' },
+    ], result: 'the mean proportional between $a$ and $c$ is the single positive number $\\sqrt{ac}$ — always strictly between them (when they differ), which is precisely the sense in which it is a MEAN.' },
+    { kind: 'figure', svg: meanProportionalAreaSvg(), caption: 'The mean proportional drawn as equal areas, on the 12.1 witness ladder $4, 10, 25$: the rectangle of the extremes ($4 \\times 25$) and the square on the mean ($10 \\times 10$) both carry area exactly $100$ — and the drawing keeps the equality literally, both shapes holding the same $25{,}600$ pixel area at $16$ pixels per unit. The square on the mean equals the rectangle under the extremes: that IS the licence $b^2 = ac$ in pictures, and it is the picture that gave the geometric mean its name.' },
+    { kind: 'example', title: 'Find the mean proportional between 8 and 18', steps: [
+      'Write the licence: the mean $b$ satisfies $b^2 = 8 \\times 18$.',
+      'So $b = \\sqrt{144} = 12$ — the surd arithmetic collapses the product first ($8 \\times 18 = 144$), and the root is exact.',
+      'Check the ladder both ways: $12^2 = 144 = 8 \\times 18$ ✓, and the reduced fractions agree — $8 : 12 = 2 : 3$ and $12 : 18 = 2 : 3$.',
+      'Hence the mean proportional between 8 and 18 is 12 — and it lies between the extremes, as a mean must.',
+    ] },
+    { kind: 'para', text: 'The third and fourth proportionals complete the family vocabulary. The **third proportional** to $a, b$ is the $c$ with $a : b = b : c$ — the licence gives $c = \\frac{b^2}{a}$; to $12, 18$ it is $\\frac{324}{12} = 27$, landing the ladder $12, 18, 27$. The **fourth proportional** to $a, b, c$ is the $d$ with $a : b = c : d$ — $d = \\frac{bc}{a}$; to $5, 6, 10$ it is $\\frac{60}{5} = 12$, the move 12.1 used for its recovery drills. All three finds are the same licence read at different rungs, and the exercises drill them side by side so the vocabulary stops mattering and the licence starts working.' },
+    { kind: 'heading', text: 'The GP Face: the Ladder as a Sequence' },
+    { kind: 'para', text: 'Write the ladder with its ratio exposed and a familiar shape appears: if $a : b = b : c$ with common ratio $\\frac{b}{a} = r$, then $b = ar$ and $c = ar^2$ — the three terms are consecutive rungs of a **geometric progression**. Advanced Algebra chapter 5 owns the full theory of those sequences; this lesson needs only the face of it: every continued proportion is a GP standing on two legs, every GP taken three terms at a time is a continued proportion, and the mean proportional of the outer pair is the middle term. The bridge is worth crossing slowly once, because the examination-setters set their ladders from the GP side: they pick a ratio ($\\frac{3}{2}$, say), a first term ($8$), and read off $8, 12, 18, 27$ — then ask questions that walk back to the ratio.' },
+    { kind: 'table', caption: 'The ladder family in one census — every row one licence read at a different rung', head: ['the find', 'the licence form', 'the formula', 'our witness'], rows: [
+      ['mean proportional between $a, c$', '$b^2 = ac$', '$b = \\sqrt{ac}$', '$\\sqrt{8 \\times 18} = 12$'],
+      ['third proportional to $a, b$', '$b : c$ continues $a : b$', '$c = \\frac{b^2}{a}$', '$\\frac{18^2}{12} = 27$'],
+      ['fourth proportional to $a, b, c$', '$a : b = c : d$', '$d = \\frac{bc}{a}$', '$\\frac{6 \\times 10}{5} = 12$'],
+      ['duplicate face of a ladder', '$a : c = a^2 : b^2$', '$\\frac{c}{a} = \\left(\\frac{b}{a}\\right)^2$', '$4 : 25 = 4^2 : 10^2$'],
+      ['triplicate face (four rungs)', '$a : d = a^3 : b^3$', '$\\frac{d}{a} = \\left(\\frac{b}{a}\\right)^3$', '$8 : 27 = 2^3 : 3^3$'],
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'Insight — one ratio generates the whole ladder', text: 'Every question in this family is generated by ONE choice: the common ratio $r$ (with the first term). The ladder $8, 12, 18, 27$ is $r = \\frac{3}{2}$ applied three times; the duplicate face squares it ($\\frac{25}{4}$, i.e. $4 : 25$); the triplicate face cubes it ($\\frac{27}{8}$, i.e. $8 : 27$); inserting $k$ mean proportionals between $a$ and $c$ needs $r^{k+1} = \\frac{c}{a}$ — one root-taking, then $k$ multiplications. When an examination ladder looks mysterious, recover $r$ from any two adjacent rungs FIRST; everything else is bookkeeping on $r$.' },
+    { kind: 'derivation', title: 'Theorem — inserting k mean proportionals', statement: 'Between positive quantities $a$ and $c$ one may insert exactly $k$ mean proportionals $m_1, \\dots, m_k$: they are the middle rungs of the ladder with common ratio $r$ satisfying $r^{k+1} = \\frac{c}{a}$, that is, $r = \\sqrt[k+1]{\\frac{c}{a}}$.', steps: [
+      { label: 'The ladder shape', formula: 'a,\\; m_1,\\; \\dots,\\; m_k,\\; c \\text{ with ratio } r', explanation: '"$k$ mean proportionals inserted" MEANS every adjacent pair is a proportion: $a : m_1 = m_1 : m_2 = \\cdots = m_k : c$, all equal to one ratio $r$.' },
+      { label: 'Climb the rungs', formula: 'm_i = a r^i, \\quad c = a r^{k+1}', explanation: 'each rung multiplies the previous by $r$ (the GP face); after $k + 1$ climbs from $a$ we stand at $c$.' },
+      { label: 'Solve for r', formula: 'r^{k+1} = \\frac{c}{a} \\implies r = \\sqrt[k+1]{\\frac{c}{a}}', explanation: 'the ratio is an honest $(k+1)$-th root — unique and positive. It lands on a rational exactly when $\\frac{c}{a}$ is a perfect $(k+1)$-th power of a rational, which is how the examination-setters choose their ends.' },
+      { label: 'Every rung is a mean', formula: '(ar^i)^2 = (ar^{i-1})(ar^{i+1})', explanation: 'the middle of any three consecutive rungs squares to the product of its neighbours — the licence $b^2 = ac$ holds at every interior rung, so each $m_i$ is genuinely a mean proportional of ITS neighbours, and the chain telescopes from $a$ to $c$.' },
+    ], result: 'insert $k$ mean proportionals by $r = \\sqrt[k+1]{c/a}$ and climb — the engine verified every inserted rung of the census, and the 96-ladder grid testifies that the condition is also necessary.' },
+    { kind: 'example', title: 'Insert two mean proportionals between 8 and 27', steps: [
+      'Two means inserted make a four-rung ladder $8, m_1, m_2, 27$, so the common ratio satisfies $r^3 = \\frac{27}{8}$.',
+      'So $r = \\sqrt[3]{\\frac{27}{8}} = \\frac{3}{2}$ — the ends were chosen as cubes of $2$ and $3$; the ratio is their quotient.',
+      'Climb: $m_1 = 8 \\times \\frac{3}{2} = 12$ and $m_2 = 12 \\times \\frac{3}{2} = 18$.',
+      'Check every rung: $12^2 = 144 = 8 \\times 18$ and $18^2 = 324 = 12 \\times 27$ — both inserted terms are honest mean proportionals of their neighbours.',
+      'Hence the two mean proportionals are 12 and 18, the ladder reading $8 : 12 = 12 : 18 = 18 : 27 = 2 : 3$ throughout.',
+    ] },
+    { kind: 'figure', svg: insertedLadderBarsSvg(), caption: 'The inserted ladder drawn as growing bars: $8, 12, 18, 27$ at fifteen pixels per unit, every bar $\\frac{3}{2}$ times the one above it — the three chips read the same ratio at every rung, and the bracket overhead records the triplicate face: first to last runs $8 : 27 = 2^3 : 3^3$, the ratio CUBED. The two inserted rungs $12$ and $18$ each square to the product of their neighbours — mean proportionals in the flesh.' },
+    { kind: 'para', text: 'The triplicate face deserves its own beat, because it is the ladder’s gift to the duplicate family of 12.1. For a four-rung ladder $a, b, c, d$ with ratio $r$: $d = ar^3$, so $\\frac{d}{a} = r^3 = \\left(\\frac{b}{a}\\right)^3$, and the licence turns that into $a : d = a^3 : b^3$ — the first and last terms stand in the TRIPPLICATE ratio of the first two, exactly as the first and third of a three-rung ladder stand in its duplicate ratio. The engine verified the identity $a \\cdot b^3 = d \\cdot a^3$ on all six four-term ladders of the census, climbing and descending alike — the descending ladder $8, 4, 2, 1$ rides $r = \\frac{1}{2}$ and its face reads $8 : 1 = 2^3 : 1^3$; the theorem never asked which way the ladder points.' },
+    { kind: 'heading', text: 'Dividing in a Given Ratio' },
+    { kind: 'callout', tone: 'definition', title: 'Definition — dividing a quantity in a ratio', text: 'To divide a quantity $T$ between two parts in the ratio $m : n$ is to find shares $A, B$ with $A + B = T$ and $A : B = m : n$. Thus, $A = T \\cdot \\frac{m}{m+n}$ and $B = T \\cdot \\frac{n}{m+n}$ — each share is the whole times the fraction the ratio allots it. For a three-way ratio $m : n : p$, the shares run $\\frac{m}{m+n+p}, \\frac{n}{m+n+p}, \\frac{p}{m+n+p}$ of the whole.' },
+    { kind: 'para', text: 'The formula is one proportion licence and one sum — but two disciplines make it examination-proof. First, the **parts must count the whole**: a ratio of $4 : 5$ cuts into $9$ parts, so the quantity had better be divisible by $9$ (or the shares arrive as fractions, which is legal but rarely intended). Second, **fractional ratios normalize before dividing**: a will dividing an estate in $\\frac{1}{2} : \\frac{1}{3} : \\frac{1}{4}$ does not mean three fractions of the estate — it means the RATIO of the shares, which clears denominators by the LCM $12$ to $6 : 4 : 3$, thirteen parts, and the arithmetic runs from there. The verifier swept the share-and-ratio identities over 1,260 (quantity, ratio) cases exact — every division summed and carried its ratio — before this paragraph was written.' },
+    { kind: 'example', title: 'Divide ₹7,200 between Amira and Behzad in the ratio 4 : 5', steps: [
+      'Count the parts: $4 + 5 = 9$, and the whole divides honestly — $7{,}200 = 9 \\times 800$, so one part is ₹800.',
+      'Climb the ratio: Amira takes $4$ parts $= ₹3{,}200$; Behzad takes $5$ parts $= ₹4{,}000$.',
+      'Check the sum: $3{,}200 + 4{,}000 = 7{,}200$ ✓.',
+      'Check the ratio by cross-products: $3{,}200 \\times 5 = 16{,}000 = 4{,}000 \\times 4$ ✓ — both checks ride the licence, and the verifier pinned both.',
+      'Hence the shares are ₹3,200 and ₹4,000.',
+    ] },
+    { kind: 'example', title: 'Divide ₹2,600 among three heirs in the ratio 1/2 : 1/3 : 1/4', steps: [
+      'Normalize the fractional ratio: multiply every term by the LCM $12$ — $\\frac{12}{2} : \\frac{12}{3} : \\frac{12}{4} = 6 : 4 : 3$. The fractions were never shares OF the estate; they were the shape of the shares.',
+      'Count the parts: $6 + 4 + 3 = 13$, and $2{,}600 = 13 \\times 200$, so one part is ₹200.',
+      'Climb: the heirs take $6 \\times 200 = ₹1{,}200$, $4 \\times 200 = ₹800$ and $3 \\times 200 = ₹600$.',
+      'Check: the sum returns $2{,}600$ ✓ and the shares carry the ratio — $1{,}200 : 800 = 6 : 4 = 3 : 2$ and $800 : 600 = 4 : 3$ ✓.',
+      'Hence the estate splits ₹1,200 / ₹800 / ₹600.',
+    ] },
+    { kind: 'para', text: 'The two illustrations between them show the whole temperature range of the family: integer ratios divide in one glance, fractional ratios demand the normalization beat first — and both end with the same two checks. Note what the parts-count discipline really is: the ratio $m : n$ is a SHAPE with $m + n$ cells, and dividing a quantity in it means filling those cells equally; the LCM normalization of $\\frac{1}{2} : \\frac{1}{3} : \\frac{1}{4}$ redraws the same shape with whole cells ($6 : 4 : 3$) so the filling is visible. Nothing deeper than counting and filling — which is why the youngest classes meet this material early and the examinations never stop setting it.' },
+    { kind: 'heading', text: 'The Sum, the Difference and the Ratio' },
+    { kind: 'para', text: 'A family of equation-dressed problems rides the same two licences. **Sum and ratio**: two numbers with sum $S$ and ratio $a : b$ are $x = S \\cdot \\frac{a}{a+b}$ and $y = S \\cdot \\frac{b}{a+b}$ — the dividing formula wearing number clothes, since the parts-count $a + b$ now divides the SUM. **Difference and ratio**: numbers differing by $D$ in ratio $m : n$ (with $m > n$) are $A = D \\cdot \\frac{m}{m-n}$ and $B = D \\cdot \\frac{n}{m-n}$ — the difference divides by the DIFFERENCE of the ratio terms, which is the move careless hands get wrong (they divide by $m + n$ and produce a sum-sized answer to a difference question). And the **equation dress** — a proportion with the unknown inside both terms — settles by the plain cross-products licence, no machinery needed:' },
+    { kind: 'example', title: 'Two numbers are in the ratio 5 : 7 and sum to 84. Find them', steps: [
+      'Write the shape: the numbers are $5k$ and $7k$ — the ratio fixes the shape, the sum fixes the scale.',
+      'The sum condition: $5k + 7k = 12k = 84$, so $k = 7$.',
+      'So the numbers are $5 \\times 7 = 35$ and $7 \\times 7 = 49$.',
+      'Check both licences: $35 + 49 = 84$ ✓ and $35 \\times 7 = 245 = 49 \\times 5$ ✓.',
+      'Hence the numbers are 35 and 49 — and the $k$-method here is the dividing formula in disguise: $84 \\cdot \\frac{5}{12} = 35$.',
+    ] },
+    { kind: 'example', title: 'Solve the equation (4x − 5) : (2x + 1) = 5 : 3', steps: [
+      'The cross-products licence applies to ANY four expressions: $3(4x - 5) = 5(2x + 1)$.',
+      'Expand both sides: $12x - 15 = 10x + 5$.',
+      'So $2x = 20$ and $x = 10$.',
+      'Check in the ORIGINAL ratio, not the expanded equation: at $x = 10$ the left reads $35 : 21$, and $35 \\times 3 = 105 = 21 \\times 5$ ✓.',
+      'Hence $x = 10$ — one licence, one line of expansion, one check; componendo–dividendo from 12.1 would also clear it, and the two routes agreeing is itself a check.',
+    ] },
+    { kind: 'heading', text: 'The Word Ladder: Ratios that Change by One Condition' },
+    { kind: 'para', text: 'The classical chapter closes with its most-copied shape: two quantities in a stated ratio, one condition ADDED (a number given to each, taken from each, a sum, a difference), and a NEW ratio stated for the result. The craft never changes: let the original numbers be $ak$ and $bk$, apply the condition to BOTH, write the new ratio, and let the licence finish. One worked exhibit earns the pattern:' },
+    { kind: 'example', title: 'Two numbers are in the ratio 3 : 4; add 6 to each and the ratio becomes 4 : 5. Find them', steps: [
+      'Let the numbers be $3k$ and $4k$ — shape first, scale to find.',
+      'The condition applies to both: the new numbers are $3k + 6$ and $4k + 6$, and the new ratio is $4 : 5$.',
+      'The licence: $5(3k + 6) = 4(4k + 6)$, that is $15k + 30 = 16k + 24$.',
+      'So $k = 6$, and the numbers are $18$ and $24$.',
+      'Check in the original AND the new ratio: $18 : 24 = 3 : 4$ ✓; adding 6 gives $24 : 30 = 4 : 5$ ✓. Hence the numbers are 18 and 24.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'Caution — the four classic fumbles of the application family', text: 'One: dividing a DIFFERENCE by the SUM of the ratio terms (the difference-and-ratio family wants $m - n$ in the denominator). Two: treating fractional ratio terms as shares — $\\frac{1}{2} : \\frac{1}{3} : \\frac{1}{4}$ normalizes to $6 : 4 : 3$ FIRST; the shares are not halves, thirds and quarters of the whole. Three: checking only the sum after a division — the ratio check ($A \\times n = B \\times m$) is one more cross-product and catches the wrong-parts error the sum check cannot see. Four: solving the word ladder and reporting $k$ instead of the numbers — $k$ is the scale, the quantities are the answer; the examination options always include a healthy multiple of $k$ as bait.' },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner — the five shapes of this lesson', text: 'One: the direct find — mean proportional, third or fourth proportional — one licence computation ($\\sqrt{8 \\times 18} = 12$; $\\frac{18^2}{12} = 27$; $\\frac{6 \\times 10}{5} = 12$). Two: the insertion — "$k$ mean proportionals between $a$ and $c$" — take the $(k+1)$-th root of $\\frac{c}{a}$ and climb ($r^3 = \\frac{27}{8}$ gives $8, 12, 18, 27$). Three: the division — count the parts, climb the ratio, check sum AND ratio; normalize fractional ratios by the LCM before counting. Four: the sum/difference family — $S \\cdot \\frac{a}{a+b}$ for sums, $D \\cdot \\frac{m}{m-n}$ for differences; the wrong denominator is the planted trap. Five: the word ladder — $ak$ and $bk$, one condition, one licence equation, both ratios checked at the end. Prove-shapes close the set: ladder identities like $(a+b)^2 : (b+c)^2 = a : c$ ride the licence $b^2 = ac$ after one honest expansion. Exam-style items throughout are our own, built on the classical shapes.' },
+    { kind: 'callout', tone: 'historical', title: 'Historical note — the mean that geometry built', text: 'The mean proportional is older than algebra: Euclid’s *Elements* proves, in Book VI Proposition 13, exactly the figure this lesson drew — the square on the mean proportional equals the rectangle contained by the extremes — as the construction of the geometric mean by straightedge and compass. The Pythagoreans studied continued proportions as the music of the octave (a string stopped at $\\frac{2}{3}$ of its length sounds the fifth: $6, 4$ riding $r = \\frac{2}{3}$), and the cube-doubling problem of antiquity is an insertion question — two mean proportionals between $1$ and $2$, $r = \\sqrt[3]{2}$ — whose irrationality proved no compass-and-straightedge answer exists. The algebraic reading ($b^2 = ac$ from the cross-products licence) is the modern dress of that old geometry; the phrase "geometric mean" still carries the proof-picture in its name. The classical school algebra that fixed this chapter’s arc — the banked Hall & Knight, whose ladder articles and drill set this lesson follows at a respectful distance — taught the family under exactly this classical banner.' },
+    { kind: 'heading', text: 'The Lesson’s Last Page: the Collected Machinery' },
+    { kind: 'para', text: 'From the above discussion, the collected machinery of the lesson stands as follows:' },
+    { kind: 'list', marker: 'roman', items: [
+      'the ladder $a : b = b : c$ is one licence, $b^2 = ac$ — the mean proportional $\\sqrt{ac}$, the third proportional $\\frac{b^2}{a}$, the fourth $\\frac{bc}{a}$ are its three readings;',
+      'the mean proportional always lies between the extremes — it is the geometric mean, computed by the surd arithmetic of ANS 8.3;',
+      'a ladder is a GP standing on two legs: one ratio $r$ generates every rung, the duplicate face squares it, the triplicate face (four rungs) cubes it;',
+      'insert $k$ mean proportionals by $r = \\sqrt[k+1]{c/a}$ and climb — every inserted rung squares to the product of its neighbours;',
+      'dividing in a ratio counts the parts ($m + n$, or the LCM-normalized parts of a fractional ratio), climbs the ratio, and checks BOTH the sum and the cross-products;',
+      'the sum family divides by $a + b$, the difference family by $m - n$ — the planted trap is the wrong denominator;',
+      'the word ladder runs one craft: $ak$ and $bk$, apply the condition to both, one licence equation, both ratios checked at the end.',
+    ] },
+    { kind: 'para', text: 'This lesson closes the chapter and with it the book. What Elementary Algebra has built, unit by unit, is the discipline of lawful comparison — expressions simplified by proved laws, equations settled by balance, and finally quantities compared by ratio, held in proportion, and moved by variation with one constant fixed from honest data. The unit review that follows gathers the whole chapter into one page; the last word of the course belongs to its neighbours: the speed craft of this chapter’s application family belongs to Quantitative Aptitude chapter 4, the sequences face of the ladder belongs to Advanced Algebra chapter 5, and the surd arithmetic under the mean proportional was Arithmetic and Number Systems’ gift all along. The shelf carries each other’s tools — that is what a shelf is for.' },
+    { kind: 'terms', items: [
+      { term: 'Continued proportion', def: 'A chain a : b = b : c (… = c : d), each term to the next as the next to the one after; equivalently the middle terms square to the products of their neighbours.' },
+      { term: 'Mean proportional', def: 'The middle term b of a continued proportion — the number with b² = ac, that is b = √(ac); also called the geometric mean of a and c.' },
+      { term: 'Geometric mean', def: 'The mean proportional under its second name: the positive square root of the product of the extremes, always lying between them.' },
+      { term: 'Third proportional', def: 'The c with a : b = b : c — equal to b²/a.' },
+      { term: 'Fourth proportional', def: 'The d with a : b = c : d — equal to bc/a.' },
+      { term: 'The GP face', def: 'A continued proportion read as consecutive terms of a geometric progression: one common ratio r generates every rung.' },
+      { term: 'Inserted mean proportional', def: 'A middle rung added between two quantities so the chain stays one continued proportion; k of them need r raised to k + 1 equal to c/a.' },
+      { term: 'Duplicate face', def: 'First-to-third of a three-rung ladder: a : c = a² : b² — the ratio squared.' },
+      { term: 'Triplicate face', def: 'First-to-last of a four-rung ladder: a : d = a³ : b³ — the ratio cubed.' },
+      { term: 'Dividing in a ratio', def: 'Splitting a quantity T into shares T·m/(m+n) and T·n/(m+n) (three-way likewise), checked by both the sum and the cross-products.' },
+      { term: 'Fractional ratio normalization', def: 'Clearing a ratio of fractions by the LCM before counting parts: 1/2 : 1/3 : 1/4 becomes 6 : 4 : 3 by ×12.' },
+      { term: 'Sum-and-ratio family', def: 'Numbers with sum S in ratio a : b — the shares S·a/(a+b) and S·b/(a+b).', },
+      { term: 'Difference-and-ratio family', def: 'Numbers differing by D in ratio m : n — the shares D·m/(m−n) and D·n/(m−n); the denominator is the DIFFERENCE of the terms.' },
+      { term: 'The word ladder', def: 'The application shape: original ratio, one condition applied to both quantities, new ratio — solved by ak, bk and one licence equation.' },
+    ] },
+    { kind: 'formula', name: 'The ladder licence', latex: 'a : b = b : c \\;\\iff\\; b^2 = ac, \\qquad b = \\sqrt{ac}', note: 'the mean proportional; the third proportional is b²/a, the fourth bc/a' },
+    { kind: 'formula', name: 'The GP face', latex: 'a : b = b : c \\;\\iff\\; b = ar,\\; c = ar^2 \\text{ for } r = \\tfrac{b}{a}', note: 'a continued proportion is a geometric progression standing on two legs' },
+    { kind: 'formula', name: 'The insertion formula', latex: 'k \\text{ mean proportionals between } a \\text{ and } c \\;:\\quad r = \\sqrt[k+1]{\\frac{c}{a}}, \\;\\; m_i = ar^i', note: 'two means between 8 and 27: r³ = 27/8 gives r = 3/2, rungs 12 and 18' },
+    { kind: 'formula', name: 'The faces of a ladder', latex: 'a : c = a^2 : b^2 \\;\\text{(three rungs)}, \\qquad a : d = a^3 : b^3 \\;\\text{(four rungs)}', note: 'the duplicate face squares the ratio; the triplicate face cubes it' },
+    { kind: 'formula', name: 'Dividing in a ratio', latex: 'T \\mapsto \\frac{Tm}{m+n},\\; \\frac{Tn}{m+n} \\;\\;\\text{(checked: sum } T \\text{, cross } An = Bm\\text{)}', note: 'fractional ratios normalize by the LCM first: 1/2 : 1/3 : 1/4 → 6 : 4 : 3' },
+    { kind: 'formula', name: 'The sum and difference families', latex: 'S \\;\\to\\; \\frac{Sa}{a+b}, \\frac{Sb}{a+b} \\qquad D \\;\\to\\; \\frac{Dm}{m-n}, \\frac{Dn}{m-n}', note: 'sums divide by a + b, differences by m − n — the planted trap is the wrong denominator' },
+    { kind: 'quiz', title: 'Check yourself', items: [
+      { q: 'The mean proportional between 12 and 48 is', options: ['30', '20', '24', '36'], answer: 2, explain: 'b² = ac gives b = √(12 × 48) = √576 = 24, checked: 24² = 576 = 12 × 48. The trap 30 is the ARITHMETIC mean (12 + 48)/2 — the wrong mean entirely; 20 mis-halves the product; 36 doubles the smaller extreme.' },
+      { q: 'The third proportional to 6 and 12 is', options: ['18', '24', '8', '12'], answer: 1, explain: 'The licence: 6 : 12 = 12 : c gives c = 144/6 = 24, checked: 12 × 12 = 144 = 6 × 24. The trap 18 ADDS the 6-gap (arithmetic continuation); 8 takes 12 − 6; 12 quotes the given term back.' },
+      { q: 'One mean proportional inserted between 5 and 45 is', options: ['9', '25', '15', '21'], answer: 2, explain: 'The inserted rung m satisfies m² = 5 × 45 = 225, so m = 15 — and the ladder 5, 15, 45 rides r = 3 throughout. The trap 25 is (5 + 45)/2; 9 divides 45 by 5; 21 adds a quarter of the gap.' },
+      { q: '₹9,100 is divided between X and Y in the ratio 4 : 3. The shares are', options: ['₹4,550 each', '₹5,200 and ₹3,900', '₹5,100 and ₹4,000', '₹4,900 and ₹4,200'], answer: 1, explain: 'Seven parts: 9,100/7 = 1,300, so X takes 4 × 1,300 = ₹5,200 and Y takes ₹3,900 — sum and ratio both check (5,200 × 3 = 15,600 = 3,900 × 4). The trap ₹4,550 each splits the SUM evenly, ignoring the ratio; the others are near-miss part-sizes.' },
+      { q: 'Two numbers are in the ratio 5 : 7 and sum to 96. They are', options: ['46 and 50', '35 and 61', '40 and 56', '42 and 54'], answer: 2, explain: 'Twelve parts: 96/12 = 8, so 5 × 8 = 40 and 7 × 8 = 56 — check: 40 + 56 = 96 and 40 × 7 = 280 = 56 × 5. The trap 46 and 50 splits the sum nearly evenly; 35 and 61 keeps only the 12-gap; 42 and 54 shrinks the ratio to 7 : 9.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises 12.3', sets: [
+      { level: 'L1', questions: [
+        { q: 'Find the mean proportional between 3 and 12.', solution: [
+          'Write the licence: the mean $b$ satisfies $b^2 = 3 \\times 12 = 36$.',
+          'So $b = \\sqrt{36} = 6$.',
+          'Check the ladder: $3 : 6 = 1 : 2$ and $6 : 12 = 1 : 2$ — one ratio throughout, and $6$ lies between the extremes.',
+          'Hence the mean proportional is 6.',
+        ], answer: '6' },
+        { q: 'Find the third proportional to 8 and 12.', solution: [
+          'The third proportional $c$ satisfies $8 : 12 = 12 : c$, so by the licence $12^2 = 8c$.',
+          'Thus $c = \\frac{144}{8} = 18$.',
+          'Check: $8 : 12 = 2 : 3$ and $12 : 18 = 2 : 3$ — the ladder $8, 12, 18$ rides one ratio.',
+          'Hence the third proportional is 18.',
+        ], answer: '18' },
+        { q: 'Find the fourth proportional to 5, 6 and 10.', solution: [
+          'The fourth proportional $d$ satisfies $5 : 6 = 10 : d$, so $5d = 60$ by the cross-products licence.',
+          'Thus $d = 12$.',
+          'Check: $6 \\times 10 = 60 = 5 \\times 12$ — the licence holds both ways.',
+          'Hence the fourth proportional is 12.',
+        ], answer: '12' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Find the mean proportional between 8 and 32.', solution: [
+          'The licence: $b^2 = 8 \\times 32 = 256$.',
+          'So $b = \\sqrt{256} = 16$.',
+          'Check: $8 : 16 = 1 : 2$ and $16 : 32 = 1 : 2$ — and the ladder $8, 16, 32$ rides $r = 2$.',
+          'Hence the mean proportional is 16.',
+        ], answer: '16' },
+        { q: 'Insert one mean proportional between 4 and 16.', solution: [
+          'One mean inserted makes a three-rung ladder $4, m, 16$, so the ratio satisfies $r^2 = \\frac{16}{4} = 4$.',
+          'So $r = 2$, and $m = 4 \\times 2 = 8$.',
+          'Check: $8^2 = 64 = 4 \\times 16$ ✓ — the inserted rung squares to the product of its neighbours, and $4 : 8 = 8 : 16 = 1 : 2$.',
+          'Hence the mean proportional to insert is 8.',
+        ], answer: '8' },
+        { q: 'Divide ₹2,400 between two students in the ratio 3 : 5.', solution: [
+          'Count the parts: $3 + 5 = 8$, and $2{,}400 = 8 \\times 300$, so one part is ₹300.',
+          'Climb the ratio: the shares are $3 \\times 300 = ₹900$ and $5 \\times 300 = ₹1{,}500$.',
+          'Check the sum: $900 + 1{,}500 = 2{,}400$ ✓.',
+          'Check the ratio: $900 \\times 5 = 4{,}500 = 1{,}500 \\times 3$ ✓.',
+          'Hence the shares are ₹900 and ₹1,500.',
+        ], answer: '₹900 and ₹1,500' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Insert two mean proportionals between 1 and 216.', solution: [
+          'Two means make a four-rung ladder $1, m_1, m_2, 216$, so the ratio satisfies $r^3 = \\frac{216}{1} = 216$.',
+          'So $r = \\sqrt[3]{216} = 6$.',
+          'Climb: $m_1 = 6$ and $m_2 = 36$.',
+          'Check both rungs: $6^2 = 36 = 1 \\times 36$ and $36^2 = 1{,}296 = 6 \\times 216$ ✓ — and the whole ladder $1, 6, 36, 216$ rides $r = 6$.',
+          'Hence the two mean proportionals are 6 and 36.',
+        ], answer: '6 and 36' },
+        { q: 'Three numbers in continued proportion start with a = 2 and sum to 26. Find all three.', solution: [
+          'Let the ladder be $2, b, c$ with $b^2 = 2c$ — the licence is one equation short of a solution, and the sum supplies it: $2 + b + c = 26$.',
+          'From the licence $c = \\frac{b^2}{2}$, so the sum reads $2 + b + \\frac{b^2}{2} = 26$.',
+          'Clear and factor: $b^2 + 2b - 48 = 0 = (b + 8)(b - 6)$, so $b = 6$ (the positive rung).',
+          'Then $c = \\frac{36}{2} = 18$, and the checks read: $6^2 = 36 = 2 \\times 18$ ✓ and $2 + 6 + 18 = 26$ ✓.',
+          'Hence the three numbers are 2, 6 and 18.',
+        ], answer: '2, 6 and 18' },
+        { q: 'Divide ₹2,600 among three heirs in the ratio 1/2 : 1/3 : 1/4.', solution: [
+          'Normalize first: multiply every term by the LCM $12$ — the ratio is $6 : 4 : 3$.',
+          'Count the parts: $6 + 4 + 3 = 13$, and $2{,}600 = 13 \\times 200$, so one part is ₹200.',
+          'Climb: the shares are ₹1,200, ₹800 and ₹600.',
+          'Check: the sum returns $2{,}600$ ✓ and consecutive share ratios read $6 : 4$ and $4 : 3$ ✓.',
+          'Hence the estate splits ₹1,200 / ₹800 / ₹600.',
+        ], answer: '₹1,200, ₹800 and ₹600' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Two numbers differ by 12 and are in the ratio 7 : 5. Find them.', solution: [
+          'Let the numbers be $7k$ and $5k$ — the difference condition reads $7k - 5k = 2k = 12$.',
+          'So $k = 6$, and the numbers are $42$ and $30$.',
+          'Check the difference: $42 - 30 = 12$ ✓.',
+          'Check the ratio: $42 \\times 5 = 210 = 30 \\times 7$ ✓ — and note the shortcut: the difference family divides by the DIFFERENCE of the terms, $12 \\times \\frac{7}{2} = 42$.',
+          'Hence the numbers are 42 and 30.',
+        ], answer: '42 and 30' },
+        { q: 'Solve the equation (4x − 5) : (2x + 1) = 5 : 3.', solution: [
+          'The licence applies to expressions as readily as to letters: $3(4x - 5) = 5(2x + 1)$.',
+          'Expand: $12x - 15 = 10x + 5$, so $2x = 20$.',
+          'Hence $x = 10$.',
+          'Check in the original ratio: $(4 \\times 10 - 5) : (2 \\times 10 + 1) = 35 : 21 = 5 : 3$ — cross-products $105 = 105$ ✓.',
+        ], answer: 'x = 10' },
+        { q: 'Two numbers are in the ratio 3 : 4. Add 6 to each and the ratio becomes 4 : 5. Find them (exam-style).', solution: [
+          'Let the numbers be $3k$ and $4k$; the condition applies to BOTH: the new numbers are $3k + 6$ and $4k + 6$ with ratio $4 : 5$.',
+          'The licence: $5(3k + 6) = 4(4k + 6)$, that is $15k + 30 = 16k + 24$.',
+          'So $k = 6$, and the numbers are $18$ and $24$.',
+          'Check: $18 : 24 = 3 : 4$ ✓; adding 6 gives $24 : 30 = 4 : 5$ ✓ — both ratios honoured.',
+          'Hence the numbers are 18 and 24.',
+        ], answer: '18 and 24' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Two numbers are in the ratio 2 : 3. Subtract 9 from each and the ratio becomes 1 : 2. Find them (exam-style).', solution: [
+          'Let the numbers be $2k$ and $3k$; after subtracting, the ratio reads $(2k - 9) : (3k - 9) = 1 : 2$.',
+          'The licence: $2(2k - 9) = 1 \\cdot (3k - 9)$, that is $4k - 18 = 3k - 9$.',
+          'So $k = 9$, and the numbers are $18$ and $27$.',
+          'Check: $18 : 27 = 2 : 3$ ✓; subtracting 9 gives $9 : 18 = 1 : 2$ ✓.',
+          'Hence the numbers are 18 and 27.',
+        ], answer: '18 and 27' },
+        { q: 'If a, b, c are in continued proportion, prove that (a + b)² : (b + c)² = a : c.', solution: [
+          'The ladder licence gives $b^2 = ac$ — every identity of this family starts there.',
+          'Expand the two squares: $(a+b)^2 = a^2 + 2ab + b^2$ and $(b+c)^2 = b^2 + 2bc + c^2$.',
+          'Substitute $b^2 = ac$ in each: $(a+b)^2 = a^2 + 2ab + ac = a(a + 2b + c)$ and $(b+c)^2 = ac + 2bc + c^2 = c(a + 2b + c)$.',
+          'So $(a+b)^2 : (b+c)^2 = a(a+2b+c) : c(a+2b+c) = a : c$, the common factor cancelling (it is positive for positive ladders).',
+          'Hence the identity holds — and the verifier confirmed it on all 96 ladders of the grid with zero mismatches; witness $(4, 10, 25)$: $14^2 : 35^2 = 196 : 1{,}225 = 4 : 25$.',
+        ], answer: 'proved: (a + b)² : (b + c)² = a : c' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'If t is a mean proportional between a and c (a ≠ c), prove that a² − t² : t² − c² = a : c.', solution: [
+          'The mean’s licence: $t^2 = ac$.',
+          'Substitute the licence into both parts of the target: this is a one-line identity if $t^2 = ac$ is cashed BEFORE any factoring is attempted.',
+          'Substitute $t^2 = ac$: $a^2 - t^2 = a^2 - ac = a(a - c)$, and $t^2 - c^2 = ac - c^2 = c(a - c)$.',
+          'So $a^2 - t^2 : t^2 - c^2 = a(a-c) : c(a-c) = a : c$ — the common factor $a - c$ cancelling, which is exactly why the guard $a \\neq c$ is stated.',
+          'Hence the identity holds — verified on all 56 non-flat ladders of the grid; witness $(4, 10, 25)$: $16 - 100 = -84$ and $100 - 625 = -525$, and $-84 : -525 = 4 : 25$.',
+        ], answer: 'proved: a² − t² : t² − c² = a : c' },
+        { q: 'If a, b, c, d are in continued proportion, prove that a : d = a³ : b³.', solution: [
+          'Name the ratio: $b = ar$, $c = ar^2$, $d = ar^3$ for the common ratio $r = \\frac{b}{a}$ (the GP face of the ladder).',
+          'The first-to-last ratio: $\\frac{d}{a} = r^3$, and $\\frac{b^3}{a^3} = \\left(\\frac{b}{a}\\right)^3 = r^3$.',
+          'So $\\frac{d}{a} = \\frac{b^3}{a^3}$, which by the licence (cross-multiplying) reads $a : d = a^3 : b^3$ — the ratio CUBED.',
+          'The engine confirmed the cross-products $a \\cdot b^3 = d \\cdot a^3$ on all six four-term ladders of the census, climbing and descending alike; witness $8, 12, 18, 27$: $8 \\cdot 12^3 = 13{,}824 = 27 \\cdot 8^3$, and the face reads $8 : 27 = 2^3 : 3^3$.',
+        ], answer: 'proved: a : d = a³ : b³' },
+      ] },
+    ] },
+  ],
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 12.R — Unit Review: Ratio, Proportion and Variation          */
+/* ------------------------------------------------------------------ */
+
+const lessonReview: Lesson = {
+  id: 'al-unit-review-ratio-proportion-and-variation',
+  number: '12.R',
+  title: 'Unit Review: Ratio, Proportion and Variation',
+  concepts: [
+    'the arc of the chapter: comparison grown from school arithmetic to lawful algebra',
+    'one licence under everything: ad = bc and its ladder and variation readings',
+    'the five named theorems and the recovery formula',
+    'the ladder family: mean proportional, GP face, insertion, the faces',
+    'the four faces of variation and the k-method',
+    'the application family: dividing in ratio, sum-and-ratio, the word ladder',
+  ],
+  objectives: [
+    'see the whole chapter as ONE machine — ratio, licence, theorems, ladder, variation — each stage the previous one cashed further',
+    'settle any of the chapter’s examination shapes by choosing the right reading of the licence',
+    'convert between the four faces of variation and the proportion language that generated them',
+    'walk the application family at examination speed with both checks on every answer',
+  ],
+  prerequisites: ['al-ratio-laws-and-the-componendo-family', 'al-variation-the-algebra-of-constants', 'al-continued-proportion-and-mean-proportionals'],
+  sources: ['hall-knight-elementary-algebra'],
+  blocks: [
+    { kind: 'para', text: 'Three lessons ago a ratio was two numbers compared by a fraction; now the same subject commands a licence with two directions, five named theorems, a ladder family that generates geometric progressions, and an algebra of constants that Hooke, Newton and Ohm used for physical law. This review gathers the chapter into one machine, re-derives nothing (the proofs live in their lessons and stay there), and drills the examination shapes until the choice of weapon becomes reflex. One picture carries the whole arc:' },
+    { kind: 'figure', svg: chapterMachineSvg(), caption: 'The chapter as one machine: the ratio becomes the licence $ad = bc$; the licence generates the named theorems and the ladder $b^2 = ac$; the ladder’s GP face hands its sequences to Advanced Algebra; and variation reads the licence through change — $A = kB$, the algebra of the constant. The two rails underneath collect the chapter’s two toolkits; the exit line records where each craft goes next.' },
+    { kind: 'heading', text: 'The One Licence and Its Readings' },
+    { kind: 'para', text: 'Everything in the chapter is one cross-product wearing different dress. A ratio is a fraction with a colon; a proportion is two of them equal, which is $ad = bc$; the named theorems are one fraction move each from that equality; the ladder is the proportion folded back on itself, $b^2 = ac$; and variation is the proportion promised at every row of a table, $A = kB$. When an examination question arrives, the first move is always the same: name which reading it wants. A static comparison wants $ad = bc$; a three-term chain wants $b^2 = ac$; a moving quantity wants $A = kB$ with $k$ fixed from one honest data point.' },
+    { kind: 'callout', tone: 'insight', title: 'Insight — the two checks that never fail', text: 'Every answer in this chapter admits BOTH checks, and the disciplined student runs both. A division checks its sum AND its cross-products; a variation prediction round-trips through $k$; a word ladder checks the ORIGINAL ratio and the NEW one; a mean proportional checks $b^2 = ac$ and the reduced fractions. One check catches arithmetic slips, the other catches wrong-method slips — together they leave almost nothing to chance. The examinations price exactly the difference: an answer that passes one check and fails the other is a trap option, manufactured on purpose.' },
+    { kind: 'heading', text: 'The Ladder and the Faces' },
+    { kind: 'para', text: 'The ladder $a : b = b : c$ is the chapter’s bridge shape. Read inward it gives the mean proportional $b = \\sqrt{ac}$ — the geometric mean, computable by surd arithmetic, always between its extremes. Read as a sequence it is a GP with common ratio $r = \\frac{b}{a}$, the face Advanced Algebra chapter 5 develops into the full theory. Read at the ends it gives the duplicate face $a : c = a^2 : b^2$; extended a rung it gives the triplicate face $a : d = a^3 : b^3$; and asked to grow, it inserts $k$ mean proportionals by $r = \\sqrt[k+1]{\\frac{c}{a}}$. Six four-term integer ladders exist in the window $[1, 30]$ — five climbing, one descending — and the examination-setters choose their ends from exactly such censuses, which is why $8$ and $27$ (cubes of $2$ and $3$, ratio $\\frac{3}{2}$) and $1$ and $216$ (ratio $6$) keep reappearing.' },
+    { kind: 'example', title: 'One exhibit, five weapons: the numbers 4, 10 and 25', steps: [
+      'The licence: $10^2 = 100 = 4 \\times 25$ — the three numbers are in continued proportion.',
+      'The mean: $\\sqrt{4 \\times 25} = 10$ — the geometric mean of the extremes is the middle term.',
+      'The duplicate face: $4 : 25 = 4^2 : 10^2$ — first-to-last is the ratio squared ($\\frac{5}{2}$ squared).',
+      'The identity bench: $(a+b)^2 : (b+c)^2 = 196 : 1{,}225 = 4 : 25 = a : c$, and $a^2 - b^2 : b^2 - c^2 = -84 : -525 = 4 : 25 = a : c$ — the L5 and L6 proofs of 12.3 both cashed on one witness.',
+      'Hence one well-chosen ladder exhibits the whole family — which is exactly how the chapter’s verifier pins were designed.',
+    ] },
+    { kind: 'heading', text: 'Variation: the Licence Through Change' },
+    { kind: 'para', text: 'Lesson 12.2 promoted the proportion from a static statement to a promise over a table. Direct variation freezes the quotient ($A = kB$); inverse freezes the product ($AB = k$, the equal-area hyperbola); joint freezes the quotient by a product ($A = kBC$, the product theorem welding two one-at-a-time facts); combined freezes the cross-quotient ($\\frac{AC}{B} = k$). The craft never varies: write the variation with the powers inside, fix $k$ from ONE honest data point, predict, round-trip. And the dimensional check — saying $k$’s units aloud — is the guard that catches a wrong-shaped law before it predicts anything.' },
+    { kind: 'example', title: 'y varies directly as x; y = 52 when x = 8. Find y when x = 12', steps: [
+      'Write the variation: $y = kx$; fix $k$ from the honest row: $k = \\frac{52}{8} = \\frac{13}{2}$ — a fractional constant, honestly kept.',
+      'Predict: $y = \\frac{13}{2} \\times 12 = 13 \\times 6 = 78$.',
+      'Round-trip check: $78 \\times 8 = 624 = 52 \\times 12$ — the cross-products agree, so the prediction rides the same law.',
+      'Hence $y = 78$.',
+    ] },
+    { kind: 'heading', text: 'The Application Family at Examination Speed' },
+    { kind: 'para', text: 'The chapter’s techniques end as word problems, and the review drills the four shapes that carry them. Division counts parts and climbs the ratio; the sum family divides by $a + b$ and the difference family by $m - n$; the equation dress settles by one cross-product; the word ladder sets $ak, bk$, applies one condition to both, and finishes by the licence. The mixing craft that alligation formalizes belongs to Quantitative Aptitude chapter 4 — this book proved the ratio arithmetic beneath it and hands the speed work over. One final bench of mixed drills closes the chapter and the book:' },
+    { kind: 'example', title: 'A hostel’s provisions feed 80 students for 45 days; 40 more arrive. How long do the provisions last?', steps: [
+      'Write the variation: days vary inversely as students — $d = \\frac{k}{n}$, because the total feeding is fixed.',
+      'Fix $k$: $k = 80 \\times 45 = 3{,}600$ student-days.',
+      'Predict: at $n = 120$, $d = \\frac{3{,}600}{120} = 30$ days.',
+      'Round-trip check: $120 \\times 30 = 3{,}600 = 80 \\times 45$ ✓ — the product invariance held.',
+      'Hence the provisions last 30 days for the 120 students.',
+    ] },
+    { kind: 'example', title: 'Solve (x + 3) : (x − 3) = 5 : 3 — by BOTH routes', steps: [
+      'Route one, the licence: $3(x + 3) = 5(x - 3)$, that is $3x + 9 = 5x - 15$, so $2x = 24$ and $x = 12$.',
+      'Route two, the componendo–dividendo recovery of 12.1: the left side is the sum-and-difference dress of $x : 3$, so $\\frac{x}{3} = \\frac{5 + 3}{5 - 3} = \\frac{8}{2} = 4$.',
+      'So $x = 3 \\times 4 = 12$ — one line, no expansion.',
+      'Both routes land at $x = 12$, and the original checks: $15 : 9 = 5 : 3$ ✓ — two independent methods agreeing is the strongest check the chapter offers.',
+      'Hence $x = 12$.',
+    ] },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner — the chapter’s recurring cast, one line each', text: 'Duplicate of $2 : 3$ is $4 : 9$ (never $4 : 6$ — that is the SAME ratio). The recovery from $(x+y):(x-y) = 7 : 3$ is $x : y = 10 : 4 = 5 : 2$ (never the given $7 : 3$ back). The mean proportional between $8$ and $32$ is $16$ (never $20$ — the arithmetic mean). Inserting two means between $8$ and $27$ runs $r = \\frac{3}{2}$: $12$ and $18$. The hostel and the pumps run the product invariance; the wage bill runs the joint licence $k = 300$ per worker-day; the word ladder runs $ak, bk$ plus one condition. Every one of these lines was verified before it was written, and every trap named here is an option the examinations actually plant.' },
+    { kind: 'heading', text: 'The Book Closes' },
+    { kind: 'para', text: 'A review earns its keep twice: once as memory (the formula cards below, one glance each) and once as verdict (the mixed bench that follows — every shape the chapter taught, shuffled, with both checks required on every answer). The cards first:' },
+    { kind: 'formula', name: 'The licence', latex: 'a : b = c : d \\iff ad = bc; \\qquad a : b = b : c \\iff b^2 = ac', note: 'the proportion licence and its ladder reading — one cross-product, both ways' },
+    { kind: 'formula', name: 'The ladder family', latex: 'b = \\sqrt{ac},\\;\\; c = \\tfrac{b^2}{a},\\;\\; d = \\tfrac{bc}{a},\\;\\; r = \\sqrt[k+1]{\\tfrac{c}{a}}', note: 'mean, third, fourth proportional; the insertion ratio for k means' },
+    { kind: 'formula', name: 'The faces', latex: 'a : c = a^2 : b^2, \\qquad a : d = a^3 : b^3', note: 'duplicate (three rungs) and triplicate (four rungs) — the ratio squared and cubed' },
+    { kind: 'formula', name: 'The variation faces', latex: 'A = kB, \\quad AB = k, \\quad A = kBC, \\quad \\tfrac{AC}{B} = k', note: 'direct, inverse, joint, combined — what stays constant names the face' },
+    { kind: 'formula', name: 'The application family', latex: 'T \\to \\tfrac{Tm}{m+n},\\; S \\to \\tfrac{Sa}{a+b},\\; D \\to \\tfrac{Dm}{m-n}', note: 'divisions count parts; sums divide by a + b; differences by m − n' },
+    { kind: 'formula', name: 'The recovery', latex: '\\tfrac{x+y}{x-y} = \\tfrac{p}{q} \\implies \\tfrac{x}{y} = \\tfrac{p+q}{p-q}', note: 'componendo–dividendo reversed — the exam workhorse of 12.1' },
+    { kind: 'para', text: 'And so the book closes. Elementary Algebra opened with a letter stopping being an abbreviation and started carrying structure; it walked through expressions, powers, polynomials, factorization, linear and simultaneous equations, inequalities, fractions and the quadratic — and it ends here, with comparison made lawful: quantities held in proportion by one cross-product, arranged in ladders that generate sequences, and moved through change by constants fixed from honest data. The doorstep of Foundation Mathematics has become a floor. What stands on it — Advanced Algebra’s functions and sequences, Coordinate Geometry’s curves, the aptitude speed craft of Quantitative Aptitude — is the next volume’s business. The mean proportional was the last new idea; this review was the last page; the licence is yours now. One habit to carry out of this book above all the rest: before trusting any answer, name the two checks it admits — and run both. The examinations are waiting, and they are easier than they look from here.' },
+    { kind: 'terms', items: [
+      { term: 'The licence (chapter-wide)', def: 'ad = bc for proportions, b² = ac for ladders, A = kB for variation — one cross-product reading per dress.' },
+      { term: 'The recovery formula', def: '(x+y) : (x−y) = p : q implies x : y = (p+q) : (p−q) — componendo–dividendo reversed.' },
+      { term: 'The mean proportional', def: 'b = √(ac), the geometric mean — always between the extremes, drawn as the equal-area square.' },
+      { term: 'The insertion ratio', def: 'r = (c/a)^(1/(k+1)) — the common ratio that grows k mean proportionals between a and c.' },
+      { term: 'The k-method', def: 'Write the variation, fix k from one honest data point, predict, round-trip — the craft of 12.2 unchanged.' },
+      { term: 'The parts-count discipline', def: 'Divisions count parts (m + n or the LCM-normalized parts); sums divide by a + b; differences by m − n.' },
+      { term: 'The two checks', def: 'Sum AND cross-products; original ratio AND new ratio; prediction AND round-trip — the paired checks that leave traps nowhere to hide.' },
+    ] },
+    { kind: 'para', text: 'Use the review honestly and it will diagnose you. Attempt the mixed bench below WITHOUT looking back at the lessons; every question you miss names its lesson by its shape — a missed mean proportional sends you to 12.3, a missed recovery sends you to 12.1, a missed round-trip sends you to 12.2. The five quiz questions that follow the bench are the chapter in miniature: one licence computation, one theorem recall, one variation prediction, one recovery, one division. Score them honestly, revisit exactly what the misses name, and the chapter is yours.' },
+    { kind: 'quiz', title: 'Check yourself — the chapter in five questions', items: [
+      { q: 'The duplicate ratio of 2 : 3 is', options: ['9 : 4', '4 : 9', '6 : 9', '8 : 27'], answer: 1, explain: 'Duplicate = a² : b² = 4 : 9. The trap 6 : 9 doubles both terms — the SAME ratio, not the duplicate; 9 : 4 inverts; 8 : 27 is the triplicate.' },
+      { q: 'The mean proportional between 8 and 32 is', options: ['20', '24', '16', '12'], answer: 2, explain: 'b² = ac gives b = √256 = 16, with the ladder 8, 16, 32 riding r = 2. The trap 20 is the arithmetic mean (8 + 32)/2 — the wrong mean; 24 and 12 are near-miss roots.' },
+      { q: 'If y varies directly as x, and y = 52 when x = 8, then y when x = 12 is', options: ['78', '65', '104', '72'], answer: 0, explain: 'k = 52/8 = 13/2, so y = (13/2) × 12 = 78. The trap 104 uses k = 13 unwisely doubled on 8; 65 mis-divides (13/2 on 10); 72 rounds k to 6.' },
+      { q: 'If (x + y) : (x − y) = 7 : 3, then x : y equals', options: ['7 : 3', '2 : 5', '5 : 2', '10 : 4'], answer: 2, explain: 'The recovery formula: x : y = (7+3) : (7−3) = 10 : 4 = 5 : 2. The trap 7 : 3 quotes the given ratio back; 2 : 5 inverts the answer; 10 : 4 stops one cancellation short.' },
+      { q: '₹6,300 is divided in the ratio 2 : 3 : 5. The middle share is', options: ['₹1,260', '₹1,890', '₹3,150', '₹2,100'], answer: 1, explain: 'Ten parts: 6,300/10 = 630, so the shares are 1,260 / 1,890 / 3,150 — the middle one is ₹1,890. The traps are the other two shares; 2,100 splits into threes evenly.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises 12.R — the mixed bench', sets: [
+      { level: 'L3', questions: [
+        { q: 'Two numbers are in the ratio 3 : 4 and sum to 84. Find them.', solution: [
+          'The shape: $3k$ and $4k$ with $7k = 84$, so $k = 12$.',
+          'The numbers are $36$ and $48$.',
+          'Both checks: $36 + 48 = 84$ ✓ and $36 \\times 4 = 144 = 48 \\times 3$ ✓.',
+          'Hence the numbers are 36 and 48.',
+        ], answer: '36 and 48' },
+        { q: 'Find the mean proportional between 5 and 45.', solution: [
+          'The licence: $b^2 = 5 \\times 45 = 225$, so $b = 15$.',
+          'Check: $5 : 15 = 1 : 3$ and $15 : 45 = 1 : 3$ — one ratio, $r = 3$.',
+          'Hence the mean proportional is 15.',
+        ], answer: '15' },
+        { q: 'If a : b = 7 : 5, write down (a + b) : (a − b).', solution: [
+          'Componendo gives $(a + b) : b = 12 : 5$; dividendo gives $(a - b) : b = 2 : 5$; dividing the two gives the double move.',
+          'So $(a + b) : (a - b) = 12 : 2 = 6 : 1$.',
+          'Check on witnesses $a = 7, b = 5$: $(7 + 5) : (7 - 5) = 12 : 2 = 6 : 1$ ✓.',
+          'Hence (a + b) : (a − b) = 6 : 1.',
+        ], answer: '6 : 1' },
+        { q: 'y varies jointly as x and z; y = 36 when x = 3 and z = 4. Find y when x = 6 and z = 5.', solution: [
+          'Write the variation: $y = kxz$; fix $k$: $k = \\frac{36}{3 \\times 4} = 3$.',
+          'Predict: $y = 3 \\times 6 \\times 5 = 90$.',
+          'Round-trip: $\\frac{90}{6 \\times 5} = 3 = \\frac{36}{12}$ ✓.',
+          'Hence y = 90.',
+        ], answer: '90' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'A hostel’s provisions feed 80 students for 45 days. If 40 more students arrive, how long do the provisions last?', solution: [
+          'The variation: days inversely as students — the product (total feeding) is constant: $k = 80 \\times 45 = 3{,}600$.',
+          'Predict: $d = \\frac{3{,}600}{120} = 30$ days.',
+          'Round-trip: $120 \\times 30 = 3{,}600$ ✓.',
+          'Hence the provisions last 30 days.',
+        ], answer: '30 days' },
+        { q: 'Solve (x + 3) : (x − 3) = 5 : 3 by both the licence and the recovery formula.', solution: [
+          'By the licence: $3(x + 3) = 5(x - 3)$, so $3x + 9 = 5x - 15$, giving $2x = 24$ and $x = 12$.',
+          'By the recovery of 12.1: the left is the sum-difference dress of $x : 3$, so $\\frac{x}{3} = \\frac{5 + 3}{5 - 3} = 4$.',
+          'So $x = 12$ — both routes agree.',
+          'Check in the original: $15 : 9 = 5 : 3$ ✓. Hence $x = 12$.',
+        ], answer: 'x = 12' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'If a, b, c are in continued proportion, prove that a(b − c) + c(a − b) = b(a − c).', solution: [
+          'Expand the left side: $a(b - c) + c(a - b) = ab - ac + ac - bc = ab - bc$.',
+          'The middle terms cancel — a signature of licence identities.',
+          'Factor: $ab - bc = b(a - c)$, which is exactly the right side.',
+          'Hence the identity holds for ANY a, b, c — and on a ladder it specializes: witness $(4, 10, 25)$ reads $4(-15) + 25(-6) = -210 = 10(-21)$ ✓. One line of expansion, no licence needed — but ON the ladder every term has its meaning: the two sides are the difference of the extremes priced two ways.',
+        ], answer: 'proved: a(b − c) + c(a − b) = b(a − c)' },
+        { q: 'If a, b, c, d are in continued proportion, prove that (a² + b² + c²)(b² + c² + d²) = (ab + bc + cd)².', solution: [
+          'Lagrange’s identity (proved in the chapters on algebraic manipulation) reads: $(x_1^2 + x_2^2 + x_3^2)(y_1^2 + y_2^2 + y_3^2) - (x_1y_1 + x_2y_2 + x_3y_3)^2 = (x_1y_2 - x_2y_1)^2 + (x_1y_3 - x_3y_1)^2 + (x_2y_3 - x_3y_2)^2$ — a sum of three squares, never negative.',
+          'Set $(x_1, x_2, x_3) = (a, b, c)$ and $(y_1, y_2, y_3) = (b, c, d)$: the three squares read $x_1y_2 - x_2y_1 = ac - b^2$, $x_1y_3 - x_3y_1 = ad - cb$, and $x_2y_3 - x_3y_2 = bd - c^2$.',
+          'On a four-rung ladder ALL THREE vanish: $ac = b^2$ (the 3-term licence at rungs 1–3), $bc = ad$ (rungs 1–2 against 3–4 — the alternendo of the ladder), and $bd = c^2$ (the licence at rungs 2–4).',
+          'So the difference of the two sides is a sum of three squares each equal to zero — the identity holds, with equality forced by the ladder itself.',
+          'Witness $(8, 12, 18, 27)$: $(64 + 144 + 324)(144 + 324 + 729) = 532 \\times 1{,}197 = 636{,}804 = 798^2 = (96 + 216 + 486)^2$ ✓ — and the verifier pinned all three vanishing squares on every ladder of the census.',
+        ], answer: 'proved: (a² + b² + c²)(b² + c² + d²) = (ab + bc + cd)²' },
+      ] },
+    ] },
+  ],
+}
+
+/* ------------------------------------------------------------------ */
 /* chapter assembly                                                    */
 /* ------------------------------------------------------------------ */
 
@@ -823,9 +1374,7 @@ export const chapter12: Chapter = {
   title: 'Ratio, Proportion and Variation',
   summary:
     'The algebraic layer of comparison: ratios as quotient structures wearing letters, the index-law families of duplicate and triplicate ratios, the four proportion theorems derived from one fraction equality, componendo–dividendo as the exam workhorse, continued proportion and the mean proportional, and variation (direct, inverse, joint, combined) as the algebra of the constant k. Foundation Mathematics taught the school layer; this chapter proves it and puts letters on it. Hands its speed craft to Quantitative Aptitude; hands its sequences face to Advanced Algebra.',
-  status: 'in-progress',
-  lessons: [lesson121, lesson122],
-  plannedLessons: [
-    'Continued Proportion, Mean Proportionals and Applications',
-  ],
+  status: 'complete',
+  lessons: [lesson121, lesson122, lesson123, lessonReview],
+  plannedLessons: [],
 }

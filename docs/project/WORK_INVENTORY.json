@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-14 14:30:05 (Asia/Kolkata)",
+  "generated": "2026-11-14 19:17:53 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5971,9 +5971,9 @@
         "discipline": "mathematics",
         "level": "Class 6–10 algebra → the doorway to higher algebra",
         "description": "The book where arithmetic grows up. Foundation Mathematics opened the doorstep — patterns into formulas, a letter for the unknown; Arithmetic and Number Systems proved the ground the letters stand on. This book opens the door: expressions built and simplified by the laws, the exponent family completed with zero and negative powers, polynomials added, multiplied and divided, factorization as multiplication undone (with the remainder and factor theorems proved, not recited), linear equations settled by lawful balance, simultaneous equations by substitution and elimination, inequalities on the real line, algebraic fractions with their excluded values kept honest, and the quadratic equation finally met four ways — factoring, completing the square (derived), the quadratic formula (proved), and Viète’s roots-and-coefficients relations. Graphs turn every solution into geometry, and the book ends where algebra ends: at the idea of a function. Cross-references Foundation Mathematics and Arithmetic and Number Systems throughout; hands off to Advanced Algebra, Coordinate Geometry and Calculus.",
-        "status": "in-progress",
+        "status": "complete",
         "chaptersPlanned": 12,
-        "chaptersWritten": 11,
+        "chaptersWritten": 12,
         "chapters": [
           {
             "number": 1,
@@ -8855,11 +8855,9 @@
             "slug": "ratio-proportion-variation",
             "title": "Ratio, Proportion and Variation",
             "summary": "The algebraic layer of comparison: ratios as quotient structures wearing letters, the index-law families of duplicate and triplicate ratios, the four proportion theorems derived from one fraction equality, componendo–dividendo as the exam workhorse, continued proportion and the mean proportional, and variation (direct, inverse, joint, combined) as the algebra of the constant k. Foundation Mathematics taught the school layer; this chapter proves it and puts letters on it. Hands its speed craft to Quantitative Aptitude; hands its sequences face to Advanced Algebra.",
-            "status": "in-progress",
-            "lessonsWritten": 2,
-            "plannedLessons": [
-              "Continued Proportion, Mean Proportionals and Applications"
-            ],
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "al-ratio-laws-and-the-componendo-family",
@@ -8995,9 +8993,134 @@
                 },
                 "exerciseQuestions": 16,
                 "termsDefined": 16
+              },
+              {
+                "id": "al-continued-proportion-and-mean-proportionals",
+                "number": "12.3",
+                "title": "Continued Proportion, Mean Proportionals and Applications",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5179,
+                "readMins": 26,
+                "concepts": [
+                  "continued proportion",
+                  "the mean proportional",
+                  "the geometric mean",
+                  "the third and fourth proportional",
+                  "the GP face of a ladder",
+                  "inserting mean proportionals",
+                  "the triplicate face",
+                  "dividing in a given ratio",
+                  "the sum-and-ratio family"
+                ],
+                "objectives": [
+                  "read a continued proportion a : b = b : c as one licence, b² = ac, and cash it in both directions",
+                  "find the mean proportional between any two quantities as b = √(ac) — the surd arithmetic of ANS 8.3 cashed as a proportion move — and know it always lies between the extremes",
+                  "recognise the ladder a, b, c as three consecutive terms of a GP and cross-reference the sequences arc of Advanced Algebra",
+                  "insert k mean proportionals between two quantities by the common ratio r with r raised to k + 1, and prove the insertion",
+                  "derive the triplicate face of a four-term ladder: a : d = a³ : b³",
+                  "divide a quantity in a given ratio (including fractional and three-way ratios), and settle the sum-and-ratio and difference-and-ratio equation families",
+                  "walk the H&K-style word ladder: ratios fixed, one condition added, the equation solved and checked in the original ratio"
+                ],
+                "prerequisites": [
+                  "al-ratio-laws-and-the-componendo-family",
+                  "al-variation-the-algebra-of-constants",
+                  "fm-proportion-and-cross-multiplication"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "heading": 6,
+                  "callout": 6,
+                  "derivation": 2,
+                  "figure": 2,
+                  "example": 7,
+                  "table": 1,
+                  "list": 1,
+                  "terms": 1,
+                  "formula": 6,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "insight": 1,
+                  "warn": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 16,
+                "termsDefined": 14
+              },
+              {
+                "id": "al-unit-review-ratio-proportion-and-variation",
+                "number": "12.R",
+                "title": "Unit Review: Ratio, Proportion and Variation",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 2501,
+                "readMins": 13,
+                "concepts": [
+                  "the arc of the chapter: comparison grown from school arithmetic to lawful algebra",
+                  "one licence under everything: ad = bc and its ladder and variation readings",
+                  "the five named theorems and the recovery formula",
+                  "the ladder family: mean proportional, GP face, insertion, the faces",
+                  "the four faces of variation and the k-method",
+                  "the application family: dividing in ratio, sum-and-ratio, the word ladder"
+                ],
+                "objectives": [
+                  "see the whole chapter as ONE machine — ratio, licence, theorems, ladder, variation — each stage the previous one cashed further",
+                  "settle any of the chapter’s examination shapes by choosing the right reading of the licence",
+                  "convert between the four faces of variation and the proportion language that generated them",
+                  "walk the application family at examination speed with both checks on every answer"
+                ],
+                "prerequisites": [
+                  "al-ratio-laws-and-the-componendo-family",
+                  "al-variation-the-algebra-of-constants",
+                  "al-continued-proportion-and-mean-proportionals"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra"
+                ],
+                "blockCounts": {
+                  "para": 8,
+                  "figure": 1,
+                  "heading": 5,
+                  "callout": 2,
+                  "example": 4,
+                  "formula": 6,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L3": 4,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 8,
+                "termsDefined": 7
               }
             ],
-            "words": 11005
+            "words": 18685
           }
         ]
       },
@@ -13319,14 +13442,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 236,
-      "totalLines": 112036,
+      "srcFilesTracked": 237,
+      "totalLines": 112844,
       "byArea": {
         "src/app (routes, pages)": 2109,
         "other": 10506,
-        "src/components/library (reader platform)": 5809,
+        "src/components/library (reader platform)": 6059,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 81016,
+        "src/data/library (content model + books)": 81574,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -13370,6 +13493,10 @@
         {
           "file": "command-palette.tsx",
           "lines": 275
+        },
+        {
+          "file": "app-shell.tsx",
+          "lines": 250
         },
         {
           "file": "highlight-dom.ts",
@@ -27903,33 +28030,152 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "674237279e649c377d53009f38d4b590b11fe6ad",
+      "short": "6742372",
+      "date": "2026-11-14 09:01",
+      "message": "run 98: AL 12.2 'Variation: the Algebra of Constants' written and fully gated — chapter 12 stands 2/3; verify-book3-ch12 sections C/D pre-writing 1305/0 + F authored audit, battery 1440/0 (7-point hyperbola census caught pre-prose); 2 figures (y=7x with the origin-missing impostor + the xy=48 hyperbola with equal-area rectangles) overlap 0/2 after one y-0 label fix; e2e-al-122 45/45 x3 viewports; VLM fig1+fig2+light+dark PASS; WORK_INVENTORY rebuilt (5th-deferral debt cleared); AL stands 41 lessons / 192,522 words; 12.3 deferred by the time rule (run 99 opens it)",
+      "filesChanged": 10,
+      "insertions": 2611,
+      "deletions": 518,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 221,
+          "del": 221
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 130,
+          "del": 130
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 1205,
+          "del": 157
+        },
+        {
+          "path": "scripts/e2e-al-122.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-122.sh",
+          "add": 86,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch12.ts",
+          "add": 499,
+          "del": 8
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-12.ts",
+          "add": 404,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "3e4572cfd26d49d13283fbd27f5cf18dfbf192a2",
+      "short": "3e4572c",
+      "date": "2026-11-14 09:01",
+      "message": "worklog: run 98 sync record — remote HEAD verified == 6742372",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "65819dcb9dc4f1e88f8d08c2f846e3c4e22cc54f",
+      "short": "65819dc",
+      "date": "2026-11-14 10:25",
+      "message": "worklog: run 98 collision record — the ~15:12 IST fire's redundant 12.2 discarded at push time (the 09:01 sibling's ship stands at 6742372); local reset to remote 3e4572c; standing pre-flight amendment: anonymous ls-remote before every run's planning",
+      "filesChanged": 2,
+      "insertions": 10,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 9,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "651628a7671382753775b28fac4c6cd35639aaaf",
+      "short": "651628a",
+      "date": "2026-11-14 10:25",
+      "message": "aae83863-6c08-4036-a7df-6f9913bba4fd",
+      "filesChanged": 2,
+      "insertions": 249,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "full",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/app-shell.tsx",
+          "add": 249,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 277,
     "booksLive": 28,
-    "chaptersWritten": 33,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 134,
-    "wordsAuthored": 657345,
-    "termsDefined": 1003,
-    "quizItems": 670,
-    "exerciseQuestions": 1737,
+    "chaptersWritten": 34,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 136,
+    "wordsAuthored": 665025,
+    "termsDefined": 1024,
+    "quizItems": 680,
+    "exerciseQuestions": 1761,
     "blockTotals": {
-      "para": 1894,
-      "callout": 773,
-      "heading": 745,
-      "list": 161,
-      "terms": 132,
+      "para": 1914,
+      "callout": 781,
+      "heading": 756,
+      "list": 162,
+      "terms": 134,
       "equation": 203,
-      "figure": 251,
-      "derivation": 252,
-      "table": 160,
-      "example": 601,
-      "quiz": 134,
-      "exercises": 134,
-      "formula": 419,
+      "figure": 254,
+      "derivation": 254,
+      "table": 161,
+      "example": 612,
+      "quiz": 136,
+      "exercises": 136,
+      "formula": 431,
       "algorithm": 27
     }
   }

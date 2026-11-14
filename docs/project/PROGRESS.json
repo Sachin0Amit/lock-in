@@ -3,7 +3,7 @@
   "project": "LockIn Library",
   "updated": "2026-11-14",
   "phase": "TOPIC-DEPTH AUDIT (2026-11-13, owner chat directive #2: AA 1.5's modulus/signum promised in the headings but missing their graphs and worked example — 'do such audits on already prewritten books or lessons'): the standing gate scripts/audit-content-completeness.ts grew rule A2 — any section heading naming a graphable function family (modulus, signum, GIF, fractional part, piecewise, envelope, exponential, logarithm, trig graphs, quadratic/parabola, reciprocal, hyperbola/ellipse) must carry BOTH its figure and worked craft INSIDE the section; graph-subject headings must contain a figure; congruence-modulus guarded out. Sweep of all 130 written lessons: 10 real errors → 0 after 8 new figures + 1 new worked example — AA 1.5 +5 (fare machine, modulus V + distance read, signum graph + size×sign rebuild, sawtooth pair-law witnesses, min-envelope) + modulus example; AA 1.7 +1 (four modulus wraps); AL 10.1 +1 (walls and probes on the identity section); FM 10.2 +1 (bar/line/pie chooser). Two REAL figure defects caught by the §4 pipeline and fixed: the FM pie's arcs (banana drew ~58°, guava ~178° — pixel measurement confirmed the VLM; endpoints fixed, re-measured 116/150/86) and the AL h = 0 probe vanishing under the y-axis (now thick amber dashes riding it, caption explicit). gifSawtooth's 15 pre-existing layer-1 overlaps repaired; |−3| = |3| = 6 → 3 in lessons 1.4 and 1.5. Verifiers re-pinned green with reasons (book4-ch01 figs 7/3; book3-ch10 1135/1135 incl. the two stale-at-HEAD snapshot pins — 9/12 AL chapters honest, 130 library lessons). Gates all green: audit PASS 0 errors, tsc clean, lint 0 errors, overlap 0 on all four touched lessons, e2e 45/0 × 3 viewports on aa-15/aa-17/al-101 + fm-102 smoke, all nine new figures VLM PASS. AA ch.1 remains COMPLETE from run 94. This deepens the earlier structural pass (commit 73221d6, 130 lessons, 0 errors) into the depth dimension the owner named.",
-  "awaiting": "run 99 opens AL 12.3 'Continued Proportion, Mean Proportionals and Applications' — the closing lesson of chapter 12 and of the AL gap queue; its ship closes the book (status → complete, unit review + recomputed counts)",
+  "awaiting": "run 100 opens the next unit: Advanced Algebra ch. 1 'Functions as Objects' — 1.7 + 1.8 then the unit-1 completion review per the run-89 promotion plan (read docs/research/AA_CH01_MASTER_PLAN.md at research time); never open a new chapter and close it plus review in one run — 1.8's review ships with the run that completes the chapter",
   "platform": {
     "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
     "stack": "Next.js 16 App Router (SSG library routes + dynamic builder routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk · Prisma/SQLite (Custom Book Builder user data) · pdfjs-dist + poppler/tesseract (syllabus PDF extraction)",
@@ -99,11 +99,11 @@
         "id": "elementary-algebra",
         "title": "Elementary Algebra",
         "status": "in-progress",
-        "chaptersPlanned": 11,
-        "chaptersWritten": 11,
-        "lessonsWritten": 41,
-        "termsAvailableForFlashcards": 320,
-        "notes": "IN-PROGRESS (run 98, 2026-11-14) — the prewritten-books audit gap queue has TWO of three members paid: 4.5 (run 95) and 6.4 (run 96); the NEW chapter 12 'Ratio, Proportion and Variation' stands 2/3 written: 12.1 'Ratio Laws and the Componendo Family' (run 97) and 12.2 'Variation: the Algebra of Constants' (run 98) shipped and fully gated. 12.3 'Continued Proportion, Mean Proportionals and Applications' remains; its ship closes the gap queue, the chapter and the book (status → complete, counts recomputed)."
+        "chaptersPlanned": 12,
+        "chaptersWritten": 12,
+        "lessonsWritten": 43,
+        "termsAvailableForFlashcards": 341,
+        "notes": "COMPLETE (run 99, 2026-11-14) — 12 chapters / 43 lessons / 200,202 words. The prewritten-books audit gap queue is PAID IN FULL: 4.5 (run 95), 6.4 (run 96), and the new chapter 12 'Ratio, Proportion and Variation' shipped across runs 97–99 — 12.1 'Ratio Laws and the Componendo Family', 12.2 'Variation: the Algebra of Constants', and run 99's 12.3 'Continued Proportion, Mean Proportionals and Applications' + the 12.R unit review, which closed the chapter (4/4 incl. the review) and re-completed the book. Next authoring unit: Advanced Algebra ch. 1 'Functions as Objects' (1.7 + 1.8 + the unit-1 completion review per the run-89 promotion plan)."
       },
       {
         "id": "advanced-algebra",
@@ -353,22 +353,22 @@
         "notes": "PLANNED (topic-inclusion guarantee pass, 2026-11-10) — 11 ch / 39 planned lessons, `qa-` prefix reserved; research: the Khattar aptitude census (40 chapters, khattar-qa-4e) + the EXAM_REGISTRY exam scope (CAT/SSC CGL/IBPS/SBI/RBI/CSAT/CA Foundation + SAT/GRE/GMAT quant word problems). The commercial-aptitude family's own home; no-duplication contract in the header. Authoring opens in backlog order after Advanced Algebra completes."
       }
     ],
-    "lessonsWritten": 134,
-    "wordsAuthored": 657345,
-    "termsAvailableForFlashcards": 1003,
+    "lessonsWritten": 136,
+    "wordsAuthored": 665025,
+    "termsAvailableForFlashcards": 1027,
     "totals": {
-      "lessons": 134,
-      "words": 657345,
-      "terms": 1003,
-      "quiz": 670,
-      "exercises": 1737
+      "lessons": 136,
+      "words": 665025,
+      "terms": 1027,
+      "quiz": 680,
+      "exercises": 1761
     },
     "chaptersWritten": 32,
     "chaptersInProgress": 0,
-    "termsDefined": 881,
-    "quizItems": 670,
-    "exerciseQuestions": 1737,
-    "asOf": "run 97 (2026-11-14)",
+    "termsDefined": 921,
+    "quizItems": 680,
+    "exerciseQuestions": 1761,
+    "asOf": "run 99 (2026-11-14)",
     "booksLive": 28,
     "plannedLessonsTotal": null
   },

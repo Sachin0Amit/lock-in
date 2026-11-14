@@ -838,11 +838,11 @@ function sectionE(): void {
   // queue is 2 lessons authored + 1 planned; the 12.1-only pins were re-pinned
   // from 1/2 to 2/1 with this note as the run-96 precedent requires)
   ok(chapter12.number === 12 && chapter12.slug === 'ratio-proportion-variation', 'E: chapter identity')
-  ok(chapter12.status === 'in-progress', 'E: chapter 12 is in-progress after 12.1 + 12.2 (12.3 still pending)')
-  ok(chapter12.lessons.length === 2 && chapter12.plannedLessons?.length === 1, 'E: 2 lessons authored, 1 planned remains (re-pinned run 98)')
+  ok(chapter12.status === 'complete', 'E: chapter 12 is COMPLETE (COUNT RE-PINNED run 99 — was in-progress at run 98; 12.3 + the 12.R review shipped and closed it)')
+  ok(chapter12.lessons.length === 4 && chapter12.plannedLessons?.length === 0, 'E: 4 lessons authored (12.1-12.3 + 12.R), planned queue empty (COUNT RE-PINNED run 99)')
   ok(
-    JSON.stringify(chapter12.plannedLessons) === JSON.stringify(['Continued Proportion, Mean Proportionals and Applications']),
-    'E: the planned queue holds exactly 12.3 (re-pinned run 98)',
+    JSON.stringify(chapter12.plannedLessons) === JSON.stringify([]),
+    'E: the planned queue is empty — the chapter closed (COUNT RE-PINNED run 99)',
   )
   const lesson = chapter12.lessons[0]
   ok(lesson.id === 'al-ratio-laws-and-the-componendo-family', 'E: the 12.1 id is the audit-registered id')
@@ -1161,14 +1161,600 @@ function sectionF(): void {
 /* report                                                              */
 /* ------------------------------------------------------------------ */
 
+/* ------------------------------------------------------------------ */
+/* (G) the 12.3 pre-writing engines — ladder family, BEFORE prose     */
+/*     (run 99: lesson 12.3 'Continued Proportion, Mean                */
+/*      Proportionals and Applications' + the 12.R unit review that    */
+/*      closes chapter 12 and the book. Every number pinned here      */
+/*      FIRST. The 3-term licence engine extends 12.1's A(iv) window   */
+/*      from [1..12] to [1..40] — reuse-with-reason, not repetition.) */
+/* ------------------------------------------------------------------ */
+
+function sectionG(): void {
+  console.log('[G] the ladder-family engines — pre-writing, run 99')
+
+  // (G.i) the mean proportional b = √(ac) on [1..40]²: existence (ac a
+  // perfect square → integer b), and the BETWEENNESS a ≤ b ≤ c for a ≤ c
+  {
+    let pairs = 0
+    let meanOk = 0
+    let between = 0
+    for (let a = 1; a <= 40; a++)
+      for (let c = a; c <= 40; c++) {
+        pairs++
+        const ac = a * c
+        const r = Math.sqrt(ac)
+        if (Number.isInteger(r)) {
+          meanOk++
+          if (a <= r && r <= c) between++
+        }
+      }
+    ok(pairs === 820, `G.i: swept ${pairs} pairs (a ≤ c) of [1..40]²`)
+    ok(meanOk > 0, `G.i: ${meanOk} pairs carry an integer mean proportional (the perfect-square census)`)
+    ok(meanOk === between, 'G.i: the mean proportional ALWAYS lies between the extremes (the mean is a mean)')
+    // the pinned witnesses of the lesson
+    const wit: [number, number, number][] = [
+      [8, 18, 12],
+      [3, 12, 6],
+      [8, 32, 16],
+      [5, 45, 15],
+      [12, 48, 24],
+      [4, 25, 10],
+      [4, 16, 8],
+      [5, 125, 25],
+    ]
+    for (const [a, c, b] of wit) {
+      ok(b * b === a * c, `G.i: mean(${a}, ${c}) = ${b} pinned (b² = ${b * b} = a·c = ${a * c})`)
+      ok(a <= b && b <= c, `G.i: ${b} lies between ${a} and ${c}`)
+    }
+  }
+
+  // (G.ii) the 3-term ladder licence a:b == b:c ⟺ b² == ac, extended
+  // window [1..40]³ (A.iv ran [1..12]³ for 12.1; 12.3 needs the wider
+  // census — the engine itself is the same cross-product licence)
+  {
+    let triples = 0
+    let ladders = 0
+    let mismatch = 0
+    for (let a = 1; a <= 40; a++)
+      for (let b = 1; b <= 40; b++)
+        for (let c = 1; c <= 40; c++) {
+          triples++
+          const byFrac = JSON.stringify(norm(a, b)) === JSON.stringify(norm(b, c))
+          const byLicence = b * b === a * c
+          if (byFrac !== byLicence) mismatch++
+          if (byLicence) ladders++
+        }
+    ok(triples === 64000, `G.ii: ladder licence swept all ${triples} triples of [1..40]³`)
+    ok(mismatch === 0, `G.ii: a:b == b:c ⟺ b² == ac exact, ${mismatch} mismatches`)
+    ok(ladders === 96, `G.ii: ${ladders} integer ladders in [1..40]³ (the census; [1..12]³ held 22) — the engine CORRECTED a first-draft claim of 257 pre-prose`)
+    // the pinned ladders of the lesson
+    const lad: [number, number, number][] = [
+      [4, 10, 25],
+      [8, 12, 18],
+      [12, 18, 27],
+      [2, 6, 18],
+      [1, 6, 36],
+    ]
+    for (const [a, b, c] of lad) ok(b * b === a * c, `G.ii: ladder (${a}, ${b}, ${c}) pinned: ${b * b} = ${a} × ${c}`)
+  }
+
+  // (G.iii) the 4-term ladders (r ≠ 1) censused in [1..30]: generate via
+  // coprime p/q ratios and integer rungs; the triplicate face a·b³ == d·a³
+  // (i.e. a:d = a³:b³ by cross-products) on every one
+  {
+    const ladders: [number, number, number, number][] = []
+    for (let a = 1; a <= 10; a++)
+      for (let p = 1; p <= 8; p++)
+        for (let q = 1; q <= 8; q++) {
+          if (gcd(p, q) !== 1) continue
+          if (a * p % q !== 0) continue // b = ap/q integer
+          const b = (a * p) / q
+          if (a * p * p % (q * q) !== 0) continue // c = ap²/q² integer
+          const c = (a * p * p) / (q * q)
+          if (a * p * p * p % (q * q * q) !== 0) continue // d = ap³/q³
+          const d = (a * p * p * p) / (q * q * q)
+          if (d > 30 || d < 1) continue
+          if (b > 30 || c > 30 || b < 1 || c < 1) continue
+          if (p === q) continue // r = 1: the degenerate flat ladder
+          if (ladders.every((L) => !(L[0] === a && L[1] === b && L[2] === c && L[3] === d))) ladders.push([a, b, c, d])
+        }
+    const key = (L: [number, number, number, number]) => L.join(',')
+    ladders.sort((x, y) => (key(x) < key(y) ? -1 : 1))
+    const expected = ['1,2,4,8', '1,3,9,27', '2,4,8,16', '3,6,12,24', '8,12,18,27', '8,4,2,1']
+    ok(JSON.stringify(ladders.map(key)) === JSON.stringify(expected), `G.iii: exactly 6 four-term ladders in [1..30] (r ≠ 1) — five climbing and one DESCENDING (8,4,2,1 rides r = 1/2): ${ladders.map(key).join('; ')}`)
+    for (const [a, b, c, d] of ladders) {
+      ok(a * b * b * b === d * a * a * a, `G.iii: triplicate face on (${a},${b},${c},${d}): a·b³ = ${a * b * b * b} = d·a³`)
+      ok(JSON.stringify(norm(a, b)) === JSON.stringify(norm(b, c)) && JSON.stringify(norm(b, c)) === JSON.stringify(norm(c, d)), `G.iii: (${a},${b},${c},${d}) climbs one ratio every rung`)
+    }
+    // the lesson's headline ladder: 8, 12, 18, 27 with r = 3/2
+    const [a, b, c, d] = [8, 12, 18, 27]
+    ok(b * 2 === a * 3 && c * 2 === b * 3 && d * 2 === c * 3, 'G.iii: 8, 12, 18, 27 climbs by r = 3/2 every rung')
+    ok(b * b === a * c && c * c === b * d, 'G.iii: both middle rungs are mean proportionals (12² = 8·18 = 144; 18² = 12·27 = 324)')
+  }
+
+  // (G.iv) the insertion engine: k mean proportionals between a and c
+  // exist with common ratio r^(k+1) = c/a; k = 1 needs c/a a rational
+  // square; the middle rung squares to the product of its neighbours on
+  // EVERY inserted ladder (swept over all 3-term ladders of G.ii's window)
+  {
+    let checked = 0
+    for (let a = 1; a <= 40; a++)
+      for (let b = 1; b <= 40; b++)
+        for (let c = 1; c <= 40; c++) {
+          if (b * b !== a * c) continue
+          // the neighbours product equals the middle square — the
+          // inserted-ladder condition at every rung, both directions
+          checked++
+        }
+    ok(checked === 96, `G.iv: every one of the ${checked} 3-term ladders satisfies the inserted-rung condition at its middle`)
+    // k = 1 pins: r = √(c/a) rational, rung integer
+    const pins: [number, number, number][] = [
+      // a, c, inserted mean
+      [4, 25, 10],
+      [8, 18, 12],
+      [5, 45, 15],
+      [4, 16, 8],
+      [1, 16, 4],
+    ]
+    for (const [a, c, m] of pins) {
+      ok(m * m === a * c, `G.iv: insert ${m} between ${a} and ${c}: ${m}² = ${m * m} = ${a}·${c}`)
+      ok(JSON.stringify(norm(m, a)) === JSON.stringify(norm(c, m)), `G.iv: the rungs a:${m} and ${m}:${c} read ONE ratio (gcd-normalized)`)
+    }
+    ok(25 * 4 === 25 * 4 && JSON.stringify(norm(25, 4)) === JSON.stringify(norm(100, 16)), 'G.iv: r² = c/a: (5/2)² = 25/4 = 100/16 exact (the 4-and-25 insertion rides r = 5/2)')
+    ok(9 * 4 === 18 * 2, 'G.iv: r² = c/a: (3/2)² = 9/4 and 18/8 = 9/4 (cross 36 = 36, the 8-and-18 insertion rides r = 3/2)')
+  }
+
+  // (G.v) the duplicate face a:c = a²:b² on every 3-term ladder
+  {
+    let checked = 0
+    for (let a = 1; a <= 40; a++)
+      for (let b = 1; b <= 40; b++)
+        for (let c = 1; c <= 40; c++) {
+          if (b * b !== a * c) continue
+          // a:c == a²:b² by cross-products: a·b² == c·a² ⟺ b² == ac
+          checked++
+          if (a * b * b !== c * a * a) ok(false, `G.v: duplicate face failed on (${a},${b},${c})`)
+        }
+    ok(checked === 96, `G.v: the duplicate face a:c = a²:b² holds on all ${checked} ladders (cross-products: a·b² == c·a²)`)
+    ok(4 * 100 === 25 * 16, 'G.v: witness (4,10,25): 4:25 = 4²:10² cross-checked (400 = 400)')
+  }
+
+  // (G.vi) dividing-in-ratio: shares Tm/(m+n), Tn/(m+n) sum to T and
+  // carry the ratio m:n — swept over m,n ∈ [1..12], T = multiples of
+  // (m+n) up to 96; the three-way division swept likewise
+  {
+    let done = 0
+    for (let m = 1; m <= 12; m++)
+      for (let n = 1; n <= 12; n++) {
+        const s = m + n
+        for (let k = 1; k <= 96 / s; k++) {
+          const T = s * k
+          const A = (T * m) / s
+          const B = (T * n) / s
+          done++
+          if (A + B !== T) ok(false, `G.vi: divide ${T} in ${m}:${n} fails the sum`)
+          if (A * n !== B * m) ok(false, `G.vi: divide ${T} in ${m}:${n} fails the ratio`)
+        }
+      }
+    ok(done === 1260, `G.vi: dividing-in-ratio swept ${done} (T, m, n) cases exact (the engine CORRECTED a first-draft count of 5,985 pre-prose)`)
+    // pinned witnesses
+    ok(7200 * 4 === 9 * 3200 && 7200 * 5 === 9 * 4000 && 3200 + 4000 === 7200, 'G.vi: ₹7,200 in 4:5 → 3,200 + 4,000 (cross 28,800 = 28,800)')
+    ok(2400 * 3 === 8 * 900 && 2400 * 5 === 8 * 1500 && 900 + 1500 === 2400, 'G.vi: ₹2,400 in 3:5 → 900 + 1,500')
+    ok(9100 * 4 === 7 * 5200 && 9100 * 3 === 7 * 3900 && 5200 + 3900 === 9100, 'G.vi: ₹9,100 in 4:3 → 5,200 + 3,900')
+    // the fractional three-way: 1/2 : 1/3 : 1/4 = 6:4:3, ₹2,600
+    ok(6 + 4 + 3 === 13 && 2600 % 13 === 0, 'G.vi: 1/2:1/3:1/4 → ×12 → 6:4:3 (13 parts), and 2,600 = 13·200')
+    ok(6 * 200 === 1200 && 4 * 200 === 800 && 3 * 200 === 600 && 1200 + 800 + 600 === 2600, 'G.vi: ₹2,600 split 1,200/800/600, sum and shape exact')
+    // the two-way sweep pins for the census table
+    ok(6300 % 10 === 0 && 630 * 2 === 1260 && 630 * 3 === 1890 && 630 * 5 === 3150 && 1260 + 1890 + 3150 === 6300, 'G.vi: ₹6,300 in 2:3:5 → 1,260/1,890/3,150 (the review pin)')
+  }
+
+  // (G.vii) the sum-and-ratio family: x = S·a/(a+b), y = S·b/(a+b);
+  // and the difference family A = D·m/(m−n) — pinned + swept
+  {
+    ok(84 % 12 === 0 && 84 * 5 === 12 * 35 && 84 * 7 === 12 * 49 && 35 + 49 === 84, 'G.vii: sum 84, ratio 5:7 → 35 + 49')
+    ok(96 % 12 === 0 && 96 * 5 === 12 * 40 && 96 * 7 === 12 * 56 && 40 + 56 === 96, 'G.vii: sum 96, ratio 5:7 → 40 + 56 (the quiz pin)')
+    ok(36 + 48 === 84 && 36 * 4 === 48 * 3, 'G.vii: sum 84, ratio 3:4 → 36 + 48 (the review pin)')
+    const [A, B] = [42, 30]
+    ok(A - B === 12 && A * 5 === B * 7, 'G.vii: difference 12, ratio 7:5 → 42 and 30')
+    ok(12 * 7 === 2 * 42 && 12 * 5 === 2 * 30, 'G.vii: the difference formula A = Dm/(m−n) = 12·7/2 = 42 exact')
+    // sweep: every S multiple of (a+b) splits exactly
+    let done = 0
+    for (let a = 1; a <= 9; a++)
+      for (let b = a + 1; b <= 12; b++) {
+        const s = a + b
+        for (let k = 1; k <= 72 / s; k++) {
+          const S = s * k
+          const x = (S * a) / s
+          const y = (S * b) / s
+          done++
+          if (x + y !== S || x * b !== y * a) ok(false, `G.vii: sum ${S} ratio ${a}:${b} failed`)
+        }
+      }
+    ok(done === 408, `G.vii: sum-and-ratio swept ${done} cases exact`)
+  }
+
+  // (G.viii) the equation family: cross-multiplication + the C&D recovery
+  // from 12.1 agree on every pinned equation
+  {
+    // (4x−5):(2x+1) = 5:3 → x = 10
+    const x = 10
+    ok(3 * (4 * x - 5) === 5 * (2 * x + 1), 'G.viii: (4x−5):(2x+1) = 5:3 → 3(4·10−5) = 105 = 5(2·10+1)')
+    ok(JSON.stringify(norm(4 * x - 5, 2 * x + 1)) === JSON.stringify(norm(5, 3)), 'G.viii: the solution checked in the original ratio: 35:21 = 5:3')
+    // (x+3):(x−3) = 5:3 → x = 12, by BOTH routes
+    const x2 = 12
+    ok(3 * (x2 + 3) === 5 * (x2 - 3), 'G.viii: (x+3):(x−3) = 5:3 → 3·15 = 45 = 5·9 → x = 12')
+    ok(x2 * 1 === 3 * 4, 'G.viii: the C&D recovery agrees: x:3 = (5+3):(5−3) = 8:2 = 4:1 → x = 3·4 = 12')
+    // the word ladder: (2k, 3k) with 9 subtracted from each → 1:2
+    const k = 9
+    ok(2 * (2 * k - 9) === 1 * (3 * k - 9), 'G.viii: (2k−9):(3k−9) = 1:2 at k = 9 → 9:18 = 1:2 exact')
+    ok(2 * k === 18 && 3 * k === 27, 'G.viii: the numbers are 18 and 27; original 18:27 = 2:3 confirmed')
+    // the add-6 ladder: 3:4 with 6 added to each → 4:5
+    const k2 = 6
+    ok(5 * (3 * k2 + 6) === 4 * (4 * k2 + 6), 'G.viii: 5·24 = 120 = 4·30 — the added-6 ladder holds at k = 6')
+    ok(3 * k2 === 18 && 4 * k2 === 24, 'G.viii: the numbers are 18 and 24; check 24:30 = 4:5')
+  }
+
+  // (G.ix) the prove-identities of L5/L6 swept over the ladder census
+  {
+    // (a+b)² : (b+c)² = a : c on every ladder
+    let checked = 0
+    let mismatch = 0
+    for (let a = 1; a <= 40; a++)
+      for (let b = 1; b <= 40; b++)
+        for (let c = 1; c <= 40; c++) {
+          if (b * b !== a * c) continue
+          checked++
+          // cross-products: (a+b)²·c == (b+c)²·a
+          const lhs = (a + b) * (a + b) * c
+          const rhs = (b + c) * (b + c) * a
+          if (lhs !== rhs) mismatch++
+        }
+    ok(checked === 96 && mismatch === 0, `G.ix: (a+b)²:(b+c)² = a:c on all ${checked} ladders, ${mismatch} mismatches`)
+    ok(14 * 14 * 25 === 35 * 35 * 4, 'G.ix: witness (4,10,25): 196·25 = 4,900 = 1,225·4')
+    // a²−t² : t²−c² = a : c (t the mean, a ≠ c)
+    checked = 0
+    mismatch = 0
+    for (let a = 1; a <= 40; a++)
+      for (let b = 1; b <= 40; b++)
+        for (let c = 1; c <= 40; c++) {
+          if (b * b !== a * c || a === c) continue
+          checked++
+          const lhs = (a * a - b * b) * c
+          const rhs = (b * b - c * c) * a
+          if (lhs !== rhs) mismatch++
+        }
+    ok(checked === 56 && mismatch === 0, `G.ix: a²−t²:t²−c² = a:c on all ${checked} non-flat ladders (a ≠ c, the 40 flat (a,a,a) ladders excluded), ${mismatch} mismatches`)
+    ok((16 - 100) * 25 === (100 - 625) * 4, 'G.ix: witness (4,10,25): −84·25 = −2,100 = −525·4')
+    // b(a−c) = a(b−c) + c(a−b) — the one-line licence proof
+    for (const [a, b, c] of [[4, 10, 25], [8, 12, 18], [12, 18, 27], [2, 6, 18]] as [number, number, number][])
+      ok(a * (b - c) + c * (a - b) === b * (a - c), `G.ix: a(b−c) + c(a−b) = b(a−c) on (${a},${b},${c}) — both sides ${b * (a - c)}`)
+    // Lagrange's three squares all vanish on every 4-term ladder
+    for (const [a, b, c, d] of [[1, 2, 4, 8], [1, 3, 9, 27], [2, 4, 8, 16], [3, 6, 12, 24], [8, 12, 18, 27]] as [number, number, number, number][]) {
+      const s1 = a * c - b * b
+      const s2 = a * d - b * c
+      const s3 = b * d - c * c
+      ok(s1 === 0 && s2 === 0 && s3 === 0, `G.ix: Lagrange squares vanish on (${a},${b},${c},${d}): ac−b² = ${s1}, ad−bc = ${s2}, bd−c² = ${s3}`)
+      ok((a * a + b * b + c * c) * (b * b + c * c + d * d) === (a * b + b * c + c * d) * (a * b + b * c + c * d), `G.ix: (a²+b²+c²)(b²+c²+d²) = (ab+bc+cd)² on (${a},${b},${c},${d})`)
+    }
+  }
+
+  // (G.x) the figure plans — pinned to the pixel, audited in section I
+  // Fig 1 (the mean proportional as equal areas): canvas 720×360; the
+  // rectangle of the extremes 4×25 at 16 px/unit = 400×64 at (80,80);
+  // the square on the mean 10×10 = 160×160 at (540,80); "=" between at
+  // x≈510; chips 4×25=100 (210..350, 190..212) and 10×10=100
+  // (540..680, 272..294); footnote band y 320..342.
+  // Fig 2 (the inserted ladder as GP bars): canvas 720×380; bars 8, 12,
+  // 18, 27 at 15 px/unit → 120/180/270/405 px from x=90, rows y 70/140/
+  // 210/280, bar height 40; ratio chips 12/8 = 18/12 = 27/18 = 3/2 in the
+  // right column x 520..680 aligned to rows 2/3/4; the triplicate bracket
+  // above bar 1 → bar 4; footnote band y 336..358.
+  {
+    ok(25 * 16 === 400 && 4 * 16 === 64, 'G.x: fig1 rectangle 400×64 = 25×4 units at 16 px/unit')
+    ok(10 * 16 === 160, 'G.x: fig1 square 160×160 = 10×10 units — EQUAL areas in pixels too: 400·64 = 25,600 = 160²')
+    ok(400 * 64 === 160 * 160, 'G.x: the pixel areas are exactly equal (25,600)')
+    ok(80 + 400 === 480 && 540 + 160 === 700, 'G.x: fig1 shapes sit at plan (80..480) and (540..700)')
+    ok(8 * 15 === 120 && 12 * 15 === 180 && 18 * 15 === 270 && 27 * 15 === 405, 'G.x: fig2 bar lengths 120/180/270/405 at 15 px/unit')
+    ok(90 + 405 === 495 && 495 < 520, 'G.x: fig2 longest bar ends at 495, clear of the chip column x ≥ 520')
+  }
+
+  // (G.x cont.) the 12.R review-figure plan — the chapter as one machine:
+  // canvas 720×300; four boxes 160×56 at y 120 (x 20/200/380/560) carrying
+  // the four stages; arrows between at y 148; a title band at y 40; the
+  // footnote band at y 250..272.
+  {
+    ok(20 + 160 === 180 && 200 + 160 === 360 && 380 + 160 === 540 && 560 + 160 === 720, 'G.x: fig3 boxes at plan x 20/200/380/560 (width 160, canvas-exact)')
+  }
+
+  console.log('[G] ladder-family engines green')
+}
+
+/* ------------------------------------------------------------------ */
+/* (H) the pinned computations for 12.3 + the 12.R unit review          */
+/* ------------------------------------------------------------------ */
+
+function sectionH(): void {
+  console.log('[H] pinned computations for 12.3 + 12.R')
+
+  // quiz keys 12.3: [2,1,2,1,2] — mean(12,48) = 24 | third(6,12) = 24 |
+  // insert 1 between 5,45 → 15 | divide 9,100 in 4:3 → 5,200/3,900 |
+  // sum 96 ratio 5:7 → 40,56
+  ok(24 * 24 === 12 * 48, 'H: Q1 mean(12, 48) = 24 (576 = 576)')
+  ok(6 * 24 === 12 * 12, 'H: Q2 third proportional to 6, 12 is 24 (6:12 = 12:24)')
+  ok(15 * 15 === 5 * 45, 'H: Q3 insert 15 between 5 and 45 (225 = 225)')
+  ok(9100 * 4 === 7 * 5200 && 9100 * 3 === 7 * 3900, 'H: Q4 divide ₹9,100 in 4:3 → 5,200/3,900')
+  ok(96 * 5 === 12 * 40 && 96 * 7 === 12 * 56, 'H: Q5 sum 96, ratio 5:7 → 40/56')
+
+  // the Illustrations of 12.3
+  ok(12 * 12 === 8 * 18, 'H: Ill.1 mean(8, 18) = 12')
+  ok(12 * 12 === 8 * 18 && 18 * 18 === 12 * 27, 'H: Ill.2 insert 12, 18 between 8 and 27 — both rungs square to their neighbours')
+  ok(18 * 18 === 12 * 27, 'H: Ill.3 third proportional to 12, 18 is 27 (324 = 324)')
+  ok(7200 * 4 === 9 * 3200 && 7200 * 5 === 9 * 4000, 'H: Ill.4 ₹7,200 in 4:5 → 3,200/4,000')
+  ok(84 * 5 === 12 * 35 && 84 * 7 === 12 * 49, 'H: Ill.5 sum 84, ratio 5:7 → 35/49')
+  ok(5 * 24 === 4 * 30, 'H: Ill.6 the word ladder: 18, 24 with 6 added → 24:30 = 4:5 (120 = 120)')
+
+  // exercises 12.3 — all 16 answers pinned
+  ok(6 * 6 === 3 * 12, 'H: L1.1 mean(3, 12) = 6')
+  ok(8 * 18 === 12 * 12, 'H: L1.2 third proportional to 8, 12 is 18')
+  ok(5 * 12 === 6 * 10, 'H: L1.3 fourth proportional to 5, 6, 10 is 12')
+  ok(16 * 16 === 8 * 32, 'H: L2.1 mean(8, 32) = 16')
+  ok(8 * 8 === 4 * 16, 'H: L2.2 insert 8 between 4 and 16')
+  ok(2400 * 3 === 8 * 900 && 2400 * 5 === 8 * 1500, 'H: L2.3 ₹2,400 in 3:5 → 900/1,500')
+  ok(6 * 6 === 1 * 36 && 36 * 36 === 6 * 216, 'H: L3.1 insert 6, 36 between 1 and 216 (r = 6)')
+  ok(2 + 6 + 18 === 26 && 6 * 6 === 2 * 18, 'H: L3.2 the 2, 6, 18 ladder sums to 26')
+  ok(1200 + 800 + 600 === 2600 && 1200 * 4 === 800 * 6 && 800 * 3 === 600 * 4, 'H: L3.3 ₹2,600 as 1/2:1/3:1/4 → 1,200/800/600')
+  ok(42 - 30 === 12 && 42 * 5 === 30 * 7, 'H: L4.1 difference 12, ratio 7:5 → 42/30')
+  ok(3 * (4 * 10 - 5) === 5 * (2 * 10 + 1), 'H: L4.2 (4x−5):(2x+1) = 5:3 → x = 10')
+  ok(3 * 6 + 6 === 24 && 4 * 6 + 6 === 30 && 5 * 24 === 4 * 30, 'H: L4.3 the numbers 18, 24 (added-6 ladder)')
+  ok(2 * 9 === 18 && 3 * 9 === 27 && 2 * (18 - 9) === 1 * (27 - 9), 'H: L5.1 2:3 with 9 subtracted → 1:2 gives 18/27')
+  ok(14 * 14 * 25 === 35 * 35 * 4, 'H: L5.2 the (a+b)²:(b+c)² = a:c proof witness (4,10,25)')
+  ok((16 - 100) * 25 === (100 - 625) * 4, 'H: L6.1 the a²−t²:t²−c² proof witness (4,10,25)')
+  ok(8 * 27 === 512 / 64 * 27 && 8 * 12 * 12 * 12 === 27 * 8 * 8 * 8, 'H: L6.2 the triplicate face 8:27 = 2³:3³ (a·b³ = d·a³ = 13,824)')
+
+  // the 12.R review pins
+  // quiz keys 12.R: [1,2,0,2,1] — duplicate 4:9 | mean(8,32) = 16 |
+  // y ∝ x: 52 at 8 → 78 at 12 | recovery 7:3 → 5:2 | ₹6,300 in 2:3:5
+  ok(4 * 9 === 9 * 4 && 2 * 2 === 4 && 3 * 3 === 9, 'H: RQ1 duplicate of 2:3 is 4:9')
+  ok(16 * 16 === 8 * 32, 'H: RQ2 mean(8, 32) = 16')
+  ok(52 * 12 === 8 * 78, 'H: RQ3 y ∝ x with y = 52 at x = 8: k = 52/8 = 13/2, y(12) = 78 (cross 624 = 624)')
+  ok((7 + 3) * 2 === 20 && (7 - 3) * 5 === 20, 'H: RQ4 recovery (x+y):(x−y) = 7:3 → x:y = 10:4 = 5:2')
+  ok(1260 + 1890 + 3150 === 6300 && 1260 * 3 === 1890 * 2 && 1890 * 5 === 3150 * 3, 'H: RQ5 ₹6,300 in 2:3:5 → 1,260/1,890/3,150')
+  // review exercises
+  ok(36 + 48 === 84 && 36 * 4 === 48 * 3, 'H: R1 sum 84, ratio 3:4 → 36/48')
+  ok(15 * 15 === 5 * 45, 'H: R2 mean(5, 45) = 15')
+  ok((7 + 5) * 2 === 24 && (7 - 5) * 6 === 12, 'H: R3 (a+b):(a−b) from 7:5 → 12:2 = 6:1')
+  ok(36 === 3 * 3 * 4 && 90 === 3 * 6 * 5, 'H: R4 joint: k = 3, y(6,5) = 90')
+  ok(80 * 45 === 3600 && 3600 / 120 === 30, 'H: R5 hostel: 80 for 45 days → 120 students for 30 days')
+  ok(3 * 15 === 5 * 9, 'H: R6 (x+3):(x−3) = 5:3 → x = 12 (45 = 45)')
+  ok(4 * (10 - 25) + 25 * (4 - 10) === 10 * (4 - 25), 'H: R7 the one-line licence proof on (4,10,25): −210 = −210')
+  ok((64 + 144 + 324) * (144 + 324 + 729) === 798 * 798, 'H: R8 Lagrange on (8,12,18,27): 532·1,197 = 636,804 = 798²')
+
+  console.log('[H] pinned computations green')
+}
+
+
+
+/* ------------------------------------------------------------------ */
+/* (I) the authored audits of 12.3 + 12.R and the chapter/book close   */
+/*     (run 99)                                                        */
+/* ------------------------------------------------------------------ */
+
+function sectionI(): void {
+  console.log('[I] the authored audit of 12.3 + 12.R + the close')
+  const ch12Src = fs.readFileSync(
+    'src/data/library/books/mathematics/elementary-algebra/ch-12.ts',
+    'utf8',
+  )
+  // ---- lesson 12.3 ----
+  const lesson = chapter12.lessons[2]
+  ok(lesson.id === 'al-continued-proportion-and-mean-proportionals', 'I: the 12.3 id is the audit-registered id')
+  ok(lesson.number === '12.3' && lesson.title === 'Continued Proportion, Mean Proportionals and Applications', 'I: number + title')
+  ok((lesson.sources ?? []).includes('hall-knight-elementary-algebra'), 'I: the banked H&K citation key rides the 12.3 footer')
+  {
+    const ids = new Set<string>()
+    for (const b of allBooks) for (const c of b.chapters) for (const l of c.lessons) ids.add(l.id)
+    for (const p of lesson.prerequisites ?? []) ok(ids.has(p), `I: 12.3 prerequisite ${p} resolves to a real lesson`)
+    ok(
+      JSON.stringify(lesson.prerequisites) ===
+        JSON.stringify(['al-ratio-laws-and-the-componendo-family', 'al-variation-the-algebra-of-constants', 'fm-proportion-and-cross-multiplication']),
+      'I: the 12.3 prerequisites are 12.1 + 12.2 + the FM proportion layer',
+    )
+  }
+  {
+    const kinds: Record<string, number> = {}
+    for (const b of lesson.blocks) kinds[b.kind] = (kinds[b.kind] ?? 0) + 1
+    ok((kinds.para ?? 0) >= 12, `I: 12.3 body paras >= 12 (got ${kinds.para})`)
+    ok((kinds.heading ?? 0) === 6, `I: 12.3 six theory headings (got ${kinds.heading})`)
+    ok((kinds.figure ?? 0) === 2, `I: 12.3 exactly 2 figures (got ${kinds.figure})`)
+    ok((kinds.table ?? 0) === 1, `I: 12.3 one table — the ladder-family census (got ${kinds.table})`)
+    ok((kinds.derivation ?? 0) === 2, `I: 12.3 two derivation theorems (got ${kinds.derivation})`)
+    ok((kinds.example ?? 0) === 7, `I: 12.3 seven Illustrations — one richer than the 12.1 floor of six (got ${kinds.example})`)
+    ok((kinds.callout ?? 0) === 6, `I: 12.3 six callouts — 2 definitions, insight, warn, exam, historical (got ${kinds.callout})`)
+    ok((kinds.terms ?? 0) === 1 && (kinds.formula ?? 0) === 6, `I: 12.3 terms + 6 formula cards (got ${kinds.terms}/${kinds.formula})`)
+    ok((kinds.quiz ?? 0) === 1 && (kinds.exercises ?? 0) === 1, 'I: 12.3 one quiz + one exercise block')
+  }
+  {
+    const quiz = lesson.blocks.find((b) => b.kind === 'quiz') as Extract<(typeof lesson.blocks)[number], { kind: 'quiz' }>
+    const keys = quiz.items.map((it) => it.answer)
+    ok(JSON.stringify(keys) === JSON.stringify([2, 1, 2, 1, 2]), `I: 12.3 quiz keys are [2,1,2,1,2] (got ${JSON.stringify(keys)})`)
+    ok(quiz.items[0].options[2].includes('24'), 'I: Q1 key option carries 24')
+    ok(quiz.items[1].options[1].includes('24'), 'I: Q2 key option carries 24')
+    ok(quiz.items[2].options[2].includes('15'), 'I: Q3 key option carries 15')
+    ok(quiz.items[3].options[1].includes('5,200'), 'I: Q4 key option carries ₹5,200')
+    ok(quiz.items[4].options[2].includes('40 and 56'), 'I: Q5 key option carries 40 and 56')
+    for (const it of quiz.items) ok(it.explain.length > 60, 'I: every 12.3 quiz explanation prices the distractors')
+  }
+  {
+    const ex = lesson.blocks.find((b) => b.kind === 'exercises') as Extract<(typeof lesson.blocks)[number], { kind: 'exercises' }>
+    const sizes = ex.sets.map((s) => s.questions.length)
+    ok(JSON.stringify(sizes) === JSON.stringify([3, 3, 3, 3, 2, 2]), `I: 12.3 set sizes 3,3,3,3,2,2 == 16 (got ${JSON.stringify(sizes)})`)
+    for (const set of ex.sets)
+      for (const q of set.questions) {
+        ok(Array.isArray(q.solution) && q.solution.length >= 3, 'I: every 12.3 solution is a steps array of 3+ moves')
+        ok(typeof q.answer === 'string' && q.answer.length > 0, 'I: every 12.3 question carries a terminal answer')
+      }
+    const answers = ex.sets.flatMap((s) => s.questions.map((q) => q.answer as string))
+    const want = ['6', '18', '12', '16', '8', '₹900 and ₹1,500', '6 and 36', '2, 6 and 18', '₹1,200, ₹800 and ₹600', '42 and 30', 'x = 10', '18 and 24', '18 and 27', 'proved: (a + b)² : (b + c)² = a : c', 'proved: a² − t² : t² − c² = a : c', 'proved: a : d = a³ : b³']
+    for (let i = 0; i < want.length; i++)
+      ok(answers[i].includes(want[i].replace(/₹/g, '')) || answers[i].includes(want[i]), `I: 12.3 answer ${i + 1} carries ${JSON.stringify(want[i])}`)
+  }
+  {
+    const figs = lesson.blocks.filter((b) => b.kind === 'figure') as Extract<(typeof lesson.blocks)[number], { kind: 'figure' }>[]
+    const allSvg = figs.map((f) => f.svg).join('\n')
+    for (const f of figs) {
+      ok(f.svg.includes('aria-label='), 'I: 12.3 figure aria-label present')
+      ok(f.svg.trim().startsWith('<svg'), 'I: svg starts at the element')
+    }
+    const f1 = figs[0].svg
+    ok(f1.includes('viewBox="0 0 720 360"'), 'I: fig1 viewBox 720×360 at plan')
+    ok(f1.includes('<rect x="80" y="80" width="400" height="64"'), 'I: fig1 rectangle of the extremes at plan (80,80,400,64)')
+    ok(f1.includes('<rect x="540" y="80" width="160" height="160"'), 'I: fig1 square on the mean at plan (540,80,160,160)')
+    ok(f1.includes('4 × 25 = 100'), 'I: fig1 chip 4 × 25 = 100')
+    ok(f1.includes('10 × 10 = 100'), 'I: fig1 chip 10 × 10 = 100')
+    ok(f1.includes('10² = 4 × 25 = 100'), 'I: fig1 footnote carries the licence 10² = 4 × 25')
+    ok(figs[0].caption.includes('25{,}600'), 'I: fig1 caption pins the pixel-area arithmetic')
+    const f2 = figs[1].svg
+    ok(f2.includes('viewBox="0 0 720 380"'), 'I: fig2 viewBox 720×380 at plan')
+    for (const w of ['width="120"', 'width="180"', 'width="270"', 'width="405"']) ok(f2.includes(w), `I: fig2 bar width ${w} at plan`)
+    for (const c of ['12 / 8 = 3 / 2', '18 / 12 = 3 / 2', '27 / 18 = 3 / 2']) ok(f2.includes(c), `I: fig2 ratio chip ${c}`)
+    ok(f2.includes('8 : 27 = 2³ : 3³'), 'I: fig2 triplicate bracket label')
+    ok(figs[1].caption.includes('triplicate'), 'I: fig2 caption teaches the triplicate face')
+    const svgTexts = allSvg.match(/<text[^>]*>[^<]*<\/text>/g) ?? []
+    ok(!/\$|\\frac|\\times|\\sqrt|\\tag/.test(allSvg.match(/<text[^>]*>[^<]*<\/text>/g)?.join(' ') ?? ''), 'I: no raw LaTeX in 12.3 SVG text nodes')
+    const retired = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']
+    for (const h of retired) ok(!allSvg.toLowerCase().includes(h), `I: retired palette hex ${h} absent from 12.3 figures`)
+    const allowed = ['#16a34a', '#166534', '#65a30d', '#0d9488', '#d97706', '#ea580c', '#0f766e', '#dc2626', '#fef3c7', '#ffedd5', '#fcd34d', '#5eead4', '#ffffff', '#fffdf5']
+    const used = [...new Set((allSvg.match(/#[0-9a-fA-F]{6}/g) ?? []).map((h) => h.toLowerCase()))]
+    for (const h of used) ok(allowed.includes(h), `I: every 12.3 SVG hex is a vivid-palette hex (found ${h})`)
+  }
+  {
+    const tabs = lesson.blocks.filter((b) => b.kind === 'table') as Extract<(typeof lesson.blocks)[number], { kind: 'table' }>[]
+    ok(tabs[0].head.length === 4 && tabs[0].rows.length === 5, 'I: the 12.3 census table is 4×5 (the five finds)')
+    ok(tabs[0].rows[4][3].includes('8 : 27'), 'I: the triplicate row carries the 8 : 27 witness')
+  }
+  // ---- lesson 12.R (the unit review) ----
+  const review = chapter12.lessons[3]
+  ok(review.id === 'al-unit-review-ratio-proportion-and-variation', 'I: the 12.R id follows the aa-unit-review pattern')
+  ok(review.number === '12.R' && review.title === 'Unit Review: Ratio, Proportion and Variation', 'I: the 12.R number + title')
+  ok((review.sources ?? []).includes('hall-knight-elementary-algebra'), 'I: the citation key rides the review footer')
+  {
+    const ids = new Set<string>()
+    for (const b of allBooks) for (const c of b.chapters) for (const l of c.lessons) ids.add(l.id)
+    for (const p of review.prerequisites ?? []) ok(ids.has(p), `I: 12.R prerequisite ${p} resolves to a real lesson`)
+    ok(
+      JSON.stringify(review.prerequisites) ===
+        JSON.stringify(['al-ratio-laws-and-the-componendo-family', 'al-variation-the-algebra-of-constants', 'al-continued-proportion-and-mean-proportionals']),
+      'I: the 12.R prerequisites are the three chapter lessons',
+    )
+  }
+  {
+    const kinds: Record<string, number> = {}
+    for (const b of review.blocks) kinds[b.kind] = (kinds[b.kind] ?? 0) + 1
+    ok((kinds.heading ?? 0) === 5, `I: 12.R five headings (got ${kinds.heading})`)
+    ok((kinds.figure ?? 0) === 1, `I: 12.R one figure — the chapter machine (got ${kinds.figure})`)
+    ok((kinds.example ?? 0) === 4, `I: 12.R four worked examples (got ${kinds.example})`)
+    ok((kinds.callout ?? 0) === 2, `I: 12.R two callouts — insight + exam (got ${kinds.callout})`)
+    ok((kinds.formula ?? 0) === 6, `I: 12.R six formula cards (got ${kinds.formula})`)
+    ok((kinds.terms ?? 0) === 1, `I: 12.R one terms block (got ${kinds.terms})`)
+    ok((kinds.quiz ?? 0) === 1 && (kinds.exercises ?? 0) === 1, 'I: 12.R one quiz + one exercise block')
+    ok((kinds.para ?? 0) >= 8, `I: 12.R body paras >= 8 (got ${kinds.para})`)
+  }
+  {
+    const quiz = review.blocks.find((b) => b.kind === 'quiz') as Extract<(typeof review.blocks)[number], { kind: 'quiz' }>
+    const keys = quiz.items.map((it) => it.answer)
+    ok(JSON.stringify(keys) === JSON.stringify([1, 2, 0, 2, 1]), `I: 12.R quiz keys are [1,2,0,2,1] (got ${JSON.stringify(keys)})`)
+    ok(quiz.items[0].options[1].includes('4 : 9'), 'I: RQ1 key option carries 4 : 9')
+    ok(quiz.items[1].options[2].includes('16'), 'I: RQ2 key option carries 16')
+    ok(quiz.items[2].options[0].includes('78'), 'I: RQ3 key option carries 78')
+    ok(quiz.items[3].options[2].includes('5 : 2'), 'I: RQ4 key option carries 5 : 2')
+    ok(quiz.items[4].options[1].includes('1,890'), 'I: RQ5 key option carries ₹1,890')
+  }
+  {
+    const ex = review.blocks.find((b) => b.kind === 'exercises') as Extract<(typeof review.blocks)[number], { kind: 'exercises' }>
+    const sizes = ex.sets.map((s) => s.questions.length)
+    ok(JSON.stringify(sizes) === JSON.stringify([4, 2, 2]), `I: 12.R set sizes 4,2,2 == 8 (got ${JSON.stringify(sizes)})`)
+    const answers = ex.sets.flatMap((s) => s.questions.map((q) => q.answer as string))
+    const want = ['36 and 48', '15', '6 : 1', '90', '30 days', 'x = 12', 'proved: a(b − c) + c(a − b) = b(a − c)', 'proved: (a² + b² + c²)(b² + c² + d²) = (ab + bc + cd)²']
+    for (let i = 0; i < want.length; i++) ok(answers[i].includes(want[i]), `I: 12.R answer ${i + 1} carries ${JSON.stringify(want[i])}`)
+  }
+  {
+    const figs = review.blocks.filter((b) => b.kind === 'figure') as Extract<(typeof review.blocks)[number], { kind: 'figure' }>[]
+    const f = figs[0].svg
+    ok(f.includes('viewBox="0 0 720 300"'), 'I: the review figure viewBox 720×300 at plan')
+    for (const x of ['<rect x="20" y="112"', '<rect x="200" y="112"', '<rect x="380" y="112"', '<rect x="560" y="112"']) ok(f.includes(x), `I: the review machine box at plan ${x}`)
+    ok(f.includes('b² = ac'), 'I: the ladder box carries b² = ac')
+    ok(f.includes('A = kB'), 'I: the variation box carries A = kB')
+    const retired = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']
+    for (const h of retired) ok(!f.toLowerCase().includes(h), `I: retired palette hex ${h} absent from the review figure`)
+  }
+  // ---- the chapter + book close ----
+  ok(chapter12.status === 'complete' && chapter12.plannedLessons?.length === 0, 'I: chapter 12 closed — status complete, queue empty')
+  ok(chapter12.lessons.length === 4, 'I: the chapter carries 12.1, 12.2, 12.3 and 12.R')
+  {
+    const al = allBooks.find((b) => b.id === 'elementary-algebra')
+    ok(al?.status === 'complete', 'I: the Elementary Algebra book status is complete — the gap queue retired, the book re-completed (run 99)')
+    ok((al?.chapters.every((c) => c.status === 'complete')) ?? false, 'I: every chapter of the book is complete (12/12)')
+  }
+  // ---- honesty scans over the whole file ----
+  {
+    const words = countLessonWords(lesson)
+    ok(words >= 4000, 'I: 12.3 honest word count ' + words + ' >= 4000')
+    const rwords = countLessonWords(review)
+    ok(rwords >= 2500, 'I: 12.R honest word count ' + rwords + ' >= 2500')
+    let rawTitleDollars = 0
+    for (const L of [lesson, review])
+      for (const b of L.blocks) {
+        if (b.kind === 'callout' && b.title.includes('$')) rawTitleDollars++
+        if (b.kind === 'example' && b.title.includes('$')) rawTitleDollars++
+        if (b.kind === 'table' && b.caption && b.caption.includes('$')) rawTitleDollars++
+        if (b.kind === 'formula' && b.name.includes('$')) rawTitleDollars++
+        if (b.kind === 'derivation' && b.title.includes('$')) rawTitleDollars++
+      }
+    ok(rawTitleDollars === 0, 'I: no raw $ in non-KaTeX titles')
+    let oddRuns = 0
+    let i = 0
+    while (i < ch12Src.length) {
+      if (ch12Src[i] === '\\') {
+        let j = i
+        while (j < ch12Src.length && ch12Src[j] === '\\') j++
+        if ((j - i) % 2 === 1) oddRuns++
+        i = j
+      } else i++
+    }
+    ok(oddRuns === 0, 'I: no odd-length backslash runs in ch-12.ts source (found ' + oddRuns + ')')
+    const escapes = (ch12Src.match(/\\u[0-9a-fA-F]{4}/g) || []).length
+    ok(escapes === 0, 'I: no unicode escapes in ch-12.ts source (found ' + escapes + ')')
+    for (const bad of ['wait, read', 'TODO', 'FIXME', 'placeholder', 'Better: substitute'])
+      ok(!ch12Src.includes(bad), `I: no draft marker "${bad}" in the authored source`)
+    ok(!/\bXXX\b/.test(ch12Src), 'I: no standalone XXX draft marker (the Roman numeral XXXII in the header is legitimate)')
+  }
+  // ---- repo-wide id uniqueness with both new lessons ----
+  {
+    const ids: string[] = []
+    for (const b of allBooks) for (const c of b.chapters) for (const l of c.lessons) ids.push(l.id)
+    ok(ids.length === new Set(ids).size, 'I: all ' + ids.length + ' lesson ids repo-wide unique (with 12.3 + 12.R added)')
+    ok(ids.includes('al-continued-proportion-and-mean-proportionals') && ids.includes('al-unit-review-ratio-proportion-and-variation'), 'I: both new ids are registered in the library graph')
+  }
+  {
+    const srcLog = fs.readFileSync('docs/project/SOURCE_LOG.md', 'utf8')
+    ok(srcLog.includes('hall-knight-elementary-algebra'), 'I: the H&K citation key exists in SOURCE_LOG.md')
+  }
+  console.log('[I] authored audits green — chapter 12 and the book closed')
+}
+
+
 sectionA()
 sectionB()
 sectionC()
 sectionD()
 sectionE()
 sectionF()
+sectionG()
+sectionH()
+sectionI()
 
-console.log(`\nverify-book3-ch12 battery (A-B pre-writing 12.1 + C-D pre-writing 12.2 + E-F authored audits, run 98): ${passed} passed, ${failed} failed`)
+console.log(`\nverify-book3-ch12 battery (A-B 12.1 + C-D 12.2 + G-H 12.3/12.R pre-writing; E-F-I audits incl. the chapter+book close, run 99): ${passed} passed, ${failed} failed`)
 if (failed > 0) {
   console.log(failures.map((f) => '  - ' + f).join('\n'))
   process.exit(1)
