@@ -219,3 +219,62 @@ retired column, warm-families-only rule, no-blue/indigo rule, paper-plate
 note, ≥4.5:1 text / ≥3:1 stroke contrast floors, "add new colours to the
 table first" law); checklist item blacklists the retired hexes. Future
 chapters and any figure regeneration inherit this automatically.
+
+## Audit-bot fire — 2026-11-15 (job 530242, §10 v2 protocol; target fm-patterns-and-rules, FM 11.1)
+
+The owner's 2026-11-13 §10 directive run as a cron fire: pull → pick the next
+pending queue lesson (item 45, the first not-yet-done written lesson in
+allBooks order) → three passes → docs → commit → push.
+
+### (a) Pass A — strict audit of the two existing figures
+
+Figure 1 (matchstick): the strict VLM pass flagged the "+3" tags floating
+inside the newest squares as ambiguous (read as a property of the whole
+square). Fix-ladder rung 1: the tags now ride above the newest squares at
+computed centres (x0 + sq·n − sq/2, baseline y0 − 14), the caption says "a
+bold +3 tag riding above each new square", and the verifier's K3/K4 pins
+were re-pinned to the new geometry (plus a K4b header-clearance check).
+Re-audit PASS. A second VLM claim (borrowed edges "all heavy") was dismissed
+on pixel evidence — the dash runs [2,4,4,4…] prove the dashed convention
+intact. Figure 2 (gnomon wrap) PASSed untouched.
+
+### (b) Pass B — seven solution visual aids (§10.1)
+
+- L2-Q1 matchstick row at n=5: cumulative counts 4, 7, 10, 13, 16 under the
+  squares, the fifth square's three fresh sticks teal, +3 tag above it;
+  caption phrasing tightened once (a VLM convention nit).
+- L2-Q2 the number-line gap walk: ticks 2..27 spaced 5, two labelled +5 hop
+  arcs into the gap at 17 (teal tick), the −5 back-arrow to 2.
+- L2-Q3 (NEW exercise) the 10→15 dot-triangle panel: the fifth triangle's
+  fresh bottom row of five teal dots, the handshake-graph tie in the caption.
+- L3-Q2 the circle game at six points: 15 chords, 15 interior crossings,
+  31 regions — the angles (0/45/120/175/250/320°) were certified
+  general-position by an Euler face-count check BEFORE embedding, and the
+  VLM verified the drawing is a complete K6 with every label outside the rim.
+- L4-Q2 the handshake graphs: 4/5/6 guests, 6/10/15 edges, the newcomer's
+  edges teal, counts under each panel.
+- L5-Q1 the ×2-then-+1 arrow chain: nodes 2→95 in boxes, ×2 above and +1
+  below each arrow; the VLM caught the arrow-endpoint overrun (arrowheads
+  hidden under the following box) — endpoint math fixed, re-PASS.
+- L5-Q2 the 6×6 gnomon L-stack: nested Ls tinted stepwise, odd counts on
+  the diagonal corners, running totals 1..36 on the right margin; the
+  dark-mode VLM check FAILed the dark-amber diagonal labels on amber tints
+  → labels and L-strokes moved to currentColor, re-PASS in both modes.
+
+### (c) Pass C — subtopic enrichment (§10.2)
+
+The triangular numbers' paragraph pair described the dot stacking and the
+handshake double life in words only — the family had NO figure while every
+other named family in the lesson had one. Added the dot-triangle body
+figure (panels 1, 3, 6, 10 dots, counts with "then 15, 21") plus the
+read-the-picture paragraph cashing it to the handshake arrivals, and one
+new L2 exercise reading the picture both ways (dots ↔ handshakes). No other
+thin subtopics warranted enrichment inside the scope guards. Verify-first
+held: verify-unit-11 extended 187→201 (section AM) ALL PASS before prose.
+
+### Gates (all green)
+
+verify-unit-11 201/0 · audit-content-completeness 0 errors · tsc 0 new
+errors · overlap 0 on all 10 mounted svgs (body + solutions-expanded
+capture) · VLM light+dark PASS after fixes · quiz keys and exercise
+answers untouched.

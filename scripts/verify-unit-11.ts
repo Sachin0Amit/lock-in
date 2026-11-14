@@ -316,10 +316,16 @@ console.log('=== K. figure 1 geometry — the matchstick panels (11.1) ===');
   // the heavy strokes: P1 carries 4 (the seed's whole count), P2 and P3
   // carry 3 each (the newest square's top, right, bottom) — 4+3+3 = 10.
   ok(panels.reduce((s, [, n]) => s + (n === 1 ? 4 : 3), 0) === 10, 'K2: the heavy strokes mirror the arithmetic — 4 seed + 3 + 3 = 10, the third caption\u2019s own count');
-  // the "+3" labels sit INSIDE the newest squares (centres 360 and 600).
-  ok(360 > 330 && 360 < 390 && 600 > 570 && 600 < 630, 'K3: the +3 labels live inside their newest squares (360 in 330..390, 600 in 570..630)');
-  // and clear the square interiors\u2019 strokes: a 12.5 px label in a 60 px cell leaves \u2265 8 px air on every side.
-  ok(60 - 2 * 12.5 >= 8, 'K4: the +3 labels clear their squares\u2019 heavy strokes by \u2265 8 px');
+  // the "+3" tags ride ABOVE the newest squares (fix-ladder rung 1, VLM
+  // nit 2026-11-15: the inside-squares placement read as a property of the
+  // whole square rather than of the three bought sticks). Centres 360 and
+  // 600 = x0 + sq·n − sq/2; baseline y0 − 14 = 76.
+  const tagX = panels.slice(1).map(([x0, n]) => x0 + sq * n - sq / 2);
+  ok(tagX.join(',') === '360,600', 'K3: the +3 tags sit at the centres of the newest squares (360 and 600 = x0 + sq\u00b7n \u2212 sq/2)');
+  // the 12.5 px tag baseline at y0 \u2212 14 descends ~3.5 px; the top stroke
+  // spans y0 \u2212 1.5 .. y0 + 1.5 \u2014 clearance 9 px.
+  ok(y0 - 1.5 - (y0 - 14 + 3.5) >= 8, 'K4: the +3 tags clear the top strokes by \u2265 8 px (9 px computed)');
+  ok((y0 - 14 - 12.5) - 27 >= 8, 'K4b: the +3 tags clear the header line (baseline 24, descends to ~27) by \u2265 8 px');
   // count captions: centres 150, 330, 540; half-widths ~62/70/72 — no mutual overlap.
   const cl: Array<[number, number]> = [[150, 62], [330, 70], [540, 72]];
   ok(cl[0][0] + cl[0][1] < cl[1][0] - cl[1][1] && cl[1][0] + cl[1][1] < cl[2][0] - cl[2][1],
@@ -763,6 +769,45 @@ console.log('  (ii)  no negative or fractional solutions demanded (the aha\u2019
 console.log('  (iii) no simultaneous systems, no inequalities.');
 console.log('  (iv)  the balance law is derived from the meaning of equality — no axiom system invoked.');
 console.log('  (v)   no content reproduced — exposition, figures and proofs ours.');
+
+console.log('=== AM. audit-bot enrichment pins (\u00a710 fire, 2026-11-15) ===');
+{
+  // AM1 \u2014 solution figure on L2-Q1 (matchstick row of 5 squares): the
+  // jump law at n = 5 gives 4 + 4\u00d73 = 16 sticks; the drawn row carries 5
+  // squares whose newest buys 3 fresh sticks (top, bottom, right).
+  ok(4 + 4 * 3 === 16, 'AM1: 5 squares need 4 + 4 \u00d7 3 = 16 sticks (L2-Q1 figure caption)');
+  // AM2 \u2014 solution figure on L2-Q2 (number line): ticks 2, 7, 12, 17, 22, 27
+  // spaced exactly 5 apart; the gap tick (17) sits two hops past 7.
+  const nlTicks = [2, 7, 12, 17, 22, 27];
+  ok(nlTicks.every((v, i) => i === 0 || v - nlTicks[i - 1] === 5), 'AM2: the number-line ticks walk in 5s: 2, 7, 12, 17, 22, 27');
+  ok(nlTicks[3] === 7 + 2 * 5 && nlTicks[3] + 5 === 22, 'AM2b: the gap tick is 7 + 2 \u00d7 5 = 17, and 17 + 5 = 22 \u2713');
+  // AM3 \u2014 solution figure on L3-Q2 (the circle game at 6 points): C(6,2)
+  // chords, C(6,4) crossings, regions 1 + C(6,2) + C(6,4) = 31.
+  ok(comb(6, 2) === 15 && comb(6, 4) === 15, 'AM3: six rim points carry 15 chords and 15 interior crossings');
+  ok(1 + comb(6, 2) + comb(6, 4) === 31 && !(1 + comb(6, 2) + comb(6, 4) === 32), 'AM3b: the regions are 1 + 15 + 15 = 31, NOT 32 \u2014 the figure\u2019s whole point');
+  // AM4 \u2014 solution figure on L4-Q2 (the handshake graphs): edges = C(n,2).
+  ok(comb(4, 2) === 6 && comb(5, 2) === 10 && comb(6, 2) === 15, 'AM4: 4 guests \u2192 6 edges, 5 \u2192 10, 6 \u2192 15 (the drawn panels)');
+  ok(10 + 5 === 15 && 15 + 6 === 21, 'AM4b: the next two counts after 10 are 15 and 21 (triangular growth)');
+  // AM5 \u2014 solution figure on L5-Q1 (the \u00d72-then-+1 arrow chain).
+  const chain = [2, 5, 11, 23, 47, 95];
+  ok(chain.every((v, i) => i === 0 || v === 2 * chain[i - 1] + 1), 'AM5: every arrow obeys \u00d72 + 1: 2 \u2192 5 \u2192 11 \u2192 23 \u2192 47 \u2192 95');
+  // AM6 \u2014 solution figure on L5-Q2 (the 6\u00d76 gnomon L-stack): L sizes are
+  // the first six odds; the running totals are the squares.
+  const odds6 = [1, 3, 5, 7, 9, 11];
+  let run = 0;
+  const runs6 = odds6.map((o) => (run += o));
+  ok(runs6.join(',') === '1,4,9,16,25,36', 'AM6: the L-stack running totals are 1, 4, 9, 16, 25, 36 (the squares)');
+  ok(runs6[5] === 36 && 36 === 6 * 6, 'AM6b: the sixth wrap lands on 6\u00b2 = 36 \u2014 no adding required');
+  // AM7 \u2014 the new body figure (dot triangles): panels of 1, 3, 6, 10 dots;
+  // the next triangles carry 15 and 21.
+  const tri = [1, 3, 6, 10];
+  ok(tri.every((v, i) => i === 0 || v - tri[i - 1] === i + 1), 'AM7: the dot triangles grow 1, 3, 6, 10 (each adds the next counting number)');
+  ok(10 + 5 === 15 && 15 + 6 === 21, 'AM7b: the fifth and sixth triangles carry 15 and 21 dots');
+  // AM8 \u2014 the new L2 exercise (read the dot triangle both ways): the fifth
+  // triangle has 15 dots; ten dots is the fourth triangle; the handshake
+  // count for 5 guests is the same 10.
+  ok(1 + 2 + 3 + 4 + 5 === 15 && tri[3] === 10 && comb(5, 2) === 10, 'AM8: fifth triangle 15 dots; 10 dots = fourth triangle = 5-guest handshakes');
+}
 
 console.log('');
 console.log(`TOTAL: ${pass} passed, ${fail} failed`);

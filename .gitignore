@@ -486,3 +486,9 @@ server.log
 !/scripts/stats-fire.ts
 !/scripts/quiz-ex-fire.ts
 !/scripts/stats-books-fire.ts
+# figure-audit + enrichment job (530242) reusable fire tooling: target picker,
+# figure dumper (cairosvg/VLM render prep), census sync (this checkout's repo
+# root differs from the ROOT=/home/z/my-project helpers — see runbook §10.3)
+!/scripts/audit-bot-pick-target.ts
+!/scripts/audit-bot-dump-figs.ts
+!/scripts/audit-bot-census-sync.ts

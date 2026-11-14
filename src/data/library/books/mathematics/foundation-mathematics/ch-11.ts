@@ -138,6 +138,24 @@ import type { Chapter } from '../../../types'
  * problems; the take-4 solution of the quarter problem — answer 12);
  * al-Khwarizmi's Al-Jabr (Baghdad c. 820; al-jabr → algebra, Algoritmi
  * → algorithm). No content reproduced.
+ *
+ * LESSON 11.1 ENRICHMENT (figure-audit + enrichment job, §10 fire,
+ * 2026-11-15) — Pass A: figure 1's "+3" tags moved above the newest
+ * squares (VLM nit, fix-ladder rung 1; verifier K3/K4 re-pinned); figure
+ * 2 PASS, untouched. Pass B (§10.1): six solution figures — L2-Q1 the
+ * matchstick row at n = 5 (16 sticks, the fifth square's three fresh
+ * sticks teal); L2-Q2 the number line 2..27 walking in 5s (gap tick 17,
+ * the before-7 at 2); L3-Q2 the circle game at six points (15 chords,
+ * 15 crossings, 31 regions — angles 0/45/120/175/250/320° certified
+ * general-position and Euler-checked); L4-Q2 the handshake graphs at
+ * 4/5/6 guests (6/10/15 edges, the newcomer's edges teal); L5-Q1 the
+ * ×2-then-+1 arrow chain 2→95; L5-Q2 the 6×6 gnomon L-stack (L sizes
+ * 1..11, running totals 1..36). Pass C (§10.2): the dot-triangle body
+ * figure (1, 3, 6, 10 dots) + read-the-picture para closing the
+ * triangular numbers' figure gap; one new L2 exercise (fifth triangle /
+ * fourth triangle / handshake link) with its 10→15 panel figure.
+ * Verify-first held: verifier section AM (9 pins) added and ALL PASS
+ * (201/0) BEFORE a word of prose. Scope guard held.
  */
 export const chapter11: Chapter = {
   number: 11,
@@ -282,7 +300,7 @@ export const chapter11: Chapter = {
         {
           kind: 'figure',
           caption:
-            'The matchstick pattern: 1, 2 and 3 squares in a row need 4, 7 and 10 sticks. The drawing speaks three stroke weights: the first square\u2019s four sticks are HEAVY (the seed\u2019s whole count); the edges a new square BORROWS from the row are dashed (one per new square — that is the economy); and the three sticks each new square BUYS — top, bottom, right — are the heavy ones with "+3" inside. The counts 4, 7, 10, … form an add-3 pattern with first term 4 — so the 10th figure needs $4 + 9 \\times 3 = 31$ sticks by the jump law, and 31 sticks build $(31-1)/3 = 10$ squares backwards.',
+            'The matchstick pattern: 1, 2 and 3 squares in a row need 4, 7 and 10 sticks. The drawing speaks three stroke weights: the first square\u2019s four sticks are HEAVY (the seed\u2019s whole count); the edges a new square BORROWS from the row are dashed (one per new square — that is the economy); and the three sticks each new square BUYS — top, bottom, right — are the heavy ones, with a bold "+3" tag riding above each new square. The counts 4, 7, 10, … form an add-3 pattern with first term 4 — so the 10th figure needs $4 + 9 \\times 3 = 31$ sticks by the jump law, and 31 sticks build $(31-1)/3 = 10$ squares backwards.',
           svg: `<svg viewBox="0 0 780 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Matchstick diagrams of one, two and three squares in a row, needing 4, 7 and 10 sticks, with the newest square's three fresh sticks drawn heavy and labelled +3">
   <text x="390" y="24" font-size="13" fill="currentColor" text-anchor="middle">the matchstick pattern — every new square borrows one edge and buys three</text>
   ${(() => {
@@ -314,8 +332,10 @@ export const chapter11: Chapter = {
         }
       });
     });
-    out += `<text x="360" y="124" font-size="12.5" fill="currentColor" text-anchor="middle">+3</text>`;
-    out += `<text x="600" y="124" font-size="12.5" fill="currentColor" text-anchor="middle">+3</text>`;
+    for (const [x0, n] of panels.slice(1)) {
+      const tagCx = x0 + sq * n - sq / 2; // centre of the newest square
+      out += `<text x="${tagCx}" y="${y0 - 14}" font-size="12.5" font-weight="700" fill="currentColor" text-anchor="middle">+3</text>`;
+    }
     out += `<text x="150" y="195" font-size="12" fill="currentColor" text-anchor="middle">1 square — 4 sticks</text>`;
     out += `<text x="330" y="195" font-size="12" fill="currentColor" text-anchor="middle">2 squares — 7 sticks</text>`;
     out += `<text x="540" y="195" font-size="12" fill="currentColor" text-anchor="middle">3 squares — 10 sticks</text>`;
@@ -333,6 +353,39 @@ export const chapter11: Chapter = {
         {
           kind: 'para',
           text: 'Why "triangular"? Stack the count: one dot, then a row of two under it, then a row of three — each triangular number of dots packs into a triangle. And the family has a second life at every party: guests arrive one at a time and each newcomer shakes hands with everyone already there. The counts climb 1, 3, 6, 10, 15, 21 — the second guest\u2019s arrival forces 1 handshake, the third\u2019s two more (total 3), the fourth\u2019s three more (total 6) — the *same* pattern wearing a party dress. The formula that turns the position straight into the handshake count waits for 11.2\u2019s tools; the pattern is already yours.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The triangular numbers as dot-triangles: the first carries 1 dot, the second 3 (a new row of 2 under the 1), the third 6 (a new row of 3), the fourth 10 (a new row of 4). Each new triangle adds the next counting number as its fresh bottom row — so the counts run 1, 3, 6, 10, then 15, 21 — and the handshake arrivals add exactly those same new rows, one guest at a time.',
+          svg: `<svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four dot triangles containing 1, 3, 6 and 10 dots, each triangle adding one more row than the last, with the counts continuing 15 and 21">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">the triangular numbers as dots — each new triangle adds the next counting number as its new bottom row</text>
+  ${(() => {
+    const dx = 24, dy = 27, r = 5.5, top = 88;
+    const panels: Array<[number, number]> = [[95, 1], [245, 2], [425, 3], [655, 4]];
+    const counts = [1, 3, 6, 10];
+    let out = '';
+    panels.forEach(([cx, k]) => {
+      for (let row = 1; row <= k; row++) {
+        const y = top + (row - 1) * dy;
+        for (let i = 0; i < row; i++) {
+          const x = cx + (i - (row - 1) / 2) * dx;
+          out += `<circle cx="${x}" cy="${y}" r="${r}" fill="#f59e0b" stroke="#b45309" stroke-width="1.4"/>`;
+        }
+      }
+    });
+    counts.forEach((c, i) => {
+      out += `<text x="${panels[i][0]}" y="200" font-size="13.5" font-weight="700" fill="currentColor" text-anchor="middle">${c}</text>`;
+    });
+    out += `<text x="520" y="200" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.8">then 15, 21 …</text>`;
+    return out;
+  })()}
+  <text x="380" y="232" font-size="12" fill="currentColor" text-anchor="middle">each fresh bottom row carries the next counting number of dots — and the handshake arrivals add exactly those rows</text>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'Read the picture row by row. The fourth triangle carries $1 + 2 + 3 + 4 = 10$ dots — and its new bottom row of four is exactly what the fourth guest\u2019s arrival adds to the party\u2019s handshake count. The fifth triangle\u2019s new row will carry 5 fresh dots ($10 + 5 = 15$), the sixth\u2019s 6 ($15 + 6 = 21$): the rows are the counting numbers, the totals are the handshake counts — one picture, two readings. The formula that leaps straight from position to dot-count waits one lesson ahead (11.2\u2019s business); this dot picture is the ground it will stand on.',
         },
         {
           kind: 'para',
@@ -654,6 +707,43 @@ export const chapter11: Chapter = {
                     'Hence 16 sticks for 5 squares, and 10 squares from 31 sticks — the pattern works both ways.',
                   ],
                   answer: '16 sticks; 10 squares',
+                  figures: [
+                    {
+                      caption:
+                        'The matchstick row at n = 5, in figure 1\u2019s counting convention: the seed\u2019s four sticks stay heavy, everything already counted — the earlier squares\u2019 sticks and every borrowed shared edge — is dashed, and only the FIFTH square\u2019s three fresh sticks (top, bottom, right, teal) remain to be bought, under its bold +3 tag. The counts walk 4, 7, 10, 13, 16 (one per square, cumulative), so the jump law reads T\u2085 = 4 + 4 \u00d7 3 = 16 — and backwards, 31 sticks build (31 \u2212 1)/3 = 10 squares.',
+                      svg: `<svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A matchstick row of five squares with cumulative counts 4, 7, 10, 13 and 16; the seed solid, the already-counted structure dashed, and the fifth square's three fresh sticks drawn in teal with a plus-three tag above — illustrating 4 plus 4 times 3 equals 16">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">the matchstick row at n = 5 — the fifth square\u2019s three fresh sticks in teal</text>
+  ${(() => {
+    const sq = 64, y0 = 100, x0 = 180, n = 5;
+    const counts = [4, 7, 10, 13, 16];
+    let out = '';
+    for (let j = 0; j <= n; j++) {
+      const x = x0 + sq * j;
+      const isBought = j === n; // the fifth square's fresh right edge
+      const isSeed = j === 0;
+      out += `<line x1="${x}" y1="${y0}" x2="${x}" y2="${y0 + sq}" stroke="${isBought ? '#0d9488' : 'currentColor'}" stroke-width="${isSeed || isBought ? 3 : 1.2}"${isSeed || isBought ? '' : ' stroke-dasharray="4 3"'}/>`;
+    }
+    [y0, y0 + sq].forEach((y) => {
+      for (let k = 1; k <= n; k++) {
+        const x1 = x0 + sq * (k - 1), x2 = x0 + sq * k;
+        if (k === 1) out += `<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="currentColor" stroke-width="3"/>`;
+        else if (k === n) out += `<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="#0d9488" stroke-width="3"/>`;
+        else out += `<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>`;
+      }
+    });
+    const tagCx = x0 + sq * n - sq / 2;
+    out += `<text x="${tagCx}" y="${y0 - 14}" font-size="12.5" font-weight="700" fill="#0d9488" text-anchor="middle">+3</text>`;
+    counts.forEach((c, i) => {
+      const ccx = x0 + sq * i + sq / 2;
+      const last = c === 16;
+      out += `<text x="${ccx}" y="${y0 + sq + 26}" font-size="14" font-weight="${last ? '700' : '500'}" fill="${last ? '#0d9488' : 'currentColor'}" text-anchor="middle">${c}</text>`;
+    });
+    return out;
+  })()}
+  <text x="380" y="214" font-size="12" fill="currentColor" text-anchor="middle">T\u2085 = 4 + 4 \u00d7 3 = 16 — four jumps of three, no walking — and backwards: 31 sticks build (31 \u2212 1)/3 = 10 squares</text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Fill the gap and the front of 7, 12, __, 22, 27, … — what number sits in the gap, and what comes before 7?',
@@ -664,6 +754,82 @@ export const chapter11: Chapter = {
                     'Hence 17 in the gap; 2 before the 7.',
                   ],
                   answer: '17 in the gap; 2 before the 7',
+                  figures: [
+                    {
+                      caption:
+                        'The list on a number line: ticks at 2, 7, 12, 17, 22, 27 — every hop +5. The gap tick (17, teal) sits two hops past 7, both labelled; the backward hop below runs 7 \u2212 5 = 2. Patterns run backwards as honestly as forwards — the same step, subtracted.',
+                      svg: `<svg viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A number line with ticks at 2, 7, 12, 17, 22 and 27 spaced five apart; hop arcs labelled plus five run from 7 through the gap at 17, and a backward arrow labelled minus five runs from 7 back to 2">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">the list walks in 5s — the gap sits two hops past 7; before 7 lies 7 \u2212 5 = 2</text>
+  ${(() => {
+    const vals = [2, 7, 12, 17, 22, 27];
+    const x = (v: number) => 70 + (v - 2) * 24;
+    const y = 120;
+    let out = `<line x1="70" y1="${y}" x2="690" y2="${y}" stroke="currentColor" stroke-width="2"/>`;
+    vals.forEach((v, i) => {
+      const px = x(v);
+      const isGap = v === 17, isFirst = v === 2;
+      out += `<line x1="${px}" y1="${y - 8}" x2="${px}" y2="${y + 8}" stroke="${isGap ? '#0d9488' : 'currentColor'}" stroke-width="${isGap ? 3 : 2}"/>`;
+      out += `<text x="${px}" y="${y + 32}" font-size="13" font-weight="${isGap || isFirst ? '700' : '500'}" fill="${isGap ? '#0d9488' : 'currentColor'}" text-anchor="middle">${v}</text>`;
+      void i;
+    });
+    vals.slice(0, -1).forEach((v, i) => {
+      const x1 = x(v) + 2, x2 = x(vals[i + 1]) - 2;
+      const mid = (x1 + x2) / 2;
+      const labelled = v === 7 || v === 12; // the two hops that fill the gap
+      out += `<path d="M ${x1} ${y - 10} Q ${mid} ${y - 34} ${x2} ${y - 10}" fill="none" stroke="currentColor" stroke-width="${labelled ? 1.4 : 1}" opacity="${labelled ? 1 : 0.5}"/>`;
+      if (labelled) out += `<text x="${mid}" y="${y - 40}" font-size="11.5" font-weight="700" fill="currentColor" text-anchor="middle">+5</text>`;
+    });
+    const bx1 = x(7) - 4, bx2 = x(2) + 10;
+    out += `<line x1="${bx1}" y1="${y + 56}" x2="${bx2}" y2="${y + 56}" stroke="currentColor" stroke-width="1.4"/>`;
+    out += `<polygon points="${x(2) + 2},${y + 56} ${x(2) + 14},${y + 52} ${x(2) + 14},${y + 60}" fill="currentColor"/>`;
+    out += `<text x="${(bx1 + bx2) / 2}" y="${y + 48}" font-size="11.5" font-weight="700" fill="currentColor" text-anchor="middle">\u22125</text>`;
+    out += `<text x="${x(7)}" y="${y + 74}" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.85">the term before 7: subtract the step</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
+                },
+                {
+                  q: 'The dot triangles run 1, 3, 6, 10, \u2026. How many dots does the fifth triangle carry, which triangle holds exactly ten dots \u2014 and why does a five-guest party (everyone shakes hands with everyone) need the same count you just named?',
+                  solution: [
+                    'Now, each new triangle adds the next counting number as its fresh bottom row: the fifth carries $1 + 2 + 3 + 4 + 5 = 15$ dots.',
+                    'So ten dots is the fourth triangle \u2014 the running totals read $1, 3, 6, 10$, and the fourth lands exactly on 10.',
+                    'And the party: the arrivals add $1 + 2 + 3 + 4$ handshakes \u2014 the same running total \u2014 or pair-wise, five guests each shaking four others counts every pair twice: $5 \\times 4 / 2 = 10$.',
+                    'Hence 15 dots; the fourth triangle; 10 handshakes \u2014 the dot picture and the handshake picture are one picture.',
+                  ],
+                  answer: '15 dots; the fourth triangle; 10 handshakes \u2014 one family',
+                  figures: [
+                    {
+                      caption:
+                        'The fourth triangle (10 dots) grows into the fifth: the new bottom row carries 5 fresh teal dots, so $10 + 5 = 15$. The five-guest handshake graph is the same fifth triangle \u2014 each pair of guests is one dot, each arrival a new row.',
+                      svg: `<svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two dot triangles: the fourth with ten dots and the fifth with fifteen, whose new bottom row of five dots is drawn in teal with an arrow labelled plus five new dots">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">the fifth triangle \u2014 the new bottom row carries 5 fresh dots (teal)</text>
+  ${(() => {
+    const dx = 24, dy = 27, r = 5.5, top = 88;
+    const tri: Array<[number, number, boolean]> = [[190, 4, false], [560, 5, true]];
+    let out = '';
+    tri.forEach(([cx, k, fifth]) => {
+      for (let row = 1; row <= k; row++) {
+        const y = top + (row - 1) * dy;
+        const newRow = fifth && row === k; // the fresh bottom row of 5
+        for (let i = 0; i < row; i++) {
+          const x = cx + (i - (row - 1) / 2) * dx;
+          out += `<circle cx="${x}" cy="${y}" r="${r}" fill="${newRow ? '#0d9488' : '#f59e0b'}" stroke="${newRow ? '#0f766e' : '#b45309'}" stroke-width="1.4"/>`;
+        }
+      }
+    });
+    out += `<line x1="285" y1="140" x2="455" y2="140" stroke="currentColor" stroke-width="1.4"/>`;
+    out += `<polygon points="467,140 455,134 455,146" fill="currentColor"/>`;
+    out += `<text x="370" y="128" font-size="11.5" font-weight="700" fill="currentColor" text-anchor="middle">+5 new dots</text>`;
+    out += `<text x="190" y="224" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle">10 dots</text>`;
+    out += `<text x="560" y="224" font-size="13" font-weight="700" fill="#0d9488" text-anchor="middle">15 dots</text>`;
+    return out;
+  })()}
+  <text x="380" y="246" font-size="12" fill="currentColor" text-anchor="middle">the five-guest handshake graph is this same fifth triangle \u2014 every pair a dot, every arrival a new row</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -689,6 +855,36 @@ export const chapter11: Chapter = {
                     'Hence 16, 32 by doubling; 16, 31 by the circle game — the world\u2019s most famous broken reflex.',
                   ],
                   answer: 'Doubling: 16, 32; the circle game: 16, 31 — stated rules only',
+                  figures: [
+                    {
+                      caption:
+                        'The circle game at six points: every pair joined — 15 chords, crossing at 15 interior points, cutting the disc into 31 regions (1 + 15 + 15 by the count). The fifth count agreed with doubling at 16; the sixth refuses at 31. The angles are chosen in general position (no three chords through one interior point), so the drawing IS the arithmetic the verify script pins.',
+                      svg: `<svg viewBox="0 0 760 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A circle carrying six rim points joined by all fifteen chords; the fifteen interior crossings cut the disc into thirty-one regions, not thirty-two — the doubling reflex dies at the sixth term">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">six rim points, all fifteen chords — and the count of regions is 31, not 32</text>
+  ${(() => {
+    const R = 210, cx = 380, cy = 300;
+    const angles = [0, 45, 120, 175, 250, 320]; // degrees CCW from east — general position (certified: 15 crossings, 31 regions)
+    const rad = (d: number) => (d * Math.PI) / 180;
+    const pt = (i: number) => [cx + R * Math.cos(rad(angles[i])), cy - R * Math.sin(rad(angles[i]))];
+    let out = `<circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="currentColor" stroke-width="2"/>`;
+    for (let i = 0; i < 6; i++) {
+      for (let j = i + 1; j < 6; j++) {
+        const a = pt(i), b = pt(j);
+        out += `<line x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" stroke="currentColor" stroke-width="1.1" opacity="0.85"/>`;
+      }
+    }
+    angles.forEach((deg, i) => {
+      const p = pt(i);
+      out += `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="5" fill="#f59e0b" stroke="#b45309" stroke-width="1.5"/>`;
+      const lx = cx + 232 * Math.cos(rad(deg)), ly = cy - 232 * Math.sin(rad(deg)) + 4;
+      out += `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" font-size="12.5" font-weight="600" fill="currentColor" text-anchor="middle">P${i + 1}</text>`;
+    });
+    return out;
+  })()}
+  <text x="380" y="545" font-size="12" fill="currentColor" text-anchor="middle">1, 2, 4, 8, 16, 31 — the sixth count refuses to double; the seventh is 57 (1 + 21 + 35)</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -714,6 +910,41 @@ export const chapter11: Chapter = {
                     'Hence 15 and 21 — the same pattern as the dot-triangles, wearing a party dress.',
                   ],
                   answer: 'The triangular numbers; next two 15 and 21',
+                  figures: [
+                    {
+                      caption:
+                        'The party as a graph: 4 guests → 6 handshakes, 5 guests → 10, 6 guests → 15 — each newcomer’s edges (teal) connect them to every guest already present, so the k-th arrival adds k − 1 new edges. The counts are the triangular numbers’ running totals; the next arrivals bring 15 + 6 = 21.',
+                      svg: `<svg viewBox="0 0 760 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three handshake graphs with four, five and six guests carrying six, ten and fifteen edges; each new guest’s handshake edges drawn in teal">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">the party grows: 6 → 10 → 15 handshakes (the newcomer’s edges in teal)</text>
+  ${(() => {
+    const r = 62, cy = 130;
+    const panels: Array<[number, number]> = [[140, 4], [380, 5], [620, 6]];
+    let out = '';
+    panels.forEach(([cx, n]) => {
+      const dot: Array<[number, number]> = [];
+      for (let i = 0; i < n; i++) {
+        const th = (i * 360 / n - 90) * Math.PI / 180;
+        dot.push([cx + r * Math.cos(th), cy + r * Math.sin(th)]);
+      }
+      for (let i = 0; i < n; i++) {
+        for (let j = i + 1; j < n; j++) {
+          const isNewcomer = j === n - 1; // edges from the newest guest
+          out += `<line x1="${dot[i][0].toFixed(1)}" y1="${dot[i][1].toFixed(1)}" x2="${dot[j][0].toFixed(1)}" y2="${dot[j][1].toFixed(1)}" stroke="${isNewcomer ? '#0d9488' : 'currentColor'}" stroke-width="${isNewcomer ? 1.8 : 1}"${isNewcomer ? '' : ' opacity="0.75"'}/>`;
+        }
+      }
+      dot.forEach(([px, py], i) => {
+        const isNew = i === n - 1;
+        out += `<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="4.5" fill="${isNew ? '#0d9488' : '#f59e0b'}" stroke="${isNew ? '#0f766e' : '#b45309'}" stroke-width="1.3"/>`;
+      });
+      const edges = (n * (n - 1)) / 2;
+      out += `<text x="${cx}" y="${cy + r + 34}" font-size="12.5" font-weight="600" fill="currentColor" text-anchor="middle">${n} guests · ${edges} handshakes</text>`;
+    });
+    return out;
+  })()}
+  <text x="380" y="285" font-size="12" fill="currentColor" text-anchor="middle">the k-th arrival adds k − 1 fresh edges — the counts run 1, 3, 6, 10, 15, 21: the triangular numbers</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -729,6 +960,36 @@ export const chapter11: Chapter = {
                     'Hence 95, 191 — name the rule before continuing it.',
                   ],
                   answer: 'Rule: ×2 + 1; next two 95, 191',
+                  figures: [
+                    {
+                      caption:
+                        'The mixed rule as a machine: each arrow carries two operations — ×2, then +1 — walking 2 → 5 → 11 → 23 → 47 → 95. The differences 3, 6, 12, 24 double at every step: that doubling of differences is the tell-tale of a ×r-then-+b series, worth naming before continuing (95 × 2 + 1 = 191 next).',
+                      svg: `<svg viewBox="0 0 760 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An arrow chain from 2 to 5 to 11 to 23 to 47 to 95 where every arrow carries the two-step rule times two then plus one">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">the mixed rule as a machine — every arrow: ×2, then +1</text>
+  ${(() => {
+    const nodes = [2, 5, 11, 23, 47, 95];
+    const y = 104, w = 68, h = 34;
+    let out = '';
+    nodes.forEach((v, i) => {
+      const cx = 70 + i * 120 + w / 2;
+      const last = i === nodes.length - 1;
+      out += `<rect x="${cx - w / 2}" y="${y - h / 2}" width="${w}" height="${h}" rx="8" fill="${last ? '#ccfbf1' : '#fef3c7'}" stroke="${last ? '#0f766e' : '#f59e0b'}" stroke-width="1.6"/>`;
+      out += `<text x="${cx}" y="${y + 5}" font-size="15" font-weight="700" fill="currentColor" text-anchor="middle">${v}</text>`;
+      if (i < nodes.length - 1) {
+        const x1 = cx + w / 2 + 5, x2 = cx + 120 - w / 2 - 5; // 5px clear of each box edge
+        const mid = (x1 + x2) / 2;
+        out += `<line x1="${x1}" y1="${y}" x2="${x2 - 7}" y2="${y}" stroke="currentColor" stroke-width="1.4"/>`;
+        out += `<polygon points="${x2},${y} ${x2 - 9},${y - 4} ${x2 - 9},${y + 4}" fill="currentColor"/>`;
+        out += `<text x="${mid}" y="76" font-size="11.5" font-weight="700" fill="currentColor" text-anchor="middle">×2</text>`;
+        out += `<text x="${mid}" y="138" font-size="11.5" font-weight="700" fill="currentColor" text-anchor="middle">+1</text>`;
+      }
+    });
+    return out;
+  })()}
+  <text x="380" y="170" font-size="12" fill="currentColor" text-anchor="middle">the differences 3, 6, 12, 24 double — the tell-tale of a ×2-then-+1 series; next: 95 × 2 + 1 = 191</text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Use the gnomon law to write down 1 + 3 + 5 + 7 + 9 + 11, and the sum of the first ten odd numbers — without adding term by term.',
@@ -739,6 +1000,37 @@ export const chapter11: Chapter = {
                     'Hence 36 and 100 — the squares caught the sums; the L-wrap picture says why.',
                   ],
                   answer: '36 (= 6²); 100 (= 10²)',
+                  figures: [
+                    {
+                      caption:
+                        'The 6 × 6 square unwrapped into its six Ls: the Ls carry 1, 3, 5, 7, 9, 11 cells (dark-amber corner labels), and the running totals on the right read 1, 4, 9, 16, 25, 36 — the squares, with no adding at all. The sixth wrap lands on 6² = 36; the tenth would land on 100.',
+                      svg: `<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A six-by-six grid whose nested L-shaped gnomons carry 1, 3, 5, 7, 9 and 11 cells, with running totals 1, 4, 9, 16, 25 and 36 on the right — the squares">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">the 6 × 6 square as six nested Ls — each L carries the next odd number of cells</text>
+  ${(() => {
+    const c = 46, x0 = 200, y0 = 70, n = 6;
+    let out = '';
+    for (let r = 1; r <= n; r++) {
+      for (let cc = 1; cc <= n; cc++) {
+        const k = Math.max(r, cc); // the L this cell belongs to
+        const op = (0.05 + 0.055 * k).toFixed(3);
+        out += `<rect x="${x0 + (cc - 1) * c}" y="${y0 + (r - 1) * c}" width="${c}" height="${c}" fill="#f59e0b" fill-opacity="${op}" stroke="currentColor" stroke-width="0.7" stroke-opacity="0.55"/>`;
+      }
+    }
+    for (let k = 1; k <= n; k++) {
+      // the L's outer growth edge: bottom of row k + right of column k
+      const xk = x0 + k * c, yk = y0 + k * c;
+      out += `<path d="M ${x0 + (k - 1) * c} ${yk} L ${xk} ${yk} L ${xk} ${y0 + (k - 1) * c}" fill="none" stroke="currentColor" stroke-width="2"/>`;
+      // the odd count rides the corner cell (k, k)
+      out += `<text x="${x0 + (k - 0.5) * c}" y="${y0 + (k - 0.5) * c + 4}" font-size="11.5" font-weight="700" fill="currentColor" text-anchor="middle">${2 * k - 1}</text>`;
+      // the running total rides the right margin at row k's height
+      out += `<text x="${x0 + n * c + 40}" y="${y0 + (k - 0.5) * c + 4}" font-size="13" font-weight="700" fill="currentColor" text-anchor="middle">${k * k}</text>`;
+    }
+    return out;
+  })()}
+  <text x="380" y="380" font-size="12" fill="currentColor" text-anchor="middle">L sizes 1, 3, 5, 7, 9, 11 — running totals 1, 4, 9, 16, 25, 36 = the squares; the L-wrap picture is the proof</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },

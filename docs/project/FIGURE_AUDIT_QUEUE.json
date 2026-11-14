@@ -1,8 +1,8 @@
 {
-  "updated": "2026-11-13",
+  "updated": "2026-11-15",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
-  "cursor": 45,
+  "cursor": 46,
   "stats": {
     "lessonsWithFigures": 131,
     "figureTotal": 245,
@@ -419,8 +419,10 @@
       "lessonId": "fm-patterns-and-rules",
       "bookId": "foundation-mathematics",
       "chapter": 11,
-      "figures": 2,
-      "status": "pending"
+      "figures": 3,
+      "status": "done",
+      "doneOn": "2026-11-15",
+      "doneBy": "audit-bot fire (job 530242, §10 passes A/B/C)"
     },
     {
       "lessonId": "fm-patterns-to-formulas",
