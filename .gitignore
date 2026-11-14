@@ -496,3 +496,4 @@ server.log
 # run 100 — AA ch. 2 opens: 2.1's pre-write verifier (A–E pins + F authored audit) and its per-lesson e2e block (quiz keys 1/1/2/1/2); 2.2+ ride the same verifier when authored
 !/scripts/verify-book4-ch02.ts
 !/scripts/e2e-aa-21.page.js
+!/scripts/e2e-aa-22.page.js

@@ -3,6 +3,30 @@ import type { Chapter, Lesson } from '../../../types'
 /**
  * Advanced Algebra — Chapter 2: The Quadratic at Depth
  *
+ * LESSONS WRITTEN: 2.2 "Quadratic Inequalities and the Sign Diagram" (run 101 —
+ *                  quiz keys [1, 1, 1, 0, 0], 14 exercises L1–L6, two figures —
+ *                  the sign ladder of x² − 7x + 10 = (x − 2)(x − 5) (parabola,
+ *                  fenced zeros 2 and 5, the + − + band, shaded solution rays)
+ *                  and the four-condition checklist audited on x² − 5x + 6 over
+ *                  (1, 4) with the counter-case x² − 5x + 4 whose roots sit ON
+ *                  the walls; hosts BOTH m2-02 folds as named subsections —
+ *                  'Graphical Interpretation of the Zero of an Expression'
+ *                  (definition callout + the between-roots derivation + the
+ *                  zeros/sign read Illustration) and 'The Domain of an Equation'
+ *                  (definition callout + the √(x² − 5x) domain and √(x + 6) = x
+ *                  extraneous-census Illustrations); the four-step sign-diagram
+ *                  recipe with the whole-line verdicts and the flip discipline;
+ *                  the four-condition location system with the drills (both roots
+ *                  of x² − 4x + m > 1 ⟺ 3 < m ≤ 4; x² + bx + 4 < 0 on (1, 2)
+ *                  ⟺ b ≤ −5 with the endpoint-touch honesty; exactly one root of
+ *                  x² − 5x + c in (0, 1) ⟺ 0 < c < 4; opposite signs of
+ *                  x² + (m−1)x + (m−5) ⟺ m < 5 with the free discriminant
+ *                  (m−3)² + 12; x² + mx + 3 negative at some positive x ⟺
+ *                  m < −2√3); the five-question location table; the interleaving
+ *                  gem at (1, 2, 4, 7) with the four-value bracket F(1) = 6λ,
+ *                  F(2) = −2μ, F(4) = −6λ, F(7) = 18μ and the 35-pair grid
+ *                  verdict; 5 formula cards.
+ *
  * LESSONS WRITTEN: 2.1 "Vertex Form at Work: Maxima and Minima" (run 100 —
  *                  quiz keys [1, 1, 2, 1, 2], 14 exercises L1–L6, two
  *                  figures — the three-position trio of one upward opening
@@ -456,6 +480,299 @@ const lesson21: Lesson = {
 /* chapter assembly                                                    */
 /* ------------------------------------------------------------------ */
 
+const lesson22: Lesson = {
+  id: 'aa-quadratic-inequalities-and-the-sign-diagram',
+  number: '2.2',
+  title: 'Quadratic Inequalities and the Sign Diagram',
+  concepts: [
+    'the zero of an expression equals the root of the equation equals the x-intercept of the graph',
+    'the between-roots law: outside positive, between negative (a > 0)',
+    'the four-step sign-diagram recipe and its three special answers',
+    'the domain check: radicands and denominators before any squaring',
+    'the four-condition location system for pinning both roots inside an interval',
+    'the one-sign-change condition: exactly one root in (k₁, k₂)',
+    'the interleaving lemma: a real root for every μ, λ',
+  ],
+  objectives: [
+    'solve any quadratic inequality in seconds with the sign ladder, strict and non-strict alike',
+    'state the three special answers (all ℝ, one excluded seat, the empty set) for the D < 0 and D = 0 families',
+    'run the domain check before solving radical or fractional equations and census the extraneous seats',
+    'decide both-roots-inside, interval-inside, exactly-one and opposite-sign questions with the honest condition sets',
+    'prove and apply the interleaving lemma with the four-value sign bracket',
+  ],
+  prerequisites: ['al-solving-linear-inequalities', 'al-the-parabola-quadratic-graphs-and-vertices', 'aa-vertex-form-at-work-maxima-and-minima'],
+  sources: ['cengage-m2-02', 'cengage-jee-style', 'ncert-math10-ch4-quadratic', 'openstax-college-algebra'],
+  blocks: [
+    { kind: 'para', text: 'AL 7 solved linear inequalities by moving seats on the number line, and its ch. 9–10 work drew parabolas and read their vertices; lesson 2.1 turned the quadratic into an expression whose extreme values and six sign cases were priced from the completed form. This lesson cashes all of that into the fastest tool in the chapter: the SIGN DIAGRAM. The question "where is $ax^2 + bx + c$ positive?" stops being an algebra problem and becomes a two-second read off a marked line. Then the lesson crosses the bridge the examination actually examines most: the LOCATION of the roots — not where the expression is positive, but which regions of the line the doors (roots) themselves occupy relative to a chosen interval. The plan: first the zeros of an expression and their graphical meaning, then the sign diagram with its special answers, then the domain discipline that radical and fractional equations demand, then the four-condition location system with its honest shortcuts, and finally the interleaving lemma — the cleanest sign-bracket argument on the shelf.' },
+
+    { kind: 'heading', text: 'Graphical Interpretation of the Zero of an Expression' },
+    { kind: 'para', text: 'Everything in this lesson hangs on one small vocabulary split. The EQUATION $f(x) = 0$ asks for the seats where $f$ vanishes; the EXPRESSION $f(x)$ itself asks where it is positive and where negative. The seats where the expression vanishes are its zeros, and the graph ties the two questions together: a zero of the expression is exactly an $x$-intercept of the parabola. This is why 2.1\'s vertex work and AL 10.3\'s graph work pay off here — the same curve that priced a minimum also fences the sign.' },
+    { kind: 'callout', tone: 'definition', title: 'Zero of an expression', text: 'A real number $z$ is said to be a ZERO of the expression $f(x)$ if $f(z) = 0$. When $f$ is regarded as the function $y = f(x)$, the zeros are exactly the $x$-coordinates of the points where the graph meets the $x$-axis. Thus, zeros of the expression, roots of the equation $f(x) = 0$, and $x$-intercepts of the parabola are one census read three ways: $f(z) = 0 \\Leftrightarrow (z, 0)$ lies on the graph $y = f(x)$.' },
+    { kind: 'para', text: 'The graphical picture decides the sign question the moment the zeros are known. An upward parabola with two distinct zeros $\\alpha < \\beta$ meets the axis at exactly those two seats; between them it must dip below, and outside them it rides above. That is a theorem, not a picture habit, and it deserves its derivation.' },
+    { kind: 'derivation', title: 'The between-roots sign theorem', statement: 'Let $f(x) = ax^2 + bx + c$ with $a > 0$ and two distinct real zeros $\\alpha < \\beta$ (so $D > 0$). Then $f(x) < 0$ exactly for $\\alpha < x < \\beta$, and $f(x) > 0$ exactly for $x < \\alpha$ or $x > \\beta$.', steps: [
+      { label: 'Start from the completed form', formula: 'f(x) = a\\left[\\left(x + \\dfrac{b}{2a}\\right)^2 - \\dfrac{D}{4a^2}\\right]', explanation: 'The completion identity 2.1 derived; the squared term vanishes exactly at the axis seat $h = -\\frac{b}{2a}$.' },
+      { label: 'Name the half-gap', formula: 'h = -\\dfrac{b}{2a}, \\qquad s = \\dfrac{\\sqrt{D}}{2a}', explanation: 'Since $D > 0$ the square root is real, and the two zeros sit symmetrically about $h$: $\\alpha = h - s$ and $\\beta = h + s$.' },
+      { label: 'Refactor around the zeros', formula: 'f(x) = a\\left[(x - h)^2 - s^2\\right] = a(x - h - s)(x - h + s) = a(x - \\alpha)(x - \\beta)', explanation: 'A difference of squares factors; the completed form becomes the factored form with named doors.' },
+      { label: 'Read the sign by the product', formula: 'f(x) = a\\,(x - \\alpha)(x - \\beta)', explanation: 'For $\\alpha < x < \\beta$ the factor $(x - \\alpha)$ is positive while $(x - \\beta)$ is negative, so the product is negative and multiplying by $a > 0$ keeps it negative. For $x < \\alpha$ both factors are negative, and for $x > \\beta$ both are positive — the product is positive in both outer bands.' },
+    ], result: 'Thus, between its two zeros an upward parabola lies below the axis and outside them above: $f < 0 \\Leftrightarrow \\alpha < x < \\beta$ and $f > 0 \\Leftrightarrow x < \\alpha$ or $x > \\beta$.' },
+    { kind: 'callout', tone: 'theorem', title: 'The between-roots law (a > 0)', text: 'For $a > 0$ and distinct real zeros $\\alpha < \\beta$: $(x - \\alpha)(x - \\beta) < 0 \\Leftrightarrow \\alpha < x < \\beta$, and $(x - \\alpha)(x - \\beta) > 0 \\Leftrightarrow x < \\alpha$ or $x > \\beta$. Outside positive, between negative. For $a < 0$ every verdict flips — which is why the flip discipline of the next section insists on multiplying through by $-1$ first.' },
+    { kind: 'example', title: 'Read the zeros and the sign of f(x) = x² − 7x + 10 from its graph', steps: [
+      'Zeros: $x^2 - 7x + 10 = (x - 2)(x - 5)$ vanishes at $x = 2$ and $x = 5$; the discriminant $D = 49 - 40 = 9 > 0$ certifies two distinct doors.',
+      'Graphically the parabola meets the $x$-axis exactly at $(2, 0)$ and $(5, 0)$ and nowhere else.',
+      'Between the doors the completed form $f(x) = (x - 3.5)^2 - 2.25$ dips below the axis: $f(3.5) = -2.25$ is the lowest seat.',
+      'Outside the doors the expression is positive: $f(0) = 10$ and $f(7) = 10$ are the nearest integer witnesses.',
+      'Hence, the three-region census is settled by two zeros and one test seat — the graph does the rest.',
+    ] },
+    { kind: 'para', text: 'For a downward opening the same curve, flipped, reverses every verdict: $-x^2 + 2x + 3$ has zeros $-1$ and $3$ and is POSITIVE between them, negative outside. Rather than memorizing a second law, the discipline of the next section normalizes every inequality to $a > 0$ before any ladder is drawn.' },
+
+    { kind: 'heading', text: 'The Sign Diagram' },
+    { kind: 'para', text: 'The sign diagram (examination books call it the sign chart or the wavy-curve method for its higher-degree generalizations) rests on one honest observation: a parabola can cross the axis only at a zero, so between consecutive zeros it stays on one side. The sign can therefore change ONLY at the zeros — two fences for a quadratic — and one test seat per region settles the whole line. The recipe is four moves long.' },
+    { kind: 'list', ordered: true, items: [
+      'Standard form — move every term to one side so the inequality reads $ax^2 + bx + c > 0$ (or $\\geq$, $<$, $\\leq$) with the other side $0$.',
+      'Real zeros — factor or use the formula; if $D < 0$ stop early, the whole-line verdicts below apply.',
+      'The sign ladder — mark the zeros on the line; for $a > 0$ write $+, -, +$ left to right (the between-roots law), or test one seat per region.',
+      'The union answer — collect the regions the inequality claims; strict inequalities leave the zeros out, non-strict ones take them in.',
+    ] },
+    { kind: 'example', title: 'Solve (x − 2)(x − 5) > 0 by the sign diagram', steps: [
+      'The expression already sits in standard form with $a = 1 > 0$, and the zeros are the fence posts $x = 2$ and $x = 5$.',
+      'Now, the ladder: an upward parabola is above the axis outside its root pair, so the sign bands run $+$, $-$, $+$ from left to right.',
+      'The strict inequality $> 0$ claims the two positive bands and leaves the doors themselves out — there the value is $0$, not positive.',
+      'Witnesses: $f(0) = 10 > 0$, $f(3.5) = -2.25 < 0$, $f(7) = 10 > 0$, exactly as the ladder promised.',
+      'Hence, the solution set is $x < 2$ or $x > 5$.',
+    ] },
+    { kind: 'figure', caption: 'The sign diagram of x² − 7x + 10 = (x − 2)(x − 5): the parabola meets the axis at the fenced zeros 2 and 5, dips negative between them, and the solution bands of the inequality p(x) > 0 shade the two outer rays.', svg: '<svg viewBox="0 0 720 340" role="img" aria-label="Sign diagram of x squared minus 7 x plus 10 with roots 2 and 5, sign band plus minus plus, solution rays shaded" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="720" height="340" fill="#fffdf5"/><text x="360" y="22" text-anchor="middle" font-size="15" font-weight="bold" fill="#166534">the sign diagram of x² − 7x + 10 = (x − 2)(x − 5)</text><line x1="60" y1="198" x2="666" y2="198" stroke="#16a34a" stroke-width="2"/><path d="M 60 198 L 60 30" stroke="#16a34a" stroke-width="2"/><text x="70" y="40" font-size="13" fill="#0f766e">y</text><text x="652" y="216" font-size="13" fill="#0f766e">x</text><polyline points="20.6,53.6 40.3,74.0 60.0,93.0 79.7,110.7 99.4,127.1 119.1,142.2 138.8,156.0 158.4,168.5 178.1,179.6 197.8,189.5 217.5,198.0 237.2,205.2 256.9,211.1 276.6,215.7 296.2,219.0 315.9,221.0 335.6,221.6 355.3,221.0 375.0,219.0 394.7,215.7 414.4,211.1 434.1,205.2 453.8,198.0 473.4,189.5 493.1,179.6 512.8,168.5 532.5,156.0 552.2,142.2 571.9,127.1 591.6,110.7 611.2,93.0 630.9,74.0 650.6,53.6" fill="none" stroke="#0d9488" stroke-width="2.5"/><text x="92" y="42" font-size="13" fill="#0f766e">y = x² − 7x + 10</text><line x1="217.5" y1="198" x2="217.5" y2="255" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4 3"/><line x1="453.75" y1="198" x2="453.75" y2="255" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4 3"/><circle cx="217.5" cy="198" r="5" fill="#fffdf5" stroke="#ea580c" stroke-width="2.5"/><circle cx="453.75" cy="198" r="5" fill="#fffdf5" stroke="#ea580c" stroke-width="2.5"/><circle cx="335.6" cy="221.6" r="4" fill="#0d9488"/><text x="335.6" y="238" text-anchor="middle" font-size="12" fill="#0f766e">vertex (3.5, −2.25)</text><text x="211.5" y="248" text-anchor="end" font-size="14" font-weight="bold" fill="#d97706">2</text><text x="459.75" y="248" text-anchor="start" font-size="14" font-weight="bold" fill="#d97706">5</text><rect x="60" y="255" width="157.5" height="30" fill="#ffedd5"/><rect x="217.5" y="255" width="236.25" height="30" fill="#fffdf5" stroke="#fcd34d" stroke-width="1"/><rect x="453.75" y="255" width="236.25" height="30" fill="#ffedd5"/><text x="138.75" y="276" text-anchor="middle" font-size="20" font-weight="bold" fill="#166534">+</text><text x="335.6" y="276" text-anchor="middle" font-size="20" font-weight="bold" fill="#dc2626">−</text><text x="571.9" y="276" text-anchor="middle" font-size="20" font-weight="bold" fill="#166534">+</text><circle cx="217.5" cy="255" r="4.5" fill="#fffdf5" stroke="#d97706" stroke-width="2"/><circle cx="453.75" cy="255" r="4.5" fill="#fffdf5" stroke="#d97706" stroke-width="2"/><text x="360" y="308" text-anchor="middle" font-size="14" fill="#166534" font-weight="bold">reads: x &lt; 2 or x &gt; 5 — the shaded rays; the open doors 2 and 5 stay out</text></svg>' },
+    { kind: 'example', title: 'Solve −x² + 2x + 3 ≥ 0', steps: [
+      'The leading coefficient is $-1 < 0$; multiply through by $-1$ and flip the inequality: $x^2 - 2x - 3 \\leq 0$.',
+      'Factor: $(x + 1)(x - 3) \\leq 0$, doors at $-1$ and $3$.',
+      'Between the doors the upward parabola $x^2 - 2x - 3$ is negative, and the non-strict inequality invites the doors in.',
+      'Check at $x = 0$ in the original: $-0 + 0 + 3 = 3 \\geq 0$ — the middle band, as predicted.',
+      'Hence, the solution set is $-1 \\leq x \\leq 3$.',
+    ] },
+    { kind: 'para', text: 'Two families end the recipe early, because their ladders have no fences to climb. When $D < 0$ the parabola never meets the axis, so one sign owns the whole line; when $D = 0$ the parabola touches at one seat and lifts off, and only that seat behaves differently.' },
+    { kind: 'example', title: 'The three special verdicts', steps: [
+      '(i) $(x - 3)^2 > 0$: the square touches zero only at $x = 3$, so every seat except $3$ qualifies — the answer is "$x \\neq 3$".',
+      '(ii) $x^2 + x + 1 \\leq 0$: $D = 1 - 4 = -3 < 0$ with $a = 1 > 0$, so the expression is positive everywhere and never meets the axis — no solution.',
+      '(iii) $-x^2 - x - 1 < 0$: the same inner quadratic negated — now negative everywhere, so every real seat qualifies.',
+      'Thus, the $D < 0$ and $D = 0$ families answer in whole-line currency: all of $\\mathbb{R}$, one excluded seat, or the empty set, decided by the sign of $a$ and the strictness of the inequality.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'The flip discipline', text: 'Multiplying an inequality by $-1$ flips the inequality sign AND reverses the parabola\'s opening — do both or neither. The classic ruin: from $-x^2 + 2x + 3 \\geq 0$ writing $x^2 - 2x - 3 \\geq 0$ and answering $x \\leq -1$ or $x \\geq 3$ — the complement of the true answer. And never divide by $a$ to "simplify": its sign is the whole trap. Dividing by $a^2$ is always safe; multiplying by $-1$ with the flip is the standard move.' },
+
+    { kind: 'heading', text: 'The Domain of an Equation' },
+    { kind: 'para', text: 'Solving an equation means finding the seats that satisfy it — but only the seats where every operation in the equation is even defined can be candidates. Checking that set first is the domain discipline, and it is not bureaucracy: it kills wrong candidates before they are born and catches the ones squaring creates. The two demands that matter for quadratics are the radicand and the denominator.' },
+    { kind: 'callout', tone: 'definition', title: 'Domain of an equation', text: 'The DOMAIN of an equation in $x$ is the set of real numbers $x$ for which every operation appearing in the equation is defined. A real number solves the equation only if it lies in the domain AND satisfies it; candidates outside the domain are rejected before any algebra runs. Thus, the solution set of an equation is always a subset of its domain — the domain is the fence the search runs inside.' },
+    { kind: 'para', text: 'For example, the quadratic inequality returns in two costumes:' },
+    { kind: 'list', marker: 'roman', items: [
+      '(i) a square root $\\sqrt{\\text{quadratic}}$ demands the radicand $\\geq 0$ — a quadratic inequality in disguise, solved by the sign diagram;',
+      '(ii) a denominator $\\frac{1}{\\text{quadratic}}$ demands the quadratic $\\neq 0$ — the zeros are barred, and everything else is legal;',
+      '(iii) squaring both sides of an equation can admit seats the original never held — the census below catches them.',
+    ] },
+    { kind: 'example', title: 'Find the domain of g(x) = √(x² − 5x)', steps: [
+      'The radical demands a non-negative radicand: $x^2 - 5x \\geq 0$.',
+      'Factor: $x(x - 5) \\geq 0$ — doors at $0$ and $5$, upward opening.',
+      'Ladder: the product is non-negative outside the pair and negative inside.',
+      'Witness: at $x = 2$ the radicand is $2 \\cdot (-3) = -6$, and $\\sqrt{-6}$ is not real — the strip $(0, 5)$ is barred.',
+      'Hence, the domain is $x \\leq 0$ or $x \\geq 5$.',
+    ] },
+    { kind: 'example', title: 'Solve √(x + 6) = x, with the extraneous-root census', steps: [
+      'Domain pre-census: $x + 6 \\geq 0$ gives $x \\geq -6$, and because a square root is never negative the seat must also satisfy $x \\geq 0$.',
+      'Square both sides: $x + 6 = x^2$, so $x^2 - x - 6 = 0$ and $(x - 3)(x + 2) = 0$ — the candidates are $3$ and $-2$.',
+      'Census: $\\sqrt{3 + 6} = \\sqrt{9} = 3$ — the seat $x = 3$ survives.',
+      'But, $\\sqrt{-2 + 6} = \\sqrt{4} = 2 \\neq -2$ — the seat $x = -2$ was created by the squaring and also fails the $x \\geq 0$ pre-census.',
+      'Hence, $x = 3$ is the one and only solution — the census was not decoration: without it the answer would be wrong.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'Extraneous roots are census failures', text: 'Squaring is a one-way door: $A = B$ forces $A^2 = B^2$, but $A^2 = B^2$ does not force $A = B$ — the seats with $A = -B$ sneak in. The census (substitute every candidate back into the ORIGINAL equation) is part of the solution, never an optional extra. AL\'s fractional-equations lesson banked the linear version of this discipline; the radical version above is its quadratic-age cousin.' },
+
+    { kind: 'heading', text: 'The Location Bridge: The Four-Condition System' },
+    { kind: 'para', text: 'The sign diagram answers "where is the expression positive". A different family of questions asks about the DOORS themselves: are both roots inside a chosen interval $(k_1, k_2)$? Is the whole interval inside the root pair? Does exactly one root cross it? Do the roots sit on opposite sides of a wall? These are the location-of-roots questions, and the examination syllabus names them explicitly. They are answered by reading $f$ at the walls of the interval and at the axis — never by computing the roots themselves.' },
+    { kind: 'callout', tone: 'theorem', title: 'The four-condition system', text: 'Both roots of $f(x) = ax^2 + bx + c = 0$ lie in the open interval $(k_1, k_2)$ if and only if ALL FOUR hold: (i) $D \\geq 0$ — real doors exist (with $D = 0$ the double root must also lie inside); (ii) $a \\cdot f(k_1) > 0$; (iii) $a \\cdot f(k_2) > 0$ — multiplying by $a$ normalizes the wall reads so both openings speak the same language: each wall lies OUTSIDE the root pair; (iv) $k_1 < -\\frac{b}{2a} < k_2$ — the axis sits between the walls, so the pair straddles the middle instead of parking both doors left or right of the interval.' },
+    { kind: 'para', text: 'Each condition earns its keep. Without (i) the answer can be vacuous (no doors at all); without (ii)+(iii) a wall may sit between the doors; without (iv) both doors can sit left of $k_1$ (both wall values positive, axis outside). The worked drill that follows runs the system, and the figure beside it audits every gate on a passing example.' },
+    { kind: 'example', title: 'Find every m for which both roots of x² − 4x + m exceed 1', steps: [
+      'Three gates, one per condition of the system: real roots, the wall $1$ outside the pair, the axis clear of the wall.',
+      'Real roots: $D = 16 - 4m \\geq 0$, so $m \\leq 4$.',
+      'Wall outside: $f(1) = 1 - 4 + m = m - 3 > 0$, so $m > 3$.',
+      'Axis: $-\\frac{b}{2a} = 2 > 1$ — automatic here, no restriction.',
+      'Hence $3 < m \\leq 4$: at $m = 4$ the double root $2$ still exceeds $1$; at $m = 3$ a root lands exactly on the wall; at $m = 4.5$ there are no roots at all.',
+      'Witness inside the range: $m = 3.5$ gives roots $2 \\pm \\frac{\\sqrt{2}}{2} \\approx 1.293$ and $2.707$ — both clear of $1$.',
+    ] },
+    { kind: 'figure', caption: 'The four-condition checklist audited on f(x) = x² − 5x + 6 over the interval (1, 4): all four gates pass (green), while the counter-case x² − 5x + 4 fails exactly the two wall checks — its roots 1 and 4 sit ON the walls of the open interval.', svg: '<svg viewBox="0 0 720 340" role="img" aria-label="Left: parabola x squared minus 5 x plus 6 with both roots inside the walls 1 and 4. Right: the four passing checks and the failing counter-case." xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="720" height="340" fill="#fffdf5"/><text x="225" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#166534">f(x) = x² − 5x + 6, both roots inside (1, 4)</text><rect x="121" y="35" width="195" height="205" fill="#ffedd5" opacity="0.45"/><line x1="30" y1="224.6" x2="420" y2="224.6" stroke="#16a34a" stroke-width="2"/><path d="M 30 224.6 L 30 35" stroke="#16a34a" stroke-width="2"/><polyline points="30.0,99.1 43.0,116.3 56.0,132.3 69.0,147.1 82.0,160.6 95.0,172.9 108.0,184.0 121.0,193.8 134.0,202.5 147.0,209.8 160.0,216.0 173.0,220.9 186.0,224.6 199.0,227.1 212.0,228.3 225.0,228.3 238.0,227.1 251.0,224.6 264.0,220.9 277.0,216.0 290.0,209.8 303.0,202.5 316.0,193.8 329.0,184.0 342.0,172.9 355.0,160.6 368.0,147.1 381.0,132.3 394.0,116.3 407.0,99.1 420.0,80.6" fill="none" stroke="#0d9488" stroke-width="2.5"/><line x1="121" y1="35" x2="121" y2="240" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4 3"/><line x1="316" y1="35" x2="316" y2="240" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4 3"/><text x="115" y="252" text-anchor="end" font-size="13" font-weight="bold" fill="#d97706">1</text><text x="322" y="252" text-anchor="start" font-size="13" font-weight="bold" fill="#d97706">4</text><circle cx="186" cy="224.6" r="5" fill="#16a34a"/><circle cx="251" cy="224.6" r="5" fill="#16a34a"/><text x="186" y="212" text-anchor="middle" font-size="12" fill="#166534">root 2</text><text x="251" y="212" text-anchor="middle" font-size="12" fill="#166534">root 3</text><circle cx="218.5" cy="228.3" r="3.5" fill="#0d9488"/><text x="218.5" y="256" text-anchor="middle" font-size="11" fill="#0f766e">axis 2.5</text><text x="580" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#166534">the four checks for (1, 4)</text><circle cx="470" cy="52" r="9" fill="#16a34a"/><text x="470" y="57" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">1</text><text x="488" y="57" font-size="13" fill="#1c1917">D = 25 − 24 = 1 &gt; 0 — real roots</text><circle cx="470" cy="92" r="9" fill="#16a34a"/><text x="470" y="97" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">2</text><text x="488" y="97" font-size="13" fill="#1c1917">a·f(1) = 2 &gt; 0 — wall 1 outside</text><text x="488" y="112" font-size="11" fill="#0f766e">a = 1, f(1) = 1 − 5 + 6 = 2</text><circle cx="470" cy="132" r="9" fill="#16a34a"/><text x="470" y="137" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">3</text><text x="488" y="137" font-size="13" fill="#1c1917">a·f(4) = 2 &gt; 0 — wall 4 outside</text><text x="488" y="152" font-size="11" fill="#0f766e">f(4) = 16 − 20 + 6 = 2</text><circle cx="470" cy="172" r="9" fill="#16a34a"/><text x="470" y="177" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">4</text><text x="488" y="177" font-size="13" fill="#1c1917">axis 2.5 ∈ (1, 4) — pair straddles</text><text x="470" y="215" font-size="13" font-weight="bold" fill="#dc2626">counter-case x² − 5x + 4 = (x−1)(x−4):</text><text x="470" y="235" font-size="12.5" fill="#dc2626">roots 1 and 4 sit ON the walls — a·f(1) = 0</text><text x="470" y="253" font-size="12.5" fill="#dc2626">and a·f(4) = 0 fail; D and the axis pass.</text><text x="580" y="285" text-anchor="middle" font-size="12.5" fill="#0f766e">the wall checks are the ones that catch it</text></svg>' },
+    { kind: 'para', text: 'The mirror question — the whole INTERVAL inside the root pair — is cheaper than the system, and the honesty of when it is cheaper matters. For $a > 0$, the interval $(k_1, k_2)$ sits inside the root pair exactly when both wall values are at most zero; no axis check and no discriminant check are needed, because two negative wall reads already force the pair to straddle the interval. The subtlety lives at the endpoints: an open interval forgives a root parked exactly on its wall, a closed one does not.' },
+    { kind: 'example', title: 'Find every b for which x² + bx + 4 < 0 throughout the open interval (1, 2)', steps: [
+      'This is the mirror question: the INTERVAL must live inside the ROOT PAIR, so both walls must read negative.',
+      'Read the walls: $f(1) = b + 5 \\leq 0$ and $f(2) = 2b + 8 \\leq 0$.',
+      'So, $b \\leq -5$ and $b \\leq -4$; the tighter gate is $b \\leq -5$.',
+      'No axis check, no discriminant check: two wall signs already force the pair to straddle $(1, 2)$ — the honest asymmetry of the system.',
+      'Endpoint honesty: $b = -5$ places a root exactly at $x = 1$; the open interval never visits that seat, so $b = -5$ survives here — the closed interval $[1, 2]$ would demand $b < -5$.',
+      'Near-miss witness: $b = -4.9$ leaves the sliver $(1,\\ 1.034\\ldots)$ positive — $f(1.0005) \\approx 0.0986 > 0$ — so $f(2) < 0$ alone was never enough.',
+    ] },
+
+    { kind: 'heading', text: 'Location Drills: The Four Classic Questions' },
+    { kind: 'para', text: 'Four question shapes account for nearly every location exercise the examinations set. Each has a decisive condition — one sign read where the full four-condition system is overkill, a case analysis where the half-line replaces the interval. The drills below are the patterns to memorize as shapes, not as answers.' },
+    { kind: 'example', title: 'Find every c for which exactly one root of x² − 5x + c lies in (0, 1)', steps: [
+      'Exactly one crossing inside the interval means $f$ changes sign across it: read the walls.',
+      '$f(0) = c$ and $f(1) = c - 4$; the change demands $f(0) > 0$ and $f(1) < 0$: $0 < c < 4$.',
+      'Two roots inside $(0, 1)$ is impossible under these reads — then both walls would be positive.',
+      'Boundary witnesses: $c = 0$ puts a root at $0$ itself; $c = 4$ gives roots $1$ and $4$, leaving $(0, 1)$ empty.',
+      'Inside witness: $c = 3$ gives roots $\\frac{5 - \\sqrt{13}}{2} \\approx 0.697$ (inside) and $\\frac{5 + \\sqrt{13}}{2} \\approx 4.303$ (outside).',
+    ] },
+    { kind: 'example', title: 'Find every m for which x² + (m − 1)x + (m − 5) has roots of opposite sign', steps: [
+      'Opposite signs mean a negative product of roots; for $x^2 + px + q$ the product of roots is $q$.',
+      'Here $q = m - 5 < 0$: $m < 5$.',
+      'Discriminant census: $D = (m - 1)^2 - 4(m - 5) = (m - 3)^2 + 12 > 0$ for every $m$ — real roots come free, no second gate.',
+      'Boundary witness: $m = 5$ gives roots $0$ and $-4$; zero is neither positive nor negative, so the strict inequality is honest.',
+      'For example, $m = 4$: roots $\\frac{-3 \\pm \\sqrt{13}}{2} \\approx -3.303$ and $0.303$ — opposite signs.',
+    ] },
+    { kind: 'example', title: 'Find every m for which x² + mx + 3 takes a negative value at some positive x', steps: [
+      'With $a = 1 > 0$ the negative values live strictly between the roots: we need two distinct roots and at least one of them positive.',
+      'Distinct roots: $D = m^2 - 12 > 0$, so $m < -2\\sqrt{3}$ or $m > 2\\sqrt{3}$.',
+      'Larger root positive: $\\frac{-m + \\sqrt{m^2 - 12}}{2} > 0$ forces $m < 0$ — a positive $m$ parks both roots on the negative side.',
+      'Intersecting the two gates: $m < -2\\sqrt{3} \\approx -3.464$.',
+      'Witnesses: $m = -4$ gives roots $1$ and $3$ with $f(2) = -1 < 0$; the near-miss $m = -3.4$ has $D = 11.56 - 12 < 0$ and is never negative anywhere; $m = +4$ has roots $-1$ and $-3$, both negative, and $f(1) = 8 > 0$.',
+    ] },
+    { kind: 'table', caption: 'The four location questions, the conditions that actually decide them, and this lesson\'s drills.', head: ['The question asked', 'The decisive condition', 'This lesson\'s drill'], rows: [
+      ['both roots inside (k₁, k₂)', 'D ≥ 0, a·f(k₁) > 0, a·f(k₂) > 0, k₁ < −b/2a < k₂ — all four', 'x² − 4x + m, both roots > 1 ⟺ 3 < m ≤ 4'],
+      ['the interval (k₁, k₂) inside the root pair (f < 0 there, a > 0)', 'f(k₁) ≤ 0 and f(k₂) ≤ 0 — open interval; strict < for closed', 'x² + bx + 4 < 0 on (1, 2) ⟺ b ≤ −5'],
+      ['exactly one root inside (k₁, k₂)', 'f(k₁) · f(k₂) < 0 — one sign change', 'x² − 5x + c, one root in (0, 1) ⟺ 0 < c < 4'],
+      ['roots on opposite sides of the wall k', 'a·f(k) < 0 (for k = 0: product of roots < 0)', 'x² + (m−1)x + (m−5) ⟺ m < 5'],
+      ['a negative value somewhere for x > 0 (a > 0)', 'D > 0 AND the larger root positive', 'x² + mx + 3 ⟺ m < −2√3 ≈ −3.464'],
+    ] },
+    { kind: 'callout', tone: 'exam', title: 'Where the examinations live', text: 'The JEE Main syllabus names "quadratic equations and inequalities … location of roots" verbatim, and this section is exactly that line. The four-condition system with its honest skippable gates (the mirror question needs no axis check; the opposite-sign question needs no discriminant check) is where a two-second answer separates from a wrong one — the classic multiple-choice distractors are precisely the answers produced by running the checks in the wrong direction or forgetting an endpoint touch. All drills above are exam-style items; none is a reproduced past-paper question.' },
+    { kind: 'callout', tone: 'insight', title: 'Why the wall reads carry so much', text: 'Every condition above is a sign diagram read in disguise. "Both roots inside $(k_1, k_2)$" says: the walls sit in the outer positive bands and the axis does not escape the interval. "Exactly one root inside" says: the two walls sit in different bands, so their signs disagree. Once the sign ladder is second nature, the location system stops being a memorized list and becomes geometry read through five numbers: $D$, $f(k_1)$, $f(k_2)$, and the axis seat.' },
+
+    { kind: 'heading', text: 'The Interleaving Gem' },
+    { kind: 'para', text: 'One result deserves its own section, because it is the purest display of the sign bracket — and a known lemma (as an exercise, it asks to show it; as a proof, it is four evaluations long). Let $a < b < c < d$ be four points on the line and consider $F(x) = \\mu(x - a)(x - c) + \\lambda(x - b)(x - d)$ for real parameters $\\mu, \\lambda$. Then no matter how $\\mu$ and $\\lambda$ are chosen (not both zero), the equation $F(x) = 0$ has a real root.' },
+    { kind: 'example', title: 'The interleaving lemma at (1, 2, 4, 7): show that F(x) = μ(x − 1)(x − 4) + λ(x − 2)(x − 7) = 0 has a real root for every real μ, λ', steps: [
+      'Read the four seats: $F(1) = 6\\lambda$, $F(2) = -2\\mu$, $F(4) = -6\\lambda$, $F(7) = 18\\mu$.',
+      'Case $\\lambda \\neq 0$: $F(1) \\cdot F(4) = -36\\lambda^2 < 0$ — the values at $1$ and $4$ disagree in sign, so a root lies in $(1, 4)$.',
+      'Case $\\mu \\neq 0$: $F(2) \\cdot F(7) = -36\\mu^2 < 0$ — another sign change, this time across $(2, 7)$.',
+      'At least one case always fires when $(\\mu, \\lambda) \\neq (0, 0)$, so a real root always exists.',
+      'When $\\mu\\lambda > 0$ both brackets fire on the disjoint intervals $(1, 4)$ and $(2, 7)$: two distinct real roots.',
+      'Degenerate seats named: $\\mu = 0$ gives the roots $2, 7$; $\\lambda = 0$ gives the roots $1, 4$; $\\lambda = -\\mu$ collapses $F$ to the line $\\mu(4x - 10)$ with root $\\frac{5}{2}$.',
+      'The verifier grid sweep agrees: all 35 non-zero $(\\mu, \\lambda)$ pairs carry a real root; exactly the 30 pairs with $\\mu\\lambda > 0$ carry two.',
+    ] },
+    { kind: 'para', text: 'The engine behind the gem is worth naming. Each parameter survives in exactly one bracket: $\\lambda$ lives in the pair $(F(a), F(c))$ because $\\mu$ vanishes there, and $\\mu$ lives in $(F(b), F(d))$ because $\\lambda$ vanishes there. The interleaving order $a < b < c < d$ makes each surviving pair disagree in sign — $(a - b)(a - d)$ is positive while $(c - b)(c - d)$ is negative, and symmetrically. A sign change across an interval forces a real crossing (the parabola cannot jump the axis), which is the same honesty the sign diagram runs on. The lemma is the location bridge with the parameters wearing the boots.' },
+
+    { kind: 'formula', name: 'The between-roots law', latex: 'a > 0:\\quad (x - \\alpha)(x - \\beta) < 0 \\Leftrightarrow \\alpha < x < \\beta, \\qquad (x - \\alpha)(x - \\beta) > 0 \\Leftrightarrow x < \\alpha \\ \\text{or}\\ x > \\beta', note: 'Outside positive, between negative — the whole sign diagram for an upward parabola with two doors.' },
+    { kind: 'formula', name: 'The whole-line verdicts', latex: 'D < 0:\\ a > 0 \\Rightarrow f > 0\\ \\forall x,\\quad a < 0 \\Rightarrow f < 0\\ \\forall x; \\qquad D = 0:\\ f(x) > 0 \\Leftrightarrow x \\neq -\\tfrac{b}{2a}\\ (a > 0)', note: 'All of ℝ, one excluded seat, or the empty set — decided by the sign of a and the strictness.' },
+    { kind: 'formula', name: 'The four-condition location system', latex: '\\text{both roots in } (k_1, k_2) \\Leftrightarrow D \\geq 0 \\ \\wedge\\ a f(k_1) > 0 \\ \\wedge\\ a f(k_2) > 0 \\ \\wedge\\ k_1 < -\\tfrac{b}{2a} < k_2', note: 'Real doors, both walls outside the pair, the axis between the walls.' },
+    { kind: 'formula', name: 'The one-sign-change condition', latex: '\\text{exactly one root in } (k_1, k_2) \\Leftrightarrow f(k_1) \\cdot f(k_2) < 0', note: 'A sign change pins exactly one crossing; two roots inside would make the wall values agree.' },
+    { kind: 'formula', name: 'The flip law', latex: 'a < 0:\\ \\text{multiply the inequality by } -1 \\text{ and flip its sign first}', note: 'Never divide by a — its sign is the trap; a² is always safe to divide by.' },
+
+    { kind: 'quiz', title: 'Check yourself', items: [
+      { q: 'The solution set of x² − 7x + 10 < 0 is', options: ['x < 2 or x > 5', '2 < x < 5', '2 ≤ x ≤ 5', 'empty'], answer: 1, explain: 'Zeros 2 and 5 with $a = 1 > 0$: the between-roots law puts the negative values strictly between the doors. The first option is the complement read (the $> 0$ answer); the third wrongly includes the doors, where the value is 0, not negative; the empty-set verdict belongs to the $D < 0$ family, and here $D = 9 > 0$.' },
+      { q: '(x − 3)² > 0 holds exactly when', options: ['for all real x', 'x ≠ 3', 'x > 3', 'never'], answer: 1, explain: 'The square vanishes only at $x = 3$ and is strictly positive everywhere else — the lone-exclusion answer. "All real x" forgets the vanishing seat; "$x > 3$" keeps only the right band; "never" denies that a square is positive off its zero.' },
+      { q: 'Both roots of x² − 4x + m exceed 1 exactly when', options: ['m < 3', '3 < m ≤ 4', 'm ≤ 4', '3 ≤ m ≤ 4'], answer: 1, explain: 'The system gives $D = 16 - 4m \\geq 0$ ($m \\leq 4$), $f(1) = m - 3 > 0$ ($m > 3$), and the axis $2 > 1$ free — so $3 < m \\leq 4$. "$m \\leq 4$" admits $m = 3$, where a root sits exactly at 1; "$3 \\leq m \\leq 4$" repeats that error; "$m < 3$" inverts the wall read.' },
+      { q: 'The roots of x² + (m − 1)x + (m − 5) are opposite in sign exactly when', options: ['m < 5', 'm > 5', 'm ≤ 5', '0 < m < 5'], answer: 0, explain: 'Opposite signs force a negative product of roots: $m - 5 < 0$, so $m < 5$ — and the discriminant $(m-3)^2 + 12$ is positive for every $m$, so no second gate exists. "$m > 5$" and "$m \\leq 5$" mishandle the boundary: at $m = 5$ the roots are $0$ and $-4$, and zero is neither sign; the extra lower bound in the last option is pure decoration.' },
+      { q: 'For a < b < c < d, the equation μ(x − a)(x − c) + λ(x − b)(x − d) = 0 has', options: ['a real root for every real μ, λ (not both zero)', 'real roots only when μλ > 0', 'real roots only when μ = λ', 'no real roots for some pairs μ, λ'], answer: 0, explain: 'The four-value bracket certifies a sign change whenever either parameter is non-zero: $F(a)F(c)$ is negative when $\\lambda \\neq 0$ and $F(b)F(d)$ is negative when $\\mu \\neq 0$. The $\\mu\\lambda > 0$ condition prices the TWO-root case, not existence; $\\mu = \\lambda$ is one special seat among all pairs; and the verifier grid sweep found real roots for all 35 non-zero pairs.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises', sets: [
+      { level: 'L1', questions: [
+        { q: 'Solve x² − 7x + 10 > 0.', solution: [
+          'Standard form is already in place: $x^2 - 7x + 10 > 0$ with $a = 1 > 0$.',
+          'Zeros: $x^2 - 7x + 10 = (x - 2)(x - 5)$, so the doors sit at $x = 2$ and $x = 5$.',
+          'Ladder: outside the pair an $a > 0$ parabola rides above the axis, so the sign runs $+$, $-$, $+$.',
+          'The inequality asks for the positive regions, and the endpoints are strict — at the doors the value is 0, not positive.',
+        ], answer: '$x < 2$ or $x > 5$' },
+        { q: 'Solve −x² + 2x + 3 ≥ 0.', solution: [
+          'The leading coefficient is $a = -1 < 0$: multiply by $-1$ and flip the inequality.',
+          'Now, $x^2 - 2x - 3 \\leq 0$, which factors as $(x + 1)(x - 3) \\leq 0$.',
+          'Between the doors $-1$ and $3$ an upward parabola is negative; the inequality is non-strict, so the doors join the answer.',
+          'Check the flipped read at $x = 0$: the original gives $3 \\geq 0$ — inside the pair, as promised.',
+        ], answer: '$-1 \\leq x \\leq 3$' },
+        { q: 'Solve (x − 3)² > 0 and (x − 3)² ≥ 0.', solution: [
+          'A square is never negative, so $(x - 3)^2 \\geq 0$ holds at every seat.',
+          'The strict version needs a genuinely positive value: the square vanishes only at $x = 3$.',
+          'Hence the strict inequality excludes exactly that one seat, while the non-strict one keeps all of $\\mathbb{R}$.',
+        ], answer: '$(x-3)^2 > 0$ for $x \\neq 3$; $(x-3)^2 \\geq 0$ for all real $x$' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Solve x² + x + 1 ≤ 0.', solution: [
+          'Compute the discriminant: $D = 1 - 4 = -3 < 0$ with $a = 1 > 0$.',
+          'So, the expression is positive at every seat and never touches the axis.',
+          'The set where it is $\\leq 0$ is therefore empty.',
+        ], answer: 'no solution (the answer set is $\\varnothing$)' },
+        { q: 'Solve −x² − x − 1 < 0.', solution: [
+          'Write the expression as $-(x^2 + x + 1)$: the inner quadratic has $D = 1 - 4 = -3 < 0$ with $a = 1 > 0$.',
+          'So, $x^2 + x + 1 > 0$ for all real $x$, and multiplying by $-1$ turns every value negative.',
+          'Hence the inequality holds everywhere — no seats to exclude.',
+        ], answer: 'all real $x$' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Find the domain of f(x) = √(x² − 5x).', solution: [
+          'The square root demands a non-negative radicand: $x^2 - 5x \\geq 0$.',
+          'Factor: $x(x - 5) \\geq 0$, doors at $0$ and $5$, upward opening.',
+          'The between-roots law puts the non-negative regions outside the pair.',
+          'Witness inside: at $x = 2$ the radicand is $2 \\cdot (-3) = -6 < 0$ — the whole strip $(0, 5)$ is barred.',
+        ], answer: '$x \\leq 0$ or $x \\geq 5$' },
+        { q: 'Solve √(x + 6) = x.', solution: [
+          'Domain first: $x + 6 \\geq 0$, and since a square root is never negative any solution must also have $x \\geq 0$.',
+          'Square both sides: $x + 6 = x^2$, so $x^2 - x - 6 = 0$, giving $(x - 3)(x + 2) = 0$ and the candidates $x = 3$, $x = -2$.',
+          'Census: $x = 3$ gives $\\sqrt{9} = 3$ — it survives.',
+          'But, $x = -2$ gives $\\sqrt{4} = 2 \\neq -2$: a squared equation admitted a seat the original never held — and $-2$ fails the $x \\geq 0$ pre-census anyway.',
+        ], answer: '$x = 3$ (the seat $x = -2$ is extraneous)' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Find every m for which both roots of x² − 4x + m exceed 1.', solution: [
+          'Three conditions, one per gate: real roots, the wall 1 outside the pair, the axis to the right of 1.',
+          'Real roots: $D = 16 - 4m \\geq 0$, so $m \\leq 4$.',
+          'Wall outside: $f(1) = m - 3 > 0$, so $m > 3$.',
+          'Axis: $-\\frac{b}{2a} = 2 > 1$ holds for every $m$ — no restriction.',
+          'Hence the intersection is $3 < m \\leq 4$: at $m = 4$ the double root 2 still exceeds 1; at $m = 3$ a root sits exactly on the wall.',
+        ], answer: '$3 < m \\leq 4$' },
+        { q: 'Find every b for which x² + bx + 4 < 0 for all x in the open interval (1, 2).', solution: [
+          'Here the interval must sit INSIDE the root pair — so both walls carry the negative sign.',
+          'Compute: $f(1) = b + 5 \\leq 0$ and $f(2) = 2b + 8 \\leq 0$.',
+          'So, $b \\leq -5$ and $b \\leq -4$; the tighter bound wins: $b \\leq -5$.',
+          'No axis or discriminant check is needed — the two wall reads already force the pair to straddle $(1, 2)$.',
+          'Endpoint honesty: $b = -5$ puts a root exactly at 1; the open interval never visits it, so $b = -5$ survives. The closed variant $[1, 2]$ would demand $b < -5$.',
+          'Witness sweep: $b = -6$ gives $f < 0$ across $(1, 2)$; $b = -4.9$ leaves the sliver $(1,\\ 1.034\\ldots)$ positive — $f(1.0005) \\approx 0.0986 > 0$.',
+        ], answer: '$b \\leq -5$' },
+        { q: 'Find every c for which exactly one root of x² − 5x + c lies in (0, 1).', solution: [
+          'A sign change across the interval pins exactly one crossing: read the walls.',
+          '$f(0) = c > 0$ and $f(1) = c - 4 < 0$ give $0 < c < 4$.',
+          'Why exactly one, not two: two roots inside $(0, 1)$ would make $f$ positive at BOTH walls — contradicting $f(1) < 0$.',
+          'Boundary witnesses: $c = 0$ puts a root at 0 itself; $c = 4$ gives roots 1 and 4 — both leave the open interval empty-handed.',
+          'For example, $c = 3$: roots $\\frac{5 - \\sqrt{13}}{2} \\approx 0.697$ inside and $\\frac{5 + \\sqrt{13}}{2} \\approx 4.303$ outside — exactly one.',
+        ], answer: '$0 < c < 4$' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Find every m for which the roots of x² + (m − 1)x + (m − 5) have opposite signs.', solution: [
+          'Opposite signs of the roots mean the product of roots is negative; for $x^2 + px + q$ the product is $q$.',
+          'Here the product is $m - 5$, so $m - 5 < 0$: $m < 5$.',
+          'Discriminant census: $D = (m - 1)^2 - 4(m - 5) = m^2 - 6m + 21 = (m - 3)^2 + 12 > 0$ for every $m$ — real roots come free.',
+          'Boundary witness: $m = 5$ gives roots 0 and −4; zero is neither sign, so the strict $m < 5$ is honest.',
+          'For example, $m = 4$: roots $\\frac{-3 \\pm \\sqrt{13}}{2} \\approx -3.303$ and $0.303$ — opposite signs, as promised.',
+        ], answer: '$m < 5$' },
+        { q: 'Find every m for which x² + mx + 3 is negative at some positive x.', solution: [
+          'With $a = 1 > 0$, negative values live strictly between the roots: we need two distinct roots and at least one of them positive.',
+          'Distinct roots: $D = m^2 - 12 > 0$, so $m < -2\\sqrt{3}$ or $m > 2\\sqrt{3}$.',
+          'Larger root $= \\frac{-m + \\sqrt{m^2 - 12}}{2} > 0$ forces $m < 0$ (for $m \\geq 0$ both roots are negative or $D$ closes).',
+          'Intersecting the two gates: $m < -2\\sqrt{3} \\approx -3.464$.',
+          'Witness: $m = -4$ gives roots 1 and 3 with $f(2) = -1 < 0$; the near-miss $m = -3.4$ has $D = 11.56 - 12 < 0$ — never negative anywhere.',
+        ], answer: '$m < -2\\sqrt{3}$' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Let a = 1, b = 2, c = 4, d = 7 and F(x) = μ(x − 1)(x − 4) + λ(x − 2)(x − 7). Show that F(x) = 0 has a real root for every real μ, λ (not both zero), and identify when there are two.', solution: [
+          'Read the four seats: $F(1) = 6\\lambda$, $F(2) = -2\\mu$, $F(4) = -6\\lambda$, $F(7) = 18\\mu$.',
+          'Case $\\lambda \\neq 0$: $F(1) \\cdot F(4) = -36\\lambda^2 < 0$ — a sign change across $(1, 4)$, so a root sits there.',
+          'Case $\\mu \\neq 0$: $F(2) \\cdot F(7) = -36\\mu^2 < 0$ — another root sits in $(2, 7)$.',
+          'So, at least one bracket fires whenever $(\\mu, \\lambda) \\neq (0, 0)$, and a sign change across an interval forces a real crossing.',
+          'When $\\mu\\lambda > 0$ both brackets fire on the disjoint intervals $(1, 4)$ and $(2, 7)$: two distinct real roots.',
+          'Degenerate seats named: $\\mu = 0$ gives roots 2, 7; $\\lambda = 0$ gives roots 1, 4; $\\lambda = -\\mu$ collapses $F$ to the line $\\mu(4x - 10)$ with root $\\frac{5}{2}$.',
+          'The verifier grid confirms: all 35 non-zero $(\\mu, \\lambda)$ pairs carry a real root; exactly the 30 pairs with $\\mu\\lambda > 0$ carry two.',
+        ], answer: 'a real root exists for every $(\\mu, \\lambda) \\neq (0, 0)$; two distinct real roots exactly when $\\mu\\lambda > 0$' },
+        { q: 'Prove that both roots of x² − 2ax + a² − 1 lie in (−1, 2) if and only if 0 < a < 1.', solution: [
+          'Factor honestly instead of running the system blind: $x^2 - 2ax + a^2 - 1 = (x - a)^2 - 1 = (x - a - 1)(x - a + 1)$.',
+          'So, the roots are $a - 1$ and $a + 1$ — a fixed gap of 2 straddling $a$.',
+          'Both inside $(-1, 2)$: $a - 1 > -1$ and $a + 1 < 2$, giving $a > 0$ and $a < 1$.',
+          'Wall witnesses: $a = 0$ puts the root $-1$ on the left wall; $a = 1$ puts the root $2$ on the right wall — the open interval excludes both seats.',
+          'For example, $a = \\frac{1}{2}$: roots $-\\frac{1}{2}$ and $\\frac{3}{2}$, both inside.',
+          'Hence the condition is exactly $0 < a < 1$, and the discriminant $4 > 0$ needs no separate gate — the factorization carried it.',
+        ], answer: 'both roots lie in $(-1, 2)$ exactly for $0 < a < 1$' },
+      ] },
+    ] },
+  ],
+}
+
 export const chapter02: Chapter = {
   number: 2,
   slug: 'the-quadratic-at-depth',
@@ -463,6 +780,6 @@ export const chapter02: Chapter = {
   summary:
     'Elementary Algebra settled the quadratic equation four ways; this chapter treats the quadratic as a working object. The vertex form becomes an optimization tool — maxima and minima priced without calculus, the range read off the fold and then used on real constraints. The equation grows into the inequality: the sign diagram, the discriminant trichotomy (two sign changes, one touch, constant sign), and the solution sets that AL 7.1–7.3’s linear work promised. Viète returns at competitive depth — symmetric expressions in the roots, common roots, forming equations with given roots — and the chapter closes with the JEE classic: conditions that pin both roots, or exactly one, inside a chosen interval. Every door metaphor AL coined for a root is now located on the line.',
   status: 'in-progress',
-  lessons: [lesson21],
-  plannedLessons: ['Quadratic Inequalities and the Sign Diagram', 'Symmetric Reads and Common Roots', 'Location of Roots: Doors in Intervals'],
+  lessons: [lesson21, lesson22],
+  plannedLessons: ['Symmetric Reads and Common Roots', 'Location of Roots: Doors in Intervals'],
 }

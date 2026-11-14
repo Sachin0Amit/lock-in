@@ -1,3 +1,8 @@
+import { chapter02 } from '../src/data/library/books/mathematics/advanced-algebra/ch-02'
+import { countLessonWords } from '../src/data/library/types'
+import * as fs from 'fs'
+import { execSync } from 'child_process'
+
 export {}
 
 /**
@@ -709,14 +714,15 @@ const quad = (a: number, b: number, c: number, x: number): number => (a * x + b)
 /* (F) authored-audit — lesson 2.1 as written                          */
 /* ------------------------------------------------------------------ */
 
-ok('F: authored 2.1 audit', 'sentinel-x')
-
-{
-  const mod = await import('../src/data/library/books/mathematics/advanced-algebra/ch-02.ts')
-  const ch = mod.chapter02
+  // section marker: the authored-audit for lesson 2.1 as written follows
+  {
+  const ch = chapter02
   ok(ch.number === 2 && ch.slug === 'the-quadratic-at-depth', 'F1 chapter wrapper number/slug')
   ok(ch.status === 'in-progress', 'F2 chapter status in-progress (1/4 authored)')
-  ok(ch.lessons.length === 1 && ch.plannedLessons.length === 3, 'F3 chapter shape: 1 lesson + 3 planned')
+  // re-pinned count-aware at audit time (run 101): the authored chapter now
+  // carries TWO lessons (2.1 from run 100 + 2.2 from this run) and TWO
+  // planned titles — section G re-asserts the same shape below.
+  ok(ch.lessons.length === 2 && ch.plannedLessons?.length === 2, 'F3 chapter shape: 2 lessons + 2 planned (re-pinned run 101)')
   const L = ch.lessons[0]
   ok(L.id === 'aa-vertex-form-at-work-maxima-and-minima', 'F4 lesson id matches the pinned id')
   ok(L.number === '2.1' && L.title === 'Vertex Form at Work: Maxima and Minima', 'F5 lesson number/title')
@@ -768,9 +774,8 @@ ok('F: authored 2.1 audit', 'sentinel-x')
   const al9 = fs.readFileSync('src/data/library/books/mathematics/elementary-algebra/ch-09.ts', 'utf8')
   const al10 = fs.readFileSync('src/data/library/books/mathematics/elementary-algebra/ch-10.ts', 'utf8')
   ok(al9.includes("id: 'al-completing-the-square-derived'") && al9.includes("id: 'al-the-quadratic-formula-and-the-discriminant'") && al10.includes("id: 'al-the-parabola-quadratic-graphs-and-vertices'"), 'F25 all three prereq ids exist')
-  // sources keys exist in SOURCE_LOG
   const slog = fs.readFileSync('docs/project/SOURCE_LOG.md', 'utf8')
-  for (const k of L.sources) ok(slog.includes('`' + k + '`') || slog.includes('- ' + k), `F26 source key ${k} in SOURCE_LOG`)
+  for (const k of L.sources ?? []) ok(slog.includes('`' + k + '`') || slog.includes('- ' + k), `F26 source key ${k} in SOURCE_LOG`)
   // honesty scans
   const allText = JSON.stringify(blocks)
   ok(!allText.includes('\\\\\\\\  ') && !allText.includes("\\\\\\\\'"), 'F27 no odd-run backslashes')
@@ -778,11 +783,9 @@ ok('F: authored 2.1 audit', 'sentinel-x')
   ok(!/wait, |Better: |TODO|XXX|【|to be completed/.test(allText), 'F29 no draft markers')
   // honest word count via the registry's own counter (the count-words-fire
   // ground truth — same code path the docs sync reports)
-  const { countLessonWords } = await import('../src/data/library/types')
   const wordCount = countLessonWords(L as never)
   ok(wordCount >= 4500, `F30 honest word count >= 4500 (got ${wordCount})`)
   // repo-wide id uniqueness
-  const { execSync } = await import('child_process')
   const hits = execSync(`grep -rl "aa-vertex-form-at-work-maxima-and-minima" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
   const dataHits = hits.filter((h) => h.includes('/books/'))
   ok(dataHits.length === 1, `F31 lesson id unique in book data (got files: ${dataHits.join(' ')})`)
@@ -791,7 +794,95 @@ ok('F: authored 2.1 audit', 'sentinel-x')
   ok(allText.includes('AM–GM') || allText.includes('arithmetic–geometric mean'), 'F33 the chapter-4 forward pointer named')
 }
 
-console.log(`\nverify-book4-ch02 sections A-F: ${passed} passed, ${failed} failed`)
+/* ------------------------------------------------------------------ */
+/* (G) authored-audit — lesson 2.2 as written                          */
+/* ------------------------------------------------------------------ */
+
+  // section marker: the authored-audit for lesson 2.2 as written follows
+  {
+  const ch = chapter02
+  ok(ch.number === 2 && ch.slug === 'the-quadratic-at-depth', 'G1 chapter wrapper number/slug')
+  ok(ch.status === 'in-progress', 'G2 chapter status in-progress (2/4 authored)')
+  ok(ch.lessons.length === 2 && ch.plannedLessons?.length === 2, 'G3 chapter shape: 2 lessons + 2 planned')
+  const L = ch.lessons[1]
+  ok(L.id === 'aa-quadratic-inequalities-and-the-sign-diagram', 'G4 lesson id matches the pinned id')
+  ok(L.number === '2.2' && L.title === 'Quadratic Inequalities and the Sign Diagram', 'G5 lesson number/title')
+  const blocks = L.blocks
+  const byKind: Record<string, number> = {}
+  for (const b of blocks) byKind[b.kind] = (byKind[b.kind] || 0) + 1
+  ok((byKind['para'] || 0) >= 8, `G6 para count >= 8 (got ${byKind['para']})`)
+  ok((byKind['heading'] || 0) === 6, `G7 heading count = 6 (got ${byKind['heading']})`)
+  ok((byKind['callout'] || 0) >= 6, `G8 callout count >= 6 (got ${byKind['callout']})`)
+  // re-pinned count-aware at audit time: the authored lesson carries TWELVE
+  // Illustrations (the draft plan's eight + the zeros/sign read, the domain
+  // check, the three-verdicts family and the near-miss witness grown into
+  // full Illustration treatment) — every one's numbers ride sections D + E4.
+  ok((byKind['example'] || 0) === 12, `G9 example (Illustration) count = 12 (got ${byKind['example']})`)
+  ok((byKind['derivation'] || 0) === 1, `G10 derivation count = 1 (got ${byKind['derivation']})`)
+  ok((byKind['figure'] || 0) === 2, `G11 figure count = 2 (got ${byKind['figure']})`)
+  ok((byKind['table'] || 0) === 1, `G12 table count = 1 (got ${byKind['table']})`)
+  ok((byKind['formula'] || 0) === 5, `G13 formula-card count = 5 (got ${byKind['formula']})`)
+  ok((byKind['list'] || 0) === 2, `G13b list count = 2 (got ${byKind['list']})`)
+  // quiz keys vs pins
+  const quiz = blocks.find((b) => b.kind === 'quiz') as { items: Array<{ answer: number; explain: string }> }
+  const keys = quiz.items.map((i) => i.answer)
+  ok(keys.length === 5 && keys.join(',') === '1,1,1,0,0', `G14 quiz keys [1,1,1,0,0] vs authored ${keys.join(',')}`)
+  // exercises census + levels
+  const ex = blocks.find((b) => b.kind === 'exercises') as { sets: Array<{ level: string; questions: unknown[] }> }
+  const levels = ex.sets.map((s) => s.level).join(',')
+  ok(levels === 'L1,L2,L3,L4,L5,L6', `G15 exercise levels L1-L6 (got ${levels})`)
+  const qCount = ex.sets.reduce((n, s) => n + s.questions.length, 0)
+  ok(qCount === 14, `G16 exercise count = 14 (got ${qCount})`)
+  // hosted folds: named subsections present with definition + worked example
+  const heads = blocks.filter((b) => b.kind === 'heading').map((b) => (b as { text: string }).text)
+  ok(heads.some((t) => t.includes('Graphical Interpretation') && t.includes('Zero')), 'G17 fold 1 named subsection: Graphical Interpretation of the Zero of an Expression')
+  ok(heads.some((t) => t.includes('Domain of an Equation')), 'G18 fold 2 named subsection: The Domain of an Equation')
+  const calls = blocks.filter((b) => b.kind === 'callout') as Array<{ tone: string; title: string }>
+  ok(calls.some((c) => c.tone === 'definition' && c.title.includes('Zero')), 'G17b fold 1 formal definition callout present')
+  ok(calls.some((c) => c.tone === 'definition' && c.title.includes('Domain')), 'G18b fold 2 formal definition callout present')
+  // figures: render + coordinate pins
+  const figs = blocks.filter((b) => b.kind === 'figure') as Array<{ svg: string }>
+  const f1 = figs[0].svg
+  const f2 = figs[1].svg
+  ok(/viewBox="0 0 720 340"/.test(f1) && /viewBox="0 0 720 340"/.test(f2), 'G19 both svgs viewBox 720x340')
+  ok(!/undefined|NaN/.test(f1) && !/undefined|NaN/.test(f2), 'G20 no undefined/NaN in svg output')
+  ok(f1.includes('x² − 7x + 10 = (x − 2)(x − 5)') && f1.includes('reads: x &lt; 2 or x &gt; 5'), 'G21 fig1 title + the read line present')
+  ok(f1.includes('217.5') && f1.includes('453.75') && f1.includes('335.6') && f1.includes('vertex (3.5, −2.25)'), 'G22 fig1 fence/root/vertex px coordinates present')
+  ok(f2.includes('f(x) = x² − 5x + 6, both roots inside (1, 4)') && f2.includes('a·f(1) = 2 &gt; 0 — wall 1 outside') && f2.includes('a = 1, f(1) = 1 − 5 + 6 = 2'), 'G23 fig2 panel title + check row 2 with provenance sub-line')
+  ok(f2.includes('a·f(4) = 2 &gt; 0 — wall 4 outside') && f2.includes('f(4) = 16 − 20 + 6 = 2') && f2.includes('axis 2.5 ∈ (1, 4)'), 'G24 fig2 check rows 3+4')
+  ok(f2.includes('counter-case x² − 5x + 4') && f2.includes('sit ON the walls'), 'G25 fig2 counter-case panel')
+  // the location-question table row census
+  const tab = blocks.find((b) => b.kind === 'table') as { rows: string[][] }
+  ok(tab.rows.length === 5, `G26 location-question table has 5 rows (got ${tab.rows.length})`)
+  // prereqs resolve against the repo
+  const fs = await import('fs')
+  const al7 = fs.readFileSync('src/data/library/books/mathematics/elementary-algebra/ch-07.ts', 'utf8')
+  const al10 = fs.readFileSync('src/data/library/books/mathematics/elementary-algebra/ch-10.ts', 'utf8')
+  ok(al7.includes("id: 'al-solving-linear-inequalities'") && al10.includes("id: 'al-the-parabola-quadratic-graphs-and-vertices'"), 'G27 prereq ids exist in AL ch. 7 / ch. 10')
+  // sources keys exist in SOURCE_LOG
+  const slog = fs.readFileSync('docs/project/SOURCE_LOG.md', 'utf8')
+  for (const k of L.sources ?? []) ok(slog.includes('`' + k + '`') || slog.includes('- ' + k), `G28 source key ${k} in SOURCE_LOG`)
+  // honesty scans
+  const allText = JSON.stringify(blocks)
+  ok(!allText.includes('\\\\\\\\  ') && !allText.includes("\\\\\\\\'"), 'G29 no odd-run backslashes')
+  ok(!/\\u[0-9a-fA-F]{4}/.test(allText), 'G30 no unicode escapes')
+  ok(!/wait, |Better: |TODO|XXX|【|to be completed/.test(allText), 'G31 no draft markers')
+  // honest word count via the registry's own counter (the count-words-fire
+  // ground truth — same code path the docs sync reports)
+  const wordCount = countLessonWords(L as never)
+  ok(wordCount >= 4500, `G32 honest word count >= 4500 (got ${wordCount})`)
+  // repo-wide id uniqueness
+  const hits = execSync(`grep -rl "aa-quadratic-inequalities-and-the-sign-diagram" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
+  const dataHits = hits.filter((h) => h.includes('/books/'))
+  ok(dataHits.length === 1, `G33 lesson id unique in book data (got files: ${dataHits.join(' ')})`)
+  // cross-reference pins in prose
+  ok(allText.includes('AL 7') || allText.includes('al-solving-linear-inequalities'), 'G34 prose names the banked linear-inequality lesson')
+  ok(allText.includes('2.1') || allText.includes('aa-vertex-form-at-work-maxima-and-minima'), 'G35 prose names lesson 2.1')
+  // every quiz item's explain prices the distractors (length floor)
+  ok(quiz.items.every((i) => i.explain.length >= 120), 'G36 every quiz explain prices the distractors')
+}
+
+console.log(`\nverify-book4-ch02 sections A-G: ${passed} passed, ${failed} failed`)
 if (failed > 0) {
   console.log('FAILURES:')
   failures.forEach((f) => console.log('  - ' + f))
