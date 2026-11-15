@@ -17,9 +17,27 @@ import type { Chapter, Lesson } from '../../../types'
  *                  exercises L1–L6 2/2/3/3/3/2; 2 figures — the conjugate
  *                  mirror (reflection + the four-twins circle) and the
  *                  modulus as distance (the detour tax + the circle
- *                  locus); book.ts pins 3.3 Negative Discriminants, 3.4
- *                  The Argand Plane, 3.5 De Moivre/Roots of Unity as the
- *                  remaining planned lessons).
+ *                  locus)) · 3.3 "Negative Discriminants: the Doors Turn
+ *                  Complex" (run 107 — the payoff: AL 9.3's third verdict
+ *                  finally answers. Verify-first K/L 523/0 green pre-prose
+ *                  — the engines caught 5 real bugs in their own drafting
+ *                  incl. a door-count logic slip and a z²-vs-z route error;
+ *                  quiz keys [0, 1, 0, 3, 1]; 15 exercises L1–L6 2/2/3/3/3/2
+ *                  with full worked solutions; 2 figures — the doors and
+ *                  the mirror (the floating parabola x²−4x+13 + the Argand
+ *                  doors 2±3i at the vertex's axis) and the trichotomy
+ *                  strip (the k-family x²−2x+k at its three verdicts with
+ *                  the Argand inset); 3 derivations (the door formula by
+ *                  completing the square over ℂ, the conjugate-pair law
+ *                  PROVED from 3.2's distribution laws, the u,v system
+ *                  with the sign law); 3 formula cards; 8
+ *                  Illustrations incl. the real-root engine and the
+ *                  complex-coefficient family z²−(1+3i)z+(4+4i) through
+ *                  √(−24−10i) = ±(1−5i); NO fold obligation — the ledger
+ *                  hosts 'Square Root of Complex Number' on 3.5 as an
+ *                  example-family, the method itself is this lesson's
+ *                  core engine; book.ts pins 3.4 The Argand Plane and 3.5
+ *                  De Moivre/Roots of Unity as the remaining lessons).
  *
  *                  Verify-first sections A–F green BEFORE prose for 3.1
  *                  (106/0 — the closure-failure engines incl. the 275/351
@@ -1005,6 +1023,373 @@ const lesson32: Lesson = {
   ],
 }
 
+/* figures for lesson 3.3 — the doors and the mirror; the trichotomy   */
+/* strip                                                              */
+
+function doorsMirrorSvg(): string {
+  // left: the real parabola y = x²−4x+13 (vertex (2,9), axis x = 2,
+  // floating above the real axis — no real door); right: the Argand
+  // plane with the conjugate doors 2±3i, the mirror axis, the radius
+  // √13 and the equidistant guides
+  const px = (x: number): number => 20 + (x + 1) * 49
+  const pyL = (y: number): number => 300 - y * 17
+  // parabola arc x ∈ [−0.449, 4.449] (y ≤ 15) as an exact quadratic
+  // Bezier: endpoints (47, 45) and (287, 45), vertex (167, 145)
+  const OX = 535
+  const OY = 168
+  const U = 34
+  const pxR = (re: number): number => OX + U * re
+  const pyR = (im: number): number => OY - U * im
+  return `<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels about the quadratic family x squared minus four x plus thirteen. Left panel: the real parabola with vertex at the point (2, 9), its axis of symmetry the dashed line x equals 2, the curve floating entirely above the real x-axis with the annotation no real door, discriminant negative. Right panel: the Argand plane where the two doors 2 plus 3 i and 2 minus 3 i hang as a mirror pair across the real axis, at real part 2 exactly below the vertex axis; the dashed radius from the origin to 2 plus 3 i has length root 13, and horizontal guides mark the equal distances 3 above and below the real axis.">
+  <text x="170" y="26" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the real family y = x² − 4x + 13</text>
+  <text x="575" y="26" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the doors on the Argand plane</text>
+  <line x1="355" y1="40" x2="355" y2="310" stroke="#fcd34d" stroke-width="1.4"/>
+  <!-- left panel: the floating parabola -->
+  <line x1="20" y1="300" x2="340" y2="300" stroke="#0d9488" stroke-width="2"/>
+  ${[-1, 0, 1, 2, 3, 4, 5].map((t) => `<line x1="${px(t)}" y1="300" x2="${px(t)}" y2="306" stroke="#0d9488" stroke-width="1.4"/><text x="${px(t)}" y="318" font-size="10" text-anchor="middle" fill="#0f766e">${t}</text>`).join('')}
+  <line x1="167" y1="300" x2="167" y2="44" stroke="#d97706" stroke-width="1.6" stroke-dasharray="7 5"/>
+  <text x="167" y="38" font-size="11" font-weight="700" text-anchor="middle" fill="#d97706">x = 2 · the axis of symmetry</text>
+  <path d="M47,45 Q167,245 287,45" fill="none" stroke="#16a34a" stroke-width="2.6"/>
+  <circle cx="167" cy="145" r="6" fill="#ea580c"/>
+  <text x="178" y="163" font-size="11.5" font-weight="700" fill="#166534">vertex (2, 9)</text>
+  <text x="167" y="336" font-size="11" font-weight="700" text-anchor="middle" fill="#dc2626">no real door — D = −36 &lt; 0 (the curve floats 9 above)</text>
+  <!-- right panel: the conjugate doors -->
+  <line x1="445" y1="${OY}" x2="705" y2="${OY}" stroke="#0d9488" stroke-width="2.2"/>
+  <text x="575" y="${OY + 22}" font-size="10.5" text-anchor="middle" fill="#0f766e">the mirror — the real axis</text>
+  <line x1="${OX}" y1="290" x2="${OX}" y2="46" stroke="#5eead4" stroke-width="1.4"/>
+  <line x1="${pxR(2)}" y1="50" x2="${pxR(2)}" y2="286" stroke="#d97706" stroke-width="1.6" stroke-dasharray="7 5"/>
+  <text x="${pxR(2)}" y="44" font-size="11" font-weight="700" text-anchor="middle" fill="#d97706">Re z = 2 = −b/2a</text>
+  <line x1="${OX}" y1="${pyR(3)}" x2="${pxR(2)}" y2="${pyR(3)}" stroke="#5eead4" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <line x1="${OX}" y1="${pyR(-3)}" x2="${pxR(2)}" y2="${pyR(-3)}" stroke="#5eead4" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <text x="${OX - 6}" y="${pyR(3) + 4}" font-size="10" text-anchor="end" fill="#0f766e">3</text>
+  <text x="${OX - 6}" y="${pyR(-3) + 4}" font-size="10" text-anchor="end" fill="#0f766e">−3</text>
+  
+  <line x1="${OX}" y1="${OY}" x2="${pxR(2)}" y2="${pyR(3)}" stroke="#d97706" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="528" y="96" font-size="10.5" font-weight="700" text-anchor="end" fill="#d97706">|z| = √13</text>
+  <circle cx="${pxR(2)}" cy="${pyR(3)}" r="6.5" fill="#ea580c"/>
+  <text x="${pxR(2) + 19}" y="${pyR(3) - 4}" font-size="12.5" font-weight="700" fill="#166534">2 + 3i (door)</text>
+  <circle cx="${pxR(2)}" cy="${pyR(-3)}" r="6.5" fill="#ea580c"/>
+  <text x="${pxR(2) + 19}" y="${pyR(-3) + 10}" font-size="12.5" font-weight="700" fill="#166534">2 − 3i (door)</text>
+  <circle cx="${OX}" cy="${OY}" r="4" fill="#16a34a"/>
+  <text x="${OX - 7}" y="${OY - 10}" font-size="10.5" text-anchor="end" fill="#166534">O</text>
+  <text x="575" y="322" font-size="10.5" text-anchor="middle" fill="#0f766e">the doors hang as the mirror pair z, z̄</text>
+  <text x="575" y="336" font-size="10.5" text-anchor="middle" fill="#0f766e">at the real part of the vertex — the family still owns its two doors</text>
+</svg>`
+}
+
+function trichotomyStripSvg(): string {
+  // three mini-panels of the k-family x²−2x+k at k = −2 (two real
+  // doors), k = 1 (the double door), k = 2 (the conjugate pair with the
+  // Argand inset) — AL 9.3's trichotomy repaired
+  const panel = (x0: number, kLabel: string, dLabel: string, dColor: string, verdict: string, curve: string, dots: string, note: string, noteY: number): string => {
+    let out = ''
+    out += `<text x="${x0 + 112}" y="52" font-size="12" font-weight="700" text-anchor="middle" fill="${dColor}">${kLabel} · ${dLabel}</text>`
+    out += `<text x="${x0 + 112}" y="72" font-size="11.5" font-weight="700" text-anchor="middle" fill="#166534">${verdict}</text>`
+    out += `<line x1="${x0 + 12}" y1="220" x2="${x0 + 212}" y2="220" stroke="#0d9488" stroke-width="2"/>`
+    out += `<line x1="${x0 + 112}" y1="226" x2="${x0 + 112}" y2="96" stroke="#5eead4" stroke-width="1.2"/>`
+    out += curve
+    out += dots
+    out += `<text x="${x0 + 112}" y="${noteY}" font-size="10.5" text-anchor="middle" fill="#0f766e">${note}</text>`
+    return out
+  }
+  // panel geometry: local x ∈ [−1.5, 3.5] over 200 px (unit 40), the
+  // axis at py 220, vertical unit 11 px
+  const lp = (x0: number, x: number): number => x0 + 12 + (x + 1.5) * 40
+  const p1Curve = `M${lp(8, -1.5)},184 Q${lp(8, 1)},322 ${lp(8, 3.5)},184`
+  const p1Dots =
+    `<circle cx="${lp(8, 1 - Math.sqrt(3))}" cy="220" r="5.5" fill="#ea580c"/>` +
+    `<circle cx="${lp(8, 1 + Math.sqrt(3))}" cy="220" r="5.5" fill="#ea580c"/>` +
+    `<text x="${lp(8, 1 - Math.sqrt(3))}" y="244" font-size="10" text-anchor="middle" fill="#166534">1−√3</text>` +
+    `<text x="${lp(8, 1 + Math.sqrt(3))}" y="244" font-size="10" text-anchor="middle" fill="#166534">1+√3</text>` +
+    `<circle cx="${lp(8, 1)}" cy="253" r="4.5" fill="#16a34a"/>`
+  const p2Curve = `M${lp(248, -1.5)},151 Q${lp(248, 1)},289 ${lp(248, 3.5)},151`
+  const p2Dots =
+    `<circle cx="${lp(248, 1)}" cy="220" r="5.5" fill="#ea580c"/>` +
+    `<text x="${lp(248, 1)}" y="238" font-size="10" text-anchor="middle" fill="#166534">1 (twice)</text>`
+  const p3Curve = `M${lp(488, -1.5)},140 Q${lp(488, 1)},278 ${lp(488, 3.5)},140`
+  const p3Dots =
+    `<circle cx="${lp(488, 1)}" cy="209" r="4.5" fill="#16a34a"/>` +
+    `<text x="652" y="158" font-size="9.5" text-anchor="middle" fill="#166534">vertex (1, 1)</text>`
+  // the Argand inset inside panel 3: origin (600, 262), unit 11
+  const IX = 600
+  const IY = 262
+  const IU = 11
+  const inset =
+    `<rect x="${IX - 38}" y="${IY - 24}" width="76" height="48" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1.2"/>` +
+    `<line x1="${IX - 30}" y1="${IY}" x2="${IX + 30}" y2="${IY}" stroke="#0d9488" stroke-width="1.4"/>` +
+    `<line x1="${IX}" y1="${IY - 18}" x2="${IX}" y2="${IY + 18}" stroke="#5eead4" stroke-width="1"/>` +
+    `<circle cx="${IX + IU}" cy="${IY - IU}" r="4" fill="#ea580c"/>` +
+    `<circle cx="${IX + IU}" cy="${IY + IU}" r="4" fill="#ea580c"/>` +
+    `<text x="${IX + IU + 7}" y="${IY - IU - 2}" font-size="9" font-weight="700" fill="#166534">1+i</text>` +
+    `<text x="${IX + IU + 7}" y="${IY + IU + 8}" font-size="9" font-weight="700" fill="#166534">1−i</text>`
+  return `<svg viewBox="0 0 720 312" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The trichotomy of the discriminant, repaired: three panels of the family x squared minus two x plus k. Panel one at k equals minus two: discriminant twelve positive, the parabola crosses the real axis twice at the doors 1 minus root 3 and 1 plus root 3. Panel two at k equals one: discriminant zero, the parabola kisses the axis at its vertex — one double door at 1. Panel three at k equals two: discriminant minus four, the parabola floats above the axis and the two doors turn complex, shown in an Argand inset as the mirror pair 1 plus i and 1 minus i. The third verdict of the classical trichotomy finally answers.">
+  <text x="360" y="22" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the trichotomy repaired — every verdict of AL 9.3\u2019s discipline answers over ℂ</text>
+  ${panel(8, 'k = −2', 'D = 12 &gt; 0', '#16a34a', 'two real doors', `<path d="${p1Curve}" fill="none" stroke="#16a34a" stroke-width="2.4"/>`, p1Dots, 'x² − 2x − 2 = 0 → the doors 1 ± √3', 288)}
+  ${panel(248, 'k = 1', 'D = 0', '#d97706', 'one double door', `<path d="${p2Curve}" fill="none" stroke="#16a34a" stroke-width="2.4"/>`, p2Dots, 'x² − 2x + 1 = (x−1)² → the door 1, seated twice', 288)}
+  ${panel(488, 'k = 2', 'D = −4 &lt; 0', '#dc2626', 'a conjugate pair', `<path d="${p3Curve}" fill="none" stroke="#16a34a" stroke-width="2.4"/>`, p3Dots, 'x² − 2x + 2 = 0 → the doors 1 ± i', 305)}
+  ${inset}
+</svg>`
+}
+
+const lesson33: Lesson = {
+  id: 'aa-negative-discriminants-the-doors-turn-complex',
+  number: '3.3',
+  title: 'Negative Discriminants: the Doors Turn Complex',
+  concepts: [
+    'complex doors of a quadratic',
+    'conjugate-pair law',
+    'sum and product of complex doors',
+    'square root of a complex number',
+    'the u, v system',
+    'sign law',
+    'door-count trichotomy',
+    'axis of symmetry read',
+  ],
+  objectives: [
+    'Solve any real-coefficient quadratic with D < 0 honestly: convert the surd first, then read the doors x = (−b ± i√|D|)/(2a) in standard form.',
+    'Prove and use the conjugate-pair law: real coefficients force non-real doors in mirror pairs, with z + z̄ = −b/a and zz̄ = c/a.',
+    'Rebuild a real family from one given door, and extract an unknown real parameter from a real-root hunt, without ever touching the formula.',
+    'Extract the square roots of any complex number by the u, v system with the sign law, and feed them to complex-coefficient quadratics.',
+    'Count doors honestly over ℂ: every quadratic owns exactly two counting multiplicity — the trichotomy repaired.',
+    'Read the geometry: the doors hang below the vertex at Re z = −b/(2a), equidistant from the real axis, on the circle |z| = √(c/a).',
+  ],
+  prerequisites: ['aa-conjugate-and-modulus', 'aa-the-closure-failure-that-forces-i', 'al-the-quadratic-formula-and-the-discriminant'],
+  sources: ['cengage-m2-03', 'cengage-jee-style', 'ncert-math11-ch4-complex-numbers', 'openstax-college-algebra'],
+  blocks: [
+    { kind: 'para', text: 'Elementary Algebra 9.3 priced the discriminant honestly: $D > 0$ two real doors, $D = 0$ one double door — and for the third verdict it could only refuse. "$D < 0$: the equation has no real solution." The refusal was honest but incomplete: the family $x^2 + 2x + 5 = 0$ still exists, the parabola still floats above the axis, and the question WHERE its doors live went unanswered. Lesson 3.1 built the rung that answers it; lesson 3.2 built the mirror machinery. This lesson is the payoff the whole chapter promised from its opening line: the quadratic formula keeps its promise for EVERY discriminant, and AL 9.3\u2019s third verdict finally closes.' },
+    { kind: 'para', text: 'The route is short because the ground is laid. First the doors themselves — the honest surd route turns $\\sqrt{\\text{negative } D}$ into the letter\u2019s own currency, and the formula runs unchanged. Then the law that governs them: real coefficients force non-real doors in conjugate pairs, a theorem proved in three lines from 3.2\u2019s conjugate laws — and the same theorem that rebuilds whole families from a single given door at exam speed. Finally the engine that finishes the subject: the square roots of ANY complex number, extracted by the $u, v$ system with its sign law, so that even complex-coefficient quadratics — 3.1\u2019s ad hoc discriminants — become routine work.' },
+
+    { kind: 'heading', text: 'The Doors for a Negative Discriminant' },
+    { kind: 'para', text: 'Look again at the formula AL 9.3 proved: $x = \\frac{-b \\pm \\sqrt{D}}{2a}$ with $D = b^2 - 4ac$. Nothing in the derivation ever assumed $D \\geq 0$ — the algebra of completing the square is blind to the sign. The only object that ever cared is the surd $\\sqrt{D}$, and lesson 3.1 already priced that object: for a negative real $-k$, $\\sqrt{-k} = \\sqrt{k}\\,i$. The honest route is one move, and the formula takes it without flinching.' },
+    { kind: 'derivation', title: 'The door formula for D < 0', statement: 'For $az^2 + bz + c = 0$ with real coefficients and $D = b^2 - 4ac < 0$, the two doors are $x = \\frac{-b \\pm i\\sqrt{|D|}}{2a}$ — in standard form, $x = \\frac{-b}{2a} \\pm \\frac{\\sqrt{|D|}}{2a}\\,i$, a conjugate pair.', steps: [
+      { label: 'Complete the square', formula: '\\left(x + \\tfrac{b}{2a}\\right)^2 = \\tfrac{D}{4a^2}', explanation: 'The same completion AL 9.3 ran, with nothing new: subtract $c/a$, add $b^2/4a^2$. The right side $\\tfrac{D}{4a^2}$ is a NEGATIVE real number now — and a negative real is exactly the input whose square root lesson 3.1 manufactured.' },
+      { label: 'The honest surd', formula: '\\sqrt{\\tfrac{D}{4a^2}} = \\tfrac{\\sqrt{|D|}}{2|a|}\\,i', explanation: 'Convert the negative surd FIRST — the same discipline 3.1 priced on $\\sqrt{-3}\\sqrt{-12}$: a negative under the root is taken to the letter\u2019s currency before any other move. The $\\pm$ of the formula absorbs the sign of $|a|$, so $\\tfrac{\\sqrt{|D|}}{2|a|}$ and $\\tfrac{\\sqrt{|D|}}{2a}$ give the same DOOR SET.' },
+      { label: 'Read the standard form', formula: 'x = \\tfrac{-b}{2a} \\pm \\tfrac{\\sqrt{|D|}}{2a}\\,i', explanation: 'The real part of both doors is the single number $\\tfrac{-b}{2a}$ — the axis of symmetry, exactly where the vertex of the real parabola sits. The two doors differ only in the sign of the imaginary part: they are conjugates, which the next section proves is no coincidence.' },
+    ], result: 'x = \\frac{-b \\pm i\\sqrt{|D|}}{2a} = \\frac{-b}{2a} \\pm \\frac{\\sqrt{|D|}}{2a}\\,i \\quad (D < 0)' },
+    { kind: 'callout', tone: 'definition', title: 'The complex doors of a quadratic (the D < 0 case)', text: 'For $az^2 + bz + c = 0$ over $\\mathbb{C}$, a DOOR is a number $z$ — real or complex — at which the polynomial vanishes; the family owns exactly two counting multiplicity. When $D = b^2 - 4ac < 0$ with real coefficients, the two doors are the conjugate pair $x = \\frac{-b \\pm i\\sqrt{|D|}}{2a}$ — the seats the real line refused to host. Thus, $x^2 + 2x + 5 = 0$ owns the doors $-1 \\pm 2i$: the family is solved, not excused.' },
+    { kind: 'formula', name: 'The doors for D < 0', latex: 'x = \\frac{-b \\pm i\\sqrt{|D|}}{2a} = \\frac{-b}{2a} \\pm \\frac{\\sqrt{|D|}}{2a}\\, i', note: 'convert the surd first ($\\sqrt{-k} = \\sqrt{k}\\,i$); the real part $-b/2a$ is shared by both doors — it is the axis of symmetry.' },
+    { kind: 'example', title: 'Solve x² + 2x + 5 = 0, x² − 4x + 13 = 0 and 2x² + 2x + 1 = 0, and verify one door by substitution', steps: [
+      'First family: $D = 4 - 20 = -16$, so $\\sqrt{|D|} = 4$ and the doors are $x = \\frac{-2 \\pm 4i}{2} = -1 \\pm 2i$.',
+      'Second family: $D = 16 - 52 = -36$, $\\sqrt{|D|} = 6$, doors $x = \\frac{4 \\pm 6i}{2} = 2 \\pm 3i$.',
+      'Third family: $D = 4 - 8 = -4$, $\\sqrt{|D|} = 2$, doors $x = \\frac{-2 \\pm 2i}{4} = \\tfrac{-1 \\pm i}{2}$ — fractional components are honest components, never a defect.',
+      'Substitution check on the first family at $x = -1 + 2i$: $x^2 = (-1+2i)^2 = 1 - 4i - 4 = -3 - 4i$, so $x^2 + 2x + 5 = (-3-4i) + (-2+4i) + 5 = 0$ — the door opens exactly.',
+      'Hence, the doors are $-1 \\pm 2i$, $2 \\pm 3i$ and $\\tfrac{-1 \\pm i}{2}$ — every family paid in full, the third verdict answered.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'Convert the surd before touching the formula', text: 'The priced slips are all one disease: writing $\\sqrt{-16}/2$ and "simplifying" it as $\\sqrt{-4} = 2i$ INSIDE the surd, or letting two negative surds meet before each is resolved — the $\\sqrt{-3}\\sqrt{-12}$ fraud of lesson 3.1 returns inside the formula if the doors are rushed. The honest sequence is rigid: compute $D$ and its sign, convert $\\sqrt{\\text{negative}}$ to the $i$-currency immediately, then divide by $2a$. And the $\\pm$ wraps the WHOLE imaginary term — the real part $-b/2a$ is one number, never flipped.' },
+    { kind: 'example', title: 'Read the sum, the product and the geometry of the doors of x² − 4x + 13 = 0', steps: [
+      'The doors are $2 \\pm 3i$; the sum read: $(2+3i) + (2-3i) = 4 = -\\tfrac{b}{a}$ — Viète survives unbroken over $\\mathbb{C}$.',
+      'The product read: $(2+3i)(2-3i) = 4 + 9 = 13 = \\tfrac{c}{a}$ — and the product is exactly $|z|^2$: the doors sit on the circle of radius $\\sqrt{13}$ about the origin.',
+      'The real part $2 = -\\tfrac{b}{2a}$ is the axis of symmetry: the real parabola $y = x^2 - 4x + 13 = (x-2)^2 + 9$ has vertex $(2, 9)$, floating 9 units above the axis — the picture of "no real door".',
+      'The geometry: the doors stand $3$ units either side of the real axis — equidistant, a mirror pair, exactly as 3.2\u2019s equidistant law promises.',
+      'Hence, sum $4$, product $13 = |z|^2$, real part $2$ = the axis of symmetry; the vertex $(2, 9)$ floats and the doors hang beneath it.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'Why the product of the doors is positive', text: 'A negative discriminant secretly forces a sign contract on the coefficients: $D = b^2 - 4ac < 0$ means $4ac > b^2 \\geq 0$, so $ac > 0$ — $a$ and $c$ share a sign, and $\\tfrac{c}{a} > 0$. That is why the product of the doors, $zz̄ = |z|^2 = \\tfrac{c}{a}$, is strictly positive for every $D < 0$ family: the doors\u2019 circle $|z| = \\sqrt{c/a}$ never degenerates to a point at the origin. The trichotomy\u2019s third case is not a wasteland — it is the best-organised case of the three.' },
+
+    { kind: 'heading', text: 'The Conjugate-Pair Law for Real Coefficients' },
+    { kind: 'para', text: 'Every door roster so far came out in mirror pairs — and that is a theorem, not a habit. The proof is three lines of lesson 3.2\u2019s algebra, and it converts the single most common exam shape ("one root is given") from a computation into a read.' },
+    { kind: 'callout', tone: 'theorem', title: 'The conjugate-pair law', text: 'Let $a, b, c$ be REAL with $a \\neq 0$. If $z$ is a door of $az^2 + bz + c = 0$, then $\\bar{z}$ is a door too. In particular the non-real doors of a real family come in conjugate pairs $z, \\bar{z}$ with $z + \\bar{z} = -\\tfrac{b}{a}$ (real) and $z\\bar{z} = \\tfrac{c}{a}$ (real, and positive when $D < 0$). A real quadratic can never own exactly one non-real door.' },
+    { kind: 'derivation', title: 'The conjugate-pair law, proved from 3.2\u2019s algebra', statement: 'For real $a, b, c$: if $az^2 + bz + c = 0$ then $a\\bar{z}^2 + b\\bar{z} + c = 0$ — the mirror of a door is a door.', steps: [
+      { label: 'Conjugate the equation', formula: '\\overline{az^2 + bz + c} = \\bar{0} = 0', explanation: 'Both sides of the equation are conjugated: the right side is $0$, a real number, and 3.2\u2019s law says a real number is its own conjugate.' },
+      { label: 'Distribute the mirror', formula: '\\overline{az^2 + bz + c} = a\\bar{z}^2 + b\\bar{z} + c', explanation: 'The conjugate commutes with the whole arithmetic — sums, products, powers — and every coefficient $a, b, c$ is real, so each is its own mirror. The mirrored polynomial is the polynomial AT the mirror point.' },
+      { label: 'Read the mirror door', formula: 'a\\bar{z}^2 + b\\bar{z} + c = 0', explanation: 'So $\\bar{z}$ satisfies the same equation. If $z$ is non-real, $\\bar{z} \\neq z$, and the two doors are distinct — a mirror pair.' },
+      { label: 'The reads', formula: 'z + \\bar{z} = -\\tfrac{b}{a}, \\qquad z\\bar{z} = \\tfrac{c}{a}', explanation: 'The pair\u2019s sum is twice the real part — real, the axis of symmetry again; the pair\u2019s product is the sum of squares $|z|^2$ — real and, by the sign contract above, positive when $D < 0$.' },
+    ], result: 'z \\text{ door} \\implies \\bar{z} \\text{ door}; \\qquad z + \\bar{z} = -\\tfrac{b}{a}, \\quad z\\bar{z} = \\tfrac{c}{a}' },
+    { kind: 'formula', name: 'The conjugate-pair reads', latex: 'z + \\bar{z} = -\\tfrac{b}{a}, \\qquad z\\bar{z} = \\tfrac{c}{a} = |z|^2', note: 'the mirror pair’s sum and product price the coefficients without solving: given one non-real door of a real family, the other door is its conjugate and both reads follow.' },
+    { kind: 'para', text: 'What the law buys at exam speed is the elimination of the entire solution cycle. Given one non-real door of a real family, the other door is known; given the sum and product reads, the family itself can be rebuilt; and a family can be TESTED for honesty without being solved — a door whose mirror does not keep the promised sum was never a door at all.' },
+    { kind: 'example', title: 'One door of z² − 8z + p = 0 (p real) is 4 + i. Find p and the other door without solving the equation', steps: [
+      'The coefficients are real, so the conjugate-pair law applies: the other door is the mirror, $4 - i$ — no formula touched.',
+      'The sum read: $(4+i) + (4-i) = 8 = -\\tfrac{b}{a}$ — consistent with the given family (the family is honest).',
+      'The product read: $p = (4+i)(4-i) = 16 + 1 = 17$.',
+      'Hence, $p = 17$ and the other door is $4 - i$ — the law replaced the whole solution cycle with two one-line reads.',
+    ] },
+    { kind: 'example', title: 'Build the real quadratic whose doors are 2 ± 3i, and read its vertex', steps: [
+      'The two doors are a conjugate pair, so a REAL family owning them exists: $(x - (2+3i))(x - (2-3i))$.',
+      'Expand: $x^2 - [(2+3i) + (2-3i)]\\,x + (2+3i)(2-3i) = x^2 - 4x + 13$ — the sum and the product came out real, forced by the mirror.',
+      'The vertex: $-\\tfrac{b}{2a} = 2 = \\mathrm{Re}(\\text{door})$, with value $13 - \\tfrac{16}{4} = 9$ — the parabola floats 9 above the axis, its doors hanging beneath the vertex.',
+      'Hence, $x^2 - 4x + 13 = 0$, vertex $(2, 9)$ — the family this lesson keeps as its running witness.',
+    ] },
+    { kind: 'figure', caption: 'The doors and the mirror for the family x² − 4x + 13 = 0. Left: the real parabola — vertex (2, 9), axis of symmetry x = 2, the curve floating entirely above the real axis with no real door to touch. Right: the Argand plane — the two doors 2 ± 3i hang as a mirror pair across the real axis, at real part 2, exactly below the vertex\u2019s axis; the dashed radius from O satisfies |z| = √13 with |z|² = 13 = c/a, and the guides mark the equal distances 3 above and below the mirror.', svg: doorsMirrorSvg() },
+    { kind: 'callout', tone: 'warn', title: 'The law needs REAL coefficients', text: 'Break the reality of the coefficients and the mirror breaks. Lesson 3.1\u2019s family $x^2 + (1+i)x + i = 0$ owns the doors $-1$ and $-i$ — neither is the other\u2019s conjugate (the mirror of $-1$ is $-1$). The family $z^2 - (1+3i)z + (4+4i) = 0$ worked later in this lesson owns $1 - i$ and $4i$. With complex coefficients Viète\u2019s reads survive, but every door stands alone — priced exam items hang exactly on this contrast.' },
+    { kind: 'table', caption: 'The door-count census on the family x² − 2x + k (D = 4 − 4k): every verdict of AL 9.3\u2019s trichotomy finally answers, and the doors are counted honestly over ℂ — counting multiplicity the total is two at every seat.', head: ['k', 'D = 4 − 4k', 'the verdict', 'the doors'], rows: [
+      ['$-2$', '$12$', 'two distinct real doors', '$1 \\pm \\sqrt{3}$'],
+      ['$1$', '$0$', 'one double door (two seats coincide)', '$1$ (twice)'],
+      ['$2$', '$-4$', 'a conjugate pair', '$1 \\pm i$'],
+      ['$5$', '$-16$', 'a conjugate pair', '$1 \\pm 2i$'],
+    ] },
+    { kind: 'para', text: 'AL 9.3\u2019s third verdict — "no real roots" — was an honest refusal, not an answer about the equation. Over $\\mathbb{C}$ the family still owns exactly two doors counting multiplicity: at the $D = 0$ seat the two seats collide into the double door, and at the $D < 0$ seats they simply change address. The count never changes — two, two, two — and the brute-force census (swept family by family in the verifier that pinned this lesson\u2019s numbers before a sentence of prose existed) confirms it: no real family owns zero doors or one-and-a-half doors. What the discriminant decides is only WHERE the pair lives.' },
+    { kind: 'figure', caption: 'The trichotomy repaired: the family x² − 2x + k = 0 at its three verdicts. Left (k = −2): D = 12 > 0, the parabola crosses the real axis twice — two real doors 1 ± √3. Middle (k = 1): D = 0, the parabola kisses the axis at its vertex — one double door, both seats parked at 1. Right (k = 2): D = −4 < 0, the parabola floats — and the two doors turn complex, the mirror pair 1 ± i hanging below the vertex in the Argand inset.', svg: trichotomyStripSvg() },
+    { kind: 'callout', tone: 'insight', title: 'The degree-n promise (an honest scope note)', text: 'Over $\\mathbb{C}$, every polynomial of degree $n$ owns exactly $n$ doors counting multiplicity — the fundamental theorem of algebra, first proved by Gauss in 1799 (several proofs, all deeper than this chapter needs). This lesson cashes the $n = 2$ case honestly by construction: the door formula is built, not asserted. The general theorem is STATED here, not proved — the book\u2019s standing honesty rule — and the proof-and-conditions story belongs to the Theory of Equations chapter (chapter 8), where the degree count and the conjugate-pair law for real coefficients return at full scale.' },
+    { kind: 'example', title: 'The real-root engine: z² + (1+i)z + (m + 5i) = 0 (m real) has a real door. Find m and both doors', steps: [
+      'Let the real door be $\\alpha$. Substituting and splitting into components (a real number\u2019s imaginary part is $0$): the real component reads $\\alpha^2 + \\alpha + m = 0$; the imaginary component reads $\\alpha + 5 = 0$.',
+      'The imaginary component is a pure equation in $\\alpha$: $\\alpha = -5$.',
+      'The real component then prices $m$: $25 - 5 + m = 0$, so $m = -20$.',
+      'The Viète product: the doors multiply to $m + 5i = -20 + 5i$, so the other door is $\\tfrac{-20+5i}{-5} = 4 - i$.',
+      'Check the sum: $-5 + (4 - i) = -1 - i = -(1+i)$ — exactly $-b$; the family is $z^2 + (1+i)z - 20 + 5i = 0$.',
+      'Hence, $m = -20$ and the doors are $-5$ and $4 - i$ — a complex-coefficient family CAN own a real door; the component-split engine found it without luck.',
+    ] },
+
+    { kind: 'heading', text: 'Square Roots of Any Complex Number: the u, v System' },
+    { kind: 'para', text: 'The $D < 0$ route needed only the square roots of negative REALS — $\\sqrt{-16} = 4i$, one move of the letter\u2019s law. But complex-coefficient quadratics demand more: 3.1\u2019s $x^2 + (1+i)x + i = 0$ needed $\\sqrt{-2i}$, and this lesson\u2019s own family $z^2 - (1+3i)z + (4+4i) = 0$ will need $\\sqrt{-24 - 10i}$. History demanded it too: Bombelli’s 1572 “wild thought” ran on the cube root of $2 + 11i$ — guessed, then checked by hand; what his century lacked was exactly the systematic engine for the square roots of any complex number. The general derivation deserves it: find EVERY $(u + vi)$ with $(u + vi)^2 = a + bi$ — and as a bonus, every complex number will turn out to own square roots, not just the Pythagorean-friendly ones.' },
+    { kind: 'derivation', title: 'The u, v system and the sign law', statement: 'The square roots of $a + bi$ ($a, b$ real) are exactly the two numbers $\\pm(u + vi)$ with $u^2 = \\tfrac{r + a}{2}$, $v^2 = \\tfrac{r - a}{2}$, where $r = \\sqrt{a^2 + b^2} = |a + bi|$; the signs of $u$ and $v$ are tied by $2uv = b$ — the same signs when $b > 0$, opposite signs when $b < 0$.', steps: [
+      { label: 'Set up the pair', formula: '(u + vi)^2 = (u^2 - v^2) + 2uv\\,i = a + bi', explanation: 'Squaring the candidate and reading equality componentwise — 3.1\u2019s law — gives TWO equations: $u^2 - v^2 = a$ and $2uv = b$.' },
+      { label: 'The third equation', formula: '(u^2 + v^2)^2 = (u^2 - v^2)^2 + (2uv)^2 = a^2 + b^2', explanation: 'The Pythagoras identity on the two equations already won; since $u^2 + v^2 \\geq 0$, the non-negative root is forced: $u^2 + v^2 = \\sqrt{a^2 + b^2} = r$ — the MODULUS of the number, arriving as the system\u2019s keystone.' },
+      { label: 'Solve the pair', formula: 'u^2 = \\tfrac{r + a}{2}, \\qquad v^2 = \\tfrac{r - a}{2}', explanation: 'Add and subtract $u^2 - v^2 = a$ against $u^2 + v^2 = r$. Both right sides are $\\geq 0$ because $|a| \\leq \\sqrt{a^2 + b^2} = r$ always — so real $u, v$ exist for EVERY complex number: the square-root door never closes on $\\mathbb{C}$.' },
+      { label: 'The sign law', formula: '2uv = b', explanation: '$|u|$ and $|v|$ are fixed; one sign choice remains, and $2uv = b$ ties it: $b > 0$ wants $u, v$ with the SAME signs, $b < 0$ wants OPPOSITE signs. For $b = 0$ the number is real and sits on an axis — the honest cases $\\sqrt{16} = \\pm 4$ and $\\sqrt{-16} = \\pm 4i$ need no engine at all.' },
+      { label: 'The pair ±', formula: '(-u - vi)^2 = (u + vi)^2', explanation: 'Negating the candidate negates nothing that matters — the square is unchanged. So the roots arrive in $\\pm$ pairs: exactly two, never one, never three.' },
+    ], result: '\\sqrt{a + bi} = \\pm(u + vi): \\quad u^2 = \\tfrac{r+a}{2}, \\; v^2 = \\tfrac{r-a}{2}, \\; r = \\sqrt{a^2+b^2}, \\; \\mathrm{sign}(u)\\,\\mathrm{sign}(v) = \\mathrm{sign}(b)' },
+    { kind: 'formula', name: 'Square roots of a complex number (the u, v system)', latex: '\\sqrt{a + bi} = \\pm\\left(\\sqrt{\\tfrac{r + a}{2}} + i\\sqrt{\\tfrac{r - a}{2}}\\right), \\qquad r = \\sqrt{a^2 + b^2} = |a+bi|', note: 'the signs of the two halves are tied by $2uv = b$: same signs for $b > 0$, opposite for $b < 0$; when $a^2 + b^2$ is a perfect square and the halves land integer, the roots are the tidy $\\pm(u+vi)$ pairs of the census table.' },
+    { kind: 'example', title: 'Find the square roots of 3 + 4i in full; then write down √(−3+4i), √(5−12i) and √(−8−6i)', steps: [
+      'For $3 + 4i$: $r = \\sqrt{9 + 16} = 5$; then $u^2 = \\tfrac{5 + 3}{2} = 4$ and $v^2 = \\tfrac{5 - 3}{2} = 1$, so $|u| = 2$, $|v| = 1$.',
+      'Sign law: $b = 4 > 0$ wants the SAME signs: $\\sqrt{3 + 4i} = \\pm(2 + i)$. Check: $(2+i)^2 = 4 + 4i + i^2 = 3 + 4i$.',
+      'For $-3 + 4i$: $r = 5$, $u^2 = 1$, $v^2 = 4$; $b > 0$, same signs: $\\pm(1 + 2i)$. Check: $(1+2i)^2 = 1 + 4i - 4 = -3 + 4i$.',
+      'For $5 - 12i$: $r = 13$, $u^2 = 9$, $v^2 = 4$; $b = -12 < 0$ wants OPPOSITE signs: $\\pm(3 - 2i)$. Check: $(3-2i)^2 = 9 - 12i - 4 = 5 - 12i$.',
+      'For $-8 - 6i$: $r = 10$, $u^2 = 1$, $v^2 = 9$; $b < 0$, opposite signs: $\\pm(1 - 3i)$. Check: $(1-3i)^2 = 1 - 6i - 9 = -8 - 6i$.',
+      'Hence, $\\pm(2+i)$, $\\pm(1+2i)$, $\\pm(3-2i)$ and $\\pm(1-3i)$ — each root squared back to its family before it was trusted.',
+    ] },
+    { kind: 'table', caption: 'The square-root census on the Pythagorean families — every row computed by the engines before this prose was written, every root squared and checked.', head: ['a + bi', 'r = √(a²+b²)', 'u² = (r+a)/2', 'v² = (r−a)/2', 'the roots ±(u+vi)'], rows: [
+      ['$3 + 4i$', '$5$', '$4$', '$1$', '$\\pm(2 + i)$'],
+      ['$-3 + 4i$', '$5$', '$1$', '$4$', '$\\pm(1 + 2i)$'],
+      ['$5 - 12i$', '$13$', '$9$', '$4$', '$\\pm(3 - 2i)$'],
+      ['$-5 + 12i$', '$13$', '$4$', '$9$', '$\\pm(2 + 3i)$'],
+      ['$7 + 24i$', '$25$', '$16$', '$9$', '$\\pm(4 + 3i)$'],
+      ['$-8 - 6i$', '$10$', '$1$', '$9$', '$\\pm(1 - 3i)$'],
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'The sign law is the whole difference', text: 'The priced fraud writes $\\sqrt{5 - 12i} = \\pm(3 + 2i)$ out of same-sign habit — but $(3+2i)^2 = 5 + 12i$, the WRONG family (the mirror\u2019s). The sign of $b$ decides the sign relation BEFORE any arithmetic: $b > 0$ same signs, $b < 0$ opposite. Two more disciplines ride along: a complex number owns exactly TWO square roots ($\\pm$, never "the" root); and when $b = 0$ the number sits on an axis — $\\sqrt{16} = \\pm 4$, $\\sqrt{-16} = \\pm 4i$ — the engine\u2019s honest special case, no $u, v$ needed.' },
+    { kind: 'example', title: 'Find √i and √(−i), and the product √i · √(−i) at the paired signs', steps: [
+      'For $i = 0 + 1\\cdot i$: $r = 1$, $u^2 = \\tfrac{1 + 0}{2} = \\tfrac{1}{2}$, $v^2 = \\tfrac{1 - 0}{2} = \\tfrac{1}{2}$; $b = 1 > 0$, same signs: $\\sqrt{i} = \\pm\\tfrac{1 + i}{\\sqrt{2}}$.',
+      'Check: $\\left(\\tfrac{1+i}{\\sqrt{2}}\\right)^2 = \\tfrac{1 + 2i + i^2}{2} = \\tfrac{2i}{2} = i$ — the diagonal seat.',
+      'The mirror: $\\sqrt{-i} = \\pm\\tfrac{1 - i}{\\sqrt{2}}$ by the same engine with opposite-sign $b$.',
+      'The products over the sign pairs: $\\tfrac{(1+i)(1-i)}{2} = \\tfrac{2}{2} = 1$ — so $\\sqrt{i}\\cdot\\sqrt{-i} = \\pm 1$, each surd RESOLVED before the meeting; the two-negative-surds fraud of 3.1 never gets a chance.',
+      'Hence, $\\sqrt{i} = \\pm\\tfrac{1+i}{\\sqrt{2}}$, $\\sqrt{-i} = \\pm\\tfrac{1-i}{\\sqrt{2}}$, and the products run over $\\pm 1$.',
+    ] },
+    { kind: 'example', title: 'Solve z² − (1+3i)z + (4+4i) = 0 — the discriminant itself is complex', steps: [
+      'The discriminant: $D = (1+3i)^2 - 4(4+4i) = (-8 + 6i) - (16 + 16i) = -24 - 10i$.',
+      'The $u, v$ engine on $-24 - 10i$: $r = \\sqrt{576 + 100} = \\sqrt{676} = 26$; $u^2 = \\tfrac{26 - 24}{2} = 1$, $v^2 = \\tfrac{26 + 24}{2} = 25$; $b = -10 < 0$ wants OPPOSITE signs: $\\sqrt{D} = \\pm(1 - 5i)$.',
+      'Check the root: $(1 - 5i)^2 = 1 - 10i + 25i^2 = -24 - 10i$.',
+      'The doors: $z = \\tfrac{(1+3i) \\pm (1 - 5i)}{2}$ — the $+$ seat: $\\tfrac{2 - 2i}{2} = 1 - i$; the $-$ seat: $\\tfrac{8i}{2} = 4i$.',
+      'Verify by substitution: at $1 - i$: $x^2 - (1+3i)x + (4+4i) = (-2i) - (4 + 2i) + (4 + 4i) = 0$; at $4i$: $-16 - (-12 + 4i) + (4 + 4i) = 0$.',
+      'Viète reads exactly: the sum $1 + 3i = -(-b)$ and the product $4 + 4i$ — and the doors are NOT conjugates, because the coefficients are complex: the law of this lesson honestly does not apply.',
+      'Hence, $z = 1 - i$ and $z = 4i$.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'One engine under everything', text: 'Notice what the $u, v$ system just did to the whole subject: the quadratic formula now runs for EVERY quadratic over $\\mathbb{C}$ — real families with any sign of $D$, complex families with complex discriminants. The $D < 0$ surd route of this lesson\u2019s opening is the $b = 0$, $a < 0$ special case of the same engine, and 3.1\u2019s ad hoc discriminant squares are the same engine run by hand. The door count is always two counting multiplicity — the $n = 2$ floor of the degree-$n$ promise. This is the point where the quadratic story, opened honestly in AL at the discriminating trichotomy, closes complete.' },
+    { kind: 'callout', tone: 'exam', title: 'Where this sits in the examinations', text: 'JEE Main\u2019s algebra unit names complex numbers and quadratic equations together — the pairing is the syllabus\u2019s own hint. The $D < 0$ door computation and the conjugate-pair law are the single-correct staples; "one root is given, find the rest / the coefficients" is the standard short-answer shape this lesson\u2019s law reads without solving; the $u, v$ engine feeds numerical-value items ($\\sqrt{a + bi}$ with integer answers) and complex-coefficient quadratics appear as assertion-reason items. NCERT class 11 ch. 4 carries the same arc at school depth. The items in this lesson are exam-style — our own designs, labelled honestly, never lifted from any paper.' },
+    { kind: 'terms', items: [
+      { term: 'Complex doors of a quadratic', def: 'the solutions of a quadratic equation over $\\mathbb{C}$; for $D < 0$ the two doors are the conjugate pair $x = \\frac{-b \\pm i\\sqrt{|D|}}{2a}$ in standard form.' },
+      { term: 'Conjugate-pair law', def: 'for REAL coefficients, the theorem that a door $z$ forces the mirror door $\\bar{z}$: non-real doors come in conjugate pairs with $z + \\bar{z} = -\\frac{b}{a}$ and $z\\bar{z} = \\frac{c}{a}$ — a real quadratic never owns exactly one non-real door.' },
+      { term: 'The u, v system', def: 'the square-root engine for any $a + bi$: $u^2 = \\frac{r+a}{2}$, $v^2 = \\frac{r-a}{2}$ with $r = \\sqrt{a^2 + b^2} = |a + bi|$, giving $\\sqrt{a+bi} = \\pm(u + vi)$.' },
+      { term: 'Sign law', def: 'the rule tying the signs inside a square root: $2uv = b$ — the halves $u$ and $v$ take the SAME signs when $b > 0$ and OPPOSITE signs when $b < 0$.' },
+      { term: 'Axis of symmetry read', def: 'for a real family with non-real doors, $\\mathrm{Re}(\\text{door}) = -\\frac{b}{2a}$ — the doors hang on the vertical line through the parabola\u2019s vertex, equidistant from the real axis.' },
+    ] },
+    { kind: 'quiz', title: 'Check yourself: the doors turn complex', items: [
+      { q: 'The doors of x² − 6x + 13 = 0 are', options: ['3 ± 2i', '−3 ± 2i', '3 ± 4i', '±2i'], answer: 0, explain: 'D = 36 − 52 = −16, so √|D| = 4 and the doors are (6 ± 4i)/2 = 3 ± 2i. (B) flips the sign of −b/2a — the real part is +3. (C) forgets to halve the surd: √|D| = 4 must be divided by 2a = 2. (D) drops the real part entirely — the axis of symmetry −b/2a = 3 is shared by BOTH doors and never vanishes.' },
+      { q: '√(5 − 12i) equals', options: ['±(3 + 2i)', '±(3 − 2i)', '±(2 − 3i)', '±(3 − 2i)/13'], answer: 1, explain: 'r = 13, u² = (13+5)/2 = 9, v² = (13−5)/2 = 4, so |u| = 3, |v| = 2; the sign law: b = −12 < 0 wants OPPOSITE signs → ±(3 − 2i), and (3−2i)² = 5 − 12i checks. (A) is the same-sign habit — it squares to 5 + 12i, the mirror\u2019s family. (C) swaps the components — it squares to −5 − 12i. (D) divides by |5 − 12i| = 13 as if computing a reciprocal — the engine\u2019s halves are never divided by r.' },
+      { q: 'One door of z² − 6z + k = 0 (k real) is 3 + 2i. Then k and the other door are', options: ['k = 13, the other door 3 − 2i', 'k = 13, the other door −3 − 2i', 'k = √13, the other door 3 − 2i', 'k = 5, the other door 3 − 2i'], answer: 0, explain: 'Real coefficients → the conjugate-pair law: the other door is 3 − 2i, and k = (3+2i)(3−2i) = 9 + 4 = 13; the sum 6 = −b checks the family\u2019s honesty. (B) uses the NEGATION −3−2i — but 3+2i and −3−2i sum to 0, not the required 6: the negation is not the mirror. (C) reports |z| = √13 where the product zz̄ = 13 is wanted — the modulus read is for |z|, not zz̄. (D) sums the parts 3 + 2 = 5 where a sum of squares 13 is the product.' },
+      { q: 'The family x² − 2x + k = 0 owns non-real doors exactly when', options: ['k < 1', 'k ≥ 1', 'k > 4', 'k > 1'], answer: 3, explain: 'D = 4 − 4k < 0 ⟺ k > 1 — the boundary seat k = 1 parks the double door 1, and above it the doors turn complex. (A) is the verdict flipped: k = −2 gives D = 12 > 0, two REAL doors. (B) swallows the boundary seat: at k = 1 the door is the real number 1, twice — not non-real. (C) is the surd misread: k = 4 gives D = −12, already complex — the honest window opens at 1.' },
+      { q: '√(−25) + √(−4) · √(−9) equals', options: ['11i', '−6 + 5i', '6 + 5i', '−6 − 5i'], answer: 1, explain: 'Resolve each surd first: √(−25) = 5i, and √(−4)·√(−9) = (2i)(3i) = 6i² = −6 — the honest route, so the value is −6 + 5i. (A) forces both terms imaginary: (5+6)i. (C) is the fraud route √(−4)·√(−9) = √36 = 6 — the two-negative-surds law of 3.1 returning: the surd product law needs at least one non-negative. (D) mirrors the imaginary sign — √(−25) is +5i, never −5i.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises 3.3', sets: [
+      { level: 'L1', questions: [
+        { q: 'Solve over ℂ: (a) x² + 4x + 13 = 0; (b) 3x² + 2x + 1 = 0.', solution: [
+          '(a) $D = 16 - 52 = -36$, $\\sqrt{|D|} = 6$: the doors are $\\tfrac{-4 \\pm 6i}{2} = -2 \\pm 3i$.',
+          '(b) $D = 4 - 12 = -8$, $\\sqrt{|D|} = 2\\sqrt{2}$: the doors are $\\tfrac{-2 \\pm 2\\sqrt{2}\\,i}{6} = \\tfrac{-1 \\pm \\sqrt{2}\\,i}{3}$.',
+        ], answer: '(a) $-2 \\pm 3i$; (b) $\\tfrac{-1 \\pm \\sqrt{2}\\,i}{3}$' },
+        { q: 'Write the two square roots of (a) −3 + 4i; (b) 8 + 6i.', solution: [
+          '(a) $r = \\sqrt{9 + 16} = 5$; $u^2 = \\tfrac{5 - 3}{2} = 1$, $v^2 = \\tfrac{5 + 3}{2} = 4$; $b = 4 > 0$ same signs: $\\pm(1 + 2i)$ — and $(1+2i)^2 = -3 + 4i$ checks.',
+          '(b) $r = 10$; $u^2 = 9$, $v^2 = 1$; $b = 6 > 0$ same signs: $\\pm(3 + i)$ — and $(3+i)^2 = 8 + 6i$ checks.',
+        ], answer: '(a) $\\pm(1 + 2i)$; (b) $\\pm(3 + i)$' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Form the quadratic with real coefficients whose doors are 2 ± 5i, and read its vertex.', solution: [
+          'The doors are a conjugate pair, so a real family exists: $(x - (2+5i))(x - (2-5i))$.',
+          'Expand: $x^2 - [(2+5i) + (2-5i)]x + (2+5i)(2-5i) = x^2 - 4x + 29$ — the sum $4$ and the product $4 + 25 = 29$ both real, forced by the mirror.',
+          'The vertex: $-\\tfrac{b}{2a} = 2$ with value $29 - \\tfrac{16}{4} = 25$ — the parabola floats 25 above the axis, the doors hanging beneath at real part 2.',
+        ], answer: '$x^2 - 4x + 29 = 0$; vertex $(2, 25)$' },
+        { q: 'One door of z² − pz + q = 0 (p, q real) is 1 − 2i. Find p, q and the other door — without solving.', solution: [
+          'Real coefficients, so the conjugate-pair law reads the other door: $1 + 2i$.',
+          'The sum read: $p = -[(1-2i) + (1+2i)] = -2$.',
+          'The product read: $q = (1-2i)(1+2i) = 1 + 4 = 5$.',
+        ], answer: '$p = 2$, $q = 5$, the other door $1 + 2i$' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'For the family x² − 2x + k = 0 at k = −2, 1, 2, 5: state D, the verdict, and the doors over ℂ.', solution: [
+          'The engine: $D = 4 - 4k$ — one line, then the trichotomy.',
+          '$k = -2$: $D = 12 > 0$ — two real doors $1 \\pm \\sqrt{3}$.',
+          '$k = 1$: $D = 0$ — one double door, $1$ seated twice ($x^2 - 2x + 1 = (x-1)^2$).',
+          '$k = 2$: $D = -4$ — the conjugate doors $1 \\pm i$; $k = 5$: $D = -16$ — the conjugate doors $1 \\pm 2i$.',
+        ], answer: 'two real $1 \\pm \\sqrt{3}$; the double door $1$; $1 \\pm i$; $1 \\pm 2i$ — every verdict answers' },
+        { q: 'Find the doors of x² + x + 1 = 0; verify the sum and product reads, and locate the doors on the Argand plane.', solution: [
+          '$D = 1 - 4 = -3$: the doors are $\\tfrac{-1 \\pm \\sqrt{3}\\,i}{2}$.',
+          'Sum: $\\tfrac{-1 + \\sqrt{3}i}{2} + \\tfrac{-1 - \\sqrt{3}i}{2} = -1 = -\\tfrac{b}{a}$; product: $\\tfrac{(-1)^2 + 3}{4} = 1 = \\tfrac{c}{a}$ — Viète survives.',
+          'The product is $|z|^2$: $|z| = 1$ — the doors sit ON the unit circle, at real part $-\\tfrac{1}{2}$, heights $\\pm\\tfrac{\\sqrt{3}}{2}$.',
+          'These two seats are exactly the non-real cube roots of unity minus nothing — the family $z^3 - 1 = (z - 1)(x^2 + x + 1)$ hands them forward: lesson 3.5\u2019s $\\omega$-story opens here.',
+        ], answer: '$\\tfrac{-1 \\pm \\sqrt{3}\\,i}{2}$; sum $-1$, product $1 = |z|^2$; the unit-circle seats' },
+        { q: 'The equation z² − (3 + 2i)z + (m + 4i) = 0 (m real) has a real door. Find m and both doors.', solution: [
+          'Let the real door be $\\alpha$: the imaginary component of the substitution is $-2\\alpha + 4 = 0$, so $\\alpha = 2$.',
+          'The real component: $4 - 6 + m = 0$, so $m = 2$.',
+          'The Viète product: the doors multiply to $2 + 4i$, so the other door is $\\tfrac{2 + 4i}{2} = 1 + 2i$.',
+          'Check the sum: $2 + (1 + 2i) = 3 + 2i = -(- (3 + 2i))$ — the family reads back honestly.',
+        ], answer: '$m = 2$; the doors are $2$ and $1 + 2i$' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Solve z² − (3 − i)z + (4 − 3i) = 0.', solution: [
+          'The discriminant is complex: $D = (3 - i)^2 - 4(4 - 3i) = (8 - 6i) - (16 - 12i) = -8 + 6i$.',
+          'The $u, v$ engine: $r = \\sqrt{64 + 36} = 10$; $u^2 = \\tfrac{10 - 8}{2} = 1$, $v^2 = \\tfrac{10 + 8}{2} = 9$; $b = 6 > 0$ same signs: $\\sqrt{D} = \\pm(1 + 3i)$ — check $(1 + 3i)^2 = -8 + 6i$.',
+          'The doors: $z = \\tfrac{(3 - i) \\pm (1 + 3i)}{2}$ — the $+$ seat: $\\tfrac{4 + 2i}{2} = 2 + i$; the $-$ seat: $\\tfrac{2 - 4i}{2} = 1 - 2i$.',
+          'Both doors substitute to 0 and the Viète reads hold: sum $3 - i$, product $4 - 3i$ — and the doors are NOT conjugates (complex coefficients).',
+        ], answer: '$z = 2 + i$ and $z = 1 - 2i$' },
+        { q: 'For which real k does x² + kx + 5 = 0 own non-real doors? Give the boundary seats and their doors.', solution: [
+          'The verdict is the discriminant\u2019s: $D = k^2 - 20$.',
+          'Non-real doors ⟺ $D < 0$ ⟺ $k^2 < 20$ ⟺ $|k| < 2\\sqrt{5}$ (≈ 4.47).',
+          'A witness inside the window: $k = 4$ gives $D = -4$, doors $\\tfrac{-4 \\pm 2i}{2} = -2 \\pm i$ — the conjugate pair the law promises.',
+          'The boundary seats $k = \\pm 2\\sqrt{5}$: $D = 0$, the double door $-\\tfrac{k}{2} = \\mp\\sqrt{5}$ — the family leaves the window the moment its two doors collide.',
+        ], answer: 'non-real doors exactly when $|k| < 2\\sqrt{5}$; at $k = \\pm 2\\sqrt{5}$ the double doors $\\mp\\sqrt{5}$' },
+        { q: 'Find every value of √(3 + 4i) + √(3 − 4i).', solution: [
+          'The engines: $\\sqrt{3 + 4i} = \\pm(2 + i)$ and $\\sqrt{3 - 4i} = \\pm(2 - i)$ — the sign law at $b > 0$ same and $b < 0$ opposite respectively.',
+          'The four pairings: $(2+i) + (2-i) = 4$; $(2+i) - (2-i) = 2i$; $-(2+i) + (2-i) = -2i$; $-(2+i) - (2-i) = -4$.',
+          'So the value runs over the family — each sign choice of EACH surd is free, and no pairing is privileged.',
+        ], answer: 'the four values $\\pm 4$ and $\\pm 2i$' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'The doors of x² − (2 + 3i)x + (3 + 4i) = 0 are α and β. Find α² + β² without solving.', solution: [
+          'Viète over $\\mathbb{C}$: $\\alpha + \\beta = 2 + 3i$ and $\\alpha\\beta = 3 + 4i$.',
+          'The target identity: $\\alpha^2 + \\beta^2 = (\\alpha + \\beta)^2 - 2\\alpha\\beta$ — no door needs computing.',
+          '$(2 + 3i)^2 = 4 + 12i + 9i^2 = -5 + 12i$.',
+          'Subtract: $(-5 + 12i) - 2(3 + 4i) = -5 + 12i - 6 - 8i = -11 + 4i$.',
+        ], answer: '$\\alpha^2 + \\beta^2 = -11 + 4i$' },
+        { q: 'Prove that the real part of the non-real doors of az² + bz + c = 0 (a, b, c real) equals −b/(2a) — the axis of symmetry — and interpret the family x² − 4x + 13.', solution: [
+          'By the conjugate-pair law the doors are $z, \\bar{z}$; their sum is $z + \\bar{z} = 2\\,\\mathrm{Re}(z) = -\\tfrac{b}{a}$.',
+          'Divide by 2: $\\mathrm{Re}(z) = -\\tfrac{b}{2a}$ — exactly the $x$-coordinate where the vertex of the real parabola sits (AL\u2019s vertex-form engine: the axis of symmetry).',
+          'So the Argand picture of any $D < 0$ family: the parabola floats above (or hangs below) the real axis, and the mirror pair of doors hangs on the vertical line THROUGH the vertex — the real axis never met, the doors exactly below it.',
+          'Witness: $x^2 - 4x + 13 = (x - 2)^2 + 9$ — vertex $(2, 9)$, doors $2 \\pm 3i$ at real part 2, the pair straddling the axis by 3 each way.',
+        ], answer: '$\\mathrm{Re}(\\text{door}) = -\\tfrac{b}{2a}$ = the axis of symmetry; witnessed by the vertex $(2, 9)$ and the doors $2 \\pm 3i$' },
+        { q: 'Solve z⁴ = −4.', solution: [
+          'Two squarings: $z^4 = -4$ means $z^2 = 2i$ or $z^2 = -2i$ — the square roots of $-4$ are $\\pm 2i$ (the honest $b = 0$ case of the engine).',
+          '$z^2 = 2i$: the $u, v$ engine on $0 + 2i$: $r = 2$, $u^2 = v^2 = 1$; $b > 0$ same signs: $z = \\pm(1 + i)$.',
+          '$z^2 = -2i$: the mirror engine: $z = \\pm(1 - i)$.',
+          'All four doors live at distance $\\sqrt{2}$ from the origin — the corners of a square — and each squares twice into $-4$: $(1+i)^4 = (2i)^2 = -4$.',
+        ], answer: '$z \\in \\{\\pm(1+i),\\ \\pm(1-i)\\}$' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'The doors of z² + pz + q = 0 (p, q real) are non-real, with |z₁| = |z₂| = 5 and |z₁ − z₂| = 6. Find p and q, and the doors.', solution: [
+          'Non-real doors of a real family are conjugates (the law): write them $x \\pm yi$ with $x, y$ real, $y \\neq 0$.',
+          'The radius read: $|z|^2 = x^2 + y^2 = q$ — wait: the product $zz̄ = q$, and $|z| = 5$ forces $x^2 + y^2 = 25$, so $q = 25$.',
+          'The gap read: $|z_1 - z_2| = |2yi| = 2|y| = 6$, so $|y| = 3$.',
+          'Then $x^2 = 25 - 9 = 16$, so $x = \\pm 4$: the doors are $4 \\pm 3i$ or $-4 \\pm 3i$.',
+          'The sum read prices $p$: $-(\\pm 8)$ — so $(p, q) = (-8, 25)$ with doors $4 \\pm 3i$, or $(p, q) = (8, 25)$ with doors $-4 \\pm 3i$.',
+        ], answer: '$(p, q) = (-8, 25)$ with the doors $4 \\pm 3i$, or $(p, q) = (8, 25)$ with the doors $-4 \\pm 3i$' },
+        { q: 'Show that z⁴ + 2z³ + 3z² + 2z + 2 = 0 has no real door; then find all four complex doors and verify the conjugate closure.', solution: [
+          'The completed square: $z^4 + 2z^3 + 3z^2 + 2z + 2 = (z^2 + z + 1)^2 + 1$ — expand to check: $(z^2 + z + 1)^2 = z^4 + 2z^3 + 3z^2 + 2z + 1$.',
+          'For real $z$ the square is $\\geq 0$, so the polynomial is $\\geq 1 > 0$ — no real door; the parabola\u2019s "floats" verdict, one degree higher.',
+          'Over $\\mathbb{C}$: $(z^2 + z + 1)^2 = -1$ means $z^2 + z + 1 = \\pm i$ — two quadratics.',
+          '$z^2 + z + (1 - i) = 0$: $D = 1 - 4(1 - i) = -3 + 4i$; the engine: $r = 5$, $u^2 = 1$, $v^2 = 4$, $b > 0$ same signs: $\\sqrt{D} = \\pm(1 + 2i)$; the doors $\\tfrac{-1 \\pm (1 + 2i)}{2} = i$ and $-1 - i$.',
+          '$z^2 + z + (1 + i) = 0$: the mirror engine gives $\\sqrt{D} = \\pm(1 - 2i)$ on $D = -3 - 4i$; the doors $-i$ and $-1 + i$.',
+          'All four doors ${i, -1-i, -i, -1+i}$ substitute to 0 (checked by the engines), and the set is closed under conjugation — as the real-coefficient law demands: the pairs $(i, -i)$ and $(-1-i, -1+i)$.',
+        ], answer: 'no real door; the four doors are $i$, $-1 - i$, $-i$, $-1 + i$ — conjugate-closed' },
+      ] },
+    ] },
+  ],
+}
+
 export const chapter03: Chapter = {
   number: 3,
   slug: 'complex-numbers',
@@ -1012,9 +1397,8 @@ export const chapter03: Chapter = {
   summary:
     'Arithmetic and Number Systems proved the extension-ladder discipline — every new number family born from a closure failure, repaired on purpose. This chapter climbs the most famous rung: x² + 1 = 0 has no real door, so a number i is forced with i² = −1, and the algebra of a + bi is built so the whole field-law family survives (the honest sanity ANS 7.2 banked). The conjugate and modulus arrive as bookkeeping — z z̄ = |z|², division by conjugating, |z| as a distance with the triangle inequality — and the Argand plane is read algebraically (addition as the parallelogram, multiplication as rotation-and-scaling) with the deep geometry left to later books. The payoff: the quadratic formula keeps its promise for every discriminant, and real coefficients are shown to force complex doors in conjugate pairs. De Moivre’s theorem and the nth roots of unity — the unit circle’s equal spokes — with their properties (primitive roots, the cyclotomic equations) banked as the module’s depth engine.',
   status: 'in-progress',
-  lessons: [lesson31, lesson32],
+  lessons: [lesson31, lesson32, lesson33],
   plannedLessons: [
-    'Negative Discriminants: the Doors Turn Complex',
     'The Argand Plane: Polar Form and the Argument',
     'De Moivre, Roots of Unity and the Complex Loci',
   ],

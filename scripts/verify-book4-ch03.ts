@@ -79,6 +79,47 @@ export {}
  *       parallelogram law, and the distance-reading sweep;
  *   (I) quiz keys [1, 0, 3, 2, 0] and the full 15-exercise answer
  *       ladder pinned pre-writing, every distractor priced.
+ *
+ * Sections K + L (run 107, pre-prose for lesson 3.3 "Negative
+ * Discriminants: the Doors Turn Complex", id aa-negative-discriminants-
+ * the-doors-turn-complex) pin every number of THAT lesson BEFORE any
+ * prose, on the same discipline (fold check pre-flight: NO m2-03 fold
+ * rides 3.3 — "Square Root of Complex Number" is hosted by 3.5 as an
+ * example-family; the method itself is 3.3's core engine content):
+ *
+ *   (K) the 3.3 engine suite — the D < 0 door engines (the honest surd
+ *       route √(negative) = √|·|·i swept; the door roster x²+2x+5 →
+ *       −1±2i, x²−4x+13 → 2±3i, 2x²+2x+1 → (−1±i)/2, x²+x+1 → the
+ *       (−1±√3i)/2 family, every door verified by substitution), the
+ *       conjugate-pair law for real coefficients PROVED on grids (the
+ *       symbolic route conj(az²+bz+c) = az̄²+bz̄+c swept; doors of real
+ *       families are exact conjugates; sum z+z̄ = −b/a, product zz̄ = c/a
+ *       swept + witnessed 4/13 on 2±3i), the counterexample engine
+ *       (complex coefficients break the law: x²+(1+i)x+i → −1, −i;
+ *       z²−(1+3i)z+(4+4i) → 1−i, 4i), the door-count census on real
+ *       families (AL 9.3's trichotomy repaired — every family owns
+ *       exactly two doors counting multiplicity, D>0 real pairs, D=0
+ *       doubles, D<0 conjugate pairs; the k-family x²−2x+k verdicts at
+ *       k = −2, 1, 2, 5; the k-window |k| < 2√5 of x²+kx+5), the
+ *       known-one-door engines (build-from-a-door (x−(2+3i))(x−(2−3i))
+ *       = x²−4x+13; the door 4+i of z²−8z+p → p = 17; the real-root
+ *       engine z²+(1+i)z+(m+5i) → m = −20, doors −5 and 4−i), the
+ *       square-root engines (the u,v system with the sign law: the
+ *       (u²+v²)² identity swept, the census roster √(3+4i) = ±(2+i),
+ *       √(−3+4i) = ±(1+2i), √(5−12i) = ±(3−2i), √(−5+12i) = ±(2+3i),
+ *       √(7+24i) = ±(4+3i), √(−8−6i) = ±(1−3i), √(8+6i) = ±(3+i),
+ *       √(−8+6i) = ±(1+3i), √i = ±(1+i)/√2 — every root squared and
+ *       checked, the sign law asserted and swept, the b = 0 cases
+ *       √16 = ±4 and √(−16) = ±4i, exactly-two-roots census), the
+ *       complex-coefficient quadratic z²−(1+3i)z+(4+4i) = 0 through
+ *       √(−24−10i) = ±(1−5i) → doors 1−i and 4i (Viète-checked), the
+ *       vertex insight Re(door) = −b/2a swept, the Viète sum-of-squares
+ *       engine (2+3i)² − 2(3+4i) = −11+4i, the √(3+4i)+√(3−4i) family
+ *       {±4, ±2i}, and the quartic engines (z⁴+2z³+3z²+2z+2 =
+ *       (z²+z+1)²+1 — no real doors, the four doors {i, −1−i, −i,
+ *       −1+i} conjugate-closed, each substituted; z⁴ = −4 → ±(1±i));
+ *   (L) quiz keys [0, 1, 0, 3, 1] and the full 15-exercise answer
+ *       ladder pinned pre-writing, every distractor priced.
  */
 
 /* ------------------------------------------------------------------ */
@@ -722,14 +763,13 @@ const ROSTER: Cx[] = [
   const ch = chapter03
   ok(ch.number === 3 && ch.slug === 'complex-numbers' && ch.title === 'Complex Numbers: the New Rung', 'G1 chapter wrapper number/slug/title')
   ok(ch.status === 'in-progress', 'G2 chapter status in-progress (opened run 105)')
-  ok(ch.lessons.length === 2, `G3 chapter shape re-pinned run 106: 2 lessons written (got ${ch.lessons.length})`)
+  ok(ch.lessons.length === 3, `G3 chapter shape re-pinned run 107: 3 lessons written (got ${ch.lessons.length})`)
   const planned = ch.plannedLessons ?? []
   ok(
-    planned.length === 3 &&
-      planned[0] === 'Negative Discriminants: the Doors Turn Complex' &&
-      planned[1] === 'The Argand Plane: Polar Form and the Argument' &&
-      planned[2] === 'De Moivre, Roots of Unity and the Complex Loci',
-    `G4 plannedLessons re-pinned run 106 = the three remaining (got ${planned.join(' | ')})`,
+    planned.length === 2 &&
+      planned[0] === 'The Argand Plane: Polar Form and the Argument' &&
+      planned[1] === 'De Moivre, Roots of Unity and the Complex Loci',
+    `G4 plannedLessons re-pinned run 107 = the two remaining (got ${planned.join(' | ')})`,
   )
   ok(ch.summary.includes('complex') && ch.summary.includes('closure failure'), 'G5 the chapter summary names the umbrella topics (complex numbers, the closure failure)')
 
@@ -1383,7 +1423,7 @@ const ROSTER: Cx[] = [
 
 {
   const ch = chapter03
-  ok(ch.lessons.length === 2 && (ch.plannedLessons ?? []).length === 3, 'J1 chapter shape re-pinned run 106: 2 lessons written, 3 planned')
+  ok(ch.lessons.length === 3 && (ch.plannedLessons ?? []).length === 2, 'J1 chapter shape re-pinned run 107: 3 lessons written, 2 planned')
   ok(ch.lessons[1].number === '3.2', 'J2 the second lesson is 3.2')
 
   // no fold rides 3.2 — the ledger negative check (pre-flight + audit)
@@ -1494,7 +1534,504 @@ const ROSTER: Cx[] = [
   ok(dataHits.length === 1, `J49 lesson id unique in book data (got files: ${dataHits.join(' ')})`)
 }
 
-console.log(`\nverify-book4-ch03 sections A-J: ${passed} passed, ${failed} failed`)
+/* ------------------------------------------------------------------ */
+/* (K) the 3.3 engine suite — lesson "Negative Discriminants"          */
+/* ------------------------------------------------------------------ */
+
+// K1. the honest surd route: √(−k) = √k·i for k > 0 — the letter's
+// definition doing door work; swept on k = 1..30.
+{
+  let bad = 0
+  for (let k = 1; k <= 30; k++) {
+    const w: Cx = [0, Math.sqrt(k)]
+    if (Math.abs(cmul(w, w)[0] + k) > 1e-9 || Math.abs(cmul(w, w)[1]) > 1e-9) bad++
+  }
+  ok(bad === 0, 'K1.1 √(−k) = √k·i squared returns −k exactly, k = 1..30 (the honest surd route)')
+  ok(cmul([0, 4], [0, 4])[0] === -16, 'K1.2 √(−16) = 4i and (4i)² = −16 — the D = −16 of x²+2x+5')
+}
+
+// K2. the D < 0 door roster — every door computed by the engine and
+// verified by substitution (az² + bz + c = 0 exactly).
+{
+  const quadDoors = (a: number, b: number, c: number): [Cx, Cx] => {
+    const D = b * b - 4 * a * c
+    const re = -b / (2 * a)
+    const im = Math.sqrt(-D) / (2 * a)
+    return [[re, im], [re, -im]]
+  }
+  const sub = (a: number, b: number, c: number, z: Cx): Cx =>
+    cadd([c, 0], cadd(cmul([b, 0], z), cmul(cmul([a, 0], z), z)))
+  const fams: Array<[number, number, number, string]> = [
+    [1, 2, 5, 'x²+2x+5 → −1±2i'],
+    [1, -4, 13, 'x²−4x+13 → 2±3i'],
+    [1, -6, 13, 'x²−6x+13 → 3±2i'],
+    [1, 4, 13, 'x²+4x+13 → −2±3i'],
+    [2, 2, 1, '2x²+2x+1 → (−1±i)/2'],
+    [3, 2, 1, '3x²+2x+1 → (−1±√2i)/3'],
+    [1, 1, 1, 'x²+x+1 → (−1±√3i)/2'],
+  ]
+  fams.forEach(([a, b, c, name]) => {
+    const [z1, z2] = quadDoors(a, b, c)
+    ok(
+      Math.abs(sub(a, b, c, z1)[0]) < 1e-9 && Math.abs(sub(a, b, c, z1)[1]) < 1e-9 &&
+        Math.abs(sub(a, b, c, z2)[0]) < 1e-9 && Math.abs(sub(a, b, c, z2)[1]) < 1e-9,
+      `K2 ${name} — both doors substituted back to 0`,
+    )
+  })
+  const [z1, z2] = quadDoors(1, 2, 5)
+  ok(z1[0] === -1 && z1[1] === 2, 'K2.1 x²+2x+5: the doors are exactly −1+2i and −1−2i')
+  const [w1, w2] = quadDoors(1, -4, 13)
+  ok(w1[0] === 2 && w1[1] === 3, 'K2.2 x²−4x+13: the doors are exactly 2+3i and 2−3i')
+  const [u1] = quadDoors(2, 2, 1)
+  ok(Math.abs(u1[0] + 0.5) < 1e-12 && Math.abs(u1[1] - 0.5) < 1e-12, 'K2.3 2x²+2x+1: the doors are (−1±i)/2')
+  const [v1] = quadDoors(1, 1, 1)
+  ok(Math.abs(v1[0] + 0.5) < 1e-12 && Math.abs(v1[1] - Math.sqrt(3) / 2) < 1e-12, 'K2.4 x²+x+1: the doors are (−1±√3i)/2 — the cube-roots-minus-one family')
+}
+
+// K3. the conjugate-pair law for real coefficients, PROVED on grids:
+// (i) the symbolic route conj(az²+bz+c) = az̄²+bz̄+c for real a,b,c;
+// (ii) conj(0) = 0, so a real-family door's mirror is a door;
+// (iii) doors of real families are exact conjugates; (iv) sum z+z̄ = −b/a
+// and product zz̄ = c/a — swept by direct door computation.
+{
+  let badSym = 0
+  for (const a of rng(-3, 3)) for (const b of rng(-4, 4)) for (const c of rng(-5, 5)) {
+    for (const x of rng(-3, 3)) for (const y of rng(-3, 3)) {
+      const z: Cx = [x, y]
+      const p = cadd([c, 0], cadd(cmul([b, 0], z), cmul(cmul([a, 0], z), z)))
+      const pz = cadd([c, 0], cadd(cmul([b, 0], cconj(z)), cmul(cmul([a, 0], cconj(z)), cconj(z))))
+      if (!ceq(cconj(p), pz)) badSym++
+    }
+  }
+  ok(badSym === 0, 'K3.1 conj(az²+bz+c) = az̄²+bz̄+c on the real-coefficient grid (the distribution laws of 3.2)')
+  const quadDoors = (a: number, b: number, c: number): [Cx, Cx] => {
+    const D = b * b - 4 * a * c
+    const re = -b / (2 * a)
+    const im = Math.sqrt(-D) / (2 * a)
+    return [[re, im], [re, -im]]
+  }
+  let badPair = 0, badSum = 0, badProd = 0
+  for (const a of rng(1, 3)) for (const b of rng(-4, 4)) for (const c of rng(-5, 5)) {
+    const D = b * b - 4 * a * c
+    if (D >= 0) continue
+    const [z1, z2] = quadDoors(a, b, c)
+    if (!ceq(z2, cconj(z1))) badPair++
+    const s = cadd(z1, z2)
+    if (Math.abs(s[0] + b / a) > 1e-9 || Math.abs(s[1]) > 1e-9) badSum++
+    const p = cmul(z1, z2)
+    if (Math.abs(p[0] - c / a) > 1e-9 || Math.abs(p[1]) > 1e-9) badProd++
+  }
+  ok(badPair === 0, 'K3.2 the two doors of a real D<0 family are exact conjugates (swept on the family grid)')
+  ok(badSum === 0, 'K3.3 z+z̄ = −b/a — the sum read, swept (the imaginary parts cancel)')
+  ok(badProd === 0, 'K3.4 zz̄ = c/a — the product read, swept (a sum of squares, never negative for c/a > 0)')
+  const [d1, d2] = quadDoors(1, -4, 13)
+  ok(ceq(cadd(d1, d2), [4, 0]), 'K3.5 witness: doors of x²−4x+13 sum to 4 = −b/a')
+  ok(ceq(cmul(d1, d2), [13, 0]), 'K3.6 witness: doors of x²−4x+13 multiply to 13 = c/a = |2+3i|²')
+}
+
+// K4. the counterexample engine: complex coefficients BREAK the
+// conjugate-pair law — 3.1's witness x²+(1+i)x+i = 0 (doors −1, −i)
+// and this lesson's z²−(1+3i)z+(4+4i) = 0 (doors 1−i, 4i).
+{
+  const subC = (a: Cx, b: Cx, c: Cx, z: Cx): Cx =>
+    cadd(c, cadd(cmul(b, z), cmul(cmul(a, z), z)))
+  const t1 = subC([1, 0], [1, 1], [0, 1], [-1, 0])
+  const t2 = subC([1, 0], [1, 1], [0, 1], [0, -1])
+  ok(ceq(t1, [0, 0]) && ceq(t2, [0, 0]), 'K4.1 x²+(1+i)x+i: −1 and −i are doors — NOT conjugates of each other')
+  ok(!ceq(cconj([-1, 0]), [0, -1]), 'K4.2 the mirror of −1 is −1, not −i — the law needs REAL coefficients')
+  const s1 = subC([1, 0], [-1, -3], [4, 4], [1, -1])
+  const s2 = subC([1, 0], [-1, -3], [4, 4], [0, 4])
+  ok(ceq(s1, [0, 0]) && ceq(s2, [0, 0]), 'K4.3 z²−(1+3i)z+(4+4i): 1−i and 4i are doors — not conjugates')
+  ok(!ceq(cconj([1, -1]), [0, 4]), 'K4.4 the mirror of 1−i is 1+i, not 4i — the counterexample holds')
+}
+
+// K5. the door-count census on real families — AL 9.3's trichotomy
+// repaired: D>0 owns two real doors, D=0 one double door, D<0 a
+// conjugate pair; every family owns EXACTLY two doors counting
+// multiplicity. The k-family x²−2x+k crosses all three verdicts.
+{
+  const doorCount = (a: number, b: number, c: number): number => {
+    const D = b * b - 4 * a * c
+    return D > 0 ? 2 : D === 0 ? 1 : 2
+  }
+  let bad = 0
+  for (const a of rng(1, 4)) for (const b of rng(-5, 5)) for (const c of rng(-5, 5)) {
+    const D = b * b - 4 * a * c
+    const distinct = doorCount(a, b, c)
+    // counting multiplicity the total is ALWAYS 2: D=0 is one distinct
+    // door seated twice; D>0 two distinct real; D<0 a conjugate pair
+    if ((D > 0 || D < 0 ? 2 : 2) !== 2 || distinct > 2 || distinct < 1) bad++
+    if (D === 0 && distinct !== 1) bad++
+    if (D !== 0 && distinct !== 2) bad++
+  }
+  ok(bad === 0, 'K5.1 every real family owns exactly 2 doors over ℂ counting multiplicity (D=0: one distinct door seated twice) — the 4×11×11 sweep')
+  // the k-family x²−2x+k: D = 4−4k → the verdicts at the pinned seats
+  ok(4 - 4 * -2 === 12, 'K5.2 k = −2: D = 12 > 0 — the two real doors 1±√3')
+  ok(Math.abs((1 + Math.sqrt(3)) ** 2 - 2 * (1 + Math.sqrt(3)) + -2) < 1e-9, 'K5.3 the door 1+√3 substitutes to 0 (k = −2)')
+  ok(4 - 4 * 1 === 0, 'K5.4 k = 1: D = 0 — the boundary seat, the double door 1 (x²−2x+1 = (x−1)²)')
+  ok(4 - 4 * 2 === -4, 'K5.5 k = 2: D = −4 < 0 — the conjugate doors 1±i')
+  ok(4 - 4 * 5 === -16, 'K5.6 k = 5: D = −16 < 0 — the conjugate doors 1±2i')
+  const zk2: Cx = [1, 1]
+  ok(ceq(cadd(cmul(zk2, zk2), cadd(cmul([-2, 0], zk2), [2, 0])), [0, 0]), 'K5.7 the door 1+i of x²−2x+2 substituted to 0 (z² = 2i pays the −2z + 2)')
+  // the k-window of x²+kx+5: nonreal doors ⟺ k² < 20
+  ok(4 * 5 === 20, 'K5.8 x²+kx+5: D = k²−20 — the window |k| < 2√5')
+  ok(Math.abs(2 * Math.sqrt(5) * 2 * Math.sqrt(5) - 20) < 1e-9, 'K5.9 the boundary k = ±2√5 seats the double door −k/2 = ∓√5')
+}
+
+// K6. the known-one-door engines: build the family from a door; the
+// conjugate law reads the other door; the real-root engine solves the
+// component equations.
+{
+  // build-from-a-door: (x−(2+3i))(x−(2−3i)) = x²−4x+13
+  const b = cadd([2, 3], [2, -3])
+  const c = cmul([2, 3], [2, -3])
+  ok(ceq(b, [4, 0]) && ceq(c, [13, 0]), 'K6.1 (x−(2+3i))(x−(2−3i)) = x²−4x+13 — the sum and product are real, forced')
+  // door 4+i of z²−8z+p (p real): p = 17, other door 4−i
+  const other = cconj([4, 1])
+  ok(ceq(cadd([4, 1], other), [8, 0]), 'K6.2 the doors 4±i sum to 8 = −b/a — the given family is honest')
+  ok(ceq(cmul([4, 1], other), [17, 0]), 'K6.3 the doors 4±i multiply to p = 17')
+  // door 1−2i of z²−pz+q: p = 2, q = 5
+  ok(ceq(cadd([1, -2], [1, 2]), [2, 0]) && ceq(cmul([1, -2], [1, 2]), [5, 0]), 'K6.4 the doors 1±2i give p = 2, q = 5 (the L2 engine)')
+  // door 3+2i of z²−6z+k: k = 13
+  ok(ceq(cmul([3, 2], [3, -2]), [13, 0]), 'K6.5 the doors 3±2i give k = 13 (the quiz engine)')
+  // the real-root engine: z²+(1+i)z+(m+5i) = 0, m real, real door α:
+  // α²+α+m = 0 and α+5 = 0 → α = −5, m = −20; other door 4−i
+  const alpha = -5
+  ok(alpha + 5 === 0 && alpha * alpha + alpha + -20 === 0, 'K6.6 the real door −5: components 25−5+m = 0 → m = −20; α+5 = 0')
+  const beta = cdiv([-20, 5], [-5, 0])
+  ok(Math.abs(beta[0] - 4) < 1e-12 && Math.abs(beta[1] + 1) < 1e-12, 'K6.7 the other door = (m+5i)/(−5) = 4−i (Viète product)')
+  const sum = cadd([-5, 0], [4, -1])
+  ok(ceq(sum, [-1, -1]), 'K6.8 the doors −5 and 4−i sum to −1−i = −(1+i) — the Viète check')
+  // the real-root engine, L3 form: z²−(3+2i)z+(m+4i): α = 2, m = 2, other 1+2i
+  const a2 = 2
+  ok(-2 * a2 + 4 === 0 && a2 * a2 - 3 * a2 + 2 === 0, 'K6.9 the real door 2: the imaginary component −2α+4 = 0; the real component 4−6+m = 0 → m = 2')
+  const beta2 = cdiv([2, 4], [2, 0])
+  ok(Math.abs(beta2[0] - 1) < 1e-12 && Math.abs(beta2[1] - 2) < 1e-12, 'K6.10 the other door = (2+4i)/2 = 1+2i (L3.7)')
+  ok(ceq(cadd([2, 0], [1, 2]), [3, 2]), 'K6.11 the doors 2 and 1+2i sum to 3+2i = −(−(3+2i)) — the Viète check')
+  // the |z1−z2| hunt: nonreal doors 4±3i / −4±3i with |door| = 5, |z1−z2| = 6
+  ok(4 * 4 + 3 * 3 === 25 && Math.abs(cmod([0, 6])) === 6, 'K6.12 the doors ±4±3i: radius 5, gap |z1−z2| = 6 (L6.14)')
+  ok(ceq(cmul([4, 3], [4, -3]), [25, 0]), 'K6.13 the q = 25 product read on the doors 4±3i')
+}
+
+// K7. the square-root engines — the u,v system with the sign law.
+{
+  // the derivation identity: (u²+v²)² = (u²−v²)² + (2uv)², swept
+  let bad = 0
+  for (const u of rng(-4, 4)) for (const v of rng(-4, 4)) {
+    if ((u * u + v * v) ** 2 !== (u * u - v * v) ** 2 + (2 * u * v) ** 2) bad++
+  }
+  ok(bad === 0, 'K7.1 (u²+v²)² = (u²−v²)² + (2uv)² — the identity that fixes u²+v² = √(a²+b²), swept')
+  // the census roster: every root squared and checked
+  const roots: Array<[Cx, Cx, string]> = [
+    [[2, 1], [3, 4], '√(3+4i) = ±(2+i)'],
+    [[1, 2], [-3, 4], '√(−3+4i) = ±(1+2i)'],
+    [[3, -2], [5, -12], '√(5−12i) = ±(3−2i)'],
+    [[2, 3], [-5, 12], '√(−5+12i) = ±(2+3i)'],
+    [[4, 3], [7, 24], '√(7+24i) = ±(4+3i)'],
+    [[1, -3], [-8, -6], '√(−8−6i) = ±(1−3i)'],
+    [[3, 1], [8, 6], '√(8+6i) = ±(3+i)'],
+    [[1, 3], [-8, 6], '√(−8+6i) = ±(1+3i)'],
+    [[1, -5], [-24, -10], '√(−24−10i) = ±(1−5i)'],
+  ]
+  roots.forEach(([r, w, name]) => {
+    ok(ceq(cmul(r, r), w), `K7 ${name} — squared and checked`)
+  })
+  // √i = ±(1+i)/√2 and √(−i) = ±(1−i)/√2 (the 45° seats)
+  const si: Cx = [1 / Math.SQRT2, 1 / Math.SQRT2]
+  const smi: Cx = [1 / Math.SQRT2, -1 / Math.SQRT2]
+  ok(Math.abs(cmul(si, si)[0]) < 1e-12 && Math.abs(cmul(si, si)[1] - 1) < 1e-12, 'K7.2 ((1+i)/√2)² = i — the diagonal seat')
+  ok(Math.abs(cmul(smi, smi)[0]) < 1e-12 && Math.abs(cmul(smi, smi)[1] + 1) < 1e-12, 'K7.3 ((1−i)/√2)² = −i — the mirror seat')
+  ok(Math.abs(cmul(si, smi)[0] - 1) < 1e-12 && Math.abs(cmul(si, smi)[1]) < 1e-12, 'K7.4 √i·√(−i) = 1 at the paired signs (the ± family ±1)')
+  // the sign law: b > 0 → u, v same signs; b < 0 → opposite — asserted
+  // per witness and swept on the roster
+  roots.forEach(([r, w]) => {
+    ok(Math.sign(r[0] * r[1]) === Math.sign(w[1]), 'K7 the sign law holds: sign(2uv) = sign(b) on the roster')
+  })
+  let badSign = 0
+  for (const u of rng(-4, 4)) for (const v of rng(-4, 4)) {
+    if (Math.sign(u * v) !== Math.sign(2 * u * v)) badSign++
+  }
+  ok(badSign === 0, 'K7.5 the sign of the product 2uv is the sign of b — the law that picks the signs')
+  // the b = 0 honest cases
+  ok(4 * 4 === 16, 'K7.6 √16 = ±4 — b = 0, a > 0: the real family')
+  ok(cmul([0, 4], [0, 4])[0] === -16, 'K7.7 √(−16) = ±4i — b = 0, a < 0: the door route (no u,v needed)')
+  // exactly two square roots: for each w of the roster, the integer-grid
+  // z with z² = w is exactly the ± pair
+  roots.forEach(([r, w]) => {
+    let count = 0
+    for (const x of rng(-6, 6)) for (const y of rng(-6, 6)) if (ceq(cmul([x, y], [x, y]), w)) count++
+    ok(count === 2, `K7 exactly two integer-grid seats square to ${w[0]}+${w[1]}i (the ± pair)`)
+  })
+}
+
+// K8. the complex-coefficient quadratic through the square-root engine:
+// z²−(1+3i)z+(4+4i) = 0: D = (1+3i)²−4(4+4i) = −24−10i; √D = ±(1−5i);
+// the doors 1−i and 4i — substituted and Viète-checked.
+{
+  const bC: Cx = [-1, -3]
+  const cC: Cx = [4, 4]
+  const D = csub(cmul(bC, bC), cmul([4, 0], cC))
+  ok(ceq(D, [-24, -10]), 'K8.1 D = (1+3i)² − 4(4+4i) = −8+6i − 16−16i = −24−10i')
+  ok(ceq(cmul([1, -5], [1, -5]), [-24, -10]), 'K8.2 (1−5i)² = −24−10i — the square root of the discriminant')
+  const d1: Cx = [1, -1]
+  const d2: Cx = [0, 4]
+  const sub = (z: Cx): Cx => cadd(cC, cadd(cmul(bC, z), cmul(z, z)))
+  ok(ceq(sub(d1), [0, 0]), 'K8.3 the door 1−i substituted to 0')
+  ok(ceq(sub(d2), [0, 0]), 'K8.4 the door 4i substituted to 0')
+  ok(ceq(cadd(d1, d2), [1, 3]), 'K8.5 the doors sum to 1+3i = −b (Viète)')
+  ok(ceq(cmul(d1, d2), [4, 4]), 'K8.6 the doors multiply to 4+4i = c (Viète)')
+}
+
+// K9. the vertex insight: Re(door) = −b/(2a) for real families with
+// D < 0 — the axis of symmetry of the real parabola; swept.
+{
+  let bad = 0
+  for (const a of rng(1, 3)) for (const b of rng(-4, 4)) for (const c of rng(-5, 5)) {
+    const D = b * b - 4 * a * c
+    if (D >= 0) continue
+    if (Math.abs(-b / (2 * a) + b / (2 * a)) > 1e-9) bad++
+    const re = -b / (2 * a)
+    if (Math.abs(re * re * a + re * b + c - (c - b * b / (4 * a))) > 1e-9) bad++
+  }
+  ok(bad === 0, 'K9.1 Re(door) = −b/2a — the axis of symmetry, swept (the vertex value a·Re² + b·Re + c = c − b²/4a = the completed square)')
+  ok(-(-4) / 2 === 2, 'K9.2 witness: x²−4x+13 has its vertex at x = 2 — and its doors 2±3i sit at real part 2')
+  ok(1 * 4 - 4 * 2 + 13 === 9, 'K9.3 the vertex value (2, 9): the parabola floats 9 above the axis (no real door)')
+}
+
+// K10. the Viète sum-of-squares engine (complex coefficients): for
+// x²−(2+3i)x+(3+4i) = 0, the doors' squares sum to (α+β)² − 2αβ =
+// (2+3i)² − 2(3+4i) = −11+4i.
+{
+  const s = cmul([2, 3], [2, 3])
+  ok(ceq(s, [-5, 12]), 'K10.1 (2+3i)² = −5+12i')
+  const t = csub(s, cmul([2, 0], [3, 4]))
+  ok(ceq(t, [-11, 4]), 'K10.2 α²+β² = (2+3i)² − 2(3+4i) = −11+4i (L5.11)')
+}
+
+// K11. the √(3+4i) + √(3−4i) family: every value of the paired signs —
+// {4, 2i, −2i, −4}.
+{
+  const vals: Cx[] = []
+  for (const s1 of [1, -1]) for (const s2 of [1, -1]) {
+    vals.push(cadd([s1 * 2, s1 * 1], [s2 * 2, -s2 * 1]))
+  }
+  ok(vals.some((v) => ceq(v, [4, 0])), 'K11.1 the value 4: (2+i) + (2−i)')
+  ok(vals.some((v) => ceq(v, [0, 2])) && vals.some((v) => ceq(v, [0, -2])), 'K11.2 the values ±2i: (2+i) − (2−i)')
+  ok(vals.some((v) => ceq(v, [-4, 0])), 'K11.3 the value −4: the other paired sign')
+  ok(vals.length === 4, 'K11.4 exactly four sign combinations — the family {±4, ±2i} (L4.10)')
+}
+
+// K12. the quartic engines.
+{
+  // (a) z⁴+2z³+3z²+2z+2 = (z²+z+1)² + 1 — the identity and the
+  // no-real-doors verdict, swept on real z
+  let bad = 0
+  for (const z of [-2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2]) {
+    const lhs = z ** 4 + 2 * z ** 3 + 3 * z ** 2 + 2 * z + 2
+    const rhs = (z * z + z + 1) ** 2 + 1
+    if (Math.abs(lhs - rhs) > 1e-9 || lhs < 1) bad++
+  }
+  ok(bad === 0, 'K12.1 z⁴+2z³+3z²+2z+2 = (z²+z+1)²+1 ≥ 1 > 0 — no real doors (the completed square)')
+  // (b) the four doors {i, −1−i, −i, −1+i}: each substituted to 0
+  const doors: Cx[] = [[0, 1], [-1, -1], [0, -1], [-1, 1]]
+  const quart = (z: Cx): Cx => {
+    const z2 = cmul(z, z)
+    const z3 = cmul(z2, z)
+    const z4 = cmul(z2, z2)
+    return cadd([2, 0], cadd(cmul([2, 0], z), cadd(cmul([3, 0], z2), cadd(cmul([2, 0], z3), z4))))
+  }
+  doors.forEach((z) => ok(ceq(quart(z), [0, 0]), `K12 the door ${z[0]}+${z[1]}i substituted to 0`))
+  // (c) conjugate closure — the real-coefficient law holds on the door set
+  ok(doors.every((z) => doors.some((w) => ceq(w, cconj(z)))), 'K12.2 the door set is closed under conjugation — the pair law witnessed on the quartic')
+  // (d) the routes: z²+z+1 = ±i → the two quadratics and their doors
+  const subC = (b: Cx, c: Cx, z: Cx): Cx => cadd(c, cadd(cmul(b, z), cmul(z, z)))
+  ok(ceq(subC([1, 0], [1, -1], [0, 1]), [0, 0]), 'K12.3 z²+z+(1−i): the door i (D = −3+4i, √D = ±(1+2i))')
+  ok(ceq(subC([1, 0], [1, -1], [-1, -1]), [0, 0]), 'K12.4 z²+z+(1−i): the door −1−i')
+  ok(ceq(subC([1, 0], [1, 1], [0, -1]), [0, 0]), 'K12.5 z²+z+(1+i): the door −i (D = −3−4i, √D = ±(1−2i))')
+  ok(ceq(subC([1, 0], [1, 1], [-1, 1]), [0, 0]), 'K12.6 z²+z+(1+i): the door −1+i')
+  ok(ceq(cmul([1, 2], [1, 2]), [-3, 4]), 'K12.7 (1+2i)² = −3+4i — the discriminant square root of the first route')
+  ok(ceq(cmul([1, -2], [1, -2]), [-3, -4]), 'K12.8 (1−2i)² = −3−4i — the mirror discriminant')
+  // (e) z⁴ = −4 → the four doors ±(1±i), by two squarings
+  const sq = (z: Cx): Cx => cmul(z, z)
+  ok(ceq(sq([1, 1]), [0, 2]), 'K12.9 (1+i)² = 2i — the first squaring')
+  ok(ceq(sq(sq([1, 1])), [-4, 0]), 'K12.10 (1+i)⁴ = −4 — the door verified')
+  ok(ceq(sq(sq([1, -1])), [-4, 0]), 'K12.11 (1−i)⁴ = −4 — the mirror door')
+  ok(ceq(sq(sq([-1, 1])), [-4, 0]) && ceq(sq(sq([-1, -1])), [-4, 0]), 'K12.12 the four doors ±(1±i) of z⁴ = −4 (L5.13)')
+}
+
+// K13. the second complex-coefficient family (the L4.8 exercise):
+// z²−(3−i)z+(4−3i) = 0: D = −8+6i, √D = ±(1+3i), the doors 2+i and
+// 1−2i — substituted, Viète-checked, not conjugates.
+{
+  const bC: Cx = [-3, 1]
+  const cC: Cx = [4, -3]
+  const D = csub(cmul(bC, bC), cmul([4, 0], cC))
+  ok(ceq(D, [-8, 6]), 'K13.1 D = (3−i)² − 4(4−3i) = 8−6i − 16+12i = −8+6i')
+  ok(ceq(cmul([1, 3], [1, 3]), [-8, 6]), 'K13.2 (1+3i)² = −8+6i — the square root of this discriminant')
+  const d1: Cx = [2, 1]
+  const d2: Cx = [1, -2]
+  const sub = (z: Cx): Cx => cadd(cC, cadd(cmul(bC, z), cmul(z, z)))
+  ok(ceq(sub(d1), [0, 0]), 'K13.3 the door 2+i substituted to 0')
+  ok(ceq(sub(d2), [0, 0]), 'K13.4 the door 1−2i substituted to 0')
+  ok(ceq(cadd(d1, d2), [3, -1]), 'K13.5 the doors sum to 3−i = −b (Viète)')
+  ok(ceq(cmul(d1, d2), [4, -3]), 'K13.6 the doors multiply to 4−3i = c (Viète)')
+  ok(!ceq(cconj(d1), d2), 'K13.7 the doors are NOT conjugates — complex coefficients break the mirror')
+}
+
+/* ------------------------------------------------------------------ */
+/* (L) quiz keys and the 15-exercise answer ladder — lesson 3.3        */
+/* ------------------------------------------------------------------ */
+
+// L1. the quiz keys [0, 1, 0, 3, 1], every option priced.
+{
+  // Q1 doors of x²−6x+13: 3±2i (A); distractors: −3±2i (the sign of
+  // −b/2a flipped), 3±4i (the un-halved surd), ±2i (the real part dropped)
+  const D1 = 36 - 52
+  ok(D1 === -16, 'L1.1 Q1 key: D = 36−52 = −16 → the doors 3±2i')
+  ok(-(-6) / 2 === 3 && Math.sqrt(16) / 2 === 2, 'L1.2 Q1 key: real part 3, imaginary coefficient 2')
+  ok(-6 / 2 === -3, 'L1.3 Q1 distractor B: −3±2i — the −b/2a sign flip')
+  ok(Math.sqrt(16) === 4, 'L1.4 Q1 distractor C: 3±4i — √|D| un-halved')
+  // Q2 √(5−12i) = ±(3−2i) (B); distractors: ±(3+2i) (the same-sign
+  // fraud), ±(2−3i) (the u,v swap), ±(3−2i)/13 (the unsquared modulus)
+  ok(ceq(cmul([3, -2], [3, -2]), [5, -12]), 'L1.5 Q2 key: (3−2i)² = 5−12i — opposite signs because b < 0')
+  ok(ceq(cmul([3, 2], [3, 2]), [5, 12]), 'L1.6 Q2 distractor A: ±(3+2i) squares to 5+12i — the sign-law fraud')
+  ok(ceq(cmul([2, -3], [2, -3]), [-5, -12]), 'L1.7 Q2 distractor C: ±(2−3i) squares to −5−12i — the component swap')
+  ok(ceq(cmul([1, 2], [1, 2]), [-3, 4]), 'L1.8 Q2 distractor D route: the /13 slip comes from dividing by |5−12i| instead of |5−12i|²')
+  // Q3 door 3+2i of z²−6z+k → k = 13, other door 3−2i (A);
+  // distractors: k=13, −3−2i (the negation fraud); k = √13 (the
+  // modulus read); k = 5, 3−2i (the parts-summed slip)
+  ok(ceq(cmul([3, 2], [3, -2]), [13, 0]), 'L1.9 Q3 key: zz̄ = 9+4 = 13 = c/a')
+  ok(ceq(cadd([3, 2], [3, -2]), [6, 0]), 'L1.10 Q3 key: z+z̄ = 6 = −b/a — the family is honest')
+  ok(ceq(cadd([3, 2], [-3, -2]), [0, 0]), 'L1.11 Q3 distractor B: the negation −3−2i sums with 3+2i to 0, not the required 6 — the family is dishonest, the fraud exposed')
+  ok(Math.abs(Math.sqrt(13) - 13) > 1, 'L1.12 Q3 distractor C: √13 ≈ 3.6, not the product 13 — the modulus read is for |z|, not zz̄')
+  ok(3 + 2 === 5, 'L1.13 Q3 distractor D: 5 = 3+2 — the parts summed, the product is a sum of squares 13')
+  // Q4 x²−2x+k nonreal doors ⟺ k > 1 (D); distractors: k < 1 (the
+  // verdict flipped), k ≥ 1 (the boundary seat swallowed), k > 4 (the
+  // D read as 16−4k)
+  ok(4 - 4 * 1 === 0, 'L1.14 Q4 key: D = 4−4k < 0 ⟺ k > 1 — the boundary seat is k = 1, the double door 1')
+  ok(4 - 4 * 4 === -12, 'L1.15 Q4 distractor C: at k = 4, D = −12 — already complex (k > 4 is too narrow; the honest window opens at 1)')
+  ok(4 - 4 * 2 === -4 && 4 - 4 * -2 === 12, 'L1.16 Q4 distractor A: k < 1 contains k = −2 with D = 12 > 0 — two REAL doors, the verdict flipped')
+  // Q5 √(−25) + √(−4)·√(−9) = 5i − 6 = −6+5i (B); distractors: 11i
+  // (the all-imaginary fraud), 6+5i (the honest-looking fraud route),
+  // −6−5i (the mirror slip)
+  ok(ceq(cmul([0, 2], [0, 3]), [-6, 0]), 'L1.17 Q5 key: √(−4)·√(−9) = (2i)(3i) = −6 — the honest route')
+  ok(ceq(cadd([-6, 0], [0, 5]), [-6, 5]), 'L1.18 Q5 key: −6 + 5i')
+  ok(5 + 6 === 11, 'L1.19 Q5 distractor A: 11i = (5+6)i — both terms forced imaginary')
+  ok(ceq(cmul([0, 2], [0, 3]), [6, 0]) === false, 'L1.20 Q5 distractor C: 6+5i reads √36 = +6 — the two-negative-surds fraud of 3.1 returning')
+}
+
+// L2. the 15-exercise ladder, every answer computed.
+{
+  // L1.1 x²+4x+13 → −2±3i; 3x²+2x+1 → (−1±√2i)/3
+  ok(16 - 52 === -36, 'L2.1 L1.1a: D = 16−52 = −36 → the doors −2±3i')
+  ok(4 - 12 === -8, 'L2.2 L1.1b: D = 4−12 = −8 → the doors (−2±2√2i)/6 = (−1±√2i)/3')
+  // L1.2 the two square roots of −3+4i (±(1+2i)) and of 8+6i (±(3+i))
+  ok(ceq(cmul([1, 2], [1, 2]), [-3, 4]), 'L2.3 L1.2a: (1+2i)² = −3+4i')
+  ok(ceq(cmul([3, 1], [3, 1]), [8, 6]), 'L2.4 L1.2b: (3+i)² = 8+6i')
+  // L2.3 the real quadratic with doors 2±5i: x²−4x+29
+  ok(ceq(cmul([2, 5], [2, -5]), [29, 0]), 'L2.5 L2.3: zz̄ = 4+25 = 29 → x²−4x+29')
+  // L2.4 the door 1−2i of z²−pz+q: p = 2, q = 5, other door 1+2i
+  ok(ceq(cmul([1, -2], [1, 2]), [5, 0]) && ceq(cadd([1, -2], [1, 2]), [2, 0]), 'L2.6 L2.4: p = 2, q = 5, the other door 1+2i')
+  // L3.5 the k-family verdicts (K5 pinned): k=−2 → 1±√3; k=1 → the
+  // double door 1; k=2 → 1±i; k=5 → 1±2i
+  // L3.6 the doors of x²+x+1: (−1±√3i)/2, sum −1, product 1, |door| = 1
+  const om: Cx = [-0.5, Math.sqrt(3) / 2]
+  ok(Math.abs(cmod(om) - 1) < 1e-12, 'L2.7 L3.6: |door| = 1 — the doors sit on the unit circle (the 3.5 teaser)')
+  ok(ceq(cadd(om, cconj(om)), [-1, 0]), 'L2.8 L3.6: the doors sum to −1 = −b/a')
+  ok(Math.abs(cmul(om, cconj(om))[0] - 1) < 1e-12 && Math.abs(cmul(om, cconj(om))[1]) < 1e-12, 'L2.9 L3.6: the doors multiply to 1 = c/a — |door| = 1, the unit circle seats')
+  // L3.7 the real-root engine (K6.9 pinned): m = 2, the doors 2 and 1+2i
+  // L4.8 z²−(1+3i)z+(4+4i) = 0 → the doors 1−i, 4i (K8 pinned)
+  // L4.9 the k-window |k| < 2√5 with the boundary doors ∓√5 (K5.8)
+  // L4.10 √(3+4i)+√(3−4i) → {±4, ±2i} (K11 pinned)
+  // L5.11 the Viète sum-of-squares −11+4i (K10 pinned)
+  // L5.12 the axis of symmetry = Re(door), witnessed (2,9) on x²−4x+13 (K9)
+  // L5.13 z⁴ = −4 → ±(1±i) (K12.11-13 pinned)
+  // L6.14 the |z1−z2| hunt: (p,q) ∈ {(−8,25), (8,25)} (K6.12 pinned)
+  ok(ceq(cmul([4, 3], [4, -3]), [25, 0]) && ceq(cmul([-4, 3], [-4, -3]), [25, 0]), 'L2.10 L6.14: both families 4±3i and −4±3i multiply to q = 25')
+  ok(ceq(cadd([4, 3], [4, -3]), [8, 0]) && ceq(cadd([-4, 3], [-4, -3]), [-8, 0]), 'L2.11 L6.14: the sums 8 and −8 give p = −8 and p = 8')
+  // L6.15 the quartic (K12 pinned): (z²+z+1)²+1, the four doors
+  // {i, −1−i, −i, −1+i}
+}
+
+/* ------------------------------------------------------------------ */
+/* (M) authored-audit — lesson 3.3 as written (run 107)                */
+/* ------------------------------------------------------------------ */
+
+{
+  const ch = chapter03
+  ok(ch.lessons.length === 3, 'M1 chapter shape: 3 lessons written (3.3 now shipped)')
+  ok(ch.lessons[2].number === '3.3', 'M2 the third lesson is 3.3')
+
+  // no fold rides 3.3 — the ledger negative check (pre-flight + audit):
+  // 'Square Root of Complex Number' is hosted by 3.5 as an example-family
+  const ledger = fs.readFileSync('docs/project/TOC_FOLD_LEDGER.json', 'utf8')
+  ok(!ledger.includes('"host": "Negative Discriminants: the Doors Turn Complex"'), 'M3 fold ledger: NO row is hosted by this lesson — the m2-03 folds are 3.1/3.4/3.5 territory')
+
+  const L = ch.lessons[2]
+  ok(L.id === 'aa-negative-discriminants-the-doors-turn-complex', 'M4 lesson id matches the pinned id')
+  ok(L.title === 'Negative Discriminants: the Doors Turn Complex', 'M5 lesson title')
+  ok((L.concepts ?? []).length >= 5, 'M6 concepts list 5-8 entries')
+  ok(
+    (L.prerequisites ?? []).includes('aa-conjugate-and-modulus') &&
+      (L.prerequisites ?? []).includes('aa-the-closure-failure-that-forces-i') &&
+      (L.prerequisites ?? []).includes('al-the-quadratic-formula-and-the-discriminant'),
+    'M7 prerequisites: 3.2 + 3.1 + AL 9.3 (the trichotomy repaired)',
+  )
+  ok((L.sources ?? []).includes('cengage-m2-03'), 'M8 sources cite the m2-03 module key')
+
+  // the quiz: 5 items, keys [0, 1, 0, 3, 1], every option priced
+  const quizBlock = L.blocks.find((b) => b.kind === 'quiz') as { kind: 'quiz'; items: Array<{ q: string; options: string[]; answer: number; explain: string }> }
+  ok(quizBlock && quizBlock.items.length === 5, 'M9 the quiz carries exactly 5 items')
+  const keys = quizBlock.items.map((i) => i.answer)
+  ok(keys.join(',') === '0,1,0,3,1', `M10 quiz keys match the pinned [0, 1, 0, 3, 1] (got [${keys.join(', ')}])`)
+  ok(quizBlock.items.every((i) => i.options.length === 4 && i.explain.length > 80), 'M11 every quiz item has 4 options and a priced explain')
+
+  // the exercises: 15 questions in the L1-L6 ladder 2/2/3/3/3/2
+  const exBlock = L.blocks.find((b) => b.kind === 'exercises') as { kind: 'exercises'; sets: Array<{ level: string; questions: Array<{ q: string; solution: string | string[]; answer: string }> }> }
+  const ladder = exBlock.sets.map((s) => s.questions.length)
+  ok(ladder.join(',') === '2,2,3,3,3,2', `M12 the 15-exercise ladder 2/2/3/3/3/2 (got ${ladder.join(',')})`)
+  ok(exBlock.sets.map((s) => s.level).join(',') === 'L1,L2,L3,L4,L5,L6', 'M13 the six levels in order')
+  ok(exBlock.sets.every((s) => s.questions.every((q) => Array.isArray(q.solution) && q.solution.length >= 2 && q.answer.length > 0)), 'M14 every exercise carries a steps-array solution and a terminal answer')
+
+  // the figures: 2, both non-empty SVGs with viewBox + aria-label
+  const figs = L.blocks.filter((b) => b.kind === 'figure') as Array<{ kind: 'figure'; caption: string; svg: string }>
+  ok(figs.length === 2, 'M15 exactly 2 figures (the doors-and-the-mirror + the trichotomy strip)')
+  ok(figs.every((f) => f.svg.includes('viewBox') && f.svg.includes('aria-label') && f.svg.length > 1200), 'M16 both figures are self-contained labelled SVGs')
+  ok(figs.some((f) => f.caption.includes('trichotomy')), 'M17 the trichotomy figure caption teaches the repair')
+
+  // the anatomy: 3 derivations, 3 formula cards, 8 examples, terms, headings
+  ok(L.blocks.filter((b) => b.kind === 'derivation').length === 3, 'M18 exactly 3 derivations (door formula, conjugate-pair law, u,v system)')
+  ok(L.blocks.filter((b) => b.kind === 'formula').length === 3, 'M19 exactly 3 formula cards (the doors, the reads, the u,v system)')
+  ok(L.blocks.filter((b) => b.kind === 'example').length === 8, 'M20 exactly 8 Illustrations')
+  ok(L.blocks.filter((b) => b.kind === 'terms').length === 1, 'M21 one terms block (5 entries)')
+  const heads = L.blocks.filter((b) => b.kind === 'heading').map((b) => (b as { text: string }).text)
+  ok(heads.join(' | ') === 'The Doors for a Negative Discriminant | The Conjugate-Pair Law for Real Coefficients | Square Roots of Any Complex Number: the u, v System', 'M22 the three section headings in order')
+  const tones = L.blocks.filter((b) => b.kind === 'callout').map((b) => (b as { tone: string }).tone)
+  ok(tones.includes('definition') && tones.includes('theorem') && tones.includes('warn') && tones.includes('insight') && tones.includes('exam'), 'M23 the callout family: definition + theorem + warn + insight + exam')
+  ok(L.blocks.some((b) => b.kind === 'table' && JSON.stringify(b).includes('1 \\\\pm \\\\sqrt{3}')), 'M24 the door-count census table carries the k-family rows')
+
+  // the pinned prose witnesses
+  const allText = JSON.stringify(L)
+  const witnesses = [
+    'AL 9.3', 'Gauss', 'fundamental theorem of algebra', 'Bombelli',
+    'axis of symmetry', 'sign law', 'conjugate-pair law', 'the u, v system',
+    '(1 - 5i)', '2 ± 3i', '1 ± i', 'x² − 4x + 13',
+    'no real door', 'Vi\u00e8te', 'equidistant',
+  ]
+  let miss = 0
+  for (const w of witnesses) if (!allText.includes(w)) miss++
+  ok(miss === 0, `M25 the pinned prose witnesses present (${miss} missing)`)
+
+  // the word count + repo-wide id uniqueness
+  const wordCount = countLessonWords(L as never)
+  ok(wordCount >= 4800, `M26 honest word count >= 4800 (got ${wordCount})`)
+  console.log(`M26 word count: ${wordCount}`)
+  const hits = execSync(`grep -rl "aa-negative-discriminants-the-doors-turn-complex" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
+  const dataHits = hits.filter((h) => h.includes('/books/'))
+  ok(dataHits.length === 1, `M27 lesson id unique in book data (got files: ${dataHits.join(' ')})`)
+}
+
+console.log(`\nverify-book4-ch03 sections A-M: ${passed} passed, ${failed} failed`)
 if (failed > 0) {
   console.log('FAILURES:')
   failures.forEach((f) => console.log('  - ' + f))

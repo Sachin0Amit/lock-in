@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-15 15:46:54 (Asia/Kolkata)",
+  "generated": "2026-11-15 22:00:42 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -10146,9 +10146,8 @@
             "title": "Complex Numbers: the New Rung",
             "summary": "Arithmetic and Number Systems proved the extension-ladder discipline — every new number family born from a closure failure, repaired on purpose. This chapter climbs the most famous rung: x² + 1 = 0 has no real door, so a number i is forced with i² = −1, and the algebra of a + bi is built so the whole field-law family survives (the honest sanity ANS 7.2 banked). The conjugate and modulus arrive as bookkeeping — z z̄ = |z|², division by conjugating, |z| as a distance with the triangle inequality — and the Argand plane is read algebraically (addition as the parallelogram, multiplication as rotation-and-scaling) with the deep geometry left to later books. The payoff: the quadratic formula keeps its promise for every discriminant, and real coefficients are shown to force complex doors in conjugate pairs. De Moivre’s theorem and the nth roots of unity — the unit circle’s equal spokes — with their properties (primitive roots, the cyclotomic equations) banked as the module’s depth engine.",
             "status": "in-progress",
-            "lessonsWritten": 2,
+            "lessonsWritten": 3,
             "plannedLessons": [
-              "Negative Discriminants: the Doors Turn Complex",
               "The Argand Plane: Polar Form and the Argument",
               "De Moivre, Roots of Unity and the Complex Loci"
             ],
@@ -10297,9 +10296,79 @@
                 },
                 "exerciseQuestions": 15,
                 "termsDefined": 6
+              },
+              {
+                "id": "aa-negative-discriminants-the-doors-turn-complex",
+                "number": "3.3",
+                "title": "Negative Discriminants: the Doors Turn Complex",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5290,
+                "readMins": 26,
+                "concepts": [
+                  "complex doors of a quadratic",
+                  "conjugate-pair law",
+                  "sum and product of complex doors",
+                  "square root of a complex number",
+                  "the u, v system",
+                  "sign law",
+                  "door-count trichotomy",
+                  "axis of symmetry read"
+                ],
+                "objectives": [
+                  "Solve any real-coefficient quadratic with D < 0 honestly: convert the surd first, then read the doors x = (−b ± i√|D|)/(2a) in standard form.",
+                  "Prove and use the conjugate-pair law: real coefficients force non-real doors in mirror pairs, with z + z̄ = −b/a and zz̄ = c/a.",
+                  "Rebuild a real family from one given door, and extract an unknown real parameter from a real-root hunt, without ever touching the formula.",
+                  "Extract the square roots of any complex number by the u, v system with the sign law, and feed them to complex-coefficient quadratics.",
+                  "Count doors honestly over ℂ: every quadratic owns exactly two counting multiplicity — the trichotomy repaired.",
+                  "Read the geometry: the doors hang below the vertex at Re z = −b/(2a), equidistant from the real axis, on the circle |z| = √(c/a)."
+                ],
+                "prerequisites": [
+                  "aa-conjugate-and-modulus",
+                  "aa-the-closure-failure-that-forces-i",
+                  "al-the-quadratic-formula-and-the-discriminant"
+                ],
+                "sources": [
+                  "cengage-m2-03",
+                  "cengage-jee-style",
+                  "ncert-math11-ch4-complex-numbers",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 7,
+                  "heading": 3,
+                  "derivation": 3,
+                  "callout": 9,
+                  "formula": 3,
+                  "example": 8,
+                  "figure": 2,
+                  "table": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 3,
+                  "insight": 3,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 5
               }
             ],
-            "words": 11249
+            "words": 16539
           },
           {
             "number": 4,
@@ -10530,7 +10599,7 @@
             "plannedLessons": [
               "Parallelograms and Their Family Tree",
               "The Midpoint Theorem and the Trapezium",
-              "Polygons: Angle Sums, Regularity, Diagonals"
+              "Polygons: Vertex, Side, Angle Sums, Convexity"
             ],
             "lessons": [],
             "words": 0
@@ -11665,7 +11734,7 @@
             "plannedLessons": [
               "Continuous versus Discrete",
               "The Logic Toolkit, Assembled",
-              "Sets, Functions and Sequences at Work"
+              "Sets (Complements, Cartesian Products, Power Sets), Functions (Injections, Surjections, Inverses, Composition) and Sequences at Work"
             ],
             "lessons": [],
             "words": 0
@@ -11694,7 +11763,7 @@
             "lessonsWritten": 0,
             "plannedLessons": [
               "Recursive Definitions",
-              "Strong Induction and Well-Ordering",
+              "Strong Induction, Well-Ordering and the Proof Census (Implication, Converse, Contrapositive, Contradiction)",
               "Recursive Algorithms and Their Correctness"
             ],
             "lessons": [],
@@ -11831,7 +11900,7 @@
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
-              "Divisibility Recalled, Deepened",
+              "Parity and Divisibility, Recalled and Deepened",
               "The Euclidean Algorithm at Depth",
               "Linear Diophantine Equations"
             ],
@@ -12927,6 +12996,7 @@
             "plannedLessons": [
               "The Structures the Shelf Already Owns",
               "Binary Operations and Their Laws",
+              "Monoids and Semigroups: the Lighter Structures",
               "Isomorphism: Same Structure, Different Dress"
             ],
             "lessons": [],
@@ -13929,7 +13999,7 @@
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
-              "The Information Processing Cycle",
+              "The Basic Structure and Operation of the Computer (the information processing cycle; the program development tools)",
               "A Census of Hardware: Desktops to Embedded Chips",
               "Software: the Invisible Half of the Machine"
             ],
@@ -13955,13 +14025,15 @@
             "number": 3,
             "slug": "data-representation-first-meeting",
             "title": "Data Representation: a First Meeting",
-            "summary": "Bits, the binary language, and why two symbols carry everything: number bases at the first-meeting level, codes (ASCII and its characters, BCD), measuring information (bit, byte, KB to the honest SI ladder), text, images and sound as bits — the full theory hands off to Arithmetic and Number Systems and Digital Logic Design.",
+            "summary": "Bits, the binary language, and why two symbols carry everything: the numbering systems census (binary, octal and hexadecimal with the conversion craft), codes (ASCII and its characters, BCD), measuring information (bit, byte, KB to the honest SI ladder), text, images and sound as bits (the multimedia ground), and compression as the packing question (lossless versus lossy — what images and audio actually give up). The full theory hands off to Arithmetic and Number Systems and Digital Logic Design.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Bits: Why Two Symbols Carry Everything",
+              "The Numbering Systems: Binary, Octal, Hexadecimal",
               "Codes: ASCII, Unicode and BCD",
-              "Text, Images and Sound as Bits"
+              "Text, Images and Sound as Bits",
+              "Compression: Lossless and Lossy"
             ],
             "lessons": [],
             "words": 0
@@ -14020,7 +14092,7 @@
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
-              "Files, Folders and the Desktop Metaphor",
+              "File Management: Files, Folders and the Desktop Metaphor",
               "File Formats: the Extension Contracts",
               "Managing and Protecting Your Digital Space"
             ],
@@ -14059,13 +14131,15 @@
             "number": 1,
             "slug": "binary-systems",
             "title": "Binary Systems",
-            "summary": "The digital idea: why two levels price better than ten. Binary numbers and base conversions (the honest craft, cross-referenced to Arithmetic and Number Systems), octal and hexadecimal as compression of binary, complements and signed representation, binary codes (BCD, Gray, excess-3), and storage registers — the medium the whole shelf is written in.",
+            "summary": "The digital idea: why two levels price better than ten. Binary numbers and base conversions (the honest craft, cross-referenced to Arithmetic and Number Systems), octal and hexadecimal as compression of binary, complements and signed representation with fixed-point pricing, floating-point representation (the fraction and the exponent — the IEEE 754 guard bits cross-referenced to Computer Organization and Architecture’s arithmetic chapter), binary codes (BCD, Gray, excess-3), error detection and correction codes (parity and the Hamming distance priced — COA grows it onto memory), and storage registers — the medium the whole shelf is written in.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Digital Idea: Why Two Levels",
               "Number Base Conversions: the Honest Craft",
               "Complements and Signed Representation",
+              "Floating-Point: the Fraction and the Exponent",
+              "Error Detection and Correction: Parity, Hamming",
               "Binary Codes and Storage Registers"
             ],
             "lessons": [],
@@ -14107,12 +14181,13 @@
             "number": 4,
             "slug": "combinational-design",
             "title": "Combinational Design",
-            "summary": "The design procedure as a discipline (specification → truth table → simplification → circuit), the arithmetic engine: half and full adders, subtractors and the borrow cascade, code converters, multilevel NAND/NOR circuits, and exclusive-OR and equivalence functions — the first circuits that genuinely compute.",
+            "summary": "The design procedure as a discipline (specification → truth table → simplification → circuit), the arithmetic engine: half and full adders, subtractors and the borrow cascade, the multiplication and division algorithms at gate level (the shift-and-add discipline, Booth’s signed reading — COA prices the architectural view), code converters, multilevel NAND/NOR circuits, and exclusive-OR and equivalence functions — the first circuits that genuinely compute.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Design Procedure as a Discipline",
               "Adders and Subtractors",
+              "Multiplication and Division: the Shift-and-Add Discipline",
               "Code Converters and Multilevel Circuits",
               "Exclusive-OR and Equivalence Functions"
             ],
@@ -14276,14 +14351,15 @@
             "number": 4,
             "slug": "datapath-and-control",
             "title": "Datapath and Control",
-            "summary": "Building the machine Digital Logic Design handed over: the single-cycle datapath from the ISA, the control unit hardwired (the logic that commands the datapath), microprogramming as the alternative control discipline, and the ALU’s own design (the arithmetic circuits from DLD re-aimed at word-level operations).",
+            "summary": "Building the machine Digital Logic Design handed over: the single-cycle datapath from the ISA, the control unit hardwired (the logic that commands the datapath), microprogramming as the alternative control discipline (control memory and address sequencing — the Mano arc), and the ALU’s own design (the arithmetic circuits from DLD re-aimed at word-level operations) with floating-point arithmetic added — the IEEE 754 representation priced (sign, exponent, mantissa; rounding, the special values; addition and multiplication traced — DLD owns the number-representation ground).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Single-Cycle Datapath",
               "The Hardwired Control Unit",
               "Microprogramming: the Alternative Discipline",
-              "The ALU Designed"
+              "The ALU Designed",
+              "Floating-Point Arithmetic: IEEE 754 Priced"
             ],
             "lessons": [],
             "words": 0
@@ -14308,13 +14384,13 @@
             "number": 6,
             "slug": "the-memory-hierarchy",
             "title": "The Memory Hierarchy",
-            "summary": "Why memory is a ladder and not a floor: the principle of locality derived from real program behaviour, the multilevel hierarchy and its performance model (the average-access arithmetic priced on worked examples), and the architectural census of the levels from registers to tape.",
+            "summary": "Why memory is a ladder and not a floor: the principle of locality derived from real program behaviour, the multilevel hierarchy and its performance model (the average-access arithmetic priced on worked examples), and the architectural census of the levels — main, auxiliary/secondary, cache and virtual — with the memory-management hardware named (Operating Systems owns the replacement and allocation policy).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Locality: the Program’s Habit, Measured",
               "The Multilevel Hierarchy and Its Arithmetic",
-              "The Census of Levels"
+              "The Census of Levels: Main, Auxiliary, Cache, Virtual"
             ],
             "lessons": [],
             "words": 0
@@ -14323,11 +14399,12 @@
             "number": 7,
             "slug": "cache-memory",
             "title": "Cache Memory",
-            "summary": "The craft chapter: cache principles and the mapping methods (direct, associative, set-associative — the replacement policies priced on traces), elements of cache design (line size, write policy, multilevel), the honest performance models, and real organizations (Intel x86 and IBM z13 named from the source census).",
+            "summary": "The craft chapter: cache principles and the mapping methods (direct, associative and set-associative — the associative/content-addressable memory that fully-associative lookup rides, priced on the CAM trade), the replacement policies priced on traces, elements of cache design (line size, write policy, multilevel), the honest performance models, and real organizations (Intel x86 and IBM z13 named from the source census).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Cache Principles and the Mapping Craft",
+              "Associative Memory: the Content-Addressable Trade",
               "Replacement Policies Priced on Traces",
               "Elements of Cache Design",
               "Real Organizations: the Intel and IBM Censuses"
@@ -14355,13 +14432,14 @@
             "number": 9,
             "slug": "input-output",
             "title": "Input/Output",
-            "summary": "The machine’s hands: external devices and I/O modules, programmed I/O and its polling cost, interrupt-driven I/O (the vectored discipline), direct memory access and its controller, direct cache access named, I/O channels and processors, and the interconnection census — buses, point-to-point, PCIe.",
+            "summary": "The machine’s hands: external devices and I/O modules, programmed I/O and its polling cost, interrupt-driven I/O (the vectored discipline, priority interrupts), direct memory access and its controller, direct cache access named, I/O channels and processors, the asynchronous data-transfer question (strobing and handshaking — the serial-communication echo; the modes of transfer census) and the interconnection census — buses, point-to-point, PCIe.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Programmed I/O and the Polling Cost",
               "Interrupt-Driven I/O: the Vectored Discipline",
               "Direct Memory Access",
+              "Asynchronous and Serial Data Transfer: the Modes",
               "The Interconnection Census: Buses to PCIe"
             ],
             "lessons": [],
@@ -14371,11 +14449,12 @@
             "number": 10,
             "slug": "parallel-organizations",
             "title": "Parallel Organizations",
-            "summary": "The architectural endgame: instruction-level parallelism recapped from its doorstep, symmetric multiprocessors and cache coherence, clusters and the warehouse-scale census, GPGPUs and the data-parallel machine, and the honest cross-reference — the algorithm side of parallelism is Parallel Computing’s book.",
+            "summary": "The architectural endgame: instruction-level parallelism recapped from its doorstep, symmetric multiprocessors and cache coherence (the interconnection-structure and interprocessor-arbitration census with multicore named), vector and array processors named (the data-parallel machines the Mano arc prices — the GPU’s ancestors), clusters and the warehouse-scale census, GPGPUs and the data-parallel machine, and the honest cross-reference — the algorithm side of parallelism is Parallel Computing’s book.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
-              "Symmetric Multiprocessors and Coherence",
+              "Symmetric Multiprocessors, Arbitration and Multicore",
+              "Vector and Array Processors, Named",
               "Clusters and the Warehouse-Scale Census",
               "GPGPUs: the Data-Parallel Machine"
             ],
@@ -14414,11 +14493,12 @@
             "number": 1,
             "slug": "the-machine-below",
             "title": "The Machine Below",
-            "summary": "Why a language beneath the high-level one exists at all: machine language, assembly and the translation ladder, registers as the machine’s hands and the instruction window, the assembler’s job, and the honest census — when writing assembly is the right tool (CS:APP’s own answer priced on examples).",
+            "summary": "Why a language beneath the high-level one exists at all: machine language, assembly and the translation ladder — grown into the system-software toolchain (the linker, the loader and relocation: object code’s journey to a running process; the debugger as the machine-level inspector — CS:APP’s own chapters), registers as the machine’s hands and the instruction window, the assembler’s job, and the honest census — when writing assembly is the right tool (CS:APP’s own answer priced on examples).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Translation Ladder",
+              "Linking, Loading and Relocation: Object Code’s Journey",
               "Registers: the Machine’s Hands",
               "When Assembly Is the Right Tool"
             ],
@@ -14609,13 +14689,13 @@
             "number": 4,
             "slug": "stacks-and-queues",
             "title": "Stacks and Queues",
-            "summary": "The last-in-first-out discipline (push, pop, the peek) and the first-in-first-out family (linear, circular, deque, priority), each priced on its honest cost table, and the application census — expression conversion and evaluation, function calls, parsing, and BFS’s frontier.",
+            "summary": "The last-in-first-out discipline (LIFO — push, pop, the peek) and the first-in-first-out family (FIFO — the linear queue, the circular ring, the deque, the priority queue), each priced on its honest cost table, and the application census — infix, prefix and postfix expressions converted and evaluated on a stack, function calls, parsing, and BFS’s frontier.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
-              "The Stack Discipline",
-              "The Queue Family",
-              "The Application Census: Expressions, Calls, Frontiers"
+              "The Stack: LIFO, PUSH and POP",
+              "The Queue Family: FIFO, the Deque, the Priority Queue",
+              "Expressions: Infix, Prefix, Postfix — Stacks at Work"
             ],
             "lessons": [],
             "words": 0
@@ -14624,14 +14704,16 @@
             "number": 5,
             "slug": "trees",
             "title": "Trees",
-            "summary": "The tree idea and its vocabulary (root, height, depth, the traversal census pre/in/post/level), binary trees and their properties, the binary search tree — search organised as structure with the deletion craft, and the balance problem that AVL answers (red-black hands off to Algorithms).",
+            "summary": "The tree idea and its vocabulary (root, height, depth, the traversal census pre/in/post/level), binary trees and their properties (the threaded variant named — threads replacing null pointers for predecessor/successor walks), the binary search tree — search organised as structure with the deletion craft, the balance problem that AVL answers (red-black hands off to Algorithms), and the external balance the disk demands — B, B+ and B* trees (Database Management Systems grows them onto disk).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Tree Idea and the Traversal Census",
               "Binary Trees and Their Properties",
               "BST: Search Organised as Structure",
-              "The Balance Problem: AVL"
+              "The Balance Problem: AVL",
+              "The Threaded Binary Tree, Named",
+              "External Balance: B, B+ and B* Trees"
             ],
             "lessons": [],
             "words": 0
@@ -14686,7 +14768,7 @@
             "number": 9,
             "slug": "the-synthesis-and-the-doorstep",
             "title": "The Synthesis and the Doorstep",
-            "summary": "The structure map (one page from array to union-find with the costs beside), the craft census (tracing questions at gate-exam level — postfix, rotations, probing), and the doorstep — Algorithms rides these structures into its families, and Database Management Systems grows them onto disk.",
+            "summary": "The structure map (one page from array to union-find with the costs beside), the craft census (tracing questions at gate-exam level — infix-to-postfix conversions, rotations, probing, searching and sorting traced on the structures), and the doorstep — Algorithms rides these structures into its families, and Database Management Systems grows them onto disk.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
@@ -14714,13 +14796,15 @@
             "number": 1,
             "slug": "the-algorithm-idea",
             "title": "The Algorithm Idea",
-            "summary": "What an algorithm owes its user — a finite, definite, effective procedure priced on a first example, correctness reasoning as a first-class skill (induction, contradiction, the loop invariant — cross-referenced to Discrete Mathematics’ proof chapters), and modeling: turning a story problem into structure (Skiena’s own discipline).",
+            "summary": "What an algorithm owes its user — a finite, definite, effective procedure priced on a first example, correctness reasoning as a first-class skill (induction, contradiction, the loop invariant — cross-referenced to Discrete Mathematics’ proof chapters), modeling: turning a story problem into structure (Skiena’s own discipline), and the expression layer every syllabus asks for — the computational-thinking approaches (decomposition, pattern recognition, abstraction) and the classic notations (pseudocode, flowcharts, trace tables with their identifiers, assignment, constants, variables and data types).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "What an Algorithm Owes",
               "Correctness Reasoning: Induction and Invariants",
-              "Modeling: from Story to Structure"
+              "Computational Thinking: Decompose, Pattern, Abstract",
+              "Modeling: from Story to Structure",
+              "Expressing Algorithms: Pseudocode, Flowcharts, Trace Tables"
             ],
             "lessons": [],
             "words": 0
@@ -14729,12 +14813,12 @@
             "number": 2,
             "slug": "analysis",
             "title": "Analysis",
-            "summary": "The RAM model of computation (what we count and why it is honest), Big-Oh/Theta/Omega defined and priced, growth rates and the census table (log through factorial), working with the notation (sums, the log rules), logarithms as the slow miracle, and estimation as an engineer’s craft.",
+            "summary": "The RAM model of computation (what we count and why it is honest), Big-Oh/Theta/Omega defined and priced as the asymptotic notation, growth rates and the census table (log through factorial), the time-and-space trade-off priced honestly, logarithms as the slow miracle, and estimation as an engineer’s craft.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The RAM Model and What We Count",
-              "Big-Oh Honestly: Definitions Priced",
+              "Asymptotic Notation: Big-Oh Honestly, Definitions Priced",
               "Growth Rates: the Census Table",
               "Logarithms: the Slow Miracle"
             ],
@@ -14761,7 +14845,7 @@
             "number": 4,
             "slug": "sorting-and-selection",
             "title": "Sorting and Selection",
-            "summary": "The sorting census (comparison model named), insertion sort as the analysis warm-up, mergesort and quicksort with their honest costs and worst cases, heapsort cross-referenced to the heap structure, the linear-time families (counting, radix, bucket) and the decision-tree lower bound that bounds them all, plus selection in expected linear time.",
+            "summary": "The sorting census (comparison model named), insertion sort as the analysis warm-up, the array-manipulation craft beneath it all (filling, shifting, prefix sums), mergesort and quicksort with their honest costs and worst cases, heapsort cross-referenced to the heap structure, the linear-time families (counting, radix, bucket) and the decision-tree lower bound that bounds them all, plus selection in expected linear time.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
@@ -14793,7 +14877,7 @@
             "number": 6,
             "slug": "graph-algorithms",
             "title": "Graph Algorithms",
-            "summary": "The graph block on its structures: BFS and DFS with their discovery discipline (topological sort, connectivity, cycles as applications), minimum spanning trees (Prim and Kruskal with the cut property PROVED), shortest paths (Dijkstra derived, Bellman-Ford’s negative-edge honesty, Floyd-Warshall for all pairs) and maximum flow named with its census.",
+            "summary": "The graph block on its structures: BFS and DFS with their discovery discipline (topological sort, connectivity, cycles as applications; the deeper census named — biconnectivity with bridges and articulation points, strongly connected components, bipartite matching riding the flow), minimum spanning trees (Prim and Kruskal with the cut property PROVED), shortest paths (Dijkstra derived, Bellman-Ford’s negative-edge honesty, Floyd-Warshall for all pairs) and maximum flow named with its census.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
@@ -14841,12 +14925,15 @@
             "number": 9,
             "slug": "the-limits-and-the-frontier",
             "title": "The Limits and the Frontier",
-            "summary": "Amortized analysis (the aggregate/accounting/potential trio priced on dynamic tables), string matching done honestly (KMP and its automaton, Rabin-Karp as randomized), number-theoretic and geometric families named, approximation algorithms as the NP-coping craft, and the doorstep to Theory of Computation’s proof theory.",
+            "summary": "Amortized analysis (the aggregate/accounting/potential trio priced on dynamic tables), string matching done honestly (KMP and its automaton, Rabin-Karp as randomized), the number-theoretic toolkit (Euclid’s gcd algorithm, the Sieve of Eratosthenes, trial-division factorization and primality, fast modular exponentiation, arbitrary-precision integer arithmetic — Number Theory cross-referenced), polynomial arithmetic and the FFT (evaluation, interpolation, the convolution made fast), number-theoretic and geometric families named, approximation algorithms as the NP-coping craft, and the doorstep to Theory of Computation’s proof theory.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Amortized Analysis: the Three Methods",
               "String Matching: KMP and Rabin-Karp",
+              "The Number-Theoretic Toolkit: Euclid, Sieve, Fast Exponentiation",
+              "Polynomial Arithmetic and the FFT",
+              "Geometric Algorithms: Convex Hull, Sweep Line, Cross Products",
               "Approximation: Coping with NP",
               "The Doorstep: the Proof Theory"
             ],
@@ -14950,6 +15037,7 @@
             "lessonsWritten": 0,
             "plannedLessons": [
               "Context-Free Grammars: Definition and Craft",
+              "Grammars in Backus-Naur Form (BNF)",
               "Ambiguity and Chomsky Normal Form",
               "Pushdown Automata and the Equivalence",
               "The CFL Pumping Lemma and Its Boundary"
@@ -14977,12 +15065,13 @@
             "number": 7,
             "slug": "the-undecidable",
             "title": "The Undecidable",
-            "summary": "The halting problem PROVED undecidable (diagonalization as the engine — the book’s most-earned theorem), reducibility as the propagation discipline (one undecidable problem birthing the census — from language theory’s emptiness question to the simple undecidable problem), and mapping reducibility defined with its honest usage rules.",
+            "summary": "The halting problem PROVED undecidable (diagonalization as the engine — the book’s most-earned theorem), reducibility as the propagation discipline (one undecidable problem birthing the census — from language theory’s emptiness question to the simple undecidable problem), mapping reducibility defined with its honest usage rules, and the named companions of every course — the Post Correspondence Problem traced undecidable and Rice’s theorem (what syntax can never say about semantics), with the tractable-versus-intractable boundary named for the complexity chapter.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Halting Problem, Proved",
               "Reducibility: the Propagation Discipline",
+              "Post’s Correspondence Problem and Rice’s Theorem",
               "Mapping Reducibility Defined"
             ],
             "lessons": [],
@@ -14992,10 +15081,11 @@
             "number": 8,
             "slug": "advanced-computability",
             "title": "Advanced Computability",
-            "summary": "The strange deeps: the recursion theorem (a program that knows itself — stated with its astonishing content priced honestly), Turing reducibility versus mapping reducibility, and a definition of information (Kolmogorov complexity named with its own undecidability) — the frontier census of what computation cannot see about itself.",
+            "summary": "The strange deeps: the diagonal argument in its own right (Cantor’s cardinality cage — the uncountable reals priced, Russell’s paradox named as Set Theory’s own wound — cross-referenced), the recursion theorem (a program that knows itself — stated with its astonishing content priced honestly), Turing reducibility versus mapping reducibility, and a definition of information (Kolmogorov complexity named with its own undecidability) — the frontier census of what computation cannot see about itself.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
+              "The Diagonal Argument: Cantor’s Cage and Russell’s Wound",
               "The Recursion Theorem: Programs That Know Themselves",
               "Turing Reducibility",
               "A Definition of Information"
@@ -15056,7 +15146,7 @@
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Pipeline: Phases and Their Contracts",
-              "The Processor Census: Compile versus Interpret",
+              "The Processor Census: Compile versus Interpret (the language-translator family — assembler, compiler, interpreter)",
               "The Science of Building One"
             ],
             "lessons": [],
@@ -15203,12 +15293,12 @@
             "number": 1,
             "slug": "what-an-operating-system-is",
             "title": "What an Operating System Is",
-            "summary": "The manager layer priced honestly: what it does for programs (the illusion of exclusive machine, files, endless memory), kernel versus user mode as the boundary of trust, the structures census (monolithic, micro, modular, hybrid) and the Linux tour — the system that boots, from firmware to init, as the live example.",
+            "summary": "The manager layer priced honestly: what it does for programs (the illusion of exclusive machine, files, endless memory), the system-call interface (kernel versus user mode as the boundary of trust — traps and the syscall census, what the shell actually does), the structures census (monolithic, micro, modular, hybrid) and the Linux tour — the system that boots, from firmware to init, as the live example.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Manager Layer and Its Illusions",
-              "Kernel versus User: the Boundary of Trust",
+              "System Calls: Kernel versus User",
               "The Structures Census",
               "A Linux Boots: the Live Tour"
             ],
@@ -15219,13 +15309,14 @@
             "number": 2,
             "slug": "processes-and-threads",
             "title": "Processes and Threads",
-            "summary": "The program in motion: the process concept and its PCB, states and transitions (the diagram priced on real traces), the fork/exec discipline of creation, threads as address-space sharing (their own stacks and registers), and the practical census — TLPI’s processes and Linux’s /proc window.",
+            "summary": "The program in motion: the process concept and its PCB, states and transitions (the diagram priced on real traces), the fork/exec discipline of creation, threads as address-space sharing (their own stacks and registers — multicore programming priced, the multithreading models with thread libraries and implicit threading named, interprocess communication’s census — pipes, shared memory, signals; Java’s concurrency craft cross-referenced), and the practical census — TLPI’s processes and Linux’s /proc window.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Process Concept and Its State Diagram",
               "Fork and Exec: Creation the Unix Way",
-              "Threads: Sharing the Address Space"
+              "Threads: Sharing the Address Space",
+              "Thread Libraries, Implicit Threading and IPC"
             ],
             "lessons": [],
             "words": 0
@@ -15311,13 +15402,14 @@
             "number": 8,
             "slug": "the-linux-practice-pole",
             "title": "The Linux Practice Pole",
-            "summary": "The manager touched by hand (the How-Linux-Works/TLPI arc): the command line and the directory hierarchy, devices as files, the signals discipline and IPC census (pipes, FIFOs, sockets — the local family), and the shell as the user’s lever into the kernel’s services.",
+            "summary": "The manager touched by hand (the How-Linux-Works/TLPI arc): the command line and the directory hierarchy, devices as files, the signals discipline and IPC census (pipes, FIFOs, sockets — the local family), the shell as the user’s lever into the kernel’s services, and the other pole the syllabi name — Windows’s design principles and system components (the registry, NTFS, terminal services and fast user switching, its networking stack) priced as the same discipline in a different dress.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Hierarchy and the Shell Lever",
               "Devices as Files",
-              "Signals and the Local IPC Census"
+              "Signals and the Local IPC Census",
+              "The Windows Pole: Registry, NTFS, Terminal Services"
             ],
             "lessons": [],
             "words": 0
@@ -15369,12 +15461,14 @@
             "number": 1,
             "slug": "the-database-idea",
             "title": "The Database Idea",
-            "summary": "Why files stop being enough (the redundancy, inconsistency and isolation census priced on a spreadsheet that grew), the database’s contract, schemas and instances, data models as the census (relational named as this book’s spine), and the engine census — the components a real system owns.",
+            "summary": "Why files stop being enough (the redundancy, inconsistency and isolation census priced on a spreadsheet that grew), the database’s contract, schemas and instances, the three-schema architecture and data independence priced (external/conceptual/internal — what each insulates), data models as the census (relational named as this book’s spine; the enhanced models named — temporal, multimedia, deductive, mobile and spatial/GIS with the distributed echo cross-referenced to Distributed Systems and the XML/internet arc to Big Data Engineering), centralized and client/server architectures, and the engine census — the components a real system owns.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Why Files Stop Being Enough",
               "Schemas, Instances and Data Models",
+              "The Three-Schema Architecture and Data Independence",
+              "The Enhanced-Model Census: Temporal, Deductive, Spatial",
               "The Engine Census"
             ],
             "lessons": [],
@@ -15384,13 +15478,15 @@
             "number": 2,
             "slug": "the-relational-model",
             "title": "The Relational Model",
-            "summary": "Tables as mathematics: relations, tuples and attributes with the domain discipline, keys (super/candidate/primary/foreign — the identification craft), schema diagrams, and the relational algebra PROVED as the query mathematics (selection, projection, joins — the Set Theory cross-reference made explicit).",
+            "summary": "Tables as mathematics: relations, tuples and attributes with the domain discipline, keys (super/candidate/primary/alternate/foreign — the identification craft), schema diagrams, the relational algebra PROVED as the query mathematics (selection, projection, union, set difference, cartesian product, joins — the Set Theory cross-reference made explicit), the relational calculus named as algebra’s declarative twin (tuple and domain flavors), and Codd’s twelve rules audited as the model’s compliance census.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Relations, Tuples and Keys",
               "The Relational Algebra, Proved",
-              "The Identification Craft: Superkeys to Foreign Keys"
+              "Relational Calculus: the Tuple and Domain Flavors",
+              "The Identification Craft: Superkeys to Foreign Keys",
+              "Codd’s Twelve Rules, Audited"
             ],
             "lessons": [],
             "words": 0
@@ -15399,13 +15495,16 @@
             "number": 3,
             "slug": "sql-the-standard-voice",
             "title": "SQL: the Standard Voice",
-            "summary": "The industry’s language from data definition to the query craft: basic structure (select-from-where walked honestly), joins, set operations, null values’ three-valued discipline, aggregate functions with grouping, nested subqueries (correlated and not), modification, views, integrity constraints and authorization, and indexes declared in SQL.",
+            "summary": "The industry’s language from data definition to the query craft: basic structure (select-from-where walked honestly), the DDL/DML/DQL split priced on MySQL (CREATE TABLE, DROP, ALTER with the data-type census; INSERT, UPDATE, DELETE), the function census (math, text, date and the aggregates — GROUP BY, HAVING, ORDER BY), joins, set operations, null values’ three-valued discipline, nested subqueries (correlated and not), views, integrity constraints and authorization, stored procedures, functions and triggers with the SQL-injection risk named (Cybersecurity cross-referenced), and indexes declared in SQL.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Basic Structure Walked",
+              "DDL and DML: CREATE, ALTER, DROP, INSERT, UPDATE, DELETE",
+              "The Function Census: Math, Text, Date, Aggregates",
               "Aggregation, Grouping and Subqueries",
               "Views, Constraints and Authorization",
+              "Stored Procedures, Triggers and the SQL-Injection Risk",
               "The Craft Census: Queries Written"
             ],
             "lessons": [],
@@ -15535,11 +15634,12 @@
             "number": 1,
             "slug": "the-network-and-the-internet",
             "title": "The Network and the Internet",
-            "summary": "What the Internet is two ways — the nuts-and-bolts census (hosts, routers, links, ISPs) and the services description (applications riding the plumbing), protocols as the contracts, the edge (access networks, physical media), the core (packet versus circuit switching priced), and delay/loss/throughput as the honest arithmetic.",
+            "summary": "What the Internet is two ways — the nuts-and-bolts census (hosts, routers, links, ISPs) and the services description (applications riding the plumbing), protocols as the contracts, the network-family census (LAN, MAN, WAN with the device roster — modem, repeater, hub, switch, router, gateway — and the topology census: mesh, ring, bus, star, tree), the edge (access networks, physical media), the core (packet versus circuit switching priced), and delay/loss/throughput as the honest arithmetic.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Internet Two Ways",
+              "The Topology and Device Census: LAN, MAN, WAN",
               "The Edge, the Core and the Switching Trade",
               "Delay, Loss and Throughput: the Arithmetic"
             ],
@@ -15550,13 +15650,14 @@
             "number": 2,
             "slug": "layered-architectures",
             "title": "Layered Architectures",
-            "summary": "Why layers win (the encapsulation discipline — each layer’s contract priced on a real packet’s journey), the OSI and TCP/IP reference models compared honestly (the critiques included), the service/protocol distinction defined, and the application layer’s census — HTTP, email, DNS and the CDN/video echo.",
+            "summary": "Why layers win (the encapsulation discipline — each layer’s contract priced on a real packet’s journey), the OSI and TCP/IP reference models compared honestly (the critiques included), the service/protocol distinction defined, and the application layer’s census — HTTP, the mail and name services (electronic mail’s SMTP, POP and IMAP; the URL; DNS and resolution — names to addresses and back; the file-transfer family FTP and the TELNET echo), and the CDN/video echo.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Why Layers Win: Encapsulation",
               "OSI versus TCP/IP, Honestly",
-              "The Application Census: HTTP, DNS, Email"
+              "The Application Census: HTTP, DNS, Email",
+              "The Mail and Name Census: SMTP, POP, IMAP, FTP, TELNET, URL"
             ],
             "lessons": [],
             "words": 0
@@ -15611,13 +15712,14 @@
             "number": 6,
             "slug": "wireless-and-mobile",
             "title": "Wireless and Mobile",
-            "summary": "The airwaves’ discipline: the wireless propagation problem (attenuation, interference — honest physics), the WiFi family (802.11’s MAC and its collision-avoidance difference), the cellular census (the generations honestly), and the mobility question — handover and the routing echo.",
+            "summary": "The airwaves’ discipline: the wireless propagation problem (attenuation, interference — honest physics), the WiFi family (802.11’s MAC and its collision-avoidance difference), the cellular census priced by generation with its named standards (GSM and CDMA, the SMS and GPRS services), the wireless-beyond-WiFi roster (Bluetooth, infrared, microwave links, communication satellites, the mobile ad-hoc networks and the wireless geolocation echo), and the mobility question — handover and the routing echo.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Propagation Problem",
               "The WiFi Family",
-              "The Cellular Census",
+              "The Cellular Census: GSM and CDMA",
+              "The Wireless Beyond WiFi: Bluetooth, Satellite, Ad Hoc",
               "Mobility: Handover Named"
             ],
             "lessons": [],
@@ -15642,13 +15744,14 @@
             "number": 8,
             "slug": "the-physical-foundations",
             "title": "The Physical Foundations",
-            "summary": "The bottom of the stack: bandwidth-limited signals (Fourier named with the Mathematics cross-reference), the channel-capacity question (Nyquist and Shannon’s law priced), guided media (twisted pair, coax, fiber), wireless’ spectrum, and modulation/multiplexing as the census (FDM/TDM/CDM).",
+            "summary": "The bottom of the stack: data-communication basics (simplex, half-duplex and full-duplex transmission modes; analog and digital signals; encoding and modulation as the vocabulary), bandwidth-limited signals (Fourier named with the Mathematics cross-reference), the channel-capacity question (Nyquist and Shannon’s law priced — latency and throughput in the same breath), guided media (twisted pair, co-axial, optical fibre), wireless’ spectrum, and modulation/multiplexing as the census (FDM/TDM/CDM).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
+              "Transmission Modes: Simplex, Half and Full Duplex",
               "Bandwidth-Limited Signals",
               "Nyquist and Shannon Priced",
-              "The Media Census and Multiplexing"
+              "The Media Census: Twisted Pair, Coax, Fibre, Radio"
             ],
             "lessons": [],
             "words": 0
@@ -15685,11 +15788,12 @@
             "number": 1,
             "slug": "what-graphics-promises",
             "title": "What Graphics Promises",
-            "summary": "The field’s honest contract: synthesizing images from descriptions (the applications census — design, games, film, visualization), the APIs’ story (the immediate/retained-mode split), the model of image formation (the camera as equations — the pinhole priced), and the book’s two-method map: ray tracing and rasterization.",
+            "summary": "The field’s honest contract: synthesizing images from descriptions (the applications census — design, games, film, visualization), the APIs’ story (the immediate/retained-mode split), the display hardware census of the classic course (video display devices, raster-scan versus random-scan systems, graphics monitors and the input-device family), the model of image formation (the camera as equations — the pinhole priced), and the book’s two-method map: ray tracing and rasterization.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Contract: Descriptions to Images",
+              "The Display Hardware Census: Raster and Random Scan",
               "The Camera as Equations",
               "The Two-Method Map"
             ],
@@ -15730,11 +15834,14 @@
             "number": 4,
             "slug": "the-raster-pipeline",
             "title": "The Raster Pipeline",
-            "summary": "The industry’s engine: vertex processing and the viewport/clipping discipline, triangle rasterization (edge functions and the coverage question), the depth buffer as visibility’s honest answer, and the fragment stage — shading interpolated by the barycentric discipline.",
+            "summary": "The industry’s engine: vertex processing and the viewport/clipping discipline, the classic scan-conversion craft beneath every pipeline (line drawing from DDA to Bresenham’s integer discipline, the midpoint circle and ellipse algorithms, region fill from scan-line polygon fill to boundary-fill and flood-fill), triangle rasterization (edge functions and the coverage question), the depth buffer as visibility’s honest answer, and the fragment stage — shading interpolated by the barycentric discipline.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Viewport and Clipping Discipline",
+              "Scan Conversion: Line Drawing (DDA, Bresenham)",
+              "Scan Conversion: Midpoint Circle and Ellipse",
+              "Region Fill: Scan-Line, Boundary, Flood",
               "Rasterizing Triangles",
               "The Depth Buffer’s Honest Visibility"
             ],
@@ -15879,11 +15986,12 @@
             "number": 4,
             "slug": "requirements-engineering",
             "title": "Requirements Engineering",
-            "summary": "Getting the right problem: functional versus non-functional requirements (the quality census — performance, security, usability), the elicitation discipline (stakeholders, interviews, the observation craft), specification written honestly (use cases walked through a real one), and validation — the requirements’ own tests.",
+            "summary": "Getting the right problem: functional versus non-functional requirements (the quality census — performance, security, usability — with the classic quality models named: McCall’s factor tree and ISO 9126’s six characteristics, software quality control versus assurance), the elicitation discipline (stakeholders, interviews, the observation craft), specification written honestly (use cases walked through a real one), and validation — the requirements’ own tests.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Functional, Non-Functional and the Quality Census",
+              "The Quality-Model Census: McCall and ISO 9126",
               "Elicitation: Getting the Right Problem",
               "Use Cases Walked Honestly"
             ],
@@ -15924,14 +16032,16 @@
             "number": 7,
             "slug": "software-testing",
             "title": "Software Testing",
-            "summary": "Verification’s honest half: unit testing’s discipline (the AAA shape, mocks named), coverage as a measured claim (statement/branch/paths — the limits stated), integration and system testing census, and the black-box/white-box pair with the boundary-value discipline priced on real defects.",
+            "summary": "Verification’s honest half: unit testing’s discipline (the AAA shape, mocks named), coverage as a measured claim (statement/branch/paths — the limits stated), integration and system testing census, the black-box/white-box pair with the boundary-value discipline priced on real defects, and the classic families named for every syllabus — basis-path testing, regression and stress testing, alpha and beta’s staging, plus the debugging craft (the defect hunt’s discipline — localize, hypothesize, verify) and configuration management’s change/version control with software reuse and re-engineering named.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Unit Testing’s Discipline",
               "Coverage as a Measured Claim",
               "The Black-Box/White-Box Census",
-              "Boundary Values and Real Defects"
+              "Basis Path, Regression and Stress: the Families Named",
+              "Boundary Values and Real Defects",
+              "The Debugging Craft"
             ],
             "lessons": [],
             "words": 0
@@ -15940,13 +16050,15 @@
             "number": 8,
             "slug": "dependability-evolution-and-management",
             "title": "Dependability, Evolution and Management",
-            "summary": "The long life: dependability’s census (reliability, availability, safety — the failure arithmetic priced), maintenance as the majority cost (the four maintenance kinds), project management’s honest arithmetic (estimation’s disease, the risk census), and legacy’s reality — evolution as a discipline, not an apology.",
+            "summary": "The long life: dependability’s census (reliability, availability, safety — the failure arithmetic priced; software reliability engineering), maintenance as the majority cost (the four maintenance kinds), project management’s honest arithmetic — estimation at depth (software sizing by LOC and function points, the COCOMO model family priced honestly, estimation’s disease), scheduling and staffing (timeline/Gantt charts, the critical path), the risk census with mitigation and monitoring (RMMM), and legacy’s reality — evolution as a discipline, not an apology.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Dependability’s Census and Failure Arithmetic",
               "Maintenance: the Majority Cost",
-              "Estimation’s Disease and the Risk Census"
+              "Estimation at Depth: LOC, Function Points, COCOMO",
+              "Scheduling, Staffing and Timeline Charts",
+              "The Risk Census: Mitigation and Monitoring"
             ],
             "lessons": [],
             "words": 0
@@ -16013,12 +16125,12 @@
             "number": 3,
             "slug": "composition-and-inheritance",
             "title": "Composition and Inheritance",
-            "summary": "The two reuse roads: composition first (the has-a discipline and why it usually wins — the fragility of base classes priced), inheritance’s is-a contract (the substitution discipline stated), the protected temptation named honestly, and the design question — which road, when, and the Liskov test.",
+            "summary": "The two reuse roads: composition first (the has-a discipline and why it usually wins — the fragility of base classes priced), inheritance’s is-a contract (the substitution discipline stated; single inheritance versus the multiple-inheritance craft — the diamond problem and Java/C++’s different answers, instantiation from a single class to a family), the protected temptation named honestly, and the design question — which road, when, and the Liskov test.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Composition First: the Has-A Discipline",
-              "Inheritance’s Is-A Contract",
+              "Inheritance’s Is-A Contract: Single and Multiple",
               "Which Road, When: the Liskov Test"
             ],
             "lessons": [],
@@ -16163,11 +16275,12 @@
             "number": 3,
             "slug": "types-and-expressions",
             "title": "Types and Expressions",
-            "summary": "What values may be: the type census (primitives, enumerations, arrays, records, unions — each with its honest design question), type checking and the strong/weak axis, the coercion disease priced on a real bug, and expressions’ evaluation (precedence, associativity, side effects, short-circuit as a design choice).",
+            "summary": "What values may be: the type census (primitives, enumerations, arrays, records, unions — each with its honest design question), the scalar and composite families with the user-defined types the school syllabi name (records, unions and enumerations declared — identifiers, assignment, constants and variables as the binding vocabulary), type checking and the strong/weak axis, the coercion disease priced on a real bug, and expressions’ evaluation (precedence, associativity, side effects, short-circuit as a design choice).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Type Census and Its Design Questions",
+              "User-Defined Types: Records, Unions, Enumerations",
               "Coercion: the Disease Priced on a Bug",
               "Expression Evaluation and Order Discipline"
             ],
@@ -16178,11 +16291,12 @@
             "number": 4,
             "slug": "control-and-subprograms",
             "title": "Control and Subprograms",
-            "summary": "The flow of work: the control census (selection, loops, the guarded-command echo), subprograms as the primary abstraction (parameter modes — value, reference, result priced on aliasing), activation records cross-referenced to Compiler Design’s runtime chapter, and closures — functions that remember, the concept that powers the modern era.",
+            "summary": "The flow of work: the control census (selection, loops, the guarded-command echo) with structured programming’s discipline named (single-entry/single-exit — the school-canon craft that preceded objects), subprograms as the primary abstraction (parameter modes — value, reference, result priced on aliasing), activation records cross-referenced to Compiler Design’s runtime chapter, and closures — functions that remember, the concept that powers the modern era.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Control Census",
+              "Structured Programming: the Single-Entry Discipline",
               "Parameter Modes and Aliasing",
               "Closures: Functions That Remember"
             ],
@@ -16549,13 +16663,15 @@
             "number": 2,
             "slug": "fundamental-structures",
             "title": "The Fundamental Structures",
-            "summary": "The language’s vocabulary: types (primitives versus references — the two worlds that explain every later surprise), operators and control flow (familiar ground, priced where Java differs), strings’ immutability discipline, arrays, and the varargs/input-output census.",
+            "summary": "The language’s vocabulary: types (primitives versus references — the two worlds that explain every later surprise), operators and control flow (selection with if/else and switch, iteration with the loop census — familiar ground priced where Java differs), strings’ immutability discipline, one- and two-dimensional arrays (the AP-style 2D array craft — row/column traversal priced), the varargs/input-output census, and the algorithmic craft on the collections — sequential and binary searching, the sorting census, recursion the Java way, and the algorithm-analysis echo (Big-O cross-referenced to Algorithms).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Primitives versus References: the Two Worlds",
+              "Selection and Iteration: the Control-Flow Census",
               "Strings’ Immutability Discipline",
-              "Arrays and the IO Census"
+              "Arrays, 2D Arrays and the IO Census",
+              "Searching, Sorting and Recursion in Java"
             ],
             "lessons": [],
             "words": 0
@@ -16646,7 +16762,7 @@
             "plannedLessons": [
               "The Creation Idioms",
               "The Immutability Playbook",
-              "The Pitfalls Census and the Ecosystem"
+              "The Pitfalls Census and the Ecosystem (the applet and servlet eras named)"
             ],
             "lessons": [],
             "words": 0
@@ -16698,7 +16814,7 @@
             "number": 2,
             "slug": "data-and-control",
             "title": "Data and Control",
-            "summary": "The vocabulary: numbers and the dynamic-type discipline (names as tags, not boxes — the mental model that prevents every later aliasing surprise), strings’ rich census, the control-flow shapes (the for-else honesty, comprehensions introduced early as the idiomatic loop), and the truthiness rules stated plainly.",
+            "summary": "The vocabulary: numbers and the dynamic-type discipline (names as tags, not boxes — the mental model that prevents every later aliasing surprise), strings’ rich census, the control-flow shapes (the programming constructs — sequence, selection, iteration; the for-else honesty, comprehensions introduced early as the idiomatic loop), and the truthiness rules stated plainly.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
@@ -16713,12 +16829,13 @@
             "number": 3,
             "slug": "the-data-structures-census",
             "title": "The Data Structures Census",
-            "summary": "Python’s built-in spine: lists (the slicing discipline priced on real operations), tuples and unpacking, dictionaries (the key contract, insertion order, the comprehension craft), sets, and the aliasing disease demonstrated — the same list behind two names, mutated before the reader’s eyes.",
+            "summary": "Python’s built-in spine: lists (the slicing discipline priced on real operations), tuples and unpacking, dictionaries (the key contract, insertion order, the comprehension craft), sets, the aliasing disease demonstrated — the same list behind two names, mutated before the reader’s eyes — and the classic containers built the Python way: stacks and queues on list implementations (the PUSH/POP and FIFO craft the CUET paper traces).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Lists and the Slicing Discipline",
               "Dictionaries and Sets: the Key Contract",
+              "Stacks and Queues the Python Way: List Implementations",
               "The Aliasing Disease Demonstrated"
             ],
             "lessons": [],
@@ -16758,10 +16875,13 @@
             "number": 6,
             "slug": "errors-files-and-testing",
             "title": "Errors, Files and Testing",
-            "summary": "The robustness craft: exceptions the Python way (EAFP versus LBYL priced as a real choice), the with-statement as the resource discipline, files and the encoding honesty (the utf-8 lesson), and the testing census — pytest’s assertion discipline with the test-first echo named.",
+            "summary": "The robustness craft: exceptions the Python way — exception handling priced whole (syntax errors versus exceptions, try/except/else/finally traced, raising and the built-in exception hierarchy, user-defined exception classes written) with EAFP versus LBYL as the real choice; file processing at both ends (text and binary files, the file access modes, open/close, reading and writing, the pickle module’s binary persistence), the with-statement as the resource discipline and the encoding honesty (the utf-8 lesson), and the testing census — pytest’s assertion discipline with the test-first echo named.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
+              "The Exception Family: try, except, else, finally",
+              "Raising and Writing Exception Classes",
+              "Files: Text, Binary and the pickle Module",
               "EAFP versus LBYL",
               "The with Discipline and Encoding Honesty",
               "The Testing Census"
@@ -16949,10 +17069,11 @@
             "number": 1,
             "slug": "the-frontend-craft",
             "title": "The Frontend Craft",
-            "summary": "What frontend engineering owns: the browser’s render pipeline as the working reality (parse, style, layout, paint, composite — each stage priced on the performance question it answers), the HTTP contract’s client half, and the modern workflow’s toolchain discipline from the first component to the shipped bundle.",
+            "summary": "What frontend engineering owns: the browser’s render pipeline as the working reality (parse, style, layout, paint, composite — each stage priced on the performance question it answers), the web’s own vocabulary — website versus webpage, static versus dynamic pages, the web server and hosting, browsers with their add-ons, plug-ins and cookies — the HTTP contract’s client half, and the modern workflow’s toolchain discipline from the first component to the shipped bundle.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
+              "Websites and Webpages: Hosting, Browsers, Cookies",
               "The Render Pipeline Priced",
               "The HTTP Client Half",
               "From Component to Shipped Bundle"
@@ -17498,12 +17619,13 @@
             "number": 3,
             "slug": "the-services-census",
             "title": "The Services Census",
-            "summary": "The catalogue learned as families: compute’s census (VMs, containers, the function-as-a-service bet priced on cold starts), storage’s census (object, block, file — the durability claims read honestly), the database services (the managed relational and NoSQL arcs — DBMS cross-referenced), and networking’s glue (VPC’s private topology, the load-balancer family).",
+            "summary": "The catalogue learned as families: compute’s census (VMs, containers, the function-as-a-service bet priced on cold starts), storage’s census (object, block, file — the durability claims read honestly), the database services (the managed relational and NoSQL arcs — DBMS cross-referenced), networking’s glue (VPC’s private topology, the load-balancer family), and the operating contract — resource management and the service-level agreement (what an SLA actually promises, uptime arithmetic, the credits remedy — SaaS/PaaS/IaaS cross-referenced from the ladder).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Compute’s Census with Cold Starts",
               "Storage’s Durability Claims",
+              "Resource Management and the Service-Level Agreement",
               "The Managed-Data Services"
             ],
             "lessons": [],
@@ -17579,7 +17701,7 @@
         "level": "First security course → the security-engineering doorstep",
         "description": "The defense home on the Stallings-Brown arc. The CIA triad priced and risk as the measuring discipline; cryptographic tools in service (the application view of the ciphers with key management’s lifecycle); authentication’s census and the authorization models priced on a real access matrix; software and web attacks — injection traced, XSS’s three faces, CSRF’s confused deputy, the mitigation discipline; the network/system census — kill chain traced, DoS priced on amplification, malware’s taxonomy, phishing as the human channel; OS/database/cloud security; assurance — audit logs, penetration testing’s craft, the incident lifecycle traced through a real breach; and the discipline map. Cross-references Cryptography (the mathematics), Computer Networks, Operating Systems and Cloud Computing; hands off to Blockchain’s trust ledger.",
         "status": "planned",
-        "chaptersPlanned": 8,
+        "chaptersPlanned": 9,
         "chaptersWritten": 0,
         "chapters": [
           {
@@ -17647,14 +17769,15 @@
             "number": 5,
             "slug": "network-and-system-attacks",
             "title": "Network and System Attacks",
-            "summary": "The infrastructure’s census: the reconnaissance-to-exploit kill chain traced, the network attacks family (DoS/DDoS priced on amplification, the ARP/DNS spoofing census — Computer Networks cross-referenced), malware’s census (the propagation and payload taxonomy), social engineering’s discipline (phishing priced as the human channel), and the perimeter’s honest limits.",
+            "summary": "The infrastructure’s census: the reconnaissance-to-exploit kill chain traced, the network attacks family (denial of service and its distributed amplification priced, snooping and eavesdropping, the intrusion question, the ARP/DNS spoofing census, the spam/adware nuisance roster — Computer Networks cross-referenced), malware’s census (the propagation and payload taxonomy: viruses, worms, trojan horses and ransomware named), social engineering’s discipline (phishing priced as the human channel), and the perimeter’s honest answer (firewalls, antivirus and the VPN tunnel — the classic controls priced with their limits).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Kill Chain Traced",
-              "The Network Attack Census",
-              "Malware’s Taxonomy",
-              "Phishing: the Human Channel"
+              "The Network Attack Census: DoS, Snooping, Eavesdropping",
+              "Malware’s Taxonomy: Viruses, Worms, Trojans",
+              "Phishing: the Human Channel",
+              "The Perimeter: Firewalls, Antivirus and VPNs"
             ],
             "lessons": [],
             "words": 0
@@ -17691,6 +17814,22 @@
           },
           {
             "number": 8,
+            "slug": "the-societal-layer",
+            "title": "The Societal Layer",
+            "summary": "The citizen’s half of the discipline (the CUET/A-Level/AP ethics census): the digital footprint and etiquette question (net-surfing and social-media conduct, cyberbullying and its response), intellectual property (ownership, plagiarism, licensing and copyright, FOSS and the creative commons), cybercrime and the laws that answer it (hacking, phishing and the Indian IT Act’s register), digital ethics and responsible use, and the physical estate’s cost (e-waste hazards and management, the health and ergonomic questions of technology use).",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "The Digital Footprint: Etiquette and Cyberbullying",
+              "Intellectual Property: Ownership, Licensing, FOSS, Creative Commons",
+              "Cybercrime and the Laws: the Indian IT Act",
+              "E-Waste, Health and Digital Ethics"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 9,
             "slug": "the-synthesis-and-the-doorstep",
             "title": "The Synthesis and the Doorstep",
             "summary": "The discipline on one page (triad → controls → attacks → platforms → assurance with the layers beside), the craft census (choose-the-control scenarios, threat-model questions at exam level), and the doorsteps — Cryptography’s mathematics, Blockchain’s trust ledger, and the security research frontier named.",
@@ -17721,11 +17860,12 @@
             "number": 1,
             "slug": "the-cryptographic-contract",
             "title": "The Cryptographic Contract",
-            "summary": "The field’s honest rules: symmetric versus asymmetric as the two worlds, Kerckhoffs’ principle priced (the system’s secrecy lives only in the key), the key-space arithmetic (the numbers made real), and the attack taxonomy (brute force, analytical, the side-channel echo named).",
+            "summary": "The field’s honest rules: symmetric versus asymmetric as the two worlds (secret-key and public-key as the syllabi name them), steganography named as the third road — hiding rather than encrypting (with the watermarking echo), Kerckhoffs’ principle priced (the system’s secrecy lives only in the key), the key-space arithmetic (the numbers made real), and the attack taxonomy (brute force, analytical, the side-channel echo named).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
-              "The Two Worlds",
+              "The Two Worlds: Secret-Key and Public-Key",
+              "Steganography: Hiding rather than Encrypting",
               "Kerckhoffs Priced",
               "The Key-Space Arithmetic"
             ],
@@ -17832,7 +17972,7 @@
             "plannedLessons": [
               "The Signature Contract",
               "The PKI Trust Chain",
-              "TLS’s Handshake Traced"
+              "TLS’s Handshake Traced — the network-security protocol priced"
             ],
             "lessons": [],
             "words": 0
@@ -17869,12 +18009,14 @@
             "number": 1,
             "slug": "the-agent-discipline",
             "title": "The Agent Discipline",
-            "summary": "The field’s organizing idea: rationality defined honestly (the environment’s census — fully/partially observable, deterministic/stochastic, the PEAS discipline), agent architectures as programs, and AI’s history priced as the two rivers (logic and learning) that later reunite — the book’s map stated.",
+            "summary": "The field’s organizing idea: rationality defined honestly (the Turing test priced against the rational-agent view — what each actually measures; the environment’s census — fully/partially observable, deterministic/stochastic, the PEAS discipline), agent architectures as programs, the multi-agent question named (agent communication languages, the semantic-web echo, knowledge sharing through ontologies — Distributed Systems takes the deep treatment), and AI’s history priced as the two rivers (logic and learning) that later reunite — the book’s map stated.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Rationality and the Environment Census",
+              "The Turing Test, Priced Honestly",
               "Agent Architectures as Programs",
+              "Many Agents: Communication and the Semantic Web",
               "The Two Rivers of AI History"
             ],
             "lessons": [],
@@ -17884,11 +18026,11 @@
             "number": 2,
             "slug": "search-the-solving-machine",
             "title": "Search: the Solving Machine",
-            "summary": "Problem-solving as search: the problem formulation discipline (states, actions, the goal test — priced on real puzzles), uninformed search traced (BFS, DFS, uniform-cost with their completeness/optimality/cost census), and informed search — A* derived with its admissibility PROVED (the heuristic’s honesty contract).",
+            "summary": "Problem-solving as search: the problem formulation discipline (the state space and its states, actions, the goal test — priced on real puzzles), uninformed search traced (BFS, DFS, uniform-cost with their completeness/optimality/cost census), and informed search — A* derived with its admissibility PROVED (the heuristic’s honesty contract).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
-              "Problem Formulation as Discipline",
+              "Problem Formulation: the State Space",
               "The Uninformed Census",
               "A* Derived, Admissibility Proved"
             ],
@@ -17899,11 +18041,12 @@
             "number": 3,
             "slug": "searching-in-complex-worlds",
             "title": "Searching in Complex Worlds",
-            "summary": "The harder search world: local search and the heuristic landscape (hill-climbing’s local-maximum disease, simulated annealing named with its schedule, genetic algorithms’ census), adversarial search (minimax traced, alpha-beta pruning PROVED sound, the evaluation-function craft), and constraint satisfaction (backtracking, the arc-consistency discipline).",
+            "summary": "The harder search world: local search and the heuristic landscape (hill-climbing’s local-maximum disease, simulated annealing named with its schedule), evolutionary search — the genetic algorithm cycle priced (encoding strategies, the genetic operators of selection, crossover and mutation, fitness functions), adversarial search (game playing with minimax traced, alpha-beta pruning PROVED sound, the evaluation-function craft), and constraint satisfaction (backtracking, the arc-consistency discipline).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Heuristic Landscape",
+              "Evolutionary Search: the Genetic Algorithm Cycle",
               "Minimax and Alpha-Beta, Proved Sound",
               "Constraint Satisfaction’s Discipline"
             ],
@@ -17914,13 +18057,14 @@
             "number": 4,
             "slug": "logic-and-representation",
             "title": "Logic and Representation",
-            "summary": "Knowledge as the agent’s content: propositional logic’s inference engine (the resolution discipline traced — Mathematical Logic cross-referenced), first-order logic’s expressiveness priced on the representation craft, and the inference census (forward versus backward chaining traced through real rule systems).",
+            "summary": "Knowledge as the agent’s content: propositional logic’s inference engine (the resolution discipline traced — Mathematical Logic cross-referenced), first-order logic’s expressiveness priced on the representation craft, the classic GOFAI representation census (semantic networks, frames, scripts, conceptual dependency graphs and ontologies — what each buys and what it costs), and the inference census (forward versus backward chaining traced through real rule systems; expert systems priced as the production-machine discipline with uncertainty handled honestly).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Resolution Traced",
               "First-Order Expressiveness Priced",
-              "Forward versus Backward Chaining"
+              "The GOFAI Census: Semantic Networks, Frames, Scripts",
+              "Expert Systems and Forward versus Backward Chaining"
             ],
             "lessons": [],
             "words": 0
@@ -17929,12 +18073,13 @@
             "number": 5,
             "slug": "planning-the-acting-agent",
             "title": "Planning: the Acting Agent",
-            "summary": "From knowledge to action: classical planning’s representation (STRIPS’ states and actions), the planning-as-search discipline, the plans’ quality question, and the execution honesty — monitoring and replanning named as the bridge to real robots.",
+            "summary": "From knowledge to action: classical planning’s representation (STRIPS’ states and actions), the planning-as-search discipline, the planning zoo beyond the classical strip (goal-stack planning, hierarchical task networks, partial-order planning with its linear and non-linear honest trade), the plans’ quality question, and the execution honesty — monitoring and replanning named as the bridge to real robots.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Classical Representation",
               "Planning as Search",
+              "The Planning Zoo: Goal Stack, Hierarchical, Partial Order",
               "Monitoring and Replanning"
             ],
             "lessons": [],
@@ -17944,12 +18089,13 @@
             "number": 6,
             "slug": "uncertain-knowledge-and-reasoning",
             "title": "Uncertain Knowledge and Reasoning",
-            "summary": "Acting under uncertainty: probability as the rational agent’s language (Probability Theory cross-referenced — Bayes’ rule priced on real diagnosis), Bayesian networks’ inference discipline (the independence craft made structural), and the utility discipline — the rational agent composed into decision theory’s shape.",
+            "summary": "Acting under uncertainty two ways: probability as the rational agent’s language (Probability Theory cross-referenced — Bayes’ rule priced on real diagnosis; Bayesian networks’ inference discipline — the independence craft made structural) and fuzziness as the degree-based alternative (fuzzy sets with their membership functions, fuzzification and defuzzification, fuzzy rules and fuzzy inference, the fuzzy-control systems census), plus the utility discipline — the rational agent composed into decision theory’s shape.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Bayes Priced on Real Diagnosis",
               "Bayesian Networks’ Inference",
+              "Fuzzy Sets: Membership, Rules and Inference",
               "Utility: the Rational Composition"
             ],
             "lessons": [],
@@ -18077,13 +18223,14 @@
             "number": 5,
             "slug": "neural-networks-first-depth",
             "title": "Neural Networks: a First Depth",
-            "summary": "The differentiable learner: the multilayer perceptron’s architecture (the activation census — sigmoid’s saturation disease priced, ReLU’s answer), backpropagation derived (the chain rule composed through layers — Calculus cross-referenced), and the training craft (SGD’s discipline, the learning-rate question, the initialization honesty).",
+            "summary": "The differentiable learner: the multilayer perceptron’s architecture (the activation census — sigmoid’s saturation disease priced, ReLU’s answer), backpropagation derived (the chain rule composed through layers — Calculus cross-referenced), the training craft (SGD’s discipline, the learning-rate question, the initialization honesty), and the classical-networks census the older syllabi still name (the Hopfield network’s energy discipline, the self-organizing map’s Kohonen topology — supervised, unsupervised and reinforcement’s taxonomy recalled as the wiring).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Activation Census",
               "Backprop Derived",
-              "The Training Craft"
+              "The Training Craft",
+              "The Classical Census: Hopfield Networks and SOMs"
             ],
             "lessons": [],
             "words": 0
@@ -18833,11 +18980,12 @@
             "number": 2,
             "slug": "the-data-itself",
             "title": "The Data Itself",
-            "summary": "The raw material handled honestly: the formats census (flat files, JSON, the database echo with SQL’s analyst subset — DBMS cross-referenced), the cleaning discipline (the messy-data census priced on real defects — the missing-value and outlier decisions), and exploration as a first-class phase (the distribution-first reading).",
+            "summary": "The raw material handled honestly: the formats census (flat files, CSV, JSON, the database echo with SQL’s analyst subset — DBMS cross-referenced), the tooling census of the working analyst (NumPy’s arrays, pandas’ Series and DataFrames — creation, indexing, slicing, joining, merging and concatenation — the Jupyter notebook as the bench; Python Programming cross-referenced for the language itself), the cleaning discipline (the messy-data census priced on real defects — the missing-value dropping-and-filling and outlier decisions), and exploration as a first-class phase (the distribution-first reading).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Formats Census",
+              "The Tooling Census: NumPy, pandas, Jupyter",
               "The Cleaning Discipline",
               "Exploration as a Phase"
             ],
@@ -18848,12 +18996,13 @@
             "number": 3,
             "slug": "the-visualization-craft",
             "title": "The Visualization Craft",
-            "summary": "Seeing before claiming: the grammar of graphics idea (the aesthetic/geometry discipline), the chart census priced (what each shape honestly encodes — the bar/line/scatter contracts), the distortion census (the truncated axis and dual-axis diseases demonstrated), and the design honesty (Tufte’s principles named — Human-Computer Interaction cross-referenced).",
+            "summary": "Seeing before claiming: the grammar of graphics idea (the aesthetic/geometry discipline), the chart census priced (what each shape honestly encodes — the bar/line/scatter contracts), the working tool named (Matplotlib at the bench: line plots, bar graphs, histograms, pie charts, box plots and scatter plots drawn and customized — labels, titles, legends), the distortion census (the truncated axis and dual-axis diseases demonstrated), and the design honesty (Tufte’s principles named — Human-Computer Interaction cross-referenced).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Grammar of Graphics",
               "The Chart Census Priced",
+              "Matplotlib at Work: Line, Bar, Histogram, Pie, Scatter",
               "The Distortion Diseases Demonstrated"
             ],
             "lessons": [],
@@ -18863,10 +19012,11 @@
             "number": 4,
             "slug": "the-statistical-craft-recalled",
             "title": "The Statistical Craft, Recalled",
-            "summary": "The probability/statistics tools used fluently (the Mathematics shelf’s books cross-referenced): the sampling discipline (the bootstrap named as the modern resampler), the hypothesis-testing craft priced (the p-value read honestly — the NHST honesty chapter), the correlation/association reading (the confounding disease priced on a real spurious pair), and the A/B discipline (the experiment as the gold standard).",
+            "summary": "The probability/statistics tools used fluently (the Mathematics shelf’s books cross-referenced): the descriptive census first (mean, median, mode, quartiles, standard deviation and variance — the pandas group-by and aggregation craft carrying it on real data), the sampling discipline (the bootstrap named as the modern resampler), the hypothesis-testing craft priced (the p-value read honestly — the NHST honesty chapter), the correlation/association reading (the confounding disease priced on a real spurious pair), and the A/B discipline (the experiment as the gold standard).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
+              "The Descriptive Census: Mean, Median, Spread, Quartiles",
               "The Bootstrap Named",
               "The p-Value Read Honestly",
               "The Confounding Disease Priced",
@@ -18982,12 +19132,13 @@
             "number": 4,
             "slug": "the-data-warehouse-layer",
             "title": "The Data Warehouse Layer",
-            "summary": "The higher-level engines: Pig’s dataflow discipline named, Hive’s SQL-over-cluster arc priced (the schema-on-read question — DBMS cross-referenced), the warehouse discipline itself (the ETL arc, the star-schema craft), and the lakehouse echo named as the modern settlement.",
+            "summary": "The higher-level engines: Pig’s dataflow discipline named, Hive’s SQL-over-cluster arc priced (the schema-on-read question — DBMS cross-referenced), the warehouse discipline itself (the ETL arc, the star-schema craft), the NoSQL census the scale question forced (key-value, document, column-family and graph stores — what each trades away from the relational contract, querying and indexing them, the cloud echo), and the lakehouse echo named as the modern settlement.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Hive’s SQL-over-Cluster Arc",
               "The ETL and Star-Schema Craft",
+              "The NoSQL Census: Key-Value, Document, Column, Graph",
               "The Lakehouse Settlement, Named"
             ],
             "lessons": [],
@@ -19055,11 +19206,12 @@
             "number": 1,
             "slug": "the-pattern-families",
             "title": "The Pattern Families",
-            "summary": "The field’s honest map: data mining’s tasks as the four families (classification, association, clustering, anomaly — the book’s own census), the data’s preparation echo recalled (quality’s questions from Data Science), and the exploration discipline — summarization and visualization as the first mining act.",
+            "summary": "The field’s honest map: data mining’s tasks as the four families (classification, association, clustering, anomaly — the book’s own census), the warehouse register the field rides on (OLAP versus OLTP, the data mart and the cube, concept hierarchies — Big Data Engineering owns the cluster-scale engine), the data’s preparation echo recalled (quality’s questions from Data Science), and the exploration discipline — summarization and visualization as the first mining act.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Four Families",
+              "The Warehouse Register: OLAP, OLTP, Marts, Cubes",
               "The Preparation Echo",
               "Exploration as the First Act"
             ],
@@ -19070,13 +19222,13 @@
             "number": 2,
             "slug": "classification-basics",
             "title": "Classification: the Basics",
-            "summary": "The decision-tree craft as the field’s opening discipline: entropy derived as the split’s measure (computed on a worked table), the tree’s growth discipline (the overfitting disease priced — the pruning craft), and the alternative techniques census priced (nearest neighbors, naive Bayes recalled, the ensembles’ echo from Machine Learning).",
+            "summary": "The decision-tree craft as the field’s opening discipline: entropy derived as the split’s measure (computed on a worked table), the tree’s growth discipline (the overfitting disease priced — the pruning craft), and the alternative techniques census priced with its names (K-nearest neighbours, support vector machines and regression — the HMM/sequential echo cross-referenced to Machine Learning, the ensembles’ echo likewise).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "Entropy Computed on a Worked Table",
               "The Pruning Craft",
-              "The Alternatives Census"
+              "The Alternatives Census: SVM, K-Nearest Neighbour, Regression"
             ],
             "lessons": [],
             "words": 0
@@ -19085,13 +19237,14 @@
             "number": 3,
             "slug": "association-analysis",
             "title": "Association Analysis",
-            "summary": "The market-basket family: the support/confidence/lift triple defined precisely, Apriori’s principle derived (the anti-monotone law PROVED — the pruning that makes the search feasible), the frequent-itemset machinery traced on a worked basket set, and the rule-evaluation honesty (lift’s reading discipline).",
+            "summary": "The market-basket family: the support/confidence/lift triple defined precisely, Apriori’s principle derived (the anti-monotone law PROVED — the pruning that makes the search feasible), the frequent-itemset machinery traced on a worked basket set, the rule-evaluation honesty (lift’s reading discipline), and the beyond-baskets applications the syllabi name — link analysis, sequencing analysis and social network analysis (dependency modeling’s echo priced).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Support/Confidence/Lift Triple",
               "Apriori’s Anti-Monotone Law, Proved",
-              "The Machinery Traced on Baskets"
+              "The Machinery Traced on Baskets",
+              "Link, Sequencing and Social Network Analysis"
             ],
             "lessons": [],
             "words": 0
@@ -19838,11 +19991,12 @@
             "number": 6,
             "slug": "parallel-algorithm-families",
             "title": "Parallel Algorithm Families",
-            "summary": "The classics parallelized: the sorting family (the parallel merge and bitonic censuses traced), the graph family (BFS’s level-synchronous discipline priced on the load-imbalance disease), the dense linear algebra echo (the matrix families’ data-parallelism — the Mathematics shelf’s Linear Algebra cross-referenced), and the search family named.",
+            "summary": "The classics parallelized: the sorting family (the parallel merge and bitonic censuses traced), the search family (parallel searching priced on the divide discipline), the graph family (BFS’s level-synchronous discipline priced on the load-imbalance disease), the dense linear algebra echo (the matrix families’ data-parallelism — the Mathematics shelf’s Linear Algebra cross-referenced).",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
-              "Bitonic Sorting Traced",
+              "Bitonic Sorting and the Parallel Merge Traced",
+              "Parallel Searching: the Divide Discipline",
               "BFS’s Level Discipline",
               "The Dense-Matrix Echo"
             ],
@@ -20005,14 +20159,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 239,
-      "totalLines": 116583,
+      "srcFilesTracked": 283,
+      "totalLines": 125162,
       "byArea": {
         "src/app (routes, pages)": 2109,
-        "other": 10506,
+        "other": 11372,
         "src/components/library (reader platform)": 6059,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 85313,
+        "src/data/library (content model + books)": 93026,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -35557,6 +35711,860 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "6e1040709d11ec420d2de226d3c3dbb79cb3e786",
+      "short": "6e10407",
+      "date": "2026-11-15 10:23",
+      "message": "CS full-shelf planning pass (owner directive 2026-11-15): the mathematics method mirrored - 44 CS books planned (363 ch / 1,146 planned lessons, ZERO written; 27 Drive TOC extractions incl. Sipser vision x2 + web-checked canonical arcs; evidence docs/research/CS_TOC_SURVEY.md), 44 text-free AI covers (gen_covers.py merged 72-book roster; VLM sweep - one baked-text catch regenerated clean), gate verify-cs-shelf-planning.ts 2343/2343 + all standing gates green; e2e-cs-shelf phased (home 72 books + 40/40 titles + 0 console errors; mobile 390 overflow caught and fixed at the level badge); 5 backlog lines merged honestly; authoring cadence unchanged - run 107 still opens AA 3.3; push pending (no PAT this delivery)",
+      "filesChanged": 107,
+      "insertions": 14992,
+      "deletions": 139,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 57,
+          "del": 0
+        },
+        {
+          "path": "docs/project/MASTER_PLAN.md",
+          "add": 23,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 14,
+          "del": 1
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 85,
+          "del": 0
+        },
+        {
+          "path": "docs/project/SUBJECT_BACKLOG.md",
+          "add": 74,
+          "del": 13
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 6323,
+          "del": 120
+        },
+        {
+          "path": "docs/research/CS_TOC_SURVEY.md",
+          "add": 730,
+          "del": 0
+        },
+        {
+          "path": "public/covers/advanced-computer-science.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/algorithms.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/artificial-intelligence.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/assembly-and-microprocessors.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/backend-engineering.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/big-data-engineering.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/blockchain.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/c-programming.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/cloud-computing.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/compiler-design.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/computer-fundamentals.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/computer-graphics.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/computer-networks.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/computer-organization-architecture.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/computer-vision.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/cpp-programming.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/cryptography.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/cybersecurity.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/data-mining.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/data-science.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/data-structures.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/database-management-systems.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/deep-learning.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/digital-logic-design.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/distributed-systems.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/frontend-engineering.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/full-stack-web-development.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/generative-ai-and-llms.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/human-computer-interaction.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/information-retrieval.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/internet-of-things.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/java-programming.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/javascript-and-web-technologies.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/machine-learning.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/mobile-app-development.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/natural-language-processing.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/object-oriented-programming.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/operating-systems.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/parallel-computing.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/programming-languages-paradigms.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/python-programming.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/reinforcement-learning.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/software-engineering.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/theory-of-computation.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "scripts/digest_cs_tocs.py",
+          "add": 73,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cs-shelf.sh",
+          "add": 171,
+          "del": 0
+        },
+        {
+          "path": "scripts/gen_covers.py",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "scripts/run-cs-e2e-phase.sh",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-shelf-planning.ts",
+          "add": 153,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-math-shelf-planning.ts",
+          "add": 10,
+          "del": 4
+        },
+        {
+          "path": "src/components/library/book-view.tsx",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/computer-science/advanced-computer-science/book.ts",
+          "add": 141,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/algorithms/book.ts",
+          "add": 191,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/artificial-intelligence/book.ts",
+          "add": 170,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/assembly-and-microprocessors/book.ts",
+          "add": 172,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/backend-engineering/book.ts",
+          "add": 158,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/big-data-engineering/book.ts",
+          "add": 138,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/blockchain/book.ts",
+          "add": 141,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/c-programming/book.ts",
+          "add": 156,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/cloud-computing/book.ts",
+          "add": 138,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/compiler-design/book.ts",
+          "add": 174,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/book.ts",
+          "add": 157,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-graphics/book.ts",
+          "add": 169,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-networks/book.ts",
+          "add": 169,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-organization-architecture/book.ts",
+          "add": 207,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-vision/book.ts",
+          "add": 154,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/cpp-programming/book.ts",
+          "add": 157,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/cryptography/book.ts",
+          "add": 169,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/cybersecurity/book.ts",
+          "add": 157,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/data-mining/book.ts",
+          "add": 140,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/data-science/book.ts",
+          "add": 143,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/data-structures/book.ts",
+          "add": 173,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/database-management-systems/book.ts",
+          "add": 188,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/deep-learning/book.ts",
+          "add": 158,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/digital-logic-design/book.ts",
+          "add": 194,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/distributed-systems/book.ts",
+          "add": 154,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/frontend-engineering/book.ts",
+          "add": 154,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/full-stack-web-development/book.ts",
+          "add": 139,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/generative-ai-and-llms/book.ts",
+          "add": 157,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/human-computer-interaction/book.ts",
+          "add": 139,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/information-retrieval/book.ts",
+          "add": 142,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/internet-of-things/book.ts",
+          "add": 138,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/java-programming/book.ts",
+          "add": 168,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/javascript-and-web-technologies/book.ts",
+          "add": 153,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/machine-learning/book.ts",
+          "add": 173,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/mobile-app-development/book.ts",
+          "add": 139,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/natural-language-processing/book.ts",
+          "add": 155,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/object-oriented-programming/book.ts",
+          "add": 172,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/operating-systems/book.ts",
+          "add": 185,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/parallel-computing/book.ts",
+          "add": 142,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/programming-languages-paradigms/book.ts",
+          "add": 155,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/python-programming/book.ts",
+          "add": 152,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/reinforcement-learning/book.ts",
+          "add": 140,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/software-engineering/book.ts",
+          "add": 171,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/theory-of-computation/book.ts",
+          "add": 188,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/covers.ts",
+          "add": 51,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/index.ts",
+          "add": 95,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "1637b3000c06aa95222bd48c7cf3ce145ce5a216",
+      "short": "1637b30",
+      "date": "2026-11-15 14:03",
+      "message": "exam-topic coverage pass (owner directive 2026-11-15): Practice hub preset census 6 -> 28 across every registry family - 22 registry-linked presets (JEE Advanced, UPSC CSAT, GATE 1/2-mark+NAT, UGC NET P1, CA Foundation, ISI, SAT MCQ+grid-in, ACT, GRE, GMAT, A-Level, IB, Gaokao choice+fill-in, Korean CSAT, EJU, TMUA, Oxford MAT, STEP answers-only, AMC 12, AIME integer-answer, Euclid, IMO topic set), honestly scoped over the written library with pending topics in caveats; Exams tab grouped into 10 families; standing gate verify-exam-coverage.ts 2,433/2,433 (registry completeness + NOT_YET_SERVED ledger for IIT JAM/AP/Putnam/FE + round-robin topic-spread + pigeonhole book-breadth invariants); verify-practice 274/274; e2e-exam-presets 66/66 + VLM PASS; run-107 cadence unchanged; push pending (no PAT this delivery)",
+      "filesChanged": 7,
+      "insertions": 989,
+      "deletions": 29,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "docs/project/EXAM_REGISTRY.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/PRACTICE_HUB.md",
+          "add": 75,
+          "del": 13
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 10,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "src/components/practice/exams-tab.tsx",
+          "add": 60,
+          "del": 13
+        },
+        {
+          "path": "src/data/exams/presets.ts",
+          "add": 819,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "861b04208d67cb164f51e57913faebb3fc00b027",
+      "short": "861b042",
+      "date": "2026-11-15 14:04",
+      "message": "whitelist + commit the exam-coverage pass's two new scripts (verify-exam-coverage.ts gate + e2e-exam-presets.sh) - the .gitignore scripts/* whitelist rule",
+      "filesChanged": 3,
+      "insertions": 675,
+      "deletions": 0,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-exam-presets.sh",
+          "add": 171,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-exam-coverage.ts",
+          "add": 502,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "d1544beeb4d5c89222e267bc8be89d44ad8102de",
+      "short": "d1544be",
+      "date": "2026-11-15 14:56",
+      "message": "CS exam-topic coverage pass (owner directive 2026-11-15): the exams-topic guarantee extended to the CS shelf's planned books - the seven registry exams with researched CS sections (GATE CSE 2026, UGC NET CS&A 87, IOI 2024, CUET UG 308, IB DP CS, Cambridge 9618, AP CS A) audited against the 44 book plans over their official syllabi (downloaded + extracted 2026-11-15, URLs in SOURCE_LOG): the 251-line topic ledger docs/research/CS_EXAM_TOPIC_LEDGER.md routed line-by-line to owning books; the honest first audit (162 direct / 39 hard gaps / 39 crosses) fixed by CONTENT at the planning level - ~70 planned lessons added or renamed across 26 CS books + Abstract Algebra/Number Theory on the math shelf, Cybersecurity gained the societal-layer chapter; census 363->364 chapters / 1,146->1,218 planned lessons (verify-cs-shelf-planning re-pinned 2348/2348); registry entries carry csUnits + CS-extended coverageMaps; standing gate verify-cs-exam-coverage.ts 696/696 (registry completeness + 251-line topic-inclusion audit + census integrity; 251/251 direct, zero gaps, zero crosses); full regression green (verify_topic_coverage 667, verify_toc_as_lessons 3883 after fold-ledger host renames, verify-math-shelf-planning 1240, verify-exam-coverage 2433, tsc pre-existing-only, eslint 0 errors, e2e-cs-shelf green on the restarted dev server); run-107 cadence unchanged - AA 3.3 still next; push pending (no PAT this delivery)",
+      "filesChanged": 45,
+      "insertions": 3373,
+      "deletions": 148,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/EXAM_REGISTRY.json",
+          "add": 178,
+          "del": 17
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 13,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "docs/project/SUBJECT_BACKLOG.md",
+          "add": 14,
+          "del": 4
+        },
+        {
+          "path": "docs/project/TOC_FOLD_LEDGER.json",
+          "add": 8,
+          "del": 8
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 15,
+          "del": 0
+        },
+        {
+          "path": "docs/research/CS_EXAM_TOPIC_LEDGER.md",
+          "add": 598,
+          "del": 0
+        },
+        {
+          "path": "docs/research/CS_TOC_SURVEY.md",
+          "add": 5,
+          "del": 2
+        },
+        {
+          "path": "scripts/probe-cs-exam-coverage.py",
+          "add": 824,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-exam-coverage.ts",
+          "add": 1286,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-shelf-planning.ts",
+          "add": 5,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/computer-science/algorithms/book.ts",
+          "add": 22,
+          "del": 7
+        },
+        {
+          "path": "src/data/library/books/computer-science/artificial-intelligence/book.ts",
+          "add": 25,
+          "del": 9
+        },
+        {
+          "path": "src/data/library/books/computer-science/assembly-and-microprocessors/book.ts",
+          "add": 8,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/computer-science/big-data-engineering/book.ts",
+          "add": 7,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/computer-science/cloud-computing/book.ts",
+          "add": 7,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/computer-science/compiler-design/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/book.ts",
+          "add": 11,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-graphics/book.ts",
+          "add": 15,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-networks/book.ts",
+          "add": 21,
+          "del": 7
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-organization-architecture/book.ts",
+          "add": 17,
+          "del": 8
+        },
+        {
+          "path": "src/data/library/books/computer-science/cryptography/book.ts",
+          "add": 10,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/computer-science/cybersecurity/book.ts",
+          "add": 26,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/computer-science/data-mining/book.ts",
+          "add": 15,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/computer-science/data-science/book.ts",
+          "add": 12,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/computer-science/data-structures/book.ts",
+          "add": 18,
+          "del": 7
+        },
+        {
+          "path": "src/data/library/books/computer-science/database-management-systems/book.ts",
+          "add": 16,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/computer-science/digital-logic-design/book.ts",
+          "add": 11,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/computer-science/frontend-engineering/book.ts",
+          "add": 7,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/computer-science/java-programming/book.ts",
+          "add": 10,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/computer-science/machine-learning/book.ts",
+          "add": 8,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/computer-science/object-oriented-programming/book.ts",
+          "add": 8,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/computer-science/operating-systems/book.ts",
+          "add": 12,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/computer-science/parallel-computing/book.ts",
+          "add": 8,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/computer-science/programming-languages-paradigms/book.ts",
+          "add": 10,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/computer-science/python-programming/book.ts",
+          "add": 13,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/computer-science/software-engineering/book.ts",
+          "add": 18,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/computer-science/theory-of-computation/book.ts",
+          "add": 13,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/abstract-algebra/book.ts",
+          "add": 7,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/discrete-mathematics/book.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/number-theory/book.ts",
+          "add": 6,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -35565,25 +36573,25 @@
     "booksLive": 72,
     "chaptersWritten": 35,
     "chaptersInProgress": 1,
-    "lessonsWritten": 143,
-    "wordsAuthored": 707809,
-    "termsDefined": 1062,
-    "quizItems": 715,
-    "exerciseQuestions": 1867,
+    "lessonsWritten": 144,
+    "wordsAuthored": 713099,
+    "termsDefined": 1067,
+    "quizItems": 720,
+    "exerciseQuestions": 1882,
     "blockTotals": {
-      "para": 2003,
-      "callout": 861,
-      "heading": 801,
+      "para": 2010,
+      "callout": 870,
+      "heading": 804,
       "list": 172,
-      "terms": 139,
+      "terms": 140,
       "equation": 205,
-      "figure": 270,
-      "derivation": 268,
-      "table": 170,
-      "example": 690,
-      "quiz": 143,
-      "exercises": 143,
-      "formula": 471,
+      "figure": 272,
+      "derivation": 271,
+      "table": 172,
+      "example": 698,
+      "quiz": 144,
+      "exercises": 144,
+      "formula": 474,
       "algorithm": 27
     }
   }

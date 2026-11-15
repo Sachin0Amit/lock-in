@@ -504,6 +504,8 @@ server.log
 !/scripts/e2e-aa-31.sh
 !/scripts/e2e-aa-32.page.js
 !/scripts/e2e-aa-32.sh
+!/scripts/e2e-aa-33.page.js
+!/scripts/e2e-aa-33.sh
 
 # run 103 — AA 2.4: its per-lesson e2e block (quiz keys 1/2/1/2/0) + the vision-outage pixel audit fallback
 !/scripts/e2e-aa-23.page.js
