@@ -2,8 +2,8 @@
   "$schema": "./PROGRESS.schema.json",
   "project": "LockIn Library",
   "updated": "2026-11-15",
-  "phase": "TOPIC-DEPTH AUDIT (2026-11-13, owner chat directive #2: AA 1.5's modulus/signum promised in the headings but missing their graphs and worked example — 'do such audits on already prewritten books or lessons'): the standing gate scripts/audit-content-completeness.ts grew rule A2 — any section heading naming a graphable function family (modulus, signum, GIF, fractional part, piecewise, envelope, exponential, logarithm, trig graphs, quadratic/parabola, reciprocal, hyperbola/ellipse) must carry BOTH its figure and worked craft INSIDE the section; graph-subject headings must contain a figure; congruence-modulus guarded out. Sweep of all 130 written lessons: 10 real errors → 0 after 8 new figures + 1 new worked example — AA 1.5 +5 (fare machine, modulus V + distance read, signum graph + size×sign rebuild, sawtooth pair-law witnesses, min-envelope) + modulus example; AA 1.7 +1 (four modulus wraps); AL 10.1 +1 (walls and probes on the identity section); FM 10.2 +1 (bar/line/pie chooser). Two REAL figure defects caught by the §4 pipeline and fixed: the FM pie's arcs (banana drew ~58°, guava ~178° — pixel measurement confirmed the VLM; endpoints fixed, re-measured 116/150/86) and the AL h = 0 probe vanishing under the y-axis (now thick amber dashes riding it, caption explicit). gifSawtooth's 15 pre-existing layer-1 overlaps repaired; |−3| = |3| = 6 → 3 in lessons 1.4 and 1.5. Verifiers re-pinned green with reasons (book4-ch01 figs 7/3; book3-ch10 1135/1135 incl. the two stale-at-HEAD snapshot pins — 9/12 AL chapters honest, 130 library lessons). Gates all green: audit PASS 0 errors, tsc clean, lint 0 errors, overlap 0 on all four touched lessons, e2e 45/0 × 3 viewports on aa-15/aa-17/al-101 + fm-102 smoke, all nine new figures VLM PASS. AA ch.1 remains COMPLETE from run 94. This deepens the earlier structural pass (commit 73221d6, 130 lessons, 0 errors) into the depth dimension the owner named.",
-  "awaiting": "run 103 authors AA 2.4 'Location of Roots: Doors in Intervals' STRICTLY FIRST (grow scripts/verify-book4-ch02.ts's 2.4 engine sections green BEFORE any prose; the four-condition system is 2.2's — 2.4 goes DEEPER: the full k-system, interleaving's proof-shape, Rolle's honesty note; module ground printed 2.31–2.37 — re-download the m2-02 PDF per SOURCE_LOG if temporary-references/ was wiped; banked transcription tr-2.36-2.38.txt may already cover part of it). The chapter-2 unit review + chapter close ride the COMPLETING run (2.4 + 2.R in the same run is allowed — the run-99 12.3 + 12.R precedent — but never a NEW chapter in the same run).",
+  "phase": "AUTHORING CADENCE (v8.1 single hourly job at :50 IST, max 3 executions/day, two lessons per run): run 104 (2026-11-15) authored the AA ch. 2 UNIT REVIEW 2.R 'Unit Review: The Quadratic at Depth' and CLOSED chapter 2 COMPLETE (2.1–2.4 + 2.R, status 'complete', plannedLessons []) — the 12.R/1.R consolidation precedent followed, BIG by design: the chapter arc (expression → sign → roots → location), the two master tables reunited (the six sign cases + the k-system), the four cross-lesson witnesses re-audited (the fence, the sign ladder, the Viète inventory, the census family), the 22-card formula inventory consolidated to 8 load-bearing laws, an exam-coverage callout, the four m2-02 folds re-asserted, and a 15-part mixed bench L1–L6 with every answer recomputed. Verify-first section N green BEFORE prose (3,278/0; the engines caught 4 real pin errors pre-prose incl. the formula inventory count); authored-audit section O 3,341/0. The book stays open — chapter 3 'Complex Numbers: the New Rung' is the next unit but NEVER starts in the same run as a chapter close.",
+  "awaiting": "run 105 opens AA ch. 3 'Complex Numbers: the New Rung' with 3.1 'The Closure Failure That Forces i' (id aa-the-closure-failure-that-forces-i, the aa- prefix; grow scripts/verify-book3-ch13? NO — a NEW verifier scripts/verify-book4-ch03.ts on the ch-01/ch-02 pattern is created BEFORE any prose — pin the closure-failure story, the field-law survival checks, the i² = −1 arithmetic, the conjugate/modulus bookkeeping); ground: the Drive M2-03 'Complex Numbers' module (ids in docs/research/DRIVE_TOC_SURVEY.md + scripts/download_drive_file.sh; temporary-references/ was wiped again — re-download per the SOURCE_LOG ledger if needed) + NCERT class 11 ch. 5 web-checks; the m2-03 folds bind 3.1 (three: Complex Numbers + Imaginary Number + Equality as chapter-umbrella/glossary/section — see TOC_FOLD_LEDGER). 3.2 'Conjugate and Modulus' rides the same run if the window allows. Study-never-reproduce; lesson ids stable forever.",
   "platform": {
     "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
     "stack": "Next.js 16 App Router (SSG library routes + dynamic builder routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk · Prisma/SQLite (Custom Book Builder user data) · pdfjs-dist + poppler/tesseract (syllabus PDF extraction)",
@@ -110,11 +110,11 @@
         "title": "Advanced Algebra",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 1,
-        "lessonsWritten": 13,
+        "chaptersWritten": 2,
+        "lessonsWritten": 14,
         "lessonsPlanned": 57,
-        "termsAvailableForFlashcards": 47,
-        "notes": "PROMOTED (run 89) — 10 chapters / 57 planned lessons; ch. 1 'Functions as Objects' COMPLETE (9 lessons incl. the unit review, run 94); ch. 2 'The Quadratic at Depth' (runs 100–103): 2.1 'Vertex Form at Work' (4,597 words, run 100), 2.2 'Quadratic Inequalities and the Sign Diagram' (5,197 words, run 101, both hosted folds served), 2.3 'Symmetric Reads and Common Roots' (5,837 words, run 102, both hosted folds served, the {−7, 6} m-census taught honestly), 2.4 'Location of Roots: Doors in Intervals' (8,650 words, run 103 — the k-system master table from the a·f(k) principle; the 15-part master census on x² − (m+1)x + 3m − 5 with the fixed point (3, 1) and three honest boundary seats incl. the m = 5/2 wall seat; roots-between-roots on 2x² − (3m+4)x + 2m² − 11m + 26 → m ∈ (4, 8); the substitution bridges t = x² + 2x + 3 (a ∈ (4, 11/2] with the tangent seat x = −1) and cos x (|k| ≥ 1 both branches); Rolle's reads with the antiderivative weights law 2aℓ² + 3bℓ + 6c = 0 and both honesty notes (x² − 1 vs x² + 1; the x³ + 1 reverse failure); the interleaving census on (−1, 2, 5, 7) — the λμ trichotomy, the escaper law, the linear-case seat 19/5 ∈ (b, c) with the factored-difference proof; the wall demands m ≤ −9 + the add-the-walls certificate 26 ≤ 0; quiz [1,2,1,2,0]; 15 exercises L1–L6; 15 Illustrations, 2 figures (the pencil through the fixed point; the doors census diagram), 2 derivations, 6 formula cards; verifier A–M 3171/0 with the K/L engines catching 8 real design errors pre-prose incl. the boundary-seat law and the honest two-sided fixed-point law). The 2.R unit review + chapter close remain (run 104) — never a new chapter in the same run."
+        "termsAvailableForFlashcards": 54,
+        "notes": "PROMOTED (run 89) — 10 chapters / 57 planned lessons; ch. 1 'Functions as Objects' COMPLETE (9 lessons incl. the unit review, run 94); ch. 2 'The Quadratic at Depth' COMPLETE (runs 100–104, 5 lessons incl. the unit review, 29,890 words, all four m2-02 folds served in runs 101/102): 2.1 'Vertex Form at Work' (4,597 words, run 100), 2.2 'Quadratic Inequalities and the Sign Diagram' (5,197 words, run 101), 2.3 'Symmetric Reads and Common Roots' (5,837 words, run 102, the {−7, 6} m-census taught honestly), 2.4 'Location of Roots: Doors in Intervals' (8,650 words, run 103 — the k-system master table from the a·f(k) principle, the 15-part master census with the fixed point (3, 1), the substitution bridges, Rolle's reads with the antiderivative weights law, the interleaving census, the wall demands m ≤ −9 with the add-the-walls certificate 26 ≤ 0), and 2.R the unit review (5,609 words, run 104 — the four readings (vertex/sign/Viète/location) as one completed form; the two master tables reunited; the four cross-lesson witnesses re-audited; the 22-card formula inventory consolidated to 8; quiz [1,1,2,1,0]; the 15-part mixed bench L1–L6 every answer recomputed; verifier A–O 3,341/0; e2e 45/45 × 3 viewports; overlap 0/2; VLM PASS both figures both themes). NEXT: chapter 3 'Complex Numbers: the New Rung' (5 planned lessons, the m2-03 ground, three folds bound to 3.1) — opens run 105, never in the same run as a chapter close."
       },
       {
         "id": "geometry",
@@ -353,9 +353,9 @@
         "notes": "PLANNED (topic-inclusion guarantee pass, 2026-11-10) — 11 ch / 39 planned lessons, `qa-` prefix reserved; research: the Khattar aptitude census (40 chapters, khattar-qa-4e) + the EXAM_REGISTRY exam scope (CAT/SSC CGL/IBPS/SBI/RBI/CSAT/CA Foundation + SAT/GRE/GMAT quant word problems). The commercial-aptitude family's own home; no-duplication contract in the header. Authoring opens in backlog order after Advanced Algebra completes."
       }
     ],
-    "lessonsWritten": 140,
-    "wordsAuthored": 690057,
-    "termsAvailableForFlashcards": 1027,
+    "lessonsWritten": 141,
+    "wordsAuthored": 696144,
+    "termsAvailableForFlashcards": 1034,
     "totals": {
       "lessons": 139,
       "words": 681407,
@@ -363,12 +363,12 @@
       "quiz": 695,
       "exercises": 1805
     },
-    "chaptersWritten": 33,
-    "chaptersInProgress": 1,
-    "termsDefined": 1039,
-    "quizItems": 700,
-    "exerciseQuestions": 1821,
-    "asOf": "run 103 (2026-11-15)",
+    "chaptersWritten": 35,
+    "chaptersInProgress": 0,
+    "termsDefined": 1047,
+    "quizItems": 705,
+    "exerciseQuestions": 1837,
+    "asOf": "run 104 (2026-11-15)",
     "booksLive": 28,
     "plannedLessonsTotal": null
   },

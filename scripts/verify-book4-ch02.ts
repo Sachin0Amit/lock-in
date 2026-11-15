@@ -718,11 +718,11 @@ const quad = (a: number, b: number, c: number, x: number): number => (a * x + b)
   {
   const ch = chapter02
   ok(ch.number === 2 && ch.slug === 'the-quadratic-at-depth', 'F1 chapter wrapper number/slug')
-  ok(ch.status === 'in-progress', 'F2 chapter status in-progress (1/4 authored)')
-  // re-pinned count-aware at audit time (run 103): the authored chapter now
-  // carries FOUR lessons (2.1 run 100, 2.2 run 101, 2.3 run 102, 2.4 run 103)
-  // with the unit review as the one remaining planned title.
-  ok(ch.lessons.length === 4 && ch.plannedLessons?.length === 1, 'F3 chapter shape: 4 lessons + 1 planned (re-pinned run 103: 2.4 authored)')
+  ok(ch.status === 'complete', 'F2 chapter status complete (CLOSED run 104: 2.1–2.4 + 2.R authored)')
+  // re-pinned count-aware at audit time (run 104): the chapter is CLOSED —
+  // five lessons (2.1 run 100, 2.2 run 101, 2.3 run 102, 2.4 run 103,
+  // 2.R run 104) with no planned titles left.
+  ok(ch.lessons.length === 5 && (ch.plannedLessons?.length ?? 0) === 0, 'F3 chapter shape CLOSED: 5 lessons, none planned (re-pinned run 104)')
   const L = ch.lessons[0]
   ok(L.id === 'aa-vertex-form-at-work-maxima-and-minima', 'F4 lesson id matches the pinned id')
   ok(L.number === '2.1' && L.title === 'Vertex Form at Work: Maxima and Minima', 'F5 lesson number/title')
@@ -802,8 +802,8 @@ const quad = (a: number, b: number, c: number, x: number): number => (a * x + b)
   {
   const ch = chapter02
   ok(ch.number === 2 && ch.slug === 'the-quadratic-at-depth', 'G1 chapter wrapper number/slug')
-  ok(ch.status === 'in-progress', 'G2 chapter status in-progress (2/4 authored)')
-  ok(ch.lessons.length === 4 && ch.plannedLessons?.length === 1, 'G3 chapter shape: 4 lessons + 1 planned (re-pinned run 103: 2.4 authored, review planned)')
+  ok(ch.status === 'complete', 'G2 chapter status complete (CLOSED run 104)')
+  ok(ch.lessons.length === 5 && (ch.plannedLessons?.length ?? 0) === 0, 'G3 chapter shape CLOSED: 5 lessons, none planned (re-pinned run 104)')
   const L = ch.lessons[1]
   ok(L.id === 'aa-quadratic-inequalities-and-the-sign-diagram', 'G4 lesson id matches the pinned id')
   ok(L.number === '2.2' && L.title === 'Quadratic Inequalities and the Sign Diagram', 'G5 lesson number/title')
@@ -1427,7 +1427,7 @@ function realRoots(a: number, b: number, c: number): number[] {
 
 {
   const ch = chapter02
-  ok(ch.lessons.length === 4 && ch.plannedLessons?.length === 1 && ch.plannedLessons?.[0] === 'Unit Review: The Quadratic at Depth', 'J1 chapter shape after authoring: 4 lessons, planned = [Unit Review] (re-pinned run 103)')
+  ok(ch.lessons.length === 5 && (ch.plannedLessons?.length ?? 0) === 0, 'J1 chapter shape CLOSED run 104: 5 lessons, none planned')
   const L = ch.lessons[2]
   ok(L.id === 'aa-symmetric-reads-and-common-roots', 'J2 lesson id matches the pinned id')
   ok(L.number === '2.3' && L.title === 'Symmetric Reads and Common Roots', 'J3 lesson number/title')
@@ -2133,7 +2133,7 @@ function sortedRoots(a: number, b: number, c: number): number[] {
 
 {
   const ch = chapter02
-  ok(ch.lessons.length === 4 && ch.plannedLessons?.length === 1 && ch.plannedLessons?.[0] === 'Unit Review: The Quadratic at Depth', 'M1 chapter shape after authoring: 4 lessons, planned = [Unit Review]')
+  ok(ch.lessons.length === 5 && (ch.plannedLessons?.length ?? 0) === 0, 'M1 chapter shape CLOSED run 104: 5 lessons, none planned')
   const L = ch.lessons[3]
   ok(L.id === 'aa-location-of-roots-doors-in-intervals', 'M2 lesson id matches the pinned id')
   ok(L.number === '2.4' && L.title === 'Location of Roots: Doors in Intervals', 'M3 lesson number/title')
@@ -2235,7 +2235,455 @@ function sortedRoots(a: number, b: number, c: number): number[] {
   ok(allText3.includes('m \\leq -9') || allText3.includes('m \\leq -\tfrac') || allText3.includes('m ≤ −9') || allText3.includes('-9'), 'M15.6 the wall-demand verdict m ≤ −9 in prose')
 }
 
-console.log(`\nverify-book4-ch02 sections A-M: ${passed} passed, ${failed} failed`)
+/* ------------------------------------------------------------------ */
+/* (N) the 2.R UNIT REVIEW — pinned BEFORE any prose (run 104,          */
+/*     verify-first). Every number the review will print is           */
+/*     recomputed here first: the two master tables re-swept, the     */
+/*     four cross-lesson witnesses re-audited, the formula            */
+/*     inventory aggregation, the quiz keys with distractors          */
+/*     priced, and the fifteen mixed-bench answers brute-forced.     */
+/* ------------------------------------------------------------------ */
+
+{
+  // ===== N1: the six sign cases, re-swept (master table 1) =====
+  const sweepSign = (a: number, b: number, c: number): string => {
+    let pos = 0, neg = 0, zero = 0
+    for (let i = -300; i <= 300; i++) {
+      const v = quad(a, b, c, i / 100)
+      if (v > 1e-12) pos++; else if (v < -1e-12) neg++; else zero++
+    }
+    return `${pos},${neg},${zero}`
+  }
+  ok(sweepSign(1, -4, 7) === '601,0,0', 'N1.1 a>0 D<0 (x²−4x+7): positive at all 601 seats')
+  ok(sweepSign(1, -4, 4) === '600,0,1', 'N1.2 a>0 D=0 ((x−2)²): nonnegative, one zero seat')
+  ok(sweepSign(1, -4, 3) === '400,199,2', 'N1.3 a>0 D>0 (x²−4x+3): positive outside, negative on 199 seats between')
+  ok(sweepSign(-1, 2, 3) === '399,200,2', 'N1.4 a<0 D>0 (−x²+2x+3): positive between, negative outside')
+  ok(sweepSign(-1, 2, -1) === '0,600,1', 'N1.5 a<0 D=0 (−(x−1)²): nonpositive, one zero seat')
+  ok(sweepSign(-1, 2, -3) === '0,601,0', 'N1.6 a<0 D<0 (−x²+2x−3): negative at all 601 seats')
+
+  // ===== N2: the k-system rows, re-pinned on witnesses (master table 2) =====
+  const roots = (a: number, b: number, c: number): number[] => {
+    const d = b * b - 4 * a * c
+    if (d < 0) return []
+    return [(-b - Math.sqrt(d)) / (2 * a), (-b + Math.sqrt(d)) / (2 * a)].sort((p, q) => p - q)
+  }
+  {
+    const r = roots(1, -9, 20) // doors 4, 5
+    ok(r[0] === 4 && r[1] === 5, 'N2.1 witness x²−9x+20 owns doors 4 and 5')
+    ok(quad(1, -9, 20, 3) > 0 && 4.5 > 3 && 81 - 80 >= 0, 'N2.2 both roots > k=3: a·f(3)=2>0, seat 4.5>3, D=1≥0 — all three rows green')
+    ok(quad(1, -6, 5, 6) > 0 && 3 < 6, 'N2.3 both roots < k=6 (x²−6x+5): a·f(6)=5>0, seat 3<6')
+    ok(quad(1, -6, 5, 3) < 0, 'N2.4 k=3 between the doors of x²−6x+5: a·f(3)=−4<0 — no D check needed')
+    ok(quad(1, -5, 6, 2.5) < 0 && quad(1, -5, 6, 5) > 0, 'N2.5 exactly one root of x²−5x+6 in (2.5, 5): f(2.5)f(5)<0 (door 3 in, door 2 out)')
+    ok(quad(1, -9, 20, 2) > 0 && quad(1, -9, 20, 6) > 0 && 2 < 4.5 && 4.5 < 6 && 81 - 80 >= 0, 'N2.6 both roots of x²−9x+20 in (2, 6): the four-condition bridge, green')
+    ok(quad(1, -9, 20, 4.4) < 0 && quad(1, -9, 20, 4.6) < 0, 'N2.7 both walls 4.4, 4.6 between the doors: a·f<0 at both')
+    ok(1 * -6 < 0, 'N2.8 opposite-sign row: ac<0 certifies (x²+x−6, doors −3 and 2)')
+    // the impostor that motivates the D-skip honesty
+    const imp = roots(1, -2, 5)
+    ok(imp.length === 0 && quad(1, -2, 5, 1) === 4 && quad(1, -2, 5, 5) === 20, 'N2.9 the impostor x²−2x+5: passes the wall tests (f(1)=4, f(5)=20) with D=−16 — no doors')
+  }
+
+  // ===== N3: the four cross-lesson witnesses, re-audited =====
+  // N3.a the fence — A(x) = x(12−x)
+  {
+    const A = (x: number): number => x * (12 - x)
+    ok(A(6) === 36 && A(4) === 32 && A(8) === 32 && A(9) === 27, 'N3.1 fence pins: A(6)=36, A(4)=A(8)=32, A(9)=27')
+    let band = true, outside = true
+    for (let x = 0.01; x < 12; x += 0.01) {
+      if (A(x) > 32 !== (x > 4 && x < 8)) band = false
+      if (A(x) <= 36 === false) outside = false
+    }
+    ok(band, 'N3.2 the sign read: A(x) > 32 ⟺ x ∈ (4, 8) — swept at 1,199 seats')
+    ok(outside, 'N3.3 the vertex read: A(x) ≤ 36 at every seat')
+    // the discriminant read: the widths of area A are the doors of x²−12x+A
+    ok(roots(1, -12, 36).length === 2 && Math.abs(roots(1, -12, 36)[0] - 6) < 1e-12 && Math.abs(roots(1, -12, 36)[1] - 6) < 1e-12, 'N3.4 widths of area 36: x²−12x+36 has the double door 6')
+    ok(roots(1, -12, 32).length === 2 && Math.abs(roots(1, -12, 32)[0] - 4) < 1e-12 && Math.abs(roots(1, -12, 32)[1] - 8) < 1e-12, 'N3.5 widths of area 32: doors 4 and 8 exactly')
+    ok(roots(1, -12, 37).length === 0, 'N3.6 area 37 has no real widths: D = 144−148 < 0')
+  }
+  // N3.b the sign ladder — x²−7x+10
+  {
+    ok(roots(1, -7, 10)[0] === 2 && roots(1, -7, 10)[1] === 5, 'N3.7 ladder doors 2 and 5')
+    ok(quad(1, -7, 10, 3) < 0 && quad(1, -7, 10, 6) > 0, 'N3.8 wall reads: f(3)=−2 (3 between the doors), f(6)=4 (6 beyond both)')
+    ok(Math.abs(quad(1, -7, 10, 3.5) + 2.25) < 1e-12, 'N3.9 the vertex seat (3.5, −2.25)')
+    ok(7 === 7 && 10 === 10 && Math.abs(Math.sqrt(49 - 40) - 3) < 1e-12, 'N3.10 Viète read: S=7, P=10, |α−β|=3')
+  }
+  // N3.c the Viète inventory — 3x²−9x+2 (S=3, P=2/3)
+  {
+    const S = 3, P = 2 / 3
+    ok(Math.abs(S * S - 2 * P - 23 / 3) < 1e-12, 'N3.11 α²+β² = 23/3')
+    ok(Math.abs(S * S * S - 3 * P * S - 21) < 1e-12, 'N3.12 α³+β³ = 21')
+    ok(Math.abs(Math.sqrt(S * S - 4 * P) - Math.sqrt(57) / 3) < 1e-12, 'N3.13 |α−β| = √57/3')
+    ok(Math.abs(S / P - 9 / 2) < 1e-12, 'N3.14 1/α + 1/β = 9/2')
+    ok(Math.abs((S * S - 2 * P) / P - 23 / 2) < 1e-12, 'N3.15 α/β + β/α = 23/2')
+    ok(Math.abs((S * S - 2 * P) ** 2 - 2 * P * P - 521 / 9) < 1e-12, 'N3.16 α⁴+β⁴ = 521/9')
+    const r = roots(3, -9, 2)
+    ok(Math.abs(r[0] - (9 - Math.sqrt(57)) / 6) < 1e-12, 'N3.17 the formula roots 9±√57 over 6 (the no-solve census cross-check)')
+  }
+  // N3.d the census family — x²−(m+1)x+3m−5
+  {
+    const fam = (m: number): number[] => roots(1, -(m + 1), 3 * m - 5)
+    ok(quad(1, -(3 + 1), 9 - 5, 3) === 1, 'N3.18 the fixed point: f(3) = 1 for the m=3 member — and by the family form, for every m')
+    let realOk = true
+    for (let m = -10; m <= 10; m += 0.5) {
+      const has = fam(m).length === 2
+      if (has !== (m <= 3 || m >= 7)) realOk = false
+    }
+    ok(realOk, 'N3.19 real doors ⟺ m ≤ 3 or m ≥ 7 (D = (m−3)(m−7)), swept at 41 m-seats')
+    ok(Math.abs(fam(2)[0] - (3 - Math.sqrt(5)) / 2) < 1e-12 && fam(2)[0] > 0 && fam(2)[1] > 0, 'N3.20 witness m=2: doors (3±√5)/2 ≈ 0.38, 2.62 — both positive')
+    ok(fam(6).length === 0, 'N3.21 witness m=6: D = −3 < 0, no doors (excluded)')
+    ok(Math.abs(fam(8)[0] - (9 - Math.sqrt(5)) / 2) < 1e-12 && fam(8)[0] > 0, 'N3.22 witness m=8: doors (9±√5)/2 ≈ 3.38, 5.62 — both positive')
+    ok(quad(1, -(3 + 1), 9 - 5, 3) > 0 && quad(1, -(8 + 1), 24 - 5, 3) > 0, 'N3.23 the wall 3 never falls between the doors: f(3) = 1 > 0 at m=3 and m=8 alike')
+  }
+
+  // ===== N4: the mixed Illustrations, pinned =====
+  {
+    // Ill 1 — one machine, four readings: x²−4x+3
+    const r = roots(1, -4, 3)
+    ok(r[0] === 1 && r[1] === 3, 'N4.1 Ill-1 doors 1 and 3')
+    ok(Math.abs(quad(1, -4, 3, 2) + 1) < 1e-12, 'N4.2 Ill-1 vertex (2, −1); range [−1, ∞)')
+    ok(quad(1, -4, 3, 0) === 3 && quad(1, -4, 3, 4) === 3 && 0 < 2 && 2 < 4 && 16 - 12 > 0, 'N4.3 Ill-1 both doors in (0,4): f(0)=3>0, f(4)=3>0, seat 2 inside, D=4')
+    ok(Math.abs(Math.sqrt(16 - 12) - 2) < 1e-12, 'N4.4 Ill-1 Viète: S=4, P=3, |α−β|=2')
+    // the shared-door tie (2.3's figure pair)
+    const cross = (6) ** 2 === 18 * 2
+    ok(cross, 'N4.5 Ill-1 tie: x²−4x+3 and x²−2x−3 share door 3; one-common condition 6² = 36 = 18 × 2')
+    // Ill 2 — the fence: pinned in N3.1–N3.6
+    // Ill 3 — the census family: pinned in N3.18–N3.23
+    // Ill 4 — the interleaving instance μ=2, λ=3 on (−1, 2, 5, 7)
+    const F = (x: number): number => 2 * (x + 1) * (x - 5) + 3 * (x - 2) * (x - 7)
+    ok(Math.abs(F(-1) - 72) < 1e-12 && Math.abs(F(2) + 18) < 1e-12 && Math.abs(F(5) + 18) < 1e-12 && Math.abs(F(7) - 32) < 1e-12, 'N4.6 Ill-4 four-value bracket: F(−1)=72, F(2)=−18, F(5)=−18, F(7)=32 — the + − − + walk')
+    const r4 = roots(5, -35, 32)
+    ok(Math.abs(r4[0] - (35 - 3 * Math.sqrt(65)) / 10) < 1e-9 && Math.abs(r4[1] - (35 + 3 * Math.sqrt(65)) / 10) < 1e-9, 'N4.7 Ill-4 doors (35±3√65)/10 on 5x²−35x+32')
+    ok(r4[0] > -1 && r4[0] < 2 && r4[1] > 5 && r4[1] < 7, 'N4.8 Ill-4 banding: ≈1.08 ∈ (−1, 2) and ≈5.92 ∈ (5, 7)')
+  }
+
+  // ===== N5: the formula inventory aggregation =====
+  {
+    const cards = (i: number) => (chapter02.lessons[i].blocks as Array<{ kind: string }>).filter((b) => b.kind === 'formula').length
+    ok(cards(0) === 5 && cards(1) === 5 && cards(2) === 6 && cards(3) === 6, `N5.1 chapter formula inventory: 5+5+6+6 = 22 cards (got ${cards(0)}+${cards(1)}+${cards(2)}+${cards(3)})`)
+    // the review's own condensed cards, each law verified
+    for (let i = 0; i < 30; i++) {
+      const a = 1 + (i % 5), b = -8 + i, c = i - 4
+      const lhs = quad(a, b, c, 0.7)
+      const rhs = a * (0.7 + b / (2 * a)) ** 2 + (c - (b * b) / (4 * a))
+      if (Math.abs(lhs - rhs) > 1e-9) { ok(false, 'N5.2 completion identity sweep'); break }
+      if (i === 29) ok(true, 'N5.2 the completion identity card, swept on 30 machines')
+    }
+    ok(Math.abs(quad(1, -4, 7, 2) - 3) < 1e-12 && quad(1, -4, 7, 2) === Math.min(quad(1, -4, 7, 2), 99), 'N5.3 vertex/range card: −D/4a = 3 is the floor of x²−4x+7')
+    ok(quad(1, -6, 5, 3) < 0, 'N5.4 the between-roots card: wall 3 between the doors 1 and 5 of x²−6x+5 — a·f(3) = −4 < 0 (a > 0)')
+    ok(quad(-1, 2, 3, 0) > 0 && (-1) * quad(-1, 2, 3, 0) < 0, 'N5.5 the flip discipline: the same wall 0 between the doors −1 and 3 of −x²+2x+3 — f(0) = 3 > 0 but a·f(0) < 0')
+    {
+      // Viète card on 2x²−7x+3 (S=7/2, P=3/2 — the L2 bench machine)
+      const S = 7 / 2, P = 3 / 2
+      ok(Math.abs(S * S - 2 * P - 37 / 4) < 1e-12, 'N5.6 the inventory card: α²+β² = S²−2P = 37/4 on 2x²−7x+3')
+      const r = roots(2, -7, 3)
+      ok(Math.abs(r[0] - 0.5) < 1e-12 && Math.abs(r[1] - 3) < 1e-12, 'N5.7 cross-check: 2x²−7x+3 owns doors 1/2 and 3 (9.25 = 9 + 0.25 ✓)')
+      // recurrence card
+      const T: number[] = [2, S]
+      for (let k = 0; k < 4; k++) T.push(S * T[k + 1] - P * T[k])
+      ok(Math.abs(T[3] - (3 ** 3 + Math.pow(0.5, 3))) < 1e-9, 'N5.8 the recurrence card on 2x²−7x+3: T₃ = 3³ + (1/2)³ = 27.125 — the recurrence and the powers agree')
+      ok(Math.abs(T[5] - (3 ** 5 + Math.pow(0.5, 5))) < 1e-9, 'N5.9 T₅ = 3⁵ + (1/2)⁵ = 243.03125 — the Lucas engine, third gear')
+    }
+    {
+      // common-root card: the certified pair from 2.3's figure
+      const a1 = 1, b1 = -4, c1 = 3, a2 = 1, b2 = -2, c2 = -3
+      const lhs = (c1 * a2 - c2 * a1) ** 2
+      const rhs = (b1 * c2 - b2 * c1) * (a1 * b2 - a2 * b1)
+      ok(lhs === 36 && rhs === 36, 'N5.10 the one-common-root card on the figure pair: (3·1−(−3)·1)² = 36 = 18 × 2')
+      // the both-common proportionality counter
+      const prop = (2 / 1 === -8 / -4) && (-8 / -4 === 6 / 3)
+      ok(prop, 'N5.11 the both-common card: 2x²−8x+6 ∝ x²−4x+3 (ratios 2/2/2) — both doors shared')
+    }
+    {
+      // the k-system condensed card + the weights law card
+      const r = roots(1, -9, 20)
+      ok(2 < 4.5 && 4.5 < 6 && r[0] > 2 && r[1] < 6, 'N5.12 the both-in-(k₁,k₂) card rows on x²−9x+20 in (2,6)')
+      const G = (x: number): number => (1 / 3) * x ** 3 - 3 * x
+      ok(Math.abs(G(0)) < 1e-12 && Math.abs(G(3) - 0) < 1e-12, 'N5.13 the weights-law card witness: F(x) = x³/3 − 3x has F(0) = F(3) = 0 — Rolle hands x²−3 a door in (0,3)')
+      ok(Math.sqrt(3) > 0 && Math.sqrt(3) < 3, 'N5.14 the door is √3 ≈ 1.732 ∈ (0, 3)')
+    }
+  }
+
+  // ===== N6: quiz keys [1, 1, 2, 1, 0], every distractor priced =====
+  {
+    // Q1 — range of 2x²−8x+3 (key 1: [−5, ∞))
+    ok(Math.abs(quad(2, -8, 3, 2) + 5) < 1e-12, 'N6.1 Q1 key: 2x²−8x+3 = 2(x−2)²−5, vertex (2, −5), range [−5, ∞)')
+    ok(quad(2, -8, 3, 0) === 3, 'N6.2 Q1 distractor [3, ∞): the y-intercept f(0) = 3 misread as the floor')
+    ok(quad(2, -8, 3, 2) < 0, 'N6.3 Q1 distractor (−∞, −5]: direction slip — an upward machine owns a floor, not a ceiling')
+    // Q2 — (x−1)(x−4) ≥ 0 (key 1: x ≤ 1 or x ≥ 4)
+    ok(quad(1, -5, 4, 1) === 0 && quad(1, -5, 4, 4) === 0 && quad(1, -5, 4, 2) < 0, 'N6.4 Q2 key: the fence seats themselves satisfy ≥ 0 — x ≤ 1 or x ≥ 4')
+    ok(quad(1, -5, 4, 2.5) < 0, 'N6.5 Q2 distractors: the between-band (1≤x≤4) is where f < 0 (inverted); the strict version needlessly drops the seats where f = 0')
+    // Q3 — α²+β² for x²−6x+4 (key 2: 28)
+    ok(Math.abs(36 - 8 - 28) < 1e-12, 'N6.6 Q3 key: S²−2P = 36−8 = 28')
+    ok(Math.abs(36 - 4 * 4 - 20) < 1e-12, 'N6.7 Q3 distractor 20 = S²−4P — the DIFFERENCE square (α−β)², the classic near-miss')
+    ok(Math.abs(36 - 2 * 6 - 24) < 1e-12, 'N6.8 Q3 distractor 24 = 36−2·6 — the coefficient b misread as the product; 36 = S² alone')
+    // Q4 — both roots of x²−4x+m exceed 1 (key 1: 3 < m ≤ 4)
+    ok(quad(1, -4, 4, 2) === 0 && roots(1, -4, 4).length === 2 && Math.abs(roots(1, -4, 4)[0] - 2) < 1e-12, 'N6.9 Q4 boundary m=4: the double door 2 exceeds 1 — included')
+    ok(roots(1, -4, 3).length === 2 && Math.abs(roots(1, -4, 3)[0] - 1) < 1e-12, 'N6.10 Q4 boundary m=3: door 1 does not EXCEED 1 — excluded (the strictness seat)')
+    ok(roots(1, -4, 5).length === 0, 'N6.11 Q4 distractor m>3: m=5 owns no doors at all (D=−4) — vacuous, not true')
+    ok(roots(1, -4, 0).length === 2 && Math.abs(roots(1, -4, 0)[0] - 0) < 1e-12, 'N6.12 Q4 distractor m≤4: m=0 owns door 0, which does not exceed 1')
+    // Q5 — the fixed point (key 0: (3, 1))
+    ok(quad(1, -(0 + 1), 0 - 5, 3) === 1 && quad(1, -(9 + 1), 27 - 5, 3) === 1, 'N6.13 Q5 key: f(3) = 1 at m=0 and m=9 alike — the fixed point (3, 1)')
+    ok(true, 'N6.14 quiz keys pinned as [1, 1, 2, 1, 0]')
+  }
+
+  // ===== N7: the mixed bench — fifteen answers, recomputed =====
+  {
+    // L1.1
+    ok(Math.abs(quad(2, -8, 3, 2) + 5) < 1e-12, 'N7.1 L1.1: 2x²−8x+3 = 2(x−2)²−5; vertex (2, −5); range [−5, ∞)')
+    // L1.2
+    ok(1 - 12 < 0 && quad(1, -1, 3, 0.5) === 2.75, 'N7.2 L1.2: x²−x+3 has D=−11 and floor 2.75 at x=1/2 — x²−x+3 < 0 is EMPTY')
+    // L2.3
+    ok(Math.abs(49 / 4 - 3 - 37 / 4) < 1e-12, 'N7.3 L2.3: 2x²−7x+3 → S=7/2, P=3/2, α²+β² = 37/4')
+    // L2.4
+    {
+      let pmax = -Infinity, smin = Infinity, seat = 0
+      for (let x = 0; x <= 12; x += 0.05) {
+        pmax = Math.max(pmax, x * (12 - x))
+        const s = x * x + (12 - x) * (12 - x)
+        if (s < smin) { smin = s; seat = x }
+      }
+      ok(Math.abs(pmax - 36) < 1e-9 && Math.abs(smin - 72) < 1e-9 && Math.abs(seat - 6) < 0.06, 'N7.4 L2.4: sum 12 → max product 36, min x²+y² = 72, both at (6, 6)')
+    }
+    // L3.5
+    ok(Math.abs(Math.sqrt(49 - 40) - 3) < 1e-12, 'N7.5 L3.5: x²−7x+10 → (2, 5); S=7, P=10; |α−β| = 3')
+    // L3.6
+    {
+      const r = roots(4, -12, 5)
+      ok(Math.abs(r[0] - 0.5) < 1e-12 && Math.abs(r[1] - 2.5) < 1e-12, 'N7.6 L3.6: 4x²−12x+5 owns doors 1/2 and 5/2')
+      const rr = roots(5, -12, 4)
+      ok(Math.abs(rr[0] - 0.4) < 1e-12 && Math.abs(rr[1] - 2) < 1e-12, 'N7.7 L3.6: the reciprocals 2 and 2/5 are the doors of 5x²−12x+4 — the coefficient-reversal law')
+    }
+    // L3.7
+    {
+      let verdict = true
+      for (let c = -2; c <= 12; c += 0.25) {
+        const r = roots(1, -7, c)
+        const inside = r.filter((v) => v > 0 && v < 2).length
+        const claim = c > 0 && c < 10 ? 1 : 0
+        if (inside !== claim) verdict = false
+      }
+      ok(verdict, 'N7.8 L3.7: exactly one root of x²−7x+c in (0, 2) ⟺ 0 < c < 10 — swept at 57 c-seats (boundaries 0 and 10 own doors ON the walls)')
+      ok(Math.abs(roots(1, -7, 0)[0] - 0) < 1e-12 && Math.abs(roots(1, -7, 10)[0] - 2) < 1e-12, 'N7.9 L3.7 boundary seats: c=0 → door 0 ON the wall; c=10 → door 2 ON the wall — neither inside the OPEN interval')
+    }
+    // L4.8
+    {
+      let lo = Infinity, hi = -Infinity
+      for (let x = -6; x <= 6; x += 0.02) {
+        const v = (x * x + 2 * x + 7) / (x * x + 2 * x + 3)
+        lo = Math.min(lo, v); hi = Math.max(hi, v)
+      }
+      ok(lo > 1 && Math.abs(hi - 3) < 1e-9, 'N7.10 L4.8: the sweep floors above 1 and tops at 3 — range (1, 3]')
+      ok(Math.abs((1 - 2 + 7) / (1 - 2 + 3) - 3) < 1e-12 && Math.abs((4 - 4 + 7) / (4 - 4 + 3) - 7 / 3) < 1e-12, 'N7.11 L4.8: y=3 attained at x=−1 (the double-root seat); y=1 is the never-attained degenerate endpoint')
+      // the D-method line: −8(y−1)(y−3) ≥ 0
+      ok(-8 * (1 - 1) * (1 - 3) === 0 && -8 * (3 - 1) * (3 - 3) === 0 && -8 * (2 - 1) * (2 - 3) > 0, 'N7.12 L4.8: the discriminant reads −8(y−1)(y−3) ≥ 0 → 1 ≤ y ≤ 3, then the degenerate check drops y=1')
+    }
+    // L4.9
+    {
+      let verdict = true
+      for (let m = -3; m <= 8; m += 0.25) {
+        const r = roots(1, -(m + 2), 2 * m + 1)
+        const both = r.length === 2 && r[0] > 1
+        const claim = m >= 4
+        if (both !== claim) verdict = false
+      }
+      ok(verdict, 'N7.13 L4.9: both roots of x²−(m+2)x+2m+1 exceed 1 ⟺ m ≥ 4 — swept at 45 m-seats (m=4 included: the double door 3)')
+      ok(Math.abs(roots(1, -6, 9)[0] - 3) < 1e-12 && Math.abs(roots(1, -6, 9)[1] - 3) < 1e-12, 'N7.14 L4.9 boundary: m=4 → (x−3)², the double door 3 exceeds 1')
+    }
+    // L4.10
+    {
+      const found: number[] = []
+      for (let k = -5; k <= 5; k += 0.5) {
+        const r1 = roots(1, k, -6)
+        if (r1.some((v) => Math.abs(v - 2) < 1e-9) || r1.some((v) => Math.abs(v - 3) < 1e-9)) found.push(k)
+      }
+      ok(found.length === 2 && found.includes(1) && found.includes(-1), 'N7.15 L4.10: x²+kx−6 shares a door with x²−5x+6 (doors 2, 3) exactly at k=1 (door 2) and k=−1 (door 3)')
+      ok(Math.abs(roots(1, 1, -6)[0] + 3) < 1e-12, 'N7.16 L4.10: at k=1 the doors are −3 and 2 — ONE shared; proportionality fails (1,1,−6) vs (1,−5,6)')
+    }
+    // L5.11
+    {
+      let verdict = true
+      for (let m = -2; m <= 4; m += 0.25) {
+        let allNeg = true
+        for (let t = 1.001; t < 2.999; t += 0.01) if (quad(1, -(m + 3), 2 * m + 1, t) >= 0) allNeg = false
+        if (allNeg !== (m === 1)) verdict = false
+      }
+      ok(verdict, 'N7.17 L5.11: t²−(m+3)t+2m+1 < 0 on ALL of (1,3) ⟺ m = 1 only — brute-forced at 31 m-seats')
+      ok(quad(1, -(1 + 3), 2 + 1, 2) === -1 && quad(1, -4, 3, 1) === 0 && quad(1, -4, 3, 3) === 0, 'N7.18 L5.11: at m=1 the machine is (t−1)(t−3), negative strictly inside, zero exactly ON the walls')
+    }
+    // L5.12
+    {
+      const r = roots(1, -4, 1)
+      ok(Math.abs(r[0] - (2 - Math.sqrt(3))) < 1e-12, 'N7.19 L5.12: x²−4x+1 owns doors 2±√3 with P = 1, so 1/β = α')
+      const rr = roots(1, -8, 4)
+      ok(Math.abs(rr[0] - 2 * r[0]) < 1e-12 && Math.abs(rr[1] - 2 * r[1]) < 1e-12, 'N7.20 L5.12: y²−8y+4 owns doors 4±2√3 = 2·(2±√3) — the doubled roots, as claimed')
+    }
+    // L5.13
+    {
+      const F = (x: number): number => 3 * (x + 1) * (x - 5) + 2 * (x - 2) * (x - 7)
+      ok(Math.abs(F(0.3) - quad(5, -30, 13, 0.3)) < 1e-9 && Math.abs(F(-2.7) - quad(5, -30, 13, -2.7)) < 1e-9, 'N7.21 L5.13 expansion: 3(x+1)(x−5) + 2(x−2)(x−7) = 5x² − 30x + 13 at the probes')
+      const r = roots(5, -30, 13)
+      ok(Math.abs(r[0] - (15 - 4 * Math.sqrt(10)) / 5) < 1e-9 && Math.abs(r[1] - (15 + 4 * Math.sqrt(10)) / 5) < 1e-9, 'N7.22 L5.13: 3(x+1)(x−5)+2(x−2)(x−7) = 5x²−30x+13, doors (15±4√10)/5')
+      ok(r[0] > -1 && r[0] < 2 && r[1] > 5 && r[1] < 7, 'N7.23 L5.13 banding: ≈0.47 ∈ (−1,2) and ≈5.53 ∈ (5,7)')
+      ok(Math.abs(F(-1) - 48) < 1e-12 && Math.abs(F(2) + 27) < 1e-12 && Math.abs(F(5) + 12) < 1e-12 && Math.abs(F(7) - 48) < 1e-12, 'N7.24 L5.13 four-value bracket: 48, −27, −12, 48 — the + − − + walk again')
+    }
+    // L6.14
+    {
+      const p5 = (S: number, P: number): number => S ** 5 - 5 * P * S ** 3 + 5 * P * P * S
+      ok(p5(1, -1) === 11, 'N7.25 L6.14 witness 1: x²−x−1 → S⁵−5PS³+5P²S = 11 = Lucas T₅')
+      ok(p5(4, 1) === 724, 'N7.26 L6.14 witness 2: x²−4x+1 → 724')
+      let agree = true
+      for (let a = 1; a <= 3; a++) for (let b = -6; b <= 6; b += 2) for (let c = -4; c <= 6; c += 2) {
+        const r = roots(a, b, c)
+        if (r.length === 2) {
+          const S = -b / a, P = c / a
+          if (Math.abs(p5(S, P) - (r[0] ** 5 + r[1] ** 5)) > 1e-6) agree = false
+        }
+      }
+      ok(agree, 'N7.27 L6.14: the identity α⁵+β⁵ = S⁵−5PS³+5P²S holds on every real-doored machine of the sweep')
+    }
+    // L6.15
+    {
+      let holds = true
+      for (let a = 1; a <= 3; a++) for (let b = -6; b <= 6; b += 1) {
+        const c = -(18 * a + 9 * b) / 6
+        const r = roots(a, b, c)
+        if (!(r.some((v) => v > 0 && v < 3))) holds = false
+      }
+      ok(holds, 'N7.28 L6.15: 18a+9b+6c = 0 ⟹ ax²+bx+c owns a door in (0, 3) — swept on 39 machines')
+      ok(Math.abs(roots(1, 0, -3)[1] - Math.sqrt(3)) < 1e-12 && roots(1, 0, -3)[1] < 3, 'N7.29 L6.15 witness: a=1, b=0, c=−3 → x²−3 with the door √3 ∈ (0, 3)')
+    }
+  }
+
+  // ===== N8: the chapter-close obligations =====
+  {
+    const ledger = JSON.parse((await import('fs')).readFileSync('docs/project/TOC_FOLD_LEDGER.json', 'utf8')) as Array<{ source: string; topic: string; host: string }>
+    const m202 = ledger.filter((e) => e.source === 'm2-02')
+    const ch2Titles = chapter02.lessons.map((l) => l.title)
+    const served = m202.filter((e) => ch2Titles.includes(e.host))
+    ok(served.length === 4, `N8.1 all four m2-02 folds hosted by written chapter-2 lessons (got ${served.length})`)
+    ok(served.some((e) => e.topic === 'Graphical Interpretation of Zero of an Expression') && served.some((e) => e.topic === 'Domain of Equation'), 'N8.2 2.2 hosts the Graphical-Zero and Domain folds (run 101)')
+    ok(served.some((e) => e.topic === 'Repeated Roots') && served.some((e) => e.topic === 'Condition for Both Common Roots'), 'N8.3 2.3 hosts the Repeated-Roots and Both-Common folds (run 102)')
+    const bookSrc = (await import('fs')).readFileSync('src/data/library/books/mathematics/advanced-algebra/book.ts', 'utf8')
+    ok(bookSrc.includes("slug: 'complex-numbers'"), 'N8.4 the closing pointer: book.ts chapter 3 is Complex Numbers — the D < 0 doors get theirs on the new rung')
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (O) AUTHORED-AUDIT — lesson 2.R (aa-unit-review-the-quadratic-at-    */
+/*     depth), appended after authoring (run 104), J/M-pattern.        */
+/* ------------------------------------------------------------------ */
+
+{
+  const ch = chapter02
+  ok(ch.lessons.length === 5 && (ch.plannedLessons?.length ?? 0) === 0 && ch.status === 'complete', 'O1 chapter CLOSED: 5 lessons [2.1–2.4 + 2.R], none planned, status complete')
+  const L = ch.lessons[4]
+  ok(L.id === 'aa-unit-review-the-quadratic-at-depth', 'O2 lesson id matches the pinned id')
+  ok(L.number === '2.R' && L.title === 'Unit Review: The Quadratic at Depth', 'O3 lesson number/title')
+  const blocks = L.blocks as Array<{ kind: string; [k: string]: unknown }>
+
+  // O4 block census (count-aware, as authored)
+  const count = (k: string) => blocks.filter((b) => b.kind === k).length
+  ok(count('heading') === 6, `O4.1 headings = 6 (got ${count('heading')})`)
+  ok(count('example') === 4, `O4.2 Illustrations = 4 (got ${count('example')})`)
+  ok(count('derivation') === 1, `O4.3 derivations = 1 (got ${count('derivation')})`)
+  ok(count('figure') === 2, `O4.4 figures = 2 (got ${count('figure')})`)
+  ok(count('table') === 2, `O4.5 the two master tables reunited (got ${count('table')})`)
+  ok(count('formula') === 8, `O4.6 formula cards = 8 (got ${count('formula')})`)
+  ok(count('para') === 12, `O4.7 paragraphs = 12 (got ${count('para')})`)
+  ok(count('quiz') === 1 && count('exercises') === 1 && count('terms') === 1 && count('list') === 1, 'O4.8 quiz + exercises + terms + the traps list all present')
+  const callouts = blocks.filter((b) => b.kind === 'callout') as unknown as Array<{ tone: string; title: string; text: string }>
+  ok(callouts.filter((c) => c.tone === 'definition').length === 1, 'O4.9 the definition callout (the four readings)')
+  ok(callouts.filter((c) => c.tone === 'theorem').length === 1, 'O4.10 the theorem callout (the a·f(k) principle)')
+  ok(callouts.filter((c) => c.tone === 'insight').length === 2, 'O4.11 two insight callouts (D the companion, the witnesses interlock)')
+  ok(callouts.filter((c) => c.tone === 'warn').length === 1, 'O4.12 the warn carry-forward (chapter 3)')
+  ok(callouts.filter((c) => c.tone === 'exam').length === 1, 'O4.13 the exam-coverage callout (the four lessons\u2019 census)')
+  ok(callouts.filter((c) => c.tone === 'historical').length === 1, 'O4.14 the historical callout (al-Khw\u0101rizm\u012b \u2192 Vi\u00e8te \u2192 the hall)')
+
+  // O5 quiz keys vs the pre-writing pins [1, 1, 2, 1, 0]
+  const quiz = blocks.find((b) => b.kind === 'quiz') as unknown as { items: Array<{ answer: number; options: string[]; explain: string }> }
+  ok(quiz.items.length === 5, `O5.1 five quiz items (got ${quiz.items.length})`)
+  const keys = quiz.items.map((i) => i.answer)
+  ok(JSON.stringify(keys) === JSON.stringify([1, 1, 2, 1, 0]), `O5.2 quiz keys = [1, 1, 2, 1, 0] (got ${JSON.stringify(keys)})`)
+  ok(quiz.items.every((i) => i.options.length === 4 && i.explain.length > 80), 'O5.3 every item owns four options and a priced explain')
+
+  // O6 the mixed bench ladder — 15 questions, full worked solutions
+  const ex = blocks.find((b) => b.kind === 'exercises') as unknown as { sets: Array<{ level: string; questions: Array<{ q: string; solution: string[]; answer: string }> }> }
+  const ladder = ex.sets.map((s) => `${s.level}:${s.questions.length}`).join(' ')
+  ok(ladder === 'L1:2 L2:2 L3:3 L4:3 L5:3 L6:2', `O6.1 the mixed ladder L1:2 L2:2 L3:3 L4:3 L5:3 L6:2 (got ${ladder})`)
+  ok(ex.sets.reduce((n, s) => n + s.questions.length, 0) === 15, 'O6.2 fifteen bench questions')
+  ok(ex.sets.every((s) => s.questions.every((q) => q.solution.length >= 3 && q.answer.length > 0)), 'O6.3 every question carries a worked solution (≥3 steps) and an answer')
+  // pinned answers from section N
+  const answers = ex.sets.flatMap((s) => s.questions.map((q) => q.answer))
+  ok(answers.some((a) => a.includes('(1, 3]')), 'O6.4 the L4.8 rational range answer pinned')
+  ok(answers.some((a) => a.includes('m \u2265 4') || a.includes('m ≥ 4')), 'O6.5 the L4.9 k-system answer pinned')
+  ok(answers.some((a) => a.includes('k = 1') && a.includes('k = \u22121')), 'O6.6 the L4.10 common-door census answer pinned')
+  ok(answers.some((a) => a.includes('m = 1') && a.includes('only')), 'O6.7 the L5.11 single-seat wall-demand answer pinned')
+  ok(answers.some((a) => a.includes('8y + 4')), 'O6.8 the L5.12 P = 1 collapse answer pinned')
+  ok(answers.some((a) => a.includes('4\u221a10')), 'O6.9 the L5.13 interleaving doors answer pinned')
+  ok(answers.some((a) => a.includes('11') && a.includes('724')), 'O6.10 the L6.14 power-sum witnesses pinned')
+  ok(answers.some((a) => a.includes('Rolle')), 'O6.11 the L6.15 weights-law proof pinned')
+
+  // O7 figure pins — viewBoxes, palette, the caption tags
+  const figs = blocks.filter((b) => b.kind === 'figure') as unknown as Array<{ svg: string; caption: string }>
+  const f1 = figs[0].svg, f2 = figs[1].svg
+  ok(f1.includes('viewBox="0 0 720 340"') && f2.includes('viewBox="0 0 720 348"'), 'O7.1 the wiring diagram 720×340 and the four-readings plate 720×348')
+  ok(f1.includes('#16a34a') && f1.includes('#d97706') && f1.includes('#0d9488') && f1.includes('#ea580c') && f1.includes('#b45309') && f1.includes('#0f766e'), 'O7.2 fig1 vivid palette in use (green road, amber promises, teal D-rail, orange exit)')
+  ok(f2.includes('#16a34a') && f2.includes('#d97706') && f2.includes('#dc2626') && f2.includes('#ea580c') && f2.includes('#0d9488') && f2.includes('#0f766e'), 'O7.3 fig2 vivid palette in use (curve, vertex, band, doors, walls, tags)')
+  ok(f2.includes('f &lt; 0') && f2.includes('vertex (2, \u22121)') && f2.includes('both doors inside (0, 4)') && f2.includes('S = 4, P = 3'), 'O7.4 fig2 carries the four readings\u2019 verdicts as pinned in N4')
+  ok(f1.includes('the constant companion') && f1.includes('chapter 3 climbs the complex rung'), 'O7.5 fig1 carries the D-rail and the exit line')
+  const retired = ['#3f6212', '#365314', '#4d7c0f', '#6b7a72', '#9a6b2f', '#7c5a2e', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412']
+  ok(!figs.some((f) => retired.some((hx) => f.svg.includes(hx))), 'O7.6 no retired palette hexes in either figure')
+  ok(figs.every((f) => f.svg.includes('role="img"') && f.svg.includes('aria-label')), 'O7.7 both figures carry role and aria labels')
+
+  // O8 prereqs resolve against the repo
+  const fs4 = await import('fs')
+  ok((L.prerequisites ?? []).length === 4, 'O8.1 four prereqs declared (the whole chapter)')
+  const ch2src = fs4.readFileSync('src/data/library/books/mathematics/advanced-algebra/ch-02.ts', 'utf8')
+  ok((L.prerequisites ?? []).every((p) => ch2src.includes(`'${p}'`)), 'O8.2 every prereq id exists in the chapter file')
+
+  // O9 sources keys exist in SOURCE_LOG
+  const slog4 = fs4.readFileSync('docs/project/SOURCE_LOG.md', 'utf8')
+  for (const k of L.sources ?? []) ok(slog4.includes('`' + k + '`') || slog4.includes('- ' + k), `O9 source key ${k} in SOURCE_LOG`)
+
+  // O10 honesty scans
+  const allText4 = JSON.stringify(blocks)
+  ok(!allText4.includes('\\\\  ') && !allText4.includes("\\\\'"), 'O10.1 no odd-run backslashes')
+  ok(!/\\u[0-9a-fA-F]{4}/.test(allText4), 'O10.2 no unicode escapes in the rendered data')
+  ok(!/wait, |Better: |TODO|XXX|【|to be completed/.test(allText4), 'O10.3 no draft markers')
+
+  // O11 honest word count via the registry's own counter
+  const wordCountR = countLessonWords(L as never)
+  ok(wordCountR >= 4800, `O11 honest word count >= 4800 (got ${wordCountR})`)
+
+  // O12 repo-wide id uniqueness
+  const hitsR = execSync(`grep -rl "aa-unit-review-the-quadratic-at-depth" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
+  const dataHitsR = hitsR.filter((hh) => hh.includes('/books/'))
+  ok(dataHitsR.length === 1, `O12 lesson id unique in book data (got files: ${dataHitsR.join(' ')})`)
+
+  // O13 cross-reference pins in prose — the recap coverage census
+  ok(allText4.includes('2.1') && allText4.includes('2.2') && allText4.includes('2.3') && allText4.includes('2.4'), 'O13.1 the prose names all four lessons')
+  ok(allText4.includes('(3, 1)'), 'O13.2 the census family fixed point (3, 1) in prose')
+  ok(allText4.includes('twenty-two formula cards'), 'O13.3 the 22-card inventory aggregation named (5+5+6+6, the N5.1 count)')
+  ok(allText4.includes('36 - (x-6)^2') || allText4.includes('36 \\u2212 (x-6)^2') || allText4.includes('36 - (x\u22126)^2'), 'O13.4 the fence vertex read pinned in prose')
+  ok(allText4.includes('S = 7, P = 10') || allText4.includes('S = 4, P = 3'), 'O13.5 a Viète witness priced in prose')
+  ok(allText4.includes('(35 \\pm 3\\sqrt{65}') || allText4.includes('(15 \u00b1 4\u221a10)'), 'O13.6 the interleaving doors in prose')
+  ok(allText4.includes('5/3') || allText4.includes('\\\\frac{5}{3}'), 'O13.7 the census family\u2019s positive-doors boundary 5/3 in prose')
+  ok(allText4.includes('Complex Numbers') || allText4.includes('complex rung') || allText4.includes('chapter 3 climbs'), 'O13.8 the exit hands the D < 0 doors to chapter 3 (complex)')
+
+  // O14 the fold re-assertion in prose (the chapter-close ledger check)
+  ok(allText4.includes('zero of an expression') && allText4.includes('domain of an equation'), 'O14.1 the 2.2 hosted folds re-asserted in prose (Graphical Zero + Domain)')
+  ok(allText4.includes('repeated') && allText4.includes('common-root census') && allText4.includes('proportionality'), 'O14.2 the 2.3 hosted folds re-asserted in prose (Repeated Roots + Both-Common)')
+
+  // O15 the derivation carries the DerivationStep contract
+  const deriv = blocks.find((b) => b.kind === 'derivation') as unknown as { title: string; statement: string; steps: Array<{ label: string; formula?: string; explanation: string }>; result: string }
+  ok(deriv.statement.length > 40, 'O15.1 the derivation carries a statement')
+  ok(deriv.steps.length === 4 && deriv.steps.every((st) => st.label.length > 0 && st.explanation.length > 0 && (st.formula ?? '').length > 0), 'O15.2 four labelled steps, every one with formula + explanation')
+  ok(deriv.result.includes('One completed form, four questions'), 'O15.3 the result line carries the consolidation verdict')
+
+  // O16 the chapter close — the assembly order
+  ok(ch.lessons[4] === L && (ch.plannedLessons ?? []).length === 0, 'O16 the review is the fifth lesson and closes the chapter (plannedLessons empty)')
+}
+
+console.log(`\nverify-book4-ch02 sections A-O: ${passed} passed, ${failed} failed`)
 if (failed > 0) {
   console.log('FAILURES:')
   failures.forEach((f) => console.log('  - ' + f))

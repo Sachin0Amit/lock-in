@@ -3,6 +3,31 @@ import type { Chapter, Lesson } from '../../../types'
 /**
  * Advanced Algebra — Chapter 2: The Quadratic at Depth
  *
+ * LESSONS WRITTEN: 2.R "Unit Review: The Quadratic at Depth" (run 104 —
+ *                  the chapter CLOSES COMPLETE: 2.1–2.4 + 2.R. Verify-first
+ *                  section N green BEFORE prose (3,278/0 — the two master
+ *                  tables re-swept, the four cross-lesson witnesses
+ *                  re-audited: the fence, the sign ladder, the Viète
+ *                  inventory, the census family; the engines caught four
+ *                  real pin errors pre-prose incl. the chapter's formula
+ *                  inventory being 22 cards, not 21); authored-audit O
+ *                  3,341/0; quiz keys [1, 1, 2, 1, 0]; the 15-part mixed
+ *                  bench L1–L6 with every answer recomputed (the honest
+ *                  single-seat wall demand m = 1, the P = 1 collapse
+ *                  y²−8y+4, the range (1,3] with its degenerate endpoint,
+ *                  the α⁵+β⁵ identity witnessed by 11 and 724, the
+ *                  weights-law proof on (0,3)); 2 figures — the chapter
+ *                  wiring diagram (four readings on the arc road, the two
+ *                  promises, the D rail, the exit to ch. 3) and the
+ *                  one-machine-four-readings plate (x²−4x+3 carrying the
+ *                  vertex, sign, Viète and location verdicts at once); 8
+ *                  formula cards consolidating the 22; the four m2-02
+ *                  folds re-asserted; e2e 45/45 × 3 viewports, overlap
+ *                  0/2 after three real fixes, domvalues CLEAN, VLM PASS
+ *                  on both figures in both themes. The exit hands the
+ *                  D < 0 doors to chapter 3 'Complex Numbers: the New
+ *                  Rung' — never started in the same run.)
+ *
  * LESSONS WRITTEN: 2.3 "Symmetric Reads and Common Roots" (run 102 —
  *                  quiz keys [2, 1, 0, 2, 0], 15 exercises L1–L6, two
  *                  figures — the mirror read of x² − 6x + 5 = 0 (roots 1
@@ -1656,13 +1681,366 @@ const lesson24: Lesson = {
 }
 
 
+/* ------------------------------------------------------------------ */
+/* lesson 2.R figures                                                  */
+/* ------------------------------------------------------------------ */
+
+function chapterArcSvg(): string {
+  // the chapter wiring diagram: four lesson boxes on the arc road, the
+  // two promises below, the D-companion rail, and the exit bar
+  const box = (x: number, head: string, sub: string, l1: string, l2: string, l3: string): string =>
+    `<rect x="${x}" y="48" width="158" height="96" rx="10" fill="#16a34a" fill-opacity="0.06" stroke="#16a34a" stroke-width="1.6"/>` +
+    `<text x="${x + 79}" y="70" font-size="12" font-weight="700" text-anchor="middle" fill="#166534">${head}</text>` +
+    `<text x="${x + 79}" y="88" font-size="10.5" font-style="italic" text-anchor="middle" fill="#65a30d">${sub}</text>` +
+    `<text x="${x + 79}" y="106" font-size="10" text-anchor="middle" fill="currentColor" opacity="0.9">${l1}</text>` +
+    `<text x="${x + 79}" y="122" font-size="10" text-anchor="middle" fill="currentColor" opacity="0.9">${l2}</text>` +
+    `<text x="${x + 79}" y="138" font-size="10" text-anchor="middle" fill="currentColor" opacity="0.9">${l3}</text>`
+  const arrow = (x0: number): string =>
+    `<line x1="${x0}" y1="96" x2="${x0 + 9}" y2="96" stroke="#d97706" stroke-width="2"/>` +
+    `<polygon points="${x0 + 14},96 ${x0 + 7},92.5 ${x0 + 7},99.5" fill="#d97706"/>`
+  return `<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The chapter wiring diagram. Four lesson boxes ride the amber arc road: 2.1 the vertex prices the expression, 2.2 the sign diagram fences it, 2.3 Viète's reads mine the roots, 2.4 the k-system locates them. Two promise nodes below: 2.1's x plus 1 over x at least 2 waits for chapter 4's AM-GM; 2.2's interleaving gem is cashed at depth by 2.4's census. A teal rail records the discriminant as the constant companion across all four lessons, and the orange exit bar hands the negative-discriminant doors to chapter 3's complex rung.">
+  <text x="360" y="24" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the chapter as one machine — the quadratic interrogated four ways</text>
+  ${box(12, '2.1 · the vertex', 'the EXPRESSION priced', 'completion · vertex/range', 'six sign cases · always-sign', 'D-method ranges')}
+  ${arrow(172)}
+  ${box(186, '2.2 · the sign diagram', 'the expression FENCED', 'between-roots law · flips', 'domain of an equation', 'the four-condition bridge')}
+  ${arrow(346)}
+  ${box(360, '2.3 · Viète\u2019s reads', 'the ROOTS mined', 'S, P · the six-read inventory', 'recurrence · transforms', 'repeated · common roots')}
+  ${arrow(520)}
+  ${box(534, '2.4 · the k-system', 'the ROOTS located', 'a·f(k) master table', 'census · bridges · Rolle', 'walls · add-the-walls')}
+  <path d="M91 144 L162 164" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+  <path d="M265 144 L542 164" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+  <rect x="12" y="164" width="300" height="56" rx="8" fill="#d97706" fill-opacity="0.07" stroke="#d97706" stroke-width="1.3"/>
+  <text x="162" y="182" font-size="10.5" font-weight="700" text-anchor="middle" fill="#b45309">the promise forward</text>
+  <text x="162" y="198" font-size="10" text-anchor="middle" fill="currentColor" opacity="0.92">2.1\u2019s x + 1/x \u2265 2 \u2014 chapter 4\u2019s AM\u2013GM</text>
+  <text x="162" y="213" font-size="10" text-anchor="middle" fill="currentColor" opacity="0.92">will re-derive it from a second engine</text>
+  <rect x="392" y="164" width="300" height="56" rx="8" fill="#d97706" fill-opacity="0.07" stroke="#d97706" stroke-width="1.3"/>
+  <text x="542" y="182" font-size="10.5" font-weight="700" text-anchor="middle" fill="#b45309">the promise cashed late</text>
+  <text x="542" y="198" font-size="10" text-anchor="middle" fill="currentColor" opacity="0.92">2.2 proved the interleaving gem \u2014</text>
+  <text x="542" y="213" font-size="10" text-anchor="middle" fill="currentColor" opacity="0.92">2.4 ran the census at depth</text>
+  <rect x="12" y="228" width="680" height="34" rx="8" fill="#0d9488" fill-opacity="0.07" stroke="#0d9488" stroke-width="1.4"/>
+  <text x="352" y="249" font-size="11" text-anchor="middle" fill="#0f766e">D = b\u00b2 \u2212 4ac \u2014 the constant companion: sign verdicts \u00b7 fence counts \u00b7 repeated seats \u00b7 the D-skip honesty</text>
+  <rect x="12" y="282" width="680" height="34" rx="8" fill="#ea580c" fill-opacity="0.07" stroke="#ea580c" stroke-width="1.4"/>
+  <text x="352" y="303" font-size="11" text-anchor="middle" fill="#ea580c">the exit: the D &lt; 0 doors get theirs \u2014 chapter 3 climbs the complex rung \u00b7 the hall prices one machine with four questions</text>
+</svg>`
+}
+
+function fourReadingsSvg(): string {
+  // one machine y = x² − 4x + 3, annotated by all four readings; the
+  // legend panel carries the four rows
+  const OX = 250, OY = 238, U = 44, UY = 48
+  const px = (x: number): number => OX + U * x
+  const py = (y: number): number => OY - UY * y
+  const pts: string[] = []
+  for (let x = -0.4; x <= 4.4 + 1e-9; x += 0.08) {
+    const y = (x - 1) * (x - 3)
+    if (y <= 3.85) pts.push(`${px(x).toFixed(1)},${py(y).toFixed(1)}`)
+  }
+  const legendRow = (y: number, color: string, label: string, sub: string): string =>
+    `<circle cx="478" cy="${y - 4}" r="5" fill="${color}"/><text x="488" y="${y}" font-size="11.5" font-weight="700" fill="currentColor">${label}</text><text x="488" y="${y + 15}" font-size="10.5" fill="currentColor" opacity="0.85">${sub}</text>`
+  // the negative region between the curve and the axis, drawn as the
+  // TRUE region path (the curve itself bounds it) so the axis tick labels
+  // 1, 2, 3 sit outside the shading
+  const bandPts: string[] = []
+  for (let x = 1; x <= 3 + 1e-9; x += 0.08) bandPts.push(`${px(x).toFixed(1)},${py((x - 1) * (x - 3)).toFixed(1)}`)
+  const bandPath = `M${px(1).toFixed(1)},${OY} L${bandPts.join(' L')} Z`
+  return `<svg viewBox="0 0 720 348" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One machine carrying all four readings: the parabola y equals x squared minus 4x plus 3 with vertex at (2, minus 1) and range bracket minus 1 to infinity; the zeros 1 and 3 fenced with the negative band shaded between them; the Viète tags S equals 4 and P equals 3 in the legend; the walls 0 and 4 with a times f positive at both, and both doors inside the interval 0 to 4 marked by the bottom bracket. The legend lists the four readings with their verdicts on this machine.">
+  <text x="250" y="24" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">one machine, four readings \u2014 y = x\u00b2 \u2212 4x + 3</text>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.6">
+    <path d="M${px(-0.5)} ${OY}H${px(4.5)}"/>
+    <path d="M${OX} ${py(3.8)}V${py(-1.2)}"/>
+  </g>
+  <g font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.85">
+    <text x="${px(0) - 10}" y="${OY + 19}" text-anchor="end">0</text>
+    <text x="${px(1)}" y="${OY + 19}">1</text>
+    <text x="${px(2)}" y="${OY + 19}">2</text>
+    <text x="${px(3)}" y="${OY + 19}">3</text>
+    <text x="${px(4)}" y="${OY + 19}">4</text>
+    <text x="${OX - 10}" y="${py(-1) + 4}" text-anchor="end">\u22121</text>
+  </g>
+  <path d="${bandPath}" fill="#dc2626" fill-opacity="0.09" stroke="none"/>
+  <text x="${px(2)}" y="276" font-size="11" font-weight="700" text-anchor="middle" fill="#dc2626">f &lt; 0</text>
+  <g font-size="12" font-weight="700" fill="#16a34a">
+    <text x="${px(0.55)}" y="226">+</text>
+    <text x="${px(3.6)}" y="226">+</text>
+  </g>
+  <path d="M${px(4)} ${py(3.5)}V244 M${px(4)} 262V294" stroke="#0d9488" stroke-width="1.4" stroke-dasharray="4 4" fill="none"/>
+  <text x="256" y="60" font-size="10.5" text-anchor="start" fill="#0f766e">a\u00b7f(0) = 3 &gt; 0</text>
+  <text x="418" y="60" font-size="10.5" text-anchor="end" fill="#0f766e">a\u00b7f(4) = 3 &gt; 0</text>
+  <g stroke="#16a34a" fill="none" stroke-width="2.4">
+    <polyline points="${pts.join(' ')}"/>
+  </g>
+  <g fill="#ea580c">
+    <circle cx="${px(1)}" cy="${OY}" r="4"/>
+    <circle cx="${px(3)}" cy="${OY}" r="4"/>
+  </g>
+  <circle cx="${px(2)}" cy="${py(-1)}" r="4.5" fill="#d97706"/>
+  <text x="${px(2)}" y="308" font-size="11" font-weight="700" text-anchor="middle" fill="currentColor">vertex (2, \u22121) \u00b7 range [\u22121, \u221e)</text>
+  <path d="M${px(0)} 320H${px(4)} M${px(0)} 317V323 M${px(4)} 317V323" stroke="#0d9488" stroke-width="1.4" fill="none"/>
+  <text x="${px(2)}" y="336" font-size="10.5" font-weight="700" text-anchor="middle" fill="#0f766e">both doors inside (0, 4)</text>
+  <g font-size="12.5" font-weight="700" fill="currentColor">
+    <text x="472" y="48">the four readings</text>
+  </g>
+  ${legendRow(72, '#16a34a', '2.1 \u00b7 the vertex read', 'range [\u22121, \u221e), vertex (2, \u22121)')}
+  ${legendRow(108, '#dc2626', '2.2 \u00b7 the sign read', 'f &lt; 0 exactly on (1, 3)')}
+  ${legendRow(144, '#d97706', '2.3 \u00b7 the Vi\u00e8te read', 'S = 4, P = 3, |\u03b1 \u2212 \u03b2| = 2')}
+  ${legendRow(180, '#0d9488', '2.4 \u00b7 the location read', 'a\u00b7f(0) &gt; 0, a\u00b7f(4) &gt; 0, seat 2 \u2208 (0, 4)')}
+  <g font-size="11.5" fill="currentColor" opacity="0.92">
+    <text x="472" y="216">the same machine answers</text>
+    <text x="472" y="232">all four \u2014 every chapter</text>
+    <text x="472" y="248">question is one of these</text>
+    <text x="472" y="264">readings wearing a costume.</text>
+  </g>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 2.R — Unit Review: The Quadratic at Depth                   */
+/* ------------------------------------------------------------------ */
+
+const lessonReview: Lesson = {
+  id: 'aa-unit-review-the-quadratic-at-depth',
+  number: '2.R',
+  title: 'Unit Review: The Quadratic at Depth',
+  concepts: [
+    'the arc of the chapter: the quadratic as a working object — priced as an expression, fenced by its sign, mined for its roots, pinned by location',
+    'the four readings: vertex, sign, Viète, location — one machine, four questions',
+    'the two master tables reunited: the six sign cases and the k-system',
+    'the cross-lesson witnesses: the fence, the sign ladder, the Viète inventory, the census family',
+    'the formula inventory: twenty-two cards consolidated to eight load-bearing laws',
+    'the mixed census: examination items that price several lessons in one question',
+  ],
+  objectives: [
+    'hold the whole chapter in one hand — the wiring of its four lessons and where each promise was cashed',
+    'name which of the four readings a question wants, and run it at examination speed',
+    'recall the master tables and the formula shelf without re-deriving them',
+    'solve mixed items that price several lessons in one question — the way the hall actually prices a chapter',
+  ],
+  prerequisites: ['aa-vertex-form-at-work-maxima-and-minima', 'aa-quadratic-inequalities-and-the-sign-diagram', 'aa-symmetric-reads-and-common-roots', 'aa-location-of-roots-doors-in-intervals'],
+  sources: ['cengage-m2-02', 'cengage-jee-style', 'ncert-math10-ch4-quadratic', 'openstax-college-algebra'],
+  blocks: [
+    { kind: 'para', text: 'Elementary Algebra closed its quadratic with four doors to the same roots: factoring, completing the square, the formula, the graph. This chapter opened the same object again and interrogated it — not as an equation to settle but as a machine to question. The expression was priced for its extremes, the sign fenced into bands, the roots mined without solving, the roots pinned inside intervals. Four lessons, one object, four readings. This review gathers the four readings back into one hand.' },
+    { kind: 'para', text: 'A review in this book does two things and refuses a third. It RE-MAPS the chapter — the arc, the promises made early and cashed late, the two master tables that reunite the sign census with the location system. And it runs a MIXED census: the witnesses below deliberately price several lessons in one exhibit, because that is exactly how an examination prices a chapter — one machine arrives, and every reading the book owns is asked of it in turn. What the review refuses: re-proving what the lessons already proved. Every derivation below is one line of recall with a pointer to its lesson; nothing is re-derived at length.' },
+    { kind: 'para', text: 'The map first, then the tables, then the witnesses, then the mixed bench. Read the wiring diagram once before the exercises and once after: the second reading should look shorter.' },
+
+    { kind: 'heading', text: 'The Arc: Four Readings, One Object' },
+    { kind: 'para', text: 'Lesson 2.1 stopped treating the quadratic as an equation and priced it as an EXPRESSION: the completion identity $ax^2 + bx + c = a\\left(x + \\frac{b}{2a}\\right)^2 - \\frac{D}{4a}$ turned every range question into a vertex question, the six sign cases tabulated what the completed form already says, the always-sign law demanded BOTH halves ($a > 0$ AND $D \\leq 0$), and the discriminant-range method priced the fraction-dressed quadratics the vertex alone cannot reach. Lesson 2.2 grew the equation into the inequality: the zero of an expression fenced off the sign bands, the sign diagram read them at examination speed, the domain of an equation taught where operations are licensed at all, and the four-condition location system built the first bridge from sign to position.' },
+    { kind: 'para', text: 'Lesson 2.3 mined the roots without solving: Viète\u2019s $S$ and $P$, the six-read inventory priced no-solve, the power-sum recurrence reaching the high powers, the reconstruction and transformation engines, the repeated-seat discipline ($2a = b + c$ on the arithmetic-progression family), and the common-root census with its determinant condition and proportionality verdict. Lesson 2.4 pinned the roots in intervals: the $a \\cdot f(k)$ principle assembled every location question into one master table, the fixed point priced verdicts before they were asked, the substitution bridges hid the walls inside other machines, and Rolle\u2019s theorem — read backwards through an antiderivative — certified doors the algebra alone could not. Two promises crossed the arc: the interleaving gem PROVED in 2.2 and PRICED at census depth in 2.4; and 2.1\u2019s $x + \\frac{1}{x} \\geq 2$ still waits for chapter 4\u2019s AM\u2013GM to re-derive it from a second, independent engine.' },
+    { kind: 'figure', svg: chapterArcSvg(), caption: 'The chapter wiring diagram. The amber road is the sequential arc — each lesson hands the next a deeper question about the same machine: the expression priced, then fenced, then its roots mined, then located. The dashed teal connectors mark the two promise crossings (2.1\u2019s bound waiting for chapter 4; 2.2\u2019s gem cashed by 2.4). The teal rail names the discriminant — the one number all four lessons consult. Read it twice: before the exercises as a map, after them as a checklist.' },
+    { kind: 'callout', tone: 'definition', title: 'The four readings of a quadratic', text: 'Every question this chapter settles is one of four readings of the one machine $f(x) = ax^2 + bx + c$ (with $a \\neq 0$): the VERTEX read (what does the machine attain — ranges and extremes, the completed form $a\\left(x + \\frac{b}{2a}\\right)^2 - \\frac{D}{4a}$ speaking); the SIGN read (where is the machine positive, negative, zero — the fenced bands between doors); the VIÈTE read (what do the roots sum and multiply to — $S = -\\frac{b}{a}$, $P = \\frac{c}{a}$, the symmetric census priced without solving); and the LOCATION read (where do the doors sit on the line — the $a \\cdot f(k)$ wall discipline). Thus the first move on any quadratic question is a diagnosis: name the reading, then run the table that owns it.' },
+    { kind: 'derivation', title: 'Why the four readings are one reading', statement: 'The completed form generates all four readings — they are one identity wearing four different questions.', steps: [
+      { label: 'The completed form', formula: 'f(x) = a\\left(x + \\tfrac{b}{2a}\\right)^2 - \\tfrac{D}{4a}', explanation: 'the squared term is $\\geq 0$ when $a > 0$ (and $\\leq 0$ when $a < 0$), so the machine is pushed hardest exactly at the vertex — the VERTEX read is the identity read at its extreme seat.' },
+      { label: 'The sign at any seat', formula: 'f(k) = a\\left(k + \\tfrac{b}{2a}\\right)^2 - \\tfrac{D}{4a}', explanation: 'the same identity evaluated away from the vertex: when $D > 0$ the square term changes sign across the two doors, fencing the line into bands — the SIGN read is the identity evaluated between and beyond the fences.' },
+      { label: 'The coefficients\u2019 arithmetic', formula: 'f(x) = a(x - \\alpha)(x - \\beta) = a\\big(x^2 - Sx + P\\big)', explanation: 'the factor theorem rebuilds the same object from its doors, and comparing coefficients is Viète — the VIÈTE read is the identity read coefficient by coefficient.' },
+      { label: 'The wall evaluation', formula: 'a \\cdot f(k) = a^2(k - \\alpha)(k - \\beta)', explanation: 'multiplying by $a$ makes the product read the DOORS directly: positive outside the pair, negative between, for either opening — the LOCATION read is the sign read priced per wall.' },
+    ], result: 'One completed form, four questions — attain, sign, sum-and-product, position — and the review\u2019s mixed census asks them in combination.' },
+
+    { kind: 'heading', text: 'The Master Tables Reunited' },
+    { kind: 'para', text: 'Strip the chapter of its prose and two tables remain — the two the examinations actually price. The first settles every SIGN question; the second settles every POSITION question; and the bridge between them is the discriminant, the chapter\u2019s constant companion. Both were engine-swept again before this page was written: every row below is a verdict the verifier re-ran on a 601-seat grid, not a memory transcribed.' },
+    { kind: 'table', caption: 'The six sign cases of ax² + bx + c — the first master table, reunited from 2.1', head: ['case', 'the picture', 'the verdict'], rows: [
+      ['$a > 0$, $D < 0$', 'upward, floats above', '$f(x) > 0$ for every real $x$ — range $\\left[-\\frac{D}{4a}, \\infty\\right)$ entirely positive'],
+      ['$a > 0$, $D = 0$', 'upward, touches once', '$f(x) \\geq 0$ with $f = 0$ only at $x = -\\frac{b}{2a}$'],
+      ['$a > 0$, $D > 0$', 'upward, dips below', '$f > 0$ outside the roots, $f < 0$ between them'],
+      ['$a < 0$, $D > 0$', 'downward, arches above', '$f > 0$ between the roots, $f < 0$ outside'],
+      ['$a < 0$, $D = 0$', 'downward, touches once', '$f(x) \\leq 0$ with $f = 0$ only at $x = -\\frac{b}{2a}$'],
+      ['$a < 0$, $D < 0$', 'downward, hangs below', '$f(x) < 0$ for every real $x$ — range $\\left(-\\infty, -\\frac{D}{4a}\\right]$ entirely negative'],
+    ] },
+    { kind: 'table', caption: 'The k-system — the second master table, reunited from 2.4: every location question as conditions on the coefficients', head: ['the question', 'the conditions', 'D check?'], rows: [
+      ['both roots $> k$', '$D \\geq 0$, $\\;a \\cdot f(k) > 0$, $\\;-\\tfrac{b}{2a} > k$', 'yes'],
+      ['both roots $< k$', '$D \\geq 0$, $\\;a \\cdot f(k) > 0$, $\\;-\\tfrac{b}{2a} < k$', 'yes'],
+      ['$k$ between the roots ($\\alpha < k < \\beta$)', '$a \\cdot f(k) < 0$', 'NO — a sign change forces two real doors'],
+      ['exactly one root in $(k_1, k_2)$', '$f(k_1) \\cdot f(k_2) < 0$', 'NO — the sign change certifies it (boundary seat: see the caution below)'],
+      ['both roots in $(k_1, k_2)$', '$D \\geq 0$, $\\;a \\cdot f(k_1) > 0$, $\\;a \\cdot f(k_2) > 0$, $\\;k_1 < -\\tfrac{b}{2a} < k_2$', 'yes'],
+      ['both walls between the roots ($\\alpha < k_1 < k_2 < \\beta$)', '$a \\cdot f(k_1) < 0$ and $a \\cdot f(k_2) < 0$', 'NO — both sign changes certify it'],
+      ['roots of opposite sign ($\\alpha < 0 < \\beta$)', '$a \\cdot f(0) < 0$, i.e. $ac < 0$', 'NO — the row above at $k = 0$'],
+    ] },
+    { kind: 'callout', tone: 'theorem', title: 'The a·f(k) principle', text: 'For $f(x) = ax^2 + bx + c$ and any wall $k$: the sign of $a \\cdot f(k)$ says which side of the door pair the wall sits on — $a \\cdot f(k) > 0$ means $k$ lies OUTSIDE the pair (both doors on one side), $a \\cdot f(k) < 0$ means $k$ lies BETWEEN the doors — and this verdict is INDEPENDENT of the opening, because multiplying by $a$ prices the doors, not the curve. Thus $a \\cdot f(k) < 0$ needs no discriminant check (the crossing is forced), while $a \\cdot f(k) > 0$ always does: the impostor family $x^2 - 2x + 5$ passes the wall tests at $k = 1$ and $k = 5$ ($f = 4$ and $20$) while owning no doors at all ($D = -16$).' },
+    { kind: 'para', text: 'The two tables are one reading in different dress. $D$ counts the doors — two, one-touch, none; the sign rows say where the machine sits relative to the axis between those doors; the k-system rows say where any WALL sits relative to the doors. And the honesty notes travel with the tables as one lesson: the conjunctive trap of 2.1 (half the always-sign law is not the law) and the D-skip trap of 2.4 (skipping $D$ is earned, not free) are the SAME trap seen from the two ends of the chapter — a condition quietly dropped is a counter-witness quietly admitted. The boundary caution rides with them: a door sitting exactly ON a wall makes $f(k) = 0$, and the honest count is then done by hand — the open interval keeps such a door outside.' },
+    { kind: 'callout', tone: 'insight', title: 'D — the constant companion', text: 'The discriminant is the chapter\u2019s through-line. In 2.1 it graded the sign verdicts (the six cases); in 2.2 it counted the fences for the sign diagram; in 2.3 its non-negativity priced the hunts (both doors real, the m-censuses) and its vanishing certified repeated seats; in 2.4 it demanded admission in the YES-rows of the k-system and was earned out of the NO-rows. One discipline carries forward: whenever a verdict skips $D$, be able to say WHY in one line — the sign change forces the crossing, or the negative value forces the dip. $D$ is the doors\u2019 reality certificate; skipping it is a right that must be earned, never a corner that may be cut.' },
+
+    { kind: 'heading', text: 'The Cross-Lesson Witnesses, Re-Audited' },
+    { kind: 'para', text: 'Four exhibits carried the chapter\u2019s weight — one anchored in each lesson — and a review earns its keep by re-auditing them TOGETHER: each is verified once more by the engine, and each now prices more than the lesson that introduced it. The fence taught the vertex; here it also runs a sign read and a discriminant read. The sign ladder taught the bands; here it also carries Viète and the wall tests. The inventory taught the no-solve census; here it stands as the chapter\u2019s arithmetic core. The census family taught location; here its fixed point prices every m-question before it is asked.' },
+    { kind: 'example', title: 'One machine, four readings: f(x) = x² − 4x + 3 = (x − 1)(x − 3)', steps: [
+      'The vertex read (2.1): $f(x) = (x-2)^2 - 1$ — vertex $(2, -1)$, range $[-1, \\infty)$; the machine dips exactly one unit below the axis, and $D = 4 > 0$ says it crosses twice.',
+      'The sign read (2.2): $f < 0$ exactly on $(1, 3)$ — the between-roots band for an upward machine; $f \\geq 0$ on the two outer rays, with the fence seats $1$ and $3$ themselves owning $f = 0$, which $\\geq$ keeps and $>$ drops.',
+      'The Viète read (2.3): $S = 4$, $P = 3$, $|\\alpha - \\beta| = \\sqrt{16 - 12} = 2$ — priced without solving, and honestly cross-checked: the doors are indeed $1$ and $3$.',
+      'The location read (2.4): both doors inside $(0, 4)$ — $a \\cdot f(0) = 3 > 0$ (the wall 0 outside-left), $a \\cdot f(4) = 3 > 0$ (the wall 4 outside-right), seat $2 \\in (0, 4)$, $D = 4 \\geq 0$: four green checks, the bridge crossing on the first try.',
+      'And a fifth read rides free (2.3\u2019s figure pair): $x^2 - 4x + 3$ and $x^2 - 2x - 3$ share the door $3$, and the one-common-root condition certifies it — $6^2 = 36 = 18 \\times 2$. Hence ONE machine, and every lesson in the chapter owns a question about it — the figure below annotates all four readings on this single curve.',
+    ] },
+    { kind: 'figure', svg: fourReadingsSvg(), caption: 'One machine, annotated by all four readings: the vertex $(2, -1)$ with its range bracket; the fenced zeros $1$ and $3$ with the negative band shaded between them; the Viète tags $S = 4$, $P = 3$, $|\\alpha - \\beta| = 2$ in the legend; the walls $0$ and $4$ (the y-axis itself is the wall $x = 0$) with $a \\cdot f > 0$ at both, and the bracket certifying both doors inside $(0, 4)$. The legend\u2019s four rows are the chapter\u2019s whole claim: the same machine answers all four.' },
+    { kind: 'example', title: 'The fence re-audited: A(x) = x(12 − x), the area machine of the 24-metre fence', steps: [
+      'The vertex read (2.1, as taught): $A(x) = 36 - (x-6)^2$ — greatest area $36$ at the $6 \\times 6$ square; the sample rectangles $4 \\times 8$ and $8 \\times 4$ fence $32$ each, and $9 \\times 3$ fences $27$.',
+      'The sign read (2.2, added): $A(x) > 32 \\iff (x-6)^2 < 4 \\iff x \\in (4, 8)$ — the widths that BEAT the $32$ of the $4 \\times 8$ rectangle are exactly the widths between the two widths that TIE it. The fence question and the sign-band question are the same question in two costumes.',
+      'The discriminant read (2.1\u2019s range method, cashed): the widths that fence area $A$ are the doors of $x^2 - 12x + A = 0$, whose discriminant reads $144 - 4A$ — real widths exactly when $A \\leq 36$, the double width $6$ exactly when $A = 36$, and NO width when $A = 37$.',
+      'Hence the area bound IS a discriminant bound: the vertex engine and the D-method are two costumes of one completion — and the fence, the chapter\u2019s first exhibit, is also its deepest.',
+    ] },
+    { kind: 'example', title: 'The census family re-audited: f(x) = x² − (m+1)x + 3m − 5, the fifteen-question machine', steps: [
+      'The fixed point (2.4): at $x = 3$ the $m$-terms cancel — $f(3) = 9 - 12 + 9 - 5 = 1$ for EVERY $m$; the whole family pivots through $(3, 1)$. One line of collecting: $f(x) = (x^2 - x - 5) + m(3 - x)$, and the parameter dies at $x = 3$.',
+      'The doors: $D = (m-3)(m-7)$ — real doors exactly on $m \\leq 3$ or $m \\geq 7$; and the wall $3$ NEVER falls between the doors, whatever the questioner hoped, because $f(3) = 1 > 0$ always (the fixed-point law: some verdicts are priced before they are asked).',
+      'A positive-doors hunt, honestly run: both doors positive demands $S = m+1 > 0$ AND $P = 3m - 5 > 0$ AND $D \\geq 0$ — the intersection $\\frac{5}{3} < m \\leq 3$ or $m \\geq 7$. The witnesses: $m = 2$ gives the doors $\\frac{3 \\pm \\sqrt{5}}{2} \\approx 0.38,\\ 2.62$ (both positive); $m = 6$ owns $D = -3 < 0$, no doors at all — excluded before sign is even asked; $m = 8$ gives $\\frac{9 \\pm \\sqrt{5}}{2} \\approx 3.38,\\ 5.62$.',
+      'Hence the family\u2019s lesson: 2.1\u2019s always-sign CONJUNCTION and 2.4\u2019s WALL discipline shake hands here — every m-census ends as an intersection of half-lines, and the boundary seats ($m = 3$, $m = 7$) are always the doors\u2019 own births and deaths.',
+    ] },
+    { kind: 'example', title: 'The interleaving instance, solved and banded: 2(x + 1)(x − 5) + 3(x − 2)(x − 7) = 0', steps: [
+      'The expansion: $2(x^2 - 4x - 5) + 3(x^2 - 9x + 14) = 5x^2 - 35x + 32$ — one quadratic after all.',
+      'The four-value bracket (2.2, before solving): $F(-1) = 72 > 0$, $F(2) = -18 < 0$, $F(5) = -18 < 0$, $F(7) = 32 > 0$ — the $+\\;-\\;-\\;+$ walk forces one door in each inner band before anything is solved.',
+      'The doors (2.4, the census run): $x = \\frac{35 \\pm 3\\sqrt{65}}{10}$ — that is, $\\approx 1.08$ and $\\approx 5.92$, landing in $(-1, 2)$ and $(5, 7)$ exactly as the bracket promised; the escaper sign $\\mu + \\lambda = 5 > 0$ keeps the outer bands positive, so nothing rides past $-1$ or $7$.',
+      'Hence the interleaving census of 2.4, run on the gem 2.2 proved — one principle, two lessons, zero accidents (and the verifier re-checked all four bracket values and both bands before this line was written).',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'How the witnesses interlock', text: 'The fence\u2019s area bound is the discriminant-range method in work clothes; the ladder\u2019s bands are Viète\u2019s doors wearing signs; the census family\u2019s verdicts are the always-sign conjunction intersected with the wall conditions; the interleaving instance is the sign bracket producing the location census. Nothing in the chapter stands alone — and neither does the chapter: AL\u2019s door metaphor became a discipline, 1.R\u2019s machine grammar became four questions, and the function zoo\u2019s editing rules priced every transformation the transformation engine ran.' },
+
+    { kind: 'heading', text: 'The Laws Worth Recalling' },
+    { kind: 'para', text: 'The chapter deposited twenty-two formula cards — five from 2.1, five from 2.2, six from 2.3, six from 2.4 — and the reader\u2019s formula-sheet page aggregates them automatically. Eight of them are load-bearing: the laws the next chapters will actually reach for, each re-verified by the chapter\u2019s engine before this page was written. The cards first, the vocabulary after:' },
+    { kind: 'formula', name: 'The completion identity and the vertex', latex: 'a\\left(x + \\tfrac{b}{2a}\\right)^2 - \\tfrac{D}{4a} = ax^2 + bx + c, \\qquad \\text{vertex}\\ \\left(-\\tfrac{b}{2a},\\ -\\tfrac{D}{4a}\\right)', note: 'a > 0: range [−D/4a, ∞); a < 0: range (−∞, −D/4a] — every extreme is one completion away' },
+    { kind: 'formula', name: 'The always-sign law', latex: 'f \\geq 0\\ \\forall x \\iff a > 0 \\wedge D \\leq 0; \\qquad f \\leq 0\\ \\forall x \\iff a < 0 \\wedge D \\leq 0', note: 'the conjunction IS the law — either half alone admits the counter-witness (x² − 4x + 3 dips; −(x − 2)² + 1 peaks)' },
+    { kind: 'formula', name: 'The between-roots sign law', latex: 'a > 0:\\ f > 0 \\iff x \\notin [\\alpha, \\beta]; \\qquad a \\cdot f(k) < 0 \\iff \\alpha < k < \\beta \\ \\ \\text{(any } a\\text{)}', note: 'the flip discipline: a < 0 reverses every between-read; a·f(k) < 0 needs no D-check — the crossing is forced' },
+    { kind: 'formula', name: 'Viète and the inventory', latex: 'S = -\\tfrac{b}{a},\\ P = \\tfrac{c}{a}; \\qquad \\alpha^2 + \\beta^2 = S^2 - 2P,\\quad \\alpha^3 + \\beta^3 = S^3 - 3PS,\\quad (\\alpha - \\beta)^2 = S^2 - 4P', note: 'the no-solve licence: price the symmetric questions before ever opening the formula' },
+    { kind: 'formula', name: 'The power-sum recurrence', latex: 'T_0 = 2, \\qquad T_1 = S, \\qquad T_{k+2} = S\\,T_{k+1} - P\\,T_k', note: 'the Lucas engine — α⁵ + β⁵ = S⁵ − 5PS³ + 5P²S, and every higher power likewise' },
+    { kind: 'formula', name: 'The common-root conditions', latex: 'f_1, f_2 \\text{ share a door} \\iff (c_1a_2 - c_2a_1)^2 = (b_1c_2 - b_2c_1)(a_1b_2 - a_2b_1); \\qquad \\text{both doors} \\iff (a_1, b_1, c_1) \\propto (a_2, b_2, c_2)', note: 'one shared is a determinant equation; both shared is proportionality — never confuse the two censuses' },
+    { kind: 'formula', name: 'The k-system, condensed', latex: '\\text{both in } (k_1, k_2):\\ D \\geq 0,\\ a\\!\\cdot\\! f(k_1) > 0,\\ a\\!\\cdot\\! f(k_2) > 0,\\ k_1 < -\\tfrac{b}{2a} < k_2; \\qquad \\text{exactly one: } f(k_1) \\cdot f(k_2) < 0', note: 'the a·f(k) principle prices the side; a door ON a wall is always counted by hand' },
+    { kind: 'formula', name: 'The antiderivative weights law', latex: '2a\\ell^2 + 3b\\ell + 6c = 0 \\ \\Rightarrow\\ \\text{a door in } (0, \\ell) \\quad \\text{(Rolle on } F = \\tfrac{a}{3}x^3 + \\tfrac{b}{2}x^2 + cx\\text{)}', note: 'the weights are the interval in disguise: 18a + 9b + 6c = 0 sends the door into (0, 3)' },
+    { kind: 'terms', items: [
+      { term: 'the four readings', def: 'every quadratic question is a vertex, sign, Vi\u00e8te or location question — name the reading first, then run the table that owns it.' },
+      { term: 'zero of an expression vs root of an equation', def: 'the seats where f vanishes are the zeros of the expression; the same seats are the roots of f(x) = 0 — the equation asks for them, the sign question fences them.' },
+      { term: 'sign diagram', def: 'the number line with fences at the zeros and the +/\u2212 bands between them — the wavy-curve method\u2019s quadratic case.' },
+      { term: 'symmetric function of the roots', def: 'an expression in \u03b1 and \u03b2 unchanged under the swap \u03b1 \u2194 \u03b2 — exactly the functions S and P price without solving.' },
+      { term: 'wall', def: 'a fixed number k interrogated against the doors: between them, beyond them, or carrying exactly one of them on its face.' },
+      { term: 'the a\u00b7f(k) principle', def: 'multiply f(k) by the leading sign a: the sign of a\u00b7f(k) says which side of the door pair the wall k sits on — positive outside, negative between, for either opening.' },
+      { term: 'fixed point of a family', def: 'a seat where the parameter cancels — f(3) = 1 for every m in the census family — pricing whole classes of questions before they are asked.' },
+    ] },
+
+    { kind: 'heading', text: 'The Traps the Hall Sets' },
+    { kind: 'para', text: 'The chapter\u2019s own caution shelf, compressed to the six traps the examination hall actually sets — each is one lesson\u2019s discipline pointed at one wrong instinct:' },
+    { kind: 'list', marker: 'roman', items: [
+      '**The conjunctive trap** — half of the always-sign law is not the law: $x^2 - 4x + 3$ opens upward yet $f(2) = -1$; the verdict demands $a > 0$ AND $D \\leq 0$ together (2.1).',
+      '**The endpoint-touch honesty** — a double door counts for \u201cexceeds\u201d ($m = 4$ in the canonical drill: $(x-2)^2$, the door 2 exceeds 1), while a door ON a wall does not lie in the OPEN interval ($c = 0$ and $c = 10$ of the bench below: doors 0 and 2 sit on the walls themselves) (2.2, 2.4).',
+      '**The asymmetric census** — $\\alpha - \\beta$ is not symmetric, so the readable object is its square; and the square-root reads ($\\sqrt{\\alpha} + \\sqrt{\\beta}$) demand their licence first (2.3).',
+      '**One shared \u2260 both shared** — the m-census $\\{-7, 6\\}$ of 2.3: $m = -7$ shares ONE root while only $m = 6$ makes the pair proportional — the determinant condition and proportionality answer different questions.',
+      '**The D-skip is earned, not free** — $x^2 - 2x + 5$ passes the wall tests at $k = 1$ and $k = 5$ ($f = 4$, $20$) yet owns no doors ($D = -16$); skip $D$ only where the sign change forces the crossing (2.4).',
+      '**The degenerate endpoint** — the rational range $(1, 3]$: the discriminant method says $1 \\leq y \\leq 3$, but at $y = 1$ the quadratic in $x$ degenerates to $-4 = 0$ — the boundary is never attained, and the honest range drops it (2.1).',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'The one warning that carries forward', text: 'Chapter 3 climbs the extension ladder to the negative discriminant: the $D < 0$ cases this chapter kept meeting and filing away get theirs — a number $i$ forced by $x^2 + 1 = 0$, the conjugate bookkeeping, and the doors turning complex in conjugate pairs. Every verdict discipline of this chapter (the conjunction, the census, the wall honesty, the boundary seats) reappears there on the new rung. Carry the toolkit intact — the quadratic at depth was the rehearsal, not the end.' },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner — how a chapter is actually priced', text: 'All exam-style items in this book are our own, honestly labelled: none is reproduced from an official paper. The chapter\u2019s census of shapes: extreme-value and range questions (completion or the discriminant method); always-sign parameter hunts (the conjunctive law); inequality solving (all four case families, strict and non-strict, union answers); the Vi\u00e8te inventory priced no-solve; reconstruction and transformation of equations; repeated-seat and common-root censuses; location systems (both roots, exactly one, opposite signs, interval-interior); interleaving and two-quadratic items; rational ranges with endpoint honesty; two-variable bounds. The mixed bench below prices every one of these families, several per item — exactly the way a hall prices a chapter. Every number in it was recomputed by the verifier before it was written.' },
+    { kind: 'callout', tone: 'historical', title: 'The two-century arc', text: 'The chapter\u2019s two engines carry its history. Completing the square is al-Khw\u0101rizm\u012b\u2019s move (Baghdad, c. 820): his al-jabr restored the broken pieces of an area before reading them, and the vertex form is that restoration priced for extremes. The symmetric reads are Vi\u00e8te\u2019s (published 1615, posthumously, in De aequationum recognitione et emendatione): the coefficients, he saw, already carry the roots\u2019 sum and product. The location drills — walls, censuses, interleaving — are the modern examination hall\u2019s own dialect, resting on the intermediate value theorem of the nineteenth century. Three centuries of craft, one chapter.' },
+
+    { kind: 'heading', text: 'The Chapter Closes' },
+    { kind: 'para', text: 'And so the chapter closes. Elementary Algebra handed this book a settled equation; the book returned the favour by interrogating it four ways. The expression was priced (every range a vertex question), fenced (every sign question a door question), mined (every symmetric question a coefficient question), and pinned (every location question a wall question). AL\u2019s door metaphor became a discipline; 1.R\u2019s machine grammar became four questions; and the whole family of $D < 0$ cases the chapter kept meeting and filing away — the floating parabolas, the non-real doors of the census hunts — becomes the next chapter\u2019s opening business: the doors turn complex, the ladder climbs, $i$ is forced. The quadratic at depth is done; the quadratic beyond the real line begins.' },
+    { kind: 'para', text: 'Use the review honestly and it will diagnose you. Attempt the mixed bench WITHOUT looking back at the lessons; every miss names its lesson by its shape — a missed conjunction sends you to 2.1, a missed endpoint to 2.2, a missed licence to 2.3, a missed boundary seat to 2.4. The five quiz questions are the chapter in miniature: one vertex, one sign, one inventory read, one location drill, one fixed point. Score them honestly, revisit exactly what the misses name, and the chapter is yours.' },
+    { kind: 'quiz', title: 'Check yourself \u2014 the chapter in five questions', items: [
+      { q: 'The range of f(x) = 2x\u00b2 \u2212 8x + 3 is', options: ['(\u2212\u221e, \u22125]', '[\u22125, \u221e)', '[3, \u221e)', '[0, \u221e)'], answer: 1, explain: 'Completing: $2x^2 - 8x + 3 = 2(x-2)^2 - 5$, an upward machine with floor $-5$ — the range is $[-5, \\infty)$. Option 0 reverses the direction (an upward machine owns a floor, not a ceiling); option 2 reads the y-intercept $f(0) = 3$ as the floor; option 4 overreaches the \u201csquare is never negative\u201d instinct — true only when the vertex lifts to 0.' },
+      { q: 'The solution of (x \u2212 1)(x \u2212 4) \u2265 0 is', options: ['1 \u2264 x \u2264 4', 'x \u2264 1 or x \u2265 4', 'x < 1 or x > 4', '1 < x < 4'], answer: 1, explain: 'The upward machine is positive outside its doors $1$ and $4$, zero ON them — and $\\geq 0$ keeps those seats: $x \\leq 1$ or $x \\geq 4$. Option 0 is the between-band inverted ($f < 0$ lives there); option 2 needlessly drops the seats where $f = 0$, which $\\geq$ keeps; option 3 is the strict interior, doubly wrong.' },
+      { q: 'If \u03b1 and \u03b2 are the roots of x\u00b2 \u2212 6x + 4 = 0, then \u03b1\u00b2 + \u03b2\u00b2 equals', options: ['36', '24', '28', '20'], answer: 2, explain: '$S = 6$, $P = 4$, so $\\alpha^2 + \\beta^2 = S^2 - 2P = 36 - 8 = 28$. Option 0 is $S^2$ alone (forgets the $-2P$); option 1 subtracts $2 \\cdot 6$ — the coefficient $b$ misread as the product; option 3 is $S^2 - 4P$ — the DIFFERENCE square $(\\alpha - \\beta)^2$, the classic near-miss between the two inventory reads.' },
+      { q: 'Both roots of x\u00b2 \u2212 4x + m = 0 exceed 1 exactly when', options: ['m > 3', '3 < m \u2264 4', 'm \u2264 4', 'm \u2265 3'], answer: 1, explain: 'The three rows: $D = 16 - 4m \\geq 0$ (so $m \\leq 4$), $a \\cdot f(1) = m - 3 > 0$ (so $m > 3$), seat $2 > 1$ always — together $3 < m \\leq 4$, with $m = 4$ included because its double door $2$ exceeds 1. Option 0 forgets the ceiling: $m = 5$ owns no doors at all ($D = -4$); option 2 forgets the wall test: $m = 0$ owns door 0; option 3 forgets the strictness: $m = 3$ owns door 1, which does not EXCEED 1.' },
+      { q: 'For every real m, the curve y = x\u00b2 \u2212 (m+1)x + 3m \u2212 5 passes through the fixed point', options: ['(3, 1)', '(1, 3)', '(\u22123, 1)', '(3, \u22121)'], answer: 0, explain: 'At $x = 3$ the $m$-terms cancel: $f(3) = 9 - 12 + 9 - 5 = 1$ — the whole family pivots through $(3, 1)$. Option 1 swaps the coordinates; options 2 and 3 flip signs — the fixed point is found by CANCELLING the parameter, and only $x = 3$ kills it in the collected form $(x^2 - x - 5) + m(3 - x)$.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises 2.R \u2014 the mixed bench', sets: [
+      { level: 'L1', questions: [
+        { q: 'Complete the square for f(x) = 2x\u00b2 \u2212 8x + 3 and read off its vertex and range.', solution: [
+          'The completion: $2x^2 - 8x + 3 = 2(x^2 - 4x) + 3 = 2(x - 2)^2 - 8 + 3 = 2(x - 2)^2 - 5$.',
+          'So the vertex is $(2, -5)$ and, the opening being upward, the range is $[-5, \\infty)$.',
+          'The discriminant cross-check: $D = 64 - 24 = 40$, and $-\\frac{D}{4a} = -\\frac{40}{8} = -5$ — two routes, one floor.',
+        ], answer: 'vertex (2, \u22125); range [\u22125, \u221e)' },
+        { q: 'Solve x\u00b2 \u2212 x + 3 < 0 over the reals.', solution: [
+          'The discriminant: $D = 1 - 12 = -11 < 0$ with $a = 1 > 0$ — the machine is positive at every seat.',
+          'Equivalently the completed floor: $x^2 - x + 3 = \\left(x - \\frac{1}{2}\\right)^2 + \\frac{11}{4} \\geq \\frac{11}{4} > 0$.',
+          'So the inequality owns no solution — the empty set is an honest answer, and whole-line-verdict questions plant it on purpose.',
+        ], answer: 'no solution (the empty set)' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'The roots of 2x\u00b2 \u2212 7x + 3 = 0 are \u03b1 and \u03b2. Write down \u03b1 + \u03b2, \u03b1\u03b2 and \u03b1\u00b2 + \u03b2\u00b2, without solving.', solution: [
+          'Vi\u00e8te: $S = \\alpha + \\beta = \\frac{7}{2}$ and $P = \\alpha\\beta = \\frac{3}{2}$ — priced straight off the coefficients.',
+          'The inventory: $\\alpha^2 + \\beta^2 = S^2 - 2P = \\frac{49}{4} - 3 = \\frac{37}{4}$.',
+          'The honest cross-check (the licence allows it here): the doors are $\\frac{1}{2}$ and $3$, and $\\frac{1}{4} + 9 = \\frac{37}{4}$ \u2713.',
+        ], answer: 'S = 7/2, P = 3/2, \u03b1\u00b2 + \u03b2\u00b2 = 37/4' },
+        { q: 'Two numbers have sum 12. Find (i) their greatest possible product and (ii) the least possible value of the sum of their squares.', solution: [
+          '(i) Name the pair $x$ and $12 - x$: the product is $x(12 - x) = 36 - (x - 6)^2 \\leq 36$, attained at $x = 6$.',
+          '(ii) The square-sum: $x^2 + (12 - x)^2 = 2(x - 6)^2 + 72 \\geq 72$, also at $x = 6$.',
+          'So the same seat maximizes the product and minimizes the square-sum — the balanced pair, both times.',
+        ], answer: 'greatest product 36; least square-sum 72 — both at (6, 6)' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'For f(x) = x\u00b2 \u2212 7x + 10: (i) solve f(x) < 0; (ii) write down S and P for its roots; (iii) find |\u03b1 \u2212 \u03b2| \u2014 all without the quadratic formula.', solution: [
+          '(i) The fences sit at the factor seats $f(x) = (x - 2)(x - 5)$, so $f < 0$ exactly between them: $x \\in (2, 5)$.',
+          '(ii) Vi\u00e8te: $S = 7$, $P = 10$ — priced straight off the coefficients.',
+          '(iii) $|\\alpha - \\beta| = \\sqrt{S^2 - 4P} = \\sqrt{49 - 40} = 3$ — and honestly, the doors 2 and 5 agree.',
+        ], answer: '(i) (2, 5); (ii) S = 7, P = 10; (iii) 3' },
+        { q: 'Form the quadratic equation whose roots are the reciprocals of the roots of 4x\u00b2 \u2212 12x + 5 = 0.', solution: [
+          'The reversal law: for $ax^2 + bx + c$ with no zero root, the reciprocal equation is $cx^2 + bx + a = 0$ — swap the end coefficients, keep the middle.',
+          'Here: $4x^2 - 12x + 5 \\to 5x^2 - 12x + 4 = 0$.',
+          'The census check: the original doors are $\\frac{1}{2}$ and $\\frac{5}{2}$; their reciprocals $2$ and $\\frac{2}{5}$ are exactly the doors of $5x^2 - 12x + 4 = (5x - 2)(x - 2)$ \u2713.',
+        ], answer: '5x\u00b2 \u2212 12x + 4 = 0' },
+        { q: 'Find every c for which x\u00b2 \u2212 7x + c = 0 has exactly one root in the open interval (0, 2).', solution: [
+          'The seat $\\frac{7}{2} = 3.5$ never enters $(0, 2)$, so BOTH doors inside is impossible — the only route is one in, one out: a sign change across the walls.',
+          'The product test: $f(0) \\cdot f(2) < 0$ with $f(0) = c$ and $f(2) = 4 - 14 + c = c - 10$, so $c(c - 10) < 0$, that is $0 < c < 10$.',
+          'The boundary honesty: at $c = 0$ the doors are $0$ and $7$ — door 0 sits ON the wall, not inside; at $c = 10$ the doors are $2$ and $5$ — door 2 sits ON the other wall. Both excluded by the OPEN interval, exactly as the strict product demands.',
+          'The witness: $c = 4$ gives the doors $\\frac{7 \\pm \\sqrt{33}}{2} \\approx 0.63$ and $6.37$ — exactly one inside \u2713.',
+        ], answer: '0 < c < 10' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Find the range of f(x) = (x\u00b2 + 2x + 7)/(x\u00b2 + 2x + 3).', solution: [
+          'The disguise: $f(x) = 1 + \\frac{4}{(x + 1)^2 + 2}$ — and $(x + 1)^2 + 2 \\geq 2 > 0$, so $0 < \\frac{4}{(x+1)^2 + 2} \\leq 2$.',
+          'So $1 < f(x) \\leq 3$: the top $3$ is attained at $x = -1$ (the denominator\u2019s vertex seat, the double-root seat of the D-method); the bottom $1$ is approached as the square climbs, never attained.',
+          'The discriminant route agrees, with its endpoint honesty: $(y - 1)x^2 + (2y - 2)x + (3y - 7) = 0$ has a real door exactly when $-8(y - 1)(y - 3) \\geq 0$, that is $1 \\leq y \\leq 3$ — and at $y = 1$ the equation degenerates to $-4 = 0$, so the boundary is empty there. The range is $(1, 3]$.',
+        ], answer: '(1, 3]' },
+        { q: 'Find every m for which both roots of x\u00b2 \u2212 (m+2)x + 2m + 1 = 0 exceed 1.', solution: [
+          'The k-system rows: $D = (m+2)^2 - 4(2m + 1) = m^2 - 4m = m(m - 4) \\geq 0$; $a \\cdot f(1) = 1 - (m + 2) + 2m + 1 = m > 0$; the seat $\\frac{m + 2}{2} > 1$.',
+          'The seat demands $m > 0$, which kills the $m \\leq 0$ branch of $D \\geq 0$ — leaving $m \\geq 4$.',
+          'The boundary honesty: at $m = 4$ the machine is $(x - 3)^2$, the double door $3$ exceeds 1 — INCLUDED, and $a \\cdot f(1) = 4 > 0$ holds. At $m = 2$ the machine $x^2 - 4x + 5$ owns $D = -4$: no doors at all — the impostor the discriminant row exists to catch.',
+        ], answer: 'm \u2265 4' },
+        { q: 'Find every k for which x\u00b2 + kx \u2212 6 = 0 shares a root with x\u00b2 \u2212 5x + 6 = 0 \u2014 and name the shared door in each case.', solution: [
+          'The census discipline: the second machine\u2019s doors are $2$ and $3$; test each as a door of the first.',
+          'Door 2: $4 + 2k - 6 = 0$ gives $k = 1$ — the machines $x^2 + x - 6 = (x + 3)(x - 2)$ and $x^2 - 5x + 6$ share the door 2.',
+          'Door 3: $9 + 3k - 6 = 0$ gives $k = -1$ — $x^2 - x - 6 = (x - 3)(x + 2)$ shares the door 3.',
+          'And ONE shared is all there is: proportionality fails ($(1, k, -6)$ against $(1, -5, 6)$), so the both-common verdict is off the table — the determinant condition would price it if asked.',
+        ], answer: 'k = 1 (shares door 2) or k = \u22121 (shares door 3)' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Find every m for which t\u00b2 \u2212 (m+3)t + 2m + 1 < 0 for all t in the open interval (1, 3) \u2014 and note carefully what the answer turns out to be.', solution: [
+          'The wall demands (2.4): an upward machine is negative throughout an open interval exactly when it is nonpositive at BOTH walls — $f(1) \\leq 0$ and $f(3) \\leq 0$ (the convexity certificate: the curve hangs below its chord, and strictness inside is earned by the two-root structure).',
+          'The reads: $f(1) = 1 - (m + 3) + 2m + 1 = m - 1$ and $f(3) = 9 - 3(m + 3) + 2m + 1 = 1 - m$.',
+          'So the demands read $m \\leq 1$ AND $m \\geq 1$ — the intersection is the SINGLE seat $m = 1$. The answer is a point, not a band — rare, honest, and worth seeing once.',
+          'The check: at $m = 1$ the machine is $t^2 - 4t + 3 = (t - 1)(t - 3)$, negative strictly between its doors 1 and 3 — exactly the interval asked for; at any $m \\neq 1$ one wall flips and the demand dies (the verifier swept 31 m-seats to confirm it).',
+        ], answer: 'm = 1, and only m = 1' },
+        { q: '\u03b1 and \u03b2 are the roots of x\u00b2 \u2212 4x + 1 = 0. Form the equation whose roots are \u03b1 + 1/\u03b2 and \u03b2 + 1/\u03b1.', solution: [
+          'The collapse: $P = \\alpha\\beta = 1$, so $\\frac{1}{\\beta} = \\alpha$ and $\\frac{1}{\\alpha} = \\beta$ — the new roots are $\\alpha + \\alpha = 2\\alpha$ and $\\beta + \\beta = 2\\beta$. The product-unity seat collapses the reciprocal read — worth recognizing at sight.',
+          'The new symmetric reads: $S\u2019 = 2(\\alpha + \\beta) = 2S = 8$ and $P\u2019 = 4\\alpha\\beta = 4$.',
+          'So the equation is $y^2 - 8y + 4 = 0$.',
+          'The cross-check: the original doors are $2 \\pm \\sqrt{3}$, so the new doors are $4 \\pm 2\\sqrt{3} = 2(2 \\pm \\sqrt{3})$ — and $(4 + 2\\sqrt{3}) + (4 - 2\\sqrt{3}) = 8$, $(4 + 2\\sqrt{3})(4 - 2\\sqrt{3}) = 16 - 12 = 4$ \u2713.',
+        ], answer: 'y\u00b2 \u2212 8y + 4 = 0' },
+        { q: 'Solve 3(x + 1)(x \u2212 5) + 2(x \u2212 2)(x \u2212 7) = 0, and name the door band each root lands in.', solution: [
+          'The expansion: $3(x^2 - 4x - 5) + 2(x^2 - 9x + 14) = 5x^2 - 30x + 13$.',
+          'The four-value bracket before solving: $F(-1) = 48 > 0$, $F(2) = -27 < 0$, $F(5) = -12 < 0$, $F(7) = 48 > 0$ — the $+\\;-\\;-\\;+$ walk forces one door in each inner band already.',
+          'The doors: $x = \\frac{30 \\pm \\sqrt{900 - 260}}{10} = \\frac{15 \\pm 4\\sqrt{10}}{5}$ — that is, $\\approx 0.47$ and $\\approx 5.53$.',
+          'The banding: $0.47 \\in (-1, 2)$ and $5.53 \\in (5, 7)$ — exactly as the bracket promised; and the escaper sign $\\mu + \\lambda = 5 > 0$ keeps the outer bands positive, so nothing rides past $-1$ or $7$.',
+        ], answer: 'x = (15 \u00b1 4\u221a10)/5 \u2248 0.47 and 5.53 \u2014 one door in (\u22121, 2), one in (5, 7)' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Prove that \u03b1\u2075 + \u03b2\u2075 = S\u2075 \u2212 5PS\u00b3 + 5P\u00b2S, where S = \u03b1 + \u03b2 and P = \u03b1\u03b2, and check the identity on both witnesses: x\u00b2 \u2212 x \u2212 1 = 0 and x\u00b2 \u2212 4x + 1 = 0.', solution: [
+          'The recurrence engine: the monic form of the equation is $x^2 = Sx - P$, so every root satisfies $\\alpha^{k+2} = S\\alpha^{k+1} - P\\alpha^k$, and likewise for $\\beta$; summing the two gives $T_{k+2} = S\\,T_{k+1} - P\\,T_k$ with $T_0 = 2$ and $T_1 = S$.',
+          'Running the engine: $T_2 = S^2 - 2P$, $T_3 = S^3 - 3PS$, $T_4 = S^4 - 4PS^2 + 2P^2$, and $T_5 = S\\,T_4 - P\\,T_3 = S^5 - 5PS^3 + 5P^2S$ — the terms collect exactly as claimed, and the identity stands proved.',
+          'Witness one, $x^2 - x - 1 = 0$: $S = 1$, $P = -1$, so $T_5 = 1 + 5 + 5 = 11$ — the Lucas number $L_5$, the recurrence\u2019s most famous seat.',
+          'Witness two, $x^2 - 4x + 1 = 0$: $S = 4$, $P = 1$, so $T_5 = 1024 - 320 + 20 = 724$ — and the engine\u2019s own ladder ($T_2 = 14$, $T_3 = 52$, $T_4 = 194$, $T_5 = 724$) agrees with the powers of $2 \\pm \\sqrt{3}$, which the verifier checked to nine decimal places.',
+        ], answer: 'proved \u2014 witnesses 11 (the Lucas number) and 724' },
+        { q: 'Given that 18a + 9b + 6c = 0, prove that the equation ax\u00b2 + bx + c = 0 has a root in the open interval (0, 3).', solution: [
+          'Invent the antiderivative whose derivative IS the machine: $F(x) = \\frac{a}{3}x^3 + \\frac{b}{2}x^2 + cx$, so that $F\u2019(x) = ax^2 + bx + c$ — the weights are the interval in disguise.',
+          'The two ends: $F(0) = 0$, and $F(3) = 9a + \\frac{9b}{2} + 3c = \\frac{18a + 9b + 6c}{2} = 0$ — the given condition is EXACTLY $2\\,F(3) = 0$.',
+          'So $F(0) = F(3)$, and Rolle\u2019s theorem hands over a seat $x^* \\in (0, 3)$ with $F\u2019(x^*) = 0$, that is $ax^{*2} + bx^* + c = 0$ — a root inside the open interval, as demanded.',
+          'The witness: $a = 1$, $b = 0$, $c = -3$ satisfies $18 + 0 - 18 = 0$, and $x^2 - 3 = 0$ owns the door $\\sqrt{3} \\approx 1.73 \\in (0, 3)$ \u2713; the verifier swept 39 weighted machines and every one owned its door.',
+        ], answer: 'proved \u2014 Rolle on F = ax\u00b3/3 + bx\u00b2/2 + cx with F(0) = F(3) = 0' },
+      ] },
+    ] },
+  ],
+}
+
+/* ------------------------------------------------------------------ */
+/* chapter assembly                                                    */
+/* ------------------------------------------------------------------ */
+
 export const chapter02: Chapter = {
   number: 2,
   slug: 'the-quadratic-at-depth',
   title: 'The Quadratic at Depth',
   summary:
     'Elementary Algebra settled the quadratic equation four ways; this chapter treats the quadratic as a working object. The vertex form becomes an optimization tool — maxima and minima priced without calculus, the range read off the fold and then used on real constraints. The equation grows into the inequality: the sign diagram, the discriminant trichotomy (two sign changes, one touch, constant sign), and the solution sets that AL 7.1–7.3’s linear work promised. Viète returns at competitive depth — symmetric expressions in the roots, common roots, forming equations with given roots — and the chapter closes with the JEE classic: conditions that pin both roots, or exactly one, inside a chosen interval. Every door metaphor AL coined for a root is now located on the line.',
-  status: 'in-progress',
-  lessons: [lesson21, lesson22, lesson23, lesson24],
-  plannedLessons: ['Unit Review: The Quadratic at Depth'],
+  status: 'complete',
+  lessons: [lesson21, lesson22, lesson23, lesson24, lessonReview],
+  plannedLessons: [],
 }

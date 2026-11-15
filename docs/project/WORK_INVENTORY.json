@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-15 09:41:41 (Asia/Kolkata)",
+  "generated": "2026-11-15 10:44:11 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -3227,8 +3227,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 3931,
-                "readMins": 20,
+                "words": 4409,
+                "readMins": 22,
                 "concepts": [
                   "From patterns to formulas",
                   "The position letter n",
@@ -3258,7 +3258,7 @@
                 "blockCounts": {
                   "para": 12,
                   "heading": 5,
-                  "callout": 4,
+                  "callout": 6,
                   "list": 2,
                   "derivation": 2,
                   "equation": 2,
@@ -3273,20 +3273,21 @@
                 "calloutTones": {
                   "definition": 1,
                   "warn": 1,
+                  "insight": 2,
                   "exam": 1,
                   "historical": 1
                 },
                 "quizItems": 5,
                 "exercisesByLevel": {
                   "L1": 2,
-                  "L2": 2,
+                  "L2": 3,
                   "L3": 2,
                   "L4": 2,
                   "L5": 2,
                   "L6": 2
                 },
-                "exerciseQuestions": 12,
-                "termsDefined": 6
+                "exerciseQuestions": 13,
+                "termsDefined": 7
               },
               {
                 "id": "fm-letter-for-the-unknown",
@@ -3357,7 +3358,7 @@
                 "termsDefined": 6
               }
             ],
-            "words": 13668
+            "words": 14146
           }
         ]
       },
@@ -9133,7 +9134,7 @@
         "description": "The book where algebra grows up a second time. Foundation Mathematics opened the doorstep and Arithmetic and Number Systems proved the ground; Elementary Algebra opened the door and ended at the function idea. This book walks through: functions become objects — relations as sets of pairs, machines classified one-one and onto, composed in series with their honest domains, and undone by inverses. The quadratic returns as a working object — optimized, settled as inequalities on the sign diagram, mined for symmetric reads, its roots located in intervals. The extension ladder climbs its most famous rung: complex numbers built from a closure failure, carried by the field laws, and handed back to the quadratic formula so every discriminant is kept. Inequalities become the classical engine (AM–GM, Cauchy–Schwarz, the triangle inequality — proved, not recited). Sequences and series run from the constant climb to the infinite tail; counting becomes the exact science of permutations and combinations; mathematical induction certifies statements for every n at once; the binomial theorem is proved for a positive integral index and worked to its approximation power; the theory of equations counts roots, prices symmetric functions and transforms old roots into new equations; and the exponential and logarithmic family is defined once and for all as inverse machines. Cross-references Foundation Mathematics, Arithmetic and Number Systems and Elementary Algebra throughout; hands off to Coordinate Geometry, Trigonometry, Calculus and Probability.",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 1,
+        "chaptersWritten": 2,
         "chapters": [
           {
             "number": 1,
@@ -9784,11 +9785,9 @@
             "slug": "the-quadratic-at-depth",
             "title": "The Quadratic at Depth",
             "summary": "Elementary Algebra settled the quadratic equation four ways; this chapter treats the quadratic as a working object. The vertex form becomes an optimization tool — maxima and minima priced without calculus, the range read off the fold and then used on real constraints. The equation grows into the inequality: the sign diagram, the discriminant trichotomy (two sign changes, one touch, constant sign), and the solution sets that AL 7.1–7.3’s linear work promised. Viète returns at competitive depth — symmetric expressions in the roots, common roots, forming equations with given roots — and the chapter closes with the JEE classic: conditions that pin both roots, or exactly one, inside a chosen interval. Every door metaphor AL coined for a root is now located on the line.",
-            "status": "in-progress",
-            "lessonsWritten": 4,
-            "plannedLessons": [
-              "Unit Review: The Quadratic at Depth"
-            ],
+            "status": "complete",
+            "lessonsWritten": 5,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "aa-vertex-form-at-work-maxima-and-minima",
@@ -10067,9 +10066,78 @@
                 },
                 "exerciseQuestions": 15,
                 "termsDefined": 8
+              },
+              {
+                "id": "aa-unit-review-the-quadratic-at-depth",
+                "number": "2.R",
+                "title": "Unit Review: The Quadratic at Depth",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5609,
+                "readMins": 28,
+                "concepts": [
+                  "the arc of the chapter: the quadratic as a working object — priced as an expression, fenced by its sign, mined for its roots, pinned by location",
+                  "the four readings: vertex, sign, Viète, location — one machine, four questions",
+                  "the two master tables reunited: the six sign cases and the k-system",
+                  "the cross-lesson witnesses: the fence, the sign ladder, the Viète inventory, the census family",
+                  "the formula inventory: twenty-two cards consolidated to eight load-bearing laws",
+                  "the mixed census: examination items that price several lessons in one question"
+                ],
+                "objectives": [
+                  "hold the whole chapter in one hand — the wiring of its four lessons and where each promise was cashed",
+                  "name which of the four readings a question wants, and run it at examination speed",
+                  "recall the master tables and the formula shelf without re-deriving them",
+                  "solve mixed items that price several lessons in one question — the way the hall actually prices a chapter"
+                ],
+                "prerequisites": [
+                  "aa-vertex-form-at-work-maxima-and-minima",
+                  "aa-quadratic-inequalities-and-the-sign-diagram",
+                  "aa-symmetric-reads-and-common-roots",
+                  "aa-location-of-roots-doors-in-intervals"
+                ],
+                "sources": [
+                  "cengage-m2-02",
+                  "cengage-jee-style",
+                  "ncert-math10-ch4-quadratic",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "heading": 6,
+                  "figure": 2,
+                  "callout": 7,
+                  "derivation": 1,
+                  "table": 2,
+                  "example": 4,
+                  "formula": 8,
+                  "terms": 1,
+                  "list": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 1,
+                  "insight": 2,
+                  "warn": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 7
               }
             ],
-            "words": 24281
+            "words": 29890
           },
           {
             "number": 3,
@@ -13719,13 +13787,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 238,
-      "totalLines": 114792,
+      "totalLines": 115301,
       "byArea": {
         "src/app (routes, pages)": 2109,
         "other": 10506,
         "src/components/library (reader platform)": 6059,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 83522,
+        "src/data/library (content model + books)": 84031,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -28829,33 +28897,167 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "71e445d9a8bfb8f4a2f798fd14c05a7301985eb1",
+      "short": "71e445d",
+      "date": "2026-11-15 00:35",
+      "message": "audit: fm-patterns-to-formulas — A:2fig B:3sol C:4enrich",
+      "filesChanged": 6,
+      "insertions": 177,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 21,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 4,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-11.ts",
+          "add": 131,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "3d5e604dd576ce7eddc71bb58fd610dae08ca951",
+      "short": "3d5e604",
+      "date": "2026-11-15 04:15",
+      "message": "run 103: AA 2.4 'Location of Roots: Doors in Intervals' authored + fully gated (verify-first K/L 3111/0 pre-prose — the engines caught 8 real errors incl. the exactly-one boundary-seat law and the honest two-sided fixed-point law replacing the wrong one-sided draft; authored-audit M = 3171/0; e2e 45/45 x3 viewports, quiz 5/5 on [1,2,1,2,0]; overlap 0/2 after two real fixes — fig2's x*-seat moved above the line, fig1's legend+note moved to the lower-right; domvalues CLEAN; pixel audit PASS with the vision endpoint 401 the whole window per the 429 precedent); the k-system master table from the a·f(k) principle, the 15-part master census on x² − (m+1)x + 3m − 5 with the fixed point (3, 1) and the honest boundary seat m = 5/2, roots-between-roots (4, 8), the substitution bridges a ∈ (4, 11/2] (the tangent seat x = −1) and |k| ≥ 1 (both branches), Rolle's reads + the antiderivative weights law 2aℓ² + 3bℓ + 6c = 0 + both honesty notes (x² − 1 vs x² + 1; x³ + 1), the interleaving census on (−1, 2, 5, 7) with the λμ trichotomy, the escaper law and the proved linear-case seat 19/5 ∈ (b, c), the wall demands m ≤ − 9 + the add-the-walls certificate 26 ≤ 0; 8,650 words, 15 Illustrations, 2 figures, 2 derivations, 6 formula cards, 15 exercises L1–L6; printed 2.31–2.37 vision-transcribed first time (tr-2.31-2.34/tr-2.35-2.37); 2.R deferred by the time rule with the pointer directing run 104 to the review + chapter close; PROGRESS totals 140 lessons / 690,057 words",
+      "filesChanged": 10,
+      "insertions": 1531,
+      "deletions": 52,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 9,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 8,
+          "del": 8
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 169,
+          "del": 25
+        },
+        {
+          "path": "scripts/e2e-aa-24.page.js",
+          "add": 59,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch02.ts",
+          "add": 724,
+          "del": 16
+        },
+        {
+          "path": "scripts/vlm24-pixel.py",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-02.ts",
+          "add": 488,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "678b1f720b6a9b7285c2cc07371489b74a561691",
+      "short": "678b1f7",
+      "date": "2026-11-15 04:15",
+      "message": "gitignore: run 103 script exceptions (e2e-aa-23/24.page.js tracked since runs 102/103, the pixel-audit fallback)",
+      "filesChanged": 1,
+      "insertions": 5,
+      "deletions": 0,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "52fc8b4e234776bdb8a58a61e70dbad4fd5370ad",
+      "short": "52fc8b4",
+      "date": "2026-11-15 04:18",
+      "message": "worklog: run 103 sync record — remote HEAD verified == 678b1f7 (the mid-run recycle push rejection resolved per first-shipped-stands: commits re-based onto the audit-bot's line, logs merged in order, verifier 3171/0 re-run green)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 277,
     "booksLive": 28,
-    "chaptersWritten": 34,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 140,
-    "wordsAuthored": 690057,
-    "termsDefined": 1039,
-    "quizItems": 700,
-    "exerciseQuestions": 1821,
+    "chaptersWritten": 35,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 141,
+    "wordsAuthored": 696144,
+    "termsDefined": 1047,
+    "quizItems": 705,
+    "exerciseQuestions": 1837,
     "blockTotals": {
-      "para": 1960,
-      "callout": 827,
-      "heading": 781,
-      "list": 169,
-      "terms": 136,
+      "para": 1972,
+      "callout": 836,
+      "heading": 787,
+      "list": 170,
+      "terms": 137,
       "equation": 205,
-      "figure": 263,
-      "derivation": 259,
-      "table": 164,
-      "example": 664,
-      "quiz": 140,
-      "exercises": 140,
-      "formula": 453,
+      "figure": 265,
+      "derivation": 260,
+      "table": 166,
+      "example": 668,
+      "quiz": 141,
+      "exercises": 141,
+      "formula": 461,
       "algorithm": 27
     }
   }
