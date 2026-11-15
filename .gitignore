@@ -517,3 +517,5 @@ server.log
 !/scripts/e2e-cs-shelf.sh
 !/scripts/run-cs-e2e-phase.sh
 !/scripts/digest_cs_tocs.py
+!/scripts/verify-exam-coverage.ts
+!/scripts/e2e-exam-presets.sh
