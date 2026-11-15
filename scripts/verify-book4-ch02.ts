@@ -719,10 +719,10 @@ const quad = (a: number, b: number, c: number, x: number): number => (a * x + b)
   const ch = chapter02
   ok(ch.number === 2 && ch.slug === 'the-quadratic-at-depth', 'F1 chapter wrapper number/slug')
   ok(ch.status === 'in-progress', 'F2 chapter status in-progress (1/4 authored)')
-  // re-pinned count-aware at audit time (run 101): the authored chapter now
-  // carries TWO lessons (2.1 from run 100 + 2.2 from this run) and TWO
-  // planned titles — section G re-asserts the same shape below.
-  ok(ch.lessons.length === 3 && ch.plannedLessons?.length === 1, 'F3 chapter shape: 3 lessons + 1 planned (re-pinned run 102: 2.3 authored)')
+  // re-pinned count-aware at audit time (run 103): the authored chapter now
+  // carries FOUR lessons (2.1 run 100, 2.2 run 101, 2.3 run 102, 2.4 run 103)
+  // with the unit review as the one remaining planned title.
+  ok(ch.lessons.length === 4 && ch.plannedLessons?.length === 1, 'F3 chapter shape: 4 lessons + 1 planned (re-pinned run 103: 2.4 authored)')
   const L = ch.lessons[0]
   ok(L.id === 'aa-vertex-form-at-work-maxima-and-minima', 'F4 lesson id matches the pinned id')
   ok(L.number === '2.1' && L.title === 'Vertex Form at Work: Maxima and Minima', 'F5 lesson number/title')
@@ -803,7 +803,7 @@ const quad = (a: number, b: number, c: number, x: number): number => (a * x + b)
   const ch = chapter02
   ok(ch.number === 2 && ch.slug === 'the-quadratic-at-depth', 'G1 chapter wrapper number/slug')
   ok(ch.status === 'in-progress', 'G2 chapter status in-progress (2/4 authored)')
-  ok(ch.lessons.length === 3 && ch.plannedLessons?.length === 1, 'G3 chapter shape: 3 lessons + 1 planned (re-pinned run 102: 2.3 authored)')
+  ok(ch.lessons.length === 4 && ch.plannedLessons?.length === 1, 'G3 chapter shape: 4 lessons + 1 planned (re-pinned run 103: 2.4 authored, review planned)')
   const L = ch.lessons[1]
   ok(L.id === 'aa-quadratic-inequalities-and-the-sign-diagram', 'G4 lesson id matches the pinned id')
   ok(L.number === '2.2' && L.title === 'Quadratic Inequalities and the Sign Diagram', 'G5 lesson number/title')
@@ -1231,7 +1231,7 @@ function realRoots(a: number, b: number, c: number): number[] {
       const r2 = realRoots(1, 6, -7)
       ok(r1.includes(1) && r1.includes(6) && r2.includes(1) && r2.includes(-7), 'H7.4 m = -7: roots {1, 6} ∩ {1, -7} = {1} — one shared door')
       // proportionality fails: (1,-7,6) vs (1,6,-7) — ratios 1, -7/6, -6/7
-      const mNeg = -7
+      const mNeg: number = -7
       ok(mNeg !== 6 && mNeg / 6 !== 1 && -6 / mNeg !== 1, 'H7.4 m = -7 is NOT proportional (ratios 1, -7/6, -6/7)')
       // the determinant condition holds (13^2 = 13·13) — one-common, not both
       ok((6 * 1 - -7 * 1) === 13 && (-7 * -7 - 6 * 6) === 13 && (1 * 6 - 1 * -7) === 13, 'H7.4 m = -7 cross products 13, 13, 13: condition 169 = 169')
@@ -1346,7 +1346,7 @@ function realRoots(a: number, b: number, c: number): number[] {
     ok(r1.includes(2) && r1.includes(3) && r2.includes(3) && r2.includes(4), 'I1 Q4: {2,3} ∩ {3,4} = {3} (key index 2)')
   }
   // Q5 both-common m-hunt: options [6, ±6, 36, none]; key 0
-  const mQ5 = -6
+  const mQ5: number = -6
   ok(6 * 6 === 36 && mQ5 !== 6, 'I1 Q5: m = 6 only; m = -6 fails proportionality')
 }
 
@@ -1427,7 +1427,7 @@ function realRoots(a: number, b: number, c: number): number[] {
 
 {
   const ch = chapter02
-  ok(ch.lessons.length === 3 && ch.plannedLessons?.length === 1 && ch.plannedLessons?.[0] === 'Location of Roots: Doors in Intervals', 'J1 chapter shape after authoring: 3 lessons, planned = [Location of Roots]')
+  ok(ch.lessons.length === 4 && ch.plannedLessons?.length === 1 && ch.plannedLessons?.[0] === 'Unit Review: The Quadratic at Depth', 'J1 chapter shape after authoring: 4 lessons, planned = [Unit Review] (re-pinned run 103)')
   const L = ch.lessons[2]
   ok(L.id === 'aa-symmetric-reads-and-common-roots', 'J2 lesson id matches the pinned id')
   ok(L.number === '2.3' && L.title === 'Symmetric Reads and Common Roots', 'J3 lesson number/title')
@@ -1442,7 +1442,7 @@ function realRoots(a: number, b: number, c: number): number[] {
   ok(count('quiz') === 1 && count('exercises') === 1, `J4.5 quiz + exercises present`)
   ok(count('formula') === 6, `J4.6 formula cards = 6 (got ${count('formula')})`)
   ok(count('terms') === 1 && count('list') === 4, `J4.7 terms block + 4 roman lists (got lists ${count('list')})`)
-  const callouts = blocks.filter((b) => b.kind === 'callout') as Array<{ tone: string; title: string; text: string }>
+  const callouts = blocks.filter((b) => b.kind === 'callout') as unknown as Array<{ tone: string; title: string; text: string }>
   ok(callouts.filter((c) => c.tone === 'definition').length === 4, 'J4.8 four definition callouts (Viète, symmetric function, repeated root, common root)')
   ok(callouts.filter((c) => c.tone === 'theorem').length === 3, 'J4.9 three theorem callouts (power-sum recurrence, same-ratio condition, proportionality)')
   ok(callouts.filter((c) => c.tone === 'warn').length === 3, 'J4.10 three warn callouts (asymmetric census, repeated-seat honesty, one-vs-both trap)')
@@ -1450,29 +1450,29 @@ function realRoots(a: number, b: number, c: number): number[] {
   ok(callouts.filter((c) => c.tone === 'insight').length === 3, 'J4.12 three insight callouts (no-solve licence, cross arrangement, recurrence vs sheet)')
 
   // J5 the hosted folds
-  const headings = blocks.filter((b) => b.kind === 'heading') as Array<{ text: string }>
+  const headings = blocks.filter((b) => b.kind === 'heading') as unknown as Array<{ text: string }>
   ok(headings.some((h) => h.text.includes('Repeated Roots')), 'J5.1 the Repeated Roots fold hosts as a NAMED heading')
   ok(callouts.some((c) => c.title.includes('Repeated root') && c.text.includes('said to be a REPEATED ROOT')), 'J5.2 the formal repeated-root definition callout is present')
-  const exampleTitles = (blocks.filter((b) => b.kind === 'example') as Array<{ title: string }>).map((e) => e.title)
+  const exampleTitles = (blocks.filter((b) => b.kind === 'example') as unknown as Array<{ title: string }>).map((e) => e.title)
   const bothCommon = exampleTitles.filter((t) => /least value|both roots common|common positive root/i.test(t))
   ok(bothCommon.length >= 2, `J5.3 >=2 both-common worked examples of the fold's topic type (got ${bothCommon.length})`)
   ok(callouts.some((c) => c.title === 'The proportionality condition' && c.text.includes('a_1}{a_2')), 'J5.4 the both-common proportionality theorem callout with the condition')
 
   // J6 quiz keys vs the pre-writing pins [2, 1, 0, 2, 0]
-  const quiz = blocks.find((b) => b.kind === 'quiz') as { items: Array<{ answer: number; options: string[]; explain: string }> }
+  const quiz = blocks.find((b) => b.kind === 'quiz') as unknown as { items: Array<{ answer: number; options: string[]; explain: string }> }
   ok(quiz.items.length === 5, 'J6.1 quiz has 5 items')
   ok(quiz.items.map((i) => i.answer).join(',') === '2,1,0,2,0', `J6.2 quiz keys match the I1 pins (got ${quiz.items.map((i) => i.answer).join(',')})`)
   ok(quiz.items.every((i) => i.options.length === 4), 'J6.3 every quiz item has 4 options')
   ok(quiz.items.every((i) => i.explain.length >= 120), 'J6.4 every quiz explain prices the distractors')
 
   // J7 exercises census + answers present
-  const ex = blocks.find((b) => b.kind === 'exercises') as { sets: Array<{ level: string; questions: Array<{ q: string; solution: string[]; answer: string }> }> }
+  const ex = blocks.find((b) => b.kind === 'exercises') as unknown as { sets: Array<{ level: string; questions: Array<{ q: string; solution: string[]; answer: string }> }> }
   const levelCounts = ex.sets.map((s) => `${s.level}:${s.questions.length}`).join(' ')
   ok(levelCounts === 'L1:2 L2:2 L3:3 L4:3 L5:3 L6:2', `J7.1 exercise ladder L1-L6 = 15 (got ${levelCounts})`)
   ok(ex.sets.every((s) => s.questions.every((q) => q.solution.length >= 3 && q.answer.length > 0)), 'J7.2 every exercise carries a full worked solution and a terminal answer')
 
   // J8 figure pins (viewBox, coordinates, labels, vivid palette)
-  const figs = blocks.filter((b) => b.kind === 'figure') as Array<{ caption: string; svg: string }>
+  const figs = blocks.filter((b) => b.kind === 'figure') as unknown as Array<{ caption: string; svg: string }>
   const f1 = figs[0].svg
   const f2 = figs[1].svg
   ok(f1.includes('viewBox="0 0 720 360"') && f2.includes('viewBox="0 0 720 380"'), 'J8.1 figure viewBoxes match the plans')
@@ -1522,12 +1522,720 @@ function realRoots(a: number, b: number, c: number): number[] {
   ok(allText2.includes('{-7, 6') || allText2.includes('−7, 6'), 'J14.4 the m-hunt census {-7, 6} appears in prose as the engines certified it')
 
   // J15 the derivation carries the DerivationStep contract
-  const deriv = blocks.find((b) => b.kind === 'derivation') as { title: string; steps: Array<{ label: string; formula?: string; explanation: string }>; result: string }
+  const deriv = blocks.find((b) => b.kind === 'derivation') as unknown as { title: string; statement?: string; steps: Array<{ label: string; formula?: string; explanation: string }>; result: string }
   ok(deriv.steps.length === 6 && deriv.steps.every((s) => s.label.length > 0 && s.explanation.length > 0), 'J15 derivation has 6 labelled steps with explanations')
   ok(typeof deriv.result === 'string' && deriv.result.includes('(c_1a_2 - c_2a_1)^2'), 'J15b derivation result line present with the boxed condition')
 }
 
-console.log(`\nverify-book4-ch02 sections A-J: ${passed} passed, ${failed} failed`)
+/* ------------------------------------------------------------------ */
+/* (K) lesson 2.4 "Location of Roots: Doors in Intervals" — the        */
+/*     engine suite, pinned BEFORE any prose (run 103, verify-first).  */
+/*     Every exhibit below is this book's own (study-never-reproduce:  */
+/*     the m2-02 module's printed 2.31-2.37 informed METHOD shapes     */
+/*     only — the family, the walls, the witnesses and every verdict   */
+/*     are fresh designs, brute-force certified here).                 */
+/* ------------------------------------------------------------------ */
+
+// ascending-sorted real roots (realRoots returns [(-b+s)/2a, (-b-s)/2a],
+// whose order flips with the sign of a — every order-sensitive engine
+// below uses this wrapper)
+function sortedRoots(a: number, b: number, c: number): number[] {
+  return realRoots(a, b, c).sort((u, v) => u - v)
+}
+
+// K1. the k-system equivalences, certified by brute force over an
+// integer grid (a != 0, all b, c; every wall k and wall-pair k1 < k2):
+//   both roots > k        <=> D >= 0 AND a*f(k) > 0 AND -b/2a > k
+//   both roots < k        <=> D >= 0 AND a*f(k) > 0 AND -b/2a < k
+//   k between the roots   <=> a*f(k) < 0           (no D check needed)
+//   exactly one in (k1,k2)<=> f(k1)*f(k2) < 0      (no D check needed)
+//   both roots in (k1,k2) <=> D >= 0 AND a*f(k1) > 0 AND a*f(k2) > 0
+//                                AND k1 < -b/2a < k2
+//   both walls between    <=> a*f(k1) < 0 AND a*f(k2) < 0
+{
+  let checks = 0
+  for (const a of [-2, -1, 1, 2]) {
+    for (const b of rng(-5, 5)) for (const cc of rng(-6, 6)) {
+      const D = b * b - 4 * a * cc
+      const roots = sortedRoots(a, b, cc)
+      const axis = -b / (2 * a)
+      for (const k of rng(-3, 3)) {
+        const afk = a * quad(a, b, cc, k)
+        // the double root (D = 0) counts as BOTH roots (the exam convention
+        // the census (vi)/(xiii) rows honour) — hence the .every form
+        const bothGt = roots.length >= 1 && roots.every((x) => x > k)
+        if (bothGt === (D >= 0 && afk > 0 && axis > k)) checks++
+        else ok(false, 'K1 both>k equivalence at a=' + a + ' b=' + b + ' c=' + cc + ' k=' + k)
+        const bothLt = roots.length >= 1 && roots.every((x) => x < k)
+        if (bothLt === (D >= 0 && afk > 0 && axis < k)) checks++
+        else ok(false, 'K1 both<k equivalence at a=' + a + ' b=' + b + ' c=' + cc + ' k=' + k)
+        const kBetween = roots.length === 2 && roots[0] < k && k < roots[1]
+        if (kBetween === (afk < 0)) checks++
+        else ok(false, 'K1 k-between equivalence at a=' + a + ' b=' + b + ' c=' + cc + ' k=' + k)
+      }
+      for (const k1 of rng(-3, 2)) for (const k2 of rng(k1 + 1, 3)) {
+        const fk1 = quad(a, b, cc, k1)
+        const fk2 = quad(a, b, cc, k2)
+        const inW = (x: number) => x > k1 && x < k2
+        const exactlyOne = roots.length === 2 && roots.filter(inW).length === 1
+        // boundary seats (a root exactly ON a wall) are excluded from the
+        // equivalence: there the product is 0 and the honest read needs the
+        // wall-seat check the census's m = 5/2 seat demonstrates in prose
+        if (fk1 === 0 || fk2 === 0) continue
+        if (exactlyOne === (fk1 * fk2 < 0)) checks++
+        else ok(false, 'K1 exactly-one equivalence at a=' + a + ' b=' + b + ' c=' + cc + ' walls ' + k1 + ',' + k2)
+        const bothIn = roots.length >= 1 && roots.every((x) => x > k1 && x < k2)
+        if (bothIn === (D >= 0 && a * fk1 > 0 && a * fk2 > 0 && k1 < axis && axis < k2)) checks++
+        else ok(false, 'K1 both-in equivalence at a=' + a + ' b=' + b + ' c=' + cc + ' walls ' + k1 + ',' + k2)
+        const wallsBetween = roots.length === 2 && roots[0] < k1 && k2 < roots[1]
+        if (wallsBetween === (a * fk1 < 0 && a * fk2 < 0)) checks++
+        else ok(false, 'K1 walls-between equivalence at a=' + a + ' b=' + b + ' c=' + cc + ' walls ' + k1 + ',' + k2)
+      }
+    }
+  }
+  ok(checks > 20000, `K1 the six k-system rows certified on ${checks} grid cases`)
+  // the D-check is load-bearing for the both-rows: the always-positive
+  // family x^2 - 2x + 5 passes walls + axis with NO roots at all
+  {
+    ok(realRoots(1, -2, 5).length === 0, 'K1b x^2 - 2x + 5 has no real roots (D = -16)')
+    ok(quad(1, -2, 5, 1) === 4 && quad(1, -2, 5, 5) === 20 && -(-2) / 2 === 1, 'K1b its walls and axis all pass (f(1) = 4, f(5) = 20, axis 1)')
+    ok(quad(1, -2, 5, 1) * quad(1, -2, 5, 5) > 0, 'K1b only the between-test (which demands a sign change) rejects it')
+  }
+}
+
+// K2. the master census family f(x) = x^2 - (m+1)x + 3m - 5:
+// D = (m-3)(m-7), sum = m+1, product = 3m-5, axis = (m+1)/2,
+// f(1) = 2m-5, f(3) = 1 (THE FIXED POINT), f(0) = 3m-5; double roots
+// land at x = 2 (m = 3) and x = 4 (m = 7). Walls at 1 and 3.
+{
+  const fam = (m: number) => sortedRoots(1, -(m + 1), 3 * m - 5)
+  // pins: the algebraic identities on an integer sweep
+  for (const m of rng(-9, 9)) {
+    eq((m + 1) ** 2 - 4 * (3 * m - 5), (m - 3) * (m - 7), 1e-12, 'K2.1 D = (m-3)(m-7) identity at m=' + m)
+    eq(quad(1, -(m + 1), 3 * m - 5, 1), 2 * m - 5, 1e-12, 'K2.2 f(1) = 2m-5 at m=' + m)
+    eq(quad(1, -(m + 1), 3 * m - 5, 3), 1, 1e-12, 'K2.3 f(3) = 1 — the fixed point at m=' + m)
+    eq(quad(1, -(m + 1), 3 * m - 5, 0), 3 * m - 5, 1e-12, 'K2.4 f(0) = 3m-5 = the product at m=' + m)
+  }
+  // the pencil passes through (3, 1) for EVERY m — brute force
+  for (let m = -12; m <= 12; m += 0.25) eq(quad(1, -(m + 1), 3 * m - 5, 3), 1, 1e-12, 'K2.3 fixed point on the sweep')
+  // the fifteen verdicts, brute-forced against the claims
+  const claims: Array<[string, (m: number) => boolean, (m: number) => boolean]> = [
+    ['(i) real and distinct', (m) => m < 3 || m > 7, (m) => { const r = fam(m); return r.length === 2 && Math.abs(r[0] - r[1]) > 1e-12 }],
+    ['(ii) equal', (m) => m === 3 || m === 7, (m) => fam(m).length === 1],
+    ['(iii) not real', (m) => m > 3 && m < 7, (m) => fam(m).length === 0],
+    ['(iv) opposite sign', (m) => m < 5 / 3, (m) => { const r = fam(m); return r.length === 2 && r[0] * r[1] < 0 }],
+    ['(v) equal magnitude opposite sign', (m) => m === -1, (m) => { const r = fam(m); return r.length === 2 && Math.abs(r[0] + r[1]) < 1e-9 && r[0] * r[1] < 0 }],
+    ['(vi) both positive', (m) => m > 5 / 3 && m <= 3 || m >= 7, (m) => { const r = fam(m); return r.length === 2 && r[0] > 0 && r[1] > 0 }],
+    ['(vii) both negative', () => false, (m) => { const r = fam(m); return r.length === 2 && r[1] < 0 }],
+    ['(viii) at least one positive', (m) => m <= 3 || m >= 7, (m) => { const r = fam(m); return r.length >= 1 && Math.max(...r) > 0 }],
+    ['(ix) 1 between the roots', (m) => m < 5 / 2, (m) => { const r = fam(m); return r.length === 2 && r[0] < 1 && 1 < r[1] }],
+    ['(x) both roots exceed 1', (m) => (m > 5 / 2 && m <= 3) || m >= 7, (m) => { const r = fam(m); return r.length === 2 && r[0] > 1 }],
+    ['(xi) both roots below 1', () => false, (m) => { const r = fam(m); return r.length === 2 && r[1] < 1 }],
+    ['(xii) exactly one root in (1,3)', (m) => m <= 5 / 2, (m) => { const r = fam(m); return r.filter((x) => x > 1 && x < 3).length === 1 }],
+    ['(xiii) both roots in (1,3)', (m) => m > 5 / 2 && m <= 3, (m) => { const r = fam(m); return r.length === 2 && r[0] > 1 && r[1] < 3 }],
+    ['(xiv) at least one root in (1,3)', (m) => m <= 3, (m) => { const r = fam(m); return r.some((x) => x > 1 && x < 3) }],
+    ['(xv) one root > 3, other < 1', () => false, (m) => { const r = fam(m); return r.length === 2 && (r[1] > 3 && r[0] < 1 || r[0] > 3 && r[1] < 1) }],
+  ]
+  let censusChecks = 0
+  for (const [name, claimed, truth] of claims) {
+    for (let i = 0; i <= 480; i++) {
+      const m = -12 + 0.05 * i
+      // skip grid points that sit exactly ON a claim boundary (float drift)
+      const onBoundary = [5 / 3, 5 / 2, 3, 7].some((b) => Math.abs(m - b) < 1e-9)
+      if (onBoundary) continue
+      if (claimed(m) === truth(m)) censusChecks++
+      else ok(false, `K2.5 census ${name} disagrees at m=${m.toFixed(2)}`)
+    }
+  }
+  ok(censusChecks > 7000, `K2.5 the fifteen census verdicts certified on ${censusChecks} grid points`)
+  // exact boundary probes
+  {
+    const r53 = fam(5 / 3)
+    ok(r53.length === 2 && Math.abs(r53[0]) < 1e-9 && Math.abs(r53[1] - 8 / 3) < 1e-9, 'K2.6 m=5/3: roots 0 and 8/3 (the product-zero seat)')
+    const r52 = fam(5 / 2)
+    ok(r52.length === 2 && Math.abs(r52[0] - 1) < 1e-9 && Math.abs(r52[1] - 2.5) < 1e-9, 'K2.6 m=5/2: roots 1 and 5/2 (the wall seat — root ON the open edge)')
+    const rm1 = fam(-1)
+    ok(rm1.length === 2 && Math.abs(rm1[0] + Math.sqrt(8)) < 1e-9 && Math.abs(rm1[1] - Math.sqrt(8)) < 1e-9, 'K2.6 m=-1: roots ±2√2 (the equal-magnitude witness)')
+    const r3 = fam(3)
+    ok(r3.length === 1 && Math.abs(r3[0] - 2) < 1e-9, 'K2.6 m=3: double root 2')
+    const r7 = fam(7)
+    ok(r7.length === 1 && Math.abs(r7[0] - 4) < 1e-9, 'K2.6 m=7: double root 4')
+  }
+  // the fixed-point law (the L6 proof): f(3) = 1 > 0 keeps the wall 3
+  // OUTSIDE the open root interval for every m — the pair never straddles
+  // 3; and the axis position splits the verdict:
+  //   m <= 3 (axis <= 2)  -> BOTH roots < 3
+  //   m >= 7 (axis >= 4)  -> BOTH roots > 3
+  {
+    let neverStraddles = true
+    let splitHolds = true
+    for (let i = 0; i <= 480; i++) {
+      const m = -12 + 0.05 * i
+      const r = fam(m)
+      if (r.length === 2 && r[0] < 3 && 3 < r[1]) neverStraddles = false
+      if (r.length === 2 && m <= 3 && !(r[1] < 3)) splitHolds = false
+      if (r.length === 2 && m >= 7 && !(r[0] > 3)) splitHolds = false
+    }
+    ok(neverStraddles, 'K2.7 the pair never straddles 3 (f(3) = 1 > 0 — the fixed-point law)')
+    ok(splitHolds, 'K2.7 the axis split: m <= 3 => both roots < 3; m >= 7 => both roots > 3')
+  }
+}
+
+// K3. roots between roots: the inner pair x^2 - 10x + 21 = (x-3)(x-7)
+// against the outer family 2x^2 - (3m+4)x + 2m^2 - 11m + 26:
+// f2(3) = 2(m-2)(m-8), f2(7) = 2(m-4)(m-12); verdict m in (4, 8).
+{
+  const inner = sortedRoots(1, -10, 21)
+  ok(Math.abs(inner[0] - 3) < 1e-9 && Math.abs(inner[1] - 7) < 1e-9, 'K3.1 inner roots exactly 3 and 7')
+  for (const m of rng(-6, 14)) {
+    eq(quad(2, -(3 * m + 4), 2 * m * m - 11 * m + 26, 3), 2 * (m - 2) * (m - 8), 1e-12, 'K3.2 f2(3) = 2(m-2)(m-8) at m=' + m)
+    eq(quad(2, -(3 * m + 4), 2 * m * m - 11 * m + 26, 7), 2 * (m - 4) * (m - 12), 1e-12, 'K3.2 f2(7) = 2(m-4)(m-12) at m=' + m)
+  }
+  for (let m = -2; m <= 14; m += 0.1) {
+    if (Math.abs(m - 4) < 1e-6 || Math.abs(m - 8) < 1e-6) continue
+    const outer = sortedRoots(2, -(3 * m + 4), 2 * m * m - 11 * m + 26)
+    const claimed = m > 4 && m < 8
+    const truth = outer.length === 2 && outer[0] < 3 && 7 < outer[1]
+    if (claimed !== truth) ok(false, `K3.3 between-quadratics verdict disagrees at m=${m.toFixed(1)}`)
+  }
+  const w6 = sortedRoots(2, -(3 * 6 + 4), 2 * 36 - 66 + 26)
+  ok(w6.length === 2 && Math.abs(w6[0] - (11 - Math.sqrt(57)) / 2) < 1e-9 && Math.abs(w6[1] - (11 + Math.sqrt(57)) / 2) < 1e-9, 'K3.4 witness m=6: outer roots (11±√57)/2 straddle 3 and 7')
+  ok((11 - Math.sqrt(57)) / 2 < 3 && 7 < (11 + Math.sqrt(57)) / 2, 'K3.4 the straddle itself')
+  const w4 = realRoots(2, -16, 14)
+  ok(w4.some((r) => Math.abs(r - 7) < 1e-9), 'K3.5 boundary m=4: a root sits exactly ON the wall 7 (excluded by strictness)')
+  const w8 = realRoots(2, -28, 66)
+  ok(w8.some((r) => Math.abs(r - 3) < 1e-9), 'K3.5 boundary m=8: a root sits exactly ON the wall 3 (2(x-3)(x-11))')
+}
+
+// K4. the substitution bridge t = x^2 + 2x + 3 in [2, inf):
+// (x^2+2x+6)^2 - (a-2)(x^2+2x+3)(x^2+2x+6) + (a-3)(x^2+2x+3)^2 = 0
+// collapses to (12-3a)t + 9 = 0, i.e. t = 3/(a-4); a real x exists
+// <=> 3/(a-4) >= 2 <=> a in (4, 11/2].
+{
+  const collapse = (a: number, t: number) => (t + 3) ** 2 - (a - 2) * t * (t + 3) + (a - 3) * t * t
+  for (const a of rng(0, 10)) for (const t of rng(-3, 9)) {
+    eq(collapse(a, t), (12 - 3 * a) * t + 9, 1e-12, `K4.1 the collapse identity at a=${a}, t=${t}`)
+    eq((t + 3) ** 2 - (a - 2) * (t * t + 3 * t) + (a - 3) * t * t, (12 - 3 * a) * t + 9, 1e-12, 'K4.1b expanded route agrees')
+  }
+  // the quartic in x, evaluated directly — the two routes agree
+  const quartic = (a: number, x: number) => collapse(a, x * x + 2 * x + 3)
+  {
+    ok(Math.abs(quartic(5, 0)) < 1e-9 && Math.abs(quartic(5, -2)) < 1e-9, 'K4.2 witness a=5: x=0 and x=-2 are roots (t = 3)')
+    ok(Math.abs(quartic(5.5, -1)) < 1e-9, 'K4.2 boundary a=11/2: x=-1 (double root, the tangent moment — t = 2 is the minimum)')
+    let hasRoot = false
+    for (let x = -12; x <= 12; x += 0.01) if (Math.abs(quartic(4, x)) < 1e-9) hasRoot = true
+    ok(!hasRoot, 'K4.2 degenerate a=4: no real root (the collapse reads 9 = 0)')
+    hasRoot = false
+    for (let x = -12; x <= 12; x += 0.01) if (Math.abs(quartic(3, x)) < 1e-9) hasRoot = true
+    ok(!hasRoot, 'K4.2 exclusion a=3: no real root (the expression is 3(x^2+2x+6) > 0)')
+    ok(4 - 4 * 0.5 > 0, 'K4.2 interior a=5.2: t = 2.5, and x^2+2x+0.5 has D = 2 > 0')
+  }
+  // the verdict: a real x exists <=> t = 3/(a-4) >= 2 <=> a in (4, 11/2]
+  {
+    for (let a = 2; a <= 9; a += 0.1) {
+      if (Math.abs(a - 4) < 1e-6 || Math.abs(a - 5.5) < 1e-6) continue
+      const t = 3 / (a - 4)
+      const claimed = t >= 2
+      const truth = 4 - 4 * (3 - t) >= 0
+      if (claimed !== truth) ok(false, `K4.3 the t>=2 wall disagrees at a=${a.toFixed(1)}`)
+    }
+    ok(Math.abs(3 / (5.5 - 4) - 2) < 1e-12, 'K4.3 a=11/2: t = 2 exactly (the wall seat, attained)')
+    ok(3 / (6 - 4) === 1.5 && 1.5 < 2, 'K4.4 a=6: t = 1.5 < 2 — excluded')
+    ok(3 / (3 - 4) === -3 && -3 < 2, 'K4.4 a=3: t = -3 < 2 — excluded (negative t)')
+    ok(3 / (5 - 4) === 3 && 3 >= 2, 'K4.4 a=5: t = 3 — included')
+    eq(3 / (4.2 - 4), 15, 1e-9, 'K4.4 a=4.2: t = 15 — included (just above the pole)')
+  }
+}
+
+// K5. the cos bridge: cos^2 x - k cos x - 2 = 0 has a real solution
+// <=> the t-quadratic t^2 - kt - 2 has a root in [-1, 1] <=> |k| >= 1.
+{
+  for (let k = -6; k <= 6; k += 0.1) {
+    if (Math.abs(Math.abs(k) - 1) < 1e-6) continue
+    const r = realRoots(1, -k, -2)
+    const truth = r.some((t) => t >= -1 && t <= 1)
+    const claimed = Math.abs(k) >= 1
+    if (truth !== claimed) ok(false, `K5.1 the |k|>=1 verdict disagrees at k=${k.toFixed(1)}`)
+  }
+  {
+    const r = realRoots(1, -1, -2) // k = 1: t^2 - t - 2 = (t-2)(t+1)
+    ok(r.some((t) => Math.abs(t + 1) < 1e-9), 'K5.2 k=1: the negative root is exactly t = -1 (cos x = -1, x = π)')
+    const r2 = realRoots(1, 1, -2) // k = -1: t^2 + t - 2 = (t+2)(t-1)
+    ok(r2.some((t) => Math.abs(t - 1) < 1e-9), 'K5.2 k=-1: the positive root is exactly t = 1 (cos x = 1, x = 0)')
+    const r0 = realRoots(1, 0, -2)
+    ok(r0.every((t) => Math.abs(t) > 1), 'K5.2 k=0: roots ±√2 both outside [-1,1]')
+    ok(Math.abs(Math.sqrt(2) - 1.4142135623730951) < 1e-12, 'K5.2 √2 pinned')
+    // both branches: the positive root <= 1 forces k <= -1; the negative
+    // root >= -1 forces k >= 1 (the honest both-branch census)
+    eq((1 + Math.sqrt(1 + 8)) / 2, 2, 1e-12, 'K5.3 k=1 positive root is exactly 2 (outside)')
+    eq((1 - Math.sqrt(1 + 8)) / 2, -1, 1e-12, 'K5.3 k=1 negative root is exactly -1 (the boundary seat)')
+  }
+}
+
+// K6. Rolle's reads and their honesty, on our witnesses:
+//   - the antiderivative trick: 4a+3b+3c = 0 => a root of ax^2+bx+c in (0,2)
+//     (and the exercise's interval (0,3): 6a+3b+2c = 0)
+//   - between two roots of f sits a root of f': (x-1)(x-3)(x-5)
+//   - honesty 1: f(-2) = f(2) = 3 > 0 for x^2 - 1, yet BOTH roots ±1 sit inside
+//   - honesty 2 (the reverse failure): x^3+1 has f' = 3x^2 with the root 0,
+//     but f itself has exactly ONE real root — a derivative root does not
+//     force two straddling f-roots.
+{
+  // the antiderivative sweep (a != 0 so the equation is genuinely quadratic)
+  for (const a of [-3, 3]) for (const b of rng(-6, 6)) {
+    const c = -(4 * a + 3 * b) / 3
+    if (!Number.isInteger(c)) continue
+    const r = realRoots(a, b, c)
+    ok(r.some((x) => x > 0 && x < 2), `K6.1 the (0,2) antiderivative law holds at (a,b,c)=(${a},${b},${c})`)
+  }
+  for (const a of rng(-4, 4)) for (const b of [-6, -4, -2, 0, 2, 4, 6]) {
+    if (a === 0) continue // the engine's realRoots owns quadratics only
+    const c = -(6 * a + 3 * b) / 2
+    if (!Number.isInteger(c)) continue
+    const r = realRoots(a, b, c)
+    ok(r.some((x) => x > 0 && x < 3), `K6.1b the (0,3) antiderivative law holds at (a,b,c)=(${a},${b},${c})`)
+  }
+  // the weights identities: F(l) - F(0) = l(al^2/3 + bl/2 + c)
+  for (const a of rng(-3, 3)) for (const b of rng(-4, 4)) for (const c of rng(-5, 5)) {
+    const F = (x: number) => (a * x ** 3) / 3 + (b * x * x) / 2 + c * x
+    eq(F(2), (2 * (4 * a + 3 * b + 3 * c)) / 3, 1e-12, 'K6.2 the 4-3-3 weights link: F(2) = (2/3)(4a+3b+3c)')
+    eq(F(3), (3 * (6 * a + 3 * b + 2 * c)) / 2, 1e-12, 'K6.2 the 6-3-2 weights link: F(3) = (3/2)(6a+3b+2c)')
+  }
+  // the between-roots corollary witness: f = x^3 - 9x^2 + 23x - 15
+  {
+    const f = (x: number) => x ** 3 - 9 * x * x + 23 * x - 15
+    ok(f(1) === 0 && f(3) === 0 && f(5) === 0, 'K6.3 the three roots 1, 3, 5')
+    const fp = sortedRoots(3, -18, 23)
+    ok(fp.length === 2, "K6.3 f' = 3x^2 - 18x + 23 has two real roots")
+    ok(fp[0] > 1 && fp[0] < 3 && fp[1] > 3 && fp[1] < 5, 'K6.3 one derivative root in (1,3) and one in (3,5)')
+    ok(Math.abs(fp[0] - (3 - (2 * Math.sqrt(3)) / 3)) < 1e-9 && Math.abs(fp[1] - (3 + (2 * Math.sqrt(3)) / 3)) < 1e-9, 'K6.3 the roots are 3 ± 2√3/3')
+  }
+  // honesty 1: x^2 - 1 at the walls ±2
+  {
+    const g = (x: number) => x * x - 1
+    ok(g(-2) === 3 && g(2) === 3, 'K6.4 g(-2) = g(2) = 3 — the agreeing signs')
+    ok(g(-1) === 0 && g(1) === 0, 'K6.4 yet both roots ±1 sit inside (-2, 2)')
+    ok(realRoots(1, 0, 1).length === 0, 'K6.4 x^2 + 1 has no real roots at all (the other side of the honesty)')
+  }
+  // honesty 2: the reverse failure on x^3 + 1 = (x+1)(x^2 - x + 1)
+  {
+    ok(sortedRoots(3, 0, 0).length === 1 && sortedRoots(3, 0, 0)[0] === 0, "K6.5 f' = 3x^2 has the double root 0")
+    ok(1 - 4 * 1 * 1 < 0, 'K6.5 the quadratic factor x^2 - x + 1 has D = -3 < 0 — no more real roots')
+    ok((-1) ** 3 + 1 === 0, 'K6.5 x^3 + 1 has exactly ONE real root, x = -1')
+    ok(0 > -1, 'K6.5 the derivative root 0 sits RIGHT of the single f-root -1 — no straddle')
+  }
+}
+
+// K7. the interleaving census on the fresh witnesses (a,b,c,d) = (-1,2,5,7):
+// F(x) = mu(x+1)(x-5) + lambda(x-2)(x-7) = (mu+lambda)x^2 - (4mu+9lambda)x
+//        + (14lambda - 5mu);
+// F(-1) = 24λ, F(2) = -9μ, F(5) = -6λ, F(7) = 16μ;
+//   λμ > 0 (mu+lambda != 0)  -> one root in (-1,2), one in (5,7)
+//   λμ < 0, mu+lambda > 0    -> one root in (2,5), the other < -1
+//   λμ < 0, mu+lambda < 0    -> one root in (2,5), the other > 7
+//   λ = 0                    -> roots exactly -1 and 5
+//   μ = 0                    -> roots exactly 2 and 7
+//   μ+λ = 0 (both nonzero)   -> linear; the root x* = 19/5 in (2,5)
+{
+  const F = (mu: number, la: number, x: number) => mu * (x + 1) * (x - 5) + la * (x - 2) * (x - 7)
+  const Froot = (mu: number, la: number) => sortedRoots(mu + la, -(4 * mu + 9 * la), 14 * la - 5 * mu)
+  // the four-value pins
+  for (const mu of rng(-3, 3)) for (const la of rng(-3, 3)) {
+    eq(F(mu, la, -1), 24 * la, 1e-12, 'K7.1 F(-1) = 24λ')
+    eq(F(mu, la, 2), -9 * mu, 1e-12, 'K7.1 F(2) = -9μ')
+    eq(F(mu, la, 5), -6 * la, 1e-12, 'K7.1 F(5) = -6λ')
+    eq(F(mu, la, 7), 16 * mu, 1e-12, 'K7.1 F(7) = 16μ')
+    // the expanded-coefficient route agrees with the factored route
+    eq((mu + la) * 4 - (4 * mu + 9 * la) * 2 + (14 * la - 5 * mu), F(mu, la, 2), 1e-12, 'K7.1b the expanded route agrees at x=2')
+  }
+  // the λμ > 0 census
+  for (const mu of [-3, -2, -1, 1, 2, 3, 5]) for (const la of [-3, -2, -1, 1, 2, 3, 5]) {
+    if (mu * la <= 0 || mu + la === 0) continue
+    const r = Froot(mu, la)
+    ok(r.length === 2 && r[0] > -1 && r[0] < 2 && r[1] > 5 && r[1] < 7, `K7.2 λμ>0 census at μ=${mu}, λ=${la}`)
+  }
+  // the λμ < 0 census with the μ+λ sign split
+  for (const mu of [1, 2, 3, 5]) for (const la of [-1, -2, -3, -5]) {
+    if (mu + la === 0) continue
+    const r = Froot(mu, la)
+    ok(r.length === 2, `K7.3 λμ<0 real roots at μ=${mu}, λ=${la}`)
+    const inMid = r.filter((x) => x > 2 && x < 5)
+    const outside = r.filter((x) => x < -1 || x > 7)
+    ok(inMid.length === 1 && outside.length === 1, `K7.3 one root in (2,5), the other outside [-1,7] at μ=${mu}, λ=${la}`)
+    if (mu + la > 0) ok(outside[0] < -1, `K7.3 μ+λ>0: the escaper leaves LEFT at μ=${mu}, λ=${la}`)
+    else ok(outside[0] > 7, `K7.3 μ+λ<0: the escaper leaves RIGHT at μ=${mu}, λ=${la}`)
+  }
+  // the degenerate seats
+  {
+    const rL0 = sortedRoots(1, -4, -5) // λ=0: F = μ(x+1)(x-5)
+    ok(Math.abs(rL0[0] + 1) < 1e-9 && Math.abs(rL0[1] - 5) < 1e-9, 'K7.4 λ=0: roots exactly -1 and 5')
+    const rM0 = sortedRoots(1, -9, 14) // μ=0: F = λ(x-2)(x-7)
+    ok(Math.abs(rM0[0] - 2) < 1e-9 && Math.abs(rM0[1] - 7) < 1e-9, 'K7.4 μ=0: roots exactly 2 and 7')
+  }
+  // the linear case μ+λ = 0: F = μ(5x - 19), root x* = 19/5 in (2,5)
+  {
+    ok(Math.abs(F(1, -1, 19 / 5)) < 1e-9, 'K7.5 the linear-case root x* = 19/5 vanishes F')
+    ok(19 / 5 > 2 && 19 / 5 < 5, 'K7.5 x* = 19/5 sits inside (2, 5)')
+    for (const [a, b, c, d] of [[-1, 2, 5, 7], [0, 3, 4, 9], [-3, -1, 2, 8], [1, 4, 6, 11]] as number[][]) {
+      const den = b + d - a - c
+      const xstar = (b * d - a * c) / den
+      eq(xstar - b, ((b - a) * (c - b)) / den, 1e-12, `K7.6 the factored difference x*-b at (${a},${b},${c},${d})`)
+      eq(xstar - c, ((d - c) * (b - c)) / den, 1e-12, `K7.6 the factored difference x*-c at (${a},${b},${c},${d})`)
+      ok(xstar > b && xstar < c, `K7.6 b < x* < c at (${a},${b},${c},${d})`)
+      const lin = (x: number) => (x - a) * (x - c) - (x - b) * (x - d)
+      ok(Math.abs(lin(xstar)) < 1e-12, `K7.6 the linear form vanishes at x* (${a},${b},${c},${d})`)
+    }
+  }
+  // the quiz's concrete instance μ=2, λ=3: F = 5x^2 - 35x + 32
+  {
+    const r = sortedRoots(5, -35, 32)
+    ok(r.length === 2 && Math.abs(r[0] - (35 - 3 * Math.sqrt(65)) / 10) < 1e-9, 'K7.7 μ=2,λ=3: the small root is (35-3√65)/10 ≈ 1.081')
+    ok(r[0] > -1 && r[0] < 2 && r[1] > 5 && r[1] < 7, 'K7.7 the doors read: roots in (-1,2) and (5,7)')
+    ok(Math.abs(35 * 35 - 4 * 5 * 32 - 585) < 1e-9, 'K7.7 D = 585 pinned')
+  }
+}
+
+// K8. the wall demands (f < 0 for ALL x in an open interval):
+//   nonempty: x^2 - (m+2)x + 5m+1 < 0 on (2,4) <=> m <= -9
+//             (f(2) = 3m+1, f(4) = m+9; both <= 0)
+//   the clash: x^2 - (a-1)x + 3a < 0 on (2,4) has NO real a
+//             (f(2) = 6+a, f(4) = 20-a; adding: 26 <= 0 — impossible)
+{
+  const f = (m: number, x: number) => x * x - (m + 2) * x + 5 * m + 1
+  for (const m of rng(-12, 6)) {
+    eq(f(m, 2), 3 * m + 1, 1e-12, 'K8.1 f(2) = 3m+1')
+    eq(f(m, 4), m + 9, 1e-12, 'K8.1 f(4) = m+9')
+  }
+  // the equivalence f<0 on open (2,4) <=> f(2)<=0 and f(4)<=0, brute-forced
+  for (let m = -14; m <= 8; m += 0.25) {
+    const walls = f(m, 2) <= 0 && f(m, 4) <= 0
+    let allNeg = true
+    for (let x = 2.001; x < 4; x += 0.002) if (f(m, x) >= 0) allNeg = false
+    if (f(m, 3.999) >= 0) allNeg = false
+    if (walls !== allNeg) ok(false, `K8.2 the walls-equivalence disagrees at m=${m}`)
+  }
+  {
+    ok(f(-9, 2) === -26 && f(-9, 4) === 0, 'K8.3 boundary m=-9: f(4) = 0 exactly (the root sits ON the open wall)')
+    ok(f(-9, 3) === -14, 'K8.3 m=-9: f(3) = -14 < 0 strictly inside (the member is x^2 + 7x - 44 = (x+11)(x-4))')
+    ok(f(-8, 4) === 1, 'K8.3 exclusion m=-8: f(4) = 1 > 0')
+    ok(Math.abs(2 ** 1.5 - 2.8284271247461903) < 1e-9, 'K8.3 2^1.5 pinned — the disguise maps t in (1,2) into x in (2,4)')
+  }
+  const g = (a: number, x: number) => x * x - (a - 1) * x + 3 * a
+  {
+    for (const a of rng(-25, 25)) {
+      eq(g(a, 2), 6 + a, 1e-12, 'K8.4 g(2) = 6+a')
+      eq(g(a, 4), 20 - a, 1e-12, 'K8.4 g(4) = 20-a')
+    }
+    for (const a of rng(-25, 25)) eq(6 + a + 20 - a, 26, 1e-12, 'K8.4 the parameter cancels: the sum is the constant 26')
+    let allFail = true
+    for (const a of rng(-25, 25)) {
+      let hasNonNeg = false
+      for (let x = 2.001; x < 4; x += 0.002) if (g(a, x) >= 0) hasNonNeg = true
+      if (!hasNonNeg) allFail = false
+    }
+    ok(allFail, 'K8.5 no real a passes — the clash certified by brute force')
+  }
+}
+
+// K9. the counting censuses (exercise keys):
+//   integers a with both roots of x^2 - 2ax + a^2 - 4 = 0 in (0,9): 4
+//   integers m in [-6,6] with x^2 - (m+1)x + 3m - 5 NOT real: 3 (m=4,5,6)
+{
+  const list: number[] = []
+  for (const a of rng(-10, 10)) {
+    const r = sortedRoots(1, -2 * a, a * a - 4)
+    if (r.length === 2 && r[0] > 0 && r[1] < 9) list.push(a)
+  }
+  ok(list.join(',') === '3,4,5,6', `K9.1 the a-census = {3,4,5,6} (got ${list.join(',')}) — count 4`)
+  const nom: number[] = []
+  for (const m of rng(-6, 6)) if (realRoots(1, -(m + 1), 3 * m - 5).length === 0) nom.push(m)
+  ok(nom.join(',') === '4,5,6', `K9.2 the no-real census in [-6,6] = {4,5,6} (got ${nom.join(',')}) — count 3`)
+}
+
+/* ------------------------------------------------------------------ */
+/* (L) quiz keys and exercise answer keys for lesson 2.4, pinned       */
+/*     BEFORE any prose.                                               */
+/* ------------------------------------------------------------------ */
+
+// L1. quiz 2.4 keys: [1, 2, 1, 2, 0] with every distractor priced.
+{
+  // Q1: the complete check set for "both roots in (1,5)" on 2x^2-12x+16
+  {
+    const r = sortedRoots(2, -12, 16)
+    ok(r.length === 2 && r[0] === 2 && r[1] === 4, 'L1 Q1 the exhibit roots are 2 and 4')
+    const dA = sortedRoots(2, -22, 36)
+    ok(dA.length === 2 && dA[1] === 9 && quad(2, -22, 36, 1) > 0 && 22 * 22 - 4 * 2 * 36 > 0, 'L1 Q1 distractor A priced: passes D and a·f(1) yet root 9 escapes')
+    ok(realRoots(1, -2, 5).length === 0 && quad(1, -2, 5, 1) > 0 && quad(1, -2, 5, 5) > 0, 'L1 Q1 distractor C priced: walls pass with zero roots')
+    const dD = sortedRoots(1, -3, 2)
+    ok(dD.length === 2 && Math.abs(dD[0] - 1) < 1e-9 && 1.5 > 1 && 1.5 < 5, 'L1 Q1 distractor D priced: axis passes but root 1 sits on the wall')
+  }
+  // Q2: the D-skip question — exactly-one needs no D check
+  {
+    ok(quad(1, -2, 5, 1) * quad(1, -2, 5, 5) > 0, 'L1 Q2 the always-positive family never passes a between-test (D needed for the both-rows)')
+    ok(1 - 4 * 1 * 5 < 0, 'L1 Q2 its D = -16 < 0')
+  }
+  // Q3: the fixed point of x^2 - (m+1)x + 3m - 5 is (3, 1)
+  {
+    ok(quad(1, -(0 + 1), 3 * 0 - 5, 3) === 1 && quad(1, -(7 + 1), 3 * 7 - 5, 3) === 1, 'L1 Q3 f(3) = 1 at m = 0 and m = 7')
+    ok(quad(1, -(2 + 1), 3 * 2 - 5, 1) === -1 && quad(1, -(4 + 1), 3 * 4 - 5, 1) === 3, 'L1 Q3 f(1) varies (−1 at m=2, 3 at m=4)')
+    ok(quad(1, -(2 + 1), 3 * 2 - 5, 5) === 11 && quad(1, -(4 + 1), 3 * 4 - 5, 5) === 7, 'L1 Q3 f(5) varies (11 at m=2, 7 at m=4)')
+    ok(3 * 2 - 5 !== 3 * 4 - 5, 'L1 Q3 f(0) varies')
+  }
+  // Q4: the Rolle honesty on x^2 - 1 at the walls ±2
+  {
+    ok(quad(1, 0, -1, -2) === 3 && quad(1, 0, -1, 2) === 3, 'L1 Q4 g(-2) = g(2) = 3 — the agreeing signs')
+    ok(quad(1, 0, -1, -1) === 0 && quad(1, 0, -1, 1) === 0, 'L1 Q4 yet the roots ±1 sit inside')
+    ok(realRoots(1, 0, 1).length === 0, 'L1 Q4 distractor B priced: x^2+1 agrees in sign with NO roots')
+    const h = (x: number) => (x * x - 1) * (x * x - 4)
+    ok(h(-3) === 40 && h(3) === 40, 'L1 Q4 distractor D priced: (x^2-1)(x^2-4) agrees in sign at ±3')
+    ok([-2, -1, 1, 2].every((x) => x > -3 && x < 3), 'L1 Q4 with FOUR roots inside (-3,3) — exactly two is not forced')
+  }
+  // Q5: μ=2, λ=3 on the doors (-1,2,5,7) — the root in (-1,2)
+  {
+    const r = sortedRoots(5, -35, 32)
+    ok(r.length === 2 && r[0] > -1 && r[0] < 2, 'L1 Q5 the small root (35-3√65)/10 ≈ 1.081 lies in (-1,2)')
+    ok(r[1] > 5 && r[1] < 7, 'L1 Q5 the large root lies in (5,7) — not in (2,5), not outside')
+    ok(2 * 3 > 0, 'L1 Q5 λμ = 6 > 0 — the both-inside census')
+  }
+  ok(true, 'L1 quiz 2.4 keys pinned as [1, 2, 1, 2, 0]')
+}
+
+// L2. exercise answer keys 2.4 (15 items, L1-L6), pinned with the numbers.
+{
+  // 1. x^2 - 8x + 12 vs walls 3 and 5: both walls between the roots
+  {
+    const r = sortedRoots(1, -8, 12)
+    ok(r[0] === 2 && r[1] === 6, 'L2 ex1 roots 2 and 6')
+    ok(quad(1, -8, 12, 3) === -3 && quad(1, -8, 12, 5) === -3, 'L2 ex1 f(3) = f(5) = -3 < 0 — the walls-between read')
+    ok(r.every((x) => !(x > 3 && x < 5)), 'L2 ex1 neither root in (3,5)')
+  }
+  // 2. both roots of x^2 - 10x + 23 in (2,6)? NO
+  {
+    const r = sortedRoots(1, -10, 23)
+    ok(Math.abs(r[1] - (5 + Math.SQRT2)) < 1e-9, 'L2 ex2 the large root is 5+√2 ≈ 6.41 — escapes')
+    ok(quad(1, -10, 23, 2) === 7 && quad(1, -10, 23, 6) === -1, 'L2 ex2 f(2) = 7 > 0 passes, f(6) = -1 < 0 fails')
+    ok(100 - 92 === 8, 'L2 ex2 D = 8 > 0, axis 5 in (2,6) — three checks pass, the right wall fails')
+  }
+  // 3. count integers a: both roots of x^2-2ax+a^2-4 in (0,9) -> 4
+  {
+    ok(3 - 2 > 0 && 6 + 2 < 9, 'L2 ex3 a=3 and a=6 both qualify (roots 1,5 and 4,8)')
+    ok(2 - 2 === 0, 'L2 ex3 a=2: root 0 ON the wall — excluded (open)')
+    ok(7 + 2 === 9, 'L2 ex3 a=7: root 9 ON the wall — excluded')
+  }
+  // 4. 3x^2 - 5x + k opposite sign <=> k < 0
+  {
+    ok(quad(3, -5, -2, 0) === -2 && quad(3, -5, 2, 0) === 2, 'L2 ex4 product = k/3 signs at k = ±2')
+    ok(25 - 12 * -2 > 0 && 25 - 12 * 2 > 0, 'L2 ex4 D = 25-12k > 0 automatically when k < 0')
+  }
+  // 5. both roots of x^2 - 6x + m exceed 2 <=> 8 < m <= 9
+  {
+    for (let m = 4; m <= 12; m += 0.25) {
+      if (Math.abs(m - 8) < 1e-6 || Math.abs(m - 9) < 1e-6) continue
+      const r = realRoots(1, -6, m)
+      const claimed = m > 8 && m <= 9
+      const truth = r.length === 2 && r.every((x) => x > 2)
+      if (claimed !== truth) ok(false, `L2 ex5 verdict disagrees at m=${m}`)
+    }
+    ok(quad(1, -6, 9, 2) === 1 && realRoots(1, -6, 9).length === 1, 'L2 ex5 m=9: double root 3 > 2 — included')
+    ok(quad(1, -6, 8, 2) === 0, 'L2 ex5 m=8: root exactly AT 2 — excluded')
+  }
+  // 6. exactly one root of x^2 - 8x + m in (2,4) <=> 12 < m < 16
+  {
+    for (let m = 8; m <= 20; m += 0.25) {
+      if (Math.abs(m - 12) < 1e-6 || Math.abs(m - 16) < 1e-6) continue
+      const r = realRoots(1, -8, m)
+      const claimed = m > 12 && m < 16
+      const truth = r.filter((x) => x > 2 && x < 4).length === 1
+      if (claimed !== truth) ok(false, `L2 ex6 verdict disagrees at m=${m}`)
+    }
+    ok(quad(1, -8, 12, 2) === 0 && realRoots(1, -8, 12).some((x) => x === 6), 'L2 ex6 m=12: root 2 ON the wall, root 6 outside — zero inside')
+    const r16 = realRoots(1, -8, 16)
+    ok(r16.length === 1 && r16[0] === 4, 'L2 ex6 m=16: double root 4 ON the right wall — zero inside')
+    ok(quad(1, -8, 14, 2) === 2 && quad(1, -8, 14, 4) === -2, 'L2 ex6 m=14: f(2) = 2 > 0, f(4) = -2 < 0 — the product test')
+  }
+  // 7. count m in [-6,6] with no real root -> 3 (verified in K9.2)
+  ok(true, 'L2 ex7 answer 3 rides the K9.2 census {4,5,6}')
+  // 8. roots of x^2-6x+8 between the roots of x^2-(m+1)x+2m-10 <=> m > 1
+  {
+    for (let m = -3; m <= 9; m += 0.2) {
+      if (Math.abs(m - 1) < 1e-6) continue
+      const outer = sortedRoots(1, -(m + 1), 2 * m - 10)
+      const claimed = m > 1
+      const truth = outer.length === 2 && outer[0] < 2 && 4 < outer[1]
+      if (claimed !== truth) ok(false, `L2 ex8 verdict disagrees at m=${m.toFixed(1)}`)
+    }
+    ok(quad(1, -(2 + 1), 2 * 2 - 10, 2) === -8, 'L2 ex8 f2(2) = -8 < 0 for every m (the auto-satisfied wall)')
+    eq(quad(1, -(1 + 1), 2 * 1 - 10, 4), 0, 1e-12, 'L2 ex8 boundary m=1: root exactly AT 4')
+    const w2 = sortedRoots(1, -3, -6)
+    ok(Math.abs(w2[0] - (3 - Math.sqrt(33)) / 2) < 1e-9 && w2[0] < 2 && 4 < w2[1], 'L2 ex8 witness m=2: outer roots (3±√33)/2 straddle both 2 and 4')
+    const w0 = sortedRoots(1, -1, -10)
+    ok(Math.max(...w0) < 4, 'L2 ex8 exclusion m=0: the right outer root ≈ 3.70 < 4 — wall 4 escapes')
+  }
+  // 9. (x^2+2x+4)^2 = k(x^2+2x+3) has a real solution <=> k >= 9/2
+  {
+    for (let k = 0; k <= 10; k += 0.25) {
+      if (Math.abs(k - 4.5) < 1e-6) continue
+      const r = realRoots(1, 2 - k, 1) // t^2 + (2-k)t + 1
+      const truth = r.some((t) => t >= 2)
+      const claimed = k >= 4.5
+      if (truth !== claimed) ok(false, `L2 ex9 verdict disagrees at k=${k}`)
+    }
+    const rb = sortedRoots(1, 2 - 4.5, 1)
+    ok(rb.length === 2 && Math.abs(rb[0] - 0.5) < 1e-9 && Math.abs(rb[1] - 2) < 1e-9, 'L2 ex9 boundary k=9/2: t-roots 0.5 and 2 — t=2 attained (x=-1)')
+    const r5 = sortedRoots(1, -3, 1)
+    ok(Math.abs(Math.max(...r5) - (3 + Math.sqrt(5)) / 2) < 1e-9, 'L2 ex9 k=5: t = (3+√5)/2 ≈ 2.618')
+    const r4 = realRoots(1, -2, 1)
+    ok(r4.length === 1 && r4[0] === 1, 'L2 ex9 exclusion k=4: double t-root 1 < 2')
+    const orig = (k: number, x: number) => (x * x + 2 * x + 4) ** 2 - k * (x * x + 2 * x + 3)
+    ok(Math.abs(orig(4.5, -1)) < 1e-9, 'L2 ex9 x=-1 solves the original at k=9/2 (t = 2 = the minimum, the tangent seat)')
+  }
+  // 10. sin^2 x - (k+2) sin x + k+2 = 0 has a solution <=> k <= -2
+  {
+    for (let k = -8; k <= 5; k += 0.2) {
+      if (Math.abs(k + 2) < 1e-6 || Math.abs(k + 2.5) < 1e-6) continue
+      const r = realRoots(1, -(k + 2), k + 2)
+      const truth = r.some((t) => t >= -1 && t <= 1)
+      const claimed = k <= -2
+      if (truth !== claimed) ok(false, `L2 ex10 verdict disagrees at k=${k.toFixed(1)}`)
+    }
+    const r2 = realRoots(1, 0, 0)
+    ok(r2.length === 1 && r2[0] === 0, 'L2 ex10 boundary k=-2: double t-root 0 in [-1,1]')
+    const r25 = realRoots(1, 0.5, -0.5)
+    ok(r25.some((t) => Math.abs(t + 1) < 1e-9) && r25.some((t) => Math.abs(t - 0.5) < 1e-9), 'L2 ex10 boundary k=-5/2: roots -1 and 1/2 — the wall seat -1 included')
+    const r3 = realRoots(1, 1, -1)
+    ok(r3.some((t) => Math.abs(t - (Math.sqrt(5) - 1) / 2) < 1e-9), 'L2 ex10 k=-3: t = (√5-1)/2 ≈ 0.618 inside')
+    ok(realRoots(1, 1, 1).length === 0, 'L2 ex10 exclusion k=-1: D = 1-4 < 0')
+    const rk2 = realRoots(1, -4, 4)
+    ok(rk2.length === 1 && rk2[0] === 2, 'L2 ex10 exclusion k=2: double t-root 2 outside [-1,1]')
+  }
+  // 11. 6a+3b+2c = 0 => a root of ax^2+bx+c in (0,3); witness (1,-4,3)
+  {
+    const r = sortedRoots(1, -4, 3)
+    ok(r[0] === 1 && r[1] === 3, 'L2 ex11 witness roots 1 and 3')
+    ok(6 * 1 + 3 * -4 + 2 * 3 === 0, 'L2 ex11 the witness satisfies 6a+3b+2c = 0')
+    ok(1 > 0 && 1 < 3, 'L2 ex11 the OPEN-interval root is 1 (the seat 3 sits on the endpoint)')
+  }
+  // 12. the interleaving proof rides the K7 witnesses (-1,2,5,7)
+  ok(true, 'L2 ex12 rides K7 (F(-1)=24λ, F(2)=-9μ, F(5)=-6λ, F(7)=16μ)')
+  // 13. the add-the-walls certificate: no real a (rides K8)
+  ok(true, 'L2 ex13 rides K8 (26 <= 0 — the parameter cancels)')
+  // 14. the larger-root law (rides K2.7)
+  ok(true, 'L2 ex14 rides K2.7 (the larger root < 3 whenever real)')
+  // 15. the linear-case root law b < x* < c (rides K7.6)
+  ok(true, 'L2 ex15 rides K7.6 (x* - b = (b-a)(c-b)/(b+d-a-c) > 0, x* - c = (d-c)(b-c)/(b+d-a-c) < 0)')
+}
+
+
+/* ------------------------------------------------------------------ */
+/* (M) AUTHORED-AUDIT — lesson 2.4 (aa-location-of-roots-doors-in-      */
+/*     intervals), appended after authoring (run 103), J-pattern.      */
+/* ------------------------------------------------------------------ */
+
+{
+  const ch = chapter02
+  ok(ch.lessons.length === 4 && ch.plannedLessons?.length === 1 && ch.plannedLessons?.[0] === 'Unit Review: The Quadratic at Depth', 'M1 chapter shape after authoring: 4 lessons, planned = [Unit Review]')
+  const L = ch.lessons[3]
+  ok(L.id === 'aa-location-of-roots-doors-in-intervals', 'M2 lesson id matches the pinned id')
+  ok(L.number === '2.4' && L.title === 'Location of Roots: Doors in Intervals', 'M3 lesson number/title')
+  const blocks = L.blocks as Array<{ kind: string; [k: string]: unknown }>
+
+  // M4 block census (count-aware, as authored)
+  const count = (k: string) => blocks.filter((b) => b.kind === k).length
+  ok(count('heading') === 7, `M4.1 headings = 7 (got ${count('heading')})`)
+  ok(count('example') === 15, `M4.2 examples/Illustrations = 15 (got ${count('example')})`)
+  ok(count('derivation') === 2, `M4.3 derivations = 2 (got ${count('derivation')})`)
+  ok(count('figure') === 2, `M4.4 figures = 2 (got ${count('figure')})`)
+  ok(count('quiz') === 1 && count('exercises') === 1, 'M4.5 quiz + exercises present')
+  ok(count('formula') === 6, `M4.6 formula cards = 6 (got ${count('formula')})`)
+  ok(count('terms') === 1 && count('list') === 1, `M4.7 terms block + the census roman list (got lists ${count('list')})`)
+  ok(count('table') === 1, `M4.8 the k-system master table (got ${count('table')})`)
+  const callouts = blocks.filter((b) => b.kind === 'callout') as unknown as Array<{ tone: string; title: string; text: string }>
+  ok(callouts.filter((c) => c.tone === 'definition').length === 1, 'M4.9 the definition callout (location of roots and the wall; the terms block carries the companion definitions)')
+  ok(callouts.filter((c) => c.tone === 'theorem').length === 3, 'M4.10 three theorem callouts (the a·f(k) principle, Rolle, the four-value bracket)')
+  ok(callouts.filter((c) => c.tone === 'warn').length === 4, 'M4.11 four warn callouts (D-skip honesty, boundary seat, honesty 1, honesty 2)')
+  ok(callouts.filter((c) => c.tone === 'exam').length === 2, 'M4.12 two exam callouts')
+  ok(callouts.filter((c) => c.tone === 'insight').length === 6, 'M4.13 six insight callouts (fixed point x2, outer-at-inner, range-is-wall, weights law, add-the-walls)')
+
+  // M5 quiz keys vs the pre-writing pins [1, 2, 1, 2, 0]
+  const quiz = blocks.find((b) => b.kind === 'quiz') as unknown as { items: Array<{ answer: number; options: string[]; explain: string }> }
+  ok(quiz.items.length === 5, 'M5.1 quiz has 5 items')
+  ok(quiz.items.map((i) => i.answer).join(',') === '1,2,1,2,0', `M5.2 quiz keys match the L1 pins (got ${quiz.items.map((i) => i.answer).join(',')})`)
+  ok(quiz.items.every((i) => i.options.length === 4), 'M5.3 every quiz item has 4 options')
+  ok(quiz.items.every((i) => i.explain.length >= 120), 'M5.4 every quiz explain prices the distractors')
+
+  // M6 exercises census + full solutions
+  const ex = blocks.find((b) => b.kind === 'exercises') as unknown as { sets: Array<{ level: string; questions: Array<{ q: string; solution: string[]; answer: string }> }> }
+  const levelCounts = ex.sets.map((sm) => `${sm.level}:${sm.questions.length}`).join(' ')
+  ok(levelCounts === 'L1:2 L2:2 L3:3 L4:3 L5:3 L6:2', `M6.1 exercise ladder L1-L6 = 15 (got ${levelCounts})`)
+  ok(ex.sets.every((sm) => sm.questions.every((q) => q.solution.length >= 4 && q.answer.length > 0)), 'M6.2 every exercise carries a full worked solution and a terminal answer')
+
+  // M7 figure pins (viewBox, coordinates, labels, vivid palette, no retired hexes)
+  const figs = blocks.filter((b) => b.kind === 'figure') as unknown as Array<{ caption: string; svg: string }>
+  const f1 = figs[0].svg
+  const f2 = figs[1].svg
+  ok(f1.includes('viewBox="0 0 720 360"') && f2.includes('viewBox="0 0 720 380"'), 'M7.1 figure viewBoxes match the plans')
+  ok(!/undefined|NaN/.test(f1) && !/undefined|NaN/.test(f2), 'M7.2 no undefined/NaN in svg output')
+  ok(f1.includes('the fixed point (3, 1)') && f1.includes('wall k₁ = 1') && f1.includes('wall k₂ = 3'), 'M7.3 fig1 the fixed point + both wall labels')
+  ok(f1.includes('m = 0: x² − x − 5 (doors −1.79, 2.79)') && f1.includes('m = 3: (x − 2)² (double door 2)') && f1.includes('m = 5: (x − 3)² + 1 (no real doors)') && f1.includes('m = 7: (x − 4)² (double door 4)'), 'M7.4 fig1 legend rows name all four members')
+  ok(f2.includes('a = −1') && f2.includes('b = 2') && f2.includes('c = 5') && f2.includes('d = 7'), 'M7.5 fig2 the four door labels')
+  ok(f2.includes('λμ &gt; 0: one door in (a, b)') && f2.includes('λμ &lt; 0: one door in (b, c)') && f2.includes('x* = 19/5 = 3.8'), 'M7.6 fig2 the census brackets + the linear-case seat')
+  ok(f2.includes('μ = 2, λ = 3: F = 5x² − 35x + 32, doors (35 ± 3√65)/10'), 'M7.7 fig2 the concrete instance caption')
+  const retired = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']
+  ok(!figs.some((f) => retired.some((hx) => f.svg.includes(hx))), 'M7.8 no retired palette hexes in either figure')
+  ok(f1.includes('#16a34a') && f1.includes('#ea580c') && f1.includes('#dc2626') && f2.includes('#0d9488') && f2.includes('#d97706') && f2.includes('#65a30d') && f2.includes('#fffdf5'), 'M7.9 vivid palette in use on the paper plate')
+
+  // M8 prereqs resolve against the repo
+  const fs3 = await import('fs')
+  ok((L.prerequisites ?? []).length === 3, 'M8.1 three prereqs declared')
+  const al10 = fs3.readFileSync('src/data/library/books/mathematics/elementary-algebra/ch-10.ts', 'utf8')
+  ok(al10.includes("id: 'al-the-parabola-quadratic-graphs-and-vertices'"), 'M8.2 the AL 10.3 parabola prereq exists')
+  ok((L.prerequisites ?? []).includes('aa-vertex-form-at-work-maxima-and-minima') && (L.prerequisites ?? []).includes('aa-quadratic-inequalities-and-the-sign-diagram'), 'M8.3 the 2.1/2.2 prereqs declared')
+
+  // M9 sources keys exist in SOURCE_LOG
+  const slog3 = fs3.readFileSync('docs/project/SOURCE_LOG.md', 'utf8')
+  for (const k of L.sources ?? []) ok(slog3.includes('`' + k + '`') || slog3.includes('- ' + k), `M9 source key ${k} in SOURCE_LOG`)
+
+  // M10 honesty scans
+  const allText3 = JSON.stringify(blocks)
+  ok(!allText3.includes('\\\\  ') && !allText3.includes("\\\\'"), 'M10.1 no odd-run backslashes')
+  ok(!/\\u[0-9a-fA-F]{4}/.test(allText3), 'M10.2 no unicode escapes')
+  ok(!/wait, |Better: |TODO|XXX|【|to be completed/.test(allText3), 'M10.3 no draft markers')
+
+  // M11 honest word count via the registry's own counter
+  const wordCount24 = countLessonWords(L as never)
+  ok(wordCount24 >= 4500, `M11 honest word count >= 4500 (got ${wordCount24})`)
+
+  // M12 repo-wide id uniqueness
+  const hits24 = execSync(`grep -rl "aa-location-of-roots-doors-in-intervals" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
+  const dataHits24 = hits24.filter((hh) => hh.includes('/books/'))
+  ok(dataHits24.length === 1, `M12 lesson id unique in book data (got files: ${dataHits24.join(' ')})`)
+
+  // M13 cross-reference pins in prose
+  ok(allText3.includes('2.2') && allText3.includes('2.1'), 'M13.1 prose names lessons 2.1 and 2.2')
+  ok(allText3.includes('AL') || allText3.includes('al-the-parabola'), 'M13.2 prose names the banked AL parabola lesson lineage')
+  ok(allText3.includes('(3, 1)'), 'M13.3 the fixed point (3, 1) appears in prose')
+  ok(allText3.includes('19/5'), 'M13.4 the linear-case seat 19/5 appears in prose')
+  ok(allText3.includes('26 \\leq 0') || allText3.includes('26 ≤ 0'), 'M13.5 the add-the-walls certificate constant appears in prose')
+
+  // M14 the derivations carry the DerivationStep contract
+  const derivs = blocks.filter((b) => b.kind === 'derivation') as unknown as Array<{ title: string; statement: string; steps: Array<{ label: string; formula?: string; explanation: string }>; result: string }>
+  ok(derivs.length === 2, 'M14.1 two derivations present')
+  ok(derivs.every((d) => d.statement.length > 40), 'M14.2 both derivations carry a statement')
+  ok(derivs[0].steps.length === 5 && derivs[1].steps.length === 5, `M14.3 derivation step counts (got ${derivs[0].steps.length}, ${derivs[1].steps.length})`)
+  ok(derivs.every((d) => d.steps.every((st) => st.label.length > 0 && st.explanation.length > 0)), 'M14.4 every step labelled and explained')
+  ok(derivs[0].result.includes('a \\cdot f(k) > 0'), 'M14.5 derivation 1 result line carries the boxed principle')
+  ok(derivs[1].result.includes('\\lambda,\\ -\\mu'), 'M14.6 derivation 2 result line carries the sign walk')
+
+  // M15 the census pins in prose (the engine-certified verdicts)
+  ok(allText3.includes('(m - 3)(m - 7)') || allText3.includes('(m−3)(m−7)'), 'M15.1 the census discriminant factorisation in prose')
+  ok(allText3.includes('\\\\pm 2\\\\sqrt{2}') || allText3.includes('±2√2'), 'M15.2 the m = −1 equal-magnitude witness in prose')
+  ok(allText3.includes('(35 \\pm 3\\sqrt{65}') || allText3.includes('(35 ± 3√65)'), 'M15.3 the interleaving instance doors in prose')
+  ok(allText3.includes('11 \\\\pm \\\\sqrt{57}') || allText3.includes('(11±√57)/2') || allText3.includes('(11 ± √57)/2'), 'M15.4 the between-quadratics witness in prose')
+  ok(allText3.includes('9/2') || allText3.includes('\\tfrac{9}{2}'), 'M15.5 the substitution-bridge boundary k = 9/2 in prose')
+  ok(allText3.includes('m \\leq -9') || allText3.includes('m \\leq -\tfrac') || allText3.includes('m ≤ −9') || allText3.includes('-9'), 'M15.6 the wall-demand verdict m ≤ −9 in prose')
+}
+
+console.log(`\nverify-book4-ch02 sections A-M: ${passed} passed, ${failed} failed`)
 if (failed > 0) {
   console.log('FAILURES:')
   failures.forEach((f) => console.log('  - ' + f))

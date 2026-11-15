@@ -251,6 +251,102 @@ function fenceAreaSvg(): string {
 </svg>`
 }
 
+function pencilFixedPointSvg(): string {
+  // the census family's pencil: every member of x^2 - (m+1)x + 3m - 5
+  // passes through the fixed point (3, 1); walls at x = 1 and x = 3.
+  // window: x in [-3, 7] -> px 60..660; y in [-6.5, 9.5] -> py 325..35
+  const px = (x: number): number => 60 + (x + 3) * 60
+  const py = (y: number): number => 35 + (9.5 - y) * 18.125
+  const members: Array<[number, string, string]> = [
+    [0, '#0d9488', 'm = 0: x² − x − 5'],
+    [3, '#d97706', 'm = 3: (x − 2)²'],
+    [5, '#65a30d', 'm = 5: (x − 3)² + 1'],
+    [7, '#ea580c', 'm = 7: (x − 4)²'],
+  ]
+  const curves: string[] = []
+  for (const [m, color] of members) {
+    const pts: string[] = []
+    for (let x = -3; x <= 7.001; x += 0.1) {
+      const y = x * x - (m + 1) * x + 3 * m - 5
+      if (y >= -6.5 && y <= 9.5) pts.push(`${px(x).toFixed(1)},${py(y).toFixed(1)}`)
+    }
+    curves.push(`<polyline points="${pts.join(' ')}" fill="none" stroke="${color}" stroke-width="2.4"/>`)
+  }
+  const dot = (x: number, color: string): string =>
+    `<circle cx="${px(x).toFixed(1)}" cy="${py(0).toFixed(1)}" r="4.5" fill="#fffdf5" stroke="${color}" stroke-width="2.4"/>`
+  return `<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four members of the family x squared minus m plus 1 times x plus 3m minus 5, all passing through the fixed point (3, 1), with dashed walls at x equals 1 and x equals 3. The member m equals 0 crosses the axis at the doors minus 1.79 and 2.79; m equals 3 touches at the double door 2; m equals 7 touches at the double door 4; m equals 5 floats above with its vertex exactly at the fixed point.">
+  <rect x="0" y="0" width="720" height="360" fill="#fffdf5"/>
+  <text x="360" y="22" font-size="15" font-weight="700" text-anchor="middle" fill="#166534">the pencil of x² − (m+1)x + 3m − 5 — every member through (3, 1)</text>
+  <g stroke="#16a34a" stroke-width="2"><path d="M60 ${py(0)}H660 M${px(0)} 35V325"/></g>
+  <text x="${px(0) + 6}" y="46" font-size="12" fill="#0f766e">y</text>
+  <text x="648" y="${py(0) + 16}" font-size="12" fill="#0f766e">x</text>
+  ${curves.join('\n  ')}
+  <g stroke="#d97706" stroke-width="1.6" stroke-dasharray="5 4">
+    <path d="M${px(1)} 60V305"/><path d="M${px(3)} 60V305"/>
+  </g>
+  <text x="${px(1)}" y="52" font-size="13" font-weight="700" fill="#d97706" text-anchor="middle">wall k₁ = 1</text>
+  <text x="${px(3)}" y="52" font-size="13" font-weight="700" fill="#d97706" text-anchor="middle">wall k₂ = 3</text>
+  ${dot(-1.7905, '#0d9488')}${dot(2.7905, '#0d9488')}${dot(2, '#d97706')}${dot(4, '#ea580c')}
+  <circle cx="${px(3)}" cy="${py(1)}" r="6.5" fill="none" stroke="#dc2626" stroke-width="3"/>
+  <text x="${px(3) + 12}" y="${py(1) - 8}" font-size="13" font-weight="700" fill="#dc2626">the fixed point (3, 1)</text>
+  <g font-size="12" fill="#1c1917">
+    <text x="528" y="240" fill="#0d9488" font-weight="700">m = 0: x² − x − 5 (doors −1.79, 2.79)</text>
+    <text x="528" y="258" fill="#d97706" font-weight="700">m = 3: (x − 2)² (double door 2)</text>
+    <text x="528" y="276" fill="#65a30d" font-weight="700">m = 5: (x − 3)² + 1 (no real doors)</text>
+    <text x="528" y="294" fill="#ea580c" font-weight="700">m = 7: (x − 4)² (double door 4)</text>
+    <text x="528" y="318" font-size="11.5" fill="#0f766e">f(3) = 1 for EVERY m — the m = 5</text>
+    <text x="528" y="333" font-size="11.5" fill="#0f766e">member parks its vertex right here</text>
+  </g>
+  <text x="360" y="346" font-size="12.5" text-anchor="middle" fill="#0f766e">the wall 3 never falls between the doors — the graph is above the axis there for every m</text>
+</svg>`
+}
+
+function interleavingDoorsSvg(): string {
+  // the four doors a < b < c < d on one line: the bracketed zones the
+  // census prices, the concrete mu = 2, lambda = 3 doors, and the
+  // linear-case seat x* = 19/5.
+  // window: x in [-4.5, 10.5] -> px 60..660; the line at y = 200
+  const px = (x: number): number => 60 + (x + 4.5) * 40
+  const LINE = 200
+  const door = (x: number, label: string): string =>
+    `<circle cx="${px(x)}" cy="${LINE}" r="6" fill="#65a30d"/>` +
+    `<text x="${px(x)}" y="${LINE + 26}" font-size="13" font-weight="700" fill="#166534" text-anchor="middle">${label}</text>`
+  const bracket = (x1: number, x2: number, y: number, color: string, label: string): string =>
+    `<path d="M${px(x1)} ${y} H${px(x2)}" stroke="${color}" stroke-width="2.4" fill="none"/>` +
+    `<path d="M${px(x1)} ${y - 6} v12 M${px(x2)} ${y - 6} v12" stroke="${color}" stroke-width="2.4" fill="none"/>` +
+    `<text x="${(px(x1) + px(x2)) / 2}" y="${y - 12}" font-size="12" font-weight="700" fill="${color}" text-anchor="middle">${label}</text>`
+  return `<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A number line carrying the four doors a equals minus 1, b equals 2, c equals 5, d equals 7. Above the line, amber brackets over the intervals from minus 1 to 2 and from 5 to 7, labeled lambda mu greater than zero puts one door in each. Below the line, a teal bracket over 2 to 5 labeled lambda mu less than zero puts one door there, with escape arrows pointing left beyond minus 1 and right beyond 7. Orange dots mark the concrete instance mu equals 2 lambda equals 3 at approximately 1.08 and 5.92. A lime dot marks the linear case seat 19 over 5 equals 3.8 between 2 and 5.">
+  <rect x="0" y="0" width="720" height="380" fill="#fffdf5"/>
+  <text x="360" y="24" font-size="15" font-weight="700" text-anchor="middle" fill="#166534">the interleaving census on the doors −1 &lt; 2 &lt; 5 &lt; 7</text>
+  <g stroke="#16a34a" stroke-width="2.2"><path d="M60 ${LINE}H660"/></g>
+  <g stroke="#5eead4" stroke-width="1">
+    ${[-4, -3, -2, 0, 1, 3, 4, 6, 8, 9, 10].map((x) => `<path d="M${px(x)} ${LINE - 5}v10"/>`).join('')}
+  </g>
+  ${door(-1, 'a = −1')}${door(2, 'b = 2')}${door(5, 'c = 5')}${door(7, 'd = 7')}
+  ${bracket(-1, 2, 130, '#d97706', 'λμ &gt; 0: one door in (a, b)')}
+  ${bracket(5, 7, 130, '#d97706', 'one door in (c, d)')}
+  ${bracket(2, 5, 275, '#0d9488', 'λμ &lt; 0: one door in (b, c)')}
+  <g stroke="#0d9488" stroke-width="2.4" fill="none">
+    <path d="M${px(-1)} 300 H${px(-4)}"/><path d="M${px(-4)} 300 l10 -6 v12 z" fill="#0d9488"/>
+    <path d="M${px(7)} 300 H${px(10)}"/><path d="M${px(10)} 300 l-10 -6 v12 z" fill="#0d9488"/>
+  </g>
+  <text x="${px(-2.9)}" y="322" font-size="11.5" font-weight="700" fill="#0d9488" text-anchor="middle">μ+λ &gt; 0: the escaper</text>
+  <text x="${px(-2.9)}" y="336" font-size="11.5" fill="#0f766e" text-anchor="middle">leaves LEFT (&lt; a)</text>
+  <text x="${px(8.9)}" y="322" font-size="11.5" font-weight="700" fill="#0d9488" text-anchor="middle">μ+λ &lt; 0: the escaper</text>
+  <text x="${px(8.9)}" y="336" font-size="11.5" fill="#0f766e" text-anchor="middle">leaves RIGHT (&gt; d)</text>
+  <circle cx="${px(1.0813)}" cy="${LINE}" r="5.5" fill="#ea580c"/>
+  <circle cx="${px(5.9187)}" cy="${LINE}" r="5.5" fill="#ea580c"/>
+  <text x="${px(1.0813)}" y="${LINE - 14}" font-size="11.5" font-weight="700" fill="#ea580c" text-anchor="middle">≈ 1.08</text>
+  <text x="${px(5.9187)}" y="${LINE - 14}" font-size="11.5" font-weight="700" fill="#ea580c" text-anchor="middle">≈ 5.92</text>
+  <text x="360" y="96" font-size="12" fill="#0f766e" text-anchor="middle">the concrete instance μ = 2, λ = 3: F = 5x² − 35x + 32, doors (35 ± 3√65)/10</text>
+  <g stroke="#65a30d" stroke-width="1.6" stroke-dasharray="4 3"><path d="M${px(3.8)} 196 V168"/></g>
+  <circle cx="${px(3.8)}" cy="176" r="5.5" fill="#65a30d"/>
+  <text x="${px(3.8)}" y="160" font-size="12" font-weight="700" fill="#166534" text-anchor="middle">x* = 19/5 = 3.8</text>
+  <text x="${px(3.8)}" y="145" font-size="11" fill="#0f766e" text-anchor="middle">the μ+λ = 0 seat</text>
+  <text x="360" y="368" font-size="12" fill="#0f766e" text-anchor="middle">degenerate seats: λ = 0 puts the doors exactly on a and c; μ = 0 exactly on b and d</text>
+</svg>`
+}
+
 /* ------------------------------------------------------------------ */
 /* lesson 2.1                                                          */
 /* ------------------------------------------------------------------ */
@@ -1170,6 +1266,396 @@ const lesson23: Lesson = {
   ],
 }
 
+/* ------------------------------------------------------------------ */
+/* lesson 2.4                                                          */
+/* ------------------------------------------------------------------ */
+
+const lesson24: Lesson = {
+  id: 'aa-location-of-roots-doors-in-intervals',
+  number: '2.4',
+  title: 'Location of Roots: Doors in Intervals',
+  concepts: [
+    'the k-system: one a·f(k) principle answers every location question',
+    'the master census: one family, fifteen verdicts, three boundary seats',
+    'the fixed point of a pencil: f(3) = 1 settles a verdict before it is asked',
+    'roots between roots: evaluate the outer quadratic at the inner walls',
+    'the substitution bridge: the range of the substitution IS the wall',
+    "Rolle's read — and its two honesty notes",
+    'the interleaving census: λμ decides which bracket holds each door',
+    'the wall demands and the add-the-walls certificate',
+  ],
+  objectives: [
+    'read all six location rows — both roots beyond a wall, a wall between the roots, exactly one inside, both inside, both walls between — from the single a·f(k) principle, knowing exactly when the discriminant check may be skipped',
+    'run a complete fifteen-part census on a one-parameter family, pricing every verdict including the empty ones and the boundary seats honestly',
+    'locate the doors of one quadratic between the doors of another by evaluating the outer at the inner walls',
+    'carry location questions through substitutions — t = x² + 2x + 3 with its [2, ∞) range, t = cos x with its [−1, 1] range — because the range is the wall',
+    "state Rolle's between-roots corollary and the antiderivative trick, and respect both honesty notes: agreeing signs force nothing, and a derivative root does not force two straddling doors",
+    'price the full interleaving census — where each door sits for every sign pattern of μ and λ — and certify for-all-x interval demands with the add-the-walls certificate',
+  ],
+  prerequisites: ['aa-vertex-form-at-work-maxima-and-minima', 'aa-quadratic-inequalities-and-the-sign-diagram', 'al-the-parabola-quadratic-graphs-and-vertices'],
+  sources: ['cengage-m2-02', 'cengage-jee-style', 'ncert-math10-ch4-quadratic', 'openstax-college-algebra'],
+  blocks: [
+    { kind: 'para', text: 'Elementary Algebra gave every root its door metaphor; lesson 2.2 fenced the sign bands and built the four-condition bridge for the single question "are BOTH doors inside a chosen interval?". This lesson completes the location craft. First the six location questions — both doors beyond a wall, a wall between the doors, exactly one door inside, both inside, both walls between the doors — collapse into ONE principle, the k-system, whose every row is read off the sign of $a \\cdot f(k)$. Then one carefully designed family faces all fifteen location questions at once, and the census exposes three honest boundary seats the formula routes miss. The doors then meet two deeper games: the doors of ONE quadratic bracketing the doors of ANOTHER, and the substitution bridges that hide walls inside quartics and trigonometric equations — where the range of the substitution quietly becomes the wall. The chapter closes its arc with Rolle\'s read: between two doors of a function sits a turning seat of its derivative, the antiderivative trick that turns a coefficient identity into a located root, and the two honesty notes that keep the whole craft truthful. One running family, $x^2 - (m+1)x + 3m - 5$, threads the lesson; its fixed point $(3, 1)$ will settle verdicts before they are asked.' },
+
+    { kind: 'heading', text: 'The k-System: One Principle, Every Question' },
+    { kind: 'para', text: 'Fix $f(x) = ax^2 + bx + c$ with $a \\neq 0$, and fix a number $k$ — a WALL on the number line. The location question is always some version of: where do the doors $\\alpha, \\beta$ stand relative to the wall? Lesson 2.2 answered the both-inside version with four conditions and justified each from the sign diagram. The deeper observation is that all six standard versions flow from one algebraic fact.' },
+    { kind: 'callout', tone: 'definition', title: 'Location of roots and the wall', text: 'The LOCATION OF ROOTS question for $ax^2 + bx + c = 0$ asks for the position of its real doors relative to fixed numbers $k, k_1, k_2$ (called WALLS) — for example "both roots exceed $k$", "exactly one root lies in $(k_1, k_2)$". Thus, "both roots of $f$ lie in $(k_1, k_2)$" means $k_1 < \\alpha$ and $\\beta < k_2$ with the doors counted twice at a double root, and "the wall $k$ lies between the roots" means $\\alpha < k < \\beta$ strictly.' },
+    { kind: 'callout', tone: 'theorem', title: 'The a·f(k) principle', text: 'Let $f(x) = ax^2 + bx + c$ ($a \\neq 0$) have real doors $\\alpha \\leq \\beta$. Then $a \\cdot f(k) = a^2(k - \\alpha)(k - \\beta)$, so $a \\cdot f(k) > 0$ exactly when $k$ lies OUTSIDE the open interval $(\\alpha, \\beta)$, and $a \\cdot f(k) < 0$ exactly when $k$ lies strictly BETWEEN the doors. The $a^2$ factor is why the test reads $a \\cdot f(k)$ rather than $f(k)$: multiplying by the leading coefficient strips the opening direction out of the comparison.' },
+    { kind: 'derivation', title: 'Why the a·f(k) read works', statement: "For real doors α ≤ β, the sign of a·f(k) is the sign of (k − α)(k − β) — the wall's position relative to the door pair, independent of the parabola's opening.", steps: [
+      { label: 'Factor', formula: 'f(x) = a(x - \\alpha)(x - \\beta)', explanation: 'The factor theorem writes the quadratic through its doors whenever they are real — this is the same identity that carried Viète\'s reads in lesson 2.3.' },
+      { label: 'Evaluate at the wall', formula: 'a \\cdot f(k) = a^2 (k - \\alpha)(k - \\beta)', explanation: 'Multiply both sides by $a$; the leading coefficient now appears squared.' },
+      { label: 'Sign of the square', formula: 'a^2 > 0', explanation: 'A nonzero square is positive, so the SIGN of $a \\cdot f(k)$ is the sign of the product $(k - \\alpha)(k - \\beta)$ — the opening direction of the parabola has left the problem entirely.' },
+      { label: 'Read the product', formula: '(k - \\alpha)(k - \\beta) > 0 \\iff k < \\alpha \\text{ or } k > \\beta', explanation: 'A product of two reals is positive exactly when both factors share a sign: both positive ($k$ right of the larger door) or both negative ($k$ left of the smaller door). Between the doors the factors disagree and the product is negative.' },
+      { label: 'Conclude', formula: 'a \\cdot f(k) > 0 \\iff k \\notin (\\alpha, \\beta), \\quad a \\cdot f(k) < 0 \\iff \\alpha < k < \\beta', explanation: 'One identity prices every wall test. The axis condition rides along: $-\\tfrac{b}{2a} = \\tfrac{\\alpha + \\beta}{2}$ is the midpoint of the doors, so comparing the axis with a wall compares the door-pair\'s centre with it.' },
+    ], result: 'a \\cdot f(k) = a^2(k - \\alpha)(k - \\beta):\\quad a \\cdot f(k) > 0 \\iff k \\text{ outside the doors},\\quad a \\cdot f(k) < 0 \\iff k \\text{ between them}' },
+    { kind: 'para', text: 'The principle assembles the whole system. "Both doors beyond $k$" wants $k$ outside the pair AND on the correct side — hence the axis condition $-\\tfrac{b}{2a} > k$ (or $< k$). "Both doors in $(k_1, k_2)$" wants both walls outside the pair with the pair between them — hence $a \\cdot f(k_1) > 0$, $a \\cdot f(k_2) > 0$ and $k_1 < -\\tfrac{b}{2a} < k_2$. And the between-rows need no discriminant check at all.' },
+    { kind: 'table', caption: 'The k-system: every location question as conditions on the coefficients (the exam table, one principle deep)', head: ['the question', 'the conditions', 'D check?'], rows: [
+      ['both roots $> k$', '$D \\geq 0$, $\\;a \\cdot f(k) > 0$, $\\;-\\tfrac{b}{2a} > k$', 'yes'],
+      ['both roots $< k$', '$D \\geq 0$, $\\;a \\cdot f(k) > 0$, $\\;-\\tfrac{b}{2a} < k$', 'yes'],
+      ['$k$ between the roots ($\\alpha < k < \\beta$)', '$a \\cdot f(k) < 0$', 'NO — a sign change forces two real doors'],
+      ['exactly one root in $(k_1, k_2)$', '$f(k_1) \\cdot f(k_2) < 0$', 'NO — the sign change certifies it (boundary seat: see the caution below)'],
+      ['both roots in $(k_1, k_2)$', '$D \\geq 0$, $\\;a \\cdot f(k_1) > 0$, $\\;a \\cdot f(k_2) > 0$, $\\;k_1 < -\\tfrac{b}{2a} < k_2$', 'yes'],
+      ['both walls between the roots ($\\alpha < k_1 < k_2 < \\beta$)', '$a \\cdot f(k_1) < 0$ and $a \\cdot f(k_2) < 0$', 'NO — both sign changes certify it'],
+      ['roots of opposite sign ($\\alpha < 0 < \\beta$)', '$a \\cdot f(0) < 0$, i.e. $ac < 0$', 'NO — the row above at $k = 0$'],
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'The D-skip is earned, not free', text: 'The three rows marked NO genuinely need no discriminant: $a \\cdot f(k) < 0$ means the continuous curve takes a value of sign opposite to its leading coefficient, so it must cross the axis — two real doors exist automatically (this is the intermediate value theorem wearing its algebra hat). The rows marked YES are different: $a \\cdot f(k) > 0$ is ALSO satisfied by a parabola that never dips to the axis at all. The family $x^2 - 2x + 5$ passes every wall test at $k = 1$ and $k = 5$ ($f(1) = 4$, $f(5) = 20$, axis $1$) while owning NO real doors ($D = -16$). Drop the discriminant from those rows and the always-positive impostors walk straight in.' },
+    { kind: 'callout', tone: 'warn', title: 'The boundary seat the product test misses', text: 'The exactly-one row reads $f(k_1) \\cdot f(k_2) < 0$, which catches the generic picture: one wall between the doors, the other outside. But a door sitting exactly ON a wall gives $f(k_i) = 0$, and then the honest count must be done by hand: a door on the open edge of $(k_1, k_2)$ does NOT lie inside, while its partner might. The census below manufactures this seat at $m = \\tfrac{5}{2}$ — watch it arrive, and price it honestly when it does.' },
+    { kind: 'example', title: 'Read x² − 9x + 20 against the walls 2 and 6 in both directions', steps: [
+      'Factor first: $x^2 - 9x + 20 = (x - 4)(x - 5)$, so the doors are $4$ and $5$ — real, distinct, axis $4.5$.',
+      'Both-inside, table route: $D = 81 - 80 = 1 \\geq 0$ ✓; $a \\cdot f(2) = 4 - 18 + 20 = 6 > 0$ ✓ (wall 2 outside-left); $a \\cdot f(6) = 36 - 54 + 20 = 2 > 0$ ✓ (wall 6 outside-right); $2 < 4.5 < 6$ ✓.',
+      'Hence, both doors lie in $(2, 6)$ — four green checks, the 2.2 bridge crossing on the first try.',
+      'Now, the k-relative read on the same machine with wall $k = 3$: $a \\cdot f(3) = 9 - 27 + 20 = 2 > 0$ and axis $4.5 > 3$, so both doors exceed $3$.',
+      'Counter-case for the same question: $x^2 - 6x + 5 = (x - 1)(x - 5)$ against wall $3$: $f(3) = 9 - 18 + 5 = -4 < 0$, so $3$ sits BETWEEN the doors — the both-beyond read fails before the axis is even consulted.',
+      'Hence, the table prices both directions: membership checks and failure checks are the same rows read forwards and backwards.',
+    ],},
+    { kind: 'callout', tone: 'exam', title: 'Where the examinations take this', text: 'The JEE Main syllabus line for this chapter names "location of roots" explicitly — between the discriminant work of 2.1, the sign diagram of 2.2 and this lesson\'s k-system sits the entire examined craft. The standard patterns: a parameter family put through a multi-part census; "find the values of k so that exactly one root lies in an interval"; the both-roots-inside interval hunt with the axis condition as the silent eliminator; and the at-least-one-root questions that resolve into one sign product. Every one of them is a row of the table above — the skill being recognising WHICH row the words describe.' },
+
+    { kind: 'heading', text: 'The Master Census: One Family, Fifteen Questions' },
+    { kind: 'para', text: 'The examination\'s favourite location vehicle is a ONE-PARAMETER FAMILY put through many questions at once. This lesson\'s family is designed for the purpose:' },
+    { kind: 'equation', latex: 'f(x) = x^2 - (m + 1)x + 3m - 5, \\qquad m \\in \\mathbb{R}', note: 'where $D = (m+1)^2 - 4(3m - 5) = (m - 3)(m - 7)$, the sum is $m + 1$, the product is $3m - 5$, and the axis is $\\tfrac{m+1}{2}$' },
+    { kind: 'para', text: 'Before any question is asked, one gift falls out. Collect the $m$-terms: $f(x) = (x^2 - x - 5) + m(3 - x)$. At $x = 3$ the $m$-coefficient $3 - x$ vanishes and $f(3) = 9 - 3 - 5 = 1$ — for EVERY $m$. All the parabolas of the family pass through the single point $(3, 1)$: a PENCIL of curves rotating about a fixed point. The walls for the census are chosen at $1$ and $3$; note also the two double-root seats: $m = 3$ collapses the family to $(x - 2)^2$ (door $2$) and $m = 7$ to $(x - 4)^2$ (door $4$).' },
+    { kind: 'callout', tone: 'insight', title: 'The fixed point prices verdicts before they are asked', text: 'A pencil\'s fixed point is free information. Since $f(3) = 1 > 0$ for every $m$, the wall $3$ can NEVER lie strictly between the doors — the graph is above the axis at $3$ always, so $3$ sits outside the open door-interval for every family member. One evaluation has already answered the fifteenth census question below. Fixed points turn location questions into readings instead of computations.' },
+    { kind: 'example', title: 'Census part (i)–(iii): the discriminant reads', steps: [
+      'The discriminant: $D = (m - 3)(m - 7)$, a parabola in $m$ opening upward with zeros $3$ and $7$.',
+      '(i) Real and distinct doors need $D > 0$: $m \\in (-\\infty, 3) \\cup (7, \\infty)$.',
+      '(ii) Equal doors need $D = 0$: $m \\in \\{3, 7\\}$ — the double seats $(x - 2)^2$ and $(x - 4)^2$.',
+      '(iii) No real doors need $D < 0$: $m \\in (3, 7)$ — the family floats above the axis there.',
+      'Hence, the discriminant census: distinct on $(-\\infty, 3) \\cup (7, \\infty)$, equal exactly at $\\{3, 7\\}$, non-real on $(3, 7)$.',
+    ],},
+    { kind: 'example', title: 'Census part (iv)–(viii): the sign reads', steps: [
+      '(iv) Opposite signs mean the product is negative: $3m - 5 < 0$, so $m < \\tfrac{5}{3}$. No discriminant check — an opposite-sign product already forces real doors (the row at $k = 0$).',
+      '(v) Equal magnitude, opposite sign means the sum vanishes: $m + 1 = 0$ so $m = -1$, PROVIDED the doors are real: $D = (-4)(-8) = 32 > 0$ ✓. The witness: $f(x) = x^2 - 8$, doors $\\pm 2\\sqrt{2}$. This seat EXISTS — a census honesty worth checking, since many designed families have this part empty.',
+      '(vi) Both positive needs sum $> 0$ AND product $> 0$ AND $D \\geq 0$: $m > -1$, $m > \\tfrac{5}{3}$, and $m \\leq 3$ or $m \\geq 7$.',
+      'Intersecting: $m \\in \\left(\\tfrac{5}{3},\\ 3\\right] \\cup [7, \\infty)$ — the double seat $m = 3$ (door $2 > 0$) and $m = 7$ (door $4 > 0$) both count.',
+      '(vii) Both negative needs sum $< 0$ AND product $> 0$: $m < -1$ AND $m > \\tfrac{5}{3}$ — EMPTY. The sum door and the product door never open together: no $m$ sends both roots negative. An empty verdict is still a verdict.',
+      '(viii) At least one positive = (iv) or (vi), plus the product-zero seat: at $m = \\tfrac{5}{3}$ the doors are $0$ and $\\tfrac{8}{3}$ — the second one positive, so the seat qualifies. Collecting: $m \\in (-\\infty, 3] \\cup [7, \\infty)$.',
+      'Hence, the sign census — and notice (viii) is EXACTLY the real-door set of (i)–(ii): because both-negative is impossible for this family, every real member owns a positive door.',
+    ],},
+    { kind: 'example', title: 'Census part (ix)–(xi): the single-wall reads at k = 1', steps: [
+      '(ix) The wall $1$ between the doors: $f(1) < 0$. Compute $f(1) = 1 - (m + 1) + 3m - 5 = 2m - 5$.',
+      'So, $2m - 5 < 0$ gives $m < \\tfrac{5}{2}$ — and no discriminant check: a negative value at the wall forces two real doors straddling it.',
+      '(x) Both doors exceed $1$: $a \\cdot f(1) > 0$ and axis $> 1$ and $D \\geq 0$: $m > \\tfrac{5}{2}$, $\\tfrac{m+1}{2} > 1$ (i.e. $m > 1$), and $m \\leq 3$ or $m \\geq 7$.',
+      'Intersecting: $m \\in \\left(\\tfrac{5}{2},\\ 3\\right] \\cup [7, \\infty)$ — the wall test does the real work; the axis demand is swallowed by $m > \\tfrac{5}{2}$.',
+      '(xi) Both doors below $1$: $a \\cdot f(1) > 0$ wants $m > \\tfrac{5}{2}$, while axis $< 1$ wants $m < 1$ — EMPTY. The honest reason: whenever the axis sits left of $1$ ($m < 1$), $f(1) = 2m - 5 < -3 < 0$, so the wall is already BETWEEN the doors.',
+      'Hence, the single-wall census: between-roots on $(-\\infty, \\tfrac{5}{2})$, both-beyond on $(\\tfrac{5}{2}, 3] \\cup [7, \\infty)$, both-below never.',
+    ],},
+    { kind: 'example', title: 'Census part (xii)–(xv): the interval reads on (1, 3)', steps: [
+      '(xii) Exactly one door in $(1, 3)$: the product test $f(1) \\cdot f(3) < 0$. Since $f(3) = 1$ always, this is $(2m - 5) \\cdot 1 < 0$, i.e. $m < \\tfrac{5}{2}$.',
+      'But now the boundary seat arrives: at $m = \\tfrac{5}{2}$ the doors are $1$ and $\\tfrac{5}{2}$ — the door $1$ sits ON the open edge (not inside), while $\\tfrac{5}{2}$ IS inside. The honest count: exactly one door inside. So the full verdict is $m \\leq \\tfrac{5}{2}$, with the seat $m = \\tfrac{5}{2}$ added by hand — the product test reads $0$ there and stays silent.',
+      '(xiii) Both doors in $(1, 3)$: $D \\geq 0$, $f(1) > 0$, $f(3) = 1 > 0$, and $1 < \\tfrac{m+1}{2} < 3$. The axis condition unwinds to $1 < m < 5$; the walls give $m > \\tfrac{5}{2}$; the discriminant gives $m \\leq 3$ or $m \\geq 7$.',
+      'Intersecting: $m \\in \\left(\\tfrac{5}{2},\\ 3\\right]$ — non-empty, and the double seat $m = 3$ (both doors at $2$) qualifies because a double door inside counts twice.',
+      '(xiv) At least one door in $(1, 3)$ = (xii) or (xiii), boundary seats included: $(-\\infty, \\tfrac{5}{2}] \\cup (\\tfrac{5}{2}, 3] = (-\\infty, 3]$. For every $m \\leq 3$ some door sits inside; for $m \\in (3, 7)$ there are no doors at all; for $m \\geq 7$ both doors sit at or beyond $4$.',
+      '(xv) One door beyond $3$, the other below $1$: this wants BOTH walls between the doors — $f(1) < 0$ and $f(3) < 0$. But $f(3) = 1 > 0$ for every $m$: the fixed point keeps the graph above the axis at the wall $3$, so the wall $3$ can never fall between the doors. EMPTY — and the pencil\'s geometry, not a computation, is the reason.',
+      'Hence, the interval census — with two empty verdicts, each carrying its own reason, and one boundary seat the product test could not see.',
+    ],},
+    { kind: 'figure', caption: 'The census family as a pencil. Four members of $x^2 - (m+1)x + 3m - 5$ — all passing through the fixed point $(3, 1)$. Teal, $m = 0$: doors $-1.79$ and $2.79$, so the wall $1$ sits between them and exactly one door lies in $(1, 3)$. Amber, $m = 3$: the double door $2$, both doors inside $(1, 3)$. Orange, $m = 7$: the double door $4$, both doors beyond the wall $3$ — the axis split of the fixed-point law. Lime, $m = 5$: the vertex parks exactly ON the fixed point and the member owns no real doors at all. The dashed walls stand at $1$ and $3$; the ring marks $(3, 1)$, where every member\'s graph passes — above the axis, always, which is precisely why the wall $3$ never falls between the doors.', svg: pencilFixedPointSvg() },
+    { kind: 'para', text: 'One more deep read closes the census. Questions (ix) and (xii) — "the wall $1$ between the doors" and "exactly one door in $(1, 3)$" — returned the same family of answers, and the picture says why: the fixed point pins the LARGER door strictly below $3$ for every $m \\leq 3$, so whenever the wall $1$ is between the doors, the larger door automatically lands in $(1, 3)$. On a generic family the two questions differ; here they coincide except at the single seat $m = \\tfrac{5}{2}$, where the wall-door $1$ sits exactly on the interval\'s open edge: "between the roots" says no (the door equals the wall), "exactly one inside" says yes (the partner $\\tfrac{5}{2}$ is in). Boundary seats are where location questions come apart — and where honest counting earns its keep.' },
+    { kind: 'callout', tone: 'insight', title: 'The fixed-point law, stated precisely', text: 'For every $m$ for which the family has real doors, the wall $3$ lies OUTSIDE the open door interval — the pair never straddles $3$. The axis then splits the verdict: for $m \\leq 3$ the axis $\\tfrac{m+1}{2} \\leq 2 < 3$ and both doors lie below $3$; for $m \\geq 7$ the axis $\\geq 4 > 3$ and both doors lie above $3$. Proof shape: $f(3) = 1 > 0$ puts $3$ outside the open interval $(\\alpha, \\beta)$; since $\\alpha \\leq \\text{axis} \\leq \\beta$, the axis side of $3$ decides which side the whole pair sits on. The exercise ladder asks for this proof with the case split done honestly.' },
+
+    { kind: 'heading', text: 'Roots Between Roots: Two Quadratics' },
+    { kind: 'para', text: 'The next game lifts the wall idea one level: instead of fixed numbers as walls, use the DOORS OF A SECOND QUADRATIC. When does $x^2 - 10x + 21 = (x - 3)(x - 7)$ have both its doors between the doors of another equation? The method is the walls-between row in reverse: evaluate the OUTER quadratic at the INNER doors. If the outer curve is negative at both inner doors (with the outer opening upward), both inner doors sit inside the outer\'s door interval.' },
+    { kind: 'example', title: 'Find every m for which the doors of x² − 10x + 21 lie between the doors of 2x² − (3m+4)x + 2m² − 11m + 26', steps: [
+      'Name the outer family $g(x) = 2x^2 - (3m + 4)x + 2m^2 - 11m + 26$; it opens upward ($a = 2 > 0$).',
+      'The demand: both inner doors $3$ and $7$ strictly inside the outer door interval — the walls-between row with the walls now being doors.',
+      'Evaluate the outer at the inner walls: $g(3) = 18 - 9(3m + 4)/2 \\cdot 2 + 2m^2 - 11m + 26$. Compute directly: $g(3) = 2m^2 - 20m + 32 = 2(m - 2)(m - 8)$.',
+      'And $g(7) = 2m^2 - 32m + 96 = 2(m - 4)(m - 12)$.',
+      'Both must be negative: $2(m - 2)(m - 8) < 0$ gives $m \\in (2, 8)$; $2(m - 4)(m - 12) < 0$ gives $m \\in (4, 12)$.',
+      'Intersecting: $m \\in (4, 8)$ — and no discriminant check is needed for $g$: a negative value of an upward parabola forces two real doors.',
+      'Witness $m = 6$: $g(x) = 2x^2 - 22x + 32 = 2(x^2 - 11x + 16)$, doors $\\tfrac{11 \\pm \\sqrt{57}}{2} \\approx 1.72$ and $9.27$ — indeed $1.72 < 3 < 7 < 9.27$.',
+      'Boundary honesty: at $m = 4$, $g(7) = 0$ — an outer door sits exactly ON the wall $7$, so "strictly between" fails; at $m = 8$, $g(3) = 0$ likewise.',
+      'Hence, $m \\in (4, 8)$, with both boundary seats excluded by strictness.',
+    ],},
+    { kind: 'callout', tone: 'insight', title: 'Evaluate the outer at the inner', text: 'The between-quadratics method is one sentence: treat the inner equation\'s doors as walls and run the walls-between row on the outer equation. The inner doors are usually factorable by design (choose them!), so the wall values come out as clean factored expressions in the parameter — and the negativity of the outer at those walls makes its own discriminant check unnecessary. The design freedom is real: this exhibit\'s coefficients were built backward from the wanted verdicts $(2,8)$ and $(4,12)$.' },
+
+    { kind: 'heading', text: 'Disguised Walls: Substitution Bridges' },
+    { kind: 'para', text: 'The hardest-looking location questions hide their walls inside a substitution. The principle that survives every disguise: THE RANGE OF THE SUBSTITUTION IS THE WALL. A quartic in $x$ that is secretly a quadratic in $t = x^2 + 2x + 3$ has a real door exactly when the $t$-quadratic has a door in $[2, \\infty)$ — because $t = (x + 1)^2 + 2$ covers $[2, \\infty)$ EXACTLY as $x$ runs over the reals. A trigonometric quadratic in $\\cos x$ has a real solution exactly when its $t$-quadratic has a door in $[-1, 1]$.' },
+    { kind: 'example', title: 'For which a does (x² + 2x + 6)² − (a − 2)(x² + 2x + 3)(x² + 2x + 6) + (a − 3)(x² + 2x + 3)² = 0 have at least one real root?', steps: [
+      'Substitute $t = x^2 + 2x + 3$; then $x^2 + 2x + 6 = t + 3$, and the equation reads $(t + 3)^2 - (a - 2)t(t + 3) + (a - 3)t^2 = 0$.',
+      'Expand and collect: $t^2 + 6t + 9 - (a - 2)(t^2 + 3t) + (a - 3)t^2 = (12 - 3a)t + 9 = 0$ — the $t^2$ terms cancel by design, leaving a LINEAR collapse.',
+      'So, $t = \\dfrac{3}{a - 4}$ (for $a \\neq 4$; at $a = 4$ the equation reads $9 = 0$ and has no root at all).',
+      'The range is the wall: $t$ must lie in $[2, \\infty)$, so $\\dfrac{3}{a - 4} \\geq 2$.',
+      'Solve the wall: $\\dfrac{3}{a - 4} \\geq 2 \\iff \\dfrac{11 - 2a}{a - 4} \\geq 0 \\iff a \\in \\left(4, \\tfrac{11}{2}\\right]$ — the pole at $a = 4$ is open, the zero at $\\tfrac{11}{2}$ is closed.',
+      'Witness $a = 5$: $t = 3$, so $x^2 + 2x + 3 = 3$ gives $x \\in \\{0, -2\\}$ ✓. Exclusion $a = 3$: $t = -3$, below the wall — and indeed the original expression becomes $3(x^2 + 2x + 6) > 0$, never zero.',
+      'The boundary $a = \\tfrac{11}{2}$ is the gem: $t = 2$ EXACTLY — the minimum of the substitution. Then $x^2 + 2x + 3 = 2$ forces $(x + 1)^2 = 0$, the single root $x = -1$: the $t$-door sits on the wall and the quartic touches zero tangentially. Boundary seats on substitution walls are tangent moments.',
+      'Hence, $a \\in \\left(4, \\tfrac{11}{2}\\right]$, the right end being the tangent seat $x = -1$.',
+    ],},
+    { kind: 'example', title: 'For which k does cos²x − k cos x − 2 = 0 have a real solution?', steps: [
+      'Substitute $t = \\cos x \\in [-1, 1]$ — the range is the wall, now a CLOSED finite interval.',
+      'The $t$-quadratic $t^2 - kt - 2$ has product $-2 < 0$ of its roots: one positive door $\\tfrac{k + \\sqrt{k^2 + 8}}{2}$ and one negative door $\\tfrac{k - \\sqrt{k^2 + 8}}{2}$, always real ($D = k^2 + 8 > 0$).',
+      'The positive door lands in $[-1, 1]$ exactly when $\\tfrac{k + \\sqrt{k^2 + 8}}{2} \\leq 1$, i.e. $\\sqrt{k^2 + 8} \\leq 2 - k$ — which forces $k \\leq 2$ and, on squaring, $k^2 + 8 \\leq 4 - 4k + k^2$, i.e. $k \\leq -1$.',
+      'The negative door lands in $[-1, 1]$ exactly when $\\tfrac{k - \\sqrt{k^2 + 8}}{2} \\geq -1$, i.e. $\\sqrt{k^2 + 8} \\leq k + 2$ — forcing $k \\geq -2$ and, on squaring, $8 \\leq 4k + 4$, i.e. $k \\geq 1$.',
+      'So, a real solution exists for $k \\leq -1$ (the positive door inside) OR $k \\geq 1$ (the negative door inside): $|k| \\geq 1$.',
+      'Witnesses: $k = -1$ gives $t^2 + t - 2 = (t + 2)(t - 1)$, door $t = 1 = \\cos x$ at $x = 0$ ✓; $k = 1$ gives $t^2 - t - 2 = (t - 2)(t + 1)$, door $t = -1 = \\cos x$ at $x = \\pi$ ✓. Exclusion $k = 0$: doors $\\pm\\sqrt{2}$, both outside $[-1, 1]$ — no solution.',
+      'Hence, $|k| \\geq 1$ — with BOTH branches needed: each sign of $k$ smuggles one door into the wall interval.',
+    ],},
+    { kind: 'callout', tone: 'insight', title: 'The range is the wall — closed or open matters', text: 'Every substitution bridge is the same three moves: substitute, solve the collapsed equation, then price the door against the substitution\'s RANGE. The range\'s endpoint behaviour decides the boundary seats: $t = x^2 + 2x + 3$ ATTAINS its minimum $2$ (at $x = -1$), so a $t$-door at $2$ is a real, tangential solution; $t = \\cos x$ attains both endpoints $\\pm 1$, so doors at the wall count. A substitution whose extremum is not attained would make the corresponding seat empty — check attainment before certifying a boundary.' },
+
+    { kind: 'heading', text: "Rolle's Read and Its Honesty" },
+    { kind: 'para', text: 'The last instrument is not about quadratics — it is about EVERY polynomial, and it locates roots by counting TURNS. A polynomial\'s graph is continuous (no jumps) and smooth (a unique tangent at every point). Michel Rolle\'s 1691 observation: if such a curve starts and ends a stretch at the SAME height, it must have turned somewhere in between.' },
+    { kind: 'callout', tone: 'theorem', title: "Rolle's theorem (the algebra reader's form)", text: "If $y = f(x)$ is continuous on $[a, b]$, differentiable on $(a, b)$, and $f(a) = f(b)$, then there is at least one seat $c \\in (a, b)$ with $f'(c) = 0$ — a horizontal tangent, a TURNING SEAT. The polynomial corollary this lesson cashes: between any two distinct roots of $f(x) = 0$ sits at least one root of $f'(x) = 0$. Polynomials inherit both hypotheses free of charge: continuity and differentiability everywhere." },
+    { kind: 'example', title: "Between the doors of (x − 1)(x − 3)(x − 5), locate the turning seats", steps: [
+      'Expand to keep the derivative honest: $f(x) = x^3 - 9x^2 + 23x - 15$.',
+      'The doors: $f(1) = f(3) = f(5) = 0$ — three doors, two gaps $(1, 3)$ and $(3, 5)$.',
+      "Differentiate: $f'(x) = 3x^2 - 18x + 23$, itself a quadratic with $D = 324 - 276 = 48 > 0$ — two real seats.",
+      "The seats: $x = \\dfrac{18 \\pm \\sqrt{48}}{6} = 3 \\pm \\dfrac{2\\sqrt{3}}{3} \\approx 1.845$ and $4.155$.",
+      'Check the corollary: $1 < 1.845 < 3$ ✓ and $3 < 4.155 < 5$ ✓ — one turning seat per gap, exactly as promised.',
+      'Hence, the seats $3 \\pm \\tfrac{2\\sqrt{3}}{3}$ — one between each consecutive pair of doors.',
+    ],},
+    { kind: 'para', text: 'The examination runs the corollary BACKWARDS through an antiderivative: to LOCATE a root of $ax^2 + bx + c = 0$, invent the cubic whose derivative it is, and engineer equal endpoint values.' },
+    { kind: 'example', title: 'Given 4a + 3b + 3c = 0, prove ax² + bx + c = 0 has a root in (0, 2)', steps: [
+      'Build the antiderivative: $F(x) = \\dfrac{a}{3}x^3 + \\dfrac{b}{2}x^2 + cx + d$ — then $F\'(x) = ax^2 + bx + c$, exactly the given quadratic.',
+      'Price the endpoints: $F(0) = d$ and $F(2) = \\dfrac{8a}{3} + 2b + 2c + d = \\dfrac{2(4a + 3b + 3c)}{3} + d = d$, by the given identity.',
+      'So, $F(0) = F(2)$ — and $F$ is a polynomial, continuous and differentiable everywhere.',
+      "By Rolle's theorem there is a seat $c^* \\in (0, 2)$ with $F'(c^*) = 0$ — that is, $a(c^*)^2 + bc^* + c = 0$.",
+      'Hence, the quadratic owns a door strictly inside $(0, 2)$ — located without ever solving it.',
+      'Witness $(a, b, c) = (3, -4, 0)$: $4(3) + 3(-4) + 0 = 0$ ✓, and $3x^2 - 4x = x(3x - 4)$ has its doors at $0$ and $\\tfrac{4}{3}$ — the interior door $\\tfrac{4}{3} \\in (0, 2)$, as promised.',
+    ],},
+    { kind: 'callout', tone: 'insight', title: 'The weights are the interval', text: 'The endpoint identity $F(\\ell) = F(0)$ reads $\\dfrac{a\\ell^3}{3} + \\dfrac{b\\ell^2}{2} + c\\ell = 0$, which after clearing fractions is $2a\\ell^2 + 3b\\ell + 6c = 0$. So the antiderivative trick has a general law: $ax^2 + bx + c = 0$ has a door in $(0, \\ell)$ whenever $2a\\ell^2 + 3b\\ell + 6c = 0$. The classical seat $\\ell = 1$ carries the weights $2, 3, 6$; the lesson\'s seat $\\ell = 2$ gives $4, 3, 3$; the exercise ladder\'s seat $\\ell = 3$ gives $6, 3, 2$. The weights ARE the interval in disguise — recognising them in a problem statement is the whole tell.' },
+    { kind: 'callout', tone: 'warn', title: 'Honesty note 1: agreeing signs force nothing', text: 'A sign CHANGE across an interval forces a root — that is the intermediate value theorem, and it is why the $a \\cdot f(k) < 0$ rows skip the discriminant. But the converse is FALSE, and the trap is set every year: $g(-2) = g(2) = 3 > 0$ for $g(x) = x^2 - 1$, yet BOTH doors $\\pm 1$ sit inside $(-2, 2)$. Meanwhile $h(x) = x^2 + 1$ has the same agreeing signs and NO doors at all. Agreeing endpoint signs settle nothing: the doors may be two, one, or none. Every "no sign change" verdict needs a different instrument — the discriminant, the vertex, or a monotonicity argument.' },
+    { kind: 'callout', tone: 'warn', title: 'Honesty note 2: the reverse Rolle read fails', text: "The corollary runs ONE way: two doors of $f$ force a turning seat of $f'$ between them. A turning seat of $f'$ does NOT force two doors of $f$ straddling it. Witness $f(x) = x^3 + 1 = (x + 1)(x^2 - x + 1)$: the derivative $f'(x) = 3x^2$ has the seat $x = 0$, yet $f$ owns exactly ONE real door, $x = -1$ — nothing straddles $0$. The one-way street is structural: turns can happen above or below the axis; only IVT-grade sign information pins doors." },
+    { kind: 'example', title: 'Run both honesty witnesses to the end', steps: [
+      'Witness A (doors despite agreeing signs): $g(x) = x^2 - 1$ on $(-2, 2)$: $g(-2) = g(2) = 3$, signs agree — yet $g(-1) = g(1) = 0$ with both doors strictly inside.',
+      'Witness B (no doors, same signature): $h(x) = x^2 + 1$ on $(-2, 2)$: $h(-2) = h(2) = 5$, signs agree — and $D = -4 < 0$, no real doors anywhere.',
+      'The pair teaches the read: agreeing signs admit BOTH verdicts, so they certify NEITHER.',
+      "The reverse-Rolle witness alongside: $f(x) = x^3 + 1$ has $f'(x) = 3x^2$ with the seat $0$; the single door is $-1$, sitting LEFT of the seat — no straddle in sight.",
+      'Hence, sign data locates doors only through CHANGES; turn data locates doors only through PAIRS OF DOORS. Both one-way, both honest.',
+    ],},
+
+    { kind: 'heading', text: 'The Interleaving Census: Where Each Door Sits' },
+    { kind: 'para', text: 'Lesson 2.2 proved the interleaving gem: for $a < b < c < d$, the equation $\\mu(x - a)(x - c) + \\lambda(x - b)(x - d) = 0$ has a real root for every real $\\mu$ and $\\lambda$. This lesson takes the gem deeper and prices WHERE each door sits — the full census, degenerate seats included. The witnesses are fresh: $a = -1$, $b = 2$, $c = 5$, $d = 7$.' },
+    { kind: 'callout', tone: 'theorem', title: 'The four-value sign bracket', text: 'For $F(x) = \\mu(x - a)(x - c) + \\lambda(x - b)(x - d)$ with $a < b < c < d$, the four door evaluations read $F(a) = \\lambda(a - b)(a - d)$, $F(b) = \\mu(b - a)(b - c)$, $F(c) = \\lambda(c - b)(c - d)$, $F(d) = \\mu(d - a)(d - c)$. On the witnesses $(-1, 2, 5, 7)$: $F(-1) = 24\\lambda$, $F(2) = -9\\mu$, $F(5) = -6\\lambda$, $F(7) = 16\\mu$ — the signs walk $\\lambda, -\\mu, -\\lambda, \\mu$ down the line.' },
+    { kind: 'derivation', title: 'The sign walk, door by door', statement: "For a < b < c < d, the four door evaluations of F(x) = μ(x − a)(x − c) + λ(x − b)(x − d) carry the signs λ, −μ, −λ, μ — which brackets a real door into a specific interval for every sign pattern of μ and λ.", steps: [
+      { label: 'At the first door', formula: 'F(a) = \\lambda(a - b)(a - d)', explanation: 'The $\\mu$-term vanishes at $x = a$ (its factor $x - a$). Both remaining factors are negative ($a < b$, $a < d$), so their product is positive: $F(a)$ carries the sign of $\\lambda$ — at the witness, $(-3)(-8) = 24$.' },
+      { label: 'At the second door', formula: 'F(b) = \\mu(b - a)(b - c)', explanation: 'Now the $\\lambda$-term vanishes. The factors straddle zero ($b - a > 0$, $b - c < 0$), so $F(b)$ carries the sign of $-\\mu$ — at the witness, $(3)(-3) = -9$.' },
+      { label: 'At the third door', formula: 'F(c) = \\lambda(c - b)(c - d)', explanation: 'The $\\mu$-term vanishes again (factor $x - c$). The factors straddle zero ($c - b > 0$, $c - d < 0$): $F(c)$ carries the sign of $-\\lambda$ — at the witness, $(3)(-2) = -6$.' },
+      { label: 'At the fourth door', formula: 'F(d) = \\mu(d - a)(d - c)', explanation: 'The $\\lambda$-term vanishes; both factors positive ($d > a$, $d > c$): $F(d)$ carries the sign of $\\mu$ — at the witness, $(8)(2) = 16$.' },
+      { label: 'Bracket the pairs', formula: 'F(a)F(b) < 0 \\iff \\lambda\\mu > 0, \\quad F(c)F(d) < 0 \\iff \\lambda\\mu > 0', explanation: 'Adjacent evaluations at $a, b$ (and at $c, d$) carry opposite signs exactly when $\\lambda$ and $\\mu$ share a sign — one root brackets into $(a, b)$ and one into $(c, d)$ by the intermediate value theorem. When $\\lambda\\mu < 0$, instead $F(b)F(c) < 0$: the bracket falls on $(b, c)$.' },
+    ], result: '\\text{signs } F(a), F(b), F(c), F(d) = \\lambda,\\ -\\mu,\\ -\\lambda,\\ \\mu \\text{ — the census falls out by pairing}' },
+    { kind: 'list', marker: 'roman', items: [
+      '(i) $\\lambda\\mu > 0$ (with $\\mu + \\lambda \\neq 0$): one door in $(a, b)$ and one in $(c, d)$ — both doors bracketed inside $(a, d)$;',
+      '(ii) $\\lambda\\mu < 0$ with $\\mu + \\lambda > 0$: one door in $(b, c)$, and the ESCAPER door leaves left ($< a$);',
+      '(iii) $\\lambda\\mu < 0$ with $\\mu + \\lambda < 0$: one door in $(b, c)$, and the escaper leaves right ($> d$);',
+      '(iv) $\\lambda = 0$: the doors sit exactly on $a$ and $c$; $\\mu = 0$: exactly on $b$ and $d$;',
+      '(v) $\\mu + \\lambda = 0$ (both nonzero): the quadratic collapses to a LINE — and its single door $x^* = \\dfrac{bd - ac}{b + d - a - c}$ still lands strictly inside $(b, c)$.',
+    ] },
+    { kind: 'example', title: 'Price the instance μ = 2, λ = 3 on the doors (−1, 2, 5, 7)', steps: [
+      'Assemble: $F(x) = 2(x + 1)(x - 5) + 3(x - 2)(x - 7) = 2(x^2 - 4x - 5) + 3(x^2 - 9x + 14)$.',
+      'Collect: $F(x) = 5x^2 - 35x + 32$, with $D = 1225 - 640 = 585 = 9 \\times 65$.',
+      'The doors: $x = \\dfrac{35 \\pm 3\\sqrt{65}}{10} \\approx 1.081$ and $5.919$.',
+      'The census said $\\lambda\\mu = 6 > 0$ puts one door in $(-1, 2)$ and one in $(5, 7)$: indeed $-1 < 1.081 < 2$ ✓ and $5 < 5.919 < 7$ ✓.',
+      'Hence, the four-value bracket priced both doors to their intervals BEFORE any quadratic formula ran — the formula only confirmed the addresses.',
+    ],},
+    { kind: 'example', title: 'The linear collapse μ + λ = 0: price the single door and prove it stays in (b, c)', steps: [
+      'Take $\\mu = 1, \\lambda = -1$ on the witnesses: $F(x) = (x + 1)(x - 5) - (x - 2)(x - 7) = (x^2 - 4x - 5) - (x^2 - 9x + 14) = 5x - 19$.',
+      'The quadratic terms cancel — ONE door: $x^* = \\tfrac{19}{5} = 3.8$, and $2 < 3.8 < 5$ ✓.',
+      'The general law: for $a < b < c < d$ the collapsed equation gives $x^* = \\dfrac{bd - ac}{b + d - a - c}$.',
+      'Prove the address: $x^* - b = \\dfrac{bd - ac - b(b + d - a - c)}{b + d - a - c} = \\dfrac{(b - a)(c - b)}{b + d - a - c}$, a quotient of positives — so $x^* > b$.',
+      'And $x^* - c = \\dfrac{(d - c)(b - c)}{b + d - a - c}$, positive over positive with $b - c < 0$ — so $x^* < c$.',
+      'Hence, the linear door always lands strictly inside $(b, c)$: the four doors collapse to one, but it keeps the middle address.',
+    ],},
+    { kind: 'figure', caption: 'The interleaving census on the doors $-1 < 2 < 5 < 7$. Above the line: the amber brackets $(a, b)$ and $(c, d)$ — where $\\lambda\\mu > 0$ plants one door each (the orange dots mark the instance $\\mu = 2, \\lambda = 3$ at $\\approx 1.08$ and $\\approx 5.92$). Below the line: the teal bracket $(b, c)$ — where $\\lambda\\mu < 0$ plants one door, while the ESCAPER leaves the picture entirely: left of $a$ when $\\mu + \\lambda > 0$, right of $d$ when $\\mu + \\lambda < 0$. The lime dot at $x^* = 19/5 = 3.8$ is the linear-case seat $\\mu + \\lambda = 0$ — the collapsed single door, still holding the middle address. The degenerate seats sit exactly ON the doors: $\\lambda = 0$ gives $a$ and $c$; $\\mu = 0$ gives $b$ and $d$.', svg: interleavingDoorsSvg() },
+
+    { kind: 'heading', text: 'For All x on an Interval: The Wall Demands' },
+    { kind: 'para', text: 'The mirror image of "some door in the interval" is "the expression keeps one sign on the WHOLE interval". Lesson 2.2 met the shape $f < 0$ on $(1, 2)$ with both walls between the doors; the system here is the same, read as wall DEMANDS: for an upward quadratic, $f < 0$ on the open interval $(k_1, k_2)$ exactly when $f(k_1) \\leq 0$ and $f(k_2) \\leq 0$ — the non-strict signs honestly absorbing the seats where a door sits exactly ON an open wall.' },
+    { kind: 'example', title: 'Find every m for which x² − (m+2)x + 5m + 1 < 0 for all x in (2, 4) — and its disguise 4ᵗ − (m+2)·2ᵗ + 5m + 1 < 0 for all t in (1, 2)', steps: [
+      'The wall demands: $f(2) = 4 - 2(m + 2) + 5m + 1 = 3m + 1$ and $f(4) = 16 - 4(m + 2) + 5m + 1 = m + 9$.',
+      'Both demands: $3m + 1 \\leq 0$ gives $m \\leq -\\tfrac{1}{3}$, and $m + 9 \\leq 0$ gives $m \\leq -9$.',
+      'Intersecting: $m \\leq -9$. Witness $m = -9$: the member is $x^2 + 7x - 44 = (x + 11)(x - 4)$ — door ON the wall $4$, negative on all of the open interval, so the boundary seat genuinely qualifies.',
+      'Exclusion $m = -8$: $f(4) = 1 > 0$ — the demand fails at the right wall.',
+      'The disguise: $x = 2^t$ maps $t \\in (1, 2)$ onto $x \\in (2, 4)$ EXACTLY (the exponential is strictly increasing and continuous), so $4^t - (m + 2) \\cdot 2^t + 5m + 1 < 0$ for all $t \\in (1, 2)$ is the SAME demand — the substitution\'s range is the wall, again.',
+      'Hence, $m \\leq -9$ in both costumes — the boundary seat $m = -9$ carrying the door exactly on the open wall.',
+    ],},
+    { kind: 'example', title: 'Show that no real a makes 4ᵗ − (a − 1)·2ᵗ + 3a < 0 for all t in (1, 2)', steps: [
+      'Substitute $x = 2^t \\in (2, 4)$: the demand becomes $g(x) = x^2 - (a - 1)x + 3a < 0$ for all $x \\in (2, 4)$.',
+      'The wall demands: $g(2) = 4 - 2(a - 1) + 3a = 6 + a$ and $g(4) = 16 - 4(a - 1) + 3a = 20 - a$.',
+      'Both would need $6 + a \\leq 0$ (so $a \\leq -6$) AND $20 - a \\leq 0$ (so $a \\geq 20$) — the two demands pull opposite ways.',
+      'The certificate: ADD the two demands — $(6 + a) + (20 - a) = 26 \\leq 0$. The parameter CANCELS, and what remains is a positive constant demanded non-positive: impossible for every $a$ at once.',
+      'Hence, no real $a$ exists — and the impossibility is structural (a constant clash), not a failure of search.',
+    ],},
+    { kind: 'callout', tone: 'insight', title: 'The add-the-walls certificate', text: 'When a parameter enters the two wall demands with OPPOSITE signs — one demand reads "parameter ≥ something", the other "parameter ≤ something else" — add the demands: the parameter cancels and a CONSTANT must satisfy the combined inequality. If that constant verdict is false (like $26 \\leq 0$), the demand is impossible for EVERY parameter value — proven in one line, no case analysis. Design tell: the parameter\'s wall-coefficient flips sign between the walls exactly when the wall pair straddles the coefficient\'s flip seat $c_1$ (here $x = 3$, between the walls $2$ and $4$).' },
+    { kind: 'callout', tone: 'exam', title: 'The examination pattern for this section', text: 'Interval-sign demands appear in three costumes: the bare quadratic (asked directly), the exponential disguise ($2^t, 3^t$ mapping $t$-intervals onto $x$-walls), and the two-variable costume (lesson 2.1\'s discriminant-range method). The route is always the same: price the two wall values, impose both demands, and when the demands clash — add them and read the constant. The no-solution verdict ("no such parameter exists") is a fully creditable answer; the certificate is what earns it.' },
+
+    { kind: 'terms', items: [
+      { term: 'location of roots', def: 'The family of questions about where the real doors of $ax^2 + bx + c = 0$ sit relative to fixed walls $k, k_1, k_2$ — beyond a wall, between walls, one inside, both inside — all read from the $a \\cdot f(k)$ principle.' },
+      { term: 'wall', def: 'A fixed number $k$ against which the doors are located; the between-rows read $a \\cdot f(k) < 0$ (no discriminant needed), the both-rows read $a \\cdot f(k) > 0$ with the axis and $D \\geq 0$.' },
+      { term: 'the k-system', def: 'The six-row master table of location conditions, every row generated by the identity $a \\cdot f(k) = a^2(k - \\alpha)(k - \\beta)$ together with the axis midpoint read $-\\tfrac{b}{2a} = \\tfrac{\\alpha + \\beta}{2}$.' },
+      { term: 'fixed point of a family (pencil)', def: 'A point through which EVERY member of a one-parameter family passes — found by collecting the parameter terms and seating them at zero. The census family\'s pencil point $(3, 1)$ settles wall questions before they are computed.' },
+      { term: 'the range-is-the-wall principle', def: 'A substitution $t = g(x)$ carries location questions over intact once its range is priced: the $t$-equation\'s doors must lie in range$(g)$, and the range\'s endpoint attainment decides the boundary seats (tangent moments).' },
+      { term: 'turning seat', def: 'A point $c$ with $f\'(c) = 0$ — a horizontal tangent. Rolle\'s theorem guarantees one between any two doors of a polynomial; the reverse implication fails ($x^3 + 1$).' },
+      { term: 'the antiderivative trick', def: 'To locate a door of $ax^2 + bx + c = 0$ in $(0, \\ell)$, use $F(x) = \\tfrac{a}{3}x^3 + \\tfrac{b}{2}x^2 + cx$ with $F\' = f$ and engineer $F(\\ell) = F(0)$, which reads $2a\\ell^2 + 3b\\ell + 6c = 0$ — the weights are the interval.' },
+      { term: 'the wall demands', def: 'For an upward quadratic, $f < 0$ on the OPEN interval $(k_1, k_2)$ exactly when $f(k_1) \\leq 0$ and $f(k_2) \\leq 0$; when the parameter enters oppositely, the add-the-walls certificate settles impossibility in one line.' },
+    ] },
+
+    { kind: 'quiz', title: 'Check yourself', items: [
+      { q: 'Take f(x) = 2x² − 12x + 16, whose doors 2 and 4 both lie in (1, 5). Which option is a COMPLETE set of checks certifying "both roots in (1, 5)" for a general quadratic?', options: ['D ≥ 0 and a·f(1) > 0', 'D ≥ 0, a·f(1) > 0, a·f(5) > 0 and 1 < −b/2a < 5', 'a·f(1) > 0 and a·f(5) > 0', 'D > 0 and 1 < −b/2a < 5'], answer: 1, explain: 'The both-inside row demands all four: real doors, both walls outside the pair, and the axis between the walls. Option A admits $2(x-2)(x-9)$: $D = 196 > 0$ and $a \\cdot f(1) = 2 \\times 16 > 0$, yet door 9 escapes — the missing right-wall and axis checks. Option C admits $x^2 - 2x + 5$: both wall values positive, axis 1 hmm the axis $-\\tfrac{-2}{2} = 1$ sits ON the left wall, and there are NO real doors at all. Option D admits $(x - 1)(x - 2)$: axis 1.5 inside, $D = 1 > 0$, but door 1 sits ON the open wall — excluded.' },
+      { q: 'For which location question can the discriminant check be skipped entirely?', options: ['both roots greater than k', 'both roots inside (k₁, k₂)', 'exactly one root inside (k₁, k₂)', 'the roots are real and distinct'], answer: 2, explain: 'The exactly-one row reads $f(k_1) \\cdot f(k_2) < 0$ — a sign change between the walls, which forces two real distinct doors by continuity before any discriminant is computed. The both-rows genuinely need $D \\geq 0$: the always-positive family $x^2 - 2x + 5$ passes every wall and axis test while owning no doors. And "real and distinct" IS the discriminant question.' },
+      { q: 'Every member of the family x² − (m+1)x + 3m − 5 passes through one fixed point. Which?', options: ['(1, −3)', '(3, 1)', '(5, 3)', '(0, −5)'], answer: 1, explain: 'Collect the parameter: $f(x) = (x^2 - x - 5) + m(3 - x)$, and the $m$-coefficient vanishes at $x = 3$, leaving $f(3) = 9 - 3 - 5 = 1$ for every $m$ — the pencil point $(3, 1)$. The impostors vary with $m$: $f(1) = 2m - 5$ (which is $-3$ only at $m = 1$), $f(5) = 15 - 2m$, $f(0) = 3m - 5$.' },
+      { q: 'g(x) = x² − 1 satisfies g(−2) = g(2) = 3 > 0. What follows about the roots of g in (−2, 2)?', options: ['g has no root in (−2, 2)', 'g must have at least one root in (−2, 2)', 'nothing — agreeing endpoint signs alone settle no root count', 'g has exactly two roots in (−2, 2)'], answer: 2, explain: 'Agreeing signs force NOTHING: $x^2 - 1$ happens to own both doors $\\pm 1$ inside (two roots), while $x^2 + 1$ has the same agreeing signs and no roots at all, and $(x^2 - 1)(x^2 - 4)$ agrees in sign at $\\pm 3$ with FOUR roots inside. Only a sign CHANGE forces a root. Here the doors happen to be inside — true, but not FORCED, and "exactly two" is likewise unforced.' },
+      { q: 'On the doors −1 < 2 < 5 < 7, the equation μ(x + 1)(x − 5) + λ(x − 2)(x − 7) = 0 with μ = 2, λ = 3 must have a root in which interval?', options: ['(−1, 2)', '(2, 5)', '(7, ∞)', '(−∞, −1)'], answer: 0, explain: '$\\lambda\\mu = 6 > 0$, so the four-value sign bracket plants one door in $(a, b) = (-1, 2)$ and one in $(c, d) = (5, 7)$ — concretely $F = 5x^2 - 35x + 32$ with doors $\\approx 1.081$ and $5.919$. The middle bracket $(2, 5)$ receives a door only when $\\lambda\\mu < 0$; the outer regions receive the ESCAPER door, again only when $\\lambda\\mu < 0$.' },
+    ] },
+
+    { kind: 'exercises', sets: [
+      { level: 'L1', questions: [
+        { q: 'Locate the doors of x² − 8x + 12 = (x − 2)(x − 6) against the walls 3 and 5: does either door lie in (3, 5)?', solution: [
+          'The walls first: $f(3) = 9 - 24 + 12 = -3 < 0$ and $f(5) = 25 - 40 + 12 = -3 < 0$.',
+          'Both wall values negative with $a = 1 > 0$: BOTH walls lie between the doors — the walls-between row.',
+          'So, neither door is in $(3, 5)$: the doors $2$ and $6$ sit outside, one per side.',
+          'Hence, both walls between the doors; no door inside $(3, 5)$.',
+        ], answer: 'both walls 3 and 5 lie between the doors 2 and 6 (f(3) = f(5) = −3 < 0); neither door is in (3, 5)' },
+        { q: 'Do both doors of x² − 10x + 23 lie in (2, 6)? Run the full four checks.', solution: [
+          'Check 1, real doors: $D = 100 - 92 = 8 > 0$ ✓.',
+          'Check 2, left wall: $f(2) = 4 - 20 + 23 = 7 > 0$ ✓ — wall 2 outside the pair.',
+          'Check 3, right wall: $f(6) = 36 - 60 + 23 = -1 < 0$ ✗ — wall 6 is BETWEEN the doors.',
+          'So, the verdict is already NO; the axis check ($5 \\in (2, 6)$ ✓) cannot rescue a failed wall.',
+          'The doors themselves: $5 \\pm \\sqrt{2} \\approx 3.59$ and $6.41$ — the right door escapes past $6$.',
+          'Hence, NO — the door 5 + √2 ≈ 6.41 lies outside (2, 6); the right-wall check fails.',
+        ], answer: 'no — f(6) = −1 < 0 fails the right wall; the door 5 + √2 escapes the interval' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'How many integers a have both doors of x² − 2ax + a² − 4 = 0 inside (0, 9)?', solution: [
+          'Factor the shape: $x^2 - 2ax + a^2 - 4 = (x - a)^2 - 4 = (x - a - 2)(x - a + 2)$ — the doors are $a - 2$ and $a + 2$, a fixed gap of 4 straddling $a$.',
+          'Both inside the open interval: $a - 2 > 0$ and $a + 2 < 9$, i.e. $a > 2$ and $a < 7$.',
+          'So, $a \\in \\{3, 4, 5, 6\\}$ — with the boundary seats honestly excluded: $a = 2$ puts door $0$ ON the left wall; $a = 7$ puts door $9$ ON the right wall.',
+          'Hence, four integers: 3, 4, 5, 6.',
+        ], answer: '4 — the integers {3, 4, 5, 6} (doors a ± 2; the wall seats a = 2, a = 7 excluded)' },
+        { q: 'Find every k for which the doors of 3x² − 5x + k = 0 are opposite in sign.', solution: [
+          'Opposite signs read the product: $\\tfrac{k}{3} < 0$, i.e. $k < 0$.',
+          'No discriminant check — an opposite-sign product already forces two real doors straddling $0$.',
+          'Audit at the boundary: $k = 0$ gives doors $0$ and $\\tfrac{5}{3}$ — one door AT the origin, not opposite signs; excluded by the strict read.',
+          'Hence, $k < 0$ — the one-condition wonder, straight from the $k = 0$ row of the system.',
+        ], answer: 'k < 0 (the product k/3 < 0; no D check needed)' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Find every m for which both doors of x² − 6x + m = 0 exceed 2.', solution: [
+          'The three checks: $D \\geq 0$, $a \\cdot f(2) > 0$, axis $> 2$.',
+          'Discriminant: $36 - 4m \\geq 0$, so $m \\leq 9$.',
+          'Wall: $f(2) = 4 - 12 + m = m - 8 > 0$, so $m > 8$.',
+          'Axis: $3 > 2$ ✓ always — free.',
+          'Intersecting: $8 < m \\leq 9$. The seat $m = 9$ is the double door $3 > 2$ ✓; the seat $m = 8$ puts a door exactly AT $2$ and is excluded.',
+          'Hence, $m \\in (8, 9]$ — with the double-door seat in and the wall seat out.',
+        ], answer: 'm ∈ (8, 9] (m = 9 is the double door 3; m = 8 puts a door on the wall)' },
+        { q: 'Find every m for which exactly one door of x² − 8x + m = 0 lies in (2, 4).', solution: [
+          'The product test: $f(2) \\cdot f(4) < 0$. Compute $f(2) = 4 - 16 + m = m - 12$ and $f(4) = 16 - 32 + m = m - 16$.',
+          'So, $(m - 12)(m - 16) < 0$ gives $12 < m < 16$.',
+          'Boundary honesty, left seat: $m = 12$ gives doors $2$ and $6$ — door $2$ ON the left wall (not inside), door $6$ outside: ZERO doors inside, excluded.',
+          'Boundary honesty, right seat: $m = 16$ gives the double door $4$, ON the right wall — zero inside, excluded.',
+          'Witness $m = 14$: doors $4 \\pm \\sqrt{2} \\approx 2.59$ and $5.41$ — exactly the one door $2.59$ inside ✓.',
+          'Hence, $m \\in (12, 16)$ — both boundary seats excluded, no silent additions.',
+        ], answer: '12 < m < 16 (m = 12: door on the left wall, zero inside; m = 16: double door on the right wall)' },
+        { q: 'For how many integers m in [−6, 6] does x² − (m+1)x + 3m − 5 = 0 have NO real door?', solution: [
+          'The family\'s discriminant: $D = (m - 3)(m - 7)$.',
+          'No real door: $D < 0$, i.e. $3 < m < 7$.',
+          'Intersect with the integer window $[-6, 6]$: $m \\in \\{4, 5, 6\\}$.',
+          'Hence, three integers — the pencil floats above the axis exactly between the double-root seats $m = 3$ and $m = 7$.',
+        ], answer: '3 — the integers {4, 5, 6} (D = (m−3)(m−7) < 0 on (3, 7))' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Find every m for which the doors of x² − 6x + 8 = 0 lie between the doors of x² − (m+1)x + 2m − 10 = 0.', solution: [
+          'The inner doors: $x^2 - 6x + 8 = (x - 2)(x - 4)$ — walls at $2$ and $4$.',
+          'Evaluate the outer at the inner walls: $g(2) = 4 - 2(m + 1) + 2m - 10 = -8 < 0$ — for EVERY $m$: the left wall is auto-satisfied.',
+          'And $g(4) = 16 - 4(m + 1) + 2m - 10 = 2 - 2m < 0$ exactly when $m > 1$.',
+          'So, $m > 1$ — and the negativity at the walls makes the outer\'s own discriminant check unnecessary.',
+          'Witness $m = 2$: $g(x) = x^2 - 3x - 6$, doors $\\tfrac{3 \\pm \\sqrt{33}}{2} \\approx -1.37$ and $4.37$ — indeed $-1.37 < 2 < 4 < 4.37$ ✓.',
+          'Boundary: $m = 1$ puts an outer door exactly ON the wall $4$ — excluded by strictness. Exclusion $m = 0$: doors $\\approx -2.70$ and $3.70$, and the wall $4$ escapes the pair.',
+          'Hence, $m > 1$ — one wall free by design, the other carrying the whole verdict.',
+        ], answer: 'm > 1 (g(2) = −8 < 0 always; g(4) = 2 − 2m < 0 ⟺ m > 1; witness m = 2 with outer doors (3 ± √33)/2)' },
+        { q: 'Find every k for which (x² + 2x + 4)² = k(x² + 2x + 3) has a real solution.', solution: [
+          'Substitute $t = x^2 + 2x + 3 = (x + 1)^2 + 2 \\in [2, \\infty)$ — the range is the wall, and $x^2 + 2x + 4 = t + 1$.',
+          'The equation becomes $(t + 1)^2 = kt$, i.e. $t^2 + (2 - k)t + 1 = 0$ — product of doors $1$, so the doors (when real) are reciprocals.',
+          'Real doors: $(2 - k)^2 - 4 \\geq 0$, i.e. $k \\leq 0$ or $k \\geq 4$. For $k \\leq 0$ both doors are $\\leq 0 < 2$ — below the wall, no $x$-solution.',
+          'For $k \\geq 4$: the larger door must reach the wall: $\\tfrac{(k - 2) + \\sqrt{(k - 2)^2 - 4}}{2} \\geq 2$.',
+          'Solve: $\\sqrt{(k - 2)^2 - 4} \\geq 4 - k$ needs $k \\geq 4$ (else the right side is negative while the left is a root — then impossible), and squaring gives $(k - 2)^2 - 4 \\geq (4 - k)^2$, i.e. $-8 \\geq -12k + 12$, so $k \\geq \\tfrac{5}{2}$ — already true.',
+          'Refine honestly at the boundary: $k = 4$ gives the double door $t = 1 < 2$ ✗ (recheck: $t^2 - 2t + 1 = (t - 1)^2$). The door crosses the wall $2$ exactly at $k = \\tfrac{9}{2}$: $t^2 - \\tfrac{5}{2}t + 1 = (t - 2)(t - \\tfrac{1}{2})$ — door $2$ attained at $x = -1$.',
+          'Hence, $k \\geq \\tfrac{9}{2}$ — the boundary is the tangent seat $x = -1$, and every $k > \\tfrac{9}{2}$ gives two $x$-solutions riding the larger $t$-door.',
+        ], answer: 'k ≥ 9/2 — at k = 9/2 the t-door sits exactly on the wall t = 2 (the tangent seat x = −1); k = 4 is the impostor with double door t = 1 < 2' },
+        { q: 'Find every k for which sin²x − (k + 2)sin x + k + 2 = 0 has at least one real solution.', solution: [
+          'Substitute $t = \\sin x \\in [-1, 1]$ — the range is the wall, closed and attained.',
+          'The $t$-quadratic: $f(t) = t^2 - (k + 2)t + (k + 2)$. One free read: $f(1) = 1 - (k + 2) + (k + 2) = 1 > 0$ — the right wall value is CONSTANT positive.',
+          'A door in $[-1, 1]$ therefore happens either with $f(-1) \\leq 0$ (the left wall value non-positive: a sign change on $[-1, 1]$) or with both doors inside.',
+          'Left wall: $f(-1) = 1 + (k + 2) + (k + 2) = 2k + 5 \\leq 0$ gives $k \\leq -\\tfrac{5}{2}$ — door at or left of $-1$... the seat $k = -\\tfrac{5}{2}$ puts a door exactly AT $-1$ (i.e. $\\sin x = -1$, solvable) ✓ included.',
+          'Both inside: $f(-1) > 0$, axis $\\tfrac{k + 2}{2} \\in (-1, 1)$, $D = (k + 2)(k - 2) \\geq 0$: intersecting $-\\tfrac{5}{2} < k < -2$ with $k \\leq -2$ or $k \\geq 2$ and $-4 < k < 0$ gives $\\left(-\\tfrac{5}{2}, -2\\right]$.',
+          'Collecting: $k \\leq -\\tfrac{5}{2}$ together with $\\left(-\\tfrac{5}{2}, -2\\right]$ gives $k \\leq -2$.',
+          'Witnesses: $k = -2$ gives $t^2 = 0$, the double door $t = 0$ (i.e. $\\sin x = 0$) ✓; $k = -3$ gives $t^2 + t - 1$, door $\\tfrac{\\sqrt{5} - 1}{2} \\approx 0.618$ inside ✓; exclusions: $k = -1$ has $D = -3 < 0$ (no doors), $k = 2$ has the double door $t = 2$ outside.',
+          'Hence, $k \\leq -2$ — the closed left wall honestly included via the seat $k = -\\tfrac{5}{2}$.',
+        ], answer: 'k ≤ −2 (f(1) = 1 always; the verdict collects the sign change k ≤ −5/2 and the both-inside band (−5/2, −2])' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Given 6a + 3b + 2c = 0 (with a ≠ 0), prove that ax² + bx + c = 0 has a door in (0, 3), and verify on a witness.', solution: [
+          'Build the antiderivative: $F(x) = \\tfrac{a}{3}x^3 + \\tfrac{b}{2}x^2 + cx + d$, so $F\'(x) = ax^2 + bx + c$.',
+          'Endpoint values: $F(0) = d$ and $F(3) = 9a + \\tfrac{9b}{2} + 3c + d = \\tfrac{3}{2}(6a + 3b + 2c) + d = d$ by the given identity.',
+          "So, $F(0) = F(3)$, and Rolle's theorem plants a seat $c^* \\in (0, 3)$ with $F'(c^*) = 0$ — a door of the quadratic inside the open interval.",
+          'The weights check: this is the general law $2a\\ell^2 + 3b\\ell + 6c = 0$ at $\\ell = 3$ — weights $6, 3, 2$.',
+          'Witness $(a, b, c) = (1, -4, 3)$: $6 - 12 + 6 = 0$ ✓, and $x^2 - 4x + 3 = (x - 1)(x - 3)$ has its OPEN-interval door at $1 \\in (0, 3)$ — the second door sits exactly ON the endpoint $3$, outside the open interval, exactly as Rolle promises a strictly interior seat.',
+          'Hence, the door is located without solving: the weights were the interval in disguise.',
+        ], answer: 'F(3) − F(0) = (3/2)(6a + 3b + 2c) = 0, so Rolle plants a door of ax² + bx + c in (0, 3); witness (1, −4, 3) → x² − 4x + 3 with interior door 1' },
+        { q: 'For a < b < c < d, prove that μ(x − a)(x − c) + λ(x − b)(x − d) = 0 has a real door for every real μ and λ — the full degenerate census included.', solution: [
+          'The four evaluations: $F(a) = \\lambda(a - b)(a - d)$, $F(b) = \\mu(b - a)(b - c)$, $F(c) = \\lambda(c - b)(c - d)$, $F(d) = \\mu(d - a)(d - c)$.',
+          'Signs: $F(a)$ carries the sign of $\\lambda$ (both factors negative), $F(b)$ of $-\\mu$ (straddle), $F(c)$ of $-\\lambda$ (straddle), $F(d)$ of $\\mu$ (both positive).',
+          'Case $\\lambda\\mu > 0$: $F(a)$ and $F(b)$ disagree, so a door sits in $(a, b)$ by continuity; likewise $F(c)$ and $F(d)$ disagree, a second door in $(c, d)$.',
+          'Case $\\lambda\\mu < 0$: $F(b)$ and $F(c)$ disagree — one door in $(b, c)$. Being quadratic (if $\\mu + \\lambda \\neq 0$), its other door is real too; the census locates it outside $(a, d)$.',
+          'Degenerate seats: $\\lambda = 0$ leaves $\\mu(x - a)(x - c) = 0$ with doors exactly $a$ and $c$; $\\mu = 0$ leaves doors $b$ and $d$; and $\\mu + \\lambda = 0$ collapses to a line whose single door still lies in $(b, c)$ (the factored-difference law).',
+          'Hence, every $(\\mu, \\lambda)$ — including the three degenerate shapes — owns at least one real door: the sign walk covers all of $\\mathbb{R}^2$.',
+        ], answer: 'the four-value sign bracket (λ, −μ, −λ, μ) brackets a door for every sign pattern; λ = 0, μ = 0 and μ + λ = 0 carry their own explicit doors' },
+        { q: 'Show that no real a makes 4ᵗ − (a − 1)·2ᵗ + 3a < 0 for all t in (1, 2).', solution: [
+          'Substitute $x = 2^t$: $t \\in (1, 2)$ maps onto $x \\in (2, 4)$ exactly (strictly increasing, continuous).',
+          'The demand: $g(x) = x^2 - (a - 1)x + 3a < 0$ for all $x \\in (2, 4)$.',
+          'Wall demands for the upward parabola: $g(2) = 4 - 2(a - 1) + 3a = 6 + a \\leq 0$ and $g(4) = 16 - 4(a - 1) + 3a = 20 - a \\leq 0$.',
+          'The first demands $a \\leq -6$; the second $a \\geq 20$ — opposite directions, no common ground.',
+          'The certificate: add the demands — $(6 + a) + (20 - a) = 26 \\leq 0$, a false constant verdict independent of $a$.',
+          'Hence, no real $a$ exists — one line, the parameter cancelled, the clash structural.',
+        ], answer: 'no real a — adding the wall demands gives (6 + a) + (20 − a) = 26 ≤ 0, impossible for every a' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Prove the fixed-point law for the census family: whenever x² − (m+1)x + 3m − 5 = 0 has real doors, the wall 3 never lies strictly between them — and the axis splits the verdict (m ≤ 3: both doors below 3; m ≥ 7: both doors above 3).', solution: [
+          'The fixed point: collecting parameters, $f(x) = (x^2 - x - 5) + m(3 - x)$, so $f(3) = 1 > 0$ for EVERY $m$.',
+          'Suppose the doors are real, $\\alpha \\leq \\beta$. If $3$ lay strictly between them, the upward parabola would be negative at $3$ — but $f(3) = 1 > 0$. Contradiction: $3 \\notin (\\alpha, \\beta)$ always.',
+          'Split by the axis $= \\tfrac{\\alpha + \\beta}{2}$. Real doors mean $D = (m - 3)(m - 7) \\geq 0$, i.e. $m \\leq 3$ or $m \\geq 7$.',
+          'Case $m \\leq 3$: the axis $\\tfrac{m + 1}{2} \\leq 2 < 3$. Since $\\beta \\geq$ axis does not help directly, argue from the door side: $\\alpha \\leq \\text{axis} \\leq 2 < 3$, so $\\alpha < 3$; and $3 \\notin (\\alpha, \\beta)$ with $\\alpha < 3 < \\beta$ impossible — hence $\\beta \\leq 3$; equality $\\beta = 3$ would force $f(3) = 0$, excluded. So $\\beta < 3$: both doors below.',
+          'Case $m \\geq 7$: the axis $\\tfrac{m + 1}{2} \\geq 4 > 3$, so $\\beta \\geq$ axis $> 3$, i.e. $\\beta > 3$; and $3 \\notin (\\alpha, \\beta)$ forces $\\alpha \\geq 3$; equality excluded as before. So $\\alpha > 3$: both doors above.',
+          'Hence, the wall 3 never falls between the doors; the axis position decides which side the whole pair sits on — the pencil\'s geometry doing the work of a dozen computations.',
+        ], answer: 'f(3) = 1 > 0 for every m keeps 3 outside the open door interval; axis ≤ 2 (m ≤ 3) forces both doors below 3, axis ≥ 4 (m ≥ 7) forces both above' },
+        { q: 'For a < b < c < d with μ + λ = 0 (both nonzero), prove that the single door x* = (bd − ac)/(b + d − a − c) of μ(x − a)(x − c) + λ(x − b)(x − d) = 0 satisfies b < x* < c, and verify on the witnesses (−1, 2, 5, 7).', solution: [
+          'With $\\lambda = -\\mu \\neq 0$, divide out $\\mu$: the equation reads $(x - a)(x - c) - (x - b)(x - d) = 0$.',
+          'Expand both squares: $(x^2 - (a + c)x + ac) - (x^2 - (b + d)x + bd) = (b + d - a - c)x + (ac - bd) = 0$ — linear, since the $x^2$ terms cancel.',
+          'So, $x^* = \\dfrac{bd - ac}{b + d - a - c}$; note the denominator is positive: $b - a > 0$ and $d - c > 0$.',
+          'The first factored difference: $x^* - b = \\dfrac{bd - ac - b(b + d - a - c)}{b + d - a - c} = \\dfrac{ab + bc - b^2 - ac}{b + d - a - c} = \\dfrac{(b - a)(c - b)}{b + d - a - c}$ — positive over positive, so $x^* > b$.',
+          'The second: $x^* - c = \\dfrac{bd - ac - c(b + d - a - c)}{b + d - a - c} = \\dfrac{bd - bc - cd + c^2}{b + d - a - c} = \\dfrac{(d - c)(b - c)}{b + d - a - c}$ — negative over positive, so $x^* < c$.',
+          'Witness $(-1, 2, 5, 7)$: $x^* = \\dfrac{(2)(7) - (-1)(5)}{2 + 7 + 1 - 5} = \\dfrac{19}{5} = 3.8 \\in (2, 5)$ ✓ — and directly, $F(x) = 5x - 19$ indeed vanishes at $3.8$.',
+          'Hence, the collapsed door keeps the middle address: $b < x^* < c$ for every strictly interleaved quartet.',
+        ], answer: 'x* − b = (b−a)(c−b)/(b+d−a−c) > 0 and x* − c = (d−c)(b−c)/(b+d−a−c) < 0; witness x* = 19/5 = 3.8 ∈ (2, 5)' },
+      ] },
+    ] },
+
+    { kind: 'formula', name: 'The k-system (the location master table)', latex: 'a \\cdot f(k) = a^2(k - \\alpha)(k - \\beta)', note: 'One identity prices every wall: $a \\cdot f(k) > 0$ outside the doors, $< 0$ between them. Both-beyond adds the axis sign; both-inside adds both walls plus the axis; the between-rows need no discriminant.' },
+    { kind: 'formula', name: 'Both roots in (k₁, k₂)', latex: 'D \\geq 0, \\quad a \\cdot f(k_1) > 0, \\quad a \\cdot f(k_2) > 0, \\quad k_1 < -\\tfrac{b}{2a} < k_2', note: 'The 2.2 bridge, now one row of the system. The double root inside counts as both; a door ON an open wall is outside.' },
+    { kind: 'formula', name: 'Exactly one root in (k₁, k₂)', latex: 'f(k_1) \\cdot f(k_2) < 0', note: 'The sign change certifies real distinct doors and the one-inside count — but a door exactly ON a wall reads 0 and needs the honest hand count (the census seat m = 5/2).' },
+    { kind: 'formula', name: 'The interleaving census', latex: 'F(a) \\sim \\lambda,\\; F(b) \\sim -\\mu,\\; F(c) \\sim -\\lambda,\\; F(d) \\sim \\mu; \\quad x^* = \\tfrac{bd - ac}{b + d - a - c} \\in (b, c)', note: '$\\lambda\\mu > 0$: doors in $(a,b)$ and $(c,d)$. $\\lambda\\mu < 0$: one in $(b,c)$, the escaper outside $(a,d)$ (left if $\\mu + \\lambda > 0$, right if $< 0$). $\\mu + \\lambda = 0$: the single linear door $x^*$, always in $(b, c)$.' },
+    { kind: 'formula', name: 'The antiderivative weights law', latex: '2a\\ell^2 + 3b\\ell + 6c = 0 \\;\\Longrightarrow\\; ax^2 + bx + c \\text{ has a door in } (0, \\ell)', note: 'Rolle on $F(x) = \\tfrac{a}{3}x^3 + \\tfrac{b}{2}x^2 + cx$: $F(\\ell) = F(0)$. The weights are the interval: $\\ell = 1$ gives $2, 3, 6$; $\\ell = 2$ gives $4, 3, 3$; $\\ell = 3$ gives $6, 3, 2$.' },
+    { kind: 'formula', name: 'The wall demands and the add-the-walls certificate', latex: 'a > 0:\\; f < 0 \\text{ on } (k_1, k_2) \\iff f(k_1) \\leq 0 \\wedge f(k_2) \\leq 0; \\qquad f(k_1) + f(k_2) = \\text{const} \\leq 0 \\Rightarrow \\text{impossible}', note: 'The non-strict wall signs absorb the door-on-open-wall seats honestly; when the parameter enters the two demands with opposite signs, their sum cancels it — a false constant verdict certifies no-solution in one line.' },
+  ],
+}
+
+
 export const chapter02: Chapter = {
   number: 2,
   slug: 'the-quadratic-at-depth',
@@ -1177,6 +1663,6 @@ export const chapter02: Chapter = {
   summary:
     'Elementary Algebra settled the quadratic equation four ways; this chapter treats the quadratic as a working object. The vertex form becomes an optimization tool — maxima and minima priced without calculus, the range read off the fold and then used on real constraints. The equation grows into the inequality: the sign diagram, the discriminant trichotomy (two sign changes, one touch, constant sign), and the solution sets that AL 7.1–7.3’s linear work promised. Viète returns at competitive depth — symmetric expressions in the roots, common roots, forming equations with given roots — and the chapter closes with the JEE classic: conditions that pin both roots, or exactly one, inside a chosen interval. Every door metaphor AL coined for a root is now located on the line.',
   status: 'in-progress',
-  lessons: [lesson21, lesson22, lesson23],
-  plannedLessons: ['Location of Roots: Doors in Intervals'],
+  lessons: [lesson21, lesson22, lesson23, lesson24],
+  plannedLessons: ['Unit Review: The Quadratic at Depth'],
 }

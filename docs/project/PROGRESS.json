@@ -111,10 +111,10 @@
         "status": "in-progress",
         "chaptersPlanned": 10,
         "chaptersWritten": 1,
-        "lessonsWritten": 12,
+        "lessonsWritten": 13,
         "lessonsPlanned": 57,
         "termsAvailableForFlashcards": 47,
-        "notes": "PROMOTED (run 89) — 10 chapters / 57 planned lessons; ch. 1 'Functions as Objects' COMPLETE (9 lessons incl. the unit review, run 94; figure/depth audits rode later runs); ch. 2 'The Quadratic at Depth' OPENED (run 100): 2.1 'Vertex Form at Work: Maxima and Minima' written (4,597 words, quiz [1,1,2,1,2], 15 exercises, 2 figures, verifier 264/0), 2.2 'Quadratic Inequalities and the Sign Diagram' written (run 101 — 5,197 words, quiz [1,1,1,0,0], 14 exercises L1–L6, 2 figures, 1 derivation, 12 Illustrations, the location-question table, verifier 305/0, BOTH m2-02 hosted folds served as named subsections), 2.3–2.4 + the unit review remain (2.3 'Symmetric Reads and Common Roots' next — grow the verifier's 2.3 sections first per the master plan). aa- id prefix reserved. Ch. 2 run 102: 2.3 'Symmetric Reads and Common Roots' written (5,837 words, quiz [2,1,0,2,0], 15 exercises L1–L6, both m2-02 folds hosted — 'Repeated Roots' named section + the both-common example-family with three worked examples; the determinant condition certified on a 160,000-pair grid; the m-hunt census {−7, 6} taught honestly; the Lucas power-sum engine; figures: the mirror read of x² − 6x + 5 and the shared-door pair x² − 4x + 3 / x² − 2x − 3)."
+        "notes": "PROMOTED (run 89) — 10 chapters / 57 planned lessons; ch. 1 'Functions as Objects' COMPLETE (9 lessons incl. the unit review, run 94); ch. 2 'The Quadratic at Depth' (runs 100–103): 2.1 'Vertex Form at Work' (4,597 words, run 100), 2.2 'Quadratic Inequalities and the Sign Diagram' (5,197 words, run 101, both hosted folds served), 2.3 'Symmetric Reads and Common Roots' (5,837 words, run 102, both hosted folds served, the {−7, 6} m-census taught honestly), 2.4 'Location of Roots: Doors in Intervals' (8,650 words, run 103 — the k-system master table from the a·f(k) principle; the 15-part master census on x² − (m+1)x + 3m − 5 with the fixed point (3, 1) and three honest boundary seats incl. the m = 5/2 wall seat; roots-between-roots on 2x² − (3m+4)x + 2m² − 11m + 26 → m ∈ (4, 8); the substitution bridges t = x² + 2x + 3 (a ∈ (4, 11/2] with the tangent seat x = −1) and cos x (|k| ≥ 1 both branches); Rolle's reads with the antiderivative weights law 2aℓ² + 3bℓ + 6c = 0 and both honesty notes (x² − 1 vs x² + 1; the x³ + 1 reverse failure); the interleaving census on (−1, 2, 5, 7) — the λμ trichotomy, the escaper law, the linear-case seat 19/5 ∈ (b, c) with the factored-difference proof; the wall demands m ≤ −9 + the add-the-walls certificate 26 ≤ 0; quiz [1,2,1,2,0]; 15 exercises L1–L6; 15 Illustrations, 2 figures (the pencil through the fixed point; the doors census diagram), 2 derivations, 6 formula cards; verifier A–M 3171/0 with the K/L engines catching 8 real design errors pre-prose incl. the boundary-seat law and the honest two-sided fixed-point law). The 2.R unit review + chapter close remain (run 104) — never a new chapter in the same run."
       },
       {
         "id": "geometry",
@@ -353,8 +353,8 @@
         "notes": "PLANNED (topic-inclusion guarantee pass, 2026-11-10) — 11 ch / 39 planned lessons, `qa-` prefix reserved; research: the Khattar aptitude census (40 chapters, khattar-qa-4e) + the EXAM_REGISTRY exam scope (CAT/SSC CGL/IBPS/SBI/RBI/CSAT/CA Foundation + SAT/GRE/GMAT quant word problems). The commercial-aptitude family's own home; no-duplication contract in the header. Authoring opens in backlog order after Advanced Algebra completes."
       }
     ],
-    "lessonsWritten": 139,
-    "wordsAuthored": 681407,
+    "lessonsWritten": 140,
+    "wordsAuthored": 690057,
     "termsAvailableForFlashcards": 1027,
     "totals": {
       "lessons": 139,
@@ -365,10 +365,10 @@
     },
     "chaptersWritten": 33,
     "chaptersInProgress": 1,
-    "termsDefined": 921,
-    "quizItems": 680,
-    "exerciseQuestions": 1761,
-    "asOf": "run 101 (2026-11-15)",
+    "termsDefined": 1039,
+    "quizItems": 700,
+    "exerciseQuestions": 1821,
+    "asOf": "run 103 (2026-11-15)",
     "booksLive": 28,
     "plannedLessonsTotal": null
   },

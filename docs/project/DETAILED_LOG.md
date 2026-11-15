@@ -3223,3 +3223,12 @@ Docs: PROGRESS (AA 11 lessons; totals 138 lessons / 675,570 words / 1,027 terms 
 - Pass C: 2 insight callouts ('Why the halving is always exact'; 'When no dress fits'), 1 glossary term ('Arithmetic undoing'), 1 new L2 exercise (doubling refusal + 6, 10, 14, … dress, T30 = 122) added INTO the existing lesson; no new lesson, no id changes, no answer/quiz-key changes.
 - Files touched: src/data/library/books/mathematics/foundation-mathematics/ch-11.ts; docs/project/FIGURE_AUDIT_LOG.md, ENHANCEMENT_LOG.md, WORKLOG.md, DETAILED_LOG.md, FIGURE_AUDIT_QUEUE.json (item done, cursor 46 → 47).
 - Incident: sandbox recycle restored a stale checkout mid-run (local pull + uncommitted work lost); recovered by re-pull to 20cf1f7 + re-application from the session record; core.fileMode=false silences the recycle's 580 mode-only diffs.
+
+### run 103 (2026-11-15, ~08:50 IST fire) — AA 2.4 'Location of Roots: Doors in Intervals'
+- Pull-first: reset 20cf1f7 → 71e445d (the audit-bot sibling's morning ship; FIRST-SHIPPED-STANDS).
+- Research: m2-02 re-downloaded; printed 2.31–2.37 vision-transcribed (tr-2.31-2.34 + tr-2.35-2.37).
+- Verify-first: sections K/L grew BEFORE prose; the engines caught 8 real errors (the exactly-one boundary seat; the two-sided fixed-point law replacing the wrong one-sided draft; the k-sign swap; the 4μ+9λ coefficient; the x³+1 witness route; the m=8 constant 66; the double-root .every convention; float strictness). Pre-prose 3111/0.
+- Authored: 8,650 words; 15 Illustrations; 2 derivations (a·f(k) principle; the sign walk); 2 figures (the pencil through the fixed point (3,1); the interleaving doors census); the k-system master table; 8 terms; 6 formula cards; quiz [1,2,1,2,0]; 15 exercises L1–L6. Every exhibit our own (study-never-reproduce).
+- Authored-audit M: 3171/0. Gates: lint 0 · tsc 0 new (verifier's legacy TS2367/TS2352 fixed) · e2e ×3 viewports 5/5 quiz, 704 KaTeX, 30 Sol. pills, 0 console errors · overlap 0/2 after 2 real fixes · domvalues CLEAN · pixel audit PASS (vision endpoint 401 the whole window — CLI+SDK; the run's own instruments closed the figure QA per the 429 precedent).
+- Ops notes: the sandbox now reaps the dev server BETWEEN tool calls (server+e2e in one shell); the exercises-restoration regex incident (answers returned wholesale from the draft).
+- 2.R deferred by the time rule; run 104 = the unit review + chapter 2 close. PROGRESS totals: 140 lessons / 690,057 words.

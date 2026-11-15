@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-15 00:31:49 (Asia/Kolkata)",
+  "generated": "2026-11-15 09:41:41 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -9785,9 +9785,9 @@
             "title": "The Quadratic at Depth",
             "summary": "Elementary Algebra settled the quadratic equation four ways; this chapter treats the quadratic as a working object. The vertex form becomes an optimization tool — maxima and minima priced without calculus, the range read off the fold and then used on real constraints. The equation grows into the inequality: the sign diagram, the discriminant trichotomy (two sign changes, one touch, constant sign), and the solution sets that AL 7.1–7.3’s linear work promised. Viète returns at competitive depth — symmetric expressions in the roots, common roots, forming equations with given roots — and the chapter closes with the JEE classic: conditions that pin both roots, or exactly one, inside a chosen interval. Every door metaphor AL coined for a root is now located on the line.",
             "status": "in-progress",
-            "lessonsWritten": 3,
+            "lessonsWritten": 4,
             "plannedLessons": [
-              "Location of Roots: Doors in Intervals"
+              "Unit Review: The Quadratic at Depth"
             ],
             "lessons": [
               {
@@ -9995,9 +9995,81 @@
                 },
                 "exerciseQuestions": 15,
                 "termsDefined": 7
+              },
+              {
+                "id": "aa-location-of-roots-doors-in-intervals",
+                "number": "2.4",
+                "title": "Location of Roots: Doors in Intervals",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8650,
+                "readMins": 43,
+                "concepts": [
+                  "the k-system: one a·f(k) principle answers every location question",
+                  "the master census: one family, fifteen verdicts, three boundary seats",
+                  "the fixed point of a pencil: f(3) = 1 settles a verdict before it is asked",
+                  "roots between roots: evaluate the outer quadratic at the inner walls",
+                  "the substitution bridge: the range of the substitution IS the wall",
+                  "Rolle's read — and its two honesty notes",
+                  "the interleaving census: λμ decides which bracket holds each door",
+                  "the wall demands and the add-the-walls certificate"
+                ],
+                "objectives": [
+                  "read all six location rows — both roots beyond a wall, a wall between the roots, exactly one inside, both inside, both walls between — from the single a·f(k) principle, knowing exactly when the discriminant check may be skipped",
+                  "run a complete fifteen-part census on a one-parameter family, pricing every verdict including the empty ones and the boundary seats honestly",
+                  "locate the doors of one quadratic between the doors of another by evaluating the outer at the inner walls",
+                  "carry location questions through substitutions — t = x² + 2x + 3 with its [2, ∞) range, t = cos x with its [−1, 1] range — because the range is the wall",
+                  "state Rolle's between-roots corollary and the antiderivative trick, and respect both honesty notes: agreeing signs force nothing, and a derivative root does not force two straddling doors",
+                  "price the full interleaving census — where each door sits for every sign pattern of μ and λ — and certify for-all-x interval demands with the add-the-walls certificate"
+                ],
+                "prerequisites": [
+                  "aa-vertex-form-at-work-maxima-and-minima",
+                  "aa-quadratic-inequalities-and-the-sign-diagram",
+                  "al-the-parabola-quadratic-graphs-and-vertices"
+                ],
+                "sources": [
+                  "cengage-m2-02",
+                  "cengage-jee-style",
+                  "ncert-math10-ch4-quadratic",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "heading": 7,
+                  "callout": 16,
+                  "derivation": 2,
+                  "table": 1,
+                  "example": 15,
+                  "equation": 1,
+                  "figure": 2,
+                  "list": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 6
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 3,
+                  "warn": 4,
+                  "exam": 2,
+                  "insight": 6
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 8
               }
             ],
-            "words": 15631
+            "words": 24281
           },
           {
             "number": 3,
@@ -13647,13 +13719,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 238,
-      "totalLines": 114306,
+      "totalLines": 114792,
       "byArea": {
         "src/app (routes, pages)": 2109,
         "other": 10506,
         "src/components/library (reader platform)": 6059,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 83036,
+        "src/data/library (content model + books)": 83522,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -13885,7 +13957,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-14",
+      "surveyed": "2026-11-15",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -28685,6 +28757,78 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "6bda4fafe40d5c9e4254fb49d3e08fb87c0bf95c",
+      "short": "6bda4fa",
+      "date": "2026-11-14 19:02",
+      "message": "run 102: AA 2.3 'Symmetric Reads and Common Roots' authored + fully gated (verify-first H/I 460/0 pre-prose, engines caught the m-hunt census — m = -7 shares ONE root, only m = 6 is both-common, now taught honestly as {−7, 6}; authored-audit J = 515/0; e2e 45/45 x3 viewports, quiz 5/5 on [2,1,0,2,0]; overlap 0/2 after the fig2 caption y-shift; domvalues CLEAN; VLM fig1 light+dark + fig2 light+dark + lesson dark PASS — fig1's root dots rebuilt on the true tick scale 210/510 px after the auditor caught the 240/480 geometry error, and the alpha/beta kerning spaced after the misread; BOTH m2-02 folds served as named sections — 'Repeated Roots: When the Two Doors Coincide' with the perfect-square discriminant D = (2a − b − c)² + the AP verdict + the GP-duplicate tie-in, and the 'Condition for Both Common Roots' example-family with THREE worked examples (ℕ-minimum 15, the honest m-census, the add-and-subtract system a = −8, b = −9 with the (x−4)² repeated-seat tie); the symmetric inventory priced no-solve (23/3, 21, √57/3, 9/2, 23/2, 521/9), the power-sum recurrence with the Lucas engine (T5 = 11, the collapse T15+T11 = T2·T13 = 1563), the transformation engine on BOTH routes via the y = 4x elimination on the running equation x² − 4x + 1, the coefficient-reversal law + palindrome census, the reduced-equation trick, the same-ratio theorem p²c = b²q, the determinant condition derived as a 6-step DerivationStep chain and certified on a 160,000-pair integer grid; 5,837 words, 15 Illustrations, 2 figures, 6 formula cards, 15 exercises L1–L6; printed 2.17–2.24 vision-transcribed first time (tr-b1/tr-b2); 2.4 deferred by the time rule with the pointer directing run 103; PROGRESS totals 139 lessons / 681,407 words",
+      "filesChanged": 9,
+      "insertions": 1308,
+      "deletions": 40,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 11,
+          "del": 11
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 168,
+          "del": 23
+        },
+        {
+          "path": "scripts/e2e-aa-23.page.js",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch02.ts",
+          "add": 648,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-02.ts",
+          "add": 399,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "20cf1f78bb57d36b15377d3ce42a3aa9c171b829",
+      "short": "20cf1f7",
+      "date": "2026-11-14 19:02",
+      "message": "worklog: run 102 sync record — remote HEAD verified == 6bda4fa",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -28693,25 +28837,25 @@
     "booksLive": 28,
     "chaptersWritten": 34,
     "chaptersInProgress": 1,
-    "lessonsWritten": 139,
-    "wordsAuthored": 681407,
-    "termsDefined": 1031,
-    "quizItems": 695,
-    "exerciseQuestions": 1806,
+    "lessonsWritten": 140,
+    "wordsAuthored": 690057,
+    "termsDefined": 1039,
+    "quizItems": 700,
+    "exerciseQuestions": 1821,
     "blockTotals": {
-      "para": 1948,
-      "callout": 811,
-      "heading": 774,
-      "list": 168,
-      "terms": 135,
-      "equation": 204,
-      "figure": 261,
-      "derivation": 257,
-      "table": 163,
-      "example": 649,
-      "quiz": 139,
-      "exercises": 139,
-      "formula": 447,
+      "para": 1960,
+      "callout": 827,
+      "heading": 781,
+      "list": 169,
+      "terms": 136,
+      "equation": 205,
+      "figure": 263,
+      "derivation": 259,
+      "table": 164,
+      "example": 664,
+      "quiz": 140,
+      "exercises": 140,
+      "formula": 453,
       "algorithm": 27
     }
   }
