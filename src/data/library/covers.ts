@@ -12,6 +12,12 @@
  *
  * Owner directive 2026-11-11: "wire the cover image" — this manifest + the
  * BookCover art branch are that wiring (PROPOSED_FEATURES CV-01).
+ *
+ * CS full-shelf planning pass (owner directive 2026-11-15, the "same method
+ * as mathematics" turn): +44 Computer Science covers, the same discipline
+ * (864×1152, motif per subject, palette per accent pair, VLM sweep — one
+ * baked-text catch regenerated clean; scripts/gen_covers.py, recreated this
+ * pass, is the idempotent generator).
  */
 
 /** bookId → art path under /public. Kept explicit so a missing file is a
@@ -45,6 +51,51 @@ export const COVER_ART: Record<string, string> = {
   statistics: '/covers/statistics.webp',
   topology: '/covers/topology.webp',
   trigonometry: '/covers/trigonometry.webp',
+  // — the Computer Science shelf (2026-11-15 planning pass) —
+  'computer-fundamentals': '/covers/computer-fundamentals.webp',
+  'digital-logic-design': '/covers/digital-logic-design.webp',
+  'computer-organization-architecture': '/covers/computer-organization-architecture.webp',
+  'assembly-and-microprocessors': '/covers/assembly-and-microprocessors.webp',
+  'data-structures': '/covers/data-structures.webp',
+  algorithms: '/covers/algorithms.webp',
+  'theory-of-computation': '/covers/theory-of-computation.webp',
+  'compiler-design': '/covers/compiler-design.webp',
+  'operating-systems': '/covers/operating-systems.webp',
+  'database-management-systems': '/covers/database-management-systems.webp',
+  'computer-networks': '/covers/computer-networks.webp',
+  'computer-graphics': '/covers/computer-graphics.webp',
+  'software-engineering': '/covers/software-engineering.webp',
+  'object-oriented-programming': '/covers/object-oriented-programming.webp',
+  'programming-languages-paradigms': '/covers/programming-languages-paradigms.webp',
+  'c-programming': '/covers/c-programming.webp',
+  'cpp-programming': '/covers/cpp-programming.webp',
+  'java-programming': '/covers/java-programming.webp',
+  'python-programming': '/covers/python-programming.webp',
+  'javascript-and-web-technologies': '/covers/javascript-and-web-technologies.webp',
+  'frontend-engineering': '/covers/frontend-engineering.webp',
+  'backend-engineering': '/covers/backend-engineering.webp',
+  'full-stack-web-development': '/covers/full-stack-web-development.webp',
+  'distributed-systems': '/covers/distributed-systems.webp',
+  'cloud-computing': '/covers/cloud-computing.webp',
+  cybersecurity: '/covers/cybersecurity.webp',
+  cryptography: '/covers/cryptography.webp',
+  'artificial-intelligence': '/covers/artificial-intelligence.webp',
+  'machine-learning': '/covers/machine-learning.webp',
+  'deep-learning': '/covers/deep-learning.webp',
+  'natural-language-processing': '/covers/natural-language-processing.webp',
+  'computer-vision': '/covers/computer-vision.webp',
+  'generative-ai-and-llms': '/covers/generative-ai-and-llms.webp',
+  'reinforcement-learning': '/covers/reinforcement-learning.webp',
+  'data-science': '/covers/data-science.webp',
+  'big-data-engineering': '/covers/big-data-engineering.webp',
+  'data-mining': '/covers/data-mining.webp',
+  'information-retrieval': '/covers/information-retrieval.webp',
+  blockchain: '/covers/blockchain.webp',
+  'internet-of-things': '/covers/internet-of-things.webp',
+  'mobile-app-development': '/covers/mobile-app-development.webp',
+  'human-computer-interaction': '/covers/human-computer-interaction.webp',
+  'parallel-computing': '/covers/parallel-computing.webp',
+  'advanced-computer-science': '/covers/advanced-computer-science.webp',
 }
 
 /** Art URL for a book, or null when that book has no generated cover — the

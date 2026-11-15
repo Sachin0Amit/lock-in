@@ -68,19 +68,80 @@ Environmental · Biochemistry · Electrochemistry · Chemical Kinetics ·
 Quantum Chemistry · Computational · Industrial · Materials · Advanced
 Chemical Thermodynamics
 
-## Computer Science & IT (49)
-Computer Fundamentals · Digital Logic Design · Digital Electronics ·
-Boolean Algebra and Logic Gates · COA · Assembly & Microprocessors ·
-Data Structures · Algorithms · Discrete Maths for CS · Theory of
-Computation · Automata · Formal Languages & Grammars · Compiler Design ·
-Operating Systems · DBMS · Computer Networks · Computer Graphics ·
-Software Engineering · OOP · Programming Languages & Paradigms · C · C++ ·
-Java · Python · JavaScript & Web Technologies · Frontend · Backend ·
-Full-Stack · Distributed Systems · Cloud Computing · Cybersecurity ·
-Cryptography · AI · ML · Deep Learning · NLP · Computer Vision · GenAI &
-LLMs · Reinforcement Learning · Data Science · Big Data Engineering ·
-Data Mining · Information Retrieval · Blockchain · IoT · Mobile App Dev ·
-HCI · Parallel & Distributed Computing · Advanced CS Research
+## Computer Science & IT (49 backlog lines → 44 books + 5 honest folds) — **THE FULL SHELF IS PLANNED (audited)**
+Planned by the CS full-shelf planning pass (2026-11-15, owner directive: "as
+all things are planned for mathematics do for computer science — same
+method, same detail style depth"): the Drive's CS collection downloaded one
+file at a time (27 TOC extractions — Sipser vision-transcribed in two
+batches), every non-Drive book researched against its canonical sources on
+the open web (TOCs actually opened, URLs in SOURCE_LOG.md), and all 44
+books promoted to `src/data/library/books/computer-science/<slug>/book.ts`
+with status 'planned' — 363 chapters / 1,146 planned lessons, zero written
+(the one-unit-at-a-time authoring cadence unchanged). Evidence base:
+`docs/research/CS_TOC_SURVEY.md`; gate:
+`scripts/verify-cs-shelf-planning.ts` (2,343/2,343) + covers 44/44
+(`scripts/gen_covers.py`, VLM text-free sweep — one baked-text catch
+regenerated clean).
+
+The five honest folds (no-duplication contract): *Digital Electronics* and
+*Boolean Algebra and Logic Gates* fold into **digital-logic-design** (one
+Mano arc, Drive-extracted); *Automata* and *Formal Languages & Grammars*
+fold into **theory-of-computation** (one Sipser arc, Drive-extracted);
+*Discrete Maths for CS* is satisfied by the Mathematics shelf's existing
+`discrete-mathematics` book (Rosen 8e — the CS standard; cross-reference).
+
+1. Computer Fundamentals (8 ch / 25 lessons, `cf-`, Peter Norton 6e arc, web)
+2. Digital Logic Design (10 / 37, `dld-`, Mano, Drive cs-14)
+3. Computer Organization and Architecture (11 / 40, `coa-`, Stallings 11e + CS:APP 3e, Drive cs-08/cs-09)
+4. Assembly and Microprocessors (9 / 29, `asm-`, CS:APP ch. 3 + the 8085/8086 arcs)
+5. Data Structures (9 / 29, `ds-`, CLRS ch. 10-14 + Sedgewick + Skiena ch. 3)
+6. Algorithms (10 / 38, `alg-`, CLRS 4e + Skiena 3e + Sedgewick 4e + Grokking — four poles)
+7. Theory of Computation (10 / 33, `toc-`, Sipser 3e, Drive cs-23 VLM ×2)
+8. Compiler Design (9 / 31, `cd-`, the dragon book, Drive cs-03)
+9. Operating Systems (10 / 33, `os-`, Silberschatz OSC 10e + How Linux Works + TLPI)
+10. Database Management Systems (10 / 33, `db-`, Silberschatz/Korth 7e, Drive cs-11)
+11. Computer Networks (9 / 29, `net-`, Kurose 8e + Tanenbaum 5e)
+12. Computer Graphics (9 / 27, `gfx-`, Hearn & Baker + Shirley/Marschner FoCG)
+13. Software Engineering (9 / 29, `swe-`, Sommerville 10e + the GoF/HFDP extractions)
+14. Object-Oriented Programming (9 / 29, `oop-`, GoF + Head-First DP + Core Java ch. 4-6)
+15. Programming Languages and Paradigms (8 / 24, `plp-`, Sebesta 12e)
+16. C Programming (8 / 25, `cprog-`, K&R 2e)
+17. C++ Programming (8 / 25, `cpp-`, C++ Primer 5e + A Tour of C++ 2e)
+18. Java Programming (9 / 28, `jav-`, Core Java 12e + TiJ 4e + Effective Java 3e + JCiP)
+19. Python Programming (8 / 24, `py-`, Python Crash Course 2e)
+20. JavaScript and Web Technologies (8 / 24, `js-`, JavaScript: The Definitive Guide 7e)
+21. Frontend Engineering (8 / 24, `fed-`, roadmap.sh frontend + the framework docs)
+22. Backend Engineering (8 / 26, `bed-`, Spring in Action 6e + roadmap.sh backend)
+23. Full-Stack Web Development (7 / 20, `fsw-`, the Rheinwerk guide — the web family's capstone)
+24. Distributed Systems (8 / 24, `dist-`, Coulouris 5e)
+25. Cloud Computing (7 / 21, `cloud-`, the standard IaaS/PaaS/SaaS + provider-doc arcs)
+26. Cybersecurity (8 / 26, `sec-`, Stallings & Brown 4e)
+27. Cryptography (9 / 27, `crypt-`, Paar & Pelzl + Katz-Lindell named)
+28. Artificial Intelligence (9 / 27, `ai-`, Russell & Norvig AIMA 4e)
+29. Machine Learning (9 / 27, `mln-`, Bishop PRML + Goodfellow Part I)
+30. Deep Learning (8 / 27, `dl-`, Goodfellow, Drive cs-12)
+31. Natural Language Processing (8 / 24, `nlp-`, Jurafsky & Martin SLP 3e draft)
+32. Computer Vision (8 / 24, `vis-`, Szeliski 2e)
+33. Generative AI and LLMs (8 / 24, `genai-`, Stanford CS336 arc)
+34. Reinforcement Learning (7 / 20, `rl-`, Sutton & Barto 2e)
+35. Data Science (7 / 22, `dsci-`, Grus 2e)
+36. Big Data Engineering (7 / 21, `bde-`, Hadoop: The Definitive Guide 4e + the streaming era)
+37. Data Mining (7 / 21, `mine-`, Tan/Steinbach/Karpatne/Kumar 2e)
+38. Information Retrieval (7 / 21, `ir-`, Manning/Raghavan/Schütze)
+39. Blockchain (7 / 21, `bchain-`, Antonopoulos 2e)
+40. Internet of Things (7 / 21, `iot-`, the standard IoT arcs)
+41. Mobile App Development (7 / 21, `mob-`, Google's Android Developer Fundamentals)
+42. Human-Computer Interaction (7 / 21, `hci-`, Shneiderman 6e)
+43. Parallel Computing (7 / 21, `par-`, Grama 2e)
+44. Advanced Computer Science (7 / 21, `acs-`, the capstone — the research doorstep)
+
+**Authoring order**: unchanged — the Mathematics boat continues (AA in
+progress) one book at a time per the standing pointer; the CS shelf's
+44 books follow in backlog order when the owner promotes them (the same
+promotion rule as Mathematics: research phase done → book lives planned;
+authoring opens by directive). Lesson-id prefixes for all 44 verified
+unused against the 143 written lesson ids (verify-cs-shelf-planning
+section E).
 
 ## Engineering
 **Mechanical (12):** Engineering Mechanics · Strength of Materials · Theory

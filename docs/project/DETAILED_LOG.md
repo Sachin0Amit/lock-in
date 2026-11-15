@@ -3261,3 +3261,60 @@ Docs: PROGRESS (AA 11 lessons; totals 138 lessons / 675,570 words / 1,027 terms 
 - Authored: 5,657 words; 7 headings; 10 Illustrations (the seeds cashed on 5−12−13, the conjugate-power shortcut (2−3i)⁴, the reciprocal 1/(3−4i), the division (5−5i)/(3+i), the sin-θ hunt, the 12-lattice census, the circle locus through O, the equidistant law, the triangle witnesses 8√2 < 18 + the 3√2 equality, the |(3+4i)⁴| = 625 prediction); 5 derivations (conjugate arithmetic / reciprocal engine / modulus multiplicativity / triangle inequality PROVED from the components with Cauchy–Schwarz via AL 9.3's discriminant / reverse triangle); 3 figures (the conjugate mirror — the four twins of 4+3i labelled by value; the modulus as distance — the detour tax + the circle locus; the modulus-multiplication witness — two panels at honest zooms, 5·13 = 65); 2 tables (the conjugate's arithmetic witnessed; the modulus laws witnessed); 6 terms; 5 formula cards; 12 callouts (incl. Wessel 1797); quiz [1,0,3,2,0]; 15 exercises L1–L6 (2/2/3/3/3/2). NO m2-03 fold obligation rides 3.2 (the ledger negative check).
 - Verify-first H/I: 132/0 green BEFORE prose — the engines caught 4 real errors in their own drafting (the 4225-vs-1089 bound conflation, a float-exact-equality risk on the reciprocal product, the |z₁|+|z₂|-vs-|z₁+z₂| conflation, the isosceles side-check). Authored-audit J: A–J 375/0. Gates: lint 0 · tsc 0 new (3 pre-existing app-shell) · e2e 45/45 × 3 viewports (quiz 5/5 live, 425 KaTeX 0 errors, 3 figures, 2 tables, 25 Sol. pills, 0 console errors, no overflow 390/1280) · DOM overlap 0/0/0 after FOUR real fix rounds (the VLM-caught twins −z/−z̄ swap fixed from (a,b) algebra; the invisible r = 5 radius at ×5.2 → the two-panel honest-zoom redesign; the seats re-picked off the axes + enlarged; the caption CLIP) · VLM PASS all three figures light + dark + the page viewport both themes · audit-content-completeness PASS (the topic-depth modulus-family catch fixed by CONTENT — the third figure — not by softening the audit) · verify_toc_as_lessons 3,883/0 · verify-math-shelf-planning 1,240/0.
 - 3.3 deferred by the time rule (~68 min vs ~85) — its ground BANKED (tr-3.6-3.9.txt: the Square Root of Complex Number section + Illustrations 3.21–3.27 + CAE 3.3). Run 107 = 3.3 first, 3.4 if the window allows (3.4 hosts three m2-03 folds). PROGRESS totals: 143 lessons / 707,393 words / 35 chapters / 1 in-progress.
+
+---
+
+## 2026-11-15 — The Computer Science shelf planned whole (owner-directed planning pass)
+
+The owner's message arrived between scheduled fires: "as all things are
+planned for mathematics do for computer science — same method, same detail
+style depth; first create only the planned lessons, cover page and etc."
+The mathematics shelf had been planned whole on 2026-11-10 (28 books from
+53 Drive TOC extractions); this turn repeated that method for the second
+discipline.
+
+The pull-first pre-flight found the tree already synced (remote == local
+== d5608e7) and the pointer files well ahead of the stale handover note:
+run 106 had shipped AA 3.2 and queued run 107 = AA 3.3. The pass therefore
+planned from the shipped tree, and left the mathematics boat exactly where
+it stood.
+
+**Research.** The Drive has no CS subfolder, but its root carries a rich CS
+collection: 27 sources were downloaded one at a time and their TOCs
+extracted (26 with text layers; Sipser — the one scan — needed two
+vision-transcription batches because its first six front pages end at
+chapter 0; the re-download recovered chapters 1-10: nothing missed). The
+non-Drive subjects were web-researched in the gap-pass discipline — every
+canonical TOC actually opened, from Sommerville to Sutton-Barto to the
+Stanford CS336 LLM course arc, with the GATE 2026 CSE syllabus as the
+Indian competitive anchor. The durable record is
+docs/research/CS_TOC_SURVEY.md (the mathematics survey's counterpart).
+
+**The shelf.** 44 books, status 'planned', 363 chapters / 1,146 planned
+lessons, zero written. Five of the backlog's 49 lines were merged honestly
+(Digital Electronics + Boolean Algebra/Logic Gates into Digital Logic
+Design; Automata + Formal Languages into Theory of Computation; Discrete
+Maths for CS into the existing Rosen-based mathematics book). Every book
+carries the research header, the no-duplication positioning, the honest
+census, the handoff language — the same anatomy the mathematics planned
+books carry. 44 covers were generated text-free by the recreated
+scripts/gen_covers.py (the VLM sweep caught one baked-text cover —
+regenerated clean); they ride the existing BookCover wiring.
+
+**Gates.** verify-cs-shelf-planning.ts (new) 2,343/2,343;
+verify-math-shelf-planning.ts honestly amended for the 72-book census,
+1,240/1,240; topic-coverage 576/576; toc-as-lessons 3,883/3,883; lint 0
+errors (5 pre-existing warnings). tsc: this pass's files clean — four
+app-shell errors pre-exist on HEAD itself (stash-verified) and are
+recorded for the next platform run. The E2E ran phased (the sandbox reaps
+dev-server daemons, so each phase restarts it): home 72 books + 40/40 CS
+titles + mathematics intact + zero console errors; ten sampled books with
+planned chips and no overflow; cover art verified; empty states and 404
+integrity clean; mobile 390 caught one REAL overflow — the book-page
+level badge could not wrap — fixed at the component and re-verified. VLM
+reviewed home and a book page in both themes: PASS.
+
+**The cadence.** Unchanged, stated everywhere it matters: the mathematics
+boat continues one unit at a time (run 107 opens AA 3.3 exactly as the
+pointer records); CS authoring opens by owner promotion. The library now
+shows 72 planned-and-beyond books across two live shelves.

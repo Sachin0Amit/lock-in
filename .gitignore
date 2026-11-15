@@ -512,3 +512,8 @@ server.log
 !/scripts/e2e-aa-2R.sh
 !/scripts/vlm24-pixel.py
 
+# CS full-shelf planning pass (2026-11-15): the gate, the E2E pair, the survey digest
+!/scripts/verify-cs-shelf-planning.ts
+!/scripts/e2e-cs-shelf.sh
+!/scripts/run-cs-e2e-phase.sh
+!/scripts/digest_cs_tocs.py

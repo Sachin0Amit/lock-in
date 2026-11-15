@@ -45,6 +45,29 @@ unchanged. The per-unit workflow (download -> study -> write -> verify ->
 ship) now draws on the survey's recorded Drive ids and TOCs for its
 per-unit downloads.
 
+**Owner directive (2026-11-15, CS full-shelf planning pass):** "as all
+things are planned for mathematics do for computer science — use the same
+method as used in mathematics, same detail style depth; first create only
+the planned lessons, cover page and etc." — the ENTIRE Computer Science
+shelf was planned in one owner-directed pass, mirroring the mathematics
+full-shelf method exactly: the Drive's CS collection downloaded one file at
+a time (27 TOC extractions, Sipser vision-transcribed in two batches), all
+remaining subjects researched against canonical sources on the open web
+(TOCs actually opened; URLs in SOURCE_LOG.md), and 44 books promoted to
+complete researched plans (`status: 'planned'` in
+`src/data/library/books/computer-science/*/book.ts` — 363 chapters /
+1,146 planned lessons; the evidence base is
+`docs/research/CS_TOC_SURVEY.md`, the gate
+`scripts/verify-cs-shelf-planning.ts`). 44 AI covers generated text-free
+(same discipline as the mathematics covers; `scripts/gen_covers.py`,
+VLM sweep — one baked-text catch regenerated clean) and wired through
+`src/data/library/covers.ts`. Five backlog lines were merged honestly
+under the no-duplication contract (recorded in SUBJECT_BACKLOG.md). This
+was a PLANNING pass only: **zero lessons were written and the
+one-unit-at-a-time AUTHORING cadence above is unchanged** — the
+mathematics boat continues per the standing pointer; CS authoring opens
+by owner promotion.
+
 **Owner directive (2026-11-11, cover wiring + highlighter — this pass):**
 "wire the cover image and and add feature to hightlight of text with
 diffrent color highliter advanced features" — the owner approved the first

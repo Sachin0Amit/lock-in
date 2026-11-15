@@ -291,7 +291,7 @@ export function BookView({ book }: Props) {
           )}
           <div className="mt-4 flex flex-wrap items-center gap-2">
             <StatusBadge status={book.status} />
-            <Badge variant="secondary" className="font-normal">{book.level}</Badge>
+            <Badge variant="secondary" className="font-normal whitespace-normal text-left hyphens-auto max-w-full">{book.level}</Badge>
           </div>
           <p className="mt-4 leading-7 text-foreground/90">{book.description}</p>
 

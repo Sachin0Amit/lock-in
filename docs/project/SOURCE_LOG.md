@@ -6,6 +6,91 @@ verified; **never** touch Drive originals. Internet research is the
 sanctioned fallback/supplement when the Drive lacks a topic (MASTER_PLAN §2
 step 6).
 
+## CS full-shelf planning pass (2026-11-15) — the Computer Science shelf's evidence base (owner directive: "as all things are planned for mathematics do for computer science")
+
+**27 Drive sources extracted** (one at a time via
+`scripts/extract_drive_tocs.sh`, the CS manifest; downloads deleted after
+extraction per the storage law — the durable record is
+`docs/research/CS_TOC_SURVEY.md`): CLRS 4e (1i2sco…VEL5rX), Skiena 3e
+(1fL3Ge…eGgo4), Sedgewick & Wayne 4e (1Rk66k…9eA-q), Grokking (1WfBvN…IcfCX),
+Mano Digital Logic and Computer Design (1rudEN…KqEw; the second root copy
+skipped as a same-arc duplicate), Stallings COA 11e (1NQb5a…reuK), CS:APP 3e
+(1mMO7H…aYH3T), Sipser ToC 3e (1p2ZCC…fw9Y — the one scanned source,
+vision-transcribed in TWO batches, 6+6 pages at 120 dpi), the dragon book
+(1zVqC7…KqElg — full id in CS_TOC_SURVEY.md), Silberschatz OSC 10e
+(1A3uo5…bQdK), How Linux Works 3e (1VYrBG…GPw0HD), TLPI (1dIaRo…f-St),
+Database System Concepts 7e (13WXiT…PGCQ), Kurose & Ross 8e (1LncL8…6E5Q),
+Tanenbaum Networks 5e (11rja9…03Op), Goodfellow Deep Learning
+(1YxGnV…Tnvq), GoF Design Patterns (1Vuffw…8ZBJ), Head-First Design
+Patterns 2e (1d-ipN…Gm1W), Core Java 12e vols 1+2 (1V8g1I…hggP), Thinking
+in Java 4e (1T2IKk…WhMf), Effective Java 3e (19zDQe…nSp9), Java Concurrency
+in Practice (1zDEVB…eEnZd), C++ Primer 5e (1UrNmy…jkE8e), A Tour of C++
+2e (1EqvoC…Kq-3), Python Crash Course 2e (15i8g_…QyoaI), JavaScript: The
+Definitive Guide 7e (1O522x…aMs_), Spring in Action 6e (1Z02WD…hY0Vf) —
+full ids in CS_TOC_SURVEY.md, per-unit re-download candidates at authoring
+time. The Rheinwerk full-stack guide (EPUB) was NOT extracted (format
+honest note — arc web-checked).
+
+**Web-researched canonical arcs — every source below was searched and its
+TOC/structure actually read during the pass; no TOC line was taken from
+memory:**
+
+- **GATE 2026 CSE syllabus PDF** (gate2026.iitg.ac.in): the ten-section
+  register (Engineering Mathematics incl. discrete math; Digital Logic;
+  COA; Programming & Data Structures; Algorithms; Theory of Computation;
+  Compiler Design; Operating Systems; Databases; Computer Networks) — the
+  shelf's Indian competitive anchor.
+- **Peter Norton, *Introduction to Computers* 6e** (mirrored PDFs) →
+  computer-fundamentals.
+- **Sommerville, *Software Engineering* 10e** (Pearson/archive.org TOCs) →
+  software-engineering.
+- **Russell & Norvig, *AI: A Modern Approach* 4e US** (aima.cs.berkeley.edu
+  full TOC) → artificial-intelligence.
+- **Sutton & Barto, *Reinforcement Learning* 2e** (incompleteideas.net +
+  the CMU/Stanford PDFs) → reinforcement-learning.
+- **Jurafsky & Martin, *Speech and Language Processing* 3e draft**
+  (web.stanford.edu/~jurafsky/slp3, Aug 2026 release) → natural-language-
+  processing.
+- **Szeliski, *Computer Vision: Algorithms and Applications* 2e**
+  (Springer/books.google TOCs) → computer-vision.
+- **Sebesta, *Concepts of Programming Languages* 12e** (mirrored PDF) →
+  programming-languages-paradigms.
+- **Kernighan & Ritchie, *The C Programming Language* 2e** (O'Reilly TOC)
+  → c-programming.
+- **Bishop, *Pattern Recognition and Machine Learning*** (Microsoft
+  Research PDF TOC) → machine-learning.
+- **Paar & Pelzl, *Understanding Cryptography*** (Springer TOC) +
+  Katz-Lindell named → cryptography.
+- **Stallings & Brown, *Computer Security: Principles and Practice* 4e**
+  (Pearson TOC) → cybersecurity.
+- **Coulouris et al., *Distributed Systems: Concepts and Design* 5e**
+  (mirrored PDF) → distributed-systems.
+- **Hearn & Baker, *Computer Graphics (C Version)* 2e** (mirrored PDF) +
+  **Marschner & Shirley, *Fundamentals of Computer Graphics* 4e**
+  (O'Reilly TOC) → computer-graphics.
+- **Grama et al., *Introduction to Parallel Computing* 2e** (Purdue-hosted
+  PDF) → parallel-computing.
+- **Stroustrup, *A Tour of C++* 2e** (stroustrup.com/tour2.html) →
+  cpp-programming.
+- **How Linux Works 3e** (nostarch.com publisher TOC — cross-check against
+  the Drive extraction) + **Thinking in Java 4e** (Yale/mirror PDFs) →
+  operating-systems / java-programming.
+- **White, *Hadoop: The Definitive Guide* 4e** (O'Reilly TOC) →
+  big-data-engineering; **Grus, *Data Science from Scratch* 2e**
+  (O'Reilly TOC) → data-science; **Tan et al., *Introduction to Data
+  Mining* 2e** (umn.edu/dmbook) → data-mining; **Manning et al.,
+  *Introduction to Information Retrieval*** (21-chapter TOC) →
+  information-retrieval.
+- **Antonopoulos, *Mastering Bitcoin* 2e** (O'Reilly TOC) → blockchain.
+- **roadmap.sh frontend/backend roadmaps** → frontend-engineering /
+  backend-engineering; **Stanford CS336 "Language Modeling from Scratch"**
+  (stanfordonline) → generative-ai-and-llms.
+- **Google Android Developer Fundamentals course concepts**
+  (google-developer-training PDF) → mobile-app-development;
+  **Shneiderman et al., *Designing the User Interface* 6e** (Pearson TOC)
+  → human-computer-interaction; the standard IoT textbook arcs →
+  internet-of-things.
+
 ## Internet-research gap pass (2026-11-11) — 91 planned lessons + 3 chapters added from canonical TOCs (owner directive: "use internet research for each book and think of your own if any lesson is missing add it")
 
 **Zero Drive downloads** — this pass researched each planned book against

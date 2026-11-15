@@ -2,10 +2,16 @@
  * verify-math-shelf-planning.ts — the full-shelf planning pass gate
  * (2026-11-10, owner directive; extended by the topic-inclusion guarantee
  * pass, same day: + the Quantitative Aptitude book, the Khattar census's
- * home). Checks the shelf as one structure:
+ * home). Checks the shelf as one structure. Amended 2026-11-15 by the CS
+ * full-shelf planning pass (owner directive: mirror the mathematics
+ * method for computer science): the library grew to 72 books (28
+ * mathematics + 44 computer-science, all 'planned', zero CS lessons
+ * written — gated separately by scripts/verify-cs-shelf-planning.ts);
+ * every mathematics check below is unchanged.
  *
- *  A. all 28 books load; statuses: 2 complete (FM, ANS) + 2 in-progress
- *     (AL — the pre-written-books audit 2026-11-11; AA — run 90) + 24 planned
+ *  A. all 28 mathematics books load; statuses: 2 complete (FM, ANS) + 2
+ *     in-progress (AL — the pre-written-books audit 2026-11-11; AA — run 90)
+ *     + 24 planned
  *  B. per-book chapter + planned-lesson counts printed (the honest census
  *     the docs must match — mismatches FAIL below)
  *  C. every planned chapter: status 'planned', empty lessons array,
@@ -34,7 +40,7 @@ const NEW_PREFIXES = ['geo-', 'cg-', 'tr-', 'dc-', 'ic-', 'mc-', 'de-', 'la-', '
 const NEW_IDS = ['geometry', 'coordinate-geometry', 'trigonometry', 'differential-calculus', 'integral-calculus', 'multivariable-calculus', 'differential-equations', 'linear-algebra', 'discrete-mathematics', 'number-theory', 'set-theory', 'mathematical-logic', 'combinatorics', 'probability-theory', 'statistics', 'real-analysis', 'complex-analysis', 'abstract-algebra', 'topology', 'numerical-analysis', 'mathematical-methods-for-engineering', 'optimization-and-operations-research', 'advanced-mathematical-foundations', 'quantitative-aptitude']
 
 console.log('== A. shelf load & statuses ==')
-ok(allBooks.length === 28, `28 books (got ${allBooks.length})`)
+ok(allBooks.length === 72, `72 books: 28 mathematics + 44 computer-science (got ${allBooks.length})`)
 const math = allBooks.filter((b) => b.discipline === 'mathematics')
 ok(math.length === 28, `28 mathematics books (got ${math.length})`)
 const complete = math.filter((b) => b.status === 'complete')

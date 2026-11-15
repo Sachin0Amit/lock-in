@@ -823,5 +823,13 @@
     "scheduledTask": "chapter-authoring cron job recreated as run v5 (job 523401): research->plan->audit->write protocol embedded; 3 fires/day 02:50/10:50/18:50 IST (gateway daily-execution cap; ~6 lessons/day); PAT only in the job payload",
     "downloads": "M4-01 PDF + transcriptions kept in temporary-references/ for lessons 1.3-1.8 (per-unit deletion law)",
     "push": "pending (no PAT this turn — the next fire turn pushes all unpushed local commits)"
+  },
+  "csShelfPlanning20261115": {
+    "nature": "owner-directed planning turn (not a numbered run); zero lesson authoring; the mathematics boat (run 107 = AA 3.3) is UNCHANGED — the nextAction above stands exactly as recorded",
+    "directive": "as all things are planned for mathematics do for computer science — same method, same detail style depth; first create only the planned lessons, cover page and etc",
+    "promoted": "44 CS books (363 ch / 1,146 planned lessons), status planned, zero written; 44 covers; evidence docs/research/CS_TOC_SURVEY.md; gate scripts/verify-cs-shelf-planning.ts 2,343/2,343 + all standing gates re-run green",
+    "csAuthoring": "CLOSED until the owner promotes it — CS books follow in SUBJECT_BACKLOG backlog order when promoted (never parallel with the mathematics boat; the one-unit-at-a-time law holds)",
+    "push": "pending (no PAT in this owner delivery — the next fire turn pushes all unpushed local commits per the run-90 precedent)",
+    "preExistingDebt": "4 app-shell.tsx TS2322 errors pre-exist on HEAD d5608e7 (stash-verified this pass) — recorded for the next platform run, untouched here"
   }
 }

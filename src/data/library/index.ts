@@ -27,6 +27,50 @@ import { mathematicalMethodsForEngineering } from './books/mathematics/mathemati
 import { optimizationAndOperationsResearch } from './books/mathematics/optimization-and-operations-research/book'
 import { advancedMathematicalFoundations } from './books/mathematics/advanced-mathematical-foundations/book'
 import { quantitativeAptitude } from './books/mathematics/quantitative-aptitude/book'
+import { computerFundamentals } from './books/computer-science/computer-fundamentals/book'
+import { digitalLogicDesign } from './books/computer-science/digital-logic-design/book'
+import { computerOrganizationArchitecture } from './books/computer-science/computer-organization-architecture/book'
+import { assemblyAndMicroprocessors } from './books/computer-science/assembly-and-microprocessors/book'
+import { dataStructures } from './books/computer-science/data-structures/book'
+import { algorithms } from './books/computer-science/algorithms/book'
+import { theoryOfComputation } from './books/computer-science/theory-of-computation/book'
+import { compilerDesign } from './books/computer-science/compiler-design/book'
+import { operatingSystems } from './books/computer-science/operating-systems/book'
+import { databaseManagementSystems } from './books/computer-science/database-management-systems/book'
+import { computerNetworks } from './books/computer-science/computer-networks/book'
+import { computerGraphics } from './books/computer-science/computer-graphics/book'
+import { softwareEngineering } from './books/computer-science/software-engineering/book'
+import { objectOrientedProgramming } from './books/computer-science/object-oriented-programming/book'
+import { programmingLanguagesParadigms } from './books/computer-science/programming-languages-paradigms/book'
+import { cProgramming } from './books/computer-science/c-programming/book'
+import { cppProgramming } from './books/computer-science/cpp-programming/book'
+import { javaProgramming } from './books/computer-science/java-programming/book'
+import { pythonProgramming } from './books/computer-science/python-programming/book'
+import { javascriptAndWebTechnologies } from './books/computer-science/javascript-and-web-technologies/book'
+import { frontendEngineering } from './books/computer-science/frontend-engineering/book'
+import { backendEngineering } from './books/computer-science/backend-engineering/book'
+import { fullStackWebDevelopment } from './books/computer-science/full-stack-web-development/book'
+import { distributedSystems } from './books/computer-science/distributed-systems/book'
+import { cloudComputing } from './books/computer-science/cloud-computing/book'
+import { cybersecurity } from './books/computer-science/cybersecurity/book'
+import { cryptography } from './books/computer-science/cryptography/book'
+import { artificialIntelligence } from './books/computer-science/artificial-intelligence/book'
+import { machineLearning } from './books/computer-science/machine-learning/book'
+import { deepLearning } from './books/computer-science/deep-learning/book'
+import { naturalLanguageProcessing } from './books/computer-science/natural-language-processing/book'
+import { computerVision } from './books/computer-science/computer-vision/book'
+import { generativeAiAndLlms } from './books/computer-science/generative-ai-and-llms/book'
+import { reinforcementLearning } from './books/computer-science/reinforcement-learning/book'
+import { dataScience } from './books/computer-science/data-science/book'
+import { bigDataEngineering } from './books/computer-science/big-data-engineering/book'
+import { dataMining } from './books/computer-science/data-mining/book'
+import { informationRetrieval } from './books/computer-science/information-retrieval/book'
+import { blockchain } from './books/computer-science/blockchain/book'
+import { internetOfThings } from './books/computer-science/internet-of-things/book'
+import { mobileAppDevelopment } from './books/computer-science/mobile-app-development/book'
+import { humanComputerInteraction } from './books/computer-science/human-computer-interaction/book'
+import { parallelComputing } from './books/computer-science/parallel-computing/book'
+import { advancedComputerScience } from './books/computer-science/advanced-computer-science/book'
 import type { Book, Chapter, Discipline, DisciplineId, Lesson, Term } from './types'
 import { countLessonWords } from './types'
 
@@ -46,6 +90,13 @@ import { countLessonWords } from './types'
  * researched chapter/lesson layouts; see docs/research/DRIVE_TOC_SURVEY.md
  * for the reference evidence base and the topic coverage audit). Authoring
  * continues one book at a time.
+ *
+ * The Computer Science shelf is fully planned as of the 2026-11-15 CS
+ * full-shelf planning pass (owner directive: mirror the mathematics
+ * method): 44 books, status 'planned', zero lessons written — complete
+ * researched chapter/lesson layouts with the evidence base at
+ * docs/research/CS_TOC_SURVEY.md (27 Drive TOC extractions + web-checked
+ * canonical arcs) and the gate scripts/verify-cs-shelf-planning.ts.
  */
 export const allBooks: Book[] = [
   foundationMathematics,
@@ -76,6 +127,50 @@ export const allBooks: Book[] = [
   optimizationAndOperationsResearch,
   advancedMathematicalFoundations,
   quantitativeAptitude,
+  computerFundamentals,
+  digitalLogicDesign,
+  computerOrganizationArchitecture,
+  assemblyAndMicroprocessors,
+  dataStructures,
+  algorithms,
+  theoryOfComputation,
+  compilerDesign,
+  operatingSystems,
+  databaseManagementSystems,
+  computerNetworks,
+  computerGraphics,
+  softwareEngineering,
+  objectOrientedProgramming,
+  programmingLanguagesParadigms,
+  cProgramming,
+  cppProgramming,
+  javaProgramming,
+  pythonProgramming,
+  javascriptAndWebTechnologies,
+  frontendEngineering,
+  backendEngineering,
+  fullStackWebDevelopment,
+  distributedSystems,
+  cloudComputing,
+  cybersecurity,
+  cryptography,
+  artificialIntelligence,
+  machineLearning,
+  deepLearning,
+  naturalLanguageProcessing,
+  computerVision,
+  generativeAiAndLlms,
+  reinforcementLearning,
+  dataScience,
+  bigDataEngineering,
+  dataMining,
+  informationRetrieval,
+  blockchain,
+  internetOfThings,
+  mobileAppDevelopment,
+  humanComputerInteraction,
+  parallelComputing,
+  advancedComputerScience,
 ]
 
 export const allDisciplines: Discipline[] = disciplines

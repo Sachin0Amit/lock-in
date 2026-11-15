@@ -21,6 +21,12 @@ Phases (idempotent, run repeatedly until "all done"):
   python3 scripts/gen_covers.py optimize           # public/covers/<id>.webp
   python3 scripts/gen_covers.py sheet              # contact sheet montage
   python3 scripts/gen_covers.py status             # inventory report
+
+2026-11-15 (CS full-shelf planning pass): the roster grew 28 -> 72 with the
+44 Computer Science books (same series contract; entries appended in BOOKS).
+The sandbox recycles raw PNGs between sessions, so `done()` now treats the
+repo webp (public/covers/<id>.webp) as the source of truth — a missing raw
+only matters when a cover is being regenerated.
 """
 import os
 import subprocess
@@ -237,6 +243,51 @@ BOOKS = {
         "and interlocking gears measuring the passage of time and speed.",
         "#92400e", "#451a03",
     ),
+    # ---- the Computer Science shelf (2026-11-15 planning pass) ----
+    "computer-fundamentals": ("computing fundamentals", "a clean vintage desktop computer with a rounded screen and keyboard radiating gentle rays, beside neat stacked blank folders", "#0f766e", "#115e59"),
+    "digital-logic-design": ("digital logic design", "a lattice of glowing logic-gate shapes linked by fine circuit traces across dark silicon, with small plain unlabeled IC blocks", "#b91c1c", "#7f1d1d"),
+    "computer-organization-architecture": ("computer organization and architecture", "a layered motherboard city of fine traces rising to one glowing central processor die with radiating pins", "#1d4ed8", "#1e3a8a"),
+    "assembly-and-microprocessors": ("assembly and microprocessors", "a large microprocessor chip with radiating gold pins resting on a circuit board with fine unlabeled dials", "#a16207", "#854d0e"),
+    "data-structures": ("data structures", "a luminous tree of connected geometric nodes growing above neat stacked blocks, cubes and linked rings", "#7c3aed", "#5b21b6"),
+    "algorithms": ("algorithms", "a branching network of decision paths converging on one glowing node, drawn as fine line-work with small plain junction dots", "#c2410c", "#9a3412"),
+    "theory-of-computation": ("theory of computation", "an abstract turing machine tape of blank cells crossing the frame under a small reading-head carriage on rails", "#4d7c0f", "#3f6212"),
+    "compiler-design": ("compiler design", "a cascading pipeline of translucent geometric blocks transforming from raw shapes into fine ordered patterns stage by stage", "#9333ea", "#6b21a8"),
+    "operating-systems": ("operating systems", "a stacked layered machine of interlocking scheduler gears and conveyor stages with small plain unlabeled dials", "#0369a1", "#075985"),
+    "database-management-systems": ("database management systems", "a monumental cylinder of stacked translucent discs with soft light between the layers and fine index tabs on the rims", "#0e7490", "#155e75"),
+    "computer-networks": ("computer networks", "a wireframe globe with glowing nodes and graceful arcing links between them, small plain unlabeled relay towers below", "#0891b2", "#0e7490"),
+    "computer-graphics": ("computer graphics", "a shimmering wireframe torus floating above a fine isometric grid under two soft studio light rays", "#db2777", "#9d174d"),
+    "software-engineering": ("software engineering", "an elegant drafting desk with compass, rulers and layered plan sheets, one fine blueprint unrolling", "#475569", "#334155"),
+    "object-oriented-programming": ("object-oriented programming", "nested interlocking geometric objects — spheres within cubes within open frames — arranged in quiet order", "#f59e0b", "#b45309"),
+    "programming-languages-paradigms": ("programming languages and paradigms", "a mosaic of interlocking coloured blocks of many distinct shapes forming one composed panel", "#64748b", "#475569"),
+    "c-programming": ("the C programming language", "an industrial steel gear lattice with rivets and depth, one gear train meshing cleanly into another", "#1e293b", "#0f172a"),
+    "cpp-programming": ("C++ programming", "a tower of interlocking double gears meshing into a precise modern machine of fine parts", "#1e40af", "#1e3a8a"),
+    "java-programming": ("Java programming", "a stylised steaming coffee cup silhouette with rising abstract steam ribbons on a plain saucer", "#ea580c", "#c2410c"),
+    "python-programming": ("Python programming", "two intertwined geometric serpents forming a gentle double helix around plain blank rods", "#16a34a", "#15803d"),
+    "javascript-and-web-technologies": ("JavaScript and web technologies", "a browser window frame with a golden lightning bolt surging through its plain empty page", "#eab308", "#a16207"),
+    "frontend-engineering": ("frontend engineering", "layered translucent interface panels floating in gentle depth, one highlighted pane glowing among them", "#06b6d4", "#0e7490"),
+    "backend-engineering": ("backend engineering", "server racks with flowing luminous pipes and valves, gauges plain and unlabeled", "#4338ca", "#3730a3"),
+    "full-stack-web-development": ("full-stack web development", "two mirrored machine stacks bridged by one glowing arc of light crossing the middle of the frame", "#6d28d9", "#5b21b6"),
+    "distributed-systems": ("distributed systems", "a constellation of linked glowing nodes across deep space, small orbits and fine connecting lines", "#0c4a6e", "#082f49"),
+    "cloud-computing": ("cloud computing", "sculpted cloud shapes threaded with fine circuit lines, small plain unlabeled server blocks below", "#0284c7", "#0369a1"),
+    "cybersecurity": ("cybersecurity", "a heraldic shield with fine circuitry etched across its face resting on a quiet plain field", "#dc2626", "#991b1b"),
+    "cryptography": ("cryptography", "an ornate padlock with rotating cipher dials around it, every dial marked only with plain geometric pips", "#7f1d1d", "#57534e"),
+    "artificial-intelligence": ("artificial intelligence", "a brain-like lattice of neural pathways glowing with thought, drawn as fine line-work nodes and filaments", "#831843", "#500724"),
+    "machine-learning": ("machine learning", "scattered data points dividing along a luminous decision plane, a fine rising trend ribbon behind", "#5b21b6", "#4c1d95"),
+    "deep-learning": ("deep learning", "a deep luminous network of many layered nodes vanishing into depth, layer by layer", "#1e1b4b", "#312e81"),
+    "natural-language-processing": ("natural language processing", "flowing speech waveforms braiding into one stream across the frame, small plain blank labels below", "#0f766e", "#134e4a"),
+    "computer-vision": ("computer vision", "a stylised eye whose iris is a fine pixel grid resolving into focus, plain unlabeled tiles", "#be185d", "#831843"),
+    "generative-ai-and-llms": ("generative AI and LLMs", "a blossoming fractal tree of light growing from a single seed point, branches flowering geometric", "#a21caf", "#701a75"),
+    "reinforcement-learning": ("reinforcement learning", "a luminous maze with one rewarded golden path traced through its corridors to a glowing goal", "#065f46", "#064e3b"),
+    "data-science": ("data science", "a constellation of data points with a rising trend ribbon and small plain unlabeled chart frames", "#088f7f", "#0f766e"),
+    "big-data-engineering": ("big data engineering", "braided rivers of luminous data streams flowing through a fine canyon of layered strata", "#b45309", "#92400e"),
+    "data-mining": ("data mining", "rough rock strata cracking open to reveal crystalline gems glowing inside, fine pick tools resting by", "#c2410c", "#7c2d12"),
+    "information-retrieval": ("information retrieval", "a great funnel sorting glowing particles into ordered streams, small plain blank cards sliding below", "#4a044e", "#581c87"),
+    "blockchain": ("blockchain", "a chain of interlocked translucent cubes each holding a small flame, links catching the light", "#b7791f", "#713f12"),
+    "internet-of-things": ("internet of things", "a living globe wreathed in tiny sensor nodes and gentle radio waves, small devices orbiting", "#0d9488", "#134e4a"),
+    "mobile-app-development": ("mobile app development", "a smartphone radiating rings of connection outward across the frame, small plain app tiles floating by", "#65a30d", "#3f6212"),
+    "human-computer-interaction": ("human-computer interaction", "a hand touching a pane of glass sending ripples of light outward, fine concentric circles", "#d946ef", "#86198f"),
+    "parallel-computing": ("parallel computing", "parallel luminous lanes of arrows racing together across the frame in strict alignment", "#155e75", "#083344"),
+    "advanced-computer-science": ("advanced computer science", "a grand door opening onto a starfield of glowing sparks of pure light with no glyphs", "#111827", "#1f2937"),
 }
 
 # hex -> human color phrase for the prompt (all hexes actually used above)
@@ -324,6 +375,10 @@ def phase_gen(ids):
 
 
 def done(bid: str) -> bool:
+    # the repo webp is the durable artifact (2026-11-15); raws recycle with the sandbox
+    webp = os.path.join(ROOT, "public", "covers", f"{bid}.webp")
+    if os.path.exists(webp) and os.path.getsize(webp) > 6_000:
+        return True
     p = out_path(bid)
     if not (os.path.exists(p) and os.path.getsize(p) > 40_000):
         return False
