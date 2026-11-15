@@ -1,6 +1,7 @@
 import type { Book, Chapter } from '../../../types'
 import { chapter01 } from './ch-01'
 import { chapter02 } from './ch-02'
+import { chapter03 } from './ch-03'
 
 /**
  * Advanced Algebra — the fourth book of the Mathematics shelf.
@@ -106,22 +107,7 @@ import { chapter02 } from './ch-02'
 const chapters: Chapter[] = [
   chapter01,
   chapter02,
-  {
-    number: 3,
-    slug: 'complex-numbers',
-    title: 'Complex Numbers: the New Rung',
-    summary:
-      'Arithmetic and Number Systems proved the extension-ladder discipline — every new number family born from a closure failure, repaired on purpose. This chapter climbs the most famous rung: x² + 1 = 0 has no real door, so a number i is forced with i² = −1, and the algebra of a + bi is built so the whole field-law family survives (the honest sanity ANS 7.2 banked). The conjugate and modulus arrive as bookkeeping — z z̄ = |z|², division by conjugating, |z| as a distance with the triangle inequality — and the Argand plane is read algebraically (addition as the parallelogram, multiplication as rotation-and-scaling) with the deep geometry left to later books. The payoff: the quadratic formula keeps its promise for every discriminant, and real coefficients are shown to force complex doors in conjugate pairs. De Moivre’s theorem and the nth roots of unity — the unit circle’s equal spokes — with their properties (primitive roots, the cyclotomic equations) banked as the module’s depth engine.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'The Closure Failure That Forces i',
-      'Conjugate and Modulus',
-      'Negative Discriminants: the Doors Turn Complex',
-      'The Argand Plane: Polar Form and the Argument',
-      'De Moivre, Roots of Unity and the Complex Loci',
-    ],
-  },
+  chapter03,
   {
     number: 4,
     slug: 'classical-inequalities',

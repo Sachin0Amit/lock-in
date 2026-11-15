@@ -498,6 +498,11 @@ server.log
 !/scripts/e2e-aa-21.page.js
 !/scripts/e2e-aa-22.page.js
 
+# run 105 — AA ch. 3 opens: 3.1's pre-write verifier (A–F pins + G authored audit) and its per-lesson e2e block (quiz keys 3/1/0/2/3)
+!/scripts/verify-book4-ch03.ts
+!/scripts/e2e-aa-31.page.js
+!/scripts/e2e-aa-31.sh
+
 # run 103 — AA 2.4: its per-lesson e2e block (quiz keys 1/2/1/2/0) + the vision-outage pixel audit fallback
 !/scripts/e2e-aa-23.page.js
 !/scripts/e2e-aa-24.page.js

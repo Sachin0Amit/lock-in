@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-15 10:44:11 (Asia/Kolkata)",
+  "generated": "2026-11-15 12:03:01 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -10144,17 +10144,90 @@
             "slug": "complex-numbers",
             "title": "Complex Numbers: the New Rung",
             "summary": "Arithmetic and Number Systems proved the extension-ladder discipline — every new number family born from a closure failure, repaired on purpose. This chapter climbs the most famous rung: x² + 1 = 0 has no real door, so a number i is forced with i² = −1, and the algebra of a + bi is built so the whole field-law family survives (the honest sanity ANS 7.2 banked). The conjugate and modulus arrive as bookkeeping — z z̄ = |z|², division by conjugating, |z| as a distance with the triangle inequality — and the Argand plane is read algebraically (addition as the parallelogram, multiplication as rotation-and-scaling) with the deep geometry left to later books. The payoff: the quadratic formula keeps its promise for every discriminant, and real coefficients are shown to force complex doors in conjugate pairs. De Moivre’s theorem and the nth roots of unity — the unit circle’s equal spokes — with their properties (primitive roots, the cyclotomic equations) banked as the module’s depth engine.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 1,
             "plannedLessons": [
-              "The Closure Failure That Forces i",
               "Conjugate and Modulus",
               "Negative Discriminants: the Doors Turn Complex",
               "The Argand Plane: Polar Form and the Argument",
               "De Moivre, Roots of Unity and the Complex Loci"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "aa-the-closure-failure-that-forces-i",
+                "number": "3.1",
+                "title": "The Closure Failure That Forces i",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5592,
+                "readMins": 28,
+                "concepts": [
+                  "the closure failure: x² + 1 = 0 has no real door, and it is the norm (275/351 of a census grid)",
+                  "the extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ — every rung repairs a failure and keeps the laws",
+                  "the imaginary unit i (iota) with i² = −1 and the mod-4 cycle of its powers",
+                  "complex numbers as ordered pairs: standard form a + bi, componentwise equality",
+                  "the four operations with the field-law survival census",
+                  "the conjugate seeds: z + z̄ = 2Re(z), zz̄ = a² + b², no zero divisors",
+                  "the Argand plane and multiplication by i as a quarter-turn"
+                ],
+                "objectives": [
+                  "explain why x² + 1 = 0 has no real solution and why the D < 0 case is the norm, not an exception",
+                  "place ℂ on the extension ladder and state the survival discipline every rung obeys",
+                  "reduce any integral power of i by the mod-4 cycle, forwards and backwards",
+                  "read a complex number as a pair, split an equality into two real equations, and name Re(z), Im(z) honestly",
+                  "add, subtract, multiply and divide complex numbers, deriving the multiplication and division rules rather than quoting them",
+                  "use the conjugate seeds for bookkeeping and prove that ℂ has no zero divisors",
+                  "multiply by i as a quarter-turn and certify the orbit square"
+                ],
+                "prerequisites": [
+                  "al-the-quadratic-formula-and-the-discriminant",
+                  "ans-the-diagonal-that-broke-the-rationals",
+                  "ans-the-field-laws-division-joins-the-family",
+                  "aa-unit-review-the-quadratic-at-depth"
+                ],
+                "sources": [
+                  "cengage-m2-03",
+                  "cengage-jee-style",
+                  "ncert-math11-ch4-complex-numbers",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 16,
+                  "heading": 7,
+                  "example": 11,
+                  "callout": 12,
+                  "list": 1,
+                  "figure": 2,
+                  "formula": 5,
+                  "table": 2,
+                  "terms": 1,
+                  "derivation": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 2,
+                  "definition": 4,
+                  "warn": 2,
+                  "theorem": 2,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 9
+              }
+            ],
+            "words": 5592
           },
           {
             "number": 4,
@@ -13787,13 +13860,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 238,
-      "totalLines": 115301,
+      "totalLines": 115287,
       "byArea": {
         "src/app (routes, pages)": 2109,
         "other": 10506,
         "src/components/library (reader platform)": 6059,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 84031,
+        "src/data/library (content model + books)": 84017,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -29031,6 +29104,88 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "dd44fbd3af34143d1d8e3b383ccd0e0e8e41a381",
+      "short": "dd44fbd",
+      "date": "2026-11-15 05:16",
+      "message": "run 104: AA 2.R 'Unit Review: The Quadratic at Depth' authored + fully gated, chapter 2 CLOSED COMPLETE (status 'complete', plannedLessons [], lessons 2.1–2.4 + 2.R; verify-first section N 3,278/0 pre-prose — the engines caught 4 real pin errors incl. the chapter formula inventory being 22 cards; authored-audit O → A–O 3,341/0; e2e 45/45 × 3 viewports, quiz 5/5 live on [1,1,2,1,0]; overlap 0/2 after three real fixes — the promise-node rects grown, the negative band converted to the true region path, the wall dashes split around the tick; domvalues CLEAN; VLM PASS both figures light + dark, the vision endpoint back after run 103's outage); the four readings of one completed form (vertex/sign/Viète/location), the two master tables reunited (six sign cases + k-system), the four cross-lesson witnesses re-audited (the fence with A > 32 ⟺ (4,8) and the area bound AS the discriminant bound; the sign ladder; the Viète inventory; the census family with the fixed point (3,1) and the wall-3-never-between law), the 22-card formula inventory consolidated to 8, the six-trap shelf, the exam census, the al-Khwārizmī→Viète→hall history, and the 15-part mixed bench L1–L6 with every answer recomputed (the single-seat wall demand m = 1 only; the P = 1 collapse y²−8y+4; the range (1,3] with its degenerate endpoint; exactly-one 0 < c < 10 with boundary seats ON the walls; both-exceed m ≥ 4 with the m = 4 double door; k = ±1 with named shared doors; α⁵+β⁵ witnessed by Lucas 11 and 724; the 18a+9b+6c Rolle proof with the √3 witness); 5,609 words, 4 Illustrations, 2 figures, 1 derivation, 8 formula cards; the four m2-02 folds re-asserted; PROGRESS 141 lessons / 696,144 words / 35 chapters / 0 in-progress; the exit hands the D < 0 doors to ch. 3 'Complex Numbers: the New Rung' (opens run 105, never in the same run as a close); gitignore exceptions for the e2e-aa-2R scripts",
+      "filesChanged": 11,
+      "insertions": 1269,
+      "deletions": 69,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 16,
+          "del": 16
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 238,
+          "del": 36
+        },
+        {
+          "path": "scripts/e2e-aa-2R.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-2R.sh",
+          "add": 97,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch02.ts",
+          "add": 458,
+          "del": 10
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-02.ts",
+          "add": 381,
+          "del": 3
+        }
+      ]
+    },
+    {
+      "sha": "a2da434fa8c77d8e48142a227fdddb14b0a249cd",
+      "short": "a2da434",
+      "date": "2026-11-15 05:17",
+      "message": "worklog: run 104 sync record — remote HEAD verified == dd44fbd (AA 2.R + chapter 2 close pushed clean; run 105 opens ch. 3 Complex Numbers)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -29038,26 +29193,26 @@
     "booksPlannedBacklog": 277,
     "booksLive": 28,
     "chaptersWritten": 35,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 141,
-    "wordsAuthored": 696144,
-    "termsDefined": 1047,
-    "quizItems": 705,
-    "exerciseQuestions": 1837,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 142,
+    "wordsAuthored": 701736,
+    "termsDefined": 1056,
+    "quizItems": 710,
+    "exerciseQuestions": 1852,
     "blockTotals": {
-      "para": 1972,
-      "callout": 836,
-      "heading": 787,
-      "list": 170,
-      "terms": 137,
+      "para": 1988,
+      "callout": 848,
+      "heading": 794,
+      "list": 171,
+      "terms": 138,
       "equation": 205,
-      "figure": 265,
-      "derivation": 260,
-      "table": 166,
-      "example": 668,
-      "quiz": 141,
-      "exercises": 141,
-      "formula": 461,
+      "figure": 267,
+      "derivation": 263,
+      "table": 168,
+      "example": 679,
+      "quiz": 142,
+      "exercises": 142,
+      "formula": 466,
       "algorithm": 27
     }
   }
