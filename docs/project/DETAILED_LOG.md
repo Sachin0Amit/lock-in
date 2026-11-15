@@ -3215,3 +3215,11 @@ Docs: PROGRESS (AA 11 lessons; totals 138 lessons / 675,570 words / 1,027 terms 
 - Gates: lint 0 · tsc clean (tracked) · completeness PASS · TOC 3,883/0 · e2e-aa-23 45/45 ×3 viewports (quiz 5/5 on [2,1,0,2,0]) · overlap 0/2 after fig2 caption y-shift · domvalues CLEAN · VLM fig1 light (after the 210/510 dot-scale fix + the α/β spacing fix) + dark, fig2 light + dark, lesson dark — ALL PASS.
 - Docs: PROGRESS totals 139 / 681,407 words; RESUME_POINTER → run 103 = 2.4 first, then 2.R + chapter close on the completing run; SOURCE_LOG ledger; WORKLOG record; WORK_INVENTORY rebuilt.
 - Deferral: 2.4 by the time rule (run-100/101 precedent). No lesson in flight; tree clean at push.
+
+## 2026-11-15 — audit-bot fire (job 530242, 08:30) — lesson fm-patterns-to-formulas (11.2)
+
+- Pass A: figures 1–2 audited, 0 defects (both PASS DOM + VLM first time; dark-mode N/A by container design).
+- Pass B: 3 solution figures added — K5 handshake graph on the committee-of-30 example, two-lane undo chain on the position-99 example, 40-bar staircase subtraction on L5-Q1 — one fix inside the K5 SVG (edge trimming to the circle boundary), re-audited PASS.
+- Pass C: 2 insight callouts ('Why the halving is always exact'; 'When no dress fits'), 1 glossary term ('Arithmetic undoing'), 1 new L2 exercise (doubling refusal + 6, 10, 14, … dress, T30 = 122) added INTO the existing lesson; no new lesson, no id changes, no answer/quiz-key changes.
+- Files touched: src/data/library/books/mathematics/foundation-mathematics/ch-11.ts; docs/project/FIGURE_AUDIT_LOG.md, ENHANCEMENT_LOG.md, WORKLOG.md, DETAILED_LOG.md, FIGURE_AUDIT_QUEUE.json (item done, cursor 46 → 47).
+- Incident: sandbox recycle restored a stale checkout mid-run (local pull + uncommitted work lost); recovered by re-pull to 20cf1f7 + re-application from the session record; core.fileMode=false silences the recycle's 580 mode-only diffs.

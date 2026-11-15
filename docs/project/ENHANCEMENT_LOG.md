@@ -278,3 +278,24 @@ verify-unit-11 201/0 · audit-content-completeness 0 errors · tsc 0 new
 errors · overlap 0 on all 10 mounted svgs (body + solutions-expanded
 capture) · VLM light+dark PASS after fixes · quiz keys and exercise
 answers untouched.
+
+## 2026-11-15 — audit-bot fire (job 530242, 08:30 IST): fm-patterns-to-formulas (11.2) §10 passes
+
+### Pass B — solution visual aids (3 figures, §10.1 discipline)
+
+- Example 'A committee of 30…': K5 complete-graph panel — five numbered friends on a circle, all ten pairs joined (edges trimmed to the circle boundary), green arrival tags +0…+4, right column 0+1+2+3+4 = 10 = (5 × 4)/2 and N = 30 → 435. One DOM-driven fix, then VLM PASS.
+- Example 'Which position holds 99…': two-lane arrow chain — the dress forwards (n →×5→ 5n →−1→ 5n − 1) above the undo backwards (99 →+1→ 100 →÷5→ 20 = n, green), teaching last-step-first undressing. PASS first time.
+- L5-Q1 shop window: forty bars of heights 1..40 drawn to scale; first 20 dashed amber = 210 lifted off; kept band 820 − 210 = 610 with both region brackets and the arithmetic column. PASS first time.
+- Reasoning, steps and answers untouched; every caption states what THIS diagram shows for THIS solution.
+
+### Pass C — enrichment (4 additions, §10.2)
+
+- insight callout 'Why the halving is always exact' after the staircase equation — consecutive integers n, n + 1 put an even factor in every numerator (T7 = 28, T9 = 45); the quiet wholeness promise named.
+- insight callout 'When no dress fits' after the dresses table — the doubling list 1, 2, 4, 8, … refuses the dress (differences 1, 2, 4, 8 grow); the difference test taught as a refusal certificate too; powers of 2 deferred to later books.
+- terms entry 'Arithmetic undoing' — the lesson's own reverse-order undressing habit, named in the glossary.
+- one new L2 exercise: dress-refusal on the doubling list + the dress on 6, 10, 14, … ($T_n = 4n + 2$, 30th term 122) with the full Sol. chain and checks.
+- Note: the previous fire's thin-subtopic scan of 11.2 judged the scope guards deliberate; these additions supply the §10.2 method-variant/edge-case layer without touching the lesson's arc, ids or answers.
+
+### Gates (all green)
+
+tsc 0 errors in the touched files · audit-content-completeness 0 errors · overlap 0 on 5 mounted svgs (solutions-expanded) · VLM strict PASS on every figure, re-audited post-fix.

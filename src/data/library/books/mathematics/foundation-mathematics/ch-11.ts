@@ -1184,6 +1184,12 @@ export const chapter11: Chapter = {
           ],
         },
         {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'When no dress fits',
+          text: 'The difference test refuses lists as well as dressing them. The doubling list 1, 2, 4, 8, 16, … walks differences 1, 2, 4, 8 — every jump larger than the last — so no constant $d$ exists and no dress $dn + (T_1 - d)$ can fit: the test fails at the second step, before any algebra is spent. The refusal is information, not defeat — doubling lists wear powers of 2, a formula family this book meets later. The discipline stands: run the difference test FIRST; only a constant difference earns the dress.',
+        },
+        {
           kind: 'para',
           text: 'The matchstick counts deserve their own sentence, because here the formula can be SEEN, not merely fitted. In a row of $n$ squares, the first square stands alone and needs all 4 of its sticks; every square after it borrows its left edge from its neighbour and buys exactly 3 fresh sticks — top, bottom, right. So $n$ squares cost $4 + 3(n-1)$ sticks, which simplifies to $3n + 1$. The fitted dress and the counted structure agree — and when they agree, the formula is not a summary of the pattern but a description of it.',
         },
@@ -1291,6 +1297,12 @@ export const chapter11: Chapter = {
           note: '**The staircase formula (tag 2).** The 100th triangular number is $\\frac{100 \\times 101}{2} = 5050$ — the sum of a hundred numbers, halved into one multiplication. The pairing is the whole proof.',
         },
         {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Why the halving is always exact',
+          text: 'The staircase formula divides by 2 every time it is used — and never leaves a half behind. The reason sits in the factors: $n$ and $n + 1$ are consecutive integers, so one of them is always even, and the even partner absorbs the halving whole. $T_7 = \\frac{7 \\times 8}{2} = 28$ — the 8 carries the division; $T_9 = \\frac{9 \\times 10}{2} = 45$ — now it is the 10. A count that is always whole is the formula\u2019s quiet promise: triangular numbers count things, and no staircase ever holds half a step.',
+        },
+        {
           kind: 'para',
           text: 'The 11.1 promise is now kept. Guests arriving one at a time force $1$, then $2$, then $3$ new handshakes — so a party of $N$ friends ends with $1 + 2 + \\cdots + (N-1) = T_{N-1} = \\frac{N(N-1)}{2}$ handshakes. Eight guests: $\\frac{8 \\times 7}{2} = 28$ — exactly $T_7$, the triangular number the party was promised to reach. A committee of 30: $\\frac{30 \\times 29}{2} = 435$. Forty players in a tournament, each pair meeting once: $\\frac{40 \\times 39}{2} = 780$ games. The handshake count is the staircase formula wearing a party dress, one position down.',
         },
@@ -1334,6 +1346,44 @@ export const chapter11: Chapter = {
             'And the arithmetic: $\\frac{30 \\times 29}{2} = \\frac{870}{2} = 435$.',
             'Hence 435 handshakes — the staircase formula one position down, the party dress kept on.',
           ],
+          figures: [
+            {
+              caption:
+                'The arrival counts, drawn for 5 friends: arrival $k$ adds $k - 1$ new handshakes (the green tags), so the total is $0 + 1 + 2 + 3 + 4 = 10 = \\frac{5 \\times 4}{2}$ — ten lines, one per pair. The same count at $N = 30$: $1 + 2 + \\cdots + 29 = \\frac{30 \\times 29}{2} = 435$.',
+              svg: `<svg viewBox="0 0 780 312" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five friends as numbered points on a circle, every pair joined by a line: ten handshakes in all. The arrival tags read plus zero, plus one, plus two, plus three, plus four, summing to ten, which is five times four over two. At thirty friends the count is thirty times twenty-nine over two, which is 435.">
+  <text x="390" y="24" font-size="13" fill="currentColor" text-anchor="middle">every pair meets once — the arrival counts, drawn for 5 friends</text>
+  ${(() => {
+    const cx = 190, cy = 168, R = 92, r = 15, N = 5;
+    const ang = (k: number) => ((-90 + (k - 1) * (360 / N)) * Math.PI) / 180;
+    const pt = (k: number): [number, number] => [cx + R * Math.cos(ang(k)), cy + R * Math.sin(ang(k))];
+    let out = '';
+    // all C(5,2) = 10 edges: every pair joined exactly once — each edge
+    // trimmed to the circle boundary (r) so lines never cross the labels
+    for (let i = 1; i <= N; i++)
+      for (let j = i + 1; j <= N; j++) {
+        const [x1, y1] = pt(i), [x2, y2] = pt(j);
+        const dx = x2 - x1, dy = y2 - y1, len = Math.hypot(dx, dy);
+        const ux = dx / len, uy = dy / len;
+        const ax = x1 + r * ux, ay = y1 + r * uy, bx = x2 - r * ux, by = y2 - r * uy;
+        out += `<line x1="${ax.toFixed(1)}" y1="${ay.toFixed(1)}" x2="${bx.toFixed(1)}" y2="${by.toFixed(1)}" stroke="currentColor" stroke-width="1.3"/>`;
+      }
+    for (let k = 1; k <= N; k++) {
+      const [x, y] = pt(k);
+      const tx = cx + (R + 30) * Math.cos(ang(k)), ty = cy + (R + 30) * Math.sin(ang(k));
+      out += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="2"/>`;
+      out += `<text x="${x.toFixed(1)}" y="${(y + 4.5).toFixed(1)}" font-size="13" fill="currentColor" text-anchor="middle">${k}</text>`;
+      out += `<text x="${tx.toFixed(1)}" y="${(ty + 4.5).toFixed(1)}" font-size="12.5" fill="#166534" font-weight="600" text-anchor="middle">+${k - 1}</text>`;
+    }
+    out += `<text x="560" y="120" font-size="13.5" fill="currentColor" text-anchor="middle">arrival k adds k − 1 handshakes</text>`;
+    out += `<text x="560" y="164" font-size="13.5" fill="currentColor" text-anchor="middle">5 friends: 0+1+2+3+4 = 10 = (5 × 4)/2</text>`;
+    out += `<text x="560" y="208" font-size="13.5" fill="currentColor" text-anchor="middle">N friends: 1+2+⋯+(N − 1) = N(N − 1)/2</text>`;
+    out += `<text x="560" y="252" font-size="13.5" fill="#166534" font-weight="600" text-anchor="middle">N = 30: (30 × 29)/2 = 435</text>`;
+    return out;
+  })()}
+  <text x="390" y="296" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.75">ten lines for five friends — one line per pair of people, none repeated</text>
+</svg>`,
+            },
+          ],
         },
         {
           kind: 'example',
@@ -1353,6 +1403,41 @@ export const chapter11: Chapter = {
             'So position 20 holds the 99.',
             'And the sum: $21 + 22 + \\cdots + 40$ is $T_{40} - T_{20} = \\frac{40 \\times 41}{2} - \\frac{20 \\times 21}{2} = 820 - 210 = 610$ — two staircases, the smaller subtracted from the larger.',
             'Hence position 20, and the sum 610 — formulas read in both directions.',
+          ],
+          figures: [
+            {
+              caption:
+                'The undo runs in REVERSE order: the dress builds $T_n$ from $n$ by "$\\times 5$, then $- 1$", so undressing 99 undoes the LAST step first — "$+ 1$" to 100, then "$\\div 5$" to $n = 20$. Check: $5 \\times 20 - 1 = 99$ ✓.',
+              svg: `<svg viewBox="0 0 780 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two rows of boxes with arrows. The top row is the dress built forwards: n, times 5, gives 5n, minus 1, gives 5n minus 1. The bottom row is the undo run backwards: 99, plus 1, gives 100, divided by 5, gives 20, which is n. The undo undoes the last step first.">
+  <text x="390" y="22" font-size="13" fill="currentColor" text-anchor="middle">reading 5n − 1 backwards — the undo runs in reverse order</text>
+  ${(() => {
+    const bw = 110, bh = 44, xs = [130, 335, 540];
+    let out = '';
+    const box = (label: string, x: number, y: number, ink = false) => {
+      out += `<rect x="${x}" y="${y}" width="${bw}" height="${bh}" rx="9" fill="currentColor" fill-opacity="0.06" stroke="${ink ? '#166534' : 'currentColor'}" stroke-width="1.6"/>`;
+      out += `<text x="${x + bw / 2}" y="${y + bh / 2 + 5}" font-size="14.5" fill="currentColor" text-anchor="middle">${label}</text>`;
+    };
+    const arrow = (xa: number, xb: number, y: number, label: string, green: boolean) => {
+      const col = green ? '#166534' : 'currentColor';
+      out += `<line x1="${xa}" y1="${y}" x2="${xb - 8}" y2="${y}" stroke="${col}" stroke-width="1.6"/>`;
+      out += `<polygon points="${xb - 1},${y} ${xb - 9},${y - 4.5} ${xb - 9},${y + 4.5}" fill="${col}"/>`;
+      out += `<text x="${(xa + xb) / 2}" y="${y - 10}" font-size="12.5" fill="${col}" font-weight="600" text-anchor="middle">${label}</text>`;
+    };
+    // lane 1 — the dress, forwards
+    out += `<text x="390" y="44" font-size="12.5" fill="currentColor" text-anchor="middle">the dress, forwards</text>`;
+    box('n', xs[0], 58); box('5n', xs[1], 58); box('5n − 1', xs[2], 58);
+    arrow(xs[0] + bw, xs[1], 80, '× 5', false);
+    arrow(xs[1] + bw, xs[2], 80, '− 1', false);
+    // lane 2 — the undo, backwards (reverse order, green ink)
+    out += `<text x="390" y="154" font-size="12.5" fill="#166534" font-weight="600" text-anchor="middle">the undo, backwards — last step first</text>`;
+    box('99', xs[0], 168, true); box('100', xs[1], 168, true); box('20 = n', xs[2], 168, true);
+    arrow(xs[0] + bw, xs[1], 190, '+ 1', true);
+    arrow(xs[1] + bw, xs[2], 190, '÷ 5', true);
+    return out;
+  })()}
+  <text x="390" y="242" font-size="12.5" fill="currentColor" text-anchor="middle">99 undoes to 100, then to 20 — check: 5 × 20 − 1 = 99 ✓ — position 20 holds the 99</text>
+</svg>`,
+            },
           ],
         },
         { kind: 'heading', text: 'The harvest' },
@@ -1428,6 +1513,10 @@ export const chapter11: Chapter = {
             {
               term: 'Handshake formula',
               def: 'The count when each of $N$ people meets each other once: $\\frac{N(N-1)}{2}$ — the staircase formula one position down, since the arrivals add $1, 2, \\ldots, N-1$.',
+            },
+            {
+              term: 'Arithmetic undoing',
+              def: 'Reading a formula backwards: undo its arithmetic in REVERSE order — first the "+ 1", then the "÷ 3", when $3n + 1 = 100$ asks how many squares 100 sticks build ($n = 33$). Not yet equation solving — that machinery is 11.3\u2019s.',
             },
           ],
         },
@@ -1522,6 +1611,16 @@ export const chapter11: Chapter = {
                   ],
                   answer: 'Tn = 5n + 2; T50 = 252',
                 },
+                {
+                  q: 'Does the add-pattern dress fit the doubling list 1, 2, 4, 8, 16, …? And find the formula of 6, 10, 14, 18, … with its 30th term.',
+                  solution: [
+                    'Now, the difference test on the doubling list: $2 - 1 = 1$, $4 - 2 = 2$, $8 - 4 = 4$ — the jumps grow, so no constant $d$ exists and the dress refuses the list (doubling lists wear powers of 2 — later books\u2019 territory).',
+                    'So take the second list: $10 - 6 = 4$, $14 - 10 = 4$ — constant, so the dress applies with $d = 4$.',
+                    'And the constant is $T_1 - d = 6 - 4 = 2$: the dress reads $T_n = 4n + 2$ — checks $4 \\times 1 + 2 = 6$ ✓, $4 \\times 2 + 2 = 10$ ✓.',
+                    'Hence no dress for 1, 2, 4, 8, …; $T_n = 4n + 2$ for 6, 10, 14, …, and the 30th term is $4 \\times 30 + 2 = 122$.',
+                  ],
+                  answer: 'no dress for 1, 2, 4, 8, …; Tn = 4n + 2; T30 = 122',
+                },
               ],
             },
             {
@@ -1584,6 +1683,38 @@ export const chapter11: Chapter = {
                     'So the shop window: $21 + \\cdots + 40$ is the big staircase minus the first 20 steps — $T_{40} - T_{20}$.',
                     'And the arithmetic: $\\frac{40 \\times 41}{2} - \\frac{20 \\times 21}{2} = 820 - 210 = 610$.',
                     'Hence 20100 and 610 — two staircases, the smaller subtracted from the larger.',
+                  ],
+                  figures: [
+                    {
+                      caption:
+                        'The subtraction, drawn to scale: forty bars of heights $1, 2, \\ldots, 40$ form the $T_{40}$ staircase (sum 820). The dashed amber bars are the first 20 steps — $T_{20} = 210$, lifted off; the solid bars that remain are $21 + 22 + \\cdots + 40 = 820 - 210 = 610$.',
+                      svg: `<svg viewBox="0 0 780 312" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Forty bars of heights one to forty, drawn to scale, forming the big staircase whose sum is 820. The first twenty bars, dashed and amber tinted, are lifted off: they sum to 210. The remaining twenty bars, solid tinted, are 21 plus 22 up to 40, summing to 820 minus 210, which is 610.">
+  <text x="390" y="24" font-size="13" fill="currentColor" text-anchor="middle">the shop window as a staircase minus a staircase — forty bars, drawn to scale</text>
+  ${(() => {
+    const bw = 9, pitch = 11, x0 = 120, yb = 250, scale = 3.4;
+    let out = '';
+    out += `<line x1="${x0 - 8}" y1="${yb}" x2="${x0 + 39 * pitch + bw + 8}" y2="${yb}" stroke="currentColor" stroke-width="1.4"/>`;
+    for (let i = 1; i <= 40; i++) {
+      const x = x0 + (i - 1) * pitch, h = i * scale;
+      if (i <= 20)
+        out += `<rect x="${x}" y="${(yb - h).toFixed(1)}" width="${bw}" height="${h.toFixed(1)}" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.1" stroke-dasharray="3 2"/>`;
+      else
+        out += `<rect x="${x}" y="${(yb - h).toFixed(1)}" width="${bw}" height="${h.toFixed(1)}" fill="currentColor" fill-opacity="0.30"/>`;
+    }
+    // brackets under the two regions
+    const b1a = x0, b1b = x0 + 19 * pitch + bw, b2a = x0 + 20 * pitch, b2b = x0 + 39 * pitch + bw;
+    out += `<path d="M ${b1a} 272 L ${b1a} 278 L ${b1b} 278 L ${b1b} 272" fill="none" stroke="#f59e0b" stroke-width="1.2"/>`;
+    out += `<text x="${(b1a + b1b) / 2}" y="294" font-size="12" fill="currentColor" text-anchor="middle">lifted off: the first 20 steps = 210</text>`;
+    out += `<path d="M ${b2a} 272 L ${b2a} 278 L ${b2b} 278 L ${b2b} 272" fill="none" stroke="currentColor" stroke-width="1.2"/>`;
+    out += `<text x="${(b2a + b2b) / 2}" y="294" font-size="12" fill="currentColor" text-anchor="middle">kept: 21 + 22 + ⋯ + 40 = 610</text>`;
+    out += `<text x="660" y="105" font-size="12.5" fill="currentColor" text-anchor="middle">the arithmetic</text>`;
+    out += `<text x="660" y="140" font-size="13" fill="currentColor" text-anchor="middle">1 + ⋯ + 40 = 820</text>`;
+    out += `<text x="660" y="175" font-size="13" fill="#f59e0b" font-weight="600" text-anchor="middle">1 + ⋯ + 20 = 210</text>`;
+    out += `<text x="660" y="210" font-size="13" fill="#166534" font-weight="600" text-anchor="middle">820 − 210 = 610</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
                   ],
                   answer: '20100; 610',
                 },
