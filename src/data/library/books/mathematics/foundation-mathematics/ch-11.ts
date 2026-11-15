@@ -1967,6 +1967,12 @@ export const chapter11: Chapter = {
 </svg>`,
         },
         {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The wrong order jams the machine',
+          text: 'Why must the LAST operation leave first? Watch the machine jam when the order is ignored: dividing $3x + 1 = 31$ by 3 gives $x + \\frac{1}{3} = \\frac{31}{3}$ — still a TRUE sentence, the beam never dipped, but now the 1 sits inside a fraction, tangled with the $x$, and no single legal move frees it. The rule is not a ritual; it is the order that keeps every operation\u2019s exit clean — undo the $+ 1$ while it is still a whole chip on the pan, THEN share. Last out, first out — and the check at the end catches any jam.',
+        },
+        {
           kind: 'para',
           text: 'One refinement earns its keep now: **collecting**. Sentences often carry several copies of the letter, and the copies combine before any balance move — $x + (x + 11) = 47$ has two $x$-names on the left, and two copies of a number make twice the number: $2x + 11 = 47$. The father-son sentence does it too: father is four times the son, together they make 50 — $x + 4x = 50$, five copies of $x$, so $5x = 50$ and $x = 10$. Collecting is the balance\u2019s helper: count the copies first, then balance. The undo machine then finishes the job ($2x = 36$ shares into 2; $5x = 50$ shares into 5).',
         },
@@ -2044,6 +2050,16 @@ export const chapter11: Chapter = {
             'So the sentence: $x + 2x + x + 2x = 36$ — collect the four copies: $6x = 36$.',
             'And the machine: share both sides into 6 — $x = 6$; the sides are 6 and 12.',
             'Hence 6 by 12, with both conditions checked: the perimeter $6 + 12 + 6 + 12 = 36$ ✓ and the length $12 = 2 \\times 6$ ✓.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Does every equation have exactly one solution? Test 2(x + 3) = 2x + 6 and 2(x + 3) = 2x + 7.',
+          steps: [
+            'Now, the first: collect — $2(x + 3)$ is two copies of $x + 3$, which is $2x + 6$, so the sentence reads $2x + 6 = 2x + 6$ — TRUE, and no balance move was even needed.',
+            'So EVERY number is a solution: $x = 1$ gives $8 = 8$ ✓ and $x = 5$ gives $16 = 16$ ✓ — the sentence was an identity wearing an equation\u2019s clothes.',
+            'And the second: the same collecting gives $2x + 6 = 2x + 7$ — and no value of $x$ can make six equal seven; at $x = 1$ it reads $8 = 9$ ✗, and collecting never changes that — the sentence is FALSE for every number, so NO solution exists.',
+            'Hence the definition said it plainly: a sentence may hold for ONE number (the riddle), for EVERY number ($2(x + 3) = 2x + 6$), or for NONE ($2(x + 3) = 2x + 7$) — and collecting tells you which.',
           ],
         },
         { kind: 'heading', text: 'The harvest' },
@@ -2221,6 +2237,34 @@ export const chapter11: Chapter = {
                     'Hence $n = 10$: the same arithmetic 11.2 read backwards, now wearing the equation\u2019s name.',
                   ],
                   answer: 'n counts the squares; n = 10',
+                  figures: [
+                    {
+                      caption:
+                        'The sentence $3n + 1 = 31$ drawn at its answer: the row of $n = 10$ squares wears one seed stick (amber) plus 3 sticks per square — $3 \\times 10 + 1 = 31$ ✓ — so $n = 10$ is the row 11.1 counted square by square, now named by one letter.',
+                      svg: `<svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A matchstick row of ten squares: one amber seed stick on the left plus three sticks per square, thirty sticks in all, thirty-one with the seed — the sentence 3n plus 1 equals 31 is true at n equals 10">
+  <text x="390" y="24" font-size="13" fill="currentColor" text-anchor="middle">the matchstick sentence 3n + 1 = 31 — which row uses exactly 31 sticks?</text>
+  ${(() => {
+    const sq = 50, n = 10, x0 = 140, y0 = 92;
+    let out = '';
+    out += `<text x="390" y="72" font-size="12" fill="#166534" font-weight="600" text-anchor="middle">each square adds 3 sticks — ${n} squares bring ${3 * n}</text>`;
+    for (let k = 0; k <= n; k++) {
+      const x = x0 + sq * k;
+      if (k === 0) out += `<line x1="${x}" y1="${y0}" x2="${x}" y2="${y0 + sq}" stroke="#f59e0b" stroke-width="3.4"/>`;
+      else out += `<line x1="${x}" y1="${y0}" x2="${x}" y2="${y0 + sq}" stroke="currentColor" stroke-width="2.4"/>`;
+    }
+    [y0, y0 + sq].forEach((y) => {
+      for (let k = 1; k <= n; k++)
+        out += `<line x1="${x0 + sq * (k - 1)}" y1="${y}" x2="${x0 + sq * k}" y2="${y}" stroke="currentColor" stroke-width="2.4"/>`;
+    });
+    out += `<text x="${x0 - 8}" y="${y0 + sq / 2 + 4}" font-size="11.5" fill="#b45309" text-anchor="end">the seed stick: 1</text>`;
+    out += `<text x="390" y="${y0 + sq + 30}" font-size="12.5" fill="currentColor" text-anchor="middle">1 seed + ${3 * n} = ${3 * n + 1} sticks — the sentence is true at n = 10</text>`;
+    out += `<text x="390" y="${y0 + sq + 58}" font-size="13" fill="#166534" font-weight="600" text-anchor="middle">the undo: 3n + 1 = 31 → 3n = 30 → n = 10</text>`;
+    out += `<text x="390" y="${y0 + sq + 84}" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.75">check: 3 × 10 + 1 = 31 ✓ — the row 11.1 counted square by square, now named by one letter</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -2246,6 +2290,36 @@ export const chapter11: Chapter = {
                     'Hence the pieces are 18 cm and 29 cm — both conditions checked, the proof complete.',
                   ],
                   answer: '18 cm and 29 cm',
+                  figures: [
+                    {
+                      caption:
+                        'The ribbon as one bar: the whole 47 cm splits into the short piece $x = 18$ and the long piece $x + 11 = 29$ — the 11 cm overhang is exactly the difference the words promised. The solve: $x + (x + 11) = 47$ → $2x + 11 = 47$ → $x = 18$, and both checks pass.',
+                      svg: `<svg viewBox="0 0 780 252" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A 47 cm ribbon drawn as a bar split into the short piece x equals 18 cm and the long piece x plus 11 equals 29 cm, the 11 cm overhang marked below the long piece, with the solve line giving x equals 18 and both checks passing">
+  <text x="390" y="24" font-size="13" fill="currentColor" text-anchor="middle">the ribbon as a picture — one bar, two pieces, one promise about the longer one</text>
+  ${(() => {
+    const cm = 11, x0 = 130, y0 = 84, h = 46;
+    const wS = 18 * cm, wL = 29 * cm, wT = wS + wL;
+    let out = '';
+    out += `<line x1="${x0}" y1="${y0 - 16}" x2="${x0 + wT}" y2="${y0 - 16}" stroke="currentColor" stroke-width="1.2"/>`;
+    out += `<line x1="${x0}" y1="${y0 - 22}" x2="${x0}" y2="${y0 - 10}" stroke="currentColor" stroke-width="1.2"/>`;
+    out += `<line x1="${x0 + wT}" y1="${y0 - 22}" x2="${x0 + wT}" y2="${y0 - 10}" stroke="currentColor" stroke-width="1.2"/>`;
+    out += `<text x="${x0 + wT / 2}" y="${y0 - 26}" font-size="12.5" fill="currentColor" text-anchor="middle">the whole ribbon: 47 cm</text>`;
+    out += `<rect x="${x0}" y="${y0}" width="${wS}" height="${h}" fill="#fef3c7" stroke="currentColor" stroke-width="1.4"/>`;
+    out += `<rect x="${x0 + wS}" y="${y0}" width="${wL}" height="${h}" fill="none" stroke="currentColor" stroke-width="1.4"/>`;
+    out += `<text x="${x0 + wS / 2}" y="${y0 + h / 2 + 4.5}" font-size="13" fill="currentColor" text-anchor="middle">x = 18</text>`;
+    out += `<text x="${x0 + wS + wL / 2}" y="${y0 + h / 2 + 4.5}" font-size="13" fill="currentColor" text-anchor="middle">x + 11 = 29</text>`;
+    const dy = y0 + h + 18;
+    out += `<line x1="${x0 + wS}" y1="${dy}" x2="${x0 + wT}" y2="${dy}" stroke="#f59e0b" stroke-width="1.6"/>`;
+    out += `<line x1="${x0 + wS}" y1="${dy - 6}" x2="${x0 + wS}" y2="${dy + 6}" stroke="#f59e0b" stroke-width="1.6"/>`;
+    out += `<line x1="${x0 + wT}" y1="${dy - 6}" x2="${x0 + wT}" y2="${dy + 6}" stroke="#f59e0b" stroke-width="1.6"/>`;
+    out += `<text x="${x0 + wS + wL / 2}" y="${dy + 24}" font-size="12" fill="#b45309" text-anchor="middle">29 − 18 = 11 — the promise about the longer piece</text>`;
+    out += `<text x="390" y="${dy + 54}" font-size="13" fill="#166534" font-weight="600" text-anchor="middle">x + (x + 11) = 47 → 2x + 11 = 47 → x = 18</text>`;
+    out += `<text x="390" y="${dy + 80}" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.75">both conditions checked: 18 + 29 = 47 ✓ and 29 − 18 = 11 ✓</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -2261,6 +2335,35 @@ export const chapter11: Chapter = {
                     'Hence the rectangle is 6 by 12, proven twice.',
                   ],
                   answer: 'width 6, length 12',
+                  figures: [
+                    {
+                      caption:
+                        'The rectangle at its answer: width $x = 6$, length $2x = 12$, and the perimeter walk (green arrows) collects six copies of $x$ — $6x = 36$ gives $x = 6$. Both conditions checked: the perimeter $6 + 12 + 6 + 12 = 36$ ✓ and the length $12 = 2 \\times 6$ ✓.',
+                      svg: `<svg viewBox="0 0 780 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A rectangle with width x equals 6 and length 2x equals 12, green arrows walking the perimeter clockwise, and the solve line x plus 2x plus x plus 2x equals 6x equals 36 giving x equals 6 — perimeter 36 and the double-length condition both checked">
+  <text x="390" y="24" font-size="13" fill="currentColor" text-anchor="middle">the rectangle at its answer — the perimeter walk collects six copies of x</text>
+  ${(() => {
+    const sc = 16, L = 12 * sc, W = 6 * sc, x0 = 150, y0 = 70;
+    const cx = x0 + L / 2, cy = y0 + W / 2, g = '#16a34a';
+    let out = '';
+    out += `<rect x="${x0}" y="${y0}" width="${L}" height="${W}" fill="#fef3c7" fill-opacity="0.55" stroke="currentColor" stroke-width="1.6"/>`;
+    out += `<text x="${cx}" y="${y0 - 14}" font-size="12.5" fill="currentColor" text-anchor="middle">2x = 12</text>`;
+    out += `<text x="${cx}" y="${y0 + W + 22}" font-size="12.5" fill="currentColor" text-anchor="middle">2x = 12</text>`;
+    out += `<text x="${x0 - 10}" y="${cy + 4}" font-size="12.5" fill="currentColor" text-anchor="end">x = 6</text>`;
+    out += `<text x="${x0 + L + 10}" y="${cy + 4}" font-size="12.5" fill="currentColor" text-anchor="start">x = 6</text>`;
+    out += `<path d="M ${cx - 7} ${y0 - 4} L ${cx + 7} ${y0} L ${cx - 7} ${y0 + 4} Z" fill="${g}"/>`;
+    out += `<path d="M ${x0 + L - 4} ${cy - 7} L ${x0 + L + 4} ${cy - 7} L ${x0 + L} ${cy + 7} Z" fill="${g}"/>`;
+    out += `<path d="M ${cx + 7} ${y0 + W - 4} L ${cx - 7} ${y0 + W} L ${cx + 7} ${y0 + W + 4} Z" fill="${g}"/>`;
+    out += `<path d="M ${x0 - 4} ${cy + 7} L ${x0 + 4} ${cy + 7} L ${x0} ${cy - 7} Z" fill="${g}"/>`;
+    out += `<text x="430" y="78" font-size="12.5" fill="currentColor" text-anchor="start">the walk: x + 2x + x + 2x</text>`;
+    out += `<text x="430" y="108" font-size="12.5" fill="currentColor" text-anchor="start">six copies of x collect to 6x = 36</text>`;
+    out += `<text x="430" y="138" font-size="13" fill="#166534" font-weight="600" text-anchor="start">x = 6 — the sides are 6 and 12</text>`;
+    out += `<text x="430" y="168" font-size="12.5" fill="currentColor" text-anchor="start">perimeter 6 + 12 + 6 + 12 = 36 ✓</text>`;
+    out += `<text x="430" y="196" font-size="11.5" fill="currentColor" text-anchor="start" opacity="0.75">and 12 = 2 × 6 ✓ — proven twice</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Two ropes together span 30 m, and one is 6 m longer than the other. Find the lengths — then state the general split for a total of $m$ and a difference of $k$.',
@@ -2286,6 +2389,31 @@ export const chapter11: Chapter = {
                     'Hence son 10, father 40, with both conditions checked: $10 + 40 = 50$ ✓ and $40 = 4 \\times 10$ ✓.',
                   ],
                   answer: 'son 10, father 40',
+                  figures: [
+                    {
+                      caption:
+                        'The ages as bars: one copy of the son\u2019s age $x$ beside four equal copies for the father — $1 + 4 = 5$ copies make the 50, so $5x = 50$ gives $x = 10$: son 10, father 40, both conditions checked.',
+                      svg: `<svg viewBox="0 0 780 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two bars: the son's age one cell labelled x, the father's age four equal cells each labelled x; one plus four copies make 5x equals 50, so x equals 10 — son 10 and father 40, both checks pass">
+  <text x="390" y="24" font-size="13" fill="currentColor" text-anchor="middle">the ages as bars — five copies of the son’s age make the fifty</text>
+  ${(() => {
+    const u = 46, bh = 40, x0 = 150;
+    let out = '';
+    out += `<rect x="${x0}" y="72" width="${u}" height="${bh}" fill="#fef3c7" stroke="currentColor" stroke-width="1.5"/>`;
+    out += `<text x="${x0 + u / 2}" y="${72 + bh / 2 + 4.5}" font-size="13" fill="currentColor" text-anchor="middle">x</text>`;
+    out += `<text x="${x0 + u + 14}" y="${72 + bh / 2 + 4.5}" font-size="12.5" fill="currentColor" text-anchor="start">son = x</text>`;
+    out += `<rect x="${x0}" y="132" width="${4 * u}" height="${bh}" fill="none" stroke="currentColor" stroke-width="1.5"/>`;
+    for (let k = 1; k < 4; k++) out += `<line x1="${x0 + k * u}" y1="132" x2="${x0 + k * u}" y2="${132 + bh}" stroke="currentColor" stroke-width="1.2"/>`;
+    for (let k = 0; k < 4; k++) out += `<text x="${x0 + k * u + u / 2}" y="${132 + bh / 2 + 4.5}" font-size="13" fill="currentColor" text-anchor="middle">x</text>`;
+    out += `<text x="${x0 + 4 * u + 14}" y="${132 + bh / 2 + 4.5}" font-size="12.5" fill="currentColor" text-anchor="start">father = 4x</text>`;
+    out += `<text x="470" y="86" font-size="12.5" fill="currentColor" text-anchor="start">collect the copies: 1 + 4 = 5</text>`;
+    out += `<text x="470" y="116" font-size="12.5" fill="currentColor" text-anchor="start">x + 4x = 5x = 50</text>`;
+    out += `<text x="470" y="146" font-size="13" fill="#166534" font-weight="600" text-anchor="start">x = 10 — son 10, father 40</text>`;
+    out += `<text x="470" y="176" font-size="11.5" fill="currentColor" text-anchor="start" opacity="0.75">10 + 40 = 50 ✓ and 40 = 4 × 10 ✓</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Translate and solve: "I think of a number, double it, add 9, and I get 35."',

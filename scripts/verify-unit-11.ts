@@ -809,6 +809,25 @@ console.log('=== AM. audit-bot enrichment pins (\u00a710 fire, 2026-11-15) ===')
   ok(1 + 2 + 3 + 4 + 5 === 15 && tri[3] === 10 && comb(5, 2) === 10, 'AM8: fifth triangle 15 dots; 10 dots = fourth triangle = 5-guest handshakes');
 }
 
+console.log('=== AN. audit-bot enrichment pins (§10 fire, 2026-11-15, lesson 11.3) ===');
+{
+  // AN1 — the wrong-order callout: the legal order on the riddle's sentence
+  // is subtract-1 then share-into-3; dividing first would tangle the chip.
+  ok((31 - 1) / 3 === 10 && 3 * 10 + 1 === 31, 'AN1: the legal order (31 − 1)/3 = 10, and the check 3 × 10 + 1 = 31 ✓');
+  ok(31 % 3 !== 0, 'AN2: 31 is not divisible by 3 — dividing first leaves x + 1/3 = 31/3, the jam the callout describes');
+  // AN3 — the many-or-none example: 2(x + 3) = 2x + 6 holds for EVERY x
+  // (witnesses), 2(x + 3) = 2x + 7 for NONE.
+  const bothSides = (x: number): [number, number] => [2 * (x + 3), 2 * x + 6];
+  ok(bothSides(0)[0] === bothSides(0)[1] && bothSides(1)[0] === bothSides(1)[1] && bothSides(5)[0] === bothSides(5)[1] && bothSides(12)[0] === bothSides(12)[1], 'AN3: 2(x + 3) = 2x + 6 witnesses at x = 0, 1, 5, 12 — every number is a solution');
+  const ne = (a: number, b: number): boolean => a !== b; // widen literals
+  ok(2 * (1 + 3) === 8 && 2 * 1 + 7 === 9 && ne(2 * (1 + 3), 2 * 1 + 7), 'AN4: at x = 1 the second sentence reads 8 = 9 — false; collecting gives 2x + 6 = 2x + 7 and 6 ≠ 7 for every x');
+  // AN5–AN8 — the four new solution figures' drawn values.
+  ok(1 + 3 * 10 === 31 && 3 * 10 === 30, 'AN5: matchstick figure — 1 seed + 30 = 31 sticks at n = 10');
+  ok(18 + 29 === 47 && 29 - 18 === 11, 'AN6: ribbon figure — 18 + 29 = 47 and 29 − 18 = 11');
+  ok(6 + 12 + 6 + 12 === 36 && 12 === 2 * 6, 'AN7: rectangle figure — perimeter walk 36, length 12 = 2 × 6');
+  ok(1 + 4 === 5 && 5 * 10 === 50 && 4 * 10 === 40, 'AN8: bar figure — five copies make 50; father 40 = 4 × 10');
+}
+
 console.log('');
 console.log(`TOTAL: ${pass} passed, ${fail} failed`);
 if (fail > 0) {

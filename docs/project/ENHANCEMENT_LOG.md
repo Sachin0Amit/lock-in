@@ -299,3 +299,24 @@ answers untouched.
 ### Gates (all green)
 
 tsc 0 errors in the touched files · audit-content-completeness 0 errors · overlap 0 on 5 mounted svgs (solutions-expanded) · VLM strict PASS on every figure, re-audited post-fix.
+
+## 2026-11-15 — audit-bot fire (job 530242, 14:30 IST): fm-letter-for-the-unknown (11.3) §10 passes
+
+### Pass B — solution visual aids (4 figures, §10.1 discipline)
+
+- L2-Q2 matchstick sentence $3n + 1 = 31$: the row of 10 squares drawn at exact 50px pitch — amber seed stick (the +1) plus 3 sticks per square; count line 1 seed + 30 = 31, undo line 3n + 1 = 31 → 3n = 30 → n = 10, check 3 × 10 + 1 = 31 ✓. Grounds the equation's answer in the structure 11.1 counted square by square.
+- L3-Q2 ribbon 47 cm: the whole ribbon as one bar to scale (11 px/cm; short 198px = 18 cm amber-filled, long 319px = 29 cm), the 11-cm overhang bracketed in amber as the promise the words made, solve and both checks below.
+- L4-Q1 rectangle 6 by 12: true 2:1 rectangle (192 × 96 from sc = 16), sides labelled x = 6 / 2x = 12, four green clockwise perimeter arrows, panel collecting x + 2x + x + 2x = 6x = 36 with both conditions checked.
+- L5-Q1 father-son ages: one amber son-cell x beside a 4-cell father bar (46px unit, exact 4×), panel 1 + 4 = 5 copies → 5x = 50 → x = 10 with both checks.
+- Judged and refused (pure algebra, no spatial content — §10.1): L1-Q1, L1-Q2, L2-Q1, L3-Q1, L4-Q2, L5-Q2, L6-Q1, L6-Q2. The six example blocks already sit beside body figures 1–2; no example doubles a figure its twin exercise now carries. Reasoning, steps, quiz keys and exercise answers untouched.
+
+### Pass C — enrichment (2 additions, §10.2)
+
+- insight callout 'The wrong order jams the machine' after the undo-machine figure: dividing 3x + 1 = 31 by 3 first gives x + 1/3 = 31/3 — true, but the +1 never gets its legal exit; the LAST-out-first rule grounded, not ritualized (the L6-Q2 proof now meets a forewarned reader).
+- new example 'Does every equation have exactly one solution?' before The harvest: 2(x + 3) = 2x + 6 collects to 2x + 6 = 2x + 6 — every number a solution (8 = 8 at x = 1, 16 = 16 at x = 5); 2(x + 3) = 2x + 7 collects to 2x + 6 = 2x + 7 — none (8 = 9 at x = 1). The definition's 'many, or none' promise cashed with collecting only.
+- Scope discipline: an x-on-both-sides subsection was considered and REFUSED — the lesson's scope guard (i) (verify-unit-11 section AL) explicitly excludes that machinery.
+- Verify-first: verify-unit-11 section AN grown green (9 pins: AN1–AN2 the callout's numbers, AN3–AN4 the example's witnesses, AN5–AN8 the four figures' drawn values) — 209/0 ALL PASS before the prose.
+
+### Gates (all green)
+
+tsc 0 errors in the touched files · overlap 0 on 6 mounted svgs (solutions-expanded, re-run after the Pass C edits) · VLM strict PASS on every figure · quiz keys and exercise answers untouched.
