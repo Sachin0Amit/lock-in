@@ -25,6 +25,7 @@ import { formatClock, formatDuration } from './bits'
 import { ExamRunner } from './exam-runner'
 import { fetchAttempts, fetchReadiness, startExamPaper } from '@/lib/practice/client-api'
 import { DIFFICULTY_BANDS } from '@/lib/practice/engine'
+import { EXAM_CATEGORY_GROUPS } from '@/data/exams/presets'
 import {
   clearSitting,
   loadSitting,
@@ -158,7 +159,10 @@ export function ExamsTab({ launchPreset, onLaunchConsumed }: Props) {
     <div className="space-y-8">
       <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
         Timed papers assembled from your library&apos;s own quiz and exercise questions — honest
-        negative marking, server-side grading, and a per-chapter weakness breakdown. Formats are
+        negative marking, server-side grading, and a per-chapter weakness breakdown. Papers span
+        the exam families researched in the registry — Indian entrance and recruitment, the
+        international admissions set, East-Asian national exams, UK mathematics admissions and the
+        olympiad ladder — each mapped to the topics your library has actually written. Formats are
         approximate; scopes map the written library only, with pending topics listed openly.
       </p>
 
@@ -271,18 +275,61 @@ export function ExamsTab({ launchPreset, onLaunchConsumed }: Props) {
         </p>
       </section>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        {(readiness ?? []).map((ex) => (
-          <ExamCard
-            key={ex.presetKey}
-            ex={ex}
-            view={presetViews.find((p) => p.key === ex.presetKey)}
-            busy={busy === ex.presetKey}
-            onStart={() => void launch(ex.presetKey, band)}
-          />
-        ))}
-        {readiness === null && <ExamCardSkeletons />}
-      </div>
+      {/* the preset census grouped by exam family — every registry-backed
+       * family (India, international, East Asia, UK, olympiads …) stays
+       * scannable instead of one long wall of cards */}
+      {(readiness ?? []).length > 0 &&
+        EXAM_CATEGORY_GROUPS.map((g) => {
+          const groupExams = (readiness ?? []).filter((ex) => g.match.includes(ex.category))
+          if (groupExams.length === 0) return null
+          return (
+            <section key={g.key} aria-label={g.label}>
+              <h2 className="mb-3 flex items-center gap-2 font-reading text-lg font-bold">
+                <GraduationCap className="h-4 w-4 text-muted-foreground" aria-hidden />
+                {g.label}
+                <Badge variant="secondary" className="font-normal tabular-nums">
+                  {groupExams.length}
+                </Badge>
+              </h2>
+              <div className="grid gap-4 md:grid-cols-2">
+                {groupExams.map((ex) => (
+                  <ExamCard
+                    key={ex.presetKey}
+                    ex={ex}
+                    view={presetViews.find((p) => p.key === ex.presetKey)}
+                    busy={busy === ex.presetKey}
+                    onStart={() => void launch(ex.presetKey, band)}
+                  />
+                ))}
+              </div>
+            </section>
+          )
+        })}
+      {(readiness ?? []).length > 0 &&
+        /* any category outside the known groups still renders (honest
+         * fallback — the coverage verify keeps this empty in practice) */
+        (() => {
+          const known = new Set(EXAM_CATEGORY_GROUPS.flatMap((g) => g.match))
+          const rest = (readiness ?? []).filter((ex) => !known.has(ex.category))
+          if (rest.length === 0) return null
+          return (
+            <section aria-label="Other exams">
+              <h2 className="mb-3 font-reading text-lg font-bold">Other exams</h2>
+              <div className="grid gap-4 md:grid-cols-2">
+                {rest.map((ex) => (
+                  <ExamCard
+                    key={ex.presetKey}
+                    ex={ex}
+                    view={presetViews.find((p) => p.key === ex.presetKey)}
+                    busy={busy === ex.presetKey}
+                    onStart={() => void launch(ex.presetKey, band)}
+                  />
+                ))}
+              </div>
+            </section>
+          )
+        })()}
+      {readiness === null && <ExamCardSkeletons />}
 
       <section aria-label="Recent attempts">
         <h2 className="mb-3 flex items-center gap-2 font-reading text-lg font-bold">

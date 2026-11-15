@@ -17,9 +17,19 @@ provisional and their gaps are listed, never hidden.
 
 ## What the user gets
 
-1. **Mock exams** — six preset papers (Library Sweep, JEE Main ·
-   Mathematics, CUET UG · Mathematics, CAT · Quantitative Ability, SSC
-   CGL · Quantitative Aptitude, NDA · Mathematics), each served in an
+1. **Mock exams** — **28 preset papers (2026-11-15 census)** across
+   every exam family the registry research covers, grouped on the tab
+   by family (General practice · University entrance · Engineering
+   entrance · School-leaving · Postgraduate · Management · Government &
+   defence · Professional · Mathematics entrance · Olympiad & contests):
+   the original six (Library Sweep, JEE Main, CUET UG, CAT, SSC CGL,
+   NDA) plus the 2026-11-15 exam-topic coverage pass — JEE Advanced,
+   UPSC CSAT, GATE (1-mark/2-mark MCQ + NAT type-in), UGC NET Paper 1,
+   CA Foundation, ISI B.Stat/B.Math, SAT (MCQ + grid-in type-in), ACT
+   (half-length), GRE, GMAT, A-Level Pure, IB AA/AI core, Gaokao
+   (choice + fill-in), Korean CSAT, EJU Course 1, TMUA Paper 1, Oxford
+   MAT (the multiple-choice sheet), STEP (answers-only), AMC 12, AIME
+   (integer-answer set), Euclid, and an IMO topic set — each served in an
    authentic **CBT (computer-based test) shell** modelled on the real
    exam interfaces (the NTA/JEE/NEET/SSC conventions): an instructions
    screen with the palette legend explained and a declaration checkbox
@@ -72,6 +82,23 @@ provisional and their gaps are listed, never hidden.
    countdown honestly recomputed from the wall clock (time away
    counts, like a real CBT; a fully-expired sitting is discarded at
    load).
+
+   **Exam-topic coverage census (2026-11-15, owner directive: “make
+   sure different exams topics are also covered”):** every registry
+   entry with a researched mathematics section now ships a preset the
+   moment at least one of its units has meaningful written coverage —
+   26 of the 30 researched-maths ids are served by 27 registry-backed
+   presets; the four whose maths is entirely unwritten (IIT JAM, AP,
+   Putnam, FE/NCEES) sit in the NOT_YET_SERVED ledger inside
+   `scripts/verify-exam-coverage.ts` with reasons, and the 13
+   not-applicable + 13 adjacent entries are accounted for as such.
+   Section shapes reuse the existing machinery: GATE mirrors its real
+   1-mark/2-mark MCQ + NAT tiers, SAT its multiple-choice + grid-in
+   modules, Gaokao its choice + fill-in volumes, AIME/STEP/Euclid run
+   answers-only type-in papers. Scopes stay provisional chapter maps
+   over the WRITTEN library (FM · ANS · EA · AA) with every pending
+   topic in `caveats`; explicit scope lists are reviewed per library
+   expansion.
 2. **Adaptive drill** — targets the study ledger's weakest chapters
    (server-side `autoFocusChapters` reuses `scoreQueueItem`: forgetting
    risk, overdue days, low mastery — top 5, with the queue's own reason
@@ -136,10 +163,15 @@ provisional and their gaps are listed, never hidden.
 ## Architecture
 
 ```
-src/data/exams/presets.ts      6 exam presets (formats, provisional
-                               scopes, caveats, registryId links) with
+src/data/exams/presets.ts      28 exam presets across every registry
+                               family (formats, provisional scopes,
+                               caveats, registryId links) with
                                per-section question types + marking
-                               (JEE A/B, CAT MCQ/TITA + calculator)
+                               (JEE A/B, CAT MCQ/TITA + calculator,
+                               GATE 1/2-mark + NAT, SAT MCQ + grid-in,
+                               Gaokao choice + fill-in, AIME/STEP/Euclid
+                               answers-only) + EXAM_CATEGORY_GROUPS
+                               display grouping
 src/lib/practice/
   types.ts                     isomorphic contracts (+ DifficultyBand,
                                DifficultyInfo, difficulty fields on
@@ -240,7 +272,7 @@ The difficulty-weighted variant re-weighs chapters by `1 + mean
 chapter difficulty/100` (up to 2×) — shown beside the plain number,
 never replacing it.
 
-## Quality gates (all green, 2026-11-09)
+## Quality gates (all green, 2026-11-15)
 
 - `bun run scripts/verify-practice.ts` — **208/208**: pool shape + key
   uniqueness, determinism (same seed → same paper; different seed →
@@ -282,16 +314,46 @@ never replacing it.
   mobile 390px (floating palette drawer with its own section tabs,
   numeric keypad, 44px touch targets, no horizontal overflow), zero
   console errors at 1280px and 390px.
-- Regression: `verify-revision` 88/88 · `smoke-revision` 42/42 ·
-  `bunx tsc --noEmit` clean · `bunx eslint .` 0 errors (2
-  pre-existing warnings).
+- **Exam-topic coverage pass (2026-11-15):**
+  `bun run scripts/verify-exam-coverage.ts` — **2,433/2,433**:
+  registry completeness (56 entries accounted: 26 of 30
+  researched-maths ids served by presets; IIT JAM / AP / Putnam /
+  FE-NCEES in the NOT_YET_SERVED ledger with reasons; 13
+  not-applicable + 13 adjacent), preset↔registry consistency (region +
+  category match exactly; scopes resolve over written chapters; the
+  hand-authored EXPECTED table pins every preset's exact scope set +
+  caveat themes; the display-group mapping is total), paper topic
+  spread across 28 presets × 3 seeds × 3 bands (scope fidelity, no
+  repeats, sections fill to min(count, pool), the round-robin
+  guarantee — distinct chapters per section == min(count, eligible
+  chapters), book breadth vs the pigeonhole bound), determinism on
+  the new presets, numeric-pool sufficiency, and the AIME 15-question
+  answers-only shape.
+- Browser E2E `scripts/e2e-exam-presets.sh` — **66/66**: grouped
+  census renders (10 family headings, 28 cards, no orphan fallback
+  group), sampled new cards carry their section chips + caveats
+  (SAT grid-in, GATE NAT tiers, Gaokao fill-in, JEE Advanced
+  matrices, IMO proof honesty), a full SAT sitting (instructions →
+  module tabs → 15 MCQ palette → grid-in module with numeric entry
+  and no radios), a full AIME sitting (15 type-in questions, on-screen
+  keypad, no radios), zero console errors at 1280px, mobile 390px
+  with 28 cards + no horizontal overflow. VLM visual review of the
+  grouped tab and the AIME runner: PASS.
+- Regression: `verify-practice` 274/274 · `verify-revision` 88/88 ·
+  `smoke-revision` 42/42 · `bunx tsc --noEmit` (only the 3 pre-existing
+  app-shell.tsx TS2322 errors documented on HEAD) · `bunx eslint .`
+  0 errors (5 pre-existing warnings).
 
 ## Known limitations (honest)
 
 - Exam scopes are provisional chapter maps; they grow automatically
-  when '*' scope books gain chapters, but explicit lists (CAT) are
-  reviewed per library expansion. EXAM_REGISTRY research (official
-  syllabus PDFs) is still pending and will supersede these mappings.
+  when '*' scope books gain chapters, but explicit lists (CAT, SAT,
+  GATE, GMAT, UPSC, UGC NET, CA, ISI, EJU, TMUA, MAT, the olympiad
+  set) are reviewed per library expansion —
+  verify-exam-coverage.ts's EXPECTED table is the review checklist.
+  The registry's official-syllabus research stays the backlog; the
+  four NOT_YET_SERVED exams (IIT JAM, AP, Putnam, FE/NCEES) ship
+  presets as soon as their units land in writing.
 - The CBT shell imitates the shared NTA/JEE/NEET/SSC conventions
   (palette states, action bar, submit modal) plus the real section
   structures of JEE (A/B) and CAT (MCQ/TITA + calculator) — it is a
