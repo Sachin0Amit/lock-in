@@ -48,6 +48,37 @@ export {}
  *
  * Section G (authored 3.1) is appended at authoring time and imports the
  * chapter file directly.
+ *
+ * Sections H + I (run 106, pre-prose for lesson 3.2 "Conjugate and
+ * Modulus", id aa-conjugate-and-modulus) pin every number of THAT
+ * lesson BEFORE any prose, on the same discipline:
+ *
+ *   (H) the 3.2 engine suite — the mirror/involution engine, the seeds
+ *       cashed on the 5−12−13 witness, the real/imaginary
+ *       characterisation sweeps, the four arithmetic-distribution
+ *       laws of the conjugate (+, −, ×, ÷ and powers) on integer
+ *       grids, the census-table witnesses, the reciprocal engine
+ *       1/z = z̄/|z|², the division witnesses cross-checked by
+ *       multiplication, the conjugate-power shortcut
+ *       ((2−3i)⁴ from (2+3i)⁴), the sin-θ hunt families (both the
+ *       Illustration family and the exercise family, with the exact
+ *       Re/Im component formulas), the equidistant law |z−a| = |z̄−a|
+ *       for real a, the modulus witness roster, the four twins
+ *       |z| = |z̄| = |−z| = |−z̄|, the equal-modulus lattice census
+ *       (12 points on |z| = 5; the shifted circle |z−3−4i| = 5 also
+ *       12, through the origin), the modulus laws (multiplicativity
+ *       swept + the 65 = 5·13 witness, quotients, powers incl.
+ *       |(−5+12i)²| = 169), the triangle inequality (swept; the
+ *       8√2 < 18 strict witness; the 3√2 equality witness), the
+ *       reverse triangle inequality, the sharp form
+ *       |z₁+z₂|² = |z₁|²+|z₂|²+2Re(z₁z̄₂), the two-variable
+ *       Cauchy–Schwarz by AL 9.3's discriminant discipline, the
+ *       diamond engine (|z−z̄|+|z+z̄| = 2|x|+2|y|), the isosceles
+ *       engine (sides 8/4√5/4√5, area 32), the z̄/z quadrant law, the
+ *       y+ix = i·z̄ lemma with the seventh-power transfer witness, the
+ *       parallelogram law, and the distance-reading sweep;
+ *   (I) quiz keys [1, 0, 3, 2, 0] and the full 15-exercise answer
+ *       ladder pinned pre-writing, every distractor priced.
  */
 
 /* ------------------------------------------------------------------ */
@@ -83,6 +114,7 @@ const cadd = (z: Cx, w: Cx): Cx => [z[0] + w[0], z[1] + w[1]]
 const csub = (z: Cx, w: Cx): Cx => [z[0] - w[0], z[1] - w[1]]
 const cmul = (z: Cx, w: Cx): Cx => [z[0] * w[0] - z[1] * w[1], z[0] * w[1] + z[1] * w[0]]
 const cconj = (z: Cx): Cx => [z[0], -z[1]]
+const cmod = (z: Cx): number => Math.hypot(z[0], z[1])
 const ceq = (z: Cx, w: Cx): boolean => z[0] === w[0] && z[1] === w[1]
 /** the imaginary unit as a pair — the letter whose square the rule earns */
 const IOTA: Cx = [0, 1]
@@ -690,15 +722,14 @@ const ROSTER: Cx[] = [
   const ch = chapter03
   ok(ch.number === 3 && ch.slug === 'complex-numbers' && ch.title === 'Complex Numbers: the New Rung', 'G1 chapter wrapper number/slug/title')
   ok(ch.status === 'in-progress', 'G2 chapter status in-progress (opened run 105)')
-  ok(ch.lessons.length === 1, `G3 chapter shape: 1 lesson written (got ${ch.lessons.length})`)
+  ok(ch.lessons.length === 2, `G3 chapter shape re-pinned run 106: 2 lessons written (got ${ch.lessons.length})`)
   const planned = ch.plannedLessons ?? []
   ok(
-    planned.length === 4 &&
-      planned[0] === 'Conjugate and Modulus' &&
-      planned[1] === 'Negative Discriminants: the Doors Turn Complex' &&
-      planned[2] === 'The Argand Plane: Polar Form and the Argument' &&
-      planned[3] === 'De Moivre, Roots of Unity and the Complex Loci',
-    `G4 plannedLessons = the four remaining (got ${planned.join(' | ')})`,
+    planned.length === 3 &&
+      planned[0] === 'Negative Discriminants: the Doors Turn Complex' &&
+      planned[1] === 'The Argand Plane: Polar Form and the Argument' &&
+      planned[2] === 'De Moivre, Roots of Unity and the Complex Loci',
+    `G4 plannedLessons re-pinned run 106 = the three remaining (got ${planned.join(' | ')})`,
   )
   ok(ch.summary.includes('complex') && ch.summary.includes('closure failure'), 'G5 the chapter summary names the umbrella topics (complex numbers, the closure failure)')
 
@@ -824,7 +855,646 @@ const ROSTER: Cx[] = [
   ok(dataHits.length === 1, `G50 lesson id unique in book data (got files: ${dataHits.join(' ')})`)
 }
 
-console.log(`\nverify-book4-ch03 sections A-G: ${passed} passed, ${failed} failed`)
+/* ------------------------------------------------------------------ */
+/* (H) the conjugate-and-modulus engine suite — lesson 3.2 (run 106)   */
+/* ------------------------------------------------------------------ */
+
+// H1. the mirror basics: conj on the witness roster + the involution law.
+{
+  ok(ceq(cconj([5, -12]), [5, 12]), 'H1.1 conj(5−12i) = 5+12i')
+  ok(ceq(cconj([-7, 24]), [-7, -24]), 'H1.2 conj(−7+24i) = −7−24i')
+  ok(ceq(cconj([0, 3]), [0, -3]), 'H1.3 conj(3i) = −3i (the purely imaginary mirror)')
+  ok(ceq(cconj([7, 0]), [7, 0]), 'H1.4 a purely real z is its own conjugate')
+  let bad = 0
+  for (const a of rng(-5, 5)) for (const b of rng(-5, 5)) if (!ceq(cconj(cconj([a, b])), [a, b])) bad++
+  ok(bad === 0, 'H1.5 the involution (z̄)̄ = z on the 11×11 integer grid')
+}
+
+// H2. the seeds cashed on the lesson witness z = 5−12i (the 5-12-13 triple).
+{
+  const z: Cx = [5, -12]
+  ok(ceq(cadd(z, cconj(z)), [10, 0]), 'H2.1 z + z̄ = 10 = 2 Re(z)')
+  ok(ceq(csub(z, cconj(z)), [0, -24]), 'H2.2 z − z̄ = −24i = 2i Im(z)')
+  ok(ceq(cmul(z, cconj(z)), [169, 0]), 'H2.3 zz̄ = 169 = 5² + 12²')
+  eq(cmod(z), 13, 1e-12, 'H2.4 |5−12i| = 13 (the triple cashed)')
+}
+
+// H3. the characterisations: z = z̄ ⟺ purely real; z + z̄ = 0 ⟺ purely
+// imaginary — swept componentwise on the grid.
+{
+  let bad = 0
+  for (const a of rng(-4, 4)) for (const b of rng(-4, 4)) {
+    const z: Cx = [a, b]
+    const selfConj = ceq(z, cconj(z))
+    if (selfConj !== (b === 0)) bad++
+    const sumZero = ceq(cadd(z, cconj(z)), [0, 0])
+    if (sumZero !== (a === 0)) bad++
+  }
+  ok(bad === 0, 'H3 z = z̄ ⟺ purely real and z + z̄ = 0 ⟺ purely imaginary, swept on the 9×9 grid')
+}
+
+// H4. the four arithmetic-distribution laws: conjugation commutes with
+// +, −, × (integer grid sweeps) and with division (exact pairs), plus
+// the power law conj(z^n) = (conj z)^n by repeated multiplication.
+{
+  let bad = 0
+  for (const a of rng(-3, 3)) for (const b of rng(-3, 3)) for (const c of rng(-3, 3)) for (const d of rng(-3, 3)) {
+    const z: Cx = [a, b]
+    const w: Cx = [c, d]
+    if (!ceq(cconj(cadd(z, w)), cadd(cconj(z), cconj(w)))) bad++
+    if (!ceq(cconj(csub(z, w)), csub(cconj(z), cconj(w)))) bad++
+    if (!ceq(cconj(cmul(z, w)), cmul(cconj(z), cconj(w)))) bad++
+  }
+  ok(bad === 0, 'H4.1 conj distributes over +, − and × on the 7^4 integer grid')
+  // division: every z = q·w with w ≠ 0 on small integers gives an exact pair q
+  let badDiv = 0
+  let divCount = 0
+  for (const p of rng(-2, 2)) for (const q of rng(-2, 2)) for (const c of rng(-3, 3)) for (const d of rng(-3, 3)) {
+    if (c === 0 && d === 0) continue
+    const w: Cx = [c, d]
+    const z: Cx = cmul([p, q], w)
+    const quot = cdiv(z, w)
+    if (Math.abs(quot[0] - p) > 1e-9 || Math.abs(quot[1] - q) > 1e-9) continue // not exact in floats
+    divCount++
+    const lhs = cconj([quot[0], quot[1]])
+    const rhs = cdiv(cconj(z), cconj(w))
+    if (Math.abs(lhs[0] - rhs[0]) > 1e-9 || Math.abs(lhs[1] - rhs[1]) > 1e-9) badDiv++
+  }
+  ok(divCount > 200 && badDiv === 0, `H4.2 conj distributes over ÷ on ${divCount} exact integer quotient pairs`)
+  // powers by repeated multiplication, n = 0..6
+  let badPow = 0
+  for (const a of rng(-3, 3)) for (const b of rng(-3, 3)) {
+    const z: Cx = [a, b]
+    let zn: Cx = [1, 0]
+    let cn: Cx = [1, 0]
+    for (let n = 0; n <= 6; n++) {
+      if (!ceq(cconj(zn), cn)) badPow++
+      zn = cmul(zn, z)
+      cn = cmul(cn, cconj(z))
+    }
+  }
+  ok(badPow === 0, 'H4.3 conj(z^n) = (conj z)^n for n = 0..6 on the 7×7 grid')
+}
+
+// H5. the census-table witnesses: z1 = 3+4i, z2 = 2−i for the sum,
+// difference and product rows; the division row rides the H7 witness
+// (5−5i)/(3+i) = 1−2i with its conjugate-route mirror.
+{
+  const z1: Cx = [3, 4]
+  const z2: Cx = [2, -1]
+  ok(ceq(cadd(z1, z2), [5, 3]), 'H5.1 z1+z2 = 5+3i')
+  ok(ceq(cconj(cadd(z1, z2)), cadd(cconj(z1), cconj(z2))), 'H5.2 conj(z1+z2) = 5−3i = z̄1+z̄2')
+  ok(ceq(csub(z1, z2), [1, 5]), 'H5.3 z1−z2 = 1+5i')
+  ok(ceq(cconj(csub(z1, z2)), csub(cconj(z1), cconj(z2))), 'H5.4 conj(z1−z2) = 1−5i = z̄1−z̄2')
+  ok(ceq(cmul(z1, z2), [10, 5]), 'H5.5 z1z2 = (3+4i)(2−i) = 10+5i')
+  ok(ceq(cconj(cmul(z1, z2)), cmul(cconj(z1), cconj(z2))), 'H5.6 conj(z1z2) = 10−5i = z̄1z̄2')
+  const q1: Cx = [5, -5]
+  const q2: Cx = [3, 1]
+  const quot = cdiv(q1, q2)
+  ok(Math.abs(quot[0] - 1) < 1e-9 && Math.abs(quot[1] + 2) < 1e-9, 'H5.7 (5−5i)/(3+i) = 1−2i')
+  ok(ceq(cconj([1, -2]), [1, 2]), 'H5.8 conj of the quotient = 1+2i')
+  const mirror = cdiv([5, 5], [3, -1])
+  ok(Math.abs(mirror[0] - 1) < 1e-9 && Math.abs(mirror[1] - 2) < 1e-9, 'H5.9 z̄1/z̄2 = (5+5i)/(3−i) = 1+2i — the division law mirrors')
+}
+
+// H6. the reciprocal engine: 1/z = z̄/|z|², checked by multiplication
+// and swept.
+{
+  const recip = (z: Cx): Cx => cdiv(cconj(z), [cmod(z) ** 2, 0])
+  const one31 = cmul([3, -4], recip([3, -4]))
+  ok(Math.abs(one31[0] - 1) < 1e-9 && Math.abs(one31[1]) < 1e-9, 'H6.1 1/(3−4i) = (3+4i)/25 — the product returns 1')
+  const r1 = recip([-3, 4])
+  ok(Math.abs(r1[0] + 3 / 25) < 1e-12 && Math.abs(r1[1] + 4 / 25) < 1e-12, 'H6.2 1/(−3+4i) = (−3−4i)/25 (the quiz key)')
+  const r2 = recip([4, 3])
+  ok(Math.abs(r2[0] - 4 / 25) < 1e-12 && Math.abs(r2[1] + 3 / 25) < 1e-12, 'H6.3 1/(4+3i) = (4−3i)/25 (the exercise)')
+  let bad = 0
+  for (const a of rng(-4, 4)) for (const b of rng(-4, 4)) {
+    if (a === 0 && b === 0) continue
+    const z: Cx = [a, b]
+    const one = cmul(z, recip(z))
+    if (Math.abs(one[0] - 1) > 1e-9 || Math.abs(one[1]) > 1e-9) bad++
+  }
+  ok(bad === 0, 'H6.4 z · z̄/|z|² = 1 for every non-zero grid point')
+}
+
+// H7. the division witnesses, cross-checked by multiplication both ways.
+{
+  const w1 = cdiv([5, -5], [3, 1])
+  ok(Math.abs(w1[0] - 1) < 1e-9 && Math.abs(w1[1] + 2) < 1e-9, 'H7.1 (5−5i)/(3+i) = 1−2i')
+  const back1 = cmul([3, 1], [1, -2])
+  ok(ceq(back1, [5, -5]), 'H7.2 check: (3+i)(1−2i) = 5−5i — the dividend returns')
+  const w2 = cdiv([5, -1], [1, 1])
+  ok(Math.abs(w2[0] - 2) < 1e-9 && Math.abs(w2[1] + 3) < 1e-9, 'H7.3 (5−i)/(1+i) = 2−3i (the exercise)')
+  const back2 = cmul([1, 1], [2, -3])
+  ok(ceq(back2, [5, -1]), 'H7.4 check: (1+i)(2−3i) = 5−i — the dividend returns')
+  eq(cmod(w1), Math.sqrt(5), 1e-12, 'H7.5 |1−2i| = √5 = |5−5i|/|3+i| = 5√2/√10 — the quotient modulus law witness')
+}
+
+// H8. the conjugate-power shortcut: (2+3i)² = −5+12i, so
+// (2+3i)⁴ = (−5+12i)² = −119−120i; conjugating the whole power gives
+// (2−3i)⁴ = −119+120i — computed by BOTH routes.
+{
+  const sq = cmul([2, 3], [2, 3])
+  ok(ceq(sq, [-5, 12]), 'H8.1 (2+3i)² = −5+12i')
+  const p4 = cmul(sq, sq)
+  ok(ceq(p4, [-119, -120]), 'H8.2 (2+3i)⁴ = (−5+12i)² = −119−120i')
+  const sqM = cmul([2, -3], [2, -3])
+  ok(ceq(sqM, [-5, -12]), 'H8.3 (2−3i)² = −5−12i')
+  const p4M = cmul(sqM, sqM)
+  ok(ceq(p4M, [-119, 120]), 'H8.4 (2−3i)⁴ = −119+120i by the direct route')
+  ok(ceq(cconj(p4), p4M), 'H8.5 the shortcut agrees: conj((2+3i)⁴) = (2−3i)⁴ — one conjugation replaces the re-expansion')
+}
+
+// H9. the sin-θ hunt families. Illustration family: (1+2is)/(2−is) has
+// Re = (2−2s²)/(4+s²) and Im = 5s/(4+s²): purely real ⟺ s = 0 (θ = nπ),
+// purely imaginary ⟺ s² = 1 (θ = (2k+1)π/2). Exercise family:
+// (1+2is)/(3−2is) has Re = (3−4s²)/(9+4s²), Im = 8s/(9+4s²): purely
+// real ⟺ s = 0, purely imaginary ⟺ s² = 3/4 (θ = nπ ± π/3).
+{
+  const huntA = (s: number): [number, number] => {
+    const num = cmul([1, 2 * s], [2, s])
+    const den = cmul([2, -s], [2, s])
+    return [num[0] / den[0], num[1] / den[0]]
+  }
+  ok(Math.abs(huntA(0)[0] - 0.5) < 1e-12 && Math.abs(huntA(0)[1]) < 1e-12, 'H9.1 at s = 0: (1+0i)/(2−0i) = 1/2 — purely real')
+  ok(Math.abs(huntA(1)[0]) < 1e-12 && Math.abs(huntA(1)[1] - 1) < 1e-12, 'H9.2 at s = 1: the quotient is i — purely imaginary')
+  ok(Math.abs(huntA(0.6)[0] - (2 - 2 * 0.36) / (4 + 0.36)) < 1e-12 && Math.abs(huntA(0.6)[1] - (5 * 0.6) / (4 + 0.36)) < 1e-12, 'H9.3 the component formulas Re = (2−2s²)/(4+s²), Im = 5s/(4+s²) hold mid-range')
+  let bad = 0
+  for (let k = 0; k <= 40; k++) {
+    const s = -1 + (2 * k) / 40
+    const [re, im] = huntA(s)
+    if (Math.abs(re - (2 - 2 * s * s) / (4 + s * s)) > 1e-12 || Math.abs(im - (5 * s) / (4 + s * s)) > 1e-12) bad++
+    if (Math.abs(im) > 1e-12 && Math.abs(re) > 1e-12 && Math.abs(s * s - 1) < 1e-12) bad++
+  }
+  ok(bad === 0, 'H9.4 the Illustration family: purely real ⟺ s = 0, purely imaginary ⟺ s = ±1, mixed otherwise')
+  const huntB = (s: number): [number, number] => {
+    const num = cmul([1, 2 * s], [3, 2 * s])
+    const den = cmul([3, -2 * s], [3, 2 * s])
+    return [num[0] / den[0], num[1] / den[0]]
+  }
+  const sr32 = Math.sqrt(3) / 2
+  ok(Math.abs(huntB(sr32)[0]) < 1e-12 && Math.abs(huntB(sr32)[1] - (8 * sr32) / (9 + 3)) < 1e-12, 'H9.5 at s = √3/2 the exercise quotient is purely imaginary (Re = 0)')
+  ok(Math.abs(huntB(0)[1]) < 1e-12 && Math.abs(huntB(0)[0] - 3 / 9) < 1e-12, 'H9.6 at s = 0 the exercise quotient is purely real (1/3)')
+  let badB = 0
+  for (let k = 0; k <= 40; k++) {
+    const s = -1 + (2 * k) / 40
+    const [re, im] = huntB(s)
+    if (Math.abs(re - (3 - 4 * s * s) / (9 + 4 * s * s)) > 1e-12 || Math.abs(im - (8 * s) / (9 + 4 * s * s)) > 1e-12) badB++
+    const reZero = Math.abs(3 - 4 * s * s) < 1e-12
+    const imZero = Math.abs(s) < 1e-12
+    if (Math.abs(re) < 1e-12 && !reZero) badB++
+    if (Math.abs(im) < 1e-12 && !imZero) badB++
+  }
+  ok(badB === 0, 'H9.7 the exercise family: Re = (3−4s²)/(9+4s²) and Im = 8s/(9+4s²) vanish exactly at s² = 3/4 and s = 0')
+}
+
+// H10. the equidistant law: for real a, |z−a| = |z̄−a| — the mirror keeps
+// every real-axis distance. Witness z = 3+4i, a = 5: both √20.
+{
+  const z: Cx = [3, 4]
+  const a = 5
+  eq(cmod(csub(z, [a, 0])), Math.sqrt(20), 1e-12, 'H10.1 |z−5| = |−2+4i| = √20')
+  eq(cmod(csub(cconj(z), [a, 0])), Math.sqrt(20), 1e-12, 'H10.2 |z̄−5| = |−2−4i| = √20 — equidistant')
+  let bad = 0
+  for (const a2 of rng(-4, 4)) for (const x of rng(-4, 4)) for (const y of rng(-4, 4)) {
+    const z: Cx = [x, y]
+    if (Math.abs(cmod(csub(z, [a2, 0])) - cmod(csub(cconj(z), [a2, 0]))) > 1e-9) bad++
+  }
+  ok(bad === 0, 'H10.3 |z−a| = |z̄−a| for every real a and grid point z')
+}
+
+// H11. the modulus witness roster.
+{
+  eq(cmod([5, -12]), 13, 1e-12, 'H11.1 |5−12i| = 13')
+  eq(cmod([-7, 24]), 25, 1e-12, 'H11.2 |−7+24i| = 25')
+  eq(cmod([3, 4]), 5, 1e-12, 'H11.3 |3+4i| = 5')
+  eq(cmod([-5, 12]), 13, 1e-12, 'H11.4 |−5+12i| = 13')
+  eq(cmod([0, 7]), 7, 1e-12, 'H11.5 |7i| = 7 — the purely imaginary modulus is the coefficient')
+  eq(cmod([-6, 0]), 6, 1e-12, 'H11.6 |−6| = 6 — the real modulus is the absolute value')
+  eq(cmod([-8, 15]), 17, 1e-12, 'H11.7 |−8+15i| = 17')
+  eq(cmod([6, -8]), 10, 1e-12, 'H11.8 |6−8i| = 10 (the quiz key)')
+  ok(cmod([0, 0]) === 0, 'H11.9 |z| = 0 exactly at z = 0')
+}
+
+// H12. the four twins share the radius: |z| = |z̄| = |−z| = |−z̄|.
+{
+  let bad = 0
+  for (const a of rng(-4, 4)) for (const b of rng(-4, 4)) {
+    const z: Cx = [a, b]
+    const m = cmod(z)
+    if (Math.abs(cmod(cconj(z)) - m) > 1e-9) bad++
+    if (Math.abs(cmod([-a, -b]) - m) > 1e-9) bad++
+    if (Math.abs(cmod(cconj([-a, -b])) - m) > 1e-9) bad++
+  }
+  ok(bad === 0, 'H12 |z| = |z̄| = |−z| = |−z̄| on the 9×9 grid — the mirror and the antipode keep the radius')
+}
+
+// H13. the equal-modulus census: exactly 12 lattice points carry |z| = 5;
+// the shifted circle |z−3−4i| = 5 also carries exactly 12 lattice points and
+// passes through the origin.
+{
+  const on5: string[] = []
+  for (const x of rng(-5, 5)) for (const y of rng(-5, 5)) if (x * x + y * y === 25) on5.push(`${x},${y}`)
+  ok(on5.length === 12, `H13.1 exactly 12 lattice points on |z| = 5 (got ${on5.length})`)
+  ok(on5.includes('3,4') && on5.includes('4,3') && on5.includes('5,0') && on5.includes('0,5') && on5.includes('-4,-3'), 'H13.2 the census includes the 3-4-5 sign family and the axis seats')
+  eq(cmod(csub([0, 0], [3, 4])), 5, 1e-12, 'H13.3 the shifted circle |z−3−4i| = 5 passes through the origin')
+  let cnt = 0
+  for (const x of rng(-3, 9)) for (const y of rng(-2, 10)) {
+    const dx = x - 3
+    const dy = y - 4
+    if (dx * dx + dy * dy === 25) cnt++
+  }
+  ok(cnt === 12, `H13.4 exactly 12 lattice points on |z−3−4i| = 5 (got ${cnt})`)
+}
+
+// H14. the modulus laws: multiplicativity swept + the big witness
+// |(3+4i)(5−12i)| = |63−16i| = 65 = 5·13; powers |(3+4i)²| = 25 and
+// |(−5+12i)²| = |−119−120i| = 169 = 13²; the quotient law on H7's witness.
+{
+  let bad = 0
+  for (const a of rng(-3, 3)) for (const b of rng(-3, 3)) for (const c of rng(-3, 3)) for (const d of rng(-3, 3)) {
+    if (c === 0 && d === 0) continue
+    const m = cmod(cmul([a, b], [c, d]))
+    if (Math.abs(m - cmod([a, b]) * cmod([c, d])) > 1e-9) bad++
+  }
+  ok(bad === 0, 'H14.1 |z1·z2| = |z1||z2| swept on the 7^4 grid')
+  const prod = cmul([3, 4], [5, -12])
+  ok(ceq(prod, [63, -16]), 'H14.2 (3+4i)(5−12i) = 63−16i')
+  eq(cmod(prod), 65, 1e-12, 'H14.3 |63−16i| = 65 = 5·13 — the law on the roster witness')
+  const sq34 = cmul([3, 4], [3, 4])
+  ok(ceq(sq34, [-7, 24]), 'H14.4 (3+4i)² = −7+24i')
+  eq(cmod(sq34), 25, 1e-12, 'H14.5 |−7+24i| = 25 = 5² — the power law')
+  const sq512 = cmul([-5, 12], [-5, 12])
+  ok(ceq(sq512, [-119, -120]), 'H14.6 (−5+12i)² = −119−120i')
+  eq(cmod(sq512), 169, 1e-12, 'H14.7 |−119−120i| = 169 = 13² — the power law cashed')
+  eq(cmod([1, -2]) * cmod([3, 1]), cmod([5, -5]), 1e-12, 'H14.8 |1−2i|·|3+i| = √5·√10 = |5−5i| — the dividend check')
+}
+
+// H15. the triangle inequality: swept; the strict witness
+// |(3+4i)+(5−12i)| = |8−8i| = 8√2 ≈ 11.31 < 18; the equality witness
+// (1+i)+(2+2i) = 3+3i with 3√2 = √2+2√2 — same direction; the max/min
+// engine for |z1| = 5, |z2| = 3: the reachable band is exactly [2, 8].
+{
+  let bad = 0
+  for (const a of rng(-3, 3)) for (const b of rng(-3, 3)) for (const c of rng(-3, 3)) for (const d of rng(-3, 3)) {
+    if (cmod(cadd([a, b], [c, d])) > cmod([a, b]) + cmod([c, d]) + 1e-9) bad++
+  }
+  ok(bad === 0, 'H15.1 |z1+z2| ≤ |z1|+|z2| swept on the 7^4 grid')
+  const sum = cadd([3, 4], [5, -12])
+  ok(ceq(sum, [8, -8]), 'H15.2 (3+4i)+(5−12i) = 8−8i')
+  eq(cmod(sum), Math.sqrt(128), 1e-12, 'H15.3 |8−8i| = 8√2 — strictly below 5+13 = 18')
+  ok(cmod(sum) < 18, 'H15.4 the strict instance 8√2 ≈ 11.31 < 18')
+  const eqSum = cadd([1, 1], [2, 2])
+  ok(ceq(eqSum, [3, 3]), 'H15.5 (1+i)+(2+2i) = 3+3i')
+  eq(cmod(eqSum), 3 * Math.sqrt(2), 1e-12, 'H15.6 |3+3i| = 3√2')
+  eq(cmod([1, 1]) + cmod([2, 2]), 3 * Math.sqrt(2), 1e-12, 'H15.7 √2 + 2√2 = 3√2 — EQUALITY: same direction')
+  ok(cmod([5, 0]) + cmod([3, 0]) === cmod([8, 0]), 'H15.8 the max: same direction 5+3 = 8')
+  ok(cmod(cadd([5, 0], [-3, 0])) === 2, 'H15.9 the min: opposite directions — 5 + (−3) = 2, so |z1+z2| = 2')
+  // no grid pair beats the band
+  let badBand = 0
+  for (let k = 0; k < 200; k++) {
+    const t = (2 * Math.PI * k) / 200
+    const m = cmod(cadd([5 * Math.cos(t), 5 * Math.sin(t)], [3 * Math.cos(t), 3 * Math.sin(t)]))
+    if (m > 8 + 1e-9 || m < 2 - 1e-9) badBand++
+  }
+  ok(badBand === 0, 'H15.10 with |z1| = 5, |z2| = 3 the sum stays inside the band [2, 8] on a direction sweep')
+}
+
+// H16. the reverse triangle inequality: ||z1|−|z2|| ≤ |z1−z2| — swept;
+// witness z1 = 1+i, z2 = 2−2i: |√2−2√2| = √2 ≤ |−1+3i| = √10.
+{
+  let bad = 0
+  for (const a of rng(-3, 3)) for (const b of rng(-3, 3)) for (const c of rng(-3, 3)) for (const d of rng(-3, 3)) {
+    const lhs = Math.abs(cmod([a, b]) - cmod([c, d]))
+    if (lhs > cmod(csub([a, b], [c, d])) + 1e-9) bad++
+  }
+  ok(bad === 0, 'H16.1 ||z1|−|z2|| ≤ |z1−z2| swept on the 7^4 grid')
+  eq(Math.abs(cmod([1, 1]) - cmod([2, -2])), Math.sqrt(2), 1e-12, 'H16.2 |√2 − 2√2| = √2 (the lower gap)')
+  eq(cmod(csub([1, 1], [2, -2])), Math.sqrt(10), 1e-12, 'H16.3 |(1+i)−(2−2i)| = |−1+3i| = √10 ≥ √2')
+}
+
+// H17. the sharp form |z1+z2|² = |z1|²+|z2|²+2Re(z1·z̄2) — swept and
+// witnessed: (3+4i)+(5−12i) = 8−8i, 128 = 25+169+2(−33).
+{
+  const sharp = (z1: Cx, z2: Cx): boolean => {
+    const lhs = cmod(cadd(z1, z2)) ** 2
+    const cross = cmul(z1, cconj(z2))
+    const rhs = cmod(z1) ** 2 + cmod(z2) ** 2 + 2 * cross[0]
+    return Math.abs(lhs - rhs) < 1e-9
+  }
+  let bad = 0
+  for (const a of rng(-3, 3)) for (const b of rng(-3, 3)) for (const c of rng(-3, 3)) for (const d of rng(-3, 3)) if (!sharp([a, b], [c, d])) bad++
+  ok(bad === 0, 'H17.1 |z1+z2|² = |z1|²+|z2|²+2Re(z1z̄2) on the 7^4 grid')
+  const cross = cmul([3, 4], cconj([5, -12]))
+  ok(ceq(cross, [-33, 56]), 'H17.2 (3+4i)·conj(5−12i) = (3+4i)(5+12i) = −33+56i, so Re = −33')
+  eq(cmod([8, -8]) ** 2, 25 + 169 + 2 * -33, 1e-9, 'H17.3 the witness: 128 = 25 + 169 − 66')
+}
+
+// H18. the two-variable Cauchy–Schwarz by AL 9.3's discriminant
+// discipline: (ac+bd)² ≤ (a²+b²)(c²+d²), because the quadratic
+// (a²+b²)t² − 2(ac+bd)t + (c²+d²) = |t·z1 − z2|² ≥ 0 for every real t,
+// so its discriminant cannot be positive.
+{
+  const dot = (a: number, b: number, c: number, d: number): number => a * c + b * d
+  let bad = 0
+  for (const a of rng(-3, 3)) for (const b of rng(-3, 3)) for (const c of rng(-3, 3)) for (const d of rng(-3, 3)) {
+    if (dot(a, b, c, d) ** 2 > (a * a + b * b) * (c * c + d * d) + 1e-9) bad++
+  }
+  ok(bad === 0, 'H18.1 (ac+bd)² ≤ (a²+b²)(c²+d²) swept on the 7^4 grid')
+  let badId = 0
+  for (const a of rng(-3, 3)) for (const b of rng(-3, 3)) for (const c of rng(-3, 3)) for (const d of rng(-3, 3)) for (const t of [-1, 0, 1, 2.5]) {
+    const quad = (a * a + b * b) * t * t - 2 * dot(a, b, c, d) * t + (c * c + d * d)
+    const dist2 = (t * a - c) ** 2 + (t * b - d) ** 2
+    if (Math.abs(quad - dist2) > 1e-9 || quad < -1e-9) badId++
+  }
+  ok(badId === 0, 'H18.2 the quadratic IS |t·z1−z2|² ≥ 0 — the identity and the sign, so its discriminant ≤ 0')
+  ok(dot(3, 4, 5, -12) === -33, 'H18.3 the witness dot product: 3·5 + 4·(−12) = −33')
+  eq(dot(3, 4, 5, -12) ** 2, 1089, 1e-9, 'H18.4 (−33)² = 1089')
+  eq((3 * 3 + 4 * 4) * (5 * 5 + 12 * 12), 4225, 1e-9, 'H18.5 the bound side: (a²+b²)(c²+d²) = 25·169 = 4225')
+  ok(dot(3, 4, 5, -12) ** 2 <= (3 * 3 + 4 * 4) * (5 * 5 + 12 * 12), 'H18.6 the witness inequality: 1089 < 4225 — strict, different directions')
+}
+
+// H19. the diamond engine: |z−z̄| + |z+z̄| = 2|y| + 2|x|; the = 12
+// instance is the square |x|+|y| = 6 with vertices (±6,0), (0,±6),
+// side 6√2 and area 72. The L6 corner hunt: the same equation at 8 with
+// zz̄ = 8 has exactly the four solutions z = ±2 ± 2i.
+{
+  let bad = 0
+  for (const x of rng(-5, 5)) for (const y of rng(-5, 5)) {
+    const z: Cx = [x, y]
+    const lhs = cmod(csub(z, cconj(z))) + cmod(cadd(z, cconj(z)))
+    if (Math.abs(lhs - (2 * Math.abs(y) + 2 * Math.abs(x))) > 1e-9) bad++
+  }
+  ok(bad === 0, 'H19.1 |z−z̄|+|z+z̄| = 2|y|+2|x| on the 11×11 grid (the seeds as lengths)')
+  const corners: Cx[] = [[6, 0], [-6, 0], [0, 6], [0, -6]]
+  ok(corners.every((c) => cmod(csub(c, cconj(c))) + cmod(cadd(c, cconj(c))) === 12), 'H19.2 the four vertices satisfy = 12')
+  eq(6 * Math.SQRT2, Math.sqrt(72), 1e-12, 'H19.3 the side 6√2 and the area 72 agree (square: area = side²/... diagonal²/2 = 72)')
+  eq(12 * 12 / 2, 72, 1e-9, 'H19.4 the diagonal 12 gives area 12²/2 = 72')
+  const sols: Cx[] = []
+  for (const x of rng(-6, 6)) for (const y of rng(-6, 6)) {
+    const z: Cx = [x, y]
+    if (cmod(csub(z, cconj(z))) + cmod(cadd(z, cconj(z))) === 8 && z[0] * z[0] + z[1] * z[1] === 8) sols.push(z)
+  }
+  ok(sols.length === 4 && sols.every(([x, y]) => Math.abs(Math.abs(x) - 2) < 1e-12 && Math.abs(Math.abs(y) - 2) < 1e-12), `H19.5 the corner hunt = 8 ∧ zz̄ = 8 has exactly the four solutions ±2±2i (got ${sols.length})`)
+}
+
+// H20. the isosceles engine: the triangle with vertices z1 = 3+4i,
+// z2 = 3−4i, z3 = −5 has |z1−z2| = 8 (the mirror side) and
+// |z1−z3| = |z2−z3| = |8±4i| = 4√5 — isosceles; area = ½·8·8 = 32.
+{
+  const z1: Cx = [3, 4]
+  const z2: Cx = [3, -4]
+  const z3: Cx = [-5, 0]
+  eq(cmod(csub(z1, z2)), 8, 1e-12, 'H20.1 |z1−z2| = |8i| = 8 (the conjugate side)')
+  eq(cmod(csub(z1, z3)), 4 * Math.sqrt(5), 1e-12, 'H20.2 |z1−z3| = |8+4i| = 4√5')
+  eq(cmod(csub(z2, z3)), 4 * Math.sqrt(5), 1e-12, 'H20.3 |z2−z3| = |8−4i| = 4√5 — the base apex twin')
+  ok(Math.abs(cmod(csub(z1, z2)) - 4 * Math.sqrt(5)) > 1e-9, 'H20.4 the mirror side 8 differs from the equal sides 4√5 ≈ 8.944 — isosceles, not equilateral')
+  eq((1 / 2) * 8 * 8, 32, 1e-9, 'H20.5 the area: base 8 (vertical at x = 3), height 8 (apex x = −5), area 32')
+}
+
+// H21. the z̄/z quadrant law: for z = x+iy in the FIRST quadrant,
+// z̄/z = ((x²−y²) − 2ixy)/(x²+y²) lands in the FOURTH quadrant exactly
+// when x > y > 0.
+{
+  const ratio = (z: Cx): Cx => cdiv(cconj(z), z)
+  let bad = 0
+  for (const x of rng(1, 4)) for (const y of rng(1, 4)) {
+    const r = ratio([x, y])
+    const inFourth = r[0] > 0 && r[1] < 0
+    if (inFourth !== (x > y)) bad++
+  }
+  ok(bad === 0, 'H21.1 z̄/z in the fourth quadrant ⟺ x > y > 0 (first-quadrant sweep)')
+  const r = ratio([3, 1])
+  ok(r[0] > 0 && r[1] < 0, 'H21.2 the witness x = 3 > y = 1: z̄/z in the fourth quadrant')
+  const rEq = ratio([2, 2])
+  ok(Math.abs(rEq[0]) < 1e-12 && rEq[1] < 0, 'H21.3 the boundary x = y: z̄/z lands on the negative imaginary axis (the isosceles right turn)')
+  const rNo = ratio([1, 3])
+  ok(rNo[0] < 0 && rNo[1] < 0, 'H21.4 x < y: the third quadrant — the law prices the boundary')
+}
+
+// H22. the y+ix = i·z̄ lemma and the seventh-power transfer: if
+// (x+iy)⁷ = A+iB then (y+ix)⁷ = −B−iA. Witness x = 2, y = 1:
+// (2+i)⁷ = −278−29i and (1+2i)⁷ = 29+278i.
+{
+  let bad = 0
+  for (const x of rng(-2, 2)) for (const y of rng(-2, 2)) {
+    const lhs: Cx = [y, x]
+    const rhs = cmul(IOTA, cconj([x, y]))
+    if (!ceq(lhs, rhs)) bad++
+  }
+  ok(bad === 0, 'H22.1 y+ix = i·z̄ identically on the 5×5 grid')
+  const pow = (z: Cx, n: number): Cx => {
+    let acc: Cx = [1, 0]
+    for (let k = 0; k < n; k++) acc = cmul(acc, z)
+    return acc
+  }
+  const z7 = pow([2, 1], 7)
+  ok(ceq(z7, [-278, -29]), 'H22.2 (2+i)⁷ = −278−29i (so A = −278, B = −29)')
+  const w7 = pow([1, 2], 7)
+  ok(ceq(w7, [29, 278]), 'H22.3 (1+2i)⁷ = 29+278i')
+  ok(ceq(w7, [-z7[1], -z7[0]]), 'H22.4 (1+2i)⁷ = −B−iA = 29+278i — the transfer law on the witness')
+}
+
+// H23. the parallelogram law |z1+z2|² + |z1−z2|² = 2(|z1|²+|z2|²) —
+// swept; witness 128+260 = 2(25+169) = 388.
+{
+  let bad = 0
+  for (const a of rng(-3, 3)) for (const b of rng(-3, 3)) for (const c of rng(-3, 3)) for (const d of rng(-3, 3)) {
+    const lhs = cmod(cadd([a, b], [c, d])) ** 2 + cmod(csub([a, b], [c, d])) ** 2
+    const rhs = 2 * (cmod([a, b]) ** 2 + cmod([c, d]) ** 2)
+    if (Math.abs(lhs - rhs) > 1e-9) bad++
+  }
+  ok(bad === 0, 'H23.1 the parallelogram law on the 7^4 grid')
+  eq(cmod([8, -8]) ** 2 + cmod([-2, 16]) ** 2, 388, 1e-9, 'H23.2 the witness left side: 128 + 260 = 388')
+  eq(2 * (25 + 169), 388, 1e-9, 'H23.3 the witness right side: 2(25+169) = 388')
+}
+
+// H24. the distance reading: |z1−z2| is the Euclidean distance between
+// the Argand points (a,b) and (c,d).
+{
+  let bad = 0
+  for (const a of rng(-4, 4)) for (const b of rng(-4, 4)) for (const c of rng(-4, 4)) for (const d of rng(-4, 4)) {
+    if (Math.abs(cmod(csub([a, b], [c, d])) - Math.hypot(a - c, b - d)) > 1e-9) bad++
+  }
+  ok(bad === 0, 'H24.1 |z1−z2| = √((a−c)²+(b−d)²) — the Pythagoras route, swept')
+  ok(cmod(csub([3, 4], [-5, 0])) === cmod(csub([3, -4], [-5, 0])), 'H24.2 the mirror pair stays equidistant from the real-axis seat −5 (H10 again, as lengths)')
+}
+
+/* ------------------------------------------------------------------ */
+/* (I) quiz keys and the 15-exercise answer ladder — lesson 3.2        */
+/* ------------------------------------------------------------------ */
+
+// I1. the quiz keys [1, 0, 3, 2, 0], every option priced.
+{
+  // Q1 |6−8i|: 10 (B); distractors √28 (the under-root subtraction fraud),
+  // 14 (the parts summed), 100 (zz̄ itself, the squared modulus)
+  eq(cmod([6, -8]), 10, 1e-12, 'I1.1 Q1 key: |6−8i| = 10')
+  eq(Math.sqrt(64 - 36), Math.sqrt(28), 1e-12, 'I1.2 Q1 distractor A: √(64−36) = √28 — the subtraction-under-root fraud')
+  eq(6 + 8, 14, 1e-12, 'I1.3 Q1 distractor C: 14 — the parts summed, a modulus is not a sum')
+  eq(cmod([6, -8]) ** 2, 100, 1e-12, 'I1.4 Q1 distractor D: 100 = zz̄ — the square of the modulus reported as the modulus')
+  // Q2 z+z̄ = 12, zz̄ = 40 → Re = 6, Im = ±2 (A); the consistency b² = 40−36 = 4
+  eq(40 - 36, 4, 1e-12, 'I1.5 Q2 key: b² = zz̄ − Re² = 40 − 36 = 4 → b = ±2, conditions consistent')
+  ok(Math.sqrt(4) === 2, 'I1.6 Q2 key: Im = ±2 with Re = 6')
+  // Q3 least |z1+z2| with |z1| = 5, |z2| = 3 → 2 (D); max 8
+  ok(Math.abs(5 - 3) === 2 && 5 + 3 === 8, 'I1.7 Q3 key: the reachable band [2, 8] — least 2, greatest 8')
+  eq(Math.sqrt(25 + 9), Math.sqrt(34), 1e-12, 'I1.8 Q3 distractor C: √34 — the perpendicular (Pythagoras) read')
+  // Q4 1/(−3+4i) = (−3−4i)/25 (C)
+  const r4 = cdiv([1, 0], [-3, 4])
+  ok(Math.abs(r4[0] + 3 / 25) < 1e-12 && Math.abs(r4[1] + 4 / 25) < 1e-12, 'I1.9 Q4 key: 1/(−3+4i) = (−3−4i)/25')
+  ok(Math.abs(cmod([-3, 4]) - 5) < 1e-12, 'I1.10 Q4 distractor B: |−3+4i| = 5 — the unsquared-modulus slip (25, not 5, is the divisor)')
+  // Q5 |z̄/z| for z = 3+4i → 1 (A); z̄/z = (−7−24i)/25
+  const rz = cdiv(cconj([3, 4]), [3, 4])
+  ok(Math.abs(rz[0] + 7 / 25) < 1e-12 && Math.abs(rz[1] + 24 / 25) < 1e-12, 'I1.11 Q5 computation: z̄/z = (3−4i)²/25 = (−7−24i)/25')
+  eq(cmod(rz), 1, 1e-12, 'I1.12 Q5 key: |z̄/z| = 5/5 = 1 — the quotient modulus law')
+}
+
+// I2. the 15-exercise ladder, every answer computed.
+{
+  // L1.1 conj + |z| for 5−12i and −7+24i
+  ok(ceq(cconj([5, -12]), [5, 12]) && cmod([5, -12]) === 13, 'I2.1 L1.1: conj(5−12i) = 5+12i, |5−12i| = 13, zz̄ = 169')
+  ok(ceq(cconj([-7, 24]), [-7, -24]) && cmod([-7, 24]) === 25, 'I2.2 L1.1: conj(−7+24i) = −7−24i, |−7+24i| = 25, zz̄ = 625')
+  // L1.2 z+z̄ = −8, z−z̄ = 6i → z = −4+3i
+  const z12: Cx = [-4, 3]
+  ok(ceq(cadd(z12, cconj(z12)), [-8, 0]) && ceq(csub(z12, cconj(z12)), [0, 6]), 'I2.3 L1.2: z = −4+3i (seeds: 2a = −8, 2b = 6)')
+  // L2.3 1/(4+3i) = (4−3i)/25 = 4/25 − 3/25 i
+  const r3 = cdiv([1, 0], [4, 3])
+  ok(Math.abs(r3[0] - 4 / 25) < 1e-12 && Math.abs(r3[1] + 3 / 25) < 1e-12, 'I2.4 L2.3: 1/(4+3i) = 4/25 − 3/25 i')
+  // L2.4 (x+iy)(3+i) = conj(7+i) → x = 2, y = −1
+  ok(ceq(cmul([2, -1], [3, 1]), [7, -1]), 'I2.5 L2.4: (2−i)(3+i) = 7−i = conj(7+i) — x = 2, y = −1')
+  // L3.5 (5−i)/(1+i) = 2−3i (H7 pinned)
+  // L3.6 the hunt family (H9 pinned): θ = nπ and θ = nπ ± π/3
+  ok(Math.abs(Math.sqrt(3) / 2 - Math.sin(Math.PI / 3)) < 1e-12, 'I2.6 L3.6: sin(π/3) = √3/2 — the purely-imaginary seat')
+  // L3.7 isosceles 8, 4√5, 4√5; area 32 (H20 pinned)
+  // L4.8 diamond = 12 → |x|+|y| = 6, area 72 (H19 pinned)
+  // L4.9 circle |z−3−4i| = 5 through O, 12 lattice seats (H13 pinned)
+  // L4.10 (2−3i)⁴ = −119+120i (H8 pinned)
+  // L5.11 sharp form + triangle inequality (H17/H18 pinned)
+  // L5.12 the z̄/z quadrant law (H21 pinned)
+  // L5.13 (x+iy)⁷ = A+iB ⟹ (y+ix)⁷ = −B−iA (H22 pinned)
+  // L6.14 parallelogram law (H23 pinned)
+  // L6.15 the corner hunt: four solutions ±2±2i (H19 pinned)
+  const s1: Cx = [2, 2]
+  ok(cmod(csub(s1, cconj(s1))) + cmod(cadd(s1, cconj(s1))) === 8 && s1[0] ** 2 + s1[1] ** 2 === 8, 'I2.7 L6.15: 2+2i is a corner (the other three by symmetry)')
+}
+
+/* ------------------------------------------------------------------ */
+/* (J) authored-audit — lesson 3.2 as written (run 106)                */
+/* ------------------------------------------------------------------ */
+
+{
+  const ch = chapter03
+  ok(ch.lessons.length === 2 && (ch.plannedLessons ?? []).length === 3, 'J1 chapter shape re-pinned run 106: 2 lessons written, 3 planned')
+  ok(ch.lessons[1].number === '3.2', 'J2 the second lesson is 3.2')
+
+  // no fold rides 3.2 — the ledger negative check (pre-flight + audit)
+  const ledger = fs.readFileSync('docs/project/TOC_FOLD_LEDGER.json', 'utf8')
+  ok(!ledger.includes('"host": "Conjugate and Modulus"'), 'J3 fold ledger: NO row is hosted by this lesson — the m2-03 folds are 3.1/3.4/3.5 territory')
+
+  const L = ch.lessons[1]
+  ok(L.id === 'aa-conjugate-and-modulus', 'J4 lesson id matches the pinned id')
+  ok(L.number === '3.2' && L.title === 'Conjugate and Modulus', 'J5 lesson number/title')
+  const blocks = L.blocks
+  const byKind: Record<string, number> = {}
+  for (const b of blocks) byKind[b.kind] = (byKind[b.kind] || 0) + 1
+  ok((byKind['para'] || 0) >= 14, `J6 para count >= 14 (got ${byKind['para']})`)
+  ok((byKind['heading'] || 0) === 7, `J7 heading count = 7 (got ${byKind['heading']})`)
+  ok((byKind['callout'] || 0) === 12, `J8 callout count = 12 (got ${byKind['callout']})`)
+  ok((byKind['example'] || 0) === 10, `J9 example (Illustration) count = 10 (got ${byKind['example']})`)
+  ok((byKind['derivation'] || 0) === 5, `J10 derivation count = 5 (got ${byKind['derivation']})`)
+  ok((byKind['figure'] || 0) === 3, `J11 figure count = 3 (got ${byKind['figure']})`)
+  ok((byKind['table'] || 0) === 2, `J12 table count = 2 (got ${byKind['table']})`)
+  ok((byKind['formula'] || 0) === 5, `J13 formula-card count = 5 (got ${byKind['formula']})`)
+  ok((byKind['list'] || 0) === 1 && (byKind['terms'] || 0) === 1, `J14 list + terms blocks (got ${byKind['list']}/${byKind['terms']})`)
+
+  // quiz keys vs the I pins
+  const quiz = blocks.find((b) => b.kind === 'quiz') as { items: Array<{ q: string; options: string[]; answer: number; explain: string }> }
+  const keys = quiz.items.map((i) => i.answer)
+  ok(keys.length === 5 && keys.join(',') === '1,0,3,2,0', `J15 quiz keys [1,0,3,2,0] vs authored ${keys.join(',')}`)
+  ok(quiz.items.every((i) => i.options.length === 4 && i.explain.length > 80), 'J16 every quiz item carries 4 options and a priced explain')
+
+  // exercises census + the solution contract
+  const ex = blocks.find((b) => b.kind === 'exercises') as { sets: Array<{ level: string; questions: Array<{ q: string; solution: string | string[]; answer?: string }> }> }
+  ok(ex.sets.map((s) => s.level).join(',') === 'L1,L2,L3,L4,L5,L6', 'J17 exercise levels L1-L6')
+  const ladder = ex.sets.map((s) => s.questions.length).join(',')
+  ok(ladder === '2,2,3,3,3,2', `J18 the ladder 2/2/3/3/3/2 (got ${ladder})`)
+  ok(ex.sets.reduce((n, s) => n + s.questions.length, 0) === 15, 'J19 exercise count = 15')
+  ok(ex.sets.every((s) => s.questions.every((qq) => Array.isArray(qq.solution) && qq.solution.length >= 3 && (qq.answer ?? '').length > 0)), 'J20 every exercise: steps-array solution (>= 3 moves) + answer string')
+
+  // example blocks carry NO answer field; all end on Hence
+  const exBlocks = blocks.filter((b) => b.kind === 'example') as Array<{ title: string; steps: string[] }>
+  ok(exBlocks.every((e) => !('answer' in e)), 'J21 example blocks carry no answer field (folded into Hence steps)')
+  ok(exBlocks.every((e) => e.steps[e.steps.length - 1].startsWith('Hence,')), 'J22 every Illustration ends on a Hence terminal step')
+  ok(exBlocks.some((e) => e.title.includes('sinθ')), 'J23 the sin-θ hunt Illustration present')
+  ok(exBlocks.some((e) => e.title.includes('|z − (3 + 4i)| = 5')), 'J24 the circle-locus Illustration present')
+  ok(exBlocks.some((e) => e.title.includes('lattice points z with |z| = 5')), 'J25 the lattice-census Illustration present')
+
+  // the DerivationStep contract on all five derivations
+  const derivs = blocks.filter((b) => b.kind === 'derivation') as Array<{ title: string; statement: string; steps: Array<{ label: string; formula?: string; explanation: string }>; result: string }>
+  ok(derivs.length === 5 && derivs.every((d) => d.statement.length > 40 && d.result.length > 0), 'J26 every derivation carries a statement + result')
+  ok(derivs.every((d) => d.steps.length >= 3 && d.steps.every((st) => st.label.length > 0 && st.explanation.length > 0 && (st.formula ?? '').length > 0)), 'J27 every derivation step: label + formula + explanation')
+  ok(derivs.some((d) => d.title.includes('conjugate respects')), 'J28 the conjugate-arithmetic derivation present')
+  ok(derivs.some((d) => d.title.includes('reciprocal engine')), 'J29 the reciprocal-engine derivation present')
+  ok(derivs.some((d) => d.title.includes('modulus multiplies')), 'J30 the modulus-multiplicativity derivation present')
+  ok(derivs.some((d) => d.title.includes('triangle inequality, proved')), 'J31 the triangle-inequality derivation present')
+  ok(derivs.some((d) => d.title.includes('reverse triangle')), 'J32 the reverse-triangle derivation present')
+
+  // figures: viewBox, aria, palette pins, no retired hexes
+  const figs = blocks.filter((b) => b.kind === 'figure') as Array<{ caption: string; svg: string }>
+  const f1 = figs[0].svg
+  const f2 = figs[1].svg
+  const f3 = figs[2].svg
+  ok(/viewBox="0 0 720 340"/.test(f1) && /viewBox="0 0 720 340"/.test(f2) && /viewBox="0 0 720 340"/.test(f3), 'J33 all three svgs viewBox 720x340')
+  ok(!/undefined|NaN/.test(f1) && !/undefined|NaN/.test(f2) && !/undefined|NaN/.test(f3), 'J34 no undefined/NaN in svg output')
+  ok(f1.includes('role="img"') && f1.includes('aria-label') && f2.includes('role="img"') && f2.includes('aria-label') && f3.includes('role="img"') && f3.includes('aria-label'), 'J35 all three figures carry role=img + aria-label')
+  const retiredJ = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c1d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']
+  ok(retiredJ.every((hex) => !(f1 + f2 + f3).includes(hex)), 'J36 no retired muted palette hexes in the figures')
+  ok(f1.includes('#16a34a') && f1.includes('#0d9488') && f1.includes('#d97706') && f1.includes('#ea580c'), 'J37 fig1 (mirror): the four vivid pins')
+  ok(f2.includes('#16a34a') && f2.includes('#0d9488') && f2.includes('#d97706') && f2.includes('#ea580c') && f2.includes('#65a30d'), 'J38 fig2 (distance): the five vivid pins')
+  ok(f1.includes('z = 4+3i') && f1.includes('z̄ = 4−3i') && f1.includes('w̄ = −2−5i') && f1.includes('self-conjugate'), 'J39 fig1 pins: the mirror seats (unicode macrons) + the self-conjugate note')
+  ok(f1.includes('the four twins of 4+3i') && f1.includes('−4−3i') && f1.includes('4−3i'), 'J40 fig1 pin: the twins panel headline + the four twin values')
+  ok(f2.includes('the detour: √5 + √5 ≈ 4.47') && f2.includes('√10 ≈ 3.16'), 'J41 fig2 pins: the detour tax numbers')
+  ok(f2.includes('centre 3+4i') && f2.includes('12 lattice seats in all'), 'J42 fig2 pins: the circle locus + the census')
+  ok(f3.includes('#16a34a') && f3.includes('#d97706') && f3.includes('#ea580c'), 'J42b fig3 (multiplication): the three radius colours')
+  ok(f3.includes('63−16i') && f3.includes('r = 65') && f3.includes('5 · 13 = 65'), 'J42c fig3 pins: the product seat + the scale law')
+  ok(f3.includes('63-16-65 triple'), 'J42d fig3 pin: the triple-multiplication caption')
+
+  // prereqs resolve + sources exist
+  for (const p of L.prerequisites ?? []) {
+    const found = execSync(`grep -rl "id: '${p}'" src/data/library/books/ 2>/dev/null || true`, { encoding: 'utf8' }).trim()
+    ok(found.length > 0, `J43 prereq ${p} resolves in the shelf data`)
+  }
+  const srcLog = fs.readFileSync('docs/project/SOURCE_LOG.md', 'utf8')
+  for (const s of L.sources ?? []) ok(srcLog.includes(s), `J44 source key ${s} present in SOURCE_LOG.md`)
+
+  // honesty scans
+  const allText = JSON.stringify(blocks)
+  ok(!allText.includes('TODO') && !allText.includes('XXX') && !allText.includes('【') && !allText.includes('to be completed'), 'J45 honesty scan: no placeholders')
+  ok(!allText.toLowerCase().includes('reproduced from'), 'J46 honesty scan: no reproduction language')
+
+  // cross-reference pins in prose
+  ok(allText.includes('AL 9.3'), 'J47.1 AL 9.3 (the discriminant discipline) named in prose')
+  ok(allText.includes('lesson 3.1'), 'J47.2 lesson 3.1 named in prose')
+  ok(allText.includes('lesson 3.3') && allText.includes('lesson 3.4') && allText.includes('lesson 3.5'), 'J47.3 the three forward pointers named in prose')
+  ok(allText.includes('12 lattice'), 'J47.4 the 12-lattice census in prose')
+  ok(allText.includes('11.31'), 'J47.5 the 8√2 ≈ 11.31 < 18 witness in prose (the plain-number form)')
+  ok(allText.includes('625'), 'J47.6 the 625 power-law witness in prose')
+  ok(allText.includes('Wessel'), 'J47.7 Wessel named in prose')
+  ok(allText.includes('BAND ENGINE'), 'J47.8 the band engine named in prose')
+  ok(allText.includes('Bombelli'), 'J47.9 the Bombelli cross-reference priced')
+  ok(allText.includes('Cauchy–Schwarz'), 'J47.10 Cauchy–Schwarz named in prose')
+  ok(allText.includes('equidistant'), 'J47.11 the equidistant law named in prose')
+  ok(allText.includes('triangle inequality'), 'J47.12 the triangle inequality named in prose')
+
+  // honest word count + repo-wide id uniqueness
+  const wordCount = countLessonWords(L as never)
+  ok(wordCount >= 4800, `J48 honest word count >= 4800 (got ${wordCount})`)
+  console.log(`J48 word count: ${wordCount}`)
+  const hits = execSync(`grep -rl "aa-conjugate-and-modulus" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
+  const dataHits = hits.filter((h) => h.includes('/books/'))
+  ok(dataHits.length === 1, `J49 lesson id unique in book data (got files: ${dataHits.join(' ')})`)
+}
+
+console.log(`\nverify-book4-ch03 sections A-J: ${passed} passed, ${failed} failed`)
 if (failed > 0) {
   console.log('FAILURES:')
   failures.forEach((f) => console.log('  - ' + f))
