@@ -5,7 +5,7 @@ import type { Book, Chapter } from '../../../types'
  * (the shelf's own 'Foundation Mathematics').
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 8 chapters /
- * 24 planned lessons, zero written. Lesson ids will use the `cf-` prefix
+ * 27 planned lessons, zero written. Lesson ids will use the `cf-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the binary/codes chapter defers
@@ -26,6 +26,11 @@ import type { Book, Chapter } from '../../../types'
  *   CSE register's expectation of machine literacy before the core.
  * - Exam types: school/board descriptive + the aptitude-style reasoning
  *   found in banking/SSC computer-awareness papers.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the Cambridge 9618 + IOI lines audited — the numbering-systems and compression lessons added. The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -37,7 +42,7 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'The Information Processing Cycle',
+      'The Basic Structure and Operation of the Computer (the information processing cycle; the program development tools)',
       'A Census of Hardware: Desktops to Embedded Chips',
       'Software: the Invisible Half of the Machine',
     ],
@@ -61,13 +66,15 @@ const chapters: Chapter[] = [
     slug: 'data-representation-first-meeting',
     title: 'Data Representation: a First Meeting',
     summary:
-      'Bits, the binary language, and why two symbols carry everything: number bases at the first-meeting level, codes (ASCII and its characters, BCD), measuring information (bit, byte, KB to the honest SI ladder), text, images and sound as bits — the full theory hands off to Arithmetic and Number Systems and Digital Logic Design.',
+      'Bits, the binary language, and why two symbols carry everything: the numbering systems census (binary, octal and hexadecimal with the conversion craft), codes (ASCII and its characters, BCD), measuring information (bit, byte, KB to the honest SI ladder), text, images and sound as bits (the multimedia ground), and compression as the packing question (lossless versus lossy — what images and audio actually give up). The full theory hands off to Arithmetic and Number Systems and Digital Logic Design.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Bits: Why Two Symbols Carry Everything',
+      'The Numbering Systems: Binary, Octal, Hexadecimal',
       'Codes: ASCII, Unicode and BCD',
       'Text, Images and Sound as Bits',
+      'Compression: Lossless and Lossy',
     ],
   },
   {
@@ -122,7 +129,7 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Files, Folders and the Desktop Metaphor',
+      'File Management: Files, Folders and the Desktop Metaphor',
       'File Formats: the Extension Contracts',
       'Managing and Protecting Your Digital Space',
     ],

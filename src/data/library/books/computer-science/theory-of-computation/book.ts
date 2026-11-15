@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Theory of Computation — the seventh book of the Computer Science shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 10 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `toc-` prefix
+ * 36 planned lessons, zero written. Lesson ids will use the `toc-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): this book absorbs the backlog's
@@ -27,6 +27,13 @@ import type { Book, Chapter } from '../../../types'
  *   roster exactly.
  * - Exam types: GATE MCQ (closure properties, pumping lemma
  *   applications, TM/decidability, NP reductions) + Sipser problem sets.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 8 + IOI syllabus lines
+ *   audited against this plan — three planned lessons added (BNF notation,
+ *   Post\u2019s Correspondence + Rice, the diagonal argument). Routing/verdict
+ *   record: docs/research/CS_EXAM_TOPIC_LEDGER.md; standing gate:
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -95,6 +102,7 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Context-Free Grammars: Definition and Craft',
+      'Grammars in Backus-Naur Form (BNF)',
       'Ambiguity and Chomsky Normal Form',
       'Pushdown Automata and the Equivalence',
       'The CFL Pumping Lemma and Its Boundary',
@@ -120,12 +128,13 @@ const chapters: Chapter[] = [
     slug: 'the-undecidable',
     title: 'The Undecidable',
     summary:
-      'The halting problem PROVED undecidable (diagonalization as the engine — the book\u2019s most-earned theorem), reducibility as the propagation discipline (one undecidable problem birthing the census — from language theory\u2019s emptiness question to the simple undecidable problem), and mapping reducibility defined with its honest usage rules.',
+      'The halting problem PROVED undecidable (diagonalization as the engine — the book\u2019s most-earned theorem), reducibility as the propagation discipline (one undecidable problem birthing the census — from language theory\u2019s emptiness question to the simple undecidable problem), mapping reducibility defined with its honest usage rules, and the named companions of every course — the Post Correspondence Problem traced undecidable and Rice\u2019s theorem (what syntax can never say about semantics), with the tractable-versus-intractable boundary named for the complexity chapter.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Halting Problem, Proved',
       'Reducibility: the Propagation Discipline',
+      'Post\u2019s Correspondence Problem and Rice\u2019s Theorem',
       'Mapping Reducibility Defined',
     ],
   },
@@ -134,10 +143,11 @@ const chapters: Chapter[] = [
     slug: 'advanced-computability',
     title: 'Advanced Computability',
     summary:
-      'The strange deeps: the recursion theorem (a program that knows itself — stated with its astonishing content priced honestly), Turing reducibility versus mapping reducibility, and a definition of information (Kolmogorov complexity named with its own undecidability) — the frontier census of what computation cannot see about itself.',
+      'The strange deeps: the diagonal argument in its own right (Cantor\u2019s cardinality cage — the uncountable reals priced, Russell\u2019s paradox named as Set Theory\u2019s own wound — cross-referenced), the recursion theorem (a program that knows itself — stated with its astonishing content priced honestly), Turing reducibility versus mapping reducibility, and a definition of information (Kolmogorov complexity named with its own undecidability) — the frontier census of what computation cannot see about itself.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
+      'The Diagonal Argument: Cantor\u2019s Cage and Russell\u2019s Wound',
       'The Recursion Theorem: Programs That Know Themselves',
       'Turing Reducibility',
       'A Definition of Information',

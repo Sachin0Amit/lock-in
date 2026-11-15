@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Abstract Algebra — the twenty-second book of the Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 8 chapters /
- * 31 planned lessons, zero written. Lesson ids will use the `ab-` prefix
+ * 28 planned lessons, zero written. Lesson ids will use the `ab-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the shelf has computed inside
@@ -43,6 +43,11 @@ import type { Book, Chapter } from '../../../types'
  * - Exam types: university-course problems (L5) in Gallian's exercise
  *   style; the shelf's own banked structures used as the worked example
  *   census (\u2124\u2099, F[x], the symmetries of Geometry's figures).
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the GATE S1 monoids/groups line audited — the monoids-and-semigroups lesson added to the structures chapter. The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -56,6 +61,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Structures the Shelf Already Owns',
       'Binary Operations and Their Laws',
+      'Monoids and Semigroups: the Lighter Structures',
       'Isomorphism: Same Structure, Different Dress',
     ],
   },

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Digital Logic Design — the second book of the Computer Science shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 10 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `dld-` prefix
+ * 40 planned lessons, zero written. Lesson ids will use the `dld-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): this book absorbs the backlog's
@@ -29,6 +29,11 @@ import type { Book, Chapter } from '../../../types'
  *   the exact topics of chapters 2-7 here.
  * - Exam types: gate-style numerical MCQs (K-map groupings, counters,
  *   timing) + university problem sets.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the GATE S2 + UGC NET Unit 2 lines audited — three planned lessons added (floating-point representation, error detection with parity/Hamming, the multiplication-and-division shift discipline). The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -36,13 +41,15 @@ const chapters: Chapter[] = [
     slug: 'binary-systems',
     title: 'Binary Systems',
     summary:
-      'The digital idea: why two levels price better than ten. Binary numbers and base conversions (the honest craft, cross-referenced to Arithmetic and Number Systems), octal and hexadecimal as compression of binary, complements and signed representation, binary codes (BCD, Gray, excess-3), and storage registers — the medium the whole shelf is written in.',
+      'The digital idea: why two levels price better than ten. Binary numbers and base conversions (the honest craft, cross-referenced to Arithmetic and Number Systems), octal and hexadecimal as compression of binary, complements and signed representation with fixed-point pricing, floating-point representation (the fraction and the exponent — the IEEE 754 guard bits cross-referenced to Computer Organization and Architecture\u2019s arithmetic chapter), binary codes (BCD, Gray, excess-3), error detection and correction codes (parity and the Hamming distance priced — COA grows it onto memory), and storage registers — the medium the whole shelf is written in.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Digital Idea: Why Two Levels',
       'Number Base Conversions: the Honest Craft',
       'Complements and Signed Representation',
+      'Floating-Point: the Fraction and the Exponent',
+      'Error Detection and Correction: Parity, Hamming',
       'Binary Codes and Storage Registers',
     ],
   },
@@ -81,12 +88,13 @@ const chapters: Chapter[] = [
     slug: 'combinational-design',
     title: 'Combinational Design',
     summary:
-      'The design procedure as a discipline (specification → truth table → simplification → circuit), the arithmetic engine: half and full adders, subtractors and the borrow cascade, code converters, multilevel NAND/NOR circuits, and exclusive-OR and equivalence functions — the first circuits that genuinely compute.',
+      'The design procedure as a discipline (specification → truth table → simplification → circuit), the arithmetic engine: half and full adders, subtractors and the borrow cascade, the multiplication and division algorithms at gate level (the shift-and-add discipline, Booth\u2019s signed reading — COA prices the architectural view), code converters, multilevel NAND/NOR circuits, and exclusive-OR and equivalence functions — the first circuits that genuinely compute.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Design Procedure as a Discipline',
       'Adders and Subtractors',
+      'Multiplication and Division: the Shift-and-Add Discipline',
       'Code Converters and Multilevel Circuits',
       'Exclusive-OR and Equivalence Functions',
     ],

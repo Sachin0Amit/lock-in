@@ -22,6 +22,11 @@ import type { Book, Chapter } from '../../../types'
  *   documentation trails (the shared-responsibility model, the
  *   well-architected censuses).
  * - Exam types: architecture decision questions + cost arithmetic sets.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 9 cloud line audited — the resource-management/SLA lesson added. The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -57,12 +62,13 @@ const chapters: Chapter[] = [
     slug: 'the-services-census',
     title: 'The Services Census',
     summary:
-      'The catalogue learned as families: compute\u2019s census (VMs, containers, the function-as-a-service bet priced on cold starts), storage\u2019s census (object, block, file — the durability claims read honestly), the database services (the managed relational and NoSQL arcs — DBMS cross-referenced), and networking\u2019s glue (VPC\u2019s private topology, the load-balancer family).',
+      'The catalogue learned as families: compute\u2019s census (VMs, containers, the function-as-a-service bet priced on cold starts), storage\u2019s census (object, block, file — the durability claims read honestly), the database services (the managed relational and NoSQL arcs — DBMS cross-referenced), networking\u2019s glue (VPC\u2019s private topology, the load-balancer family), and the operating contract — resource management and the service-level agreement (what an SLA actually promises, uptime arithmetic, the credits remedy — SaaS/PaaS/IaaS cross-referenced from the ladder).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Compute\u2019s Census with Cold Starts',
       'Storage\u2019s Durability Claims',
+      'Resource Management and the Service-Level Agreement',
       'The Managed-Data Services',
     ],
   },

@@ -1,8 +1,8 @@
 {
   "target": "50+ major examinations: >=10 Indian, >=20 international; incl. government recruitment, university entrance, professional licensing, olympiads",
   "status": "research pass complete (2026-11-10, owner directive: cover the top exams of the world to maximum level, from basic engineering to the world's competitive exams)",
-  "updated": "2026-11-15",
-  "howToUse": "One entry per examination. mathUnits carry the mathematics scope researched from official/authoritative sources (research date + source in the 'researched' field). coverageMap lists the shelf books (ids as registered in src/data/library/index.ts) whose planned layouts carry that scope. 'not-applicable' = no mathematics section; 'adjacent' = the shelf serves it as tools or the scope mirrors a researched sibling. PRESET COVERAGE (2026-11-15, owner directive: \"make sure different exams topics are also covered\"): 26 of the 30 researched-maths ids below are served by the Practice hub's 27 registry-backed presets (src/data/exams/presets.ts); the four whose mathematics is entirely unwritten (iit-jam-math, ap, putnam, fe-ncees) sit in the NOT_YET_SERVED ledger of scripts/verify-exam-coverage.ts with reasons and ship presets as soon as their units land in writing; not-applicable and adjacent entries are accounted for as such. The completeness check re-runs on every pass.",
+  "updated": "2026-11-15 (CS exam-topic coverage pass)",
+  "howToUse": "One entry per examination. mathUnits carry the mathematics scope researched from official/authoritative sources (research date + source in the 'researched' field). coverageMap lists the shelf books (ids as registered in src/data/library/index.ts) whose planned layouts carry that scope. 'not-applicable' = no mathematics section; 'adjacent' = the shelf serves it as tools or the scope mirrors a researched sibling. PRESET COVERAGE (2026-11-15, owner directive: \"make sure different exams topics are also covered\"): 26 of the 30 researched-maths ids below are served by the Practice hub's 27 registry-backed presets (src/data/exams/presets.ts); the four whose mathematics is entirely unwritten (iit-jam-math, ap, putnam, fe-ncees) sit in the NOT_YET_SERVED ledger of scripts/verify-exam-coverage.ts with reasons and ship presets as soon as their units land in writing; not-applicable and adjacent entries are accounted for as such. The completeness check re-runs on every pass. CS COVERAGE (2026-11-15, owner directive: \"make sure those exams topics are to be covered in the books see if any topics is missing in cs books\"): the seven entries whose computer-science sections are researched (gate, ugc-net, ioi, cuet-ug, ib, a-levels, ap) carry csUnits + CS-extended coverageMaps; the 251-topic ledger and its zero-gap guarantee live in docs/research/CS_EXAM_TOPIC_LEDGER.md, pinned by scripts/verify-cs-exam-coverage.ts (re-runs on every pass).",
   "verification": "scripts/verify_topic_coverage.ts section I re-checks this file: every coverageMap book id exists on the shelf, every math-researched exam carries a coverage map, and the 50+/10-Indian/20-international targets hold.",
   "exams": [
     {
@@ -119,7 +119,7 @@
       "category": "pg-entrance-engineering",
       "conductor": "IISc/IITs",
       "status": "researched",
-      "researched": "gate2026.iitg.ac.in MA syllabus PDF + the common engineering-mathematics sections (linear algebra/calculus/differential equations/probability) (web-checked 2026-11-10)",
+      "researched": "gate2026.iitg.ac.in MA syllabus PDF + the common engineering-mathematics sections (linear algebra/calculus/differential equations/probability) (web-checked 2026-11-10) + GATE 2026 CSE syllabus PDF (gate2026.iitg.ac.in, CS_2026_Syllabus.pdf — the ten sections; web-checked 2026-11-15)",
       "mathSection": "Engineering Mathematics section (XE-A) + MA paper",
       "mathUnits": [
         "linear algebra: matrix algebra, systems of linear equations, eigenvalues/eigenvectors, LU decomposition",
@@ -137,9 +137,35 @@
         "mathematical-methods-for-engineering",
         "probability-theory",
         "statistics",
-        "numerical-analysis"
+        "numerical-analysis",
+        "discrete-mathematics",
+        "digital-logic-design",
+        "computer-organization-architecture",
+        "c-programming",
+        "data-structures",
+        "algorithms",
+        "theory-of-computation",
+        "compiler-design",
+        "operating-systems",
+        "database-management-systems",
+        "computer-networks",
+        "assembly-and-microprocessors",
+        "abstract-algebra"
       ],
-      "note": "the GATE MA (Mathematics) paper additionally maps the real analysis / abstract algebra / topology / complex analysis spines — the shelf's university pole"
+      "note": "the GATE MA (Mathematics) paper additionally maps the real analysis / abstract algebra / topology / complex analysis spines — the shelf's university pole",
+      "csSection": "GATE CS paper (Computer Science and Information Technology), 10 sections",
+      "csUnits": [
+        "S1 Engineering Mathematics: discrete mathematics (logic, sets, relations, functions, partial orders, lattices, monoids, groups, graphs, combinatorics), linear algebra, calculus, probability and statistics",
+        "S2 Digital Logic: Boolean algebra, combinational and sequential circuits, minimization, number representations and computer arithmetic (fixed and floating point)",
+        "S3 Computer Organization and Architecture: machine instructions and addressing modes, ALU data-path and control unit, instruction pipelining and hazards, memory hierarchy, I/O interface (interrupt and DMA)",
+        "S4 Programming and Data Structures: programming in C, recursion, arrays, stacks, queues, linked lists, trees, BSTs, binary heaps, graphs",
+        "S5 Algorithms: searching, sorting, hashing, asymptotic complexity, greedy, dynamic programming, divide-and-conquer, graph traversals, MST, shortest paths",
+        "S6 Theory of Computation: regular expressions and finite automata, CFGs and PDAs, pumping lemma, Turing machines, undecidability",
+        "S7 Compiler Design: lexical analysis, parsing, syntax-directed translation, runtime environments, intermediate code generation, local optimisation, data-flow analyses",
+        "S8 Operating System: system calls, processes, threads, IPC, concurrency and synchronization, deadlock, CPU and I/O scheduling, memory management and virtual memory, file systems",
+        "S9 Databases: ER model, relational algebra, tuple calculus, SQL, integrity constraints, normal forms, file organization and indexing (B/B+ trees), transactions and concurrency control",
+        "S10 Computer Networks: OSI and TCP/IP stacks, switching, data link layer, routing protocols, IP addressing and CIDR, ARP/DHCP/ICMP/NAT, UDP/TCP/sockets, DNS/SMTP/HTTP/FTP"
+      ]
     },
     {
       "id": "ugc-net",
@@ -148,7 +174,7 @@
       "category": "pg-fellowship",
       "conductor": "NTA",
       "status": "researched",
-      "researched": "paper 1 units: V mathematical reasoning and aptitude (number series, letter series, codes, relationships), VII data interpretation (web-checked 2026-11-10)",
+      "researched": "paper 1 units: V mathematical reasoning and aptitude (number series, letter series, codes, relationships), VII data interpretation (web-checked 2026-11-10) + UGC NET CS&A code-87 syllabus PDF (ugcnetonline.in — the ten units; web-checked 2026-11-15)",
       "mathSection": "Paper 1 (teaching/research aptitude, common)",
       "mathUnits": [
         "mathematical reasoning: number series, letter series, codes and coding-decoding, relationships",
@@ -158,7 +184,53 @@
       "coverageMap": [
         "quantitative-aptitude",
         "mathematical-logic",
-        "statistics"
+        "statistics",
+        "discrete-mathematics",
+        "probability-theory",
+        "abstract-algebra",
+        "optimization-and-operations-research",
+        "digital-logic-design",
+        "computer-organization-architecture",
+        "assembly-and-microprocessors",
+        "programming-languages-paradigms",
+        "c-programming",
+        "cpp-programming",
+        "object-oriented-programming",
+        "javascript-and-web-technologies",
+        "java-programming",
+        "backend-engineering",
+        "computer-graphics",
+        "database-management-systems",
+        "data-mining",
+        "big-data-engineering",
+        "operating-systems",
+        "compiler-design",
+        "distributed-systems",
+        "software-engineering",
+        "data-structures",
+        "algorithms",
+        "theory-of-computation",
+        "computer-networks",
+        "cryptography",
+        "cybersecurity",
+        "cloud-computing",
+        "internet-of-things",
+        "artificial-intelligence",
+        "natural-language-processing",
+        "machine-learning"
+      ],
+      "csSection": "Paper 2: Computer Science and Applications (code 87), 10 units",
+      "csUnits": [
+        "U1 Discrete Structures and Optimization: mathematical logic, sets and relations, counting and discrete probability, group theory, graph theory, Boolean algebra, linear programming, simplex, transportation and assignment, PERT-CPM",
+        "U2 Computer System Architecture: digital logic circuits and components, data representation, register transfer and microoperations, basic computer organization, machine/assembly programming, microprogrammed control, CPU, pipeline and vector processing, I/O organization, memory hierarchy, multiprocessors",
+        "U3 Programming Languages and Computer Graphics: language design and translation, elementary data types, programming in C, OOP, programming in C++, web programming (HTML, XML, servlets), computer graphics (raster algorithms, 2D and 3D transforms, viewing, curves, surfaces, rendering)",
+        "U4 DBMS: database concepts and architecture, data modeling, SQL, normalization, enhanced data models, data warehousing and data mining, big data (MapReduce, Hadoop, HDFS), NoSQL",
+        "U5 System Software and Operating System: compilers, interpreters, loaders, linkers, macros, process management, threads, CPU scheduling, deadlocks, memory management, storage, file and I/O systems, security, virtual machines, Linux, Windows, distributed systems",
+        "U6 Software Engineering: process models (prescriptive and agile), requirements, design, quality (McCall, ISO 9126), estimation (COCOMO), testing, configuration management",
+        "U7 Data Structures and Algorithms: the structure census, performance analysis, design techniques, lower bound theory, graph algorithms, complexity theory (P/NP), number-theoretic/FFT/string algorithms, parallel and approximation algorithms",
+        "U8 Theory of Computation and Compilers: formal languages, regular languages and automata, CFLs and PDAs, Turing machines, unsolvable problems, syntax/semantic analysis, run-time system, intermediate code, code generation and optimization",
+        "U9 Data Communication and Computer Networks: data communication, network models and OSI/TCP-IP layers, IPv4/IPv6, WWW (DNS, SMTP, FTP), network security (cryptography, steganography, VPN, firewalls), mobile technology (GSM, CDMA), cloud computing and IoT",
+        "U10 Artificial Intelligence: approaches to AI (Turing test, rational agents, heuristic search, game playing, minimax, alpha-beta), knowledge representation, planning, NLP, multi-agent systems, fuzzy sets, genetic algorithms, artificial neural networks"
       ]
     },
     {
@@ -168,7 +240,7 @@
       "category": "university-entrance",
       "conductor": "NTA",
       "status": "researched",
-      "researched": "cuet.nta.nic.in 2026 syllabus; Mathematics (319/319 Applied Mathematics PDF: algebra/calculus units) (web-checked 2026-11-10)",
+      "researched": "cuet.nta.nic.in 2026 syllabus; Mathematics (319/319 Applied Mathematics PDF: algebra/calculus units) (web-checked 2026-11-10) + NTA CUET(UG) 308 Computer Science/Information Practices syllabus PDF (cuet.nta.nic.in / cdnbbsr.s3waas.gov.in; web-checked 2026-11-15)",
       "mathSection": "Section II Domain: Mathematics / Applied Mathematics",
       "mathUnits": [
         "algebra: matrices, determinants, linear equations",
@@ -189,7 +261,22 @@
         "trigonometry",
         "statistics",
         "probability-theory",
-        "quantitative-aptitude"
+        "quantitative-aptitude",
+        "database-management-systems",
+        "computer-networks",
+        "python-programming",
+        "data-structures",
+        "algorithms",
+        "data-science",
+        "cybersecurity",
+        "frontend-engineering",
+        "computer-fundamentals"
+      ],
+      "csSection": "Section II Domain: Computer Science / Informatics Practices (308)",
+      "csUnits": [
+        "Section A (common): database concepts, SQL (DDL/DML, functions), computer networks (types, devices, topologies, MAC/IP)",
+        "Section B1 (Computer Science): Python exception and file handling, stack and queue, searching, sorting, hashing, understanding data, data communication, security aspects",
+        "Section B2 (Informatics Practices): SQL, data handling with pandas, descriptive statistics, plotting with Matplotlib, computer networks, societal impacts (IPR, FOSS, cyber laws, e-waste)"
       ]
     },
     {
@@ -575,7 +662,7 @@
       "category": "school-leaving",
       "conductor": "College Board",
       "status": "researched",
-      "researched": "AP Calculus BC course topics (limits, derivatives, integrals, differential equations, series; parametric/polar/vector) + AP Statistics scope (web-checked 2026-11-10)",
+      "researched": "AP Calculus BC course topics (limits, derivatives, integrals, differential equations, series; parametric/polar/vector) + AP Statistics scope (web-checked 2026-11-10) + AP Computer Science A course units (apcentral.collegeboard.org; web-checked 2026-11-15)",
       "mathSection": "AP Calculus AB/BC; AP Statistics",
       "mathUnits": [
         "limits and continuity",
@@ -592,7 +679,16 @@
         "multivariable-calculus",
         "differential-equations",
         "real-analysis",
-        "statistics"
+        "statistics",
+        "java-programming",
+        "object-oriented-programming",
+        "data-structures",
+        "algorithms",
+        "cybersecurity"
+      ],
+      "csSection": "AP Computer Science A (4 units) + CSP neighbours",
+      "csUnits": [
+        "Unit 1 Using Objects and Methods; Unit 2 Selection and Iteration; Unit 3 Class Creation; Unit 4 Data Collections (arrays, ArrayList, 2D arrays, searching, sorting, recursion, algorithm analysis); responsible computing ethics"
       ]
     },
     {
@@ -602,7 +698,7 @@
       "category": "school-leaving",
       "conductor": "IBO",
       "status": "researched",
-      "researched": "ibo.org DP mathematics courses (AA and AI, SL/HL subject briefs: number and algebra, functions, geometry and trigonometry, statistics and probability, calculus) (web-checked 2026-11-10)",
+      "researched": "ibo.org DP mathematics courses (AA and AI, SL/HL subject briefs: number and algebra, functions, geometry and trigonometry, statistics and probability, calculus) (web-checked 2026-11-10) + IB DP Computer Science (the new 2027 themes via computersciencewiki.org mirror + ibo.org subject brief; web-checked 2026-11-15)",
       "mathSection": "Mathematics AA or AI (SL/HL)",
       "mathUnits": [
         "number and algebra (exponents, logs, sequences, binomial; AA HL: complex numbers, proof)",
@@ -622,7 +718,29 @@
         "differential-calculus",
         "integral-calculus",
         "differential-equations",
-        "real-analysis"
+        "real-analysis",
+        "computer-fundamentals",
+        "computer-organization-architecture",
+        "operating-systems",
+        "compiler-design",
+        "computer-networks",
+        "cybersecurity",
+        "database-management-systems",
+        "big-data-engineering",
+        "machine-learning",
+        "optimization-and-operations-research",
+        "algorithms",
+        "python-programming",
+        "data-structures",
+        "object-oriented-programming",
+        "javascript-and-web-technologies",
+        "java-programming"
+      ],
+      "csSection": "DP Computer Science (the 2027 course: Theme A concepts, Theme B computational thinking; the legacy guide options through 2026)",
+      "csUnits": [
+        "Theme A: computer fundamentals (hardware, data representation, operating systems, translation HL), networking, databases (incl. alternative databases and warehouses HL), machine learning",
+        "Theme B: computational thinking approaches, programming (fundamentals, constructs, data structures, algorithms, file processing), OOP (single and multiple classes HL), abstract data types",
+        "Legacy options (through 2026): system fundamentals, computer organization, networks, abstract data structures HL, databases, modelling and simulation, web science, OOP"
       ]
     },
     {
@@ -632,7 +750,7 @@
       "category": "school-leaving",
       "conductor": "Cambridge/Pearson",
       "status": "researched",
-      "researched": "Pearson Edexcel A-Level Mathematics specification topic list + Cambridge 9709 pure 2/3 scope (web-checked 2026-11-10)",
+      "researched": "Pearson Edexcel A-Level Mathematics specification topic list + Cambridge 9709 pure 2/3 scope (web-checked 2026-11-10) + Cambridge 9618 2026 syllabus PDF (cambridgeinternational.org/Images/697372-2026-syllabus.pdf — 20 content sections; web-checked 2026-11-15)",
       "mathSection": "Pure Mathematics 1-4 (+ Mechanics, Statistics)",
       "mathUnits": [
         "proof, algebra and functions (incl. modulus, partial fractions, composite/inverse, transformations)",
@@ -659,7 +777,28 @@
         "complex-analysis",
         "statistics",
         "probability-theory",
-        "numerical-analysis"
+        "numerical-analysis",
+        "computer-fundamentals",
+        "computer-organization-architecture",
+        "digital-logic-design",
+        "computer-networks",
+        "operating-systems",
+        "compiler-design",
+        "cybersecurity",
+        "cryptography",
+        "database-management-systems",
+        "algorithms",
+        "data-structures",
+        "programming-languages-paradigms",
+        "python-programming",
+        "software-engineering",
+        "artificial-intelligence"
+      ],
+      "csSection": "Cambridge International AS & A Level Computer Science 9618 (20 sections)",
+      "csUnits": [
+        "AS: information representation (data, multimedia, compression), communication/networks, hardware and logic gates, processor fundamentals (assembly, bit manipulation), system software, security, ethics and ownership, databases, algorithm design (computational thinking, pseudocode, flowcharts)",
+        "AS programming: data types and structures (arrays, files, ADTs), programming constructs, software development life cycle",
+        "A2: user-defined types and file organisation, floating-point, protocols and switching, virtual machines, Boolean algebra, translation software, encryption and digital certificates, AI, recursion, further programming paradigms"
       ]
     },
     {
@@ -1218,7 +1357,7 @@
       "category": "olympiad",
       "conductor": "IOI",
       "status": "adjacent",
-      "researched": "2026-11-10 — computer science; the Discrete Mathematics + Combinatorics ground is the closest shelf neighbour",
+      "researched": "2026-11-10 — computer science; the Discrete Mathematics + Combinatorics ground is the closest shelf neighbour + IOI Syllabus 2024 (ioinformatics.org/files/ioi-syllabus-2024.pdf — the ✓-category census; web-checked 2026-11-15)",
       "mathSection": "-",
       "mathUnits": [
         "algorithmic thinking, graphs, counting"
@@ -1226,7 +1365,29 @@
       "coverageMap": [
         "discrete-mathematics",
         "combinatorics",
-        "mathematical-logic"
+        "mathematical-logic",
+        "arithmetic-and-number-systems",
+        "elementary-algebra",
+        "geometry",
+        "number-theory",
+        "probability-theory",
+        "set-theory",
+        "c-programming",
+        "python-programming",
+        "algorithms",
+        "data-structures",
+        "software-engineering",
+        "computer-fundamentals",
+        "theory-of-computation"
+      ],
+      "csSection": "IOI syllabus (the ✓-category census)",
+      "csUnits": [
+        "Mathematics: integers and modular arithmetic, primes, fractions and percentages, plane geometry (points, vectors, polygons, distances)",
+        "Discrete structures: functions, relations and sets, basic logic, proof techniques, counting, graphs and trees, discrete probability",
+        "Programming fundamentals: constructs, problem-solving, fundamental data structures, recursion",
+        "Algorithms and complexity: analysis, algorithmic strategies, the algorithm census (number-theoretic, sorting, graph, string), the data-structure census (heaps, union-find, balanced trees, tries), amortized and geometric algorithms, BNF",
+        "Software engineering: lightweight design, APIs, tools and environments",
+        "Computer literacy: basic computer structure, OS, development tools, file management"
       ]
     },
     {

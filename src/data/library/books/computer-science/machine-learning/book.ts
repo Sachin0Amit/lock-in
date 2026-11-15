@@ -29,6 +29,12 @@ import type { Book, Chapter } from '../../../types'
  *   introductory ML course arcs (ISLR\u2019s applied pole named).
  * - Exam types: bias-variance computations, model-tracing questions +
  *   worked derivations at university level.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 10 ANN line audited
+ *   against this plan — one planned lesson added (the classical-networks
+ *   census: Hopfield and SOM). Routing/verdict record: docs/research/
+ *   CS_EXAM_TOPIC_LEDGER.md; standing gate: scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -92,13 +98,14 @@ const chapters: Chapter[] = [
     slug: 'neural-networks-first-depth',
     title: 'Neural Networks: a First Depth',
     summary:
-      'The differentiable learner: the multilayer perceptron\u2019s architecture (the activation census — sigmoid\u2019s saturation disease priced, ReLU\u2019s answer), backpropagation derived (the chain rule composed through layers — Calculus cross-referenced), and the training craft (SGD\u2019s discipline, the learning-rate question, the initialization honesty).',
+      'The differentiable learner: the multilayer perceptron\u2019s architecture (the activation census — sigmoid\u2019s saturation disease priced, ReLU\u2019s answer), backpropagation derived (the chain rule composed through layers — Calculus cross-referenced), the training craft (SGD\u2019s discipline, the learning-rate question, the initialization honesty), and the classical-networks census the older syllabi still name (the Hopfield network\u2019s energy discipline, the self-organizing map\u2019s Kohonen topology — supervised, unsupervised and reinforcement\u2019s taxonomy recalled as the wiring).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Activation Census',
       'Backprop Derived',
       'The Training Craft',
+      'The Classical Census: Hopfield Networks and SOMs',
     ],
   },
   {

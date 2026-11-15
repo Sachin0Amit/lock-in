@@ -3,8 +3,8 @@ import type { Book, Chapter } from '../../../types'
 /**
  * Cybersecurity — the twenty-sixth book of the Computer Science shelf.
  *
- * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 8 chapters /
- * 26 planned lessons, zero written. Lesson ids will use the `sec-` prefix
+ * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 9 chapters /
+ * 31 planned lessons, zero written. Lesson ids will use the `sec-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Cryptography owns the cipher
@@ -25,6 +25,11 @@ import type { Book, Chapter } from '../../../types'
  * - Syllabus audit: the standard university security course registers.
  * - Exam types: scenario analysis (choose the control) + threat-model
  *   questions.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the CUET 308 B1/B2 + A-Level/AP ethics lines audited — the societal layer added as chapter 8 (digital footprint, IPR/FOSS, cybercrime laws and the Indian IT Act, e-waste) with the perimeter and named-attack lessons grown into chapter 5. The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -89,14 +94,15 @@ const chapters: Chapter[] = [
     slug: 'network-and-system-attacks',
     title: 'Network and System Attacks',
     summary:
-      'The infrastructure\u2019s census: the reconnaissance-to-exploit kill chain traced, the network attacks family (DoS/DDoS priced on amplification, the ARP/DNS spoofing census — Computer Networks cross-referenced), malware\u2019s census (the propagation and payload taxonomy), social engineering\u2019s discipline (phishing priced as the human channel), and the perimeter\u2019s honest limits.',
+      'The infrastructure\u2019s census: the reconnaissance-to-exploit kill chain traced, the network attacks family (denial of service and its distributed amplification priced, snooping and eavesdropping, the intrusion question, the ARP/DNS spoofing census, the spam/adware nuisance roster — Computer Networks cross-referenced), malware\u2019s census (the propagation and payload taxonomy: viruses, worms, trojan horses and ransomware named), social engineering\u2019s discipline (phishing priced as the human channel), and the perimeter\u2019s honest answer (firewalls, antivirus and the VPN tunnel — the classic controls priced with their limits).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Kill Chain Traced',
-      'The Network Attack Census',
-      'Malware\u2019s Taxonomy',
+      'The Network Attack Census: DoS, Snooping, Eavesdropping',
+      'Malware\u2019s Taxonomy: Viruses, Worms, Trojans',
       'Phishing: the Human Channel',
+      'The Perimeter: Firewalls, Antivirus and VPNs',
     ],
   },
   {
@@ -129,6 +135,21 @@ const chapters: Chapter[] = [
   },
   {
     number: 8,
+    slug: 'the-societal-layer',
+    title: 'The Societal Layer',
+    summary:
+      'The citizen\u2019s half of the discipline (the CUET/A-Level/AP ethics census): the digital footprint and etiquette question (net-surfing and social-media conduct, cyberbullying and its response), intellectual property (ownership, plagiarism, licensing and copyright, FOSS and the creative commons), cybercrime and the laws that answer it (hacking, phishing and the Indian IT Act\u2019s register), digital ethics and responsible use, and the physical estate\u2019s cost (e-waste hazards and management, the health and ergonomic questions of technology use).',
+    status: 'planned',
+    lessons: [],
+    plannedLessons: [
+      'The Digital Footprint: Etiquette and Cyberbullying',
+      'Intellectual Property: Ownership, Licensing, FOSS, Creative Commons',
+      'Cybercrime and the Laws: the Indian IT Act',
+      'E-Waste, Health and Digital Ethics',
+    ],
+  },
+  {
+    number: 9,
     slug: 'the-synthesis-and-the-doorstep',
     title: 'The Synthesis and the Doorstep',
     summary:

@@ -5,7 +5,7 @@ import type { Book, Chapter } from '../../../types'
  * shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 9 chapters /
- * 29 planned lessons, zero written. Lesson ids will use the `swe-` prefix
+ * 34 planned lessons, zero written. Lesson ids will use the `swe-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the design-pattern craft belongs
@@ -25,6 +25,14 @@ import type { Book, Chapter } from '../../../types'
  *   chapters and the systems-of-systems close (Pearson/archive TOCs).
  * - Syllabus audit: the standard university SE course arcs.
  * - Exam types: university case-study analyses + process/UML questions.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 6 + IOI SE lines audited
+ *   against this plan — six planned lessons added (the McCall/ISO 9126
+ *   quality models, the named testing families, the debugging craft, the
+ *   estimation models, scheduling/staffing, the risk census). Routing/
+ *   verdict record: docs/research/CS_EXAM_TOPIC_LEDGER.md; standing gate:
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -75,11 +83,12 @@ const chapters: Chapter[] = [
     slug: 'requirements-engineering',
     title: 'Requirements Engineering',
     summary:
-      'Getting the right problem: functional versus non-functional requirements (the quality census — performance, security, usability), the elicitation discipline (stakeholders, interviews, the observation craft), specification written honestly (use cases walked through a real one), and validation — the requirements\u2019 own tests.',
+      'Getting the right problem: functional versus non-functional requirements (the quality census — performance, security, usability — with the classic quality models named: McCall\u2019s factor tree and ISO 9126\u2019s six characteristics, software quality control versus assurance), the elicitation discipline (stakeholders, interviews, the observation craft), specification written honestly (use cases walked through a real one), and validation — the requirements\u2019 own tests.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Functional, Non-Functional and the Quality Census',
+      'The Quality-Model Census: McCall and ISO 9126',
       'Elicitation: Getting the Right Problem',
       'Use Cases Walked Honestly',
     ],
@@ -117,14 +126,16 @@ const chapters: Chapter[] = [
     slug: 'software-testing',
     title: 'Software Testing',
     summary:
-      'Verification\u2019s honest half: unit testing\u2019s discipline (the AAA shape, mocks named), coverage as a measured claim (statement/branch/paths — the limits stated), integration and system testing census, and the black-box/white-box pair with the boundary-value discipline priced on real defects.',
+      'Verification\u2019s honest half: unit testing\u2019s discipline (the AAA shape, mocks named), coverage as a measured claim (statement/branch/paths — the limits stated), integration and system testing census, the black-box/white-box pair with the boundary-value discipline priced on real defects, and the classic families named for every syllabus — basis-path testing, regression and stress testing, alpha and beta\u2019s staging, plus the debugging craft (the defect hunt\u2019s discipline — localize, hypothesize, verify) and configuration management\u2019s change/version control with software reuse and re-engineering named.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Unit Testing\u2019s Discipline',
       'Coverage as a Measured Claim',
       'The Black-Box/White-Box Census',
+      'Basis Path, Regression and Stress: the Families Named',
       'Boundary Values and Real Defects',
+      'The Debugging Craft',
     ],
   },
   {
@@ -132,13 +143,15 @@ const chapters: Chapter[] = [
     slug: 'dependability-evolution-and-management',
     title: 'Dependability, Evolution and Management',
     summary:
-      'The long life: dependability\u2019s census (reliability, availability, safety — the failure arithmetic priced), maintenance as the majority cost (the four maintenance kinds), project management\u2019s honest arithmetic (estimation\u2019s disease, the risk census), and legacy\u2019s reality — evolution as a discipline, not an apology.',
+      'The long life: dependability\u2019s census (reliability, availability, safety — the failure arithmetic priced; software reliability engineering), maintenance as the majority cost (the four maintenance kinds), project management\u2019s honest arithmetic — estimation at depth (software sizing by LOC and function points, the COCOMO model family priced honestly, estimation\u2019s disease), scheduling and staffing (timeline/Gantt charts, the critical path), the risk census with mitigation and monitoring (RMMM), and legacy\u2019s reality — evolution as a discipline, not an apology.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Dependability\u2019s Census and Failure Arithmetic',
       'Maintenance: the Majority Cost',
-      'Estimation\u2019s Disease and the Risk Census',
+      'Estimation at Depth: LOC, Function Points, COCOMO',
+      'Scheduling, Staffing and Timeline Charts',
+      'The Risk Census: Mitigation and Monitoring',
     ],
   },
   {

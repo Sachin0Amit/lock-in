@@ -76,10 +76,20 @@ file at a time (27 TOC extractions — Sipser vision-transcribed in two
 batches), every non-Drive book researched against its canonical sources on
 the open web (TOCs actually opened, URLs in SOURCE_LOG.md), and all 44
 books promoted to `src/data/library/books/computer-science/<slug>/book.ts`
-with status 'planned' — 363 chapters / 1,146 planned lessons, zero written
-(the one-unit-at-a-time authoring cadence unchanged). Evidence base:
-`docs/research/CS_TOC_SURVEY.md`; gate:
-`scripts/verify-cs-shelf-planning.ts` (2,343/2,343) + covers 44/44
+with status 'planned' — 363 chapters / 1,146 planned lessons at the planning
+pass; **grown by the CS exam-topic coverage pass (2026-11-15, owner
+directive: "make sure those exams topics are to be covered in the books
+see if any topics is missing in cs books") to 364 chapters / 1,218 planned
+lessons, still zero written** (the one-unit-at-a-time authoring cadence
+unchanged — the growth is planning-level: ~70 lessons added or renamed
+across the shelf to carry the official exam vocabulary; Cybersecurity
+gained the societal-layer chapter). Evidence base:
+`docs/research/CS_TOC_SURVEY.md` + the exam-topic ledger
+`docs/research/CS_EXAM_TOPIC_LEDGER.md` (251 official-syllabus topic lines
+across GATE CSE / UGC NET CS&A / IOI / CUET UG 308 / IB DP CS / Cambridge
+9618 / AP CS A — 251/251 direct, the seven registry entries carry
+csUnits); gates: `scripts/verify-cs-shelf-planning.ts` (2,348/2,348) +
+`scripts/verify-cs-exam-coverage.ts` (696/696) + covers 44/44
 (`scripts/gen_covers.py`, VLM text-free sweep — one baked-text catch
 regenerated clean).
 

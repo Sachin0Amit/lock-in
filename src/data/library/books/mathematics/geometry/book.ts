@@ -135,7 +135,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Parallelograms and Their Family Tree',
       'The Midpoint Theorem and the Trapezium',
-      'Polygons: Angle Sums, Regularity, Diagonals',
+      'Polygons: Vertex, Side, Angle Sums, Convexity',
     ],
   },
   {

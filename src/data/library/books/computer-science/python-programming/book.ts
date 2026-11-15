@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Python Programming — the nineteenth book of the Computer Science shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 8 chapters /
- * 26 planned lessons, zero written. Lesson ids will use the `py-` prefix
+ * 28 planned lessons, zero written. Lesson ids will use the `py-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Object-Oriented Programming owns
@@ -22,6 +22,11 @@ import type { Book, Chapter } from '../../../types'
  * - Syllabus audit: the CBSE/university Python registers.
  * - Exam types: predict-the-output (mutable defaults, slicing, scoping) +
  *   find-the-bug (aliasing) + small-program writing.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the CUET 308 B1 lines audited — four planned lessons added (the exception family, raising/exception classes, files with pickle, stacks and queues the Python way). The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -43,7 +48,7 @@ const chapters: Chapter[] = [
     slug: 'data-and-control',
     title: 'Data and Control',
     summary:
-      'The vocabulary: numbers and the dynamic-type discipline (names as tags, not boxes — the mental model that prevents every later aliasing surprise), strings\u2019 rich census, the control-flow shapes (the for-else honesty, comprehensions introduced early as the idiomatic loop), and the truthiness rules stated plainly.',
+      'The vocabulary: numbers and the dynamic-type discipline (names as tags, not boxes — the mental model that prevents every later aliasing surprise), strings\u2019 rich census, the control-flow shapes (the programming constructs — sequence, selection, iteration; the for-else honesty, comprehensions introduced early as the idiomatic loop), and the truthiness rules stated plainly.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -57,12 +62,13 @@ const chapters: Chapter[] = [
     slug: 'the-data-structures-census',
     title: 'The Data Structures Census',
     summary:
-      'Python\u2019s built-in spine: lists (the slicing discipline priced on real operations), tuples and unpacking, dictionaries (the key contract, insertion order, the comprehension craft), sets, and the aliasing disease demonstrated — the same list behind two names, mutated before the reader\u2019s eyes.',
+      'Python\u2019s built-in spine: lists (the slicing discipline priced on real operations), tuples and unpacking, dictionaries (the key contract, insertion order, the comprehension craft), sets, the aliasing disease demonstrated — the same list behind two names, mutated before the reader\u2019s eyes — and the classic containers built the Python way: stacks and queues on list implementations (the PUSH/POP and FIFO craft the CUET paper traces).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Lists and the Slicing Discipline',
       'Dictionaries and Sets: the Key Contract',
+      'Stacks and Queues the Python Way: List Implementations',
       'The Aliasing Disease Demonstrated',
     ],
   },
@@ -99,10 +105,13 @@ const chapters: Chapter[] = [
     slug: 'errors-files-and-testing',
     title: 'Errors, Files and Testing',
     summary:
-      'The robustness craft: exceptions the Python way (EAFP versus LBYL priced as a real choice), the with-statement as the resource discipline, files and the encoding honesty (the utf-8 lesson), and the testing census — pytest\u2019s assertion discipline with the test-first echo named.',
+      'The robustness craft: exceptions the Python way — exception handling priced whole (syntax errors versus exceptions, try/except/else/finally traced, raising and the built-in exception hierarchy, user-defined exception classes written) with EAFP versus LBYL as the real choice; file processing at both ends (text and binary files, the file access modes, open/close, reading and writing, the pickle module\u2019s binary persistence), the with-statement as the resource discipline and the encoding honesty (the utf-8 lesson), and the testing census — pytest\u2019s assertion discipline with the test-first echo named.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
+      'The Exception Family: try, except, else, finally',
+      'Raising and Writing Exception Classes',
+      'Files: Text, Binary and the pickle Module',
       'EAFP versus LBYL',
       'The with Discipline and Encoding Honesty',
       'The Testing Census',

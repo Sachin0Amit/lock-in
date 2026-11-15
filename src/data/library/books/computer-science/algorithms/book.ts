@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Algorithms — the sixth book of the Computer Science shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 10 chapters /
- * 34 planned lessons, zero written. Lesson ids will use the `alg-` prefix
+ * 43 planned lessons, zero written. Lesson ids will use the `alg-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Data Structures owns the
@@ -25,6 +25,16 @@ import type { Book, Chapter } from '../../../types'
  *   sorting, hashing, graphs, DP, greedy — the exact chapters 2-8).
  * - Exam types: GATE numerical-answer + MCQ (recurrences, complexity
  *   identification, DP tables) and CLRS-style problem sets.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 7 + IOI AL + Cambridge
+ *   9618/IB lines audited against this plan — five planned lessons added
+ *   (the computational-thinking approaches, pseudocode/flowcharts/trace
+ *   tables, the number-theoretic toolkit, polynomial arithmetic with the
+ *   FFT, the giant-IOI algorithm census consolidated) and the Big-Oh
+ *   lesson renamed to carry the asymptotic-notation name with the
+ *   time-space trade-off. Routing/verdict record: docs/research/
+ *   CS_EXAM_TOPIC_LEDGER.md; standing gate: scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -32,13 +42,15 @@ const chapters: Chapter[] = [
     slug: 'the-algorithm-idea',
     title: 'The Algorithm Idea',
     summary:
-      'What an algorithm owes its user — a finite, definite, effective procedure priced on a first example, correctness reasoning as a first-class skill (induction, contradiction, the loop invariant — cross-referenced to Discrete Mathematics\u2019 proof chapters), and modeling: turning a story problem into structure (Skiena\u2019s own discipline).',
+      'What an algorithm owes its user — a finite, definite, effective procedure priced on a first example, correctness reasoning as a first-class skill (induction, contradiction, the loop invariant — cross-referenced to Discrete Mathematics\u2019 proof chapters), modeling: turning a story problem into structure (Skiena\u2019s own discipline), and the expression layer every syllabus asks for — the computational-thinking approaches (decomposition, pattern recognition, abstraction) and the classic notations (pseudocode, flowcharts, trace tables with their identifiers, assignment, constants, variables and data types).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'What an Algorithm Owes',
       'Correctness Reasoning: Induction and Invariants',
+      'Computational Thinking: Decompose, Pattern, Abstract',
       'Modeling: from Story to Structure',
+      'Expressing Algorithms: Pseudocode, Flowcharts, Trace Tables',
     ],
   },
   {
@@ -46,12 +58,12 @@ const chapters: Chapter[] = [
     slug: 'analysis',
     title: 'Analysis',
     summary:
-      'The RAM model of computation (what we count and why it is honest), Big-Oh/Theta/Omega defined and priced, growth rates and the census table (log through factorial), working with the notation (sums, the log rules), logarithms as the slow miracle, and estimation as an engineer\u2019s craft.',
+      'The RAM model of computation (what we count and why it is honest), Big-Oh/Theta/Omega defined and priced as the asymptotic notation, growth rates and the census table (log through factorial), the time-and-space trade-off priced honestly, logarithms as the slow miracle, and estimation as an engineer\u2019s craft.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The RAM Model and What We Count',
-      'Big-Oh Honestly: Definitions Priced',
+      'Asymptotic Notation: Big-Oh Honestly, Definitions Priced',
       'Growth Rates: the Census Table',
       'Logarithms: the Slow Miracle',
     ],
@@ -76,7 +88,7 @@ const chapters: Chapter[] = [
     slug: 'sorting-and-selection',
     title: 'Sorting and Selection',
     summary:
-      'The sorting census (comparison model named), insertion sort as the analysis warm-up, mergesort and quicksort with their honest costs and worst cases, heapsort cross-referenced to the heap structure, the linear-time families (counting, radix, bucket) and the decision-tree lower bound that bounds them all, plus selection in expected linear time.',
+      'The sorting census (comparison model named), insertion sort as the analysis warm-up, the array-manipulation craft beneath it all (filling, shifting, prefix sums), mergesort and quicksort with their honest costs and worst cases, heapsort cross-referenced to the heap structure, the linear-time families (counting, radix, bucket) and the decision-tree lower bound that bounds them all, plus selection in expected linear time.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -106,7 +118,7 @@ const chapters: Chapter[] = [
     slug: 'graph-algorithms',
     title: 'Graph Algorithms',
     summary:
-      'The graph block on its structures: BFS and DFS with their discovery discipline (topological sort, connectivity, cycles as applications), minimum spanning trees (Prim and Kruskal with the cut property PROVED), shortest paths (Dijkstra derived, Bellman-Ford\u2019s negative-edge honesty, Floyd-Warshall for all pairs) and maximum flow named with its census.',
+      'The graph block on its structures: BFS and DFS with their discovery discipline (topological sort, connectivity, cycles as applications; the deeper census named — biconnectivity with bridges and articulation points, strongly connected components, bipartite matching riding the flow), minimum spanning trees (Prim and Kruskal with the cut property PROVED), shortest paths (Dijkstra derived, Bellman-Ford\u2019s negative-edge honesty, Floyd-Warshall for all pairs) and maximum flow named with its census.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -151,12 +163,15 @@ const chapters: Chapter[] = [
     slug: 'the-limits-and-the-frontier',
     title: 'The Limits and the Frontier',
     summary:
-      'Amortized analysis (the aggregate/accounting/potential trio priced on dynamic tables), string matching done honestly (KMP and its automaton, Rabin-Karp as randomized), number-theoretic and geometric families named, approximation algorithms as the NP-coping craft, and the doorstep to Theory of Computation\u2019s proof theory.',
+      'Amortized analysis (the aggregate/accounting/potential trio priced on dynamic tables), string matching done honestly (KMP and its automaton, Rabin-Karp as randomized), the number-theoretic toolkit (Euclid\u2019s gcd algorithm, the Sieve of Eratosthenes, trial-division factorization and primality, fast modular exponentiation, arbitrary-precision integer arithmetic — Number Theory cross-referenced), polynomial arithmetic and the FFT (evaluation, interpolation, the convolution made fast), number-theoretic and geometric families named, approximation algorithms as the NP-coping craft, and the doorstep to Theory of Computation\u2019s proof theory.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Amortized Analysis: the Three Methods',
       'String Matching: KMP and Rabin-Karp',
+      'The Number-Theoretic Toolkit: Euclid, Sieve, Fast Exponentiation',
+      'Polynomial Arithmetic and the FFT',
+      'Geometric Algorithms: Convex Hull, Sweep Line, Cross Products',
       'Approximation: Coping with NP',
       'The Doorstep: the Proof Theory',
     ],

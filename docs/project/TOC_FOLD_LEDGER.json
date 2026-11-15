@@ -3027,25 +3027,25 @@
   "source": "root-rosen-discrete-8e",
   "topic": "Set Operations",
   "book": "discrete-mathematics",
-  "host": "Sets, Functions and Sequences at Work",
+  "host": "Sets (Complements, Cartesian Products, Power Sets), Functions (Injections, Surjections, Inverses, Composition) and Sequences at Work",
   "mode": "section",
-  "note": "Named subsection inside Sets, Functions and Sequences at Work: formal definition + at least one worked example treating the surveyed topic."
+  "note": "Named subsection inside the Sets/Functions lesson: formal definition + at least one worked example treating the surveyed topic."
  },
  {
   "source": "root-rosen-discrete-8e",
   "topic": "Sequences and Summations",
   "book": "discrete-mathematics",
-  "host": "Sets, Functions and Sequences at Work",
+  "host": "Sets (Complements, Cartesian Products, Power Sets), Functions (Injections, Surjections, Inverses, Composition) and Sequences at Work",
   "mode": "section",
-  "note": "Named subsection inside Sets, Functions and Sequences at Work: formal definition + at least one worked example treating the surveyed topic."
+  "note": "Named subsection inside the Sets/Functions lesson: formal definition + at least one worked example treating the surveyed topic."
  },
  {
   "source": "root-rosen-discrete-8e",
   "topic": "Cardinality of Sets",
   "book": "discrete-mathematics",
-  "host": "Sets, Functions and Sequences at Work",
+  "host": "Sets (Complements, Cartesian Products, Power Sets), Functions (Injections, Surjections, Inverses, Composition) and Sequences at Work",
   "mode": "section",
-  "note": "Named subsection inside Sets, Functions and Sequences at Work: formal definition + at least one worked example treating the surveyed topic."
+  "note": "Named subsection inside the Sets/Functions lesson: formal definition + at least one worked example treating the surveyed topic."
  },
  {
   "source": "root-rosen-discrete-8e",
@@ -3083,9 +3083,9 @@
   "source": "root-rosen-discrete-8e",
   "topic": "Primes and Greatest Common Divisors",
   "book": "number-theory",
-  "host": "Divisibility Recalled, Deepened",
+  "host": "Parity and Divisibility, Recalled and Deepened",
   "mode": "section",
-  "note": "Named subsection inside Divisibility Recalled, Deepened: formal definition + at least one worked example treating the surveyed topic."
+  "note": "Named subsection inside Parity and Divisibility, Recalled and Deepened: formal definition + at least one worked example treating the surveyed topic."
  },
  {
   "source": "root-rosen-discrete-8e",

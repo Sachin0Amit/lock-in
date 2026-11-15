@@ -2789,3 +2789,58 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
 - Internet research (2026-11-15): NCERT Class 11 ch. 4 'Complex Numbers and Quadratic Equations' (the rationalized-book numbering — the canonical arc: introduction, the imaginary unit, a + ib algebra, equality; banked key `ncert-math11-ch4-complex-numbers`) and OpenStax *College Algebra 2e* §2.4 'Complex Numbers' (web-checked: learning objectives add/subtract, multiply/divide, simplify powers of i; the standard form; the conjugate; division by conjugating — the banked key `openstax-college-algebra` extends its note with §2.4 this run) — the school-canon and modern cross-checks. JEE Main 2026 unit 2 pins complex numbers and quadratic equations with modulus, Argand diagram, triangle inequality.
 - 3.2's ground BANKED this run (the deferral's acceleration): printed 3.4–3.6 + 3.11 (PDF 6–8 + 13 at the N+2 offset) vision-transcribed in one 4-page batch → temporary-references/m2scan/tr-3.4-3.6-3.11.txt (~15.8K chars) — the Conjugate properties list (i)–(viii) + the reflection figure, Illustrations 3.10–3.13 shapes (incl. the (3+2i sinθ)/(1−2i sinθ) purely-real/purely-imaginary hunt and the Im-part locus teaser), Equality of Complex Numbers + CAE 3.2 with answers, and the Modulus of Complex Number section with its three notes (|z| ≥ 0, the circle-of-equal-modulus law, |z| = |z̄| = |−z| = |−z̄|) + the Argument section START (which belongs to lesson 3.4's territory — do not cash in 3.2). The m2-03 working copies (PDF + both tr-* transcriptions) stay banked for 3.2/3.3 per the unit-mid-flight retention law.
 - 3.3's ground BANKED this run (run 106's deferral acceleration): printed 3.6–3.9 (PDF 8–11 at the N+2 offset) vision-transcribed in one 4-page batch → `temporary-references/m2scan/tr-3.6-3.9.txt` (~14.2K chars) — the section-formula bullets + Illustration 3.18 (parallelogram) + 3.19 (collinear) [SCOPE-NOTED: 3.4's fold territory, not cashed in 3.3], CAE 3.2 with answers, Illustration 3.20's tail (the conjugate-of-each-other pair — the shape 3.2's own L2.4 exercise already used), the SQUARE ROOT OF COMPLEX NUMBER section with its ±(a+bi) method + Illustrations 3.21–3.24, printed 3.8's Illustrations 3.25–3.27 (shapes), and CAE 3.3 with answers. The m2-03 working copies (PDF + the three tr-* transcriptions) stay banked for 3.3/3.4 per the unit-mid-flight retention law.
+
+
+## 2026-11-15 — CS exam-topic coverage pass: the seven official syllabus sources (owner directive: "make sure those exams topics are to be covered in the books see if any topics is missing in cs books")
+
+Downloaded and text-extracted the same day (curl + pdftotext; working copies
+in /tmp only, deleted after extraction; no past-paper content — syllabus
+topic lists only; the durable topic ledger is
+docs/research/CS_EXAM_TOPIC_LEDGER.md, the standing gate is
+scripts/verify-cs-exam-coverage.ts):
+
+- `gate-cse-2026` — GATE 2026 CS syllabus PDF (2 pp):
+  https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/CS_2026_Syllabus.pdf —
+  the ten-section register (Engineering Mathematics incl. discrete math;
+  Digital Logic; COA; Programming & Data Structures; Algorithms; Theory of
+  Computation; Compiler Design; Operating Systems; Databases; Computer
+  Networks). Already the CS shelf's Indian competitive anchor; now
+  topic-level-audited.
+- `ugc-net-csa-87` — UGC NET Computer Science and Applications (code 87)
+  syllabus PDF (8 pp):
+  https://www.ugcnetonline.in/showPdf.php?p1=NTA_All_R_Syllabus/87/Computer%20Science%20and%20Applications_English%20Only.pdf
+  — the ten units (Discrete Structures and Optimization; Computer System
+  Architecture; Programming Languages and Computer Graphics; DBMS; System
+  Software and OS; Software Engineering; Data Structures and Algorithms;
+  TOC and Compilers; Data Communication and Networks; AI).
+- `ioi-syllabus-2024` — the IOI Syllabus, version 2024 (22 pp):
+  https://ioinformatics.org/files/ioi-syllabus-2024.pdf — the
+  ✓/?/✘ category census (Mathematics; Programming Fundamentals;
+  Algorithms and Complexity; the data-structure census; Software
+  Engineering; Computer Literacy). Only the ✓-category lines routed;
+  the explicitly excluded topics are recorded as not-claimed.
+- `cuet-ug-308` — NTA CUET(UG) 2025 Computer Science / Information
+  Practices-308 syllabus PDF (7 pp):
+  https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/03/2025030172.pdf
+  (linked from cuet.nta.nic.in/syllabus) — Section A (database concepts,
+  SQL I/II, computer networks), Section B1 (Python exception/file handling,
+  stack, queue, searching, sorting, hashing, understanding data, data
+  communication, security), Section B2 (SQL, pandas I/II, Matplotlib,
+  networks, societal impacts).
+- `cambridge-9618-2026` — Cambridge International AS & A Level Computer
+  Science 9618, 2026 syllabus PDF (21 pp):
+  https://www.cambridgeinternational.org/Images/697372-2026-syllabus.pdf —
+  the 20 content sections (AS 1-12, A2 13-20).
+- `ap-csa` — AP Computer Science A course units (AP Central):
+  https://apcentral.collegeboard.org/courses/ap-computer-science-a — the
+  four units (Using Objects and Methods; Selection and Iteration; Class
+  Creation; Data Collections) + the computational-thinking practices.
+- `ib-dp-cs` — IB DP Computer Science: the new 2027 course (first exams
+  2027) via the guide mirror at
+  https://faq.computersciencewiki.org/index.php/home/dp_home (Theme A
+  Concepts: computer fundamentals, networking, databases, machine
+  learning; Theme B Computational thinking: programming, OOP, ADTs; the
+  HL extensions) + https://www.ibo.org/programmes/diploma-programme/curriculum/sciences/computer-science/
+  (the options + the 2026 last-assessment note); the legacy guide's four
+  options (databases, modelling and simulation, web science, OOP) recorded
+  for the exams that still run them.

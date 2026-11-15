@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Computer Networks — the eleventh book of the Computer Science shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 9 chapters /
- * 30 planned lessons, zero written. Lesson ids will use the `net-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `net-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the physical-layer physics
@@ -23,6 +23,16 @@ import type { Book, Chapter } from '../../../types'
  *   protocols — the chapters 3-6 roster exactly.
  * - Exam types: GATE numerical + MCQ (throughput/delay window arithmetic,
  *   subnetting, congestion windows) + socket programming sets.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 9 + CUET 308 network
+ *   lines audited against this plan — four planned lessons added (the
+ *   topology/device census, the mail/name application census, the
+ *   wireless-beyond-WiFi census, transmission modes and encoding) and
+ *   the cellular/media lessons renamed to carry GSM/CDMA and the media
+ *   family by name. The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -30,11 +40,12 @@ const chapters: Chapter[] = [
     slug: 'the-network-and-the-internet',
     title: 'The Network and the Internet',
     summary:
-      'What the Internet is two ways — the nuts-and-bolts census (hosts, routers, links, ISPs) and the services description (applications riding the plumbing), protocols as the contracts, the edge (access networks, physical media), the core (packet versus circuit switching priced), and delay/loss/throughput as the honest arithmetic.',
+      'What the Internet is two ways — the nuts-and-bolts census (hosts, routers, links, ISPs) and the services description (applications riding the plumbing), protocols as the contracts, the network-family census (LAN, MAN, WAN with the device roster — modem, repeater, hub, switch, router, gateway — and the topology census: mesh, ring, bus, star, tree), the edge (access networks, physical media), the core (packet versus circuit switching priced), and delay/loss/throughput as the honest arithmetic.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Internet Two Ways',
+      'The Topology and Device Census: LAN, MAN, WAN',
       'The Edge, the Core and the Switching Trade',
       'Delay, Loss and Throughput: the Arithmetic',
     ],
@@ -44,13 +55,14 @@ const chapters: Chapter[] = [
     slug: 'layered-architectures',
     title: 'Layered Architectures',
     summary:
-      'Why layers win (the encapsulation discipline — each layer\u2019s contract priced on a real packet\u2019s journey), the OSI and TCP/IP reference models compared honestly (the critiques included), the service/protocol distinction defined, and the application layer\u2019s census — HTTP, email, DNS and the CDN/video echo.',
+      'Why layers win (the encapsulation discipline — each layer\u2019s contract priced on a real packet\u2019s journey), the OSI and TCP/IP reference models compared honestly (the critiques included), the service/protocol distinction defined, and the application layer\u2019s census — HTTP, the mail and name services (electronic mail\u2019s SMTP, POP and IMAP; the URL; DNS and resolution — names to addresses and back; the file-transfer family FTP and the TELNET echo), and the CDN/video echo.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Why Layers Win: Encapsulation',
       'OSI versus TCP/IP, Honestly',
       'The Application Census: HTTP, DNS, Email',
+      'The Mail and Name Census: SMTP, POP, IMAP, FTP, TELNET, URL',
     ],
   },
   {
@@ -101,13 +113,14 @@ const chapters: Chapter[] = [
     slug: 'wireless-and-mobile',
     title: 'Wireless and Mobile',
     summary:
-      'The airwaves\u2019 discipline: the wireless propagation problem (attenuation, interference — honest physics), the WiFi family (802.11\u2019s MAC and its collision-avoidance difference), the cellular census (the generations honestly), and the mobility question — handover and the routing echo.',
+      'The airwaves\u2019 discipline: the wireless propagation problem (attenuation, interference — honest physics), the WiFi family (802.11\u2019s MAC and its collision-avoidance difference), the cellular census priced by generation with its named standards (GSM and CDMA, the SMS and GPRS services), the wireless-beyond-WiFi roster (Bluetooth, infrared, microwave links, communication satellites, the mobile ad-hoc networks and the wireless geolocation echo), and the mobility question — handover and the routing echo.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Propagation Problem',
       'The WiFi Family',
-      'The Cellular Census',
+      'The Cellular Census: GSM and CDMA',
+      'The Wireless Beyond WiFi: Bluetooth, Satellite, Ad Hoc',
       'Mobility: Handover Named',
     ],
   },
@@ -130,13 +143,14 @@ const chapters: Chapter[] = [
     slug: 'the-physical-foundations',
     title: 'The Physical Foundations',
     summary:
-      'The bottom of the stack: bandwidth-limited signals (Fourier named with the Mathematics cross-reference), the channel-capacity question (Nyquist and Shannon\u2019s law priced), guided media (twisted pair, coax, fiber), wireless\u2019 spectrum, and modulation/multiplexing as the census (FDM/TDM/CDM).',
+      'The bottom of the stack: data-communication basics (simplex, half-duplex and full-duplex transmission modes; analog and digital signals; encoding and modulation as the vocabulary), bandwidth-limited signals (Fourier named with the Mathematics cross-reference), the channel-capacity question (Nyquist and Shannon\u2019s law priced — latency and throughput in the same breath), guided media (twisted pair, co-axial, optical fibre), wireless\u2019 spectrum, and modulation/multiplexing as the census (FDM/TDM/CDM).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
+      'Transmission Modes: Simplex, Half and Full Duplex',
       'Bandwidth-Limited Signals',
       'Nyquist and Shannon Priced',
-      'The Media Census and Multiplexing',
+      'The Media Census: Twisted Pair, Coax, Fibre, Radio',
     ],
   },
   {

@@ -60,7 +60,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Continuous versus Discrete',
       'The Logic Toolkit, Assembled',
-      'Sets, Functions and Sequences at Work',
+      'Sets (Complements, Cartesian Products, Power Sets), Functions (Injections, Surjections, Inverses, Composition) and Sequences at Work',
     ],
   },
   {
@@ -87,7 +87,7 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Recursive Definitions',
-      'Strong Induction and Well-Ordering',
+      'Strong Induction, Well-Ordering and the Proof Census (Implication, Converse, Contrapositive, Contradiction)',
       'Recursive Algorithms and Their Correctness',
     ],
   },

@@ -47,6 +47,11 @@ import type { Book, Chapter } from '../../../types'
  *   speed work) cross-referenced.
  * - Exam types: olympiad proof problems (L6), university-course
  *   problems (L5), aptitude speed work (L4, cross-referenced to Khattar).
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the IOI 5.1 integers line audited — the first lesson renamed to carry parity beside divisibility. The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -58,7 +63,7 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Divisibility Recalled, Deepened',
+      'Parity and Divisibility, Recalled and Deepened',
       'The Euclidean Algorithm at Depth',
       'Linear Diophantine Equations',
     ],

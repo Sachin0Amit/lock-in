@@ -6,7 +6,8 @@
  *
  *  A. all 44 CS books load, status 'planned' (planning pass only)
  *  B. per-book chapter + planned-lesson census printed; shelf totals pinned
- *     (363 chapters / 1,146 planned lessons — mismatches FAIL below)
+ *     (364 chapters / 1,218 planned lessons — grown by the 2026-11-15
+ *     CS exam-topic coverage pass; mismatches FAIL below)
  *  C. every planned chapter: status 'planned', empty lessons array,
  *     plannedLessons >= 3, slugs unique within book, numbers 1..N
  *  D. planned-lesson titles non-trivial, unique within book
@@ -53,7 +54,7 @@ const EXPECTED_CHAPTERS = { 'computer-fundamentals': 8, 'digital-logic-design': 
   'software-engineering': 9, 'object-oriented-programming': 9, 'programming-languages-paradigms': 8,
   'c-programming': 8, 'cpp-programming': 8, 'java-programming': 9, 'python-programming': 8,
   'javascript-and-web-technologies': 8, 'frontend-engineering': 8, 'backend-engineering': 8,
-  'full-stack-web-development': 7, 'distributed-systems': 8, 'cloud-computing': 7, 'cybersecurity': 8,
+  'full-stack-web-development': 7, 'distributed-systems': 8, 'cloud-computing': 7, 'cybersecurity': 9,
   'cryptography': 9, 'artificial-intelligence': 9, 'machine-learning': 9, 'deep-learning': 8,
   'natural-language-processing': 8, 'computer-vision': 8, 'generative-ai-and-llms': 8,
   'reinforcement-learning': 7, 'data-science': 7, 'big-data-engineering': 7, 'data-mining': 7,
@@ -80,8 +81,8 @@ for (const b of cs) {
   console.log(`  ${b.id.padEnd(38)} ${b.status.padEnd(9)} ${String(b.chapters.length).padStart(2)} ch  ${String(pl).padStart(3)} planned`)
   ok(EXPECTED_CHAPTERS[b.id] === b.chapters.length, `${b.id} chapter count pins ${EXPECTED_CHAPTERS[b.id]} (got ${b.chapters.length})`)
 }
-ok(totCh === 363, `shelf total 363 chapters (got ${totCh})`)
-ok(totPl === 1146, `shelf total 1,146 planned lessons (got ${totPl})`)
+ok(totCh === 364, `shelf total 364 chapters (got ${totCh})`)
+ok(totPl === 1218, `shelf total 1,218 planned lessons (got ${totPl})`)
 
 console.log('== C. planned-chapter hygiene ==')
 for (const b of cs) {

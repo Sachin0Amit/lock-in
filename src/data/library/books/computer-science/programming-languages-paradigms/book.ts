@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Programming Languages and Paradigms — the fifteenth book of the CS shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 8 chapters /
- * 25 planned lessons, zero written. Lesson ids will use the `plp-` prefix
+ * 26 planned lessons, zero written. Lesson ids will use the `plp-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the language books (C, C++, Java,
@@ -25,6 +25,11 @@ import type { Book, Chapter } from '../../../types'
  * - Syllabus audit: the standard university PLC course arcs.
  * - Exam types: university concept questions (binding time, scope rules,
  *   parameter modes) + small interpreter sketches.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the Cambridge 9618 §11/13 lines audited — two planned lessons added (user-defined types, structured programming). The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -60,11 +65,12 @@ const chapters: Chapter[] = [
     slug: 'types-and-expressions',
     title: 'Types and Expressions',
     summary:
-      'What values may be: the type census (primitives, enumerations, arrays, records, unions — each with its honest design question), type checking and the strong/weak axis, the coercion disease priced on a real bug, and expressions\u2019 evaluation (precedence, associativity, side effects, short-circuit as a design choice).',
+      'What values may be: the type census (primitives, enumerations, arrays, records, unions — each with its honest design question), the scalar and composite families with the user-defined types the school syllabi name (records, unions and enumerations declared — identifiers, assignment, constants and variables as the binding vocabulary), type checking and the strong/weak axis, the coercion disease priced on a real bug, and expressions\u2019 evaluation (precedence, associativity, side effects, short-circuit as a design choice).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Type Census and Its Design Questions',
+      'User-Defined Types: Records, Unions, Enumerations',
       'Coercion: the Disease Priced on a Bug',
       'Expression Evaluation and Order Discipline',
     ],
@@ -74,11 +80,12 @@ const chapters: Chapter[] = [
     slug: 'control-and-subprograms',
     title: 'Control and Subprograms',
     summary:
-      'The flow of work: the control census (selection, loops, the guarded-command echo), subprograms as the primary abstraction (parameter modes — value, reference, result priced on aliasing), activation records cross-referenced to Compiler Design\u2019s runtime chapter, and closures — functions that remember, the concept that powers the modern era.',
+      'The flow of work: the control census (selection, loops, the guarded-command echo) with structured programming\u2019s discipline named (single-entry/single-exit — the school-canon craft that preceded objects), subprograms as the primary abstraction (parameter modes — value, reference, result priced on aliasing), activation records cross-referenced to Compiler Design\u2019s runtime chapter, and closures — functions that remember, the concept that powers the modern era.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Control Census',
+      'Structured Programming: the Single-Entry Discipline',
       'Parameter Modes and Aliasing',
       'Closures: Functions That Remember',
     ],

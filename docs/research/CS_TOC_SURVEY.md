@@ -697,7 +697,10 @@ sources on the open web (searched and actually read this pass):
 
 44 new books promoted to `src/data/library/books/computer-science/<slug>/
 book.ts`, status 'planned' (zero lessons written; the authoring cadence is
-unchanged). The census (363 chapters / 1,146 planned lessons; pinned by
+unchanged). The census (363 chapters / 1,146 planned lessons at the
+planning pass; grown by the 2026-11-15 CS exam-topic coverage pass to
+**364 chapters / 1,218 planned lessons** — see
+`docs/research/CS_EXAM_TOPIC_LEDGER.md`; pinned by
 `scripts/verify-cs-shelf-planning.ts`):
 
 `computer-fundamentals` (8 ch) · `digital-logic-design` (10) ·
@@ -711,7 +714,7 @@ unchanged). The census (363 chapters / 1,146 planned lessons; pinned by
 `python-programming` (8) · `javascript-and-web-technologies` (8) ·
 `frontend-engineering` (8) · `backend-engineering` (8) ·
 `full-stack-web-development` (7) · `distributed-systems` (8) ·
-`cloud-computing` (7) · `cybersecurity` (8) · `cryptography` (9) ·
+`cloud-computing` (7) · `cybersecurity` (9, incl. the societal-layer chapter added 2026-11-15) · `cryptography` (9) ·
 `artificial-intelligence` (9) · `machine-learning` (9) · `deep-learning` (8) ·
 `natural-language-processing` (8) · `computer-vision` (8) ·
 `generative-ai-and-llms` (8) · `reinforcement-learning` (7) · `data-science`

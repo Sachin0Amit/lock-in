@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Data Science — the thirty-fifth book of the Computer Science shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 7 chapters /
- * 23 planned lessons, zero written. Lesson ids will use the `dsci-` prefix
+ * 25 planned lessons, zero written. Lesson ids will use the `dsci-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the statistical mathematics
@@ -26,6 +26,11 @@ import type { Book, Chapter } from '../../../types'
  * - Syllabus audit: the standard university/bootcamp DS registers.
  * - Exam types: analysis case studies + interpretation questions on
  *   given outputs.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the CUET 308 B1/B2 lines audited — three planned lessons added (the NumPy/pandas tooling census, Matplotlib at work, the descriptive census). The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -47,11 +52,12 @@ const chapters: Chapter[] = [
     slug: 'the-data-itself',
     title: 'The Data Itself',
     summary:
-      'The raw material handled honestly: the formats census (flat files, JSON, the database echo with SQL\u2019s analyst subset — DBMS cross-referenced), the cleaning discipline (the messy-data census priced on real defects — the missing-value and outlier decisions), and exploration as a first-class phase (the distribution-first reading).',
+      'The raw material handled honestly: the formats census (flat files, CSV, JSON, the database echo with SQL\u2019s analyst subset — DBMS cross-referenced), the tooling census of the working analyst (NumPy\u2019s arrays, pandas\u2019 Series and DataFrames — creation, indexing, slicing, joining, merging and concatenation — the Jupyter notebook as the bench; Python Programming cross-referenced for the language itself), the cleaning discipline (the messy-data census priced on real defects — the missing-value dropping-and-filling and outlier decisions), and exploration as a first-class phase (the distribution-first reading).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Formats Census',
+      'The Tooling Census: NumPy, pandas, Jupyter',
       'The Cleaning Discipline',
       'Exploration as a Phase',
     ],
@@ -61,12 +67,13 @@ const chapters: Chapter[] = [
     slug: 'the-visualization-craft',
     title: 'The Visualization Craft',
     summary:
-      'Seeing before claiming: the grammar of graphics idea (the aesthetic/geometry discipline), the chart census priced (what each shape honestly encodes — the bar/line/scatter contracts), the distortion census (the truncated axis and dual-axis diseases demonstrated), and the design honesty (Tufte\u2019s principles named — Human-Computer Interaction cross-referenced).',
+      'Seeing before claiming: the grammar of graphics idea (the aesthetic/geometry discipline), the chart census priced (what each shape honestly encodes — the bar/line/scatter contracts), the working tool named (Matplotlib at the bench: line plots, bar graphs, histograms, pie charts, box plots and scatter plots drawn and customized — labels, titles, legends), the distortion census (the truncated axis and dual-axis diseases demonstrated), and the design honesty (Tufte\u2019s principles named — Human-Computer Interaction cross-referenced).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Grammar of Graphics',
       'The Chart Census Priced',
+      'Matplotlib at Work: Line, Bar, Histogram, Pie, Scatter',
       'The Distortion Diseases Demonstrated',
     ],
   },
@@ -75,10 +82,11 @@ const chapters: Chapter[] = [
     slug: 'the-statistical-craft-recalled',
     title: 'The Statistical Craft, Recalled',
     summary:
-      'The probability/statistics tools used fluently (the Mathematics shelf\u2019s books cross-referenced): the sampling discipline (the bootstrap named as the modern resampler), the hypothesis-testing craft priced (the p-value read honestly — the NHST honesty chapter), the correlation/association reading (the confounding disease priced on a real spurious pair), and the A/B discipline (the experiment as the gold standard).',
+      'The probability/statistics tools used fluently (the Mathematics shelf\u2019s books cross-referenced): the descriptive census first (mean, median, mode, quartiles, standard deviation and variance — the pandas group-by and aggregation craft carrying it on real data), the sampling discipline (the bootstrap named as the modern resampler), the hypothesis-testing craft priced (the p-value read honestly — the NHST honesty chapter), the correlation/association reading (the confounding disease priced on a real spurious pair), and the A/B discipline (the experiment as the gold standard).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
+      'The Descriptive Census: Mean, Median, Spread, Quartiles',
       'The Bootstrap Named',
       'The p-Value Read Honestly',
       'The Confounding Disease Priced',

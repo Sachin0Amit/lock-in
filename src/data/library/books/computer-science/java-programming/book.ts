@@ -23,6 +23,11 @@ import type { Book, Chapter } from '../../../types'
  *   certification registers.
  * - Exam types: predict-the-output (inheritance, generics, exceptions) +
  *   find-the-bug (equality, concurrency races).
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the AP CS A unit census audited — the selection/iteration, 2D-arrays and searching/sorting/recursion lessons added to the fundamental structures. The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -44,13 +49,15 @@ const chapters: Chapter[] = [
     slug: 'fundamental-structures',
     title: 'The Fundamental Structures',
     summary:
-      'The language\u2019s vocabulary: types (primitives versus references — the two worlds that explain every later surprise), operators and control flow (familiar ground, priced where Java differs), strings\u2019 immutability discipline, arrays, and the varargs/input-output census.',
+      'The language\u2019s vocabulary: types (primitives versus references — the two worlds that explain every later surprise), operators and control flow (selection with if/else and switch, iteration with the loop census — familiar ground priced where Java differs), strings\u2019 immutability discipline, one- and two-dimensional arrays (the AP-style 2D array craft — row/column traversal priced), the varargs/input-output census, and the algorithmic craft on the collections — sequential and binary searching, the sorting census, recursion the Java way, and the algorithm-analysis echo (Big-O cross-referenced to Algorithms).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Primitives versus References: the Two Worlds',
+      'Selection and Iteration: the Control-Flow Census',
       'Strings\u2019 Immutability Discipline',
-      'Arrays and the IO Census',
+      'Arrays, 2D Arrays and the IO Census',
+      'Searching, Sorting and Recursion in Java',
     ],
   },
   {
@@ -135,7 +142,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Creation Idioms',
       'The Immutability Playbook',
-      'The Pitfalls Census and the Ecosystem',
+      'The Pitfalls Census and the Ecosystem (the applet and servlet eras named)',
     ],
   },
   {

@@ -375,7 +375,7 @@
   "research": {
     "examRegistry": {
       "target": "50+ examinations (>=10 Indian, >=20 international)",
-      "status": "skeleton created, zero exams researched yet",
+      "status": "56 exams researched (30 with maths sections, 7 with CS sections: gate, ugc-net, ioi, cuet-ug, ib, a-levels, ap - csUnits + coverage maps 2026-11-15); presets for 26 maths ids + the NOT_YET_SERVED ledger; the CS topic ledger at docs/research/CS_EXAM_TOPIC_LEDGER.md (251/251)",
       "file": "docs/project/EXAM_REGISTRY.json"
     },
     "sourceCollection": {
@@ -1316,7 +1316,7 @@
   "csShelfPlanning20261115": {
     "nature": "owner-directed planning turn (not a numbered run); zero lesson authoring",
     "directive": "as all things are planned for mathematics do for computer science — same method, same detail style depth; first create only the planned lessons, cover page and etc",
-    "promoted": "44 CS books, 363 chapters / 1,146 planned lessons, status planned",
+    "promoted": "44 CS books, 363 chapters / 1,146 planned lessons, status planned (grown 2026-11-15 by the CS exam-topic coverage pass to 364 chapters / 1,218 planned lessons - see csExamTopicCoverage20261115)",
     "evidence": "docs/research/CS_TOC_SURVEY.md (27/27 Drive TOC extractions — Sipser the one scan, vision ×2; every non-Drive book web-checked against canonical sources, URLs in SOURCE_LOG.md)",
     "folds": "5 backlog lines merged honestly: Digital Electronics + Boolean Algebra/Logic Gates → digital-logic-design; Automata + Formal Languages & Grammars → theory-of-computation; Discrete Maths for CS → the existing mathematics discrete-mathematics (cross-ref)",
     "covers": "44/44 AI cover art generated text-free (864×1152, motif per subject, palette per accent pair) — scripts/gen_covers.py recreated (idempotent; FORCE/LIMIT); VLM sweep: one baked-text catch (digital-logic-design) regenerated clean; wired via src/data/library/covers.ts",
@@ -1325,5 +1325,16 @@
     "gates": "lint 0 errors (5 pre-existing warnings); this pass's files tsc-clean; verify-math-shelf-planning 1,240/1,240 (amended honestly: allBooks 28→72); verify_topic_coverage 576/576; verify_toc_as_lessons 3,883/3,883; pre-existing app-shell TS2322 ×4 on HEAD recorded (stash-verified)",
     "authoring": "UNCHANGED — run 107 opens AA 3.3 exactly as the standing pointer records; CS authoring opens by owner promotion (backlog order)",
     "push": "pending (no PAT this turn — the next fire turn pushes all unpushed local commits)"
+  },
+  "csExamTopicCoverage20261115": {
+    "nature": "owner-directed coverage turn (not a numbered run); zero lesson authoring",
+    "directive": "make sure those exams topics are to be covered in the books see if any topics is missing in cs books",
+    "researched": "7 official CS syllabi downloaded + extracted 2026-11-15: GATE CSE 2026 (gate2026.iitg.ac.in CS_2026_Syllabus.pdf), UGC NET CS&A code 87 (ugcnetonline.in), IOI Syllabus 2024 (ioinformatics.org), CUET UG 308 CS/IP (the NTA 2025 PDF), Cambridge 9618 2026 (cambridgeinternational.org), AP CS A (apcentral.collegeboard.org), IB DP CS (the 2027-course themes via computersciencewiki.org + ibo.org; legacy options recorded) — URLs in SOURCE_LOG.md",
+    "ledger": "251 topic lines transcribed/condensed from the official syllabi, routed to shelf books; docs/research/CS_EXAM_TOPIC_LEDGER.md is the durable record",
+    "verdict": "first honest run: 162 direct / 39 hard gaps / 39 crosses -> fixed by CONTENT (planned lessons added or renamed, planning-level only) + honest cross-shelf routing (monoids/groups -> Abstract Algebra, Bayes -> Probability Theory, Russell -> Set Theory) -> final 251/251 direct, zero gaps, zero crosses",
+    "growth": "CS shelf 363->364 chapters (Cybersecurity's new societal-layer chapter 8) and 1,146->1,218 planned lessons (~70 lessons added or renamed across 26 CS books + the Mathematics shelf's Abstract Algebra +1 lesson and Number Theory +1 rename); stale STATUS header counts repaired in every touched book",
+    "registry": "the 7 CS-bearing exams carry csUnits + CS-extended coverageMaps; the howToUse records the CS coverage rule",
+    "gate": "scripts/verify-cs-exam-coverage.ts (696/696): I registry completeness, II the 251-line topic-inclusion audit (token-level, same standard as verify_topic_coverage.ts), III census integrity; verify-cs-shelf-planning re-pins 364/1,218 (2,348/2,348)",
+    "cadence": "unchanged - run 107 still opens AA 3.3 per the standing pointer"
   }
 }

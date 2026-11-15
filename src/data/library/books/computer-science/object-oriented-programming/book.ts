@@ -5,7 +5,7 @@ import type { Book, Chapter } from '../../../types'
  * Science shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 9 chapters /
- * 30 planned lessons, zero written. Lesson ids will use the `oop-` prefix
+ * 29 planned lessons, zero written. Lesson ids will use the `oop-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the language tutorials (C++,
@@ -26,6 +26,11 @@ import type { Book, Chapter } from '../../../types'
  *   → polymorphism → patterns).
  * - Exam types: university design questions (spot-the-pattern, UML-ish
  *   sketches) + predict-the-output inheritance puzzles.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the IB CS OOP lines audited — single/multiple inheritance named in the is-a lesson. The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -61,12 +66,12 @@ const chapters: Chapter[] = [
     slug: 'composition-and-inheritance',
     title: 'Composition and Inheritance',
     summary:
-      'The two reuse roads: composition first (the has-a discipline and why it usually wins — the fragility of base classes priced), inheritance\u2019s is-a contract (the substitution discipline stated), the protected temptation named honestly, and the design question — which road, when, and the Liskov test.',
+      'The two reuse roads: composition first (the has-a discipline and why it usually wins — the fragility of base classes priced), inheritance\u2019s is-a contract (the substitution discipline stated; single inheritance versus the multiple-inheritance craft — the diamond problem and Java/C++\u2019s different answers, instantiation from a single class to a family), the protected temptation named honestly, and the design question — which road, when, and the Liskov test.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Composition First: the Has-A Discipline',
-      'Inheritance\u2019s Is-A Contract',
+      'Inheritance\u2019s Is-A Contract: Single and Multiple',
       'Which Road, When: the Liskov Test',
     ],
   },

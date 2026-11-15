@@ -26,6 +26,11 @@ import type { Book, Chapter } from '../../../types'
  *   graphs, dynamic programming, search).
  * - Exam types: speedup/arithmetic questions + communication-cost
  *   computations.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 7 parallel-algorithms line audited — the parallel merge/search lessons named. The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -103,11 +108,12 @@ const chapters: Chapter[] = [
     slug: 'parallel-algorithm-families',
     title: 'Parallel Algorithm Families',
     summary:
-      'The classics parallelized: the sorting family (the parallel merge and bitonic censuses traced), the graph family (BFS\u2019s level-synchronous discipline priced on the load-imbalance disease), the dense linear algebra echo (the matrix families\u2019 data-parallelism — the Mathematics shelf\u2019s Linear Algebra cross-referenced), and the search family named.',
+      'The classics parallelized: the sorting family (the parallel merge and bitonic censuses traced), the search family (parallel searching priced on the divide discipline), the graph family (BFS\u2019s level-synchronous discipline priced on the load-imbalance disease), the dense linear algebra echo (the matrix families\u2019 data-parallelism — the Mathematics shelf\u2019s Linear Algebra cross-referenced).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Bitonic Sorting Traced',
+      'Bitonic Sorting and the Parallel Merge Traced',
+      'Parallel Searching: the Divide Discipline',
       'BFS\u2019s Level Discipline',
       'The Dense-Matrix Echo',
     ],

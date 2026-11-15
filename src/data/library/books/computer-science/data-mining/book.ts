@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Data Mining — the thirty-seventh book of the Computer Science shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 7 chapters /
- * 22 planned lessons, zero written. Lesson ids will use the `mine-`
+ * 23 planned lessons, zero written. Lesson ids will use the `mine-`
  * prefix (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Machine Learning owns the
@@ -24,6 +24,14 @@ import type { Book, Chapter } from '../../../types'
  *   Analysis; 7 Cluster Analysis; 8 Anomaly Detection + the appendices
  *   on PCA/SVD, regression, optimization).
  * - Exam types: Apriori computation sets + silhouette/entropy traces.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 4 data-warehouse and
+ *   data-mining line audited — three planned lessons added (the OLAP/OLTP
+ *   warehouse register, the named alternatives census, link/sequencing/
+ *   social-network analysis). The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -31,11 +39,12 @@ const chapters: Chapter[] = [
     slug: 'the-pattern-families',
     title: 'The Pattern Families',
     summary:
-      'The field\u2019s honest map: data mining\u2019s tasks as the four families (classification, association, clustering, anomaly — the book\u2019s own census), the data\u2019s preparation echo recalled (quality\u2019s questions from Data Science), and the exploration discipline — summarization and visualization as the first mining act.',
+      'The field\u2019s honest map: data mining\u2019s tasks as the four families (classification, association, clustering, anomaly — the book\u2019s own census), the warehouse register the field rides on (OLAP versus OLTP, the data mart and the cube, concept hierarchies — Big Data Engineering owns the cluster-scale engine), the data\u2019s preparation echo recalled (quality\u2019s questions from Data Science), and the exploration discipline — summarization and visualization as the first mining act.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Four Families',
+      'The Warehouse Register: OLAP, OLTP, Marts, Cubes',
       'The Preparation Echo',
       'Exploration as the First Act',
     ],
@@ -45,13 +54,13 @@ const chapters: Chapter[] = [
     slug: 'classification-basics',
     title: 'Classification: the Basics',
     summary:
-      'The decision-tree craft as the field\u2019s opening discipline: entropy derived as the split\u2019s measure (computed on a worked table), the tree\u2019s growth discipline (the overfitting disease priced — the pruning craft), and the alternative techniques census priced (nearest neighbors, naive Bayes recalled, the ensembles\u2019 echo from Machine Learning).',
+      'The decision-tree craft as the field\u2019s opening discipline: entropy derived as the split\u2019s measure (computed on a worked table), the tree\u2019s growth discipline (the overfitting disease priced — the pruning craft), and the alternative techniques census priced with its names (K-nearest neighbours, support vector machines and regression — the HMM/sequential echo cross-referenced to Machine Learning, the ensembles\u2019 echo likewise).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Entropy Computed on a Worked Table',
       'The Pruning Craft',
-      'The Alternatives Census',
+      'The Alternatives Census: SVM, K-Nearest Neighbour, Regression',
     ],
   },
   {
@@ -59,13 +68,14 @@ const chapters: Chapter[] = [
     slug: 'association-analysis',
     title: 'Association Analysis',
     summary:
-      'The market-basket family: the support/confidence/lift triple defined precisely, Apriori\u2019s principle derived (the anti-monotone law PROVED — the pruning that makes the search feasible), the frequent-itemset machinery traced on a worked basket set, and the rule-evaluation honesty (lift\u2019s reading discipline).',
+      'The market-basket family: the support/confidence/lift triple defined precisely, Apriori\u2019s principle derived (the anti-monotone law PROVED — the pruning that makes the search feasible), the frequent-itemset machinery traced on a worked basket set, the rule-evaluation honesty (lift\u2019s reading discipline), and the beyond-baskets applications the syllabi name — link analysis, sequencing analysis and social network analysis (dependency modeling\u2019s echo priced).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Support/Confidence/Lift Triple',
       'Apriori\u2019s Anti-Monotone Law, Proved',
       'The Machinery Traced on Baskets',
+      'Link, Sequencing and Social Network Analysis',
     ],
   },
   {

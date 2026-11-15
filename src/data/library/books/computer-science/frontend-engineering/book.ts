@@ -24,6 +24,11 @@ import type { Book, Chapter } from '../../../types'
  * - Syllabus audit: the modern bootcamp/self-taught registers.
  * - Exam types: portfolio projects + architecture decision questions
  *   (state placement, rendering choice).
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the CUET 308 B2 website lines audited — the web-vocabulary lesson added (websites/webpages, hosting, browsers, cookies). The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -31,10 +36,11 @@ const chapters: Chapter[] = [
     slug: 'the-frontend-craft',
     title: 'The Frontend Craft',
     summary:
-      'What frontend engineering owns: the browser\u2019s render pipeline as the working reality (parse, style, layout, paint, composite — each stage priced on the performance question it answers), the HTTP contract\u2019s client half, and the modern workflow\u2019s toolchain discipline from the first component to the shipped bundle.',
+      'What frontend engineering owns: the browser\u2019s render pipeline as the working reality (parse, style, layout, paint, composite — each stage priced on the performance question it answers), the web\u2019s own vocabulary — website versus webpage, static versus dynamic pages, the web server and hosting, browsers with their add-ons, plug-ins and cookies — the HTTP contract\u2019s client half, and the modern workflow\u2019s toolchain discipline from the first component to the shipped bundle.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
+      'Websites and Webpages: Hosting, Browsers, Cookies',
       'The Render Pipeline Priced',
       'The HTTP Client Half',
       'From Component to Shipped Bundle',

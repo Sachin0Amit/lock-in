@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Cryptography — the twenty-seventh book of the Computer Science shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 9 chapters /
- * 29 planned lessons, zero written. Lesson ids will use the `crypt-`
+ * 28 planned lessons, zero written. Lesson ids will use the `crypt-`
  * prefix (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Theory of Computation owns the
@@ -25,6 +25,11 @@ import type { Book, Chapter } from '../../../types'
  *   implementation chapter) + Katz & Lindell named for the theory pole.
  * - Exam types: worked computations (RSA keygen/encrypt, ECC point
  *   arithmetic) + protocol-tracing questions.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 9 security line audited — steganography named and the two-worlds lesson renamed to secret-key/public-key. The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -32,11 +37,12 @@ const chapters: Chapter[] = [
     slug: 'the-cryptographic-contract',
     title: 'The Cryptographic Contract',
     summary:
-      'The field\u2019s honest rules: symmetric versus asymmetric as the two worlds, Kerckhoffs\u2019 principle priced (the system\u2019s secrecy lives only in the key), the key-space arithmetic (the numbers made real), and the attack taxonomy (brute force, analytical, the side-channel echo named).',
+      'The field\u2019s honest rules: symmetric versus asymmetric as the two worlds (secret-key and public-key as the syllabi name them), steganography named as the third road — hiding rather than encrypting (with the watermarking echo), Kerckhoffs\u2019 principle priced (the system\u2019s secrecy lives only in the key), the key-space arithmetic (the numbers made real), and the attack taxonomy (brute force, analytical, the side-channel echo named).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'The Two Worlds',
+      'The Two Worlds: Secret-Key and Public-Key',
+      'Steganography: Hiding rather than Encrypting',
       'Kerckhoffs Priced',
       'The Key-Space Arithmetic',
     ],
@@ -136,7 +142,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Signature Contract',
       'The PKI Trust Chain',
-      'TLS\u2019s Handshake Traced',
+      'TLS\u2019s Handshake Traced — the network-security protocol priced',
     ],
   },
   {

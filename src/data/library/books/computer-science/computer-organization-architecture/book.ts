@@ -5,7 +5,7 @@ import type { Book, Chapter } from '../../../types'
  * Computer Science shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 11 chapters /
- * 37 planned lessons, zero written. Lesson ids will use the `coa-` prefix
+ * 44 planned lessons, zero written. Lesson ids will use the `coa-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Digital Logic Design hands off at
@@ -28,6 +28,11 @@ import type { Book, Chapter } from '../../../types'
  *   sets and addressing modes, ALU design, control design, memory and I/O).
  * - Exam types: GATE-style numerical MCQs (cache hit rates, pipeline
  *   speedups, CPI arithmetic) + CS:APP-style labs.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 2 lines audited — five planned lessons/renames added (IEEE 754 floating-point arithmetic, associative memory, the levels census naming auxiliary/virtual, asynchronous/serial transfer, vector and array processors with arbitration/multicore). The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -79,7 +84,7 @@ const chapters: Chapter[] = [
     slug: 'datapath-and-control',
     title: 'Datapath and Control',
     summary:
-      'Building the machine Digital Logic Design handed over: the single-cycle datapath from the ISA, the control unit hardwired (the logic that commands the datapath), microprogramming as the alternative control discipline, and the ALU\u2019s own design (the arithmetic circuits from DLD re-aimed at word-level operations).',
+      'Building the machine Digital Logic Design handed over: the single-cycle datapath from the ISA, the control unit hardwired (the logic that commands the datapath), microprogramming as the alternative control discipline (control memory and address sequencing — the Mano arc), and the ALU\u2019s own design (the arithmetic circuits from DLD re-aimed at word-level operations) with floating-point arithmetic added — the IEEE 754 representation priced (sign, exponent, mantissa; rounding, the special values; addition and multiplication traced — DLD owns the number-representation ground).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -87,6 +92,7 @@ const chapters: Chapter[] = [
       'The Hardwired Control Unit',
       'Microprogramming: the Alternative Discipline',
       'The ALU Designed',
+      'Floating-Point Arithmetic: IEEE 754 Priced',
     ],
   },
   {
@@ -109,13 +115,13 @@ const chapters: Chapter[] = [
     slug: 'the-memory-hierarchy',
     title: 'The Memory Hierarchy',
     summary:
-      'Why memory is a ladder and not a floor: the principle of locality derived from real program behaviour, the multilevel hierarchy and its performance model (the average-access arithmetic priced on worked examples), and the architectural census of the levels from registers to tape.',
+      'Why memory is a ladder and not a floor: the principle of locality derived from real program behaviour, the multilevel hierarchy and its performance model (the average-access arithmetic priced on worked examples), and the architectural census of the levels — main, auxiliary/secondary, cache and virtual — with the memory-management hardware named (Operating Systems owns the replacement and allocation policy).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Locality: the Program\u2019s Habit, Measured',
       'The Multilevel Hierarchy and Its Arithmetic',
-      'The Census of Levels',
+      'The Census of Levels: Main, Auxiliary, Cache, Virtual',
     ],
   },
   {
@@ -123,11 +129,12 @@ const chapters: Chapter[] = [
     slug: 'cache-memory',
     title: 'Cache Memory',
     summary:
-      'The craft chapter: cache principles and the mapping methods (direct, associative, set-associative — the replacement policies priced on traces), elements of cache design (line size, write policy, multilevel), the honest performance models, and real organizations (Intel x86 and IBM z13 named from the source census).',
+      'The craft chapter: cache principles and the mapping methods (direct, associative and set-associative — the associative/content-addressable memory that fully-associative lookup rides, priced on the CAM trade), the replacement policies priced on traces, elements of cache design (line size, write policy, multilevel), the honest performance models, and real organizations (Intel x86 and IBM z13 named from the source census).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Cache Principles and the Mapping Craft',
+      'Associative Memory: the Content-Addressable Trade',
       'Replacement Policies Priced on Traces',
       'Elements of Cache Design',
       'Real Organizations: the Intel and IBM Censuses',
@@ -153,13 +160,14 @@ const chapters: Chapter[] = [
     slug: 'input-output',
     title: 'Input/Output',
     summary:
-      'The machine\u2019s hands: external devices and I/O modules, programmed I/O and its polling cost, interrupt-driven I/O (the vectored discipline), direct memory access and its controller, direct cache access named, I/O channels and processors, and the interconnection census — buses, point-to-point, PCIe.',
+      'The machine\u2019s hands: external devices and I/O modules, programmed I/O and its polling cost, interrupt-driven I/O (the vectored discipline, priority interrupts), direct memory access and its controller, direct cache access named, I/O channels and processors, the asynchronous data-transfer question (strobing and handshaking — the serial-communication echo; the modes of transfer census) and the interconnection census — buses, point-to-point, PCIe.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Programmed I/O and the Polling Cost',
       'Interrupt-Driven I/O: the Vectored Discipline',
       'Direct Memory Access',
+      'Asynchronous and Serial Data Transfer: the Modes',
       'The Interconnection Census: Buses to PCIe',
     ],
   },
@@ -168,11 +176,12 @@ const chapters: Chapter[] = [
     slug: 'parallel-organizations',
     title: 'Parallel Organizations',
     summary:
-      'The architectural endgame: instruction-level parallelism recapped from its doorstep, symmetric multiprocessors and cache coherence, clusters and the warehouse-scale census, GPGPUs and the data-parallel machine, and the honest cross-reference — the algorithm side of parallelism is Parallel Computing\u2019s book.',
+      'The architectural endgame: instruction-level parallelism recapped from its doorstep, symmetric multiprocessors and cache coherence (the interconnection-structure and interprocessor-arbitration census with multicore named), vector and array processors named (the data-parallel machines the Mano arc prices — the GPU\u2019s ancestors), clusters and the warehouse-scale census, GPGPUs and the data-parallel machine, and the honest cross-reference — the algorithm side of parallelism is Parallel Computing\u2019s book.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Symmetric Multiprocessors and Coherence',
+      'Symmetric Multiprocessors, Arbitration and Multicore',
+      'Vector and Array Processors, Named',
       'Clusters and the Warehouse-Scale Census',
       'GPGPUs: the Data-Parallel Machine',
     ],

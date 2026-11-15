@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Operating Systems — the ninth book of the Computer Science shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 10 chapters /
- * 34 planned lessons, zero written. Lesson ids will use the `os-` prefix
+ * 35 planned lessons, zero written. Lesson ids will use the `os-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): COA owns the machine; this book
@@ -24,6 +24,11 @@ import type { Book, Chapter } from '../../../types'
  *   and virtual memory), file systems — the chapters 2-7 roster exactly.
  * - Exam types: GATE numerical + MCQ (scheduling tables, banker's
  *   algorithm, page-fault arithmetic, fork counting) + OSC problem sets.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 5 lines audited — the system-call lesson renamed to carry the name, thread libraries/implicit threading added, and the Windows practice pole added. The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -31,12 +36,12 @@ const chapters: Chapter[] = [
     slug: 'what-an-operating-system-is',
     title: 'What an Operating System Is',
     summary:
-      'The manager layer priced honestly: what it does for programs (the illusion of exclusive machine, files, endless memory), kernel versus user mode as the boundary of trust, the structures census (monolithic, micro, modular, hybrid) and the Linux tour — the system that boots, from firmware to init, as the live example.',
+      'The manager layer priced honestly: what it does for programs (the illusion of exclusive machine, files, endless memory), the system-call interface (kernel versus user mode as the boundary of trust — traps and the syscall census, what the shell actually does), the structures census (monolithic, micro, modular, hybrid) and the Linux tour — the system that boots, from firmware to init, as the live example.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Manager Layer and Its Illusions',
-      'Kernel versus User: the Boundary of Trust',
+      'System Calls: Kernel versus User',
       'The Structures Census',
       'A Linux Boots: the Live Tour',
     ],
@@ -46,13 +51,14 @@ const chapters: Chapter[] = [
     slug: 'processes-and-threads',
     title: 'Processes and Threads',
     summary:
-      'The program in motion: the process concept and its PCB, states and transitions (the diagram priced on real traces), the fork/exec discipline of creation, threads as address-space sharing (their own stacks and registers), and the practical census — TLPI\u2019s processes and Linux\u2019s /proc window.',
+      'The program in motion: the process concept and its PCB, states and transitions (the diagram priced on real traces), the fork/exec discipline of creation, threads as address-space sharing (their own stacks and registers — multicore programming priced, the multithreading models with thread libraries and implicit threading named, interprocess communication\u2019s census — pipes, shared memory, signals; Java\u2019s concurrency craft cross-referenced), and the practical census — TLPI\u2019s processes and Linux\u2019s /proc window.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Process Concept and Its State Diagram',
       'Fork and Exec: Creation the Unix Way',
       'Threads: Sharing the Address Space',
+      'Thread Libraries, Implicit Threading and IPC',
     ],
   },
   {
@@ -132,13 +138,14 @@ const chapters: Chapter[] = [
     slug: 'the-linux-practice-pole',
     title: 'The Linux Practice Pole',
     summary:
-      'The manager touched by hand (the How-Linux-Works/TLPI arc): the command line and the directory hierarchy, devices as files, the signals discipline and IPC census (pipes, FIFOs, sockets — the local family), and the shell as the user\u2019s lever into the kernel\u2019s services.',
+      'The manager touched by hand (the How-Linux-Works/TLPI arc): the command line and the directory hierarchy, devices as files, the signals discipline and IPC census (pipes, FIFOs, sockets — the local family), the shell as the user\u2019s lever into the kernel\u2019s services, and the other pole the syllabi name — Windows\u2019s design principles and system components (the registry, NTFS, terminal services and fast user switching, its networking stack) priced as the same discipline in a different dress.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Hierarchy and the Shell Lever',
       'Devices as Files',
       'Signals and the Local IPC Census',
+      'The Windows Pole: Registry, NTFS, Terminal Services',
     ],
   },
   {

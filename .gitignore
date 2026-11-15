@@ -519,3 +519,7 @@ server.log
 !/scripts/digest_cs_tocs.py
 !/scripts/verify-exam-coverage.ts
 !/scripts/e2e-exam-presets.sh
+
+# CS exam-topic coverage pass (2026-11-15): the standing gate + the discovery probe that generated its tables
+!/scripts/verify-cs-exam-coverage.ts
+!/scripts/probe-cs-exam-coverage.py

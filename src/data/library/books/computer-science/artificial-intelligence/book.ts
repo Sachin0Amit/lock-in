@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Artificial Intelligence — the twenty-eighth book of the CS shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 9 chapters /
- * 30 planned lessons, zero written. Lesson ids will use the `ai-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `ai-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the probabilistic mathematics
@@ -26,6 +26,16 @@ import type { Book, Chapter } from '../../../types'
  *   AI section rides the ML book more).
  * - Exam types: search-tracing questions (A-star/minimax tables) +
  *   logic/inference problems + university AI problem sets.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 10 classic-GOFAI census
+ *   audited against this plan — seven planned lessons added (the Turing
+ *   test, the multi-agent question, the GA cycle named with its operators,
+ *   the GOFAI representation census, expert systems, the planning zoo,
+ *   fuzzy sets) and the formulation lesson renamed to name the state
+ *   space. The routing/verdict record is docs/research/
+ *   CS_EXAM_TOPIC_LEDGER.md; the standing gate is scripts/
+ *   verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -33,12 +43,14 @@ const chapters: Chapter[] = [
     slug: 'the-agent-discipline',
     title: 'The Agent Discipline',
     summary:
-      'The field\u2019s organizing idea: rationality defined honestly (the environment\u2019s census — fully/partially observable, deterministic/stochastic, the PEAS discipline), agent architectures as programs, and AI\u2019s history priced as the two rivers (logic and learning) that later reunite — the book\u2019s map stated.',
+      'The field\u2019s organizing idea: rationality defined honestly (the Turing test priced against the rational-agent view — what each actually measures; the environment\u2019s census — fully/partially observable, deterministic/stochastic, the PEAS discipline), agent architectures as programs, the multi-agent question named (agent communication languages, the semantic-web echo, knowledge sharing through ontologies — Distributed Systems takes the deep treatment), and AI\u2019s history priced as the two rivers (logic and learning) that later reunite — the book\u2019s map stated.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Rationality and the Environment Census',
+      'The Turing Test, Priced Honestly',
       'Agent Architectures as Programs',
+      'Many Agents: Communication and the Semantic Web',
       'The Two Rivers of AI History',
     ],
   },
@@ -47,11 +59,11 @@ const chapters: Chapter[] = [
     slug: 'search-the-solving-machine',
     title: 'Search: the Solving Machine',
     summary:
-      'Problem-solving as search: the problem formulation discipline (states, actions, the goal test — priced on real puzzles), uninformed search traced (BFS, DFS, uniform-cost with their completeness/optimality/cost census), and informed search — A* derived with its admissibility PROVED (the heuristic\u2019s honesty contract).',
+      'Problem-solving as search: the problem formulation discipline (the state space and its states, actions, the goal test — priced on real puzzles), uninformed search traced (BFS, DFS, uniform-cost with their completeness/optimality/cost census), and informed search — A* derived with its admissibility PROVED (the heuristic\u2019s honesty contract).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Problem Formulation as Discipline',
+      'Problem Formulation: the State Space',
       'The Uninformed Census',
       'A* Derived, Admissibility Proved',
     ],
@@ -61,11 +73,12 @@ const chapters: Chapter[] = [
     slug: 'searching-in-complex-worlds',
     title: 'Searching in Complex Worlds',
     summary:
-      'The harder search world: local search and the heuristic landscape (hill-climbing\u2019s local-maximum disease, simulated annealing named with its schedule, genetic algorithms\u2019 census), adversarial search (minimax traced, alpha-beta pruning PROVED sound, the evaluation-function craft), and constraint satisfaction (backtracking, the arc-consistency discipline).',
+      'The harder search world: local search and the heuristic landscape (hill-climbing\u2019s local-maximum disease, simulated annealing named with its schedule), evolutionary search — the genetic algorithm cycle priced (encoding strategies, the genetic operators of selection, crossover and mutation, fitness functions), adversarial search (game playing with minimax traced, alpha-beta pruning PROVED sound, the evaluation-function craft), and constraint satisfaction (backtracking, the arc-consistency discipline).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Heuristic Landscape',
+      'Evolutionary Search: the Genetic Algorithm Cycle',
       'Minimax and Alpha-Beta, Proved Sound',
       'Constraint Satisfaction\u2019s Discipline',
     ],
@@ -75,13 +88,14 @@ const chapters: Chapter[] = [
     slug: 'logic-and-representation',
     title: 'Logic and Representation',
     summary:
-      'Knowledge as the agent\u2019s content: propositional logic\u2019s inference engine (the resolution discipline traced — Mathematical Logic cross-referenced), first-order logic\u2019s expressiveness priced on the representation craft, and the inference census (forward versus backward chaining traced through real rule systems).',
+      'Knowledge as the agent\u2019s content: propositional logic\u2019s inference engine (the resolution discipline traced — Mathematical Logic cross-referenced), first-order logic\u2019s expressiveness priced on the representation craft, the classic GOFAI representation census (semantic networks, frames, scripts, conceptual dependency graphs and ontologies — what each buys and what it costs), and the inference census (forward versus backward chaining traced through real rule systems; expert systems priced as the production-machine discipline with uncertainty handled honestly).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Resolution Traced',
       'First-Order Expressiveness Priced',
-      'Forward versus Backward Chaining',
+      'The GOFAI Census: Semantic Networks, Frames, Scripts',
+      'Expert Systems and Forward versus Backward Chaining',
     ],
   },
   {
@@ -89,12 +103,13 @@ const chapters: Chapter[] = [
     slug: 'planning-the-acting-agent',
     title: 'Planning: the Acting Agent',
     summary:
-      'From knowledge to action: classical planning\u2019s representation (STRIPS\u2019 states and actions), the planning-as-search discipline, the plans\u2019 quality question, and the execution honesty — monitoring and replanning named as the bridge to real robots.',
+      'From knowledge to action: classical planning\u2019s representation (STRIPS\u2019 states and actions), the planning-as-search discipline, the planning zoo beyond the classical strip (goal-stack planning, hierarchical task networks, partial-order planning with its linear and non-linear honest trade), the plans\u2019 quality question, and the execution honesty — monitoring and replanning named as the bridge to real robots.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Classical Representation',
       'Planning as Search',
+      'The Planning Zoo: Goal Stack, Hierarchical, Partial Order',
       'Monitoring and Replanning',
     ],
   },
@@ -103,12 +118,13 @@ const chapters: Chapter[] = [
     slug: 'uncertain-knowledge-and-reasoning',
     title: 'Uncertain Knowledge and Reasoning',
     summary:
-      'Acting under uncertainty: probability as the rational agent\u2019s language (Probability Theory cross-referenced — Bayes\u2019 rule priced on real diagnosis), Bayesian networks\u2019 inference discipline (the independence craft made structural), and the utility discipline — the rational agent composed into decision theory\u2019s shape.',
+      'Acting under uncertainty two ways: probability as the rational agent\u2019s language (Probability Theory cross-referenced — Bayes\u2019 rule priced on real diagnosis; Bayesian networks\u2019 inference discipline — the independence craft made structural) and fuzziness as the degree-based alternative (fuzzy sets with their membership functions, fuzzification and defuzzification, fuzzy rules and fuzzy inference, the fuzzy-control systems census), plus the utility discipline — the rational agent composed into decision theory\u2019s shape.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Bayes Priced on Real Diagnosis',
       'Bayesian Networks\u2019 Inference',
+      'Fuzzy Sets: Membership, Rules and Inference',
       'Utility: the Rational Composition',
     ],
   },

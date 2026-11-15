@@ -5,7 +5,7 @@ import type { Book, Chapter } from '../../../types'
  * shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 10 chapters /
- * 33 planned lessons, zero written. Lesson ids will use the `db-` prefix
+ * 40 planned lessons, zero written. Lesson ids will use the `db-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the Mathematics shelf's
@@ -27,6 +27,11 @@ import type { Book, Chapter } from '../../../types'
  *   the chapters 2-5, 8-9 roster exactly.
  * - Exam types: GATE SQL/normalization MCQs + FD-closure problems +
  *   university query-writing sets.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 4 + GATE S9 + CUET 308 lines audited — seven planned lessons added (three-schema/data independence, the enhanced-model census, relational calculus, Codd’s rules, DDL/DML, the function census, stored procedures/triggers). The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -34,12 +39,14 @@ const chapters: Chapter[] = [
     slug: 'the-database-idea',
     title: 'The Database Idea',
     summary:
-      'Why files stop being enough (the redundancy, inconsistency and isolation census priced on a spreadsheet that grew), the database\u2019s contract, schemas and instances, data models as the census (relational named as this book\u2019s spine), and the engine census — the components a real system owns.',
+      'Why files stop being enough (the redundancy, inconsistency and isolation census priced on a spreadsheet that grew), the database\u2019s contract, schemas and instances, the three-schema architecture and data independence priced (external/conceptual/internal — what each insulates), data models as the census (relational named as this book\u2019s spine; the enhanced models named — temporal, multimedia, deductive, mobile and spatial/GIS with the distributed echo cross-referenced to Distributed Systems and the XML/internet arc to Big Data Engineering), centralized and client/server architectures, and the engine census — the components a real system owns.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Why Files Stop Being Enough',
       'Schemas, Instances and Data Models',
+      'The Three-Schema Architecture and Data Independence',
+      'The Enhanced-Model Census: Temporal, Deductive, Spatial',
       'The Engine Census',
     ],
   },
@@ -48,13 +55,15 @@ const chapters: Chapter[] = [
     slug: 'the-relational-model',
     title: 'The Relational Model',
     summary:
-      'Tables as mathematics: relations, tuples and attributes with the domain discipline, keys (super/candidate/primary/foreign — the identification craft), schema diagrams, and the relational algebra PROVED as the query mathematics (selection, projection, joins — the Set Theory cross-reference made explicit).',
+      'Tables as mathematics: relations, tuples and attributes with the domain discipline, keys (super/candidate/primary/alternate/foreign — the identification craft), schema diagrams, the relational algebra PROVED as the query mathematics (selection, projection, union, set difference, cartesian product, joins — the Set Theory cross-reference made explicit), the relational calculus named as algebra\u2019s declarative twin (tuple and domain flavors), and Codd\u2019s twelve rules audited as the model\u2019s compliance census.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Relations, Tuples and Keys',
       'The Relational Algebra, Proved',
+      'Relational Calculus: the Tuple and Domain Flavors',
       'The Identification Craft: Superkeys to Foreign Keys',
+      'Codd\u2019s Twelve Rules, Audited',
     ],
   },
   {
@@ -62,13 +71,16 @@ const chapters: Chapter[] = [
     slug: 'sql-the-standard-voice',
     title: 'SQL: the Standard Voice',
     summary:
-      'The industry\u2019s language from data definition to the query craft: basic structure (select-from-where walked honestly), joins, set operations, null values\u2019 three-valued discipline, aggregate functions with grouping, nested subqueries (correlated and not), modification, views, integrity constraints and authorization, and indexes declared in SQL.',
+      'The industry\u2019s language from data definition to the query craft: basic structure (select-from-where walked honestly), the DDL/DML/DQL split priced on MySQL (CREATE TABLE, DROP, ALTER with the data-type census; INSERT, UPDATE, DELETE), the function census (math, text, date and the aggregates — GROUP BY, HAVING, ORDER BY), joins, set operations, null values\u2019 three-valued discipline, nested subqueries (correlated and not), views, integrity constraints and authorization, stored procedures, functions and triggers with the SQL-injection risk named (Cybersecurity cross-referenced), and indexes declared in SQL.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Basic Structure Walked',
+      'DDL and DML: CREATE, ALTER, DROP, INSERT, UPDATE, DELETE',
+      'The Function Census: Math, Text, Date, Aggregates',
       'Aggregation, Grouping and Subqueries',
       'Views, Constraints and Authorization',
+      'Stored Procedures, Triggers and the SQL-Injection Risk',
       'The Craft Census: Queries Written',
     ],
   },

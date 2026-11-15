@@ -5,7 +5,7 @@ import type { Book, Chapter } from '../../../types'
  * shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 9 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `asm-` prefix
+ * 30 planned lessons, zero written. Lesson ids will use the `asm-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Computer Organization and
@@ -26,6 +26,11 @@ import type { Book, Chapter } from '../../../types'
  *   register (8085/8086 + interfacing) and the embedded census.
  * - Exam types: university programming/timing questions (T-states, machine
  *   cycles) + tracing exercises.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 5 system-software line audited — the linking/loading/relocation lesson added. The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -33,11 +38,12 @@ const chapters: Chapter[] = [
     slug: 'the-machine-below',
     title: 'The Machine Below',
     summary:
-      'Why a language beneath the high-level one exists at all: machine language, assembly and the translation ladder, registers as the machine\u2019s hands and the instruction window, the assembler\u2019s job, and the honest census — when writing assembly is the right tool (CS:APP\u2019s own answer priced on examples).',
+      'Why a language beneath the high-level one exists at all: machine language, assembly and the translation ladder — grown into the system-software toolchain (the linker, the loader and relocation: object code\u2019s journey to a running process; the debugger as the machine-level inspector — CS:APP\u2019s own chapters), registers as the machine\u2019s hands and the instruction window, the assembler\u2019s job, and the honest census — when writing assembly is the right tool (CS:APP\u2019s own answer priced on examples).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Translation Ladder',
+      'Linking, Loading and Relocation: Object Code\u2019s Journey',
       'Registers: the Machine\u2019s Hands',
       'When Assembly Is the Right Tool',
     ],

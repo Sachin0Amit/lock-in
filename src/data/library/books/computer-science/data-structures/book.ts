@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Data Structures — the fifth book of the Computer Science shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 9 chapters /
- * 29 planned lessons, zero written. Lesson ids will use the `ds-` prefix
+ * 31 planned lessons, zero written. Lesson ids will use the `ds-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the Mathematics shelf's
@@ -27,6 +27,15 @@ import type { Book, Chapter } from '../../../types'
  *   exact roster of chapters 2-6 here.
  * - Exam types: GATE-style tracing MCQs (postfix, rotations) +
  *   university implementation sets.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the CUET 308 B1 + UGC NET Unit 7 + Cambridge
+ *   9618 lines audited against this plan — two planned lessons added
+ *   (threaded binary trees, external B/B+/B* balance) and the stack/queue
+ *   lessons renamed to carry LIFO/PUSH/POP, FIFO/deque and the
+ *   infix/prefix/postfix vocabulary by name. Routing/verdict record:
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; standing gate:
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -76,13 +85,13 @@ const chapters: Chapter[] = [
     slug: 'stacks-and-queues',
     title: 'Stacks and Queues',
     summary:
-      'The last-in-first-out discipline (push, pop, the peek) and the first-in-first-out family (linear, circular, deque, priority), each priced on its honest cost table, and the application census — expression conversion and evaluation, function calls, parsing, and BFS\u2019s frontier.',
+      'The last-in-first-out discipline (LIFO — push, pop, the peek) and the first-in-first-out family (FIFO — the linear queue, the circular ring, the deque, the priority queue), each priced on its honest cost table, and the application census — infix, prefix and postfix expressions converted and evaluated on a stack, function calls, parsing, and BFS\u2019s frontier.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'The Stack Discipline',
-      'The Queue Family',
-      'The Application Census: Expressions, Calls, Frontiers',
+      'The Stack: LIFO, PUSH and POP',
+      'The Queue Family: FIFO, the Deque, the Priority Queue',
+      'Expressions: Infix, Prefix, Postfix — Stacks at Work',
     ],
   },
   {
@@ -90,7 +99,7 @@ const chapters: Chapter[] = [
     slug: 'trees',
     title: 'Trees',
     summary:
-      'The tree idea and its vocabulary (root, height, depth, the traversal census pre/in/post/level), binary trees and their properties, the binary search tree — search organised as structure with the deletion craft, and the balance problem that AVL answers (red-black hands off to Algorithms).',
+      'The tree idea and its vocabulary (root, height, depth, the traversal census pre/in/post/level), binary trees and their properties (the threaded variant named — threads replacing null pointers for predecessor/successor walks), the binary search tree — search organised as structure with the deletion craft, the balance problem that AVL answers (red-black hands off to Algorithms), and the external balance the disk demands — B, B+ and B* trees (Database Management Systems grows them onto disk).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -98,6 +107,8 @@ const chapters: Chapter[] = [
       'Binary Trees and Their Properties',
       'BST: Search Organised as Structure',
       'The Balance Problem: AVL',
+      'The Threaded Binary Tree, Named',
+      'External Balance: B, B+ and B* Trees',
     ],
   },
   {
@@ -148,7 +159,7 @@ const chapters: Chapter[] = [
     slug: 'the-synthesis-and-the-doorstep',
     title: 'The Synthesis and the Doorstep',
     summary:
-      'The structure map (one page from array to union-find with the costs beside), the craft census (tracing questions at gate-exam level — postfix, rotations, probing), and the doorstep — Algorithms rides these structures into its families, and Database Management Systems grows them onto disk.',
+      'The structure map (one page from array to union-find with the costs beside), the craft census (tracing questions at gate-exam level — infix-to-postfix conversions, rotations, probing, searching and sorting traced on the structures), and the doorstep — Algorithms rides these structures into its families, and Database Management Systems grows them onto disk.',
     status: 'planned',
     lessons: [],
     plannedLessons: [

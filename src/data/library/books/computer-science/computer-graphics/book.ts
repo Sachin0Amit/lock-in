@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Computer Graphics — the twelfth book of the Computer Science shelf.
  *
  * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 9 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `gfx-` prefix
+ * 31 planned lessons, zero written. Lesson ids will use the `gfx-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the linear algebra (matrices,
@@ -25,6 +25,14 @@ import type { Book, Chapter } from '../../../types'
  * - Syllabus audit: the standard university graphics course arcs.
  * - Exam types: university problem sets (matrix compositions, clipping,
  *   visibility) + pipeline tracing.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 3 graphics line and
+ *   the Cambridge 9618-style classic census audited against this plan —
+ *   four planned lessons added (the display-hardware census, the two
+ *   scan-conversion lessons, region fill). The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -32,11 +40,12 @@ const chapters: Chapter[] = [
     slug: 'what-graphics-promises',
     title: 'What Graphics Promises',
     summary:
-      'The field\u2019s honest contract: synthesizing images from descriptions (the applications census — design, games, film, visualization), the APIs\u2019 story (the immediate/retained-mode split), the model of image formation (the camera as equations — the pinhole priced), and the book\u2019s two-method map: ray tracing and rasterization.',
+      'The field\u2019s honest contract: synthesizing images from descriptions (the applications census — design, games, film, visualization), the APIs\u2019 story (the immediate/retained-mode split), the display hardware census of the classic course (video display devices, raster-scan versus random-scan systems, graphics monitors and the input-device family), the model of image formation (the camera as equations — the pinhole priced), and the book\u2019s two-method map: ray tracing and rasterization.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Contract: Descriptions to Images',
+      'The Display Hardware Census: Raster and Random Scan',
       'The Camera as Equations',
       'The Two-Method Map',
     ],
@@ -74,11 +83,14 @@ const chapters: Chapter[] = [
     slug: 'the-raster-pipeline',
     title: 'The Raster Pipeline',
     summary:
-      'The industry\u2019s engine: vertex processing and the viewport/clipping discipline, triangle rasterization (edge functions and the coverage question), the depth buffer as visibility\u2019s honest answer, and the fragment stage — shading interpolated by the barycentric discipline.',
+      'The industry\u2019s engine: vertex processing and the viewport/clipping discipline, the classic scan-conversion craft beneath every pipeline (line drawing from DDA to Bresenham\u2019s integer discipline, the midpoint circle and ellipse algorithms, region fill from scan-line polygon fill to boundary-fill and flood-fill), triangle rasterization (edge functions and the coverage question), the depth buffer as visibility\u2019s honest answer, and the fragment stage — shading interpolated by the barycentric discipline.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Viewport and Clipping Discipline',
+      'Scan Conversion: Line Drawing (DDA, Bresenham)',
+      'Scan Conversion: Midpoint Circle and Ellipse',
+      'Region Fill: Scan-Line, Boundary, Flood',
       'Rasterizing Triangles',
       'The Depth Buffer\u2019s Honest Visibility',
     ],

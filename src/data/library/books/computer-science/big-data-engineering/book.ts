@@ -22,6 +22,11 @@ import type { Book, Chapter } from '../../../types'
  *   the related-projects part — Pig, Hive, HBase, ZooKeeper, Sqoop —
  *   and case studies) + the modern streaming (Spark/Kafka) arcs.
  * - Exam types: pipeline-design questions + MapReduce trace sets.
+ * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
+ *   those exams topics are to be covered in the books see if any topics
+ *   is missing in cs books"): the UGC NET CS&A Unit 4 NoSQL line audited — the NoSQL census lesson added. The routing/verdict record is
+ *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
+ *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
   {
@@ -71,12 +76,13 @@ const chapters: Chapter[] = [
     slug: 'the-data-warehouse-layer',
     title: 'The Data Warehouse Layer',
     summary:
-      'The higher-level engines: Pig\u2019s dataflow discipline named, Hive\u2019s SQL-over-cluster arc priced (the schema-on-read question — DBMS cross-referenced), the warehouse discipline itself (the ETL arc, the star-schema craft), and the lakehouse echo named as the modern settlement.',
+      'The higher-level engines: Pig\u2019s dataflow discipline named, Hive\u2019s SQL-over-cluster arc priced (the schema-on-read question — DBMS cross-referenced), the warehouse discipline itself (the ETL arc, the star-schema craft), the NoSQL census the scale question forced (key-value, document, column-family and graph stores — what each trades away from the relational contract, querying and indexing them, the cloud echo), and the lakehouse echo named as the modern settlement.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'Hive\u2019s SQL-over-Cluster Arc',
       'The ETL and Star-Schema Craft',
+      'The NoSQL Census: Key-Value, Document, Column, Graph',
       'The Lakehouse Settlement, Named',
     ],
   },
