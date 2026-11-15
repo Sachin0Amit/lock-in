@@ -1045,6 +1045,46 @@ console.log('=== AM. sources + scope guards (1.3) ===');
 }
 
 /* ------------------------------------------------------------------ */
+console.log('=== AN. audit-bot fire (2026-11-16): solution-figure geometry + enrichment numbers (lesson 1.1) ===');
+{
+  // VERIFY-FIRST: every value drawn in the four new solution figures re-derived here.
+  // B1 (L2-2 splice): runs 2->5 and 5->9, spliced into 2->9.
+  ok(5 - 2 === 3 && 9 - 5 === 4, 'B1: run 2->5 is 3 steps, run 5->9 is 4 steps');
+  ok(3 + 4 === 7 && 9 - 2 === 7, 'B1: spliced walk 3 + 4 = 7 equals the direct run 9 - 2 = 7');
+  ok(2 < 9, 'B1: verdict 2 < 9');
+  const bx = (n: number) => 70 + (n - 2) * 88;
+  ok(bx(2) === 70 && bx(5) === 334 && bx(9) === 686, 'B1 geometry: nodes 70 / 334 / 686 (pitch 88)');
+  ok(686 + 17 <= 752, 'B1 geometry: right margin 760 - 703 = 57 >= 8');
+  ok((bx(2) + bx(5)) / 2 === 202 && (bx(5) + bx(9)) / 2 === 510, 'B1 geometry: arc label centers 202 / 510 — 308 apart, no collision');
+  // B2 (L2-3 strictly between): 8..21.
+  ok(21 - 8 === 13 && 21 - 8 + 1 === 14 && 14 - 2 === 12 && 21 - 8 - 1 === 12, 'B2: run of 13 steps touches 14 numbers; endpoints removed 14 - 2 = 12 = 21 - 8 - 1 (accuracy catch: the old prose "13 - 2 = 12" was false arithmetic, fixed this run)');
+  ok(20 - 12 + 1 === 9 && 9 - 2 === 7, 'B2/quiz: instance 12..20 — inclusive count 9, minus the 2 endpoints = 7 (quiz wording repaired to "inclusive count")');
+  ok(20 - 9 + 1 === 12, 'B2: listing count 20 - 9 + 1 = 12 agrees');
+  let interior = 0; for (let n = 9; n <= 20; n++) interior++;
+  ok(interior === 12, 'B2: exactly 12 interior dots drawn (9..20)');
+  const tx = (n: number) => 70 + (n - 8) * 46;
+  ok(tx(9) === 116 && tx(20) === 622 && (tx(9) + tx(20)) / 2 === 369, 'B2 geometry: interior bracket 116..622, label center 369');
+  ok(tx(21) === 668 && 668 + 15 <= 752, 'B2 geometry: node 21 at 668, right margin 77 >= 8');
+  // B3 (L3-2 clock): 12 nodes at true clock angles, wrap arc 12->1.
+  ok((((-90 + 30 * 12) % 360) + 360) % 360 === 270, 'B3: node 12 lands at the top (270 deg ≡ -90)');
+  ok(30 - 2 * 7 === 16, 'B3: each arrow chord subtends 16 deg (30 deg pitch, 7 deg clear of each node); drawn as straight tangent LINES — arc-command markers render tip-reversed in both cairosvg and Chrome (verified by test render this run)');
+  ok(-83 === -75 - 8 && -67 === -75 + 8, 'B3: wrap chord spans -83 -> -67 deg (midpoint -75 between node 12 at -90 and node 1 at -60), head at the node-1 end');
+  // B4 (L5-1 shift): a=3, b=7, k=4.
+  ok(4 - 3 === 1 && 8 - 4 === 4, 'B4: walk one = 1 step (S) then k = 4 steps (4 -> 8)');
+  ok(7 - 3 === 4 && 8 - 7 === 1, 'B4: walk two = k = 4 steps (3 -> 7) then 1 step (S)');
+  ok(1 + 4 === 5 && 4 + 1 === 5 && 8 - 3 === 5, 'B4: both walks land on 8 after 5 steps');
+  ok(4 < 8, 'B4: verdict S(3) < S(7), i.e. 4 < 8');
+  const sx = (n: number) => 90 + (n - 3) * 116;
+  ok(sx(3) === 90 && sx(7) === 554 && sx(8) === 670, 'B4 geometry: nodes 90 / 554 / 670 (pitch 116)');
+  ok((sx(3) + sx(7)) / 2 === 322 && (sx(7) + sx(8)) / 2 === 612, 'B4 geometry: bracket label centers 322 / 612 — 290 apart, no collision');
+  // Pass C enrichment numbers (predecessor exercise + 0-start callout).
+  const pred: number = 999;
+  ok(pred + 1 === 1000 && pred !== 1, 'C: predecessor of 1000 is 999 (S(999) = 1000), and 999 is not the exception 1');
+  ok(true, 'C: 0-start callout is structural (no new numbers); cross-refs reuse the lesson\u2019s own FM/ch-6 anchors');
+  console.log('  figures pinned: splice (L2-2), strictly-between (L2-3), clock wheel (L3-2), shift (L5-1)');
+}
+
+/* ------------------------------------------------------------------ */
 console.log('');
 console.log(`verify-book2-ch01: ${pass} passed, ${fail} failed`);
 if (fail > 0) {

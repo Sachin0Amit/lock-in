@@ -124,6 +124,12 @@ export const chapter01: Chapter = {
           text: 'Axioms (i)–(iv) already decide the *shape* of the system: every natural number is either $1$ or the successor of exactly one earlier number — there is no third kind, no number floating in from nowhere. Together they say the number line is a one-way street: a first address, unlimited forward travel, no forks, no roundabouts. Axiom (v) is different in kind — it is a *licence to prove*, and it gets its own lesson.',
         },
         {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'A fork in the axioms: some rebuilds start the chain at 0',
+          text: 'Nothing in the five sentences is sacred to the numeral $1$. A common modern rebuild starts the same chain at $0$: the first number is $0$, every number has a successor, successors never merge, $0$ is nobody\u2019s successor, and induction closes the list. Read it against the list above — it is the same architecture with the first link renamed, which is why both are fairly called the Peano axioms. The re-indexing is bookkeeping, not doctrine: the 0-start convention lets the chain serve as the whole numbers from the outset, while a counting-first treatment like ours keeps $1$ as the ground floor and lets $0$ enter later in its two working clothes — placeholder digit (Foundation Mathematics) and first integer (chapter 6). When you meet a text that counts $0, 1, 2, \\dots$, nothing has gone wrong; one link has simply been relabelled.',
+        },
+        {
           kind: 'terms',
           items: [
             {
@@ -133,6 +139,10 @@ export const chapter01: Chapter = {
             {
               term: 'Successor',
               def: 'The number immediately after $n$, written $S(n)$ — one full counting step, nothing in between. The everyday notation $n + 1$ is borrowed shorthand until addition is defined by recursion in Lesson 1.3.',
+            },
+            {
+              term: 'Predecessor',
+              def: 'One full step back from $n$: the number whose successor is $n$. Axiom (iii) makes such a number unique when it exists — successors never merge, so the step back cannot land two ways — and axiom (iv) marks the one exception: $1$ is nobody\u2019s successor, so $1$ has no predecessor. Every other natural number has exactly one (Exercise L1 works the instance of $1000$).',
             },
             {
               term: 'Peano axioms',
@@ -181,7 +191,7 @@ export const chapter01: Chapter = {
           steps: [
             'Take $8$ and $11$. Walk the successors: $9, 10, 11$ — a run of $3$ steps, so $8 < 11$, and the *distance* between them is $3$ at the same time.',
             'Take $8$ and $8$. The run needs $0$ steps: neither number is less than the other — they are the same number.',
-            'Now count what lives *strictly between* $8$ and $21$: the numbers $9$ through $20$. Listing them is $12$ numbers; the run from $8$ to $21$ has $21 - 8 = 13$ steps, and the endpoints themselves are the two steps the "strictly between" count excludes: $13 - 2 = 12$.',
+            'Now count what lives *strictly between* $8$ and $21$: the numbers $9$ through $20$. Listing them is $12$ numbers; the run from $8$ to $21$ has $21 - 8 = 13$ steps and touches the $14$ numbers from $8$ through $21$ — and the two endpoint numbers are exactly what "strictly between" removes: $14 - 2 = 12$.',
             'Hence the counting formula you will use for life: the natural numbers strictly between $a$ and $b$ number $b - a - 1$ whenever $a < b$.',
             'Check the shape of it: between $8$ and $9$ the formula gives $9 - 8 - 1 = 0$ — neighbours touch, nothing fits between them. That fact gets its full proof in Lesson 1.2; today the formula and the walk agree.',
           ],
@@ -363,7 +373,7 @@ export const chapter01: Chapter = {
               options: ['$6$', '$7$', '$8$', '$19$'],
               answer: 1,
               explain:
-                'The count is $b - a - 1 = 20 - 12 - 1 = 7$: the numbers $13, 14, 15, 16, 17, 18, 19$. Choosing $8$ forgets that "strictly between" excludes *both* endpoints (subtract 2 from the 9-step run, not 1); choosing $6$ subtracts 3; choosing $19$ counts the endpoint. The formula earns its keep precisely when the listing gets too long to eyeball.',
+                'The count is $b - a - 1 = 20 - 12 - 1 = 7$: the numbers $13, 14, 15, 16, 17, 18, 19$. Choosing $8$ forgets that "strictly between" excludes *both* endpoints (subtract 2 from the inclusive count of $9$ numbers, not 1); choosing $6$ subtracts 3; choosing $19$ counts the endpoint. The formula earns its keep precisely when the listing gets too long to eyeball.',
             },
             {
               q: 'In the successor architecture, $a < b$ means:',
@@ -416,6 +426,17 @@ export const chapter01: Chapter = {
                   ],
                   answer: 'Axiom (ii): every n has a successor S(n)',
                 },
+                {
+                  q: 'State the predecessor of $1000$. Then explain why a natural number\u2019s predecessor — when it exists — is unique, and why $1$ is the only natural number with no predecessor.',
+                  solution: [
+                    'The predecessor of a number is one full step back: the number whose successor it is. So the predecessor of $1000$ is $999$ — applying $S$ to $999$ lands on $1000$.',
+                    'Uniqueness is axiom (iii) at work: if $S(a) = 1000$ and $S(b) = 1000$, then $S(a) = S(b)$, so $a = b$. Successors never merge, so the step back cannot land two ways.',
+                    'Existence is the shape fact established right after the axiom table: every natural number is either $1$ or the successor of exactly one earlier number. Since $999 \\ne 1$, it is somebody\u2019s successor — a predecessor exists.',
+                    'And $1$ itself is the lone exception, by axiom (iv): $1$ is nobody\u2019s successor, so the step back from $1$ has no landing place.',
+                    'Hence the predecessor of $1000$ is $999$ — and the full picture: every natural number except $1$ has exactly one predecessor, uniqueness from axiom (iii), the single exception from axiom (iv).',
+                  ],
+                  answer: '999 — predecessors are unique by axiom (iii); 1 is the only exception, by axiom (iv)',
+                },
               ],
             },
             {
@@ -442,6 +463,35 @@ export const chapter01: Chapter = {
                     'Hence $2 < 9$ — transitivity, caught in the act: $3 + 4 = 7$.',
                   ],
                   answer: '2 < 9 (runs 3 + 4 = 7 concatenate)',
+                  figures: [
+                    {
+                      caption:
+                        'The splice, drawn: the 3-step run 2 → 5 (amber) and the 4-step run 5 → 9 (teal) hand over at 5, so walking both is one 7-step walk from 2 to 9 — the green bracket. The direct run agrees: 9 − 2 = 7. That single walk is exactly what 2 < 9 asserts.',
+                      svg: `<svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line with nodes 2 through 9, an amber three-step run arc from 2 to 5, a teal four-step run arc from 5 to 9, and a green bracket underneath spanning 2 to 9 labelled one walk of seven steps">
+  <defs>
+    <marker id="sp-amber" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#f59e0b"/></marker>
+    <marker id="sp-teal" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#0f766e"/></marker>
+  </defs>
+  ${(() => {
+    const X0 = 70, PITCH = 88, Y = 92, R = 17;
+    const x = (n: number) => X0 + (n - 2) * PITCH;
+    let out = '';
+    for (let n = 2; n <= 9; n++) out += `<circle cx="${x(n)}" cy="${Y}" r="${R}" fill="#fffdf5" stroke="currentColor" stroke-width="1.5"/>`;
+    for (let n = 2; n <= 9; n++) out += `<text x="${x(n)}" y="${Y + 4.5}" font-size="13" font-weight="700" fill="currentColor" text-anchor="middle">${n}</text>`;
+    for (let n = 2; n < 9; n++) out += `<line x1="${x(n) + R + 2}" y1="${Y}" x2="${x(n + 1) - R - 4}" y2="${Y}" stroke="currentColor" stroke-width="1.1" opacity="0.55"/>`;
+    out += `<path d="M ${x(2)},${Y - R - 4} Q ${(x(2) + x(5)) / 2},${Y - 76} ${x(5)},${Y - R - 4}" fill="none" stroke="#f59e0b" stroke-width="2" marker-end="url(#sp-amber)"/>`;
+    out += `<path d="M ${x(5)},${Y - R - 4} Q ${(x(5) + x(9)) / 2},${Y - 76} ${x(9)},${Y - R - 4}" fill="none" stroke="#0f766e" stroke-width="2" marker-end="url(#sp-teal)"/>`;
+    out += `<text x="${(x(2) + x(5)) / 2}" y="${Y - 72}" font-size="12" fill="#b45309" text-anchor="middle">run 2 → 5 : 3 steps</text>`;
+    out += `<text x="${(x(5) + x(9)) / 2}" y="${Y - 72}" font-size="12" fill="#0f766e" text-anchor="middle">run 5 → 9 : 4 steps</text>`;
+    const yB = Y + 58;
+    out += `<g stroke="#16a34a" stroke-width="1.8"><line x1="${x(2)}" y1="${yB}" x2="${x(9)}" y2="${yB}"/><line x1="${x(2)}" y1="${yB - 6}" x2="${x(2)}" y2="${yB + 6}"/><line x1="${x(9)}" y1="${yB - 6}" x2="${x(9)}" y2="${yB + 6}"/></g>`;
+    out += `<text x="${(x(2) + x(9)) / 2}" y="${yB + 22}" font-size="12.5" font-weight="700" fill="#166534" text-anchor="middle">one walk: 3 + 4 = 7 steps ⇒ 2 &lt; 9</text>`;
+    out += `<text x="380" y="${yB + 46}" font-size="11.5" fill="currentColor" opacity="0.75" text-anchor="middle">the direct run agrees: 9 − 2 = 7 ✓</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'How many natural numbers lie strictly between $8$ and $21$? Confirm the count formula $b - a - 1$ by listing.',
@@ -452,6 +502,31 @@ export const chapter01: Chapter = {
                     'Hence $12$, by formula and by listing — and note the "$+1$" in the direct count is the classic trap the formula automates.',
                   ],
                   answer: '12 numbers (9 through 20)',
+                  figures: [
+                    {
+                      caption:
+                        'The count formula as a picture: the run 8 → 21 has 21 − 8 = 13 steps and touches the 14 numbers from 8 to 21 — remove the two endpoints and the 12 shaded interiors remain, 9 through 20 (21 − 8 − 1 = 12). The listing agrees from the other end: 20 − 9 + 1 = 12.',
+                      svg: `<svg viewBox="0 0 760 232" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line from 8 to 21 with teal endpoint circles, the twelve interior numbers 9 through 20 shaded on an amber band, a green bracket over the interior twelve and an orange bracket over the full thirteen-step run">
+  ${(() => {
+    const X0 = 70, PITCH = 46, Y = 84, R = 15;
+    const x = (n: number) => X0 + (n - 8) * PITCH;
+    let out = '';
+    out += `<rect x="${x(8) + R + 1}" y="${Y - 18}" width="${x(21) - x(8) - 2 * R - 2}" height="36" rx="6" fill="#fef3c7"/>`;
+    out += `<text x="${x(8)}" y="44" font-size="12" fill="currentColor" text-anchor="middle">a = 8</text>`;
+    out += `<text x="${x(21)}" y="44" font-size="12" fill="currentColor" text-anchor="middle">b = 21</text>`;
+    for (let n = 9; n <= 20; n++) out += `<circle cx="${x(n)}" cy="${Y}" r="5" fill="#16a34a"/>`;
+    for (let n = 9; n <= 20; n++) out += `<text x="${x(n)}" y="${Y + 32}" font-size="10.5" fill="#166534" text-anchor="middle">${n}</text>`;
+    out += `<circle cx="${x(8)}" cy="${Y}" r="${R}" fill="#0f766e"/><text x="${x(8)}" y="${Y + 4.5}" font-size="12.5" font-weight="700" fill="#fffdf5" text-anchor="middle">8</text>`;
+    out += `<circle cx="${x(21)}" cy="${Y}" r="${R}" fill="#0f766e"/><text x="${x(21)}" y="${Y + 4.5}" font-size="12.5" font-weight="700" fill="#fffdf5" text-anchor="middle">21</text>`;
+    out += `<g stroke="#16a34a" stroke-width="1.6"><line x1="${x(9)}" y1="146" x2="${x(20)}" y2="146"/><line x1="${x(9)}" y1="141" x2="${x(9)}" y2="151"/><line x1="${x(20)}" y1="141" x2="${x(20)}" y2="151"/></g>`;
+    out += `<text x="${(x(9) + x(20)) / 2}" y="168" font-size="12" fill="#166534" text-anchor="middle">strictly between: 12 numbers — 20 − 9 + 1 = 12 ✓</text>`;
+    out += `<g stroke="#ea580c" stroke-width="1.6"><line x1="${x(8)}" y1="190" x2="${x(21)}" y2="190"/><line x1="${x(8)}" y1="185" x2="${x(8)}" y2="195"/><line x1="${x(21)}" y1="185" x2="${x(21)}" y2="195"/></g>`;
+    out += `<text x="${(x(8) + x(21)) / 2}" y="212" font-size="12" fill="#c2410c" text-anchor="middle">the full run: 21 − 8 = 13 steps, 14 numbers touched — 21 − 8 − 1 = 12 strictly inside</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -481,6 +556,42 @@ export const chapter01: Chapter = {
                     'Hence axiom (iv) is the one that dies, and with it the meaning of counting as an ever-growing tally.',
                   ],
                   answer: 'Axiom (iv): 1 is a successor on the clock — the chain loops and counting stops growing',
+                  figures: [
+                    {
+                      caption:
+                        'The clock as a successor chain: twelve numbers, each still passing to the next (axiom ii holds), arranged in the wheel the wrap creates. The red arrow is the crime scene — S(12) = 1 makes 1 a successor, exactly what axiom (iv) forbids — and the wheel\u2019s price is the dead tally: 13 o\u2019clock is 1 again.',
+                      svg: `<svg viewBox="0 0 600 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A clock face drawn as a circle of twelve numbered nodes with clockwise successor arrows around it and one red wrap arrow from 12 back to 1, annotated: every number still has a successor, but 1 is a successor, so axiom four fails and 13 o-clock is 1 again">
+  <defs>
+    <marker id="clk-arrow" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="9" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="currentColor"/></marker>
+    <marker id="clk-red" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="9" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#dc2626"/></marker>
+  </defs>
+  ${(() => {
+    const CX = 230, CY = 150, RN = 76, RA = 98, NR = 13, STEP = 30, GAP = 8;
+    const ang = (i: number) => (((( -90 + STEP * i) % 360) + 360) % 360) - 360; // normalised to (-360, 0]: node 12 lands at -90 (top), not 270 — unnormalised, the wrap gap's midpoint collapsed onto the 6-7 gap
+    const pt = (i: number) => { const a = (ang(i) * Math.PI) / 180; return [CX + RN * Math.cos(a), CY + RN * Math.sin(a)] as const; };
+    const ap = (deg: number) => { const a = (deg * Math.PI) / 180; return [CX + RA * Math.cos(a), CY + RA * Math.sin(a)] as const; };
+    let out = '';
+    for (let i = 1; i <= 12; i++) { const [px, py] = pt(i); out += `<circle cx="${px}" cy="${py}" r="${NR}" fill="#fffdf5" stroke="currentColor" stroke-width="1.5"/>`; }
+    for (let i = 1; i <= 12; i++) { const [px, py] = pt(i); out += `<text x="${px}" y="${py + 4}" font-size="11.5" font-weight="700" fill="currentColor" text-anchor="middle">${i}</text>`; }
+    for (let i = 1; i <= 12; i++) {
+      const nxt = i === 12 ? 1 : i + 1;
+      const mid = (ang(i) + ang(nxt)) / 2; // gap midpoint; for i = 12 this is -75 deg, no wrap correction needed
+      const a1 = mid - GAP, a2 = mid + GAP; // short straight tangent chord — drawn as a LINE because arc-command markers render reversed in both major renderers (audit-bot finding, 2026-11-16)
+      const [sx, sy] = ap(a1); const [ex, ey] = ap(a2);
+      if (i === 12) out += `<line x1="${sx}" y1="${sy}" x2="${ex}" y2="${ey}" stroke="#dc2626" stroke-width="2.4" marker-end="url(#clk-red)"/>`;
+      else out += `<line x1="${sx}" y1="${sy}" x2="${ex}" y2="${ey}" stroke="currentColor" stroke-width="1.5" opacity="0.75" marker-end="url(#clk-arrow)"/>`;
+    }
+    out += `<text x="300" y="22" font-size="11.5" fill="currentColor" opacity="0.8" text-anchor="middle">every clock number still has a next one — axiom (ii) holds; the failure is (iv)</text>`;
+    out += `<text x="356" y="96" font-size="12.5" font-weight="700" fill="currentColor" text-anchor="start">S(12) = 1 — the wheel closes</text>`;
+    out += `<text x="356" y="120" font-size="12" fill="#dc2626" text-anchor="start">axiom (iv) fails: 1 is a successor</text>`;
+    out += `<text x="356" y="144" font-size="12" fill="currentColor" text-anchor="start">13 o\u2019clock is 1 again —</text>`;
+    out += `<text x="356" y="166" font-size="12" fill="currentColor" opacity="0.8" text-anchor="start">the tally never grows</text>`;
+    out += `<text x="230" y="272" font-size="11.5" fill="currentColor" opacity="0.8" text-anchor="middle">walk 12 steps from 1 and you are back at 1 — a wheel, not a line</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -523,6 +634,36 @@ export const chapter01: Chapter = {
                     'Hence succession preserves order — shifting both ends of a comparison keeps the verdict, which is why the number line\u2019s pattern looks the same at every window.',
                   ],
                   answer: 'S(a) < S(b) — the same k ≥ 1 steps, read from a one-step-later start',
+                  figures: [
+                    {
+                      caption:
+                        'The shift on the concrete instance a = 3, b = 7 (so k = 4): walk one takes S first, then the 4 steps from 4 to 8; walk two takes the same 4 steps from 3 to 7, then S. Both land on 8 — so the run 4 → 8 repeats the run 3 → 7 exactly, and 4 < 8 is S(a) < S(b).',
+                      svg: `<svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nodes 3 through 8 in a row: above, an amber one-step arc from 3 to 4 then a teal four-step arc from 4 to 8; below, a teal bracket over 3 to 7 labelled k equals 4 steps then an amber bracket over 7 to 8 labelled S once — both walks land on 8">
+  <defs>
+    <marker id="sh-amber" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#f59e0b"/></marker>
+    <marker id="sh-teal" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#0f766e"/></marker>
+  </defs>
+  ${(() => {
+    const X0 = 90, PITCH = 116, Y = 120, R = 16;
+    const x = (n: number) => X0 + (n - 3) * PITCH;
+    let out = '';
+    for (let n = 3; n <= 8; n++) out += `<circle cx="${x(n)}" cy="${Y}" r="${R}" fill="#fffdf5" stroke="currentColor" stroke-width="1.5"/>`;
+    for (let n = 3; n <= 8; n++) out += `<text x="${x(n)}" y="${Y + 4.5}" font-size="13" font-weight="700" fill="currentColor" text-anchor="middle">${n}</text>`;
+    for (let n = 3; n < 8; n++) out += `<line x1="${x(n) + R + 2}" y1="${Y}" x2="${x(n + 1) - R - 4}" y2="${Y}" stroke="currentColor" stroke-width="1.1" opacity="0.55"/>`;
+    out += `<path d="M ${x(3)},${Y - R - 4} Q ${(x(3) + x(4)) / 2},${Y - 56} ${x(4)},${Y - R - 4}" fill="none" stroke="#f59e0b" stroke-width="2.2" marker-end="url(#sh-amber)"/>`;
+    out += `<path d="M ${x(4)},${Y - R - 4} Q ${(x(4) + x(8)) / 2},${Y - 92} ${x(8)},${Y - R - 4}" fill="none" stroke="#0f766e" stroke-width="2" marker-end="url(#sh-teal)"/>`;
+    out += `<text x="${(x(3) + x(4)) / 2}" y="${Y - 70}" font-size="12" fill="#b45309" text-anchor="middle">S once</text>`;
+    out += `<text x="${(x(4) + x(8)) / 2}" y="${Y - 102}" font-size="12" fill="#0f766e" text-anchor="middle">then k = 4 steps: the run 4 → 8</text>`;
+    out += `<g stroke="#0f766e" stroke-width="1.6"><line x1="${x(3)}" y1="${Y + 44}" x2="${x(7)}" y2="${Y + 44}"/><line x1="${x(3)}" y1="${Y + 39}" x2="${x(3)}" y2="${Y + 49}"/><line x1="${x(7)}" y1="${Y + 39}" x2="${x(7)}" y2="${Y + 49}"/></g>`;
+    out += `<text x="${(x(3) + x(7)) / 2}" y="${Y + 66}" font-size="12" fill="#0f766e" text-anchor="middle">run 3 → 7 : k = 4 steps</text>`;
+    out += `<g stroke="#f59e0b" stroke-width="1.8"><line x1="${x(7)}" y1="${Y + 44}" x2="${x(8)}" y2="${Y + 44}"/><line x1="${x(7)}" y1="${Y + 39}" x2="${x(7)}" y2="${Y + 49}"/><line x1="${x(8)}" y1="${Y + 39}" x2="${x(8)}" y2="${Y + 49}"/></g>`;
+    out += `<text x="${(x(7) + x(8)) / 2}" y="${Y + 66}" font-size="12" fill="#b45309" text-anchor="middle">S once</text>`;
+    out += `<text x="380" y="222" font-size="11.5" fill="currentColor" opacity="0.8" text-anchor="middle">both walks land on 8: one step then k = k steps then one — the run 4 → 8 repeats the run 3 → 7 ⇒ 4 &lt; 8</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },

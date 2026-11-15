@@ -320,3 +320,29 @@ tsc 0 errors in the touched files · audit-content-completeness 0 errors · over
 ### Gates (all green)
 
 tsc 0 errors in the touched files · overlap 0 on 6 mounted svgs (solutions-expanded, re-run after the Pass C edits) · VLM strict PASS on every figure · quiz keys and exercise answers untouched.
+
+## 2026-11-16 — audit-bot fire (job 530242, 02:30 IST): ans-architecture-of-counting-successors-order (1.1) §10 passes
+
+### Pass B — solution visual aids (4 figures, §10.1 discipline)
+
+- L2-Q2 transitivity splice ($2<5$, $5<9$ ⇒ $2<9$): the two runs drawn as arcs over the 2..9 line — amber 3-step 2→5, teal 4-step 5→9, hand-over at 5 — with the green 7-step bracket underneath ("one walk: 3 + 4 = 7 ⇒ 2 < 9") and the direct-run check 9 − 2 = 7 ✓. The concatenation argument, made visible.
+- L2-Q3 count formula ($b - a - 1$): interval picture — teal endpoint circles 8/21, the twelve interiors 9–20 as green dots on the amber band, green interior bracket (20 − 9 + 1 = 12 ✓) and orange full-run bracket (13 steps, 14 numbers touched — 21 − 8 − 1 = 12 strictly inside).
+- L3-Q2 clock vs axiom (iv): the wheel drawn honestly — 12 nodes at true clock angles, 11 clockwise tangent arrows + the RED wrap arrow in the 12→1 gap; right column reads the failure (axiom (ii) holds; (iv) dies; 13 o'clock is 1 again). First render caught by the strict pass and repaired in-SVG (angle normalisation + the arc-marker class fix — details in FIGURE_AUDIT_LOG).
+- L5-Q1 succession preserves order: the shift on the concrete instance a = 3, b = 7 (k = 4) — above the row: amber "S once" 3→4 then teal 4-step run 4→8; below: teal "run 3 → 7 : k = 4 steps" then amber "S once"; both walks land on 8 ⇒ 4 < 8.
+- Judged and refused (pure algebra/symbolic, no spatial content — §10.1): L1-Q1, L1-Q3, L2-Q1, L3-Q1, L4-Q1, L4-Q2, L6-Q1. L1-Q2's run walk refused as redundant with body fig 1's run bracket; the example block needs no figure — its two readings (order/distance) are exactly what L2-Q2's splice now shows. Reasoning, steps, quiz keys and exercise answers untouched.
+
+### Pass C — enrichment (3 additions, §10.2)
+
+- 'Predecessor' term added to the terms block (right after Successor): the one-full-step-back language, uniqueness from axiom (iii), the lone exception from axiom (iv) — closes the gap where the intro used the word but the lesson never taught it.
+- New Exercise L1-Q4 with a full worked Sol. chain: the predecessor of 1000 is 999 — uniqueness from axiom (iii), existence from the shape fact established after the axiom table, the exception at 1 from axiom (iv).
+- 'A fork in the axioms: some rebuilds start the chain at 0' insight callout (after the shape-fact paragraph): the 0-start reformulation read against the axiom list — the same architecture with the first link renamed; why this book stays 1-first and lets 0 enter later (placeholder digit, first integer). No new citations; reuses the lesson's own FM/ch-6 anchors.
+
+### Accuracy catches (real arithmetic errors found and fixed; quiz/exercise KEYS untouched)
+
+- The example block's "strictly between 8 and 21" step asserted $13 - 2 = 12$ — false arithmetic (13 − 2 = 11). The endpoint-exclusion route counts touched numbers: 14 − 2 = 12; equivalently b − a − 1. Repaired in place; the final answer (12) was and stays correct.
+- Quiz Q4's explanation called the 12→20 run "the 9-step run" (it is 8 steps; 9 is the inclusive count) — repaired to "subtract 2 from the inclusive count of $9$ numbers, not 1"; key (7) unchanged.
+- Provenance: the verify-first harness surfaced the first catch BEFORE the figure shipped (the figure's own label had initially inherited the flawed pattern from the prose — pinned, caught, fixed); section AN of verify-book2-ch01 now pins 21 − 8 + 1 = 14, 14 − 2 = 12 = 21 − 8 − 1, and the 12..20 instance 9 − 2 = 7.
+
+### Gates (all green)
+
+verify-book2-ch01 251/0 (section AN grown green BEFORE the prose/figures per verify-first) · DOM overlap 0 on all 5 mounted svgs (solutions-expanded) · VLM strict PASS on every figure (1 FAIL → in-SVG fix → PASS) · e2e: 0 KaTeX errors, 0 raw $ leaks, no overflow, quiz 5/5 · tsc 0 errors in touched files (3 pre-existing app-shell owner-stray errors at HEAD).
