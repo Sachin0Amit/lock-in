@@ -497,3 +497,8 @@ server.log
 !/scripts/verify-book4-ch02.ts
 !/scripts/e2e-aa-21.page.js
 !/scripts/e2e-aa-22.page.js
+
+# run 103 — AA 2.4: its per-lesson e2e block (quiz keys 1/2/1/2/0) + the vision-outage pixel audit fallback
+!/scripts/e2e-aa-23.page.js
+!/scripts/e2e-aa-24.page.js
+!/scripts/vlm24-pixel.py
