@@ -525,3 +525,9 @@ server.log
 # CS exam-topic coverage pass (2026-11-15): the standing gate + the discovery probe that generated its tables
 !/scripts/verify-cs-exam-coverage.ts
 !/scripts/probe-cs-exam-coverage.py
+# exception: the Engineering full-shelf planning pass (owner directive 2026-11-16) — the book-plan generator, gate and e2e
+!/scripts/gen_engineering_shelf.py
+!/scripts/verify-engineering-shelf-planning.ts
+!/scripts/e2e-engineering-shelf.sh
+!/scripts/run-eng-e2e-phase.sh
+!/scripts/ship_engineering_shelf.py

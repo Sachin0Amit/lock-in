@@ -232,6 +232,18 @@ MAT, TMUA, Gaokao, Korean CSAT, EJU, GRE, GMAT, Putnam/AMC/IMO/Euclid…).
 Zero lessons written; the authoring cadence and the run-90 opening are
 unchanged. Final state: **1,876/1,876 topics included; 0 missing.**
 
+**Owner directive (2026-11-16, Engineering full-shelf planning pass):** the
+ENTIRE Engineering shelf was planned in one owner-directed pass — the four
+GATE 2026 branch syllabi (ME/CE/EE/EC) downloaded and extracted, every
+subject web-researched against its canonical sources (the Drive holds no
+engineering collection — honest note), and 38 books promoted to complete
+researched plans (`status: 'planned'` in
+`src/data/library/books/engineering/*/book.ts`; the evidence base is
+`docs/research/ENGINEERING_TOC_SURVEY.md`; the durable generator is
+`scripts/gen_engineering_shelf.py`). This was a PLANNING pass only: zero
+lessons were written and the one-unit-at-a-time AUTHORING cadence above is
+unchanged.
+
 The owner will supply a Google Drive link with a large reference book
 collection. Workflow per unit:
 

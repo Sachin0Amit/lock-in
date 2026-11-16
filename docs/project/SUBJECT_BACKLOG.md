@@ -153,23 +153,81 @@ authoring opens by directive). Lesson-id prefixes for all 44 verified
 unused against the 143 written lesson ids (verify-cs-shelf-planning
 section E).
 
-## Engineering
-**Mechanical (12):** Engineering Mechanics · Strength of Materials · Theory
-of Machines · Machine Design · Thermodynamics · Fluid Mechanics · Heat
-Transfer · Manufacturing Processes · Industrial Engineering · Robotics &
-Automation · CAD/CAM · Materials Science
-**Electrical (9):** Circuit Theory · Network Analysis · Electrical Machines ·
-Power Systems · Control Systems · Power Electronics · Measurements · High
-Voltage · Renewable Energy
-**ECE (10):** Electronic Devices & Circuits · Analog Electronics · Digital
-Electronics · Signals & Systems · Analog & Digital Communication ·
-Microprocessors & Microcontrollers · VLSI · Embedded Systems · Antennas &
-Wave Propagation · DSP
-**Civil (9):** Structural Engineering · Surveying · Building Materials ·
-Geotechnical · Transportation · Environmental · Hydraulics · Water
-Resources · Construction Management
-**Also investigate:** aerospace · chemical · biomedical · automobile ·
-mining · agricultural · nuclear engineering
+## Engineering (40 backlog lines → 38 books + 3 honest folds) — **THE FULL SHELF IS PLANNED (audited)**
+Planned by the Engineering full-shelf planning pass (2026-11-16, owner
+directive: "creat all things how like other subjects like maths and cs create
+it for engineering with books topic same way as like other subject"): the four
+GATE 2026 branch syllabi (ME/CE/EE/EC from gate2026.iitg.ac.in) downloaded and
+extracted in full, every book web-researched against its canonical sources
+(the Drive holds 0 engineering sources — honest note; the PHYSICS subfolder
+is banked for the future Physics pass), and all 38 books promoted to
+`src/data/library/books/engineering/<slug>/book.ts` with status 'planned' —
+**342 chapters / 1268 planned lessons, zero written** (the
+one-unit-at-a-time authoring cadence unchanged). Evidence base:
+`docs/research/ENGINEERING_TOC_SURVEY.md`; gates:
+`scripts/verify-engineering-shelf-planning.ts` (2,257/2,257) + covers 38/38
+(`scripts/gen_covers.py` roster 72 → 110; VLM text-free sweep — one catch
+regenerated clean).
+
+The three honest folds (no-duplication contract): *Digital Electronics* (ECE)
+folds into the CS shelf's **digital-logic-design** (one Mano arc — the fold
+the CS pass already recorded); *Microprocessors & Microcontrollers* (ECE)
+folds into the CS shelf's **assembly-and-microprocessors** (its plan already
+carries the 8085/8086, 8259/8255 interfacing and the 8051 microcontroller
+chapters — verified this pass); *Circuit Theory* + *Network Analysis*
+(electrical) merge into ONE book **circuit-theory-and-network-analysis**
+(one Van Valkenburg arc). One line ADDED beyond the backlog by the GATE
+syllabus audit (the QA-creation precedent of 2026-11-10):
+**Electromagnetic Fields and Waves** — the GATE EE S3 + EC S8 registers had
+no home on the ECE list.
+
+1. Engineering Mechanics (10 ch / 34 lessons, `mech-`, Hibbeler + Beer/Johnston, web)
+2. Strength of Materials (9 / 32, `som-`, Beer catdir full TOC, web)
+3. Theory of Machines (10 / 34, `tom-`, Khurmi + Rattan, web — hosts Vibrations per GATE)
+4. Machine Design (9 / 30, `md-`, Shigley Parts I-IV + Khurmi, web)
+5. Thermodynamics (11 / 39, `therm-`, Cengel & Boles 10e full TOC, web)
+6. Fluid Mechanics (10 / 39, `fluid-`, Cengel & Cimbala + Modi & Sethi, web)
+7. Heat Transfer (9 / 31, `ht-`, Incropera 8e, web)
+8. Manufacturing Processes (11 / 42, `mfg-`, Kalpakjian 7e, web — hosts Metrology per GATE)
+9. Industrial Engineering (8 / 28, `ie-`, Bedi/Telsang, web — OR theory cross-refd to math's OR book)
+10. Robotics and Automation (8 / 27, `robot-`, Craig 4e + Groover, web)
+11. CAD/CAM (8 / 30, `cad-`, Groover CIM + Zeid, web — owns additive manufacturing per GATE)
+12. Materials Science (10 / 34, `mats-`, Callister 10e, web)
+13. Circuit Theory and Network Analysis (10 / 40, `ckt-`, Van Valkenburg + Chakrabarti, web — absorbs two lines)
+14. Electrical Machines (8 / 32, `emach-`, Bimbhra + Nagrath/Kothari, web)
+15. Power Systems (10 / 39, `ps-`, Stevenson & Grainger catdir full TOC, web)
+16. Control Systems (10 / 34, `ctrl-`, Ogata, web — serves GATE EE S7 + EC S6)
+17. Power Electronics (8 / 30, `pe-`, Rashid + Bimbhra, web)
+18. Electrical Measurements (9 / 34, `meas-`, Sawhney, web)
+19. High Voltage Engineering (8 / 30, `hv-`, Naidu & Kamaraju, web)
+20. Renewable Energy (7 / 28, `ren-`, Boyle 4e, web)
+21. Electromagnetic Fields and Waves (10 / 38, `emf-`, Hayt & Buck + Sadiku, web — ADDED by the GATE audit)
+22. Electronic Devices and Circuits (9 / 34, `edc-`, Boylestad 11e, web)
+23. Analog Electronics (9 / 34, `ae-`, Millman/Sedha + Boylestad op-amp, web)
+24. Signals and Systems (9 / 35, `sig-`, Oppenheim 2e, web)
+25. Analog and Digital Communication (10 / 37, `comm-`, Haykin 5e, web)
+26. VLSI Design (10 / 40, `vlsi-`, Weste & Harris 4e, web)
+27. Embedded Systems (8 / 29, `emb-`, Raj Kamal, web)
+28. Antennas and Wave Propagation (8 / 31, `ant-`, Balanis 4e + K.D. Prasad, web)
+29. Digital Signal Processing (8 / 31, `dsp-`, Proakis & Manolakis, web)
+30. Structural Engineering (10 / 34, `str-`, Hibbeler Structural Analysis + IS 456/800, web)
+31. Surveying and Geomatics (8 / 28, `surv-`, Punmia + Bannister, web — the GATE CE S7 register)
+32. Building Materials (8 / 28, `bmat-`, Punmia/Duggal/Varghese + Shetty, web)
+33. Geotechnical Engineering (10 / 39, `soil-`, Murthy + Gopal Ranjan + Das, web)
+34. Transportation Engineering (8 / 31, `trans-`, Khanna & Justo + IRC census, web)
+35. Environmental Engineering (8 / 30, `env-`, Garg + Davis & Cornwell, web)
+36. Hydraulics (9 / 35, `hyd-`, Modi & Sethi + Chow, web — measurement/channel/machines; fundamentals cross-refd to Fluid Mechanics)
+37. Water Resources Engineering (9 / 35, `wr-`, Subramanya + Garg + Linsley, web)
+38. Construction Management (8 / 32, `cm-`, Chitkara + Punmia PERT/CPM + Peurifoy, web)
+
+**Authoring order**: unchanged — the Mathematics boat continues (AA in
+progress, run 108 opens AA 3.4) one book at a time per the standing pointer;
+the engineering shelf's 38 books follow in backlog order when the owner
+promotes them (the same promotion rule as Mathematics and CS). Lesson-id
+prefixes for all 38 verified unused against the 144 written lesson ids
+(verify-engineering-shelf-planning section E). **Also investigate**
+(unchanged, future passes): aerospace · chemical · biomedical · automobile ·
+mining · agricultural · nuclear engineering.
 
 ## Biology (9)
 Foundation · Cell Biology · Molecular Biology · Genetics · Evolutionary ·

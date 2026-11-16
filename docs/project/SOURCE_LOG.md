@@ -6,6 +6,42 @@ verified; **never** touch Drive originals. Internet research is the
 sanctioned fallback/supplement when the Drive lacks a topic (MASTER_PLAN §2
 step 6).
 
+## Engineering full-shelf planning pass (2026-11-16) — the syllabus anchors + web-researched canonical arcs (owner directive: same way as the other subjects)
+
+- **The four GATE 2026 branch syllabus PDFs downloaded this pass** (into
+  temporary-references/gate2026/, deleted after extraction per the storage
+  law — the durable register is docs/research/ENGINEERING_TOC_SURVEY.md):
+  ME_2026_Syllabus.pdf, CE_2026_Syllabus.pdf, EE_2026_Syllabus.pdf,
+  EC_2026_Syllabus.pdf — gate2026.iitg.ac.in/doc/GATE2026_Syllabus/ — the
+  shelf's exam anchor (every topic line routed to an owning book).
+- **The Drive honest census**: 0 engineering sources on the Drive (the
+  subject subfolders are MATHS/PHYSICS/CHEMISTRY/_DPPs; the root was fully
+  censused by the CS pass). Every engineering book is web-researched; the
+  PHYSICS subfolder is banked for the future Physics shelf's own pass.
+- **Canonical arcs read this pass** (TOCs/structures actually opened; no TOC
+  line taken from memory; the full records with routing verdicts are in
+  docs/research/ENGINEERING_TOC_SURVEY.md): Hibbeler Statics SI TOC PDF
+  (pearson.de muster); Beer Mechanics of Materials full catdir TOC
+  (catdir.loc.gov/ecip0811/2008007412); Cengel & Boles Thermo 10e full TOC
+  (mheducation.co.uk feature page); Cengel & Cimbala Fluid Mechanics open
+  TOC (lunyax PDF listing); Incropera 8e Wiley TOC page; Kalpakjian 7e
+  Pearson TOC tab; Khurmi Theory of Machines Google Books contents; Shigley
+  catdir record + publisher TOC; Craig Robotics 4e Pearson TOC; Callister
+  10e publisher TOC listing; Van Valkenburg Google Books/open listings;
+  Bimbhra Electrical Machinery open listings; Stevenson & Grainger FULL
+  catdir TOC (catdir.loc.gov/mh022/93039219); Ogata open preface PDFs +
+  Pearson TOC; Rashid open PDF listing; Sawhney open listings; Naidu &
+  Kamaraju open listings; Boyle 4e front matter (booksite.elsevier.com);
+  Hayt & Buck publisher page + dokumen listing; Boylestad & Nashelsky 11e
+  open-PDF contents; Oppenheim 2e Pearson TOC; Haykin 5e Wiley TOC + Indian
+  adaptation contents; Weste & Harris 4e publisher page + hmc.edu front
+  matter; Raj Kamal open PDF; Balanis 4e Wiley TOC; Proakis & Manolakis
+  open-PDF contents; Hibbeler Structural Analysis Pearson page; Punmia
+  Surveying Google Books; Murthy/Gopal Ranjan open listings; Khanna & Justo
+  open listings; Garg volumes open listings; Modi & Sethi 21e contents
+  (dokumen.pub listing); Subramanya arcs; Chitkara open listings; Groover
+  Pearson TOC tab + open PDF; Bedi TOC web-check.
+
 ## CS full-shelf planning pass (2026-11-15) — the Computer Science shelf's evidence base (owner directive: "as all things are planned for mathematics do for computer science")
 
 **27 Drive sources extracted** (one at a time via

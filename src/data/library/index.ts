@@ -71,6 +71,44 @@ import { mobileAppDevelopment } from './books/computer-science/mobile-app-develo
 import { humanComputerInteraction } from './books/computer-science/human-computer-interaction/book'
 import { parallelComputing } from './books/computer-science/parallel-computing/book'
 import { advancedComputerScience } from './books/computer-science/advanced-computer-science/book'
+import { engineeringMechanics } from './books/engineering/engineering-mechanics/book'
+import { strengthOfMaterials } from './books/engineering/strength-of-materials/book'
+import { theoryOfMachines } from './books/engineering/theory-of-machines/book'
+import { machineDesign } from './books/engineering/machine-design/book'
+import { thermodynamics } from './books/engineering/thermodynamics/book'
+import { fluidMechanics } from './books/engineering/fluid-mechanics/book'
+import { heatTransfer } from './books/engineering/heat-transfer/book'
+import { manufacturingProcesses } from './books/engineering/manufacturing-processes/book'
+import { industrialEngineering } from './books/engineering/industrial-engineering/book'
+import { roboticsAndAutomation } from './books/engineering/robotics-and-automation/book'
+import { cadCam } from './books/engineering/cad-cam/book'
+import { materialsScience } from './books/engineering/materials-science/book'
+import { circuitTheoryAndNetworkAnalysis } from './books/engineering/circuit-theory-and-network-analysis/book'
+import { electricalMachines } from './books/engineering/electrical-machines/book'
+import { powerSystems } from './books/engineering/power-systems/book'
+import { controlSystems } from './books/engineering/control-systems/book'
+import { powerElectronics } from './books/engineering/power-electronics/book'
+import { electricalMeasurements } from './books/engineering/electrical-measurements/book'
+import { highVoltageEngineering } from './books/engineering/high-voltage-engineering/book'
+import { renewableEnergy } from './books/engineering/renewable-energy/book'
+import { electromagneticFieldsAndWaves } from './books/engineering/electromagnetic-fields-and-waves/book'
+import { electronicDevicesAndCircuits } from './books/engineering/electronic-devices-and-circuits/book'
+import { analogElectronics } from './books/engineering/analog-electronics/book'
+import { signalsAndSystems } from './books/engineering/signals-and-systems/book'
+import { analogAndDigitalCommunication } from './books/engineering/analog-and-digital-communication/book'
+import { vlsiDesign } from './books/engineering/vlsi-design/book'
+import { embeddedSystems } from './books/engineering/embedded-systems/book'
+import { antennasAndWavePropagation } from './books/engineering/antennas-and-wave-propagation/book'
+import { digitalSignalProcessing } from './books/engineering/digital-signal-processing/book'
+import { structuralEngineering } from './books/engineering/structural-engineering/book'
+import { surveyingAndGeomatics } from './books/engineering/surveying-and-geomatics/book'
+import { buildingMaterials } from './books/engineering/building-materials/book'
+import { geotechnicalEngineering } from './books/engineering/geotechnical-engineering/book'
+import { transportationEngineering } from './books/engineering/transportation-engineering/book'
+import { environmentalEngineering } from './books/engineering/environmental-engineering/book'
+import { hydraulics } from './books/engineering/hydraulics/book'
+import { waterResourcesEngineering } from './books/engineering/water-resources-engineering/book'
+import { constructionManagement } from './books/engineering/construction-management/book'
 import type { Book, Chapter, Discipline, DisciplineId, Lesson, Term } from './types'
 import { countLessonWords } from './types'
 
@@ -97,6 +135,17 @@ import { countLessonWords } from './types'
  * researched chapter/lesson layouts with the evidence base at
  * docs/research/CS_TOC_SURVEY.md (27 Drive TOC extractions + web-checked
  * canonical arcs) and the gate scripts/verify-cs-shelf-planning.ts.
+ *
+ * The Engineering shelf is fully planned as of the 2026-11-16 Engineering
+ * full-shelf planning pass (owner directive: "create all things how like
+ * other subjects like maths and cs create it for engineering with books
+ * topic same way as like other subject"): 38 books across the Mechanical,
+ * Electrical, Electronics & Communication and Civil branches, status
+ * 'planned', zero lessons written — complete researched chapter/lesson
+ * layouts with the evidence base at docs/research/ENGINEERING_TOC_SURVEY.md
+ * (the four GATE 2026 branch syllabi downloaded + extracted, canonical
+ * textbook arcs web-checked) and the gate
+ * scripts/verify-engineering-shelf-planning.ts.
  */
 export const allBooks: Book[] = [
   foundationMathematics,
@@ -171,6 +220,44 @@ export const allBooks: Book[] = [
   humanComputerInteraction,
   parallelComputing,
   advancedComputerScience,
+  engineeringMechanics,
+  strengthOfMaterials,
+  theoryOfMachines,
+  machineDesign,
+  thermodynamics,
+  fluidMechanics,
+  heatTransfer,
+  manufacturingProcesses,
+  industrialEngineering,
+  roboticsAndAutomation,
+  cadCam,
+  materialsScience,
+  circuitTheoryAndNetworkAnalysis,
+  electricalMachines,
+  powerSystems,
+  controlSystems,
+  powerElectronics,
+  electricalMeasurements,
+  highVoltageEngineering,
+  renewableEnergy,
+  electromagneticFieldsAndWaves,
+  electronicDevicesAndCircuits,
+  analogElectronics,
+  signalsAndSystems,
+  analogAndDigitalCommunication,
+  vlsiDesign,
+  embeddedSystems,
+  antennasAndWavePropagation,
+  digitalSignalProcessing,
+  structuralEngineering,
+  surveyingAndGeomatics,
+  buildingMaterials,
+  geotechnicalEngineering,
+  transportationEngineering,
+  environmentalEngineering,
+  hydraulics,
+  waterResourcesEngineering,
+  constructionManagement,
 ]
 
 export const allDisciplines: Discipline[] = disciplines

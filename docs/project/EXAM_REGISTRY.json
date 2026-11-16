@@ -1,7 +1,7 @@
 {
   "target": "50+ major examinations: >=10 Indian, >=20 international; incl. government recruitment, university entrance, professional licensing, olympiads",
   "status": "research pass complete (2026-11-10, owner directive: cover the top exams of the world to maximum level, from basic engineering to the world's competitive exams)",
-  "updated": "2026-11-15 (CS exam-topic coverage pass)",
+  "updated": "2026-11-16",
   "howToUse": "One entry per examination. mathUnits carry the mathematics scope researched from official/authoritative sources (research date + source in the 'researched' field). coverageMap lists the shelf books (ids as registered in src/data/library/index.ts) whose planned layouts carry that scope. 'not-applicable' = no mathematics section; 'adjacent' = the shelf serves it as tools or the scope mirrors a researched sibling. PRESET COVERAGE (2026-11-15, owner directive: \"make sure different exams topics are also covered\"): 26 of the 30 researched-maths ids below are served by the Practice hub's 27 registry-backed presets (src/data/exams/presets.ts); the four whose mathematics is entirely unwritten (iit-jam-math, ap, putnam, fe-ncees) sit in the NOT_YET_SERVED ledger of scripts/verify-exam-coverage.ts with reasons and ship presets as soon as their units land in writing; not-applicable and adjacent entries are accounted for as such. The completeness check re-runs on every pass. CS COVERAGE (2026-11-15, owner directive: \"make sure those exams topics are to be covered in the books see if any topics is missing in cs books\"): the seven entries whose computer-science sections are researched (gate, ugc-net, ioi, cuet-ug, ib, a-levels, ap) carry csUnits + CS-extended coverageMaps; the 251-topic ledger and its zero-gap guarantee live in docs/research/CS_EXAM_TOPIC_LEDGER.md, pinned by scripts/verify-cs-exam-coverage.ts (re-runs on every pass).",
   "verification": "scripts/verify_topic_coverage.ts section I re-checks this file: every coverageMap book id exists on the shelf, every math-researched exam carries a coverage map, and the 50+/10-Indian/20-international targets hold.",
   "exams": [
@@ -1822,5 +1822,5 @@
       ]
     }
   ],
-  "note": "The topic-inclusion guarantee pass (2026-11-10) researched and filled this registry: the 53-source Drive TOC audit (scripts/verify_topic_coverage.ts, 1876 topic entries, zero hard gaps) guarantees every surveyed topic is included in its respective shelf book; this registry maps the shelf to the world's examinations exam-by-exam, book-by-book."
+  "note": "The 2026-11-16 Engineering full-shelf planning pass mapped the GATE 2026 ME/CE/EE/EC syllabi (downloaded + extracted; every topic line routed to an owning engineering book — the registers live in docs/research/ENGINEERING_TOC_SURVEY.md). Per-examination research (registry entries carrying the branch papers' researched sections + coverage maps, the CS exam-coverage pass precedent) is still its own pending workflow — the natural next directive."
 }

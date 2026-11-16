@@ -65,7 +65,16 @@ export function BookCover({ book, large = false }: { book: Book; large?: boolean
    * composed rather than clipped: the small (card) thumbnail carries the
    * eyebrow + title only; the large (book page) cover shows the full
    * hierarchy, each line clamped so no subtitle can ever overflow the
-   * fixed 3:4 art box. */
+   * fixed 3:4 art box. Engineering full-shelf pass (2026-11-16): the
+   * large title's budget is longest-word aware — titles whose longest
+   * single word exceeds 12 characters (Thermodynamics, Electromagnetic,
+   * Manufacturing…) step down a size so the word never breaks mid-word
+   * in the ~150px-wide cover text column (the VLM catch of this pass). */
+  const longestWord = Math.max(
+    1,
+    ...book.title.split(/[\s\u2013\u2014/-]+/).map((w) => w.length),
+  )
+  const largeTitleSize = longestWord > 12 ? 'text-[1.22rem]' : 'text-[1.55rem]'
   const typeBlock = (
     <div className="flex flex-col justify-between gap-1.5">
       <div className="min-w-0">
@@ -76,7 +85,7 @@ export function BookCover({ book, large = false }: { book: Book; large?: boolean
         )}
         <p
           className={`font-reading font-bold leading-[1.14] break-words ${
-            large ? 'line-clamp-2 text-[1.55rem]' : 'line-clamp-3 text-[0.82rem]'
+            large ? `line-clamp-2 ${largeTitleSize}` : 'line-clamp-3 text-[0.82rem]'
           }`}
         >
           {book.title}

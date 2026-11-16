@@ -18,6 +18,11 @@
  * (864×1152, motif per subject, palette per accent pair, VLM sweep — one
  * baked-text catch regenerated clean; scripts/gen_covers.py, recreated this
  * pass, is the idempotent generator).
+ *
+ * Engineering full-shelf planning pass (owner directive 2026-11-16, the
+ * "same way as like other subject" turn): +38 Engineering covers, the same
+ * discipline and generator (motif per subject, palette per accent pair,
+ * VLM text-free sweep).
  */
 
 /** bookId → art path under /public. Kept explicit so a missing file is a
@@ -96,6 +101,44 @@ export const COVER_ART: Record<string, string> = {
   'human-computer-interaction': '/covers/human-computer-interaction.webp',
   'parallel-computing': '/covers/parallel-computing.webp',
   'advanced-computer-science': '/covers/advanced-computer-science.webp',
+  'engineering-mechanics': '/covers/engineering-mechanics.webp',
+  'strength-of-materials': '/covers/strength-of-materials.webp',
+  'theory-of-machines': '/covers/theory-of-machines.webp',
+  'machine-design': '/covers/machine-design.webp',
+  'thermodynamics': '/covers/thermodynamics.webp',
+  'fluid-mechanics': '/covers/fluid-mechanics.webp',
+  'heat-transfer': '/covers/heat-transfer.webp',
+  'manufacturing-processes': '/covers/manufacturing-processes.webp',
+  'industrial-engineering': '/covers/industrial-engineering.webp',
+  'robotics-and-automation': '/covers/robotics-and-automation.webp',
+  'cad-cam': '/covers/cad-cam.webp',
+  'materials-science': '/covers/materials-science.webp',
+  'circuit-theory-and-network-analysis': '/covers/circuit-theory-and-network-analysis.webp',
+  'electrical-machines': '/covers/electrical-machines.webp',
+  'power-systems': '/covers/power-systems.webp',
+  'control-systems': '/covers/control-systems.webp',
+  'power-electronics': '/covers/power-electronics.webp',
+  'electrical-measurements': '/covers/electrical-measurements.webp',
+  'high-voltage-engineering': '/covers/high-voltage-engineering.webp',
+  'renewable-energy': '/covers/renewable-energy.webp',
+  'electromagnetic-fields-and-waves': '/covers/electromagnetic-fields-and-waves.webp',
+  'electronic-devices-and-circuits': '/covers/electronic-devices-and-circuits.webp',
+  'analog-electronics': '/covers/analog-electronics.webp',
+  'signals-and-systems': '/covers/signals-and-systems.webp',
+  'analog-and-digital-communication': '/covers/analog-and-digital-communication.webp',
+  'vlsi-design': '/covers/vlsi-design.webp',
+  'embedded-systems': '/covers/embedded-systems.webp',
+  'antennas-and-wave-propagation': '/covers/antennas-and-wave-propagation.webp',
+  'digital-signal-processing': '/covers/digital-signal-processing.webp',
+  'structural-engineering': '/covers/structural-engineering.webp',
+  'surveying-and-geomatics': '/covers/surveying-and-geomatics.webp',
+  'building-materials': '/covers/building-materials.webp',
+  'geotechnical-engineering': '/covers/geotechnical-engineering.webp',
+  'transportation-engineering': '/covers/transportation-engineering.webp',
+  'environmental-engineering': '/covers/environmental-engineering.webp',
+  'hydraulics': '/covers/hydraulics.webp',
+  'water-resources-engineering': '/covers/water-resources-engineering.webp',
+  'construction-management': '/covers/construction-management.webp',
 }
 
 /** Art URL for a book, or null when that book has no generated cover — the

@@ -24,6 +24,8 @@ Phases (idempotent, run repeatedly until "all done"):
 
 2026-11-15 (CS full-shelf planning pass): the roster grew 28 -> 72 with the
 44 Computer Science books (same series contract; entries appended in BOOKS).
+2026-11-16 (Engineering full-shelf planning pass): the roster grew 72 -> 110
+with the 38 Engineering books (Mechanical, Electrical, ECE, Civil).
 The sandbox recycles raw PNGs between sessions, so `done()` now treats the
 repo webp (public/covers/<id>.webp) as the source of truth — a missing raw
 only matters when a cover is being regenerated.
@@ -288,6 +290,44 @@ BOOKS = {
     "human-computer-interaction": ("human-computer interaction", "a hand touching a pane of glass sending ripples of light outward, fine concentric circles", "#d946ef", "#86198f"),
     "parallel-computing": ("parallel computing", "parallel luminous lanes of arrows racing together across the frame in strict alignment", "#155e75", "#083344"),
     "advanced-computer-science": ("advanced computer science", "a grand door opening onto a starfield of glowing sparks of pure light with no glyphs", "#111827", "#1f2937"),
+    "engineering-mechanics": ("the mechanics of engineered bodies", "a precisely balanced steel truss bridge with a large sphere resting exactly at its apex, thin force arrows flowing down the members into the ground, and a quiet inclined wedge below.", "#b45309", "#7c2d12"),
+    "strength-of-materials": ("strength of materials", "a beam bent in a gentle elastic curve with fine stress lines fanning through it, a torsion rod with spiral grain, and two overlapping translucent circles like a stress diagram.", "#a16207", "#78350f"),
+    "theory-of-machines": ("theory of machines", "an exploded arrangement of interlocking brass gears, a cam disc with a follower rod riding its edge, and a spinning flywheel with a governor's hanging weights.", "#d97706", "#92400e"),
+    "machine-design": ("machine design", "a drafting-table flat-lay of precise component silhouettes — a bolt, a bearing race, a coil spring, a shaft with a key — arranged like geometric treasures on blueprint paper.", "#be123c", "#881337"),
+    "thermodynamics": ("thermodynamics", "a landscape of smooth contour terrain over which a closed glowing cycle loop floats, with steam curling upward from a kettle spout in the foreground.", "#dc2626", "#7f1d1d"),
+    "fluid-mechanics": ("fluid mechanics", "streamlines flowing smoothly around a polished sphere in a wind tunnel, parting and rejoining, the flow fading from glassy laminar lines into gentle turbulent curls downstream.", "#0e7490", "#155e75"),
+    "heat-transfer": ("heat transfer", "three tall panels — a warm glowing wall of fine conduction lines, rising convection currents like heat shimmer, and radiating rays from a bright sun-like core.", "#ea580c", "#9a3412"),
+    "manufacturing-processes": ("manufacturing processes", "a lathe chuck holding a gleaming workpiece with spiral metal shavings curling away, beside a pouring mould and a shower of weld sparks along the bottom.", "#57534e", "#292524"),
+    "industrial-engineering": ("industrial engineering", "a tidy factory floor seen from above — conveyor lines, small bins of parts, plain rectangular kanban cards, and a numeral-free clock face orchestrating the flow.", "#4d7c0f", "#3f6212"),
+    "robotics-and-automation": ("robotics and automation", "a jointed robotic arm silhouette reaching through a field of coordinate frames and rotation arcs, its gripper holding one small glowing sphere.", "#0f766e", "#134e4a"),
+    "cad-cam": ("cad and cam", "a wireframe cube dissolving on one side into a smooth solid surface with a control-point lattice, beside thin printed layers stacking up into the same cube shape.", "#7c3aed", "#5b21b6"),
+    "materials-science": ("materials science", "a crystal lattice of spheres joined by fine lines gradually becoming a grain structure of polygonal cells, with one glowing vacancy in the grid.", "#b7791f", "#713f12"),
+    "circuit-theory-and-network-analysis": ("circuit theory and networks", "a serene circuit landscape of resistors, capacitors and coil symbols drawn in fine copper line-work, with phasor arrows orbiting a central node like planets.", "#ca8a04", "#854d0e"),
+    "electrical-machines": ("electrical machines", "the cross-section of a rotating machine — a stator ring of copper windings with a spinning rotor at its heart and magnetic flux loops curving through the air gap.", "#b45309", "#92400e"),
+    "power-systems": ("power systems", "a transmission tower silhouette with sagging power lines sweeping across the frame, a faint fault arc at one end, and a glowing lattice of distant city lights below.", "#0c4a6e", "#082f49"),
+    "control-systems": ("control systems", "a feedback loop of arrows chasing itself in a perfect circle around a target reticle, with a calm pendulum swinging gently at the center of it all.", "#4338ca", "#312e81"),
+    "power-electronics": ("power electronics", "a square wave and a smooth sine wave interweaving like ribbons over a row of transistor blocks, with one layered switch silhouette glowing warm.", "#c2410c", "#7c2d12"),
+    "electrical-measurements": ("electrical measurement", "an elegant brass instrument face with a needle at rest, a diamond bridge of fine wire with a glowing null point, and a quiet green waveform glowing below.", "#0f766e", "#134e4a"),
+    "high-voltage-engineering": ("high voltage engineering", "a coil tower discharging branching lightning arcs toward the horizon, strings of stacked insulator discs, and a deep storm gradient sky.", "#7f1d1d", "#450a0a"),
+    "renewable-energy": ("renewable energy", "a composite landscape of sunflower-like solar panels, three elegant wind turbines, and a small dammed river, all under a rising sun.", "#15803d", "#166534"),
+    "electromagnetic-fields-and-waves": ("electromagnetic fields and waves", "iron filings curving into field lines around a bar magnet, with radiating concentric wavefronts expanding outward from a dipole at the center.", "#9333ea", "#581c87"),
+    "electronic-devices-and-circuits": ("electronic devices", "a glowing semiconductor crystal split into two tinted halves with tiny bright carriers drifting across the boundary, over a translucent diode symbol.", "#1d4ed8", "#1e3a8a"),
+    "analog-electronics": ("analog electronics", "a single elegant triangle at the center of a mandala of feedback loops and sine waves, a smooth wave entering and a magnified wave leaving.", "#be185d", "#831843"),
+    "signals-and-systems": ("signals and systems", "a signal's journey from a smooth continuous wave on the left, through a lattice of sampling dots, to a stepped discrete staircase on the right.", "#0891b2", "#155e75"),
+    "analog-and-digital-communication": ("communication systems", "a tall radio tower radiating expanding circular wavefronts across a twilight gradient sky, with a constellation of glowing points orbiting above.", "#0369a1", "#0c4a6e"),
+    "vlsi-design": ("vlsi design", "a microchip die seen as a tiny city — golden interconnect roads, logic blocks as buildings, and one magnified glowing transistor gate at the heart.", "#475569", "#1e293b"),
+    "embedded-systems": ("embedded systems", "a small circuit board floating like a quiet island, its central chip as a glowing heart, peripheral components as buildings, and thin data buses as bridges.", "#065f46", "#022c22"),
+    "antennas-and-wave-propagation": ("antennas and propagation", "a classic dipole antenna on a hilltop with donut-shaped radiation patterns floating around it and layered shimmering atmosphere bands above the horizon.", "#dc2626", "#991b1b"),
+    "digital-signal-processing": ("digital signal processing", "a spectrum of thin vertical bars passing through a cascading lattice of filter blocks and emerging as one clean smooth wave.", "#831843", "#500724"),
+    "structural-engineering": ("structural engineering", "an under-construction skyscraper frame of columns and beams with a crane silhouette, a concrete pour, and a fading blueprint grid behind.", "#374151", "#111827"),
+    "surveying-and-geomatics": ("surveying and geomatics", "a theodolite on a tripod on a hilltop sighting across contour-line terrain toward a small satellite constellation with faint signal arcs.", "#059669", "#065f46"),
+    "building-materials": ("building materials", "a still-life museum display of construction — a brick stack, a cement bag, timber planks, a steel section, and a honeycomb of aggregate stones.", "#a16207", "#713f12"),
+    "geotechnical-engineering": ("geotechnical engineering", "a warm earthy soil cross-section in layers with a buried foundation and piles reaching to bedrock, fine water lines seeping through the strata.", "#92400e", "#78350f"),
+    "transportation-engineering": ("transportation engineering", "a sweeping highway interchange of looping overpasses seen from above, with a railway line and a small runway crossing the frame like ribbons.", "#4b5563", "#1f2937"),
+    "environmental-engineering": ("environmental engineering", "a serene water-treatment cascade of settling tanks and filter beds, a leaf-green circular loop, and a clear sky above.", "#0d9488", "#134e4a"),
+    "hydraulics": ("hydraulics", "an open channel of flowing water meeting a hydraulic jump's standing wave, a wheel of buckets catching a jet, and a smooth weir spilling over.", "#0e7490", "#164e63"),
+    "water-resources-engineering": ("water resources engineering", "a gravity dam holding back a lake with a spillway cascade, rain falling on watershed hills, and a winding canal feeding green fields.", "#2563eb", "#1e40af"),
+    "construction-management": ("construction management", "an organised construction site seen from above — a tower crane, stacked material bins, a network of plain activity arrows, and a quiet ladder of plain bars.", "#d97706", "#b45309"),
 }
 
 # hex -> human color phrase for the prompt (all hexes actually used above)
