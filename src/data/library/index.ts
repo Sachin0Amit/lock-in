@@ -138,6 +138,58 @@ import { arabic } from './books/languages/arabic/book'
 import { russian } from './books/languages/russian/book'
 import { portuguese } from './books/languages/portuguese/book'
 import { italian } from './books/languages/italian/book'
+import { foundationPhysics } from './books/physics/foundation-physics/book'
+import { mechanics } from './books/physics/mechanics/book'
+import { propertiesOfMatter } from './books/physics/properties-of-matter/book'
+import { wavesAndOscillations } from './books/physics/waves-and-oscillations/book'
+import { heatAndThermodynamics } from './books/physics/heat-and-thermodynamics/book'
+import { electricityAndMagnetism } from './books/physics/electricity-and-magnetism/book'
+import { electromagneticTheory } from './books/physics/electromagnetic-theory/book'
+import { optics } from './books/physics/optics/book'
+import { modernPhysics } from './books/physics/modern-physics/book'
+import { quantumMechanics } from './books/physics/quantum-mechanics/book'
+import { atomicPhysics } from './books/physics/atomic-physics/book'
+import { nuclearPhysics } from './books/physics/nuclear-physics/book'
+import { solidStatePhysics } from './books/physics/solid-state-physics/book'
+import { statisticalMechanics } from './books/physics/statistical-mechanics/book'
+import { relativity } from './books/physics/relativity/book'
+import { astrophysics } from './books/physics/astrophysics/book'
+import { particlePhysics } from './books/physics/particle-physics/book'
+import { mathematicalPhysics } from './books/physics/mathematical-physics/book'
+import { experimentalPhysics } from './books/physics/experimental-physics/book'
+import { foundationEconomics } from './books/economics-commerce/foundation-economics/book'
+import { microeconomics } from './books/economics-commerce/microeconomics/book'
+import { macroeconomics } from './books/economics-commerce/macroeconomics/book'
+import { internationalEconomics } from './books/economics-commerce/international-economics/book'
+import { developmentEconomics } from './books/economics-commerce/development-economics/book'
+import { publicEconomics } from './books/economics-commerce/public-economics/book'
+import { monetaryEconomics } from './books/economics-commerce/monetary-economics/book'
+import { econometrics } from './books/economics-commerce/econometrics/book'
+import { behaviouralEconomics } from './books/economics-commerce/behavioural-economics/book'
+import { financialEconomics } from './books/economics-commerce/financial-economics/book'
+import { businessStudies } from './books/economics-commerce/business-studies/book'
+import { accounting } from './books/economics-commerce/accounting/book'
+import { costAccounting } from './books/economics-commerce/cost-accounting/book'
+import { financialManagementAndCorporateFinance } from './books/economics-commerce/financial-management-and-corporate-finance/book'
+import { banking } from './books/economics-commerce/banking/book'
+import { investmentAnalysis } from './books/economics-commerce/investment-analysis/book'
+import { statisticsForEconomics } from './books/economics-commerce/statistics-for-economics/book'
+import { businessMathematics } from './books/economics-commerce/business-mathematics/book'
+import { entrepreneurship } from './books/economics-commerce/entrepreneurship/book'
+import { marketing } from './books/economics-commerce/marketing/book'
+import { humanResourceManagement } from './books/economics-commerce/human-resource-management/book'
+import { operationsManagement } from './books/economics-commerce/operations-management/book'
+import { internationalBusiness } from './books/economics-commerce/international-business/book'
+import { foundationChemistry } from './books/chemistry/foundation-chemistry/book'
+import { physicalChemistry } from './books/chemistry/physical-chemistry/book'
+import { organicChemistry } from './books/chemistry/organic-chemistry/book'
+import { inorganicChemistry } from './books/chemistry/inorganic-chemistry/book'
+import { analyticalChemistry } from './books/chemistry/analytical-chemistry/book'
+import { environmentalChemistry } from './books/chemistry/environmental-chemistry/book'
+import { biochemistry } from './books/chemistry/biochemistry/book'
+import { quantumChemistry } from './books/chemistry/quantum-chemistry/book'
+import { computationalChemistry } from './books/chemistry/computational-chemistry/book'
+import { industrialChemistry } from './books/chemistry/industrial-chemistry/book'
 import type { Book, Chapter, Discipline, DisciplineId, Lesson, Term } from './types'
 import { countLessonWords } from './types'
 
@@ -197,6 +249,39 @@ import { countLessonWords } from './types'
  * Goethe-Zertifikat, DELF-DALF, DELE, HSK, TOPIK, IELTS, TOEFL, CLEP) as
  * the exam anchors; the evidence base at docs/research/LANGUAGES_TOC_SURVEY.md
  * and the gate scripts/verify-languages-shelf-planning.ts.
+ *
+ * The Physics shelf is fully planned as of the 2026-11-16 Physics full-shelf
+ * planning pass (owner directive: "create a researched books with chapter
+ * and topics for sections like finance, physics etc all the listed in docs
+ * which can be authored later"): 19 books — the backlog's 20 lines with the
+ * ONE honest fold (the Fluid Mechanics line folded into the mechanics
+ * book's fluid chapters, cross-referenced to engineering's fluid-mechanics)
+ * — status 'planned', zero lessons written, complete researched
+ * chapter/lesson layouts; the evidence base at
+ * docs/research/PHYSICS_TOC_SURVEY.md (the JEE Main 2026, NEET 2026, GATE
+ * PH 2026 and CSIR NET Physical Sciences syllabus pages read this pass)
+ * and the gate scripts/verify-physics-shelf-planning.ts.
+ *
+ * The Economics, Commerce & Finance shelf is fully planned as of the
+ * 2026-11-16 ECF full-shelf planning pass (the same owner directive, the
+ * same turn): 23 books — the backlog's 24 lines with the ONE honest fold
+ * (Financial Management + Corporate Finance merged into ONE book, the
+ * Circuit-Theory precedent) — status 'planned', zero lessons written;
+ * the evidence base at docs/research/ECF_TOC_SURVEY.md (the UGC NET
+ * Economics / Commerce / Management / HRM syllabus pages, the Mankiw
+ * Principles TOC and the Brealey-Myers-Allen apparatus read this pass)
+ * and the gate scripts/verify-ecf-shelf-planning.ts.
+ *
+ * The Chemistry shelf is fully planned as of the 2026-11-16 Chemistry
+ * full-shelf planning pass (the same owner directive, the same turn):
+ * 10 books — the backlog's 15 lines with FIVE honest folds (General →
+ * foundation; Electrochemistry + Kinetics + Advanced Thermodynamics →
+ * physical-chemistry; Materials → the engineering shelf's
+ * materials-science, cross-referenced) — status 'planned', zero lessons
+ * written; the evidence base at docs/research/CHEMISTRY_TOC_SURVEY.md
+ * (the GATE CY 2026 + CSIR NET Chemical Sciences syllabus PDFs, the
+ * Atkins Focus structure, the Clayden and J.D. Lee contents read this
+ * pass) and the gate scripts/verify-chemistry-shelf-planning.ts.
  */
 export const allBooks: Book[] = [
   foundationMathematics,
@@ -338,6 +423,58 @@ export const allBooks: Book[] = [
   russian,
   portuguese,
   italian,
+  foundationPhysics,
+  mechanics,
+  propertiesOfMatter,
+  wavesAndOscillations,
+  heatAndThermodynamics,
+  electricityAndMagnetism,
+  electromagneticTheory,
+  optics,
+  modernPhysics,
+  quantumMechanics,
+  atomicPhysics,
+  nuclearPhysics,
+  solidStatePhysics,
+  statisticalMechanics,
+  relativity,
+  astrophysics,
+  particlePhysics,
+  mathematicalPhysics,
+  experimentalPhysics,
+  foundationEconomics,
+  microeconomics,
+  macroeconomics,
+  internationalEconomics,
+  developmentEconomics,
+  publicEconomics,
+  monetaryEconomics,
+  econometrics,
+  behaviouralEconomics,
+  financialEconomics,
+  businessStudies,
+  accounting,
+  costAccounting,
+  financialManagementAndCorporateFinance,
+  banking,
+  investmentAnalysis,
+  statisticsForEconomics,
+  businessMathematics,
+  entrepreneurship,
+  marketing,
+  humanResourceManagement,
+  operationsManagement,
+  internationalBusiness,
+  foundationChemistry,
+  physicalChemistry,
+  organicChemistry,
+  inorganicChemistry,
+  analyticalChemistry,
+  environmentalChemistry,
+  biochemistry,
+  quantumChemistry,
+  computationalChemistry,
+  industrialChemistry,
 ]
 
 export const allDisciplines: Discipline[] = disciplines

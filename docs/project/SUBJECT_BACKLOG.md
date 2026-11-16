@@ -54,19 +54,108 @@ audits all 1,876 topic entries of the Drive survey against the shelf — zero
 missing topics; the same gate re-checks EXAM_REGISTRY.json (56 exams, researched
 with coverage maps).**
 
-## Physics (20)
-Foundation · Mechanics · Properties of Matter · Waves and Oscillations ·
-Heat and Thermodynamics · Fluid Mechanics · Electricity and Magnetism ·
-Electromagnetic Theory · Optics · Modern Physics · Quantum Mechanics ·
-Atomic Physics · Nuclear Physics · Solid-State Physics · Statistical
-Mechanics · Relativity · Astrophysics · Particle Physics · Mathematical
-Physics · Experimental Physics
+## Physics (20 backlog lines → 19 books + 1 honest fold) — **THE FULL SHELF IS PLANNED (audited)**
+Planned by the Physics full-shelf planning pass (2026-11-16, owner
+directive: "create a researched books with chapter and topics for
+sections like finance, physics etc all the listed in docs which can be
+authored later"): the exam anchors read in full (the JEE Main 2026 +
+NEET 2026 syllabus PDFs from the NTA, the GATE PH 2026 syllabus PDF from
+IIT Guwahati, the CSIR NET Physical Sciences proposed-syllabus PDF), the
+canonical arcs priced honestly (Halliday-Resnick-Walker's contents read
+this pass; Taylor, French, Crawford, Zemansky, Griffiths ×3, Hecht,
+Beiser/Krane, Eisberg-Resnick, Foot, Krane, Kittel/Ashcroft-Mermin,
+Schroeder/Pathria, Taylor-Wheeler/Carroll, Carroll-Ostlie, Boas/Arfken,
+Squires/Melissinos named as the poles), and all 19 books promoted to
+`src/data/library/books/physics/<slug>/book.ts` with status 'planned' —
+**172 chapters / 688 planned lessons, zero written** (the
+one-unit-at-a-time authoring cadence unchanged). Evidence base:
+`docs/research/PHYSICS_TOC_SURVEY.md`; durable generator:
+`scripts/gen_physics_shelf.py` (plan data in
+`scripts/shelf_data/physics_books_[abcd].py`); gate:
+`scripts/verify-physics-shelf-planning.ts` (1317/1317); covers
+registered in the `scripts/gen_covers.py` roster (139 → 181; art
+generates idempotently).
 
-## Chemistry (15)
-Foundation · General · Physical · Organic · Inorganic · Analytical ·
-Environmental · Biochemistry · Electrochemistry · Chemical Kinetics ·
-Quantum Chemistry · Computational · Industrial · Materials · Advanced
-Chemical Thermodynamics
+The honest fold (no-duplication contract): *Fluid Mechanics* folds into
+**mechanics** (fluid-statics + fluid-dynamics chapters — the physics
+register's buoyancy, continuity and Bernoulli; the engineering shelf's
+fluid-mechanics owns the thermo-fluids applied side, cross-referenced
+both ways; properties-of-matter owns the matter-side: viscosity, surface
+tension).
+
+1. Foundation Physics (10 ch / 40 lessons, `pf-`, NCERT 9-10 register + JEE/NEET Unit 1, web)
+2. Mechanics (12 / 48, `pmech-`, Halliday Parts 1-3 + Taylor + the fluid fold, web)
+3. Properties of Matter (8 / 32, `prop-`, NCERT 11 mechanical properties + JEE, web)
+4. Waves and Oscillations (9 / 36, `wav-`, JEE/NEET Oscillations-and-Waves + French/Crawford, web)
+5. Heat and Thermodynamics (10 / 40, `heat-`, JEE/NEET KTG+Thermo + GATE PH + Zemansky, web)
+6. Electricity and Magnetism (11 / 44, `emag-`, the class 11-12 E&M units + boards practicals, web)
+7. Electromagnetic Theory (10 / 40, `emt-`, GATE PH EM Theory section + Griffiths, web)
+8. Optics (10 / 40, `opt-`, JEE/NEET Ray+Wave Optics + Hecht, web)
+9. Modern Physics (8 / 32, `mod-`, JEE/NEET Dual Nature+Atoms+Nuclei+Devices + Beiser/Krane, web)
+10. Quantum Mechanics (9 / 36, `qm-`, GATE PH/CSIR NET QM section + Griffiths/Zettili, web)
+11. Atomic Physics (8 / 32, `atom-`, GATE PH Atomic & Molecular + Eisberg-Resnick/Foot, web)
+12. Nuclear Physics (9 / 36, `nuc-`, GATE PH Nuclear + Krane + NEET deepening, web)
+13. Solid-State Physics (9 / 36, `ssp-`, GATE PH Condensed Matter + Kittel, web)
+14. Statistical Mechanics (8 / 32, `statm-`, GATE PH/CSIR NET + Schroeder/Pathria, web)
+15. Relativity (8 / 32, `rel-`, Taylor-Wheeler + Carroll named, web)
+16. Astrophysics (8 / 32, `astro-`, Carroll-Ostlie named, web)
+17. Particle Physics (8 / 32, `part-`, Griffiths Particles + CSIR NET, web)
+18. Mathematical Physics (9 / 36, `mph-`, GATE PH Mathematical Physics section + Boas/Arfken, web)
+19. Experimental Physics (8 / 32, `exp-`, boards practicals + GATE PH electronics + Squires, web)
+
+**Authoring order**: unchanged — the Mathematics boat continues (AA in
+progress) one book at a time per the standing pointer; the physics
+shelf's 19 books follow in backlog order when the owner promotes them
+(the same promotion rule as every planned shelf). Lesson-id prefixes for
+all 19 verified unused against the 145 written lesson ids and distinct
+from every mathematics/CS/engineering/humanities/languages prefix
+(verify-physics-shelf-planning section E).
+
+## Chemistry (15 backlog lines → 10 books + 5 honest folds) — **THE FULL SHELF IS PLANNED (audited)**
+Planned by the Chemistry full-shelf planning pass (2026-11-16, the same
+owner directive as the Physics + ECF passes, the same turn): the exam
+anchors read in full (the GATE CY 2026 syllabus PDF from IIT Guwahati,
+the CSIR NET Chemical Sciences syllabus PDF from csirhrdg.res.in, the
+NEET 2026 syllabus PDF — the same NTA file the Physics pass read — and
+the JEE Main 2026 syllabus), the canonical arcs priced honestly (the
+(the Atkins Focus structure, the Clayden organic contents and the J.D. Lee
+concise-inorganic contents read this pass via the publisher and LoC
+catalog pages; Morrison & Boyd, Solomons, Vogel, Skoog, Lehninger,
+Levine, Jensen, Shreve named as the poles), and all 10 books promoted to
+`src/data/library/books/chemistry/<slug>/book.ts` with status 'planned'
+— **91 chapters / 364 planned lessons, zero written**. Evidence base:
+`docs/research/CHEMISTRY_TOC_SURVEY.md`; durable generator:
+`scripts/gen_chemistry_shelf.py` (plan data in
+`scripts/shelf_data/chemistry_books_[ab].py`); gate:
+`scripts/verify-chemistry-shelf-planning.ts` (804/804); covers
+registered in the `scripts/gen_covers.py` roster (181 → 191; art
+generates idempotently).
+
+The five honest folds (no-duplication contract): *General Chemistry*
+folds into **foundation-chemistry** (the survey register is the school
+ladder's own name); *Electrochemistry*, *Chemical Kinetics* and
+*Advanced Chemical Thermodynamics* fold into **physical-chemistry** as
+full chapter sets (the standard Atkins Focus arcs); *Materials* folds
+OUT of the shelf to the engineering shelf's **materials-science** book
+(the Callister register — cross-referenced, no new book).
+
+1. Foundation Chemistry (10 ch / 40 lessons, `fchem-`, NCERT + Atkins-Jones Chemical Principles, web)
+2. Physical Chemistry (12 / 48, `pchem-`, Atkins Focus structure + GATE CY + THE THREE FOLDS, web)
+3. Organic Chemistry (11 / 44, `org-`, Clayden contents read + Morrison/Boyd + JEE/NEET, web)
+4. Inorganic Chemistry (10 / 40, `inorg-`, J.D. Lee contents read + GATE CY bioinorganic, web)
+5. Analytical Chemistry (8 / 32, `anal-`, Vogel + Skoog + CSIR NET register, web)
+6. Environmental Chemistry (7 / 28, `envchem-`, NCERT environmental + the chemistry-side register, web)
+7. Biochemistry (10 / 40, `biochem-`, Lehninger + NEET biomolecules, web)
+8. Quantum Chemistry (8 / 32, `qchem-`, GATE CY quantum register + Levine, web)
+9. Computational Chemistry (7 / 28, `cchem-`, Jensen + CSIR interdisciplinary, web)
+10. Industrial Chemistry (8 / 32, `indchem-`, Shreve + NCERT everyday-life register, web)
+
+**Authoring order**: unchanged — the Mathematics boat continues (AA in
+progress) one book at a time per the standing pointer; the chemistry
+shelf's 10 books follow in backlog order when the owner promotes them.
+Lesson-id prefixes for all 10 verified unused against the 145 written
+lesson ids and distinct from every other shelf's reserved prefix
+(the near-miss avoided: `org-` vs math's `or-` — distinct strings).
 
 ## Computer Science & IT (49 backlog lines → 44 books + 5 honest folds) — **THE FULL SHELF IS PLANNED (audited)**
 Planned by the CS full-shelf planning pass (2026-11-15, owner directive: "as
@@ -244,13 +333,67 @@ Microbiology · Immunology · Forensic Medicine · Community Medicine ·
 Medicine · Surgery · Obstetrics & Gynaecology · Pediatrics + specialties;
 also dentistry, nursing, pharmacy, veterinary, physiotherapy
 
-## Economics, Commerce & Finance (23)
-Foundation Economics · Micro · Macro · International · Development ·
-Public · Monetary · Econometrics · Behavioural · Financial Economics ·
-Business Studies · Accounting · Cost Accounting · Financial Management ·
-Corporate Finance · Banking · Investment Analysis · Statistics for
-Economics · Business Mathematics · Entrepreneurship · Marketing · HR ·
-Operations · International Business
+## Economics, Commerce & Finance (24 backlog lines → 23 books + 1 honest fold) — **THE FULL SHELF IS PLANNED (audited)**
+Planned by the Economics, Commerce & Finance full-shelf planning pass
+(2026-11-16, the same owner directive as the Physics pass, the same
+turn): the exam anchors read in full (the UGC NET subject-code register
+at ugcnetonline.in — Economics 01, Commerce 08, Management 17, HRM 55 —
+plus the unit lists corroborated at the syllabus mirrors; the Mankiw
+Principles chapter list and the Brealey-Myers-Allen evergreen apparatus
++ the LoC catalog TOC), every book web-researched against its canonical
+sources (Varian, Blanchard, Krugman-Obstfeld-Melitz, Todaro-Smith,
+Rosen-Gayer, Mishkin, Wooldridge, Kahneman/Thaler, Bodie-Kane-Marcus,
+Hull, Khan-Jain, T.S. Grewal, Horngren, Kotler-Armstrong, Dessler,
+Heizer-Render, Hill, Hisrich, Goon-Gupta-Dasgupta named as the poles),
+and all 23 books promoted to
+`src/data/library/books/economics-commerce/<slug>/book.ts` with status
+'planned' — **195 chapters / 780 planned lessons, zero written**. The
+economics ladder owns the theory register (UGC NET Economics units 1-4
+priced), the commerce-and-management lines own the professional register
+(UGC NET Commerce + Management + code 55). Evidence base:
+`docs/research/ECF_TOC_SURVEY.md`; durable generator:
+`scripts/gen_economics_finance_shelf.py` (plan data in
+`scripts/shelf_data/ecf_books_[abcd].py`); gate:
+`scripts/verify-ecf-shelf-planning.ts` (1482/1482); covers registered
+in the `scripts/gen_covers.py` roster (139 → 181; art generates
+idempotently).
+
+The honest fold (no-duplication contract): *Financial Management* +
+*Corporate Finance* merge into ONE book
+**financial-management-and-corporate-finance** (the Khan & Jain Indian
+MBA register and the Brealey-Myers-Allen canonical arc are the two
+spines of one field — the Circuit-Theory fold precedent).
+
+1. Foundation Economics (10 ch / 40 lessons, `fecon-`, NCERT + Mankiw principles, web)
+2. Microeconomics (11 / 44, `micro-`, UGC NET unit 1 + Varian/Nicholson-Snyder, web)
+3. Macroeconomics (10 / 40, `macro-`, UGC NET unit 2 + Mankiw/Blanchard, web)
+4. International Economics (9 / 36, `ieco-`, Krugman-Obstfeld-Melitz + Salvatore, web)
+5. Development Economics (8 / 32, `deveco-`, Todaro-Smith + Thirlwall + Sen, web)
+6. Public Economics (9 / 36, `pubeco-`, Rosen-Gayer + Musgrave + the Indian budget register, web)
+7. Monetary Economics (8 / 32, `moneco-`, Mishkin + the RBI register, web)
+8. Econometrics (9 / 36, `econ-`, UGC NET unit 3 + Wooldridge/Gujarati, web)
+9. Behavioural Economics (7 / 28, `behav-`, Kahneman + Thaler, web — the frontier register)
+10. Financial Economics (8 / 32, `fineco-`, the theory side: Markowitz/CAPM/Black-Scholes named, web)
+11. Business Studies (8 / 32, `bus-`, NCERT 11-12 + Fayol/Taylor, web)
+12. Accounting (8 / 32, `acct-`, NCERT 11-12 + T.S. Grewal + CA Foundation first pass, web)
+13. Cost Accounting (8 / 32, `cost-`, Horngren + the ICAI register, web)
+14. Financial Management & Corporate Finance (11 / 44, `corpfin-`, THE FOLD: Brealey-Myers-Allen + Khan & Jain, web)
+15. Banking (8 / 32, `bank-`, UGC NET Commerce banking unit + the Indian system register, web)
+16. Investment Analysis (8 / 32, `invest-`, Bodie-Kane-Marcus + Reilly-Brown + the Indian market register, web)
+17. Statistics for Economics (7 / 28, `stateco-`, UGC NET unit 3 statistics half + Goon-Gupta-Dasgupta, web)
+18. Business Mathematics (8 / 32, `busmath-`, CA Foundation quantitative + BCom arc, web)
+19. Entrepreneurship (8 / 32, `entrep-`, NCERT 11-12 + Hisrich + the Startup-India register, web)
+20. Marketing (8 / 32, `mktg-`, Kotler-Armstrong + UGC NET Commerce/Management units, web)
+21. Human Resource Management (8 / 32, `hrm-`, Dessler + UGC NET Management 17 / HRM 55, web)
+22. Operations Management (8 / 32, `ops-`, Heizer-Render + Mahadevan, web)
+23. International Business (8 / 32, `intbus-`, Hill + UGC NET Commerce unit 1, web)
+
+**Authoring order**: unchanged — the Mathematics boat continues (AA in
+progress) one book at a time per the standing pointer; the ECF shelf's
+23 books follow in backlog order when the owner promotes them. Lesson-id
+prefixes for all 23 verified unused against the 145 written lesson ids
+and distinct from every mathematics/CS/engineering/humanities/languages/
+physics prefix (verify-ecf-shelf-planning section E).
 
 ## Humanities & Social Sciences (21+ backlog lines → 16 books + honest folds) — **THE FULL SHELF IS PLANNED (audited)**
 Planned by the Humanities & Social Sciences full-shelf planning pass

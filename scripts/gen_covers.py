@@ -517,6 +517,321 @@ BOOKS = {
         "a bunch of grapes and a cup of espresso resting on a ledge.",
         "#be185d", "#831843",
     ),
+    # — the Physics shelf (2026-11-16 planning pass; roster 139 -> 158) —
+    "foundation-physics": (
+        "school physics foundations",
+        "a wooden balance beam with brass weights, a swinging pendulum bob "
+        "and a small prism casting a soft spectrum across a study desk.",
+        "#38bdf8", "#075985",
+    ),
+    "mechanics": (
+        "classical mechanics",
+        "a tilted inclined plane with spheres rolling down, a rope-and-pulley "
+        "assembly and a heavy spinning flywheel, all in clean machine forms.",
+        "#6366f1", "#312e81",
+    ),
+    "properties-of-matter": (
+        "the mechanical properties of matter",
+        "a coiled metal spring beside a perfectly round water droplet resting "
+        "on a leaf, with layered bands of liquid settling in glass jars.",
+        "#14b8a6", "#134e4a",
+    ),
+    "waves-and-oscillations": (
+        "oscillations and waves",
+        "concentric ripples spreading across a still pond from a struck "
+        "tuning fork, with a swinging pendulum in the distance.",
+        "#a78bfa", "#4c1d95",
+    ),
+    "heat-and-thermodynamics": (
+        "heat and thermodynamics",
+        "a brass steam piston releasing curling steam, a glowing hearth and a "
+        "tall thermometer with a purely geometric unlabeled scale.",
+        "#f87171", "#7f1d1d",
+    ),
+    "electricity-and-magnetism": (
+        "electricity and magnetism",
+        "curving field lines arcing between the poles of a horseshoe magnet, "
+        "a coil of copper wire and small bright sparks.",
+        "#3b82f6", "#1e3a8a",
+    ),
+    "electromagnetic-theory": (
+        "electromagnetic theory",
+        "a radiating dipole antenna emitting concentric translucent "
+        "wavefront shells, with a waveguide horn and fine field-line loops.",
+        "#0891b2", "#164e63",
+    ),
+    "optics": (
+        "optics and light",
+        "a tall lens bending a fan of light rays through a glass prism into "
+        "a soft rainbow spread across the frame.",
+        "#e879f9", "#701a75",
+    ),
+    "modern-physics": (
+        "modern physics",
+        "a glowing vacuum tube, a photographic plate crossed by particle "
+        "tracks and a stylised atom with orbiting electron shells.",
+        "#fb7185", "#881337",
+    ),
+    "quantum-mechanics": (
+        "quantum mechanics",
+        "a glowing probability cloud of tiny dots hovering over an "
+        "interference pattern of alternating bright and dark bands.",
+        "#818cf8", "#1e1b4b",
+    ),
+    "atomic-physics": (
+        "atomic physics",
+        "a large atom with sharply split spectral fringes as colored light "
+        "bands beside nested orbiting shells of fine lines.",
+        "#22d3ee", "#155e75",
+    ),
+    "nuclear-physics": (
+        "nuclear physics",
+        "a tight cluster of spheres at the center ejecting smaller particles "
+        "that leave arcing trails across the frame.",
+        "#fbbf24", "#78350f",
+    ),
+    "solid-state-physics": (
+        "solid state physics",
+        "an elegant crystal lattice of spheres joined by slender rods "
+        "repeating in depth, softly lit from one side.",
+        "#94a3b8", "#334155",
+    ),
+    "statistical-mechanics": (
+        "statistical mechanics",
+        "a swarm of tiny dots inside a vessel sorting into smooth density "
+        "bands from sparse at one end to tightly packed at the other.",
+        "#4ade80", "#14532d",
+    ),
+    "relativity": (
+        "relativity and spacetime",
+        "a fine grid mesh warping and curving around a dark heavy sphere, "
+        "with a light cone shape glowing softly nearby.",
+        "#c084fc", "#581c87",
+    ),
+    "astrophysics": (
+        "astrophysics and the cosmos",
+        "a luminous spiral galaxy over a deep starfield with an orbiting "
+        "planet and a thin crescent moon.",
+        "#7dd3fc", "#0c4a6e",
+    ),
+    "particle-physics": (
+        "particle physics",
+        "two glowing particle jets spraying symmetrically outward from a "
+        "collision point at the center of a detector ring.",
+        "#f59e0b", "#713f12",
+    ),
+    "mathematical-physics": (
+        "mathematical methods for physics",
+        "floating translucent geometric diagrams — a closed contour loop, "
+        "a rippling sine surface and a small tensor grid — drifting in space.",
+        "#64748b", "#0f172a",
+    ),
+    "experimental-physics": (
+        "the physics laboratory",
+        "a wooden laboratory bench with brass instruments, an oscilloscope "
+        "tracing one pure sine curve and an open blank notebook.",
+        "#fdba74", "#7c2d12",
+    ),
+    # — the Economics, Commerce & Finance shelf (2026-11-16 planning pass; roster 158 -> 181) —
+    "foundation-economics": (
+        "foundational economics",
+        "a wooden market scale with coins on one pan and grain sacks on the "
+        "other, over a simple marketplace awning.",
+        "#34d399", "#064e3b",
+    ),
+    "microeconomics": (
+        "microeconomics",
+        "two smooth crossing ribbons forming supply and demand curves over "
+        "a small market stall with crates and a hanging sign.",
+        "#10b981", "#065f46",
+    ),
+    "macroeconomics": (
+        "macroeconomics",
+        "rising and falling columns of bars over a circular flow ring with "
+        "a single large gear turning at the center.",
+        "#059669", "#064e3b",
+    ),
+    "international-economics": (
+        "international trade economics",
+        "a container cargo ship sailing between two contrasting shorelines "
+        "under a curved arrow sweeping across the sky.",
+        "#14b8a6", "#134e4a",
+    ),
+    "development-economics": (
+        "development economics",
+        "a young sapling growing out of a heap of coins with a rising sun "
+        "behind and a rough ladder leaning alongside.",
+        "#22c55e", "#14532d",
+    ),
+    "public-economics": (
+        "public economics and the state",
+        "a classical government building facade with columns, a stack of "
+        "coins and a thick open ledger book in front.",
+        "#0d9488", "#042f2e",
+    ),
+    "monetary-economics": (
+        "money and monetary economics",
+        "a tall central-bank tower with coins orbiting it on elegant arcs and "
+        "ribbons of flowing currency wrapping the base.",
+        "#99f6e4", "#115e59",
+    ),
+    "econometrics": (
+        "econometrics and statistics",
+        "a scattered cloud of dots threading neatly along a fitted line "
+        "over a fine unlabeled graph grid.",
+        "#84cc16", "#365314",
+    ),
+    "behavioural-economics": (
+        "behavioural economics",
+        "a human head profile silhouette split down the middle — one half "
+        "clockwork gears and dials, the other half flowing watercolor waves.",
+        "#fbbf24", "#78350f",
+    ),
+    "financial-economics": (
+        "financial economics and asset pricing",
+        "a mountain-range risk landscape with a taut tightrope path rising "
+        "across it and glowing coin markers planted along the route.",
+        "#d97706", "#7c2d12",
+    ),
+    "business-studies": (
+        "business studies",
+        "a friendly shop storefront with a striped awning, stacked ledgers "
+        "and a small round meeting table with chairs.",
+        "#0891b2", "#164e63",
+    ),
+    "accounting": (
+        "accounting and bookkeeping",
+        "a tall tidy stack of bound ledgers beside a balance scale and neat "
+        "columns of coin stacks of varying heights.",
+        "#2563eb", "#1e3a8a",
+    ),
+    "cost-accounting": (
+        "cost accounting",
+        "a wooden abacus, a warehouse of stacked crates and a grid of "
+        "unlabeled calculator-style keys laid out flat.",
+        "#64748b", "#1f2937",
+    ),
+    "financial-management-and-corporate-finance": (
+        "corporate finance",
+        "a modern corporate tower wrapped by rising coin-flow arrows, a "
+        "pie divided into clean wedges and a bold growth arrow.",
+        "#b45309", "#451a03",
+    ),
+    "banking": (
+        "banking and finance",
+        "a bank facade with columns beside a massive round vault door and "
+        "streams of coins flowing between them.",
+        "#0284c7", "#075985",
+    ),
+    "investment-analysis": (
+        "investment analysis",
+        "a rising staircase of pure geometric candle shapes over a mosaic "
+        "of gold coins, with a faint upward arrow behind.",
+        "#eab308", "#713f12",
+    ),
+    "statistics-for-economics": (
+        "statistics for economics",
+        "a Lorenz-curve arc over a fine grid with a smooth bell-shaped "
+        "cloud of dots and a simple bar row beneath.",
+        "#475569", "#1e293b",
+    ),
+    "business-mathematics": (
+        "business mathematics",
+        "floating mathematical objects — a segmented percentage wheel, "
+        "balance scales and curved unlabeled axes — hovering over coins.",
+        "#7c3aed", "#4c1d95",
+    ),
+    "entrepreneurship": (
+        "entrepreneurship",
+        "a folded paper boat sailing bravely over rising waves made of "
+        "coins, with a small lighthouse beaming behind.",
+        "#f97316", "#7c2d12",
+    ),
+    "marketing": (
+        "marketing",
+        "a large megaphone radiating concentric sound rings over a small "
+        "storefront and a scattered audience of figure dots.",
+        "#e11d48", "#881337",
+    ),
+    "human-resource-management": (
+        "human resource management",
+        "a circle of linked human figures standing over an organizational "
+        "tree of connected nodes and branches.",
+        "#db2777", "#831843",
+    ),
+    "operations-management": (
+        "operations management",
+        "a clean assembly line of gears and conveyor rollers carrying small "
+        "boxes toward a waiting delivery truck.",
+        "#0ea5e9", "#0c4a6e",
+    ),
+    "international-business": (
+        "international business",
+        "a globe wrapped in glowing trade routes connecting small city "
+        "nodes, with a cargo plane and ship silhouette below.",
+        "#334155", "#0f172a",
+    ),
+    # — the Chemistry shelf (2026-11-16 planning pass; roster 181 -> 191) —
+    "foundation-chemistry": (
+        "school chemistry foundations",
+        "a school lab bench with a conical flask fizzing gently, a blank "
+        "tile-grid panel and test tubes standing in a wooden rack.",
+        "#facc15", "#713f12",
+    ),
+    "physical-chemistry": (
+        "physical chemistry",
+        "a piston-and-cylinder with curling steam beside a two-pan balance "
+        "holding clusters of bonded spheres as molecules.",
+        "#4ade80", "#166534",
+    ),
+    "organic-chemistry": (
+        "organic chemistry",
+        "an elegant hexagonal ring lattice made of small spheres and slim "
+        "connecting rods, with two benzene rings interlocked at an angle.",
+        "#fb923c", "#7c2d12",
+    ),
+    "inorganic-chemistry": (
+        "inorganic chemistry",
+        "a crystalline mineral cluster of faceted hexagonal prisms and "
+        "metallic cubic forms catching soft light.",
+        "#a855f7", "#581c87",
+    ),
+    "analytical-chemistry": (
+        "analytical chemistry",
+        "a tall burette dripping one single drop into a conical flask where "
+        "a color gradient swirls, over a fine unlabeled graph grid.",
+        "#06b6d4", "#155e75",
+    ),
+    "environmental-chemistry": (
+        "environmental chemistry",
+        "a broad leaf holding one round water droplet, a distant factory "
+        "silhouette and a soft rising sun behind.",
+        "#84cc16", "#3f6212",
+    ),
+    "biochemistry": (
+        "biochemistry",
+        "a gently twisting double helix of spheres beside a small round "
+        "flask filled with softly glowing liquid.",
+        "#f43f5e", "#881337",
+    ),
+    "quantum-chemistry": (
+        "quantum chemistry",
+        "glowing probability lobes — balanced dumbbell orbital shapes — "
+        "hovering around a small bright nucleus core.",
+        "#818cf8", "#1e1b4b",
+    ),
+    "computational-chemistry": (
+        "computational chemistry",
+        "a translucent wireframe molecule mesh of nodes and edges with a "
+        "small screen showing a single unlabeled curve beside it.",
+        "#38bdf8", "#0c4a6e",
+    ),
+    "industrial-chemistry": (
+        "industrial chemistry",
+        "a tall distillation column wrapped with pipes, valves and "
+        "spherical storage tanks on a clean plant silhouette.",
+        "#94a3b8", "#334155",
+    ),
 }
 
 # hex -> human color phrase for the prompt (all hexes actually used above)
@@ -556,6 +871,30 @@ HEX_COLOR = {
     "#082f49": "deep navy", "#065f46": "deep emerald",
     "#022c22": "near-black emerald", "#4338ca": "indigo",
     "#3730a3": "deep indigo", "#b91c1c": "strong red",
+    "#38bdf8": "sky blue", "#075985": "deep ocean blue",
+    "#6366f1": "indigo violet", "#312e81": "deep indigo violet",
+    "#a78bfa": "soft violet", "#4c1d95": "deep royal violet",
+    "#f87171": "coral red", "#7f1d1d": "dark maroon",
+    "#3b82f6": "bright royal blue", "#1e3a8a": "deep navy blue",
+    "#0891b2": "cyan teal", "#164e63": "deep cyan teal",
+    "#e879f9": "orchid pink", "#701a75": "deep plum",
+    "#fb7185": "rose pink", "#818cf8": "periwinkle indigo",
+    "#1e1b4b": "midnight indigo", "#22d3ee": "bright cyan",
+    "#fbbf24": "honey gold", "#94a3b8": "silver gray",
+    "#334155": "steel slate", "#4ade80": "fresh green",
+    "#14532d": "deep forest green", "#c084fc": "lilac purple",
+    "#581c87": "deep grape purple", "#7dd3fc": "pale sky blue",
+    "#713f12": "dark bronze brown", "#64748b": "slate gray blue",
+    "#0f172a": "ink navy", "#fdba74": "soft apricot",
+    "#34d399": "mint green", "#064e3b": "near-black emerald",
+    "#10b981": "emerald green", "#22c55e": "vivid green",
+    "#042f2e": "near-black teal", "#99f6e4": "pale teal",
+    "#84cc16": "lime green", "#365314": "dark olive",
+    "#0284c7": "azure blue", "#eab308": "gold yellow",
+    "#7c3aed": "violet", "#f97316": "vivid orange",
+    "#db2777": "deep pink", "#0ea5e9": "sky blue bright",
+    "#facc15": "warm golden yellow", "#06b6d4": "bright cyan blue",
+    "#f43f5e": "vivid rose", "#a855f7": "bright violet purple",
 }
 
 

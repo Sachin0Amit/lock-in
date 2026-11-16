@@ -29,6 +29,17 @@
  * and languages section" turn): +16 and +13 covers respectively, the same
  * discipline and generator (motif per subject, palette per accent pair,
  * VLM text-free sweep — scripts/gen_covers.py's roster grown 110 → 139).
+ *
+ * Physics, Economics-Commerce-Finance and Chemistry full-shelf planning
+ * passes (owner directive 2026-11-16, the "researched books with chapter
+ * and topics for sections like finance, physics etc" turn): +19, +23 and
+ * +10 covers respectively — the roster grown 139 → 191, the same series
+ * contract (motif per subject, palette per accent pair); the VLM sweep
+ * flagged 2 of the 52 new covers (monetary-economics, financial-
+ * economics) after two HARDER regenerations — the image-edit clean pass
+ * errored (service unavailable), so their regeneration is queued for the
+ * next gen_covers run; the CSS-typography overlay is unaffected either
+ * way.
  */
 
 /** bookId → art path under /public. Kept explicit so a missing file is a
@@ -176,6 +187,61 @@ export const COVER_ART: Record<string, string> = {
   'russian': '/covers/russian.webp',
   'portuguese': '/covers/portuguese.webp',
   'italian': '/covers/italian.webp',
+  // — the Physics shelf (2026-11-16 planning pass) —
+  'foundation-physics': '/covers/foundation-physics.webp',
+  'mechanics': '/covers/mechanics.webp',
+  'properties-of-matter': '/covers/properties-of-matter.webp',
+  'waves-and-oscillations': '/covers/waves-and-oscillations.webp',
+  'heat-and-thermodynamics': '/covers/heat-and-thermodynamics.webp',
+  'electricity-and-magnetism': '/covers/electricity-and-magnetism.webp',
+  'electromagnetic-theory': '/covers/electromagnetic-theory.webp',
+  'optics': '/covers/optics.webp',
+  'modern-physics': '/covers/modern-physics.webp',
+  'quantum-mechanics': '/covers/quantum-mechanics.webp',
+  'atomic-physics': '/covers/atomic-physics.webp',
+  'nuclear-physics': '/covers/nuclear-physics.webp',
+  'solid-state-physics': '/covers/solid-state-physics.webp',
+  'statistical-mechanics': '/covers/statistical-mechanics.webp',
+  'relativity': '/covers/relativity.webp',
+  'astrophysics': '/covers/astrophysics.webp',
+  'particle-physics': '/covers/particle-physics.webp',
+  'mathematical-physics': '/covers/mathematical-physics.webp',
+  'experimental-physics': '/covers/experimental-physics.webp',
+  // — the Economics, Commerce & Finance shelf (2026-11-16 planning pass) —
+  'foundation-economics': '/covers/foundation-economics.webp',
+  'microeconomics': '/covers/microeconomics.webp',
+  'macroeconomics': '/covers/macroeconomics.webp',
+  'international-economics': '/covers/international-economics.webp',
+  'development-economics': '/covers/development-economics.webp',
+  'public-economics': '/covers/public-economics.webp',
+  'monetary-economics': '/covers/monetary-economics.webp',
+  'econometrics': '/covers/econometrics.webp',
+  'behavioural-economics': '/covers/behavioural-economics.webp',
+  'financial-economics': '/covers/financial-economics.webp',
+  'business-studies': '/covers/business-studies.webp',
+  'accounting': '/covers/accounting.webp',
+  'cost-accounting': '/covers/cost-accounting.webp',
+  'financial-management-and-corporate-finance': '/covers/financial-management-and-corporate-finance.webp',
+  'banking': '/covers/banking.webp',
+  'investment-analysis': '/covers/investment-analysis.webp',
+  'statistics-for-economics': '/covers/statistics-for-economics.webp',
+  'business-mathematics': '/covers/business-mathematics.webp',
+  'entrepreneurship': '/covers/entrepreneurship.webp',
+  'marketing': '/covers/marketing.webp',
+  'human-resource-management': '/covers/human-resource-management.webp',
+  'operations-management': '/covers/operations-management.webp',
+  'international-business': '/covers/international-business.webp',
+  // — the Chemistry shelf (2026-11-16 planning pass) —
+  'foundation-chemistry': '/covers/foundation-chemistry.webp',
+  'physical-chemistry': '/covers/physical-chemistry.webp',
+  'organic-chemistry': '/covers/organic-chemistry.webp',
+  'inorganic-chemistry': '/covers/inorganic-chemistry.webp',
+  'analytical-chemistry': '/covers/analytical-chemistry.webp',
+  'environmental-chemistry': '/covers/environmental-chemistry.webp',
+  'biochemistry': '/covers/biochemistry.webp',
+  'quantum-chemistry': '/covers/quantum-chemistry.webp',
+  'computational-chemistry': '/covers/computational-chemistry.webp',
+  'industrial-chemistry': '/covers/industrial-chemistry.webp',
 }
 
 /** Art URL for a book, or null when that book has no generated cover — the

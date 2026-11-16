@@ -2954,3 +2954,94 @@ scripts/verify-cs-exam-coverage.ts):
 - 2026-11-15 (run 107) — the m2-03 module RE-DOWNLOADED + 3.3's ground re-transcribed + 3.4's ground BANKED (the sandbox recycle had wiped temporary-references/, the unit-mid-flight working copies): the Drive `MATHS/M2 Algebra :: 03. Complex Numbers` module (Drive id `16g5wQMSErdcQYqZYabVIIEkA5wcNiYoh`, 59 MB scanned PDF) re-downloaded via scripts/download_drive_file.sh to `temporary-references/m2-03-complex-numbers.pdf` (the page-offset calibration unchanged: printed 3.N = PDF N+2, pure scan — vision mandatory). ONE 4-page vision batch (100 DPI) re-transcribed 3.3's ground: printed 3.6–3.9 (PDF 8–11) → `temporary-references/m2scan/tr-3.6-3.9.txt` (~9.8K chars: the section-formula bullets + Illustration 3.18 (parallelogram) + 3.19 (collinear) SCOPE-NOTED for 3.4's folds, CAE 3.2 with answers, Illustration 3.20's tail, the SQUARE ROOT OF COMPLEX NUMBER section with the ±(a+bi) method + Illustrations 3.21–3.24, printed 3.8's Illustrations 3.25–3.27, CAE 3.3 with answers, the Cube Roots of Unity START — 3.5's territory, not cashed). TWO 4-page vision batches (100 DPI) BANKED 3.4's ground ahead of the deferral: printed 3.11–3.18 (PDF 13–20) → `temporary-references/m2scan/tr-3.11-3.18.txt` (~25.7K chars: Illustration 3.32 + CAE 3.4 (the ω-tail, 3.5's territory, scope-noted), the POLAR FORM OF COMPLEX NUMBER section, the MODULUS + ARGUMENT OF COMPLEX NUMBER sections with the Argument-in-Different-Quadrants discipline, Illustrations 3.33–3.43 (the argument work), EULER'S FORM OF COMPLEX NUMBER, the LOGARITHM OF COMPLEX NUMBER section, CAE 3.5 with answers, MULTIPLICATION AND DIVISION OF COMPLEX NUMBERS IN POLAR FORM, Illustrations 3.47–3.51). STUDY-NEVER-REPRODUCE: every roster, number, figure and exercise in AA 3.3 is OUR OWN (the door roster, the k-family census, the nine-entry square-root census, both complex-coefficient quadratics, both real-root engines, both quartic engines, all 15 exercises) — pinned in scripts/verify-book4-ch03.ts sections K+L (523/0 green pre-prose) + the authored-audit M (A–M 550/0); the module's Illustrations informed METHOD shapes only. Citation keys `cengage-m2-03`, `cengage-jee-style`, `ncert-math11-ch4-complex-numbers`, `openstax-college-algebra` unchanged. Working copies KEPT (chapter 3 mid-flight: 3.4/3.5 consume the same PDF per the unit-mid-flight retention law; the Angle/Ray/Line fold sources at printed 3.27–3.31 transcribe at 3.4's authoring run).
 
 - 2026-11-16 (run 108) — the m2-03 module RE-DOWNLOADED AGAIN (the sandbox recycled once more, wiping temporary-references/) + 3.4's ground transcribed in THREE fresh vision batches + the fold-source band: the Drive `MATHS/M2 Algebra :: 03. Complex Numbers` module (Drive id `16g5wQMSErdcQYqZYabVIIEkA5wcNiYoh`, 60 MB scanned PDF) re-downloaded via scripts/download_drive_file.sh to `temporary-references/m2-03-complex-numbers.pdf` (page-offset calibration unchanged: printed 3.N = PDF N+2, pure scan — vision mandatory; the first download landed in the repo root by relative path and was moved into temporary-references/ before rendering). THREE vision batches (100 DPI JPEG, pdftoppm): (1) printed 3.6–3.9 (PDF 8–11) → `temporary-references/m2scan/tr-3.6-3.9.txt` (~13.5K chars — the mid-point/centroid/incentre/orthocentre bullets, Illustration 3.18 (the parallelogram diagonal-bisect) + 3.19 (the collinear section ratio) CASHED this run as the section-formula fold ground, CAE 3.2/3.3 with answers, the SQUARE ROOT section + Illustrations 3.21–3.27 (3.3's already-shipped engine, scope-noted), the CUBE ROOTS OF UNITY start (3.5's territory, scope-noted)); (2) printed 3.11–3.18 (PDF 13–20) → `temporary-references/m2scan/tr-3.11-3.18.txt` (~25.2K chars — the POLAR FORM section, MODULUS + ARGUMENT with the Argument-in-Different-Quadrants discipline, Illustrations 3.33–3.43, EULER'S FORM, the LOGARITHM section, CAE 3.5, MULTIPLICATION AND DIVISION IN POLAR FORM, Illustrations 3.47–3.57 — the polar ground of this lesson); (3) printed 3.27–3.31 (PDF 29–33) → `temporary-references/m2scan/tr-3.27-3.31.txt` (~13.6K chars — the ANGLE BETWEEN TWO LINES AND ROTATION FORMULA section with the Angle-between-two-rays derivation, the EQUATION OF RAY section with its plotted examples and the no-solution Illustration 3.85 (our own re-seat), Illustrations 3.86–3.90, the EQUATION OF STRAIGHT LINE section + the CONDITION FOR THREE POINTS TO REPRESENT EQUILATERAL TRIANGLE + Illustrations 3.91–3.95 — the last two SCOPE-NOTED for 3.5's folds, not cashed this run). STUDY-NEVER-REPRODUCE: every roster, seat, number, figure and exercise in AA 3.4 is OUR OWN (the fifteen-seat polar roster with the honest non-special bearings 0.9273/−0.6435/−1.9656, the quadrant-route table with our witness seats, the product/quotient witnesses 4i and √3/2+i/2, the wrap seats, the four power seats, the Euler-series witness, the log family of −4, the parallelogram A(1+i)/B(4+2i)/C(6+6i) → D = 3+5i, the ratio seats 4+7i/3 and 6+11i/3, the angle witness P(2+i)/Q(5+4i)/R(2+6i) → π/4, the ray pairs with the meet −2+3i and OUR OWN no-meet seats (the module's Illustration 3.85 shape informed the method; our rays solve at t = 0, s = √2 — the excluded-origin diagnosis), the area engine 3√3, the isogonal seats) — pinned in scripts/verify-book4-ch03.ts sections N+O (169 checks green pre-prose) + the authored-audit P (A–P 752/0); the module's Illustrations informed METHOD shapes only. Citation keys `cengage-m2-03`, `cengage-jee-style`, `ncert-math11-ch4-complex-numbers`, `openstax-college-algebra` unchanged. Working copies KEPT (chapter 3 mid-flight: 3.5 consumes the same PDF + the printed 3.19–3.34 band per the unit-mid-flight retention law; delete working copies only at UNIT completion).
+
+- 2026-11-16 (owner-directed planning turn, not a numbered run) — the
+  **Physics + Economics/Commerce/Finance full-shelf planning passes**
+  (owner directive: "create a researched books with chapter and topics
+  for sections like finance, physics etc all the listed in docs which can
+  be authored later"): 42 books promoted planned (19 physics + 23 ECF),
+  zero lessons written. Registers READ this pass (URLs opened):
+  `jee-main-2026-syllabus` — https://jeemain.nta.nic.in/document/syllabus-2026
+  + the s3waas PDF https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2025/10/202510311323551056.pdf
+  (the 19-unit physics register);
+  `neet-ug-2026-syllabus` — https://nta.ac.in/Download/Notice/Notice_20260108180635.pdf
+  (the medical register incl. Physics-and-Measurement through
+  Electronic-Devices);
+  `gate-ph-2026-syllabus` — https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/PH_2026_Syllabus.pdf
+  (Mathematical Physics / Classical Mechanics / EM Theory / QM /
+  Thermodynamics & Statistical Physics / Atomic & Molecular / Nuclear /
+  Condensed Matter / Electronics — the university spine);
+  `csir-net-physical-sciences` — the proposed-syllabus PDF mirror
+  https://www.careerpower.in/blog/wp-content/uploads/2024/11/27180243/PROPOSED-SYLLABUS-FOR-%E2%80%98PHYSICAL-SCIENCES.pdf
+  (the research-side register);
+  `halliday-resnick-walker` — the Fundamentals of Physics contents via
+  the Stanford SearchWorks catalog https://searchworks.stanford.edu/view/7108617
+  (+ the 10e extended PDF corroborating the part structure);
+  `ugc-net-subject-register` — https://www.ugcnetonline.in/syllabus-new.php
+  (the official subject-code table: Economics 01, Commerce 08, Management
+  17, Labour Welfare/HRM 55, Law 58);
+  `ugc-net-economics-units` + `ugc-net-commerce-units` — the unit lists
+  corroborated this pass at the syllabus mirrors (shiksha.com /
+  adda247 / testbook pages);
+  `mankiw-principles` — the chapter list via the World Education
+  Association mirror https://www.worldeconomicsassociation.org/textbooks/mankiw-7th-edition;
+  `brealey-myers-allen` — the evergreen-2025 apparatus
+  https://www.mheducation.com/content/dam/mhe/blog/higher-ed/2025/pdfs/brealey-principles-of-corporate-finance-evergreen-2025.pdf
+  + the LoC catalog TOC https://catdir.loc.gov/catdir/toc/ecip0723/2007030880.html.
+  Canonical arcs NAMED but not re-opened this pass (each book.ts says so
+  honestly): Taylor, French, Crawford, Zemansky, Griffiths ×3, Hecht,
+  Beiser, Krane, Eisberg-Resnick, Foot, Kittel, Ashcroft-Mermin,
+  Schroeder, Pathria, Taylor-Wheeler, Carroll, Carroll-Ostlie, Boas,
+  Arfken-Weber-Harris, Squires, Melissinos; Varian, Nicholson-Snyder,
+  Blanchard, Krugman-Obstfeld-Melitz, Salvatore, Todaro-Smith, Thirlwall,
+  Sen, Rosen-Gayer, Musgrave, Mishkin, Wooldridge, Gujarati, Kahneman,
+  Thaler, Bodie-Kane-Marcus, Hull, Khan-Jain, T.S. Grewal, Horngren,
+  Kotler-Armstrong, Dessler, Heizer-Render, Mahadevan, Hill,
+  Hisrich-Peters-Shepherd, Goon-Gupta-Dasgupta. STUDY-NEVER-REPRODUCE:
+  these passes are planning-only (chapter/lesson layouts) — no content
+  authored, so no reproduction surface exists; the authoring runs that
+  follow must generate their own examples and exercises per the standing
+  rule. Evidence bases: docs/research/PHYSICS_TOC_SURVEY.md +
+  docs/research/ECF_TOC_SURVEY.md; gates: verify-physics-shelf-planning
+  1317/0 + verify-ecf-shelf-planning 1482/0.
+
+- 2026-11-16 (the same owner-directed planning turn, continued) — the
+  **Chemistry full-shelf planning pass** (10 books / 91 chapters / 364
+  planned lessons, zero written; the 15 backlog lines with five honest
+  folds — General→foundation, Electrochemistry+Kinetics+Advanced
+  Thermodynamics→physical, Materials→engineering's materials-science
+  cross-referenced): registers READ this pass (URLs opened):
+  `gate-cy-2026-syllabus` — https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/CY_2026_Syllabus.pdf
+  (Section 1 Physical Chemistry with the quantum registers + the
+  Organic/Inorganic sections incl. bioinorganic; the gate2027.iitm.ac.in
+  mirror corroborates); `csir-net-chemical-sciences` — the official
+  csirhrdg.res.in PDF https://csirhrdg.res.in/SiteContent/ManagedContent/ContentFiles/20201221135711180chemical_science_syllabus.pdf
+  (Inorganic/Physical/Organic + the interdisciplinary topics:
+  nanoscience, catalysis and green chemistry, medicinal, supramolecular);
+  `neet-ug-2026-syllabus` + `jee-main-2026-syllabus` — the same NTA files
+  the Physics pass read (the chemistry registers: Basic Concepts,
+  Structure of Atom, Periodicity, Bonding, States of Matter,
+  Thermodynamics, Equilibrium, Redox, Solutions, Electrochemistry,
+  Kinetics, s/p/d-f blocks, Coordination, the organic families,
+  Biomolecules, Environmental Chemistry);
+  `atkins-physical-chemistry` — the Focus structure via the OUP product
+  page https://global.oup.com/ukhe/product/atkins-physical-chemistry-9780198847816
+  (Focus 1 gases → Focus 2 First Law → Focus 3 Second/Third Laws → ...
+  electrochemistry, kinetics, spectroscopy; the WebAssign 11e chapter
+  listing corroborates); `atkins-jones-chemical-principles` — the LoC
+  catalog TOC https://catdir.loc.gov/catdir/enhancements/fy1413/2012950934-t.html
+  (The Quantum World → Atoms → Chemical Bonds with the technique
+  inserts); `clayden-organic` — the LoC catalog TOC
+  https://catdir.loc.gov/catdir/enhancements/fy0611/2001274062-t.html
+  (ch. 1 What is organic chemistry? → Organic structures → Determining
+  organic structures → the mechanism-first movement);
+  `jd-lee-concise-inorganic` — the Wiley contents page
+  https://www.wiley.com/en-gb/concise-inorganic-chemistry-5th-edition-p-9780632052936
+  (Part One: theoretical concepts and hydrogen, the bonding chapters,
+  the family census). Canonical arcs NAMED but not re-opened (each
+  book.ts says so): Morrison & Boyd, Solomons & Fryhle, Vogel, Skoog,
+  Lehninger, Levine, Atkins' Molecular Quantum Mechanics, Jensen,
+  Cramer, Shreve. STUDY-NEVER-REPRODUCE: planning-only — no content
+  authored, no reproduction surface. Evidence base:
+  docs/research/CHEMISTRY_TOC_SURVEY.md; gate:
+  verify-chemistry-shelf-planning 804/0.
