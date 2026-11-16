@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { SiteFooter, SiteHeader } from "@/components/library/site-chrome";
+import { getFirstBookId } from "@/lib/library-db";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,11 +26,20 @@ export const metadata: Metadata = {
   keywords: ["textbooks", "learning", "mathematics", "education", "digital library"],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  /* first book of the first shelf — the footer glossary link target.
+   * Served from the content database; graceful fallback when the pack
+   * is not present yet (e.g. a fresh clone before `bun run lib:pack`). */
+  let firstBookId: string | undefined;
+  try {
+    firstBookId = (await getFirstBookId()) ?? undefined;
+  } catch {
+    firstBookId = undefined;
+  }
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -44,7 +54,7 @@ export default function RootLayout({
           <div className="flex min-h-screen flex-col">
             <SiteHeader />
             <main className="flex-1">{children}</main>
-            <SiteFooter />
+            <SiteFooter firstBookId={firstBookId} />
           </div>
           <Toaster />
         </ThemeProvider>

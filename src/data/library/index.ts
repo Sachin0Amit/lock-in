@@ -273,6 +273,40 @@ import { fashionDesign } from './books/arts-music/fashion-design/book'
 import { creativeWriting } from './books/arts-music/creative-writing/book'
 import type { Book, Chapter, Discipline, DisciplineId, Lesson, Term } from './types'
 import { countLessonWords } from './types'
+import { bookGlossary, type SearchHit } from './derive'
+
+/*
+ * PURE helpers (paths, bookStats, bookGlossary, bookFormulas, headings,
+ * disciplineOf and the UI prop types) live in ./derive — client-safe, no
+ * registry imports — and are re-exported below so every existing server
+ * consumer (builder catalog, practice engine, packer) keeps working.
+ * Everything data-bound in THIS module (allBooks, allLessons, findLesson,
+ * searchLibrary, libraryStats) must stay server-side only: importing it
+ * from a client component ships the whole library into the browser bundle
+ * (fixed 2026-11-16 — see docs/project/CONTENT_DATABASE.md).
+ */
+export {
+  paths,
+  disciplineOf,
+  bookLessons,
+  bookGlossary,
+  bookFormulas,
+  headingAnchor,
+  lessonHeadings,
+  bookStats,
+} from './derive'
+export type {
+  LessonRef,
+  BookStats,
+  GlossaryEntry,
+  FormulaEntry,
+  SearchHit,
+  ShelfBook,
+  LessonStub,
+  LibrarySnapshot,
+  NavLesson,
+  CoverBook,
+} from './derive'
 
 /**
  * LockIn Library — central registry.
@@ -642,14 +676,7 @@ export const allDisciplines: Discipline[] = disciplines
 /* Derived structure                                                   */
 /* ------------------------------------------------------------------ */
 
-export interface LessonRef {
-  book: Book
-  chapter: Chapter
-  lesson: Lesson
-  /** honest computed word count */
-  words: number
-  readMins: number
-}
+import type { LessonRef } from './derive'
 
 /** Every written lesson in the library, in book/chapter order. */
 export const allLessons: LessonRef[] = allBooks.flatMap((book) =>
@@ -669,11 +696,6 @@ export function findLesson(id: string): LessonRef | undefined {
   return allLessons.find((l) => l.lesson.id === id)
 }
 
-/** Lessons of one book flattened in reading order. */
-export function bookLessons(book: Book): LessonRef[] {
-  return allLessons.filter((l) => l.book.id === book.id)
-}
-
 /** The lesson written immediately before/after a given lesson in its book. */
 export function lessonNeighbours(id: string): { prev?: LessonRef; next?: LessonRef } {
   const idx = allLessons.findIndex((l) => l.lesson.id === id)
@@ -688,91 +710,9 @@ export function booksOfDiscipline(d: DisciplineId | string): Book[] {
   return allBooks.filter((b) => b.discipline === d)
 }
 
-export function disciplineOf(book: Book): Discipline {
-  return disciplines.find((d) => d.id === book.discipline) ?? disciplines[0]
-}
+/* disciplineOf & paths live in ./derive (re-exported above). */
 
-/** A lesson's URL paths (single place so links never drift). */
-export const paths = {
-  home: () => '/',
-  book: (bookId: string) => `/book/${bookId}`,
-  lesson: (bookId: string, lessonId: string) => `/book/${bookId}/lesson/${lessonId}`,
-  revise: (bookId: string) => `/book/${bookId}/revise`,
-  glossary: (bookId: string) => `/book/${bookId}/glossary`,
-}
-
-/* ------------------------------------------------------------------ */
-/* Glossary, formulas, headings (derived from book content)            */
-/* ------------------------------------------------------------------ */
-
-export interface GlossaryEntry extends Term {
-  bookId: string
-  lessonId: string
-  lessonNumber: string
-  lessonTitle: string
-  chapterNumber: number
-}
-
-/** Every `terms` item in a book, in reading order — drives the glossary page and flashcards. */
-export function bookGlossary(book: Book): GlossaryEntry[] {
-  return bookLessons(book).flatMap(({ lesson, chapter }) =>
-    lesson.blocks
-      .filter((b): b is Extract<typeof b, { kind: 'terms' }> => b.kind === 'terms')
-      .flatMap((b) =>
-        b.items.map((t) => ({
-          ...t,
-          bookId: book.id,
-          lessonId: lesson.id,
-          lessonNumber: lesson.number,
-          lessonTitle: lesson.title,
-          chapterNumber: chapter.number,
-        })),
-      ),
-  )
-}
-
-export interface FormulaEntry {
-  name: string
-  latex: string
-  note?: string
-  lessonId: string
-  lessonNumber: string
-  lessonTitle: string
-}
-
-/** Every `formula` block in a book, in reading order — drives the formula sheet. */
-export function bookFormulas(book: Book): FormulaEntry[] {
-  return bookLessons(book).flatMap(({ lesson }) =>
-    lesson.blocks
-      .filter((b): b is Extract<typeof b, { kind: 'formula' }> => b.kind === 'formula')
-      .map((b) => ({
-        name: b.name,
-        latex: b.latex,
-        note: b.note,
-        lessonId: lesson.id,
-        lessonNumber: lesson.number,
-        lessonTitle: lesson.title,
-      })),
-  )
-}
-
-/** Deterministic anchor id for a lesson heading (shared by renderer + scrollspy). */
-export function headingAnchor(text: string): string {
-  return (
-    text
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, '')
-      .trim()
-      .replace(/\s+/g, '-') || 'section'
-  )
-}
-
-/** Headings of a lesson with their anchor ids, for "On this page". */
-export function lessonHeadings(lesson: Lesson): { text: string; id: string }[] {
-  return lesson.blocks
-    .filter((b): b is Extract<typeof b, { kind: 'heading' }> => b.kind === 'heading')
-    .map((b) => ({ text: b.text, id: headingAnchor(b.text) }))
-}
+/* Glossary / formulas / heading helpers live in ./derive (re-exported above). */
 
 /* ------------------------------------------------------------------ */
 /* Library statistics                                                  */
@@ -801,45 +741,13 @@ export function libraryStats() {
   }
 }
 
-export function bookStats(book: Book) {
-  const lessons = bookLessons(book)
-  return {
-    written: lessons.length,
-    planned:
-      book.chapters.reduce((m, c) => m + (c.plannedLessons?.length ?? 0), 0) +
-      book.chapters.filter((c) => c.lessons.length === 0 && !c.plannedLessons?.length).length,
-    words: lessons.reduce((n, l) => n + l.words, 0),
-    readMins: lessons.reduce((n, l) => n + l.readMins, 0),
-    terms: bookGlossary(book).length,
-    formulas: bookFormulas(book).length,
-  }
-}
+/* bookStats lives in ./derive (re-exported above). */
 
 /* ------------------------------------------------------------------ */
 /* Search                                                              */
 /* ------------------------------------------------------------------ */
 
-export type SearchHit =
-  | {
-      type: 'lesson' | 'term'
-      score: number
-      title: string
-      subtitle: string
-      /** for term hits: the definition snippet */
-      snippet?: string
-      lessonId: string
-      bookId: string
-    }
-  | {
-      type: 'book'
-      score: number
-      title: string
-      subtitle: string
-      bookId: string
-      lessonId?: undefined
-      /** books never carry snippets; declared so union access stays typed */
-      snippet?: undefined
-    }
+/* SearchHit lives in ./derive (re-exported above). */
 
 interface SearchDoc {
   lessonId: string

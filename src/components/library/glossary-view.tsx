@@ -8,7 +8,7 @@
 import Link from 'next/link'
 import { ArrowLeft, Sigma, ScrollText, BookOpen } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
-import { bookFormulas, bookGlossary, paths, type Book } from '@/data/library/index'
+import { bookFormulas, bookGlossary, paths, type Book } from '@/data/library/derive'
 import { Math, RichText } from './math'
 
 export function GlossaryView({ book }: { book: Book }) {

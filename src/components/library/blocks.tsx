@@ -28,7 +28,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { headingAnchor } from '@/data/library/index'
+import { headingAnchor } from '@/data/library/derive'
 import { LEVEL_LABELS, type Block, type CalloutTone, type QuizItem, type SolutionFigure } from '@/data/library/types'
 import { Math, RichText } from './math'
 import { useProgress } from './progress-store'

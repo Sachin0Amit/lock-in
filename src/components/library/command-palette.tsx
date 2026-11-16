@@ -5,11 +5,12 @@
  * Full-text search across books, lessons and glossary terms, plus quick
  * actions (continue reading, random lesson, theme toggle, go home).
  *
- * cmdk's built-in filtering is disabled: `searchLibrary` does its own
- * token-aware scoring and ranking, so the palette renders exactly the hits
- * it computes, in score order.
+ * Data discipline (2026-11-16): search runs through the server route
+ * /api/library/search and lesson navigation works off the stub index
+ * from /api/library/index — the palette no longer imports the TS
+ * registry, so no lesson content ships inside the client bundle.
  */
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import {
   ArrowRight,
@@ -40,18 +41,44 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { allLessons, findLesson, paths, searchLibrary } from '@/data/library/index'
+import { paths, type SearchHit } from '@/data/library/derive'
+import { useLessonStubs } from '@/lib/library-client'
 import { useProgress } from './progress-store'
 
 export function CommandPalette() {
   const router = useRouter()
   const [open, setOpen] = useState(false)
   const [query, setQuery] = useState('')
+  const [results, setResults] = useState<SearchHit[]>([])
   const { resolvedTheme, setTheme } = useTheme()
   const lastLessonId = useProgress((s) => s.lastLessonId)
   const completed = useProgress((s) => s.completed)
+  const stubs = useLessonStubs()
 
-  const resume = lastLessonId ? findLesson(lastLessonId) : undefined
+  const resume = lastLessonId ? stubs.find((l) => l.id === lastLessonId) : undefined
+
+  /* debounced server-side search — the ranking engine stays where the
+   * content is (the server); only the hit list crosses the wire */
+  const seq = useRef(0)
+  useEffect(() => {
+    const q = query.trim()
+    const id = ++seq.current
+    const t = setTimeout(() => {
+      if (q.length < 2) {
+        if (id === seq.current) setResults([])
+        return
+      }
+      fetch(`/api/library/search?q=${encodeURIComponent(q)}`)
+        .then((r) => (r.ok ? r.json() : { hits: [] }))
+        .then((d: { hits?: SearchHit[] }) => {
+          if (id === seq.current) setResults(d.hits ?? [])
+        })
+        .catch(() => {
+          if (id === seq.current) setResults([])
+        })
+    }, 140)
+    return () => clearTimeout(t)
+  }, [query])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -77,7 +104,6 @@ export function CommandPalette() {
     [close, router],
   )
 
-  const results = useMemo(() => searchLibrary(query), [query])
   const lessons = results.filter((r) => r.type === 'lesson')
   const books = results.filter((r) => r.type === 'book')
   const terms = results.filter((r) => r.type === 'term')
@@ -85,10 +111,10 @@ export function CommandPalette() {
   const noResults = searching && results.length === 0
 
   const randomLesson = useCallback(() => {
-    if (allLessons.length === 0) return
-    const pick = allLessons[Math.floor(Math.random() * allLessons.length)]
-    go(paths.lesson(pick.book.id, pick.lesson.id))
-  }, [go])
+    if (stubs.length === 0) return
+    const pick = stubs[Math.floor(Math.random() * stubs.length)]
+    go(paths.lesson(pick.bookId, pick.id))
+  }, [go, stubs])
 
   return (
     <>
@@ -132,14 +158,14 @@ export function CommandPalette() {
                   {resume && (
                     <CommandGroup heading="Continue">
                       <CommandItem
-                        value={`continue-${resume.lesson.id}`}
-                        onSelect={() => go(paths.lesson(resume.book.id, resume.lesson.id))}
+                        value={`continue-${resume.id}`}
+                        onSelect={() => go(paths.lesson(resume.bookId, resume.id))}
                       >
                         <BookOpenCheck className="h-4 w-4" aria-hidden />
                         <span className="min-w-0 truncate">
-                          {resume.lesson.number} {resume.lesson.title}
+                          {resume.number} {resume.title}
                         </span>
-                        <CommandShortcut>{resume.book.title}</CommandShortcut>
+                        <CommandShortcut>{resume.bookTitle}</CommandShortcut>
                       </CommandItem>
                     </CommandGroup>
                   )}
@@ -242,21 +268,21 @@ export function CommandPalette() {
                 </CommandGroup>
               )}
 
-              {!searching && allLessons.length > 0 && (
+              {!searching && stubs.length > 0 && (
                 <>
                   <CommandSeparator />
                   <CommandGroup heading="Recently written">
-                    {allLessons.slice(-4).reverse().map(({ book, lesson }) => (
+                    {stubs.slice(-4).reverse().map((l) => (
                       <CommandItem
-                        key={`r-${lesson.id}`}
-                        value={`recent-${lesson.id}`}
-                        onSelect={() => go(paths.lesson(book.id, lesson.id))}
+                        key={`recent-${l.id}`}
+                        value={`recent-${l.id}`}
+                        onSelect={() => go(paths.lesson(l.bookId, l.id))}
                       >
                         <ArrowRight className="h-4 w-4" aria-hidden />
                         <span className="min-w-0 truncate">
-                          {lesson.number} {lesson.title}
+                          {l.number} {l.title}
                         </span>
-                        <CommandShortcut>{book.title}</CommandShortcut>
+                        <CommandShortcut>{l.bookTitle}</CommandShortcut>
                       </CommandItem>
                     ))}
                   </CommandGroup>

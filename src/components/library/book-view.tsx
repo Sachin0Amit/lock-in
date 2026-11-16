@@ -35,10 +35,11 @@ import {
   bookLessons,
   bookStats,
   disciplineOf,
-  findLesson,
   paths,
   type Book,
-} from '@/data/library/index'
+  type BookStats,
+  type CoverBook,
+} from '@/data/library/derive'
 import { coverArtUrl } from '@/data/library/covers'
 import { StatusBadge } from './bits'
 import { useProgress } from './progress-store'
@@ -57,7 +58,7 @@ const migratedChapterKeys = new Set<string>()
  * fall back to the classic accent-gradient cover — same geometry, same text
  * hierarchy, so both branches sit comfortably side by side on the shelves.
  */
-export function BookCover({ book, large = false }: { book: Book; large?: boolean }) {
+export function BookCover({ book, large = false }: { book: CoverBook; large?: boolean }) {
   const discipline = disciplineOf(book)
   const art = coverArtUrl(book.id)
 
@@ -173,12 +174,15 @@ export function BookCover({ book, large = false }: { book: Book; large?: boolean
 
 interface Props {
   book: Book
+  /** precomputed stats from the content database (packer-computed, honest
+   * term/formula counts). Falls back to the pure derivation when absent. */
+  stats?: BookStats
 }
 
-export function BookView({ book }: Props) {
+export function BookView({ book, stats: statsProp }: Props) {
   const discipline = disciplineOf(book)
   const lessons = bookLessons(book)
-  const stats = bookStats(book)
+  const stats = statsProp ?? bookStats(book)
   const completedMap = useProgress((s) => s.completed)
   const quizBest = useProgress((s) => s.quizBest)
   const [chapterEntries, setChapterEntries] = useState<Map<string, EntryView>>(new Map())
@@ -249,8 +253,11 @@ export function BookView({ book }: Props) {
 
   const completed = lessons.filter((l) => completedMap[l.lesson.id]).length
   const lastLessonId = useProgress((s) => s.lastLessonId)
-  const resumeLesson =
-    lastLessonId && book.id === findLesson(lastLessonId)?.book.id ? findLesson(lastLessonId) : undefined
+  /* resume-in-this-book: the book's own lesson list answers it — no global
+   * registry lookup needed client-side */
+  const resumeLesson = lastLessonId
+    ? lessons.find((l) => l.lesson.id === lastLessonId)
+    : undefined
 
   const percent = lessons.length ? Math.round((completed / lessons.length) * 100) : 0
   /* first written-but-not-completed lesson → the natural next read */

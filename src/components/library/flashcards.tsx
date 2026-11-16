@@ -23,7 +23,7 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
-import { bookGlossary, paths, type Book } from '@/data/library/index'
+import { bookGlossary, paths, type Book } from '@/data/library/derive'
 import { RichText } from './math'
 import { useProgress } from './progress-store'
 

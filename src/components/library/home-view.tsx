@@ -7,6 +7,11 @@
  *  - "Your desk" condensed to a light strip of stat tiles + bookmark chips
  *  - shelves with count badges and refined book cards
  *  - roadmap: only the not-yet-live shelves, as compact chips
+ *
+ * Data: everything renders from the `snapshot` prop the server page
+ * builds out of the packed content database (book cards + precomputed
+ * stats + written-lesson stubs). No registry import — the home bundle
+ * carries zero lesson content.
  */
 import Link from 'next/link'
 import {
@@ -22,17 +27,7 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
-import {
-  allBooks,
-  allDisciplines,
-  allLessons,
-  bookStats,
-  booksOfDiscipline,
-  findLesson,
-  libraryStats,
-  paths,
-  type Book,
-} from '@/data/library/index'
+import { paths, type LessonStub, type LibrarySnapshot, type ShelfBook } from '@/data/library/derive'
 import { BookCover } from './book-view'
 import { DISCIPLINE_ICONS, StatusBadge } from './bits'
 import { useProgress } from './progress-store'
@@ -44,9 +39,11 @@ import { RevisionBanner } from '@/components/revision/revision-banner'
 
 const GHOST_HEIGHTS = [196, 172, 204, 182, 200, 176, 188]
 
-function ShelfVisual() {
-  const liveBooks = allBooks
-  const planned = allDisciplines.filter((d) => booksOfDiscipline(d.id).length === 0)
+function ShelfVisual({ snapshot }: { snapshot: LibrarySnapshot }) {
+  const liveBooks = snapshot.books
+  const planned = snapshot.disciplines.filter(
+    (d) => !snapshot.books.some((b) => b.discipline === d.id),
+  )
 
   return (
     <div
@@ -98,11 +95,11 @@ function ShelfVisual() {
   )
 }
 
-function Hero() {
-  const stats = libraryStats()
+function Hero({ snapshot }: { snapshot: LibrarySnapshot }) {
+  const stats = snapshot.stats
   const lastLessonId = useProgress((s) => s.lastLessonId)
-  const resume = lastLessonId ? findLesson(lastLessonId) : undefined
-  const start = allLessons[0]
+  const resume = lastLessonId ? snapshot.lessons.find((l) => l.id === lastLessonId) : undefined
+  const start = snapshot.lessons[0]
   const target = resume ?? start
 
   const statItems = [
@@ -135,9 +132,9 @@ function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             {target ? (
               <Button asChild size="lg" className="h-11 gap-2 px-6">
-                <Link href={paths.lesson(target.book.id, target.lesson.id)}>
+                <Link href={paths.lesson(target.bookId, target.id)}>
                   <PlayCircle className="h-4.5 w-4.5" aria-hidden />
-                  {resume ? `Continue — ${resume.lesson.number}` : 'Start reading'}
+                  {resume ? `Continue — ${resume.number}` : 'Start reading'}
                 </Link>
               </Button>
             ) : (
@@ -156,7 +153,7 @@ function Hero() {
             </Button>
           </div>
         </div>
-        <ShelfVisual />
+        <ShelfVisual snapshot={snapshot} />
       </div>
 
       {/* inline stat strip */}
@@ -181,7 +178,7 @@ function Hero() {
 /* Reader dashboard — "Your desk" (only once reading has begun)       */
 /* ---------------------------------------------------------------- */
 
-function YourDesk() {
+function YourDesk({ snapshot }: { snapshot: LibrarySnapshot }) {
   const completed = useProgress((s) => s.completed)
   const bookmarks = useProgress((s) => s.bookmarks)
   const knownTerms = useProgress((s) => s.knownTerms)
@@ -190,11 +187,11 @@ function YourDesk() {
   const completedCount = Object.keys(completed).length
   const masteredCount = Object.keys(knownTerms).length
   const bookmarkList = Object.keys(bookmarks)
-    .map((id) => findLesson(id))
-    .filter((l): l is NonNullable<typeof l> => !!l)
-  const resume = lastLessonId ? findLesson(lastLessonId) : undefined
-  const wordsRead = allLessons
-    .filter((l) => completed[l.lesson.id])
+    .map((id) => snapshot.lessons.find((l) => l.id === id))
+    .filter((l): l is LessonStub => !!l)
+  const resume = lastLessonId ? snapshot.lessons.find((l) => l.id === lastLessonId) : undefined
+  const wordsRead = snapshot.lessons
+    .filter((l) => completed[l.id])
     .reduce((n, l) => n + l.words, 0)
 
   if (completedCount === 0 && bookmarkList.length === 0 && !resume) return null
@@ -212,10 +209,10 @@ function YourDesk() {
         <h2 className="font-reading text-lg font-bold">Your desk</h2>
         {resume && (
           <Link
-            href={paths.lesson(resume.book.id, resume.lesson.id)}
+            href={paths.lesson(resume.bookId, resume.id)}
             className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
           >
-            Resume {resume.lesson.number} {resume.lesson.title}
+            Resume {resume.number} {resume.title}
             <ArrowRight className="h-3.5 w-3.5" aria-hidden />
           </Link>
         )}
@@ -241,14 +238,14 @@ function YourDesk() {
           <span className="mr-1 inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
             <Bookmark className="h-3.5 w-3.5" aria-hidden /> Bookmarked
           </span>
-          {bookmarkList.slice(0, 6).map(({ book, lesson }) => (
+          {bookmarkList.slice(0, 6).map((l) => (
             <Link
-              key={lesson.id}
-              href={paths.lesson(book.id, lesson.id)}
+              key={l.id}
+              href={paths.lesson(l.bookId, l.id)}
               className="inline-flex items-center gap-1.5 rounded-full border bg-background px-3 py-1 text-xs font-medium transition-colors hover:border-primary/50 hover:bg-accent/50"
             >
-              <span className="text-primary">{lesson.number}</span>
-              <span className="max-w-[180px] truncate">{lesson.title}</span>
+              <span className="text-primary">{l.number}</span>
+              <span className="max-w-[180px] truncate">{l.title}</span>
             </Link>
           ))}
         </div>
@@ -261,10 +258,10 @@ function YourDesk() {
 /* Book card                                                          */
 /* ---------------------------------------------------------------- */
 
-function BookCard({ book }: { book: Book }) {
-  const stats = bookStats(book)
+function BookCard({ book, lessons }: { book: ShelfBook; lessons: LessonStub[] }) {
+  const stats = book.stats
   const completedMap = useProgress((s) => s.completed)
-  const writtenLessons = book.chapters.flatMap((c) => c.lessons)
+  const writtenLessons = lessons
   const completed = writtenLessons.filter((l) => completedMap[l.id]).length
   const percent = writtenLessons.length ? Math.round((completed / writtenLessons.length) * 100) : 0
 
@@ -311,21 +308,25 @@ function BookCard({ book }: { book: Book }) {
 /* Home                                                               */
 /* ---------------------------------------------------------------- */
 
-export function HomeView() {
-  const shelvesWithBooks = allDisciplines.filter((d) => booksOfDiscipline(d.id).length > 0)
-  const plannedShelves = allDisciplines.filter((d) => booksOfDiscipline(d.id).length === 0)
+export function HomeView({ snapshot }: { snapshot: LibrarySnapshot }) {
+  const shelvesWithBooks = snapshot.disciplines.filter((d) =>
+    snapshot.books.some((b) => b.discipline === d.id),
+  )
+  const plannedShelves = snapshot.disciplines.filter(
+    (d) => !snapshot.books.some((b) => b.discipline === d.id),
+  )
 
   return (
     <div className="mx-auto w-full max-w-5xl px-4 pb-16 sm:px-6">
-      <Hero />
+      <Hero snapshot={snapshot} />
       <RevisionBanner />
-      <YourDesk />
+      <YourDesk snapshot={snapshot} />
 
       {/* Shelves with live books */}
       <section id="shelves" className="mt-14 space-y-10 scroll-mt-20">
         {shelvesWithBooks.map((d) => {
           const Icon = DISCIPLINE_ICONS[d.id]
-          const books = booksOfDiscipline(d.id)
+          const books = snapshot.books.filter((b) => b.discipline === d.id)
           return (
             <div key={d.id}>
               <div className="mb-4 flex items-start justify-between gap-4">
@@ -346,7 +347,11 @@ export function HomeView() {
               </div>
               <div className="grid gap-4 lg:grid-cols-2">
                 {books.map((b) => (
-                  <BookCard key={b.id} book={b} />
+                  <BookCard
+                    key={b.id}
+                    book={b}
+                    lessons={snapshot.lessons.filter((l) => l.bookId === b.id)}
+                  />
                 ))}
               </div>
             </div>

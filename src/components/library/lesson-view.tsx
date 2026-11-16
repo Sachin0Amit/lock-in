@@ -32,13 +32,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import {
-  findLesson,
-  lessonHeadings,
-  lessonNeighbours,
-  paths,
-  type LessonRef,
-} from '@/data/library/index'
+import { lessonHeadings, paths, type LessonRef, type NavLesson } from '@/data/library/derive'
 import { BlockRenderer } from './blocks'
 import { RichText } from './math'
 import { OnThisPage } from './on-this-page'
@@ -51,12 +45,16 @@ import type { EntryView } from '@/lib/revision/types'
 
 interface Props {
   ref_: LessonRef
+  /** prev/next lessons in the library's global reading order (server-computed) */
+  prev?: NavLesson | null
+  next?: NavLesson | null
+  /** prerequisite lessons that exist in the library (server-computed) */
+  prereqs?: NavLesson[]
 }
 
-export function LessonView({ ref_ }: Props) {
+export function LessonView({ ref_, prev = null, next = null, prereqs = [] }: Props) {
   const router = useRouter()
   const { book, chapter, lesson, words, readMins } = ref_
-  const { prev, next } = lessonNeighbours(lesson.id)
   const headings = lessonHeadings(lesson)
   /* the reading pane — the highlighter's whole world: selection palette,
    * painted marks and the jump-to target all operate inside this root */
@@ -123,10 +121,10 @@ export function LessonView({ ref_ }: Props) {
       const k = e.key.toLowerCase()
       if (e.key === 'ArrowLeft' && prev) {
         e.preventDefault()
-        router.push(paths.lesson(prev.book.id, prev.lesson.id))
+        router.push(paths.lesson(prev.bookId, prev.lessonId))
       } else if (e.key === 'ArrowRight' && next) {
         e.preventDefault()
-        router.push(paths.lesson(next.book.id, next.lesson.id))
+        router.push(paths.lesson(next.bookId, next.lessonId))
       } else if (k === 'b') {
         e.preventDefault()
         toggleBookmark(lesson.id)
@@ -139,10 +137,7 @@ export function LessonView({ ref_ }: Props) {
     return () => window.removeEventListener('keydown', onKey)
   }, [lesson.id, next, prev, router, toggleBookmark, handleToggleCompleted])
 
-  const prereqs = (lesson.prerequisites ?? [])
-    .map((id) => findLesson(id))
-    .filter((p): p is LessonRef => !!p)
-  const prereqsDone = prereqs.filter((p) => completedMap[p.lesson.id])
+  const prereqsDone = prereqs.filter((p) => completedMap[p.lessonId])
   const prereqsTodo = prereqs.length - prereqsDone.length
 
   return (
@@ -204,11 +199,11 @@ export function LessonView({ ref_ }: Props) {
                 <p className="mb-2 text-sm font-semibold">Before this lesson</p>
                 <div className="flex flex-wrap items-center gap-2">
                   {prereqs.map((p) => {
-                    const done = !!completedMap[p.lesson.id]
+                    const done = !!completedMap[p.lessonId]
                     return (
                       <Link
-                        key={p.lesson.id}
-                        href={paths.lesson(p.book.id, p.lesson.id)}
+                        key={p.lessonId}
+                        href={paths.lesson(p.bookId, p.lessonId)}
                         className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
                           done
                             ? 'border-emerald-500/50 bg-emerald-50 text-emerald-800 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:text-emerald-300'
@@ -220,7 +215,7 @@ export function LessonView({ ref_ }: Props) {
                         ) : (
                           <Circle className="h-3.5 w-3.5 text-muted-foreground" aria-hidden />
                         )}
-                        {p.lesson.number} {p.lesson.title}
+                        {p.number} {p.title}
                       </Link>
                     )
                   })}
@@ -401,14 +396,14 @@ export function LessonView({ ref_ }: Props) {
             <nav className="grid gap-3 sm:grid-cols-2" aria-label="Lesson navigation">
               {prev ? (
                 <Link
-                  href={paths.lesson(prev.book.id, prev.lesson.id)}
+                  href={paths.lesson(prev.bookId, prev.lessonId)}
                   className="group flex items-center gap-3 rounded-lg border p-4 text-left transition-colors hover:border-primary/50 hover:bg-accent/50"
                 >
                   <ArrowLeft className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-primary" aria-hidden />
                   <span>
                     <span className="block text-xs uppercase tracking-wide text-muted-foreground">Previous</span>
                     <span className="block font-medium leading-snug">
-                      {prev.lesson.number} {prev.lesson.title}
+                      {prev.number} {prev.title}
                     </span>
                   </span>
                 </Link>
@@ -417,13 +412,13 @@ export function LessonView({ ref_ }: Props) {
               )}
               {next ? (
                 <Link
-                  href={paths.lesson(next.book.id, next.lesson.id)}
+                  href={paths.lesson(next.bookId, next.lessonId)}
                   className="group flex items-center justify-end gap-3 rounded-lg border p-4 text-right transition-colors hover:border-primary/50 hover:bg-accent/50"
                 >
                   <span>
                     <span className="block text-xs uppercase tracking-wide text-muted-foreground">Next</span>
                     <span className="block font-medium leading-snug">
-                      {next.lesson.number} {next.lesson.title}
+                      {next.number} {next.title}
                     </span>
                   </span>
                   <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-primary" aria-hidden />

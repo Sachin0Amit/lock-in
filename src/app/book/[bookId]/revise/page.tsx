@@ -1,13 +1,9 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { FlashcardsView } from '@/components/library/flashcards'
-import { allBooks, findBook } from '@/data/library/index'
+import { getBookFull, getBookTitle } from '@/lib/library-db'
 
-export const dynamicParams = false
-
-export function generateStaticParams() {
-  return allBooks.map((b) => ({ bookId: b.id }))
-}
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({
   params,
@@ -15,17 +11,18 @@ export async function generateMetadata({
   params: Promise<{ bookId: string }>
 }): Promise<Metadata> {
   const { bookId } = await params
-  const book = findBook(bookId)
-  return { title: `Revise — ${book?.title ?? 'Flashcards'} · LockIn Library` }
+  const title = await getBookTitle(bookId)
+  return { title: `Revise — ${title ?? 'Flashcards'} · LockIn Library` }
 }
 
+/** Flashcards page — this book's written lesson bodies from the database. */
 export default async function RevisePage({
   params,
 }: {
   params: Promise<{ bookId: string }>
 }) {
   const { bookId } = await params
-  const book = findBook(bookId)
+  const book = await getBookFull(bookId)
   if (!book) notFound()
   return <FlashcardsView book={book} />
 }

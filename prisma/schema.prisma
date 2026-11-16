@@ -199,6 +199,87 @@ model Mistake {
 }
 
 /* ------------------------------------------------------------------ */
+/* Main Academic Library — content delivery layer                      */
+/*                                                                     */
+/* The TS registry (src/data/library) stays the AUTHORING source of    */
+/* truth. `scripts/pack-library.ts` compiles it into these tables       */
+/* (the pack is versioned via ContentPack); the reading routes then    */
+/* serve every book page / lesson on demand from the database, so the */
+/* deployed site is one server + one database and no lesson content is */
+/* ever bundled into the browser JavaScript.                           */
+/* ------------------------------------------------------------------ */
+
+/// Singleton row stamped by every pack run. The version bump lets the
+/// server-side caches invalidate themselves without a restart (a packer
+/// run while the server is live is picked up on the next request).
+model ContentPack {
+  id        String   @id @default("singleton")
+  version   Int      @default(1)
+  books     Int      @default(0)
+  lessons   Int      @default(0)
+  /// total honest word count across all written lessons
+  words     Int      @default(0)
+  packedAt  DateTime @default(now())
+}
+
+/// One row per book (planned books included — their outline is the TOC).
+/// `outlineJson` is the full Book object with every written lesson reduced
+/// to a stub { id, number, title, concepts, words, blocks: [] }; the lesson
+/// bodies live only in LibraryLesson rows and are fetched when a reader
+/// opens that lesson.
+model LibraryBook {
+  id          String   @id
+  /// position in the shelf order (the registry's allBooks order)
+  position    Int
+  discipline  String
+  title       String
+  subtitle    String   @default("")
+  level       String
+  description String
+  status      String
+  /// JSON: [accentA, accentB]
+  accentJson  String
+  /// JSON: bookStats(book) computed by the packer from the FULL content
+  /// (terms/formulas counts included — stub lessons cannot know these)
+  statsJson   String
+  /// JSON: the Book object with stub lessons (see model comment)
+  outlineJson String
+  packedAt    DateTime @default(now())
+
+  lessons LibraryLesson[]
+
+  @@index([discipline, position])
+  @@index([position])
+}
+
+/// One row per WRITTEN lesson, keyed by the canonical lesson id (the same
+/// id the Custom Book Builder, practice engine and revision ledger
+/// reference — the packer never invents ids). `position` is the global
+/// reading order, so prev/next navigation is one indexed query.
+model LibraryLesson {
+  id            String   @id
+  bookId        String
+  book          LibraryBook @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  chapterNumber Int
+  /// display number, e.g. "1.1"
+  number        String
+  title         String
+  /// JSON: string[] — the concept chips
+  conceptsJson  String
+  /// honest prose word count (lesson.words ?? countLessonWords)
+  words         Int
+  /// global reading order across the whole library
+  position      Int
+  /// JSON: the FULL Lesson object — blocks, quiz, exercises, figures, SVG
+  contentJson   String
+  packedAt      DateTime @default(now())
+
+  @@unique([bookId, chapterNumber, number])
+  @@index([bookId, position])
+  @@index([position])
+}
+
+/* ------------------------------------------------------------------ */
 /* Custom books                                                        */
 /* ------------------------------------------------------------------ */
 

@@ -24,7 +24,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { paths, allBooks } from '@/data/library/index'
+import { paths } from '@/data/library/derive'
 import { cn } from '@/lib/utils'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { CommandPalette } from './command-palette'
@@ -223,7 +223,7 @@ export function SiteHeader() {
   )
 }
 
-export function SiteFooter() {
+export function SiteFooter({ firstBookId = 'foundation-mathematics' }: { firstBookId?: string }) {
   return (
     <footer className="mt-auto border-t bg-muted/30">
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-6 px-4 py-8 sm:grid-cols-[minmax(0,1fr)_auto] sm:px-6">
@@ -261,7 +261,7 @@ export function SiteFooter() {
             Practice
           </Link>
           <Link
-            href={paths.glossary(allBooks[0].id)}
+            href={paths.glossary(firstBookId)}
             className="font-medium hover:text-foreground hover:underline"
           >
             Glossary &amp; formulas
