@@ -7,7 +7,7 @@
  *
  *  A. all 13 language books load, status 'planned' (planning pass only)
  *  B. per-book chapter + planned-lesson census printed; shelf totals pinned
- *     (122 chapters / 488 planned lessons — mismatches FAIL below)
+ *     (122 chapters / 500 planned lessons — mismatches FAIL below)
  *  C. every planned chapter: status 'planned', empty lessons array,
  *     plannedLessons >= 3, slugs unique within book, numbers 1..N,
  *     summaries > 200 chars
@@ -75,7 +75,7 @@ for (const b of lang) {
   ok(EXPECTED_CHAPTERS[b.id] === b.chapters.length, `${b.id} chapter count pins ${EXPECTED_CHAPTERS[b.id]} (got ${b.chapters.length})`)
 }
 ok(totCh === 122, `shelf total 122 chapters (got ${totCh})`)
-ok(totPl === 488, `shelf total 488 planned lessons (got ${totPl})`)
+ok(totPl === 500, `shelf total 500 planned lessons (got ${totPl})`)
 
 console.log('== C. planned-chapter hygiene ==')
 for (const b of lang) {
@@ -156,7 +156,7 @@ for (const b of lang) {
 
 console.log('== K. the durable generator ==')
 ok(existsSync('scripts/gen_languages_shelf.py'), 'scripts/gen_languages_shelf.py exists (the pass\'s idempotent plan source)')
-ok(readFileSync('scripts/gen_languages_shelf.py', 'utf8').includes('122 chapters / 488 planned'), 'generator header pins the shelf census')
+ok(readFileSync('scripts/gen_languages_shelf.py', 'utf8').includes('122 chapters / 500 planned'), 'generator header pins the shelf census')
 
 // ---- summary ----
 console.log(`\nverify-languages-shelf-planning: ${pass} checks passed, ${fail} failed`)

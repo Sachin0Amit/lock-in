@@ -43,6 +43,8 @@ const chapters: Chapter[] = [
       'The Maize-and-Millets Register',
       'The Pulses\u2019 Complementarity Arithmetic',
       'The Oilseed Crafts',
+      'The Economic Importance of Algae and Fungi',
+      'The Major Indian Cash Crops',
     ],
   },
   {
@@ -118,6 +120,7 @@ const chapters: Chapter[] = [
       'The Wider-Plate Honesty',
       'The Registers Priced by Evidence',
       'The 2050 Challenge Held',
+      'GM Crops and Their Regulation: Bt Cotton, Bt Brinjal and Golden Rice',
     ],
   },
 ]

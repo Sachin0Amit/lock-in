@@ -43,6 +43,7 @@ const chapters: Chapter[] = [
       'Aufbau Discipline',
       'Hund\u2019s Selector',
       'The Periodic Table Read',
+      'The Structure of Matter: From Atoms to Solids',
     ],
   },
   {

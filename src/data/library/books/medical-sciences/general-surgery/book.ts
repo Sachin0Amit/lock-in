@@ -118,6 +118,10 @@ const chapters: Chapter[] = [
       'The Tube Honesty Held',
       'The Margin-Node Honesty Named',
       'The MDT Craft Held',
+      'Radiotherapy and Radiodiagnosis',
+      'Anesthesiology',
+      'Orthopaedics',
+      'Ophthalmology and ENT (Otorhinolaryngology)',
     ],
   },
 ]

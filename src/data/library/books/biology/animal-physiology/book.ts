@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The All-or-None Engine and Its Gates',
       'The Saltatory Speed Arithmetic',
       'The Summation Craft Held',
+      'The Human Nervous System and the Nerve Impulse',
+      'Neural Control and Coordination',
     ],
   },
   {
@@ -43,6 +45,7 @@ const chapters: Chapter[] = [
       'The Calcium Trigger Walked Slowly',
       'The Tetanus Arithmetic Priced',
       'The Three-Muscle Census Held',
+      'Types of Movement: Ciliary, Flagellar and Muscular Locomotion',
     ],
   },
   {
@@ -58,6 +61,8 @@ const chapters: Chapter[] = [
       'The Portal\u2019s Control Honesty',
       'The Feedback Receipts Priced',
       'The Glucose Dial Held as One Arithmetic',
+      'Hormone Action and Its Disorders: Hypo- to Hyper-Activity',
+      'Chemical Coordination and Integration',
     ],
   },
   {
@@ -73,6 +78,7 @@ const chapters: Chapter[] = [
       'The Bile\u2019s Emulsification Craft Priced Straight',
       'The Three-pH Honesty Fixed Once',
       'The Liver\u2019s First-Pass Craft Named',
+      'Digestion and Nutrition',
     ],
   },
   {
@@ -88,6 +94,13 @@ const chapters: Chapter[] = [
       'The Bohr\u2019s Working-Tissue Craft',
       'The Haemodynamics Arithmetic Named',
       'The Output Arithmetic Held',
+      'The Circulatory Disorders Register: Hypertension to Heart Failure',
+      'Respiratory Volumes and Capacities',
+      'Body Fluids: Blood and Lymph',
+      'Coronary Artery Disease, Angina and Heart Failure',
+      'Chemical and Neural Signalling',
+      'The Integration of Body Systems',
+      'Breathing and Respiration in Animals',
     ],
   },
   {
@@ -103,6 +116,10 @@ const chapters: Chapter[] = [
       'The Nephron Engine Priced by Its Gradient',
       'The Aquaporin Honesty and Its Receipt',
       'The Two-Strategy Fish Honesty',
+      'Ammonotelism, Ureotelism and Uricotelism',
+      'The Human Excretory System: Urine Formation and Its Regulation',
+      'Renal Disorders: Uraemia, Calculi, Nephritis and Dialysis',
+      'Excretory Products and Their Elimination',
     ],
   },
   {
@@ -118,6 +135,7 @@ const chapters: Chapter[] = [
       'The Uncoupling Receipt Named',
       'The One-Cycle Honesty Held',
       'The Positive-Feedback Receipt Priced Straight',
+      'Homeostasis and Its Mechanisms',
     ],
   },
   {

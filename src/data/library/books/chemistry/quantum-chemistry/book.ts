@@ -43,6 +43,7 @@ const chapters: Chapter[] = [
       'The Postulates Read',
       'The Uncertainty Applied',
       'The Commutator Pair',
+      'Wave-Particle Duality and the Uncertainty Principle',
     ],
   },
   {
@@ -88,6 +89,7 @@ const chapters: Chapter[] = [
       'The Term Craft',
       'Hund Applied',
       'The Selection Preview',
+      'Electronic Structure Methods: The Approximation Ladder',
     ],
   },
   {

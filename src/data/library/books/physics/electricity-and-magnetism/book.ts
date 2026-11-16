@@ -103,6 +103,7 @@ const chapters: Chapter[] = [
       'Cells in Combination',
       'Maximum Power Transfer',
       'The Potentiometer',
+      'Joule Heating and the Power Ledger',
     ],
   },
   {

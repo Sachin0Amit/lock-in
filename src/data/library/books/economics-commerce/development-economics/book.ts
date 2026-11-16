@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Income Ladder',
       'The HDI Computed and Criticised',
       'The Capability Frame',
+      'Indian Economy on the Eve of Independence',
     ],
   },
   {
@@ -43,6 +44,8 @@ const chapters: Chapter[] = [
       'The Big-Push Register',
       'Multiple Equilibria',
       'The Take-Off History',
+      'Liberalisation, Privatisation and Globalisation: The 1991 Appraisal',
+      'Employment: Growth, Informalisation and Issues',
     ],
   },
   {
@@ -88,6 +91,8 @@ const chapters: Chapter[] = [
       'The Gender Register',
       'The Mission Registers',
       'The Learning Honesty',
+      'Human Capital Formation in India',
+      'Comparative Development Experiences: India and Its Neighbours',
     ],
   },
   {

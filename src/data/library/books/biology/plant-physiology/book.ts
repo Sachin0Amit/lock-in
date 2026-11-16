@@ -58,6 +58,7 @@ const chapters: Chapter[] = [
       'The Z-Scheme Earned',
       'The Chemiosmotic Rotary Engine',
       'The Spectra\u2019s Diagnostic Craft',
+      'The Photochemical and Biosynthetic Phases: Cyclic and Non-Cyclic Photophosphorylation',
     ],
   },
   {
@@ -73,6 +74,8 @@ const chapters: Chapter[] = [
       'The Oxygenase Mistake and the Loss Priced',
       'The C4 Division of Labour',
       'The CAM Answer and the Productivity Honesty',
+      'Photorespiration, the C3-C4-CAM Pathways and the Limiting Factors',
+      'Plant Secondary Metabolites: Alkaloids, Terpenes and Flavonoids',
     ],
   },
   {
@@ -88,6 +91,7 @@ const chapters: Chapter[] = [
       'The Pressure-Flow Engine',
       'The Two Loadings',
       'The Whole-Plant Ledger',
+      'The ATP Ledger, Amphibolic Pathways and the Respiratory Quotient',
     ],
   },
   {
@@ -118,6 +122,9 @@ const chapters: Chapter[] = [
       'The Phytochrome Register',
       'The Vernalisation Craft',
       'The Florigen Receipt',
+      'Photomorphogenesis and the ABC Model of Floral Patterning',
+      'Sexual Reproduction in Flowering Plants',
+      'Growth, Development and Reproduction in Ferns and Mosses',
     ],
   },
   {
@@ -148,6 +155,7 @@ const chapters: Chapter[] = [
       'The Methods Census',
       'The Agriculture Cross-Reference',
       'The Quiet Engine Held',
+      'Embryogenesis and the Apical Meristems',
     ],
   },
 ]

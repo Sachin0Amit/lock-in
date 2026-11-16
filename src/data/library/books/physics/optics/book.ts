@@ -73,6 +73,7 @@ const chapters: Chapter[] = [
       'The Eye Corrected',
       'Resolving Previewed',
       'Camera and Spectrometer',
+      'Photometry: The Luminous Intensity Ledger',
     ],
   },
   {
@@ -133,6 +134,7 @@ const chapters: Chapter[] = [
       'Brewster Again',
       'Double Refraction',
       'Optical Activity',
+      'Polaroids and the Plane of Polarisation',
     ],
   },
   {

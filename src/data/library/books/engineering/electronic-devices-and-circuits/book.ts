@@ -83,6 +83,8 @@ const chapters: Chapter[] = [
       'Rectifiers with Ripple and PIV',
       'Clipping and Clamping',
       'The Zener Regulator Priced',
+      'Zener Diodes and Applications',
+      'Rectifiers with Filters and Regulation',
     ],
   },
   {

@@ -148,6 +148,9 @@ const chapters: Chapter[] = [
       'Refraction and Lenses',
       'Dispersion by Prisms',
       'The Human Eye and Its Defects',
+      'Images Formed by Concave and Convex Mirrors',
+      'Images Formed by Converging and Diverging Lenses',
+      'The Color of Light and Spectra',
     ],
   },
   {
@@ -163,6 +166,7 @@ const chapters: Chapter[] = [
       'Resistance Arithmetic',
       'Heating and Power in Circuits',
       'The Magnetic Taster',
+      'Induced Magnetism, Electromagnets and Induced Current',
     ],
   },
 ]

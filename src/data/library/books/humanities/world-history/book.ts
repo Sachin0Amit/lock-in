@@ -164,6 +164,7 @@ const chapters: Chapter[] = [
       'The Cold War\u2019s Crises and Races',
       'Decolonisation and the New Boundaries',
       'The Soviet Collapse',
+      'Global Conflict, the Cold War and Decolonization',
     ],
   },
   {

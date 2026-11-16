@@ -85,6 +85,11 @@ const chapters: Chapter[] = [
       'The Family Characteristics',
       'Speed Control and Ward-Leonard',
       'Starters, Losses, the Honest Decline',
+      'DC Generators: Construction, Commutation and Characteristics',
+      'DC Motors: Speed Control and Starting',
+      'Three-Phase Induction Motors: Construction and Slip',
+      'Alternators and Synchronous Machines',
+      'Single-Phase Motors: Split Phase, Capacitor and Universal',
     ],
   },
   {

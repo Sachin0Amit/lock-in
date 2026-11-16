@@ -103,6 +103,7 @@ const chapters: Chapter[] = [
       'The Totipotency Engine and the Clonal Arithmetic',
       'The Doubled-Haploid Instant-Inbred',
       'The Rescue-and-Fusion Crafts',
+      'Gene Silencing: miRNA, siRNA and Transgene Silencing',
     ],
   },
   {

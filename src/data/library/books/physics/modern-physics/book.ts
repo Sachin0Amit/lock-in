@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'Planck\u2019s Postulate',
       'The Radiation Laws',
       'The Curves Read',
+      'Blackbody Radiation: Kirchhoff, Wien and Stefan',
     ],
   },
   {

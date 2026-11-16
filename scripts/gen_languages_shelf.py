@@ -13,7 +13,7 @@ official registers (JLPT, Goethe-Zertifikat, DELF-DALF, DELE, HSK, TOPIK,
 IELTS, TOEFL, CLEP). The 13 backlog lines map one-to-one, no folds.
 
 13 books promoted to src/data/library/books/languages/<slug>/book.ts,
-status 'planned', ZERO lessons written — 122 chapters / 488 planned
+status 'planned', ZERO lessons written — 122 chapters / 500 planned
 lessons in total. The authored plan data (chapters, summaries,
 planned-lesson titles, positioning, research notes) lives in this script;
 the emitter below writes the house-format book.ts files. Idempotent:

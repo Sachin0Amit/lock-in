@@ -103,6 +103,9 @@ const chapters: Chapter[] = [
       'The Dye Census',
       'The Food Ledger',
       'The Cleaning Chemistry',
+      'The Food-Products Technology Register',
+      'The Cereal, Oil and Fruit Processing Register',
+      'Food Packaging, Storage and the Standards',
     ],
   },
   {

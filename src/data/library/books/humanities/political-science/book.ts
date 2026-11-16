@@ -76,6 +76,7 @@ const chapters: Chapter[] = [
       'Regimes: The Census',
       'Voting, Parties and Party Systems',
       'Groups, Interests and Movements',
+      'Civil Liberties, Civil Rights and American Political Culture',
     ],
   },
   {
@@ -91,6 +92,7 @@ const chapters: Chapter[] = [
       'Executives and Leadership',
       'Legislatures and the Judiciary',
       'The Comparative Constitutional Glance',
+      'Foundations of American Democracy and the Branches of Government',
     ],
   },
   {
@@ -121,6 +123,12 @@ const chapters: Chapter[] = [
       'The Organs at Work',
       'The RPA and the Elections',
       'The Bodies\u2019 Census',
+      'The Union Executive: President, Prime Minister and Council of Ministers',
+      'Parliament: Lok Sabha, Rajya Sabha and Committees',
+      'The Judiciary and Judicial Review',
+      'Federalism, State Governments and Local Bodies',
+      'The Election Commission and Electoral Reforms',
+      'Constitutional and Statutory Bodies: CAG to UPSC',
     ],
   },
   {

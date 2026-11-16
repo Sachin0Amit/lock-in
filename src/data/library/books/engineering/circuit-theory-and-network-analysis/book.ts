@@ -99,6 +99,10 @@ const chapters: Chapter[] = [
       'Selectivity and Tuned Circuits',
       'Mutual Inductance and the Dot Convention',
       'The Ideal Transformer at Circuit Level',
+      'RLC Circuits and Natural, Forced and Complete Responses',
+      'Damped Oscillation and the Quality Factor',
+      'Series and Parallel Resonance',
+      'Magnetically Coupled Circuits and Ideal Transformers',
     ],
   },
   {

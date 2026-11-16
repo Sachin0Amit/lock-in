@@ -43,6 +43,7 @@ const chapters: Chapter[] = [
       'Hooke and the Elastic Limit',
       'The Stress-Strain Curve',
       'Factors of Safety',
+      'Deformation of Solids: Elastic and Plastic',
     ],
   },
   {
@@ -58,6 +59,7 @@ const chapters: Chapter[] = [
       'Energy in a Wire',
       'Springs in Numbers',
       'Torsion of a Cylinder',
+      'Young\'s Modulus: The Stiffness of a Wire',
     ],
   },
   {

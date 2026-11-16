@@ -28,6 +28,9 @@ const chapters: Chapter[] = [
       'Hess\u2019s Craft',
       'Entropy\u2019s Direction',
       'The Gibbs Engine',
+      'Enthalpies of Fusion, Vaporisation and the Lattice',
+      'Measuring Enthalpy: Calorimetry and Energy Cycles',
+      'Thermochemistry: Heat Capacities and Reaction Enthalpies',
     ],
   },
   {
@@ -58,6 +61,7 @@ const chapters: Chapter[] = [
       'The Quotient Teller',
       'Le Chatelier Priced',
       'van\u2019t Hoff Named',
+      'The Extent of Reaction: Equilibrium Constants',
     ],
   },
   {
@@ -88,6 +92,7 @@ const chapters: Chapter[] = [
       'The EMF Ledger',
       'Nernst Applied',
       'Kohlrausch and Faraday',
+      'Batteries, Fuel Cells and Corrosion',
     ],
   },
   {
@@ -103,6 +108,8 @@ const chapters: Chapter[] = [
       'Integrated Equations',
       'Arrhenius\u2019s Activation',
       'Catalysis Register',
+      'Catalysis: Homogeneous, Heterogeneous and Enzymatic',
+      'The Steady-State Approximation and Chain Reactions',
     ],
   },
   {
@@ -118,6 +125,9 @@ const chapters: Chapter[] = [
       'The Cubic Arithmetic',
       'The Defect Census',
       'The Doping Preview',
+      'Ionic Radii, Radius Ratio and Nearest Neighbours',
+      'The Crystal Systems and Close Packing: fcc, bcc and hcp',
+      'Nanoscience and the Nanostructured Solids',
     ],
   },
   {
@@ -148,6 +158,11 @@ const chapters: Chapter[] = [
       'Adsorption Crafts',
       'The Colloid Census',
       'Heterogeneous Catalysis',
+      'The Kinetic Theory and the Molecular Speeds',
+      'Physisorption against Chemisorption: The Isotherm Crafts',
+      'Emulsions, Surfactants and Micelles',
+      'Intermolecular Forces and the Liquid State',
+      'Vapour Pressure, Surface Tension and Viscosity of Liquids',
     ],
   },
   {

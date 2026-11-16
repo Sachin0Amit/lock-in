@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'Koch\u2019s Postulates Earned',
       'The Pure-Culture Craft',
       'The Golden-Age Arc',
+      'The Microscopy Register: Light to Electron',
     ],
   },
   {
@@ -43,6 +44,8 @@ const chapters: Chapter[] = [
       'The Morphological Census',
       'The Biofilm Community',
       'The Spore and the Size Honesty',
+      'The Prokaryotic Cell: Structure and Function',
+      'The Morphology of Bacteria',
     ],
   },
   {
@@ -58,6 +61,11 @@ const chapters: Chapter[] = [
       'The Counting Craft',
       'The Metabolic Matrices',
       'The Extremophiles and the Archaea',
+      'The Metabolic Diversity: Entner-Doudoroff, Glyoxylate and Chemolithotrophy',
+      'Glycolysis: The Universal Pathway',
+      'Redox Reactions, Electron Transport and Oxidative Phosphorylation',
+      'Photosynthesis and the Calvin Cycle in Microbes',
+      'Growth and Death Kinetics with Serial Dilution',
     ],
   },
   {
@@ -73,6 +81,7 @@ const chapters: Chapter[] = [
       'The Hfr Maps',
       'The Replica-Plating Craft',
       'The Fast-Lane Significance',
+      'PCR, Real-Time PCR and Sequencing in Microbiology',
     ],
   },
   {
@@ -88,6 +97,7 @@ const chapters: Chapter[] = [
       'The Two Cycles and the Lambda Switch',
       'The Retro Register',
       'The Prion Honesty',
+      'Viruses, Viroids and the Subviral Agents',
     ],
   },
   {
@@ -133,6 +143,7 @@ const chapters: Chapter[] = [
       'The Antibiotic Arc and the Classes\u2019 Targets',
       'The Resistance Era Honestly Told',
       'The Management Honesty',
+      'Disinfection and Sterilization',
     ],
   },
   {
@@ -148,6 +159,13 @@ const chapters: Chapter[] = [
       'The Pharmaceutical Registers',
       'The Environmental Craft',
       'The Normal Flora and the Crown',
+      'Microbes in Human Welfare: Sewage Treatment, Energy, Biocontrol and Biofertilisers',
+      'Metagenomics and the Uncultivable Microorganisms',
+      'Fermented Foods and Beverages',
+      'Household and Industrial Microbial Products with Biogas',
+      'The Role of Microorganisms in Organic Matter and Disease',
+      'Antigen and Antibody Detection in Microbial Diagnosis',
+      'Aerobic and Anaerobic Respiration with Chemolithotrophy',
     ],
   },
 ]

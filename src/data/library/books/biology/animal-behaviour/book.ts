@@ -58,6 +58,7 @@ const chapters: Chapter[] = [
       'The Many-Eyes and Dilution Receipts',
       'The PI Dial and Mating Census',
       'The Conflict Registers Named',
+      'Courtship, Mating and Territoriality',
     ],
   },
   {
@@ -73,6 +74,7 @@ const chapters: Chapter[] = [
       'The Haplodiploid Receipt Held with Its Routes',
       'The Dilemma Arithmetic Named',
       'The Honest-Cost Register Held',
+      'Communication and Pheromones',
     ],
   },
   {

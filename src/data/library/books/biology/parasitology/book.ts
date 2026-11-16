@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Type Census with the Host Honesty',
       'The Lost-and-Gained Arithmetic Held',
       'The Aggregation Honesty Named',
+      'The Nature of Parasites and Host-Parasite Relations',
     ],
   },
   {
@@ -43,6 +44,7 @@ const chapters: Chapter[] = [
       'The Cyst Crafts by Their Receipts',
       'The Antigenic Variation as the Evasion Craft',
       'The Flagellate Registers Named',
+      'The Protozoan and Helminthic Parasites',
     ],
   },
   {

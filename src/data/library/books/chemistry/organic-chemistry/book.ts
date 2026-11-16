@@ -28,6 +28,12 @@ const chapters: Chapter[] = [
       'The IUPAC Discipline',
       'Isomerism Introduced',
       'The Effect Census',
+      'Sigma and Pi Bonds: The Carbon Framework',
+      'Stereoisomers: Enantiomers, Diastereomers and Meso',
+      'Reactive Intermediates: Carbocations, Carbanions and Radicals',
+      'Empirical and Molecular Formulae by Combustion',
+      'Structure-Reactivity Correlations',
+      'Nucleophilicity and Electrophilicity: The Reactivity Map',
     ],
   },
   {
@@ -43,6 +49,7 @@ const chapters: Chapter[] = [
       'The First Mechanism',
       'The Stability Honesty',
       'The Conformation Register',
+      'The Homologous Series and the Physical-Property Trends',
     ],
   },
   {
@@ -58,6 +65,8 @@ const chapters: Chapter[] = [
       'Markovnikov Read',
       'The Oxidation Ledger',
       'The Polymerisation Preview',
+      'Acid-Catalysed Hydration and the Metal Acetylides',
+      'Ozonolysis and the KMnO4 Oxidations',
     ],
   },
   {
@@ -73,6 +82,8 @@ const chapters: Chapter[] = [
       'The EAS Census',
       'The Orientation Register',
       'The Polynuclear Taster',
+      'The Heterocyclic Register',
+      'The Pericyclic Reactions and Organic Photochemistry',
     ],
   },
   {
@@ -88,6 +99,9 @@ const chapters: Chapter[] = [
       'The Elimination Register',
       'The Grignard Power',
       'Aryl against Alkyl',
+      'Haloalkanes and Haloarenes: The Full Register',
+      'Fittig, Wurtz-Fittig and Nucleophilic Aromatic Substitution',
+      'Neighbouring Group Participation and Non-Classical Ions',
     ],
   },
   {
@@ -103,6 +117,7 @@ const chapters: Chapter[] = [
       'The Phenol Craft',
       'The Williamson Synthesis',
       'The Identification Register',
+      'The Alcohol Reactions: Sodium, Halides and Dehydration',
     ],
   },
   {
@@ -118,6 +133,8 @@ const chapters: Chapter[] = [
       'The Named-Reaction Ledger',
       'The Distinction Registers',
       'The Acid Preview',
+      'Preparation: Acid Chlorides, Nitriles and the Toluene Route',
+      'Aldol, Cannizzaro and the Haloform Crafts',
     ],
   },
   {
@@ -148,6 +165,9 @@ const chapters: Chapter[] = [
       'The Basicity Register',
       'The Diazonium Craft',
       'The Nitro Story',
+      'Hoffmann and Gabriel: The Amine Preparations',
+      'The Diazonium Crafts: Sandmeyer and Azo Coupling',
+      'The Amine Tests: Carbylamine and Hinsberg',
     ],
   },
   {
@@ -163,6 +183,7 @@ const chapters: Chapter[] = [
       'The Protein First Pass',
       'The Nucleic Preview',
       'Vitamins and Lipids',
+      'The Carbohydrate Register: Mono and Disaccharides',
     ],
   },
   {
@@ -178,6 +199,13 @@ const chapters: Chapter[] = [
       'The Polymer Cross-Reference',
       'The Detection Craft',
       'The Research Doorway',
+      'Purification and Characterisation of Organic Compounds',
+      'The Addition and Condensation Polymer Families',
+      'Chemistry in Everyday Life: The Drug and Sweetener Registers',
+      'The Commodity and Biodegradable Polymers: Nylon to PVC',
+      'Soaps, Detergents and the Cleansing Action',
+      'The Therapeutic Classes: Antacids to Antimicrobials',
+      'The Advanced Practical Crafts: Synthesis to Characterisation',
     ],
   },
 ]

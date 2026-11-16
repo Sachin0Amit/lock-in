@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Balance Distinction',
       'The Three Dinner Registers',
       'The Ireland Receipt Priced',
+      'The Mechanisms of Pathogenesis',
     ],
   },
   {
@@ -88,6 +89,8 @@ const chapters: Chapter[] = [
       'The Hypersensitive Firebreak',
       'The Two Systemic Arcs',
       'The Silencing Answer Priced',
+      'Salicylic and Jasmonic Acid in Plant Defence',
+      'The Host-Parasitic Plant Interaction: Cuscuta',
     ],
   },
   {

@@ -88,6 +88,7 @@ const chapters: Chapter[] = [
       'Potential Landscapes',
       'Conservative Forces',
       'The Energy Shortcut',
+      'Power: The Rate of Doing Work',
     ],
   },
   {
@@ -118,6 +119,8 @@ const chapters: Chapter[] = [
       'The Axis Theorems',
       'Rolling Craft',
       'Angular Momentum',
+      'Rigid-Body Equilibrium and the Torque Balance',
+      'Rolling without Slipping: Rings, Cylinders and Spheres',
     ],
   },
   {
@@ -193,6 +196,10 @@ const chapters: Chapter[] = [
       'Symmetries and Conserved Quantities',
       'The Effective Potential',
       'Scattering Previewed',
+      'Variational Principles and the Calculus of Constraints',
+      'Central Force Motion and Kepler\'s Problem',
+      'Scattering Cross-Sections and Rutherford',
+      'Oscillations about Equilibrium and Normal Coordinates',
     ],
   },
 ]

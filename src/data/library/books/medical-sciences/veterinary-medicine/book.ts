@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Unforgiving Register Priced Straight',
       'The MDR Honesty Named',
       'The Species\u2019s-Reading Craft Named',
+      'Veterinary Anatomy and Physiology: The Comparative Frame',
     ],
   },
   {
@@ -43,6 +44,12 @@ const chapters: Chapter[] = [
       'The 305-Day Register Named',
       'The Light Honesty Held',
       'The Five-Freedom Honesty Priced Straight',
+      'Animal Nutrition and Livestock Production Management',
+      'Animal Genetics and Breeding',
+      'Livestock Products Technology',
+      'Veterinary and Animal Husbandry Extension Education',
+      'Veterinary Biochemistry',
+      'Livestock Farm Practices',
     ],
   },
   {
@@ -58,6 +65,8 @@ const chapters: Chapter[] = [
       'The Ring-Vaccination Craft Held',
       'The 70-Percent Honesty Priced Straight',
       'The Notifiable Register Named',
+      'Veterinary Pharmacology and Toxicology',
+      'Veterinary Microbiology and Pathology',
     ],
   },
   {
@@ -73,6 +82,9 @@ const chapters: Chapter[] = [
       'The IV Calcium Craft Priced Straight',
       'The H-Program Named',
       'The Local\u2019s-Preference Honesty Held',
+      'Veterinary Medicine: The Clinical Register',
+      'Veterinary Gynaecology and Obstetrics',
+      'Veterinary Surgery and Radiology',
     ],
   },
   {
@@ -88,6 +100,7 @@ const chapters: Chapter[] = [
       'The Ante-Post Honesty Held',
       'The Cruelty Act Named',
       'The One Medicine Frame Held as the Founding One',
+      'Veterinary Public Health and Epidemiology',
     ],
   },
 ]

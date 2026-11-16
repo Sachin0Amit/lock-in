@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The Palindrome and the Sticky Ends',
       'The Heat-Proof Polymerase Earned',
       'The Toolbox Catalogued',
+      'The Principles and Processes of Biotechnology',
+      'The Tools of rDNA Technology',
     ],
   },
   {
@@ -43,6 +45,7 @@ const chapters: Chapter[] = [
       'The Selection Screens',
       'The Ti Plasmid\u2019s Craft',
       'A Clone Walked Slowly',
+      'The Processes of rDNA Technology',
     ],
   },
   {
@@ -133,6 +136,8 @@ const chapters: Chapter[] = [
       'The Vaccines and the Therapy Arc',
       'The Agricultural Registers Told Straight',
       'The Environmental Register',
+      'The Health and Agriculture Applications: Insulin, Vaccines and Bt Crops',
+      'Transgenic Animals, Biosafety, Biopiracy and Patents',
     ],
   },
   {

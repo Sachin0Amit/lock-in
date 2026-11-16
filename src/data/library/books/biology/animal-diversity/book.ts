@@ -28,6 +28,11 @@ const chapters: Chapter[] = [
       'The Coelom Arithmetic Held Honestly',
       'The Two embryology Receipts',
       'The Ladder Myth Held Apart',
+      'The Salient Features of the Animal Phyla: Non-Chordates to Chordate Classes',
+      'Distribution, Systematics and the Classification of Animals',
+      'Phylogenetic Relationships: Classical and Molecular Tools',
+      'The Diversity of Organisms: Classification and Cladistics',
+      'Structure, Function and Evolutionary Relationships',
     ],
   },
   {

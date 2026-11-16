@@ -88,6 +88,7 @@ const chapters: Chapter[] = [
       'The Wave Equation',
       'Speed on a String',
       'The Progressive Wave',
+      'The Wave Model and Its Vocabulary',
     ],
   },
   {

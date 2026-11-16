@@ -28,6 +28,9 @@ const chapters: Chapter[] = [
       'The AB-Toxin Craft Held',
       'The Medium Census by Its Kinds',
       'The MIC Craft Named',
+      'Normal Microbiota, Reservoirs, Nosocomial and Opportunistic Infections',
+      'Chemotherapy and the Antibiotic Classes',
+      'Human Diseases Caused by Viruses, Bacteria and Fungi',
     ],
   },
   {
@@ -118,6 +121,9 @@ const chapters: Chapter[] = [
       'The Spaulding Classification Named',
       'The Epi-Curve Honesty Cross-Referenced',
       'The Coverage Arithmetic Cross-Referenced',
+      'The Human Disease Census: Malaria to Chikungunya',
+      'Emerging Infectious Diseases and the Pathogenicity Mechanisms',
+      'Food Spoilage and Microbial Toxins',
     ],
   },
 ]

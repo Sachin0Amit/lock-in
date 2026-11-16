@@ -28,6 +28,9 @@ const chapters: Chapter[] = [
       'The Auxiliaries Census',
       'The Forms Ledger',
       'The Choice Craft',
+      'Private, Public and Global Enterprises',
+      'Formation of a Company',
+      'Internal Trade: Wholesale and Retail',
     ],
   },
   {
@@ -73,6 +76,7 @@ const chapters: Chapter[] = [
       'The Level Census',
       'Fayol\u2019s Fourteen',
       'Taylor\u2019s Register',
+      'Fayol\'s and Taylor\'s Principles of Management',
     ],
   },
   {

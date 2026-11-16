@@ -3116,3 +3116,12 @@ authored, no reproduction surface. Evidence base:
 docs/research/BIOLOGY_TOC_SURVEY.md + MEDICAL_TOC_SURVEY.md +
 ARTS_MUSIC_TOC_SURVEY.md; gate:
 verify-bio-med-arts-shelf-planning.ts 3357/0.
+
+
+## The all-disciplines TOC + exam coverage pass (2026-11-16, later)
+
+Exam syllabus sources opened this pass (URLs live in scripts/ledger_data/*.json per exam):
+- Physics/chemistry: jeeadv.ac.in/documents/jee-advanced-2026-syllabus.pdf · NTA CDN PDFs for JEE Main 2026 (202510311323551056.pdf), NEET UG 2026 (20260108180635.pdf), CUET 2026 Physics-322/Chemistry-306 · gate2026.iitg.ac.in PH/CY syllabus PDFs · csirhrdg.res.in physical + chemical science syllabus PDFs · apstudents.collegeboard.org (AP Physics 1/2/C, AP Chemistry) · IB 2025 physics/chemistry guides (savemyexams mirror, marked) · Cambridge 9702/9701 syllabus PDFs (papacambridge mirror of the official PDFs, marked) · ipho-new.org Statutes & Syllabus · ichosc.org Regulations.
+- Biology/medical: NTA/NMC NEET-2026 notice PDF (Biology pages) · ncert.nic.in kebo1/lebo1 textbook PDFs · NTA CUET Biology-304 PDF · gate2026.iitg.ac.in XL-2026_Combined_Syllabus.pdf (all six branch sections) · apstudents.collegeboard.org AP Biology · IB 2025 biology guide (bioninja/savemyexams mirrors, marked) · cambridgeinternational.org 9700 syllabus PDF · IBO-Guide syllabus (biolympiads mirror, marked) · FMGE subject-wise split (careers360 mirror of the NBEMS table) · NBEMS GPAT bulletin (syllabus per the PCI B.Pharm regulations) · NCSBN 2026 NCLEX-RN Test Plan PDF (nclex.com) · INC B.Sc (Nursing) 2020 Regulations Gazette PDF (indiannursingcouncil.org) · VCI MSVE 2016 Regulations Gazette PDF (KVASU-hosted) · DCI BDS Course Regulations 2007 PDF (TNMGRMU-hosted).
+- ECF/humanities: ncert.nic.in econ/business-studies/accountancy contents PDFs (Reprint 2026-27) · NTA CUET 309/301/305 PDFs · the registers already recorded in HUMANITIES_TOC_SURVEY.md (drishtiias GS pages, ugcnetonline.in unit lists, College Board AP course pages, CLAT consortium register).
+Drive sources extracted this pass: the 28 root classics + 96 Cengage chemistry/physics module PDFs (the manifest + per-key routing in scripts/ledger_data_working/drive_tocs.json; 123/124 resolved; Campbell 11e download-failed, retry queued).

@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Three-Craft Division Priced by Its Honesty',
       'The Act Named',
       'The Each-Path Register Held',
+      'Anatomy, Physiology and Pathophysiology for Pharmacists',
     ],
   },
   {
@@ -43,6 +44,7 @@ const chapters: Chapter[] = [
       'The QC Tests Fixed by Drill',
       'The Arrhenius Honesty Named',
       'The BSC Division Priced Straight',
+      'Dosage Forms, Unit Operations and Drug Delivery',
     ],
   },
   {
@@ -58,6 +60,8 @@ const chapters: Chapter[] = [
       'The Thalidomide Receipt Priced Straight',
       'The Prodrug Honesty Held',
       'The In-Silico Craft Named',
+      'Pharmacognosy and Phytochemistry',
+      'Pharmaceutical Management, Jurisprudence and Drug Regulatory Affairs',
     ],
   },
   {
@@ -73,6 +77,7 @@ const chapters: Chapter[] = [
       'The H-X Honesty Priced Straight',
       'The Counsel Register Held',
       'The Alligation Craft Named',
+      'Pharmacy Practice and Clinical Pharmacy',
     ],
   },
   {
@@ -88,6 +93,7 @@ const chapters: Chapter[] = [
       'The IP Named',
       'The Phase Honesty Cross-Referenced',
       'The Schedule-M Honesty Named',
+      'Pharmacy Microbiology and Sterility',
     ],
   },
 ]

@@ -45,6 +45,13 @@ const chapters: Chapter[] = [
       'The Twelve Tenses Built',
       'The Voice and the Agreement Traps',
       'The First Drills\u2019 Craft',
+      'Present Perfect and Past Simple',
+      'Present Continuous and Future Forms',
+      'Modals and Auxiliary Verbs',
+      'Articles, Quantifiers and Determiners',
+      'Conditionals and Wish',
+      'Relative Clauses and Reported Speech',
+      'Gerunds, Infinitives and Phrasal Verbs',
     ],
   },
   {

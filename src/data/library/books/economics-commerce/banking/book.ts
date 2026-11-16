@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Indian Census',
       'The New Registers',
       'The Structure Map',
+      'The Financial Markets Register',
     ],
   },
   {

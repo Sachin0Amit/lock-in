@@ -44,6 +44,11 @@ const chapters: Chapter[] = [
       'The Four Cases\u2019 Engine',
       'The Articles\u2019 Mountain and the Adjective\u2019s Avalanche',
       'The Plural\u2019s Five Families',
+      'Nominative, Accusative and Dative Cases',
+      'The Genitive and Case Combinations',
+      'Word Order and the Verbal Bracket',
+      'The Subjunctive and Konjunktiv Register',
+      'Prepositions with Fixed Cases',
     ],
   },
   {

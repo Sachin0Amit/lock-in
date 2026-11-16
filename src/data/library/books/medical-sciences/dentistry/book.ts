@@ -43,6 +43,9 @@ const chapters: Chapter[] = [
       'The PPM Arithmetic Named',
       'The Fluorosis Map Cross-Referenced',
       'The Technique Honesty Held Straight',
+      'Pre-clinical Conservative Dentistry',
+      'General Human Anatomy with Embryology and Histology',
+      'General Human Physiology, Biochemistry, Nutrition and Dietetics',
     ],
   },
   {
@@ -58,6 +61,9 @@ const chapters: Chapter[] = [
       'The Depth Arithmetic Fixed by Drill',
       'The Risk Register Cross-Referenced',
       'The Recall Honesty Held',
+      'General Pathology and Microbiology',
+      'General and Dental Pharmacology and Therapeutics',
+      'Oral Pathology and Oral Microbiology',
     ],
   },
   {
@@ -88,6 +94,8 @@ const chapters: Chapter[] = [
       'The Osseointegration Receipt Named',
       'The Le-Fort Map Cross-Referenced',
       'The 30-Minute Honesty Priced Straight',
+      'Pre-clinical Prosthodontics and Crown and Bridge',
+      'Orthodontics and Dentofacial Orthopaedics',
     ],
   },
   {

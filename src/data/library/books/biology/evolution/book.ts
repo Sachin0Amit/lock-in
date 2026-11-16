@@ -43,6 +43,8 @@ const chapters: Chapter[] = [
       'The Three Modes\u2019 Curves',
       'The Receipts of Selection',
       'Sexual Selection\u2019s Honest Tail',
+      'Natural Selection and Its Types',
+      'Darwin\'s Contribution and the Modern Synthetic Theory',
     ],
   },
   {

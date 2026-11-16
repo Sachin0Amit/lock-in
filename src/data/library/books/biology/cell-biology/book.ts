@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'Resolution against Magnification',
       'The Two Electron Microscopes',
       'The Centrifuge\u2019s Layers',
+      'Cellular Energetics: Enzymes, Energy and Respiration',
     ],
   },
   {
@@ -73,6 +74,7 @@ const chapters: Chapter[] = [
       'The Two Faces of the ER',
       'The Golgi\u2019s Sorting Craft',
       'Lysosomes and Vacuoles',
+      'Membrane Assembly and Protein Targeting',
     ],
   },
   {
@@ -103,6 +105,7 @@ const chapters: Chapter[] = [
       'The Motor Walk',
       'The Matrix as Information',
       'The Three Junctions',
+      'Cilia, Flagella, Centrioles and the Nucleus Register',
     ],
   },
   {

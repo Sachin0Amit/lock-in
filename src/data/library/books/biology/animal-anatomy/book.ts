@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Matrix\u2019s Collagen Versatility',
       'The Muscle Census Held',
       'The Origin Mapping Fixed',
+      'Morphology of the Frog and the Insect',
     ],
   },
   {
@@ -43,6 +44,8 @@ const chapters: Chapter[] = [
       'The Three Skeleton Answers Priced',
       'The Homology Receipt Held',
       'The Bone Turnover Craft',
+      'Joints and the Musculoskeletal Disorders Register',
+      'The Musculoskeletal Disorders: Myasthenia Gravis to Gout',
     ],
   },
   {

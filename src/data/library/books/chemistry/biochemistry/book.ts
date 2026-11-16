@@ -43,6 +43,10 @@ const chapters: Chapter[] = [
       'The Peptide Chemistry',
       'The Structure Ladder',
       'The Denaturation Register',
+      'Protein Folding, Misfolding and the Named Proteins: Myoglobin to Chymotrypsin',
+      'Energy and Respiration',
+      'Food Proteins and Post-Mortem Muscle Changes',
+      'Protein Purification Schemes from Cell to Crystal',
     ],
   },
   {
@@ -58,6 +62,8 @@ const chapters: Chapter[] = [
       'The Recognition Register',
       'The Binding Arithmetic',
       'The Purification Census',
+      'The Biochemical Separation Techniques: Chromatography, Centrifugation and Electrophoresis',
+      'The Separation Crafts: Chromatography, Centrifugation and Electrophoresis',
     ],
   },
   {
@@ -73,6 +79,8 @@ const chapters: Chapter[] = [
       'Michaelis-Menten Computed',
       'The Inhibition Census',
       'The Allosteric Craft',
+      'Enzyme Types, Nomenclature and Properties',
+      'Vitamins, Coenzymes and Minerals',
     ],
   },
   {
@@ -88,6 +96,12 @@ const chapters: Chapter[] = [
       'The Polysaccharide Register',
       'The Lipid Census',
       'The Aggregate Behaviour',
+      'The Biomolecule Census',
+      'Biological Molecules: The Census',
+      'The Chemistry of Biomolecules',
+      'Food Carbohydrates: Starch, Pectin and Dietary Fibre',
+      'Food Lipids: Rancidity and Polymorphism',
+      'The Balanced Diet and Nutrients',
     ],
   },
   {
@@ -118,6 +132,7 @@ const chapters: Chapter[] = [
       'The Double Helix',
       'The RNA Census',
       'The Technology Preview',
+      'Molecular Biology and the Biomolecules',
     ],
   },
   {
@@ -133,6 +148,9 @@ const chapters: Chapter[] = [
       'The Pyruvate Fork',
       'The Citric Turn',
       'The Oxidative Craft',
+      'The Metabolic Pathways and Their Regulation: Pentose Phosphate to Gluconeogenesis',
+      'The Pentose Phosphate Pathway and Gluconeogenesis',
+      'Nitrogen Metabolism: Fixation, Amino Acids and Nucleotides',
     ],
   },
   {
@@ -163,6 +181,8 @@ const chapters: Chapter[] = [
       'The Regulation Craft',
       'The Hormone First Pass',
       'The Research Doorway',
+      'Spectroscopy for Biochemists: UV-Visible, Fluorescence and Mass Spectrometry',
+      'Enzymatic and Non-Enzymatic Browning',
     ],
   },
 ]

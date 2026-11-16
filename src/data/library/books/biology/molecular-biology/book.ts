@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'Chargaff\u2019s Clues and the Model',
       'The Meselson-Stahl Proof',
       'The Packing Ladder',
+      'Nucleic Acids: DNA and RNA',
+      'The Molecular Basis of Inheritance',
     ],
   },
   {
@@ -73,6 +75,7 @@ const chapters: Chapter[] = [
       'The Codon Table by Drill',
       'The Charging Enzyme\u2019s Knowledge',
       'The Three Sites Walked Slowly',
+      'Protein Synthesis: Transcription to Translation',
     ],
   },
   {

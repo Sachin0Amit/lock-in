@@ -43,6 +43,8 @@ const chapters: Chapter[] = [
       'The Balance Register',
       'The Pressure-and-Temperature Craft',
       'Zero-Error Discipline',
+      'The Apparatus Census and the Measurement Techniques',
+      'The Medical-Imaging Instruments: Ultrasound to MRI',
     ],
   },
   {
@@ -58,6 +60,8 @@ const chapters: Chapter[] = [
       'Searle\u2019s Modulus',
       'Surface-Tension Practicals',
       'Viscosity Registers',
+      'The Resonance-Column Measurement of Sound Speed',
+      'Surface-Tension Measurement of Water by Capillary Rise',
     ],
   },
   {
@@ -73,6 +77,7 @@ const chapters: Chapter[] = [
       'Focal Registers',
       'Refractive-Index Craft',
       'The Grating Measurement',
+      'The u-v Method for Concave Mirrors and Convex Lenses',
     ],
   },
   {
@@ -88,6 +93,7 @@ const chapters: Chapter[] = [
       'Galvanometer Conversion',
       'Carey-Foster Named',
       'The Earth\u2019s Field',
+      'The Ohm\'s-Law Verification with Voltmeter and Ammeter',
     ],
   },
   {

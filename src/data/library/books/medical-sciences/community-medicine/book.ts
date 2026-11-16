@@ -103,6 +103,8 @@ const chapters: Chapter[] = [
       'The Three-Tier Architecture Named',
       'The UHC Honesty Held',
       'The SDG Frame Named',
+      'Health Promotion and Maintenance',
+      'Community Health Nursing and Epidemiology',
     ],
   },
 ]

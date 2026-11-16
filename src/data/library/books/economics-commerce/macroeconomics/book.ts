@@ -58,6 +58,7 @@ const chapters: Chapter[] = [
       'The Multiplier Geometry',
       'The Thrift Paradox',
       'S and I Balance',
+      'The Determination of Income and Employment',
     ],
   },
   {

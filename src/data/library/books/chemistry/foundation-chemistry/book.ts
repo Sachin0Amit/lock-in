@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Separation Census',
       'Pure against Mixed',
       'Properties Read',
+      'The Particulate Nature of Matter',
     ],
   },
   {
@@ -43,6 +44,9 @@ const chapters: Chapter[] = [
       'The Combination Laws',
       'The Mole Ledger',
       'First Stoichiometry',
+      'Molarity, Molality, Mole Fraction and Normality',
+      'The Reaction Census: Types and Balancing',
+      'The Amount of Chemical Change: Reaction Stoichiometry',
     ],
   },
   {
@@ -58,6 +62,8 @@ const chapters: Chapter[] = [
       'Bohr and the Spectrum',
       'The Electron\u2019s Address',
       'Isotopes Counted',
+      'The Nuclear Atom and Electronic Configurations',
+      'The Bohr Model Worked and Its Limits',
     ],
   },
   {

@@ -103,6 +103,8 @@ const chapters: Chapter[] = [
       'The Reticulocyte Receipt Held',
       'The FAST Craft Priced Straight',
       'The LP Reading Named',
+      'Psychiatry',
+      'Dermatology and STD',
     ],
   },
   {
@@ -118,6 +120,7 @@ const chapters: Chapter[] = [
       'The qSOFA Arithmetic Fixed by Drill',
       'The Shock Division Cross-Referenced',
       'The WHO Ladder Held Straight',
+      'Physiological Adaptation and Clinical Instability',
     ],
   },
 ]

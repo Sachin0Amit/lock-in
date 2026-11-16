@@ -133,6 +133,8 @@ const chapters: Chapter[] = [
       'The Starved State\u2019s Adaptation Arc',
       'The Stress State Named',
       'The Bridge Held Honestly',
+      'Applied Nutrition and Dietetics',
+      'The Chemical Processes of Life',
     ],
   },
 ]

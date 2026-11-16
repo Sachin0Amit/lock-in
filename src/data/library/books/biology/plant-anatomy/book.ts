@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The Three Systems',
       'The Modified-Organ Preview',
       'The Open-Growth Honesty',
+      'Morphology and Modifications of Flowering Plants',
+      'The Angiosperm Life Cycle and the Gametophytes',
     ],
   },
   {
@@ -118,6 +120,10 @@ const chapters: Chapter[] = [
       'The Taxonomic Receipts',
       'The Fruit-Types Census',
       'The Seed\u2019s Register',
+      'Pollination: Types, Agencies and the Outbreeding Devices',
+      'Pollen-Pistil Interaction and Double Fertilization',
+      'Post-Fertilization: Endosperm, Embryo, Seed and Fruit',
+      'Apomixis, Parthenocarpy and Polyembryony',
     ],
   },
   {

@@ -135,6 +135,8 @@ const chapters: Chapter[] = [
       'The Implementation Science',
       'The e-Governance Models',
       'The Charters and the Reforms',
+      'Government Policies, Interventions and the Development Industry',
+      'Welfare Schemes for Vulnerable Sections: Poverty and Hunger',
     ],
   },
   {

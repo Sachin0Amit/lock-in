@@ -73,6 +73,7 @@ const chapters: Chapter[] = [
       'The Life-Cycle Patterns Fixed',
       'The Economic Extracts',
       'The Consequences Priced',
+      'The Salient-Features Register: Algae, Bryophytes, Pteridophytes and Gymnosperms',
     ],
   },
   {
@@ -118,6 +119,7 @@ const chapters: Chapter[] = [
       'The Families Fixed by Their Crafts',
       'The Economic Cross-References',
       'The Keying Drill\u2019s Ten Specimens',
+      'The Five Exam Families: Malvaceae, Cruciferae, Leguminoceae, Compositae and Graminae',
     ],
   },
   {

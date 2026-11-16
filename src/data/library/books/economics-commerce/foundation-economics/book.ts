@@ -58,6 +58,10 @@ const chapters: Chapter[] = [
       'The Supply Law',
       'The Clearing Price',
       'Everyday Registers',
+      'Elasticity and Its Applications',
+      'Supply, Demand and Government Policies',
+      'Monopoly, Oligopoly and Price Discrimination First Pass',
+      'Externalities, Public Goods and Common Resources',
     ],
   },
   {

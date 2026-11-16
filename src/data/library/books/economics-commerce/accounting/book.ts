@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Equation Constitution',
       'The Receipts Classified',
       'The Standards Register',
+      'The Theory Base of Accounting: Concepts and Standards',
     ],
   },
   {
@@ -43,6 +44,7 @@ const chapters: Chapter[] = [
       'The Subsidiary Register',
       'The Balancing Arithmetic',
       'The Errors Census',
+      'Recording of Transactions: Journal to Ledger',
     ],
   },
   {
@@ -88,6 +90,7 @@ const chapters: Chapter[] = [
       'The Notary Register',
       'The Rectification Craft',
       'The Suspense Role',
+      'The Bank Reconciliation Statement',
     ],
   },
   {
@@ -103,6 +106,8 @@ const chapters: Chapter[] = [
       'The Admission Case',
       'Retirement and Death',
       'The Dissolution Register',
+      'Admission of a Partner',
+      'Retirement and Death of a Partner',
     ],
   },
   {
@@ -133,6 +138,7 @@ const chapters: Chapter[] = [
       'The Ratio First Pass',
       'The Common-Size Registers',
       'The Cash-Flow Ledger',
+      'Computerised Accounting and Spreadsheets',
     ],
   },
 ]

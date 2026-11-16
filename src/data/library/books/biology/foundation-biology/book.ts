@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Organisation Ladder',
       'Emergence at Each Level',
       'The Three-Domain Preview',
+      'The Living World',
     ],
   },
   {
@@ -103,6 +104,9 @@ const chapters: Chapter[] = [
       'The Exploding Diversity',
       'The Binomial Craft',
       'Descent with Modification',
+      'The Monera, Protista and Fungi: Salient Features and Classification',
+      'Lichens, Viruses and Viroids: The Edge of the Five Kingdoms',
+      'Biological Classification',
     ],
   },
   {
@@ -148,6 +152,7 @@ const chapters: Chapter[] = [
       'The Two Organism Traditions',
       'The NEET Register Named',
       'The Promise of the Next Book',
+      'Adolescence, Drug and Alcohol Abuse: The Health Register',
     ],
   },
 ]

@@ -44,6 +44,7 @@ const chapters: Chapter[] = [
       'The Plate Engine',
       'The Rocks\u2019 Cycle',
       'The Shakes and the Fires\u2019 Register',
+      'Geomorphology, Climatology, Oceanography and Biogeography',
     ],
   },
   {

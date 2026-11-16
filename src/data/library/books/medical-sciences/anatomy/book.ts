@@ -133,6 +133,7 @@ const chapters: Chapter[] = [
       'The Plain Film\u2019s Reading Honesty',
       'The Surface-Projection Register',
       'The Ultrasound Windows Named',
+      'Applied Anatomy: The Clinical Surface Register',
     ],
   },
 ]

@@ -148,6 +148,9 @@ const chapters: Chapter[] = [
       'The Acts and the Raj\u2019s Construction',
       'The Reform and the Revival Movements',
       'The 1857 Revolt and Its Consequences',
+      'The Rise of Indian Nationalism and the Moderates',
+      'The Gandhian Phase and Mass Movements',
+      'The Constitution, Partition and Integration of States',
     ],
   },
   {
@@ -164,6 +167,7 @@ const chapters: Chapter[] = [
       'The Left, the Revolutionaries and the INA',
       'Towards Freedom and Partition',
       'The Contributors From Every Region',
+      'Modern Indian History: The Significant Events, Personalities and Issues',
     ],
   },
   {

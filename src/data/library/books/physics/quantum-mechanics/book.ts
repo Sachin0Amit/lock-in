@@ -43,6 +43,11 @@ const chapters: Chapter[] = [
       'Two Representations',
       'Dirac Notation',
       'Uncertainty Re-derived',
+      'The Time-Dependent Schrodinger Equation and Wave Packets',
+      'Finite Potential Wells and Barrier Tunnelling Depths',
+      'The Linear Harmonic Oscillator by Ladder Operators',
+      'Scattering in One Dimension and the Reflection Coefficient',
+      'Identical Particles and Exchange Symmetry',
     ],
   },
   {

@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The CYP Interaction Receipt Named',
       'The Plateau Receipt Fixed by Drill',
       'The Monitoring Register Named',
+      'Pharmacological and Parenteral Therapies',
     ],
   },
   {

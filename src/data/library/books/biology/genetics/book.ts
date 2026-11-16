@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The 3:1 and Its Hidden 1:2:1',
       'The Test-Cross Detective',
       'The Probability Craft',
+      'Heredity and Variation',
+      'Variation: The Raw Material',
     ],
   },
   {
@@ -43,6 +45,7 @@ const chapters: Chapter[] = [
       'The ABO Craft',
       'Epistasis\u2019s Modified Ratios',
       'Polygenic Curves and the Norm of Reaction',
+      'Meiosis and Genetic Diversity',
     ],
   },
   {
@@ -73,6 +76,7 @@ const chapters: Chapter[] = [
       'The Aneuploid Census',
       'The Structural Errors',
       'The Polyploid Split and the Ethics',
+      'The Mendelian and Chromosomal Disorders: Thalassemia to Klinefelter',
     ],
   },
   {

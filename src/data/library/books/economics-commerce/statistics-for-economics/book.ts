@@ -28,6 +28,9 @@ const chapters: Chapter[] = [
       'The Presentation Register',
       'The Central Census',
       'The Dispersion Register',
+      'Collection of Data',
+      'Organisation and Presentation of Data',
+      'The Statistical Tools in Use',
     ],
   },
   {

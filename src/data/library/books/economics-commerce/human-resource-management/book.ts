@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Line-and-Staff Craft',
       'The Strategic Register',
       'The Metrics Census',
+      'Nature and Significance of Management',
     ],
   },
   {

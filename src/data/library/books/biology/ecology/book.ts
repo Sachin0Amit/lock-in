@@ -43,6 +43,7 @@ const chapters: Chapter[] = [
       'The J against the S',
       'The Life-History Census',
       'The Human Population Told Straight',
+      'Population Attributes: Growth, Birth and Death Rates',
     ],
   },
   {
@@ -118,6 +119,7 @@ const chapters: Chapter[] = [
       'The Crisis Sized',
       'The HIPPO Census and the Hotspot Craft',
       'The Restoration Register and the Sustainability Honesty',
+      'Biosphere Reserves, National Parks, Sanctuaries and Sacred Groves',
     ],
   },
   {

@@ -118,6 +118,7 @@ const chapters: Chapter[] = [
       'The Comparative Census',
       'Kepler Inherited',
       'The Detection Craft',
+      'Celestial Mechanics: Two-Body Orbits',
     ],
   },
   {
