@@ -63,7 +63,7 @@ const EXPECTED_CHAPTERS: Record<string, number> = {
 console.log('== A. shelf load & statuses ==')
 const hum = allBooks.filter((b) => b.discipline === 'humanities')
 ok(hum.length === 16, `16 humanities books (got ${hum.length})`)
-ok(allBooks.length === 139, `library now 139 books: 28 math + 44 CS + 38 engineering + 16 humanities + 13 languages (got ${allBooks.length})`)
+ok(allBooks.length === 269, `library now 269 books: 28 math + 44 CS + 38 engineering + 16 humanities + 13 languages + 19 physics + 23 ECF + 10 chemistry + 23 biology + 19 medical-sciences + 36 arts-music (got ${allBooks.length})`)
 ok(HUM_IDS.length === 16 && HUM_PREFIXES.length === 16, 'the id/prefix rosters pin 16 entries each')
 ok(hum.every((b) => b.status === 'planned'), 'every humanities book status planned')
 

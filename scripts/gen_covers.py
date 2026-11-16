@@ -74,6 +74,400 @@ HARD_PREFIX = (
 # id -> (subject phrase, motif phrase, accent hex pair) — accents copied from
 # each book.ts so the generated art matches the existing shelf gradients.
 BOOKS = {
+
+    # — the Biology shelf (2026-11-16 planning pass; roster 191 -> 214) —
+    "foundation-biology": (
+        "foundation biology",
+        "a sprouting seedling beside a magnifying glass and a blank field notebook with pencil.",
+        "#16a34a", "#14532d",
+    ),
+    "cell-biology": (
+        "cell biology",
+        "a translucent cell sphere with nested organelle shapes and fine dotted vesicle paths.",
+        "#16a34a", "#166534",
+    ),
+    "molecular-biology": (
+        "molecular biology",
+        "an elegant double helix of spheres and rods rising through softly drifting dots.",
+        "#2563eb", "#1e3a8a",
+    ),
+    "genetics": (
+        "genetics",
+        "a pea-plant tendril beside interlocking gear-like chromosome shapes and scattered small tiles.",
+        "#dc2626", "#7f1d1d",
+    ),
+    "evolution": (
+        "evolution",
+        "a branching tree of smooth river stones fading into ancient fossil ammonite spirals.",
+        "#78716c", "#44403c",
+    ),
+    "ecology": (
+        "ecology",
+        "layered forest ridges under a low sun with birds flying across a winding river path.",
+        "#059669", "#064e3b",
+    ),
+    "biotechnology": (
+        "biotechnology",
+        "a pipette dropping into a small petri dish beside interlocking DNA and cogwheel shapes.",
+        "#0891b2", "#164e63",
+    ),
+    "microbiology": (
+        "microbiology",
+        "cultured dish colonies as soft stippled blooms beside rod and spiral forms.",
+        "#7c3aed", "#4c1d95",
+    ),
+    "immunology": (
+        "immunology",
+        "a shield of overlapping hexagonal plates guarding a central radiant sphere.",
+        "#db2777", "#831843",
+    ),
+    "plant-anatomy": (
+        "plant anatomy",
+        "a cross-section disc of a stem with radiating vascular bundles like a wooden sunflower.",
+        "#4d7c0f", "#365314",
+    ),
+    "plant-physiology": (
+        "plant physiology",
+        "a single green leaf with luminous veins beside a rising sap-blue capillary column.",
+        "#65a30d", "#3f6212",
+    ),
+    "plant-taxonomy": (
+        "plant taxonomy",
+        "pressed herbarium leaves arranged in a neat archival grid with small magnifier.",
+        "#0d9488", "#134e4a",
+    ),
+    "plant-ecology": (
+        "plant ecology",
+        "a meadow gradient from dry grass to lush fern along a soft rainfall band.",
+        "#059669", "#022c22",
+    ),
+    "plant-genetics": (
+        "plant genetics",
+        "wheat ears beside a lattice of small tiled kernels in two alternating hues.",
+        "#ea580c", "#7c2d12",
+    ),
+    "plant-pathology": (
+        "plant pathology",
+        "a leaf with softly sunken lesion spots beside a glass spray bottle.",
+        "#b91c1c", "#450a0a",
+    ),
+    "economic-botany": (
+        "economic botany",
+        "a wooden market table with wheat, cotton bolls and spice pods in bowls.",
+        "#ca8a04", "#713f12",
+    ),
+    "animal-diversity": (
+        "animal diversity",
+        "a parade of simplified animal silhouettes from snail shell to bird wing.",
+        "#0f766e", "#134e4a",
+    ),
+    "animal-anatomy": (
+        "animal anatomy",
+        "a clean anatomical torso side-view with softly glowing organ shapes.",
+        "#9333ea", "#581c87",
+    ),
+    "animal-physiology": (
+        "animal physiology",
+        "a rhythmic heartbeat trace crossing a breathing lung shape of fine branches.",
+        "#0891b2", "#0e7490",
+    ),
+    "developmental-biology": (
+        "developmental biology",
+        "a sequence of embryo forms growing from single circle to folded body.",
+        "#e11d48", "#4c0519",
+    ),
+    "animal-behaviour": (
+        "animal behaviour",
+        "a honeycomb with one highlighted cell beside a wandering ant trail.",
+        "#f59e0b", "#78350f",
+    ),
+    "entomology": (
+        "entomology",
+        "a precise beetle wing-case of geometric shell plates and fine antennae arcs.",
+        "#a16207", "#422006",
+    ),
+    "parasitology": (
+        "parasitology",
+        "a coiled helical form inside a soft circular host silhouette, nested rings around.",
+        "#be123c", "#4c0519",
+    ),
+    # — the Medical Sciences shelf (2026-11-16 planning pass; roster 214 -> 233) —
+    "anatomy": (
+        "anatomy",
+        "a translucent human torso with softly glowing organ forms and fine meridian lines.",
+        "#dc2626", "#450a0a",
+    ),
+    "medical-physiology": (
+        "medical physiology",
+        "a heart with graceful artery branches beside a rhythmic pulse trace.",
+        "#b91c1c", "#7f1d1d",
+    ),
+    "medical-biochemistry": (
+        "medical biochemistry",
+        "laboratory flasks with layered liquid gradients beside hexagonal molecule tiles.",
+        "#be123c", "#4c0519",
+    ),
+    "histology": (
+        "histology",
+        "a microscope field of softly stained tissue mosaic in pink and violet hues.",
+        "#7c3aed", "#3b0764",
+    ),
+    "pathology": (
+        "pathology",
+        "a cell under magnification with one softly darkened nucleus and fine repair seams.",
+        "#991b1b", "#450a0a",
+    ),
+    "pharmacology": (
+        "pharmacology",
+        "a mortar and pestle with capsules beside a molecular key fitting a lock plate.",
+        "#0369a1", "#0c4a6e",
+    ),
+    "medical-microbiology": (
+        "medical microbiology",
+        "a petri-dish ring of stippled colonies with rod and sphere forms in agar.",
+        "#9f1239", "#4c0519",
+    ),
+    "clinical-immunology": (
+        "clinical immunology",
+        "a y-shaped antibody form embracing a small sphere with fine receptor dots.",
+        "#db2777", "#831843",
+    ),
+    "forensic-medicine": (
+        "forensic medicine",
+        "a magnifier over a fingerprint whorl beside a balanced scale silhouette.",
+        "#7f1d1d", "#1c1917",
+    ),
+    "community-medicine": (
+        "community medicine",
+        "a map-like community grid of small houses around a clinic cross marker.",
+        "#0f766e", "#042f2e",
+    ),
+    "internal-medicine": (
+        "internal medicine",
+        "a stethoscope coiled into a heart shape on a clean clinical desk.",
+        "#b91c1c", "#450a0a",
+    ),
+    "general-surgery": (
+        "general surgery",
+        "surgical instruments laid in precise parallel on folded cloth.",
+        "#7f1d1d", "#171717",
+    ),
+    "obstetrics-gynaecology": (
+        "obstetrics & gynaecology",
+        "a protective curved crescent cradling a small seed-of-life form.",
+        "#be185d", "#831843",
+    ),
+    "pediatrics": (
+        "pediatrics",
+        "a growth ruler chart with softly rising teddy bear and building block.",
+        "#f97316", "#7c2d12",
+    ),
+    "dentistry": (
+        "dentistry",
+        "a clean molar crown form with gentle roots like a polished sculpture.",
+        "#0891b2", "#083344",
+    ),
+    "nursing": (
+        "nursing",
+        "a folded nurse cap with a lamp glow beside a caring open hand.",
+        "#0d9488", "#134e4a",
+    ),
+    "pharmacy": (
+        "pharmacy",
+        "a classic apothecary jar beside graduated cylinders and a pestle.",
+        "#4f46e5", "#312e81",
+    ),
+    "veterinary-medicine": (
+        "veterinary medicine",
+        "a gentle cow and horse silhouette under a rural sun arc.",
+        "#57534e", "#292524",
+    ),
+    "physiotherapy": (
+        "physiotherapy",
+        "a hand guiding a bent spine form back into gentle alignment.",
+        "#0284c7", "#0c4a6e",
+    ),
+    # — the Arts-Music shelf (2026-11-16 planning pass; roster 233 -> 269) —
+    "music-theory-notation": (
+        "music theory & notation",
+        "an open blank staff with five lines and softly floating rests.",
+        "#7c3aed", "#4c1d95",
+    ),
+    "rhythm-meter": (
+        "rhythm & meter",
+        "drum skins in concentric rings with offset beat dots like a rhythm clock.",
+        "#0891b2", "#155e75",
+    ),
+    "harmony": (
+        "harmony",
+        "interlocking piano keys rising into stacked chord columns.",
+        "#2563eb", "#1e3a8a",
+    ),
+    "counterpoint": (
+        "counterpoint",
+        "two mirrored melodic curves weaving through a shared staff grid.",
+        "#0891b2", "#0e7490",
+    ),
+    "ear-training": (
+        "ear training",
+        "a single brass tuning fork beside an open piano lid silhouette.",
+        "#f59e0b", "#92400e",
+    ),
+    "music-composition": (
+        "music composition",
+        "a quill pen writing on blank staff paper with a soft candle glow.",
+        "#7c3aed", "#4338ca",
+    ),
+    "music-history": (
+        "music history",
+        "an ancient lyre fading into a vinyl disc across an arc of time.",
+        "#a855f7", "#581c87",
+    ),
+    "acoustics": (
+        "acoustics",
+        "concentric sound ripples from a single point crossing soft wave meshes.",
+        "#0891b2", "#164e63",
+    ),
+    "instrument-studies": (
+        "instrument studies",
+        "a violin body curve beside a single flute and drum form.",
+        "#65a30d", "#3f6212",
+    ),
+    "vocal-music": (
+        "vocal music",
+        "a rising breath ribbon from an open mouth silhouette into soft notes.",
+        "#e11d48", "#881337",
+    ),
+    "music-production": (
+        "music production",
+        "a mixing desk of faders and knobs with a soft signal path glow.",
+        "#f97316", "#7c2d12",
+    ),
+    "drawing": (
+        "drawing",
+        "a graphite pencil beside a shaded sphere on sketch paper.",
+        "#334155", "#0f172a",
+    ),
+    "painting": (
+        "painting",
+        "a wooden palette with paint wells and a single brush laid across.",
+        "#dc2626", "#450a0a",
+    ),
+    "colour-theory": (
+        "colour theory",
+        "an artist colour wheel of soft pigment discs in spectral order.",
+        "#e11d48", "#4c0519",
+    ),
+    "perspective": (
+        "perspective",
+        "receding railway-like lines to a single vanishing point on plain ground.",
+        "#0f766e", "#042f2e",
+    ),
+    "illustration": (
+        "illustration",
+        "a blank storybook open beside a curious character silhouette sketch.",
+        "#7c3aed", "#4c1d95",
+    ),
+    "sculpture": (
+        "sculpture",
+        "a half-carved marble block emerging into a head form with chisel.",
+        "#57534e", "#292524",
+    ),
+    "graphic-design": (
+        "graphic design",
+        "a clean layout grid with geometric shapes in balanced composition.",
+        "#2563eb", "#1e3a8a",
+    ),
+    "typography": (
+        "typography",
+        "large abstract letterform-like curves as pure black ink shapes.",
+        "#0f172a", "#020617",
+    ),
+    "photography": (
+        "photography",
+        "a vintage camera silhouette with a soft aperture iris.",
+        "#0369a1", "#0c4a6e",
+    ),
+    "digital-art": (
+        "digital art",
+        "a glowing stylus drawing light strokes on a blank tablet surface.",
+        "#8b5cf6", "#4c1d95",
+    ),
+    "animation": (
+        "animation",
+        "a motion arc of a bouncing ball drawn in ghosted sequence.",
+        "#f59e0b", "#78350f",
+    ),
+    "3d-modelling": (
+        "3d modelling",
+        "a wireframe cube transforming into a smooth shaded sphere.",
+        "#14b8a6", "#134e4a",
+    ),
+    "dance-fundamentals": (
+        "dance fundamentals",
+        "a dancer mid-stance with a graceful balance line underfoot.",
+        "#db2777", "#831843",
+    ),
+    "classical-dance": (
+        "classical dance",
+        "ornamental mudra-like hand gestures framed by temple arch motifs.",
+        "#9f1239", "#4c0519",
+    ),
+    "contemporary-dance": (
+        "contemporary dance",
+        "a flowing floor movement arc with soft release ribbons.",
+        "#f43f5e", "#881337",
+    ),
+    "theatre": (
+        "theatre",
+        "a grand curtain arch with a single empty spotlight circle on boards.",
+        "#7c2d12", "#451a03",
+    ),
+    "acting": (
+        "acting",
+        "two masks of calm and expression facing apart in soft relief.",
+        "#c2410c", "#7c2d12",
+    ),
+    "film-studies": (
+        "film studies",
+        "a film strip winding through a projector beam cone.",
+        "#1e40af", "#1e3a8a",
+    ),
+    "cinematography": (
+        "cinematography",
+        "a camera on tripod with key light and soft shadow falloff.",
+        "#0369a1", "#082f49",
+    ),
+    "screenwriting": (
+        "screenwriting",
+        "a typewriter page with dialogue-like blank lines and coffee cup.",
+        "#4338ca", "#312e81",
+    ),
+    "stage-production": (
+        "stage production",
+        "a stage truss with hanging lights and coiled cable ropes.",
+        "#57534e", "#1c1917",
+    ),
+    "architecture": (
+        "architecture",
+        "a blueprint plan of walls and columns with a drafting compass.",
+        "#0f766e", "#042f2e",
+    ),
+    "interior-design": (
+        "interior design",
+        "a room corner with armchair, floor lamp and soft window light.",
+        "#0891b2", "#155e75",
+    ),
+    "fashion-design": (
+        "fashion design",
+        "a dress form mannequin with draped fabric and thread spool.",
+        "#be185d", "#831843",
+    ),
+    "creative-writing": (
+        "creative writing",
+        "a fountain pen resting on blank pages with a soft lamp glow.",
+        "#7c2d12", "#431407",
+    ),
     "foundation-mathematics": (
         "school foundations",
         "smooth river stones arranged in gently growing rows beside neat stacks "

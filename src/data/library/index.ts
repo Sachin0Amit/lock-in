@@ -190,6 +190,87 @@ import { biochemistry } from './books/chemistry/biochemistry/book'
 import { quantumChemistry } from './books/chemistry/quantum-chemistry/book'
 import { computationalChemistry } from './books/chemistry/computational-chemistry/book'
 import { industrialChemistry } from './books/chemistry/industrial-chemistry/book'
+/* Biology full-shelf planning pass (2026-11-16): 23 books, status planned, zero lessons written; durable generator scripts/gen_biology_shelf.py, evidence docs/research/BIOLOGY_TOC_SURVEY.md */
+import { foundationBiology } from './books/biology/foundation-biology/book'
+import { cellBiology } from './books/biology/cell-biology/book'
+import { molecularBiology } from './books/biology/molecular-biology/book'
+import { genetics } from './books/biology/genetics/book'
+import { evolution } from './books/biology/evolution/book'
+import { ecology } from './books/biology/ecology/book'
+import { biotechnology } from './books/biology/biotechnology/book'
+import { microbiology } from './books/biology/microbiology/book'
+import { immunology } from './books/biology/immunology/book'
+import { plantAnatomy } from './books/biology/plant-anatomy/book'
+import { plantPhysiology } from './books/biology/plant-physiology/book'
+import { plantTaxonomy } from './books/biology/plant-taxonomy/book'
+import { plantEcology } from './books/biology/plant-ecology/book'
+import { plantGenetics } from './books/biology/plant-genetics/book'
+import { plantPathology } from './books/biology/plant-pathology/book'
+import { economicBotany } from './books/biology/economic-botany/book'
+import { animalDiversity } from './books/biology/animal-diversity/book'
+import { animalAnatomy } from './books/biology/animal-anatomy/book'
+import { animalPhysiology } from './books/biology/animal-physiology/book'
+import { developmentalBiology } from './books/biology/developmental-biology/book'
+import { animalBehaviour } from './books/biology/animal-behaviour/book'
+import { entomology } from './books/biology/entomology/book'
+import { parasitology } from './books/biology/parasitology/book'
+/* Medical Sciences full-shelf planning pass (2026-11-16): 19 books, status planned, zero lessons written; durable generator scripts/gen_medical_shelf.py, evidence docs/research/MEDICAL_TOC_SURVEY.md */
+import { anatomy } from './books/medical-sciences/anatomy/book'
+import { medicalPhysiology } from './books/medical-sciences/medical-physiology/book'
+import { medicalBiochemistry } from './books/medical-sciences/medical-biochemistry/book'
+import { histology } from './books/medical-sciences/histology/book'
+import { pathology } from './books/medical-sciences/pathology/book'
+import { pharmacology } from './books/medical-sciences/pharmacology/book'
+import { medicalMicrobiology } from './books/medical-sciences/medical-microbiology/book'
+import { clinicalImmunology } from './books/medical-sciences/clinical-immunology/book'
+import { forensicMedicine } from './books/medical-sciences/forensic-medicine/book'
+import { communityMedicine } from './books/medical-sciences/community-medicine/book'
+import { internalMedicine } from './books/medical-sciences/internal-medicine/book'
+import { generalSurgery } from './books/medical-sciences/general-surgery/book'
+import { obstetricsGynaecology } from './books/medical-sciences/obstetrics-gynaecology/book'
+import { pediatrics } from './books/medical-sciences/pediatrics/book'
+import { dentistry } from './books/medical-sciences/dentistry/book'
+import { nursing } from './books/medical-sciences/nursing/book'
+import { pharmacy } from './books/medical-sciences/pharmacy/book'
+import { veterinaryMedicine } from './books/medical-sciences/veterinary-medicine/book'
+import { physiotherapy } from './books/medical-sciences/physiotherapy/book'
+/* Arts-Music full-shelf planning pass (2026-11-16): 36 books, status planned, zero lessons written; durable generator scripts/gen_arts_music_shelf.py, evidence docs/research/ARTS_MUSIC_TOC_SURVEY.md */
+import { musicTheoryNotation } from './books/arts-music/music-theory-notation/book'
+import { rhythmMeter } from './books/arts-music/rhythm-meter/book'
+import { harmony } from './books/arts-music/harmony/book'
+import { counterpoint } from './books/arts-music/counterpoint/book'
+import { earTraining } from './books/arts-music/ear-training/book'
+import { musicComposition } from './books/arts-music/music-composition/book'
+import { musicHistory } from './books/arts-music/music-history/book'
+import { acoustics } from './books/arts-music/acoustics/book'
+import { instrumentStudies } from './books/arts-music/instrument-studies/book'
+import { vocalMusic } from './books/arts-music/vocal-music/book'
+import { musicProduction } from './books/arts-music/music-production/book'
+import { drawing } from './books/arts-music/drawing/book'
+import { painting } from './books/arts-music/painting/book'
+import { colourTheory } from './books/arts-music/colour-theory/book'
+import { perspective } from './books/arts-music/perspective/book'
+import { illustration } from './books/arts-music/illustration/book'
+import { sculpture } from './books/arts-music/sculpture/book'
+import { graphicDesign } from './books/arts-music/graphic-design/book'
+import { typography } from './books/arts-music/typography/book'
+import { photography } from './books/arts-music/photography/book'
+import { digitalArt } from './books/arts-music/digital-art/book'
+import { animation } from './books/arts-music/animation/book'
+import { threeDModelling } from './books/arts-music/3d-modelling/book'
+import { danceFundamentals } from './books/arts-music/dance-fundamentals/book'
+import { classicalDance } from './books/arts-music/classical-dance/book'
+import { contemporaryDance } from './books/arts-music/contemporary-dance/book'
+import { theatre } from './books/arts-music/theatre/book'
+import { acting } from './books/arts-music/acting/book'
+import { filmStudies } from './books/arts-music/film-studies/book'
+import { cinematography } from './books/arts-music/cinematography/book'
+import { screenwriting } from './books/arts-music/screenwriting/book'
+import { stageProduction } from './books/arts-music/stage-production/book'
+import { architecture } from './books/arts-music/architecture/book'
+import { interiorDesign } from './books/arts-music/interior-design/book'
+import { fashionDesign } from './books/arts-music/fashion-design/book'
+import { creativeWriting } from './books/arts-music/creative-writing/book'
 import type { Book, Chapter, Discipline, DisciplineId, Lesson, Term } from './types'
 import { countLessonWords } from './types'
 
@@ -475,6 +556,84 @@ export const allBooks: Book[] = [
   quantumChemistry,
   computationalChemistry,
   industrialChemistry,
+  foundationBiology,
+  cellBiology,
+  molecularBiology,
+  genetics,
+  evolution,
+  ecology,
+  biotechnology,
+  microbiology,
+  immunology,
+  plantAnatomy,
+  plantPhysiology,
+  plantTaxonomy,
+  plantEcology,
+  plantGenetics,
+  plantPathology,
+  economicBotany,
+  animalDiversity,
+  animalAnatomy,
+  animalPhysiology,
+  developmentalBiology,
+  animalBehaviour,
+  entomology,
+  parasitology,
+  anatomy,
+  medicalPhysiology,
+  medicalBiochemistry,
+  histology,
+  pathology,
+  pharmacology,
+  medicalMicrobiology,
+  clinicalImmunology,
+  forensicMedicine,
+  communityMedicine,
+  internalMedicine,
+  generalSurgery,
+  obstetricsGynaecology,
+  pediatrics,
+  dentistry,
+  nursing,
+  pharmacy,
+  veterinaryMedicine,
+  physiotherapy,
+  musicTheoryNotation,
+  rhythmMeter,
+  harmony,
+  counterpoint,
+  earTraining,
+  musicComposition,
+  musicHistory,
+  acoustics,
+  instrumentStudies,
+  vocalMusic,
+  musicProduction,
+  drawing,
+  painting,
+  colourTheory,
+  perspective,
+  illustration,
+  sculpture,
+  graphicDesign,
+  typography,
+  photography,
+  digitalArt,
+  animation,
+  threeDModelling,
+  danceFundamentals,
+  classicalDance,
+  contemporaryDance,
+  theatre,
+  acting,
+  filmStudies,
+  cinematography,
+  screenwriting,
+  stageProduction,
+  architecture,
+  interiorDesign,
+  fashionDesign,
+  creativeWriting,
 ]
 
 export const allDisciplines: Discipline[] = disciplines

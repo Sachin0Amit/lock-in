@@ -318,20 +318,43 @@ prefixes for all 38 verified unused against the 144 written lesson ids
 (unchanged, future passes): aerospace · chemical · biomedical · automobile ·
 mining · agricultural · nuclear engineering.
 
-## Biology (9)
-Foundation · Cell Biology · Molecular Biology · Genetics · Evolutionary ·
-Ecology · Biotechnology · Microbiology · Immunology
+## Biology (24 lines → 23 books + 1 honest fold) — **THE FULL SHELF IS PLANNED (audited)**
+Planned by the Biology full-shelf planning pass (2026-11-16, the owner
+directive "yes" to opening the three remaining shelves): the Campbell
+Biology 12e unit arc read this pass as the spine (Chemistry of Life / The
+Cell / Genetics / Mechanisms of Evolution / Diversity / Plant and Animal
+Form and Function / Ecology), the Mauseth Botany four-part arc and the
+Hickman zoology parts read for the two organism traditions, every book
+web-researched against its canonical poles, and all 23 books promoted to
+`src/data/library/books/biology/<slug>/book.ts` with status 'planned' —
+**182 chapters / 728 planned lessons, zero written**. THE HONEST FOLD: the
+core line Evolutionary and the zoology line Evolution share ONE evolution
+book (the whole evolutionary story in one register). The microbiology /
+immunology books own the GENERAL registers — the medical shelf's
+medical-microbiology / clinical-immunology own the clinical sibling views.
+Evidence base: `docs/research/BIOLOGY_TOC_SURVEY.md`; durable generator:
+`scripts/gen_biology_shelf.py` (plan data in
+`scripts/shelf_data/biology_books_[abcd].py`, committed); gate:
+`scripts/verify-bio-med-arts-shelf-planning.ts` (3357/0 across the three
+shelves).
 
-## Botany (7) / Zoology (8)
-Plant Anatomy · Physiology · Taxonomy · Ecology · Genetics · Pathology ·
-Economic Botany ‖ Animal Diversity · Anatomy · Physiology · Developmental ·
-Behaviour · Evolution · Entomology · Parasitology
-
-## Medical Sciences (14+)
-Anatomy · Physiology · Biochemistry · Histology · Pathology · Pharmacology ·
-Microbiology · Immunology · Forensic Medicine · Community Medicine ·
-Medicine · Surgery · Obstetrics & Gynaecology · Pediatrics + specialties;
-also dentistry, nursing, pharmacy, veterinary, physiotherapy
+## Medical Sciences (19 lines → 19 books) — **THE FULL SHELF IS PLANNED (audited)**
+Planned by the Medical Sciences full-shelf planning pass (2026-11-16, the
+same owner turn): the Guyton & Hall thirteen-unit arc and the Robbins &
+Cotran chapter arc read this pass as the spines, the MBBS/NEET/FMGE
+professional registers priced beneath every book, and all 19 books
+promoted to `src/data/library/books/medical-sciences/<slug>/book.ts` with
+status 'planned' — **121 chapters / 484 planned lessons, zero written**.
+The biochemistry / microbiology / immunology books are the CLINICAL
+sibling views of the biology shelf's general books (book ids
+medical-biochemistry / medical-microbiology / clinical-immunology); the
+five professional lines (dentistry · nursing · pharmacy · veterinary ·
+physiotherapy) map one-to-one. Evidence base:
+`docs/research/MEDICAL_TOC_SURVEY.md`; durable generator:
+`scripts/gen_medical_shelf.py` (plan data in
+`scripts/shelf_data/medical_books_[ab].py`, committed); gate:
+`scripts/verify-bio-med-arts-shelf-planning.ts` (3357/0 across the three
+shelves).
 
 ## Economics, Commerce & Finance (24 backlog lines → 23 books + 1 honest fold) — **THE FULL SHELF IS PLANNED (audited)**
 Planned by the Economics, Commerce & Finance full-shelf planning pass
@@ -481,15 +504,21 @@ from every mathematics/CS/engineering/humanities prefix
 ENGLISH while the Engineering shelf reserves no `eng-` — it uses
 mech-/som-/etc. — no string collision).
 
-## Arts, Music & Creation
-**Music (13):** Theory · Notation · Rhythm & Meter · Harmony ·
-Counterpoint · Ear Training · Composition · History · Acoustics ·
-Instrument Studies · Vocal · Production · DAWs
-**Visual Arts (13):** Drawing · Painting · Colour Theory · Perspective ·
-Illustration · Sculpture · Art History · Graphic Design · Typography ·
-Photography · Digital Art · Animation · 3D Modelling
-**Performing Arts (9):** Dance Fundamentals · Classical Dance ·
-Contemporary Dance · Theatre · Acting · Film Studies · Cinematography ·
-Screenwriting · Stage Production
-**Also:** architecture · interior design · fashion design · creative
-writing · literature
+## Arts, Music & Creation (40 lines → 36 books + 4 honest folds) — **THE FULL SHELF IS PLANNED (audited)**
+Planned by the Arts-Music full-shelf planning pass (2026-11-16, the same
+owner turn): the Kostka Tonal Harmony TOC and the Bordwell Film Art TOC
+read this pass as the spines (the Gardner arc read for the art-history
+cross-references), the graded registers (ABRSM / the atelier / the
+conservatory) priced beneath the respective books, and all 36 books
+promoted to `src/data/library/books/arts-music/<slug>/book.ts` with status
+'planned' — **183 chapters / 732 planned lessons, zero written**. THE FOUR
+HONEST FOLDS: Notation → music-theory-notation (the staff craft is the
+theory's own written grammar); DAWs → music-production (the software
+register is the production craft's centre); Art History → the humanities
+shelf's art-history book owns the academic register (cross-referenced
+OUT); Literature → creative-writing as the writer's reading register.
+Evidence base: `docs/research/ARTS_MUSIC_TOC_SURVEY.md`; durable
+generator: `scripts/gen_arts_music_shelf.py` (plan data in
+`scripts/shelf_data/arts_music_books_[abc].py`, committed); gate:
+`scripts/verify-bio-med-arts-shelf-planning.ts` (3357/0 across the three
+shelves).

@@ -6518,3 +6518,83 @@ unresearched). Chapters 1.2–1.11 + books 2–27 of mathematics.
 - Covers: gen_covers.py roster 139 → 191; all 52 new covers generated + optimized (4.1 MB webp total) + wired into COVER_ART (covers.ts 186 → 234 entries); the VLM text-free sweep flagged 4, of which inorganic-chemistry + behavioural-economics regenerated clean, monetary-economics + financial-economics remain flagged after two HARDER regenerations with the image-edit clean pass erroring (service down) — their regeneration is queued for the next gen_covers run and the CSS-typography overlay is unaffected either way.
 - Docs: SUBJECT_BACKLOG's three sections rewritten to the planned roster style with the seven honest folds recorded; SOURCE_LOG's two pass records with every read anchor/arc URL; PROGRESS.json +42+10 planned books, phase → 191 books, the three pass keys (physics/ecf/chemistryShelfPlanning20261116); this WORKLOG row.
 - The authoring cadence is UNCHANGED — run 109 opens AA 3.5 exactly as the standing pointer records. REMAINING unplanned shelves for the next wave: biology (9 + botany 7/zoology 8) · medical-sciences (14+) · arts-music (music 13 + visual 13 + performing 9 + the also-lines). Push pending.
+
+## 2026-11-16 (fire 3 of the day) — Biology + Medical Sciences + Arts-Music full-shelf planning passes (owner directive: "yes" to opening the three remaining shelves)
+
+- **THE WAVE:** the three remaining unplanned shelves opened the same
+  way as the engineering/humanities/languages/physics/chemistry/ECF
+  passes — 78 books promoted to planned status, zero lessons written:
+  **Biology 23** (core 9 + botany 7 + zoology 7 — the honest fold: the
+  core line Evolutionary and the zoology line Evolution share ONE
+  evolution book) — 182 ch / 728 planned lessons; **Medical Sciences
+  19** (core clinical 10 + specialty/professional 9 — biochemistry,
+  microbiology and immunology carried as the CLINICAL sibling views of
+  the biology shelf's general books, ids medical-biochemistry /
+  medical-microbiology / clinical-immunology) — 121 ch / 484;
+  **Arts-Music 36** (music 11 + visual 12 + performing 9 + design 4 —
+  four honest folds: Notation→music-theory-notation, DAWs→
+  music-production, Art History→the humanities shelf's own art-history
+  book cross-referenced OUT, Literature→creative-writing as the
+  writer's reading register) — 183 ch / 732. The library census:
+  **191 → 269 books; every one of the eleven disciplines now live and
+  the home page's "On the roadmap" section retired** (it derives from
+  empty disciplines — none remain).
+- **RESEARCH:** read this pass — the Campbell Biology 12e unit arc
+  (Pearson + the Canada AP chapter list + biolympiads outlines), the
+  Mauseth Botany four-part arc (Jones & Bartlett + Google Books + LoC),
+  the Hickman Integrated Principles of Zoology parts (McGraw-Hill + the
+  contents-in-brief mirror), the Guyton & Hall 13-unit TOC (Elsevier +
+  catalogue mirrors), the Robbins & Cotran chapter arc (Elsevier), the
+  Kostka Tonal Harmony full TOC (LoC + McGraw-Hill), the Bordwell Film
+  Art TOC (McGraw-Hill), the Gardner arc for the art-history
+  cross-references; URLs in SOURCE_LOG.md; the three evidence docs
+  written: BIOLOGY_TOC_SURVEY.md + MEDICAL_TOC_SURVEY.md +
+  ARTS_MUSIC_TOC_SURVEY.md.
+- **DURABLE GENERATORS (committed, unlike the prior wave's):**
+  gen_biology_shelf.py + gen_medical_shelf.py + gen_arts_music_shelf.py
+  with the plan data in scripts/shelf_data/{biology,medical,arts_music}
+  _books_*.py and the shared emitter shelf_data/emit_book.py — all
+  idempotent (regenerate byte-identical book.ts files). HONEST FLAG:
+  the prior physics/chemistry/ECF passes' referenced-but-missing
+  artifacts (gen_chemistry_shelf.py, gen_economics_finance_shelf.py,
+  the verify-*-shelf-planning.ts trio) were inherited missing from
+  commit f8c869a — recorded, not papered over; this pass's own artifacts
+  are all in the tree.
+- **GATES:** verify-bio-med-arts-shelf-planning.ts **3357/0** (78-book
+  load, per-book census pinned, chapter hygiene ≥200-char summaries,
+  unique lesson titles, the 78 lesson-id prefixes reserved and verified
+  unused + collision-checked against 150 reserved prefixes, global id
+  uniqueness, handoff language, evidence docs, planning-only guarantee,
+  generators exist). The FIVE older shelf gates were amended honestly
+  to the 269-book census (math 1240/0 · CS 2348/0 · engineering 2257/0 ·
+  humanities 1121/0 · languages 923/0 — their 139-book pins were
+  ALREADY stale-red at HEAD before this pass, inherited from the
+  physics/chemistry/ECF turns not amending them). Full standing set
+  green: topic-coverage 667 · toc-as-lessons 3883 · exam 2433 ·
+  cs-exam 696 · practice 274 · revision 88. tsc: the new files clean
+  (the 2 pre-existing app-shell strays remain, untouched). lint 0
+  errors.
+- **E2E (live, port 3000):** home page renders Biology 23 / Medical
+  Sciences 19 / Arts & Music 36 shelves, roadmap section gone; sampled
+  book pages 200 with chapter TOCs rendering (evolution · anatomy ·
+  music-theory-notation · classical-dance · medical-physiology ·
+  3d-modelling); searchLibrary finds the new books ('evolution' →
+  Evolution first; 'Bharatanatyam' → Classical Dance; 'fugue' →
+  Counterpoint); no overflow desktop 1280 / mobile 390; no console
+  errors.
+- **COVERS:** gen_covers.py roster grown 191 → 269 + COVER_ART manifest
+  registered for all 78 new books (motif per subject, palette per
+  accent pair); generation running as the idempotent loop
+  covers-run-loop.sh (the z-ai endpoint returned 429 during this fire —
+  the loop retries with backoff; any book without art on disk falls
+  back to the gradient cover, so nothing blocks on it).
+- **KNOWN GAP (queued, honest):** the arts/medical shelf chapter
+  summaries carry formulaic planning prose — a padding-degradation
+  pattern was caught mid-pass and mechanically cleaned (the biology
+  core books are the model register; all summaries pass the >200-char
+  hygiene with real chapter structure, real citations and real
+  cross-references); a prose-polish fire is queued before those
+  shelves' first lessons are written.
+- The authoring cadence is UNCHANGED — run 109 opens AA 3.5 first
+  exactly as the standing pointer records. Push pending (no PAT this
+  delivery).

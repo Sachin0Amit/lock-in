@@ -3045,3 +3045,74 @@ scripts/verify-cs-exam-coverage.ts):
   authored, no reproduction surface. Evidence base:
   docs/research/CHEMISTRY_TOC_SURVEY.md; gate:
   verify-chemistry-shelf-planning 804/0.
+
+## 2026-11-16 — Biology / Medical Sciences / Arts-Music full-shelf planning passes (owner directive: "yes" to opening the three remaining shelves)
+
+Read-and-recorded this pass (planning-only, no lesson text authored):
+
+- Campbell Biology 12th edition — the unit arc read from the Pearson
+  catalogue (https://www.pearson.com/en-us/subject-catalog/p/campbell-biology/P200000007019/9780135988046)
+  corroborated by the Pearson Canada AP edition chapter list
+  (https://www.pearsoncanadaschool.com/advanced-placement/products/campbell-bio-ap-12th.html)
+  and the biolympiads Campbell chapter-outline index
+  (https://biolympiads.com/campbell-chapter-outlines-2). UNIT arc:
+  Chemistry of Life / The Cell / Genetics / Mechanisms of Evolution /
+  Evolutionary History of Biological Diversity / Plant and Animal Form
+  and Function / Ecology — the shelf's spine.
+- Mauseth, Botany: An Introduction to Plant Biology — the four-section
+  structure read from the publisher page
+  (https://www.jblearning.com/catalog/productdetails/9781284157352) and
+  Google Books contents (https://books.google.com/books/about/Botany.html?id=0BGEs95p5EsC),
+  corroborated by the Library of Congress TOC
+  (https://catdir.loc.gov/catdir/toc/ecip085/2007047368.html): Plant
+  Structure / Plant Physiology and Development / Genetics and Evolution
+  / Ecology — the botany seven's spine.
+- Hickman, Integrated Principles of Zoology — the parts and
+  contents-in-brief read from McGraw-Hill
+  (https://www.mheducation.com/highered/product/integrated-principles-of-zoology-hickman.html)
+  and the mirrored contents PDF (dl.icdst.org): Part One Introduction
+  to Living Animals / Part Two Continuity and Evolution / Part Three
+  Diversity of Animal Life / Part Four Activity of Life / Part Five
+  Animal Behavior — the zoology seven's spine.
+- Guyton & Hall, Textbook of Medical Physiology — the thirteen-unit TOC
+  read from the Elsevier shop page
+  (https://shop.elsevier.com/books/guyton-and-hall-textbook-of-medical-physiology/hall/978-0-323-59712-8),
+  the library catalogue (catalog.library.tamu.edu) and the 62-chapter TOC
+  mirrors — the medical-physiology spine and the sibling-view anchor.
+- Robbins & Cotran, Pathologic Basis of Disease — the chapter arc read
+  from the Elsevier pages
+  (https://www.us.elsevierhealth.com/robbins-cotran-kumar-pathologic-basis-of-disease-9780443264528.html
+  and shop.elsevier.com 10e) — the pathology spine (Ch 1 The Cell as a
+  Unit of Health and Disease → … → Ch 26 Bones, Joints and Soft Tissue
+  Tumors).
+- Kostka & Payne, Tonal Harmony — the full TOC read from the Library of
+  Congress catalogue
+  (https://catdir.loc.gov/catdir/toc/mh031/2003042213.html) and the
+  McGraw-Hill edition pages (https://www.mheducation.com/highered/product/tonal-harmony-kostka.html):
+  Part I Fundamentals (Elements of Pitch / Elements of Rhythm / Triads
+  and Seventh Chords / Diatonic Chords) → Part V Chromaticism 2 — the
+  music-theory line's spine.
+- Bordwell & Thompson, Film Art: An Introduction — the TOC read from
+  McGraw-Hill (https://www.mheducation.com/highered/product/film-art-an-introduction-bordwell.html)
+  and the library catalogues: Part One Film Art and Filmmaking / Part
+  Two Film Form (Significance of Film Form / Narrative Form) / Film
+  Style (The Shot: Mise-en-Scene / Cinematographic Properties /
+  Editing / Sound / Summary: Style as a Formal System) / Types of
+  Films — the film-studies and screenwriting spines.
+- Gardner's Art Through the Ages — the chapter arc read from the
+  publisher's concise-edition TOC (faculty.cengage.com) and the survey
+  PDF (art.pte.hu) — referenced for the art-history cross-references
+  (the humanities shelf's art-history book owns that register).
+- The NCERT class 11-12 school ladder, the NEET UG register, the MBBS
+  professional structure and the graded registers (ABRSM / the atelier /
+  the conservatory) named as the anchors beneath the respective books.
+
+Canonical arcs NAMED but not re-opened (each book.ts says so): Gray's
+and Moore's, Harper's, Ross & Pawlina, Katzung, Ananthanarayan, Park,
+DC Dutta, OP Ghai, Parikh, Agrios, Roberts & Janovy, Alcock, Taiz &
+Zeiger, Gullan & Cranston, Fux, Rimsky-Korsakov, Caplin, Roth,
+Ching, Armstrong. STUDY-NEVER-REPRODUCE: planning-only — no content
+authored, no reproduction surface. Evidence base:
+docs/research/BIOLOGY_TOC_SURVEY.md + MEDICAL_TOC_SURVEY.md +
+ARTS_MUSIC_TOC_SURVEY.md; gate:
+verify-bio-med-arts-shelf-planning.ts 3357/0.

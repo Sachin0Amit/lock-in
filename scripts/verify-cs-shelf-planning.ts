@@ -64,7 +64,7 @@ const EXPECTED_CHAPTERS = { 'computer-fundamentals': 8, 'digital-logic-design': 
 console.log('== A. shelf load & statuses ==')
 const cs = allBooks.filter((b) => b.discipline === 'computer-science')
 ok(cs.length === 44, `44 CS books (got ${cs.length})`)
-ok(allBooks.length === 139, `library now 139 books: 28 math + 44 CS + 38 engineering + 16 humanities + 13 languages (got ${allBooks.length})`)
+ok(allBooks.length === 269, `library now 269 books: 28 math + 44 CS + 38 engineering + 16 humanities + 13 languages + 19 physics + 23 ECF + 10 chemistry + 23 biology + 19 medical-sciences + 36 arts-music (got ${allBooks.length})`)
 ok(CS_IDS.length === 44 && CS_PREFIXES.length === 44, 'the id/prefix rosters pin 44 entries each')
 ok(cs.every((b) => b.status === 'planned'), 'every CS book status planned')
 

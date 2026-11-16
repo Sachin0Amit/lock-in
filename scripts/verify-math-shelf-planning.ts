@@ -40,7 +40,7 @@ const NEW_PREFIXES = ['geo-', 'cg-', 'tr-', 'dc-', 'ic-', 'mc-', 'de-', 'la-', '
 const NEW_IDS = ['geometry', 'coordinate-geometry', 'trigonometry', 'differential-calculus', 'integral-calculus', 'multivariable-calculus', 'differential-equations', 'linear-algebra', 'discrete-mathematics', 'number-theory', 'set-theory', 'mathematical-logic', 'combinatorics', 'probability-theory', 'statistics', 'real-analysis', 'complex-analysis', 'abstract-algebra', 'topology', 'numerical-analysis', 'mathematical-methods-for-engineering', 'optimization-and-operations-research', 'advanced-mathematical-foundations', 'quantitative-aptitude']
 
 console.log('== A. shelf load & statuses ==')
-ok(allBooks.length === 139, `139 books: 28 mathematics + 44 computer-science + 38 engineering + 16 humanities + 13 languages (got ${allBooks.length})`)
+ok(allBooks.length === 269, `269 books: 28 mathematics + 44 computer-science + 38 engineering + 16 humanities + 13 languages + 19 physics + 23 economics-commerce + 10 chemistry + 23 biology + 19 medical-sciences + 36 arts-music (got ${allBooks.length})`)
 const math = allBooks.filter((b) => b.discipline === 'mathematics')
 ok(math.length === 28, `28 mathematics books (got ${math.length})`)
 const complete = math.filter((b) => b.status === 'complete')

@@ -59,7 +59,7 @@ const EXPECTED_CHAPTERS: Record<string, number> = {
 console.log('== A. shelf load & statuses ==')
 const lang = allBooks.filter((b) => b.discipline === 'languages')
 ok(lang.length === 13, `13 language books (got ${lang.length})`)
-ok(allBooks.length === 139, `library now 139 books: 28 math + 44 CS + 38 engineering + 16 humanities + 13 languages (got ${allBooks.length})`)
+ok(allBooks.length === 269, `library now 269 books: 28 math + 44 CS + 38 engineering + 16 humanities + 13 languages + 19 physics + 23 ECF + 10 chemistry + 23 biology + 19 medical-sciences + 36 arts-music (got ${allBooks.length})`)
 ok(LANG_IDS.length === 13 && LANG_PREFIXES.length === 13, 'the id/prefix rosters pin 13 entries each')
 ok(lang.every((b) => b.status === 'planned'), 'every language book status planned')
 
