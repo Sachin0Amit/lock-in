@@ -720,6 +720,7 @@ export const chapter01: Chapter = {
       concepts: [
         'The domino principle',
         'Base case + inductive step',
+        'The shifted base',
         'The inductive hypothesis',
         'Proving the sum formulas',
         'Divisibility claims by induction',
@@ -794,6 +795,57 @@ export const chapter01: Chapter = {
           tone: 'warn',
           title: 'Both conditions, always — two instructive wrecks',
           text: 'The two conditions are *both* mandatory, and each has a signature failure. **A step without a base:** consider $P(n)$: "$n^2 + n + 1$ is even". The step is perfectly valid — if $k^2 + k + 1$ is even then $(k+1)^2 + (k+1) + 1 = (k^2 + k + 1) + 2k + 2$ is even plus even, hence even — yet $P(1) = 3$ is odd, and in truth $P(n)$ is false for *every* $n$ (Lesson 1.2\u2019s exercises dissect why). A valid implication chained from a false start proves nothing: the floating chain of dominoes never gets its first push. **A base without a step:** take $Q(n)$: "$n \\ge 2$". The base $Q(1)$ fails ($1 \\ge 2$ is false), while every other domino stands true — the claim "for all $n$, $n \\ge 2$" dies at the first number even though the step ($k \\ge 2 \\Rightarrow k + 1 \\ge 2$) is fine. Checking a hundred, a million, or a billion cases is *neither* of the two conditions; it is loitering at the first few dominoes.',
+        },
+        { kind: 'heading', text: 'When the truth starts late: the shifted base' },
+        {
+          kind: 'para',
+          text: 'The second wreck carries its own repair, and the repair deserves a name. The claim “$n \\ge 2$” failed only because the chain was pinned at the wrong start: the dominoes stand upright from $2$ onward and the step tips each into the next — nothing is wrong except the missing first push. So push at $2$. The **shifted base** restarts the principle at any $n_0$: verify $P(n_0)$ directly, verify the step for $k \\ge n_0$, and every $n \\ge n_0$ is covered — the dominoes from $n_0$ onward fall, and the ones before $n_0$ were never claimed. The conclusion shrinks honestly from “every natural number” to “every natural number from $n_0$ on”, and examiners are fond of exactly such claims — false at $1$, true forever after — because the shifted base is how they get proved rather than abandoned.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The wreck, repaired: “n ≥ 2” from the base n₀ = 2',
+          statement:
+            'Claim: $n \\ge 2$ for every $n \\ge 2$ — the very statement whose base died at $1$, now restarted where the truth begins.',
+          steps: [
+            {
+              label: 'Base case: n = 2',
+              formula: '2 \\ge 2',
+              explanation:
+                'The first domino of the shifted chain stands by direct inspection — no hypothesis, one comparison.',
+            },
+            {
+              label: 'Assume the inductive hypothesis',
+              formula: 'k \\ge 2 \\quad \\text{for an arbitrary } k \\ge 2',
+              explanation:
+                'The licensed assumption at one unnamed rung of the shifted chain.',
+            },
+            {
+              label: 'Take the step',
+              formula: 'k \\ge 2 \\;\\Rightarrow\\; k + 1 \\ge 3 \\ge 2',
+              explanation:
+                'Adding one to both sides carries $k + 1$ past $3$ — strictly above the bar, so $P(k+1)$ holds. The step never needed its full strength: $k + 1$ exceeds $2$ the moment $k$ does.',
+            },
+            {
+              label: 'Conclude',
+              formula: 'P(n) \\text{ for every } n \\ge 2',
+              explanation:
+                'Base and step verified on the shifted chain: every domino from $2$ onward falls. The statement is proved — for exactly the numbers it was ever about.',
+            },
+          ],
+          result:
+            'The shifted-base principle in action: $P(n_0)$ plus the step from $n_0$ proves $P(n)$ for every $n \\ge n_0$ — the warning callout’s wreck, now a theorem with an honest domain.',
+        },
+        {
+          kind: 'example',
+          title: 'A shifted base doing real work: n² ≥ 2n for every n ≥ 2',
+          steps: [
+            'First, why a shift is unavoidable: at $n = 1$ the claim reads $1 \\ge 2$ — false. The truth starts at $2$, so the proof starts there too: base $n_0 = 2$ gives $2^2 = 4 = 2 \\times 2$ ✓ — equality, the first domino standing just barely.',
+            'Now, assume the inductive hypothesis: $k^2 \\ge 2k$ for an arbitrary $k \\ge 2$.',
+            'Build the successor statement: $(k+1)^2 = k^2 + 2k + 1$, and feed the hypothesis into the $k^2$ term: $(k+1)^2 \\ge 2k + 2k + 1 = 4k + 1$.',
+            'Compare with the target $2(k+1) = 2k + 2$: the gap is $(4k + 1) - (2k + 2) = 2k - 1 \\ge 3$ for every $k \\ge 2$ — the step clears the bar with room to spare.',
+            'Hence $(k+1)^2 \\ge 2(k+1)$; the step is proved, and with the base at $n_0 = 2$, the claim holds for every $n \\ge 2$. Instance: $7^2 = 49 \\ge 14 = 2 \\times 7$ ✓.',
+            'Note the division of labour: the hypothesis did the lifting ($k^2 \\ge 2k$), and the shift supplied the room ($2k - 1 \\ge 3$). Started at $n_0 = 1$ the proof has no base at all — the shift is not decoration; it is where the truth lives.',
+          ],
         },
         {
           kind: 'terms',
@@ -1196,6 +1248,34 @@ export const chapter01: Chapter = {
                     'Hence the base and the first two rungs hold, exactly as the proof predicts.',
                   ],
                   answer: '1 = 1² ✓; 1 + 3 = 4 = 2² ✓; 1 + 3 + 5 = 9 = 3² ✓',
+                  figures: [
+                    {
+                      caption:
+                        'The first three dominoes of the odd-sum proof, drawn: each square shows the previous square (neutral cells) wrapped in an amber L — the gnomon of 1, 3, then 5 counters. The counts under the squares are the partial sums 1, 4, 9 — exactly this question’s three checks, and exactly why the step k² + (2k + 1) = (k + 1)² holds at every rung.',
+                      svg: `<svg viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three square grids: one cell for 1 equals 1 squared; a two-by-two grid whose amber L of three cells makes 1 plus 3 equals 4 equals 2 squared; a three-by-three grid whose amber L of five cells makes 1 plus 3 plus 5 equals 9 equals 3 squared">
+  ${(() => {
+    const CELL = 24, Y0 = 56;
+    const sq = [{ k: 1, x: 110 }, { k: 2, x: 196 }, { k: 3, x: 306 }];
+    let out = '';
+    for (const s of sq) {
+      for (let r = 0; r < s.k; r++)
+        for (let c = 0; c < s.k; c++) {
+          const gnomon = r === 0 || c === 0;
+          out += `<rect x="${s.x + c * CELL}" y="${Y0 + r * CELL}" width="${CELL}" height="${CELL}" ${gnomon ? 'fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"' : 'fill="none" stroke="currentColor" stroke-width="1" opacity="0.55"'}/>`;
+        }
+      out += `<text x="${s.x + 12}" y="${Y0 + 16.5}" font-size="11.5" font-weight="700" fill="#b45309" text-anchor="middle">+${2 * s.k - 1}</text>`;
+      out += `<text x="${s.x + 12 * s.k}" y="152" font-size="13" fill="currentColor" text-anchor="middle">${s.k === 1 ? '1 = 1²' : s.k === 2 ? '1 + 3 = 2²' : '1 + 3 + 5 = 3²'}</text>`;
+    }
+    return out;
+  })()}
+  <text x="430" y="80" font-size="13" font-weight="700" fill="currentColor">the partial sums land on the squares:</text>
+  <text x="430" y="104" font-size="12.5" fill="currentColor">1, 4, 9, … — each new odd count wraps</text>
+  <text x="430" y="126" font-size="12.5" fill="currentColor">the previous square in an L of counters:</text>
+  <text x="430" y="148" font-size="12.5" fill="currentColor">that L is the gnomon, drawn amber.</text>
+  <text x="430" y="178" font-size="12.5" font-weight="700" fill="#166534">the step, drawn: k² + (2k+1) = (k+1)²</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -1238,6 +1318,35 @@ export const chapter01: Chapter = {
                     'Instance at $n = 6$: $10^6 - 1 = 999999 = 9 \\times 111111$ ✓ (the digit-sum test of Foundation Mathematics Lesson 3.1, standing on its proof).',
                   ],
                   answer: '9 | (10^n − 1) for all n ≥ 1; 999999 = 9 × 111111',
+                  figures: [
+                    {
+                      caption:
+                        'The step of the divisibility proof as a machine: the hypothesis (the k-nine number equals 9 × m) is peeled by a factor of ten, patched back with nine, and lands as 9 × (10m + 1) — a multiple of 9 built from a multiple of 9. The n = 6 instance cashes it: 999999 = 10 × 99999 + 9 = 9 × 111111.',
+                      svg: `<svg viewBox="0 0 760 196" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flow of the inductive step: the hypothesis box the k-nine number equals nine m, an arrow times ten into the box ten times the hypothesis equals ninety m, an arrow plus nine into the green box ninety m plus nine equals nine times ten m plus one">
+  <defs>
+    <marker id="pp-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#f59e0b"/></marker>
+  </defs>
+  <text x="380" y="26" font-size="12.5" fill="currentColor" opacity="0.8" text-anchor="middle">the inductive step, drawn: peel a factor of ten, patch back nine</text>
+  <rect x="24" y="48" width="200" height="56" rx="9" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <rect x="264" y="48" width="200" height="56" rx="9" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <rect x="504" y="48" width="232" height="56" rx="9" fill="none" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="124" y="70" font-size="11.5" fill="currentColor" opacity="0.75" text-anchor="middle">the inductive hypothesis</text>
+  <text x="124" y="90" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle">the k-nine number = 9m</text>
+  <text x="364" y="70" font-size="11.5" fill="currentColor" opacity="0.75" text-anchor="middle">peel a factor of ten</text>
+  <text x="364" y="90" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle">ten × (9m) = 90m</text>
+  <text x="620" y="70" font-size="11.5" fill="#166534" opacity="0.85" text-anchor="middle">patch back nine — both parts divisible</text>
+  <text x="620" y="90" font-size="13" font-weight="600" fill="#166534" text-anchor="middle">90m + 9 = 9(10m + 1)</text>
+  <g stroke="#f59e0b" stroke-width="1.8">
+    <line x1="228" y1="76" x2="258" y2="76" marker-end="url(#pp-arrow)"/>
+    <line x1="468" y1="76" x2="498" y2="76" marker-end="url(#pp-arrow)"/>
+  </g>
+  <text x="243" y="64" font-size="12" fill="#b45309" text-anchor="middle">× 10</text>
+  <text x="483" y="64" font-size="12" fill="#b45309" text-anchor="middle">+ 9</text>
+  <text x="380" y="146" font-size="13" font-weight="700" fill="#166534" text-anchor="middle">the (k+1)-nine number is 9 × (10m + 1) — divisibility manufactured from divisibility</text>
+  <text x="380" y="172" font-size="11.5" fill="currentColor" opacity="0.75" text-anchor="middle">instance n = 6: 999999 = 10 × 99999 + 9 = 9 × 111111 ✓</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -1327,6 +1436,32 @@ export const chapter01: Chapter = {
                     'Hence the diagnosis: a valid step cannot rescue a false start. Induction needs both conditions; this candidate has exactly one — the floating-chain wreck, in full.',
                   ],
                   answer: 'Step valid for all k; base P(1) = 3 odd fails; P(n) false for every n',
+                  figures: [
+                    {
+                      caption:
+                        'The floating chain: every arrow is the valid step P(k) ⇒ P(k + 1) — yet the first domino never falls, because P(1) = 3 is odd. A valid implication from a false start transmits nothing; and in this trap every rung is false (k² + k + 1 is always odd), so the chain never even has a true link to carry.',
+                      svg: `<svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A row of eight dominoes all standing upright: the first is outlined in red and crossed out because P of 1 is false, while the seven arrows between dominoes show the valid step that nevertheless transmits nothing">
+  <defs>
+    <marker id="fc-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor"/></marker>
+  </defs>
+  <text x="380" y="36" font-size="12.5" fill="currentColor" opacity="0.8" text-anchor="middle">the floating chain: the step is valid everywhere — but no first push exists</text>
+  <g stroke="currentColor" stroke-width="1.5" fill="none">
+    ${Array.from({ length: 8 }, (_, i) => `<rect x="${55 + i * 84}" y="60" width="48" height="115" rx="7"${i === 0 ? ' stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4"' : ''}/>`).join('\n    ')}
+  </g>
+  <g font-size="13" fill="currentColor" text-anchor="middle" font-weight="700">
+    ${Array.from({ length: 8 }, (_, i) => `<text x="${79 + i * 84}" y="122"${i === 0 ? ' fill="#dc2626"' : ''}>P(${i + 1})</text>`).join('\n    ')}
+  </g>
+  <g stroke="currentColor" stroke-width="1.2" opacity="0.7">
+    ${Array.from({ length: 7 }, (_, i) => `<line x1="${105 + i * 84}" y1="117" x2="${135 + i * 84}" y2="117" marker-end="url(#fc-arrow)"/>`).join('\n    ')}
+  </g>
+  <circle cx="79" cy="38" r="11" fill="#dc2626"/>
+  <text x="79" y="42.5" font-size="13" font-weight="700" fill="#fffdf5" text-anchor="middle">✗</text>
+  <text x="16" y="205" font-size="12" font-weight="600" fill="#dc2626">P(1) = 3 — odd: the base fails</text>
+  <text x="744" y="205" font-size="12" fill="currentColor" opacity="0.85" text-anchor="end">the valid step transmits nothing without it</text>
+  <text x="380" y="227" font-size="11.5" fill="currentColor" opacity="0.75" text-anchor="middle">in truth P(n) is false at every rung: k(k+1) is always even, so k² + k + 1 is always odd</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -1344,6 +1479,32 @@ export const chapter01: Chapter = {
                     'Hence the division of labour that closes the lesson: patterns propose; induction disposes.',
                   ],
                   answer: 'f(40) = 1681 = 41²; finite checks bound nothing — only a universal step certifies "all n"',
+                  figures: [
+                    {
+                      caption:
+                        'Euler’s run as a strip: one cell per input n = 0..40, green while f(n) is prime — 40 consecutive hits, f(0) = 41 through f(39) = 1601 — and red at n = 40, where f(40) = 1681 = 41² turns composite. The first untested input betrays: finite checks bound nothing, and only the universal step certifies a “for all”.',
+                      svg: `<svg viewBox="0 0 760 176" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A strip of 41 cells for n equals 0 through 40: the first 40 cells green for the consecutive prime values of Euler's polynomial, the last cell red for the composite value 1681 at n equals 40">
+  ${Array.from({ length: 41 }, (_, n) => `<rect x="${40 + n * 17}" y="78" width="14" height="14" fill="${n <= 39 ? '#16a34a" fill-opacity="0.85' : '#dc2626'}"/>`).join('\n  ')}
+  <text x="47" y="68" font-size="11.5" fill="#166534" text-anchor="middle">f(0) = 41</text>
+  <text x="47" y="114" font-size="11" fill="currentColor" opacity="0.75" text-anchor="middle">n = 0</text>
+  <text x="387" y="114" font-size="11" fill="currentColor" opacity="0.75" text-anchor="middle">n = 20</text>
+  <text x="750" y="114" font-size="12" font-weight="700" fill="#dc2626" text-anchor="end">n = 40 → f(40) = 1681 = 41²</text>
+  <text x="380" y="150" font-size="12" font-weight="600" fill="#166534" text-anchor="middle">the first untested input kills the pattern — finite checks bound nothing; only the step certifies</text>
+</svg>`,
+                    },
+                  ],
+                },
+                {
+                  q: 'Guess first, then prove by induction: $\\frac{1}{1 \\cdot 2} + \\frac{1}{2 \\cdot 3} + \\cdots + \\frac{1}{n(n+1)} = \\frac{n}{n+1}$ for every $n \\ge 1$ — and say where the guess came from.',
+                  solution: [
+                    'The guess, earned first: the partial sums read $\\frac{1}{2}, \\frac{2}{3}, \\frac{3}{4}, \\frac{4}{5}, \\dots$ — each landing one denominator later than the count. Patterns propose: the closed form is $\\frac{n}{n+1}$.',
+                    'Base: $n = 1$: the left side is $\\frac{1}{1 \\times 2} = \\frac{1}{2}$, and $\\frac{n}{n+1} = \\frac{1}{2}$ ✓.',
+                    'Now, assume the inductive hypothesis: $\\frac{1}{1 \\times 2} + \\cdots + \\frac{1}{k(k+1)} = \\frac{k}{k+1}$ for arbitrary $k \\ge 1$.',
+                    'Append the next term: $\\frac{k}{k+1} + \\frac{1}{(k+1)(k+2)} = \\frac{k(k+2) + 1}{(k+1)(k+2)}$ — one common denominator, $(k+1)(k+2)$.',
+                    'Recognise the numerator: $k(k+2) + 1 = k^2 + 2k + 1 = (k+1)^2$, so the sum is $\\frac{(k+1)^2}{(k+1)(k+2)} = \\frac{k+1}{k+2}$ — exactly the closed form at $k+1$ ✓.',
+                    'Hence the step; with the base, the identity holds for every $n \\ge 1$ (the verify script swept the exact fractions through $n = 200$). Instance: $n = 4$ gives $\\frac{1}{2} + \\frac{1}{6} + \\frac{1}{12} + \\frac{1}{20} = \\frac{48}{60} = \\frac{4}{5}$ ✓.',
+                  ],
+                  answer: 'Σ 1/(i(i+1)) = n/(n+1) for all n ≥ 1; the guess came from the partial sums 1/2, 2/3, 3/4',
                 },
               ],
             },

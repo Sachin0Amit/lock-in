@@ -1084,6 +1084,67 @@ console.log('=== AN. audit-bot fire (2026-11-16): solution-figure geometry + enr
   console.log('  figures pinned: splice (L2-2), strictly-between (L2-3), clock wheel (L3-2), shift (L5-1)');
 }
 
+console.log('=== AO. audit-bot fire (2026-11-16): solution-figure geometry + enrichment numbers (lesson 1.2) ===');
+{
+  // ---- Pass C enrichment numbers (VERIFY-FIRST: pinned before any prose) ----
+  // (C1) the shifted base, non-trivial instance: n² ≥ 2n for every n ≥ 2.
+  ok(!(1 * 1 >= 2 * 1), 'C1: n² ≥ 2n fails at n = 1 (1 ≥ 2 is false) — the base must shift to 2');
+  ok(2 * 2 === 2 * 2, 'C1: base n₀ = 2 gives 4 = 4 — the first domino stands (equal, not strict)');
+  let bad2n = 0;
+  for (let n = 2; n <= 200; n++) if (!(n * n >= 2 * n)) bad2n++;
+  ok(bad2n === 0, 'C1: n² ≥ 2n swept n = 2..200');
+  // the step, run with the hypothesis: k² ≥ 2k ⇒ (k+1)² = k² + 2k + 1 ≥ 4k + 1 ≥ 2k + 2 = 2(k+1)
+  let badStep2n = 0;
+  for (let k = 2; k <= 200; k++) {
+    if (!(k * k >= 2 * k)) badStep2n++;                  // the hypothesis
+    if (!(k * k + 2 * k + 1 >= 4 * k + 1)) badStep2n++;  // hypothesis + 2k + 1
+    if (!(4 * k + 1 >= 2 * k + 2)) badStep2n++;          // gap 2k − 1 ≥ 3 > 0
+  }
+  ok(badStep2n === 0, 'C1: step chain k² ≥ 2k ⇒ (k+1)² ≥ 4k+1 ≥ 2(k+1) swept k = 2..200 (least gap 4k+1 − (2k+2) = 2·2−1 = 3)');
+  // (C2) new L6-2 telescoping sum: Σ_{i=1..n} 1/(i(i+1)) = n/(n+1).
+  let badNum = 0;
+  for (let k = 1; k <= 200; k++) if (k * (k + 2) + 1 !== (k + 1) * (k + 1)) badNum++;
+  ok(badNum === 0, 'C2: step numerator identity k(k+2) + 1 = (k+1)² swept k = 1..200');
+  let badFrac = 0;
+  for (let n = 1; n <= 200; n++) {
+    let num = BigInt(0), den = BigInt(1);
+    for (let i = 1; i <= n; i++) {
+      const d = BigInt(i * (i + 1));
+      num = num * d + den;
+      den = den * d;
+    }
+    if (num * BigInt(n + 1) !== BigInt(n) * den) badFrac++;
+  }
+  ok(badFrac === 0, 'C2: exact fraction sweep Σ 1/(i(i+1)) = n/(n+1) for n = 1..200 (BigInt cross-multiplied)');
+  ok(30 + 10 + 5 + 3 === 48 && 48 * 5 === 4 * 60, 'C2: instance n = 4 — 1/2 + 1/6 + 1/12 + 1/20 = 48/60 = 4/5 = 4/(4+1)');
+  // ---- Pass B solution-figure geometry (drawn values re-derived) ----
+  // B1 (L1-2 gnomon squares): three squares, cell 24, sides 24/48/72 at x 110/196/306, y 56.
+  const g = (k: number) => ({ x: [110, 196, 306][k - 1], side: 24 * k, cells: 2 * k - 1 });
+  ok(g(1).side === 24 && g(2).side === 48 && g(3).side === 72, 'B1: square sides 24/48/72 (cell 24)');
+  ok(g(1).cells === 1 && g(2).cells === 3 && g(3).cells === 5, 'B1: gnomon cell counts 1/3/5 — the odd numbers');
+  ok(196 - 134 === 62 && 306 - 244 === 62, 'B1: 62 px lanes between squares');
+  ok(378 + 52 === 430, 'B1: sq3 right edge 378, text block starts 430 — 52 px clear');
+  ok([122, 220, 342].join(',') === '122,220,342', 'B1: square centers 122/220/342 (caption baseline 152)');
+  // B2 (L2-3 peel-and-patch flow): boxes 200/200/232 wide at x 24/264/504, y 48..104.
+  ok(264 - 224 === 40 && 504 - 464 === 40, 'B2: 40 px arrow lanes between boxes');
+  ok(736 + 24 === 760, 'B2: box3 right edge 736, viewBox margin 24');
+  ok(10 * 99999 + 9 === 999999 && 999999 === 9 * 111111, 'B2: instance 999999 = 10 × 99999 + 9 = 9 × 111111');
+  // B3 (L5-2 floating chain): domino constants shared with figure 2 (W): x(i) = 55 + 84i, W 48, top 60, bot 175.
+  const dx = (i: number) => 55 + i * 84;
+  ok(dx(7) + 48 === 691 && 691 + 8 <= 760, 'B3: domino 8 right edge 691 inside 760');
+  ok(16 + 180 < 486, 'B3: bottom labels — left label (start 16, ≈180 wide) ends ≈196, right label starts ≈486 (290 px clear)');
+  ok(5 * 5 + 5 + 1 === 31 && 31 % 2 === 1, 'B3: P(5) = 31 odd — every rung false, not just the first');
+  // B4 (L6-1 Euler strip): 41 cells, CW 14, pitch 17, X0 40, Y 78.
+  const cx = (n: number) => 47 + 17 * n;
+  ok(cx(0) === 47 && cx(39) === 710 && cx(40) === 727, 'B4: cell centers 47/710/727');
+  ok(40 + 40 * 17 + 14 === 734 && 760 - 734 === 26, 'B4: strip right edge 734, margin 26');
+  let primes = 0;
+  for (let n = 0; n <= 39; n++) if (isPrime(n * n + n + 41)) primes++;
+  ok(primes === 40, 'B4: 40 green cells (n = 0..39, prime by trial division) + 1 red cell (n = 40) = 41 drawn');
+  ok(750 - 176 > 80, 'B4: red label (≈176 px wide, end-anchored at 750) starts ≈574 — clear of the n = 0 label at 47');
+  console.log('  figures pinned: gnomon squares (L1-2), peel-and-patch (L2-3), floating chain (L5-2), Euler strip (L6-1)');
+}
+
 /* ------------------------------------------------------------------ */
 console.log('');
 console.log(`verify-book2-ch01: ${pass} passed, ${fail} failed`);

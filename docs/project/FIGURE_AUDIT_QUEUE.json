@@ -2,12 +2,12 @@
   "updated": "2026-11-16",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
-  "cursor": 49,
+  "cursor": 50,
   "stats": {
     "lessonsWithFigures": 131,
     "figureTotal": 245,
-    "done": 55,
-    "pending": 76
+    "done": 56,
+    "pending": 75
   },
   "items": [
     {
@@ -456,7 +456,9 @@
       "bookId": "arithmetic-and-number-systems",
       "chapter": 1,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "doneOn": "2026-11-16",
+      "doneBy": "audit-bot fire (job 530242, §10 passes A/B/C)"
     },
     {
       "lessonId": "ans-least-number-principle-recursion",

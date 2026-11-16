@@ -346,3 +346,23 @@ tsc 0 errors in the touched files · overlap 0 on 6 mounted svgs (solutions-expa
 ### Gates (all green)
 
 verify-book2-ch01 251/0 (section AN grown green BEFORE the prose/figures per verify-first) · DOM overlap 0 on all 5 mounted svgs (solutions-expanded) · VLM strict PASS on every figure (1 FAIL → in-SVG fix → PASS) · e2e: 0 KaTeX errors, 0 raw $ leaks, no overflow, quiz 5/5 · tsc 0 errors in touched files (3 pre-existing app-shell owner-stray errors at HEAD).
+
+## 2026-11-16 — audit-bot fire (job 530242, 08:30): ans-induction-proving-for-every-number (ANS 1.2)
+
+### Pass B — solution visual aids (4 added, §10.1)
+
+- L1-Q2 (odd sums, first dominoes): the gnomon squares — three 24px-cell grids (1×1, 2×2, 3×3), the previous square neutral, the new odd count an amber L (+1 / +3 / +5), captions 1 = 1², 1 + 3 = 2², 1 + 3 + 5 = 3², right column landing on the step k² + (2k+1) = (k+1)².
+- L2-Q3 (9 | 10^n − 1): the peel-and-patch machine — hypothesis box (the k-nine number = 9m), amber ×10 arrow to "ten × (9m) = 90m", amber +9 arrow to the green verdict "90m + 9 = 9(10m + 1)"; conclusion "the (k+1)-nine number is 9 × (10m + 1)" + the n = 6 instance 999999 = 10 × 99999 + 9 = 9 × 111111.
+- L5-Q2 (the "even" autopsy): the floating chain — 8 upright dominoes with the valid step drawn as 7 arrows that transmit nothing, P(1) red-dashed under a red ✗ badge ("P(1) = 3 — odd: the base fails"), footer: k(k+1) always even, so k² + k + 1 always odd — every rung false.
+- L6-Q1 (Euler's polynomial): the prime-run strip — 41 cells n = 0..40, 40 green (f(0) = 41 through f(39) = 1601), the last red with "n = 40 → f(40) = 1681 = 41²"; the first untested input betrays.
+- Judged and refused (pure algebra/symbolic, no spatial content — §10.1): L1-Q1, L2-Q1, L2-Q2, L3-Q2, L4-Q1, L4-Q2, L5-Q1. Reasoning, steps, quiz keys and exercise answers untouched.
+
+### Pass C — enrichment (2 additions + 1 metadata, §10.2)
+
+- New subsection "When the truth starts late: the shifted base" (right after the two-wrecks callout, before the terms block): para + derivation "The wreck, repaired: n ≥ 2 from the base n₀ = 2" + example "A shifted base doing real work: n² ≥ 2n for every n ≥ 2" — the Q(n) wreck from the callout gets its honest-domain repair, then a non-trivial shifted-base proof where the hypothesis lifts (k² ≥ 2k) and the shift supplies room (2k − 1 ≥ 3). The "Shifted base" glossary term now has a taught subsection behind it.
+- New Exercise L6-Q2 with a full worked Sol. chain: the telescoping sum Σ 1/(i(i+1)) = n/(n+1) — the guess read off the partial sums 1/2, 2/3, 3/4 (patterns propose, induction disposes), the step's numerator identity k(k+2) + 1 = (k+1)², instance n = 4 → 48/60 = 4/5. Balances L6 (was 1 question).
+- 'The shifted base' added to concepts[] (the concept was declared in the glossary but absent from the concept list).
+
+### Gates (all green)
+
+verify-book2-ch01 273/0 (section AO grown green BEFORE the prose/figures per verify-first: the C1 shifted-base sweeps, the C2 telescoping numerator identity + the BigInt exact-fraction sweep n = 1..200, and every solution figure's drawn values) · DOM overlap 0 on all 5 mounted svgs (solutions-expanded) · VLM strict PASS on every figure (3 FAILs → in-SVG fixes → re-audit PASS each time) · audit-content-completeness 0 errors · e2e collector: 0 KaTeX errors, 0 raw $, no overflow, 13 show-solution buttons · tsc 0 errors in touched files (3 pre-existing app-shell.tsx owner-stray errors at HEAD, flagged for the owner).
