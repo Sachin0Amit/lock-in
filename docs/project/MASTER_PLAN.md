@@ -244,6 +244,22 @@ researched plans (`status: 'planned'` in
 lessons were written and the one-unit-at-a-time AUTHORING cadence above is
 unchanged.
 
+**Owner directive (2026-11-16, Humanities & Social Sciences + Languages
+full-shelf planning passes):** the ENTIRE Humanities & Social Sciences shelf
+(16 books — the UPSC GS-I/II/IV registers + nine optional-subject registers +
+the UGC NET subject register + the AP units + the CLAT register as the exam
+anchors; evidence base `docs/research/HUMANITIES_TOC_SURVEY.md`, durable
+generator `scripts/gen_humanities_shelf.py`) and the ENTIRE Languages shelf
+(13 books, each on the script → phonetics → vocabulary → grammar → literacy →
+fluency → exam-prep arc priced against the CEFR ladder and the JLPT /
+Goethe-Zertifikat / DELF-DALF / DELE / HSK / TOPIK / IELTS / TOEFL / CLEP
+registers; evidence base `docs/research/LANGUAGES_TOC_SURVEY.md`, durable
+generator `scripts/gen_languages_shelf.py`) were planned in one
+owner-directed pass pair — the same method as the Engineering pass (the
+Drive holds no humanities or language-learning sources — honest census; every
+book web-researched). PLANNING passes only: zero lessons written; the
+one-unit-at-a-time AUTHORING cadence is unchanged.
+
 The owner will supply a Google Drive link with a large reference book
 collection. Workflow per unit:
 

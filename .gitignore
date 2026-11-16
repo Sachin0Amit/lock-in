@@ -533,3 +533,10 @@ server.log
 !/scripts/e2e-engineering-shelf.sh
 !/scripts/run-eng-e2e-phase.sh
 !/scripts/ship_engineering_shelf.py
+# Humanities & Languages full-shelf planning passes (2026-11-16, completed same day): the two book-plan generators, the two gates, the e2e pair
+!/scripts/gen_humanities_shelf.py
+!/scripts/gen_languages_shelf.py
+!/scripts/verify-humanities-shelf-planning.ts
+!/scripts/verify-languages-shelf-planning.ts
+!/scripts/e2e-hl-shelf.sh
+!/scripts/run-hl-e2e-phase.sh

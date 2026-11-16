@@ -252,18 +252,91 @@ Corporate Finance · Banking · Investment Analysis · Statistics for
 Economics · Business Mathematics · Entrepreneurship · Marketing · HR ·
 Operations · International Business
 
-## Humanities & Social Sciences (21+)
-World History · Indian History · Ancient · Medieval · Modern · Political
-Science · International Relations · Sociology · Psychology · Philosophy ·
-Ethics · Anthropology · Geography · Human Geography · Physical Geography ·
-Environmental Studies · Archaeology · Public Administration · Cultural
-Studies · Law & Legal Studies · Art History · Heritage Studies
+## Humanities & Social Sciences (21+ backlog lines → 16 books + honest folds) — **THE FULL SHELF IS PLANNED (audited)**
+Planned by the Humanities & Social Sciences full-shelf planning pass
+(2026-11-16, owner directive: "create all things like you did for engineering
+do it for humanities and social science and languages section"): the exam
+anchors read in full (the UPSC CSE Main GS-I/II/IV registers + the nine
+relevant optional-subject registers + the UGC NET subject list + the College
+Board AP units + the CLAT register), every book web-researched against its
+canonical sources (the Drive holds 0 humanities sources — honest census), and
+all 16 books promoted to `src/data/library/books/humanities/<slug>/book.ts`
+with status 'planned' — **157 chapters / 620 planned lessons, zero written**
+(the one-unit-at-a-time authoring cadence unchanged). Evidence base:
+`docs/research/HUMANITIES_TOC_SURVEY.md`; durable generator:
+`scripts/gen_humanities_shelf.py`; gates:
+`scripts/verify-humanities-shelf-planning.ts` (1,121/1,121) + covers 16/16
+(`scripts/gen_covers.py` roster 110 → 139-book roster; VLM text-free sweep).
 
-## Languages (13)
-English · Hindi · Sanskrit · Japanese · German · French · Spanish ·
-Mandarin · Korean · Arabic · Russian · Portuguese · Italian — each with
-script → phonetics → vocabulary → grammar → literacy → fluency →
-exam-prep (JLPT/Goethe/DELF-DALF/DELE/HSK/TOPIK/IELTS/TOEFL where relevant)
+The honest folds (no-duplication contract): *Ancient*, *Medieval* and *Modern*
+(history) merge into ONE 12-chapter book **indian-history** (the three period
+names for one national arc; the engineering Circuit-Theory fold precedent);
+*Human Geography* + *Physical Geography* into **geography** (the Goh Cheng
+Leong Certificate arc is exactly this pair in one volume); *Heritage Studies*
+into **archaeology-and-heritage-studies**; *Art History* owned HERE as
+**art-history** (the academic discipline; the future Arts shelf cross-references
+it for the practice-side crafts — no duplication).
+
+1. World History (11 ch / 43 lessons, `wh-`, Strayer Ways of the World + Arjun Dev NCERT pair + Norman Lowe + AP World History units, web)
+2. Indian History (12 / 45, `ih-`, Ancient+Medieval+Modern folded: Sharma/Chandra/Bipan Chandra + NCERT Themes + UPSC History optional, web)
+3. Political Science (10 / 40, `pol-`, Heywood Politics 10e full TOC + NCERT 12 + UPSC PSIR optional, web)
+4. International Relations (9 / 36, `intl-`, Baylis/Smith/Owens GWP 9e + UPSC GS-II, web)
+5. Public Administration (9 / 36, `padm-`, Nicholas Henry arc + UPSC PubAd optional + UGC NET 14, web)
+6. Law and Legal Studies (10 / 40, `law-`, UGC NET Law units + CLAT register + the Constitution arc, web)
+7. Sociology (10 / 39, `soc-`, Giddens & Sutton 10e + NCERT 11/12 pair + UPSC Sociology optional, web)
+8. Anthropology (10 / 39, `anth-`, Ember & Ember 16e full 26-ch TOC + UPSC Anthropology optional, web)
+9. Cultural Studies (8 / 31, `cult-`, Barker & Jane 5e + the media register, web)
+10. Psychology (10 / 40, `psy-`, NCERT class 12 + the AP Psychology CED + UPSC Psychology optional, web)
+11. Philosophy (10 / 40, `phil-`, UPSC Philosophy optional register — the Indian darshanas + the Western arc, web)
+12. Ethics (9 / 36, `eth-`, UPSC GS-IV full register + the moral-theory arc, web)
+13. Geography (12 / 48, `geog-`, Goh Cheng Leong Certificate + NCERT 11/12 + AP Human Geography, web)
+14. Environmental Studies (8 / 32, `evs-`, Bharucha AEERS textbook + UGC NET 89, web)
+15. Archaeology and Heritage Studies (9 / 35, `arch-`, Renfrew & Bahn + UGC NET Museology/Archaeology, web)
+16. Art History (10 / 40, `arth-`, Gardner's Global History 16e + NCERT Indian Art, web)
+
+**Authoring order**: unchanged — the Mathematics boat continues (AA in
+progress) one book at a time per the standing pointer; the humanities
+shelf's 16 books follow in backlog order when the owner promotes them (the
+same promotion rule as Mathematics, CS and Engineering). Lesson-id prefixes
+verified unused across all written lesson ids and distinct from every
+mathematics/CS/engineering prefix (verify-humanities-shelf-planning section E;
+the near-misses avoided: `intl-` because CS reserves `ir-`, `geog-` because
+mathematics reserves `geo-`, `evs-` because engineering reserves `env-`).
+
+## Languages (13) — **THE FULL SHELF IS PLANNED (audited)**
+Planned by the Languages full-shelf planning pass (2026-11-16, the same owner
+directive as the Humanities pass): the CEFR framework page + every official
+exam register (JLPT, Goethe-Zertifikat, DELF-DALF, DELE, HSK, TOPIK, IELTS,
+TOEFL, CLEP) read in full, every book web-researched against its canonical
+course arcs, and all 13 books promoted to
+`src/data/library/books/languages/<slug>/book.ts` with status 'planned' —
+**122 chapters / 488 planned lessons, zero written**. The 13 backlog lines map
+one-to-one (no folds); each book follows the backlog's own template: script →
+phonetics → vocabulary → grammar → literacy → fluency → exam-prep. Evidence
+base: `docs/research/LANGUAGES_TOC_SURVEY.md`; durable generator:
+`scripts/gen_languages_shelf.py`; gate:
+`scripts/verify-languages-shelf-planning.ts` (923/923) + covers 13/13.
+
+1. English (10 ch / 40 lessons, `eng-`, Murphy English Grammar in Use + the IELTS/TOEFL registers, web)
+2. Hindi (9 / 36, `hin-`, Agnihotri Hindi: An Essential Grammar + the NCERT register, web)
+3. Sanskrit (10 / 40, `sansk-`, Coulson Teach Yourself Sanskrit + the sandhi arc, web)
+4. Japanese (10 / 40, `jpn-`, GENKI 3e (23 lessons) + the JLPT N5-N4 register, web)
+5. German (10 / 40, `ger-`, Menschen + Hammer's + the Goethe A1-B1 ladder, web)
+6. French (9 / 36, `fr-`, Valette & Valette Contacts + DELF A1-B1, web)
+7. Spanish (9 / 36, `spa-`, Madrigal's Magic Key + the cognate engine + DELE A1-B1, web)
+8. Mandarin (9 / 36, `mand-`, Integrated Chinese + HSK 1-4 register, web)
+9. Korean (9 / 36, `kor-`, Integrated Korean + TOPIK I register, web)
+10. Arabic (10 / 40, `arab-`, Al-Kitaab + Alif Baa + the MSA registers, web)
+11. Russian (9 / 36, `rus-`, Golosa: A Basic Course in Russian + the case engine, web)
+12. Portuguese (9 / 36, `port-`, Whitlam Modern Brazilian Portuguese Grammar + the map, web)
+13. Italian (9 / 36, `ita-`, Practice Makes Perfect Complete Italian Grammar + the registers, web)
+
+**Authoring order**: unchanged — same promotion rule as every planned shelf.
+Lesson-id prefixes verified unused across all written lesson ids and distinct
+from every mathematics/CS/engineering/humanities prefix
+(verify-languages-shelf-planning section E; the noted near-miss: `eng-` for
+ENGLISH while the Engineering shelf reserves no `eng-` — it uses
+mech-/som-/etc. — no string collision).
 
 ## Arts, Music & Creation
 **Music (13):** Theory · Notation · Rhythm & Meter · Harmony ·

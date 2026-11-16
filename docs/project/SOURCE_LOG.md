@@ -42,6 +42,76 @@ step 6).
   (dokumen.pub listing); Subramanya arcs; Chitkara open listings; Groover
   Pearson TOC tab + open PDF; Bedi TOC web-check.
 
+## Humanities & Social Sciences + Languages full-shelf planning passes (2026-11-16) — web-researched canonical arcs (owner directive: "create all things like you did for engineering do it for humanities and social science and languages section")
+
+- **The Drive honest census (both passes)**: 0 humanities sources and 0
+  language-learning sources on the Drive (the subject subfolders are
+  MATHS/PHYSICS/CHEMISTRY/_DPPs; the root was fully censused by the CS pass).
+  Every book in both passes is web-researched; the full records with routing
+  verdicts are `docs/research/HUMANITIES_TOC_SURVEY.md` (39.9 KB) and
+  `docs/research/LANGUAGES_TOC_SURVEY.md` (15.6 KB).
+- **Humanities exam anchors read this pass**: the UPSC CSE (Main) GS Paper I
+  register in full (drishtiias.com/mains/mains-syllabus/general-studies-paper-1)
+  + GS-II/IV registers + nine optional-subject registers (History,
+  Political Science & IR, Sociology, Psychology, Philosophy, Anthropology,
+  Public Administration, Geography, Law — selfstudyhistory.com, upscprep.com,
+  vajiramandravi.com, testbook.com, byjus.com, lukmaanias.net); the UGC NET
+  subject list (ugcnetonline.in/syllabus-new.php — codes 02/03/04/05/06/07/14/
+  58/66/67/80/89/92); the College Board AP units (apstudents.collegeboard.org —
+  AP World History: Modern nine units, AP Human Geography seven units, AP
+  Psychology CED, AP US Government five units); the CLAT undergraduate
+  register (law.careers360.com + ipleaders.in).
+- **Humanities canonical arcs read this pass** (no TOC line taken from
+  memory): Strayer & Nelson Ways of the World (store.macmillanlearning.com)
+  + Arjun Dev's NCERT Story of Civilization pair (insightsonindia.com) +
+  Norman Lowe (amazon.com record) + AP World History units; R.S. Sharma
+  India's Ancient Past (india.oup.com), Satish Chandra Medieval India, Bipan
+  Chandra Modern India (archive.org), NCERT Themes in Indian History 12
+  Parts I-III; Heywood Politics 10e (Bloomsbury full contents); Baylis,
+  Smith & Owens GWP 9e (learninglink.oup.com + the LoC catdir TOC); Nicholas
+  Henry Public Administration and Public Affairs (google-preview contents);
+  the UGC NET Law units (byjus.com + ipleaders.in) + the Constitution arc;
+  Giddens & Sutton Sociology 10e (politybooks.com) + NCERT 11/12 pair;
+  Ember & Ember Anthropology 16e (the Pearson page, full 26-chapter TOC);
+  Barker & Jane Cultural Studies 5e (sk.sagepub.com); NCERT Psychology class
+  12 (lepy1ps.pdf at ncert.nic.in) + the AP Psychology CED; the UPSC
+  Philosophy optional register; Goh Cheng Leong Certificate Physical and
+  Human Geography (the full OUP India contents) + NCERT 11/12 + AP Human
+  Geography; Bharucha's AEERS textbook (the unit structure); Renfrew & Bahn
+  Archaeology (discovered.ed.ac.uk record) + the UGC NET Museology register;
+  Gardner's Art Through the Ages 16e (Cengage faculty TOC) + NCERT An
+  Introduction to Indian Art Part 1.
+- **Languages framework + exam registers read this pass**: the CEFR
+  level-description page (coe.int — the official Council of Europe page); the
+  JLPT official site (jlpt.jp + the test-sections page); the Goethe-Institut
+  exam pages (goethe.de — the A1-C2 ladder); DELF-DALF (lallianceny.org +
+  the diploma registers); DELE (cervantes.org + dele.org — the six CEFR
+  levels); HSK (chinesetest.cn — the official Chinese Test Service); TOPIK
+  (topik.go.kr — TOPIK I/II with the 3-6 sublevels); IELTS (ielts.org band
+  scale + takeielts.britishcouncil.org); TOEFL iBT (ets.org/toefl); CLEP
+  (clep.collegeboard.org).
+- **Languages canonical arcs read this pass**: Murphy English Grammar in Use
+  (the 145-unit structure, 5e's 136-unit register also read) + Norman Lewis
+  Word Power Made Easy (toprankers record) + Swan Practical English Usage
+  (named pole); Agnihotri Hindi: An Essential Grammar (the Routledge PDF);
+  Coulson Teach Yourself Sanskrit (the 15-chapter structure); GENKI 3e
+  (genki3.japantimes.co.jp — 23 lessons in two volumes); the Menschen course
+  (Hueber — the A1/A2/B1 Kursbuch + Arbeitsbuch structure) + Hammer's German
+  Grammar (named pole); Valette & Valette Contacts (the Unité/Leçon
+  apparatus); Madrigal's Magic Key to Spanish (the 45-lesson method);
+  Integrated Chinese 4e (Cheng & Tsui); Integrated Korean: Beginning 1 3e
+  (the KLEAR site); the Al-Kitaab program (Georgetown University Press —
+  Alif Baa + Part One); Golosa: A Basic Course in Russian (the official
+  site, Book 1/2 of ten units each); Whitlam Modern Brazilian Portuguese
+  Grammar (Routledge contents); Practice Makes Perfect: Complete Italian
+  Grammar (the McGraw-Hill contents).
+- **The pass's own note**: this completion turn (same day) added the two
+  durable generators the survey docs reference — scripts/
+  gen_humanities_shelf.py + scripts/gen_languages_shelf.py — reverse-derived
+  from the shipped plans with byte-exact idempotency proven (regenerate +
+  git diff = zero), and the two standing gates verify-humanities-shelf-
+  planning.ts (1,121/1,121) + verify-languages-shelf-planning.ts (923/923).
+
 ## CS full-shelf planning pass (2026-11-15) — the Computer Science shelf's evidence base (owner directive: "as all things are planned for mathematics do for computer science")
 
 **27 Drive sources extracted** (one at a time via
