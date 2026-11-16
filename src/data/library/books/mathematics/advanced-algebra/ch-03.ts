@@ -1390,6 +1390,420 @@ const lesson33: Lesson = {
   ],
 }
 
+function polarRotationSvg(): string {
+  // left: the polar read of z = 1+√3i (r = 2, θ = π/3, the right
+  // triangle with legs 1 and √3, the arc marking the angle); right:
+  // multiplication as rotation-and-scaling — (√3+i)(1+√3i) = 4i, the
+  // three radius vectors at π/6, π/3 and π/2 with radii 2, 2 and 4
+  const OX = 150
+  const OY = 250
+  const U = 62
+  const px = (re: number): number => OX + U * re
+  const py = (im: number): number => OY - U * im
+  const RX = 560
+  const RY = 240
+  const V = 46
+  const qx = (re: number): number => RX + V * re
+  const qy = (im: number): number => RY - V * im
+  return `<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels about polar form. Left panel: the Argand plane showing the point one plus root three i at distance two from the origin, with the angle pi over three marked by an arc at the origin, the horizontal leg labelled one, the vertical leg labelled root three, and the radius labelled r equals two. Right panel: multiplication as rotation and scaling — the vector for root three plus i at angle pi over six with radius two, the vector for one plus root three i at angle pi over three with radius two, and their product four i at angle pi over two with radius four: the angles add and the lengths multiply.">
+  <text x="170" y="26" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the second address: r and θ</text>
+  <text x="560" y="26" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">multiplication: rotate and scale</text>
+  <line x1="355" y1="40" x2="355" y2="310" stroke="#fcd34d" stroke-width="1.4"/>
+  <!-- left panel: the (r, θ) read -->
+  <line x1="40" y1="${OY}" x2="300" y2="${OY}" stroke="#0d9488" stroke-width="2"/>
+  <line x1="${OX}" y1="305" x2="${OX}" y2="60" stroke="#5eead4" stroke-width="1.6"/>
+  <line x1="${OX}" y1="${OY}" x2="${px(1)}" y2="${py(0)}" stroke="#d97706" stroke-width="1.4" stroke-dasharray="4 4"/>
+  <line x1="${px(1)}" y1="${OY}" x2="${px(1)}" y2="${py(Math.sqrt(3))}" stroke="#d97706" stroke-width="1.4" stroke-dasharray="4 4"/>
+  <line x1="${OX}" y1="${OY}" x2="${px(1)}" y2="${py(Math.sqrt(3))}" stroke="#ea580c" stroke-width="2.4"/>
+  <circle cx="${px(1)}" cy="${py(Math.sqrt(3))}" r="6.5" fill="#ea580c"/>
+  <text x="${px(1) + 12}" y="${py(Math.sqrt(3)) - 10}" font-size="12.5" font-weight="700" fill="#166534">z = 1 + √3 i</text>
+  <text x="${(OX + px(1)) / 2}" y="${OY + 16}" font-size="11" text-anchor="middle" fill="#b45309">1</text>
+  <text x="${px(1) + 10}" y="${(OY + py(Math.sqrt(3))) / 2}" font-size="11" fill="#b45309">√3</text>
+  <text x="${(OX + px(1)) / 2 - 14}" y="${(OY + py(Math.sqrt(3))) / 2 - 8}" font-size="11.5" font-weight="700" fill="#c2410c">r = 2</text>
+  <path d="M ${OX + 30},${OY} A 30 30 0 0 0 ${OX + 30 * Math.cos(Math.PI / 3)},${OY - 30 * Math.sin(Math.PI / 3)}" fill="none" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="${OX + 44}" y="${OY - 12}" font-size="11.5" font-weight="700" fill="#166534">θ = π/3</text>
+  <circle cx="${OX}" cy="${OY}" r="4" fill="#16a34a"/>
+  <text x="${OX - 8}" y="${OY - 8}" font-size="10.5" fill="#166534">O</text>
+  <text x="170" y="330" font-size="10.5" text-anchor="middle" fill="#0f766e">x = r cos θ, y = r sin θ — the same point, its second address</text>
+  <!-- right panel: the three vectors -->
+  <line x1="${RX - 185}" y1="${RY}" x2="${RX + 120}" y2="${RY}" stroke="#0d9488" stroke-width="2"/>
+  <line x1="${RX}" y1="${RY + 70}" x2="${RX}" y2="50" stroke="#5eead4" stroke-width="1.6"/>
+  <line x1="${RX}" y1="${RY}" x2="${qx(Math.sqrt(3))}" y2="${qy(1)}" stroke="#16a34a" stroke-width="2.2"/>
+  <circle cx="${qx(Math.sqrt(3))}" cy="${qy(1)}" r="5.5" fill="#16a34a"/>
+  <text x="${qx(Math.sqrt(3)) + 8}" y="${qy(1) - 8}" font-size="11.5" font-weight="700" fill="#166534">√3 + i</text>
+  <line x1="${RX}" y1="${RY}" x2="${qx(1)}" y2="${qy(Math.sqrt(3))}" stroke="#d97706" stroke-width="2.2"/>
+  <circle cx="${qx(1)}" cy="${qy(Math.sqrt(3))}" r="5.5" fill="#d97706"/>
+  <text x="${qx(1) + 8}" y="${qy(Math.sqrt(3)) - 10}" font-size="11.5" font-weight="700" fill="#b45309">1 + √3 i</text>
+  <line x1="${RX}" y1="${RY}" x2="${qx(0)}" y2="${qy(4)}" stroke="#ea580c" stroke-width="2.6"/>
+  <circle cx="${qx(0)}" cy="${qy(4)}" r="6" fill="#ea580c"/>
+  <text x="${qx(0) + 14}" y="${qy(4) + 6}" font-size="12" font-weight="700" fill="#c2410c">4i</text>
+  <path d="M ${RX + 34},${RY} A 34 34 0 0 0 ${RX + 34 * Math.cos(Math.PI / 6)},${RY - 34 * Math.sin(Math.PI / 6)}" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+  <path d="M ${RX + 60},${RY} A 60 60 0 0 0 ${RX + 60 * Math.cos(Math.PI / 3)},${RY - 60 * Math.sin(Math.PI / 3)}" fill="none" stroke="#d97706" stroke-width="1.6"/>
+  <path d="M ${RX + 78},${RY} A 78 78 0 0 0 ${RX},${RY - 78}" fill="none" stroke="#ea580c" stroke-width="1.6"/>
+  <text x="${RX + 24}" y="${RY + 22}" font-size="10.5" font-weight="700" fill="#166534">π/6</text>
+  <text x="${RX + 50}" y="${RY + 22}" font-size="10.5" font-weight="700" fill="#b45309">π/3</text>
+  <text x="${RX + 72}" y="${RY + 22}" font-size="10.5" font-weight="700" fill="#c2410c">π/2</text>
+  <circle cx="${RX}" cy="${RY}" r="4" fill="#16a34a"/>
+  <text x="${RX - 18}" y="${RY + 16}" font-size="10.5" fill="#166534">O</text>
+  <text x="560" y="330" font-size="10.5" text-anchor="middle" fill="#0f766e">2·2 = 4 and π/6 + π/3 = π/2 — lengths multiply, angles add</text>
+</svg>`
+}
+
+function rayMeetSvg(): string {
+  // left: the meet of arg(z−3i) = π and arg(z+2−i) = π/2 at −2+3i
+  // (open circles at the ray origins, solid dot at the meet); right:
+  // the no-meet pair arg(z−2i) = 3π/4 and arg(z+1−i) = π/4 — ray 2
+  // passes through ray 1's excluded origin 2i: no meeting point
+  const px = (x: number): number => 20 + (x + 3) * 46
+  const py = (y: number): number => 300 - y * 42
+  const rx = (x: number): number => 400 + (x + 3) * 46
+  const ry = (y: number): number => 300 - y * 42
+  return `<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels about rays on the Argand plane. Left panel: the ray arg of z minus three i equals pi starts at the open circle at three i and runs left along the horizontal line y equals three; the ray arg of z plus two minus i equals pi over two starts at the open circle at minus one plus i and runs straight up along the line x equals minus two; the two rays meet at the solid dot at minus two plus three i, with the angle marks pi and pi over two shown at the origins. Right panel: the ray arg of z minus two i equals three pi over four starts at the open circle at two i and runs up-left at one hundred thirty five degrees; the ray arg of z plus one minus i equals pi over four starts at the open circle at minus one plus i and runs up-right at forty five degrees. The second ray passes exactly through the first ray's origin two i — which the first ray excludes — so the two rays have no meeting point.">
+  <text x="180" y="26" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">two rays that meet</text>
+  <text x="560" y="26" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">two rays that never meet</text>
+  <line x1="355" y1="40" x2="355" y2="310" stroke="#fcd34d" stroke-width="1.4"/>
+  <!-- left panel: the meet -->
+  <line x1="${px(-3)}" y1="${py(0)}" x2="${px(3)}" y2="${py(0)}" stroke="#0d9488" stroke-width="1.8"/>
+  <line x1="${px(0)}" y1="${py(-0.05)}" x2="${px(0)}" y2="${py(4.4)}" stroke="#5eead4" stroke-width="1.4"/>
+  <line x1="${px(0)}" y1="${py(3)}" x2="${px(-2.6)}" y2="${py(3)}" stroke="#16a34a" stroke-width="2.6"/>
+  <circle cx="${px(0)}" cy="${py(3)}" r="5.5" fill="none" stroke="#16a34a" stroke-width="2.4"/>
+  <line x1="${px(-2)}" y1="${py(0.6)}" x2="${px(-2)}" y2="${py(4.4)}" stroke="#d97706" stroke-width="2.6"/>
+  <circle cx="${px(-2)}" cy="${py(1)}" r="5.5" fill="none" stroke="#d97706" stroke-width="2.4"/>
+  <circle cx="${px(-2)}" cy="${py(3)}" r="6.5" fill="#ea580c"/>
+  <text x="${px(-2) + 12}" y="${py(3) - 16}" font-size="12.5" font-weight="700" fill="#c2410c">−2 + 3i · the meet</text>
+  <text x="${px(1.1)}" y="${py(3) - 8}" font-size="10.5" font-weight="700" fill="#166534">arg(z − 3i) = π</text>
+  <text x="${px(-2) + 10}" y="${py(4.05)}" font-size="10.5" font-weight="700" fill="#b45309">arg(z + 2 − i) = π/2</text>
+  <text x="${px(-3) + 2}" y="${py(3) - 10}" font-size="10" fill="#0f766e">3i</text>
+  <text x="${px(-2) - 36}" y="${py(1) + 4}" font-size="10" fill="#0f766e">−2+i</text>
+  <circle cx="${px(0)}" cy="${py(0)}" r="3.5" fill="#16a34a"/>
+  <text x="${px(0) - 22}" y="${py(0) - 6}" font-size="10" fill="#166534">O</text>
+  <text x="190" y="322" font-size="10.5" text-anchor="middle" fill="#0f766e">z = −2+3i satisfies both ray equations</text>
+  <text x="190" y="336" font-size="10.5" text-anchor="middle" fill="#0f766e">z−3i = −2 (arg π) and z+2−i = 2i (arg π/2)</text>
+  <!-- right panel: the no-meet -->
+  <line x1="${rx(-3)}" y1="${ry(0)}" x2="${rx(3)}" y2="${ry(0)}" stroke="#0d9488" stroke-width="1.8"/>
+  <line x1="${rx(0)}" y1="${ry(-0.05)}" x2="${rx(0)}" y2="${ry(4.4)}" stroke="#5eead4" stroke-width="1.4"/>
+  <line x1="${rx(0)}" y1="${ry(2)}" x2="${rx(-2.2)}" y2="${ry(4.2)}" stroke="#16a34a" stroke-width="2.6"/>
+  <circle cx="${rx(0)}" cy="${ry(2)}" r="5.5" fill="none" stroke="#16a34a" stroke-width="2.4"/>
+  <line x1="${rx(-1)}" y1="${ry(1)}" x2="${rx(2.4)}" y2="${ry(4.4)}" stroke="#d97706" stroke-width="2.6"/>
+  <circle cx="${rx(-1)}" cy="${ry(1)}" r="5.5" fill="none" stroke="#d97706" stroke-width="2.4"/>
+  <circle cx="${rx(0)}" cy="${ry(2)}" r="8.5" fill="none" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="3 3"/>
+  <text x="${rx(1.35)}" y="${ry(3.62)}" font-size="10.5" font-weight="700" fill="#b45309">arg(z + 1 − i) = π/4</text>
+  <text x="${rx(-2.15)}" y="${ry(3.9)}" font-size="10.5" font-weight="700" fill="#166534">arg(z − 2i) = 3π/4</text>
+  <text x="${rx(-1) - 34}" y="${ry(1) + 14}" font-size="10" fill="#0f766e">−1+i</text>
+  <circle cx="${rx(0)}" cy="${ry(0)}" r="3.5" fill="#16a34a"/>
+  <text x="${rx(0) - 22}" y="${ry(0) - 6}" font-size="10" fill="#166534">O</text>
+  <text x="560" y="322" font-size="10.5" text-anchor="middle" fill="#dc2626">ray 2 passes through ray 1's origin — the origin is excluded</text>
+  <text x="560" y="336" font-size="10.5" font-weight="700" text-anchor="middle" fill="#dc2626">no meeting point</text>
+</svg>`
+}
+
+const lesson34: Lesson = {
+  id: 'aa-the-argand-plane-polar-form-and-the-argument',
+  number: '3.4',
+  title: 'The Argand Plane: Polar Form and the Argument',
+  concepts: [
+    'polar form',
+    'argument and principal argument',
+    'the quadrant discipline',
+    'rotation-and-scaling',
+    'the argument-addition law',
+    "Euler's form",
+    'the multi-valued logarithm',
+    'section formula in complex numbers',
+    'angle between two rays',
+    'equation of ray',
+  ],
+  objectives: [
+    'Write any complex number in polar form $z = |z|(\\cos\\theta + i\\sin\\theta)$: read the modulus as the polar radius and the argument as the polar angle, and rebuild the rectangular address from $(r, \\theta)$.',
+    'Read arguments honestly through the quadrant discipline: the four routes from the acute angle $\\tan^{-1}|y/x|$, the axis seats, and the principal range $-\\pi < \\theta \\leq \\pi$ — never the bare tangent.',
+    'Prove and use the argument-addition law: multiplication rotates AND scales, $|z_1 z_2| = |z_1||z_2|$ and $\\arg(z_1 z_2) = \\arg z_1 + \\arg z_2$, with the principal wrap when sums leave $(-\\pi, \\pi]$.',
+    "Witness Euler's form $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$ on the series, write $z = |z|e^{i\\theta}$, and name the multi-valued logarithm honestly at scope.",
+    'Apply the section formula in complex numbers: the midpoint, the internal division seat in a given ratio, and the parallelogram closure from the diagonal-bisect law.',
+    'Read ray geometry through arguments: the angle between two rays as the argument of a quotient, and the equation of ray $\\arg(z - z_1) = \\theta$ — including the honest no-meeting diagnosis.',
+  ],
+  prerequisites: ['aa-negative-discriminants-the-doors-turn-complex', 'aa-conjugate-and-modulus', 'aa-the-closure-failure-that-forces-i'],
+  sources: ['cengage-m2-03', 'cengage-jee-style', 'ncert-math11-ch4-complex-numbers', 'openstax-college-algebra'],
+  blocks: [
+    { kind: 'para', text: 'Lesson 3.2 gave the Argand plane its algebra: a point, its mirror, its distance from the origin, the parallelogram for sums. But every point so far carried only its RECTANGULAR address — the pair (x, y). A plane point has always had a second, older address: how far it stands from the origin, and in which direction. Navigators gave that address its name centuries before algebra — radius and bearing — and this lesson cashes it for complex numbers: the polar form $z = |z|(\\cos\\theta + i\\sin\\theta)$, with the modulus returning as the radius and a new number, the ARGUMENT, as the angle.' },
+    { kind: 'para', text: 'The payoff is the one this chapter promised when 3.1 named multiplication by $i$ a quarter-turn: with the second address in hand, multiplication finally shows its geometric face — to multiply two complex numbers is to ROTATE and SCALE, angles adding while lengths multiply. That single law, proved below from the angle-addition identities, is what the polar form exists to unlock. And the argument earns its own geometric career: rays are arguments, angles between rays are arguments of quotients, and the fold obligations this lesson hosts — the section formula, the angle between two rays, the equation of ray — are all argument work.' },
+
+    { kind: 'heading', text: 'Polar Form: the Second Address of a Point' },
+    { kind: 'para', text: 'Fix a point $z = x + iy$ off the axes, and drop the perpendicular from it to the real axis. The right triangle that appears has legs $|x|$ and $|y|$ and hypotenuse $r = \\sqrt{x^2 + y^2}$ — a length lesson 3.2 already owned under the name $|z|$, the distance from the origin. The direction is the angle $\\theta$ the radius makes with the POSITIVE real axis. Pythagoras prices the radius; the triangle prices the angle; and factoring the address turns both into the number itself.' },
+    { kind: 'derivation', title: 'The polar form of a complex number', statement: 'Every complex number $z = x + iy$ with $z \\neq 0$ can be written $z = |z|(\\cos\\theta + i\\sin\\theta)$ where $\\theta$ is any angle the radius makes with the positive real axis: $x = |z|\\cos\\theta$ and $y = |z|\\sin\\theta$.', steps: [
+      { label: 'Read the radius', formula: 'r = \\sqrt{x^2 + y^2} = |z|', explanation: 'The hypotenuse of the legs $|x|$, $|y|$ — exactly the modulus of lesson 3.2, the distance from the origin. The length half of the second address was already built; polar form only promotes it from bookkeeping to geometry.' },
+      { label: 'Read the angle', formula: '\\cos\\theta = \\frac{x}{r}, \\qquad \\sin\\theta = \\frac{y}{r}', explanation: 'The two triangle reads. CRUCIALLY these are simultaneous equations: a single $\\theta$ must satisfy BOTH — the discipline the warn below prices. The bare tangent $\\tan\\theta = y/x$ remembers only the ratio and forgets the quadrant.' },
+      { label: 'Factor the address', formula: 'x + iy = r\\left(\\frac{x}{r} + i\\,\\frac{y}{r}\\right) = r(\\cos\\theta + i\\sin\\theta)', explanation: 'Divide and re-multiply by $r$: the bracket is exactly $(\\cos\\theta, \\sin\\theta)$ by the reads above — a POINT ON THE UNIT CIRCLE, the direction; while $r$ carries the length. Every nonzero complex number is one length times one unit-circle direction.' },
+      { label: 'Rebuild check', formula: 'x = r\\cos\\theta, \\quad y = r\\sin\\theta', explanation: 'The address converts both ways: from $(x, y)$ up to $(r, \\theta)$, and from $(r, \\theta)$ back down to $(x, y)$. The two addresses name the SAME point — as this lesson\'s roster table witnesses seat by seat.' },
+    ], result: 'z = x + iy = |z|(\\cos\\theta + i\\sin\\theta), \\qquad |z| = \\sqrt{x^2+y^2}' },
+    { kind: 'callout', tone: 'definition', title: 'Polar form, argument, principal argument', text: 'The POLAR FORM of a nonzero complex number is $z = |z|(\\cos\\theta + i\\sin\\theta)$. The modulus $|z|$ is the polar radius. The ARGUMENT of $z$, written $\\arg z$, is the angle the radius from the origin to $z$ makes with the positive real axis, measured in the principal range $-\\pi < \\theta \\leq \\pi$; every other value differs from it by a multiple of $2\\pi$. The argument of the ORIGIN is not defined — the origin has every direction and therefore none. Thus $1 + \\sqrt{3}\\,i = 2(\\cos\\tfrac{\\pi}{3} + i\\sin\\tfrac{\\pi}{3})$: radius 2, bearing sixty degrees.' },
+    { kind: 'formula', name: 'The polar form', latex: 'z = |z|(\\cos\\theta + i\\sin\\theta), \\qquad |z| = \\sqrt{x^2 + y^2}, \\qquad -\\pi < \\arg z \\leq \\pi', note: 'the second address: length from the modulus, direction from the argument; the same point as $x + iy$, never a new number.' },
+    { kind: 'example', title: 'The polar census: write the roster seats in polar form', steps: [
+      'The diagonal seats: $1 + i$ has $r = \\sqrt{2}$ and $\\theta = \\tfrac{\\pi}{4}$, so $1 + i = \\sqrt{2}(\\cos\\tfrac{\\pi}{4} + i\\sin\\tfrac{\\pi}{4})$; its three mirrors $-1+i$, $-1-i$, $1-i$ share $r = \\sqrt{2}$ and carry $\\theta = \\tfrac{3\\pi}{4}, -\\tfrac{3\\pi}{4}, -\\tfrac{\\pi}{4}$ respectively.',
+      'The hexagon seats: $\\sqrt{3} + i$ has legs $\\sqrt{3}$ and $1$, so $r = \\sqrt{3 + 1} = 2$ and $\\theta = \\tfrac{\\pi}{6}$; likewise $1 + \\sqrt{3}\\,i = 2(\\cos\\tfrac{\\pi}{3} + i\\sin\\tfrac{\\pi}{3})$ and $-1 + \\sqrt{3}\\,i = 2(\\cos\\tfrac{2\\pi}{3} + i\\sin\\tfrac{2\\pi}{3})$ — the unit-circle directions at radius 2.',
+      'The axis seats: $4 = 4(\\cos 0 + i\\sin 0)$, $-4 = 4(\\cos\\pi + i\\sin\\pi)$, $3i = 3(\\cos\\tfrac{\\pi}{2} + i\\sin\\tfrac{\\pi}{2})$, $-3i = 3(\\cos(-\\tfrac{\\pi}{2}) + i\\sin(-\\tfrac{\\pi}{2}))$ — the four compass directions.',
+      'An honest non-special seat: $3 + 4i$ has $r = \\sqrt{9 + 16} = 5$ and $\\theta = \\tan^{-1}\\tfrac{4}{3} \\approx 0.9273$ rad $\\approx 53.13^\\circ$ — NOT a special angle, and that is fine: the argument is a real number, not a ceremony; $3 + 4i = 5(\\cos 0.9273 + i\\sin 0.9273)$ with the angle carried to whatever precision the work needs.',
+      'Hence, every roster seat converts: the census table collects the rows, each rebuilt from $(r, \\theta)$ back to $(x, y)$ before it was trusted — the conversion is a two-way road.',
+    ] },
+    { kind: 'table', caption: 'The polar roster census — every row computed and rebuilt by the engines before this prose was written; the last two rows are the honest non-special arguments a calculator returns as decimals.', head: ['seat z', 'r = |z|', 'θ = arg z', 'polar form'], rows: [
+      ['$1 + i$', '$\\sqrt{2}$', '$\\tfrac{\\pi}{4}$', '$\\sqrt{2}(\\cos\\tfrac{\\pi}{4} + i\\sin\\tfrac{\\pi}{4})$'],
+      ['$-1 + i$', '$\\sqrt{2}$', '$\\tfrac{3\\pi}{4}$', '$\\sqrt{2}(\\cos\\tfrac{3\\pi}{4} + i\\sin\\tfrac{3\\pi}{4})$'],
+      ['$-1 - i$', '$\\sqrt{2}$', '$-\\tfrac{3\\pi}{4}$', '$\\sqrt{2}(\\cos(-\\tfrac{3\\pi}{4}) + i\\sin(-\\tfrac{3\\pi}{4}))$'],
+      ['$1 - i$', '$\\sqrt{2}$', '$-\\tfrac{\\pi}{4}$', '$\\sqrt{2}(\\cos(-\\tfrac{\\pi}{4}) + i\\sin(-\\tfrac{\\pi}{4}))$'],
+      ['$\\sqrt{3} + i$', '$2$', '$\\tfrac{\\pi}{6}$', '$2(\\cos\\tfrac{\\pi}{6} + i\\sin\\tfrac{\\pi}{6})$'],
+      ['$1 + \\sqrt{3}\\,i$', '$2$', '$\\tfrac{\\pi}{3}$', '$2(\\cos\\tfrac{\\pi}{3} + i\\sin\\tfrac{\\pi}{3})$'],
+      ['$-1 + \\sqrt{3}\\,i$', '$2$', '$\\tfrac{2\\pi}{3}$', '$2(\\cos\\tfrac{2\\pi}{3} + i\\sin\\tfrac{2\\pi}{3})$'],
+      ['$-4$', '$4$', '$\\pi$', '$4(\\cos\\pi + i\\sin\\pi)$'],
+      ['$3 + 4i$', '$5$', '$\\approx 0.9273$', '$5(\\cos 0.9273 + i\\sin 0.9273)$ — honest, non-special'],
+      ['$4 - 3i$', '$5$', '$\\approx -0.6435$', '$5(\\cos(-0.6435) + i\\sin(-0.6435))$ — honest, non-special'],
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'The tangent fraud: one tangent, two seats', text: 'The seats $1 + i\\sqrt{3}$ and $-1 - i\\sqrt{3}$ BOTH give $\\tan\\theta = \\sqrt{3}$ — and the naive read $\\theta = \\tan^{-1}(\\sqrt{3}) = \\tfrac{\\pi}{3}$ prices them identically, which is FALSE: the first seat sits in the first quadrant at $\\tfrac{\\pi}{3}$, the second in the third at $-\\tfrac{2\\pi}{3}$. A tangent remembers a ratio and forgets a quadrant. The honest discipline is the pair of simultaneous reads $\\cos\\theta = \\tfrac{x}{r}$ AND $\\sin\\theta = \\tfrac{y}{r}$ — signs included: the sign of the cosine is the sign of $x$, the sign of the sine is the sign of $y$, and between them the quadrant is pinned before any angle is named.' },
+
+    { kind: 'heading', text: 'The Argument\u2019s Quadrant Discipline' },
+    { kind: 'para', text: 'The discipline converts to a routine. From any seat, first compute the ACUTE angle $\\alpha = \\tan^{-1}\\left|\\tfrac{y}{x}\\right|$ — a first-quadrant read, always in $(0, \\tfrac{\\pi}{2})$ — and then route it by the signs of $x$ and $y$. Four routes, one table, and the axes as the boundary seats between them.' },
+    { kind: 'table', caption: 'The four quadrant routes — the acute read α = tan⁻¹|y/x| routed by the signs of the components; every seat of the roster above lands by exactly one route.', head: ['where z sits', 'signs (x, y)', 'the route', 'witness seat'], rows: [
+      ['first quadrant', '$x > 0, y > 0$', '$\\theta = \\alpha$', '$1 + \\sqrt{3}\\,i \\to \\tfrac{\\pi}{3}$'],
+      ['second quadrant', '$x < 0, y > 0$', '$\\theta = \\pi - \\alpha$', '$-1 + \\sqrt{3}\\,i \\to \\tfrac{2\\pi}{3}$'],
+      ['third quadrant', '$x < 0, y < 0$', '$\\theta = \\alpha - \\pi$', '$-1 - \\sqrt{3}\\,i \\to -\\tfrac{2\\pi}{3}$'],
+      ['fourth quadrant', '$x > 0, y < 0$', '$\\theta = -\\alpha$', '$1 - \\sqrt{3}\\,i \\to -\\tfrac{\\pi}{3}$'],
+    ] },
+    { kind: 'para', text: 'The axis seats are the routes\u2019 boundaries and deserve their own line: a POSITIVE real number carries argument $0$, a NEGATIVE real number $\\pi$, a positive imaginary number $\\tfrac{\\pi}{2}$, a negative imaginary number $-\\tfrac{\\pi}{2}$. Thus $-4 = 4(\\cos\\pi + i\\sin\\pi)$ and $-5i = 5(\\cos(-\\tfrac{\\pi}{2}) + i\\sin(-\\tfrac{\\pi}{2}))$. The principal range keeps $\\pi$ and refuses $-\\pi$ — the negative real axis is addressed at $\\pi$, never at $-\\pi$, so that each nonzero number owns ONE principal argument. And the origin, sitting on every axis at once, owns none.' },
+    { kind: 'example', title: 'The quadrant discipline worked: read the arguments of −5 − 12i and 4 − 3i honestly', steps: [
+      'For $-5 - 12i$: the signs $(x, y) = (-, -)$ route through the THIRD quadrant. The acute read: $\\alpha = \\tan^{-1}\\left|\\tfrac{-12}{-5}\\right| = \\tan^{-1}\\tfrac{12}{5} \\approx 1.1760$ rad.',
+      'The third-quadrant route: $\\theta = \\alpha - \\pi \\approx -1.9656$ rad — about $-112.6^\\circ$, a bearing pointing down-left, exactly where the seat sits on its circle $r = \\sqrt{25 + 144} = 13$.',
+      'For $4 - 3i$: the signs $(+, -)$ route through the FOURTH quadrant: $\\alpha = \\tan^{-1}\\tfrac{3}{4} \\approx 0.6435$, and $\\theta = -\\alpha \\approx -0.6435$ rad $\\approx -36.9^\\circ$ with $r = 5$.',
+      'Both answers check against the simultaneous reads: for $-5-12i$, $\\cos\\theta = \\tfrac{-5}{13} < 0$ and $\\sin\\theta = \\tfrac{-12}{13} < 0$ — third quadrant confirmed; for $4-3i$, $\\cos\\theta = \\tfrac{4}{5} > 0$, $\\sin\\theta = -\\tfrac{3}{5} < 0$ — fourth quadrant confirmed.',
+      'Hence, $\\arg(-5 - 12i) \\approx -1.9656$ and $\\arg(4 - 3i) \\approx -0.6435$ — non-special bearings priced honestly, the quadrant named before the angle was.',
+    ] },
+    { kind: 'para', text: 'The argument inherits mirror laws from the conjugate of lesson 3.2 — reads worth pinning once and using forever. Because $\\bar{z}$ reflects $z$ across the REAL axis, the reflection of a bearing at $\\theta$ is a bearing at $-\\theta$: $\\arg(\\bar{z}) = -\\arg z$. Negation rotates by $\\pi$, so $\\arg(-z) = \\arg z \\pm\\pi$ (whichever lands in the principal range); and the double move gives $\\arg(-\\bar{z}) = \\pi - \\arg z$. For example, the four twins of the seat $1 + \\sqrt{3}\\,i$ at $\\tfrac{\\pi}{3}$ read: the mirror $1 - \\sqrt{3}\\,i$ at $-\\tfrac{\\pi}{3}$, the negation $-1 - \\sqrt{3}\\,i$ at $-\\tfrac{2\\pi}{3}$, and the negated mirror $-1 + \\sqrt{3}\\,i$ at $\\tfrac{2\\pi}{3}$ — the whole roster row read off one line of algebra.' },
+    { kind: 'callout', tone: 'insight', title: 'Same modulus, same argument, same number', text: 'Two nonzero complex numbers with equal moduli AND equal principal arguments are the same number — the second address is a full address. The two families of seats that share only ONE of the two coordinates are the lesson\u2019s two loci: equal modulus alone is a CIRCLE about the origin (3.2\u2019s equal-modulus law), and equal argument alone is a RAY from the origin — the observation the equation-of-ray section below builds into a whole instrument.' },
+
+    { kind: 'heading', text: 'Multiplication as Rotation-and-Scaling' },
+    { kind: 'para', text: 'Here is the payoff. Lesson 3.2 proved $|z_1 z_2| = |z_1||z_2|$ — the LENGTH half of the multiplication law, lengths multiplying. The polar form now delivers the DIRECTION half: arguments add. The proof runs the two angle-addition identities — standard trigonometry, witnessed numerically in this lesson\u2019s verifier across a full grid before a sentence of prose existed, and proved in the Trigonometry book\u2019s own arc when that book is written.' },
+    { kind: 'callout', tone: 'theorem', title: 'The argument-addition law', text: 'For nonzero complex numbers $z_1 = |z_1|(\\cos\\alpha + i\\sin\\alpha)$ and $z_2 = |z_2|(\\cos\\beta + i\\sin\\beta)$: $z_1 z_2 = |z_1||z_2|\\big(\\cos(\\alpha + \\beta) + i\\sin(\\alpha + \\beta)\\big)$. Hence $|z_1 z_2| = |z_1||z_2|$ and $\\arg(z_1 z_2) = \\arg z_1 + \\arg z_2$ (up to the $2\\pi$ wrap into the principal range). Multiplication rotates and scales: the product\u2019s bearing is the sum of the bearings.' },
+    { kind: 'derivation', title: 'The argument-addition law, proved from the angle-addition identities', statement: 'Multiplying two polar forms collapses to the angle-addition identities: the product lands at radius $|z_1||z_2|$ and bearing $\\alpha + \\beta$.', steps: [
+      { label: 'Expand the product', formula: 'z_1 z_2 = |z_1||z_2|(\\cos\\alpha + i\\sin\\alpha)(\\cos\\beta + i\\sin\\beta)', explanation: 'The radii are real and multiply out front. The remaining work is the bracket — two unit-circle directions meeting.' },
+      { label: 'FOIL the bracket', formula: '(\\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta) + i(\\sin\\alpha\\cos\\beta + \\cos\\alpha\\sin\\beta)', explanation: 'The four terms of the expansion, real parts gathered and imaginary parts gathered, with $i^2 = -1$ pricing the middle — exactly the multiplication rule of 3.1, nothing new.' },
+      { label: 'Cash the identities', formula: '\\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta = \\cos(\\alpha + \\beta), \\quad \\sin\\alpha\\cos\\beta + \\cos\\alpha\\sin\\beta = \\sin(\\alpha + \\beta)', explanation: 'The two angle-addition identities — the trigonometric module\u2019s standard results, swept on a grid by this lesson\u2019s engines. The bracket is now a single unit-circle direction at the SUMMED angle.' },
+      { label: 'Read the address', formula: 'z_1 z_2 = |z_1||z_2|(\\cos(\\alpha+\\beta) + i\\sin(\\alpha+\\beta))', explanation: 'The product carries radius $|z_1||z_2|$ (3.2\u2019s multiplicativity returning as geometry) and bearing $\\alpha + \\beta$ — rotate by the second bearing, scale by the second length. Division runs the mirror identity backwards: $\\arg(z_1/z_2) = \\arg z_1 - \\arg z_2$, $|z_1/z_2| = |z_1|/|z_2|$ — rotation-cancel.' },
+    ], result: '|z_1 z_2| = |z_1||z_2|, \\quad \\arg(z_1 z_2) = \\arg z_1 + \\arg z_2 \\pmod{2\\pi}; \\qquad \\arg\\frac{z_1}{z_2} = \\arg z_1 - \\arg z_2' },
+    { kind: 'formula', name: 'The argument laws of multiplication', latex: '|z_1 z_2| = |z_1||z_2|, \\quad \\arg(z_1z_2) = \\arg z_1 + \\arg z_2; \\qquad |z^n| = |z|^n, \\quad \\arg(z^n) = n\\arg z', note: 'lengths multiply, angles add; powers scale both reads at once — and every summed argument is wrapped back into $(-\\pi, \\pi]$ before it is reported.' },
+    { kind: 'example', title: 'The product and quotient witnesses: (√3 + i)(1 + √3i) and (1 + √3i)/(√3 + i)', steps: [
+      'The polar route on the product: $\\sqrt{3} + i$ sits at radius 2, bearing $\\tfrac{\\pi}{6}$; $1 + \\sqrt{3}\\,i$ sits at radius 2, bearing $\\tfrac{\\pi}{3}$. The law promises radius $2 \\cdot 2 = 4$ at bearing $\\tfrac{\\pi}{6} + \\tfrac{\\pi}{3} = \\tfrac{\\pi}{2}$ — the pure imaginary $4i$.',
+      'The FOIL check: $(\\sqrt{3} + i)(1 + \\sqrt{3}\\,i) = \\sqrt{3} + 3i + i + \\sqrt{3}\\,i^2 = (\\sqrt{3} - \\sqrt{3}) + 4i = 4i$ — both routes agree exactly.',
+      'The polar route on the quotient: radius $\\tfrac{2}{2} = 1$, bearing $\\tfrac{\\pi}{3} - \\tfrac{\\pi}{6} = \\tfrac{\\pi}{6}$ — the unit-modulus seat $\\cos\\tfrac{\\pi}{6} + i\\sin\\tfrac{\\pi}{6} = \\tfrac{\\sqrt{3}}{2} + \\tfrac{1}{2}i$.',
+      'The conjugate check: $\\tfrac{(1 + \\sqrt{3}\\,i)(\\sqrt{3} - i)}{(\\sqrt{3} + i)(\\sqrt{3} - i)} = \\tfrac{\\sqrt{3} - i + 3i - \\sqrt{3}\\,i^2}{4} = \\tfrac{2\\sqrt{3} + 2i}{4} = \\tfrac{\\sqrt{3}}{2} + \\tfrac{1}{2}i$ — rotation-cancel witnessed by arithmetic.',
+      'Hence, $4i$ and $\\tfrac{\\sqrt{3}}{2} + \\tfrac{1}{2}i$ — the product rotated and scaled, the quotient rotated back — the figure\u2019s right panel draws the three vectors.',
+    ] },
+    { kind: 'figure', caption: 'The second address and its multiplication law. Left: the polar read of z = 1 + √3i — radius r = 2 from the origin, bearing θ = π/3 marked by the arc, the legs 1 and √3 of the right triangle that prices both. Right: multiplication as rotation-and-scaling — (√3 + i)(1 + √3i) = 4i: the two factor vectors at bearings π/6 and π/3 with radii 2 and 2, and their product at bearing π/2 with radius 4. Lengths multiply (2·2 = 4), bearings add (π/6 + π/3 = π/2): the geometric face of multiplication this chapter promised from 3.1\u2019s quarter-turn.', svg: polarRotationSvg() },
+    { kind: 'para', text: 'One discipline rides every use of the law: the SUM of two principal arguments can leave the principal range, and the honest report wraps it back. Thus bearings $\\tfrac{5\\pi}{6}$ and $\\tfrac{2\\pi}{3}$ sum to $\\tfrac{3\\pi}{2}$ — outside $(-\\pi, \\pi]$ — and the product\u2019s principal argument is $-\\tfrac{\\pi}{2}$. The wrap is not a cosmetic preference: the principal argument is a FUNCTION of the number, one value per seat, and the wrap is what keeps it single-valued while the law adds freely.' },
+    { kind: 'example', title: 'The principal wrap, worked on honest seats', steps: [
+      'Take $z_1 = -1 + i$ (radius $\\sqrt{2}$, bearing $\\tfrac{3\\pi}{4}$) and $z_2 = -1 + \\sqrt{3}\\,i$ (radius 2, bearing $\\tfrac{2\\pi}{3}$). The law: the product carries radius $2\\sqrt{2}$ and bearing $\\tfrac{3\\pi}{4} + \\tfrac{2\\pi}{3} = \\tfrac{17\\pi}{12}$.',
+      'The wrap: $\\tfrac{17\\pi}{12} > \\pi$, so subtract $2\\pi$: $\\tfrac{17\\pi}{12} - 2\\pi = -\\tfrac{7\\pi}{12}$ — the product\u2019s principal argument, a bearing of $-105^\\circ$, pointing down-left.',
+      'The arithmetic check: $(-1 + i)(-1 + \\sqrt{3}\\,i) = 1 - \\sqrt{3}\\,i - i + \\sqrt{3}\\,i^2 = (1 - \\sqrt{3}) - (1 + \\sqrt{3})\\,i$ — and indeed $\\cos\\left(-\\tfrac{7\\pi}{12}\\right) = \\tfrac{1 - \\sqrt{3}}{2\\sqrt{2}}$, $\\sin\\left(-\\tfrac{7\\pi}{12}\\right) = -\\tfrac{1 + \\sqrt{3}}{2\\sqrt{2}}$, the exact components of the product over its radius $2\\sqrt{2}$.',
+      'The same wrap at the axis boundary: bearings $\\tfrac{5\\pi}{6}$ and $\\tfrac{2\\pi}{3}$ (both from radius-2 seats) sum to $\\tfrac{3\\pi}{2}$, which wraps to $-\\tfrac{\\pi}{2}$ — the product lands on the NEGATIVE imaginary axis, at radius 4: $-4i$.',
+      'Hence, $-\\tfrac{7\\pi}{12}$ and $-\\tfrac{\\pi}{2}$ — the sums were true, the reports were wrapped, and every seat checked by substitution.',
+    ] },
+    { kind: 'example', title: 'Powers by the law: (1 + i)⁴, (1 + i)⁸ and (−√3 + i)⁶ without multiplying', steps: [
+      'The seat $1 + i$ carries radius $\\sqrt{2}$ and bearing $\\tfrac{\\pi}{4}$. The power law: $(1+i)^4$ has radius $(\\sqrt{2})^4 = 4$ and bearing $4 \\cdot \\tfrac{\\pi}{4} = \\pi$ — the negative real axis: $(1 + i)^4 = -4$.',
+      'The eighth power: radius $(\\sqrt{2})^8 = 16$, bearing $8 \\cdot \\tfrac{\\pi}{4} = 2\\pi \\equiv 0$ — the positive real axis: $(1 + i)^8 = 16$. Two multiplications by squaring agree: $((1+i)^4)^2 = (-4)^2 = 16$.',
+      'The seat $-\\sqrt{3} + i$ carries radius 2 and bearing $\\tfrac{5\\pi}{6}$. The sixth power: radius $2^6 = 64$, bearing $6 \\cdot \\tfrac{5\\pi}{6} = 5\\pi \\equiv \\pi$ (wrap $5\\pi - 4\\pi = \\pi$): $(-\\sqrt{3} + i)^6 = -64$.',
+      'The rotation witness at non-special bearings: $(1 + i)(3 + 4i)$ — radii $\\sqrt{2}$ and $5$ promise $5\\sqrt{2}$; bearings $\\tfrac{\\pi}{4}$ and $\\approx 0.9273$ promise $\\approx 1.7071$. The arithmetic: $(1+i)(3+4i) = 3 + 4i + 3i - 4 = -1 + 7i$, whose modulus is $\\sqrt{1 + 49} = 5\\sqrt{2}$ — the length half holds at a non-special seat, as it must.',
+      'Hence, $-4$, $16$ and $-64$ by bearings alone — each power re-verified by repeated multiplication in the engines before it was written.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'One law, three chapters of meaning', text: 'Look at what the argument-addition law just unified. Lesson 3.1\u2019s quarter-turn — multiplication by $i$ as a rotation — is the law at $\\beta = \\tfrac{\\pi}{2}$ with no scaling. Lesson 3.2\u2019s multiplicativity $|z_1 z_2| = |z_1||z_2|$ is the law\u2019s length half, now with its missing direction half beside it. And the powers of $i$ from 3.1\u2019s mod-4 cycle are the law at bearing $\\tfrac{\\pi}{2}$, repeatedly: four quarter-turns close the circle because $4 \\cdot \\tfrac{\\pi}{2} = 2\\pi \\equiv 0$. Rotation-and-scaling is not A interpretation of complex multiplication — it is the interpretation the second address was built to expose, and De Moivre\u2019s theorem in the next lesson is this same law raised to integer powers as an engine.' },
+
+    { kind: 'heading', text: 'Euler\u2019s Form and the Honest Logarithm' },
+    { kind: 'para', text: 'The bracket $(\\cos\\theta + i\\sin\\theta)$ — a unit-circle direction — has a famous shorthand. Euler\u2019s exponential $e^{i\\theta}$, defined by the same power series that defines $e^x$ with the exponent taken up the imaginary axis, collapses exactly onto that bracket. The honest route for this book is to state the identity, WITNESS it numerically on the series, and leave its full analytic proof to the calculus book\u2019s own arc — the standing honesty rule: never claim a proof that was not run.' },
+    { kind: 'derivation', title: 'Euler\u2019s form, witnessed on the series', statement: 'For real θ, the series $e^{i\\theta} = \\sum_{k \\geq 0} \\frac{(i\\theta)^k}{k!}$ converges to $\\cos\\theta + i\\sin\\theta$ — the unit-circle direction at bearing θ, written exponentially.', steps: [
+      { label: 'The three series', formula: 'e^x = \\sum \\tfrac{x^k}{k!}, \\quad \\cos x = \\sum \\tfrac{(-1)^k x^{2k}}{(2k)!}, \\quad \\sin x = \\sum \\tfrac{(-1)^k x^{2k+1}}{(2k+1)!}', explanation: 'The exponential and the two trigonometric series — the calculus book\u2019s standard results, used here as the definition of the object.' },
+      { label: 'Run the exponent up the axis', formula: 'e^{i\\theta} = \\sum \\tfrac{(i\\theta)^k}{k!}', explanation: 'Substitute $x = i\\theta$ into the exponential series. The powers of $i$ cycle mod-4 (3.1\u2019s engine), so even terms turn real with alternating signs and odd terms turn imaginary — the series SPLIT into the two trigonometric series.' },
+      { label: 'Witness numerically', formula: '\\sum_{k=0}^{24} \\tfrac{(i\\theta)^k}{k!} \\approx \\cos\\theta + i\\sin\\theta', explanation: 'At 24 terms the partial sums sit within $10^{-10}$ of the bracket at seven test bearings — the witness this lesson\u2019s engines ran pre-prose. The analytic proof (term-by-term splitting of the series) belongs to the calculus arc; the numerical witness is the honest bound this book claims.' },
+      { label: 'The seats', formula: 'e^{i\\pi} = -1, \\quad e^{i\\pi/2} = i, \\quad e^{i0} = 1', explanation: 'The identity seat: bearing $\\pi$ is the negative real axis and $e^{i\\pi} = -1$ — Euler\u2019s identity, the one line joining $e$, $i$, $\\pi$, 1 and the minus sign. The quarter-turn returns $i$; the zero bearing returns 1.' },
+    ], result: 'e^{i\\theta} = \\cos\\theta + i\\sin\\theta, \\qquad z = |z|\\,e^{i\\theta} \\text{ (the polar form in exponential dress)}' },
+    { kind: 'formula', name: 'Euler\u2019s form of a complex number', latex: 'z = |z|\\,e^{i\\theta} = |z|(\\cos\\theta + i\\sin\\theta), \\qquad e^{i\\pi} = -1', note: 'the unit-circle direction written as an exponential — multiplication now reads as the law of exponents: $|z_1|e^{i\\alpha}\\cdot|z_2|e^{i\\beta} = |z_1||z_2|e^{i(\\alpha+\\beta)}$.' },
+    { kind: 'example', title: 'Euler seats and the honest logarithm of −4', steps: [
+      'The seats: $2e^{i\\pi/3} = 2(\\cos\\tfrac{\\pi}{3} + i\\sin\\tfrac{\\pi}{3}) = 1 + \\sqrt{3}\\,i$; $4e^{i\\pi/2} = 4i$; and $-4 = 4e^{i\\pi}$ — the negative real seat in exponential dress.',
+      'The logarithm wants to invert the form: if $z = re^{i\\theta}$ then $\\log z = \\ln r + i\\theta$ — the length read plus the bearing read. For $z = -4$: $\\log(-4) = \\ln 4 + i\\pi$.',
+      'The honesty: the bearing is only defined up to $2\\pi$ — $e^{i2\\pi} = 1$ — so EVERY value $\\log(-4) = \\ln 4 + i(\\pi + 2k\\pi)$, $k \\in \\mathbb{Z}$, exponentiates back to $-4$: the logarithm is MULTI-VALUED, one value per turn of the circle. The principal branch takes $k = 0$.',
+      'The check on two branches: $e^{\\ln 4 + i\\pi} = 4(\\cos\\pi + i\\sin\\pi) = -4$; and $e^{\\ln 4 + i(\\pi + 2\\pi)} = 4(\\cos 3\\pi + i \\sin 3\\pi) = -4$ — both branch values return the same seat, the period witnessed.',
+      'Hence, $\\log(-4) = \\ln 4 + i(\\pi + 2k\\pi)$ — the inverse of the second address, honestly multi-valued, the single-valued principal branch named as a convention rather than a truth.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'The logarithm is a family, not a number', text: 'The priced slip writes "THE logarithm of $-4$ is $\\ln 4 + i\\pi$" as if the other values were errors. They are not: each is a branch of one honest family $\\ln 4 + i(\\pi + 2k\\pi)$, and every branch exponentiates back to $-4$ because $e^{i2\\pi} = 1$ exactly. What IS a slip is mixing branches inside one computation — add two logarithms of different branches and the result exponentiates to the wrong seat. State the branch (the principal one, $k = 0$, unless said otherwise), keep it, and the family behaves.' },
+
+    { kind: 'heading', text: 'The Section Formula in Complex Numbers' },
+    { kind: 'para', text: 'The argument made points into bearings; it also makes LINE GEOMETRY computable, and the first instrument is the division of a segment in a given ratio — the section formula. The complex route is the affine one: a point on the segment from $z_1$ to $z_2$ is $z_1$ plus a REAL multiple of the step $z_2 - z_1$, and the multiple is read off the ratio.' },
+    { kind: 'derivation', title: 'The midpoint and the section formula', statement: 'The midpoint of the segment joining $z_1$ and $z_2$ is $\\tfrac{z_1 + z_2}{2}$; the point dividing that segment internally in the ratio $m : n$ (from $z_1$ to $z_2$, so that $AP : PB = m : n$) is $\\tfrac{n z_1 + m z_2}{m + n}$ — the weighted average, weights crossing the ratio.', steps: [
+      { label: 'Parametrize the segment', formula: 'z(t) = z_1 + t(z_2 - z_1), \\quad 0 \\leq t \\leq 1', explanation: 'The affine parametrization: $t = 0$ parks at $z_1$, $t = 1$ arrives at $z_2$, and the point $z(t)$ splits the segment in the ratio $t : (1 - t)$ — both coordinates split identically because the step is added wholesale.' },
+      { label: 'Read t off the ratio', formula: 'AP : PB = m : n \\Rightarrow t = \\tfrac{m}{m+n}', explanation: 'The fraction of the way from $z_1$ to $z_2$ is the share of $m$ in the whole: $t = \\tfrac{AP}{AP + PB} = \\tfrac{m}{m+n}$. The weights cross because $z_1$ carries the complement $1 - t = \\tfrac{n}{m+n}$.' },
+      { label: 'Substitute', formula: 'z = z_1 + \\tfrac{m}{m+n}(z_2 - z_1) = \\tfrac{(m+n)z_1 + m z_2 - m z_1}{m+n} = \\tfrac{n z_1 + m z_2}{m+n}', explanation: 'One line of algebra. The midpoint is the special case $m = n$: $\\tfrac{z_1 + z_2}{2}$ — the average of the addresses, componentwise.' },
+      { label: 'The distance contract', formula: '\\left|\\tfrac{P - z_1}{P - z_2}\\right| = \\tfrac{m}{n}', explanation: 'The formula\u2019s own receipt: the distance ratio of the division seat is EXACTLY the given ratio — the engines verify it on every worked seat below, and the collinearity receipt rides free: $(z_1 - P)/(z_2 - P)$ is a negative real, its argument exactly $\\pi$ mod $2\\pi$.' },
+    ], result: 'P = \\tfrac{n z_1 + m z_2}{m + n} \\ \\ (AP : PB = m : n); \\qquad \\text{midpoint} = \\tfrac{z_1 + z_2}{2}; \\qquad \\text{centroid} = \\tfrac{z_1 + z_2 + z_3}{3}' },
+    { kind: 'formula', name: 'The section formula in complex numbers', latex: 'P = \\frac{n z_1 + m z_2}{m + n} \\quad (AP : PB = m : n), \\qquad \\text{midpoint} = \\frac{z_1 + z_2}{2}, \\qquad \\text{centroid} = \\frac{z_1 + z_2 + z_3}{3}', note: 'the weights CROSS the ratio ($z_1$ takes $n$, $z_2$ takes $m$); the centroid is the $1:1:1$ extension to three seats — and the parallelogram closure below is the midpoint engine run twice.' },
+    { kind: 'example', title: 'The parallelogram closure: A(1+i), B(4+2i), C(6+6i) are three vertices in order — find the fourth, and price the diagonals', steps: [
+      'The law of parallelogram diagonals: they bisect each other, so the midpoint of $AC$ must equal the midpoint of $BD$ — $\\tfrac{z_1 + z_3}{2} = \\tfrac{z_2 + z_4}{2}$, hence $z_4 = z_1 + z_3 - z_2$.',
+      'Substitute: $z_4 = (1 + i) + (6 + 6i) - (4 + 2i) = 3 + 5i$ — the fourth vertex, one line, no coordinate split.',
+      'The receipt: midpoint of $AC$ is $\\tfrac{(1+i) + (6+6i)}{2} = \\tfrac{7}{2} + \\tfrac{7}{2}i$; midpoint of $BD$ is $\\tfrac{(4+2i) + (3+5i)}{2} = \\tfrac{7}{2} + \\tfrac{7}{2}i$ — equal exactly, the closure verified.',
+      'The centroid (the $1:1:1$ extension): $\\tfrac{(1+i) + (4+2i) + (6+6i)}{3} = \\tfrac{11 + 9i}{3} = \\tfrac{11}{3} + 3i$ — the average of the four addresses\u2019 three generators.',
+      'Hence, $D = 3 + 5i$, both diagonal midpoints at $\\tfrac{7}{2} + \\tfrac{7}{2}i$ — the section formula\u2019s midpoint engine closing a parallelogram without a single coordinate split.',
+    ] },
+    { kind: 'example', title: 'The ratio division: divide the segment from z₁ = 2+i to z₂ = 8+5i in the ratios 1 : 2 and 2 : 1', steps: [
+      'For $AP : PB = 1 : 2$ the formula crosses the weights: $P = \\tfrac{2z_1 + 1 \\cdot z_2}{3} = \\tfrac{2(2+i) + (8+5i)}{3} = \\tfrac{12 + 7i}{3} = 4 + \\tfrac{7}{3}i$.',
+      'The receipt: $|P - z_1| = |2 + \\tfrac{4}{3}i| = \\sqrt{4 + \\tfrac{16}{9}} = \\tfrac{2\\sqrt{13}}{3}$ and $|z_2 - P| = |4 + \\tfrac{8}{3}i| = \\sqrt{16 + \\tfrac{64}{9}} = \\tfrac{4\\sqrt{13}}{3}$ — the ratio is exactly $1 : 2$, and $(z_1 - P)/(z_2 - P) = -\\tfrac{1}{2}$, a negative real: collinear, $P$ between.',
+      'For $AP : PB = 2 : 1$ the weights cross the other way: $P = \\tfrac{1 \\cdot z_1 + 2z_2}{3} = \\tfrac{(2+i) + (16+10i)}{3} = 6 + \\tfrac{11}{3}i$, two-thirds of the way along.',
+      'The receipt again: $|P - z_1| = \\tfrac{4\\sqrt{13}}{3}$ and $|z_2 - P| = \\tfrac{2\\sqrt{13}}{3}$ — the ratio exactly $2 : 1$, the mirrored division seat.',
+      'Hence, $4 + \\tfrac{7}{3}i$ and $6 + \\tfrac{11}{3}i$ — both receipts exact, both seats collinear by the negative-real quotient.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'Affine combinations are line geometry', text: 'The section formula is one face of a general law: points of the line through $z_1$ and $z_2$ are exactly the REAL affine combinations $\\lambda z_1 + \\mu z_2$ with $\\lambda + \\mu = 1$ — inside the segment when both weights are positive, outside when one is negative, and the weights\u2019 sum pinned at 1 is what keeps the combination on the LINE rather than the plane. The collinearity transfer prices it: any relation $az_1 + bz_2 + cz_3 = 0$ with $a + b + c = 0$ rewrites $z_3$ as an affine combination of $z_1$ and $z_2$ with unit weight-sum — three seats on one line. The exercise ladder cashes the transfer on $2z_1 - 3z_2 + z_3 = 0$.' },
+
+    { kind: 'heading', text: 'Angle between Two Rays' },
+    { kind: 'para', text: 'The second fold instrument reads ANGLES off the plane — the angle at a vertex between two rays to other points. The move is the translation-to-origin route: shifting the vertex to the origin never changes directions, and directions are arguments.' },
+    { kind: 'callout', tone: 'definition', title: 'Angle between two rays', text: 'For three points $P(z_1)$, $Q(z_2)$ and $R(z_3)$ with $P$ off the line $QR$, the angle $\\angle QPR$ — the angle at $P$ between the rays $PQ$ and $PR$ — is read as $\\theta = \\arg\\left(\\tfrac{z_3 - z_1}{z_2 - z_1}\\right)$, taken in $[0, \\pi]$ up to sign: the quotient\u2019s argument is the difference of the bearings, which IS the opened angle. For two full LINES (directions without heads), the same read at $\\arg\\left(\\tfrac{z_4 - z_3}{z_1 - z_2}\\right)$ gives the acute-or-right angle between them, since a line\u2019s direction is blind to reversal.' },
+    { kind: 'derivation', title: 'The translation route to the angle formula', statement: 'Shifting the vertex P to the origin preserves both ray directions; the angle between the shifted rays is the difference of their arguments — the argument of the quotient.', steps: [
+      { label: 'Shift the vertex', formula: "Q \mapsto Q' = z_2 - z_1, \quad R \mapsto R' = z_3 - z_1", explanation: 'Subtract $z_1$ from every address: $P$ moves to the origin, and the DIFFERENCES $z_2 - z_1$, $z_3 - z_1$ are the shifted addresses of $Q$, $R$. Translation preserves direction — the two rays now emanate from $O$ along the very directions they had at $P$.' },
+      { label: 'Read the bearings', formula: '\\arg(z_2 - z_1) = \\theta_1, \\quad \\arg(z_3 - z_1) = \\theta_2', explanation: 'The shifted rays are radius vectors from the origin, so their directions are arguments of the differences — the second address doing ray work.' },
+      { label: 'Open the angle', formula: '\\theta = \\theta_2 - \\theta_1 = \\arg\\left(\\tfrac{z_3 - z_1}{z_2 - z_1}\\right)', explanation: 'The opened angle at the vertex is the difference of the bearings — and by the argument law of this lesson, the difference of arguments is the argument of the QUOTIENT. One division prices the whole angle.' },
+    ], result: '\\angle QPR = \\arg\\frac{z_3 - z_1}{z_2 - z_1} \\ \\ (\\text{mod sign, taken in } [0, \\pi])' },
+    { kind: 'formula', name: 'The angle between two rays', latex: '\\angle QPR = \\arg\\left(\\frac{z_3 - z_1}{z_2 - z_1}\\right), \\qquad \\text{(lines: } \\arg\\tfrac{z_4 - z_3}{z_1 - z_2}\\text{)}', note: 'the vertex takes the subtrahend seat: both differences come FROM the vertex, and the quotient\u2019s argument is the opened angle.' },
+    { kind: 'example', title: 'The angle at P(2+i) between the rays to Q(5+4i) and R(2+6i)', steps: [
+      'The differences from the vertex: $Q - P = (5+4i) - (2+i) = 3 + 3i$ — radius $3\\sqrt{2}$, bearing $\\tfrac{\\pi}{4}$; $R - P = (2+6i) - (2+i) = 5i$ — radius 5, bearing $\\tfrac{\\pi}{2}$ (the vertical ray).',
+      'The quotient read: $\\angle QPR = \\arg\\left(\\tfrac{5i}{3+3i}\\right) = \\tfrac{\\pi}{2} - \\tfrac{\\pi}{4} = \\tfrac{\\pi}{4}$ — a forty-five degree opening at the vertex.',
+      'The cross-check by dot product: $(3, 3) \\cdot (0, 5) = 15$ with lengths $3\\sqrt{2}$ and $5$, so $\\cos\\theta = \\tfrac{15}{15\\sqrt{2}} = \\tfrac{1}{\\sqrt{2}}$ — $\\theta = \\tfrac{\\pi}{4}$ exactly, both routes agreeing.',
+      'Hence, the rays open at $\\tfrac{\\pi}{4}$ — the argument quotient pricing an angle the coordinate plane would price with two dot products and a cosine table.',
+    ] },
+
+    { kind: 'heading', text: 'Equation of Ray' },
+    { kind: 'para', text: 'The last fold instrument runs the observation backwards: if arguments are directions, then an EQUATION that pins an argument pins a ray — and ray equations become readable algebra. This is the locus reading the insight above teased: equal argument alone is a ray from the origin; now the origin is allowed to move.' },
+    { kind: 'callout', tone: 'definition', title: 'Equation of ray', text: 'For a point $z_1 = x_1 + iy_1$ and a direction $\\theta$ with $\\tan\\theta$ defined, the EQUATION OF RAY is $\\arg(z - z_1) = \\theta$: the ray emanating from $z_1$ (with $z_1$ itself EXCLUDED — the argument of 0 is undefined) at bearing $\\theta$. In coordinates it is the half of the line $y - y_1 = (\\tan\\theta)(x - x_1)$ that points in the direction $\\theta$: the line is the two-headed ancestor, the ray keeps only the head that bears $\\theta$.' },
+    { kind: 'derivation', title: 'From the line to the ray: reading arg(z − z₁) = θ in coordinates', statement: 'The ray arg(z − z₁) = θ is the direction-θ half of the line through z₁ of slope tan θ — the argument equation and the point-slope line are the same object, the ray keeping one head only.', steps: [
+      { label: 'Unfold the argument', formula: '\\arg(z - z_1) = \\theta \\Rightarrow \\tan(\\arg(z - z_1)) = \\tan\\theta', explanation: 'Take the tangent of both sides — legal here because the bearing is pinned at one value, not a family.' },
+      { label: 'The tangent read', formula: '\\frac{y - y_1}{x - x_1} = \\tan\\theta \\Rightarrow y - y_1 = (\\tan\\theta)(x - x_1)', explanation: 'The argument of $z - z_1$ is the bearing of the step from $z_1$ to $z$; its tangent is the slope of that step. The point-slope line through $z_1$ appears — but with BOTH heads.' },
+      { label: 'Keep the bearing\u2019s head', formula: '\\cos(x - x_1) \\gtrless 0 \\text{ as } \\cos\\theta \\gtrless 0, \\quad \\sin(y - y_1) \\text{ likewise}', explanation: 'The line carries two bearings, $\\theta$ and $\\theta + \\pi$; the RAY equation\u2019s argument pins the sign pair of the step to the sign pair of $(\\cos\\theta, \\sin\\theta)$ — exactly one head survives. That is why ray equations can meet in NO point where line equations always meet: the excluded head may have carried the crossing.' },
+    ], result: '\\arg(z - z_1) = \\theta \\iff y - y_1 = (\\tan\\theta)(x - x_1) \\text{ with the } (\\cos\\theta, \\sin\\theta)\\text{-signed head}' },
+    { kind: 'formula', name: 'The equation of ray', latex: '\\arg(z - z_1) = \\theta \\quad \\text{(the ray from } z_1 \\text{, } z_1 \\text{ excluded, bearing } \\theta\\text{)}', note: 'the origin seat $z_1$ is excluded — $\\arg 0$ is undefined — and that exclusion is load-bearing, as the no-meet example below shows.' },
+    { kind: 'example', title: 'Where the rays meet — and where they never do: arg(z − 3i) = π against arg(z + 2 − i) = π/2, then arg(z − 2i) = 3π/4 against arg(z + 1 − i) = π/4', steps: [
+      'The first pair: $\\arg(z - 3i) = \\pi$ is the ray from $3i$ bearing $\\pi$ — the horizontal line $y = 3$ travelled LEFT from $(0, 3)$; $\\arg(z + 2 - i) = \\tfrac{\\pi}{2}$ is the ray from $-2 + i$ bearing straight UP — the vertical line $x = -2$ travelled up from $(-2, 1)$.',
+      'The meet: the left-travelling seat of $y = 3$ with $x < 0$ meets the up-travelling seat of $x = -2$ with $y > 1$ exactly at $(-2, 3)$ — the seat $z = -2 + 3i$, inside BOTH travelled halves.',
+      'The receipt in the equation\u2019s own currency: at $z = -2+3i$, $z - 3i = -2$, a negative real — argument $\\pi$ ✓; and $z + 2 - i = 2i$, a positive imaginary — argument $\\tfrac{\\pi}{2}$ ✓. Both ray equations hold; the meet is verified, not eyeballed.',
+      'The second pair: $\\arg(z - 2i) = \\tfrac{3\\pi}{4}$ is the ray from $2i$ travelling up-LEFT; $\\arg(z + 1 - i) = \\tfrac{\\pi}{4}$ is the ray from $-1 + i$ travelling up-RIGHT. Parametrize: the first is $(0, 2) + t(-\\tfrac{\\sqrt{2}}{2}, \\tfrac{\\sqrt{2}}{2})$ with $t > 0$; the second is $(-1, 1) + s(\\tfrac{\\sqrt{2}}{2}, \\tfrac{\\sqrt{2}}{2})$ with $s > 0$.',
+      'The system: equating components gives $-\\tfrac{\\sqrt{2}}{2}t - \\tfrac{\\sqrt{2}}{2}s = -1$ and $\\tfrac{\\sqrt{2}}{2}t - \\tfrac{\\sqrt{2}}{2}s = -1$; adding, $-\\sqrt{2}\\,s = -2$ so $s = \\sqrt{2}$, and back-substituting gives $t = 0$. The unique candidate is the FIRST ray\u2019s own origin $2i$ — the excluded seat.',
+      'Diagnosis: ray 2 at $s = \\sqrt{2}$ lands exactly on $2i$ — it PASSES THROUGH ray 1\u2019s origin. But the ray from $2i$ excludes $2i$ (no argument of 0), so the crossing seat belongs to neither ray: the two equations have NO common solution — the line halves that would have crossed are the excluded heads. Hence, the first pair meets at $-2 + 3i$; the second pair never meets — the figure\u2019s two panels draw both verdicts.',
+    ] },
+    { kind: 'figure', caption: 'Rays and their meetings on the Argand plane. Left: the meet — arg(z − 3i) = π runs left from the open circle at 3i along y = 3, and arg(z + 2 − i) = π/2 runs straight up from the open circle at −2+i along x = −2; the solid dot marks the meeting seat −2+3i, where z − 3i = −2 (argument π) and z + 2 − i = 2i (argument π/2) both hold. Right: the no-meet — arg(z − 2i) = 3π/4 runs up-left from the open circle at 2i, and arg(z + 1 − i) = π/4 runs up-right from the open circle at −1+i; the dashed ring marks how ray 2 passes exactly through ray 1\u2019s origin 2i — the one seat where the underlying lines cross — but the origin is excluded from its own ray, so no meeting point exists.', svg: rayMeetSvg() },
+    { kind: 'callout', tone: 'exam', title: 'Where this sits in the examinations', text: 'JEE Main\u2019s algebra unit names complex numbers AND quadratic equations together and lists the modulus and the Argand diagram by name — the syllabus\u2019s own hint that this lesson\u2019s material is examined. The single-correct staples: polar-form conversion (with the quadrant discipline as the priced distractor), the argument of a product or quotient (with the wrap), and modulus-equation reads. Numerical-value items hang on the argument-addition law and on powers read by bearings. Ray and locus items — arg equations, meets and honest no-meets — appear in the advanced papers; NCERT class 11 ch. 4 carries the Argand plane at school depth. The items in this lesson are exam-STYLE — our own designs on the pinned engines, labelled honestly, never lifted from any paper.' },
+    { kind: 'terms', items: [
+      { term: 'Polar form', def: 'the second address of a nonzero complex number: $z = |z|(\\cos\\theta + i\\sin\\theta)$ — length from the modulus, direction from the argument; the same point as $x + iy$.' },
+      { term: 'Argument and principal argument', def: 'the angle the radius from the origin to $z$ makes with the positive real axis; the principal value is the unique one in $(-\\pi, \\pi]$, every other value differing by a multiple of $2\\pi$. The argument of the origin is undefined.' },
+      { term: 'Rotation-and-scaling', def: 'the geometric face of multiplication: $|z_1z_2| = |z_1||z_2|$ and $\\arg(z_1z_2) = \\arg z_1 + \\arg z_2$ — to multiply is to rotate by the second bearing and scale by the second length.' },
+      { term: 'Euler\u2019s form', def: 'the exponential dress of the polar form: $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$, so $z = |z|e^{i\\theta}$; multiplication reads as the law of exponents.' },
+      { term: 'Multi-valued logarithm', def: 'the inverse of the second address as a FAMILY: $\\log z = \\ln|z| + i(\\arg z + 2k\\pi)$, $k \\in \\mathbb{Z}$ — every branch exponentiates back to $z$ because $e^{i2\\pi} = 1$; the principal branch takes $k = 0$.' },
+      { term: 'Section formula in complex numbers', def: 'the division of the segment from $z_1$ to $z_2$ in the ratio $m : n$ ($AP : PB$) at $P = \\tfrac{n z_1 + m z_2}{m + n}$ — weights crossing the ratio; the midpoint $\\tfrac{z_1+z_2}{2}$ and centroid $\\tfrac{z_1+z_2+z_3}{3}$ are the special seats.' },
+      { term: 'Equation of ray', def: 'the locus $\\arg(z - z_1) = \\theta$: the ray from $z_1$ (origin excluded) at bearing $\\theta$ — the $\\theta$-headed half of the line $y - y_1 = (\\tan\\theta)(x - x_1)$; with the angle-between-rays read $\\arg\\tfrac{z_3 - z_1}{z_2 - z_1}$ it makes argument geometry computable.' },
+    ] },
+    { kind: 'quiz', title: 'Check yourself: the second address', items: [
+      { q: 'The polar form of −1 + √3 i is', options: ['2(cos π/3 + i sin π/3)', '√2(cos 3π/4 + i sin 3π/4)', '2(cos 2π/3 + i sin 2π/3)', '2(cos 5π/6 + i sin 5π/6)'], answer: 2, explain: 'The seat has x < 0, y > 0 — SECOND quadrant, and |z| = √(1 + 3) = 2. The route θ = π − α with α = tan⁻¹√3 = π/3 gives θ = 2π/3. (A) is the first-quadrant tangent read — the tangent fraud priced: tan⁻¹|y/x| alone cannot tell this seat from 1 + √3i. (B) carries the modulus of the 1 ± i seats — the wrong roster row. (D) is the −√3 + i seat\u2019s bearing — the neighbouring hexagon row.' },
+      { q: 'The seats 1 + i and −1 − i both give tan⁻¹|y/x| = π/4. Their principal arguments are', options: ['π/4 and −3π/4', 'π/4 and π/4', 'π/4 and −π/4', '3π/4 and −π/4'], answer: 0, explain: '1 + i sits in the first quadrant: θ = α = π/4. −1 − i sits in the THIRD: θ = α − π = π/4 − π = −3π/4. (B) is the single-tangent fraud — one tangent, two different points; the honest discipline is the simultaneous cos/sin reads, whose signs pin the quadrant. (C) reads the fourth-quadrant mirror 1 − i for the second seat. (D) swaps the seats — 3π/4 belongs to −1 + i.' },
+      { q: '(√3 + i)(1 + √3 i) equals', options: ['2√3 + 2i', '4i', '−4i', '4'], answer: 1, explain: 'The polar route: radii 2 and 2 promise modulus 4; bearings π/6 and π/3 promise π/2 — the positive imaginary axis: 4i. FOIL agrees: √3 + 3i + i − √3 = 4i. (A) is the unreduced FOIL slip — the √3 and √3i² terms never cancelled. (C) flips the rotation: the bearings summed to −π/2 would need one factor mirrored. (D) is the real-axis product — the bearing sum misread as 0.' },
+      { q: 'z₁ has principal argument 5π/6 and modulus 2; z₂ has principal argument 2π/3 and modulus 2. The principal argument of z₁z₂ is', options: ['3π/2', 'π/2', '−π/6', '−π/2'], answer: 3, explain: 'The law: 5π/6 + 2π/3 = 3π/2, which leaves the principal range (−π, π] — the honest report wraps: 3π/2 − 2π = −π/2, the negative imaginary axis, at modulus 4. (A) is the unwrapped sum — outside the range, the principal discipline missed. (B) is the sign slip on the wrap. (C) is a DIFFERENCE read — subtraction is the division law\u2019s job, and even then only in the right order.' },
+      { q: 'The ray arg(z − 3i) = π meets the ray arg(z + 2 − i) = π/2 at', options: ['3 + 2i', 'no meeting point', '−2 + 3i', '−3 + i'], answer: 2, explain: 'At z = −2 + 3i: z − 3i = −2, a negative real — argument π ✓; z + 2 − i = 2i, a positive imaginary — argument π/2 ✓. Both ray equations hold, and the seat lies in both travelled halves (y = 3 travelled left; x = −2 travelled up). (A) swaps the components — it satisfies neither equation. (B) is the honest verdict for the OTHER pair of this lesson — these rays do meet. (D) fails ray 2 (z + 2 − i = −1, argument π) and misses ray 1\u2019s y = 3.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises 3.4', sets: [
+      { level: 'L1', questions: [
+        { q: 'Write in polar form: (a) 1 + i; (b) −√3 + i; (c) 4 − 3i.', solution: [
+          '(a) $r = \\sqrt{1+1} = \\sqrt{2}$, and the seat is first-quadrant with $\\alpha = \\tfrac{\\pi}{4} = \\theta$: $1 + i = \\sqrt{2}\\left(\\cos\\tfrac{\\pi}{4} + i\\sin\\tfrac{\\pi}{4}\\right)$.',
+          '(b) $r = \\sqrt{3 + 1} = 2$; the signs $(x, y) = (-, +)$ route second-quadrant: $\\alpha = \\tfrac{\\pi}{6}$, $\\theta = \\pi - \\tfrac{\\pi}{6} = \\tfrac{5\\pi}{6}$: $-\\sqrt{3} + i = 2\\left(\\cos\\tfrac{5\\pi}{6} + i\\sin\\tfrac{5\\pi}{6}\\right)$.',
+          '(c) $r = \\sqrt{16 + 9} = 5$; the fourth-quadrant bearing $\\theta = -\\tan^{-1}\\tfrac{3}{4} \\approx -0.644$ — honest and non-special: $4 - 3i = 5\\left(\\cos(-0.644) + i\\sin(-0.644)\\right)$, the angle carried as a decimal.',
+        ], answer: '(a) $\\sqrt{2}(\\cos\\tfrac{\\pi}{4} + i\\sin\\tfrac{\\pi}{4})$; (b) $2(\\cos\\tfrac{5\\pi}{6} + i\\sin\\tfrac{5\\pi}{6})$; (c) $5(\\cos(-\\tan^{-1}\\tfrac{3}{4}) + i\\sin(-\\tan^{-1}\\tfrac{3}{4}))$' },
+        { q: 'Read the modulus and the principal argument of: (a) −1 + √3 i; (b) −1 − √3 i; (c) −5i.', solution: [
+          '(a) $r = \\sqrt{1 + 3} = 2$; second quadrant: $\\theta = \\pi - \\tfrac{\\pi}{3} = \\tfrac{2\\pi}{3}$.',
+          '(b) $r = 2$; third quadrant: $\\theta = \\tfrac{\\pi}{3} - \\pi = -\\tfrac{2\\pi}{3}$ — the mirror of (a), exactly the $\\arg(\\bar{z}) = -\\arg z$ read.',
+          '(c) $r = 5$ on the negative imaginary axis: $\\theta = -\\tfrac{\\pi}{2}$ — an axis seat, no quadrant route needed.',
+        ], answer: '(a) $(2, \\tfrac{2\\pi}{3})$; (b) $(2, -\\tfrac{2\\pi}{3})$; (c) $(5, -\\tfrac{\\pi}{2})$' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Compute by the argument laws AND by direct arithmetic — both routes must agree: (a) (√3 + i)(1 + √3i); (b) (1 + √3i)/(√3 + i).', solution: [
+          '(a) The law: radii $2 \\cdot 2 = 4$, bearings $\\tfrac{\\pi}{6} + \\tfrac{\\pi}{3} = \\tfrac{\\pi}{2}$ — the seat $4i$. FOIL: $\\sqrt{3} + 3i + i + \\sqrt{3}i^2 = (\\sqrt{3} - \\sqrt{3}) + 4i = 4i$ ✓.',
+          '(b) The law: radius $\\tfrac{2}{2} = 1$, bearing $\\tfrac{\\pi}{3} - \\tfrac{\\pi}{6} = \\tfrac{\\pi}{6}$ — the unit seat $\\tfrac{\\sqrt{3}}{2} + \\tfrac{1}{2}i$.',
+          'The conjugate route: $\\tfrac{(1 + \\sqrt{3}i)(\\sqrt{3} - i)}{4} = \\tfrac{\\sqrt{3} - i + 3i - \\sqrt{3}i^2}{4} = \\tfrac{2\\sqrt{3} + 2i}{4} = \\tfrac{\\sqrt{3}}{2} + \\tfrac{1}{2}i$ ✓.',
+        ], answer: '(a) $4i$; (b) $\\tfrac{\\sqrt{3}}{2} + \\tfrac{1}{2}i$ — both routes exact' },
+        { q: 'A(1+i), B(4+2i), C(6+6i) are three vertices of a parallelogram taken in order. Find the fourth vertex D and verify the diagonal midpoints.', solution: [
+          'The diagonal-bisect law: $\\tfrac{z_A + z_C}{2} = \\tfrac{z_B + z_D}{2}$, so $z_D = z_A + z_C - z_B$.',
+          'Substitute: $z_D = (1 + i) + (6 + 6i) - (4 + 2i) = 3 + 5i$.',
+          'The receipts: mid(AC) $= \\tfrac{(1+i) + (6+6i)}{2} = \\tfrac{7}{2} + \\tfrac{7}{2}i$ and mid(BD) $= \\tfrac{(4+2i) + (3+5i)}{2} = \\tfrac{7}{2} + \\tfrac{7}{2}i$ — equal exactly.',
+        ], answer: '$D = 3 + 5i$; both diagonal midpoints at $\\tfrac{7}{2} + \\tfrac{7}{2}i$' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Find the principal argument of the product when the factors carry: (a) principal arguments 5π/6 and 2π/3, moduli 2 and 2; (b) principal arguments 3π/4 and 2π/3, moduli √2 and 2.', solution: [
+          '(a) The law sums: $\\tfrac{5\\pi}{6} + \\tfrac{2\\pi}{3} = \\tfrac{3\\pi}{2}$ — outside $(-\\pi, \\pi]$, so wrap: $\\tfrac{3\\pi}{2} - 2\\pi = -\\tfrac{\\pi}{2}$. The product (modulus 4) sits on the NEGATIVE imaginary axis: $-4i$.',
+          '(b) The sum: $\\tfrac{3\\pi}{4} + \\tfrac{2\\pi}{3} = \\tfrac{17\\pi}{12}$ — above $\\pi$, wrap: $\\tfrac{17\\pi}{12} - 2\\pi = -\\tfrac{7\\pi}{12}$, a bearing of $-105^\\circ$.',
+          'The honest seat: $(-1 + i)(-1 + \\sqrt{3}\\,i) = (1 - \\sqrt{3}) - (1 + \\sqrt{3})\\,i$ at modulus $2\\sqrt{2}$ — and its components over $2\\sqrt{2}$ are exactly $\\cos\\left(-\\tfrac{7\\pi}{12}\\right), \\sin\\left(-\\tfrac{7\\pi}{12}\\right)$, the wrap verified by substitution.',
+        ], answer: '(a) $-\\tfrac{\\pi}{2}$ (the product $-4i$); (b) $-\\tfrac{7\\pi}{12}$ on the seat $(1-\\sqrt{3}) - (1+\\sqrt{3})i$, modulus $2\\sqrt{2}$' },
+        { q: 'The segment from z₁ = 2 + i to z₂ = 8 + 5i is divided internally at P in the ratio AP : PB = 1 : 2, and at Q in the ratio 2 : 1. Find P and Q, and verify each distance ratio.', solution: [
+          'The section formula crosses the weights: $P = \\tfrac{2z_1 + z_2}{3} = \\tfrac{2(2+i) + (8+5i)}{3} = 4 + \\tfrac{7}{3}i$.',
+          'The receipt: $|P - z_1| = |2 + \\tfrac{4}{3}i| = \\tfrac{2\\sqrt{13}}{3}$ and $|z_2 - P| = |4 + \\tfrac{8}{3}i| = \\tfrac{4\\sqrt{13}}{3}$ — the ratio exactly $1 : 2$.',
+          'Crossing the other way: $Q = \\tfrac{z_1 + 2z_2}{3} = \\tfrac{(2+i) + 2(8+5i)}{3} = 6 + \\tfrac{11}{3}i$, with $|Q - z_1| : |z_2 - Q| = \\tfrac{4\\sqrt{13}}{3} : \\tfrac{2\\sqrt{13}}{3} = 2 : 1$ ✓.',
+        ], answer: '$P = 4 + \\tfrac{7}{3}i$ (ratio $1:2$ verified) and $Q = 6 + \\tfrac{11}{3}i$ (ratio $2:1$ verified)' },
+        { q: 'Write −4 in polar form and in Euler\u2019s form; then write the honest logarithm family of −4 and verify two of its branch values.', solution: [
+          'Polar: $-4 = 4(\\cos\\pi + i\\sin\\pi)$ — the negative real axis seat at radius 4. Euler: $-4 = 4e^{i\\pi}$.',
+          'The logarithm wants $\\ln r + i\\theta$, but the bearing is defined only up to $2\\pi$: $\\log(-4) = \\ln 4 + i(\\pi + 2k\\pi)$, $k \\in \\mathbb{Z}$ — a family, one value per turn.',
+          'Two branches verified: $e^{\\ln 4 + i\\pi} = 4(\\cos\\pi + i\\sin\\pi) = -4$; and $e^{\\ln 4 + i(\\pi + 2\\pi)} = 4(\\cos 3\\pi + i\\sin 3\\pi) = -4$ — both return the seat, the period $e^{i2\\pi} = 1$ witnessed.',
+        ], answer: '$-4 = 4(\\cos\\pi + i\\sin\\pi) = 4e^{i\\pi}$; $\\log(-4) = \\ln 4 + i(\\pi + 2k\\pi)$, $k \\in \\mathbb{Z}$ — the principal branch $k = 0$' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Find the angle at P(2 + i) between the rays to Q(5 + 4i) and R(2 + 6i) — by the argument quotient and by the dot-product cross-check.', solution: [
+          'The differences from the vertex: $Q - P = 3 + 3i$ (bearing $\\tfrac{\\pi}{4}$, length $3\\sqrt{2}$) and $R - P = 5i$ (bearing $\\tfrac{\\pi}{2}$, length 5).',
+          'The quotient read: $\\angle QPR = \\arg\\left(\\tfrac{5i}{3+3i}\\right) = \\tfrac{\\pi}{2} - \\tfrac{\\pi}{4} = \\tfrac{\\pi}{4}$.',
+          'The cross-check: $(3, 3) \\cdot (0, 5) = 15$ with lengths $3\\sqrt{2}$ and $5$, so $\\cos\\theta = \\tfrac{15}{15\\sqrt{2}} = \\tfrac{1}{\\sqrt{2}}$ — $\\theta = \\tfrac{\\pi}{4}$ ✓ both routes.',
+        ], answer: '$\\angle QPR = \\tfrac{\\pi}{4}$ — both routes agree' },
+        { q: '(a) Where does arg(z − 3i) = π meet arg(z + 2 − i) = π/2? (b) Show that arg(z − 2i) = 3π/4 and arg(z + 1 − i) = π/4 have no common solution, and diagnose why.', solution: [
+          '(a) The first ray travels LEFT along $y = 3$ from $(0, 3)$; the second travels UP along $x = -2$ from $(-2, 1)$. The travelled halves meet at $z = -2 + 3i$: check $z - 3i = -2$ (argument $\\pi$ ✓) and $z + 2 - i = 2i$ (argument $\\tfrac{\\pi}{2}$ ✓).',
+          '(b) Parametrize: ray 1 $= (0, 2) + t(-\\tfrac{\\sqrt{2}}{2}, \\tfrac{\\sqrt{2}}{2})$, $t > 0$; ray 2 $= (-1, 1) + s(\\tfrac{\\sqrt{2}}{2}, \\tfrac{\\sqrt{2}}{2})$, $s > 0$.',
+          'The system: $-\\tfrac{\\sqrt{2}}{2}(t + s) = -1$ and $\\tfrac{\\sqrt{2}}{2}(t - s) = -1$; adding gives $s = \\sqrt{2}$, and back-substitution gives $t = 0$ — NOT allowed.',
+          'The diagnosis: $t = 0$ is ray 1\u2019s own origin $2i$ — ray 2 at $s = \\sqrt{2}$ lands exactly on $2i$, passing THROUGH ray 1\u2019s origin; but the origin is excluded (the argument of 0 is undefined), so the crossing seat belongs to no ray: NO common solution.',
+        ], answer: '(a) the meet $-2 + 3i$; (b) no solution — the unique line-crossing is ray 1\u2019s excluded origin $2i$' },
+        { q: 'Use the power laws to compute (1 + i)⁸ and (−√3 + i)⁶ without expanding — then state the modulus and bearing of each answer.', solution: [
+          '$1 + i$ carries radius $\\sqrt{2}$, bearing $\\tfrac{\\pi}{4}$: the eighth power has radius $(\\sqrt{2})^8 = 16$ and bearing $8 \\cdot \\tfrac{\\pi}{4} = 2\\pi \\equiv 0$ — the positive real axis: $(1+i)^8 = 16$.',
+          'The square check: $((1+i)^4)^2 = (-4)^2 = 16$ ✓ (and $(1+i)^4 = -4$: radius 4, bearing $\\pi$).',
+          '$-\\sqrt{3} + i$ carries radius 2, bearing $\\tfrac{5\\pi}{6}$: the sixth power has radius $2^6 = 64$ and bearing $6 \\cdot \\tfrac{5\\pi}{6} = 5\\pi \\equiv \\pi$ — the negative real axis: $(-\\sqrt{3}+i)^6 = -64$.',
+          'Both powers land ON axes — bearings $0$ and $\\pi$ — which is why the answers are purely real: an axis bearing is exactly what a real answer looks like in the second address.',
+        ], answer: '$(1+i)^8 = 16$ (radius 16, bearing 0); $(-\\sqrt{3}+i)^6 = -64$ (radius 64, bearing $\\pi$)' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Prove the argument-addition law from the angle-addition identities: for z₁ = r₁(cos α + i sin α) and z₂ = r₂(cos β + i sin β), the product lands at radius r₁r₂ and bearing α + β.', solution: [
+          'Expand the bracket: $(\\cos\\alpha + i\\sin\\alpha)(\\cos\\beta + i\\sin\\beta) = (\\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta) + i(\\sin\\alpha\\cos\\beta + \\cos\\alpha\\sin\\beta)$ — the multiplication rule of 3.1, nothing new.',
+          'Cash the identities: the real bracket is $\\cos(\\alpha + \\beta)$ and the imaginary bracket is $\\sin(\\alpha + \\beta)$ — the two standard angle-addition identities.',
+          'Read the address: $z_1 z_2 = r_1 r_2\\left(\\cos(\\alpha + \\beta) + i\\sin(\\alpha + \\beta)\\right)$ — radius $r_1 r_2$ (3.2\u2019s multiplicativity), bearing $\\alpha + \\beta$.',
+          'The scope note: the two identities are the trigonometric module\u2019s standard results — witnessed numerically on a grid by this lesson\u2019s engines, and proved in the Trigonometry book\u2019s own arc when that book is written; the honest claim here is the derivation CONDITIONAL on them, not their proof.',
+        ], answer: '$|z_1z_2| = r_1r_2$ and $\\arg(z_1z_2) = \\alpha + \\beta$ — derived from the two angle-addition identities, the witness swept' },
+        { q: 'Verify the rotation-and-scaling law on the witness (1 + i)(3 + 4i): compute the product, then check the length half and the direction half separately.', solution: [
+          'The product: $(1+i)(3+4i) = 3 + 4i + 3i + 4i^2 = -1 + 7i$.',
+          'The length half: $|1+i| \\cdot |3+4i| = \\sqrt{2} \\cdot 5 = 5\\sqrt{2}$, and $|-1+7i| = \\sqrt{1 + 49} = \\sqrt{50} = 5\\sqrt{2}$ ✓ — lengths multiply, checked at a NON-special seat.',
+          'The direction half: the bearings promise growth by $\\tfrac{\\pi}{4}$; indeed $\\arg(3+4i) \\approx 0.9273$ and $\\arg(-1+7i) = \\tfrac{\\pi}{2} - \\tan^{-1}\\tfrac{1}{7} \\approx 1.7071 = 0.9273 + 0.7854$ ✓ — the bearing grew by exactly $\\tfrac{\\pi}{4}$.',
+        ], answer: '$-1 + 7i$ with modulus $5\\sqrt{2} = \\sqrt{2} \\cdot 5$ and argument grown by exactly $\\tfrac{\\pi}{4}$ — both halves of the law verified' },
+        { q: 'The seats z₁ = 1 + i, z₂ = 4 + 2i satisfy 2z₁ − 3z₂ + z₃ = 0 for a third seat z₃. Show z₁, z₂, z₃ are collinear and locate z₃ relative to the segment.', solution: [
+          'Solve: $z_3 = 3z_2 - 2z_1 = 3(4 + 2i) - 2(1 + i) = 12 + 6i - 2 - 2i = 10 + 4i$.',
+          'The affine read: $z_3 - z_1 = 9 + 3i = 3(3 + i) = 3(z_2 - z_1)$ — the step from $z_1$ to $z_3$ is exactly THREE steps of the $z_1 \\to z_2$ direction: collinear.',
+          'The location: the weight on $z_2$ in $z_3 = 3z_2 - 2z_1$ is negative ($-2$), so $z_3$ lies OUTSIDE the segment, beyond $z_2$ — twice as far beyond as the whole segment is long.',
+          'The check: $|z_3 - z_2| = |6 + 2i| = 2\\sqrt{10}$ and $|z_2 - z_1| = |3 + i| = \\sqrt{10}$ — the overshoot is exactly two segment-lengths, the affine read priced.',
+        ], answer: '$z_3 = 10 + 4i$, collinear with $z_1, z_2$ (the relation is an affine combination with unit weight-sum), lying beyond $z_2$ by two segment-lengths' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Find the area of the region {z : |arg z| ≤ π/6 and |z − 2| < |z − 4|}.', solution: [
+          'Decode the second condition: $|z - 2| < |z - 4|$ says $z$ is closer to 2 than to 4 — the perpendicular-bisector half-plane of the seats 2 and 4. Algebra: $(x-2)^2 + y^2 < (x-4)^2 + y^2 \\Rightarrow -4x + 4 < -8x + 16 \\Rightarrow x < 3$.',
+          'Decode the first: $|\\arg z| \\leq \\tfrac{\\pi}{6}$ is the sector between the rays at bearings $\\pm\\tfrac{\\pi}{6}$ from the origin — the ray equations $y = \\pm\\tfrac{x}{\\sqrt{3}}$ for $x \\geq 0$ (this lesson\u2019s own instrument).',
+          'The intersection: the sector cut by the line $x = 3$ — the triangle with vertices $O$, $(3, \\sqrt{3})$ (the +π/6 ray at $x = 3$), and $(3, -\\sqrt{3})$ (the −π/6 ray).',
+          'The area: base $2\\sqrt{3}$ (from $(3, -\\sqrt{3})$ to $(3, \\sqrt{3})$), height 3 (from the origin to the line $x = 3$): $\\tfrac{1}{2} \\cdot 2\\sqrt{3} \\cdot 3 = 3\\sqrt{3}$ — the shoelace on the three vertices agrees exactly.',
+        ], answer: '$3\\sqrt{3}$ (the triangle $O$, $(3, \\sqrt{3})$, $(3, -\\sqrt{3})$)' },
+        { q: 'Prove: if |z₁| = |z₂| ≠ 0 and arg z₁ + arg z₂ = π, then z₂ = −z̄₁. Witness the law at the seats z₁ = 1 + √3 i.', solution: [
+          'Write the pair in polar form: $z_1 = r(\\cos\\alpha + i\\sin\\alpha)$ and, since the bearings sum to $\\pi$, $z_2 = r(\\cos(\\pi - \\alpha) + i\\sin(\\pi - \\alpha))$ with the SAME radius $r$ (the moduli are given equal).',
+          'Fold the second bearing: $\\cos(\\pi - \\alpha) = -\\cos\\alpha$ and $\\sin(\\pi - \\alpha) = \\sin\\alpha$, so $z_2 = r(-\\cos\\alpha + i\\sin\\alpha)$.',
+          'Compare with the negated mirror: $\\bar{z}_1 = r(\\cos\\alpha - i\\sin\\alpha)$, so $-\\bar{z}_1 = r(-\\cos\\alpha + i\\sin\\alpha)$ — exactly $z_2$.',
+          'The witness: $z_1 = 1 + \\sqrt{3}\\,i$ (radius 2, bearing $\\tfrac{\\pi}{3}$) forces $z_2$ at radius 2, bearing $\\tfrac{2\\pi}{3}$: $z_2 = -1 + \\sqrt{3}\\,i$. And $-\\bar{z}_1 = -(1 - \\sqrt{3}\\,i) = -1 + \\sqrt{3}\\,i$ ✓ — the pair mirrors across the IMAGINARY axis, their bearings flanking $\\tfrac{\\pi}{2}$.',
+        ], answer: 'proved: equal moduli with bearings summing to $\\pi$ force $z_2 = -\\bar{z}_1$; witnessed by $1 + \\sqrt{3}\\,i \\mapsto -1 + \\sqrt{3}\\,i$' },
+      ] },
+    ] },
+  ],
+}
+
 export const chapter03: Chapter = {
   number: 3,
   slug: 'complex-numbers',
@@ -1397,9 +1811,8 @@ export const chapter03: Chapter = {
   summary:
     'Arithmetic and Number Systems proved the extension-ladder discipline — every new number family born from a closure failure, repaired on purpose. This chapter climbs the most famous rung: x² + 1 = 0 has no real door, so a number i is forced with i² = −1, and the algebra of a + bi is built so the whole field-law family survives (the honest sanity ANS 7.2 banked). The conjugate and modulus arrive as bookkeeping — z z̄ = |z|², division by conjugating, |z| as a distance with the triangle inequality — and the Argand plane is read algebraically (addition as the parallelogram, multiplication as rotation-and-scaling) with the deep geometry left to later books. The payoff: the quadratic formula keeps its promise for every discriminant, and real coefficients are shown to force complex doors in conjugate pairs. De Moivre’s theorem and the nth roots of unity — the unit circle’s equal spokes — with their properties (primitive roots, the cyclotomic equations) banked as the module’s depth engine.',
   status: 'in-progress',
-  lessons: [lesson31, lesson32, lesson33],
+  lessons: [lesson31, lesson32, lesson33, lesson34],
   plannedLessons: [
-    'The Argand Plane: Polar Form and the Argument',
     'De Moivre, Roots of Unity and the Complex Loci',
   ],
 }

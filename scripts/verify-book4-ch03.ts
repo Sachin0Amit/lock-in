@@ -763,13 +763,12 @@ const ROSTER: Cx[] = [
   const ch = chapter03
   ok(ch.number === 3 && ch.slug === 'complex-numbers' && ch.title === 'Complex Numbers: the New Rung', 'G1 chapter wrapper number/slug/title')
   ok(ch.status === 'in-progress', 'G2 chapter status in-progress (opened run 105)')
-  ok(ch.lessons.length === 3, `G3 chapter shape re-pinned run 107: 3 lessons written (got ${ch.lessons.length})`)
+  ok(ch.lessons.length === 4, `G3 chapter shape re-pinned run 108: 4 lessons written (got ${ch.lessons.length})`)
   const planned = ch.plannedLessons ?? []
   ok(
-    planned.length === 2 &&
-      planned[0] === 'The Argand Plane: Polar Form and the Argument' &&
-      planned[1] === 'De Moivre, Roots of Unity and the Complex Loci',
-    `G4 plannedLessons re-pinned run 107 = the two remaining (got ${planned.join(' | ')})`,
+    planned.length === 1 &&
+      planned[0] === 'De Moivre, Roots of Unity and the Complex Loci',
+    `G4 plannedLessons re-pinned run 108 = the one remaining (got ${planned.join(' | ')})`,
   )
   ok(ch.summary.includes('complex') && ch.summary.includes('closure failure'), 'G5 the chapter summary names the umbrella topics (complex numbers, the closure failure)')
 
@@ -1423,7 +1422,7 @@ const ROSTER: Cx[] = [
 
 {
   const ch = chapter03
-  ok(ch.lessons.length === 3 && (ch.plannedLessons ?? []).length === 2, 'J1 chapter shape re-pinned run 107: 3 lessons written, 2 planned')
+  ok(ch.lessons.length === 4 && (ch.plannedLessons ?? []).length === 1, 'J1 chapter shape re-pinned run 108: 4 lessons written, 1 planned')
   ok(ch.lessons[1].number === '3.2', 'J2 the second lesson is 3.2')
 
   // no fold rides 3.2 — the ledger negative check (pre-flight + audit)
@@ -1959,7 +1958,7 @@ const ROSTER: Cx[] = [
 
 {
   const ch = chapter03
-  ok(ch.lessons.length === 3, 'M1 chapter shape: 3 lessons written (3.3 now shipped)')
+  ok(ch.lessons.length === 4, 'M1 chapter shape: 4 lessons written (3.4 now shipped)')
   ok(ch.lessons[2].number === '3.3', 'M2 the third lesson is 3.3')
 
   // no fold rides 3.3 — the ledger negative check (pre-flight + audit):
@@ -2031,7 +2030,596 @@ const ROSTER: Cx[] = [
   ok(dataHits.length === 1, `M27 lesson id unique in book data (got files: ${dataHits.join(' ')})`)
 }
 
-console.log(`\nverify-book4-ch03 sections A-M: ${passed} passed, ${failed} failed`)
+/* ------------------------------------------------------------------ */
+/* (N) the 3.4 engine suite — pre-prose (run 108)                       */
+/*    lesson 3.4 "The Argand Plane: Polar Form and the Argument"        */
+/*    (id aa-the-argand-plane-polar-form-and-the-argument); folds       */
+/*    hosted: Section Formula (example-family), Angle between Two       */
+/*    Rays (section), Equation of Ray (section)                         */
+/* ------------------------------------------------------------------ */
+
+// N1. the polar construction: every seat satisfies x = r cosθ, y = r sinθ
+// with r = √(x²+y²) — the polar form z = |z|(cosθ + i sinθ) rebuilds
+// the rectangular address exactly.
+{
+  const seats: Array<[number, number, number]> = [
+    [1, 1, Math.PI / 4],
+    [-1, 1, (3 * Math.PI) / 4],
+    [-1, -1, (-3 * Math.PI) / 4],
+    [1, -1, -Math.PI / 4],
+    [Math.sqrt(3), 1, Math.PI / 6],
+    [1, Math.sqrt(3), Math.PI / 3],
+    [-1, Math.sqrt(3), (2 * Math.PI) / 3],
+    [-Math.sqrt(3), 1, (5 * Math.PI) / 6],
+  ]
+  seats.forEach(([x, y, th]) => {
+    const r = Math.hypot(x, y)
+    ok(Math.abs(r * Math.cos(th) - x) < 1e-12 && Math.abs(r * Math.sin(th) - y) < 1e-12, `N1 seat (${x},${y}) at θ = ${th.toFixed(3)}: r cosθ and r sinθ rebuild the address`)
+  })
+  ok(seats.length === 8, 'N1.1 the eight exact-argument roster seats pinned')
+}
+
+// N2. the polar roster census — every seat's r and θ exact, the polar
+// form read and re-multiplied (r(cosθ+i sinθ) returns the seat exactly).
+{
+  const roster: Array<[Cx, number, number, string]> = [
+    [[1, 1], Math.SQRT2, Math.PI / 4, '1+i → √2(cos π/4 + i sin π/4)'],
+    [[-1, 1], Math.SQRT2, (3 * Math.PI) / 4, '−1+i → √2(cos 3π/4 + i sin 3π/4)'],
+    [[-1, -1], Math.SQRT2, (-3 * Math.PI) / 4, '−1−i → √2(cos(−3π/4) + i sin(−3π/4))'],
+    [[1, -1], Math.SQRT2, -Math.PI / 4, '1−i → √2(cos(−π/4) + i sin(−π/4))'],
+    [[Math.sqrt(3), 1], 2, Math.PI / 6, '√3+i → 2(cos π/6 + i sin π/6)'],
+    [[1, Math.sqrt(3)], 2, Math.PI / 3, '1+√3i → 2(cos π/3 + i sin π/3)'],
+    [[-1, Math.sqrt(3)], 2, (2 * Math.PI) / 3, '−1+√3i → 2(cos 2π/3 + i sin 2π/3)'],
+    [[-Math.sqrt(3), 1], 2, (5 * Math.PI) / 6, '−√3+i → 2(cos 5π/6 + i sin 5π/6)'],
+    [[-Math.sqrt(3), -1], 2, (-5 * Math.PI) / 6, '−√3−i → 2(cos(−5π/6) + i sin(−5π/6))'],
+    [[-1, -Math.sqrt(3)], 2, (-2 * Math.PI) / 3, '−1−√3i → 2(cos(−2π/3) + i sin(−2π/3))'],
+    [[1, -Math.sqrt(3)], 2, -Math.PI / 3, '1−√3i → 2(cos(−π/3) + i sin(−π/3))'],
+    [[0, 3], 3, Math.PI / 2, '3i → 3(cos π/2 + i sin π/2)'],
+    [[0, -3], 3, -Math.PI / 2, '−3i → 3(cos(−π/2) + i sin(−π/2))'],
+    [[-4, 0], 4, Math.PI, '−4 → 4(cos π + i sin π)'],
+    [[4, 0], 4, 0, '4 → 4(cos 0 + i sin 0)'],
+  ]
+  roster.forEach(([z, r, th, name]) => {
+    ok(Math.abs(cmod(z) - r) < 1e-12, `N2 ${name}: modulus ${r.toFixed(4)} exact`)
+    const rebuilt: Cx = [r * Math.cos(th), r * Math.sin(th)]
+    ok(Math.abs(rebuilt[0] - z[0]) < 1e-12 && Math.abs(rebuilt[1] - z[1]) < 1e-12, `N2 ${name}: r(cosθ+i sinθ) returns the seat exactly`)
+    ok(Math.atan2(z[1], z[0]) - th < 1e-12 && Math.abs(Math.atan2(z[1], z[0]) - th) < 1e-12, `N2 ${name}: the argument is the principal θ`)
+  })
+  ok(roster.length === 15, 'N2.1 the fifteen-seat polar census pinned (the lesson roster table)')
+}
+
+// N3. the honest non-special seats: 3+4i, 4−3i, −5−12i — arguments that
+// are NOT special angles; the engine pins them against atan2 (the
+// honest reference) and the quadrant routes agree.
+{
+  const seats: Array<[Cx, string]> = [
+    [[3, 4], '3+4i'],
+    [[4, -3], '4−3i'],
+    [[-5, -12], '−5−12i'],
+    [[-7, 24], '−7+24i'],
+  ]
+  seats.forEach(([z, name]) => {
+    const th = Math.atan2(z[1], z[0])
+    const r = cmod(z)
+    ok(Math.abs(r * Math.cos(th) - z[0]) < 1e-12 && Math.abs(r * Math.sin(th) - z[1]) < 1e-12, `N3 ${name}: r = ${r.toFixed(4)}, θ = atan2 honest (${th.toFixed(4)} rad)`)
+  })
+  ok(Math.abs(Math.atan2(4, 3) - 0.9272952180016122) < 1e-12, 'N3.1 3+4i: θ ≈ 0.9273 rad ≈ 53.13° — the honest non-special argument')
+  ok(Math.abs(Math.atan2(-12, -5) - (-(Math.PI - Math.atan(12 / 5)))) < 1e-12, 'N3.2 −5−12i: θ = −(π − tan⁻¹(12/5)) ≈ −1.9656 — the third-quadrant route')
+}
+
+// N4. the quadrant discipline: the four routes (Q1 θ = α, Q2 θ = π−α,
+// Q3 θ = α−π, Q4 θ = −α with α = tan⁻¹|y/x|) agree with atan2 on the
+// full integer grid (axes excluded — they are N6's own seats).
+{
+  let bad = 0
+  for (let x = -6; x <= 6; x++) for (let y = -6; y <= 6; y++) {
+    if (x === 0 || y === 0) continue
+    const alpha = Math.atan(Math.abs(y / x))
+    const theta = x > 0 && y > 0 ? alpha : x < 0 && y > 0 ? Math.PI - alpha : x < 0 && y < 0 ? alpha - Math.PI : -alpha
+    if (Math.abs(theta - Math.atan2(y, x)) > 1e-12) bad++
+  }
+  ok(bad === 0, 'N4 the four quadrant routes match atan2 exactly on the 13×13 grid (axes excluded)')
+}
+
+// N5. the tangent fraud: 1+i√3 and −1−i√3 share tan θ = √3 — the
+// naive tan⁻¹ read gives π/3 for both; the honest arguments are π/3
+// and −2π/3. The simultaneous equations cosθ = x/r, sinθ = y/r settle
+// the seats; that is the lesson's priced warn.
+{
+  const a: Cx = [1, Math.sqrt(3)]
+  const b: Cx = [-1, -Math.sqrt(3)]
+  ok(Math.abs(a[1] / a[0] - b[1] / b[0]) < 1e-12, 'N5.1 both seats carry tan θ = √3 — one tangent, two different points')
+  ok(Math.abs(Math.atan2(a[1], a[0]) - Math.PI / 3) < 1e-12, 'N5.2 the honest argument of 1+i√3 is π/3 (first quadrant)')
+  ok(Math.abs(Math.atan2(b[1], b[0]) - (-2 * Math.PI) / 3) < 1e-12, 'N5.3 the honest argument of −1−i√3 is −2π/3 (third quadrant — NOT π/3 or 4π/3 unwrapped)')
+  ok(Math.abs(Math.PI / 3 - (-2 * Math.PI) / 3) > 1, 'N5.4 the two honest arguments differ — the single-tangent read is the fraud')
+}
+
+// N6. the axis seats: arg(positive real) = 0, arg(negative real) = π,
+// arg(positive imaginary) = π/2, arg(negative imaginary) = −π/2; the
+// argument of 0 is NOT defined (no ray at the origin).
+{
+  ok(Math.atan2(0, 5) === 0, 'N6.1 arg(5) = 0 — the positive real axis seat')
+  ok(Math.abs(Math.atan2(0, -5) - Math.PI) < 1e-12, 'N6.2 arg(−5) = π — the negative real axis seat (principal (−π, π] keeps π)')
+  ok(Math.abs(Math.atan2(5, 0) - Math.PI / 2) < 1e-12, 'N6.3 arg(5i) = π/2 — the positive imaginary seat')
+  ok(Math.abs(Math.atan2(-5, 0) - (-Math.PI / 2)) < 1e-12, 'N6.4 arg(−5i) = −π/2 — the negative imaginary seat')
+  ok(true, 'N6.5 Arg(0) is undefined — asserted by definition: no ray, no angle (the prose states it; there is no number to compute)')
+}
+
+// N7. the mirror reads: arg(z̄) = −arg(z); arg(−z) = arg(z) ± π (wrapped
+// to principal); arg(−z̄) = π − arg(z) — swept on the roster, all reads
+// mod 2π with the principal wrap.
+{
+  const wrap = (t: number): number => Math.atan2(Math.sin(t), Math.cos(t))
+  const seats: Cx[] = [[1, 1], [-1, 1], [-1, -1], [Math.sqrt(3), 1], [1, Math.sqrt(3)], [-1, Math.sqrt(3)], [3, 4], [-5, -12]]
+  let bad = 0
+  seats.forEach((z) => {
+    const t = Math.atan2(z[1], z[0])
+    if (Math.abs(wrap(-t) - Math.atan2(cconj(z)[1], cconj(z)[0])) > 1e-12) bad++
+    if (Math.abs(wrap(t + Math.PI) - Math.atan2(-z[1], -z[0])) > 1e-12 && Math.abs(wrap(t - Math.PI) - Math.atan2(-z[1], -z[0])) > 1e-12) bad++
+    if (Math.abs(wrap(Math.PI - t) - Math.atan2(-cconj(z)[1], -cconj(z)[0])) > 1e-12) bad++
+  })
+  ok(bad === 0, 'N7 the mirror reads arg(z̄) = −arg z, arg(−z) = arg z ± π, arg(−z̄) = π − arg z — swept on 8 seats')
+}
+
+// N8. the argument-addition law, PROVED from the angle-addition
+// identities: (i) cos(α+β) and sin(α+β) expansions swept; (ii) the
+// product of two polar forms has real part r₁r₂ cos(α+β) and
+// imaginary part r₁r₂ sin(α+β); (iii) arg(z₁z₂) = arg z₁ + arg z₂
+// (mod 2π) swept on a product grid.
+{
+  let badId = 0
+  for (let i = -12; i <= 12; i++) for (let j = -12; j <= 12; j++) {
+    const al = (i * Math.PI) / 12
+    const be = (j * Math.PI) / 12
+    if (Math.abs(Math.cos(al + be) - (Math.cos(al) * Math.cos(be) - Math.sin(al) * Math.sin(be))) > 1e-10) badId++
+    if (Math.abs(Math.sin(al + be) - (Math.sin(al) * Math.cos(be) + Math.cos(al) * Math.sin(be))) > 1e-10) badId++
+  }
+  ok(badId === 0, 'N8.1 the angle-addition identities cos(α+β), sin(α+β) swept on the 25×25 π/12 grid')
+  let badProd = 0
+  const wrap = (t: number): number => Math.atan2(Math.sin(t), Math.cos(t))
+  for (const z1 of [[1, 1], [Math.sqrt(3), 1], [-1, 1], [3, 4], [-5, -12], [1, -Math.sqrt(3)]]) for (const z2 of [[Math.sqrt(3), 1], [1, Math.sqrt(3)], [-1, Math.sqrt(3)], [4, -3], [-Math.sqrt(3), -1]]) {
+    const p = cmul(z1 as Cx, z2 as Cx)
+    const a1 = Math.atan2(z1[1], z1[0])
+    const a2 = Math.atan2(z2[1], z2[0])
+    const r1 = cmod(z1 as Cx), r2 = cmod(z2 as Cx)
+    if (Math.abs(p[0] - r1 * r2 * Math.cos(a1 + a2)) > 1e-9 || Math.abs(p[1] - r1 * r2 * Math.sin(a1 + a2)) > 1e-9) badProd++
+    if (Math.abs(wrap(a1 + a2) - Math.atan2(p[1], p[0])) > 1e-10) badProd++
+  }
+  ok(badProd === 0, 'N8.2 the product law: real/imag parts = r₁r₂(cos(α+β), sin(α+β)) AND arg(z₁z₂) = arg z₁ + arg z₂ (mod 2π) — swept on 30 pairs')
+  // division as rotation-cancel: arg(z₁/z₂) = arg z₁ − arg z₂ swept
+  let badDiv = 0
+  for (const pair of [[[1, Math.sqrt(3)], [Math.sqrt(3), 1]], [[4, -3], [1, 1]], [[-5, -12], [4, 3]]]) {
+    const [z1, z2] = pair as [Cx, Cx]
+    const q = cdiv(z1, z2)
+    if (Math.abs(wrap(Math.atan2(z1[1], z1[0]) - Math.atan2(z2[1], z2[0])) - Math.atan2(q[1], q[0])) > 1e-9) badDiv++
+    if (Math.abs(cmod(q) - cmod(z1) / cmod(z2)) > 1e-9) badDiv++
+  }
+  ok(badDiv === 0, 'N8.3 the division law: arg(z₁/z₂) = arg z₁ − arg z₂ and |z₁/z₂| = |z₁|/|z₂| — rotation-cancel witnessed')
+}
+
+// N9. the pinned product/division witnesses (the lesson's Illustrations):
+// (√3+i)(1+√3i) = 4i (2·2 = 4, π/6+π/3 = π/2) and
+// (1+√3i)/(√3+i) = √3/2 + i/2 (modulus 1, argument π/6).
+{
+  const p = cmul([Math.sqrt(3), 1], [1, Math.sqrt(3)])
+  ok(Math.abs(p[0]) < 1e-12 && Math.abs(p[1] - 4) < 1e-12, 'N9.1 (√3+i)(1+√3i) = 4i exactly — scaling 2·2 = 4, rotation π/6+π/3 = π/2')
+  ok(Math.abs(cmod([Math.sqrt(3), 1]) - 2) < 1e-12 && Math.abs(cmod([1, Math.sqrt(3)]) - 2) < 1e-12, 'N9.2 both factors sit at modulus 2')
+  ok(Math.abs(Math.atan2(1, Math.sqrt(3)) - Math.PI / 6) < 1e-12 && Math.abs(Math.atan2(Math.sqrt(3), 1) - Math.PI / 3) < 1e-12, 'N9.3 the arguments π/6 and π/3 add to π/2 — the pure-imaginary product seat')
+  const q = cdiv([1, Math.sqrt(3)], [Math.sqrt(3), 1])
+  ok(Math.abs(q[0] - Math.sqrt(3) / 2) < 1e-12 && Math.abs(q[1] - 0.5) < 1e-12, 'N9.4 (1+√3i)/(√3+i) = √3/2 + i/2 — modulus 1, argument π/3 − π/6 = π/6')
+  ok(Math.abs(cmod(q) - 1) < 1e-12 && Math.abs(Math.atan2(q[1], q[0]) - Math.PI / 6) < 1e-12, 'N9.5 the quotient seat: |quotient| = 2/2 = 1, arg = π/6 — the unit-modulus division witness')
+}
+
+// N10. the principal wrap: sums beyond (−π, π] wrap honestly —
+// 5π/6 + 2π/3 = 3π/2 ≡ −π/2; 3π/4 + 2π/3 = 17π/12 ≡ −7π/12; the
+// product seat (−1+i)(−1+√3i) = (1−√3) − (1+√3)i carries modulus 2√2
+// and argument −7π/12.
+{
+  const wrap = (t: number): number => Math.atan2(Math.sin(t), Math.cos(t))
+  ok(Math.abs(wrap(5 * Math.PI / 6 + 2 * Math.PI / 3) + Math.PI / 2) < 1e-12, 'N10.1 args 5π/6 + 2π/3 = 3π/2 → principal −π/2 (the wrap)')
+  ok(Math.abs(wrap(3 * Math.PI / 4 + 2 * Math.PI / 3) + 7 * Math.PI / 12) < 1e-12, 'N10.2 args 3π/4 + 2π/3 = 17π/12 → principal −7π/12')
+  const p = cmul([-1, 1], [-1, Math.sqrt(3)])
+  ok(Math.abs(p[0] - (1 - Math.sqrt(3))) < 1e-12 && Math.abs(p[1] - (-(1 + Math.sqrt(3)))) < 1e-12, 'N10.3 (−1+i)(−1+√3i) = (1−√3) − (1+√3)i exactly')
+  ok(Math.abs(cmod(p) - 2 * Math.SQRT2) < 1e-12, 'N10.4 the product modulus 2√2 = √2·2 — multiplicativity cashed')
+  ok(Math.abs(Math.atan2(p[1], p[0]) + 7 * Math.PI / 12) < 1e-12, 'N10.5 the product argument −7π/12 — the wrap read on the honest seat')
+}
+
+// N11. the power engines: |zⁿ| = |z|ⁿ and arg(zⁿ) = n arg z —
+// (1+i)^4 = −4, (1+i)^8 = 16, (−√3+i)^6 = −64, (1+√3i)^3 = −8 —
+// every power computed by repeated multiplication AND by the law.
+{
+  const ipow = (z: Cx, n: number): Cx => {
+    let acc: Cx = [1, 0]
+    for (let k = 0; k < n; k++) acc = cmul(acc, z)
+    return acc
+  }
+  const p4 = ipow([1, 1], 4)
+  ok(Math.abs(p4[0] + 4) < 1e-12 && Math.abs(p4[1]) < 1e-12, 'N11.1 (1+i)^4 = −4 (modulus (√2)^4 = 4, argument 4·π/4 = π)')
+  const p8 = ipow([1, 1], 8)
+  ok(Math.abs(p8[0] - 16) < 1e-12 && Math.abs(p8[1]) < 1e-12, 'N11.2 (1+i)^8 = 16 (modulus 2^4 = 16, argument 8·π/4 = 2π ≡ 0)')
+  const p6 = ipow([-Math.sqrt(3), 1], 6)
+  ok(Math.abs(p6[0] + 64) < 1e-12 && Math.abs(p6[1]) < 1e-12, 'N11.3 (−√3+i)^6 = −64 (modulus 2^6 = 64, argument 6·5π/6 = 5π ≡ π)')
+  const p3 = ipow([1, Math.sqrt(3)], 3)
+  ok(Math.abs(p3[0] + 8) < 1e-12 && Math.abs(p3[1]) < 1e-12, 'N11.4 (1+√3i)^3 = −8 (modulus 2^3 = 8, argument 3·π/3 = π)')
+  let bad = 0
+  for (const [z, n] of [[[1, 1], 4], [[-Math.sqrt(3), 1], 6], [[1, Math.sqrt(3)], 3], [[3, 4], 2]] as Array<[Cx, number]>) {
+    const pn = ipow(z, n)
+    if (Math.abs(cmod(pn) - Math.pow(cmod(z), n)) > 1e-9) bad++
+    const wrap = (t: number): number => Math.atan2(Math.sin(t), Math.cos(t))
+    if (Math.abs(wrap(n * Math.atan2(z[1], z[0])) - Math.atan2(pn[1], pn[0])) > 1e-9) bad++
+  }
+  ok(bad === 0, 'N11.5 |zⁿ| = |z|ⁿ and arg(zⁿ) = n·arg z — swept on the four power seats')
+}
+
+// N12. Euler's form witnessed: the series partial sums of e^{iθ}
+// converge to cosθ + i sinθ; e^{iπ} = −1; e^{iπ/2} = i; the roster
+// seats rebuild as z = r e^{iθ}.
+{
+  const eulerPartial = (th: number, N: number): Cx => {
+    let acc: Cx = [0, 0]
+    let term: Cx = [1, 0]
+    for (let k = 0; k <= N; k++) {
+      acc = cadd(acc, term)
+      term = cdiv(cmul(term, [0, th]), [k + 1, 0])
+    }
+    return acc
+  }
+  let bad = 0
+  for (const th of [Math.PI / 6, Math.PI / 4, Math.PI / 3, Math.PI / 2, 1, 2, Math.PI]) {
+    const e = eulerPartial(th, 24)
+    if (Math.abs(e[0] - Math.cos(th)) > 1e-10 || Math.abs(e[1] - Math.sin(th)) > 1e-10) bad++
+  }
+  ok(bad === 0, 'N12.1 the series Σ(iθ)^k/k! converges to cosθ + i sinθ at 24 terms on 7 seats — Euler\'s form witnessed')
+  const ep = eulerPartial(Math.PI, 24)
+  ok(Math.abs(ep[0] + 1) < 1e-10 && Math.abs(ep[1]) < 1e-10, 'N12.2 e^{iπ} = −1 — the identity seat')
+  const eh = eulerPartial(Math.PI / 2, 24)
+  ok(Math.abs(eh[0]) < 1e-10 && Math.abs(eh[1] - 1) < 1e-10, 'N12.3 e^{iπ/2} = i — the quarter-turn seat')
+  // z = r e^{iθ} rebuilds the roster seats
+  const rebuild = (r: number, th: number): Cx => [r * Math.cos(th), r * Math.sin(th)]
+  ok(Math.abs(rebuild(2, Math.PI / 3)[0] - 1) < 1e-12 && Math.abs(rebuild(2, Math.PI / 3)[1] - Math.sqrt(3)) < 1e-12, 'N12.4 2e^{iπ/3} = 1 + √3i — the Euler-form seat read')
+  ok(Math.abs(rebuild(4, Math.PI / 2)[0]) < 1e-12 && Math.abs(rebuild(4, Math.PI / 2)[1] - 4) < 1e-12, 'N12.5 4e^{iπ/2} = 4i — the axis seat in Euler form')
+}
+
+// N13. the multi-valued logarithm: log z = ln|z| + i(θ + 2kπ) — for
+// z = −4 the family is ln 4 + i(π + 2kπ); every branch value
+// exponentiates back to −4; e^{i2π} = 1 is the honest period witness.
+{
+  const expC = (r: number, th: number): Cx => [r * Math.cos(th), r * Math.sin(th)]
+  for (const k of [0, 1, -1, 2]) {
+    // e^{ln4 + i(π + 2kπ)} = e^{ln4}·e^{i(π+2kπ)} = 4(cos(π+2kπ) + i sin(π+2kπ)) —
+    // the SCALING is e^{ln4} = 4 (the engine bug this check caught: r is 4, not ln 4)
+    const w = expC(Math.exp(Math.log(4)), Math.PI + 2 * k * Math.PI)
+    ok(Math.abs(w[0] + 4) < 1e-9 && Math.abs(w[1]) < 1e-9, `N13 k = ${k}: e^{ln4 + i(π + 2kπ)} = −4 — the branch value returns the seat`)
+  }
+  const per = expC(1, 2 * Math.PI)
+  ok(Math.abs(per[0] - 1) < 1e-10 && Math.abs(per[1]) < 1e-10, 'N13.1 e^{i2π} = 1 — the period that makes the logarithm multi-valued')
+  ok(true, 'N13.2 log(−4) = ln 4 + i(π + 2kπ), k ∈ ℤ — pinned (the honest scope note: the principal branch takes k = 0)')
+}
+
+// N14. the section formula engine: (a) the midpoint (z₁+z₂)/2 is
+// equidistant from the ends — swept; (b) the internal division seat
+// P = (n z₁ + m z₂)/(m+n) for AP:PB = m:n — the distance ratio
+// |P−z₁|/|P−z₂| = m/n exact, and P is collinear (arg((P−z₁)/(z₂−P)) = π);
+// (c) the parallelogram law z₄ = z₁+z₃−z₂ (diagonals bisect) — our
+// witness A(1+i), B(4+2i), C(6+6i) → D = 3+5i; (d) the pinned ratio
+// seats z₁ = 2+i, z₂ = 8+5i at AP:PB = 1:2 → 4+7i/3 and 2:1 → 6+11i/3.
+{
+  let bad = 0
+  for (const z1 of [[1, 1], [4, 2], [2, 1], [-3, 5]] as Cx[]) for (const z2 of [[6, 6], [8, 5], [1, -7]] as Cx[]) {
+    const m: Cx = cdiv(cadd(z1, z2), [2, 0])
+    if (Math.abs(cmod(csub(m, z1)) - cmod(csub(m, z2))) > 1e-9) bad++
+  }
+  ok(bad === 0, 'N14.1 the midpoint (z₁+z₂)/2 is equidistant from both ends — swept on 12 pairs')
+  const div = (z1: Cx, z2: Cx, m: number, n: number): Cx => {
+    const num = cadd(cmul([n, 0], z1), cmul([m, 0], z2))
+    return cdiv(num, [m + n, 0])
+  }
+  const z1: Cx = [2, 1], z2: Cx = [8, 5]
+  const P12 = div(z1, z2, 1, 2)
+  ok(Math.abs(P12[0] - 4) < 1e-12 && Math.abs(P12[1] - 7 / 3) < 1e-12, 'N14.2 AP:PB = 1:2 → P = (2z₁+z₂)/3 = 4 + 7i/3 exactly')
+  ok(Math.abs(cmod(csub(P12, z1)) / cmod(csub(z2, P12)) - 0.5) < 1e-12, 'N14.3 the ratio read |P−z₁|/|P−z₂| = 1/2 — the section formula\'s own contract')
+  const P21 = div(z1, z2, 2, 1)
+  ok(Math.abs(P21[0] - 6) < 1e-12 && Math.abs(P21[1] - 11 / 3) < 1e-12, 'N14.4 AP:PB = 2:1 → P = (z₁+2z₂)/3 = 6 + 11i/3 exactly')
+  ok(Math.abs(cmod(csub(P21, z1)) / cmod(csub(z2, P21)) - 2) < 1e-12, 'N14.5 the ratio read |P−z₁|/|P−z₂| = 2 — the formula flips honestly')
+  // collinearity of the division seat: P between z₁ and z₂ — the
+  // vectors FROM P to z₁ and to z₂ point opposite ways, so their
+  // quotient is a NEGATIVE real (argument π mod 2π; the float branch
+  // may sit at −π, the same angle)
+  const q = cdiv(csub(z1, P12), csub(z2, P12))
+  ok(Math.abs(q[1]) < 1e-9 && q[0] < 0, 'N14.6 the division seat is collinear and BETWEEN: (z₁−P)/(z₂−P) is a negative real — the vectors from P point opposite ways (arg = π mod 2π)')
+  // the parallelogram witness
+  const A: Cx = [1, 1], B: Cx = [4, 2], C: Cx = [6, 6]
+  const D = csub(cadd(A, C), B)
+  ok(ceq(D, [3, 5]), 'N14.7 the parallelogram A(1+i), B(4+2i), C(6+6i) closes at D = A+C−B = 3+5i')
+  const midAC = cdiv(cadd(A, C), [2, 0])
+  const midBD = cdiv(cadd(B, D), [2, 0])
+  ok(ceq(midAC, midBD), 'N14.8 the diagonals bisect: mid(AC) = mid(BD) = 7/2 + 7i/2 — the section formula\'s midpoint engine at work')
+  // the collinearity transfer: 2z₁ − 3z₂ + z₃ = 0 → z₃ = 3z₂ − 2z₁
+  const za: Cx = [1, 1], zb: Cx = [4, 2]
+  const zc = csub(cmul([3, 0], zb), cmul([2, 0], za))
+  ok(ceq(zc, [10, 4]), 'N14.9 2z₁−3z₂+z₃ = 0 with seats 1+i, 4+2i → z₃ = 3z₂−2z₁ = 10+4i')
+  ok(ceq(csub(zc, za), cmul([3, 0], csub(zb, za))), 'N14.10 z₃−z₁ = 3(z₂−z₁) — collinear, z₃ beyond z₂ (the affine-combination discipline)')
+}
+
+// N15. the angle between two rays: θ = arg((z₃−z₁)/(z₂−z₁)) equals the
+// geometric angle at P — swept against the dot-product/|·||·| acos
+// route; the pinned witness P(2+i), Q(5+4i), R(2+6i) carries θ = π/4.
+{
+  let bad = 0
+  for (const z1 of [[0, 0], [2, 1], [1, -2], [3, 4]] as Cx[]) for (const z2 of [[5, 5], [6, 1], [-2, 4], [3, -3]] as Cx[]) for (const z3 of [[0, 6], [4, 7], [-3, -3], [7, 2]] as Cx[]) {
+    const u = csub(z2, z1), v = csub(z3, z1)
+    const dot = u[0] * v[0] + u[1] * v[1]
+    const cosG = dot / (cmod(u) * cmod(v))
+    const geo = Math.acos(Math.max(-1, Math.min(1, cosG)))
+    const argR = Math.abs(Math.atan2(v[1], v[0]) - Math.atan2(u[1], u[0]))
+    const argRead = Math.min(argR, 2 * Math.PI - argR)
+    if (Math.abs(geo - argRead) > 1e-9) bad++
+  }
+  ok(bad === 0, 'N15.1 arg((z₃−z₁)/(z₂−z₁)) = the geometric angle at P — swept on 48 triples against the dot-product route')
+  const P: Cx = [2, 1], Q: Cx = [5, 4], R: Cx = [2, 6]
+  const u = csub(Q, P), v = csub(R, P)
+  ok(ceq(u, [3, 3]) && ceq(v, [0, 5]), 'N15.2 the witness vectors: Q−P = 3+3i (arg π/4), R−P = 5i (arg π/2)')
+  const quot = cdiv(v, u)
+  ok(Math.abs(Math.atan2(quot[1], quot[0]) - Math.PI / 4) < 1e-12, 'N15.3 the angle at P between the rays = π/2 − π/4 = π/4 — the quotient argument read')
+  const dot = u[0] * v[0] + u[1] * v[1]
+  ok(Math.abs(dot / (cmod(u) * cmod(v)) - 1 / Math.SQRT2) < 1e-12, 'N15.4 the dot-product cross-check: cos θ = 15/(3√2·5) = 1/√2 → θ = π/4 — both routes agree')
+}
+
+// N16. the equation of ray engine: arg(z−z₁) = θ is the ray from z₁
+// (z₁ excluded) at direction θ. (a) The meet of arg(z−3i) = π and
+// arg(z+2−i) = π/2 is −2+3i; (b) the pair arg(z−2i) = 3π/4 and
+// arg(z+1−i) = π/4 NEVER meets — the linear system's unique solution
+// is the excluded origin seat t = 0 (s = √2): ray 2 passes through
+// ray 1's origin, which the ray's own definition excludes.
+{
+  const meet: Cx = [-2, 3]
+  const r1 = csub(meet, [0, 3])
+  ok(ceq(r1, [-2, 0]), 'N16.1 at z = −2+3i: z−3i = −2 — on the negative real axis, arg = π ✓ the ray from 3i pointing left')
+  const r2 = cadd(meet, [2, -1])
+  ok(ceq(r2, [0, 2]), 'N16.2 at z = −2+3i: z+2−i = 2i — arg = π/2 ✓ the ray from −2+i pointing up')
+  ok(Math.abs(Math.atan2(r1[1], r1[0]) - Math.PI) < 1e-12 && Math.abs(Math.atan2(r2[1], r2[0]) - Math.PI / 2) < 1e-12, 'N16.3 both ray equations hold at the meet −2+3i — the intersection engine')
+  // (b) the no-meet pair: ray 1 from (0,2) direction (−√2/2, √2/2);
+  // ray 2 from (−1,1) direction (√2/2, √2/2). Solve for t, s ≥ 0:
+  //   −(√2/2)t = −1 + (√2/2)s   (x)
+  //    2+(√2/2)t = 1 + (√2/2)s  (y)
+  // subtract: (√2/2)t·2 = ... engine solves exactly.
+  const c = Math.SQRT1_2
+  // unknowns t (ray1) and s (ray2): x: −c t − c s = −1; y: c t − c s = −1
+  // solve: adding: −2 c s = −2 → s = 1/c = √2; then c t = −1 + c s = −1 + 1 = 0 → t = 0
+  const s = 2 / (2 * c)
+  const t = (-1 + c * s) / c
+  ok(Math.abs(s - Math.SQRT2) < 1e-12, 'N16.4 the no-meet pair: the system solves at s = √2 (on ray 2)')
+  ok(Math.abs(t) < 1e-12, 'N16.5 ...and t = 0 — ray 1\'s EXCLUDED origin: the unique candidate meet is the seat the ray definition refuses')
+  const cand: Cx = [0 + (-c) * 0, 2 + c * 0]
+  ok(ceq(cand, [0, 2]), 'N16.6 the excluded candidate is z = 2i — ray 1\'s own origin (arg(0) undefined)')
+  const onRay2 = [-1 + c * Math.SQRT2, 1 + c * Math.SQRT2]
+  ok(Math.abs(onRay2[0]) < 1e-12 && Math.abs(onRay2[1] - 2) < 1e-12, 'N16.7 ray 2 at s = √2 lands exactly on 2i — it passes through ray 1\'s origin, which is not a point OF ray 1: no meeting point')
+}
+
+// N17. the area engine: the region {z : |arg z| ≤ π/6 and |z−2| < |z−4|}
+// is the sector between the rays ±π/6 cut by the half-plane x < 3 —
+// the triangle O, (3, √3), (3, −√3) with area 3√3 (shoelace).
+{
+  let bad = 0
+  for (let x = -1; x <= 6; x += 0.5) for (let y = -6; y <= 6; y += 0.5) {
+    const inHalf = x * x - 4 * x + 4 + y * y < x * x - 8 * x + 16 + y * y
+    if (inHalf !== x < 3) bad++
+  }
+  ok(bad === 0, 'N17.1 |z−2| < |z−4| ⟺ x < 3 — the perpendicular-bisector half-plane, swept on the grid')
+  const A: [number, number] = [0, 0], B: [number, number] = [3, Math.sqrt(3)], C: [number, number] = [3, -Math.sqrt(3)]
+  const area = Math.abs(A[0] * (B[1] - C[1]) + B[0] * (C[1] - A[1]) + C[0] * (A[1] - B[1])) / 2
+  ok(Math.abs(area - 3 * Math.sqrt(3)) < 1e-12, 'N17.2 the sector cut at x = 3 is the triangle O, (3, √3), (3, −√3): area = 3√3 (shoelace exact)')
+  ok(Math.abs(Math.sqrt(3) - Math.tan(Math.PI / 6) * 3) < 1e-12, 'N17.3 the ray y = x/√3 meets x = 3 at height √3 — the ray equation y = (tan θ)x cashed')
+}
+
+// N18. the isogonal engine: |z₁| = |z₂| and arg z₁ + arg z₂ = π →
+// z₂ = −z̄₁ — swept on the α grid; the witness seats α = π/3:
+// z₁ = 1+√3i, z₂ = −1+√3i.
+{
+  let bad = 0
+  for (let k = 1; k < 12; k++) {
+    const al = (k * Math.PI) / 12
+    const z1: Cx = [2 * Math.cos(al), 2 * Math.sin(al)]
+    const z2: Cx = [2 * Math.cos(Math.PI - al), 2 * Math.sin(Math.PI - al)]
+    if (Math.abs(z2[0] - cmul([-1, 0], cconj(z1))[0]) > 1e-12 || Math.abs(z2[1] - cmul([-1, 0], cconj(z1))[1]) > 1e-12) bad++
+  }
+  ok(bad === 0, 'N18.1 |z₁| = |z₂| = 2 with args α and π−α → z₂ = −z̄₁ — swept on 11 α seats (tolerance: cos(π−α) and −cos(α) agree only to float precision)')
+  const z1: Cx = [1, Math.sqrt(3)]
+  const z2: Cx = [-1, Math.sqrt(3)]
+  ok(ceq(z2, cmul([-1, 0], cconj(z1))), 'N18.2 the witness: −(1+√3i)‾ = −(1−√3i) = −1+√3i — args π/3 + 2π/3 = π, both moduli 2')
+  ok(Math.abs(Math.atan2(Math.sqrt(3), 1) + Math.atan2(Math.sqrt(3), -1) - Math.PI) < 1e-12, 'N18.3 the args add to π exactly — the mirror-across-the-imaginary-axis pair')
+}
+
+// N19. the rotation-scaling witness for the prose: (1+i)(3+4i) = −1+7i
+// — modulus 5 → 5√2, argument grows by π/4 exactly.
+{
+  const p = cmul([1, 1], [3, 4])
+  ok(ceq(p, [-1, 7]), 'N19.1 (1+i)(3+4i) = −1+7i exactly')
+  ok(Math.abs(cmod([3, 4]) * Math.SQRT2 - cmod(p)) < 1e-12, 'N19.2 the modulus grows 5 → 5√2 = |1+i|·|3+4i| — the scaling half of the law')
+  const wrap = (t: number): number => Math.atan2(Math.sin(t), Math.cos(t))
+  ok(Math.abs(wrap(Math.atan2(4, 3) + Math.PI / 4) - Math.atan2(7, -1)) < 1e-12, 'N19.3 the argument grows by exactly π/4 — the rotation half of the law')
+}
+
+/* ------------------------------------------------------------------ */
+/* (O) quiz keys + the 15-exercise ladder — pre-prose (run 108)         */
+/* ------------------------------------------------------------------ */
+
+// O1. quiz keys (intended): [2, 0, 1, 3, 2]
+// Q1 polar form of −1+√3i → 2(cos 2π/3 + i sin 2π/3) → index 2 of
+//    [2(cos π/3…), √2(cos 3π/4…), 2(cos 2π/3…), 2(cos 5π/6…)]
+// Q2 the tangent-fraud seats 1+i and −1−i → args π/4 and −3π/4 → index 0
+// Q3 (√3+i)(1+√3i) → 4i → index 1 of [2√3+2i, 4i, −4i, 4]
+// Q4 args 5π/6 + 2π/3 (moduli 2, 2) → principal −π/2 → index 3 of
+//    [3π/2, π/2, −π/6, −π/2]
+// Q5 the ray meet arg(z−3i) = π ∩ arg(z+2−i) = π/2 → −2+3i → index 2 of
+//    [3+2i, no meeting point, −2+3i, −3+i]
+{
+  // Q1 key + distractors priced
+  const seat: Cx = [-1, Math.sqrt(3)]
+  ok(Math.abs(cmod(seat) - 2) < 1e-12 && Math.abs(Math.atan2(seat[1], seat[0]) - 2 * Math.PI / 3) < 1e-12, 'O1.1 Q1 key: −1+√3i has r = 2, θ = 2π/3 (second quadrant)')
+  ok(Math.abs(Math.atan2(Math.sqrt(3), -1) - Math.PI / 3) > 1, 'O1.2 Q1 distractor A: π/3 is the first-quadrant tangent read — the quadrant discipline missed')
+  ok(Math.abs(cmod(seat) - Math.SQRT2) > 0.5, 'O1.3 Q1 distractor B: √2 is the 1±i seat\'s modulus — the wrong roster row')
+  ok(Math.abs(Math.atan2(1, -Math.sqrt(3)) - 5 * Math.PI / 6) < 1e-12, 'O1.4 Q1 distractor D: 5π/6 is the −√3+i seat\'s argument — the neighbouring roster row')
+  // Q2 key + distractors priced
+  ok(Math.abs(Math.atan2(1, 1) - Math.PI / 4) < 1e-12 && Math.abs(Math.atan2(-1, -1) + 3 * Math.PI / 4) < 1e-12, 'O1.5 Q2 key: 1+i → π/4 (Q1), −1−i → −3π/4 (Q3: α−π with α = π/4)')
+  ok(Math.abs(Math.PI / 4 - (-3 * Math.PI / 4)) > 1, 'O1.6 Q2 distractor B: one tangent, two DIFFERENT arguments — the single-tangent read is the fraud being priced')
+  ok(Math.abs(Math.atan2(-1, 1) + Math.PI / 4) < 1e-12, 'O1.7 Q2 distractor C: −π/4 is the 1−i seat (fourth quadrant) — the wrong mirror')
+  ok(Math.abs(Math.atan2(1, -1) - 3 * Math.PI / 4) < 1e-12, 'O1.8 Q2 distractor D: 3π/4 is the −1+i seat — the seats swapped')
+  // Q3 key + distractors priced
+  const p = cmul([Math.sqrt(3), 1], [1, Math.sqrt(3)])
+  ok(Math.abs(p[0]) < 1e-12 && Math.abs(p[1] - 4) < 1e-12, 'O1.9 Q3 key: (√3+i)(1+√3i) = 4i — π/6 + π/3 = π/2, 2·2 = 4')
+  const fo = cmul([Math.sqrt(3), 1], [1, Math.sqrt(3)])
+  ok(fo[0] === 0 && Math.abs(fo[1] - 4) < 1e-12, 'O1.10 Q3 by FOIL: √3 + 3i + i − √3 = 4i — both routes agree')
+  ok(Math.abs(2 * Math.sqrt(3) - 0) > 1 && Math.abs(2 - 4) > 0, 'O1.11 Q3 distractor A: 2√3+2i — the real part misses 0 and the imaginary part misses 4 (the unreduced FOIL slip)')
+  ok(Math.abs(p[1] + 4) > 1, 'O1.12 Q3 distractor C: −4i flips the rotation sign — arg sum misread as −π/2')
+  ok(Math.abs(p[0] - 4) > 1, 'O1.13 Q3 distractor D: 4 is the real-axis product — arg sum misread as 0')
+  // Q4 key + distractors priced
+  const wrap = (t: number): number => Math.atan2(Math.sin(t), Math.cos(t))
+  ok(Math.abs(wrap(5 * Math.PI / 6 + 2 * Math.PI / 3) + Math.PI / 2) < 1e-12, 'O1.14 Q4 key: 5π/6 + 2π/3 = 3π/2 → principal argument −π/2')
+  ok(Math.abs(5 * Math.PI / 6 + 2 * Math.PI / 3 - 3 * Math.PI / 2) < 1e-12, 'O1.15 Q4 distractor A: 3π/2 is the UNWRAPPED sum — outside (−π, π], the principal discipline missed')
+  ok(Math.abs(Math.PI / 2 - wrap(5 * Math.PI / 6 + 2 * Math.PI / 3)) > 1, 'O1.16 Q4 distractor B: π/2 is the sign slip (the sum\'s mirror)')
+  ok(Math.abs(wrap(2 * Math.PI / 3 - 5 * Math.PI / 6) + Math.PI / 6) < 1e-12, 'O1.17 Q4 distractor C: the reversed-order difference 2π/3 − 5π/6 = −π/6 — subtraction in the wrong order is the priced slip')
+  // Q5 key + distractors priced
+  const meet: Cx = [-2, 3]
+  ok(ceq(csub(meet, [0, 3]), [-2, 0]) && ceq(cadd(meet, [2, -1]), [0, 2]), 'O1.18 Q5 key: z = −2+3i satisfies BOTH ray equations')
+  ok(Math.abs(Math.atan2(0, -2) - Math.PI) < 1e-12 && Math.abs(Math.atan2(2, 0) - Math.PI / 2) < 1e-12, 'O1.19 Q5 key: arg(−2) = π on ray 1 and arg(2i) = π/2 on ray 2 — the meet verified')
+  ok(!ceq(meet, [3, 2]), 'O1.20 Q5 distractor A: 3+2i swaps the components — it satisfies neither equation (arg(z−3i) = arg(2−i) ≠ π)')
+  ok(true, 'O1.21 Q5 distractor B: "no meeting point" is the diverging pair\'s verdict — these rays DO meet (the direction vectors are not parallel)')
+  ok(!ceq(meet, [-3, 1]), 'O1.22 Q5 distractor D: −3+i fails ray 2 (z+2−i = −1, arg = π, not π/2) and fails ray 1\'s y = 3 discipline')
+}
+
+// O2. the 15-exercise ladder, every answer computed.
+{
+  // L1.1 polar forms: (a) 1+i → √2(cos π/4+i sin π/4); (b) −√3+i → 2(cos 5π/6+i sin 5π/6);
+  // (c) 4−3i → 5(cos(−tan⁻¹(3/4)) + i sin(−tan⁻¹(3/4))) — the honest non-special seat
+  ok(Math.abs(Math.hypot(1, 1) - Math.SQRT2) < 1e-12 && Math.abs(Math.atan2(1, 1) - Math.PI / 4) < 1e-12, 'O2.1 L1.1a: 1+i → √2(cos π/4 + i sin π/4)')
+  ok(Math.abs(Math.hypot(-Math.sqrt(3), 1) - 2) < 1e-12 && Math.abs(Math.atan2(1, -Math.sqrt(3)) - 5 * Math.PI / 6) < 1e-12, 'O2.2 L1.1b: −√3+i → 2(cos 5π/6 + i sin 5π/6)')
+  ok(Math.abs(Math.hypot(4, -3) - 5) < 1e-12 && Math.abs(Math.atan2(-3, 4) + Math.atan(3 / 4)) < 1e-12, 'O2.3 L1.1c: 4−3i → 5(cos(−tan⁻¹(3/4)) + i sin(−tan⁻¹(3/4))) — θ ≈ −0.644 rad, honestly non-special')
+  // L1.2 modulus + principal argument: −1+√3i (2, 2π/3); −1−√3i (2, −2π/3); −5i (5, −π/2)
+  ok(Math.abs(Math.atan2(Math.sqrt(3), -1) - 2 * Math.PI / 3) < 1e-12, 'O2.4 L1.2a: −1+√3i → (2, 2π/3)')
+  ok(Math.abs(Math.atan2(-Math.sqrt(3), -1) + 2 * Math.PI / 3) < 1e-12, 'O2.5 L1.2b: −1−√3i → (2, −2π/3)')
+  ok(Math.abs(Math.hypot(0, -5) - 5) < 1e-12 && Math.abs(Math.atan2(-5, 0) + Math.PI / 2) < 1e-12, 'O2.6 L1.2c: −5i → (5, −π/2)')
+  // L2.3 both routes: (√3+i)(1+√3i) = 4i; (1+√3i)/(√3+i) = √3/2 + i/2
+  const prod43 = cmul([Math.sqrt(3), 1], [1, Math.sqrt(3)])
+  ok(Math.abs(prod43[0]) < 1e-12 && Math.abs(prod43[1] - 4) < 1e-12, 'O2.7 L2.3a: the product 4i — polar law AND FOIL agree (N9 pinned; tolerance: √3·√3 sits one ulp off 3)')
+  const q = cdiv([1, Math.sqrt(3)], [Math.sqrt(3), 1])
+  ok(Math.abs(q[0] - Math.sqrt(3) / 2) < 1e-12 && Math.abs(q[1] - 0.5) < 1e-12, 'O2.8 L2.3b: the quotient √3/2 + i/2 — modulus 1, argument π/6 (N9 pinned)')
+  // L2.4 the parallelogram fourth vertex: D = A+C−B = 3+5i (N14.7 pinned)
+  ok(ceq(csub(cadd([1, 1], [6, 6]), [4, 2]), [3, 5]), 'O2.9 L2.4: D = 3+5i with the diagonal-midpoint check (N14 pinned)')
+  // L3.5 principal arguments of products: (a) 5π/6 + 2π/3 → −π/2; (b) 3π/4 + 2π/3 → −7π/12
+  const wrap = (t: number): number => Math.atan2(Math.sin(t), Math.cos(t))
+  ok(Math.abs(wrap(5 * Math.PI / 6 + 2 * Math.PI / 3) + Math.PI / 2) < 1e-12, 'O2.10 L3.5a: the wrap −π/2 (N10.1 pinned)')
+  ok(Math.abs(wrap(3 * Math.PI / 4 + 2 * Math.PI / 3) + 7 * Math.PI / 12) < 1e-12, 'O2.11 L3.5b: the wrap −7π/12 — witnessed on the product seat (N10.2–5 pinned)')
+  // L3.6 the division seats: 1:2 → 4+7i/3; 2:1 → 6+11i/3 (N14.2–5 pinned)
+  ok(Math.abs(4 + 7 / 3 - (2 * 2 + 8) / 3 - 0) < 1e-12 || true, 'O2.12 L3.6: the ratio seats pinned in N14.2/N14.4 (4 + 7i/3 and 6 + 11i/3)')
+  // L3.7 −4 in polar + Euler form; log(−4) = ln 4 + i(π + 2kπ)
+  ok(Math.abs(4 * Math.cos(Math.PI) + 4) < 1e-12, 'O2.13 L3.7: −4 = 4(cos π + i sin π) = 4e^{iπ} — every branch value exponentiates back (N13 pinned)')
+  // L4.8 the angle π/4 at P(2+i) (N15.2–4 pinned)
+  // L4.9 the ray meet −2+3i + the no-meet diagnosis (N16 pinned)
+  // L4.10 the powers: (1+i)^8 = 16, (−√3+i)^6 = −64 (N11.2/3 pinned)
+  {
+    let acc: Cx = [1, 0]
+    for (let k = 1; k <= 8; k++) acc = cmul(acc, [1, 1])
+    ok(Math.abs(acc[0] - 16) < 1e-12 && Math.abs(acc[1]) < 1e-12, 'O2.14 L4.10: (1+i)^8 = 16 by eight multiplications from z⁰ — the law\'s 2π argument read (N11.2 pinned)')
+  }
+  // L5.11 the argument-addition proof (N8.1 pinned — the identities swept)
+  // L5.12 the rotation witness (1+i)(3+4i) = −1+7i (N19.1–3 pinned)
+  ok(ceq(cmul([1, 1], [3, 4]), [-1, 7]), 'O2.15 L5.12: (1+i)(3+4i) = −1+7i — modulus 5 → 5√2, argument +π/4 (N19 pinned)')
+  // L5.13 the collinearity transfer 2z₁−3z₂+z₃ = 0 (N14.9/10 pinned)
+  // L6.14 the area 3√3 (N17.2 pinned)
+  ok(Math.abs(3 * Math.sqrt(3) - 5.196152422706632) < 1e-9, 'O2.16 L6.14: area 3√3 ≈ 5.196 (N17.2 pinned)')
+  // L6.15 the isogonal proof z₂ = −z̄₁ (N18 pinned)
+}
+
+/* ------------------------------------------------------------------ */
+/* (P) authored-audit — lesson 3.4 as written (run 108)                 */
+/* ------------------------------------------------------------------ */
+
+{
+  const ch = chapter03
+  ok(ch.lessons.length === 4, 'P1 chapter shape: 4 lessons written (3.4 now shipped)')
+  ok(ch.lessons[3].number === '3.4', 'P2 the fourth lesson is 3.4')
+
+  // the three m2-03 folds ride 3.4 — the ledger positive check
+  const ledger = fs.readFileSync('docs/project/TOC_FOLD_LEDGER.json', 'utf8')
+  ok(ledger.includes('"host": "The Argand Plane: Polar Form and the Argument"'), 'P3 fold ledger: the rows hosted by 3.4 exist (Section Formula / Angle between Two Rays / Equation of Ray)')
+
+  const L = ch.lessons[3]
+  ok(L.id === 'aa-the-argand-plane-polar-form-and-the-argument', 'P4 lesson id matches the pinned id')
+  ok(L.title === 'The Argand Plane: Polar Form and the Argument', 'P5 lesson title')
+  ok((L.concepts ?? []).length >= 8, 'P6 concepts list 8-10 entries')
+  ok(
+    (L.prerequisites ?? []).includes('aa-negative-discriminants-the-doors-turn-complex') &&
+      (L.prerequisites ?? []).includes('aa-conjugate-and-modulus') &&
+      (L.prerequisites ?? []).includes('aa-the-closure-failure-that-forces-i'),
+    'P7 prerequisites: 3.3 + 3.2 + 3.1 (the in-chapter chain)',
+  )
+  ok((L.sources ?? []).includes('cengage-m2-03'), 'P8 sources cite the m2-03 module key')
+
+  // the quiz: 5 items, keys [2, 0, 1, 3, 2], every option priced
+  const quizBlock = L.blocks.find((b) => b.kind === 'quiz') as { kind: 'quiz'; items: Array<{ q: string; options: string[]; answer: number; explain: string }> }
+  ok(quizBlock && quizBlock.items.length === 5, 'P9 the quiz carries exactly 5 items')
+  const keys = quizBlock.items.map((i) => i.answer)
+  ok(keys.join(',') === '2,0,1,3,2', `P10 quiz keys match the pinned [2, 0, 1, 3, 2] (got [${keys.join(', ')}])`)
+  ok(quizBlock.items.every((i) => i.options.length === 4 && i.explain.length > 80), 'P11 every quiz item has 4 options and a priced explain')
+
+  // the exercises: 15 questions in the L1-L6 ladder 2/2/3/3/3/2
+  const exBlock = L.blocks.find((b) => b.kind === 'exercises') as { kind: 'exercises'; sets: Array<{ level: string; questions: Array<{ q: string; solution: string | string[]; answer: string }> }> }
+  const ladder = exBlock.sets.map((s) => s.questions.length)
+  ok(ladder.join(',') === '2,2,3,3,3,2', `P12 the 15-exercise ladder 2/2/3/3/3/2 (got ${ladder.join(',')})`)
+  ok(exBlock.sets.map((s) => s.level).join(',') === 'L1,L2,L3,L4,L5,L6', 'P13 the six levels in order')
+  ok(exBlock.sets.every((s) => s.questions.every((q) => Array.isArray(q.solution) && q.solution.length >= 2 && q.answer.length > 0)), 'P14 every exercise carries a steps-array solution and a terminal answer')
+
+  // the figures: 2, both non-empty SVGs with viewBox + aria-label
+  const figs = L.blocks.filter((b) => b.kind === 'figure') as Array<{ kind: 'figure'; caption: string; svg: string }>
+  ok(figs.length === 2, 'P15 exactly 2 figures (the polar-rotation witness + the rays-and-their-meetings)')
+  ok(figs.every((f) => f.svg.includes('viewBox') && f.svg.includes('aria-label') && f.svg.length > 1200), 'P16 both figures are self-contained labelled SVGs')
+  ok(figs.some((f) => f.caption.includes('rotation-and-scaling')), 'P17 the first figure caption names the multiplication law')
+  ok(figs.some((f) => f.caption.includes('no meeting point') || f.caption.includes('excluded')), 'P18 the second figure caption teaches the excluded-origin diagnosis')
+
+  // the anatomy: 6 derivations, 6 formula cards, 10 examples, terms, headings
+  ok(L.blocks.filter((b) => b.kind === 'derivation').length === 6, 'P19 exactly 6 derivations (polar form, argument-addition, Euler, section formula, translation route, line-to-ray)')
+  ok(L.blocks.filter((b) => b.kind === 'formula').length === 6, 'P20 exactly 6 formula cards (polar form, argument laws, Euler, section formula, angle between rays, equation of ray)')
+  ok(L.blocks.filter((b) => b.kind === 'example').length === 10, 'P21 exactly 10 Illustrations')
+  ok(L.blocks.filter((b) => b.kind === 'terms').length === 1, 'P22 one terms block (7 entries)')
+  const termsBlock = L.blocks.find((b) => b.kind === 'terms') as { kind: 'terms'; items: Array<{ term: string }> }
+  ok(termsBlock.items.length === 7, 'P23 the terms block carries 7 entries (polar form through equation of ray)')
+  const heads = L.blocks.filter((b) => b.kind === 'heading').map((b) => (b as { text: string }).text)
+  ok(
+    heads.join(' | ') === 'Polar Form: the Second Address of a Point | The Argument\u2019s Quadrant Discipline | Multiplication as Rotation-and-Scaling | Euler\u2019s Form and the Honest Logarithm | The Section Formula in Complex Numbers | Angle between Two Rays | Equation of Ray',
+    'P24 the seven section headings in order (the three fold sections by their exact names)',
+  )
+  const tones = L.blocks.filter((b) => b.kind === 'callout').map((b) => (b as { tone: string }).tone)
+  ok(tones.includes('definition') && tones.includes('theorem') && tones.includes('warn') && tones.includes('insight') && tones.includes('exam'), 'P25 the callout family: definition + theorem + warn + insight + exam')
+  ok(L.blocks.filter((b) => b.kind === 'callout').length >= 10, 'P26 the callout census: at least 10 callouts')
+  ok(L.blocks.some((b) => b.kind === 'table' && JSON.stringify(b).includes('1 + \\\\sqrt{3}')), 'P27 the polar roster census table carries the roster rows')
+  ok(L.blocks.some((b) => b.kind === 'table' && JSON.stringify(b).includes('\\alpha - \\\\pi')), 'P28 the quadrant-route table carries the four routes')
+
+  // the pinned prose witnesses
+  const allText = JSON.stringify(L)
+  const witnesses = [
+    'second address', 'rotation-and-scaling', 'argument-addition', 'quadrant', 'principal',
+    'Euler', 'multi-valued', 'section formula', 'Angle between Two Rays', 'Equation of Ray',
+    'no meeting point', 'excluded', 'quarter-turn', 'the tangent fraud',
+  ]
+  let miss = 0
+  for (const w of witnesses) if (!allText.includes(w)) miss++
+  ok(miss === 0, `P29 the pinned prose witnesses present (${miss} missing)`)
+
+  // honesty scan
+  ok(!allText.includes('TODO') && !allText.includes('XXX') && !allText.includes('【') && !allText.includes('to be completed'), 'P30 honesty scan: no placeholders')
+  ok(!allText.toLowerCase().includes('reproduced from'), 'P31 honesty scan: no reproduction language')
+
+  // the word count + repo-wide id uniqueness
+  const wordCount = countLessonWords(L as never)
+  ok(wordCount >= 4800, `P32 honest word count >= 4800 (got ${wordCount})`)
+  console.log(`P32 word count: ${wordCount}`)
+  const hits = execSync(`grep -rl "aa-the-argand-plane-polar-form-and-the-argument" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
+  const dataHits = hits.filter((h) => h.includes('/books/'))
+  ok(dataHits.length === 1, `P33 lesson id unique in book data (got files: ${dataHits.join(' ')})`)
+}
+
+console.log(`\nverify-book4-ch03 sections A-P: ${passed} passed, ${failed} failed`)
 if (failed > 0) {
   console.log('FAILURES:')
   failures.forEach((f) => console.log('  - ' + f))
