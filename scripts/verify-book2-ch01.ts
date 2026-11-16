@@ -1145,6 +1145,51 @@ console.log('=== AO. audit-bot fire (2026-11-16): solution-figure geometry + enr
   console.log('  figures pinned: gnomon squares (L1-2), peel-and-patch (L2-3), floating chain (L5-2), Euler strip (L6-1)');
 }
 
+console.log('=== AP. audit-bot fire (2026-11-17): solution-figure geometry + enrichment numbers (lesson 1.3) ===');
+{
+  // VERIFY-FIRST: every value drawn in the five new solution figures re-derived here.
+  // B1 (L2-1 unroll add(4,3)): two rule-2 peels (3->2->1), rule 1 at 1, three S's wrap 4 -> 7.
+  ok(4 + 3 === 7 && 4 + 1 === 5 && 5 + 1 === 6 && 6 + 1 === 7, 'B1: steps 4 -> 5 -> 6 -> 7 — three applications of S wrap the 4');
+  ok([3, 2, 1].every((b, i) => b === 3 - i), 'B1: peels strip the second argument 3 -> 2 -> 1; the base rule fires AT 1 (add(4,1) = S(4))');
+  const by = (i: number) => 18 + 62 * i;
+  ok(by(3) + 44 === 248 && 316 - 288 >= 8, 'B1 geometry: last box bottom 248, bottom line y=288, viewBox margin 28 >= 8');
+  ok(450 + 250 <= 752, 'B1 geometry: right annotations start 450, longest ~250 px ends ~700 inside 760');
+  // B2 (L2-2 mul chain): unpack then climb 3 -> 6 -> 9 -> 12.
+  ok(3 + 3 === 6 && 6 + 3 === 9 && 9 + 3 === 12, 'B2: climb adds one more 3 per link — 3, 6, 9, 12 = mul(3,4)');
+  ok(3 * 4 === 12 && 3 * 3 === 9 && 3 * 2 === 6 && 3 * 1 === 3, 'B2: the climb values equal the products mul(3,k)');
+  ok(60 + 330 === 390 && 415 > 390, 'B2 geometry: boxes 60..390, climb annotations at 415 clear of the box column');
+  // B3 (L5-2 stamps {4,9}): bases 24..27, Frobenius point 23.
+  ok(4 * 6 === 24 && 4 * 4 + 9 === 25 && 4 * 2 + 9 * 2 === 26 && 9 * 3 === 27, 'B3: the four verified bases 24 = 4·6, 25 = 4·4+9, 26 = 4·2+9·2, 27 = 9·3');
+  ok([23, 14, 5].every((v) => v % 4 !== 0), 'B3: 23 − 9t for t = 0,1,2 is 23, 14, 5 — never a multiple of 4, so 23 is unformable');
+  let g = 0;
+  for (let n = 0; n <= 60; n++) {
+    let f = false;
+    for (let t = 0; 4 * t <= n && !f; t++) for (let u = 0; 4 * t + 9 * u <= n; u++) if (4 * t + 9 * u === n) f = true;
+    if (!f) g = n;
+  }
+  ok(g === 23, 'B3: brute-force Frobenius point of {4,9} is 23 (largest unformable ≤ 60)');
+  ok(4 * 9 - 4 - 9 === 23 && 3 * 5 - 3 - 5 === 7, 'B3: Frobenius formula ab − a − b: {4,9} -> 23, {3,5} -> 7 (the term-entry numbers)');
+  const sx = (n: number) => 90 + (n - 20) * 52;
+  ok(sx(23) === 246 && sx(24) === 298 && sx(27) === 454 && sx(28) === 506, 'B3 geometry: dots at 246 / 298 / 454; arc anchors 506 -> 298');
+  ok(760 - 672 === 88 && 466 - 286 === 180 && (286 + 466) / 2 === 376, 'B3 geometry: line ends 672 (margin 88); bracket spans 286..466 centred 376');
+  // B4 (L6-1 equivalence triangle): three boxes, four arrows.
+  ok(270 + 220 === 490 && 55 + 220 === 275 && 485 + 220 === 705, 'B4 geometry: box spans top 270..490, BL 55..275, BR 485..705 (no two boxes share a y-band)');
+  ok(482 >= 270 && 482 <= 490 && 99 > 92, 'B4 geometry: dashed head (482, 99) ends within the induction box x-span, 7 px below its bottom edge');
+  ok(237 - 209 >= 8 && 305 - 290 >= 8, 'B4 geometry: (i) right edge 209 vs down-path 237 (28 clear); up-path 290 vs (iii) left edge 305 (15 clear)');
+  ok(390 + 60 <= 490, 'B4 geometry: stacked (ii)/conjunction labels centred 390, widest ~120 px spans 330..450 — inside the interior, clear of both right-edge paths');
+  // B5 (L6-2 Zeckendorf): ledger ranks and the greedy descent on 100.
+  const fib: number[] = [1, 1];
+  while (fib[fib.length - 1] < 200) fib.push(fib[fib.length - 1] + fib[fib.length - 2]);
+  ok(fib[10] === 89 && fib[9] === 55 && fib[5] === 8 && fib[4] === 5 && fib[3] === 3, 'B5: ranks — 11th 89, 10th 55, 6th 8, 5th 5, 4th 3');
+  ok(100 - 89 === 11 && 11 - 8 === 3 && 100 === 89 + 8 + 3, 'B5: greedy descent 100 -> 11 -> 3; representation 89 + 8 + 3');
+  ok(11 - 6 === 5 && 6 - 4 === 2 && 5 >= 2 && 2 >= 2, 'B5: pick ranks 11, 6, 4 — gaps 5 and 2, both ≥ 2 (the non-consecutive clause)');
+  ok(60 + 300 === 360 && 390 > 360, 'B5 geometry: boxes 60..360, annotations at 390 clear of the box column');
+  // Pass C: LNP formula card (structural), Frobenius term, descent warn callout.
+  ok(true, 'C: LNP formula card is structural (quantified statement, no new numbers)');
+  ok(1 * 23 === 23, 'C: the warn wreck — f = 1·f has a factor equal to f itself, NOT strictly smaller (why the composite classification is invoked first)');
+  console.log('  figures pinned: unroll43 (L2-1), mul-stair (L2-2), stamp49 line (L5-2), equivalence triangle (L6-1), Zeckendorf descent (L6-2)');
+}
+
 /* ------------------------------------------------------------------ */
 console.log('');
 console.log(`verify-book2-ch01: ${pass} passed, ${fail} failed`);

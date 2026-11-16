@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-17T03:20:00+08:00",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
-  "cursor": 50,
+  "cursor": 51,
   "stats": {
     "lessonsWithFigures": 131,
-    "figureTotal": 245,
-    "done": 56,
-    "pending": 75
+    "figureTotal": 246,
+    "done": 57,
+    "pending": 74
   },
   "items": [
     {
@@ -465,7 +465,9 @@
       "bookId": "arithmetic-and-number-systems",
       "chapter": 1,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "doneOn": "2026-11-17",
+      "doneBy": "audit-bot fire (job 530242, §10 passes A/B/C)"
     },
     {
       "lessonId": "ans-division-with-rest-the-division-algorithm",

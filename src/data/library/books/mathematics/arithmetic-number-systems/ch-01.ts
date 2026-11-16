@@ -1625,7 +1625,8 @@ export const chapter01: Chapter = {
     ${Array.from({ length: 15 }, (_, i) => [4, 7, 8, 11, 14].includes(i + 1) ? `<circle cx="${60 + i * 46}" cy="138" r="6" fill="currentColor"/>` : `<circle cx="${60 + i * 46}" cy="138" r="5" fill="none" stroke="currentColor" stroke-width="1.3"/>`).join('\n    ')}
   </g>
   <circle cx="198" cy="138" r="13" fill="none" stroke="#ea580c" stroke-width="2"/>
-  <line x1="140" y1="98" x2="191" y2="113" stroke="currentColor" stroke-width="1.3" marker-end="url(#lnp-arrow)"/>
+  <!-- annotation arrow aimed at the ring centre (198,138); the tip stops on the ring edge (r = 13, clearance 0.6) -->
+  <line x1="140" y1="98" x2="187" y2="130" stroke="currentColor" stroke-width="1.3" marker-end="url(#lnp-arrow)"/>
   <text x="320" y="88" font-size="12.5" fill="currentColor">the sweep stops at the first member of A — the least element</text>
   <text x="130" y="205" font-size="12" fill="currentColor" text-anchor="middle">filled dots: members of A</text>
   <text x="450" y="205" font-size="12" fill="currentColor" opacity="0.85" text-anchor="middle">the empty set has no sweep to run — hence “nonempty”</text>
@@ -1790,6 +1791,12 @@ export const chapter01: Chapter = {
             '$F$ is empty: every $n \\ge 2$ has a prime divisor. Instances from the sweep: the least prime divisor of $60$ is $2$; of $49$ is $7$; and $n = 2$ is its own prime divisor — the descent\u2019s base case in the flesh. Chapter 4 will upgrade this existence theorem to the full fundamental theorem of arithmetic (existence AND uniqueness of prime factorisation); the upgrade costs the Euclidean algorithm of chapter 2.',
         },
         {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The descent only works if the pieces are strictly smaller',
+          text: 'A descent argument dies quietly when the “smaller pieces” are not actually smaller. The wreck to watch: writing the supposed counterexample as $f = 1 \\cdot f$ — one factor is $f$ itself, and “descending” to it descends nowhere. This is why the derivation above leans on Foundation Mathematics Lesson 3.2\u2019s classification before taking its factors: composite means BOTH factors are at least $2$ and at most $f - 1$, so each lies strictly below the least failure. Whenever you run the descent, audit the step that produces the smaller number and ask the question that matters: is it strictly smaller, for EVERY case the hypothesis allows? If one case can sneak back to the counterexample itself, the noose never closes.',
+        },
+        {
           kind: 'para',
           text: 'Notice what the argument did NOT do: no induction variable, no explicit "$P(k)$ implies $P(k+1)$". It supposed a failure, took the least one, and let $f$\u2019s own arithmetic produce a smaller failure. Pierre de Fermat made this shape famous as *infinite descent* — "the smaller number found would itself have to fail, and so on forever, which is absurd". The least-number principle is what makes "and so on forever" airtight: the descent stops at the floor, and the floor is the contradiction.',
         },
@@ -1950,6 +1957,10 @@ export const chapter01: Chapter = {
               def: 'The step borrows ALL of $P(1), \\dots, P(k)$ to prove $P(k+1)$. Interchangeable with weak induction by the conjunction re-branding $Q(n) = P(1) \\wedge \\cdots \\wedge P(n)$; the natural tool when the next case needs several predecessors.',
             },
             {
+              term: 'Frobenius point',
+              def: 'The largest amount NOT formable from stamps of a given pair — $7$ for the pair $\\{3, 5\\}$, $23$ for $\\{4, 9\\}$: one below the first window of consecutive formable amounts from which strong induction\u2019s step can reach back. The stamp problems of this lesson and Exercise L5 are the canonical drills.',
+            },
+            {
               term: 'Recursive definition',
               def: 'A definition by a base rule at $1$ and a step rule from $S$: each value determined from earlier ones. Addition: $add(a, 1) = S(a)$, $add(a, S(b)) = S(add(a, b))$.',
             },
@@ -2067,6 +2078,35 @@ export const chapter01: Chapter = {
                     'Hence $add(4, 3) = 7$ — two peels and a base, three applications of $S$ in all.',
                   ],
                   answer: 'add(4, 3) = S³(4) = 7',
+                  figures: [
+                    {
+                      caption: 'The unroll of add(4, 3) — the same peel machine as the lesson\u2019s 3 + 4 unroll, one peel fewer: rule 2 strips the second argument from 3 to 2 to 1, rule 1 fires at add(4, 1) = S(4), and three applications of S wrap the 4. Running the steps gives 5, 6, 7.',
+                      svg: `<svg viewBox="0 0 760 316" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The sum 4 plus 3 unrolled into four boxes by the recursion rules, ending at the value 7">
+  <defs>
+    <marker id="unroll43-a" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <g stroke="currentColor" stroke-width="1.5" fill="none">
+    ${Array.from({ length: 4 }, (_, i) => `<rect x="100" y="${18 + 62 * i}" width="320" height="44" rx="8"${i === 3 ? ' fill="#ea580c" fill-opacity="0.12" stroke="#ea580c" stroke-width="2"' : ''}/>`).join('\n    ')}
+  </g>
+  <g font-size="16" fill="currentColor" text-anchor="middle">
+    ${['add(4, 3)', 'S(add(4, 2))', 'S(S(add(4, 1)))', 'S(S(S(4)))'].map((t, i) => `<text x="260" y="${18 + 62 * i + 27}">${t}</text>`).join('\n    ')}
+  </g>
+  <g font-size="11" fill="currentColor" opacity="0.75" text-anchor="end">
+    ${['0 S\u2019s', '1 S', '2 S\u2019s', '3 S\u2019s'].map((t, i) => `<text x="84" y="${18 + 62 * i + 27}">${t}</text>`).join('\n    ')}
+  </g>
+  <g stroke="currentColor" stroke-width="1.2">
+    ${Array.from({ length: 3 }, (_, i) => `<line x1="260" y1="${18 + 62 * i + 46}" x2="260" y2="${18 + 62 * (i + 1) - 2}" marker-end="url(#unroll43-a)"/>`).join('\n    ')}
+  </g>
+  <g font-size="12" fill="currentColor" opacity="0.85">
+    ${['rule 2 peels one successor off 3', 'rule 2 peels one successor off 2', 'the second argument is 1 — rule 1 fires'].map((t, i) => `<text x="450" y="${18 + 62 * i + 26}">${t}</text>`).join('\n    ')}
+  </g>
+  <text x="450" y="${18 + 62 * 3 + 26}" font-size="12" fill="#16a34a">run the steps: 4 → 5 → 6 → 7</text>
+  <text x="380" y="288" font-size="12.5" fill="currentColor" opacity="0.85" text-anchor="middle">two peels and a base — three applications of S wrap the 4 — the value is 7</text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Compute $mul(3, 4)$ by the multiplication recursion, writing the chain $mul(3, 4) \\to mul(3, 3) \\to mul(3, 2) \\to mul(3, 1)$ with the add-rule at each link, and confirm the final value.',
@@ -2078,6 +2118,35 @@ export const chapter01: Chapter = {
                     'Hence $mul(3, 4) = 12$ — the chain $3, 6, 9, 12$ adds one more $3$ per link: repeated addition is the definition, not a metaphor.',
                   ],
                   answer: 'mul(3, 4) = 12 via the chain 3 → 6 → 9 → 12',
+                  figures: [
+                    {
+                      caption: 'mul(3, 4) unpacked, then climbed. Down: rule 2 rewrites each product as the product below it plus one more 3, until rule 1 grounds the chain — one copy of 3 is 3. Up: the climb adds one more 3 at each link — 3, 6, 9, 12 — which IS the definition of repeated addition, not a metaphor about it.',
+                      svg: `<svg viewBox="0 0 760 316" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The multiplication recursion unpacks mul(3,4) down to the base rule, then the climb adds one more 3 per link to reach 12">
+  <defs>
+    <marker id="mul34-a" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <g stroke="currentColor" stroke-width="1.5" fill="none">
+    ${Array.from({ length: 4 }, (_, i) => `<rect x="60" y="${18 + 62 * i}" width="330" height="44" rx="8"${i === 3 ? ' fill="#ea580c" fill-opacity="0.12" stroke="#ea580c" stroke-width="2"' : ''}/>`).join('\n    ')}
+  </g>
+  <g font-size="11" fill="currentColor" opacity="0.75" text-anchor="end">
+    ${['rule 2', 'rule 2', 'rule 2', 'rule 1'].map((t, i) => `<text x="48" y="${18 + 62 * i + 27}">${t}</text>`).join('\n    ')}
+  </g>
+  <g font-size="15" fill="currentColor" text-anchor="middle">
+    ${['mul(3, 4) = add(mul(3, 3), 3)', 'mul(3, 3) = add(mul(3, 2), 3)', 'mul(3, 2) = add(mul(3, 1), 3)', 'mul(3, 1) = 3'].map((t, i) => `<text x="225" y="${18 + 62 * i + 27}">${t}</text>`).join('\n    ')}
+  </g>
+  <g stroke="currentColor" stroke-width="1.2">
+    ${Array.from({ length: 3 }, (_, i) => `<line x1="225" y1="${18 + 62 * i + 46}" x2="225" y2="${18 + 62 * (i + 1) - 2}" marker-end="url(#mul34-a)"/>`).join('\n    ')}
+  </g>
+  <g font-size="12" fill="#16a34a">
+    ${['climb: add(9, 3) = 12', 'climb: add(6, 3) = 9', 'climb: add(3, 3) = 6'].map((t, i) => `<text x="415" y="${18 + 62 * i + 26}">${t}</text>`).join('\n    ')}
+  </g>
+  <text x="415" y="${18 + 62 * 3 + 26}" font-size="12" fill="currentColor" opacity="0.85">one copy of 3 is 3 — the ground floor</text>
+  <text x="380" y="288" font-size="12.5" fill="currentColor" opacity="0.85" text-anchor="middle">down the unpack, up the climb: 3, 6, 9, 12 — one more 3 added at each link</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -2167,6 +2236,40 @@ export const chapter01: Chapter = {
                     'Why $23$ fails: $23 - 9t$ for $t = 0, 1, 2$ gives $23, 14, 5$ — none divisible by $4$, so no split works. The Frobenius point of $\\{4, 9\\}$ is $23$, exactly four below the first proven window — the pattern the $\\{3, 5\\}$ illustration foreshadowed.',
                   ],
                   answer: 'every n ≥ 24 is 4a + 9b; 23 is not (the Frobenius point of {4, 9})',
+                  figures: [
+                    {
+                      caption: 'The {4, 9} stamp line around the proven window: the four consecutive bases 24–27 are verified by hand, and the strong step reaches back 4 rungs — n − 4 — adding one 4-stamp. 23, four below the window, admits no split 4a + 9b (23 − 9t is never a multiple of 4): the Frobenius point of the pair.',
+                      svg: `<svg viewBox="0 0 760 252" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line 20 to 30: amounts 24 to 27 marked as the four verified bases, 23 marked red as the Frobenius point, with the strong step reaching back four rungs from n to n minus 4">
+  <defs>
+    <marker id="stamp49-a" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <text x="380" y="36" font-size="12.5" fill="currentColor" text-anchor="middle">every n ≥ 24 is formable: n − 4 ≥ 24 is formable by the hypothesis — add one 4-stamp</text>
+  <path d="M 506 117 Q 402 48 298 117" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#stamp49-a)"/>
+  <text x="402" y="58" font-size="12.5" fill="currentColor" text-anchor="middle">the strong step: n − 4</text>
+  <line x1="60" y1="130" x2="672" y2="130" stroke="currentColor" stroke-width="1.5"/>
+  <g stroke="currentColor" stroke-width="1.2">
+    ${Array.from({ length: 11 }, (_, i) => `<line x1="${90 + i * 52}" y1="124" x2="${90 + i * 52}" y2="136"/>`).join('\n    ')}
+  </g>
+  <g font-size="12" fill="currentColor" text-anchor="middle">
+    ${Array.from({ length: 11 }, (_, i) => `<text x="${90 + i * 52}" y="160">${20 + i}</text>`).join('\n    ')}
+  </g>
+  <g>
+    ${Array.from({ length: 11 }, (_, i) => {
+      const n = 20 + i
+      const cx = 90 + i * 52
+      if (n === 23) return `<circle cx="${cx}" cy="130" r="6" fill="#dc2626"/>`
+      if (n >= 24 && n <= 27) return `<circle cx="${cx}" cy="130" r="6" fill="#16a34a"/>`
+      return `<circle cx="${cx}" cy="130" r="5" fill="none" stroke="currentColor" stroke-width="1.3"/>`
+    }).join('\n    ')}
+  </g>
+  <path d="M 286 176 L 286 182 L 466 182 L 466 176" fill="none" stroke="#16a34a" stroke-width="1.3"/>
+  <text x="376" y="198" font-size="11.5" fill="#166534" text-anchor="middle">the four verified bases: 24, 25, 26, 27</text>
+  <text x="246" y="218" font-size="11.5" fill="#dc2626" text-anchor="middle">23: 23 − 9t = 23, 14, 5 — never a multiple of 4</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -2182,6 +2285,38 @@ export const chapter01: Chapter = {
                     'Hence the three are one: induction, least numbers, strong induction — assume any one, derive the other two. (The verify script shadowed all three arguments: the failure sets of a six-statement family, all $4096$ subsets of $\\{1, \\dots, 12\\}$, and the conjunction re-branding of the $\\Sigma$-formula.)',
                   ],
                   answer: 'induction, the least-number principle and strong induction are mutually equivalent',
+                  figures: [
+                    {
+                      caption: 'The equivalence triangle of Exercise L6. (i) induction implies the least-number principle and (iii) the least-number principle implies induction — the solid pair on the left is the lesson\u2019s twinhood. (ii) induction implies strong induction by the conjunction re-branding Q(n) = P(1) ∧ ⋯ ∧ P(n); the dashed return — strong back to weak — is immediate from the definitions. Assume any one principle; the other two are theorems.',
+                      svg: `<svg viewBox="0 0 760 318" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Equivalence triangle: induction and the least-number principle imply each other, induction yields strong induction by the conjunction re-branding, and strong induction gives induction immediately">
+  <defs>
+    <marker id="eqtri-a" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <g font-size="16" fill="currentColor" text-anchor="middle">
+    <text x="380" y="73">induction</text>
+    <text x="165" y="258" font-size="14.5">least-number principle</text>
+    <text x="595" y="258">strong induction</text>
+  </g>
+  <g stroke="currentColor" stroke-width="1.5" fill="none">
+    <rect x="270" y="40" width="220" height="52" rx="10"/>
+    <rect x="55" y="225" width="220" height="52" rx="10"/>
+    <rect x="485" y="225" width="220" height="52" rx="10"/>
+  </g>
+  <path d="M 285 96 C 240 130, 215 180, 224 219" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#eqtri-a)"/>
+  <path d="M 250 219 C 270 178, 300 132, 336 98" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#eqtri-a)"/>
+  <text x="196" y="152" font-size="12.5" fill="currentColor" text-anchor="middle">(i)</text>
+  <text x="322" y="152" font-size="12.5" fill="currentColor" text-anchor="middle">(iii)</text>
+  <path d="M 465 96 C 492 140, 505 180, 513 219" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#eqtri-a)"/>
+  <path d="M 556 219 C 534 170, 510 132, 482 99" fill="none" stroke="currentColor" stroke-width="1.3" stroke-dasharray="5 4" marker-end="url(#eqtri-a)"/>
+  <text x="390" y="148" font-size="12.5" fill="currentColor" text-anchor="middle">(ii)</text>
+  <text x="390" y="166" font-size="11" fill="currentColor" opacity="0.75" text-anchor="middle">the conjunction Q(n)</text>
+  <text x="570" y="184" font-size="11" fill="currentColor" opacity="0.75">immediate from the definitions</text>
+  <text x="380" y="304" font-size="11.5" fill="currentColor" opacity="0.85" text-anchor="middle">(i), (ii), (iii) name the parts of Exercise L6; the dashed arrow is the strong-back-to-weak direction</text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Zeckendorf\u2019s theorem: every $n \\ge 1$ is a sum of non-consecutive Fibonacci numbers (each value used at most once), where $F_1 = F_2 = 1$ and $F_m = F_{m-1} + F_{m-2}$. Prove it by strong induction, and verify $100 = 89 + 8 + 3$.',
@@ -2196,10 +2331,49 @@ export const chapter01: Chapter = {
                     'Hence the step; with the base, every $n$ has a Zeckendorf representation. Instance: $100 = 89 + 8 + 3$ — indices $11, 6, 4$, no two consecutive ✓ (the script swept $1 \\ldots 300$, greedy decompositions exact and gap-safe throughout).',
                   ],
                   answer: 'every n ≥ 1 is a sum of non-consecutive Fibonaccis; 100 = 89 + 8 + 3',
+                  figures: [
+                    {
+                      caption: 'The greedy descent behind the strong induction, run on 100: take the largest Fibonacci not exceeding the target — the 11th value, 89 — and the remainder (11) lands strictly below the next Fibonacci down (the 10th, 55), which is what forces the next pick\u2019s rank to drop by at least two. The picks 89, 8, 3 sit at ranks 11, 6, 4 — gap-safe by construction, exactly the non-consecutive clause the theorem claims.',
+                      svg: `<svg viewBox="0 0 760 268" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zeckendorf greedy descent on 100: pick 89 leaving 11, pick 8 leaving 3, 3 is a Fibonacci, and the representation 89 plus 8 plus 3 has ranks 11, 6, 4 with no two consecutive">
+  <defs>
+    <marker id="zeck-a" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <g stroke="currentColor" stroke-width="1.5" fill="none">
+    ${Array.from({ length: 4 }, (_, i) => `<rect x="60" y="${18 + 58 * i}" width="300" height="44" rx="8"${i === 2 ? ' fill="#ea580c" fill-opacity="0.12" stroke="#ea580c" stroke-width="2"' : i === 3 ? ' fill="#16a34a" fill-opacity="0.08" stroke="#16a34a" stroke-width="2"' : ''}/>`).join('\n    ')}
+  </g>
+  <g font-size="15" fill="currentColor" text-anchor="middle">
+    ${['100 = 89 + 11', '11 = 8 + 3', '3 — itself a Fibonacci ✓', '100 = 89 + 8 + 3 ✓'].map((t, i) => `<text x="210" y="${18 + 58 * i + 27}">${t}</text>`).join('\n    ')}
+  </g>
+  <g stroke="currentColor" stroke-width="1.2">
+    ${Array.from({ length: 3 }, (_, i) => `<line x1="210" y1="${18 + 58 * i + 46}" x2="210" y2="${18 + 58 * (i + 1) - 2}" marker-end="url(#zeck-a)"/>`).join('\n    ')}
+  </g>
+  <g font-size="11.5" fill="currentColor" opacity="0.85">
+    <text x="390" y="${18 + 0 * 58 + 18}">largest Fibonacci ≤ 100 is the 11th: 89</text>
+    <text x="390" y="${18 + 0 * 58 + 34}">remainder 11 is below the 10th, 55</text>
+    <text x="390" y="${18 + 1 * 58 + 18}">largest Fibonacci ≤ 11 is the 6th: 8</text>
+    <text x="390" y="${18 + 1 * 58 + 34}">remainder 3 is below the 5th, 5</text>
+    <text x="390" y="${18 + 2 * 58 + 18}">no picking needed — the remainder</text>
+    <text x="390" y="${18 + 2 * 58 + 34}">is already a Fibonacci value</text>
+  </g>
+  <g font-size="11.5" fill="#166534">
+    <text x="390" y="${18 + 3 * 58 + 18}">picks at ranks 11, 6, 4 — no two consecutive:</text>
+    <text x="390" y="${18 + 3 * 58 + 34}">the gaps 5 and 2 are both ≥ 2 ✓</text>
+  </g>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
           ],
+        },
+        {
+          kind: 'formula',
+          name: 'The least-number principle',
+          latex: '\\forall A \\subseteq \\mathbb{N}:\\; A \\neq \\emptyset \\;\\Longrightarrow\\; \\exists \\, m \\in A \\text{ with } m \\le a \\text{ for every } a \\in A',
+          note: 'The lesson\u2019s centrepiece, working three ways: it certifies least-element searches (an upward scan stops at the first member), it drives the minimal-counterexample descent, and it is induction\u2019s twin — each principle implies the other, so either may be taken as the axiom.',
         },
         {
           kind: 'formula',
