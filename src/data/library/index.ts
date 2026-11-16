@@ -109,6 +109,35 @@ import { environmentalEngineering } from './books/engineering/environmental-engi
 import { hydraulics } from './books/engineering/hydraulics/book'
 import { waterResourcesEngineering } from './books/engineering/water-resources-engineering/book'
 import { constructionManagement } from './books/engineering/construction-management/book'
+import { worldHistory } from './books/humanities/world-history/book'
+import { indianHistory } from './books/humanities/indian-history/book'
+import { politicalScience } from './books/humanities/political-science/book'
+import { internationalRelations } from './books/humanities/international-relations/book'
+import { publicAdministration } from './books/humanities/public-administration/book'
+import { lawAndLegalStudies } from './books/humanities/law-and-legal-studies/book'
+import { sociology } from './books/humanities/sociology/book'
+import { anthropology } from './books/humanities/anthropology/book'
+import { culturalStudies } from './books/humanities/cultural-studies/book'
+import { psychology } from './books/humanities/psychology/book'
+import { philosophy } from './books/humanities/philosophy/book'
+import { ethics } from './books/humanities/ethics/book'
+import { geography } from './books/humanities/geography/book'
+import { environmentalStudies } from './books/humanities/environmental-studies/book'
+import { archaeologyAndHeritageStudies } from './books/humanities/archaeology-and-heritage-studies/book'
+import { artHistory } from './books/humanities/art-history/book'
+import { english } from './books/languages/english/book'
+import { hindi } from './books/languages/hindi/book'
+import { sanskrit } from './books/languages/sanskrit/book'
+import { japanese } from './books/languages/japanese/book'
+import { german } from './books/languages/german/book'
+import { french } from './books/languages/french/book'
+import { spanish } from './books/languages/spanish/book'
+import { mandarin } from './books/languages/mandarin/book'
+import { korean } from './books/languages/korean/book'
+import { arabic } from './books/languages/arabic/book'
+import { russian } from './books/languages/russian/book'
+import { portuguese } from './books/languages/portuguese/book'
+import { italian } from './books/languages/italian/book'
 import type { Book, Chapter, Discipline, DisciplineId, Lesson, Term } from './types'
 import { countLessonWords } from './types'
 
@@ -146,6 +175,28 @@ import { countLessonWords } from './types'
  * (the four GATE 2026 branch syllabi downloaded + extracted, canonical
  * textbook arcs web-checked) and the gate
  * scripts/verify-engineering-shelf-planning.ts.
+ *
+ * The Humanities & Social Sciences shelf is fully planned as of the
+ * 2026-11-16 Humanities full-shelf planning pass (owner directive: "create all
+ * things like you did for engineering do it for humanities and social science
+ * and languages section" — the same turn as the Languages pass): 16 books
+ * across the History, Polity & Governance, Society, Mind, Earth and Culture &
+ * Past branches, status 'planned', zero lessons written — with the UPSC
+ * GS-I/II/IV registers + the nine relevant optional-subject registers + the
+ * UGC NET subject register + the College Board AP units + the CLAT register
+ * as the exam anchors, and the evidence base at
+ * docs/research/HUMANITIES_TOC_SURVEY.md and the gate
+ * scripts/verify-humanities-shelf-planning.ts.
+ *
+ * The Languages shelf is fully planned as of the 2026-11-16 Languages
+ * full-shelf planning pass (the same turn): 13 books — English, Hindi,
+ * Sanskrit, Japanese, German, French, Spanish, Mandarin, Korean, Arabic,
+ * Russian, Portuguese, Italian — status 'planned', zero lessons written, each
+ * following the script → phonetics → vocabulary → grammar → literacy →
+ * fluency → exam-prep arc with the CEFR + the official registers (JLPT,
+ * Goethe-Zertifikat, DELF-DALF, DELE, HSK, TOPIK, IELTS, TOEFL, CLEP) as
+ * the exam anchors; the evidence base at docs/research/LANGUAGES_TOC_SURVEY.md
+ * and the gate scripts/verify-languages-shelf-planning.ts.
  */
 export const allBooks: Book[] = [
   foundationMathematics,
@@ -258,6 +309,35 @@ export const allBooks: Book[] = [
   hydraulics,
   waterResourcesEngineering,
   constructionManagement,
+  worldHistory,
+  indianHistory,
+  politicalScience,
+  internationalRelations,
+  publicAdministration,
+  lawAndLegalStudies,
+  sociology,
+  anthropology,
+  culturalStudies,
+  psychology,
+  philosophy,
+  ethics,
+  geography,
+  environmentalStudies,
+  archaeologyAndHeritageStudies,
+  artHistory,
+  english,
+  hindi,
+  sanskrit,
+  japanese,
+  german,
+  french,
+  spanish,
+  mandarin,
+  korean,
+  arabic,
+  russian,
+  portuguese,
+  italian,
 ]
 
 export const allDisciplines: Discipline[] = disciplines

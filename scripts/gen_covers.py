@@ -26,6 +26,9 @@ Phases (idempotent, run repeatedly until "all done"):
 44 Computer Science books (same series contract; entries appended in BOOKS).
 2026-11-16 (Engineering full-shelf planning pass): the roster grew 72 -> 110
 with the 38 Engineering books (Mechanical, Electrical, ECE, Civil).
+2026-11-16 (Humanities & Languages planning passes, the same turn): the
+roster grew 110 -> 139 with the 16 Humanities & Social Sciences and the 13
+Languages books.
 The sandbox recycles raw PNGs between sessions, so `done()` now treats the
 repo webp (public/covers/<id>.webp) as the source of truth — a missing raw
 only matters when a cover is being regenerated.
@@ -328,6 +331,192 @@ BOOKS = {
     "hydraulics": ("hydraulics", "an open channel of flowing water meeting a hydraulic jump's standing wave, a wheel of buckets catching a jet, and a smooth weir spilling over.", "#0e7490", "#164e63"),
     "water-resources-engineering": ("water resources engineering", "a gravity dam holding back a lake with a spillway cascade, rain falling on watershed hills, and a winding canal feeding green fields.", "#2563eb", "#1e40af"),
     "construction-management": ("construction management", "an organised construction site seen from above — a tower crane, stacked material bins, a network of plain activity arrows, and a quiet ladder of plain bars.", "#d97706", "#b45309"),
+
+    # — the Humanities & Social Sciences shelf (2026-11-16 planning pass) —
+    "world-history": (
+        "world history",
+        "a grand arch of triumphal pillars spanning the whole frame with "
+        "an ancient scroll unrolled beneath it and a small compass rose "
+        "floating above the centre keystone.",
+        "#b45309", "#78350f",
+    ),
+    "indian-history": (
+        "Indian history",
+        "a stone temple shikhara silhouette rising beside a Mughal dome and "
+        "an Ashokan pillar, with a river of stars flowing between them.",
+        "#be123c", "#881337",
+    ),
+    "political-science": (
+        "political science",
+        "a classical parliament facade with a podium and balanced scales "
+        "resting on its steps, ribbons of ballot papers drifting by.",
+        "#0e7490", "#155e75",
+    ),
+    "international-relations": (
+        "international relations",
+        "a globe wrapped in two meeting orbital handshake ribbons, with "
+        "dove silhouettes circling the poles and a ring of small flags-free "
+        "plain banners at the base.",
+        "#2563eb", "#1e40af",
+    ),
+    "public-administration": (
+        "public administration",
+        "an organised office of tidy stacked files and a classic desk lamp "
+        "over a sealed stamp, with a clock and a building facade behind.",
+        "#475569", "#1e293b",
+    ),
+    "law-and-legal-studies": (
+        "law and legal studies",
+        "a brass balance scale before a pillar of stacked law volumes, with "
+        "a gavel resting beside a laurel wreath.",
+        "#7f1d1d", "#450a0a",
+    ),
+    "sociology": (
+        "sociology",
+        "a constellation of human silhouettes connected by a web of fine "
+        "lines over a quiet city skyline, one figure glowing at the hub.",
+        "#ca8a04", "#854d0e",
+    ),
+    "anthropology": (
+        "anthropology",
+        "a large ancient skull-like fossil fragment, a woven basket and a "
+        "hand-axe stone arranged on an earth-toned ground with faint "
+        "footprints walking away.",
+        "#9d174d", "#831843",
+    ),
+    "cultural-studies": (
+        "cultural studies",
+        "a torn collage of media fragments — film strips, magazine scraps "
+        "and pixel tiles — swirling into one bold spiral around a single "
+        "eye motif.",
+        "#d946ef", "#86198f",
+    ),
+    "psychology": (
+        "psychology",
+        "a serene profile silhouette of a human head filled with a glowing "
+        "neuron lattice, a small inkblot card and a butterfly resting at "
+        "the temple.",
+        "#a21caf", "#86198f",
+    ),
+    "philosophy": (
+        "philosophy",
+        "a classical marble bust gazing at a floating sphere of entwined "
+        "geometric ribbons, with an oil lamp and a cracked tablet on the "
+        "ledge below.",
+        "#44403c", "#292524",
+    ),
+    "ethics": (
+        "ethics",
+        "a single balanced scale holding a glowing heart on one pan and a "
+        "feather on the other, framed by olive branches.",
+        "#15803d", "#166534",
+    ),
+    "geography": (
+        "geography",
+        "an antique globe with meridian rings beside an open atlas and a "
+        "small brass compass, with mountain ridges fading behind.",
+        "#059669", "#047857",
+    ),
+    "environmental-studies": (
+        "environmental studies",
+        "a thriving sapling growing from cupped hands above a still lake "
+        "with a leaf-shaped cloud and a small sun disc behind.",
+        "#65a30d", "#166534",
+    ),
+    "archaeology-and-heritage-studies": (
+        "archaeology and heritage studies",
+        "a cross-section of layered earth strata with a brushing hand "
+        "revealing a buried pottery rim, a small grid of string markers and "
+        "a trowel resting on the ground.",
+        "#92400e", "#78350f",
+    ),
+    "art-history": (
+        "art history",
+        "a museum wall of framed paintings in gilded rectangles with a "
+        "sculpted bust on a plinth below and a single spotlight beam.",
+        "#e11d48", "#be123c",
+    ),
+    # — the Languages shelf (2026-11-16 planning pass, the same turn) —
+    "english": (
+        "the English language",
+        "a fountain pen writing a flowing ribbon line across an open "
+        "book, with small floating quotation marks and a laurel sprig.",
+        "#1d4ed8", "#1e3a8a",
+    ),
+    "hindi": (
+        "the Hindi language",
+        "a glowing Devanagari-style blank calligraphy tile floating above "
+        "an open manuscript, with marigold garlands draping the corners.",
+        "#f59e0b", "#d97706",
+    ),
+    "sanskrit": (
+        "the Sanskrit language",
+        "an ancient palm-leaf manuscript with a lotus bud and a small brass "
+        "diya lamp, radiating fine concentric mandala rings behind.",
+        "#7c2d12", "#5c2510",
+    ),
+    "japanese": (
+        "the Japanese language",
+        "a delicate cherry blossom branch over a blank vertical scroll "
+        "with a folding fan and a brush-and-inkstone still life below.",
+        "#dc2626", "#991b1b",
+    ),
+    "german": (
+        "the German language",
+        "a gothic letterpress block beside a brass cuckoo-clock weight and "
+        "a small pretzel, all resting on a wooden desk with a river "
+        "flowing past the window behind.",
+        "#111827", "#1f2937",
+    ),
+    "french": (
+        "the French language",
+        "a café table with a beret, a croissant and an open book beneath "
+        "the Eiffel tower's silhouette, a bicycle leaning nearby.",
+        "#1e40af", "#1e3a8a",
+    ),
+    "spanish": (
+        "the Spanish language",
+        "a fan-veiled Flamenco silhouette beside a guitar and castanets, "
+        "with a sun-warmed plaza arch behind and a small fan resting open.",
+        "#ea580c", "#c2410c",
+    ),
+    "mandarin": (
+        "the Mandarin language",
+        "a hanging red paper lantern beside a blank ink brush scroll and a "
+        "small teapot, with bamboo stems crossing the frame.",
+        "#b91c1c", "#7f1d1d",
+    ),
+    "korean": (
+        "the Korean language",
+        "a blank hangul-style square tile glowing beside a folded "
+        "hanbok-silhouette and a small teal-patterned fan, with persimmon "
+        "branches crossing.",
+        "#4338ca", "#3730a3",
+    ),
+    "arabic": (
+        "the Arabic language",
+        "a blank arabesque calligraphy panel with a brass coffee pot and "
+        "dates on a tray, geometric lattice arches glowing behind.",
+        "#0c4a6e", "#082f49",
+    ),
+    "russian": (
+        "the Russian language",
+        "a blank onion-domed skyline silhouette beside a matryoshka doll "
+        "and a fur hat, with snow drifting across the frame.",
+        "#52525b", "#3f3f46",
+    ),
+    "portuguese": (
+        "the Portuguese language",
+        "an azulejo-tiled wall with a blank wave-pattern panel, a small "
+        "guitar beside a coffee cup, and a wave breaking behind.",
+        "#065f46", "#022c22",
+    ),
+    "italian": (
+        "the Italian language",
+        "a small Vespa silhouette beside a blank framed fresco panel with "
+        "a bunch of grapes and a cup of espresso resting on a ledge.",
+        "#be185d", "#831843",
+    ),
 }
 
 # hex -> human color phrase for the prompt (all hexes actually used above)
@@ -358,6 +547,15 @@ HEX_COLOR = {
     "#f59e0b": "golden amber", "#d97706": "warm amber",
     "#e11d48": "vivid crimson", "#be123c": "crimson rose",
     "#92400e": "dark bronze", "#451a03": "espresso brown",
+    "#2563eb": "vivid royal blue", "#1e40af": "deep royal blue",
+    "#475569": "slate gray", "#1e293b": "dark slate gray",
+    "#15803d": "green", "#166534": "forest green",
+    "#450a0a": "dark maroon", "#1d4ed8": "strong blue",
+    "#991b1b": "deep red", "#111827": "near-black ink",
+    "#1f2937": "dark charcoal", "#0c4a6e": "dark marine blue",
+    "#082f49": "deep navy", "#065f46": "deep emerald",
+    "#022c22": "near-black emerald", "#4338ca": "indigo",
+    "#3730a3": "deep indigo", "#b91c1c": "strong red",
 }
 
 

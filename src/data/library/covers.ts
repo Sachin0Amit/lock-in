@@ -23,6 +23,12 @@
  * "same way as like other subject" turn): +38 Engineering covers, the same
  * discipline and generator (motif per subject, palette per accent pair,
  * VLM text-free sweep).
+ *
+ * Humanities & Social Sciences and Languages full-shelf planning passes
+ * (owner directive 2026-11-16, the "do it for humanities and social science
+ * and languages section" turn): +16 and +13 covers respectively, the same
+ * discipline and generator (motif per subject, palette per accent pair,
+ * VLM text-free sweep — scripts/gen_covers.py's roster grown 110 → 139).
  */
 
 /** bookId → art path under /public. Kept explicit so a missing file is a
@@ -139,6 +145,37 @@ export const COVER_ART: Record<string, string> = {
   'hydraulics': '/covers/hydraulics.webp',
   'water-resources-engineering': '/covers/water-resources-engineering.webp',
   'construction-management': '/covers/construction-management.webp',
+  // — the Humanities & Social Sciences shelf (2026-11-16 planning pass) —
+  'world-history': '/covers/world-history.webp',
+  'indian-history': '/covers/indian-history.webp',
+  'political-science': '/covers/political-science.webp',
+  'international-relations': '/covers/international-relations.webp',
+  'public-administration': '/covers/public-administration.webp',
+  'law-and-legal-studies': '/covers/law-and-legal-studies.webp',
+  'sociology': '/covers/sociology.webp',
+  'anthropology': '/covers/anthropology.webp',
+  'cultural-studies': '/covers/cultural-studies.webp',
+  'psychology': '/covers/psychology.webp',
+  'philosophy': '/covers/philosophy.webp',
+  'ethics': '/covers/ethics.webp',
+  'geography': '/covers/geography.webp',
+  'environmental-studies': '/covers/environmental-studies.webp',
+  'archaeology-and-heritage-studies': '/covers/archaeology-and-heritage-studies.webp',
+  'art-history': '/covers/art-history.webp',
+  // — the Languages shelf (2026-11-16 planning pass, the same turn) —
+  'english': '/covers/english.webp',
+  'hindi': '/covers/hindi.webp',
+  'sanskrit': '/covers/sanskrit.webp',
+  'japanese': '/covers/japanese.webp',
+  'german': '/covers/german.webp',
+  'french': '/covers/french.webp',
+  'spanish': '/covers/spanish.webp',
+  'mandarin': '/covers/mandarin.webp',
+  'korean': '/covers/korean.webp',
+  'arabic': '/covers/arabic.webp',
+  'russian': '/covers/russian.webp',
+  'portuguese': '/covers/portuguese.webp',
+  'italian': '/covers/italian.webp',
 }
 
 /** Art URL for a book, or null when that book has no generated cover — the

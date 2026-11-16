@@ -74,7 +74,7 @@ const EXPECTED_CHAPTERS: Record<string, number> = {
 console.log('== A. shelf load & statuses ==')
 const eng = allBooks.filter((b) => b.discipline === 'engineering')
 ok(eng.length === 38, `38 engineering books (got ${eng.length})`)
-ok(allBooks.length === 110, `library now 110 books: 28 math + 44 CS + 38 engineering (got ${allBooks.length})`)
+ok(allBooks.length === 139, `library now 139 books: 28 math + 44 CS + 38 engineering + 16 humanities + 13 languages (got ${allBooks.length})`)
 ok(ENG_IDS.length === 38 && ENG_PREFIXES.length === 38, 'the id/prefix rosters pin 38 entries each')
 ok(eng.every((b) => b.status === 'planned'), 'every engineering book status planned')
 
