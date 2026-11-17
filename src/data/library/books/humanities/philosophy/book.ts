@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Philosophy — the second book of the Mind branch.
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `phil-` prefix
+ * 44 planned lessons, zero written. Lesson ids will use the `phil-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Philosophy owns the pure-speculative register — the questions as questions. Ethics owns the moral register’s APPLICATION (the GS4 and the applied census — the normative theories are surveyed here at depth and applied there; the contract priced); Political Science owns the state’s practical reading (this book’s socio-political chapter is the normative side, cross-referenced); the Mathematics shelf’s mathematical-logic book owns the formal logic (this book’s logic chapter is the informal base — the hand-off stated in both); the Sanskrit book owns the language (the darshanas’ Sanskrit register cross-referenced); the CS shelf’s AI books cross-reference the philosophy-of-mind chapters.
@@ -30,6 +30,10 @@ const chapters: Chapter[] = [
       'The Branches\u2019 Census',
       'The Western-Indian Contrast',
       'The Shelf\u2019s Own Map',
+    
+      'Unit X: Historical Method, Research, Methodology and Historiography (scope and importance of history; objectivity and bias; causation; research methodology and hypothesis; trends in historical research; Indian and western historiography; thesis writing and plagiarism)',
+      'Unit 6: Recent Western Philosophy',
+      'Unit 9: Logic'
     ],
   },
   {
@@ -113,6 +117,8 @@ const chapters: Chapter[] = [
       'The Empiricists: Locke, Berkeley and Hume',
       'Kant and the Critical Philosophy',
       'Nietzsche, Existentialism and the Analytic Turn',
+    
+      'Western Political Thought - Plato, Aristotle, Machiavelli, Hobbes, Locke, J. S. Mill, Marx, Gramsci, Hannah Arendt'
     ],
   },
   {

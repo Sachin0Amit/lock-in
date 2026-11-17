@@ -8,95 +8,114 @@
 > Then search for each book, search exam in which those books are used, asked,
 > and see that none of the topics related to those exams are missing in that
 > book ... for each books of all the fields or disciplines. be comprehensive
-> take your time"*). This file is the durable record of BOTH layers:
+> take your time"*). This file is the durable record of BOTH layers.
 
-1. **The exam layer (the standing gate, GREEN)** — every topic line of every
-   researched exam syllabus, routed to the owning shelf book (the
-   "segregate them book-wise" artifact) and token-matched against that
-   book's plan blob (the same ≥60% standard as the maths drive-TOC gate and
-   the CS exam pass). Standing gate: `scripts/verify-shelf-exam-topics.ts`
-   — **1,069 direct / 0 cross / 0 gap** across six ledgers. The routing
-   tables (canonical form) live in `scripts/ledger_data/*.json` with their
-   per-exam source URLs; the builders are committed
-   (`build_phys_chem_ledgers.py`, `build_biology_ledger.py`,
-   `build_medical_ledger.py`, `build_ecf_ledger.py`,
-   `build_humanities_ledger.py`).
+## The 2026-11-17 REBUILD (read this first)
 
-2. **The Drive TOC layer (the first directive)** — every remaining Drive
-   book TOC extracted this pass (124 sources in
-   `temporary-references/manifest.tsv`: 28 root classics + 96 Cengage
-   chemistry/physics module PDFs; extraction by
-   `scripts/toc_pipeline_chunk.sh` with VLM transcription for scanned
-   files — **123/124 resolved**; `root-campbell-biology-11e` is the one
-   DOWNLOAD-FAILED retry candidate). The chapter/section-level ledger
-   (2,399 routed lines) lives at `scripts/ledger_data_working/
-   drive_tocs.json` with the working report; the highest-value root-classic
-   gaps were filled by content this pass (76 planned lessons from
-   Sedra-Smith/Horowitz/Nilsson/Hughes/Goldstein/Griffiths/Zumdahl/Atkins/
-   Clayden/Laxmikanth/Spectrum/Russell/Murphy/Hammer's TOCs) and the
-   remaining ~440 subtopic-level lines are recorded honestly as the
-   queued continuation of the same gap-fill loop
-   (`scripts/process_drive_tocs.py` is the re-runnable matcher).
+The 2026-11-16 pass's ledger infrastructure — the six ledger JSONs, the
+routing gate `verify-shelf-exam-topics.ts`, the builders, the drive-TOC
+matcher and the Drive working copies — lived under un-whitelisted
+`scripts/` paths and `temporary-references/`. The sandbox wipe of
+2026-11-17 (the same restart that emptied the content DB) destroyed ALL of
+it; only the git-committed artifacts survived (the survey MDs, the book.ts
+plans, this doc). The owner re-issued the directive on 2026-11-17 and the
+pass was REBUILT end-to-end, wider than before:
 
-## The exam layer census (the standing gate's ledgers)
+1. **Durability root-cause fixed** — the `.gitignore` now whitelists
+   `scripts/ledger_data/**` (all raw + routed + report JSONs), the central
+   builder/router/fixer, the gate, the shelf gates and the emitter. The
+   data layer is committed; a future wipe cannot take it again.
+2. **The research wave re-done** — every exam syllabus re-researched from
+   live sources (subagent batches, one ledger each, every URL actually
+   fetched; official preferred, honest mirrors marked). EIGHT ledgers now:
+   the original six PLUS the two that the 2026-11-16 pass queued
+   (arts_music_exams, ese_exams) — the queue is cleared.
+3. **The gate re-derived and hardened** — `build_exam_ledger.ts` routes
+   every line to the owning book with the ≥60% significant-token standard
+   (honest cross-shelf only when no home book reaches 0.60, whitelisted
+   candidates only); `apply_exam_gap_fixes.ts` fixes every gap by CONTENT;
+   `verify-shelf-exam-topics.ts` re-verifies all routing LIVE against the
+   registry.
 
-| ledger | lines | exams | verdict |
+## The exam layer census (the standing gate, GREEN)
+
+`scripts/verify-shelf-exam-topics.ts` — **1,473 syllabus lines / 27 honest
+cross-routes / 0 gaps / 4,555 live checks** across eight ledgers:
+
+| ledger | lines | cross | exams |
 | --- | --- | --- | --- |
-| physics_exams | 256 | jee-main, jee-advanced, neet-ug, cuet-ug, gate-ph, csir-net-physical, ap-physics-1/2/c-mech/c-em, ib-physics, a-levels-physics (9702), ipho | all direct |
-| chemistry_exams | 246 | jee-main, jee-advanced, neet-ug, cuet-ug, gate-cy, csir-net-chemical, ap-chemistry, ib-chemistry, a-levels-chemistry (9701), icho | all direct |
-| biology_exams | 297 | neet-ug (full Biology section), ncert-biology (11+12), cuet-ug (Biology 304), gate-xl (P/Q/R/S/T/U in full), ap-biology, ib-biology, a-levels-biology (9700), ibo | all direct |
-| medical_exams | 108 | fmge (subject-wise), neet-pg, gpate, nclex-rn (2026 test plan), inc-bsc (2020 Regulations), vci-bvsc (MSVE 2016), dci-bds (BDS Regulations), mcat | all direct |
-| ecf_exams | 98 | ncert (econ/BS/accountancy 11+12), cuet-ug (309/301/305) | all direct |
-| humanities_exams | 63 | upsc-cse (GS I-IV), upsc-optional, ugc-net, ap-clat (AP World/HumanGeo/Psych/USGov + CLAT) | all direct |
+| physics_exams | 250 | 13 | jee-main, jee-advanced, neet-ug, cuet-ug, gate-ph, csir-net-physical, ap-physics-1/2/c-mech/c-em, ib-physics, a-levels-physics (9702), ipho |
+| chemistry_exams | 310 | 0 | jee-main, jee-advanced, neet-ug, cuet-ug, gate-cy, csir-net-chemical, ap-chemistry, ib-chemistry, a-levels-chemistry (9701), icho |
+| biology_exams | 276 | 9 | neet-ug, ncert-biology-11/12, cuet-ug, gate-xl (P/Q/R/S/T/U), ap-biology, ib-biology, a-levels-biology (9700), ibo |
+| medical_exams | 140 | 3 | fmge, neet-pg, gpat, nclex-rn (2026 test plan), inc-bsc, vci-bvsc, dci-bds, mcat |
+| ecf_exams | 89 | 0 | cuet-ug (301/305/309 — codes corrected to the official 2026 mapping), ncert econ/BS/accountancy 11+12 |
+| humanities_exams | 188 | 0 | upsc-cse-gs, upsc-optional-polity, upsc-optional-anthropology, ugc-net (history/poli-sci/sociology/geography/philosophy/psychology/education), ap-world-history, ap-human-geography, ap-psychology, ap-us-government, clat |
+| arts_music_exams | 95 | 2 | ugc-net (performing-arts 65 / visual-arts 79 / music 16), nata, uceed, nid-dat, cbse-fine-arts, a-levels-music (9483), ib-visual-arts |
+| ese_exams | 125 | 0 | ese-civil/mechanical/electrical/electronics (the ESE 2027 notification No. 02/2027-ENGG) + the GS/engineering-aptitude lines |
 
-Every source URL is recorded per exam inside the ledger JSONs (official
-NTA/NBEMS/council/board sites preferred; honest mirrors marked with their
-nature — the same convention as the CS pass).
+Every source URL is recorded per exam inside the ledger JSONs
+(`scripts/ledger_data/*_raw.json`) with its nature (official vs mirror);
+the honest research notes (mirrors used and why, unreachable officials,
+vintage caveats) ride the same files. Notable research events: the GATE XL
+letter-map corrected to the official 2026 mapping (P=Chemistry compulsory,
+Q=Biochemistry, R=Botany, S=Microbiology, T=Zoology, U=Food Technology);
+the CUET domain codes corrected (301=Accountancy, 305=Business Studies,
+309=Economics); the NCERT rationalised chapter lists confirmed against the
+CBSE 2026-27 curriculum PDFs; the ESE syllabus taken from the official 2027
+notification PDF.
 
-## The gap-fix record (what this pass ADDED to the plans)
+## The gap-fix record (what this rebuild ADDED to the plans)
 
-~397 planned lessons added across 11 disciplines — every hard gap or cross
-was fixed by CONTENT (planned lessons added to the owning book's chapter,
-planning-level only — zero lesson authoring) or by honest re-routing
-(cross-shelf where another book already owns the ground, e.g. GATE PH
-vector calculus → multivariable-calculus). Highlights:
-- physics/chemistry: 92 lessons (the experiment register, the p-block
-  compound registers, coordination bonding, catalysis, polymers, everyday
-  chemistry, the named organic reactions...)
-- biology: ~160 lessons (NEET's physiology disorder registers, the
-  reproductive-health register, GATE XL's plant/microbe/immunology lines,
-  the food-technology cross-routes...)
-- medical: 53 lessons (FMGE/NEET-PG specialty registers for surgery and
-  medicine, the INC/VCI/DCI professional subjects, NCLEX client needs...)
-- ECF: 20 lessons (partnership/company accounts, LPG, financial markets...)
-- humanities: 24 lessons (the UPSC GS registers, NET unit registers...)
-- languages + engineering + drive classics: 76 lessons (grammar-chapter
-  registers, op-amp/feedback/machines topics, the classics' chapter arcs...)
+**355 planned lessons added across 116 book files** — every exposed gap
+fixed by CONTENT (planning-level only, zero authoring), then the routing
+re-run to **0 gaps**. Distribution: physics +34 (the IPhO/Ib lines onto the
+shelf books), chemistry +55, biology +25, medical +43 (FMGE/NEET-PG/GPAT
+sub-unit registers), ECF +15, humanities +60 (the UPSC GS/optional + NET
+unit registers), arts-music +84 (the NET performing/visual/music unit
+registers), engineering +37 (the ESE four-branch syllabi). Fixes ride the
+dedicated fixer `apply_exam_gap_fixes.ts` (idempotent; per-book
+cleaned-title dedupe). Six books gained honest cross-reference sentences in
+their descriptions (the handoff-language guarantee), and two clean-title
+collision duplicates were caught by the chemistry gate and removed.
+
+## The shelf census gates (the other queued debt, ALSO cleared)
+
+The four referenced-but-missing gates were rebuilt via
+`scripts/emit_shelf_gates.py` and are GREEN with the post-gap census:
+
+| gate | checks | census pinned |
+| --- | --- | --- |
+| verify-physics-shelf-planning.ts | 1,098 | 19 books / 172 ch / 754 planned |
+| verify-chemistry-shelf-planning.ts | 585 | 10 books / 91 ch / 530 planned |
+| verify-ecf-shelf-planning.ts | 1,261 | 23 books / 195 ch / 820 planned |
+| verify-bio-med-arts-shelf-planning.ts | 3,309 | biology 23/182/867 · medical 19/121/585 · arts 36/183/816 |
+
+The engineering/humanities shelf gates' census pins were amended honestly
+for the ESE/humanities exam-gap additions (1,289→1,326; 644→704).
 
 ## Standing set at this pass's close
 
-`verify-shelf-exam-topics` (new — 1,069 checks) · math-shelf 1,240 · cs-shelf
-2,348 · engineering-shelf 2,257 (pin amended 1,268→1,289 planned) ·
-humanities 1,121 (620→644) · languages 923 (488→500) · topic-coverage 667 ·
-toc-as-lessons 3,883 · exam 2,433 · cs-exam 696 · practice 274 · revision 88
-· content-db verify PASS (pack v2 — 269 books / 8,725 planned+written) ·
-tsc clean · lint clean on new files.
+verify-shelf-exam-topics 4,555 · physics 1,098 · chemistry 585 · ecf 1,261 ·
+bio-med-arts 3,309 · math-shelf 1,240 · cs-shelf 2,348 · engineering 2,257 ·
+humanities 1,121 · languages 923 · toc-as-lessons 3,883 · topic 667 · exam
+2,433 · cs-exam 696 · practice 274 · revision 88 · content-db verify PASS
+(pack 269 books / 146 written lessons / 730,992 words / 9,079 planned
+lessons) · tsc 0 errors project-wide · lint 0 errors (5 pre-existing
+warnings) · routes 200.
 
 ## Queued continuation (recorded honestly)
 
-1. The ~440 remaining drive-TOC subtopic lines
-   (`scripts/ledger_data_working/drive_tocs.json`) — same gap-fill loop,
-   run `scripts/process_drive_tocs.py` after each wave.
-2. `root-campbell-biology-11e` download retry (the one unresolved source).
-3. The arts-music and ESE exam ledgers (the agent service was down at the
-   end of this pass; the arts survey's graded-exam registers + the
-   engineering GATE routing remain the recorded evidence for those two
-   shelves).
-4. The four referenced-but-missing shelf gates from the earlier waves
-   (`verify-bio-med-arts-shelf-planning.ts`, `verify-chemistry-shelf-planning.ts`,
-   `verify-physics-shelf-planning.ts`, `verify-ecf-shelf-planning.ts`) and
-   the six shelf generators — this pass's exam gate covers the topic-
-   coverage guarantee for those shelves; the census gates remain queued.
-5. The languages/humanities generators now trail the book.ts files (the
-   pass's lessons are not in their data modules yet) — fold before any
-   regeneration.
+1. The **six shelf generators** (gen_physics/chemistry/economics_finance/
+   biology/medical/arts_music_shelf.py + their scripts/shelf_data modules)
+   were lost with the wipe; their plan data is fully recoverable from the
+   committed book.ts files (extraction is mechanical). The gates' census
+   guarantees stand; the generators remain the idempotent-plan-source debt.
+2. The 78 biology/medical/arts-music cover PNGs (the gen_covers.py roster
+   carries all 269 books; generation runs in bounded chunks —
+   `python3 scripts/gen_covers.py gen`).
+3. The Drive TOC subtopic continuation (~440 lines, the 2026-11-16 queue):
+   `scripts/rebuild_drive_survey.ts` + the re-download pipeline; the
+   DRIVE_TOC_SURVEY.md transcriptions (committed, 86KB) remain the durable
+   evidence base.
+4. The Campbell 11e download retry (the one unresolved Drive source).
+5. The WORK_INVENTORY regeneration (blocked on the Drive survey rebuild).

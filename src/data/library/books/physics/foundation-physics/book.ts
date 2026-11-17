@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Foundation Physics — the first book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `pf-` prefix
+ * 45 planned lessons, zero written. Lesson ids will use the `pf-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Foundation Physics owns the school first-pass (the class 9-10 register: motion, force, gravitation, work, sound, light, heat, electricity at the descriptive level). The mechanics book owns the calculus-based deepening; heat-and-thermodynamics, optics and electricity-and-magnetism own the class 11-12 arcs; foundation-physics never re-derives them, it previews them honestly.
@@ -28,6 +28,11 @@ const chapters: Chapter[] = [
       'The SI System',
       'Estimation and Order of Magnitude',
       'Laws, Theories and Guesses',
+    
+      'Inquiry 1: Exploring and designing',
+      'Inquiry 3: Concluding and evaluating',
+      'Theoretical skills',
+      'Hydrodynamics'
     ],
   },
   {
@@ -88,6 +93,8 @@ const chapters: Chapter[] = [
       'Mass, Weight and g',
       'Thrust and Pressure',
       'Archimedes at First Pass',
+    
+      'Experimental Skills: Metre scale — the mass of a given object by the principle of moments'
     ],
   },
   {
@@ -177,7 +184,7 @@ export const foundationPhysics: Book = {
   subtitle: 'Physics from its first principles: measurement, motion, force, energy, heat, light and electricity at first pass',
   discipline: 'physics',
   level: 'Absolute beginner → Class 10 (first pass)',
-  description: 'The school-ladder opening of the physics course: what physics is, how anything is measured, and the first-pass form of every major pillar of the subject, so that the deep books of the shelf can be climbed with confidence later.',
+  description: 'The school-ladder opening of the physics course: what physics is, how anything is measured, and the first-pass form of every major pillar of the subject, so that the deep books of the shelf can be climbed with confidence later. Cross-references the whole physics shelf: mechanics owns the motion register, electricity-and-magnetism the field register — this book hands off to each honestly.',
   status: 'planned',
   accent: ['#38bdf8', '#075985'],
   chapters,

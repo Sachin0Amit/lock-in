@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Music Composition — the sixth book of the Arts-Music shelf (the music register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `mcomp-` prefix
+ * 28 planned lessons, zero written. Lesson ids will use the `mcomp-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Music Composition owns the making register. The theory beneath to theory-and-harmony-and-counterpoint (cross-referenced); the orchestration’s depth to instrument-studies; the form’s-analytical reading to music-history (the receipts shared, the craft’s-here); the production’s-register to music-production; the graded-and-conservatory registers are priced here.
@@ -43,6 +43,11 @@ const chapters: Chapter[] = [
       'The Chaconne Receipt Named',
       'The ABACA Craft Fixed by Drill',
       'The Confusable Receipts Held Straight',
+    
+      'Compositional forms and their evolution (prabandh, dhrupad, dhamaar, kheyaal, tarana, thumri, tappa etc.)',
+      'Compositional forms and their evolution (prabandha, gitam, svarajati, varnam, padavarnam, kriti, ragamalika etc.)',
+      'Applied Theory (ragas, talas, kirtana, baul); historical perspective of music (Tagore and eminent personalities); composition forms and their evolution (Geetanjali and song offerings); music instruments of India; contribution of scholars/performers and their textual traditions; gharana and',
+      'Component 2 Practical Music — composing (two contrasting compositions, 1-2 minutes each)'
     ],
   },
   {
@@ -73,6 +78,9 @@ const chapters: Chapter[] = [
       'The Transposition Receipts Fixed by Drill',
       'The Register-Spacing Honesty Held',
       'The Mockup Cross-Reference Named',
+    
+      'Percussion (Tabla/Pakhawaj) Units V-X: Applied Theory — Taal & Avanaddha Vadya; history of music and treatises; compositional forms of avanaddha vadyas; classification and description of musical instruments; performers and composers; detailed study of gharanas and institutional system',
+      'Part A — composition and colour application; sketching of scenes and environments'
     ],
   },
   {
@@ -88,6 +96,9 @@ const chapters: Chapter[] = [
       'The Word-Painting Register Named',
       'The Time-Away Receipt Held Straight',
       'The Parts\u2019-and-Score Honesty Named',
+    
+      'Component 4 Extended Composition — 6-8 minute composition plus 1000-1500-word research report',
+      'Component 5 Investigating Music — 2500-3000-word essay plus up to 500-word reflective statement'
     ],
   },
 ]

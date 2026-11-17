@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Plant Physiology — the eleventh book of the Biology shelf (the botany register).
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `pphys-` prefix
+ * 37 planned lessons, zero written. Lesson ids will use the `pphys-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Plant Physiology owns the functional register of plants. The biochemical machinery of respiration-and-photosynthesis’s dark reactions is owned here at the organism register with the chemistry shelf’s biochemistry book owning the underlying chemical arc (cross-referenced, the sibling views); the anatomy of the conducting-and-photosynthetic tissues belongs to plant-anatomy; the ecological consequences (the productivity registers) belong to plant-ecology; the hormone exploits in agriculture are cross-referenced to economic-botany; the NEET photosynthesis-and-plant-growth units are priced here.
@@ -107,6 +107,8 @@ const chapters: Chapter[] = [
       'The GA-and-CK Registers',
       'The ABA-and-Ethylene Honesty',
       'The Network Held Together',
+    
+      'Hormones and neurotransmitters'
     ],
   },
   {

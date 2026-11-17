@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Plant Anatomy — the tenth book of the Biology shelf (the botany register).
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `pana-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `pana-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Plant Anatomy owns the structural register of the plant body. The physiology of what these tissues do belongs to plant-physiology; the water-and-sugar transport mechanics belong there (this book owns the conducting structure); the taxonomy of what these organs say about relationships belongs to plant-taxonomy; the plant-genetics and plant-pathology books own their own registers; the NEET-and-CBSE plant-morphology lines are priced here (the anatomy-and-morphology unit).
@@ -30,6 +30,8 @@ const chapters: Chapter[] = [
       'The Open-Growth Honesty',
       'Morphology and Modifications of Flowering Plants',
       'The Angiosperm Life Cycle and the Gametophytes',
+    
+      'Metabolism of Nitrogen containing compounds'
     ],
   },
   {

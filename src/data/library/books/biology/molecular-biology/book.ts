@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Molecular Biology — the third book of the Biology shelf.
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `molb-` prefix
+ * 38 planned lessons, zero written. Lesson ids will use the `molb-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Molecular Biology owns the central-dogma machinery. The applied tools (restriction enzymes, PCR, CRISPR) belong to biotechnology; the heredity patterns above the molecule belong to genetics; the chemical detail of nucleotides belongs to the chemistry shelf’s biochemistry book (cross-referenced); the clinical exploitation (diagnostics, gene therapy) is cross-referenced to medical-biochemistry; NEET’s molecular-basis-of-inheritance unit is priced here.
@@ -91,6 +91,8 @@ const chapters: Chapter[] = [
       'The trp Mirror',
       'The Two Families\u2019 Logic',
       'The Budget\u2019s Significance',
+    
+      'D12 Stability and change'
     ],
   },
   {
@@ -121,6 +123,8 @@ const chapters: Chapter[] = [
       'The Causes and the Ames Screen',
       'The Repair Census',
       'Evolution\u2019s Raw Material',
+    
+      'Chemical Equilibria'
     ],
   },
   {

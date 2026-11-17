@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Pharmacy — the seventeenth book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `rx-` prefix
+ * 22 planned lessons, zero written. Lesson ids will use the `rx-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Pharmacy owns the drug’s-making-and-dispensing register. The pharmacology’s-mechanism to pharmacology (the sibling views — the body’s drug there, the dosage’s product here); the plant’s-register to the biology shelf’s economic-botany (the pharmacognosy cross-reference); the clinical’s-TDM shared with medical-biochemistry; the NEET-and-GPAT lines are priced here.
@@ -29,6 +29,8 @@ const chapters: Chapter[] = [
       'The Act Named',
       'The Each-Path Register Held',
       'Anatomy, Physiology and Pathophysiology for Pharmacists',
+    
+      'Physical Pharmacy'
     ],
   },
   {
@@ -62,6 +64,8 @@ const chapters: Chapter[] = [
       'The In-Silico Craft Named',
       'Pharmacognosy and Phytochemistry',
       'Pharmaceutical Management, Jurisprudence and Drug Regulatory Affairs',
+    
+      'Pharmaceutical Engineering'
     ],
   },
   {

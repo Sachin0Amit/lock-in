@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Immunology — the ninth book of the Biology shelf.
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `immu-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `immu-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Immunology owns the general register of the immune system. The clinical disease registers (the immunodeficiency syndromes, the transplant-and-tumor immunology at clinical depth, the hypersensitivity disease management) belong to the medical shelf’s clinical-immunology (the sibling clinical view, cross-referenced); the vaccines’ public-health register is shared with community-medicine; the monoclonal-antibody technique is cross-referenced to biotechnology; the NEET human-health unit is priced at the general level here.
@@ -109,6 +109,8 @@ const chapters: Chapter[] = [
       'The Immunodeficiency Arc',
       'The Transplant Preview',
       'AIDS, Cancer and the Immune System',
+    
+      'Major histocompatibility complex'
     ],
   },
   {

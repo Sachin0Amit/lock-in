@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Transportation Engineering — the thirty-fourth book of the Engineering shelf (Civil branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 31 planned lessons, zero written. Lesson ids will use the `trans-` prefix
+ * 32 planned lessons, zero written. Lesson ids will use the `trans-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Transportation Engineering owns the movement infrastructure (GATE CE S6). Surveying owns the ground truth its alignments consume; Building Materials owns the material science of its aggregates and bitumens; Geotechnical owns the subgrade and embankment story; the Mathematics shelf’s Statistics owns the accident-analysis mathematics; the urban-transport-planning depth is a future book (honestly named).
@@ -118,6 +118,8 @@ const chapters: Chapter[] = [
       'The Traffic Arithmetic',
       'IRC Flexible Worked',
       'IRC Rigid and Its Joints',
+    
+      'Transportation — tunneling: alignment, methods of construction, disposal of muck, drainage, lighting and ventilation'
     ],
   },
   {

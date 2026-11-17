@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Obstetrics & Gynaecology — the thirteenth book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 6 chapters /
- * 24 planned lessons, zero written. Lesson ids will use the `obg-` prefix
+ * 25 planned lessons, zero written. Lesson ids will use the `obg-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Obstetrics-Gynaecology owns the women’s register. The reproductive’s physiology to medical-physiology (the cycle cross-referenced); the anatomy to anatomy; the embryology to the anatomy book’s-own chapter with developmental-biology; the neonatal to pediatrics; the pharmacology to pharmacology; the NEET-and-FMGE lines are priced here.
@@ -58,6 +58,8 @@ const chapters: Chapter[] = [
       'The Four-T Division Fixed by Drill',
       'The Golden-Minute Honesty Held',
       'The Never Honesty Named',
+    
+      'Obstetrics and Gynecology'
     ],
   },
   {

@@ -1506,7 +1506,7 @@ console.log('=== AO. sol-figure geometry + the clock-walk accuracy catch (2.1, a
   const n8y = cy0 + r0 * Math.sin(((30 * 8 - 90) * Math.PI) / 180);
   ok(Math.hypot(387 - n8x, 214 - n8y) > nr0 && Math.hypot(387 - n8x, 214 - n8y) < nr0 + 4, 'AO B4: the join path ends ~15.2 px from node 8 (399.9, 222) — arrowhead on the node\u2019s edge, and node 8 is the green-tinted join node');
   // needle guards on the chapter file: the accuracy catch must stay fixed
-  const chSrc = (() => { try { return require('fs').readFileSync('src/data/library/books/mathematics/arithmetic-number-systems/ch-02.ts', 'utf8') as string } catch { return '' } })();
+  const chSrc = (() => { try { return require('fs').readFileSync('src/data/library/books/mathematics/arithmetic-number-systems/ch-02.ts', 'utf8') as string } catch { return '' } })(); // eslint-disable-line @typescript-eslint/no-require-imports
   if (chSrc) {
     ok(!chSrc.includes('3, 11, 6, 1, 9'), 'AO B4: the erroneous walk (…3, 11, 6, 1, 9…) is GONE from the lesson text');
     ok(chSrc.includes('3, 10, 5, 12, 7, 2, 9, 4, 11, 6, 1, 8'), 'AO B4: the corrected cycle 3, 10, 5, 12, 7, 2, 9, 4, 11, 6, 1, 8 is present in the lesson text');

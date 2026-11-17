@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Community Medicine — the tenth book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 6 chapters /
- * 24 planned lessons, zero written. Lesson ids will use the `phealth-` prefix
+ * 27 planned lessons, zero written. Lesson ids will use the `phealth-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Community Medicine owns the population’s register. The disease’s mechanism to pathology-and-the specialty books (the population here, the patient there); the organism’s register to medical-microbiology; the statistics’ mathematical depth cross-referenced to the mathematics shelf; the NEET-and-FMGE lines are priced here with the Indian-program honesty named throughout.
@@ -58,6 +58,9 @@ const chapters: Chapter[] = [
       'The Sensitivity-PPV Arithmetic Fixed by Drill',
       'The p-Value Honesty Held Straight',
       'The Life-Table Honesty Named',
+    
+      'Biostatistics and Computer Applications',
+      'Scientific Inquiry and Reasoning Skills: Data-based and Statistical Reasoning'
     ],
   },
   {
@@ -105,6 +108,8 @@ const chapters: Chapter[] = [
       'The SDG Frame Named',
       'Health Promotion and Maintenance',
       'Community Health Nursing and Epidemiology',
+    
+      'Social and Preventive Medicine (Community Medicine)'
     ],
   },
 ]

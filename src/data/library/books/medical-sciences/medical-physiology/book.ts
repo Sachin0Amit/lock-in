@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Medical Physiology — the second book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `mphys-` prefix
+ * 35 planned lessons, zero written. Lesson ids will use the `mphys-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Medical Physiology owns the human-clinical register of the machinery. The general-and-comparative register belongs to the biology shelf’s animal-physiology (the sibling views — the mechanism’s shared, the clinic here); the biochemistry beneath to medical-biochemistry; the pathology-in-disease to pathology; the pharmacology’s exploitation to pharmacology; the NEET-and-FMGE lines are priced here.
@@ -58,6 +58,9 @@ const chapters: Chapter[] = [
       'The Cascade with the PT-and-aPTT Craft',
       'The Transfusion Arithmetic Priced Straight',
       'The Anaemia Preview Named',
+    
+      'Dermatology and Sexually Transmitted Diseases',
+      'Physiological Integrity'
     ],
   },
   {
@@ -88,6 +91,8 @@ const chapters: Chapter[] = [
       'The Spirogram Fixed by Drill',
       'The Curve\u2019s Shifts by Their Mechanisms',
       'The CO2 Honesty Held Straight',
+    
+      'Semester II: Physiology'
     ],
   },
   {

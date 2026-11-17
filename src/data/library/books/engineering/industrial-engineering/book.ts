@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Industrial Engineering — the ninth book of the Engineering shelf (Mechanical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `ie-` prefix
+ * 31 planned lessons, zero written. Lesson ids will use the `ie-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Industrial Engineering owns the production-application layer. The operations-research THEORY lives on the Mathematics shelf (optimization-and- operations-research — simplex, transportation, assignment, queuing, game theory, decision analysis; cross-referenced, no duplication); PERT/CPM at construction depth lives in Construction Management (civil); work study and quality systems live here; the economics of production routes honestly to the future Economics shelf.
@@ -37,6 +37,9 @@ const chapters: Chapter[] = [
       'The Production Census',
       'Layout Families by Volume-Variety',
       'Productivity Measured Honestly',
+    
+      'Refrigeration and Air conditioning — vapour compression refrigeration, refrigerants and working cycles, compressors, condensers, evaporators and expansion devices; other refrigeration systems (vapour absorption, vapour jet, thermo-electric, vortex tube); psychrometric properties and processes,',
+      'Current issues of national and international importance relating to social, economic and industrial development'
     ],
   },
   {
@@ -110,6 +113,8 @@ const chapters: Chapter[] = [
       'Transportation and Assignment',
       'Network Flows at Production Speed',
       'Queues Priced on Service Systems',
+    
+      'Computer organization — basic architecture, CPU, I/O organisation, memory organisation, peripheral devices, trends; hardware/software issues; data representation and programming; operating systems: basics, processes, characteristics, applications; memory management, virtual memory, file systems,'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Instrument Studies — the ninth book of the Arts-Music shelf (the music register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `inst-` prefix
+ * 22 planned lessons, zero written. Lesson ids will use the `inst-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Instrument Studies owns the instrument’s map. The acoustics beneath to acoustics (cross-referenced — the sibling views: the physics there, the player’s craft here); the vocal’s depth to vocal-music; the orchestration’s craft to music-composition; the electronic’s register to music-production; the ABRSM-and-graded registers are priced here.
@@ -43,6 +43,8 @@ const chapters: Chapter[] = [
       'The Family Census by Its Ranges',
       'The Pickup Honesty Cross-Referenced',
       'The Setup Craft Named',
+    
+      'Music Instruments of India (classification, structure and playing techniques; veena, violin, flute, nadaswaram, mridangam etc.)'
     ],
   },
   {
@@ -88,6 +90,8 @@ const chapters: Chapter[] = [
       'The Bol Cross-Reference Held',
       'The Two-String Craft Held',
       'The Migration Register Named',
+    
+      'Musical Instruments and their Classification'
     ],
   },
 ]

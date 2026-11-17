@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Microeconomics — the second book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 11 chapters /
- * 44 planned lessons, zero written. Lesson ids will use the `micro-` prefix
+ * 46 planned lessons, zero written. Lesson ids will use the `micro-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Microeconomics owns the intermediate theory register (UGC NET Economics unit 1 read this pass: consumer and producer behaviour, demand analysis, elasticity, market structures, general equilibrium, factor pricing, market failure). Foundation-economics owns the first pass; behavioural-economics owns the bounded-rationality critique; business-economics belongs to the commerce shelf’s business-studies register — cross-referenced honestly.
@@ -28,6 +28,9 @@ const chapters: Chapter[] = [
       'Utility\u2019s Ordinal Honesty',
       'Indifference Geometry',
       'The Budget Line',
+    
+      'Introductory Microeconomics: Introduction, Theory of Consumer Behaviour',
+      'Introductory Microeconomics: Introduction'
     ],
   },
   {

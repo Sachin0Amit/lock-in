@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Music Theory & Notation — the first book of the Arts-Music shelf (the music register; the honest fold — the backlog line Notation lives here as the theory’s written grammar).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 6 chapters /
- * 24 planned lessons, zero written. Lesson ids will use the `mth-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `mth-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Music Theory & Notation owns the written-grammar register for the whole shelf. The rhythmic depth (the polyrhythm-and-groove craft) belongs to rhythm-meter; the harmonic depth to harmony; the counterpoint’s craft to counterpoint; the ear’s register to ear-training; the Indian rhythmic-and-melodic registers belong to the classical-dance-and-music-history books (cross-referenced, not duplicated); the ABRSM-and-Grade registers are priced here.
@@ -28,6 +28,10 @@ const chapters: Chapter[] = [
       'The Ledger Craft Fixed by Drill',
       'The C Clef\u2019s Movable Honesty Named',
       'The Accidentals\u2019 Register',
+    
+      'Applied Theory (musical scales; suddha and vikrita svaras; sruti; raga-lakshana and classification; talas; notation and staff notation)',
+      'Prominent Banis, music training, education and propagation (gurukula sampradaya, institutional training)',
+      'Part-A: Analytical and logical reasoning — ability to analyse qualitative and quantitative information'
     ],
   },
   {
@@ -43,6 +47,10 @@ const chapters: Chapter[] = [
       'The Dot-and-Tie Held Apart',
       'The Two Meters Previewed',
       'The Off-Beat Honesty Named',
+    
+      'Unit I (common to all in music): Technical Terms (sangeet, nada, shruti, swaras, raga, thata, tala, laya, gamaka, notation systems, etc.)',
+      'Hindustani (Vocal, Instrumental & Musicology) Unit V: Applied Theory (sangeet utpatti; musical scales Indian and western; gram, murchchhana; raga classification; time theory of ragas; notation systems of Hindustani, Karnataka and western music; layakari)',
+      'Core musical activities across components: listening, composing and performing, working with Western notation and connecting a wide variety of music'
     ],
   },
   {
@@ -73,6 +81,9 @@ const chapters: Chapter[] = [
       'The Quality Census by Its Arithmetic',
       'The Summing Receipt Priced Straight',
       'The Consonance Division Held',
+    
+      'Historical perspective of music — contributions of scholars, musicologists, musical concepts in treatises',
+      'Prelims typical areas (mirror): basic arithmetic — seating arrangement, Venn diagrams and simple number questions'
     ],
   },
   {
@@ -103,6 +114,8 @@ const chapters: Chapter[] = [
       'The Dynamics by Their Arithmetic',
       'The Articulation Census Named',
       'The Slur-and-Phrase Held Apart',
+    
+      'Component 2 Practical Music — performing (6-10 minute performance)'
     ],
   },
 ]

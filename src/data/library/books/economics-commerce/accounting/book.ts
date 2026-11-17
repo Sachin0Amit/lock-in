@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Accounting — the twelfth book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `acct-` prefix
+ * 35 planned lessons, zero written. Lesson ids will use the `acct-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Accounting owns the financial-accounting register (the NCERT class 11-12 accountancy arc and the CA Foundation first-pass). Cost-accounting owns the cost-and-management side; financial-management-and-corporate-finance owns the ratio-and-decision side; financial-economics owns the valuation theory — cross-referenced honestly.
@@ -29,6 +29,8 @@ const chapters: Chapter[] = [
       'The Receipts Classified',
       'The Standards Register',
       'The Theory Base of Accounting: Concepts and Standards',
+    
+      'Theoretical Framework: Introduction to Accounting'
     ],
   },
   {
@@ -60,6 +62,8 @@ const chapters: Chapter[] = [
       'The Net Craft',
       'The Position Statement',
       'The Adjustments Posted',
+    
+      'Financial Statements of Sole Proprietorship: Accounts from Incomplete Records'
     ],
   },
   {
@@ -139,6 +143,8 @@ const chapters: Chapter[] = [
       'The Common-Size Registers',
       'The Cash-Flow Ledger',
       'Computerised Accounting and Spreadsheets',
+    
+      'Computerised Accounting (optional alternative Part B)'
     ],
   },
 ]
@@ -149,7 +155,7 @@ export const accounting: Book = {
   subtitle: 'The language of business recorded: from the journal to the cash-flow statement',
   discipline: 'economics-commerce',
   level: 'Class 11-12 + CA Foundation first pass + university',
-  description: 'The accounting register: the concept-and-equation foundations, the book-keeping cycle from journal to trial balance, the final accounts craft with adjustments, depreciation-and-reserve registers, the partnership and company first-pass accounts, the not-for-profit and analysis registers, and the cash-flow doorway.',
+  description: 'The accounting register: the concept-and-equation foundations, the book-keeping cycle from journal to trial balance, the final accounts craft with adjustments, depreciation-and-reserve registers, the partnership and company first-pass accounts, the not-for-profit and analysis registers, and the cash-flow doorway. Cross-references cost-accounting and financial-management-and-corporate-finance; hands off to both honestly.',
   status: 'planned',
   accent: ['#2563eb', '#1e3a8a'],
   chapters,

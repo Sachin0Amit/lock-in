@@ -128,7 +128,7 @@ export const behaviouralEconomics: Book = {
   subtitle: 'The human agent: heuristics, biases and the nudge register — the frontier critique of the rational actor',
   discipline: 'economics-commerce',
   level: 'University frontier register + general reader',
-  description: 'The behavioural register: the rational-agent baseline and its honest critique, the heuristics-and-biases census, prospect theory\u2019s loss-aversion arithmetic, the time-and-self-control register with present bias, social preferences\u2019 fairness-and-trust experiments, the nudge-and-choice-architecture policy craft, and the experimental-methods doorway.',
+  description: 'The behavioural register: the rational-agent baseline and its honest critique, the heuristics-and-biases census, prospect theory\u2019s loss-aversion arithmetic, the time-and-self-control register with present bias, social preferences\u2019 fairness-and-trust experiments, the nudge-and-choice-architecture policy craft, and the experimental-methods doorway. Cross-references microeconomics (the rational-agent base it departs from) and psychology (the humanities shelf); hands off honestly.',
   status: 'planned',
   accent: ['#fbbf24', '#78350f'],
   chapters,

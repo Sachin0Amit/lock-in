@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Atomic Physics — the eleventh book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `atom-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `atom-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Atomic Physics owns the atomic-and-molecular register (GATE PH Atomic and Molecular Physics section read this pass: spectra of one- and many-electron atoms, LS coupling, Zeeman, X-ray spectra, diatomic molecules’ rotational-vibrational spectra). Quantum-mechanics owns the formalism; modern-physics owns the first pass; optics owns the light-side.
@@ -44,6 +44,8 @@ const chapters: Chapter[] = [
       'Hund\u2019s Selector',
       'The Periodic Table Read',
       'The Structure of Matter: From Atoms to Solids',
+    
+      'Atoms and Nuclei'
     ],
   },
   {

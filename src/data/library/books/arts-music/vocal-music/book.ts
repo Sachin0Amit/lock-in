@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Vocal Music — the tenth book of the Arts-Music shelf (the music register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `vocal-` prefix
+ * 23 planned lessons, zero written. Lesson ids will use the `vocal-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Vocal Music owns the singing register. The breathing’s phonation physiology to the medical shelf’s medical-physiology (cross-referenced — the sibling views); the acoustics beneath to acoustics; the Indian classical’s-own depth to classical-dance (the music register shared); the graded-and-conservatory registers are priced here.
@@ -43,6 +43,9 @@ const chapters: Chapter[] = [
       'The Balanced Onset Held',
       'The Forward Register Named',
       'The Half-Voice Honesty Named',
+    
+      'Paper 1 Listening — Section A: Compositional Techniques and Performance Practice (aural perception, music literacy and applied contextual understanding in relation to the set works)',
+      'Paper 1 Listening — Section B: Understanding Music (musical understanding, including compositional techniques and their effects, in the set works)'
     ],
   },
   {
@@ -58,6 +61,8 @@ const chapters: Chapter[] = [
       'The Pure-Vowel Honesty Held',
       'The Nasal Census Named',
       'The Linking Receipt Named',
+    
+      'Part-A: Language — proficiency in reading and comprehending Standard English'
     ],
   },
   {

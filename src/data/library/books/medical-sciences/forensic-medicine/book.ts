@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Forensic Medicine — the ninth book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 7 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `foren-` prefix
+ * 30 planned lessons, zero written. Lesson ids will use the `foren-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Forensic Medicine owns the medicolegal register. The poisoning-and-pharmacology register to pharmacology-and-medical-biochemistry (the mechanism’s there, the evidence’s here); the death’s cell mechanism to pathology; the DNA-and-molecular craft to biotechnology (cross-referenced); the ethics’s-general register shared with the medical-ethics arc; the NEET-and-FMGE lines are priced here.
@@ -88,6 +88,8 @@ const chapters: Chapter[] = [
       'The Hymen Honesty Priced Straight',
       'The Victim-First Register Named',
       'The Special Honesty Held Carefully',
+    
+      'First Year: Dental Materials'
     ],
   },
   {
@@ -118,6 +120,8 @@ const chapters: Chapter[] = [
       'The Report\u2019s Structure Held',
       'The Impartiality Frame Held Straight',
       'The Doctor\u2019s Legal Role Named',
+    
+      'Scientific Inquiry and Reasoning Skills: Reasoning about the Design and Execution of Research'
     ],
   },
 ]

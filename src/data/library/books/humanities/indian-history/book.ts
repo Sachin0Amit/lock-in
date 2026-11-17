@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Indian History — the second book of the History branch (absorbs the backlog’s Ancient, Medieval and Modern lines — three period names, one national arc).
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 12 chapters /
- * 45 planned lessons, zero written. Lesson ids will use the `ih-` prefix
+ * 47 planned lessons, zero written. Lesson ids will use the `ih-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Indian History owns the national register — ancient, medieval and modern as ONE arc (the three folded backlog lines). World History owns the world register (the colonial/imperial bridge cross-referenced both ways); Art History owns the artistic object register and Archaeology the material record; the Constitution’s own history belongs to Political Science with the 1858-1947 acts cross-referenced there; post-independence polity is Political Science’s ch 7 register with this book carrying the narrative.
@@ -45,6 +45,8 @@ const chapters: Chapter[] = [
       'The Harappan Town and Its Craft',
       'The Sites and the Script',
       'The Decline Question',
+    
+      'Paper-II 1. Evolution of the Indian Culture and Civilization (prehistoric and protohistoric cultures; pre-Harappan, Harappan and post-Harappan; palaeo-anthropological evidences from India; ethno-archaeology in India)'
     ],
   },
   {
@@ -168,6 +170,8 @@ const chapters: Chapter[] = [
       'Towards Freedom and Partition',
       'The Contributors From Every Region',
       'Modern Indian History: The Significant Events, Personalities and Issues',
+    
+      'Unit 4: Teacher Education'
     ],
   },
   {

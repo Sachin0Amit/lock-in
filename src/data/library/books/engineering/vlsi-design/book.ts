@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * VLSI Design — the twenty-sixth book of the Engineering shelf (Electronics & Communication branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `vlsi-` prefix
+ * 42 planned lessons, zero written. Lesson ids will use the `vlsi-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): VLSI Design owns transistor-level digital IC design. Digital Logic Design (CS shelf) owns the gate-level and HDL abstraction below; Electronic Devices and Circuits owns the device physics; the CS shelf’s Computer Organization owns the architecture above; Heat Transfer owns the thermal-removal physics; the GATE EC S5 digital-circuits lines route to Digital Logic Design with this book growing the silicon depth.
@@ -36,6 +36,8 @@ const chapters: Chapter[] = [
       'Moore\u2019s Law, Priced and Ended Honestly',
       'The Design-Flow Census',
       'The Industry Map',
+    
+      'VLSI design — principles, MUX/ROM/PLA-based design, Moore and Mealy circuit design; pipeline concepts and functions; design for testability, examples'
     ],
   },
   {
@@ -126,6 +128,8 @@ const chapters: Chapter[] = [
       'Alternatives Priced Honestly',
       'Dynamic Logic\u2019s Honest Risks',
       'The Family Census Table',
+    
+      'Digital circuits — Boolean algebra and uses; logic gates, digital IC families; combinational and sequential circuits; basics of multiplexers, counters/registers/memories/microprocessors: design and applications'
     ],
   },
   {

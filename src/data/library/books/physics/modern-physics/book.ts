@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Modern Physics — the ninth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `mod-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `mod-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Modern Physics owns the modern survey register (JEE/NEET Dual Nature, Atoms and Nuclei, Electronic Devices units). The quantum-mechanics book owns the formalism; atomic-physics owns the spectra craft deep; nuclear-physics owns the nucleus deep; solid-state-physics owns the band theory — each cross-referenced as the next rung the survey names.
@@ -89,6 +89,8 @@ const chapters: Chapter[] = [
       'Davisson-Germer',
       'The Uncertainty Pair',
       'Thought Experiments',
+    
+      'Theme B: The particulate nature of matter'
     ],
   },
   {
@@ -144,7 +146,7 @@ export const modernPhysics: Book = {
   subtitle: 'The quantum doorway: blackbody to the nucleus, matter waves to the semiconductor — the survey before the deep books',
   discipline: 'physics',
   level: 'Class 12 + competitive → university first pass',
-  description: 'The survey book of the modern register: the classical crisis from blackbody radiation, the photon and photoelectric craft, atomic models and hydrogen\u2019s spectra, X-rays, matter waves and the uncertainty discipline, the nucleus at first pass, and the semiconductor device register.',
+  description: 'The survey book of the modern register: the classical crisis from blackbody radiation, the photon and photoelectric craft, atomic models and hydrogen\u2019s spectra, X-rays, matter waves and the uncertainty discipline, the nucleus at first pass, and the semiconductor device register. Cross-references quantum-mechanics (the duality register), atomic-physics and nuclear-physics — this book hands off to each honestly.',
   status: 'planned',
   accent: ['#fb7185', '#881337'],
   chapters,

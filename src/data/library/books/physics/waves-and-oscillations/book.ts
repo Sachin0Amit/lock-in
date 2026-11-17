@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Waves and Oscillations — the fourth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `wav-` prefix
+ * 39 planned lessons, zero written. Lesson ids will use the `wav-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Waves and Oscillations owns the oscillation and wave register (JEE units Oscillations and Waves; GATE PH oscillations). The optics book owns the light-wave side (interference, diffraction, polarisation); the electromagnetic-theory book owns the Maxwell-wave mathematics; heat-and-thermodynamics owns kinetic-theory sound speed’s kinetic side.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'Spring-Mass and Pendulum',
       'The Energy Clock',
       'Periods Derived',
+    
+      'Experimental Skills: Simple pendulum — dissipation of energy by plotting a graph between the square of amplitude and time'
     ],
   },
   {
@@ -73,6 +75,9 @@ const chapters: Chapter[] = [
       'Normal Modes',
       'Energy Exchange',
       'The Continuum Limit',
+    
+      'C.3 Wave phenomena',
+      'Single oscillator'
     ],
   },
   {

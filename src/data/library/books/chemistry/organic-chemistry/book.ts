@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Organic Chemistry — the third book of the Chemistry shelf.
  *
  * STATUS: PLANNED (Chemistry full-shelf planning pass, 2026-11-16) — 11 chapters /
- * 44 planned lessons, zero written. Lesson ids will use the `org-` prefix
+ * 60 planned lessons, zero written. Lesson ids will use the `org-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Organic Chemistry owns the carbon register (the JEE/NEET units: the basic principles-and-techniques, hydrocarbons, halogen derivatives, oxygen-containing families, nitrogen-containing families, biomolecules, polymers). The biochemistry book owns the molecular-biology deep side; the environmental book owns the pollutant registers; polymer science’s deep register belongs to the industrial book’s cross-reference.
@@ -34,6 +34,11 @@ const chapters: Chapter[] = [
       'Empirical and Molecular Formulae by Combustion',
       'Structure-Reactivity Correlations',
       'Nucleophilicity and Electrophilicity: The Reactivity Map',
+    
+      'Reactivity 2: How much, how fast and how far?',
+      'Organic structure-reactivity relations (polarity, electrophilicity, nucleophilicity, inductive effects, relative stability), structure-property relations (boiling point, acidity, basicity); common electrophiles and nucleophiles',
+      'Isomerism (constitutional, configuration, conformation, tautomerism)',
+      'Stereochemistry (E/Z, cis/trans isomers, chirality, optical activity, Cahn-Ingold-Prelog system, Fischer projections, D/L); cyclohexane conformations'
     ],
   },
   {
@@ -67,6 +72,9 @@ const chapters: Chapter[] = [
       'The Polymerisation Preview',
       'Acid-Catalysed Hydration and the Metal Acetylides',
       'Ozonolysis and the KMnO4 Oxidations',
+    
+      'Isolation of Metals',
+      'Cages and metal clusters'
     ],
   },
   {
@@ -84,6 +92,8 @@ const chapters: Chapter[] = [
       'The Polynuclear Taster',
       'The Heterocyclic Register',
       'The Pericyclic Reactions and Organic Photochemistry',
+    
+      'Electrophilic substitution: substitution on aromatic rings, influence of substituents on the reactivity and regioselectivity, electrophilic species'
     ],
   },
   {
@@ -102,6 +112,9 @@ const chapters: Chapter[] = [
       'Haloalkanes and Haloarenes: The Full Register',
       'Fittig, Wurtz-Fittig and Nucleophilic Aromatic Substitution',
       'Neighbouring Group Participation and Non-Classical Ions',
+    
+      'Asymmetric synthesis',
+      'Elimination: E1 and E2 reactions at sp3 carbon centers, stereochemistry, acid-base catalysis, common leaving groups'
     ],
   },
   {
@@ -135,6 +148,8 @@ const chapters: Chapter[] = [
       'The Acid Preview',
       'Preparation: Acid Chlorides, Nitriles and the Toluene Route',
       'Aldol, Cannizzaro and the Haloform Crafts',
+    
+      'Nucleophilic addition: addition to carbon-carbon and carbon-heteroatom double and triple bonds, addition-elimination reactions, acid-base catalysis'
     ],
   },
   {
@@ -168,6 +183,8 @@ const chapters: Chapter[] = [
       'Hoffmann and Gabriel: The Amine Preparations',
       'The Diazonium Crafts: Sandmeyer and Azo Coupling',
       'The Amine Tests: Carbylamine and Hinsberg',
+    
+      'Hydroxy compounds',
     ],
   },
   {
@@ -184,6 +201,8 @@ const chapters: Chapter[] = [
       'The Nucleic Preview',
       'Vitamins and Lipids',
       'The Carbohydrate Register: Mono and Disaccharides',
+    
+      'Carbohydrates: open chain and cyclic forms; structures of glucose and fructose'
     ],
   },
   {
@@ -206,6 +225,10 @@ const chapters: Chapter[] = [
       'Soaps, Detergents and the Cleansing Action',
       'The Therapeutic Classes: Antacids to Antimicrobials',
       'The Advanced Practical Crafts: Synthesis to Characterisation',
+    
+      'Experimental Techniques in Organic Chemistry',
+      'Oxidations and reductions: switching between the different oxidation levels of common functional groups',
+      'Simple multistep organic synthesis'
     ],
   },
 ]

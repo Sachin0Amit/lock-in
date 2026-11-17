@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Theatre — the twenty-seventh book of the Arts-Music shelf (the performing register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 4 chapters /
- * 16 planned lessons, zero written. Lesson ids will use the `thea-` prefix
+ * 19 planned lessons, zero written. Lesson ids will use the `thea-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Theatre owns the stage register. The acting’s-craft to acting (cross-referenced); the script’s-craft to screenwriting (the shared story cross-reference); the stage’s-technical craft to stage-production; the Indian classical forms to classical-dance (cross-referenced); the history to the humanities shelf (cross-referenced at the periods level); the graded registers are priced here.
@@ -43,6 +43,9 @@ const chapters: Chapter[] = [
       'The Two Named',
       'The Alone Receipt Named',
       'The Braid Register Named',
+    
+      'Theatre Design and techniques (theatre architecture, stagecraft, theatre management and organisation)',
+      'Theatre Education, Pedagogy and Research'
     ],
   },
   {
@@ -58,6 +61,8 @@ const chapters: Chapter[] = [
       'The Three Named',
       'The Show\u2019s-Keeper Receipt Held',
       'The Tech-Dress Division Fixed by Drill',
+    
+      'Stage 2 — DAT Mains, part 2: In-Person Sensitivity Test'
     ],
   },
   {

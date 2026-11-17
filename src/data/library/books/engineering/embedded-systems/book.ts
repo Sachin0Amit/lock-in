@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Embedded Systems — the twenty-seventh book of the Engineering shelf (Electronics & Communication branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 29 planned lessons, zero written. Lesson ids will use the `emb-` prefix
+ * 30 planned lessons, zero written. Lesson ids will use the `emb-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Embedded Systems owns the systems view of compute-in-product. Assembly and Microprocessors (CS shelf) owns the machine-level and microcontroller-fundamental arc (the no-duplication contract stated in both headers); Operating Systems owns the general scheduling and IPC theory; Internet of Things owns the network-of things story; Robotics and Automation owns the robot cell; Control Systems owns the plant-side theory.
@@ -47,6 +47,8 @@ const chapters: Chapter[] = [
       'The Memory Map Read Fluently',
       'The Peripheral Census',
       'Clocking and Reset Honestly',
+    
+      'Communication satellites — orbits, characteristics, systems, uses; fibre-optic communication systems: block schematics, link calculations, system design'
     ],
   },
   {

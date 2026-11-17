@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Industrial Chemistry — the tenth book of the Chemistry shelf.
  *
  * STATUS: PLANNED (Chemistry full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `indchem-` prefix
+ * 34 planned lessons, zero written. Lesson ids will use the `indchem-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Industrial Chemistry owns the chemical plant register. The engineering shelf’s core books own the unit-operations side (the process engineering register — honestly cross-referenced: chemical engineering is on the engineering pass’s investigate-later list); the organic book owns the reaction chemistry; the environmental book owns the effluent side.
@@ -43,6 +43,8 @@ const chapters: Chapter[] = [
       'The Ostwald Register',
       'The Solvay Craft',
       'The Chlor-Alkali Register',
+    
+      'Inquiry process (Inquiry 1 exploring and designing, Inquiry 2 collecting and processing data, Inquiry 3 concluding and evaluating)'
     ],
   },
   {
@@ -88,6 +90,8 @@ const chapters: Chapter[] = [
       'The Commodity Families',
       'Vulcanisation\u2019s Craft',
       'The Environment Honesty',
+    
+      'Simple polymers and their preparation (polystyrene, polyethylene, polyamides, polyesters); polymers and monomers, chain polymerizations, polyaddition and polycondensation'
     ],
   },
   {

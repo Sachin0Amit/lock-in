@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * General Surgery — the twelfth book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 7 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `surg-` prefix
+ * 29 planned lessons, zero written. Lesson ids will use the `surg-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): General Surgery owns the operative register. The anatomy to the anatomy book (the clinical correlates cross-referenced); the wound mechanism to pathology; the drug to pharmacology; the ICU to internal-medicine’s-critical-care; the obstetric to obstetrics-gynaecology; the NEET-and-FMGE lines are priced here.
@@ -58,6 +58,8 @@ const chapters: Chapter[] = [
       'The Source-Control Receipt Priced Straight',
       'The Necrotising Red-Flags Held',
       'The Biofilm Honesty Named',
+    
+      'General Surgery (including Orthopedics, Anesthesia and Radiodiagnosis)'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Cell Biology — the second book of the Biology shelf.
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `cell-` prefix
+ * 38 planned lessons, zero written. Lesson ids will use the `cell-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Cell Biology owns the general register of cell structure and division. The metabolism itself (glycolysis through oxidative phosphorylation) belongs to the chemistry shelf’s biochemistry book; the central dogma machinery (replication, transcription, translation) belongs to molecular-biology; the bacterial cell’s deep physiology belongs to microbiology; cytokinesis specifics of plants are cross-referenced from plant-anatomy; NEET’s cell-division unit is priced here.
@@ -29,6 +29,9 @@ const chapters: Chapter[] = [
       'The Two Electron Microscopes',
       'The Centrifuge\u2019s Layers',
       'Cellular Energetics: Enzymes, Energy and Respiration',
+    
+      'Atomic Structure and Periodicity',
+      'Structure and Bonding'
     ],
   },
   {

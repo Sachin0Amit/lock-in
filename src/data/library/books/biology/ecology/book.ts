@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Ecology — the sixth book of the Biology shelf.
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `eco-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `eco-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Ecology owns the general environmental register. The botanical lines are cross-referenced to plant-ecology (the vegetation and ecophysiology registers); the human-population and climate-policy registers are priced here as the honest science (the environmental-studies book on the humanities shelf owns the applied-policy register); NEET’s organism-and-population and ecosystem-and-biodiversity units are priced here; the field methods (mark-recapture, quadrats) are owned here as the discipline-and-own craft.
@@ -59,6 +59,8 @@ const chapters: Chapter[] = [
       'The Predation Defences',
       'The Mutualism Census',
       'The Interaction Arithmetic',
+    
+      'Interaction and Interdependence'
     ],
   },
   {

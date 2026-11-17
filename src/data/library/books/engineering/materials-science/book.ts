@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Materials Science — the twelfth book of the Engineering shelf (Mechanical branch, shared by every branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 34 planned lessons, zero written. Lesson ids will use the `mats-` prefix
+ * 36 planned lessons, zero written. Lesson ids will use the `mats-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Materials Science owns the structure-property story for engineering materials. Strength of Materials owns the stress machinery (testing shared, honestly); Machine Design consumes its fatigue and heat-treatment census; Building Materials (civil) owns the construction-materials census (stone, brick, cement, timber) with the contract stated there; the future Chemistry shelf’s Materials line will route here (cross-reference when planned); the future Physics shelf’s Solid-State line owns the physics depth.
@@ -36,6 +36,8 @@ const chapters: Chapter[] = [
       'The One Triangle',
       'The Family Census by Bonding',
       'Selection Vocabulary Promised',
+    
+      'Materials Science — electrical engineering materials; crystal structure and defects; ceramic materials: structures, composites, processing and uses; insulating laminates for electronics; magnetic materials: basics, classification, ferrites, ferro/para-magnetic materials and components; nano'
     ],
   },
   {
@@ -64,6 +66,8 @@ const chapters: Chapter[] = [
       'The Structure Census and Packing',
       'Anisotropy and Allotropy',
       'Bragg\u2019s Law at Engineering Depth',
+    
+      'Electrical Materials — electrical engineering materials, crystal structures and defects, ceramic materials, insulating materials; magnetic materials: basics, properties and applications; ferrites, ferro-magnetic materials and components; basics of solid state physics, conductors;'
     ],
   },
   {

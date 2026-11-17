@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Control Systems — the sixteenth book of the Engineering shelf (Electrical branch, shared by every branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 34 planned lessons, zero written. Lesson ids will use the `ctrl-` prefix
+ * 36 planned lessons, zero written. Lesson ids will use the `ctrl-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Control Systems owns feedback theory for the whole shelf (GATE EE S7 and EC S6 name identical registers — one book, both papers). Signals and Systems owns the signal-transform machinery; the Mathematics shelf owns the pure Laplace/z theory; Power Electronics and Robotics consume the servo designs; the CS shelf’s Operating Systems owns scheduler feedback (a different beast, honestly noted).
@@ -82,6 +82,8 @@ const chapters: Chapter[] = [
       'The Dominant-Pole Honesty',
       'System Types and Error Constants',
       'Disturbance Rejection Priced',
+    
+      'Microwave and satellite communication — terrestrial/space type LOS systems, block schematics, link calculations, system design'
     ],
   },
   {
@@ -169,6 +171,8 @@ const chapters: Chapter[] = [
       'Controllability and Observability',
       'The Digital Glance',
       'The Doorsteps: Drives, Servos, Processes',
+    
+      'Mechatronics — microprocessors and microcontrollers: architecture, programming, I/O, computer interfacing; programmable logic controller; sensors and actuators (piezoelectric accelerometer, Hall effect sensor, optical encoder, resolver, inductosyn, pneumatic and hydraulic actuators, stepper motor);'
     ],
   },
 ]

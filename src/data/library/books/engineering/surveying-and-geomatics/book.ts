@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Surveying and Geomatics — the thirty-first book of the Engineering shelf (Civil branch — the GATE CE Section 7 ’Geomatics Engineering’ register, named honestly).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `surv-` prefix
+ * 30 planned lessons, zero written. Lesson ids will use the `surv-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Surveying and Geomatics owns ground measurement (GATE CE S7). Water Resources consumes its cross-sections and catchment truth; Transportation consumes its alignment craft; Environmental consumes its mapping; the GNSS and GIS depth routes honestly to the CS shelf’s geo-aware future books (cross-referenced).
@@ -36,6 +36,8 @@ const chapters: Chapter[] = [
       'Work from Whole to Part',
       'Plans, Maps and Scales',
       'The Error Preview',
+    
+      'Surveying and Geology'
     ],
   },
   {
@@ -94,6 +96,8 @@ const chapters: Chapter[] = [
       'Simple Curves Set Out',
       'Transitions and the Shift',
       'Vertical Curves Crafted',
+    
+      'Surveying — classification of surveys, various methodologies, instruments and analysis of measurement of distances, elevation and directions; field astronomy, global positioning system; map preparation; photogrammetry; remote sensing concepts; survey layout for culverts, canals, bridges,'
     ],
   },
   {

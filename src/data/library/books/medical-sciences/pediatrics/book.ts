@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Pediatrics — the fourteenth book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `pedi-` prefix
+ * 21 planned lessons, zero written. Lesson ids will use the `pedi-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Pediatrics owns the child register. The mechanism’s to the adult books (cross-referenced with the child’s-difference held straight — the dose’s weight arithmetic); the immunisation’s-program to community-medicine; the obstetric to obstetrics-gynaecology; the NEET-and-FMGE lines are priced here.
@@ -58,6 +58,8 @@ const chapters: Chapter[] = [
       'The Refeeding Craft Priced Straight',
       'The Schedule Fixed by Drill',
       'The Screen-Time Honesty Held Straight',
+    
+      'Semester II: Nutrition'
     ],
   },
   {

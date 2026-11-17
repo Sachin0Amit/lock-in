@@ -573,3 +573,6 @@ server.log
 !/scripts/dump_shelf_plan_data.ts
 !/scripts/ledger_data_working/
 !/scripts/ledger_data_working/**
+!/scripts/build_exam_ledger.ts
+!/scripts/apply_exam_gap_fixes.ts
+!/scripts/emit_shelf_gates.py

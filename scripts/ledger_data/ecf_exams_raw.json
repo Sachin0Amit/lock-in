@@ -1,0 +1,189 @@
+{
+  "ledger": "ecf_exams",
+  "discipline": "economics-commerce",
+  "notes": [
+    "All sources fetched 17 Nov 2026.",
+    "CUET (UG) 2026 domain syllabi were taken from the official NTA page https://cuet.nta.nic.in/cuetug-2026-syllabus/ ; the PDFs themselves are hosted on cdnbbsr.s3waas.gov.in (Government of India S3 CDN) and are linked from that NTA page - nature: official.",
+    "IMPORTANT code correction: per the official CUET 2026 PDF titles, Accountancy/Book-Keeping = 301, Business Studies = 305, Economics/Business Economics = 309. The original ledger pass assumed 309=Business Studies and 305=Economics (swapped). Topics here are attached by the OFFICIAL current code: cuet-ug-309 = Economics/Business Economics, cuet-ug-305 = Business Studies.",
+    "NCERT/CBSE class 11-12 unit lists were taken from the current CBSE Senior Secondary curriculum 2026-27 PDFs on cbseacademic.nic.in (the PDFs themselves state they apply to both 2025-26 and 2026-27 sessions). ncert.nic.in was unreachable from this research environment, so NCERT textbook tables of contents were NOT independently fetched; chapter-level lines for Accountancy come from chapter headings named inside the CBSE syllabus PDFs (nature: official).",
+    "CBSE Economics was restructured (from 2025-26, continuing in 2026-27): Class XI = Part A Statistics for Economics + Part B Introductory Microeconomics; Class XII = Part A Introductory Macroeconomics + Part B Indian Economic Development. The four NCERT books remain prescribed (Statistics for Economics; Indian Economic Development; Introductory Microeconomics; Introductory Macroeconomics) but are redistributed across classes; ncert-econ-11 / ncert-econ-12 below therefore follow the CURRENT class-wise official syllabus, not the older book-grade pairing (XI: Stats+IED; XII: Micro+Macro).",
+    "Current CBSE Accountancy syllabus (2025-26/2026-27) no longer contains Bills of Exchange (Class XI), Accounting for Not-for-Profit Organisations (Class XII), or a standalone Accounting Ratios unit (ratios now sit inside Analysis of Financial Statements; only a stale rationale line still mentions NPO). Class XII offers Computerised Accounting as an alternative Part B. NCERT textbook chapters may still carry some of these titles.",
+    "Business Studies Class XI Unit 1 is named 'Nature and Purpose of Business' in the CBSE marks table but 'Evolution and Fundamentals of Business' in the content section (NCERT chapter: 'Business, Trade and Commerce') - both names recorded on one line. Class XII 'Marketing' appears as 'Marketing Management' in the marks table. Class XI Unit 10 content header reads 'International Trade' while the marks table and NCERT chapter read 'International Business'.",
+    "CBSE 2026-27 syllabi continue to track NCERT's rationalised (2023-24) textbook editions: e.g., no 'Non-competitive Markets' in Introductory Microeconomics, no 'Poverty'/'Infrastructure' in Indian Economic Development (CBSE unit coverage confirms the reduced chapter set).",
+    "CUET 2026 Business Studies covers only Class-12-style management/finance/marketing units (no Class 11 foundations); CUET Accountancy covers only partnership/company accounts and financial-statement analysis (Class 12 level); CUET Economics = Micro + Macro + Indian Economic Development (no Statistics).",
+    "'Project Work' is a named Part C component of each CBSE syllabus and is recorded as a topic line; CUET domain syllabi carry no project component.",
+    "No mirrors were needed - every syllabus line below comes from an official NTA/CBSE document fetched directly."
+  ],
+  "exams": [
+    {
+      "exam": "cuet-ug-309",
+      "sources": [
+        {"url": "https://cuet.nta.nic.in/cuetug-2026-syllabus/", "nature": "official (NTA syllabus index page)"},
+        {"url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512271366341541.pdf", "nature": "official (CUET UG 2026 Economics/Business Economics - 309 syllabus PDF, Govt of India CDN)"}
+      ],
+      "topics": [
+        "Introductory Microeconomics: Introduction, Theory of Consumer Behaviour",
+        "Introductory Microeconomics: Production and Costs",
+        "Introductory Microeconomics: The Theory of the Firm under Perfect Competition",
+        "Introductory Microeconomics: Market Equilibrium and Simple Applications",
+        "Introductory Macroeconomics: Introduction and National Income Accounting",
+        "Introductory Macroeconomics: Money and Banking",
+        "Introductory Macroeconomics: Determination of Income and Employment",
+        "Introductory Macroeconomics: Government Budget and the Economy",
+        "Introductory Macroeconomics: Open Economy Macroeconomics",
+        "Indian Economic Development: Development Policies and Experience (1947-90)",
+        "Indian Economic Development: Economic Reforms since 1991",
+        "Indian Economic Development: Current Challenges facing the Indian Economy",
+        "Indian Economic Development: Development Experiences of India - A Comparison with Neighbours"
+      ]
+    },
+    {
+      "exam": "cuet-ug-301",
+      "sources": [
+        {"url": "https://cuet.nta.nic.in/cuetug-2026-syllabus/", "nature": "official (NTA syllabus index page)"},
+        {"url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/20251227522720880.pdf", "nature": "official (CUET UG 2026 Accountancy/Book-Keeping - 301 syllabus PDF, Govt of India CDN)"}
+      ],
+      "topics": [
+        "Accounting for Partnership",
+        "Reconstitution of a Partnership Firm",
+        "Dissolution of Partnership Firm",
+        "Company Accounts: Accounting for Share and Debenture Capital",
+        "Analysis of Financial Statements",
+        "Computerised Accounting System (optional alternative to Analysis of Financial Statements)"
+      ]
+    },
+    {
+      "exam": "cuet-ug-305",
+      "sources": [
+        {"url": "https://cuet.nta.nic.in/cuetug-2026-syllabus/", "nature": "official (NTA syllabus index page)"},
+        {"url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/20251227259182286.pdf", "nature": "official (CUET UG 2026 Business Studies - 305 syllabus PDF, Govt of India CDN)"}
+      ],
+      "topics": [
+        "Nature and Significance of Management",
+        "Principles of Management",
+        "Business Environment",
+        "Planning",
+        "Organising",
+        "Staffing",
+        "Directing",
+        "Controlling",
+        "Business Finance",
+        "Financial Markets",
+        "Marketing",
+        "Consumer Protection"
+      ]
+    },
+    {
+      "exam": "ncert-econ-11",
+      "sources": [
+        {"url": "https://cbseacademic.nic.in/curriculum_2027.html", "nature": "official (CBSE curriculum 2026-27 index page)"},
+        {"url": "https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart2/Economics_SecP2_2026-27.pdf", "nature": "official (CBSE Economics 030, Classes XI-XII 2026-27 syllabus PDF)"}
+      ],
+      "topics": [
+        "Statistics for Economics: Introduction",
+        "Statistics for Economics: Collection, Organisation and Presentation of Data",
+        "Statistics for Economics: Statistical Tools and Interpretation",
+        "Introductory Microeconomics: Introduction",
+        "Introductory Microeconomics: Consumer's Equilibrium and Demand",
+        "Introductory Microeconomics: Producer Behaviour and Supply",
+        "Introductory Microeconomics: Forms of Market and Price Determination under Perfect Competition with Simple Applications",
+        "Project Work"
+      ]
+    },
+    {
+      "exam": "ncert-econ-12",
+      "sources": [
+        {"url": "https://cbseacademic.nic.in/curriculum_2027.html", "nature": "official (CBSE curriculum 2026-27 index page)"},
+        {"url": "https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart2/Economics_SecP2_2026-27.pdf", "nature": "official (CBSE Economics 030, Classes XI-XII 2026-27 syllabus PDF)"}
+      ],
+      "topics": [
+        "Introductory Macroeconomics: National Income and Related Aggregates",
+        "Introductory Macroeconomics: Money and Banking",
+        "Introductory Macroeconomics: Determination of Income and Employment",
+        "Introductory Macroeconomics: Government Budget and the Economy",
+        "Introductory Macroeconomics: Balance of Payments",
+        "Indian Economic Development: Development Experience (1947-90) and Economic Reforms since 1991",
+        "Indian Economic Development: Current Challenges facing Indian Economy",
+        "Indian Economic Development: Development Experience of India - A Comparison with Neighbours",
+        "Project Work"
+      ]
+    },
+    {
+      "exam": "ncert-bs-11",
+      "sources": [
+        {"url": "https://cbseacademic.nic.in/curriculum_2027.html", "nature": "official (CBSE curriculum 2026-27 index page)"},
+        {"url": "https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart2/BusinessStudies_SecP2_2026-27.pdf", "nature": "official (CBSE Business Studies 054, Classes XI-XII 2026-27 syllabus PDF)"}
+      ],
+      "topics": [
+        "Nature and Purpose of Business (Evolution and Fundamentals of Business)",
+        "Forms of Business Organisations",
+        "Public, Private and Global Enterprises",
+        "Business Services",
+        "Emerging Modes of Business",
+        "Social Responsibility of Business and Business Ethics",
+        "Sources of Business Finance",
+        "Small Business (incl. Entrepreneurship Development, Start-up India, IPR)",
+        "Internal Trade",
+        "International Business",
+        "Project Work"
+      ]
+    },
+    {
+      "exam": "ncert-bs-12",
+      "sources": [
+        {"url": "https://cbseacademic.nic.in/curriculum_2027.html", "nature": "official (CBSE curriculum 2026-27 index page)"},
+        {"url": "https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart2/BusinessStudies_SecP2_2026-27.pdf", "nature": "official (CBSE Business Studies 054, Classes XI-XII 2026-27 syllabus PDF)"}
+      ],
+      "topics": [
+        "Nature and Significance of Management",
+        "Principles of Management",
+        "Business Environment",
+        "Planning",
+        "Organising",
+        "Staffing",
+        "Directing",
+        "Controlling",
+        "Financial Management",
+        "Financial Markets",
+        "Marketing",
+        "Consumer Protection",
+        "Project Work"
+      ]
+    },
+    {
+      "exam": "ncert-accountancy-11",
+      "sources": [
+        {"url": "https://cbseacademic.nic.in/curriculum_2027.html", "nature": "official (CBSE curriculum 2026-27 index page)"},
+        {"url": "https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart2/Accountancy_SecP2_2026-27.pdf", "nature": "official (CBSE Accountancy 055, Classes XI-XII 2026-27 syllabus PDF)"}
+      ],
+      "topics": [
+        "Theoretical Framework: Introduction to Accounting",
+        "Theoretical Framework: Theory Base of Accounting",
+        "Accounting Process: Recording of Business Transactions",
+        "Accounting Process: Bank Reconciliation Statement",
+        "Accounting Process: Depreciation, Provisions and Reserves",
+        "Accounting Process: Trial Balance and Rectification of Errors",
+        "Financial Statements of Sole Proprietorship: Financial Statements",
+        "Financial Statements of Sole Proprietorship: Accounts from Incomplete Records",
+        "Project Work"
+      ]
+    },
+    {
+      "exam": "ncert-accountancy-12",
+      "sources": [
+        {"url": "https://cbseacademic.nic.in/curriculum_2027.html", "nature": "official (CBSE curriculum 2026-27 index page)"},
+        {"url": "https://cbseacademic.nic.in/web_material/CurriculumMain27/SecPart2/Accountancy_SecP2_2026-27.pdf", "nature": "official (CBSE Accountancy 055, Classes XI-XII 2026-27 syllabus PDF)"}
+      ],
+      "topics": [
+        "Accounting for Partnership Firms",
+        "Reconstitution and Dissolution of Partnership Firms",
+        "Accounting for Companies: Accounting for Share Capital",
+        "Accounting for Companies: Accounting for Debentures",
+        "Analysis of Financial Statements (including Accounting Ratios)",
+        "Cash Flow Statement",
+        "Computerised Accounting (optional alternative Part B)",
+        "Project Work / Practical Work"
+      ]
+    }
+  ]
+}

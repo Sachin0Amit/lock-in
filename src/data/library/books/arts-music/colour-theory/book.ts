@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Colour Theory — the fourteenth book of the Arts-Music shelf (the visual register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `colour-` prefix
+ * 24 planned lessons, zero written. Lesson ids will use the `colour-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Colour Theory owns the colour register for the whole shelf. The light’s-physics to the physics shelf (cross-referenced); the eye’s physiology to the biology shelf (cross-referenced); the mixing’s-practice to painting; the digital’s-register to digital-art; the art-history receipts to the humanities shelf’s art-history book; the graded registers are priced here.
@@ -43,6 +43,8 @@ const chapters: Chapter[] = [
       'The K-Why Named',
       'The Wheel\u2019s-Limit Priced Straight',
       'The Cylinder Honesty Named',
+    
+      'Part-A: Practical and scientific knowledge — know-how of scientific principles and everyday objects'
     ],
   },
   {
@@ -58,6 +60,8 @@ const chapters: Chapter[] = [
       'The One-Colour Receipt Priced Straight',
       'The Bias Honesty Cross-Referenced',
       'The More-and-Less Receipt Named',
+    
+      'Part-A: Visualization and spatial reasoning — ability to visualise and transform 2D shapes and 3D objects and their spatial relationships'
     ],
   },
   {
@@ -88,6 +92,9 @@ const chapters: Chapter[] = [
       'The White-and-Black Consequence Priced Straight',
       'The Gamut Register Named',
       'The Corporate Preview Named',
+    
+      'Class XI theory (common to Painting, Graphics, Sculpture and Applied Art) Unit 1: Pre-Historic rock paintings and art of Indus/Sindhu Saraswati Civilization; Buddhist, Jain and Hindu Art',
+      'Indian National Flag; The Bengal School of Painting; The Modern Trends in Indian Art (paintings, graphic prints, sculptures)'
     ],
   },
 ]

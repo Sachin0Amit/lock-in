@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Inorganic Chemistry — the fourth book of the Chemistry shelf.
  *
  * STATUS: PLANNED (Chemistry full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `inorg-` prefix
+ * 47 planned lessons, zero written. Lesson ids will use the `inorg-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Inorganic Chemistry owns the non-carbon register (the JEE/NEET units: classification-and-periodicity, chemical bonding, s-block, p-block, d-and-f-block, coordination compounds, general principles of metallurgy; the GATE CY inorganic-and-bioinorganic section read this pass). The physics shelf’s solid-state book owns the band-and-lattice physics; the environmental book owns the pollutant chemistry; the bioinorganic register is priced here per the GATE section.
@@ -29,6 +29,8 @@ const chapters: Chapter[] = [
       'The Anomaly Registers',
       'The Diagonal Relation',
       'The Classification of Elements and the Periodic Law',
+    
+      'Periodic table and trends (electronegativity, electron affinity, ionization energy, atomic and ionic size, melting points, metallic character, reactivity)'
     ],
   },
   {
@@ -51,6 +53,9 @@ const chapters: Chapter[] = [
       'The Bonding Models: Ionic, Covalent and Metallic',
       'From Bonding Models to Materials',
       'Ionic Solids, Ionic Radii and the Born-Haber Cycle',
+    
+      'Characterisation of inorganic compounds by IR, Raman, NMR, EPR, Mossbauer, UV-vis, NQR, MS, electron spectroscopy and microscopic techniques',
+      'Hybridization and geometry at carbon and other centers'
     ],
   },
   {
@@ -71,6 +76,8 @@ const chapters: Chapter[] = [
       'The Hydride Register: Ionic, Covalent and Interstitial',
       'Water, Heavy Water and Hydrogen Peroxide',
       'Hydrogen: Isotopes and the Position Question',
+    
+      'Stoichiometry, reactions and properties of binary non-metal hydrides'
     ],
   },
   {
@@ -91,6 +98,8 @@ const chapters: Chapter[] = [
       'The Nitrogen Compounds: Ammonia, Nitric Acid and the Phosphines',
       'The Main-Group Element Census',
       'The Phosphorus Register: Allotropes and Halides',
+    
+      'Common reactions of carbon, nitrogen and sulfur oxides (CO, CO2, NO, NO2, N2O4, SO2, SO3)'
     ],
   },
   {
@@ -148,6 +157,8 @@ const chapters: Chapter[] = [
       'Metal Carbonyls and the Application Census',
       'The Organometallic Register',
       'The Ligand Field: Spectrochemical Series and Splitting',
+    
+      'Complexation reactions, definition of coordination number, complex formation constants'
     ],
   },
   {
@@ -200,6 +211,8 @@ const chapters: Chapter[] = [
       'The Nuclear Register',
       'The Doorway Map',
       'The Cation Groups and the Anion Tests',
+    
+      'Basic principles of inorganic qualitative analysis for ions specified in factual knowledge, flame tests; identification of Ag+, Ba2+, Fe3+, Cu2+, Cl-, CO32-, SO42'
     ],
   },
 ]

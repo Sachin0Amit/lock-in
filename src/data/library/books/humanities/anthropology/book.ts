@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Anthropology — the second book of the Society branch.
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 39 planned lessons, zero written. Lesson ids will use the `anth-` prefix
+ * 48 planned lessons, zero written. Lesson ids will use the `anth-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Anthropology owns the comparative-human register — all times, all scales. Sociology owns the complex-industrial society (the two cross-reference: the kinship-marriage and stratification chapters exist in both, the anthropological reading comparative-ethnographic here, the sociological statistical-structural there); Archaeology and Heritage Studies owns the material past (this book’s evolution chapter teaches the biological frame, that book the excavation’s craft); Geography owns the human-environment register’s spatial reading; the UPSC Anthropology optional register is this book’s applied spine.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The Map of the Four Fields',
       'The Holism\u2019s Method',
       'The Discipline\u2019s History and Its Reckoning',
+    
+      'Paper-I 12. Applications of Anthropology (anthropology of sports, nutritional anthropology, design of defence and other equipment, forensic anthropology, applied human genetics - paternity diagnosis, genetic counselling, eugenics, DNA technology, serogenetics and cytogenetics)'
     ],
   },
   {
@@ -43,6 +45,9 @@ const chapters: Chapter[] = [
       'The Interview Census and the Ethics',
       'The Writing Culture Debate',
       'The Multi-Sited Present',
+    
+      'Unit 3: Learner and Learning Process',
+      'English Language (comprehension of passages; grammar; word meanings; idioms; analogies; synonyms and antonyms; sentence correction; jumbled sentences; summary-based questions)'
     ],
   },
   {
@@ -58,6 +63,9 @@ const chapters: Chapter[] = [
       'The Fossil Record\u2019s Walk',
       'The Variation and the Race Question',
       'The Upper Paleolithic Revolution',
+    
+      'Paper-I 9. Human Genetics (methods and applications; Mendelian genetics in man; genetic polymorphism and selection; chromosomal aberrations; race and racism; ecological anthropology - bio-cultural adaptations; epidemiological anthropology)',
+      'Unit 1: Biological Bases of Behavior'
     ],
   },
   {
@@ -73,6 +81,8 @@ const chapters: Chapter[] = [
       'The Relativism Debate and Its Limits',
       'The Culture Change Engines',
       'The Language Arc',
+    
+      'Statutory Institutions and Commissions - Election Commission, CAG, Finance Commission, UPSC and the national commissions (SC, ST, Women, Human Rights, Minorities, Backward Classes)'
     ],
   },
   {
@@ -118,6 +128,10 @@ const chapters: Chapter[] = [
       'The Religion and Magic Register',
       'The Ritual Craft',
       'The Arts\u2019 Anthropology',
+    
+      'State in Comparative Perspective - changing nature of the State in capitalist and socialist, advanced industrial and developing societies',
+      'Paper-I 5. Religion (anthropological approaches; monotheism and polytheism; sacred and profane; myths and rituals; animism, animatism, fetishism, naturism and totemism; religion, magic and science; magico-religious functionaries)',
+      'Paper-II 8. Impact of Hinduism, Buddhism, Christianity, Islam and Other Religions on Tribal Societies; Tribe and Nation State (comparative study of tribal communities in India and other countries)'
     ],
   },
   {

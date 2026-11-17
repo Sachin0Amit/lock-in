@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * International Relations — the second book of the Polity & Governance branch.
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `intl-` prefix
+ * 43 planned lessons, zero written. Lesson ids will use the `intl-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): International Relations owns the inter-state register. Political Science owns the domestic theory (the two books cross-reference at the world-order chapters — Heywood’s pointer chapters live there, the depth lives here); World History owns the 1919-1991 narrative register (the cold-war history is priced there, the cold-war THEORY here); the Economics shelf’s future books will own the economic theory this book’s IPE chapters only apply; the Sociology book’s globalisation chapter is the social reading, this book the political.
@@ -29,6 +29,10 @@ const chapters: Chapter[] = [
       'Anarchy and the Self-Help World',
       'The Westphalian Myth Interrogated',
       'The Levels of Analysis',
+    
+      'Federalism - constitutional provisions; changing nature of centre-state relations; integrationist tendencies and regional aspirations; inter-state disputes',
+      'Approaches to the Study of International Relations - idealist, realist, Marxist, functionalist and systems theory',
+      'Regionalisation of World Politics - EU, ASEAN, APEC, SAARC, NAFTA'
     ],
   },
   {
@@ -89,6 +93,9 @@ const chapters: Chapter[] = [
       'The UN System',
       'The Regional Bodies\u2019 Census',
       'The NGOs and the Global Civil Society',
+    
+      'Security - linkages between development and spread of extremism; role of external state and non-state actors in internal security challenges; communication networks, media and social networking sites in internal security, basics of cyber security; money-laundering and its prevention; border',
+      'United Nations - envisaged role and actual record; specialised UN agencies; need for UN reforms'
     ],
   },
   {
@@ -104,6 +111,9 @@ const chapters: Chapter[] = [
       'The Bretton Woods Family',
       'Development\u2019s Political Economy',
       'The Sanctions and the Weaponised Interdependence',
+    
+      'Evolution of the International Economic System - from Brettonwoods to WTO; socialist economies and the CMEA; Third World demand for a new international economic order',
+      'India and the Global South - relations with Africa and Latin America; leadership role in NIEO and WTO negotiations'
     ],
   },
   {

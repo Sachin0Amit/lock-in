@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Classical Dance — the twenty-fifth book of the Arts-Music shelf (the performing register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `cldc-` prefix
+ * 29 planned lessons, zero written. Lesson ids will use the `cldc-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Classical Dance owns the classical register. The rhythm’s-craft to rhythm-meter (the tala cross-reference); the raga’s register to vocal-music (the music sibling); the history to the humanities shelf (cross-referenced); the contemporary to contemporary-dance; the graded-and-practical registers are priced here.
@@ -43,6 +43,8 @@ const chapters: Chapter[] = [
       'The Fitted Honesty Named',
       'The Corps\u2019s-Craft Held',
       'The Deux Named',
+    
+      'International dance and interactions (classical ballet; emergence of modern dance in the West)'
     ],
   },
   {
@@ -58,6 +60,15 @@ const chapters: Chapter[] = [
       'The Two Receipts Named',
       'The Parampara Named',
       'The Soll Named',
+    
+      'Unit 1 (common to Dance and Drama/Theatre): Cultural History of India',
+      'Unit 5 (common): Dance and Theatre forms of East and South Asian Countries',
+      'Dance in Sanskrit Literature and Treatises',
+      'Drama and its theories — Indian and Western',
+      'Unit V: Indian and Western aesthetics and art appreciation',
+      'Unit VII: Chronological periods and developments in Indian art from prehistory to the 19th century',
+      'Unit III (common): Rasa and Aesthetics (rasa according to Bharata and others; rasa nishpatti and its application to Indian classical music; aesthetics according to Indian and western philosophers; raga-ragini paintings)',
+      'Contribution of composers/performers to music, Indian and western (Tevaram, Alwars, Purandara Dasa, the music trinity etc.)'
     ],
   },
   {

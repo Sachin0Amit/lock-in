@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Engineering Mechanics — the first book of the Engineering shelf (Mechanical branch, the shelf’s foundation).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 34 planned lessons, zero written. Lesson ids will use the `mech-` prefix
+ * 35 planned lessons, zero written. Lesson ids will use the `mech-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Engineering Mechanics owns the pure mechanics of rigid bodies — equilibrium and plane motion. Strength of Materials grows the deformable body from its statics; Theory of Machines applies its dynamics to links and gears; Lagrange’s equation hands off to the mathematics shelf’s variational arc (Mathematical Methods for Engineering). Physics mechanics belongs to the future Physics shelf (cross-reference when planned).
@@ -63,6 +63,8 @@ const chapters: Chapter[] = [
       'Trusses: the Method of Joints',
       'Trusses: the Method of Sections',
       'Frames and Machines: Multi-force Members',
+    
+      'Engineering Aptitude covering Logical reasoning and Analytical ability'
     ],
   },
   {

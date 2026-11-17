@@ -158,7 +158,7 @@ export const internationalEconomics: Book = {
   subtitle: 'Trade and payments in theory and policy: from Ricardo\u2019s comparative logic to the crisis register',
   discipline: 'economics-commerce',
   level: 'University + UGC NET unit + competitive',
-  description: 'The international register: the trade theory ladder from Ricardian comparative advantage through Heckscher-Ohlin to the new trade theory of scale and imperfect competition; trade policy\u2019s welfare arithmetic with the WTO and regionalism registers; the balance of payments and exchange-rate machinery; and the open-macro and crisis register that ends the standard course.',
+  description: 'The international register: the trade theory ladder from Ricardian comparative advantage through Heckscher-Ohlin to the new trade theory of scale and imperfect competition; trade policy\u2019s welfare arithmetic with the WTO and regionalism registers; the balance of payments and exchange-rate machinery; and the open-macro and crisis register that ends the standard course. Cross-references macroeconomics (the open-economy core) and international-business (the firm-level trade); hands off honestly.',
   status: 'planned',
   accent: ['#14b8a6', '#134e4a'],
   chapters,

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Structural Engineering — the thirtieth book of the Engineering shelf (Civil branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 34 planned lessons, zero written. Lesson ids will use the `str-` prefix
+ * 37 planned lessons, zero written. Lesson ids will use the `str-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Structural Engineering owns structural analysis and the IS-code design craft (GATE CE S2’s Structural Engineering register). Strength of Materials (mechanical) owns the underlying mechanics of simple members; Building Materials owns the material science of concrete and steel; Geotechnical Engineering owns the soil the structure stands on (the interface chapter cross-referenced); Machine Design owns the machine idiom of joints and fatigue; the seismic and bridge depth are future books (honestly named).
@@ -151,6 +151,8 @@ const chapters: Chapter[] = [
       'Beams and Slabs Designed',
       'Columns and Bond',
       'Prestressing and Its Losses',
+    
+      'Design of Concrete and Masonry Structures — principles of prestressed concrete design including materials and methods; earthquake resistant design of structures; design of masonry structure'
     ],
   },
   {
@@ -166,6 +168,9 @@ const chapters: Chapter[] = [
       'Beams and Beam-Columns',
       'Connections, Simple and Eccentric',
       'Plate Girders and Plastic Analysis',
+    
+      'Structural Analysis — free and forced vibrations of single- and multi-degree-freedom systems; suspended cables; concepts and use of computer aided design',
+      'Power Plant Engineering — Rankine and Brayton cycles with regeneration and reheat; fuels and their properties, flue gas analysis; boilers; steam turbines; condensers, air ejectors, electrostatic precipitators and cooling towers: theory, design, types and applications'
     ],
   },
   {

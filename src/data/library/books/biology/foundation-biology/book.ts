@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Foundation Biology — the first book of the Biology shelf.
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `fbio-` prefix
+ * 49 planned lessons, zero written. Lesson ids will use the `fbio-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Foundation Biology owns the beginner register: the themes-and-method tour that no specialist book repeats. The cell machinery belongs to cell-biology; the chemistry preview defers to the chemistry shelf’s biochemistry book (cross-referenced, not duplicated); evolution’s treatment here is the preview — the evolution book owns the full register; the NCERT/NEET school lines are this book’s exam spine.
@@ -29,6 +29,14 @@ const chapters: Chapter[] = [
       'Emergence at Each Level',
       'The Three-Domain Preview',
       'The Living World',
+    
+      'S, p and d Block Elements',
+      'Thermodynamics',
+      'Organization of life',
+      'Microbial Metabolism',
+      'B4 Organelles and compartmentalisation',
+      'D10 Homeostasis',
+      'Ethology'
     ],
   },
   {
@@ -44,6 +52,10 @@ const chapters: Chapter[] = [
       'The Controlled Experiment\u2019s Craft',
       'What a Theory Really Is',
       'The Model Organism Idea',
+    
+      'Inquiry 1: Exploring and designing in biology',
+      'Inquiry 2: Collecting and processing data in biology',
+      'Inquiry 3: Concluding and evaluating in biology'
     ],
   },
   {
@@ -74,6 +86,8 @@ const chapters: Chapter[] = [
       'Prokaryote against Eukaryote',
       'The Microscope\u2019s Craft',
       'The Size Arithmetic',
+    
+      'Historical Perspective'
     ],
   },
   {
@@ -137,6 +151,9 @@ const chapters: Chapter[] = [
       'The Lab Register and Safety',
       'Tables, Graphs and Means',
       'The Career Map',
+    
+      'Tool 3: Mathematics',
+      'Practical skills'
     ],
   },
   {

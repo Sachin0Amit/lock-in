@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Machine Design — the fourth book of the Engineering shelf (Mechanical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 30 planned lessons, zero written. Lesson ids will use the `md-` prefix
+ * 31 planned lessons, zero written. Lesson ids will use the `md-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Machine Design owns the sizing of machine elements under static and fatigue loading. Strength of Materials owns the underlying stress machinery; Materials Science owns microstructure and heat treatment; Theory of Machines owns the kinematic catalogue; the bolted/riveted/welded joint craft is shared honestly with Structural Engineering (civil), which routes its steel-connection design through IS codes while this book prices the machine idiom.
@@ -151,6 +151,8 @@ const chapters: Chapter[] = [
       'A Gearbox Priced End-to-End',
       'The Standards Census',
       'The Doorstep: Makeable and Modelled',
+    
+      'Databases and languages — data bases: different types, characteristics and design; transactions and concurrency control; elements of programming languages, typical examples'
     ],
   },
 ]

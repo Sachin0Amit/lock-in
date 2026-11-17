@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Art History — the second book of the Culture & Past branch (owns the discipline the future Arts shelf’s Art History line will cross-reference).
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `arth-` prefix
+ * 42 planned lessons, zero written. Lesson ids will use the `arth-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Art History owns the aesthetic object’s history — world and India. The future Arts shelf’s Art History line folds HERE (the practice books — the drawing, painting technique — stay on that shelf, the academic discipline here; the contract recorded in SUBJECT_BACKLOG); Archaeology owns the find-spot and the conservation craft (the two cross-reference at every object); Indian History owns the periods’ narrative (the two cross-reference — this book reads the period through its objects); Cultural Studies owns the contemporary’s visual culture reading; the UPSC GS1 art-and-architecture register is the applied spine.
@@ -29,6 +29,8 @@ const chapters: Chapter[] = [
       'The Medium\u2019s Craft',
       'The Panofsky Method',
       'The Attribution\u2019s Limits',
+    
+      'Quantitative Techniques - elementary mathematics topics: Algebra; Averages; Geometry; LCM and HCF; Mensuration; Number Systems; Percentage; Permutation and Combination; Probability; Profit and Loss; Quadratic and Linear Equations; Ratio and Proportion; Simple and Compound Interest; Time and Speed;'
     ],
   },
   {
@@ -104,6 +106,8 @@ const chapters: Chapter[] = [
       'The Three Relief Schools',
       'The Gupta Idiom and Ajanta',
       'The Rock-Cut Craft',
+    
+      'India and South Asia - SAARC and regional co-operation; India\'s \'Look East\' policy; impediments to regional co-operation'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Biochemistry — the seventh book of the Chemistry shelf.
  *
  * STATUS: PLANNED (Chemistry full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `biochem-` prefix
+ * 41 planned lessons, zero written. Lesson ids will use the `biochem-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Biochemistry owns the chemistry-side register (the biomolecules-chemistry view). The organic book owns the biomolecules school register; the future Medical-and-Biology shelves’ biochemistry registers are cross-referenced as sibling views (the chemistry-side: structure-and-mechanism first); NEET’s biomolecules unit is priced here.
@@ -64,6 +64,8 @@ const chapters: Chapter[] = [
       'The Purification Census',
       'The Biochemical Separation Techniques: Chromatography, Centrifugation and Electrophoresis',
       'The Separation Crafts: Chromatography, Centrifugation and Electrophoresis',
+    
+      'Tools (Tool 1 experimental techniques, Tool 2 technology, Tool 3 mathematics)'
     ],
   },
   {

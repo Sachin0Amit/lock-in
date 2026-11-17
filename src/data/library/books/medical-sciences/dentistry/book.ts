@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Dentistry — the fifteenth book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 6 chapters /
- * 24 planned lessons, zero written. Lesson ids will use the `dent-` prefix
+ * 27 planned lessons, zero written. Lesson ids will use the `dent-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Dentistry owns the oral register. The tooth’s oral histology to histology (the sibling views cross-referenced); the microbiology to medical-microbiology (the plaque biofilm cross-referenced); the pharmacology to pharmacology (the local’s register); the radiology’s general to the anatomy book’s imaging chapter; the NEET-and-BDS lines are priced here.
@@ -64,6 +64,8 @@ const chapters: Chapter[] = [
       'General Pathology and Microbiology',
       'General and Dental Pharmacology and Therapeutics',
       'Oral Pathology and Oral Microbiology',
+    
+      'Fourth Year: Periodontology'
     ],
   },
   {
@@ -96,6 +98,8 @@ const chapters: Chapter[] = [
       'The 30-Minute Honesty Priced Straight',
       'Pre-clinical Prosthodontics and Crown and Bridge',
       'Orthodontics and Dentofacial Orthopaedics',
+    
+      'Third/Fourth Year: Oral and Maxillofacial Surgery'
     ],
   },
   {
@@ -111,6 +115,8 @@ const chapters: Chapter[] = [
       'The Bidirectional Honesty Named',
       'The India Burden Held Straight',
       'The DCI Register Named',
+    
+      'Third/Fourth Year: Oral Medicine and Radiology'
     ],
   },
 ]

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Computational Chemistry — the ninth book of the Chemistry shelf.
  *
  * STATUS: PLANNED (Chemistry full-shelf planning pass, 2026-11-16) — 7 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `cchem-` prefix
+ * 29 planned lessons, zero written. Lesson ids will use the `cchem-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Computational Chemistry owns the applied simulation register (the CSIR NET interdisciplinary-and-computational registers read this pass). The CS shelf’s books own the computing crafts; the mathematics shelf’s numerical-and-statistics books own the pure side; the quantum-chemistry book owns the theory — cross-referenced honestly.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The Toolchain Census',
       'The Format Discipline',
       'The Precision Honesty',
+    
+      'Structure and bonding in homo- and heteronuclear molecules, including shapes of molecules (VSEPR theory)'
     ],
   },
   {

@@ -1,0 +1,444 @@
+{
+  "ledger": "physics_exams",
+  "discipline": "physics",
+  "notes": [
+    "All 13 exams re-researched from live sources on 2026-11-17; every source URL below was actually fetched and its content extracted during this pass.",
+    "GATE PH 2026: the 10th section of the paper, General Aptitude (GA), is deliberately excluded from the topic lines (non-physics), per the ledger-building rules; the 9 physics sections are from the official IIT Guwahati GATE 2026 PH syllabus PDF.",
+    "CSIR NET Physical Sciences: the exam's common Part A (general aptitude/reasoning) is excluded as non-physics; the official CSIR HRDG subject document labels its two subject blocks PART 'A' CORE and PART 'B' ADVANCED (these are subject-content blocks, not the exam's aptitude Part A) and both blocks are recorded as stated, with prefixes to keep the 15 lines distinct.",
+    "JEE Advanced: the official site jeeadv.ac.in now hosts the 2027 cycle (IIT Delhi) whose syllabus page reads 'Coming soon ... This page will be updated shortly'; the previous (2026, IIT Roorkee) official site is offline. The current syllabus text (unchanged since the November 2021 revision, first implemented in 2023) was therefore taken from mirrors: Embibe (2025, full verbatim official text), cross-checked against Vedantu (2027 chapter breakdown) and Testbook (2026 chapter breakdown). Mirrors disagree on one section: two list 'Electromagnetic Waves' as a separate section while Testbook lists six sections only; it is included here and the ambiguity is recorded. 'Experimental Skills' (listed only by Vedantu, folded into 'General' in the official text) is not listed as a separate section.",
+    "JEE Main and NEET-UG: the 18 individually named experiments under the 'Experimental Skills' unit are recorded as separate topic lines in addition to the unit line, because they are the syllabus's named experiments (prescriptive, numbered content) rather than illustrative sub-bullets; both current syllabi carry the same 18-experiment list.",
+    "NEET-UG: the current syllabus is the NMC 'Syllabus for NEET (UG) - 2026' annexure carried in the official NTA notice PDF listed as a verified lead; NEET's Unit 1 is titled 'Physics and Measurement' (differs from JEE Main's 'Units and Measurements').",
+    "IB Physics: ibo.org is behind a Cloudflare challenge that never cleared (curl and headless browser both blocked), so the 2023-guide (first assessment May 2025) topic structure was reconstructed from two independent mirrors of the official guide structure — SaveMyExams and RevisionDojo — which agree on all 5 themes and all 24 sub-topics and on the HL-only markings (A.4, A.5, B.4, D.4, E.2). Both are marked 'mirror'.",
+    "IPhO: ipho.org is lapsed (its syllabus URL now serves a domain-parking redirect); the syllabus was fetched from ipho-new.org, the official IPhO website (it is the site linked as 'Official IPhO Website' by the community archive ipho-unofficial.org), and is embedded in the current Statutes & Syllabus page (amended at IPhO 2022 and IPhO 2023). The current syllabus uses the three-part structure: Theoretical skills / Experimental skills / Mathematics.",
+    "AP Physics C: the College Board course pages currently show the revised AP Physics C curricula (C: Mechanics units 1-7, C: Electricity and Magnetism units 8-13, numbering continuing across the two courses) — i.e. the revised framework now in force, not the pre-2024 'Newton's Laws / Systems of Particles' style outline; units were taken verbatim from the official apcentral.collegeboard.org pages.",
+    "Cambridge 9702: the current syllabus for exams through 2027 (2025-2027 syllabus, 25 numbered topics) was used from the official Cambridge International PDF; Cambridge has also published the 2028-2030 syllabus but it applies to exams from 2028.",
+    "CUET-UG: physics domain syllabus is the official NTA 'Physics - 322, For the Year 2026' PDF linked from the official CUET (UG) 2026 syllabus page on cuet.nta.nic.in (9 units, NCERT class-12 scope; no experimental-skills unit)."
+  ],
+  "exams": [
+    {
+      "exam": "jee-main",
+      "sources": [
+        {
+          "url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2025/10/202510311323551056.pdf",
+          "nature": "official"
+        },
+        {
+          "url": "https://jeemain.nta.nic.in/document/syllabus-2026",
+          "nature": "official"
+        }
+      ],
+      "topics": [
+        "Units and Measurements",
+        "Kinematics",
+        "Laws of Motion",
+        "Work, Energy and Power",
+        "Rotational Motion",
+        "Gravitation",
+        "Properties of Solids and Liquids",
+        "Thermodynamics",
+        "Kinetic Theory of Gases",
+        "Oscillations and Waves",
+        "Electrostatics",
+        "Current Electricity",
+        "Magnetic Effects of Current and Magnetism",
+        "Electromagnetic Induction and Alternating Currents",
+        "Electromagnetic Waves",
+        "Optics",
+        "Dual Nature of Matter and Radiation",
+        "Atoms and Nuclei",
+        "Electronic Devices",
+        "Experimental Skills",
+        "Experimental Skills: Vernier calipers — its use to measure the internal and external diameter and depth of a vessel",
+        "Experimental Skills: Screw gauge — its use to determine the thickness/diameter of thin sheet/wire",
+        "Experimental Skills: Simple pendulum — dissipation of energy by plotting a graph between the square of amplitude and time",
+        "Experimental Skills: Metre scale — the mass of a given object by the principle of moments",
+        "Experimental Skills: Young's modulus of elasticity of the material of a metallic wire",
+        "Experimental Skills: Surface tension of water by capillary rise and effect of detergents",
+        "Experimental Skills: Co-efficient of viscosity of a given viscous liquid by measuring the terminal velocity of a given spherical body",
+        "Experimental Skills: Speed of sound in air at room temperature using a resonance tube",
+        "Experimental Skills: Specific heat capacity of a given solid and liquid by method of mixtures",
+        "Experimental Skills: The resistivity of the material of a given wire using a metre bridge",
+        "Experimental Skills: The resistance of a given wire using Ohm's law",
+        "Experimental Skills: Resistance and figure of merit of a galvanometer by half deflection method",
+        "Experimental Skills: The focal length of a convex mirror, a concave mirror and a convex lens using the parallax method",
+        "Experimental Skills: The plot of the angle of deviation vs angle of incidence for a triangular prism",
+        "Experimental Skills: The refractive index of a glass slab using a travelling microscope",
+        "Experimental Skills: Characteristic curves of a p-n junction diode in forward and reverse bias",
+        "Experimental Skills: Characteristic curves of a Zener diode and finding reverse breakdown voltage",
+        "Experimental Skills: Identification of diode, LED, resistor, a capacitor from a mixed collection of such items"
+      ]
+    },
+    {
+      "exam": "jee-advanced",
+      "sources": [
+        {
+          "url": "https://www.embibe.com/exams/jee-advanced-syllabus/",
+          "nature": "mirror"
+        },
+        {
+          "url": "https://www.vedantu.com/jee-advanced/syllabus",
+          "nature": "mirror"
+        },
+        {
+          "url": "https://testbook.com/jee-advanced/syllabus",
+          "nature": "mirror"
+        },
+        {
+          "url": "https://jeeadv.ac.in/syllabus.html",
+          "nature": "official"
+        }
+      ],
+      "topics": [
+        "General",
+        "Mechanics",
+        "Thermal Physics",
+        "Electricity and Magnetism",
+        "Optics",
+        "Modern Physics",
+        "Electromagnetic Waves"
+      ]
+    },
+    {
+      "exam": "neet-ug",
+      "sources": [
+        {
+          "url": "https://nta.ac.in/Download/Notice/Notice_20260108180635.pdf",
+          "nature": "official"
+        }
+      ],
+      "topics": [
+        "Physics and Measurement",
+        "Kinematics",
+        "Laws of Motion",
+        "Work, Energy, and Power",
+        "Rotational Motion",
+        "Gravitation",
+        "Properties of Solids and Liquids",
+        "Thermodynamics",
+        "Kinetic Theory of Gases",
+        "Oscillations and Waves",
+        "Electrostatics",
+        "Current Electricity",
+        "Magnetic Effects of Current and Magnetism",
+        "Electromagnetic Induction and Alternating Currents",
+        "Electromagnetic Waves",
+        "Optics",
+        "Dual Nature of Matter and Radiation",
+        "Atoms and Nuclei",
+        "Electronic Devices",
+        "Experimental Skills",
+        "Experimental Skills: Vernier calipers — its use to measure the internal and external diameter and depth of a vessel",
+        "Experimental Skills: Screw gauge — its use to determine thickness/diameter of thin sheet/wire",
+        "Experimental Skills: Simple pendulum — dissipation of energy by plotting a graph between the square of amplitude and time",
+        "Experimental Skills: Metre scale — the mass of a given object by the principle of moments",
+        "Experimental Skills: Young's modulus of elasticity of the material of a metallic wire",
+        "Experimental Skills: Surface tension of water by capillary rise and effect of detergents",
+        "Experimental Skills: Co-efficient of viscosity of a given viscous liquid by measuring the terminal velocity of a given spherical body",
+        "Experimental Skills: Speed of sound in air at room temperature using a resonance tube",
+        "Experimental Skills: Specific heat capacity of a given solid and liquid by method of mixtures",
+        "Experimental Skills: The resistivity of the material of a given wire using a metre bridge",
+        "Experimental Skills: The resistance of a given wire using Ohm's law",
+        "Experimental Skills: Resistance and figure of merit of a galvanometer by half deflection method",
+        "Experimental Skills: The focal length of a convex mirror, a concave mirror and a convex lens using the parallax method",
+        "Experimental Skills: The plot of the angle of deviation vs angle of incidence for a triangular prism",
+        "Experimental Skills: Refractive index of a glass slab using a travelling microscope",
+        "Experimental Skills: Characteristic curves of a p-n junction diode in forward and reverse bias",
+        "Experimental Skills: Characteristic curves of a Zener diode and finding reverse breakdown voltage",
+        "Experimental Skills: Identification of diode, LED, resistor, a capacitor from a mixed collection of such items"
+      ]
+    },
+    {
+      "exam": "cuet-ug",
+      "sources": [
+        {
+          "url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512271334142557.pdf",
+          "nature": "official"
+        },
+        {
+          "url": "https://cuet.nta.nic.in/cuetug-2026-syllabus/",
+          "nature": "official"
+        }
+      ],
+      "topics": [
+        "Electrostatics",
+        "Current Electricity",
+        "Magnetic Effects of Current and Magnetism",
+        "Electromagnetic Induction and Alternating Currents",
+        "Electromagnetic Waves",
+        "Optics",
+        "Dual Nature of Matter and Radiation",
+        "Atoms and Nuclei",
+        "Electronic Devices"
+      ]
+    },
+    {
+      "exam": "gate-ph",
+      "sources": [
+        {
+          "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/PH_2026_Syllabus.pdf",
+          "nature": "official"
+        }
+      ],
+      "topics": [
+        "Mathematical Physics",
+        "Classical Mechanics",
+        "Lagrangian Formulation",
+        "Special Theory of Relativity",
+        "Electromagnetic Theory",
+        "Quantum Mechanics",
+        "Thermodynamics and Statistical Physics",
+        "Atomic and Molecular Physics",
+        "Solid State Physics",
+        "Electronics",
+        "Semiconductors in Equilibrium",
+        "Nuclear and Particle Physics"
+      ]
+    },
+    {
+      "exam": "csir-net-physical",
+      "sources": [
+        {
+          "url": "https://csirhrdg.res.in/SiteContent/ManagedContent/ContentFiles/20181113115324688mcs_ph_sylbs.pdf",
+          "nature": "official"
+        }
+      ],
+      "topics": [
+        "Part A (Core): Mathematical Methods of Physics",
+        "Part A (Core): Classical Mechanics",
+        "Part A (Core): Electromagnetic Theory",
+        "Part A (Core): Quantum Mechanics",
+        "Part A (Core): Thermodynamic and Statistical Physics",
+        "Part A (Core): Electronics and Experimental Methods",
+        "Part B (Advanced): Mathematical Methods of Physics",
+        "Part B (Advanced): Classical Mechanics",
+        "Part B (Advanced): Electromagnetic Theory",
+        "Part B (Advanced): Quantum Mechanics",
+        "Part B (Advanced): Thermodynamic and Statistical Physics",
+        "Part B (Advanced): Electronics and Experimental Methods",
+        "Part B (Advanced): Atomic & Molecular Physics",
+        "Part B (Advanced): Condensed Matter Physics",
+        "Part B (Advanced): Nuclear and Particle Physics"
+      ]
+    },
+    {
+      "exam": "ap-physics-1",
+      "sources": [
+        {
+          "url": "https://apstudents.collegeboard.org/courses/ap-physics-1-algebra-based",
+          "nature": "official"
+        }
+      ],
+      "topics": [
+        "Kinematics",
+        "Force and Translational Dynamics",
+        "Work, Energy, and Power",
+        "Linear Momentum",
+        "Torque and Rotational Dynamics",
+        "Energy and Momentum of Rotating Systems",
+        "Oscillations",
+        "Fluids"
+      ]
+    },
+    {
+      "exam": "ap-physics-2",
+      "sources": [
+        {
+          "url": "https://apcentral.collegeboard.org/courses/ap-physics-2",
+          "nature": "official"
+        }
+      ],
+      "topics": [
+        "Thermodynamics",
+        "Electric Force, Field, and Potential",
+        "Electric Circuits",
+        "Magnetism and Electromagnetism",
+        "Geometric Optics",
+        "Waves, Sound, and Physical Optics",
+        "Modern Physics"
+      ]
+    },
+    {
+      "exam": "ap-physics-c-mech",
+      "sources": [
+        {
+          "url": "https://apcentral.collegeboard.org/courses/ap-physics-c-mechanics",
+          "nature": "official"
+        }
+      ],
+      "topics": [
+        "Kinematics",
+        "Force and Translational Dynamics",
+        "Work, Energy, and Power",
+        "Linear Momentum",
+        "Torque and Rotational Dynamics",
+        "Energy and Momentum of Rotating Systems",
+        "Oscillations"
+      ]
+    },
+    {
+      "exam": "ap-physics-c-em",
+      "sources": [
+        {
+          "url": "https://apcentral.collegeboard.org/courses/ap-physics-c-electricity-and-magnetism",
+          "nature": "official"
+        }
+      ],
+      "topics": [
+        "Electric Charges, Fields, and Gauss's Law",
+        "Electric Potential",
+        "Conductors and Capacitors",
+        "Electric Circuits",
+        "Magnetic Fields and Electromagnetism",
+        "Electromagnetic Induction"
+      ]
+    },
+    {
+      "exam": "ib-physics",
+      "sources": [
+        {
+          "url": "https://www.savemyexams.com/dp/physics/ib/23/hl/revision-notes/",
+          "nature": "mirror"
+        },
+        {
+          "url": "https://www.revisiondojo.com/ib/ib-physics-new",
+          "nature": "mirror"
+        },
+        {
+          "url": "https://www.ibo.org/programmes/diploma-programme/curriculum/sciences/physics/",
+          "nature": "official"
+        }
+      ],
+      "topics": [
+        "Theme A: Space, time and motion",
+        "A.1 Kinematics",
+        "A.2 Forces and momentum",
+        "A.3 Work, energy and power",
+        "A.4 Rigid body mechanics (HL only)",
+        "A.5 Galilean and special relativity (HL only)",
+        "Theme B: The particulate nature of matter",
+        "B.1 Thermal energy transfers",
+        "B.2 Greenhouse effect",
+        "B.3 Gas laws",
+        "B.4 Thermodynamics (HL only)",
+        "B.5 Current and circuits",
+        "Theme C: Wave behaviour",
+        "C.1 Simple harmonic motion",
+        "C.2 Wave model",
+        "C.3 Wave phenomena",
+        "C.4 Standing waves and resonance",
+        "C.5 Doppler effect",
+        "Theme D: Fields",
+        "D.1 Gravitational fields",
+        "D.2 Electric and magnetic fields",
+        "D.3 Motion in electromagnetic fields",
+        "D.4 Induction (HL only)",
+        "Theme E: Nuclear and quantum physics",
+        "E.1 Structure of the atom",
+        "E.2 Quantum physics (HL only)",
+        "E.3 Radioactive decay",
+        "E.4 Fission",
+        "E.5 Fusion and stars",
+        "Tool 1: Experimental techniques",
+        "Tool 2: Technology",
+        "Tool 3: Mathematics",
+        "Inquiry 1: Exploring and designing",
+        "Inquiry 2: Collecting and processing data",
+        "Inquiry 3: Concluding and evaluating"
+      ]
+    },
+    {
+      "exam": "a-levels-physics",
+      "sources": [
+        {
+          "url": "https://www.cambridgeinternational.org/Images/664565-2025-2027-syllabus.pdf",
+          "nature": "official"
+        },
+        {
+          "url": "https://www.cambridgeinternational.org/programmes-and-qualifications/view/cambridge-international-as-and-a-level-physics-9702/",
+          "nature": "official"
+        }
+      ],
+      "topics": [
+        "Physical quantities and units",
+        "Kinematics",
+        "Dynamics",
+        "Forces, density and pressure",
+        "Work, energy and power",
+        "Deformation of solids",
+        "Waves",
+        "Superposition",
+        "Electricity",
+        "D.C. circuits",
+        "Particle physics",
+        "Motion in a circle",
+        "Gravitational fields",
+        "Temperature",
+        "Ideal gases",
+        "Thermodynamics",
+        "Oscillations",
+        "Electric fields",
+        "Capacitance",
+        "Magnetic fields",
+        "Alternating currents",
+        "Quantum physics",
+        "Nuclear physics",
+        "Medical physics",
+        "Astronomy and cosmology"
+      ]
+    },
+    {
+      "exam": "ipho",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/statutes-syllabus/",
+          "nature": "official"
+        }
+      ],
+      "topics": [
+        "Theoretical skills",
+        "General",
+        "Mechanics",
+        "Kinematics",
+        "Statics",
+        "Dynamics",
+        "Celestial mechanics",
+        "Hydrodynamics",
+        "Electromagnetic fields",
+        "Basic concepts",
+        "Integral forms of Maxwell's equations",
+        "Interaction of matter with electric and magnetic fields",
+        "Circuits",
+        "Oscillations and waves",
+        "Single oscillator",
+        "Waves",
+        "Interference and diffraction",
+        "Interaction of electromagnetic waves with matter",
+        "Geometrical optics and photometry",
+        "Optical devices",
+        "Relativity",
+        "Quantum Physics",
+        "Probability waves",
+        "Structure of matter",
+        "Thermodynamics and statistical physics",
+        "Classical thermodynamics",
+        "Heat transfer and phase transitions",
+        "Statistical physics",
+        "Experimental skills",
+        "Safety",
+        "Measurement techniques and apparatus",
+        "Accuracy",
+        "Experimental uncertainty analysis",
+        "Data analysis",
+        "Mathematics",
+        "Algebra",
+        "Functions",
+        "Geometry and stereometry",
+        "Vectors",
+        "Complex numbers",
+        "Statistics",
+        "Calculus",
+        "Approximate and numerical methods"
+      ]
+    }
+  ]
+}

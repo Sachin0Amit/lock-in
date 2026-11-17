@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Ethics — the third book of the Mind branch.
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `eth-` prefix
+ * 37 planned lessons, zero written. Lesson ids will use the `eth-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Ethics owns the applied-moral register — the GS4 syllabus’s whole territory. Philosophy owns the normative theories’ history and the meta-ethics depth (the two cross-reference — the thinkers’ survey here for the moral-use, the full canon there; the contract stated in both books); Psychology owns the attitude and EI science (the mechanism chapters there, the administrative application here); Public Administration owns the accountability machinery (this book’s probity chapter is the values side, that book the institutional side); the CS shelf’s books cross-reference for the technology ethics.
@@ -59,6 +59,8 @@ const chapters: Chapter[] = [
       'The Kantian Register',
       'The Virtue Register',
       'The Thinkers from India and the World',
+    
+      'Paper-I 11. Relevance of Menarche, Menopause and Other Bio-events to Fertility; Demographic Theories; Factors Influencing Fecundity, Fertility, Natality and Mortality'
     ],
   },
   {

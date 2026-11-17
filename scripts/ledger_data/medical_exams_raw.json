@@ -1,0 +1,224 @@
+{
+  "ledger": "medical_exams",
+  "discipline": "medical-sciences",
+  "notes": [
+    "Sandbox egress restrictions: general web-search engines were unusable (Bing served poisoned/irrelevant results; DuckDuckGo, Mojeek unreachable), so discovery was done by navigating reachable sites (nclex.com, careers360.com, getmyuni.com, pw.live, pharmatutor.org, magoosh.com, en.wikipedia.org API) and following links actually seen on fetched pages. Every topic line below comes from a page listed in that exam's 'sources'.",
+    "Official sites unreachable from this sandbox: natboard.edu.in (NBEMS, HTTP 403), indianursingcouncil.org (INC), vciindia.in (VCI), dcindia.gov.in (DCI), nta.ac.in (NTA), aamc.org (AAMC, HTTP 403). Reputable medical-education mirrors were used for those exams, as permitted by the brief.",
+    "NCLEX-RN is the only exam sourced OFFICIALLY: client-need categories, subcategories and content lines were extracted from the NCSBN '2026 NCLEX-RN Test Plan' PDF hosted on nclex.com (the current test-plan vintage, reviewed/approved every three years; supersedes the 2023 plan).",
+    "FMGE: subject set and unit names from Careers360's mirror of the NBEMS FMGE/FMGQE syllabus (Anatomy through Community Medicine, ~312 named units). Unit-level detail was compressed to subject lines plus key sub-topic lines for Medicine, per the agreed granularity; Anesthesia/Orthopedics/Radiodiagnosis/Radiotherapy are kept as separate lines since they are the syllabus' named Surgery-cluster subjects.",
+    "NEET PG: pre-clinical/para-clinical/clinical subject-wise structure, integrated subject qualifiers (Medicine incl. Dermatology/Venereology/Psychiatry; Surgery incl. Orthopedics/Anesthesia/Radiodiagnosis) and topic lines from PW's (pw.live) NEET PG 2026 syllabus mirror; NBEMS official page unreachable.",
+    "GPAT: 19 subject sections from Careers360's mirror of the NBEMS GPAT syllabus (the article explicitly states NBEMS prepares the GPAT syllabus).",
+    "INC BSc Nursing: official INC portal unreachable; 8-semester subject structure from a GetMyUni mirror of the INC B.Sc Nursing 2020 Regulations curriculum. Mirror wording may compress official subject titles; non-clinical/general subjects in the mirror list (English, Introduction to Computers, Psychology, Sociology) and obvious filler (Library, Self-Study, Viva) were omitted to keep this medical-sciences ledger focused and within the line budget.",
+    "VCI BVSc & AH: official VCI portal unreachable; 9-semester subject list from a GetMyUni mirror of the MSVE-2016-era BVSc & AH curriculum, consolidated to subject level (detailed semester course titles like 'Veterinary Gross Anatomy I/II' merged).",
+    "DCI BDS: official DCI portal unreachable; year-wise subject set from Careers360's BDS course page (DCI BDS Course Regulations subject names), deduplicated across years (several subjects appear in both 3rd and 4th year in the mirror).",
+    "MCAT: AAMC official site blocked (403); section structure and the four Scientific Inquiry & Reasoning Skills from the Wikipedia article (tertiary mirror). The 10 foundational concepts' lettered content categories (e.g., 1A-10D) could NOT be fetched from any reachable source and are deliberately left unlisted rather than guessed - flagged as the main unverified gap.",
+    "Fetch discipline: at most ~2 syllabus-page fetches per exam after navigation pages; saved pages were re-parsed locally instead of re-fetching the same URL."
+  ],
+  "exams": [
+    {
+      "exam": "fmge",
+      "sources": [
+        {"url": "https://medicine.careers360.com/exams/fmge", "nature": "mirror"}
+      ],
+      "topics": [
+        "Anatomy",
+        "Physiology",
+        "Biochemistry",
+        "Pathology",
+        "Microbiology",
+        "Pharmacology",
+        "Forensic Medicine",
+        "Community Medicine",
+        "General Surgery",
+        "Anesthesia",
+        "Orthopedics",
+        "Radiodiagnosis",
+        "Radiotherapy",
+        "Medicine",
+        "Medicine: Infectious Diseases",
+        "Medicine: Cardiovascular System",
+        "Medicine: Neurology",
+        "Tuberculosis and Respiratory Diseases",
+        "Psychiatry",
+        "Dermatology and Sexually Transmitted Diseases",
+        "Ophthalmology",
+        "Otorhinolaryngology (ENT)",
+        "Obstetrics and Gynecology",
+        "Paediatrics"
+      ]
+    },
+    {
+      "exam": "neet-pg",
+      "sources": [
+        {"url": "https://www.pw.live/neet-pg/exams/neet-pg-2026-syllabus", "nature": "mirror"}
+      ],
+      "topics": [
+        "Anatomy",
+        "Physiology",
+        "Biochemistry",
+        "Pathology",
+        "Microbiology",
+        "Pharmacology",
+        "Forensic Medicine",
+        "Social and Preventive Medicine (Community Medicine)",
+        "General Medicine (including Dermatology, Venereology and Psychiatry)",
+        "General Surgery (including Orthopedics, Anesthesia and Radiodiagnosis)",
+        "Obstetrics and Gynecology",
+        "Pediatrics",
+        "ENT (Otorhinolaryngology)",
+        "Ophthalmology",
+        "Medicine: Infectious Diseases",
+        "Medicine: Cardiovascular Diseases",
+        "Medicine: Neurology",
+        "Surgery: Trauma, Wound Healing and Abdominal Surgery"
+      ]
+    },
+    {
+      "exam": "gpate",
+      "sources": [
+        {"url": "https://www.careers360.com/pharmacy/articles/gpat-syllabus", "nature": "mirror"}
+      ],
+      "topics": [
+        "Pharmacology",
+        "Physical Chemistry",
+        "Physical Pharmacy",
+        "Organic Chemistry",
+        "Dispensing and Hospital Pharmacy",
+        "Pharmaceutical Chemistry (Pharmaceutical Inorganic Chemistry, Medicinal Chemistry)",
+        "Pharmaceutical Jurisprudence",
+        "Pharmaceutical Management",
+        "Pharmaceutics",
+        "Pharmaceutical Engineering",
+        "Pharmacognosy",
+        "Human Anatomy and Physiology",
+        "Pharmaceutical Analysis",
+        "Clinical Pharmacy and Therapeutics",
+        "Biochemistry",
+        "Biopharmaceutics and Pharmacokinetics",
+        "Biotechnology",
+        "Pathophysiology",
+        "Microbiology"
+      ]
+    },
+    {
+      "exam": "nclex-rn",
+      "sources": [
+        {"url": "https://www.nclex.com/test-plans.page", "nature": "official"},
+        {"url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf", "nature": "official"}
+      ],
+      "topics": [
+        "Safe and Effective Care Environment",
+        "Safe and Effective Care Environment: Management of Care",
+        "Safe and Effective Care Environment: Safety and Infection Prevention and Control",
+        "Health Promotion and Maintenance",
+        "Psychosocial Integrity",
+        "Physiological Integrity",
+        "Physiological Integrity: Basic Care and Comfort",
+        "Physiological Integrity: Pharmacological and Parenteral Therapies",
+        "Physiological Integrity: Reduction of Risk Potential",
+        "Physiological Integrity: Physiological Adaptation",
+        "Management of Care: Assignment, Delegation and Supervision",
+        "Management of Care: Informed Consent and Client Rights",
+        "Pharmacological and Parenteral Therapies: Medication Administration",
+        "Physiological Adaptation: Medical Emergencies"
+      ]
+    },
+    {
+      "exam": "inc-bsc",
+      "sources": [
+        {"url": "https://www.getmyuni.com/bsc-nursing-syllabus-subjects", "nature": "mirror"}
+      ],
+      "topics": [
+        "Semester I: Anatomy",
+        "Semester I: Biochemistry",
+        "Semester I: Nursing Foundation I",
+        "Semester I: Microbiology",
+        "Semester II: Physiology",
+        "Semester II: Nutrition",
+        "Semester II: Nursing Foundation II",
+        "Semester III: Pathology",
+        "Semester III: Medical-Surgical Nursing",
+        "Semester IV: Pharmacology",
+        "Semester IV: Genetics",
+        "Semester IV: Communication and Educational Technology",
+        "Semester IV: Community Health Nursing I",
+        "Semester V: Medical-Surgical Nursing II",
+        "Semester V: Child Health Nursing",
+        "Semester VI: Nursing Research and Statistics",
+        "Semester VI: Mental Health Nursing",
+        "Semester VII: Midwifery and Obstetrical Nursing",
+        "Semester VII: Community Health Nursing II",
+        "Semester VIII: Management of Nursing Services and Education"
+      ]
+    },
+    {
+      "exam": "vci-bvsc",
+      "sources": [
+        {"url": "https://www.getmyuni.com/bvsc-and-ah-syllabus-subjects", "nature": "mirror"}
+      ],
+      "topics": [
+        "Veterinary Anatomy (Gross Anatomy, Histology and Embryology, Splanchnology)",
+        "Veterinary Physiology",
+        "Veterinary Biochemistry",
+        "Animal Nutrition and Feed Technology",
+        "Livestock Production Management (including Poultry Production and Hatchery Management, Fodder Production and Grassland Management)",
+        "Animal Genetics and Breeding",
+        "Biostatistics and Computer Applications",
+        "Veterinary Parasitology (Helminthology, Entomology, Protozoology)",
+        "Veterinary Pathology (General, Systemic, Special and Avian Pathology)",
+        "Veterinary Microbiology and Immunology",
+        "Veterinary Public Health and Epidemiology (Milk and Meat Hygiene, Food Safety, Zoonoses, Abattoir Practice)",
+        "Veterinary Pharmacology (including Chemotherapy)",
+        "Veterinary Surgery, Anaesthesiology and Diagnostic Imaging (including Orthopedics)",
+        "Veterinary Gynecology, Obstetrics and Andrology",
+        "Veterinary Clinical Medicine (including Clinical Biochemistry and Laboratory Diagnosis)",
+        "Veterinary Extension Education and Livestock Economics",
+        "Animal Welfare, Ethics and Jurisprudence"
+      ]
+    },
+    {
+      "exam": "dci-bds",
+      "sources": [
+        {"url": "https://www.careers360.com/courses/bds-bachelor-of-dental-surgery", "nature": "mirror"}
+      ],
+      "topics": [
+        "First Year: General Human Anatomy including Embryology and Histology",
+        "First Year: General Human Physiology and Biochemistry",
+        "First Year: Dental Anatomy, Embryology and Oral Histology",
+        "First Year: Dental Materials",
+        "First Year: Pre-clinical Prosthodontics and Crown and Bridge",
+        "Second Year: General Pathology and Microbiology",
+        "Second Year: General and Dental Pharmacology and Therapeutics",
+        "Second Year: Preclinical Conservative Dentistry",
+        "Second Year: Oral Pathology and Oral Microbiology",
+        "Third Year: General Medicine",
+        "Third Year: General Surgery",
+        "Third Year: Conservative Dentistry and Endodontics",
+        "Third/Fourth Year: Oral and Maxillofacial Surgery",
+        "Third/Fourth Year: Oral Medicine and Radiology",
+        "Fourth Year: Orthodontics and Dentofacial Orthopaedics",
+        "Fourth Year: Paediatric and Preventive Dentistry",
+        "Fourth Year: Periodontology",
+        "Fourth Year: Prosthodontics and Crown and Bridge",
+        "Fourth Year: Public Health Dentistry"
+      ]
+    },
+    {
+      "exam": "mcat",
+      "sources": [
+        {"url": "https://en.wikipedia.org/wiki/Medical_College_Admission_Test", "nature": "mirror"}
+      ],
+      "topics": [
+        "Chemical and Physical Foundations of Biological Systems",
+        "Critical Analysis and Reasoning Skills (CARS)",
+        "CARS: Reading Comprehension (humanities and social sciences passages)",
+        "Biological and Biochemical Foundations of Living Systems",
+        "Psychological, Social and Biological Foundations of Behavior",
+        "Scientific Inquiry and Reasoning Skills: Knowledge of Scientific Concepts and Principles",
+        "Scientific Inquiry and Reasoning Skills: Scientific Reasoning and Problem Solving",
+        "Scientific Inquiry and Reasoning Skills: Reasoning about the Design and Execution of Research",
+        "Scientific Inquiry and Reasoning Skills: Data-based and Statistical Reasoning"
+      ]
+    }
+  ]
+}

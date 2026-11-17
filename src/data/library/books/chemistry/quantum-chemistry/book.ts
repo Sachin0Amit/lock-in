@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Quantum Chemistry — the eighth book of the Chemistry shelf.
  *
  * STATUS: PLANNED (Chemistry full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `qchem-` prefix
+ * 34 planned lessons, zero written. Lesson ids will use the `qchem-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Quantum Chemistry owns the chemist’s quantum register (the GATE CY Physical Chemistry section’s structure-and-quantum half, read this pass — postulates, operators, the Schrodinger equations). The physics shelf’s quantum-mechanics book owns the formalism deep side; the computational book owns the applied machinery — cross-referenced honestly both ways.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'Bohr\u2019s Chemical Seed',
       'The Wave Honesty',
       'The Dual Register',
+    
+      'Electrophilic addition: addition to double and triple bonds, regioselectivity (Markovnikoff/Kharasch rule), stereochemistry'
     ],
   },
   {
@@ -90,6 +92,8 @@ const chapters: Chapter[] = [
       'Hund Applied',
       'The Selection Preview',
       'Electronic Structure Methods: The Approximation Ladder',
+    
+      'Approximate methods of quantum mechanics'
     ],
   },
   {

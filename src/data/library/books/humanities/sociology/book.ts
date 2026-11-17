@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Sociology — the first book of the Society branch.
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 39 planned lessons, zero written. Lesson ids will use the `soc-` prefix
+ * 46 planned lessons, zero written. Lesson ids will use the `soc-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Sociology owns the social register — the theory and the Indian social structure. Anthropology owns the comparative-human and the small-scale register (the kinship and marriage depth lives in both — cross-referenced, the sociological reading here, the ethnographic there); Cultural Studies owns the meaning-and-media register (this book’s media chapter is the social reading, that book’s the cultural-theory reading); the Psychology book owns the individual mind (this book’s socialisation chapter is the group side); the GS1 society lines are this book’s applied register.
@@ -44,6 +44,8 @@ const chapters: Chapter[] = [
       'The Observation and the Ethnography',
       'The Ethics of Research',
       'The Statistics Handshake',
+    
+      'Psychological Testing'
     ],
   },
   {
@@ -59,6 +61,8 @@ const chapters: Chapter[] = [
       'Durkheim and Weber',
       'The Interactionists and the Functionalists',
       'The Contemporary Syntheses',
+    
+      'Quantitative Techniques (Class 10 elementary mathematics, tested through sets of facts, graphs or other diagrammatic representations of numerical information)'
     ],
   },
   {
@@ -119,6 +123,9 @@ const chapters: Chapter[] = [
       'Education and Religion',
       'Work and the Informal Sector',
       'Media and Health',
+    
+      'Indian Foreign Policy - determinants and institutions of policy-making; continuity and change',
+      'Unit VIII: Colonial Economy and Indian Society in Transition (changing composition and direction of trade; commercialisation of agriculture; decline of industries; economic drain; famines and epidemics; the new education; Indian Renaissance; women\'s question; printing press and public opinion)'
     ],
   },
   {
@@ -149,6 +156,10 @@ const chapters: Chapter[] = [
       'The Village Studies Arc',
       'The Tribes and the Plurality',
       'The Indian Family and Kinship',
+    
+      'Paper-II 3. Traditional Indian Social System and Caste (Varnashram, Purushartha, Karma, Rina and Rebirth; theories of the origin of the caste system; dominant caste and caste mobility; jajmani system; tribe-caste continuum; sacred complex; impact of Buddhism, Jainism, Islam and Christianity)',
+      'Paper-II 5. Indian Village, Minorities and Socio-Cultural Change (Indian village as a social system; agrarian relations; impact of globalisation on villages; linguistic and religious minorities; Sanskritization, Westernization, Modernization; inter-play of little and great traditions; Panchayati',
+      'Paper-II 7. Exploitation and Deprivation of Scheduled Castes, Scheduled Tribes and Other Backward Classes; constitutional safeguards; ethnicity and ethnic conflicts; regionalism and demand for autonomy; social change among tribes during colonial and post-independent India'
     ],
   },
   {

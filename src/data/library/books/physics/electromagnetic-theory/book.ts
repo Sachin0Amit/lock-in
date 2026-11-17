@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Electromagnetic Theory — the seventh book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `emt-` prefix
+ * 41 planned lessons, zero written. Lesson ids will use the `emt-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Electromagnetic Theory owns the Maxwell-level register (GATE PH Electromagnetic Theory section read this pass: vector calculus, electrostatics and magnetostatics including boundary-value problems, Maxwell’s equations, plane waves and waveguides). Electricity-and-magnetism owns the school side; optics owns the light-wave phenomena; the engineering shelf’s electromagnetic-fields-and-waves book owns the applied ECE register — honest cross-references both ways.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The Theorem Pair',
       'Curvilinear Coordinates',
       'Line and Surface Integrals',
+    
+      'Theme D: Fields'
     ],
   },
   {

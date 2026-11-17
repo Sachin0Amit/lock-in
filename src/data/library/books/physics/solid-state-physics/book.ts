@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Solid-State Physics — the thirteenth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `ssp-` prefix
+ * 37 planned lessons, zero written. Lesson ids will use the `ssp-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Solid-State Physics owns the condensed-matter register (GATE PH Condensed Matter Physics section read this pass). Modern-physics owns the device first-pass; the engineering shelf’s materials-science and vlsi books own the applied materials and device-engineering registers; the chemistry shelf’s physical-chemistry register is cross-referenced as the sibling view.
@@ -43,6 +43,8 @@ const chapters: Chapter[] = [
       'Bragg and Laue',
       'Structure Factors',
       'Determination Craft',
+    
+      'Experimental Skills: Specific heat capacity of a given solid and liquid by method of mixtures'
     ],
   },
   {

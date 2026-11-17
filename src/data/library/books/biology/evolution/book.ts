@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Evolution — the fifth book of the Biology shelf (the honest fold: the core line Evolutionary and the zoology line Evolution share this one register).
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `evo-` prefix
+ * 37 planned lessons, zero written. Lesson ids will use the `evo-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Evolution owns the full evolutionary register for the whole library — the single honest fold of the core line and the zoology line into one book (the animal-side examples live in its chapters, the plant-side cross-references plant-genetics). Population-genetics arithmetic is shared with genetics (the Hardy-Weinberg engine owned there, its evolutionary consequences owned here); the NEET evolution unit is priced here; the origins-of-life register is cross-referenced from the chemistry shelf’s foundation book.
@@ -45,6 +45,8 @@ const chapters: Chapter[] = [
       'Sexual Selection\u2019s Honest Tail',
       'Natural Selection and Its Types',
       'Darwin\'s Contribution and the Modern Synthetic Theory',
+    
+      'Chemotherapy/Antibiotics'
     ],
   },
   {

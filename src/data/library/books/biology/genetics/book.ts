@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Genetics — the fourth book of the Biology shelf.
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `gen-` prefix
+ * 38 planned lessons, zero written. Lesson ids will use the `gen-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Genetics owns the transmission-and-population register above the molecule. The molecular machinery (replication-to-translation, regulation) belongs to molecular-biology; the plant-breeding exploitation belongs to plant-genetics; the clinical counselling and diagnostic register belongs to the medical shelf’s books (cross-referenced); the statistical engine (chi-square, the probability craft) is owned here as the discipline’s own mathematics.
@@ -92,6 +92,8 @@ const chapters: Chapter[] = [
       'The Mitochondrial Pedigrees',
       'The Endosymbiotic Receipt',
       'The Applications Named',
+    
+      'Monoclonal antibodies and their applications'
     ],
   },
   {
@@ -122,6 +124,8 @@ const chapters: Chapter[] = [
       'The Five Forces Named',
       'Drift\u2019s Sampling Honesty',
       'Selection\u2019s Three Modes',
+    
+      'D11 Selection'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Architecture — the thirty-third book of the Arts-Music shelf (the design register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `archt-` prefix
+ * 21 planned lessons, zero written. Lesson ids will use the `archt-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Architecture owns the built register. The structures’-depth to the engineering shelf’s structural books (cross-referenced — the sibling views); the history’s-depth to the humanities shelf’s art-history book (cross-referenced); the drawing’s-foundation to drawing; the interior’s-craft to interior-design; the model’s rendering to 3d-modelling; the graded-and-ARE registers are priced here.
@@ -58,6 +58,8 @@ const chapters: Chapter[] = [
       'The Scale Named',
       'The Study-Presentation Division Named',
       'The Tool Honesty Held',
+    
+      'Prelims typical areas (mirror): drawing and design — drawing a scene from a given viewpoint, storyboards, posters, product ideas and redesign for specific users'
     ],
   },
   {

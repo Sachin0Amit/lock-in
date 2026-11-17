@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Contemporary Dance — the twenty-sixth book of the Arts-Music shelf (the performing register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `ctd-` prefix
+ * 21 planned lessons, zero written. Lesson ids will use the `ctd-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Contemporary Dance owns the modern register. The fundamentals to dance-fundamentals; the classical to classical-dance; the Laban’s-effort full system owned here; the composition’s-craft cross-referenced from music-composition; the screen’s-craft to film-studies (cross-referenced); the graded registers are priced here.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The Contraction Division Held Straight',
       'The Coin Receipt Named',
       'The Judson Named',
+    
+      'Unit IV (common): Research Methodology and Pedagogy, Avenues, Interdisciplinary aspects and Modern Technology'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Clinical Immunology — the eighth book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 6 chapters /
- * 24 planned lessons, zero written. Lesson ids will use the `climm-` prefix
+ * 25 planned lessons, zero written. Lesson ids will use the `climm-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Clinical Immunology owns the bedside register. The general machinery (the clonal selection, the receptor’s craft) belongs to the biology shelf’s immunology book (the sibling views — machinery there, clinic here); the pathogen-and-HIV register to medical-microbiology; the immunosuppressant-and-drug register to pharmacology; the autoimmune mechanism’s depth cross-referenced from pathology; the NEET-and-FMGE lines are priced here.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The Three Failure Kinds as the Map',
       'The Maternal-IgG Window Named',
       'The Serology Preview Held',
+    
+      'CARS: Reading Comprehension (humanities and social sciences passages)'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Macroeconomics — the third book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `macro-` prefix
+ * 41 planned lessons, zero written. Lesson ids will use the `macro-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Macroeconomics owns the aggregate register (UGC NET Economics unit 2 read this pass). Monetary-economics owns the money-and-banking deep side; public-economics owns the government-budget deep side; international-economics owns the open-economy deep side; each is previewed here, never duplicated.
@@ -43,6 +43,8 @@ const chapters: Chapter[] = [
       'The Money-Demand Trio',
       'The LM Groundwork',
       'The Rate Ladder Previewed',
+    
+      'Introductory Macroeconomics: Money and Banking'
     ],
   },
   {
@@ -174,7 +176,7 @@ export const macroeconomics: Book = {
   subtitle: 'The aggregate economy: output, money and growth read from the Keynesian cross to the modern policy register',
   discipline: 'economics-commerce',
   level: 'University intermediate + UGC NET unit 2 + competitive',
-  description: 'The intermediate macro course: national-income accounting\u2019s measurement craft, the IS-LM aggregate-demand machinery, the Phillips-curve and expectations register, fiscal and monetary policy\u2019s transmission, growth theory\u2019s Solow engine, and the open-economy preview with the doorway to the modern research register.',
+  description: 'The intermediate macro course: national-income accounting\u2019s measurement craft, the IS-LM aggregate-demand machinery, the Phillips-curve and expectations register, fiscal and monetary policy\u2019s transmission, growth theory\u2019s Solow engine, and the open-economy preview with the doorway to the modern research register. Cross-references monetary-economics (the banking deepening), international-economics (the open-economy register) and public-economics; hands off honestly.',
   status: 'planned',
   accent: ['#059669', '#064e3b'],
   chapters,

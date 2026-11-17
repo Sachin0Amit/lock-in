@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Development Economics — the fifth book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `deveco-` prefix
+ * 34 planned lessons, zero written. Lesson ids will use the `deveco-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Development Economics owns the transformation register (the UGC NET Economics development unit read this pass). Macroeconomics owns the growth-theory formal side; environmental-studies (humanities shelf) owns the sustainability science side — cross-referenced honestly; the Indian development register is priced throughout as the standing case.
@@ -29,6 +29,9 @@ const chapters: Chapter[] = [
       'The HDI Computed and Criticised',
       'The Capability Frame',
       'Indian Economy on the Eve of Independence',
+    
+      'Indian Economic Development: Current Challenges facing the Indian Economy',
+      'Indian Economic Development: Current Challenges facing Indian Economy'
     ],
   },
   {

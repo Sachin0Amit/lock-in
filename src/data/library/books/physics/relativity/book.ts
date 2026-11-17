@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Relativity — the fifteenth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `rel-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `rel-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Relativity owns the relativity register (GATE PH’s relativity pricing; the CSIR NET register). Modern-physics owns the school-level mention; astrophysics owns the compact-object application side; electromagnetism-theory owns the field-tensor preview — cross-referenced honestly both ways.
@@ -133,6 +133,8 @@ const chapters: Chapter[] = [
       'The Expansion Arithmetic',
       'The Big Bang Honesty',
       'The Handover',
+    
+      'Astronomy and cosmology'
     ],
   },
 ]

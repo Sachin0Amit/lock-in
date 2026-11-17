@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Veterinary Medicine — the eighteenth book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `vet-` prefix
+ * 25 planned lessons, zero written. Lesson ids will use the `vet-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Veterinary Medicine owns the animal-patient register. The general parasite register to the biology shelf’s parasitology (the sibling views); the microbiology to medical-microbiology (the shared organisms with the veterinary difference); the pharmacology to pharmacology (the dose’s species arithmetic); the public-health to community-medicine (the One Health bridge); the NEET-and-BVSc lines are priced here.
@@ -50,6 +50,9 @@ const chapters: Chapter[] = [
       'Veterinary and Animal Husbandry Extension Education',
       'Veterinary Biochemistry',
       'Livestock Farm Practices',
+    
+      'Livestock Production Management (including Poultry Production and Hatchery Management, Fodder Production and Grassland Management)',
+      'Animal Welfare, Ethics and Jurisprudence'
     ],
   },
   {
@@ -67,6 +70,8 @@ const chapters: Chapter[] = [
       'The Notifiable Register Named',
       'Veterinary Pharmacology and Toxicology',
       'Veterinary Microbiology and Pathology',
+    
+      'Veterinary Parasitology (Helminthology, Entomology, Protozoology)'
     ],
   },
   {
@@ -85,6 +90,9 @@ const chapters: Chapter[] = [
       'Veterinary Medicine: The Clinical Register',
       'Veterinary Gynaecology and Obstetrics',
       'Veterinary Surgery and Radiology',
+    
+      'Veterinary Surgery, Anaesthesiology and Diagnostic Imaging (including Orthopedics)',
+      'Veterinary Gynecology, Obstetrics and Andrology'
     ],
   },
   {

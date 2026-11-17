@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Medical Microbiology — the seventh book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 7 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `medmic-` prefix
+ * 29 planned lessons, zero written. Lesson ids will use the `medmic-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Medical Microbiology owns the clinical pathogen register. The organisms’ general biology belongs to the biology shelf’s microbiology (the sibling views — the organism there, the disease here); the host’s immune answer to clinical-immunology; the drug-and-antimicrobial register to pharmacology; the parasitology’s clinical map cross-referenced to the biology shelf’s parasitology book; the NEET-and-FMGE lines are priced here.
@@ -31,6 +31,8 @@ const chapters: Chapter[] = [
       'Normal Microbiota, Reservoirs, Nosocomial and Opportunistic Infections',
       'Chemotherapy and the Antibiotic Classes',
       'Human Diseases Caused by Viruses, Bacteria and Fungi',
+    
+      'Semester I: Microbiology'
     ],
   },
   {

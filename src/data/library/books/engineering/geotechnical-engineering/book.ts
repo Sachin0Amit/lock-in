@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Geotechnical Engineering — the thirty-third book of the Engineering shelf (Civil branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 39 planned lessons, zero written. Lesson ids will use the `soil-` prefix
+ * 41 planned lessons, zero written. Lesson ids will use the `soil-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Geotechnical Engineering owns soil mechanics and foundation engineering (GATE CE S3 — the whole section is its register). Structural Engineering owns the structure the foundation carries (the interface cross-referenced); Fluid Mechanics owns the general flow science its seepage chapters lean on; Water Resources owns the groundwater-and-well resource story (the aquifer cross- reference stated); Transportation’s embankment and subgrade lines route here.
@@ -44,6 +44,8 @@ const chapters: Chapter[] = [
       'The Three-Phase Arithmetic',
       'Atterberg and the Plasticity Chart',
       'Classification by Two Families',
+    
+      'Geo-technical Engineering — soil exploration: planning and methods; properties of soil, classification, various tests and inter-relationships; permeability and seepage; compressibility, consolidation and shearing resistance; earth pressure theories and stress distribution in soil; properties and'
     ],
   },
   {
@@ -179,6 +181,8 @@ const chapters: Chapter[] = [
       'Static Formulae, Dynamic Caution',
       'Groups and Negative Friction',
       'The Synthesis and Doorsteps',
+    
+      'Geo-technical Engineering and Foundation Engineering'
     ],
   },
 ]

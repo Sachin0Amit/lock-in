@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Creative Writing — the thirty-sixth book of the Arts-Music shelf (the design register; the honest fold — the backlog line Literature lives here as the writer-and-reading register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `cwrit-` prefix
+ * 22 planned lessons, zero written. Lesson ids will use the `cwrit-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Creative Writing owns the writing craft with the Literature line folded in as the writer-and-reading register (the humanities shelf owns the academic literary-studies — the sibling views held straight). The screenwriting’s-structure to screenwriting; the poetry’s-sound to music-theory at the rhythm level (cross-referenced); the workshop’s-craft priced here; the graded registers are priced here.
@@ -58,6 +58,8 @@ const chapters: Chapter[] = [
       'The Variation Receipt Held',
       'The Clear-Clever Division Named',
       'The Aloud Receipt Named',
+    
+      'Prelims typical areas (mirror): English — reading comprehension passages with short questions'
     ],
   },
   {
@@ -73,6 +75,8 @@ const chapters: Chapter[] = [
       'The Minimalism Named',
       'The Enter-Leave Receipt Held',
       'The Detail\u2019s-Honesty Named',
+    
+      'Unit II: Various forms of visual arts and their inter-relationship with other modes of creative expression (e.g. performing art, cinema and literature)'
     ],
   },
   {

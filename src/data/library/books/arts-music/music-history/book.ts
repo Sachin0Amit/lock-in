@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Music History — the seventh book of the Arts-Music shelf (the music register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 6 chapters /
- * 24 planned lessons, zero written. Lesson ids will use the `mhist-` prefix
+ * 30 planned lessons, zero written. Lesson ids will use the `mhist-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Music History owns the survey register. The analytical crafts belong to theory-harmony-counterpoint (cross-referenced); the individual tradition’s depth — the Indian classical — is cross-referenced to the classical-dance book (the music registers shared); the film’s register to film-studies; the ABRSM-and-graded history registers are priced here.
@@ -73,6 +73,8 @@ const chapters: Chapter[] = [
       'The Pulse\u2019s-Revolution Craft Held',
       'The Fieldwork Receipt Named',
       'The Everything-at-Once Honesty Held Straight',
+    
+      'Unit VI: Chronological periods from prehistory to post-modern art and artists of the West, with a focus on the movements that transformed its history'
     ],
   },
   {
@@ -88,6 +90,8 @@ const chapters: Chapter[] = [
       'The Revolution Receipts Priced Straight',
       'The Studio-as-Instrument Honesty Cross-Referenced',
       'The Loop Craft Named',
+    
+      'Unit II (common): Folk Music (origin, evolution and classification of Indian folk music; folk instruments and performers of various regions; ragas and talas used in folk music; folk fairs and festivals)'
     ],
   },
   {
@@ -103,6 +107,11 @@ const chapters: Chapter[] = [
       'The Gyil Named',
       'The Moog Receipt Named',
       'The Bedroom Honesty Priced Straight',
+    
+      'History of Indian Music, contribution of Musicologists and their textual tradition',
+      'Contribution of composers/performers to Indian music (Tansen, Sadarang etc.)',
+      'Gharana and Institutional System and conferences of Hindustani music',
+      'Paper 1 Listening — Section C: Connecting Music (wider knowledge of musical genres and styles beyond the set works)'
     ],
   },
 ]

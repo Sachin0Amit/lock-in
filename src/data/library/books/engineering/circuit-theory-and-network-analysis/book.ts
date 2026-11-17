@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Circuit Theory and Network Analysis — the thirteenth book of the Engineering shelf (Electrical branch — absorbs the backlog’s ’Circuit Theory’ and ’Network Analysis’ lines, one arc honestly merged).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `ckt-` prefix
+ * 43 planned lessons, zero written. Lesson ids will use the `ckt-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Circuit Theory and Network Analysis owns the lumped-circuit discipline (the backlog’s two lines merged — one Van Valkenburg arc, recorded in SUBJECT_BACKLOG.md). Electrical Machines owns the power-transformer and winding depth; Electromagnetic Fields and Waves owns the field truth beneath the lumped approximation; Signals and Systems owns the general transform theory; the Mathematics shelf’s Laplace chapters own the pure mathematics.
@@ -103,6 +103,8 @@ const chapters: Chapter[] = [
       'Damped Oscillation and the Quality Factor',
       'Series and Parallel Resonance',
       'Magnetically Coupled Circuits and Ideal Transformers',
+    
+      'Basic Electrical Engineering — DC circuits: Ohm\'s and Kirchhoff\'s laws, mesh and nodal analysis, circuit theorems; electromagnetism, Faraday\'s and Lenz\'s laws, induced EMF and its uses; single-phase AC circuits; transformers, efficiency; basics of DC machines, induction machines and synchronous'
     ],
   },
   {
@@ -133,6 +135,8 @@ const chapters: Chapter[] = [
       'Second-Order: the Three Regimes',
       'The Initial- and Final-Value Craft',
       'The Laplace Route Named',
+    
+      'Engineering Mathematics — matrix theory, eigen values and eigen vectors; numerical methods for solution of non-linear algebraic equations and differential equations; Fourier series; linear, non-linear and partial differential equations; complex variables; probability and statistics fundamentals,'
     ],
   },
   {
@@ -163,6 +167,8 @@ const chapters: Chapter[] = [
       'Conversions and Equivalent Circuits',
       'Cascades by ABCD',
       'The Applications Census',
+    
+      'Communication networks — principles/practices/technologies/uses; OSI model/security; basic packet multiplexed streams/scheduling; cellular networks: types, analysis; protocols (TCP/TCPIP)'
     ],
   },
   {

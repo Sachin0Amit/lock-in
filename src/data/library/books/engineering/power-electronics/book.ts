@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Power Electronics — the seventeenth book of the Engineering shelf (Electrical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 30 planned lessons, zero written. Lesson ids will use the `pe-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `pe-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Power Electronics owns the switched-processing of power. Electrical Machines owns the machines the drives feed; Renewable Energy owns the generation-integration problem (its inverters route here); Power Systems owns the grid the converters connect to (HVDC/FACTS cross-referenced); Electronic Devices and Circuits owns the device physics; the CS shelf owns nothing here — the boundary is clean.
@@ -37,6 +37,9 @@ const chapters: Chapter[] = [
       'Switching Priced Against Linear',
       'The Converter Census on One Map',
       'The Frequency Trade-Off',
+    
+      'Drives — basic concepts of adjustable speed DC and AC drives; DC-DC switched mode converters; DC-AC switched mode converters; resonant converters; high frequency inductors and transformers; power supplies',
+      'Advanced Electronics Topics'
     ],
   },
   {
@@ -141,6 +144,8 @@ const chapters: Chapter[] = [
       'Gate Drives and Isolation',
       'The Thermal Arithmetic',
       'The Doorsteps: Solar, Grid, Drives',
+    
+      'Computer Fundamentals — number systems, Boolean algebra, arithmetic functions; basic architecture, central processing unit, I/O and memory organisation; peripheral devices; data representation and programming; basics of operating system and networking; virtual memory, file systems; elements of'
     ],
   },
 ]

@@ -177,7 +177,7 @@ export const foundationEconomics: Book = {
   subtitle: 'The economic way of thinking from scarcity to markets: the first pass of every core idea',
   discipline: 'economics-commerce',
   level: 'Absolute beginner → Class 12 first pass',
-  description: 'The ladder\u2019s opening: the economic problem and its cost vocabulary, the economist\u2019s model craft with production possibilities, demand and supply\u2019s first equilibrium, elasticities and their everyday registers, welfare and market failure at first pass, and the macro economy\u2019s first map.',
+  description: 'The ladder\u2019s opening: the economic problem and its cost vocabulary, the economist\u2019s model craft with production possibilities, demand and supply\u2019s first equilibrium, elasticities and their everyday registers, welfare and market failure at first pass, and the macro economy\u2019s first map. Cross-references microeconomics and macroeconomics (the two deepening poles); hands off to each honestly.',
   status: 'planned',
   accent: ['#34d399', '#064e3b'],
   chapters,

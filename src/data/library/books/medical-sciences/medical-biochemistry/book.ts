@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Medical Biochemistry — the third book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `mchem-` prefix
+ * 35 planned lessons, zero written. Lesson ids will use the `mchem-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Medical Biochemistry owns the clinical register of the patient’s chemistry. The general biomolecule chemistry belongs to the chemistry shelf’s biochemistry book (the sibling views — the general-and-structural there, the clinical-and-diagnostic here); the physiology-and-systems register to medical-physiology; the metabolic disease management to internal-medicine; the NEET-and-FMGE lines are priced here.
@@ -88,6 +88,8 @@ const chapters: Chapter[] = [
       'The PKU Screening Receipt Priced Straight',
       'The Gout\u2019s Urate Honesty',
       'The One-Carbon Craft Named',
+    
+      'Semester IV: Genetics'
     ],
   },
   {
@@ -135,6 +137,9 @@ const chapters: Chapter[] = [
       'The Bridge Held Honestly',
       'Applied Nutrition and Dietetics',
       'The Chemical Processes of Life',
+    
+      'Semester I: Biochemistry',
+      'Veterinary Clinical Medicine (including Clinical Biochemistry and Laboratory Diagnosis)'
     ],
   },
 ]

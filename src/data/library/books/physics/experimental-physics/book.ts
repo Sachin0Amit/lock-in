@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Experimental Physics — the nineteenth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `exp-` prefix
+ * 44 planned lessons, zero written. Lesson ids will use the `exp-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Experimental Physics owns the laboratory register — the boards’ and university practicals plus the GATE PH electronics-and-instrumentation pricing. Each sibling book’s closing practical chapter cross-references here as the consolidated home; the mathematics shelf’s statistics book owns the inference-theory side.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'Propagation Arithmetic',
       'The Standard Error',
       'Least Squares Introduced',
+    
+      'Experimental Skills'
     ],
   },
   {
@@ -45,6 +47,10 @@ const chapters: Chapter[] = [
       'Zero-Error Discipline',
       'The Apparatus Census and the Measurement Techniques',
       'The Medical-Imaging Instruments: Ultrasound to MRI',
+    
+      'Experimental Skills: Vernier calipers — its use to measure the internal and external diameter and depth of a vessel',
+      'Experimental Skills: Screw gauge — its use to determine the thickness/diameter of thin sheet/wire',
+      'Experimental Skills: Screw gauge — its use to determine thickness/diameter of thin sheet/wire'
     ],
   },
   {
@@ -62,6 +68,8 @@ const chapters: Chapter[] = [
       'Viscosity Registers',
       'The Resonance-Column Measurement of Sound Speed',
       'Surface-Tension Measurement of Water by Capillary Rise',
+    
+      'Experimental Skills: Speed of sound in air at room temperature using a resonance tube'
     ],
   },
   {
@@ -78,6 +86,10 @@ const chapters: Chapter[] = [
       'Refractive-Index Craft',
       'The Grating Measurement',
       'The u-v Method for Concave Mirrors and Convex Lenses',
+    
+      'Experimental Skills: The plot of the angle of deviation vs angle of incidence for a triangular prism',
+      'Experimental Skills: The refractive index of a glass slab using a travelling microscope',
+      'Experimental Skills: Refractive index of a glass slab using a travelling microscope'
     ],
   },
   {
@@ -94,6 +106,10 @@ const chapters: Chapter[] = [
       'Carey-Foster Named',
       'The Earth\u2019s Field',
       'The Ohm\'s-Law Verification with Voltmeter and Ammeter',
+    
+      'Experimental Skills: The resistivity of the material of a given wire using a metre bridge',
+      'Experimental Skills: The resistance of a given wire using Ohm\'s law',
+      'Experimental Skills: Resistance and figure of merit of a galvanometer by half deflection method'
     ],
   },
   {
@@ -109,6 +125,8 @@ const chapters: Chapter[] = [
       'The Transistor Measured',
       'The Op-Amp Craft',
       'The Digital Taster',
+    
+      'Experimental Skills: Identification of diode, LED, resistor, a capacitor from a mixed collection of such items'
     ],
   },
   {

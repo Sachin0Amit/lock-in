@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Music Production — the eleventh book of the Arts-Music shelf (the music register; the honest fold — the backlog line DAWs lives here as the studio’s software centre).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `prod-` prefix
+ * 21 planned lessons, zero written. Lesson ids will use the `prod-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Music Production owns the studio register with the DAW folded in as its software centre. The room’s monitoring acoustics to acoustics (cross-referenced); the theory-and-harmony to the theory books; the live’s-craft to stage-production (the PA cross-reference); the industry-and-copyright registers to the humanities shelf’s law-and-legal-studies book (cross-referenced); the graded-and-DSA registers are priced here.
@@ -43,6 +43,8 @@ const chapters: Chapter[] = [
       'The Grid Named',
       'The Loop Register Named',
       'The Agnostic Honesty Held',
+    
+      'Stage 2 — DAT Mains, part 1: Studio Sensitivity Test'
     ],
   },
   {

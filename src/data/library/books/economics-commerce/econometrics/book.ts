@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Econometrics — the eighth book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `econ-` prefix
+ * 38 planned lessons, zero written. Lesson ids will use the `econ-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Econometrics owns the empirical register (UGC NET Economics unit 3 read this pass — Statistics and Econometrics). Statistics-for-economics owns the descriptive-and-inference first side; the mathematics shelf’s statistics and probability books own the pure-theory side; data-science (CS shelf) owns the computational machinery — cross-referenced honestly.
@@ -148,6 +148,9 @@ const chapters: Chapter[] = [
       'The Tools Named',
       'The Paper Read',
       'The Research Doorway',
+    
+      'Project Work',
+      'Project Work / Practical Work'
     ],
   },
 ]
@@ -158,7 +161,7 @@ export const econometrics: Book = {
   subtitle: 'The empirical engine: regression, inference and the identification craft of economic measurement',
   discipline: 'economics-commerce',
   level: 'University + UGC NET unit 3 + professional register',
-  description: 'The econometrics register: the causality-and-data foundations, the OLS machinery with its Gauss-Markov guarantees and inference arithmetic, the specification craft with functional forms and dummy registers, the diagnostics-and-remedy machinery for heteroskedasticity and autocorrelation, the endogeneity-and-instruments craft, the panel-and-time-series registers, and the applied-project doorway with its ethics.',
+  description: 'The econometrics register: the causality-and-data foundations, the OLS machinery with its Gauss-Markov guarantees and inference arithmetic, the specification craft with functional forms and dummy registers, the diagnostics-and-remedy machinery for heteroskedasticity and autocorrelation, the endogeneity-and-instruments craft, the panel-and-time-series registers, and the applied-project doorway with its ethics. Cross-references statistics-for-economics (the inference base) and mathematical-methods-for-engineering; hands off honestly.',
   status: 'planned',
   accent: ['#84cc16', '#365314'],
   chapters,

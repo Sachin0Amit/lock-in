@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Nuclear Physics — the twelfth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `nuc-` prefix
+ * 38 planned lessons, zero written. Lesson ids will use the `nuc-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Nuclear Physics owns the nuclear register (GATE PH Nuclear Physics section read this pass; the JEE/NEET nuclei unit’s deepening). Modern-physics owns the first pass; particle-physics owns the sub-nuclear story; astrophysics owns the stellar-burning register — cross-referenced honestly.
@@ -73,6 +73,8 @@ const chapters: Chapter[] = [
       'Beta and the Neutrino',
       'Gamma Registers',
       'The Dating Craft',
+    
+      'E.3 Radioactive decay'
     ],
   },
   {
@@ -118,6 +120,8 @@ const chapters: Chapter[] = [
       'pp and CNO Named',
       'Confinement Registers',
       'DT Arithmetic',
+    
+      'E.5 Fusion and stars'
     ],
   },
   {

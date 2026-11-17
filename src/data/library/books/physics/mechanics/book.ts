@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Mechanics — the second book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 12 chapters /
- * 48 planned lessons, zero written. Lesson ids will use the `pmech-` prefix
+ * 49 planned lessons, zero written. Lesson ids will use the `pmech-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Mechanics owns the calculus-based classical register (the JEE units Kinematics, Laws of Motion, Work Power Energy, Rotational Motion, Gravitation; the GATE PH Classical Mechanics section incl. the Lagrangian/Hamiltonian formulations read this pass). The fluid-mechanics backlog line is FOLDED here (fluid statics + dynamics chapters) with the engineering shelf’s fluid-mechanics book cross-referenced for the thermo-fluids applied side; properties-of-matter owns the matter-side (viscosity and surface tension deep).
@@ -181,6 +181,8 @@ const chapters: Chapter[] = [
       'The Euler-Lagrange Equations',
       'Pendulum Re-derived',
       'Atwood Again',
+    
+      'Lagrangian Formulation'
     ],
   },
   {

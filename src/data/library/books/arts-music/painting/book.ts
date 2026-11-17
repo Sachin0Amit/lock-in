@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Painting — the thirteenth book of the Arts-Music shelf (the visual register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `paint-` prefix
+ * 24 planned lessons, zero written. Lesson ids will use the `paint-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Painting owns the paint register. The colour’s theory to colour-theory (cross-referenced — the mixing here, the theory there); the drawing’s foundation to drawing; the art-history receipts to the humanities shelf’s art-history book; the atelier-and-graded registers are priced here.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The Size Honesty Named',
       'The Zorn Receipt Named',
       'The Safety Register Named',
+    
+      'Graphics practical Class XI: Relief Printing through Linocut/Woodcut/Paper-cardboard (printing methods and materials, registration, simple colour printing); Portfolio Assessment'
     ],
   },
   {
@@ -43,6 +45,10 @@ const chapters: Chapter[] = [
       'The Temperature\u2019s-Shift Craft Named',
       'The Grisaille Craft Held',
       'The Local-Observed Division Held Straight',
+    
+      'Class XII theory (common to all four subjects) Unit 1: Miniature Paintings — The Rajasthani, Pahari, Mughal and Deccan schools of miniature painting',
+      'Painting practical Class XI: Nature and object study; exercises in pencil with light and shade and in full colour from a fixed point of view; portfolio assessment',
+      'Painting practical Class XII: Nature and Object Study; Painting Composition (imaginative painting from life and nature in water and poster colours); Portfolio Assessment'
     ],
   },
   {

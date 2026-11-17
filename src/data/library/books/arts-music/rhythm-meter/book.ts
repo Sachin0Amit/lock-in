@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Rhythm & Meter — the second book of the Arts-Music shelf (the music register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 6 chapters /
- * 24 planned lessons, zero written. Lesson ids will use the `rhy-` prefix
+ * 26 planned lessons, zero written. Lesson ids will use the `rhy-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Rhythm & Meter owns the time craft. The notation’s basics belong to music-theory-notation (cross-referenced — the writing there, the time here); the harmonic rhythm belongs to harmony; the tala’s-Indian depth to classical-dance (cross-referenced); the pop’s-groove register named for the production book; the ABRSM-and-graded registers are priced here.
@@ -43,6 +43,8 @@ const chapters: Chapter[] = [
       'The Dotted-Beat Honesty Held',
       'The Grouping Receipt Priced Straight',
       'The Famous Receipts Named',
+    
+      'Exhibition — a curated selection of resolved artworks with a curatorial rationale explaining choices and connections'
     ],
   },
   {
@@ -58,6 +60,8 @@ const chapters: Chapter[] = [
       'The Anticipated Honesty Priced Straight',
       'The Notation-Limit Honesty Held',
       'The Pocket Preview Named',
+    
+      'Component 3 Extended Performance — 15-20 minute performance plus 1000-1500-word research report'
     ],
   },
   {

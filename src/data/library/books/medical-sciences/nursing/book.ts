@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Nursing — the sixteenth book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `nurs-` prefix
+ * 25 planned lessons, zero written. Lesson ids will use the `nurs-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Nursing owns the caring register. The disease’s-mechanism to the medical books (the care’s-here); the pharmacology to pharmacology (the administration’s rights here); the public-health to community-medicine (the home register here); the psychology’s communication to the humanities shelf’s psychology book (cross-referenced); the NEET-and-NCLEX-style lines are priced here.
@@ -28,6 +28,9 @@ const chapters: Chapter[] = [
       'The Boundary Craft Named',
       'The Supervision Requirement Held Straight',
       'The Application Honesty Named',
+    
+      'Safe and Effective Care Environment',
+      'Semester VI: Nursing Research and Statistics'
     ],
   },
   {
@@ -81,6 +84,9 @@ const chapters: Chapter[] = [
       'Basic Care and Comfort',
       'Applied Anatomy and Applied Physiology for Nurses',
       'Adult Health Nursing: Geriatric and Palliative Care',
+    
+      'Safe and Effective Care Environment: Management of Care',
+      'Semester VIII: Management of Nursing Services and Education'
     ],
   },
   {
@@ -99,6 +105,8 @@ const chapters: Chapter[] = [
       'Community Health Nursing',
       'Child Health Nursing',
       'Midwifery and Obstetric Nursing',
+    
+      'Semester VII: Midwifery and Obstetrical Nursing'
     ],
   },
 ]

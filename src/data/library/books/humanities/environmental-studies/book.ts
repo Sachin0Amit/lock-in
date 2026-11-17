@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Environmental Studies — the second book of the Earth branch.
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `evs-` prefix
+ * 35 planned lessons, zero written. Lesson ids will use the `evs-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Environmental Studies owns the environment-SOCIETY curriculum (the AEERS/AECC register). The Engineering shelf’s environmental-engineering owns the treatment-plant engineering (the water and wastewater quality and treatment, the air-pollution control equipment — the contract mirrors the engineering pass’s own note); Geography owns the physical geography frame (the climate, the landforms — this book applies them to the human question); the future Biology shelf will own the organismal ecology; the future Economics shelf will own the environmental-economics instruments this book only names.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The Multidisciplinary Map',
       'The Segments\u2019 Census',
       'The Field Work\u2019s Announcement',
+    
+      'Research Methodology and Programme Evaluation'
     ],
   },
   {
@@ -43,6 +45,8 @@ const chapters: Chapter[] = [
       'The Forest and the Water Ledgers',
       'The Energy and the Food Registers',
       'The Sustainable Frame',
+    
+      'Social Justice - government policies and interventions for development; development processes and the role of NGOs, SHGs, donors and other stakeholders; welfare schemes for vulnerable sections; social sector services relating to health, education and human resources; poverty and hunger'
     ],
   },
   {
@@ -103,6 +107,8 @@ const chapters: Chapter[] = [
       'The Equity\u2019s Question',
       'The Ethics and the Legislation',
       'The Environmental Justice\u2019s Register',
+    
+      'Population Issues - Gender and Special Groups'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Hydraulics — the thirty-sixth book of the Engineering shelf (Civil branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 35 planned lessons, zero written. Lesson ids will use the `hyd-` prefix
+ * 36 planned lessons, zero written. Lesson ids will use the `hyd-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Hydraulics owns the applied water craft for the civil shelf — measurement, similitude at civil scale, open-channel flow and the hydraulic machines (GATE CE S4’s Hydraulics line + GATE ME S3’s Turbomachinery line’s hydraulic half). Fluid Mechanics (mechanical) owns the fundamentals (statics through compressible flow, the boundary layer, the external-flow drag); Water Resources owns the irrigation-and-structures consumer story; Thermodynamics owns steam-and-gas turbines; Renewable Energy’s small-hydro routes here.
@@ -39,6 +39,8 @@ const chapters: Chapter[] = [
       'The Applied Census Named',
       'The Contract Stated Plainly',
       'The Water-Cycle Map',
+    
+      'Hydraulic Machines and Hydro Power — various pumps, air vessels, hydraulic turbines: types, classifications and performance parameters; power house: classification and layout, storage, pondage, control of supply'
     ],
   },
   {

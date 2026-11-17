@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Internal Medicine — the eleventh book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 7 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `intm-` prefix
+ * 31 planned lessons, zero written. Lesson ids will use the `intm-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Internal Medicine owns the adult clinical register. The mechanism to pathology-and-medical-physiology (the clinic here); the drug’s register to pharmacology (the regimen’s cross-referenced); the organisms to medical-microbiology; the surgery to general-surgery; the paediatric to pediatrics; the NEET-and-FMGE lines are priced here.
@@ -28,6 +28,10 @@ const chapters: Chapter[] = [
       'The Signs on the Surface Named',
       'The Common-First Honesty with the Tiered Craft',
       'The Breaking-Bad-News Register Named',
+    
+      'Semester IV: Communication and Educational Technology',
+      'Critical Analysis and Reasoning Skills (CARS)',
+      'Scientific Inquiry and Reasoning Skills: Scientific Reasoning and Problem Solving'
     ],
   },
   {

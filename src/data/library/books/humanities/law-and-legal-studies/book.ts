@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Law and Legal Studies — the fourth book of the Polity & Governance branch.
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `law-` prefix
+ * 43 planned lessons, zero written. Lesson ids will use the `law-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Law and Legal Studies owns the legal register. Political Science owns the Constitution’s political reading (the two books share the constitutional text — the political chapters there, the jurisprudential and remedial chapters here — cross-referenced both ways); Public Administration owns the administrative machinery (this book’s administrative law is the leash’s legal theory, that book the leash’s practice); International Relations owns the inter-state order with this book’s international law chapter cross-referenced there; the CLAT English comprehension is cross-referenced to the Languages shelf’s english book.
@@ -30,6 +30,8 @@ const chapters: Chapter[] = [
       'The Legal Families',
       'The Indian System\u2019s Mixed Parentage',
       'The Courts\u2019 Hierarchy and the Profession',
+    
+      'Paper-II 4. Emergence, Growth and Development of Anthropology in India (contributions of 18th-20th century scholar-administrators and of Indian anthropologists to tribal and caste studies)'
     ],
   },
   {
@@ -60,6 +62,8 @@ const chapters: Chapter[] = [
       'The Remedies',
       'The Federal Division\u2019s Legal Form',
       'The Emergency\u2019s Legal History',
+    
+      'Paper-I 10. Concept of Human Growth and Development (stages of growth; factors affecting growth; ageing and senescence; somatotypes; methodologies for growth studies)'
     ],
   },
   {
@@ -135,6 +139,8 @@ const chapters: Chapter[] = [
       'The Case\u2019s Reading and the Precedent',
       'The Interpretation\u2019s Rules',
       'The Fact-Situation and the Logical Census',
+    
+      'Logical Reasoning (analytical and logical ability; analogy; blood relations; calendars; clocks; coding and decoding; seating and linear/matrix arrangements; logical sequence; premises, assumptions and conclusions; puzzles; binary logic; diagrams; data interpretation - pie charts)'
     ],
   },
   {

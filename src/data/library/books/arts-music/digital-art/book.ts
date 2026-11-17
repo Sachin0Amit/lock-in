@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Digital Art — the twenty-first book of the Arts-Music shelf (the visual register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `dart-` prefix
+ * 26 planned lessons, zero written. Lesson ids will use the `dart-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Digital Art owns the screen-canvas register. The colour’s-theory to colour-theory; the composition to drawing; the 3D’s-integration to 3d-modelling; the animation to animation; the production’s-nondestructive craft cross-referenced from music-production; the graded registers are priced here.
@@ -28,6 +28,11 @@ const chapters: Chapter[] = [
       'The 72-and-300 Receipts Fixed by Drill',
       'The Upsampling Consequence Named',
       'The Hand-Eye Receipt Named',
+    
+      'Unit 4 (common): Art and Aesthetics',
+      'Unit IV: Developments in modern techniques, processes and procedures and their application in contemporary visual practices (installation; multi-colour print; computer-aided design — vector and raster; multimedia and digital technologies in art; trompe l\'oeil illusory hyper-realism)',
+      'Unit IX: Art of the Far East, South East and Central Asia and the ancient Near-East',
+      'SL (150 hours) and HL (240 hours) follow the same three assessed components, with HL requiring a larger Comparative Study with explicit link to own practice, more Process Portfolio screens covering more media, and a larger Exhibition with fuller rationale'
     ],
   },
   {
@@ -73,6 +78,8 @@ const chapters: Chapter[] = [
       'The Two-Screen Caution Named',
       'The Disclosure Craft Priced Straight',
       'The Swatches Register Named',
+    
+      'Applied Art (Commercial Art) practical Class XII: Illustration (techniques of illustration supported by drawing from life and outdoor sketching); Poster (poster with specified data and slogan in two or three colours); Portfolio Assessment'
     ],
   },
   {
@@ -88,6 +95,8 @@ const chapters: Chapter[] = [
       'The Block-Paint Division Named',
       'The Calibration Honesty Named',
       'The Platform Named at Survey Depth',
+    
+      'Applied Art (Commercial Art) practical Class XI: Drawing (still-life and nature); Lettering (Roman and Devanagari scripts, typefaces and sizes) and Layout; Portfolio Assessment'
     ],
   },
 ]

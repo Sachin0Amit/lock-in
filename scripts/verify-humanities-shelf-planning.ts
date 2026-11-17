@@ -7,7 +7,7 @@
  *
  *  A. all 16 humanities books load, status 'planned' (planning pass only)
  *  B. per-book chapter + planned-lesson census printed; shelf totals pinned
- *     (157 chapters / 644 planned lessons — mismatches FAIL below)
+ *     (157 chapters / 704 planned lessons after the 2026-11-17 exam-gap additions — mismatches FAIL below)
  *  C. every planned chapter: status 'planned', empty lessons array,
  *     plannedLessons >= 3, slugs unique within book, numbers 1..N,
  *     summaries > 200 chars
@@ -79,7 +79,7 @@ for (const b of hum) {
   ok(EXPECTED_CHAPTERS[b.id] === b.chapters.length, `${b.id} chapter count pins ${EXPECTED_CHAPTERS[b.id]} (got ${b.chapters.length})`)
 }
 ok(totCh === 157, `shelf total 157 chapters (got ${totCh})`)
-ok(totPl === 644, `shelf total 644 planned lessons (got ${totPl})`)
+ok(totPl === 704, `shelf total 704 planned lessons (post the 2026-11-17 UPSC/NET/AP/CLAT exam-gap pass; got ${totPl})`)
 
 console.log('== C. planned-chapter hygiene ==')
 for (const b of hum) {

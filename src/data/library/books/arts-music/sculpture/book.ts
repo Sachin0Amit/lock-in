@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Sculpture — the seventeenth book of the Arts-Music shelf (the visual register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `sculp-` prefix
+ * 23 planned lessons, zero written. Lesson ids will use the `sculp-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Sculpture owns the solid register. The drawing’s foundation to drawing; the material’s chemistry to the chemistry shelf (cross-referenced); the engineering’s-structure to the engineering shelf’s structural books (cross-referenced — the load honesty); the public’s-commission law to the humanities shelf’s law book; the graded-and-atelier registers are priced here.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The Hole Receipt Named',
       'The Three-View Receipt Fixed by Drill',
       'The Finish Honesty Cross-Referenced',
+    
+      'Elective V: Sculpture'
     ],
   },
   {
@@ -43,6 +45,8 @@ const chapters: Chapter[] = [
       'The Tool-Mark Honesty Named',
       'The Shrink Register Named',
       'The Venting Honesty Named',
+    
+      'Sculpture practical Class XI-XII: Modeling in Relief (clay or plaster of Paris); Modeling in Round; Portfolio Assessment (folk-art sculpture pieces included)'
     ],
   },
   {
@@ -58,6 +62,8 @@ const chapters: Chapter[] = [
       'The Caliper Craft Fixed by Drill',
       'The Tack Named',
       'The Transformation Receipt Priced Straight',
+    
+      'Unit III: Traditional medium, materials and techniques and their application in all disciplines of visual expression (carving and casting processes; impasto, glazing; intaglio/relief print; fresco; preparation of ground for murals, wasli for miniatures)'
     ],
   },
   {

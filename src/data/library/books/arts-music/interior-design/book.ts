@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Interior Design — the thirty-fourth book of the Arts-Music shelf (the design register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 4 chapters /
- * 16 planned lessons, zero written. Lesson ids will use the `ides-` prefix
+ * 17 planned lessons, zero written. Lesson ids will use the `ides-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Interior Design owns the inside register. The colour’s-theory to colour-theory; the lighting’s-technique to cinematography (cross-referenced); the furniture’s-history to the humanities shelf (cross-referenced); the ergonomics to physiotherapy; the architecture’s-macro to architecture; the graded registers are priced here.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The Fit Named',
       'The Universal Named',
       'The Fit-for-All Honesty Held',
+    
+      'Prelims typical areas (from recent papers, mirror): general and design awareness — current affairs, Indian art and culture, materials, famous products, logos and designers'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Robotics and Automation — the tenth book of the Engineering shelf (Mechanical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 27 planned lessons, zero written. Lesson ids will use the `robot-` prefix
+ * 28 planned lessons, zero written. Lesson ids will use the `robot-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Robotics owns the manipulator machinery (kinematics, Jacobians, dynamics, control) and the automation-system frame. Theory of Machines owns mechanism kinematics generally; Control Systems owns the servo theory; the CS shelf’s Internet of Things owns the sensor-network and connectivity layers; CAD/CAM owns the CIM integration; Assembly and Microprocessors owns the compute beneath.
@@ -34,6 +34,8 @@ const chapters: Chapter[] = [
       'Anatomy and Degrees of Freedom',
       'The Configuration Census',
       'Workspaces and Safety Stated Early',
+    
+      'Mechatronics and Robotics'
     ],
   },
   {

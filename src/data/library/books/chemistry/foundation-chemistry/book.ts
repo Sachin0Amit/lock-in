@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Foundation Chemistry — the first book of the Chemistry shelf.
  *
  * STATUS: PLANNED (Chemistry full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `fchem-` prefix
+ * 59 planned lessons, zero written. Lesson ids will use the `fchem-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Foundation Chemistry owns the school first-pass (the NCERT 9-11 register; the General Chemistry backlog line is FOLDED here — the survey register is the school ladder’s own name). Physical-chemistry owns the physical deepening; organic- and inorganic-chemistry own the branch arcs; every deep book’s register is previewed here honestly.
@@ -29,6 +29,13 @@ const chapters: Chapter[] = [
       'Pure against Mixed',
       'Properties Read',
       'The Particulate Nature of Matter',
+    
+      'Some Basic Concepts in Chemistry',
+      'Stereochemistry',
+      'Principles of stereochemistry',
+      'Aromaticity',
+      'Interdisciplinary topics',
+      'Medicinal chemistry'
     ],
   },
   {
@@ -47,6 +54,15 @@ const chapters: Chapter[] = [
       'Molarity, Molality, Mole Fraction and Normality',
       'The Reaction Census: Types and Balancing',
       'The Amount of Chemical Change: Reaction Stoichiometry',
+    
+      'Chemical periodicity',
+      'Reactivity 2.1 How much? The amount of chemical change',
+      'Reactivity 2.2 How fast? The rate of chemical change',
+      'Reactivity 2.3 How far? The extent of chemical change',
+      'Reactivity 3.1 Proton transfer reactions',
+      'Chemical energetics',
+      'Balancing equations, empirical formulae, mole concept and Avogadro constant, stoichiometric calculations, density, calculations with different concentration units',
+      'Energy, heat and work, enthalpy and energy, heat capacity, Hess\'s law, Born-Haber cycle, standard formation enthalpies, solution, solvation and bond enthalpies'
     ],
   },
   {
@@ -64,6 +80,8 @@ const chapters: Chapter[] = [
       'Isotopes Counted',
       'The Nuclear Atom and Electronic Configurations',
       'The Bohr Model Worked and Its Limits',
+    
+      'Nucleons, isotopes, radioactive decay and nuclear reactions (alpha, beta, gamma)'
     ],
   },
   {
@@ -79,6 +97,8 @@ const chapters: Chapter[] = [
       'Groups and Periods',
       'The First Trends',
       'The Family Census',
+    
+      'Hydrophilic and hydrophobic groups, micelle and bilayer formation'
     ],
   },
   {
@@ -109,6 +129,9 @@ const chapters: Chapter[] = [
       'The pH Idea',
       'The Salt Census',
       'Everyday Registers',
+    
+      'Diazonium Salts',
+      'Partition coefficients: definition and simple calculations'
     ],
   },
   {
@@ -179,7 +202,7 @@ export const foundationChemistry: Book = {
   subtitle: 'Chemistry from its first principles: matter, the mole, atoms and bonds at first pass (the General Chemistry line folded)',
   discipline: 'chemistry',
   level: 'Absolute beginner → Class 12 first pass',
-  description: 'The school-ladder opening of chemistry: matter and its purification, the measurement craft with the mole as the subject\u2019s arithmetic engine, atomic structure from Dalton to Bohr, the periodic table read at first-pass depth, bonding in its three classical dresses, acids and bases with water\u2019s chemistry, and the laboratory register the boards demand.',
+  description: 'The school-ladder opening of chemistry: matter and its purification, the measurement craft with the mole as the subject\u2019s arithmetic engine, atomic structure from Dalton to Bohr, the periodic table read at first-pass depth, bonding in its three classical dresses, acids and bases with water\u2019s chemistry, and the laboratory register the boards demand. Cross-references physical-chemistry, organic-chemistry and inorganic-chemistry (the branch deepenings); hands off to each honestly.',
   status: 'planned',
   accent: ['#facc15', '#713f12'],
   chapters,

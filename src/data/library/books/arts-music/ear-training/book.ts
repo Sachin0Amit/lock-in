@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Ear Training — the fifth book of the Arts-Music shelf (the music register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `ear-` prefix
+ * 21 planned lessons, zero written. Lesson ids will use the `ear-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Ear Training owns the aural register. The theory beneath to music-theory-notation-and-harmony (cross-referenced — the ear’s-here, the paper’s-there); the Indian’s-sargam register cross-referenced to the classical-dance book; the ABRSM-and-graded aural registers are priced here.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The Anchoring Craft Held',
       'The Fixed-by-Drill Receipts',
       'The Awkward Honesty Named',
+    
+      'Part B — Mathematics (class 11-12 level): algebra (equations, AP/GP, series), trigonometry (identities, heights and distances), coordinate geometry, 3D geometry, matrices and determinants, logarithms, mensuration, basic calculus (limits, differentiation), probability and statistics, permutation and'
     ],
   },
   {

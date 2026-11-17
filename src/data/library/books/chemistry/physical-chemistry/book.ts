@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Physical Chemistry — the second book of the Chemistry shelf (the folds: Electrochemistry, Chemical Kinetics and Advanced Chemical Thermodynamics folded in).
  *
  * STATUS: PLANNED (Chemistry full-shelf planning pass, 2026-11-16) — 12 chapters /
- * 48 planned lessons, zero written. Lesson ids will use the `pchem-` prefix
+ * 54 planned lessons, zero written. Lesson ids will use the `pchem-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Physical Chemistry owns the physical register — the THREE folds live here as full chapter sets: Electrochemistry (the Nernst-and-conductance arc), Chemical Kinetics (the rate-law arc) and Advanced Chemical Thermodynamics (the activity-and-partial-molar graduate register). The physics shelf’s heat-and-thermodynamics owns the pure-physics side; quantum-chemistry owns the quantum register; the mathematics shelf’s OR book owns the pure kinetics mathematics — cross-referenced honestly.
@@ -31,6 +31,9 @@ const chapters: Chapter[] = [
       'Enthalpies of Fusion, Vaporisation and the Lattice',
       'Measuring Enthalpy: Calorimetry and Energy Cycles',
       'Thermochemistry: Heat Capacities and Reaction Enthalpies',
+    
+      'Statistical thermodynamics',
+      'Reactivity 1.1 Measuring enthalpy change'
     ],
   },
   {
@@ -110,6 +113,9 @@ const chapters: Chapter[] = [
       'Catalysis Register',
       'Catalysis: Homogeneous, Heterogeneous and Enzymatic',
       'The Steady-State Approximation and Chain Reactions',
+    
+      'Use of simple first-order and zeroth-order kinetic rate laws, exponential decay, half-lives',
+      'Fields of advanced difficulty releasable only via the annual preparatory problems (inorganic stereochemistry, solid state structures and Bragg\'s law, crystal field theory, thermodynamic cycles, Latimer/Frost/Pourbaix diagrams, advanced kinetics and kinetic theory, phase diagrams, advanced'
     ],
   },
   {
@@ -163,6 +169,8 @@ const chapters: Chapter[] = [
       'Emulsions, Surfactants and Micelles',
       'Intermolecular Forces and the Liquid State',
       'Vapour Pressure, Surface Tension and Viscosity of Liquids',
+    
+      'Surfaces and Interfaces'
     ],
   },
   {
@@ -178,6 +186,8 @@ const chapters: Chapter[] = [
       'Beer-Lambert Computed',
       'Rotational and Vibrational Tasters',
       'The Electronic Preview',
+    
+      'Basic concepts of light and color, wavelength, frequency, wave numbers, photon energies, Lambert-Beer law'
     ],
   },
   {

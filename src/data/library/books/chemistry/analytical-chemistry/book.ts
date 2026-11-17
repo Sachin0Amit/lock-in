@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Analytical Chemistry — the fifth book of the Chemistry shelf.
  *
  * STATUS: PLANNED (Chemistry full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `anal-` prefix
+ * 35 planned lessons, zero written. Lesson ids will use the `anal-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Analytical Chemistry owns the measurement register. The physics shelf’s experimental book owns the instrument-side physics; the mathematics shelf’s statistics book owns the pure inference side; the environmental book’s monitoring chapters borrow here; the CSIR-and-GATE registers price the research side — all cross-referenced honestly.
@@ -58,6 +58,9 @@ const chapters: Chapter[] = [
       'The Redox Registers',
       'EDTA Craft',
       'The Back-Titration Honesty',
+    
+      'Acidimetry and alkalimetry, acidimetric titration curves, choice and color of indicators for acidimetry',
+      'Redox titrations (permanganometric and iodometric); iodometry (reaction of thiosulfate and iodine)'
     ],
   },
   {
@@ -133,6 +136,8 @@ const chapters: Chapter[] = [
       'The NMR Preview',
       'The Solid Characterisation',
       'The Chemometrics Name',
+    
+      'Laboratory skills expected to be known by all participants (heating and reflux, mass and volume measurement, preparation and dilution of solutions, titrations, pH measurement, filtration, drying of precipitates, instrument operation, graphing and analysis of experimental data)'
     ],
   },
 ]

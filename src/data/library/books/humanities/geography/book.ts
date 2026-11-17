@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Geography — the first book of the Earth branch (absorbs the backlog’s Physical Geography and Human Geography lines — the Certificate pair).
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 12 chapters /
- * 48 planned lessons, zero written. Lesson ids will use the `geog-` prefix
+ * 54 planned lessons, zero written. Lesson ids will use the `geog-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Geography owns the earth’s whole survey — physical and human in one volume (the backlog’s two folded lines, the Goh Cheng Leong design). Environmental Studies owns the ecological-curriculum register (the pollution and conservation’s human dimension — this book teaches the physical frame, that book the environment-society curriculum); the Engineering shelf’s water-resources-engineering owns the applied water census (dams, irrigation, hydrology’s engineering); the Mathematics shelf owns the projection and survey mathematics (cross-referenced); the UPSC Geography optional and the AP Human Geography register are the two exam spines; Indian History and Sociology cross-reference for the India register’s human content.
@@ -29,6 +29,8 @@ const chapters: Chapter[] = [
       'The Map and Its Projections',
       'The Grid and the Time\u2019s Arithmetic',
       'The Modern Tools\u2019 Census',
+    
+      'Emerging Areas'
     ],
   },
   {
@@ -120,6 +122,8 @@ const chapters: Chapter[] = [
       'The Distribution\u2019s Why',
       'The Transition and the Dividend',
       'The Migration Register',
+    
+      'Paper-I 3. Economic Organization (formalist-substantivist debate; principles of production, distribution and exchange in hunting-gathering, fishing, pastoral, horticultural and agricultural communities; globalisation and indigenous economic systems)'
     ],
   },
   {
@@ -135,6 +139,8 @@ const chapters: Chapter[] = [
       'The Cultural Landscapes',
       'The Political Geography',
       'The Cities\u2019 Models',
+    
+      'Geographical Techniques'
     ],
   },
   {
@@ -180,6 +186,10 @@ const chapters: Chapter[] = [
       'The Resources\u2019 Indian Register',
       'The Agriculture and the Industries',
       'The Transport and the Regional Question',
+    
+      'Indian Economy and Economic Development - issues relating to planning, mobilisation of resources, growth, development and employment; inclusive growth; government budgeting; effects of liberalisation on the economy; infrastructure (energy, ports, roads, airports, railways); investment models',
+      'Planning and Economic Development - Nehruvian and Gandhian perspectives; role of planning and the public sector; Green Revolution, land reforms and agrarian relations; liberalisation and economic reforms',
+      'Paper-II 6. Tribal Situation in India (bio-genetic variability and socio-economic characteristics; problems of tribal communities - land alienation, poverty, indebtedness, literacy, employment, health and nutrition; impact of developmental projects, forest policy, urbanisation and industrialisation'
     ],
   },
   {

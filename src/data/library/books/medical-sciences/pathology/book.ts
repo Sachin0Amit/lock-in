@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Pathology — the fifth book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 7 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `path-` prefix
+ * 29 planned lessons, zero written. Lesson ids will use the `path-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Pathology owns the disease-mechanism register. The general-cell-and-tissue machinery belongs to the biology shelf’s books (cross-referenced — the sibling views); the micro-organisms to medical-microbiology; the immune mechanism to clinical-immunology; the systemic-clinical management to internal-medicine and the specialty books (the mechanism here, the management there); the NEET-and-FMGE lines are priced here.
@@ -73,6 +73,8 @@ const chapters: Chapter[] = [
       'The Four Hypersensitivity Mechanisms Fixed Once',
       'The Tolerance-Loss Preview Named',
       'The Transplant Registers Named',
+    
+      'Semester III: Pathology'
     ],
   },
   {

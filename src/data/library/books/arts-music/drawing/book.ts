@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Drawing — the twelfth book of the Arts-Music shelf (the visual register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `draw-` prefix
+ * 23 planned lessons, zero written. Lesson ids will use the `draw-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Drawing owns the seeing register. The perspective’s-depth to the perspective book; the colour to colour-theory; the figure’s anatomy to the biology shelf’s animal-anatomy (the sibling views cross-referenced); the art-history receipts to the humanities shelf’s art-history book; the atelier-and-graded registers are priced here.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The Five-Minute Craft Held',
       'The Ground Honesty Named',
       'The Two-Crafts Division Held',
+    
+      'Part-B: Drawing — ability to draw products, people or scenes in proportion with good line quality, composition, perspective and shading'
     ],
   },
   {
@@ -58,6 +60,8 @@ const chapters: Chapter[] = [
       'The Two Shadows Held Apart',
       'The Surface Register Named',
       'The Cross Receipt Named',
+    
+      'Part A — Drawing & Composition Test (80 marks, offline): creativity and imagination; visual composition; perspective drawing; proportion and scale'
     ],
   },
   {
@@ -73,6 +77,8 @@ const chapters: Chapter[] = [
       'The Landmark Register Fixed by Drill',
       'The Mitten Honesty Named',
       'The Constructive Receipt Named',
+    
+      'Part A — 3D visualisation and object structuring; perspective drawing (1-point and 2-point); memory drawing and creative composition'
     ],
   },
   {

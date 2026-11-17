@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Political Science — the first book of the Polity & Governance branch.
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `pol-` prefix
+ * 50 planned lessons, zero written. Lesson ids will use the `pol-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Political Science owns the theory-and-polity register. International Relations owns the inter-state order (Heywood’s world-order chapters are named here, priced there); Public Administration owns the administrative machinery (the Wilson-to-New-Public-Management arc); Law and Legal Studies owns the constitutional-law depth (this book’s constitutional chapters are the political reading of the same text — cross-referenced both ways); Ethics owns the public-values register; the Mathematics shelf’s statistics book owns the psephology’s statistical craft (cross-referenced).
@@ -31,6 +31,9 @@ const chapters: Chapter[] = [
       'Authority and Legitimacy',
       'The State and Sovereignty',
       'The Approaches\u2019 Census',
+    
+      'Paper-I 4. Political Organization and Social Control (band, tribe, chiefdom, kingdom and state; power, authority and legitimacy; law and justice in simple societies)',
+      'Unit 2: Research Methodology and Methods'
     ],
   },
   {
@@ -108,6 +111,8 @@ const chapters: Chapter[] = [
       'Rights, Duties and the Directive Principles',
       'The Basic Structure Earned',
       'The Amendments\u2019 Census',
+    
+      'Unit 7: Pedagogy, Andragogy and Assessment'
     ],
   },
   {
@@ -129,6 +134,8 @@ const chapters: Chapter[] = [
       'Federalism, State Governments and Local Bodies',
       'The Election Commission and Electoral Reforms',
       'Constitutional and Statutory Bodies: CAG to UPSC',
+    
+      'Theories of the State - liberal, neo-liberal, Marxist, pluralist, post-colonial and feminist'
     ],
   },
   {
@@ -144,6 +151,8 @@ const chapters: Chapter[] = [
       'Communalism and Secularism in Politics',
       'Regionalism and the Language Question',
       'Representation and the Quota Debate',
+    
+      'Paper-II 9. History of Administration of Tribal Areas, Tribal Policies and Programmes of Tribal Development (concept of PTGs; role of NGOs; role of anthropology in tribal and rural development; contributions to the understanding of regionalism, communalism and ethnic and political movements)'
     ],
   },
   {
@@ -159,6 +168,8 @@ const chapters: Chapter[] = [
       'Gandhi\u2019s Swaraj and Satyagraha',
       'Ambedkar\u2019s Argument',
       'The Modern Debate\u2019s Poles',
+    
+      'Indian Political Thought - Dharamshastra, Arthashastra and Buddhist traditions; Sir Syed Ahmed Khan, Sri Aurobindo, M. K. Gandhi, B. R. Ambedkar, M. N. Roy'
     ],
   },
   {
@@ -174,6 +185,11 @@ const chapters: Chapter[] = [
       'The Global Governance Pointer',
       'The Public Policy Pointer',
       'The Doorstep: Judging Politics',
+    
+      'Unit 9: Globalization',
+      'Unit 1: Thinking Geographically',
+      'Unit 2: Cognition',
+      'Current Affairs, including General Knowledge (national and international current affairs; political events; global environment; sports; awards and personalities; technology and science; cultural events; Indian business environment)'
     ],
   },
 ]

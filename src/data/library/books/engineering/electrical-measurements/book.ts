@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Electrical Measurements — the eighteenth book of the Engineering shelf (Electrical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 34 planned lessons, zero written. Lesson ids will use the `meas-` prefix
+ * 35 planned lessons, zero written. Lesson ids will use the `meas-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Electrical Measurements owns electrical quantification. Power Systems’ protection chapters consume the CT/PT census; Electrical Machines’ testing chapters consume the wattmeter and energy-meter craft; the error statistics route to the Mathematics shelf’s Statistics book; transducers and DAQ hand their deeper systems story to Embedded Systems and the CS shelf’s Internet of Things.
@@ -36,6 +36,8 @@ const chapters: Chapter[] = [
       'Standards and the SI Honest Note',
       'Errors Priced and Stated',
       'Calibration as Conscience',
+    
+      'Electronic Measurements and Instrumentation — principles of measurement, accuracy, precision and standards; analog and digital systems for measurement; static/dynamic characteristics of measurement systems, errors, statistical analysis and curve fitting; measurement systems for non-electrical'
     ],
   },
   {

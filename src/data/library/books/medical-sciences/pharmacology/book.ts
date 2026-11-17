@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Pharmacology — the sixth book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 6 chapters /
- * 24 planned lessons, zero written. Lesson ids will use the `pharm-` prefix
+ * 27 planned lessons, zero written. Lesson ids will use the `pharm-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Pharmacology owns the drug register for the whole library. The receptor’s enzyme machinery belongs to the general physiology-and-biochemistry books (cross-referenced at the shared level); the plant-derived drugs’ botanical register to the biology shelf’s economic-botany (the pharmacognosy cross-reference); the clinical therapeutics per disease to internal-medicine and the specialty books (the mechanism-and-classes here, the regimen-and-monitoring there); the NEET-and-FMGE lines are priced here.
@@ -29,6 +29,8 @@ const chapters: Chapter[] = [
       'The Plateau Receipt Fixed by Drill',
       'The Monitoring Register Named',
       'Pharmacological and Parenteral Therapies',
+    
+      'Scientific Inquiry and Reasoning Skills: Knowledge of Scientific Concepts and Principles'
     ],
   },
   {
@@ -59,6 +61,9 @@ const chapters: Chapter[] = [
       'The Atropine Craft Priced Straight',
       'The Seizure-Kind Honesty Named',
       'The D2 Consequence Held',
+    
+      'Semester IV: Pharmacology',
+      'Veterinary Pharmacology (including Chemotherapy)'
     ],
   },
   {

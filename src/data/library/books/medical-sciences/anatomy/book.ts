@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Anatomy — the first book of the Medical Sciences shelf.
  *
  * STATUS: PLANNED (Medical Sciences full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `anat-` prefix
+ * 37 planned lessons, zero written. Lesson ids will use the `anat-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Anatomy owns the human regional-and-clinical register. The general-and-comparative architecture belongs to the biology shelf’s animal-anatomy (the sibling views — the general there, the human clinic here); the embryology’s full arc to developmental-biology with the congenital-abnormality register priced here for the clinic; the physiology belongs to medical-physiology; the histology to histology; the NEET-and-FMGE lines are priced here.
@@ -28,6 +28,9 @@ const chapters: Chapter[] = [
       'The Three Planes with the Imaging Correlate',
       'The Nine-Region Map Held',
       'The Surgical-Safety Honesty',
+    
+      'Anesthesia',
+      'Orthopedics'
     ],
   },
   {
@@ -58,6 +61,9 @@ const chapters: Chapter[] = [
       'The Pleural Recess and Its Consequences',
       'The Mediastinal Map Held',
       'The Surface Anatomy with the Auscultation Points',
+    
+      'Semester I: Anatomy',
+      'Veterinary Anatomy (Gross Anatomy, Histology and Embryology, Splanchnology)'
     ],
   },
   {
@@ -118,6 +124,8 @@ const chapters: Chapter[] = [
       'The Heart\u2019s Septation Registers',
       'The Arch-and-Pouch Craft',
       'The Critical-Period Receipt Priced Straight',
+    
+      'First Year: General Human Anatomy including Embryology and Histology'
     ],
   },
   {

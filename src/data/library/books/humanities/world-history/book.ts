@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * World History — the first book of the Humanities & Social Sciences shelf (History branch).
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 11 chapters /
- * 43 planned lessons, zero written. Lesson ids will use the `wh-` prefix
+ * 47 planned lessons, zero written. Lesson ids will use the `wh-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): World History owns the world register — every region, every era, at survey depth. Indian History owns the national register (the two cross-reference at the colonial bridge); International Relations owns the post-1945 order’s political science; the Anthropology book owns the deep human past below writing. The political philosophies (communism, capitalism, socialism) are priced here as history’s engines and cross-referenced to Political Science and Philosophy for their theory.
@@ -44,6 +44,9 @@ const chapters: Chapter[] = [
       'The Classical World: Greece and Rome',
       'The Silk Roads and the Medieval World',
       'The World in 1200: the Starting Line',
+    
+      'Agriculture - major crops and cropping patterns, irrigation systems, storage, transport and marketing of agricultural produce, e-technology in the aid of farmers; direct and indirect farm subsidies and minimum support prices; Public Distribution System and food security; food processing and related',
+      'Unit 6: Consequences of Industrialization'
     ],
   },
   {
@@ -89,6 +92,8 @@ const chapters: Chapter[] = [
       'The Columbian Exchange',
       'The Atlantic System Begins',
       'The First Global Silver Economy',
+    
+      'Biological Basis of Behavior'
     ],
   },
   {
@@ -134,6 +139,8 @@ const chapters: Chapter[] = [
       'Unifications: Italy and Germany',
       'The Scramble and the Age of Imperialism',
       'The Colonised World Responds',
+    
+      'Globalisation - responses from developed and developing societies'
     ],
   },
   {

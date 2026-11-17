@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Theory of Machines — the third book of the Engineering shelf (Mechanical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 34 planned lessons, zero written. Lesson ids will use the `tom-` prefix
+ * 36 planned lessons, zero written. Lesson ids will use the `tom-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Theory of Machines owns mechanism kinematics, gearing, governors, balancing, gyroscopics and vibrations. Machine Design grows the element design (gear tooth as a loaded member, brake capacity); Engineering Mechanics owns the bare kinetics theorems; Robotics and Automation inherits the kinematic machinery for manipulators; the vibrations arc serves every branch that spins or oscillates.
@@ -39,6 +39,8 @@ const chapters: Chapter[] = [
       'The Four-Bar Family and Grashof\u2019s Law',
       'The Slider-Crank and Its Inversions',
       'Degrees of Freedom by Gruebler',
+    
+      'Maintenance — failure concepts and characteristics, reliability, failure analysis; machine vibration, data acquisition, fault detection, vibration monitoring; field balancing of rotors; noise monitoring; wear and debris analysis; signature analysis; NDT techniques in condition monitoring'
     ],
   },
   {
@@ -53,6 +55,8 @@ const chapters: Chapter[] = [
       'The Instantaneous-Centre Method',
       'The Relative-Velocity Method',
       'Velocity Images and Worked Mechanisms',
+    
+      'Turbo Machinery — reciprocating and rotary pumps; Pelton wheel, Kaplan and Francis turbines, velocity diagrams, impulse and reaction principles; steam and gas turbines; theory of jet propulsion — pulse jet and ram jet engines; reciprocating and rotary compressors: theory and applications'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Graphic Design — the eighteenth book of the Arts-Music shelf (the visual register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `gdes-` prefix
+ * 24 planned lessons, zero written. Lesson ids will use the `gdes-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Graphic Design owns the communication register. The type’s-depth to typography (cross-referenced — the use here, the craft there); the colour to colour-theory; the HCI’s-depth to the CS shelf’s HCI book (cross-referenced); the production’s-print craft named with the chemistry shelf’s ink cross-reference; the graded registers are priced here.
@@ -28,6 +28,10 @@ const chapters: Chapter[] = [
       'The Three-Seconds Honesty Priced Straight',
       'The Closure Named',
       'The Breathing Receipt Named',
+    
+      'Elective IV: Printmaking (Graphic Art)',
+      'Part-A: Environment and society — general awareness of environmental, social and cultural connections with design',
+      'Part-B: Design aptitude — capability to practically and appropriately respond to problems/situations with ingenuity and empathy'
     ],
   },
   {
@@ -88,6 +92,8 @@ const chapters: Chapter[] = [
       'The Three-Round Receipt Named',
       'The Case Honesty Held',
       'The Persuasion Honesty Held Straight',
+    
+      'Graphics practical Class XII: graphic print through Serigraphy OR Lithography OR Etching and Engraving (Intaglio process); Portfolio Assessment'
     ],
   },
 ]

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Properties of Matter — the third book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `prop-` prefix
+ * 34 planned lessons, zero written. Lesson ids will use the `prop-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Properties of Matter owns the matter-side register (elasticity, viscosity, surface tension, thermal expansion — the NCERT class 11 mechanical-properties units and the JEE register). The mechanics book owns the fluid kinematics side (flow, Bernoulli); the engineering fluid-mechanics book owns the thermo-fluids applied side; heat-and-thermodynamics owns temperature’s deep theory.
@@ -60,6 +60,8 @@ const chapters: Chapter[] = [
       'Springs in Numbers',
       'Torsion of a Cylinder',
       'Young\'s Modulus: The Stiffness of a Wire',
+    
+      'Experimental Skills: Young\'s modulus of elasticity of the material of a metallic wire'
     ],
   },
   {
@@ -75,6 +77,8 @@ const chapters: Chapter[] = [
       'Poiseuille\u2019s Register',
       'Stokes\u2019 Law',
       'Terminal Velocity Worked',
+    
+      'Experimental Skills: Co-efficient of viscosity of a given viscous liquid by measuring the terminal velocity of a given spherical body'
     ],
   },
   {
@@ -145,7 +149,7 @@ export const propertiesOfMatter: Book = {
   subtitle: 'Elasticity, viscosity and surface tension: the mechanical behaviour of matter told from the molecular picture up',
   discipline: 'physics',
   level: 'Class 11-12 + competitive',
-  description: 'The matter-side of mechanics: what solids and liquids do under load and at surfaces — stress and strain, the moduli and their engineering arithmetic, viscous flow with Poiseuille and Stokes, surface tension with capillarity and excess pressure, and thermal expansion.',
+  description: 'The matter-side of mechanics: what solids and liquids do under load and at surfaces — stress and strain, the moduli and their engineering arithmetic, viscous flow with Poiseuille and Stokes, surface tension with capillarity and excess pressure, and thermal expansion. Cross-references mechanics (the elasticity ground) and heat-and-thermodynamics (the thermal-expansion register); hands off to both honestly.',
   status: 'planned',
   accent: ['#14b8a6', '#134e4a'],
   chapters,

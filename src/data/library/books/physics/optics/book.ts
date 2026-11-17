@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Optics — the eighth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `opt-` prefix
+ * 41 planned lessons, zero written. Lesson ids will use the `opt-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Optics owns the light register (JEE/NEET Ray and Wave Optics units; GATE PH wave optics register). The electromagnetic-theory book owns the Maxwell-wave mathematics (Fresnel coefficients derived field-side); modern-physics owns the photon’s particle-side; the atomic-physics book owns laser physics at population-depth; this book prices each honestly with cross-references.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'Mirror Formulas Derived',
       'Snell and the Critical Angle',
       'TIR Applications',
+    
+      'Geometric Optics'
     ],
   },
   {

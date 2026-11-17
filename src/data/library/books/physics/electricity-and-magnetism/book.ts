@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Electricity and Magnetism — the sixth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 11 chapters /
- * 44 planned lessons, zero written. Lesson ids will use the `emag-` prefix
+ * 45 planned lessons, zero written. Lesson ids will use the `emag-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Electricity and Magnetism owns the school-competitive E&M register (the JEE/NEET units: electrostatics, current electricity, magnetic effects, EMI, alternating currents). The electromagnetic-theory book owns the Maxwell-level university mathematics (boundary-value problems, matter’s fields, waveguides); the engineering shelf’s circuit-theory book owns the network-analysis engineering side.
@@ -73,6 +73,8 @@ const chapters: Chapter[] = [
       'Networks of Capacitors',
       'Stored Energy',
       'Dielectrics Introduced',
+    
+      'Geometry and stereometry'
     ],
   },
   {
@@ -189,7 +191,7 @@ export const electricityAndMagnetism: Book = {
   subtitle: 'The class 11-12 electromagnetic arc: electrostatics, circuits, magnetism, induction and alternating currents',
   discipline: 'physics',
   level: 'Class 11-12 + competitive',
-  description: 'The school-competitive electromagnetism course in full: charge and Coulomb\u2019s law, the field and Gauss\u2019s law, potential and capacitance, current and the DC circuit craft, the magnetic field\u2019s Biot-Savart and Ampere laws, induction, and the AC circuit register with its instruments.',
+  description: 'The school-competitive electromagnetism course in full: charge and Coulomb\u2019s law, the field and Gauss\u2019s law, potential and capacitance, current and the DC circuit craft, the magnetic field\u2019s Biot-Savart and Ampere laws, induction, and the AC circuit register with its instruments. Cross-references electromagnetic-theory (the Maxwell register deepening) and foundation-physics; hands off honestly.',
   status: 'planned',
   accent: ['#3b82f6', '#1e3a8a'],
   chapters,

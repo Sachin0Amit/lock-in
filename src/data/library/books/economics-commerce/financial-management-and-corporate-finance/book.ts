@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Financial Management & Corporate Finance — the fourteenth book of the Economics, Commerce & Finance shelf (the fold: the Financial Management and Corporate Finance backlog lines merged).
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 11 chapters /
- * 44 planned lessons, zero written. Lesson ids will use the `corpfin-` prefix
+ * 46 planned lessons, zero written. Lesson ids will use the `corpfin-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): The FOLD book: Financial Management (the Indian MBA-and-BCom register, Khan & Jain named) and Corporate Finance (the canonical Brealey-Myers-Allen arc, contents read this pass via the LoC catalog and McGraw-Hill’s evergreen 2025 PDF) merge into ONE book — the Circuit-Theory precedent of the engineering pass. Accounting owns the statement side; financial-economics owns the market-side theory; investment-analysis owns the security-analysis side — cross-referenced honestly.
@@ -163,6 +163,9 @@ const chapters: Chapter[] = [
       'The Option Registers',
       'The Swap Idea',
       'Hedge versus Speculation',
+    
+      'Reconstitution of a Partnership Firm',
+      'Reconstitution and Dissolution of Partnership Firms'
     ],
   },
   {

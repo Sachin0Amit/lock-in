@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Typography — the nineteenth book of the Arts-Music shelf (the visual register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `typo-` prefix
+ * 21 planned lessons, zero written. Lesson ids will use the `typo-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Typography owns the letter register. The design’s-application to graphic-design (cross-referenced); the grid’s-depth to graphic-design; the printing’s-history to the humanities shelf’s art-history book; the web-font’s craft to the CS shelf’s front-end books (cross-referenced); the graded registers are priced here.
@@ -43,6 +43,8 @@ const chapters: Chapter[] = [
       'The Bodoni Receipt Priced Straight',
       'The Helvetica Honesty Priced Straight',
       'The Screen\u2019s Arc Named',
+    
+      'Part-A: Observation and design sensitivity — capacity to detect concealed properties in daily life and think critically about them; attention to detail, classification, analysis, inference and prediction'
     ],
   },
   {

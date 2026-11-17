@@ -143,7 +143,7 @@ export const particlePhysics: Book = {
   subtitle: 'The subnuclear census: quarks, leptons and the four interactions — the Standard Model honestly read',
   discipline: 'physics',
   level: 'University (PG register) + CSIR NET / research doorway',
-  description: 'The particle register: the Standard Model\u2019s census of quarks, leptons and bosons; the symmetries and conservation laws as the grammar; the four interactions read by Feynman diagrams; the hadron classification by the quark model; the weak interaction\u2019s parity story and unification with the Higgs name; the accelerator-laboratory; and the beyond-the-model registers.',
+  description: 'The particle register: the Standard Model\u2019s census of quarks, leptons and bosons; the symmetries and conservation laws as the grammar; the four interactions read by Feynman diagrams; the hadron classification by the quark model; the weak interaction\u2019s parity story and unification with the Higgs name; the accelerator-laboratory; and the beyond-the-model registers. Cross-references nuclear-physics (the sub-nuclear ground) and modern-physics; hands off honestly.',
   status: 'planned',
   accent: ['#f59e0b', '#713f12'],
   chapters,

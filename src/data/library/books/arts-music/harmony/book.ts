@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Harmony — the third book of the Arts-Music shelf (the music register).
  *
  * STATUS: PLANNED (Arts-Music full-shelf planning pass, 2026-11-16) — 6 chapters /
- * 24 planned lessons, zero written. Lesson ids will use the `harm-` prefix
+ * 25 planned lessons, zero written. Lesson ids will use the `harm-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Harmony owns the vertical register. The counterpoint-and-linear craft to counterpoint (cross-referenced — the two disciplines held apart by their focus); the voice-leading’s notation basics to music-theory-notation; the form’s-depth to music-composition (the phrase’s-level here); the pop-and-harmony register named for the production book; the Kostka-and-ABRSM registers are priced here.
@@ -103,6 +103,8 @@ const chapters: Chapter[] = [
       'The Tonicisation-Modulation Division Held Straight',
       'The Pivot Honesty Named',
       'The Tonal\u2019s End Held Straight',
+    
+      'Unit 3 (common): The Natyasastra'
     ],
   },
 ]
