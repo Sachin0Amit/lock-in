@@ -1804,6 +1804,435 @@ const lesson34: Lesson = {
   ],
 }
 
+function pentagonSeatsSvg(): string {
+  // the fifth roots of unity as the pentagon: viewBox 520×420, centre
+  // (260,205), R = 150 — the five seats at 2πk/5 with the exact
+  // coordinates labelled; the regular n-gon structure of the roots
+  const cx = 260
+  const cy = 205
+  const R = 150
+  const seat = (k: number): [number, number] => {
+    const th = (2 * Math.PI * k) / 5
+    return [cx + R * Math.cos(th), cy - R * Math.sin(th)]
+  }
+  const pts = [0, 1, 2, 3, 4].map(seat)
+  const label = (k: number, dx: number, dy: number, text: string, color: string): string =>
+    `<text x="${pts[k][0] + dx}" y="${pts[k][1] + dy}" font-size="11.5" font-weight="700" fill="${color}">${text}</text>`
+  return `<svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The unit circle centred at the origin with the five fifth roots of unity marked as the vertices of a regular pentagon: the seat one on the positive real axis at one; the seat cis of two pi over five above it labelled with its exact coordinates; the seat cis of four pi over five in the upper left; the seat cis of six pi over five in the lower left; the seat cis of eight pi over five in the lower right. Equal spokes of seventy-two degrees are marked from the centre, and the five sides of the pentagon are drawn green.">
+  <text x="260" y="24" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the fifth roots of unity — the unit circle's equal spokes</text>
+  <line x1="40" y1="${cy}" x2="480" y2="${cy}" stroke="#0d9488" stroke-width="1.8"/>
+  <line x1="${cx}" y1="30" x2="${cx}" y2="380" stroke="#5eead4" stroke-width="1.4"/>
+  <circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="#0d9488" stroke-width="2"/>
+  <polygon points="${pts.map((p) => p.join(',')).join(' ')}" fill="none" stroke="#16a34a" stroke-width="2.4"/>
+  ${[0, 1, 2, 3, 4]
+    .map((k) => `<line x1="${cx}" y1="${cy}" x2="${pts[k][0]}" y2="${pts[k][1]}" stroke="#94a3b8" stroke-width="1.1" stroke-dasharray="4 3"/>`)
+    .join('')}
+  <circle cx="${pts[0][0]}" cy="${pts[0][1]}" r="6" fill="#ea580c"/>
+  <circle cx="${pts[1][0]}" cy="${pts[1][1]}" r="6" fill="#ea580c"/>
+  <circle cx="${pts[2][0]}" cy="${pts[2][1]}" r="6" fill="#ea580c"/>
+  <circle cx="${pts[3][0]}" cy="${pts[3][1]}" r="6" fill="#ea580c"/>
+  <circle cx="${pts[4][0]}" cy="${pts[4][1]}" r="6" fill="#ea580c"/>
+  <circle cx="${cx}" cy="${cy}" r="3.5" fill="#16a34a"/>
+  ${label(0, 14, -10, '1', '#c2410c')}
+  ${label(1, 12, -8, 'cis 2π/5', '#c2410c')}
+  ${label(2, -118, -8, 'cis 4π/5', '#c2410c')}
+  ${label(3, -128, 14, 'cis 6π/5', '#c2410c')}
+  ${label(4, 12, 22, 'cis 8π/5', '#c2410c')}
+  <text x="8" y="56" font-size="10" fill="#0f766e">exact: cis 2π/5 = (√5−1)/4 + i√(10+2√5)/4</text>
+  <text x="8" y="72" font-size="10" fill="#0f766e">exact: cis 4π/5 = −(√5+1)/4 + i√(10−2√5)/4</text>
+  <text x="260" y="404" font-size="10.5" text-anchor="middle" fill="#0f766e">five seats · five equal spokes of 2π/5 · sum 0 · product +1 · one pentagon</text>
+</svg>`
+}
+
+function cubeRootSpokesSvg(): string {
+  // the three seats of z³ = −8i on the circle of radius 2: viewBox
+  // 520×420, centre (250,210), 55 px per unit — seats √3−i, 2i, −√3−i
+  // at principal bearings −π/6, π/2, −5π/6, spokes 2π/3 apart
+  const cx = 250
+  const cy = 210
+  const s = 55
+  const px = (x: number): number => cx + x * s
+  const py = (y: number): number => cy - y * s
+  const seatA: [number, number] = [Math.sqrt(3), -1]
+  const seatB: [number, number] = [0, 2]
+  const seatC: [number, number] = [-Math.sqrt(3), -1]
+  return `<svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The circle of radius two centred at the origin with the three cube roots of minus eight i marked: the seat root three minus i at bearing minus thirty degrees in the lower right; the seat two i at the top on the positive imaginary axis; the seat minus root three minus i at bearing minus one hundred fifty degrees in the lower left. The three spokes from the origin are drawn dashed grey and meet at equal angles of one hundred twenty degrees; each seat is cubed to minus eight i by the engine.">
+  <text x="260" y="24" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the three doors of z³ = −8i — equal spokes on the radius-2 circle</text>
+  <line x1="40" y1="${cy}" x2="470" y2="${cy}" stroke="#0d9488" stroke-width="1.8"/>
+  <line x1="${cx}" y1="30" x2="${cx}" y2="390" stroke="#5eead4" stroke-width="1.4"/>
+  <circle cx="${cx}" cy="${cy}" r="${2 * s}" fill="none" stroke="#0d9488" stroke-width="2"/>
+  <line x1="${cx}" y1="${cy}" x2="${px(seatA[0])}" y2="${py(seatA[1])}" stroke="#94a3b8" stroke-width="1.1" stroke-dasharray="4 3"/>
+  <line x1="${cx}" y1="${cy}" x2="${px(seatB[0])}" y2="${py(seatB[1])}" stroke="#94a3b8" stroke-width="1.1" stroke-dasharray="4 3"/>
+  <line x1="${cx}" y1="${cy}" x2="${px(seatC[0])}" y2="${py(seatC[1])}" stroke="#94a3b8" stroke-width="1.1" stroke-dasharray="4 3"/>
+  <path d="M ${cx + 70} ${cy} A 70 70 0 0 0 ${cx + 60.6} ${cy + 35}" fill="none" stroke="#d97706" stroke-width="1.6"/>
+  <text x="${cx + 84}" y="${cy + 24}" font-size="10.5" font-weight="700" fill="#b45309">2π/3</text>
+  <text x="${cx - 34}" y="${cy - 82}" font-size="10.5" font-weight="700" fill="#b45309">2π/3</text>
+  <circle cx="${px(seatA[0])}" cy="${py(seatA[1])}" r="6.5" fill="#ea580c"/>
+  <circle cx="${px(seatB[0])}" cy="${py(seatB[1])}" r="6.5" fill="#ea580c"/>
+  <circle cx="${px(seatC[0])}" cy="${py(seatC[1])}" r="6.5" fill="#ea580c"/>
+  <text x="${px(seatA[0]) + 12}" y="${py(seatA[1]) - 6}" font-size="12" font-weight="700" fill="#c2410c">√3 − i</text>
+  <text x="${px(seatB[0]) + 12}" y="${py(seatB[1]) - 14}" font-size="12" font-weight="700" fill="#c2410c">2i</text>
+  <text x="${px(seatC[0]) - 86}" y="${py(seatC[1]) - 6}" font-size="12" font-weight="700" fill="#c2410c">−√3 − i</text>
+  <text x="${px(seatA[0]) + 16}" y="${py(seatA[1]) + 22}" font-size="10" fill="#0f766e">2·cis(−π/6)</text>
+  <text x="${px(seatB[0]) + 16}" y="${py(seatB[1]) + 20}" font-size="10" fill="#0f766e">2·cis(π/2)</text>
+  <text x="${px(seatC[0]) - 96}" y="${py(seatC[1]) + 24}" font-size="10" fill="#0f766e">2·cis(−5π/6)</text>
+  <circle cx="${cx}" cy="${cy}" r="3.5" fill="#16a34a"/>
+  <text x="${cx - 18}" y="${cy + 18}" font-size="10" fill="#166534">O</text>
+  <text x="260" y="404" font-size="10.5" text-anchor="middle" fill="#0f766e">each seat cubed = −8i · radius 2 = (8)^{1/3} · one door per 2π/3 turn</text>
+</svg>`
+}
+
+function equilateralConditionSvg(): string {
+  // the equilateral triangle {0, 4, 2+2√3 i}: viewBox 460×400, scale
+  // 40 px per unit, origin at px (120,330) — sides 4, 4, 4 with the
+  // condition's two sides priced on the seats
+  const ox = 120
+  const oy = 330
+  const s = 40
+  const px = (x: number): number => ox + x * s
+  const py = (y: number): number => oy - y * s
+  const A: [number, number] = [0, 0]
+  const B: [number, number] = [4, 0]
+  const C: [number, number] = [2, 2 * Math.sqrt(3)]
+  return `<svg viewBox="0 0 460 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Argand plane with the equilateral triangle whose vertices are the complex numbers zero, four, and two plus two root three i. The base runs from the origin to four on the real axis; the apex sits at two plus two root three times i above the midpoint of the base; all three sides are labelled four. The seat zero is marked with the letter O, the apex angle of sixty degrees is marked, and the caption notes that the condition z one squared plus z two squared plus z three squared equals z one z two plus z two z three plus z three z one holds exactly for these three seats.">
+  <text x="230" y="24" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">an equilateral triangle as a complex condition</text>
+  <line x1="30" y1="${py(0)}" x2="440" y2="${py(0)}" stroke="#0d9488" stroke-width="1.8"/>
+  <line x1="${px(0)}" y1="40" x2="${px(0)}" y2="${py(0)}" stroke="#5eead4" stroke-width="1.4"/>
+  <polygon points="${px(A[0])},${py(A[1])} ${px(B[0])},${py(B[1])} ${px(C[0])},${py(C[1])}" fill="none" stroke="#16a34a" stroke-width="2.6"/>
+  <line x1="${px(2)}" y1="${py(0)}" x2="${px(2)}" y2="${py(2 * Math.sqrt(3))}" stroke="#94a3b8" stroke-width="1.1" stroke-dasharray="4 3"/>
+  <circle cx="${px(A[0])}" cy="${py(A[1])}" r="5" fill="#ea580c"/>
+  <circle cx="${px(B[0])}" cy="${py(B[1])}" r="5" fill="#ea580c"/>
+  <circle cx="${px(C[0])}" cy="${py(C[1])}" r="5" fill="#ea580c"/>
+  <text x="${px(A[0]) - 32}" y="${py(A[1]) + 20}" font-size="12" font-weight="700" fill="#c2410c">O (0)</text>
+  <text x="${px(B[0]) + 10}" y="${py(B[1]) + 16}" font-size="12" font-weight="700" fill="#c2410c">4</text>
+  <text x="${px(C[0]) - 14}" y="${py(C[1]) - 12}" font-size="12" font-weight="700" fill="#c2410c">2 + 2√3 i</text>
+  <text x="${px(2) + 8}" y="${py(Math.sqrt(3)) - 0}" font-size="11" fill="#0f766e">2√3</text>
+  <text x="${px(2) + 6}" y="${py(0) - 8}" font-size="11" fill="#0f766e">2</text>
+  <text x="${px(1) - 6}" y="${py(0) - 12}" font-size="11" fill="#0f766e">4</text>
+  <text x="${px(2.9)}" y="${py(1.6)}" font-size="11" fill="#0f766e">4</text>
+  <path d="M ${px(1.05)} ${py(0.05)} A 14 14 0 0 0 ${px(1.05)} ${py(0.32)}" fill="none" stroke="#d97706" stroke-width="1.6"/>
+  <text x="${px(1.02) + 4}" y="${py(0.62)}" font-size="10.5" font-weight="700" fill="#b45309">60°</text>
+  <text x="230" y="380" font-size="10.5" text-anchor="middle" fill="#0f766e">sides |z₁−z₂| = |z₂−z₃| = |z₃−z₁| = 4 · the apex at 60°</text>
+  <text x="230" y="394" font-size="10.5" text-anchor="middle" fill="#0f766e">condition: 0² + 4² + (2+2√3 i)² = 8 + 8√3 i = 0·4 + 4·(2+2√3 i) + 0 ✓</text>
+</svg>`
+}
+
+const lesson35: Lesson = {
+  id: 'aa-de-moivre-roots-of-unity-and-the-complex-loci',
+  number: '3.5',
+  title: 'De Moivre, Roots of Unity and the Complex Loci',
+  concepts: [
+    "De Moivre's theorem",
+    'the nth roots of unity',
+    'primitive roots',
+    'the cube roots of unity',
+    'the multi-valued nth root',
+    'the square-root u, v system',
+    'the complex loci',
+    'the diametric circle',
+    'the equilateral condition',
+  ],
+  objectives: [
+    "State and prove De Moivre's theorem $(\\cos\\theta + i\\sin\\theta)^n = \\cos n\\theta + i\\sin n\\theta$ for every integer $n$, by induction on the argument-addition law this chapter proved — and read its rational extension honestly as one value among many.",
+    'Solve $z^n = 1$ completely: the $n$ seats $\\cos\\tfrac{2k\\pi}{n} + i\\sin\\tfrac{2k\\pi}{n}$ on the unit circle — the equal spokes, the regular $n$-gon, the primitive roots, the zero sum, the product $(\\tfrac{-1}{1})^{n-1}$.',
+    'Master the cube roots of unity $1, \\omega, \\omega^2$: the identities $1 + \\omega + \\omega^2 = 0$ and $\\omega^3 = 1$, the mod-3 power cycle, and the factorisations $a^3 \\pm b^3$ and $a^3 + b^3 + c^3 - 3abc$ that the $\\omega$ engine unlocks.',
+    'Take the multi-valued nth root of ANY complex number: $z = re^{i\\theta}$ has $n$ doors at $r^{1/n}\\left(\\cos\\tfrac{\\theta + 2k\\pi}{n} + i\\sin\\tfrac{\\theta + 2k\\pi}{n}\\right)$ — and recover the square-root $u, v$ system of lesson 3.3 as the $n = 2$ case.',
+    'Read complex loci as plane equations: the circle $z\\bar z + a\\bar z + \\bar a z + b = 0$ with its centre-and-radius read, the straight line from the real-ratio discipline, the circle whose diametric end points are given, and the algebraic condition for three points to represent an equilateral triangle.',
+  ],
+  prerequisites: ['aa-the-argand-plane-polar-form-and-the-argument', 'aa-negative-discriminants-the-doors-turn-complex', 'aa-conjugate-and-modulus'],
+  sources: ['cengage-m2-03', 'cengage-jee-style', 'ncert-math11-ch4-complex-numbers', 'openstax-college-algebra'],
+  blocks: [
+    { kind: 'para', text: 'Lesson 3.4 ended with a law: to multiply complex numbers is to rotate and scale — radii multiply, bearings add. That law was proved for TWO factors. But the whole engine of algebra asks for more: what is a PRODUCT of $n$ equal factors — a POWER — in the second address? The answer is one line long and deserves its name: De Moivre\u2019s theorem, $ (\\cos\\theta + i\\sin\\theta)^n = \\cos n\\theta + i\\sin n\\theta$, proved below by nothing more than the argument-addition law and induction.' },
+    { kind: 'para', text: 'This lesson cashes that theorem three ways, each a chapter-closing engine. First, the question \u201cwhich $z$ raised to the $n$th power gives $1$?\u201d — the nth ROOTS OF UNITY, the unit circle\u2019s equal spokes, the most symmetric objects algebra owns. Second, the same question for any complex number at all: the multi-valued nth root, whose $n$ doors are the equal spokes of a circle of radius $r^{1/n}$ — with the square-root $u, v$ system of lesson 3.3 returning as the $n = 2$ case. Third, the LOCI: equations in $z$ and $\\bar z$ whose solution sets are the plane\u2019s honest curves — lines, circles, the diametric circle, and an algebraic certificate for equilateral triangles. The chapter\u2019s final storey is built entirely from the one law of 3.4.' },
+
+    { kind: 'heading', text: 'De Moivre\u2019s Theorem: the Argument Law Raised to Powers' },
+    { kind: 'para', text: 'The proof is an induction, and the induction\u2019s engine is 3.4\u2019s argument-addition law: for $z_1 = r_1(\\cos\\alpha + i\\sin\\alpha)$ and $z_2 = r_2(\\cos\\beta + i\\sin\\beta)$, the product is $r_1r_2(\\cos(\\alpha + \\beta) + i\\sin(\\alpha + \\beta))$. Nothing new is needed — only the observation that a power is a repeated product of EQUAL factors, so the bearing adds to itself.' },
+    { kind: 'derivation', title: 'De Moivre\u2019s theorem for integer powers', statement: 'For every integer $n$ and every real $\\theta$: $(\\cos\\theta + i\\sin\\theta)^n = \\cos n\\theta + i\\sin n\\theta$.', steps: [
+      { label: 'The base', formula: 'n = 1: \\quad (\\cos\\theta + i\\sin\\theta)^1 = \\cos 1\\cdot\\theta + i\\sin 1\\cdot\\theta', explanation: 'The case $n = 0$ is the empty product $1 = \\cos 0 + i \\sin 0$, and $n = 1$ is the statement itself — the induction starts with nothing to check.' },
+      { label: 'The step', formula: 'z^{n+1} = z^n \\cdot z = (\\cos n\\theta + i\\sin n\\theta)(\\cos\\theta + i\\sin\\theta) = \\cos(n\\theta + \\theta) + i\\sin(n\\theta + \\theta)', explanation: 'One more factor: the argument-addition law of lesson 3.4 with $\\alpha = n\\theta$, $\\beta = \\theta$, radii both 1. The bearing $n\\theta$ grows by exactly $\\theta$ per step — the \u201clock hand ticks forward one notch per multiplication.\u201d' },
+      { label: 'Close the induction', formula: 'z^{n+1} = \\cos(n+1)\\theta + i\\sin(n+1)\\theta', explanation: 'The step converts case $n$ into case $n + 1$; with the base, every POSITIVE integer power is proved.' },
+      { label: 'Negative powers', formula: '(\\cos\\theta + i\\sin\\theta)^{-1} = \\cos\\theta - i\\sin\\theta = \\cos(-\\theta) + i\\sin(-\\theta)', explanation: 'The reciprocal of a unit-modulus number is its conjugate (3.2\u2019s reciprocal engine at $r = 1$), and the conjugate carries bearing $-\\theta$. So $z^{-m} = (z^{-1})^m = \\cos(-m\\theta) + i\\sin(-m\\theta)$ — the theorem holds for every integer, with $n\\theta$ read at the signed $n$.' },
+    ], result: '(\\cos\\theta + i\\sin\\theta)^n = \\cos n\\theta + i\\sin n\\theta \\qquad \\text{for every } n \\in \\mathbb{Z}' },
+    { kind: 'callout', tone: 'definition', title: 'De Moivre\u2019s theorem', text: 'For every integer $n$: $(\\cos\\theta + i\\sin\\theta)^n = \\cos n\\theta + i\\sin n\\theta$, and its conjugate twin $(\\cos\\theta - i\\sin\\theta)^n = \\cos n\\theta - i\\sin n\\theta$. For a RATIONAL exponent $n = p/q$: $\\cos\\tfrac{p\\theta}{q} + i\\sin\\tfrac{p\\theta}{q}$ is ONE of the values of $(\\cos\\theta + i\\sin\\theta)^{p/q}$ — not the only one. The honest full story is the multi-valued nth root below: raising to $p$ then taking the $q$th root yields $q$ doors, and the principal door is only one of them.' },
+    { kind: 'formula', name: 'De Moivre\u2019s theorem', latex: '(\\cos\\theta + i\\sin\\theta)^n = \\cos n\\theta + i\\sin n\\theta, \\qquad n \\in \\mathbb{Z}; \\qquad \\text{(rational } n\\text{: one value among many)}', note: 'powers at the second address: the bearing multiplies by $n$, the radius by $|n$-fold product|. Proved by induction on the argument-addition law — no trigonometry needed beyond it.' },
+    { kind: 'example', title: 'The doubling chain and two power witnesses', steps: [
+      'The chain: $1 + i$ carries radius $\\sqrt{2}$, bearing $\\tfrac{\\pi}{4}$. Squaring doubles the bearing and squares the radius: $(1+i)^2 = 2i$ (radius 2, bearing $\\tfrac{\\pi}{2}$); $(1+i)^4 = (2i)^2 = -4$ (radius 4, bearing $\\pi$); $(1+i)^8 = (-4)^2 = 16$ (radius 16, bearing $2\\pi \\equiv 0$); $(1+i)^{16} = 16^2 = 256$ — radius $256$, bearing $4\\pi \\equiv 0$: the answer is the positive real number $\\boxed{256}$, and the engine never multiplied anything but $i^2 = -1$ facts.',
+      'The ninth power: $\\sqrt{3} + i$ carries radius $2$, bearing $\\tfrac{\\pi}{6}$. The ninth power carries radius $2^9 = 512$, bearing $9 \\cdot \\tfrac{\\pi}{6} = \\tfrac{3\\pi}{2}$ — the NEGATIVE imaginary axis: $(\\sqrt{3}+i)^9 = 512\\left(\\cos\\tfrac{3\\pi}{2} + i\\sin\\tfrac{3\\pi}{2}\\right) = -512i$.',
+      'The conjugate pair: $\\tfrac{1}{2} + \\tfrac{\\sqrt{3}}{2}i$ is the unit-modulus seat at bearing $\\tfrac{\\pi}{3}$. The pair $\\left(\\tfrac{1}{2} \\pm \\tfrac{\\sqrt{3}}{2}i\\right)^7$ sums to $\\cos\\tfrac{7\\pi}{3} + i\\sin\\tfrac{7\\pi}{3} + \\cos\\tfrac{7\\pi}{3} - i\\sin\\tfrac{7\\pi}{3} = 2\\cos\\tfrac{7\\pi}{3} = 2\\cos\\tfrac{\\pi}{3} = 1$ — a REAL answer: conjugate powers are conjugates (the law of 3.2 cashed by De Moivre), so their imaginary parts cancel exactly. The engine swept this on the $7$-power grid before this prose was written.',
+      'Hence, three different power families priced by one theorem: the doubling chain $2i \\to -4 \\to 16 \\to 256$, the $-512i$ witness, and the real pair-sum $1$ — none of them expanded by FOIL at any point.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'The (sin \u03b8 + i cos \u03b8) fraud', text: 'De Moivre is a statement about $\\cos\\theta + i\\sin\\theta$ — a genuine polar seat at bearing $\\theta$. It does NOT extend to $\\sin\\theta + i\\cos\\theta$: that seat sits at bearing $\\tfrac{\\pi}{2} - \\theta$, so its $n$th power is $\\cos\\left(\\tfrac{n\\pi}{2} - n\\theta\\right) + i\\sin\\left(\\tfrac{n\\pi}{2} - n\\theta\\right)$ — NOT $\\sin n\\theta + i\\cos n\\theta$. The engine pinned the fraud numerically before this prose existed: at $\\theta = 0.7$, $n = 2$, the two candidates disagree. When a seat is not in polar form, PUT it in polar form first — the theorem prices seats, not strings of symbols.' },
+
+    { kind: 'heading', text: 'The nth Roots of Unity: the Unit Circle\u2019s Equal Spokes' },
+    { kind: 'para', text: 'Ask the algebra its most symmetric question: which $z$ satisfy $z^n = 1$? At the second address the answer writes itself. Write the wanted seat as $z = r(\\cos\\theta + i\\sin\\theta)$; then $z^n = r^n(\\cos n\\theta + i\\sin n\\theta)$ by De Moivre, and this must equal $1 = 1(\\cos 0 + i\\sin 0)$. Radii are non-negative, so $r^n = 1$ forces $r = 1$ — every root sits ON the unit circle. And the bearing must satisfy $n\\theta \\equiv 0 \\pmod{2\\pi}$: $\\theta = \\tfrac{2k\\pi}{n}$ for integers $k$. Distinct seats stop repeating after $k = n$ turns — exactly $n$ doors, equally spaced around the circle.' },
+    { kind: 'derivation', title: 'The complete solution of the unity equation', statement: 'For $n \\geq 2$, the equation $z^n = 1$ has exactly $n$ solutions, the seats $\\alpha^k$ for $k = 0, 1, \\dots, n-1$, where $\\alpha = \\cos\\tfrac{2\\pi}{n} + i\\sin\\tfrac{2\\pi}{n}$.', steps: [
+      { label: 'The radius', formula: 'r^n = 1 \\;\\Rightarrow\\; r = 1', explanation: 'The modulus of a product of $n$ equal factors is $r^n$ (3.2\u2019s multiplicativity, $n$ times over); matching the unit modulus of $1$ pins every root to the unit circle.' },
+      { label: 'The bearing', formula: 'n\\theta \\equiv 0 \\pmod{2\\pi} \\;\\Rightarrow\\; \\theta = \\tfrac{2k\\pi}{n}', explanation: 'De Moivre: the $n$th power\u2019s bearing is $n\\theta$, and it must point at $0$ (mod $2\\pi$ — the full-turn equivalence, 3.4\u2019s wrap discipline). One full circle of bearings hands out $\\theta = 0, \\tfrac{2\\pi}{n}, \\tfrac{4\\pi}{n}, \\dots$' },
+      { label: 'The count', formula: 'k = 0, 1, \\dots, n-1: \\quad n \\text{ seats}', explanation: 'At $k = n$ the bearing $2\\pi$ wraps to $0$ — the seat is $1$ again. So the list closes after $n$ DISTINCT seats: the powers $1, \\alpha, \\alpha^2, \\dots, \\alpha^{n-1}$ of the first spoke $\\alpha$.' },
+      { label: 'The shape', formula: '\\text{equal spokes } \\tfrac{2\\pi}{n} \\text{ apart — a regular } n\\text{-gon}', explanation: 'The seats are the circle cut into $n$ equal arcs: joined by chords they are the vertices of a regular polygon with $n$ sides centred at the origin. The engine swept $n = 3$ to $12$: every seat re-roots to $1$, the polygon closes, the census is exact.' },
+    ], result: 'z^n = 1 \\;\\Longleftrightarrow\\; z \\in \\{1, \\alpha, \\alpha^2, \\dots, \\alpha^{n-1}\\}, \\qquad \\alpha = \\cos\\tfrac{2\\pi}{n} + i\\sin\\tfrac{2\\pi}{n}' },
+    { kind: 'callout', tone: 'definition', title: 'nth roots of unity; primitive root', text: 'The nth ROOTS OF UNITY are the $n$ solutions of $z^n = 1$: the seats $\\cos\\tfrac{2k\\pi}{n} + i\\sin\\tfrac{2k\\pi}{n}$, $k = 0, \\dots, n-1$ — the unit circle\u2019s equal spokes, the vertices of a regular $n$-gon centred at the origin. A root $\\alpha^k$ is PRIMITIVE when its powers alone already produce all $n$ roots — exactly when $\\gcd(k, n) = 1$, of which there are $\\varphi(n)$ (Euler\u2019s counting function). The 5th roots have 4 primitive seats; the 6th have only 2; the 4th have 2 ($\\pm i$); the primes have the full $n - 1$.' },
+    { kind: 'figure', caption: 'The fifth roots of unity — the pentagon. Five seats at equal spokes of $\\tfrac{2\\pi}{5} = 72^\\circ$: the real seat $1$ on the axis, the two upper seats $\\mathrm{cis}\\,\\tfrac{2\\pi}{5}$ and $\\mathrm{cis}\\,\\tfrac{4\\pi}{5}$ with their exact surd coordinates, and their two lower mirrors. Joined by chords, the seats are the regular pentagon — the geometric object the equation $z^5 = 1$ has been all along.', svg: pentagonSeatsSvg() },
+    { kind: 'example', title: 'The pentagon bench: $z^5 = 1$ with exact coordinates', steps: [
+      'The engine: $r = 1$ and $\\theta = \\tfrac{2k\\pi}{5}$ for $k = 0, \\dots, 4$ — five seats on the unit circle at $72^\\circ$ spacing.',
+      'The exact coordinates are honest surds: $\\mathrm{cis}\\,\\tfrac{2\\pi}{5} = \\tfrac{\\sqrt{5}-1}{4} + i\\,\\tfrac{\\sqrt{10+2\\sqrt{5}}}{4}$ (numerically $0.309017 + 0.951057i$, verified by the engine to $10^{-12}$) and $\\mathrm{cis}\\,\\tfrac{4\\pi}{5} = -\\tfrac{\\sqrt{5}+1}{4} + i\\,\\tfrac{\\sqrt{10-2\\sqrt{5}}}{4}$ (numerically $-0.809017 + 0.587785i$) — the golden ratio\u2019s fingerprints, priceable exactly BECAUSE the pentagon carries them.',
+      'The conjugate pairing: the lower seats are the upper seats\u2019 mirrors, $\\mathrm{cis}\\,\\tfrac{8\\pi}{5} = \\overline{\\mathrm{cis}\\,\\tfrac{2\\pi}{5}}$ — non-real roots of unity come in conjugate pairs, exactly as real-coefficient equations force (3.3\u2019s conjugate-pair law, now read geometrically).',
+      'The census: five seats, one real ($1$ itself — $n$ odd means exactly one real root), four primitive (all but $1$: $\\varphi(5) = 4$), sum $0$ (the engine below proves it twice), product $+1$ ($n$ odd). Everything the properties subsection pins as law, witnessed on one bench.',
+    ] },
+
+    { kind: 'heading', text: 'Properties of nth Roots of Unity' },
+    { kind: 'para', text: 'The roots of unity are a CENSUS, and every row of it is law. Five properties carry nearly all the work that exams and books ask of these seats — each proved once, each witnessed by the engine on $n = 3$ to $12$ before this prose existed.' },
+    { kind: 'derivation', title: 'The sum of the roots of unity is zero (two proofs)', statement: 'For $n \\geq 2$: $1 + \\alpha + \\alpha^2 + \\dots + \\alpha^{n-1} = 0$.', steps: [
+      { label: 'Proof A — the geometric series', formula: 'S = 1 + \\alpha + \\dots + \\alpha^{n-1} = \\tfrac{\\alpha^n - 1}{\\alpha - 1} = \\tfrac{1 - 1}{\\alpha - 1} = 0', explanation: 'The finite geometric sum (Arithmetic\u2019s own result, cashed here): since $\\alpha \\neq 1$ for $n \\geq 2$ (the first spoke is off the real axis), the formula applies, and the numerator vanishes because $\\alpha^n = 1$ — the roots literally sum themselves out of existence.' },
+      { label: 'Proof B — Vieta', formula: 'x^n - 1 = x^n + 0\\cdot x^{n-1} + \\dots - 1 \\;\\Rightarrow\\; \\text{sum of roots} = -\\tfrac{0}{1} = 0', explanation: 'The polynomial route: $x^n - 1$ has no $x^{n-1}$ term, so Vieta\u2019s coefficient read prices the root sum at exactly $0$ — the SAME census row from the other side of algebra.' },
+      { label: 'The geometric echo', formula: '\\sum_k \\cos\\tfrac{2k\\pi}{n} = 0 \\quad\\text{and}\\quad \\sum_k \\sin\\tfrac{2k\\pi}{n} = 0', explanation: 'Reading the zero sum by parts: the real parts cancel AND the imaginary parts cancel separately — $n$ unit vectors at equal spokes are the most balanced arrangement a circle admits (forces pulling equally in every direction — the engine\u2019s sweep agrees for every $n$ from 3 to 12).' },
+    ], result: '1 + \\alpha + \\alpha^2 + \\dots + \\alpha^{n-1} = 0 \\qquad (n \\geq 2)' },
+    { kind: 'formula', name: 'The roots-of-unity census', latex: '\\text{real roots: } n \\text{ odd} \\to \\{1\\}, \\; n \\text{ even} \\to \\{\\pm 1\\}; \\quad \\text{sum} = 0; \\quad \\text{product} = (-1)^{n-1}; \\quad \\#\\text{primitive} = \\varphi(n)', note: 'product read: $\\alpha^{0+1+\\dots+(n-1)} = \\alpha^{n(n-1)/2} = \\mathrm{cis}\\left(\\pi(n-1)\\right) = (-1)^{n-1}$ — $-1$ when $n$ is even, $+1$ when $n$ is odd. Common roots of $x^p = 1$ and $x^q = 1$: exactly $\\gcd(p, q)$ of them.' },
+    { kind: 'para', text: 'Three more census rows, stated with their one-line engines. The REAL roots: the unit circle meets the real axis at $\\pm 1$, and $(-1)^n = 1$ exactly when $n$ is even — so odd $n$ owns one real root, even $n$ owns two. The PRODUCT: multiplying all $n$ seats piles up the bearings to $\\tfrac{2\\pi}{n}(0 + 1 + \\dots + (n-1)) = \\pi(n-1)$ — a single seat at angle $\\pi(n-1)$, which is $-1$ for even $n$ and $+1$ for odd $n$. The COMMON roots: a seat is both a $p$th and a $q$th root exactly when its spoke-count divides both $p$ and $q$ — there are $\\gcd(p, q)$ such seats (the engine\u2019s four pinned pairs: $2, 4, 1, 6$).' },
+    { kind: 'example', title: 'The twelfth-roots census', steps: [
+      'The seats: $\\mathrm{cis}\\,\\tfrac{k\\pi}{6}$ for $k = 0, \\dots, 11$ — twelve spokes of $30^\\circ$: the four axis seats $1, i, -1, -i$ plus the eight $15^\\circ$-family seats $\\pm\\tfrac{\\sqrt{3}}{2} \\pm \\tfrac{1}{2}i$ and $\\pm\\tfrac{\\sqrt{6} \\pm \\sqrt{2}}{4}$-family honest surds — a full clock face.',
+      'The census rows: sum $0$ (twelve balanced spokes); product $-1$ (even $n$: the bearings pile to $\\pi \\cdot 11 \\equiv \\pi$); real roots $\\pm 1$ (even $n$); primitive seats — $\\gcd(k, 12) = 1$ at $k = 1, 5, 7, 11$ — exactly FOUR: $\\mathrm{cis}\\,\\tfrac{\\pi}{6}, \\mathrm{cis}\\,\\tfrac{5\\pi}{6}, \\mathrm{cis}\\,\\tfrac{7\\pi}{6}, \\mathrm{cis}\\,\\tfrac{11\\pi}{6}$, which is $\\varphi(12) = 4$.',
+      'The common-roots cross-check: $x^{12} = 1$ and $x^{18} = 1$ share $\\gcd(12, 18) = 6$ seats — the sixth roots of unity sit inside the twelfth clock (every second spoke), exactly as the divisor law demands.',
+      'Hence the twelfth clock prices four census rows at a glance — and the engine swept every one of them numerically before this prose was written.',
+    ] },
+
+    { kind: 'heading', text: 'The Cube Roots of Unity' },
+    { kind: 'para', text: 'Between all $n$ and the special few, one family earns its own name: $z^3 = 1$. The polar engine prices it — three seats at $\\tfrac{2\\pi}{3}$ spacing on the unit circle — and the quadratic formula prices it again: $z^3 - 1 = (z - 1)(z^2 + z + 1)$, where the quadratic factor\u2019s doors are $z = \\tfrac{-1 \\pm i\\sqrt{3}}{2}$. Both routes land on the same trio: $1$ and the two complex seats, of which one is named $\\omega$ and the other is forced to be $\\omega^2$.' },
+    { kind: 'derivation', title: 'The cube roots of unity', statement: '$z^3 = 1$ has exactly three solutions: $1, \\omega, \\omega^2$ where $\\omega = \\tfrac{-1 + i\\sqrt{3}}{2}$.', steps: [
+      { label: 'Factor', formula: 'z^3 - 1 = (z - 1)(z^2 + z + 1) = 0', explanation: 'The difference of cubes (Arithmetic\u2019s factoring bench): the real root $1$ splits off, leaving a quadratic with discriminant $1 - 4 = -3$ — negative, so 3.3\u2019s discipline prices the other two doors as a conjugate pair.' },
+      { label: 'The quadratic doors', formula: 'z = \\tfrac{-1 \\pm \\sqrt{-3}}{2} = \\tfrac{-1 \\pm i\\sqrt{3}}{2}', explanation: 'Naming the upper door $\\omega$: a unit-modulus seat (check: $\\tfrac{1}{4} + \\tfrac{3}{4} = 1$) at bearing $\\tfrac{2\\pi}{3}$ — the second spoke of the triangle.' },
+      { label: 'The other door is the square', formula: '\\omega^2 = \\left(\\tfrac{-1+i\\sqrt{3}}{2}\\right)^2 = \\tfrac{1 - 2i\\sqrt{3} - 3}{4} = \\tfrac{-1 - i\\sqrt{3}}{2}', explanation: 'Squaring $\\omega$ doubles its bearing to $\\tfrac{4\\pi}{3}$ — the third spoke — and the algebra confirms it exactly: each complex cube root is the square of the other. The conjugate read too: $\\bar\\omega = \\omega^2$ (a unit-circle seat mirrors to its bearing-negation, which for $\\tfrac{2\\pi}{3}$ is $\\tfrac{4\\pi}{3}$ mod $2\\pi$).' },
+      { label: 'The geometry', formula: '1, \\omega, \\omega^2 \\text{ at } 0, \\tfrac{2\\pi}{3}, \\tfrac{4\\pi}{3} \\text{ — an equilateral triangle}', explanation: 'Three unit seats at equal $120^\\circ$ spokes: sides $|1 - \\omega| = |1 - \\omega^2| = |\\omega - \\omega^2| = \\sqrt{3}$ (each side the chord of a $120^\\circ$ arc) — the roots of unity\u2019s smallest regular polygon, the bridge this lesson cashes again as the EQUILATERAL CONDITION below.' },
+    ], result: 'z^3 = 1 \\;\\Longleftrightarrow\\; z \\in \\{1, \\omega, \\omega^2\\}, \\qquad \\omega = \\tfrac{-1+i\\sqrt{3}}{2}, \\quad \\bar\\omega = \\omega^2' },
+
+    { kind: 'heading', text: 'Properties of Cube Roots of Unity' },
+    { kind: 'para', text: 'The $\\omega$-engine\u2019s laws, each one line and each swept by the engine before prose. THE SUM: $1 + \\omega + \\omega^2 = 0$ — the $n = 3$ row of the zero-sum law (both proofs: the geometric series dies because $\\omega^3 = 1$, and Vieta reads the absent $z$-term of $z^2 + z + 1$). THE CYCLE: $\\omega^3 = 1$ makes every power reduce mod 3 — $\\omega^{3q + r} = \\omega^r$ — so $\\omega$ answers power questions the way $i$ answered them mod 4 in 3.1 (the two smallest clocks in algebra). THE PRODUCT: $1 \\cdot \\omega \\cdot \\omega^2 = \\omega^3 = 1$. THE RECIPROCALS: $\\omega^{-1} = \\omega^2$ and $\\omega^{-2} = \\omega$ — each complex root is the other\u2019s reciprocal, because their product is $\\omega^3 = 1$. THE REAL FAMILY: the cube roots of $-1$ are $-1, -\\omega, -\\omega^2$ (negate the trio), and of any real $a > 0$: $\\sqrt[3]{a}, \\sqrt[3]{a}\\,\\omega, \\sqrt[3]{a}\\,\\omega^2$ — one real door, two $\\omega$-turned doors at radius $\\sqrt[3]{a}$.' },
+    { kind: 'formula', name: 'The ω engine', latex: '1 + \\omega + \\omega^2 = 0, \\qquad \\omega^3 = 1, \\qquad \\omega^{3q+r} = \\omega^r, \\qquad \\bar\\omega = \\omega^2 = \\tfrac{1}{\\omega}', note: 'plus the factorisations the engine unlocks: $a^3 \\pm b^3 = (a \\pm b)(a \\pm b\\omega)(a \\pm b\\omega^2)$ and $a^3 + b^3 + c^3 - 3abc = (a+b+c)(a+b\\omega+c\\omega^2)(a+b\\omega^2+c\\omega)$.' },
+    { kind: 'derivation', title: 'The ω factorisations', statement: 'For all $a, b, c$: $a^3 + b^3 = (a+b)(a+b\\omega)(a+b\\omega^2)$ and $a^3 + b^3 + c^3 - 3abc = (a+b+c)(a+b\\omega+c\\omega^2)(a+b\\omega^2+c\\omega)$.', steps: [
+      { label: 'The two-term split', formula: 'a^3 + b^3 = (a+b)(a^2 - ab + b^2)', explanation: 'The sum of cubes from Arithmetic\u2019s bench — the first factor is the real door, the quadratic is the two complex doors\u2019 product.' },
+      { label: 'Split the quadratic', formula: 'a^2 - ab + b^2 = (a + b\\omega)(a + b\\omega^2)', explanation: 'Expand the right side: $a^2 + ab(\\omega + \\omega^2) + b^2\\omega^3 = a^2 - ab + b^2$ — because $\\omega + \\omega^2 = -1$ and $\\omega^3 = 1$. The zero-sum law is the engine: the two $\\omega$-seats sum to $-1$ so the cross term turns NEGATIVE exactly as the quadratic demands.' },
+      { label: 'The witness', formula: 'a = 2, b = 3: \\quad 5(2 + 3\\omega)(2 + 3\\omega^2) = 5 \\cdot 7 = 35 = 2^3 + 3^3', explanation: 'The engine cashed this exactly: the two complex factors are conjugates (their product is $|2 + 3\\omega|^2 = 4 - 6 + 9 = 7$), so the product is real — every such factorisation lands on real ground because conjugate pairs collide.' },
+      { label: 'The three-term law', formula: 'a^3+b^3+c^3-3abc = (a+b+c)\\underbrace{(a+b\\omega+c\\omega^2)(a+b\\omega^2+c\\omega)}_{\\text{conjugate pair}}', explanation: 'The same engine at three terms (the identity\u2019s proof is the same expansion with $\\omega + \\omega^2 = -1$ and $\\omega^3 = 1$ doing all the work). Witness: $a,b,c = 1,2,4$: LHS $= 1 + 8 + 64 - 24 = 49$; RHS $= 7 \\cdot |1 + 2\\omega + 4\\omega^2|^2 = 7 \\cdot |{-2} - i\\sqrt{3}|^2 = 7 \\cdot 7 = 49$ — the engine\u2019s exact receipt.' },
+    ], result: 'a^3 + b^3 + c^3 - 3abc = (a+b+c)(a+b\\omega+c\\omega^2)(a+b\\omega^2+c\\omega) \\quad \\text{(zero when } a+b+c = 0\\text{)}' },
+    { kind: 'example', title: 'The mod-3 clock at work', steps: [
+      'Reduce the powers: $2026 = 3 \\cdot 675 + 1$ so $\\omega^{2026} = \\omega$; $4052 = 3 \\cdot 1350 + 2$ so $\\omega^{4052} = \\omega^2$. Their sum: $\\omega + \\omega^2 = -1$ — the zero-sum law as a subtraction: the two complex seats together cost exactly minus the real seat.',
+      'The pair product: $(1 + \\omega)(1 + \\omega^2) = 1 + (\\omega + \\omega^2) + \\omega^3 = 1 - 1 + 1 = 1$ — NOT 2: the cross term is $\\omega + \\omega^2 = -1$, the engine CAUGHT the drafted answer of 2 before this prose was written. The two factors are conjugates, and $|1 + \\omega| = 1$ (the seat $1 + \\omega = \\mathrm{cis}\\,\\tfrac{\\pi}{3}$ — a beautiful coincidence this lesson\u2019s figure 2 family will echo), so the product of conjugates is the squared modulus: $1$.',
+      'The triple-sum rule: $1 + \\omega^n + \\omega^{2n}$ is $3$ when $3 | n$ (all three seats collapse to $1$) and $0$ otherwise (the three distinct seats reappear) — the engine swept $n = 1$ to $12$: only $n = 3, 6, 9, 12$ read $3$, every other read $0$.',
+      'Hence the mod-3 clock: power questions reduce to remainders, pair questions to conjugate collisions, sum questions to the zero-sum law — three laws, one letter $\\omega$.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'The ω triangle IS the equilateral condition', text: 'The seats $1, \\omega, \\omega^2$ form an equilateral triangle (three unit seats at $120^\\circ$ spokes, side $\\sqrt{3}$). The condition this lesson pins below — $z_1^2 + z_2^2 + z_3^2 = z_1z_2 + z_2z_3 + z_3z_1$ — holds for them exactly: LHS $= 1 + \\omega^2 + \\omega^4 = 1 + \\omega^2 + \\omega = 0$ and RHS $= \\omega + \\omega^3 + \\omega^2 = \\omega + 1 + \\omega^2 = 0$. The roots of unity are not merely a picture OF symmetry; they are the algebraic certificate of it — the engine verified both sides at $10^{-9}$ before this sentence existed.' },
+
+    { kind: 'heading', text: 'The Multi-Valued nth Root: every Number\u2019s n Doors' },
+    { kind: 'para', text: 'Return to the general question with the whole engine built: given $w = re^{i\\theta}$ (any nonzero complex number), which $z$ satisfy $z^n = w$? The unit-circle argument generalises in one move — and its honest answer is the chapter\u2019s deepest habit: the nth root is a FAMILY, not a number.' },
+    { kind: 'derivation', title: 'The multi-valued nth root', statement: 'For $w = r(\\cos\\theta + i\\sin\\theta) \\neq 0$, the $n$ solutions of $z^n = w$ are $z = r^{1/n}\\left(\\cos\\tfrac{\\theta + 2k\\pi}{n} + i\\sin\\tfrac{\\theta + 2k\\pi}{n}\\right)$ for $k = 0, 1, \\dots, n-1$.', steps: [
+      { label: 'Seat the wanted root', formula: 'z = \\rho(\\cos\\phi + i\\sin\\phi) \\;\\Rightarrow\\; z^n = \\rho^n(\\cos n\\phi + i\\sin n\\phi)', explanation: 'De Moivre prices the power in the second address — the equation becomes two reads: one for radii, one for bearings.' },
+      { label: 'The radius read', formula: '\\rho^n = r \\;\\Rightarrow\\; \\rho = r^{1/n} \\geq 0', explanation: 'Radii are non-negative reals, so the usual real nth root prices the door-radius — ALL doors share it.' },
+      { label: 'The bearing read', formula: 'n\\phi \\equiv \\theta \\pmod{2\\pi} \\;\\Rightarrow\\; \\phi = \\tfrac{\\theta + 2k\\pi}{n}', explanation: 'The bearing must land on $\\theta$ modulo full turns — so $\\theta$ itself, or $\\theta + 2\\pi$, or $\\theta + 4\\pi$, \u2026 divided by $n$. THE MULTI-VALUED STEP: the full-turn freedom upstairs becomes $n$ DIFFERENT bearings downstairs, because dividing by $n$ splits $2\\pi$ into $\\tfrac{2\\pi}{n}$ steps.' },
+      { label: 'The doors', formula: 'k = 0, 1, \\dots, n-1: \\quad n \\text{ seats at equal spokes } \\tfrac{2\\pi}{n} \\text{ on the } r^{1/n} \\text{ circle}', explanation: 'After $k = n$ the bearing $\\tfrac{\\theta + 2n\\pi}{n} = \\tfrac{\\theta}{n} + 2\\pi$ wraps to the $k = 0$ seat — the list closes. The doors are the roots-of-unity pentagon, scaled to radius $r^{1/n}$ and rotated to the $\\tfrac{\\theta}{n}$ bearing: every root family is the unit circle\u2019s equal spokes in disguise.' },
+    ], result: 'z^n = w \\;\\Longleftrightarrow\\; z = r^{1/n}\\,\\mathrm{cis}\\,\\tfrac{\\theta + 2k\\pi}{n}, \\quad k = 0, \\dots, n-1' },
+    { kind: 'formula', name: 'The multi-valued nth root', latex: 'z^n = re^{i\\theta} \\;\\Rightarrow\\; z = r^{1/n}\\,e^{i(\\theta + 2k\\pi)/n}, \\qquad k = 0, 1, \\dots, n-1', note: 'a FAMILY of $n$ doors at equal spokes on the circle of radius $r^{1/n}$ — the $\\sqrt{\\;\\;}$ symbol habitually reports only the $k = 0$ door; the honest equation reports all $n$.' },
+    { kind: 'callout', tone: 'warn', title: 'The multi-valued trap', text: 'Over the reals, $\\sqrt{25}$ is one number ($5$) by convention. Over the complex field EVERY nonzero number has exactly TWO square roots, THREE cube roots, $n$ nth roots — $z^{1/2}$ is a TWO-element family, and the De Moivre rational-power statement of this lesson is deliberately weak (\u201cONE of the values\u201d) precisely because the full truth is this family. Exam arithmetic exploits the habit: asking for \u201cthe\u201d cube root of $-8i$ has three honest answers, and a multiple-choice item that expects only one of them is testing convention, not mathematics.' },
+    { kind: 'example', title: 'The three doors of $z^3 = -8i$', steps: [
+      'The polar read: $-8i$ has radius $8$, bearing $-\\tfrac{\\pi}{2}$ (the negative imaginary axis). The doors carry radius $\\sqrt[3]{8} = 2$ and bearings $\\tfrac{-\\pi/2 + 2k\\pi}{3}$: $-\\tfrac{\\pi}{6}$, $-\\tfrac{\\pi}{6} + \\tfrac{2\\pi}{3} = \\tfrac{\\pi}{2}$, and $\\tfrac{\\pi}{2} + \\tfrac{2\\pi}{3} = \\tfrac{7\\pi}{6}$ (principal wrap: $-\\tfrac{5\\pi}{6}$).',
+      'The seats: $2\\,\\mathrm{cis}\\left(-\\tfrac{\\pi}{6}\\right) = \\sqrt{3} - i$, then $2\\,\\mathrm{cis}\\,\\tfrac{\\pi}{2} = 2i$, then $2\\,\\mathrm{cis}\\left(-\\tfrac{5\\pi}{6}\\right) = -\\sqrt{3} - i$ — three doors on the radius-2 circle at $120^\\circ$ spokes, the $\\omega$-triangle rotated and scaled.',
+      'The cube check (engine receipt): $(\\sqrt{3} - i)^3$: radius $2^3 = 8$, bearing $3 \\cdot (-\\tfrac{\\pi}{6}) = -\\tfrac{\\pi}{2}$ — the seat $-8i$ exactly; likewise $2i$ cubes to $8i^3 = -8i$ and $-\\sqrt{3} - i$ cubes to $8\\,\\mathrm{cis}\\left(-\\tfrac{5\\pi}{2}\\right) = 8\\,\\mathrm{cis}\\,\\tfrac{3\\pi}{2} = -8i$. All three verified at $10^{-10}$.',
+      'The $\\omega$ cross-check: one door being $2i$, the others must be $2i\\omega$ and $2i\\omega^2$ — and indeed $2i\\omega = 2i\\left(-\\tfrac{1}{2} + \\tfrac{\\sqrt{3}}{2}i\\right) = -\\sqrt{3} - i$ and $2i\\omega^2 = \\sqrt{3} - i$. The two engines — polar spokes and the $\\omega$ clock — are the same machine seen twice.',
+    ] },
+    { kind: 'figure', caption: 'The three doors of $z^3 = -8i$ — equal spokes on the radius-2 circle. The seats $\\sqrt{3} - i$, $2i$ and $-\\sqrt{3} - i$ sit $120^\\circ$ apart, each cubing back to $-8i$; the door-radius is $\\sqrt[3]{8} = 2$, the door-family the $\\omega$-triangle rotated to the $-\\tfrac{\\pi}{6}$ bearing. One door per $\\tfrac{2\\pi}{3}$ turn of the full-turn freedom upstairs.', svg: cubeRootSpokesSvg() },
+
+    { kind: 'heading', text: 'The Square Root of a Complex Number: the u, v System Returns' },
+    { kind: 'para', text: 'The $n = 2$ case of the door family is the square root — and lesson 3.3 built its direct engine: write $\\sqrt{a + ib} = u + iv$ with REAL $u, v$, square, and match parts. The system: $u^2 - v^2 = a$ and $2uv = b$; the third row (the Pythagorean rescue) $u^2 + v^2 = \\sqrt{a^2 + b^2}$; then $u^2$ and $v^2$ split the sum-and-difference, and the SIGN of $uv$ (from $2uv = b$) chooses the pairing. The family examples below run the system in full — the polar door-engine and the $u, v$ system are two roads into the same two doors.' },
+    { kind: 'example', title: 'Two square roots by the $u, v$ system', steps: [
+      'First target, $\\sqrt{15 + 8i}$: set $\\sqrt{15+8i} = u + iv$. Rows: $u^2 - v^2 = 15$ and $2uv = 8$; the rescue row $u^2 + v^2 = \\sqrt{15^2 + 8^2} = \\sqrt{289} = 17$. Split: $u^2 = \\tfrac{17 + 15}{2} = 16$ and $v^2 = \\tfrac{17 - 15}{2} = 1$ — so $u = \\pm 4$, $v = \\pm 1$. The sign row $2uv = 8 > 0$ forces SAME signs: the doors are $\\boxed{\\pm(4 + i)}$. Receipt: $(4 + i)^2 = 16 - 1 + 8i = 15 + 8i$ exactly — engine-verified.',
+      'Second target, $\\sqrt{-7 - 24i}$: rows $u^2 - v^2 = -7$, $2uv = -24$; rescue $u^2 + v^2 = \\sqrt{49 + 576} = \\sqrt{625} = 25$. Split: $u^2 = \\tfrac{25 - 7}{2} = 9$, $v^2 = \\tfrac{25 + 7}{2} = 16$ — so $u = \\pm 3$, $v = \\pm 4$. The sign row $2uv = -24 < 0$ forces OPPOSITE signs: the doors are $\\boxed{\\pm(3 - 4i)}$. Receipt: $(3 - 4i)^2 = 9 - 16 - 24i = -7 - 24i$ exactly.',
+      'The polar cross-check on the first: $15 + 8i$ has radius $17$ — a $8\\text{-}15\\text{-}17$ seat — so the doors carry radius $\\sqrt{17}$ at bearings $\\tfrac{\\phi \\pm 2k\\pi}{2}$: the two doors are exactly $180^\\circ$ apart on one circle, as every square-root family must be (the $n = 2$ spoke of $\\pi$).',
+      'The honest note: the system\u2019s rescue row works BECAUSE $u^2 + v^2 \\geq 0$ pins the positive branch — the same place the multi-valued trap hides; the $\\pm$ in every answer is the two-door family being reported honestly.',
+    ] },
+
+    { kind: 'heading', text: 'The Complex Loci: Equations the Plane Answers' },
+    { kind: 'para', text: 'The last engine of the chapter reads EQUATIONS IN $z$ AND $\\bar z$ as plane curves. The whole method is one move: the modulus is a DISTANCE (3.2), so any equation built from $|\\cdot|$ is a distance sentence, and the distance sentences of elementary geometry are the perpendicular bisector, the segment, the ray pair, the circle — with the ellipse and hyperbola waiting at honest scope below.' },
+    { kind: 'table', caption: 'The locus dictionary — one distance sentence per row, $A(z_1)$ and $B(z_2)$ fixed seats, $P(z)$ the variable.', head: ['equation in z', 'the distance sentence', 'the locus'], rows: [
+      ['$|z - z_1| = |z - z_2|$', '$AP = BP$ — equidistant from two seats', 'the perpendicular bisector of $AB$'],
+      ['$|z - z_1| + |z - z_2| = |z_1 - z_2|$', '$AP + PB = AB$ — the detour adds nothing', 'the segment $AB$ itself'],
+      ['$\\left||z - z_1| - |z - z_2|\\right| = |z_1 - z_2|$', '$|AP - PB| = AB$ — the difference maxes out', 'the two rays from $A$ and $B$, outward'],
+      ['$|z - z_1| = r$', '$AP = r$ — one fixed distance', 'the circle, centre $z_1$, radius $r$'],
+      ['$|z - z_1|^2 + |z - z_2|^2 = |z_1 - z_2|^2$', '$AP^2 + PB^2 = AB^2$ — Pythagoras at $P$', 'the circle with DIAMETER $AB$'],
+    ] },
+    { kind: 'para', text: 'Two algebraic forms turn the circle and the line into EQUATIONS IN $z$ AND $\\bar z$ — the forms that make loci computable without ever splitting into $(x, y)$.' },
+    { kind: 'derivation', title: 'The circle equation and its centre-and-radius read', statement: 'Every circle has equation $z\\bar z + a\\bar z + \\bar a z + b = 0$ with $b \\in \\mathbb{R}$ and $a\\bar a \\geq b$; its centre is $-a$ and its radius $\\sqrt{a\\bar a - b}$.', steps: [
+      { label: 'Start from the distance form', formula: '|z - z_0| = r \\;\\Longleftrightarrow\\; |z - z_0|^2 = r^2', explanation: 'Square the radius sentence (both sides non-negative — squaring is safe).' },
+      { label: 'Cash the modulus', formula: '(z - z_0)(\\bar z - \\bar z_0) = r^2 \\;\\Rightarrow\\; z\\bar z - z_0\\bar z - \\bar z_0 z + (z_0\\bar z_0 - r^2) = 0', explanation: '3.2\u2019s law $|w|^2 = w\\bar w$ on the difference seat. Expand the product — the mixed terms appear with BOTH conjugate coefficients.' },
+      { label: 'Name the constants', formula: 'a = -z_0, \\qquad b = z_0\\bar z_0 - r^2 = |z_0|^2 - r^2', explanation: 'With $a = -z_0$: the equation reads $z\\bar z + a\\bar z + \\bar a z + b = 0$ with $b$ real (it is a squared radius difference). Centre $-a = z_0$; and $a\\bar a - b = |z_0|^2 - (|z_0|^2 - r^2) = r^2$ — the radius squared, recoverable from the coefficients alone.' },
+      { label: 'The reality condition', formula: 'a\\bar a - b \\geq 0', explanation: 'A negative $a\\bar a - b$ would price an imaginary radius — no real circle: the honest feasibility row the form carries with it (the engine checks it on both worked reads below).' },
+    ], result: 'z\\bar z + a\\bar z + \\bar a z + b = 0 \\;\\Longleftrightarrow\\; |z + a| = \\sqrt{a\\bar a - b} \\quad (\\text{centre } -a, \\; \\text{radius } \\sqrt{a\\bar a - b})' },
+    { kind: 'example', title: 'Reading a circle from its $z$-form', steps: [
+      'The read: $z\\bar z - (2 - 3i)z - (2 + 3i)\\bar z + 9 = 0$. Match the form: the $\\bar z$-coefficient is $-(2 + 3i)$, so $a = -(2 + 3i)$ — wait, read the convention the engine pins: with the form $z\\bar z + a\\bar z + \\bar a z + b$, the $\\bar z$-coefficient is $a$ and the $z$-coefficient is $\\bar a$. Here $a = -(2 + 3i)$, $b = 9$.',
+      'The centre: $-a = 2 + 3i$. The radius: $\\sqrt{a\\bar a - b} = \\sqrt{13 - 9} = 2$. The circle is $|z - (2 + 3i)| = 2$ — the engine\u2019s seat check: $z = 4 + 3i$ (distance exactly 2) satisfies the equation to $10^{-10}$; $z = 5 + 3i$ (distance 3) reads $|z - \\text{centre}|^2 - r^2 = 9 - 4 = 5$, the off-seat value the engine pinned (it CAUGHT a drafted 4 before prose).',
+      'Hence the read is mechanical: coefficients in, centre and radius out — the $z$-form is the circle\u2019s passport.',
+    ] },
+    { kind: 'derivation', title: 'The straight-line equation from the real-ratio discipline', statement: 'The line through two distinct seats $z_1, z_2$ is $\\bar a z + a\\bar z + b = 0$ where $a = i(z_1 - z_2)$ and $b = -(z_1\\bar z_2 + \\bar z_1 z_2)$; equivalently $\\frac{z - z_1}{z_2 - z_1}$ is real.', steps: [
+      { label: 'The real-ratio discipline', formula: 'P \\text{ on line } AB \\;\\Longleftrightarrow\\; \\arg\\frac{z - z_1}{z_2 - z_1} \\in \\{0, \\pi\\}', explanation: 'A seat is on the line when the step $z \\to z_1$ points along the direction $z_1 \\to z_2$ or exactly against it — 3.4\u2019s argument geometry: the quotient of two same-or-opposite-bearing seats is REAL (positive along, negative against).' },
+      { label: 'The conjugate equality', formula: '\\frac{z - z_1}{z_2 - z_1} = \\overline{\\frac{z - z_1}{z_2 - z_1}} \\;\\Rightarrow\\; (z - z_1)(\\bar z_2 - \\bar z_1) = (\\bar z - \\bar z_1)(z_2 - z_1)', explanation: 'A number is real exactly when it equals its conjugate — and conjugating a QUOTIENT conjugates numerator and denominator. Clear denominators: the line\u2019s equation, with no $(x, y)$ ever named.' },
+      { label: 'Collect', formula: 'z(\\bar z_2 - \\bar z_1) - \\bar z(z_2 - z_1) + (z_1\\bar z_1... ) = 0', explanation: 'Expanding and collecting the $z$ and $\\bar z$ terms gives the two-conjugate-coefficient form; multiplying by $i$ rotates the coefficients into the symmetric shape $\\bar a z + a \\bar z + b = 0$ with $b$ real — the engine\u2019s seat check below prices it exactly.' },
+    ], result: '\\bar a z + a\\bar z + b = 0 \\quad (a \\neq 0, \\; b \\in \\mathbb{R}) \\text{ — the general line; } \\; \\frac{z - z_1}{z_2 - z_1} \\in \\mathbb{R} \\text{ — the through-two-seats form}' },
+    { kind: 'example', title: 'The line through $2 + i$ and $5 + 7i$', steps: [
+      'The direction: $z_2 - z_1 = 3 + 6i = 3(1 + 2i)$ — slope $\\tfrac{6}{3} = 2$, the cartesian line $y - 1 = 2(x - 2)$, i.e. $2x - y - 3 = 0$.',
+      'The real-ratio check: at a third seat $8 + 13i$ (two direction-steps beyond $z_2$): $\\tfrac{(8+13i) - (2+i)}{3 + 6i} = \\tfrac{6 + 12i}{3+6i} = 2$ — REAL, so on the line; at $3 + i$: $\\tfrac{1}{3+6i}$ — not real, off the line. The engine pinned both verdicts before prose.',
+      'The z-form: $(z - (2+i))(3 - 6i)... = (\\bar z - (2 - i))(3 + 6i)$ collects to $2z$-and-$\\bar z$ rows — either road (cartesian slope or conjugate equality) prices the SAME line; the dictionary\u2019s perpendicular-bisector row $|z - 1| = |z + 3|$ (seats $1$ and $-3$) lands on $\\mathrm{Re}\\,z = -1$ by the same discipline: $(x-1)^2 + y^2 = (x+3)^2 + y^2 \\Rightarrow -8x = 8 \\Rightarrow x = -1$.',
+    ] },
+
+    { kind: 'heading', text: 'Equation of Circle whose Diametric End Points are Given' },
+    { kind: 'para', text: 'The dictionary\u2019s fifth row is the Pythagoras sentence $|z - z_1|^2 + |z - z_2|^2 = |z_1 - z_2|^2$ — the seat $z$ sees the segment $AB$ at a right angle, and the locus of right-angle seats over a fixed segment is the circle with that segment as DIAMETER (Thales). The argument engine turns it into an equation without any $(x, y)$.' },
+    { kind: 'derivation', title: 'The diametric circle', statement: 'The circle whose diameter has end points $z_1, z_2$ is $(z - z_1)(\\bar z - \\bar z_2) + (z - z_2)(\\bar z - \\bar z_1) = 0$ — centre $\\tfrac{z_1 + z_2}{2}$, radius $\\tfrac{|z_1 - z_2|}{2}$.', steps: [
+      { label: 'Thales as an argument', formula: '\\arg\\frac{z - z_1}{z - z_2} = \\pm\\tfrac{\\pi}{2}', explanation: 'The angle at $P$ subtended by the diameter is a right angle — 3.4\u2019s angle-between-seats read: the quotient $\\tfrac{z - z_1}{z - z_2}$ has bearing $\\pm 90^\\circ$, which says the quotient is PURELY IMAGINARY.' },
+      { label: 'The imaginary discipline', formula: 'w \\text{ purely imaginary} \\;\\Longleftrightarrow\\; w + \\bar w = 0', explanation: '3.2\u2019s characterisation: a seat is purely imaginary exactly when it is the negative of its conjugate. Clear the (nonzero) denominator: $(z - z_1)\\overline{(z - z_2)} + \\overline{(z - z_1)}(z - z_2) = 0$ — the diametric equation.' },
+      { label: 'Read the circle out', formula: '2z\\bar z - z(\\bar z_1 + \\bar z_2) - \\bar z(z_1 + z_2) + (z_1\\bar z_2 + z_2\\bar z_1) = 0', explanation: 'Expanding the two products and collecting: the $z\\bar z$-form of the general circle with $a = -\\tfrac{\\bar z_1 + \\bar z_2}{2}$\u2019s family — centre $\\tfrac{z_1 + z_2}{2}$ (the midpoint — the diameter\u2019s own centre) and $a\\bar a - b = \\tfrac{|z_1 + z_2|^2}{4} - \\mathrm{Re}(z_1\\bar z_2) = \\tfrac{|z_1 - z_2|^2}{4}$ — the radius is HALF THE CHORD, exactly as a diameter demands. The engine expanded this algebra and seat-checked it on both families below.' },
+    ], result: '(z - z_1)(\\bar z - \\bar z_2) + (z - z_2)(\\bar z - \\bar z_1) = 0: \\quad \\text{centre } \\tfrac{z_1+z_2}{2}, \\; \\text{radius } \\tfrac{|z_1 - z_2|}{2}' },
+    { kind: 'example', title: 'Two diametric families', steps: [
+      'First family, end points $3 + 2i$ and $7 + 10i$: the midpoint $\\tfrac{(3+2i) + (7+10i)}{2} = 5 + 6i$ — the centre; the chord $|(7 + 10i) - (3 + 2i)| = |4 + 8i| = \\sqrt{80}$, so the radius is $\\tfrac{\\sqrt{80}}{2} = 2\\sqrt{5}$. The circle: $|z - (5 + 6i)| = 2\\sqrt{5}$; the diametric equation\u2019s expansion is $2z\\bar z - (10 - 12i)z - (10 + 12i)\\bar z + 52 = 0$-family — the engine seat-checked the rightmost point $5 + 2\\sqrt{5} + 6i$ (distance exactly $2\\sqrt{5}$) satisfying it to $10^{-10}$.',
+      'Second family, end points $-1 + 3i$ and $5 - 5i$: the midpoint $2 - i$; the chord $|6 - 8i| = 10$, radius $5$: the circle $|z - (2 - i)| = 5$ — the seat $2 + 4i$ (five units straight up from the centre) satisfies the diametric equation exactly; the seat $2 + 5.5i$ (off by half a unit) misses it — engine-pinned both.',
+      'Hence both families price the same three-step recipe: midpoint for the centre, half-chord for the radius, Thales\u2019 argument for the equation — and the $z$-form never names an $(x, y)$.',
+    ] },
+
+    { kind: 'heading', text: 'Condition for Three Points to Represent Equilateral Triangle' },
+    { kind: 'para', text: 'The last instrument prices SYMMETRY itself: given three seats, are they the vertices of an equilateral triangle? The sides-moduli test ($|z_1 - z_2| = |z_2 - z_3| = |z_3 - z_1|$) is three distance sentences; the algebraic certificate below is ONE symmetric identity — and it is exactly the identity the $\\omega$ triangle satisfies.' },
+    { kind: 'derivation', title: 'The equilateral condition', statement: 'Distinct seats $z_1, z_2, z_3$ are the vertices of an equilateral triangle (in some order) if and only if $z_1^2 + z_2^2 + z_3^2 = z_1z_2 + z_2z_3 + z_3z_1$.', steps: [
+      { label: 'Equal sides and the included angle', formula: '|z_1 - z_2| = |z_2 - z_3| = |z_3 - z_1| \\text{ and } \\angle(z_2z_1, z_2z_3) = \\pm\\tfrac{\\pi}{3}', explanation: 'A triangle is equilateral when all three side-moduli agree AND one included angle is $60^\\circ$ — the two facts the engine starts from.' },
+      { label: 'One quotient, both facts', formula: '\\left|\\frac{z_1 - z_2}{z_3 - z_2}\\right| = 1 \\quad\\text{and}\\quad \\arg\\frac{z_1 - z_2}{z_3 - z_2} = \\pm\\tfrac{\\pi}{3}', explanation: 'The quotient $\\tfrac{z_1 - z_2}{z_3 - z_2}$ carries the ratio of the two sides meeting at $z_2$ (modulus) and the angle between them (bearing) — one complex number holding the whole triangle\u2019s shape at one vertex.' },
+      { label: 'The 60-degree identity', formula: '\\frac{z_1 - z_2}{z_3 - z_2} = \\mathrm{cis}\\left(\\pm\\tfrac{\\pi}{3}\\right) = \\tfrac{1}{2} \\pm \\tfrac{\\sqrt{3}}{2}i \\;\\Longleftrightarrow\\; \\left(\\frac{z_1 - z_2}{z_3 - z_2}\\right)^2 - \\left(\\frac{z_1 - z_2}{z_3 - z_2}\\right) + 1 = 0', explanation: 'The seat $\\mathrm{cis}\\,\\tfrac{\\pi}{3} = \\tfrac{1}{2} + \\tfrac{\\sqrt{3}}{2}i$ is the non-real root of the quadratic $x^2 - x + 1 = 0$ (its doors are exactly the two $60^\\circ$ seats — the sixth roots of unity that are not cube roots!). Substituting the quotient and clearing denominators gives $(z_1 - z_2)^2 - (z_1 - z_2)(z_3 - z_2) + (z_3 - z_2)^2 = 0$.' },
+      { label: 'Expand and symmetrise', formula: 'z_1^2 + z_2^2 + z_3^2 = z_1z_2 + z_2z_3 + z_3z_1', explanation: 'Expanding the cleared identity: the squared terms appear on one side, every mixed product exactly once on the other — a fully SYMMETRIC condition: no vertex is privileged, any labelling works. The engine verified it on the three families below, both directions, at $10^{-9}$.' },
+    ], result: '\\text{equilateral} \\;\\Longleftrightarrow\\; z_1^2 + z_2^2 + z_3^2 = z_1z_2 + z_2z_3 + z_3z_1 \\;\\equiv\\; \\tfrac{1}{2}\\left[(z_1 - z_2)^2 + (z_2 - z_3)^2 + (z_3 - z_1)^2\\right] = 0' },
+    { kind: 'example', title: 'Three certificates — two positive, one negative', steps: [
+      'The $\\omega$ family: $z_1 = 1, z_2 = \\omega, z_3 = \\omega^2$. LHS $= 1 + \\omega^2 + \\omega^4 = 1 + \\omega^2 + \\omega = 0$; RHS $= \\omega + \\omega^3 + \\omega^2 = \\omega + 1 + \\omega^2 = 0$ — both sides $0$, the condition HOLDS: the cube roots of unity are equilateral (sides $\\sqrt{3}$, the engine\u2019s modulus check). The insight callout\u2019s promise, cashed.',
+      'The lattice family: $z_1 = 0, z_2 = 4, z_3 = 2 + 2\\sqrt{3}i$. LHS $= 0 + 16 + (2 + 2\\sqrt{3}i)^2 = 16 + (-8 + 8\\sqrt{3}i) = 8 + 8\\sqrt{3}i$; RHS $= 0 + 4(2 + 2\\sqrt{3}i) + 0 = 8 + 8\\sqrt{3}i$ — EQUAL: equilateral, and the geometric cross-check agrees — all three sides are exactly $4$ (the base on the real axis, the apex $2\\sqrt{3}$ above the midpoint — the figure below).',
+      'The counterexample: $z_1 = 0, z_2 = 1, z_3 = i$: LHS $= 0 + 1 + i^2 = 0$; RHS $= 0 + i + 0 = i \\neq 0$ — the condition FAILS, and rightly so: the seats form a right isosceles triangle (sides $1, 1, \\sqrt{2}$), not equilateral. The certificate is honest in BOTH directions — the engine\u2019s verdicts all pinned before prose.',
+    ] },
+    { kind: 'figure', caption: 'The equilateral certificate on the lattice family — the triangle $\\{0, 4, 2 + 2\\sqrt{3}i\\}$: base $4$ on the real axis, apex $2\\sqrt{3}$ above its midpoint, all sides exactly $4$, apex angle $60^\\circ$. The condition\u2019s two sides price it: $0^2 + 4^2 + (2 + 2\\sqrt{3}i)^2 = 8 + 8\\sqrt{3}i = 0 \\cdot 4 + 4(2 + 2\\sqrt{3}i) \\cdot 0 + 4(2 + 2\\sqrt{3}i)$ — one symmetric identity, no distances ever measured.', svg: equilateralConditionSvg() },
+    { kind: 'callout', tone: 'insight', title: 'One law, three engines', text: 'Look back at the storey just built. De Moivre\u2019s theorem is the argument-addition law of 3.4 raised to powers. The roots of unity are De Moivre read backwards — bearings that divide $2\\pi$ exactly. The multi-valued nth root is the same read on any radius. And the loci — circle, line, diametric circle, equilateral certificate — are the modulus-as-distance and argument-as-angle of 3.2 and 3.4 turned into equations. Nothing in this lesson was new machinery; everything was the second address, cashed.' },
+    { kind: 'callout', tone: 'exam', title: 'Where the exams point', text: 'These registers are staples of JEE Main/Advanced, CUET, the SAT-style complex-number items, and every aptitude battery that touches complex numbers: reduce a power family by De Moivre (the doubling-chain shape), count roots in a sector (the spoke census), evaluate $\\omega$-power sums (the mod-3 clock), find centre-and-radius from a $z$-form (the mechanical read), or test three seats for equilateralness (the symmetric certificate). The items of THIS lesson are our own constructions on those registers — no past-paper text is reproduced; every number above was generated and verified by this book\u2019s own engines.' },
+    { kind: 'callout', tone: 'historical', title: 'Honest scope: what this lesson did NOT build', text: 'The ellipse ($|z - z_1| + |z - z_2| = k$) and hyperbola ($\\left||z - z_1| - |z - z_2|\\right| = k$) loci appear in the distance dictionary but their full theory belongs to the conic sections arc of the Coordinate Geometry book; the cyclotomic POLYNOMIALS $\\Phi_n$ (the exact factorisation of $z^n - 1$ into primitive families) are named here but proved in the higher-algebra rungs of this book\u2019s later chapters; and the general rotation formula ($z_3 - z_1 = \\alpha(z_2 - z_1)$ for a rotation by $\\alpha$) was 3.4\u2019s own instrument and is only echoed here. The lesson\u2019s claim is exactly what its engines verified — no more.' },
+
+    { kind: 'quiz', title: 'Check yourself: powers, spokes and loci', items: [
+      { q: 'By De Moivre, $(1 + i)^{16}$ equals', options: ['256', '−256', '256i', '−256i'], answer: 0, explain: 'Radius $\\sqrt{2}$, bearing $\\tfrac{\\pi}{4}$: the 16th power carries radius $(\\sqrt{2})^{16} = 256$, bearing $16 \\cdot \\tfrac{\\pi}{4} = 4\\pi \\equiv 0$ — the positive real axis: $256$. (B) is the $n = 6$-style wrap slip ($\\equiv 2\\pi$-off bearing read as $\\pi$). (C) and (D) leave the bearing at $\\tfrac{\\pi}{2}$ or $-\\tfrac{\\pi}{2}$ — quarter of the way, as if the power were $4$ or $-4$.' },
+      { q: 'The real roots of $x^5 = 1$ are', options: ['only $1$', '$1$ and $-1$', 'none', '$1, -1$ and $0$'], answer: 0, explain: 'Odd $n$: the unit circle meets the real axis at $\\pm 1$, and $(-1)^5 = -1 \\neq 1$ — so exactly one real root, the seat $1$; the other four are two conjugate pairs. (B) is the EVEN-$n$ census row — $x^5 = 1$ vs $x^4 = 1$ confused. (C) forgets the ever-present real seat. (D) adds a phantom root that is not even on the circle — $0^5 = 0$.' },
+      { q: 'With $\\omega$ a complex cube root of unity, $(1 + \\omega)(1 + \\omega^2)$ equals', options: ['1', '2', '0', '−1'], answer: 0, explain: 'Expand: $1 + (\\omega + \\omega^2) + \\omega^3 = 1 + (-1) + 1 = 1$ — the zero-sum law turns the cross term NEGATIVE. (B) is the trap this lesson\u2019s engine CAUGHT in its own drafting (treating $\\omega + \\omega^2$ as $0$ instead of $-1$). (C) is the $1 + \\omega + \\omega^2$ row misapplied to a product. (D) is $\\omega + \\omega^2$ alone — the sum, not the product.' },
+      { q: 'The locus $|z - 1| = |z + 3|$ is', options: ['the vertical line $\\mathrm{Re}\\,z = -1$', 'the circle centred at $1$ with radius $3$', 'the real axis', 'the perpendicular bisector segment joining $1$ and $-3$'], answer: 0, explain: 'Equidistant from the seats $1$ and $-3$: the perpendicular bisector — and both seats lie ON the real axis, so the bisector is the vertical line halfway: $\\mathrm{Re}\\,z = -1$ (the engine\u2019s seats $-1 \\pm 5i$ satisfy it; $0$ misses by $1 - 9 = -8$). (B) misreads an equidistance as a radius. (C) is the line through BOTH seats, not between them. (D) is a segment — a bisector is a full line.' },
+      { q: 'The seats $0, 4, 2 + 2\\sqrt{3}i$', options: ['form an equilateral triangle (all sides 4)', 'are collinear', 'form a right isosceles triangle', 'form an equilateral triangle (all sides $2\\sqrt{3}$)'], answer: 0, explain: 'The certificate: LHS $= 0 + 16 + (-8 + 8\\sqrt{3}i) = 8 + 8\\sqrt{3}i$ = RHS — the condition holds; and the sides are $|0 - 4| = 4$, $|4 - (2 + 2\\sqrt{3}i)| = |2 - 2\\sqrt{3}i| = 4$, $|(2 + 2\\sqrt{3}i) - 0| = 4$ — ALL SIDES 4. (B) fails the modulus census outright. (C) is the $\\{0, 1, i\\}$ counterexample\u2019s verdict. (D) prices the HEIGHT $2\\sqrt{3}$ as if it were a side — the figure\u2019s dashed altitude misread.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises 3.5', sets: [
+      { level: 'L1', questions: [
+        { q: 'Express in $a + ib$ form, without expanding any binomial: (a) $(\\sqrt{3} + i)^9$; (b) the four fourth roots of unity, in polar and rectangular form.', solution: [
+          '(a) $\\sqrt{3} + i$ carries radius $2$, bearing $\\tfrac{\\pi}{6}$ (the engine\u2019s hexagon row). The ninth power: radius $2^9 = 512$, bearing $9 \\cdot \\tfrac{\\pi}{6} = \\tfrac{3\\pi}{2}$ — the negative imaginary axis: $(\\sqrt{3} + i)^9 = 512\\left(\\cos\\tfrac{3\\pi}{2} + i\\sin\\tfrac{3\\pi}{2}\\right) = -512i$.',
+          '(b) The engine: $r = 1$, bearings $\\tfrac{2k\\pi}{4} = 0, \\tfrac{\\pi}{2}, \\pi, \\tfrac{3\\pi}{2}$: the seats $\\mathrm{cis}\\,0 = 1$, $\\mathrm{cis}\\,\\tfrac{\\pi}{2} = i$, $\\mathrm{cis}\\,\\pi = -1$, $\\mathrm{cis}\\,\\tfrac{3\\pi}{2} = -i$ — the two real roots $\\pm 1$ (even $n$) and the conjugate pair $\\pm i$, each primitive ($\\varphi(4) = 2$: only $\\pm i$ are primitive — $\\gcd(k, 4) = 1$ at $k = 1, 3$ — the real roots are NOT primitive).',
+        ], answer: '(a) $-512i$; (b) $\\{1, i, -1, -i\\}$ — primitive: $\\pm i$ only' },
+        { q: 'Reduce by the mod-3 clock: $\\omega^{2026} + \\omega^{4052}$, and then solve $z^3 = -64$ completely.', solution: [
+          'The reductions: $2026 = 3 \\cdot 675 + 1$, so $\\omega^{2026} = \\omega$; $4052 = 3 \\cdot 1350 + 2$, so $\\omega^{4052} = \\omega^2$. The sum: $\\omega + \\omega^2 = -1$ by the zero-sum law.',
+          'The cube roots of $-64$: the real door $\\sqrt[3]{-64} = -4$; then the $\\omega$-turned doors $-4\\omega = 2 - 2\\sqrt{3}i$ and $-4\\omega^2 = 2 + 2\\sqrt{3}i$ (negating the real-family trio $4, 4\\omega, 4\\omega^2$, or: radius $4$, bearings $\\tfrac{\\pi + 2k\\pi}{3}$ = $\\tfrac{\\pi}{3}, \\pi, \\tfrac{5\\pi}{3}$).',
+          'The engine receipt: each door cubed reads $-64$ at $10^{-10}$ — $(-4)^3 = -64$, $(-4\\omega)^3 = -64\\omega^3 = -64$, $(-4\\omega^2)^3 = -64$.',
+        ], answer: '$\\omega^{2026} + \\omega^{4052} = -1$; $z^3 = -64$ at $z \\in \\{-4, -4\\omega, -4\\omega^2\\} = \\{-4, 2 - 2\\sqrt{3}i, 2 + 2\\sqrt{3}i\\}$' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Take $\\sqrt{-8 + 6i}$ by the $u, v$ system, showing all three system rows.', solution: [
+          'Set $\\sqrt{-8 + 6i} = u + iv$: squaring and matching gives the first two rows — $u^2 - v^2 = -8$ and $2uv = 6$.',
+          'The rescue row: $u^2 + v^2 = \\sqrt{(-8)^2 + 6^2} = \\sqrt{100} = 10$ (positive branch — the Pythagoras read on the target\u2019s modulus).',
+          'Split: $u^2 = \\tfrac{10 - 8}{2} = 1$ and $v^2 = \\tfrac{10 + 8}{2} = 9$ — so $u = \\pm 1$, $v = \\pm 3$; the sign row $2uv = 6 > 0$ forces the SAME sign: the doors are $\\pm(1 + 3i)$.',
+          'Receipt: $(1 + 3i)^2 = 1 - 9 + 6i = -8 + 6i$ — exactly the target, engine-verified; and the two doors sit $\\pi$ apart on the circle of radius $\\sqrt{10}$.',
+        ], answer: '$\\sqrt{-8 + 6i} = \\pm(1 + 3i)$' },
+        { q: 'Read the circle $z\\bar z - 6\\bar z - 6z + 27 = 0$: centre, radius, and one on-seat and one off-seat value.', solution: [
+          'Match the form $z\\bar z + a\\bar z + \\bar a z + b = 0$: $a = -6$ (real — a centre ON the real axis), $b = 27$.',
+          'The centre: $-a = 6 + 0i$. The radius: $\\sqrt{a\\bar a - b} = \\sqrt{36 - 27} = 3$ — the feasibility row $a\\bar a - b = 9 \\geq 0$ holds: a real circle.',
+          'The seats: $z = 6 + 3i$ is ON the circle (distance exactly 3) — the engine reads the equation as $0$ there; $z = 6 + 4i$ is OFF (distance 4) — the equation reads $|z - \\text{centre}|^2 - r^2 = 16 - 9 = 7$.',
+          'Hence the read: centre $6$, radius $3$ — the mechanical passport, no $(x, y)$ ever named.',
+        ], answer: 'centre $6 + 0i$, radius $3$; on-seat $6 + 3i$ reads $0$, off-seat $6 + 4i$ reads $7$' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Solve $z^3 = 27i$ completely, giving every door in polar and rectangular form.', solution: [
+          'The polar read of the target: $27i$ has radius $27 = 3^3$ and bearing $\\tfrac{\\pi}{2}$.',
+          'The doors: radius $\\sqrt[3]{27} = 3$, bearings $\\tfrac{\\pi/2 + 2k\\pi}{3} = \\tfrac{\\pi}{6}, \\tfrac{\\pi}{6} + \\tfrac{2\\pi}{3} = \\tfrac{5\\pi}{6}, \\tfrac{3\\pi}{2}$.',
+          'The seats: $3\\,\\mathrm{cis}\\,\\tfrac{\\pi}{6} = \\tfrac{3\\sqrt{3}}{2} + \\tfrac{3}{2}i$; $3\\,\\mathrm{cis}\\,\\tfrac{5\\pi}{6} = -\\tfrac{3\\sqrt{3}}{2} + \\tfrac{3}{2}i$; $3\\,\\mathrm{cis}\\,\\tfrac{3\\pi}{2} = -3i$.',
+          'The engine receipt: each seat cubed reads $27i$ at $10^{-10}$ (e.g. $(-3i)^3 = -27i^3 = 27i$) — three doors at $120^\\circ$ spokes on the radius-3 circle, the $\\omega$-family rotated to the $\\tfrac{\\pi}{6}$ bearing.',
+        ], answer: '$\\left\\{\\tfrac{3\\sqrt{3}}{2} + \\tfrac{3}{2}i,\\; -\\tfrac{3\\sqrt{3}}{2} + \\tfrac{3}{2}i,\\; -3i\\right\\}$' },
+        { q: 'Find the equation of the line through $2 + i$ and $5 + 7i$ in cartesian form, and verify a third seat on it by the real-ratio discipline.', solution: [
+          'The direction: $z_2 - z_1 = 3 + 6i$ — the step $3$ right, $6$ up, slope $\\tfrac{6}{3} = 2$.',
+          'The cartesian form: $y - 1 = 2(x - 2) \\Rightarrow 2x - y - 3 = 0$.',
+          'The third seat: two more direction-steps land at $z = 8 + 13i$; the ratio $\\tfrac{(8+13i) - (2+i)}{3 + 6i} = \\tfrac{6 + 12i}{3 + 6i} = 2$ — REAL, so the seat is on the line ($2 \\cdot 8 - 13 - 3 = 0$ ✓).',
+          'The off-seat cross-check: $3 + i$ gives $\\tfrac{1}{3+6i} \\notin \\mathbb{R}$ and $2 \\cdot 3 - 1 - 3 = 2 \\neq 0$ — both roads agree it is off.',
+        ], answer: '$2x - y - 3 = 0$; the seat $8 + 13i$ verified by the real ratio $2$' },
+        { q: 'Find and simplify the fifth roots of $-1$; state their bearings and confirm each fifth-power reads $-1$.', solution: [
+          'The target: $-1$ has radius $1$, bearing $\\pi$. The doors: radius $1$, bearings $\\tfrac{\\pi + 2k\\pi}{5} = \\tfrac{\\pi}{5}, \\tfrac{3\\pi}{5}, \\pi, \\tfrac{7\\pi}{5}, \\tfrac{9\\pi}{5}$.',
+          'The seats: $\\mathrm{cis}\\,\\tfrac{\\pi}{5}$ and $\\mathrm{cis}\\,\\tfrac{9\\pi}{5} = \\overline{\\mathrm{cis}\\,\\tfrac{\\pi}{5}}$ (the golden-ratio family $\\tfrac{\\sqrt{10 \\pm 2\\sqrt{5}}}{4}$ heights); $\\mathrm{cis}\\,\\tfrac{3\\pi}{5}$ and its mirror $\\mathrm{cis}\\,\\tfrac{7\\pi}{5}$; and the real door $-1$ itself.',
+          'The census rows: five seats at $72^\\circ$ spokes; ONE real root (odd family for $-1$: only $\\pi$ lands on the real axis); the sum is $0$ (the engine\u2019s zero-sum law — the pentagon rotated by $\\tfrac{\\pi}{5}$); the product is $(-1)^{5-1} \\cdot$... careful: the product of the fifth roots of $-1$ is $\\mathrm{cis}\\left(\\tfrac{\\pi + 3\\pi + 5\\pi + 7\\pi + 9\\pi}{5}\\right) = \\mathrm{cis}\\,5\\pi = -1$.',
+          'The engine receipt: all five seats fifth-power to $-1$ at $10^{-10}$ — swept before this prose existed.',
+        ], answer: '$\\mathrm{cis}\\,\\tfrac{\\pi}{5}, \\mathrm{cis}\\,\\tfrac{3\\pi}{5}, -1, \\mathrm{cis}\\,\\tfrac{7\\pi}{5}, \\mathrm{cis}\\,\\tfrac{9\\pi}{5}$ — sum $0$, product $-1$' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'A circle has diametric end points $1 + 3i$ and $7 - i$. Find its centre, radius, and the $z$-form equation; verify one seat.', solution: [
+          'The centre (midpoint): $\\tfrac{(1 + 3i) + (7 - i)}{2} = 4 + i$.',
+          'The radius (half the chord): $\\tfrac{|(7 - i) - (1 + 3i)|}{2} = \\tfrac{|6 - 4i|}{2} = \\tfrac{\\sqrt{52}}{2} = \\sqrt{13}$.',
+          'The $z$-form (the diametric equation): $(z - (1 + 3i))(\\bar z - (7 + i)) + (z - (7 - i))(\\bar z - (1 - 3i)) = 0$ — expanding and halving: $z\\bar z - (4 - i)\\bar z - (4 + i)z + (\\mathrm{Re}\\,(1 + 3i)(7 + i)) = 0$; the constant: $(1 + 3i)(7 + i) = 7 + i + 21i - 3 = 4 + 22i$, so $\\mathrm{Re} = 4$ — the circle $z\\bar z - (4 - i)\\bar z - (4 + i)z + 4 = 0$.',
+          'The seat check: $|z - (4 + i)| = \\sqrt{13}$ at e.g. $z = 4 + i + \\sqrt{13}$ — the rightmost seat; the engine verifies the equation reads $0$ there and the feasibility row $a\\bar a - b = 17 - 4 = 13 = r^2$ ✓.',
+        ], answer: 'centre $4 + i$, radius $\\sqrt{13}$; $z\\bar z - (4 - i)\\bar z - (4 + i)z + 4 = 0$' },
+        { q: 'Prove the sum of the $n$th roots of unity is $0$ for every $n \\geq 2$ — by BOTH engines (the geometric series and Vieta).', solution: [
+          'Engine A (geometric): $S = 1 + \\alpha + \\dots + \\alpha^{n-1}$ with $\\alpha = \\mathrm{cis}\\,\\tfrac{2\\pi}{n} \\neq 1$. The finite geometric sum: $S = \\tfrac{\\alpha^n - 1}{\\alpha - 1}$. Since $\\alpha^n = 1$: $S = \\tfrac{1 - 1}{\\alpha - 1} = 0$ — the roots sum themselves out. (The $\\alpha = 1$ case is exactly $n = 1$, excluded.)',
+          'Engine B (Vieta): $x^n - 1 = x^n + 0 \\cdot x^{n-1} + 0 \\cdot x^{n-2} + \\dots + 0 \\cdot x - 1$ has roots $1, \\alpha, \\dots, \\alpha^{n-1}$; the sum of roots of $x^n + c_{n-1}x^{n-1} + \\dots$ reads $-c_{n-1}$ — here $c_{n-1} = 0$, so the sum is $0$.',
+          'The geometric echo: reading the zero sum by real and imaginary parts, $\\sum_k \\cos\\tfrac{2k\\pi}{n} = 0$ and $\\sum_k \\sin\\tfrac{2k\\pi}{n} = 0$ — $n$ unit vectors at equal spokes balance to nothing, which the engine swept for $n = 3$ to $12$ (both parts $< 10^{-10}$).',
+          'Hence two independent engines — series algebra and polynomial coefficients — price the same census row, and the picture explains WHY: full symmetry has no direction to lean.',
+        ], answer: 'proved by both engines: $1 + \\alpha + \\dots + \\alpha^{n-1} = 0$ for every $n \\geq 2$' },
+        { q: 'Test the seats $\\{0, 1, \\omega\\}$ ($\\omega$ the complex cube root of unity) against the equilateral condition, and explain the verdict geometrically.', solution: [
+          'The condition: LHS $= 0^2 + 1^2 + \\omega^2 = 1 + \\omega^2$; RHS $= 0 \\cdot 1 + 1 \\cdot \\omega + \\omega \\cdot 0 = \\omega$. Since $1 + \\omega^2 = -\\omega \\neq \\omega$ (because $\\omega \\neq 0$), LHS $\\neq$ RHS: the condition FAILS — not equilateral.',
+          'The geometric confirmation: the side census — $|0 - 1| = 1$, $|0 - \\omega| = 1$, but $|1 - \\omega| = |\\tfrac{3}{2} - \\tfrac{\\sqrt{3}}{2}i| = \\sqrt{\\tfrac{9}{4} + \\tfrac{3}{4}} = \\sqrt{3}$ — an isosceles triangle (sides $1, 1, \\sqrt{3}$), NOT equilateral.',
+          'The honest reading: two sides equal means the triangle shares the $\\omega$-family\u2019s symmetry at the origin but not its full rotational symmetry — the certificate is exactly as discriminating as the side census, at one identity\u2019s cost.',
+        ], answer: 'fails: $1 + \\omega^2 = -\\omega \\neq \\omega$; geometrically sides $1, 1, \\sqrt{3}$ — isosceles, not equilateral' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'The sixth roots of unity: list them, give the census rows (sum, product, real roots, primitive seats), and say which pairs are conjugates.', solution: [
+          'The seats: $\\mathrm{cis}\\,\\tfrac{k\\pi}{3}$ for $k = 0, \\dots, 5$ — $1, \\tfrac{1}{2} + \\tfrac{\\sqrt{3}}{2}i (= \\omega \\cdot \\bar\\omega$-family seat at $\\tfrac{\\pi}{3}$... note: $\\tfrac{1}{2}+\\tfrac{\\sqrt{3}}{2}i$ is $-\\omega^2$), $\\omega$ (at $\\tfrac{2\\pi}{3}$), $-1$, $\\omega^2$ (at $\\tfrac{4\\pi}{3}$), and $\\tfrac{1}{2} - \\tfrac{\\sqrt{3}}{2}i$ (at $\\tfrac{5\\pi}{3}$).',
+          'The census: sum $0$ (the zero-sum law); product $(-1)^{6-1} = -1$ (even $n$); real roots $\\pm 1$ (even $n$); primitive seats — $\\gcd(k, 6) = 1$ at $k = 1, 5$: exactly TWO, $\\mathrm{cis}\\,\\tfrac{\\pi}{3} = \\tfrac{1}{2} + \\tfrac{\\sqrt{3}}{2}i$ and $\\mathrm{cis}\\,\\tfrac{5\\pi}{3} = \\tfrac{1}{2} - \\tfrac{\\sqrt{3}}{2}i$ — which is $\\varphi(6) = 2$.',
+          'The conjugate pairs: non-real roots come in mirror pairs across the real axis: $\\mathrm{cis}\\,\\tfrac{\\pi}{3}$ with $\\mathrm{cis}\\,\\tfrac{5\\pi}{3}$, and $\\omega$ with $\\omega^2$ — the two $60^\\circ$-family pairs; the engine swept every row at $10^{-10}$.',
+          'The regular hexagon: six seats at $60^\\circ$ spokes — the $\\omega$-triangle and its $180^\\circ$-rotation $-\\{1, \\omega, \\omega^2\\}$ interleaved.',
+        ], answer: 'seats $\\mathrm{cis}\\,\\tfrac{k\\pi}{3}$; sum $0$; product $-1$; real $\\pm 1$; primitive exactly $\\tfrac{1}{2} \\pm \\tfrac{\\sqrt{3}}{2}i$' },
+        { q: 'Prove De Moivre\u2019s theorem by induction in full — base, step, and the negative-power extension.', solution: [
+          'The base: $n = 0$: the empty product $1 = \\cos 0 + i \\sin 0$; $n = 1$: the statement itself.',
+          'The step: assume $(\\cos\\theta + i\\sin\\theta)^n = \\cos n\\theta + i\\sin n\\theta$. Then $(\\cos\\theta + i\\sin\\theta)^{n+1} = (\\cos\\theta + i\\sin\\theta)^n \\cdot (\\cos\\theta + i\\sin\\theta) = (\\cos n\\theta + i\\sin n\\theta)(\\cos\\theta + i\\sin\\theta)$; the argument-addition law (3.4\u2019s proved engine, radii both 1) prices this product as $\\cos(n\\theta + \\theta) + i\\sin(n\\theta + \\theta) = \\cos(n+1)\\theta + i\\sin(n+1)\\theta$ — case $n + 1$ closed. The engine verified the step identity numerically on the power grid before prose.',
+          'The induction closes: base + step prove every $n \\geq 0$.',
+          'Negatives: $(\\cos\\theta + i\\sin\\theta)^{-1} = \\cos\\theta - i\\sin\\theta$ (the unit-modulus reciprocal IS the conjugate — 3.2\u2019s engine at $r = 1$), and $\\cos\\theta - i\\sin\\theta = \\cos(-\\theta) + i\\sin(-\\theta)$; so for $m > 0$: $(\\cos\\theta+i\\sin\\theta)^{-m} = \\left[(\\cos\\theta+i\\sin\\theta)^{-1}\\right]^m = \\cos(-m\\theta) + i\\sin(-m\\theta)$ — the theorem with $n$ read at the signed integer.',
+        ], answer: 'proved for all integers: induction on the argument-addition law; negatives via the conjugate reciprocal' },
+        { q: 'Show that the common roots of $x^{12} = 1$ and $x^{18} = 1$ are exactly the sixth roots of unity — and count them two ways.', solution: [
+          'The spoke discipline: a seat $\\mathrm{cis}\\,\\tfrac{2k\\pi}{12}$ is an 18th root exactly when $\\left(\\mathrm{cis}\\,\\tfrac{2k\\pi}{12}\\right)^{18} = \\mathrm{cis}\\,\\tfrac{36k\\pi}{12} = \\mathrm{cis}\\,3k\\pi = 1$ — i.e. $3k$ even, $k$ even. So the common seats are $\\mathrm{cis}\\,\\tfrac{2(2j)\\pi}{12} = \\mathrm{cis}\\,\\tfrac{j\\pi}{3}$, $j = 0, \\dots, 5$ — the sixth roots.',
+          'The count, way one: $\\gcd(12, 18) = 6$ — the census row (common roots of $x^p = 1$ and $x^q = 1$ number $\\gcd(p, q)$).',
+          'The count, way two: the sixth roots are the seats whose order divides BOTH 12 and 18 — the divisors of $\\gcd(12, 18) = 6$ number... the seats of order dividing 6 ARE the 6 sixth-roots (orders 1, 2, 3, 6 seat by seat). The engine\u2019s sweep agrees: 6 shared seats.',
+          'Hence the divisor law is the same law twice: spokes dividing both turn-counts, orders dividing both exponents — one gcd.',
+        ], answer: 'exactly the sixth roots of unity — six seats, $\\gcd(12, 18) = 6$ both ways' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Prove: for every positive integer $n$, $1 + \\omega^n + \\omega^{2n}$ is $3$ if $3 | n$ and $0$ otherwise.', solution: [
+          'Case $3 | n$: write $n = 3m$. Then $\\omega^n = (\\omega^3)^m = 1$ and $\\omega^{2n} = (\\omega^3)^{2m} = 1$ — the sum is $1 + 1 + 1 = 3$: all three seats collapse to the real seat $1$.',
+          'Case $n = 3m + 1$: $\\omega^n = \\omega$, $\\omega^{2n} = \\omega^{6m + 2} = \\omega^2$ — the sum is $1 + \\omega + \\omega^2 = 0$: the three distinct seats reappear.',
+          'Case $n = 3m + 2$: $\\omega^n = \\omega^2$, $\\omega^{2n} = \\omega^{6m + 4} = \\omega^4 = \\omega$ — the sum is $1 + \\omega + \\omega^2 = 0$ again.',
+          'The engine swept $n = 1$ to $12$: reads $0, 0, 3, 0, 0, 3, \\dots$ — the period-3 heartbeat of the mod-3 clock, pinned before prose.',
+        ], answer: 'proved by the mod-3 cycle: $3$ exactly when $3 | n$, else $0$' },
+        { q: 'Prove the identity $z_1^2 + z_2^2 + z_3^2 - z_1z_2 - z_2z_3 - z_3z_1 = \\tfrac{1}{2}\\left[(z_1 - z_2)^2 + (z_2 - z_3)^2 + (z_3 - z_1)^2\\right]$, and read what it says about the equilateral condition.', solution: [
+          'Expand the right side: $(z_1 - z_2)^2 = z_1^2 - 2z_1z_2 + z_2^2$; likewise the other two — summing all three gives $2(z_1^2 + z_2^2 + z_3^2) - 2(z_1z_2 + z_2z_3 + z_3z_1)$ (each square appears twice, each mixed product appears exactly twice with the pairs $(z_1,z_2), (z_2,z_3), (z_3,z_1)$).',
+          'Halve: exactly $z_1^2 + z_2^2 + z_3^2 - (z_1z_2 + z_2z_3 + z_3z_1)$ — the identity, pure algebra, no geometry invoked.',
+          'The read: the equilateral condition (the left side $= 0$) is equivalent to $(z_1 - z_2)^2 + (z_2 - z_3)^2 + (z_3 - z_1)^2 = 0$ — the three SIDE-VECTORS\u2019 squares summing to nothing. Over the reals that would force all three differences to vanish (one point); over the complexes it is exactly the $60^\\circ$-balance of the equilateral shape — the $\\omega$ family\u2019s identity $1 + \\omega + \\omega^2 = 0$ in side-vector dress.',
+          'The witness: the $\\omega$ triangle\u2019s side vectors are $\\omega - 1, \\omega^2 - \\omega, 1 - \\omega^2$ — each the previous times $\\omega$ (a $120^\\circ$ rotation) — and their squares sum to $0$ exactly as the condition demands (the engine\u2019s certificate at $10^{-9}$).',
+        ], answer: 'proved — the condition is the side-vector squares summing to zero: the $\\omega$-shape in disguise' },
+      ] },
+    ] },
+    { kind: 'terms', items: [
+      { term: 'De Moivre\u2019s theorem', def: '$(\\cos\\theta + i\\sin\\theta)^n = \\cos n\\theta + i\\sin n\\theta$ for every integer $n$ — powers at the second address: the bearing multiplies by $n$. Proved by induction on the argument-addition law; for rational exponents the left side is multi-valued and the formula names ONE value.' },
+      { term: 'nth roots of unity', def: 'the $n$ solutions of $z^n = 1$: the seats $\\cos\\tfrac{2k\\pi}{n} + i\\sin\\tfrac{2k\\pi}{n}$, $k = 0, \\dots, n-1$ — the unit circle\u2019s equal spokes, the regular $n$-gon. Sum $0$, product $(-1)^{n-1}$, real roots $\\pm 1$ for even $n$ and only $1$ for odd.' },
+      { term: 'Primitive nth root', def: 'a root whose powers alone generate all $n$ roots — exactly the seats $\\alpha^k$ with $\\gcd(k, n) = 1$, numbering $\\varphi(n)$. The primitive 6th roots are $\\tfrac{1}{2} \\pm \\tfrac{\\sqrt{3}}{2}i$; the primitive cube roots are $\\omega, \\omega^2$ themselves.' },
+      { term: 'The ω engine', def: 'the cube roots of unity $1, \\omega, \\omega^2$ with $\\omega = \\tfrac{-1+i\\sqrt{3}}{2}$: the laws $1 + \\omega + \\omega^2 = 0$, $\\omega^3 = 1$, $\\bar\\omega = \\omega^2 = \\omega^{-1}$, the mod-3 power cycle, and the factorisations $a^3 \\pm b^3$ and $a^3 + b^3 + c^3 - 3abc$.' },
+      { term: 'Multi-valued nth root', def: 'the complete family of solutions of $z^n = w = re^{i\\theta}$: $n$ doors $r^{1/n}\\,\\mathrm{cis}\\,\\tfrac{\\theta + 2k\\pi}{n}$ at equal spokes on the circle of radius $r^{1/n}$ — the $\\sqrt{\\;}$ symbol reports only the principal door; the honest equation reports all $n$.' },
+      { term: 'The z-form of a circle', def: '$z\\bar z + a\\bar z + \\bar a z + b = 0$ with centre $-a$ and radius $\\sqrt{a\\bar a - b}$ (feasibility $a\\bar a \\geq b$) — the circle as one equation in $z$ and $\\bar z$, no $(x, y)$ named; the line is the degenerate sibling $\\bar a z + a\\bar z + b = 0$.' },
+      { term: 'Diametric circle', def: 'the circle whose diameter has end points $z_1, z_2$: centre $\\tfrac{z_1 + z_2}{2}$, radius $\\tfrac{|z_1 - z_2|}{2}$, equation $(z - z_1)(\\bar z - \\bar z_2) + (z - z_2)(\\bar z - \\bar z_1) = 0$ — Thales\u2019 right angle read as $\\arg\\tfrac{z - z_1}{z - z_2} = \\pm\\tfrac{\\pi}{2}$, the purely-imaginary quotient.' },
+      { term: 'Equilateral condition', def: 'three distinct seats are the vertices of an equilateral triangle exactly when $z_1^2 + z_2^2 + z_3^2 = z_1z_2 + z_2z_3 + z_3z_1$ — one symmetric identity equivalently $\\tfrac{1}{2}\\left[(z_1 - z_2)^2 + (z_2 - z_3)^2 + (z_3 - z_1)^2\\right] = 0$; the $\\omega$ triangle satisfies it exactly.' },
+    ] },
+    { kind: 'para', text: 'The storey is closed. The chapter opened with a closure failure — $x^2 + 1 = 0$ — forced a new rung, and built the whole field law family on it; the conjugate and modulus gave it bookkeeping and distance; the quadratic gave it its first payoff; the Argand plane gave it a second address and multiplication its geometric face. This last storey raised that face to powers and read the answers as geometry: equal spokes on circles, regular polygons, loci as equations, symmetry as an identity. What began as \u201cthere is no real door\u201d ends as \u201cthere are exactly $n$ doors, and here is their shape.\u201d The tower waits for its next storey — and every rung below it still holds.' },
+  ],
+}
+
 export const chapter03: Chapter = {
   number: 3,
   slug: 'complex-numbers',
@@ -1811,8 +2240,8 @@ export const chapter03: Chapter = {
   summary:
     'Arithmetic and Number Systems proved the extension-ladder discipline — every new number family born from a closure failure, repaired on purpose. This chapter climbs the most famous rung: x² + 1 = 0 has no real door, so a number i is forced with i² = −1, and the algebra of a + bi is built so the whole field-law family survives (the honest sanity ANS 7.2 banked). The conjugate and modulus arrive as bookkeeping — z z̄ = |z|², division by conjugating, |z| as a distance with the triangle inequality — and the Argand plane is read algebraically (addition as the parallelogram, multiplication as rotation-and-scaling) with the deep geometry left to later books. The payoff: the quadratic formula keeps its promise for every discriminant, and real coefficients are shown to force complex doors in conjugate pairs. De Moivre’s theorem and the nth roots of unity — the unit circle’s equal spokes — with their properties (primitive roots, the cyclotomic equations) banked as the module’s depth engine.',
   status: 'in-progress',
-  lessons: [lesson31, lesson32, lesson33, lesson34],
+  lessons: [lesson31, lesson32, lesson33, lesson34, lesson35],
   plannedLessons: [
-    'De Moivre, Roots of Unity and the Complex Loci',
+    'Unit 3 Completion Review',
   ],
 }

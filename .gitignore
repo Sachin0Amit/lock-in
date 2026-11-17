@@ -508,6 +508,11 @@ server.log
 !/scripts/e2e-aa-33.sh
 !/scripts/e2e-aa-34.page.js
 !/scripts/e2e-aa-34.sh
+# exception: the run-109 e2e pair + the rebase-union and m2-03 transcription drivers (run 109 ship)
+!/scripts/e2e-aa-35.page.js
+!/scripts/e2e-aa-35.sh
+!/scripts/resolve-rebase-logs.py
+!/scripts/transcribe-m2-03-35.sh
 
 # run 103 — AA 2.4: its per-lesson e2e block (quiz keys 1/2/1/2/0) + the vision-outage pixel audit fallback
 !/scripts/e2e-aa-23.page.js

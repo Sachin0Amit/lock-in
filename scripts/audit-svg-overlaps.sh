@@ -2,7 +2,7 @@
 # audit-svg-overlaps.sh — run the figure-overlap detector on every lesson page
 # Usage: bash scripts/audit-svg-overlaps.sh [lessonId ...]   (default: all FM lessons)
 set -u
-BASE=http://localhost:3000/book/foundation-mathematics/lesson
+BASE=${LESSON_BASE:-http://localhost:3000/book/foundation-mathematics/lesson}
 OUT=/tmp/overlap-audit
 mkdir -p "$OUT"
 PAGE_JS=$(cat /home/z/my-project/scripts/audit-svg-overlaps.page.js)

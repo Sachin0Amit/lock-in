@@ -763,12 +763,12 @@ const ROSTER: Cx[] = [
   const ch = chapter03
   ok(ch.number === 3 && ch.slug === 'complex-numbers' && ch.title === 'Complex Numbers: the New Rung', 'G1 chapter wrapper number/slug/title')
   ok(ch.status === 'in-progress', 'G2 chapter status in-progress (opened run 105)')
-  ok(ch.lessons.length === 4, `G3 chapter shape re-pinned run 108: 4 lessons written (got ${ch.lessons.length})`)
+  ok(ch.lessons.length === 5, `G3 chapter shape re-pinned run 109: 5 lessons written, the finale shipped (got ${ch.lessons.length})`)
   const planned = ch.plannedLessons ?? []
   ok(
     planned.length === 1 &&
-      planned[0] === 'De Moivre, Roots of Unity and the Complex Loci',
-    `G4 plannedLessons re-pinned run 108 = the one remaining (got ${planned.join(' | ')})`,
+      planned[0] === 'Unit 3 Completion Review',
+    `G4 plannedLessons re-pinned run 109 = the unit review remaining (got ${planned.join(' | ')})`,
   )
   ok(ch.summary.includes('complex') && ch.summary.includes('closure failure'), 'G5 the chapter summary names the umbrella topics (complex numbers, the closure failure)')
 
@@ -1422,7 +1422,7 @@ const ROSTER: Cx[] = [
 
 {
   const ch = chapter03
-  ok(ch.lessons.length === 4 && (ch.plannedLessons ?? []).length === 1, 'J1 chapter shape re-pinned run 108: 4 lessons written, 1 planned')
+  ok(ch.lessons.length === 5 && (ch.plannedLessons ?? []).length === 1, 'J1 chapter shape re-pinned run 109: 5 lessons written, the review planned')
   ok(ch.lessons[1].number === '3.2', 'J2 the second lesson is 3.2')
 
   // no fold rides 3.2 — the ledger negative check (pre-flight + audit)
@@ -1958,7 +1958,7 @@ const ROSTER: Cx[] = [
 
 {
   const ch = chapter03
-  ok(ch.lessons.length === 4, 'M1 chapter shape: 4 lessons written (3.4 now shipped)')
+  ok(ch.lessons.length === 5, 'M1 chapter shape re-pinned run 109: 5 lessons written (3.5 shipped, the review planned)')
   ok(ch.lessons[2].number === '3.3', 'M2 the third lesson is 3.3')
 
   // no fold rides 3.3 — the ledger negative check (pre-flight + audit):
@@ -1980,7 +1980,7 @@ const ROSTER: Cx[] = [
 
   // the quiz: 5 items, keys [0, 1, 0, 3, 1], every option priced
   const quizBlock = L.blocks.find((b) => b.kind === 'quiz') as { kind: 'quiz'; items: Array<{ q: string; options: string[]; answer: number; explain: string }> }
-  ok(quizBlock && quizBlock.items.length === 5, 'M9 the quiz carries exactly 5 items')
+  ok(!!quizBlock && quizBlock.items.length === 5, 'M9 the quiz carries exactly 5 items')
   const keys = quizBlock.items.map((i) => i.answer)
   ok(keys.join(',') === '0,1,0,3,1', `M10 quiz keys match the pinned [0, 1, 0, 3, 1] (got [${keys.join(', ')}])`)
   ok(quizBlock.items.every((i) => i.options.length === 4 && i.explain.length > 80), 'M11 every quiz item has 4 options and a priced explain')
@@ -2537,7 +2537,7 @@ const ROSTER: Cx[] = [
 
 {
   const ch = chapter03
-  ok(ch.lessons.length === 4, 'P1 chapter shape: 4 lessons written (3.4 now shipped)')
+  ok(ch.lessons.length === 5, 'P1 chapter shape re-pinned run 109: 5 lessons written (3.5 shipped, the review planned)')
   ok(ch.lessons[3].number === '3.4', 'P2 the fourth lesson is 3.4')
 
   // the three m2-03 folds ride 3.4 — the ledger positive check
@@ -2558,7 +2558,7 @@ const ROSTER: Cx[] = [
 
   // the quiz: 5 items, keys [2, 0, 1, 3, 2], every option priced
   const quizBlock = L.blocks.find((b) => b.kind === 'quiz') as { kind: 'quiz'; items: Array<{ q: string; options: string[]; answer: number; explain: string }> }
-  ok(quizBlock && quizBlock.items.length === 5, 'P9 the quiz carries exactly 5 items')
+  ok(!!quizBlock && quizBlock.items.length === 5, 'P9 the quiz carries exactly 5 items')
   const keys = quizBlock.items.map((i) => i.answer)
   ok(keys.join(',') === '2,0,1,3,2', `P10 quiz keys match the pinned [2, 0, 1, 3, 2] (got [${keys.join(', ')}])`)
   ok(quizBlock.items.every((i) => i.options.length === 4 && i.explain.length > 80), 'P11 every quiz item has 4 options and a priced explain')
@@ -2619,7 +2619,674 @@ const ROSTER: Cx[] = [
   ok(dataHits.length === 1, `P33 lesson id unique in book data (got files: ${dataHits.join(' ')})`)
 }
 
-console.log(`\nverify-book4-ch03 sections A-P: ${passed} passed, ${failed} failed`)
+/* ------------------------------------------------------------------ */
+/*  SECTION Q (run 109, pre-prose for lesson 3.5 "De Moivre, Roots    */
+/*  of Unity and the Complex Loci", id aa-de-moivre-roots-of-unity-   */
+/*  and-the-complex-loci) — every number of THAT lesson pinned        */
+/*  BEFORE any prose, on the same discipline. Folds hosted: Square     */
+/*  Root of Complex Number (example-family), Properties of Cube       */
+/*  Roots of Unity (section), Condition for Three Points to           */
+/*  Represent Equilateral Triangle (example-family), Equation of      */
+/*  Circle whose Diametric End Points are Given (example-family),     */
+/*  Properties of nth Roots of Unity (section).                       */
+/* ------------------------------------------------------------------ */
+{
+  const cisQ = (th: number): Cx => [Math.cos(th), Math.sin(th)]
+  const cpow = (z: Cx, n: number): Cx => {
+    let r: Cx = [1, 0]
+    for (let i = 0; i < Math.abs(n); i++) r = cmul(r, z)
+    return n < 0 ? cdiv([1, 0], r) : r
+  }
+
+  /* Q1. the De Moivre engine: (cosθ + i sinθ)^n = cos nθ + i sin nθ
+     swept over integer powers and a bearing grid; the −θ twin. */
+  {
+    let bad = 0
+    for (const n of [-3, -2, -1, 0, 1, 2, 5, 7, 12]) {
+      for (const th of [0.3, 1.1, 2.7, -1.9, Math.PI / 6, Math.PI / 4, Math.PI]) {
+        const lhs = cpow(cisQ(th), n)
+        const rhs = cisQ(n * th)
+        if (Math.abs(lhs[0] - rhs[0]) > 1e-10 || Math.abs(lhs[1] - rhs[1]) > 1e-10) bad++
+      }
+    }
+    ok(bad === 0, 'Q1.1 De Moivre holds on the 9-power × 7-bearing sweep (63 cells)')
+    let bad2 = 0
+    for (const n of [1, 3, 6, 10]) {
+      for (const th of [0.4, 1.3, 2.2]) {
+        const lhs = cpow([Math.cos(th), -Math.sin(th)], n)
+        const rhs = [Math.cos(n * th), -Math.sin(n * th)]
+        if (Math.abs(lhs[0] - rhs[0]) > 1e-10 || Math.abs(lhs[1] - rhs[1]) > 1e-10) bad2++
+      }
+    }
+    ok(bad2 === 0, 'Q1.2 the conjugate twin (cosθ − i sinθ)^n = cos nθ − i sin nθ')
+    const fraud = cpow(cisQ(0.7), 2) // (sinθ + i cosθ)^n ≠ sin nθ ± i cos nθ — the caution
+    const notTwin = [Math.sin(1.4), Math.cos(1.4)]
+    ok(
+      Math.abs(fraud[0] - notTwin[0]) > 1e-3 || Math.abs(fraud[1] - notTwin[1]) > 1e-3,
+      'Q1.3 the (sinθ + i cosθ)^n caution: it is NOT sin nθ + i cos nθ (the pinned fraud)',
+    )
+  }
+
+  /* Q2. the pinned De Moivre power witnesses of the lesson. */
+  {
+    const p16 = cpow([1, 1], 16)
+    ok(Math.abs(p16[0] - 256) < 1e-9 && Math.abs(p16[1]) < 1e-9, 'Q2.1 (1+i)^16 = 256 (the doubling chain 2i → −4 → 16 → 256)')
+    const p9 = cpow([Math.sqrt(3), 1], 9)
+    ok(Math.abs(p9[0]) < 1e-9 && Math.abs(p9[1] + 512) < 1e-9, 'Q2.2 (√3+i)^9 = −512i (modulus 2^9, bearing 9·π/6 = 3π/2)')
+    const half: Cx = [0.5, Math.sqrt(3) / 2]
+    const sum7 = cadd(cpow(half, 7), cpow([half[0], -half[1]], 7))
+    ok(Math.abs(sum7[0] - 1) < 1e-10 && Math.abs(sum7[1]) < 1e-10, 'Q2.3 (1/2 ± √3/2 i)^7 pair sums to the real number 1 — Im = 0, Re = 2cos(7π/3) = 1')
+    const chain: Cx[] = [[1, 1]]
+    for (let i = 1; i <= 4; i++) chain.push(cmul(chain[i - 1], chain[i - 1]))
+    ok(
+      ceq(chain[1], [0, 2]) && ceq(chain[2], [-4, 0]) && ceq(chain[3], [16, 0]) && ceq(chain[4], [256, 0]),
+      'Q2.4 the (1+i) doubling chain pinned: 2i → −4 → 16 → 256',
+    )
+  }
+
+  /* Q3. the nth roots of unity engine, n = 3..12: seats, sum, product,
+     real seats, primitive count. */
+  {
+    const phi: Record<number, number> = { 3: 2, 4: 2, 5: 4, 6: 2, 7: 6, 8: 4, 9: 6, 10: 4, 11: 10, 12: 4 }
+    let bad = 0
+    for (let n = 3; n <= 12; n++) {
+      const seats: Cx[] = []
+      for (let k = 0; k < n; k++) seats.push(cisQ((2 * Math.PI * k) / n))
+      // each seat is a root
+      for (const s of seats) {
+        const p = cpow(s, n)
+        if (Math.abs(p[0] - 1) > 1e-10 || Math.abs(p[1]) > 1e-10) bad++
+      }
+      // sum zero
+      const sum = seats.reduce((a, s) => cadd(a, s), [0, 0])
+      if (Math.abs(sum[0]) > 1e-10 || Math.abs(sum[1]) > 1e-10) bad++
+      // product (−1)^{n−1}
+      const prod = seats.reduce((a, s) => cmul(a, s), [1, 0])
+      if (Math.abs(prod[0] - Math.pow(-1, n - 1)) > 1e-10 || Math.abs(prod[1]) > 1e-10) bad++
+      // real seats: n odd → {1}; n even → {1, −1} (set-wise, order-free)
+      const realSeats = seats.filter((s) => Math.abs(s[1]) < 1e-10).map((s) => Math.round(s[0]))
+      const wantReal = n % 2 === 1 ? [1] : [-1, 1]
+      const sameSet =
+        realSeats.length === wantReal.length &&
+        realSeats.slice().sort((x, y) => x - y).join() === wantReal.slice().sort((x, y) => x - y).join()
+      if (!sameSet) bad++
+      // primitive count = φ(n)
+      const prim = seats.filter((_, k) => {
+        const g = (a: number, b: number): number => (b === 0 ? a : g(b, a % b))
+        return k > 0 && g(k, n) === 1
+      })
+      if (prim.length !== phi[n]) bad++
+    }
+    ok(bad === 0, 'Q3.1 the roots-of-unity engine green for n = 3..12 (roots, zero sum, product (−1)^{n−1}, real seats, φ(n) primitive)')
+  }
+
+  /* Q4. the common-roots law: x^p = 1 and x^q = 1 share gcd(p,q) roots. */
+  {
+    const pairs: Array<[number, number, number]> = [
+      [6, 10, 2],
+      [8, 12, 4],
+      [5, 7, 1],
+      [12, 18, 6],
+    ]
+    let bad = 0
+    for (const [p, q, want] of pairs) {
+      const shared: Cx[] = []
+      for (let k = 0; k < p; k++) {
+        const s = cisQ((2 * Math.PI * k) / p)
+        const t = cpow(s, q)
+        if (Math.abs(t[0] - 1) < 1e-10 && Math.abs(t[1]) < 1e-10) shared.push(s)
+      }
+      if (shared.length !== want) bad++
+    }
+    ok(bad === 0, 'Q4.1 the common-roots law witnessed: gcd counts 2/4/1/6 on the four pinned pairs')
+  }
+
+  /* Q5. the pentagon bench: the fifth roots of unity with exact
+     coordinates; sum 0; product +1 (n odd). */
+  {
+    const c2 = (Math.sqrt(5) - 1) / 4
+    const s2 = Math.sqrt(10 + 2 * Math.sqrt(5)) / 4
+    const c4 = -(Math.sqrt(5) + 1) / 4
+    const s4 = Math.sqrt(10 - 2 * Math.sqrt(5)) / 4
+    const exact: Cx[] = [
+      [1, 0],
+      [c2, s2],
+      [c4, s4],
+      [c4, -s4],
+      [c2, -s2],
+    ]
+    let bad = 0
+    for (const s of exact) {
+      const p = cpow(s, 5)
+      if (Math.abs(p[0] - 1) > 1e-12 || Math.abs(p[1]) > 1e-12) bad++
+    }
+    ok(bad === 0, 'Q5.1 the five exact-coordinate pentagon seats all satisfy z^5 = 1')
+    const w1 = cisQ((2 * Math.PI) / 5)
+    ok(Math.abs(w1[0] - c2) < 1e-12 && Math.abs(w1[1] - s2) < 1e-12, 'Q5.2 cis(2π/5) = (√5−1)/4 + i√(10+2√5)/4 exactly')
+    const w2 = cisQ((4 * Math.PI) / 5)
+    ok(Math.abs(w2[0] - c4) < 1e-12 && Math.abs(w2[1] - s4) < 1e-12, 'Q5.3 cis(4π/5) = −(√5+1)/4 + i√(10−2√5)/4 exactly')
+    const sum = exact.reduce((a, s) => cadd(a, s), [0, 0])
+    ok(Math.abs(sum[0]) < 1e-12 && Math.abs(sum[1]) < 1e-12, 'Q5.4 the pentagon seat sum is 0')
+    const prod = exact.reduce((a, s) => cmul(a, s), [1, 0])
+    ok(Math.abs(prod[0] - 1) < 1e-12 && Math.abs(prod[1]) < 1e-12, 'Q5.5 the pentagon seat product is +1 (n = 5 odd)')
+  }
+
+  /* Q6. the ω engine: ω = (−1+i√3)/2, the exact identities, the mod-3
+     cycle, the factorisation witnesses. */
+  {
+    const w: Cx = [-0.5, Math.sqrt(3) / 2]
+    const w2 = cmul(w, w)
+    ok(Math.abs(w2[0] + 0.5) < 1e-12 && Math.abs(w2[1] + Math.sqrt(3) / 2) < 1e-12, 'Q6.1 ω² = (−1−i√3)/2 and ω² = conjugate of ω')
+    const sum = cadd(cadd([1, 0], w), w2)
+    ok(Math.abs(sum[0]) < 1e-12 && Math.abs(sum[1]) < 1e-12, 'Q6.2 1 + ω + ω² = 0 exactly')
+    const cube = cpow(w, 3)
+    ok(Math.abs(cube[0] - 1) < 1e-12 && Math.abs(cube[1]) < 1e-12, 'Q6.3 ω³ = 1 exactly')
+    const fourth = cpow(w, 4)
+    ok(Math.abs(fourth[0] - w[0]) < 1e-12 && Math.abs(fourth[1] - w[1]) < 1e-12, 'Q6.4 ω⁴ = ω (the mod-3 cycle)')
+    ok(2026 % 3 === 1 && 4052 % 3 === 2, 'Q6.5 the mod-3 pins: 2026 ≡ 1, 4052 ≡ 2 (mod 3)')
+    const powerSum = cadd(cpow(w, 2026), cpow(w, 4052 % 3 === 2 ? 2 : 1))
+    ok(Math.abs(powerSum[0] + 1) < 1e-10 && Math.abs(powerSum[1]) < 1e-10, 'Q6.6 ω^2026 + ω^4052 = ω + ω² = −1')
+    const prodPair = cmul(cadd([1, 0], w), cadd([1, 0], w2))
+    ok(Math.abs(prodPair[0] - 1) < 1e-12 && Math.abs(prodPair[1]) < 1e-12, 'Q6.7 (1+ω)(1+ω²) = 1 — the engine CAUGHT the drafted key 2 as wrong (ω+ω² = −1, so 1 + (ω+ω²) + ω³ = 1 − 1 + 1 = 1)')
+    // the factorisation witness a³+b³ = (a+b)(a+bω)(a+bω²) at a=2, b=3
+    const lhs37 = 8 + 27
+    const rhs37 = cmul(cmul([5, 0], cadd([2, 0], cmul([3, 0], w))), cadd([2, 0], cmul([3, 0], w2)))
+    ok(Math.abs(rhs37[0] - lhs37) < 1e-10 && Math.abs(rhs37[1]) < 1e-10, 'Q6.8 a³+b³ factorisation witnessed at (2,3): 35 = 5(2+3ω)(2+3ω²)')
+    // a³+b³+c³−3abc = (a+b+c)(a+bω+cω²)(a+bω²+cω) at (1,2,4): 49
+    const lhs49 = 1 + 8 + 64 - 3 * 1 * 2 * 4
+    const X = cadd(cadd([1, 0], cmul([2, 0], w)), cmul([4, 0], w2))
+    const Y = cadd(cadd([1, 0], cmul([2, 0], w2)), cmul([4, 0], w))
+    const rhs49 = cmul(cmul([7, 0], X), Y)
+    ok(Math.abs(rhs49[0] - lhs49) < 1e-10 && Math.abs(rhs49[1]) < 1e-10, 'Q6.9 the a³+b³+c³−3abc factorisation witnessed at (1,2,4): 49 = 7·(1+2ω+4ω²)(1+2ω²+4ω)')
+    // the 1+ω^n+ω^{2n} ∈ {0,3} sweep
+    let bad = 0
+    for (let n = 1; n <= 12; n++) {
+      const v = cadd(cadd([1, 0], cpow(w, n)), cpow(w, 2 * n))
+      const want = n % 3 === 0 ? 3 : 0
+      if (Math.abs(v[0] - want) > 1e-10 || Math.abs(v[1]) > 1e-10) bad++
+    }
+    ok(bad === 0, 'Q6.10 the 1+ωⁿ+ω²ⁿ sweep n = 1..12: 3 when 3|n, else 0')
+  }
+
+  /* Q7. the multi-valued nth root engine: z³ = −8i, the three seats,
+     the spoke geometry. */
+  {
+    const seats: Cx[] = [
+      [Math.sqrt(3), -1],
+      [0, 2],
+      [-Math.sqrt(3), -1],
+    ]
+    let bad = 0
+    for (const s of seats) {
+      const c = cpow(s, 3)
+      if (Math.abs(c[0]) > 1e-10 || Math.abs(c[1] + 8) > 1e-10) bad++
+    }
+    ok(bad === 0, 'Q7.1 the three seats √3−i, 2i, −√3−i each cube to −8i')
+    const bearings = [-Math.PI / 6, Math.PI / 2, (-5 * Math.PI) / 6] // principal; the third spoke ≡ 7π/6 mod 2π
+    let bad2 = 0
+    seats.forEach((s, i) => {
+      if (Math.abs(cmod(s) - 2) > 1e-10) bad2++
+      if (Math.abs(Math.atan2(s[1], s[0]) - bearings[i]) > 1e-10) bad2++
+    })
+    ok(bad2 === 0, 'Q7.2 the seats sit at radius 2, principal bearings −π/6, π/2, −5π/6 — equal spokes 2π/3 apart (the third ≡ 7π/6 mod 2π)')
+    // z³ = 27i seats (the exercise ladder)
+    const ex: Cx[] = [
+      [(3 * Math.sqrt(3)) / 2, 1.5],
+      [(-3 * Math.sqrt(3)) / 2, 1.5],
+      [0, -3],
+    ]
+    let bad3 = 0
+    for (const s of ex) {
+      const c = cpow(s, 3)
+      if (Math.abs(c[0]) > 1e-10 || Math.abs(c[1] - 27) > 1e-10) bad3++
+    }
+    ok(bad3 === 0, 'Q7.3 the exercise seats 3√3/2+3i/2, −3√3/2+3i/2, −3i each cube to 27i')
+    // z³ = −64 seats: −4, −4ω, −4ω²
+    const w: Cx = [-0.5, Math.sqrt(3) / 2]
+    const neg64: Cx[] = [[-4, 0], cmul([-4, 0], w), cmul([-4, 0], cmul(w, w))]
+    let bad4 = 0
+    for (const s of neg64) {
+      const c = cpow(s, 3)
+      if (Math.abs(c[0] + 64) > 1e-10 || Math.abs(c[1]) > 1e-10) bad4++
+    }
+    ok(bad4 === 0, 'Q7.4 the exercise seats −4, −4ω, −4ω² each cube to −64')
+    // the fifth roots of −1
+    const fifthNeg1: Cx[] = []
+    for (let k = 0; k < 5; k++) fifthNeg1.push(cisQ(((2 * k + 1) * Math.PI) / 5))
+    let bad5 = 0
+    for (const s of fifthNeg1) {
+      const p = cpow(s, 5)
+      if (Math.abs(p[0] + 1) > 1e-10 || Math.abs(p[1]) > 1e-10) bad5++
+    }
+    ok(bad5 === 0, 'Q7.5 the five cis((2k+1)π/5) seats each fifth-power to −1')
+  }
+
+  /* Q8. the square-root u,v family (fold #1): the three pinned roots. */
+  {
+    const cases: Array<[Cx, Cx, number, number]> = [
+      // [target, root, u²+v², sign-of-uv]
+      [[15, 8], [4, 1], 17, 8],
+      [[-7, -24], [3, -4], 25, -24],
+      [[-8, 6], [1, 3], 10, 6],
+    ]
+    let bad = 0
+    for (const [target, root, m, uv] of cases) {
+      const sq = cmul(root, root)
+      if (Math.abs(sq[0] - target[0]) > 1e-10 || Math.abs(sq[1] - target[1]) > 1e-10) bad++
+      // the u,v system rows: u²−v² = Re, 2uv = Im, u²+v² = √(Re²+Im²)
+      const u2 = root[0] * root[0]
+      const v2 = root[1] * root[1]
+      if (Math.abs(u2 - v2 - target[0]) > 1e-10) bad++
+      if (Math.abs(2 * root[0] * root[1] - target[1]) > 1e-10) bad++
+      if (Math.abs(u2 + v2 - m) > 1e-10) bad++
+      if (Math.abs(Math.hypot(target[0], target[1]) - m) > 1e-10) bad++
+      if (2 * root[0] * root[1] !== uv) bad++
+    }
+    ok(bad === 0, 'Q8.1 the u,v-system family pinned: √(15+8i) = ±(4+i), √(−7−24i) = ±(3−4i), √(−8+6i) = ±(1+3i) with every system row exact')
+    const negRoot = cmul([-4, -1], [-4, -1])
+    ok(Math.abs(negRoot[0] - 15) < 1e-10 && Math.abs(negRoot[1] - 8) < 1e-10, 'Q8.2 the ± twin: (−4−i)² = 15+8i too')
+  }
+
+  /* Q9. the circle-equation engine: zz̄ + az̄ + āz + b = 0 with centre
+     −a and radius √(aā−b); the two pinned reads. */
+  {
+    // read 1: zz̄ − (2−3i)z − (2+3i)z̄ + 9 = 0 → centre 2+3i, radius 2
+    const a1: Cx = [-2, -3] // multiplies z̄: −(2+3i)z̄ → a = −(2+3i)
+    const b1 = 9
+    const centre1: Cx = [2, 3]
+    const r1sq = a1[0] * a1[0] + a1[1] * a1[1] - b1
+    ok(Math.abs(r1sq - 4) < 1e-12, 'Q9.1 read 1: aā − b = 13 − 9 = 4 → radius 2')
+    const onSeat: Cx = [4, 3] // |4+3i − (2+3i)| = 2 → on the circle
+    const offSeat: Cx = [5, 3] // distance 3 → off
+    const evalC = (z: Cx): number => {
+      const zbar: Cx = [z[0], -z[1]]
+      // direct: zz̄ + a z̄ + ā z + b with a = −(2+3i), ā = −(2−3i)
+      const azbar = cmul(a1, zbar)
+      const abarz = cmul([a1[0], -a1[1]], z)
+      return z[0] * z[0] + z[1] * z[1] + azbar[0] + abarz[0] + b1
+    }
+    ok(Math.abs(evalC(onSeat)) < 1e-10, 'Q9.2 the on-seat 4+3i satisfies the equation exactly')
+    ok(Math.abs(evalC(offSeat) - 5) < 1e-10, 'Q9.3 the off-seat 5+3i reads |z−centre|² − r² = 9 − 4 = 5 (the engine caught the drafted 4)')
+    ok(ceq(centre1, [2, 3]) || (centre1[0] === 2 && centre1[1] === 3), 'Q9.4 the centre read: −a = 2+3i')
+    // read 2 (the exercise): zz̄ − 6z̄ − 6z + 27 = 0 → centre 6, radius 3
+    const on2: Cx = [6, 3] // distance 3
+    const off2: Cx = [6, 4]
+    const eval2 = (z: Cx): number => {
+      const zbar: Cx = [z[0], -z[1]]
+      return z[0] * z[0] + z[1] * z[1] - 6 * zbar[0] - 6 * z[0] + 27
+    }
+    ok(Math.abs(eval2(on2)) < 1e-10, 'Q9.5 the exercise on-seat 6+3i satisfies zz̄−6z̄−6z+27 = 0')
+    ok(Math.abs(eval2(off2) - 7) < 1e-10, 'Q9.6 the off-seat 6+4i misses by 3²−... value 7 pinned')
+  }
+
+  /* Q10. the straight-line engine: the line through 2+i and 5+7i is
+     2x − y − 3 = 0; the collinearity determinant and the z-form. */
+  {
+    const z1: Cx = [2, 1]
+    const z2: Cx = [5, 7]
+    const third: Cx = [8, 13] // z1 + 2·(z2−z1)
+    const onLine = (z: Cx): boolean => Math.abs(2 * z[0] - z[1] - 3) < 1e-10
+    ok(onLine(z1) && onLine(z2) && onLine(third), 'Q10.1 the cartesian line 2x − y − 3 = 0 carries 2+i, 5+7i and the third seat 8+13i')
+    // the z-form: (z−z₁)/(z₂−z₁) real ⟺ (z−z₁)(z̄₂−z̄₁) = (z̄−z̄₁)(z₂−z₁)
+    const zform = (z: Cx): number => {
+      const A = csub(z, z1) // z − z₁
+      const B: Cx = [z2[0] - z1[0], -(z2[1] - z1[1])] // z̄₂ − z̄₁
+      const C = csub([z[0], -z[1]] as Cx, [z1[0], -z1[1]] as Cx) // z̄ − z̄₁
+      const D: Cx = csub(z2, z1) // z₂ − z₁
+      const L = cmul(A, B)
+      const R = cmul(C, D)
+      // at the seats L − R = 0 entirely; off the line it fails
+      return Math.abs(L[0] - R[0]) + Math.abs(L[1] - R[1])
+    }
+    ok(zform(z1) < 1e-10 && zform(z2) < 1e-10 && zform(third) < 1e-10, 'Q10.2 the z-form (z−z₁)/(z₂−z₁) ∈ ℝ vanishes on all three seats')
+    const off: Cx = [3, 1]
+    ok(zform(off) > 0.5, 'Q10.3 the off-line seat 3+i fails the z-form (the pinned miss)')
+    // the perpendicular bisector |z−1| = |z+3| → Re z = −1
+    const bis = (z: Cx): number =>
+      (z[0] - 1) * (z[0] - 1) + z[1] * z[1] - ((z[0] + 3) * (z[0] + 3) + z[1] * z[1])
+    ok(Math.abs(bis([-1, 5])) < 1e-10 && Math.abs(bis([-1, -2])) < 1e-10, 'Q10.4 the perpendicular bisector seats −1+5i, −1−2i satisfy |z−1| = |z+3|')
+    ok(Math.abs(bis([0, 0]) + 8) < 1e-10, 'Q10.5 the seat 0 misses by 1−9 = −8 (the pinned value)')
+  }
+
+  /* Q11. the diametric-circle engine (fold #4): the two pinned examples
+     with centre, radius and the arg-form equation verified on seats. */
+  {
+    const cases: Array<{ ends: [Cx, Cx]; centre: Cx; radius: number; seat: Cx; off: Cx }> = [
+      {
+        ends: [[3, 2], [7, 10]],
+        centre: [5, 6],
+        radius: Math.sqrt(80) / 2,
+        seat: [5 + Math.sqrt(80) / 2, 6], // rightmost point of the circle
+        off: [5, 6 + Math.sqrt(80) / 2 + 1],
+      },
+      {
+        ends: [[-1, 3], [5, -5]],
+        centre: [2, -1],
+        radius: 5,
+        seat: [2, 4], // |2+4i − (2−i)| = 5
+        off: [2, 5.5],
+      },
+    ]
+    let bad = 0
+    for (const c of cases) {
+      // centre = midpoint
+      const mid = [(c.ends[0][0] + c.ends[1][0]) / 2, (c.ends[0][1] + c.ends[1][1]) / 2] as Cx
+      if (Math.abs(mid[0] - c.centre[0]) > 1e-12 || Math.abs(mid[1] - c.centre[1]) > 1e-12) bad++
+      // radius = half the chord
+      const half = cmod(csub(c.ends[1], c.ends[0])) / 2
+      if (Math.abs(half - c.radius) > 1e-12) bad++
+      // the diametric equation (z−z₁)(z̄−z̄₂) + (z−z₂)(z̄−z̄₁) = 0
+      const evalD = (z: Cx): number => {
+        const zbar: Cx = [z[0], -z[1]]
+        const t1 = cmul(csub(z, c.ends[0]), csub(zbar, [c.ends[1][0], -c.ends[1][1]] as Cx))
+        const t2 = cmul(csub(z, c.ends[1]), csub(zbar, [c.ends[0][0], -c.ends[0][1]] as Cx))
+        const v = cadd(t1, t2)
+        return Math.abs(v[0]) + Math.abs(v[1])
+      }
+      if (evalD(c.seat) > 1e-10) bad++
+      if (evalD(c.off) < 0.5) bad++
+      // and the seat's distance to the centre equals the radius
+      if (Math.abs(cmod(csub(c.seat, c.centre)) - c.radius) > 1e-10) bad++
+    }
+    ok(bad === 0, 'Q11.1 the diametric engine green on both pinned families: centres (5,6) r=2√5 and (2,−1) r=5, seats on, off-seats off')
+    // the exercise family: ends 1+3i and 7−i → centre 4+i, radius √13
+    const exEnds: [Cx, Cx] = [[1, 3], [7, -1]]
+    const exMid = [(1 + 7) / 2, (3 - 1) / 2] as Cx
+    const exHalf = cmod(csub(exEnds[1], exEnds[0])) / 2
+    ok(exMid[0] === 4 && exMid[1] === 1 && Math.abs(exHalf - Math.sqrt(13)) < 1e-12, 'Q11.2 the exercise family pinned: centre 4+i, radius √13 (ends 1+3i, 7−i)')
+  }
+
+  /* Q12. the equilateral condition (fold #3): the pinned families and
+     the counterexample. */
+  {
+    const w: Cx = [-0.5, Math.sqrt(3) / 2]
+    const w2 = cmul(w, w)
+    const cond = (z1: Cx, z2: Cx, z3: Cx): boolean => {
+      const l = cadd(cadd(cmul(z1, z1), cmul(z2, z2)), cmul(z3, z3))
+      const r = cadd(cadd(cmul(z1, z2), cmul(z2, z3)), cmul(z3, z1))
+      // tolerance comparison — the exact ceq caught only float dust
+      return Math.abs(l[0] - r[0]) < 1e-9 && Math.abs(l[1] - r[1]) < 1e-9
+    }
+    ok(cond([1, 0], w, w2), 'Q12.1 {1, ω, ω²} satisfies z₁²+z₂²+z₃² = z₁z₂+z₂z₃+z₃z₁ (the ω triangle IS equilateral)')
+    const s: number = Math.sqrt(3)
+    ok(cond([0, 0], [4, 0], [2, 2 * s]), 'Q12.2 {0, 4, 2+2√3 i} satisfies the condition')
+    const sides = [cmod([4, 0]), cmod([2, -2 * s]), cmod([2, 2 * s])]
+    ok(Math.abs(sides[0] - 4) < 1e-12 && Math.abs(sides[1] - 4) < 1e-12 && Math.abs(sides[2] - 4) < 1e-12, 'Q12.3 the same family has all three sides = 4 (the geometric cross-check)')
+    ok(!cond([0, 0], [1, 0], [0, 1]), 'Q12.4 {0, 1, i} FAILS the condition (the pinned counterexample — right isosceles)')
+    const lhs01i = cadd(cadd(cmul([0, 0], [0, 0]), cmul([1, 0], [1, 0])), cmul([0, 1], [0, 1]))
+    const rhs01i = cadd(cadd(cmul([0, 0], [1, 0]), cmul([1, 0], [0, 1])), cmul([0, 1], [0, 0]))
+    ok(lhs01i[0] === 0 && lhs01i[1] === 0 && rhs01i[0] === 0 && rhs01i[1] === 1, 'Q12.5 the counterexample values pinned: LHS = 0, RHS = i')
+    // {0,1,ω} fails too (the exercise)
+    ok(!cond([0, 0], [1, 0], w), 'Q12.6 {0, 1, ω} fails the condition (the exercise family: sides 1, √3, 1)')
+  }
+
+  /* Q13. the sixth-roots exercise family: sum, product, primitive seats. */
+  {
+    const seats: Cx[] = []
+    for (let k = 0; k < 6; k++) seats.push(cisQ((Math.PI * k) / 3))
+    const sum = seats.reduce((a, s) => cadd(a, s), [0, 0])
+    const prod = seats.reduce((a, s) => cmul(a, s), [1, 0])
+    ok(Math.abs(sum[0]) < 1e-10 && Math.abs(sum[1]) < 1e-10 && Math.abs(prod[0] + 1) < 1e-10 && Math.abs(prod[1]) < 1e-10, 'Q13.1 the sixth roots: sum 0, product −1 (n even)')
+    const prim = seats.filter((_, k) => {
+      const g = (a: number, b: number): number => (b === 0 ? a : g(b, a % b))
+      return k > 0 && g(k, 6) === 1
+    })
+    ok(
+      prim.length === 2 &&
+        Math.abs(prim[0][0] - 0.5) < 1e-10 && Math.abs(prim[0][1] - Math.sqrt(3) / 2) < 1e-10 &&
+        Math.abs(prim[1][0] - 0.5) < 1e-10 && Math.abs(prim[1][1] + Math.sqrt(3) / 2) < 1e-10,
+      'Q13.2 the primitive sixth roots are cis(±π/3) = 1/2 ± √3/2 i',
+    )
+  }
+
+  /* Q14. the figure geometry pinned (px coordinates of the three SVGs). */
+  {
+    // fig 1 — the pentagon: viewBox 520×420, centre (260,205), R = 150
+    const pent: Array<[number, number]> = []
+    for (let k = 0; k < 5; k++) {
+      const th = (2 * Math.PI * k) / 5
+      pent.push([260 + 150 * Math.cos(th), 205 - 150 * Math.sin(th)])
+    }
+    ok(
+      Math.abs(pent[0][0] - 410) < 1e-9 && Math.abs(pent[0][1] - 205) < 1e-9 &&
+        Math.abs(pent[1][0] - 306.35) < 0.01 && Math.abs(pent[1][1] - 62.34) < 0.01 &&
+        Math.abs(pent[2][0] - 138.65) < 0.01 && Math.abs(pent[2][1] - 116.83) < 0.01 &&
+        Math.abs(pent[3][0] - 138.65) < 0.01 && Math.abs(pent[3][1] - 293.17) < 0.01 &&
+        Math.abs(pent[4][0] - 306.35) < 0.01 && Math.abs(pent[4][1] - 347.66) < 0.01,
+      'Q14.1 the pentagon figure seats pinned (centre (260,205), R 150)',
+    )
+    // all pentagon px seats at distance 150 from the centre
+    const all150 = pent.every((p) => Math.abs(Math.hypot(p[0] - 260, p[1] - 205) - 150) < 1e-9)
+    ok(all150, 'Q14.2 every pentagon seat sits exactly 150 px from the centre')
+    // fig 2 — the z³ = −8i spokes: viewBox 520×420, centre (250,210), 55 px/unit
+    const seatPx: Array<[number, number]> = [
+      [250 + 55 * Math.sqrt(3), 210 + 55],
+      [250, 210 - 110],
+      [250 - 55 * Math.sqrt(3), 210 + 55],
+    ]
+    ok(
+      Math.abs(seatPx[0][0] - 345.27) < 0.01 && Math.abs(seatPx[0][1] - 265) < 0.01 &&
+        Math.abs(seatPx[1][0] - 250) < 1e-9 && Math.abs(seatPx[1][1] - 100) < 1e-9 &&
+        Math.abs(seatPx[2][0] - 154.73) < 0.01 && Math.abs(seatPx[2][1] - 265) < 0.01,
+      'Q14.3 the spokes figure seats pinned (centre (250,210), 55 px per unit, radius 2 → 110 px)',
+    )
+    const spokeOk = seatPx.every((p) => Math.abs(Math.hypot(p[0] - 250, p[1] - 210) - 110) < 1e-9)
+    ok(spokeOk, 'Q14.4 every spoke seat sits exactly 110 px from the centre')
+    // fig 3 — the equilateral {0, 4, 2+2√3 i}: viewBox 460×400, scale 40 px/unit, origin px (120,330)
+    const triPx: Array<[number, number]> = [
+      [120, 330],
+      [280, 330],
+      [200, 330 - 80 * Math.sqrt(3)],
+    ]
+    ok(
+      triPx[0][0] === 120 && triPx[0][1] === 330 && triPx[1][0] === 280 && triPx[1][1] === 330 &&
+        Math.abs(triPx[2][0] - 200) < 1e-9 && Math.abs(triPx[2][1] - 191.44) < 0.01,
+      'Q14.5 the equilateral figure seats pinned (scale 40, apex at (200, 191.44))',
+    )
+    const d01 = Math.hypot(triPx[1][0] - triPx[0][0], triPx[1][1] - triPx[0][1])
+    const d12 = Math.hypot(triPx[2][0] - triPx[1][0], triPx[2][1] - triPx[1][1])
+    const d20 = Math.hypot(triPx[0][0] - triPx[2][0], triPx[0][1] - triPx[2][1])
+    ok(Math.abs(d01 - d12) < 1e-9 && Math.abs(d12 - d20) < 1e-9, 'Q14.6 the drawn triangle is equilateral in px too (side 160)')
+  }
+
+  /* Q15. the pinned answer registry (quiz keys + the 15-exercise ladder),
+     each pinned by brute force above; the registry itself is the pin. */
+  {
+    const registry = {
+      quiz: [
+        '(1+i)^16 → 256',
+        'real roots of x^5 = 1 → only 1',
+        '(1+ω)(1+ω²) → 1',
+        '|z−1| = |z+3| → the vertical line Re z = −1',
+        '{0, 4, 2+2√3 i} → equilateral',
+      ],
+      ladder: [
+        'L1(a) (√3+i)^9 = −512i',
+        'L1(b) fourth roots of unity = {1, i, −1, −i}',
+        'L2(a) ω^2026 + ω^4052 = −1',
+        'L2(b) z³ = −64 → {−4, −4ω, −4ω²}',
+        'L3(a) √(−8+6i) = ±(1+3i)',
+        'L3(b) zz̄−6z̄−6z+27 → centre 6, radius 3',
+        'L3(c) the line through 2+i, 5+7i → 2x − y − 3 = 0',
+        'L4(a) z³ = 27i → {3√3/2+3i/2, −3√3/2+3i/2, −3i}',
+        'L4(b) fifth roots of −1 → cis((2k+1)π/5), k = 0..4',
+        'L4(c) sum of nth roots of unity = 0 (n ≥ 2)',
+        'L5(a) ends 1+3i, 7−i → centre 4+i, radius √13',
+        'L5(b) {0,1,ω} fails the equilateral condition; sides 1, √3, 1',
+        'L5(c) sixth roots: sum 0, product −1, primitive cis(±π/3)',
+        'L6(a) De Moivre by induction (the n→n+1 seat product)',
+        'L6(b) 1+ωⁿ+ω²ⁿ = 3 if 3|n else 0',
+      ],
+    }
+    ok(registry.quiz.length === 5, 'Q15.1 the 5-item quiz registry pinned')
+    ok(registry.ladder.length === 15, 'Q15.2 the 15-exercise ladder registry pinned')
+    console.log('Q15 registry: quiz ' + registry.quiz.length + ' keys, ladder ' + registry.ladder.length + ' answers — all brute-forced above')
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  SECTION R (run 109, authored-audit for lesson 3.5 "De Moivre,     */
+/*  Roots of Unity and the Complex Loci") — audits the written        */
+/*  lesson: the five m2-03 fold minimum treatments, the structural    */
+/*  counts, the prose witnesses, the honesty scan, the word count    */
+/*  and the id uniqueness.                                             */
+/* ------------------------------------------------------------------ */
+{
+  const L = chapter03.lessons.find((l) => l.id === 'aa-de-moivre-roots-of-unity-and-the-complex-loci')
+  if (!L) {
+    ok(false, 'R0 lesson 3.5 present in chapter03.lessons')
+  } else {
+    const heads = L.blocks.filter((b) => b.kind === 'heading').map((b) => (b as { kind: string; text: string }).text)
+    const paras = L.blocks.filter((b) => b.kind === 'para').length
+    const examples = L.blocks.filter((b) => b.kind === 'example')
+    const derivations = L.blocks.filter((b) => b.kind === 'derivation')
+    const formulas = L.blocks.filter((b) => b.kind === 'formula')
+    const figures = L.blocks.filter((b) => b.kind === 'figure')
+    const tables = L.blocks.filter((b) => b.kind === 'table')
+    const callouts = L.blocks.filter((b) => b.kind === 'callout')
+    const quizBlock = L.blocks.find((b) => b.kind === 'quiz') as { kind: string; items: Array<{ q: string; answer: number; explain: string }> } | undefined
+    const exBlock = L.blocks.find((b) => b.kind === 'exercises') as { kind: string; sets: Array<{ level: string; questions: Array<{ q: string }> }> } | undefined
+    const termsBlock = L.blocks.find((b) => b.kind === 'terms') as { kind: string; items: Array<{ term: string }> } | undefined
+
+    // R1. the chapter census: 5 written lessons, the 3.5 title gone from plannedLessons
+    ok(chapter03.lessons.length === 5, 'R1.1 chapter 3 carries 5 written lessons (the finale shipped)')
+    ok((chapter03.plannedLessons ?? []).every((t) => t !== 'De Moivre, Roots of Unity and the Complex Loci'), 'R1.2 the 3.5 title left plannedLessons (only the unit review remains)')
+    ok(L.number === '3.5' && L.title === 'De Moivre, Roots of Unity and the Complex Loci', 'R1.3 the lesson id/number/title exact')
+    ok(
+      JSON.stringify(L.prerequisites) === JSON.stringify(['aa-the-argand-plane-polar-form-and-the-argument', 'aa-negative-discriminants-the-doors-turn-complex', 'aa-conjugate-and-modulus']),
+      'R1.4 prerequisites: 3.4, 3.3, 3.2',
+    )
+
+    // R2. the heading order — the two named fold sections exact
+    const wantHeads = [
+      "De Moivre\u2019s Theorem: the Argument Law Raised to Powers",
+      'The nth Roots of Unity: the Unit Circle\u2019s Equal Spokes',
+      'Properties of nth Roots of Unity',
+      'The Cube Roots of Unity',
+      'Properties of Cube Roots of Unity',
+      'The Multi-Valued nth Root: every Number\u2019s n Doors',
+      'The Square Root of a Complex Number: the u, v System Returns',
+      'The Complex Loci: Equations the Plane Answers',
+      'Equation of Circle whose Diametric End Points are Given',
+      'Condition for Three Points to Represent Equilateral Triangle',
+    ]
+    let headOk = true
+    wantHeads.forEach((h) => {
+      if (!heads.includes(h)) headOk = false
+    })
+    ok(headOk, 'R2.1 all ten pinned headings present (incl. the two exact fold section names + the two example-family headings)')
+    ok(heads.length === 10, `R2.2 exactly 10 headings (got ${heads.length})`)
+
+    // R3. FOLD #5 (section): Properties of nth Roots of Unity — named
+    // subsection + formal definition + at least one worked example
+    {
+      const idx = heads.indexOf('Properties of nth Roots of Unity')
+      const rootIdx = heads.indexOf('The nth Roots of Unity: the Unit Circle\u2019s Equal Spokes')
+      const cubeIdx = heads.indexOf('The Cube Roots of Unity')
+      ok(idx > rootIdx && idx < cubeIdx, 'R3.1 fold #5: the named subsection sits inside the nth-roots section (between its parent and the cube roots)')
+      const defs = callouts.filter((c) => (c as { tone: string }).tone === 'definition')
+      ok(
+        defs.some((c) => JSON.stringify(c).includes('nth ROOTS OF UNITY') && JSON.stringify(c).includes('PRIMITIVE')),
+        'R3.2 fold #5: the formal definition callout (nth roots of unity + primitive root) present',
+      )
+      const seg = L.blocks.slice(idx >= 0 ? L.blocks.findIndex((b, i) => i > 0 && b.kind === 'heading' && (b as { text: string }).text === 'Properties of nth Roots of Unity') : 0)
+      void seg
+      const twelfth = examples.find((e) => JSON.stringify(e).includes('twelfth-roots census'))
+      ok(!!twelfth, 'R3.3 fold #5: the worked example (the twelfth-roots census) present')
+    }
+
+    // R4. FOLD #2 (section): Properties of Cube Roots of Unity — named
+    // subsection + formal definition + worked example
+    {
+      const idx = heads.indexOf('Properties of Cube Roots of Unity')
+      const cubeIdx = heads.indexOf('The Cube Roots of Unity')
+      const multIdx = heads.indexOf('The Multi-Valued nth Root: every Number\u2019s n Doors')
+      ok(idx > cubeIdx && idx < multIdx, 'R4.1 fold #2: the named subsection sits inside the cube-roots section')
+      const mod3 = examples.find((e) => JSON.stringify(e).includes('mod-3 clock'))
+      ok(!!mod3, 'R4.2 fold #2: the worked example (the mod-3 clock) present')
+      const text = JSON.stringify(L.blocks)
+      ok(text.includes('1 + \\\\omega + \\\\omega^2 = 0') && text.includes('\\\\omega^3 = 1'), 'R4.3 fold #2: the formal identities carried in the section prose + formula card')
+    }
+
+    // R5. FOLD #1 (example-family): Square Root of Complex Number — at
+    // least two worked examples of exactly this topic type
+    {
+      const sq = examples.find((e) => JSON.stringify(e).includes('Two square roots by the $u, v$ system'))
+      ok(!!sq, 'R5.1 fold #1: the worked example family present')
+      const s = JSON.stringify(sq)
+      ok(s.includes('15 + 8i') && s.includes('-7 - 24i') && s.includes('u^2 - v^2') && s.includes('2uv'), 'R5.2 fold #1: TWO targets (15+8i, −7−24i) carried through the full u,v system rows')
+      ok(s.includes('\\pm(4 + i)') && s.includes('\\pm(3 - 4i)'), 'R5.3 fold #1: both pinned answers ±(4+i) and ±(3−4i)')
+    }
+
+    // R6. FOLD #4 (example-family): Equation of Circle whose Diametric
+    // End Points are Given — at least two worked examples
+    {
+      const diam = examples.find((e) => JSON.stringify(e).includes('Two diametric families'))
+      ok(!!diam, 'R6.1 fold #4: the worked example family present')
+      const s = JSON.stringify(diam)
+      ok(s.includes('3 + 2i') && s.includes('7 + 10i') && s.includes('5 + 6i') && s.includes('2\\\\sqrt{5}'), 'R6.2 fold #4: first family (ends 3+2i, 7+10i → centre 5+6i, radius 2√5)')
+      ok(s.includes('-1 + 3i') && s.includes('5 - 5i') && s.includes('2 - i'), 'R6.3 fold #4: second family (ends −1+3i, 5−5i → centre 2−i, radius 5)')
+      const d = derivations.find((x) => JSON.stringify(x).includes('The diametric circle'))
+      ok(!!d && JSON.stringify(d).includes('\\\\bar z - \\\\bar z_2'), 'R6.4 fold #4: the derivation carrying the diametric equation')
+    }
+
+    // R7. FOLD #3 (example-family): Condition for Three Points to
+    // Represent Equilateral Triangle — at least two worked examples
+    {
+      const equi = examples.find((e) => JSON.stringify(e).includes('Three certificates'))
+      ok(!!equi, 'R7.1 fold #3: the worked example family present')
+      const s = JSON.stringify(equi)
+      ok(s.includes('z_1 = 1, z_2 = \\\\omega, z_3 = \\\\omega^2') && s.includes('z_1 = 0, z_2 = 4, z_3 = 2 + 2\\\\sqrt{3}i'), 'R7.2 fold #3: TWO positive families ({1,ω,ω²} and {0,4,2+2√3 i})')
+      ok(s.includes('z_1 = 0, z_2 = 1, z_3 = i') && s.includes('FAILS'), 'R7.3 fold #3: the negative certificate ({0,1,i} fails) — both directions priced')
+      const d = derivations.find((x) => JSON.stringify(x).includes('The equilateral condition'))
+      ok(!!d && JSON.stringify(d).includes('z_1z_2 + z_2z_3 + z_3z_1'), 'R7.4 fold #3: the derivation carrying the symmetric identity')
+    }
+
+    // R8. the structural census
+    ok(derivations.length === 10, `R8.1 exactly 10 derivations (De Moivre, z^n=1, zero-sum, cube roots, ω factorisations, multi-valued, circle, line, diametric, equilateral) — got ${derivations.length}`)
+    ok(formulas.length === 4, `R8.2 exactly 4 formula cards (De Moivre, the census, the ω engine, the multi-valued nth root) — got ${formulas.length}`)
+    ok(figures.length === 3, `R8.3 exactly 3 figures (pentagon, spokes, equilateral) — got ${figures.length}`)
+    ok(tables.length === 1, `R8.4 exactly 1 table (the locus dictionary) — got ${tables.length}`)
+    ok(examples.length === 10, `R8.5 exactly 10 Illustrations — got ${examples.length}`)
+    ok(paras >= 14, `R8.6 at least 14 paras — got ${paras}`)
+    ok(!!termsBlock && termsBlock.items.length === 8, `R8.7 exactly 8 terms — got ${termsBlock?.items.length}`)
+
+    // R9. the quiz + exercises census
+    ok(!!quizBlock && quizBlock.items.length === 5, 'R9.1 the 5-item quiz')
+    const answers = quizBlock ? quizBlock.items.map((i) => i.answer) : []
+    ok(JSON.stringify(answers) === JSON.stringify([0, 0, 0, 0, 0]), `R9.2 the quiz keys pinned [0,0,0,0,0] (256, only 1, the pair product 1, the bisector line, equilateral) — got ${JSON.stringify(answers)}`)
+    ok(!!quizBlock && quizBlock.items.every((i) => i.explain.length > 80), 'R9.3 every quiz item carries a priced explain')
+    ok(!!exBlock && exBlock.sets.length === 6, 'R9.4 the six L-sets')
+    const counts = exBlock ? exBlock.sets.map((s) => s.questions.length) : []
+    ok(JSON.stringify(counts) === JSON.stringify([2, 2, 3, 3, 3, 2]), `R9.5 the 15-exercise ladder 2/2/3/3/3/2 — got ${JSON.stringify(counts)}`)
+    ok(exBlock ? exBlock.sets.every((s) => s.questions.every((q) => (q as { solution?: unknown }).solution !== undefined)) : false, 'R9.6 every exercise carries a solution')
+
+    // R10. the pinned prose witnesses
+    const allText = JSON.stringify(L)
+    const witnesses = [
+      'De Moivre', 'equal spokes', 'primitive', 'regular', 'zero-sum', 'mod-3', 'multi-valued',
+      'u, v system', 'perpendicular bisector', 'diametric', 'equilateral condition', 'Thales',
+      'centre', 'radius', 'argument-addition', 'conjugate', 'golden ratio', 'spokes',
+    ]
+    let miss = 0
+    for (const w of witnesses) if (!allText.includes(w)) miss++
+    ok(miss === 0, `R10.1 the pinned prose witnesses present (${miss} missing)`)
+
+    // R11. honesty scan
+    ok(!allText.includes('TODO') && !allText.includes('XXX') && !allText.includes('【') && !allText.includes('to be completed'), 'R11.1 honesty scan: no placeholders')
+    ok(!allText.toLowerCase().includes('reproduced from'), 'R11.2 honesty scan: no reproduction language')
+
+    // R12. the word count + repo-wide id uniqueness
+    const wordCount = countLessonWords(L as never)
+    ok(wordCount >= 4800, `R12.1 honest word count >= 4800 (got ${wordCount})`)
+    console.log(`R12 word count: ${wordCount}`)
+    const hits = execSync(`grep -rl "aa-de-moivre-roots-of-unity-and-the-complex-loci" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
+    const dataHits = hits.filter((h) => h.includes('/books/'))
+    ok(dataHits.length === 1, `R12.2 lesson id unique in book data (got files: ${dataHits.join(' ')})`)
+  }
+}
+
+console.log(`\nverify-book4-ch03 sections A-R: ${passed} passed, ${failed} failed`)
 if (failed > 0) {
   console.log('FAILURES:')
   failures.forEach((f) => console.log('  - ' + f))
