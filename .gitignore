@@ -387,6 +387,8 @@ server.log
 !/scripts/ship-run88.py
 # exception: one-shot run-88 push recorder (2026-11-10, historical record)
 !/scripts/record-run88-push.py
+# exception: one-shot 2026-11-17 PAT-push recorder (historical record)
+!/scripts/record-push-2026-11-17.py
 # exception: run-89 book-#4 promotion gate + E2E block (Advanced Algebra; whitelisted BEFORE the commit)
 !/scripts/verify-book4-promotion.ts
 !/scripts/e2e-book4-promotion.sh
