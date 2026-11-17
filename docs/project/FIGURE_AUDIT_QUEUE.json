@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-17T03:20:00+08:00",
+  "updated": "2026-11-17T09:07:23+08:00",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
-  "cursor": 51,
+  "cursor": 52,
   "stats": {
     "lessonsWithFigures": 131,
     "figureTotal": 246,
-    "done": 57,
-    "pending": 74
+    "done": 58,
+    "pending": 73
   },
   "items": [
     {
@@ -474,7 +474,9 @@
       "bookId": "arithmetic-and-number-systems",
       "chapter": 2,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-17",
+      "note": "VLM strict PASS (08:30 fire 2026-11-17: body fig PASS untouched with one pixel-dismissed nit; B: 4 sol figs added, 1 real fix on the clock join + 1 pixel-evidence dismissal; accuracy catch: the clock walk’s four wrapped transitions corrected to the true 12-cycle; C: 3 enrichments)"
     },
     {
       "lessonId": "ans-the-algebra-of-divisibility",

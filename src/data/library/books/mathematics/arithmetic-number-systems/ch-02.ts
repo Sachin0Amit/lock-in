@@ -304,6 +304,23 @@ export const chapter02: Chapter = {
           text: 'For $a \\ge 1$ and $b \\ge 1$, write $r = a \\bmod b$ for the (unique) remainder of $a$ on division by $b$, and recover the quotient as $q = (a - r)/b$. Thus, $23 \\bmod 5 = 3$ and $q = (23 - 3)/5 = 4$; $20 \\bmod 5 = 0$ — exact division — and $4 \\bmod 5 = 4$: a small dividend sits in its own remainder-sized slot. The *mod* notation is a compression: $a \\bmod b$ names the bottom of the descent staircase of Lesson 2.1\u2019s proof.',
         },
         {
+          kind: 'example',
+          title: 'Count the slot-3 numbers between 100 and 300: the general form $7k + 3$, swept end to end',
+          steps: [
+            'General form first: every slot-3 number wears $7k + 3$ for some whole number $k$ — the division algorithm read forwards with $q = k$ pinned and $r = 3$ fixed (and $3 < 7$, so the band holds for every $k$).',
+            'Floor of the range: $100 = 7 \\cdot 14 + 2$ (band-checked: $2 < 7$), so 100 sits in slot 2 — one slot below the target; the first slot-3 number from 100 up is $7 \\cdot 14 + 3 = 101$. (Check: $101 = 7 \\cdot 14 + 3$ ✓.)',
+            'Ceiling of the range: $300 = 7 \\cdot 42 + 6$ — slot 6, four above; the last slot-3 number up to 300 is $7 \\cdot 42 + 3 = 297$. (Check: $297 = 7 \\cdot 42 + 3$ ✓ and $297 \\le 300$.)',
+            'Count the k-run: $k$ runs from 14 to 42 — $42 - 14 + 1 = 29$ values (the run count of Lesson 1.1, both ends in). The shortcut agrees: $(297 - 101)/7 + 1 = 28 + 1 = 29$.',
+            'Hence 29 numbers — first 101, last 297 — and the whole sweep spent nothing but the division algorithm and a run count.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The band has b values, not b + 1',
+          text: 'Counting the slots is a classic off-by-one. The band $0 \\le r < b$ holds exactly $b$ values — $0, 1, \\dots, b - 1$ — so dividing by 7 gives SEVEN slots, not eight: the run 0 to 7 has length 7, but its endpoint 7 is excluded (Exercise L3 pins the count). The same care counts slot-members in a range: the 29 slot-3 numbers between 100 and 300 are the run $k = 14$ to $k = 42$, and the \u201c+ 1\u201d at the end is not optional — $42 - 14 = 28$ forgets that both ends sit inside the range. When a count comes out one short, audit the endpoints before re-checking the arithmetic.',
+        },
+        {
           kind: 'callout',
           tone: 'historical',
           title: 'A theorem wearing an algorithm\u2019s name',
@@ -462,6 +479,42 @@ export const chapter02: Chapter = {
                     'Hence $53 = 7 \\cdot 7 + 4$: the subtraction chain *is* the descent walk through $S = \\{53, 46, 39, 32, 25, 18, 11, 4\\}$, and its length is the quotient.',
                   ],
                   answer: 'q = 7, r = 4 (53 = 7·7 + 4)',
+                  figures: [
+                    {
+                      caption:
+                        'The descent walk of 53 ÷ 7, drawn: each arrow hands one full group of 7 back — seven arrows, so q = 7 — and the walk stops at 4 because one more subtraction would land below zero, so r = 4 is the bottom step and it clears the band (4 < 7). The rebuild check 7·7 + 4 = 53 certifies the pair.',
+                      svg: `<svg viewBox="0 0 780 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Repeated subtraction of 53 by 7 drawn as a chain of eight boxes 53, 46, 39, 32, 25, 18, 11, 4 with seven arrows each labelled minus 7, the last box green as the remainder 4 clearing the band, a measure line counting seven subtractions for the quotient q equals 7, and the rebuild check 7 times 7 plus 4 equals 53">
+  <defs>
+    <marker id="da-arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="currentColor"/></marker>
+  </defs>
+  ${(() => {
+    const BW = 68, GAP = 20, X0 = 48, Y = 92, BH = 46, N = 8;
+    const VALS = [53, 46, 39, 32, 25, 18, 11, 4];
+    const xs = VALS.map((_v, i) => X0 + i * (BW + GAP));
+    let out = '';
+    out += `<text x="390" y="40" font-size="12.5" fill="currentColor" opacity="0.85" text-anchor="middle">the leftover staircase — each arrow hands back one full group of 7</text>`;
+    for (let i = 0; i < N; i++) {
+      const bottom = i === N - 1;
+      out += `<rect x="${xs[i]}" y="${Y}" width="${BW}" height="${BH}" rx="7" fill="${bottom ? '#dcfce7' : '#fef3c7'}" stroke="${bottom ? '#16a34a' : '#f59e0b'}" stroke-width="${bottom ? 2 : 1.5}"/>`;
+      out += `<text x="${xs[i] + BW / 2}" y="${Y + BH / 2 + 5}" font-size="14.5" font-weight="700" fill="currentColor" text-anchor="middle">${VALS[i]}</text>`;
+    }
+    for (let i = 0; i < N - 1; i++) {
+      const gx = xs[i] + BW;
+      out += `<line x1="${gx + 2.5}" y1="${Y + BH / 2}" x2="${gx + GAP - 2.5}" y2="${Y + BH / 2}" stroke="currentColor" stroke-width="1.6" marker-end="url(#da-arrow)"/>`;
+      out += `<text x="${gx + GAP / 2}" y="156" font-size="11" fill="currentColor" opacity="0.85" text-anchor="middle">−7</text>`;
+    }
+    out += `<text x="${xs[7] + BW / 2}" y="156" font-size="11.5" font-weight="700" fill="#166534" text-anchor="middle">r = 4</text>`;
+    const m1 = xs[0] + BW + GAP / 2, m2 = xs[6] + BW + GAP / 2;
+    out += `<line x1="${m1}" y1="184" x2="${m2}" y2="184" stroke="currentColor" stroke-width="1.3"/>`;
+    out += `<line x1="${m1}" y1="178" x2="${m1}" y2="188" stroke="currentColor" stroke-width="1.3"/>`;
+    out += `<line x1="${m2}" y1="178" x2="${m2}" y2="188" stroke="currentColor" stroke-width="1.3"/>`;
+    out += `<text x="${(m1 + m2) / 2}" y="204" font-size="12.5" font-weight="700" fill="currentColor" text-anchor="middle">count the arrows: 7 subtractions — q = 7; the bottom step clears the band: 4 &lt; 7 ✓</text>`;
+    out += `<text x="${(m1 + m2) / 2}" y="228" font-size="12.5" fill="currentColor" opacity="0.85" text-anchor="middle">the rebuild check: 7 · 7 + 4 = 53 ✓</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Find the smallest three-digit number that leaves remainder $4$ on division by $9$.',
@@ -473,6 +526,37 @@ export const chapter02: Chapter = {
                     'Hence $103$ is the smallest — the swept and certified exam answer.',
                   ],
                   answer: '103 (= 9·11 + 4)',
+                  figures: [
+                    {
+                      caption:
+                        'The slot picture behind the smallest-three-digit search: 100 = 9·11 + 1 lands in slot 1, so slot 4 — three slots up the 9-ladder — is reached at 100 + 3 = 103. The first three three-digit numbers fill slots 1–3 (amber); 103 (green) is the answer, certified by 9·11 + 4 = 103.',
+                      svg: `<svg viewBox="0 0 780 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The nine remainder slots of dividing by 9 as a row of cells labelled 0 to 8: 100, 101, 102 sit tinted amber in slots 1, 2, 3 and the answer 103 sits tinted green in slot 4, an arc arrow hopping three slots up with the step 100 plus 3 equals 103, and the checks 103 equals 9 times 11 plus 4 with the smaller three-digit numbers filling slots 1 to 3">
+  <defs>
+    <marker id="sl-arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="currentColor"/></marker>
+  </defs>
+  ${(() => {
+    const B = 9, SW = 60, SX = 120, SY = 96, SH = 54;
+    const cx = (i: number) => SX + i * SW + SW / 2;
+    const nums: Record<number, string> = { 1: '100', 2: '101', 3: '102', 4: '103' };
+    let out = '';
+    out += `<text x="390" y="38" font-size="12.5" fill="currentColor" opacity="0.85" text-anchor="middle">dividing by 9 sorts the line into nine slots — r = 0, 1, …, 8</text>`;
+    out += `<text x="300" y="56" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">three slots up the 9-ladder: 100 + (4 − 1) = 103</text>`;
+    out += `<path d="M ${cx(1)} 90 Q 300 66 ${cx(4)} 90" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#sl-arrow)"/>`;
+    for (let i = 0; i < B; i++) {
+      const ans = i === 4, swept = i === 1 || i === 2 || i === 3;
+      const fill = ans ? '#dcfce7' : swept ? '#fef3c7' : 'none';
+      const stroke = ans ? '#16a34a' : swept ? '#f59e0b' : 'currentColor';
+      out += `<rect x="${SX + i * SW}" y="${SY}" width="${SW}" height="${SH}" fill="${fill}" stroke="${stroke}" stroke-width="${ans ? 2 : 1.2}"${ans || swept ? '' : ' opacity="0.6"'}/>`;
+      if (nums[i]) out += `<text x="${cx(i)}" y="${SY + 32}" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle">${nums[i]}</text>`;
+      out += `<text x="${cx(i)}" y="${SY + SH + 18}" font-size="11" fill="currentColor" opacity="0.75" text-anchor="middle">${i}</text>`;
+    }
+    out += `<text x="390" y="192" font-size="12.5" font-weight="700" fill="currentColor" text-anchor="middle">100 = 9 · 11 + 1 lands in slot 1; slot 4 is three up: 100 + 3 = 103</text>`;
+    out += `<text x="390" y="216" font-size="12" fill="currentColor" opacity="0.85" text-anchor="middle">check: 103 = 9 · 11 + 4 ✓ — and 100, 101, 102 fill slots 1–3, so nothing smaller qualifies</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -512,6 +596,17 @@ export const chapter02: Chapter = {
                   ],
                   answer: 'Exactly b values: 0, 1, …, b−1',
                 },
+                {
+                  q: 'Write the general form of every number that leaves remainder $4$ on division by $13$, then count how many such numbers lie between $50$ and $350$ (inclusive).',
+                  solution: [
+                    'General form: the division algorithm with $r = 4$ pinned — every such number is $13k + 4$ for some whole number $k$, and every $13k + 4$ lands in slot 4 (its remainder on division by 13 is exactly 4, and $4 < 13$ ✓).',
+                    'Floor of the range: $50 = 13 \\cdot 3 + 11$ — slot 11, above the target; the candidate $13 \\cdot 3 + 4 = 43$ falls short of 50, so the first member is $13 \\cdot 4 + 4 = 56$.',
+                    'Ceiling: $350 = 13 \\cdot 26 + 12$ — slot 12; the last member up to 350 is $13 \\cdot 26 + 4 = 342$.',
+                    'Count the k-run: $k$ runs from 4 to 26 — $26 - 4 + 1 = 23$ numbers; the shortcut agrees: $(342 - 56)/13 + 1 = 22 + 1 = 23$.',
+                    'Hence the form is $13k + 4$ and the count is 23 — first 56, last 342, each one certified by the rebuild check.',
+                  ],
+                  answer: '13k + 4; 23 of them between 50 and 350 (first 56, last 342)',
+                },
               ],
             },
             {
@@ -527,6 +622,44 @@ export const chapter02: Chapter = {
                     'Hence $(3, 8)$ is an equation, not a division answer; $(4, 3)$ is the answer.',
                   ],
                   answer: '(3, 8) breaks the band (8 ≥ 5); the legal pair is (4, 3)',
+                  figures: [
+                    {
+                      caption:
+                        'Why (3, 8) is an equation and not an answer: the leftover 8 is one full group of 5 hiding a true remainder of 3 — hand the hidden group back and the same 23 reads 4 · 5 + 3, whose remainder clears the band. Uniqueness says this re-dressed pair is the only one that does.',
+                      svg: `<svg viewBox="0 0 780 214" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two bar panels for 23 divided by 5: the impostor pair three groups of 5 plus a red leftover bar of 8 split by a dashed line into a hidden 5 and a true 3, with the band check 8 is at least 5 failing; an arrow hands the hidden group back to four full groups plus a green stub of 3, the legal pair 4 and 3 with 3 less than 5, and the re-dressed sum 3 times 5 plus 5 plus 3 equals 4 times 5 plus 3">
+  <defs>
+    <marker id="im-arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="currentColor"/></marker>
+  </defs>
+  ${(() => {
+    const U = 12, Y = 56, BH = 36;
+    let out = '';
+    out += `<text x="184" y="40" font-size="12.5" font-weight="700" fill="currentColor" text-anchor="middle">the impostor pair (3, 8): 23 = 3 · 5 + 8</text>`;
+    for (const x of [40, 104, 168]) {
+      out += `<rect x="${x}" y="${Y}" width="${5 * U}" height="${BH}" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>`;
+      out += `<text x="${x + 5 * U / 2}" y="${Y + BH / 2 + 4}" font-size="11.5" font-weight="700" fill="currentColor" text-anchor="middle">5</text>`;
+    }
+    out += `<rect x="232" y="${Y}" width="${8 * U}" height="${BH}" fill="#fee2e2" stroke="#dc2626" stroke-width="1.8"/>`;
+    out += `<line x1="292" y1="${Y}" x2="292" y2="${Y + BH}" stroke="#dc2626" stroke-width="1.3" stroke-dasharray="4 3"/>`;
+    out += `<text x="262" y="${Y + BH / 2 + 4}" font-size="11.5" font-weight="700" fill="#dc2626" text-anchor="middle">5</text>`;
+    out += `<text x="310" y="${Y + BH / 2 + 4}" font-size="11.5" font-weight="700" fill="#dc2626" text-anchor="middle">3</text>`;
+    out += `<text x="184" y="112" font-size="11.5" fill="currentColor" opacity="0.85" text-anchor="middle">one full group of 5 hides inside the leftover 8</text>`;
+    out += `<text x="184" y="134" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle">band-check: 8 ≥ 5 — fails</text>`;
+    out += `<text x="590" y="40" font-size="12.5" font-weight="700" fill="currentColor" text-anchor="middle">the legal pair (4, 3): 23 = 4 · 5 + 3</text>`;
+    for (const x of [460, 524, 588, 652]) {
+      out += `<rect x="${x}" y="${Y}" width="${5 * U}" height="${BH}" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>`;
+      out += `<text x="${x + 5 * U / 2}" y="${Y + BH / 2 + 4}" font-size="11.5" font-weight="700" fill="currentColor" text-anchor="middle">5</text>`;
+    }
+    out += `<rect x="716" y="${Y}" width="${3 * U}" height="${BH}" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>`;
+    out += `<text x="734" y="${Y + BH / 2 + 4}" font-size="11.5" font-weight="700" fill="#166534" text-anchor="middle">3</text>`;
+    out += `<text x="590" y="134" font-size="12" font-weight="700" fill="#166534" text-anchor="middle">band-check: 3 &lt; 5 ✓ — uniqueness pins (4, 3)</text>`;
+    out += `<text x="385" y="152" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">hand the hidden group back: (3, 8) → (4, 3)</text>`;
+    out += `<line x1="330" y1="166" x2="440" y2="166" stroke="currentColor" stroke-width="1.6" marker-end="url(#im-arrow)"/>`;
+    out += `<text x="390" y="194" font-size="12.5" fill="currentColor" opacity="0.85" text-anchor="middle">the same 23, re-dressed: 3 · 5 + (5 + 3) = 4 · 5 + 3</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Suppose the band were relaxed to allow $r = b$. Exhibit a single division with two different valid descriptions, and say which part of the uniqueness proof collapses.',
@@ -581,12 +714,61 @@ export const chapter02: Chapter = {
                   q: 'The descent existence proof used the least-number principle on the leftover set $S$. Where, precisely, would a "division" in a number system *without* well-ordering break? Illustrate with the clock numbers $\\{1, 2, \\dots, 12\\}$ where $S(12) = 1$.',
                   solution: [
                     'On the clock, subtraction can wander forever: starting from $23$ and repeatedly "subtracting 5" never reaches a bottom, because $1$ follows $12$ — the staircase curves.',
-                    'The leftover set $S = \\{23 - 5q\\}$ would fail to have a least element: it circles $23, 18, 13, 8, 3, 11, 6, 1, 9, 4, 12, 7, 2, 10, 5, \\dots$ with no minimum.',
+                    'The leftover set $S = \\{23 - 5q\\}$ would fail to have a least element: entering the clock at $23 \\to 18 \\to 13 \\to 8$, the walk circles $3, 10, 5, 12, 7, 2, 9, 4, 11, 6, 1, 8$ — twelve hops touching every clock number exactly once — and returns to $3$ to begin again, with no minimum anywhere in the loop.',
                     'The least-number principle\u2019s hypothesis — a nonempty set of naturals has a least element — is exactly what the clock violates (Lesson 1.2\u2019s exercise worked the loop).',
                     'Without the bottom step, "the least leftover" is undefined, and with it the quotient ($q$ = steps down) and the band check ($r < b$) lose their meaning.',
                     'Hence well-ordering is not a technicality but the load-bearing wall: the division algorithm is the least-number principle, spent.',
                   ],
                   answer: 'No least element on the clock ⇒ no r = min S ⇒ no q, no band',
+                  figures: [
+                    {
+                      caption:
+                        'The clock walk, drawn: 23 → 18 → 13 → 8 joins the wheel, and from there subtracting 5 hops 3 → 10 → 5 → 12 → … — the twelve chords close after visiting every clock number exactly once (3, 10, 5, 12, 7, 2, 9, 4, 11, 6, 1, 8, back to 3). No bottom step exists: the least-number principle has nothing to grip, and with it the quotient, the remainder and the band all lose their meaning.',
+                      svg: `<svg viewBox="0 0 780 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A twelve-node clock face with the subtract-five walk: an entry chain 23, 18, 13, 8 joins the clock at node 8, bold hop arrows follow 3 to 10 to 5 to 12, thin chords complete the star cycle 3, 10, 5, 12, 7, 2, 9, 4, 11, 6, 1, 8 back to 3, twelve hops visiting every clock number with no least element and no bottom step">
+  <defs>
+    <marker id="ck-arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="currentColor"/></marker>
+  </defs>
+  ${(() => {
+    const CX = 490, CY = 170, R = 104, NR = 14, TRIM = 18;
+    const pos = (n: number): [number, number] => { const a = ((30 * n - 90) * Math.PI) / 180; return [CX + R * Math.cos(a), CY + R * Math.sin(a)]; };
+    const cycle = [3, 10, 5, 12, 7, 2, 9, 4, 11, 6, 1, 8];
+    let out = '';
+    const chain = [23, 18, 13, 8];
+    chain.forEach((v, i) => {
+      const y = 36 + i * 42;
+      out += `<rect x="36" y="${y}" width="44" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.4"/>`;
+      out += `<text x="58" y="${y + 19}" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">${v}</text>`;
+      if (i < chain.length - 1) {
+        out += `<line x1="58" y1="${y + 31}" x2="58" y2="${y + 41}" stroke="currentColor" stroke-width="1.4" marker-end="url(#ck-arrow)"/>`;
+        out += `<text x="88" y="${y + 40}" font-size="10.5" fill="currentColor" opacity="0.8" text-anchor="start">− 5</text>`;
+      }
+    });
+    out += `<path d="M 80 177 C 170 185, 280 195, 387 214" fill="none" stroke="currentColor" stroke-width="1.5" marker-end="url(#ck-arrow)"/>`;
+    out += `<text x="238" y="228" font-size="11.5" fill="currentColor" opacity="0.85" text-anchor="middle">the walk joins the clock at 8</text>`;
+    for (let i = 0; i < 12; i++) {
+      const [ax, ay] = pos(cycle[i]);
+      const [bx, by] = pos(cycle[(i + 1) % 12]);
+      const dx = bx - ax, dy = by - ay, len = Math.hypot(dx, dy), ux = dx / len, uy = dy / len;
+      const bold = i <= 2;
+      out += `<line x1="${ax + ux * TRIM}" y1="${ay + uy * TRIM}" x2="${bx - ux * TRIM}" y2="${by - uy * TRIM}" stroke="currentColor" stroke-width="${bold ? 2.2 : 1.1}" opacity="${bold ? 1 : 0.45}"${bold ? ' marker-end="url(#ck-arrow)"' : ''}/>`;
+    }
+    for (let n = 1; n <= 12; n++) {
+      const [px, py] = pos(n);
+      const join = n === 8;
+      out += `<circle cx="${px}" cy="${py}" r="${NR}" fill="${join ? '#dcfce7' : '#fffdf5'}" stroke="${join ? '#16a34a' : 'currentColor'}" stroke-width="${join ? 2.2 : 1.5}"/>`;
+      out += `<text x="${px}" y="${py + 4}" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">${n}</text>`;
+    }
+    const note = ['each hop subtracts 5', '(five predecessors);', 'after twelve hops every', 'clock number is visited', 'the walk returns to 3 —', 'no least element at all'];
+    note.forEach((t, i) => { out += `<text x="620" y="${124 + i * 21}" font-size="11.5" fill="currentColor" text-anchor="start"${i === 5 ? ' font-weight="700"' : ' opacity="0.85"'}>${t}</text>`; });
+    out += `<text x="36" y="248" font-size="11.5" fill="currentColor" opacity="0.8" text-anchor="start">then the hops close a twelve-cycle:</text>`;
+    out += `<text x="36" y="268" font-size="12" font-weight="700" fill="currentColor" text-anchor="start">3 → 10 → 5 → 12 → 7 → 2 → 9</text>`;
+    out += `<text x="36" y="288" font-size="12" font-weight="700" fill="currentColor" text-anchor="start">→ 4 → 11 → 6 → 1 → 8 → back to 3</text>`;
+    out += `<text x="36" y="308" font-size="11" fill="currentColor" opacity="0.8" text-anchor="start">every clock number exactly once — the staircase never bottoms</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },

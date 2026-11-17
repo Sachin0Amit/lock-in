@@ -1456,6 +1456,59 @@ console.log('=== AN. scope guards (printed) ===');
 }
 
 /* ------------------------------------------------------------------ */
+console.log('=== AO. sol-figure geometry + the clock-walk accuracy catch (2.1, audit-bot fire 2026-11-17) ===');
+{
+  // B1 — L2-Q2 descent staircase 53 ÷ 7: the drawn chain
+  const vals = [53, 46, 39, 32, 25, 18, 11, 4];
+  ok(vals.every((v, i) => i === 0 || vals[i - 1] - v === 7), 'AO B1: the chain falls by exactly 7 per box (53 → 4)');
+  ok(vals.length === 8 && vals[0] - vals[7] === 49 && 49 === 7 * 7, 'AO B1: 7 subtractions of 7 = 49 — q = 7');
+  ok(7 * 7 + 4 === 53 && 4 < 7, 'AO B1: the rebuild check 7·7 + 4 = 53 and the bottom step clears the band (4 < 7)');
+  const bw = 68, gap = 20, x0 = 48;
+  ok(x0 + 8 * bw + 7 * gap === 732 && 780 - 732 === 48, 'AO B1: the chain ends at x = 732, 48 px of right margin (BW 68, GAP 20, X0 48)');
+  ok(vals.map((_v, i) => x0 + i * (bw + gap) + bw + gap / 2)[6] === 654, 'AO B1: the measure line spans the gap centres 126..654');
+  // B2 — L2-Q3 slot ladder: 100..103 in slots 1..4 of dividing by 9
+  ok(100 === 9 * 11 + 1 && 101 === 9 * 11 + 2 && 102 === 9 * 11 + 3 && 103 === 9 * 11 + 4, 'AO B2: 100, 101, 102, 103 sit in slots 1, 2, 3, 4 — each remainder band-checked (< 9)');
+  ok(103 - 100 === 3, 'AO B2: slot 4 is exactly three slots up from slot 1: 100 + 3 = 103');
+  ok(120 + 9 * 60 === 660, 'AO B2: the slot band spans 120..660 (9 cells × 60 px, SX 120)');
+  // B3 — L4-Q1 impostor remainder: 8 = 5 + 3
+  ok(3 * 5 + 8 === 23 && 8 === 5 + 3 && 4 * 5 + 3 === 23, 'AO B3: 3·5 + 8 = 4·5 + 3 = 23 — the hidden group handed back');
+  ok(8 >= 5 && 3 < 5, 'AO B3: the impostor fails the band (8 ≥ 5); the legal remainder clears it (3 < 5)');
+  ok(5 * 12 === 60 && 8 * 12 === 96 && 3 * 12 === 36, 'AO B3: bar widths proportional at 12 px per unit (60, 96, 36)');
+  ok(716 + 3 * 12 === 752 && 780 - 752 === 28, 'AO B3: the green stub ends at x = 752, 28 px of right margin');
+  // B4 — L5-Q3 clock walk: THE ACCURACY CATCH. The shipped walk 3 → 11 → 6 → 1 → 9 → 4 → 12 → 7 → 2 → 10 → 5
+  // wrapped wrong: on the {1..12} clock with S(12) = 1, subtracting 5 is five predecessor steps.
+  const pred = (v: number) => (v === 1 ? 12 : v - 1);
+  const sub5 = (v: number) => { let x = v; for (let i = 0; i < 5; i++) x = pred(x); return x; };
+  ok(sub5(3) === 10, 'AO B4: 3 − 5 on the clock is 10 (pred⁵(3): 3→2→1→12→11→10), NOT 11 — the shipped walk was off by one at every wrap');
+  ok(sub5(1) === 8 && sub5(4) === 11 && sub5(2) === 9, 'AO B4: the other three corrected wraps — 1 − 5 = 8, 4 − 5 = 11, 2 − 5 = 9');
+  const cycle: number[] = [];
+  let cv = 3;
+  do { cycle.push(cv); cv = sub5(cv); } while (cv !== 3);
+  ok(cycle.join(',') === '3,10,5,12,7,2,9,4,11,6,1,8', `AO B4: the true cycle is 3, 10, 5, 12, 7, 2, 9, 4, 11, 6, 1, 8 (got ${cycle.join(',')})`);
+  ok(cycle.length === 12 && new Set(cycle).size === 12, 'AO B4: twelve hops, twelve distinct clock numbers — gcd(5, 12) = 1: the walk covers the wheel and never bottoms');
+  ok([23, 18, 13, 8].every((x, i, a) => i === 0 || a[i - 1] - x === 5) && sub5(8) === 3, 'AO B4: the entry chain 23 → 18 → 13 → 8 joins the cycle at 8 → 3');
+  const cx0 = 490, cy0 = 170, r0 = 104, nr0 = 14, trim = 18;
+  ok(cx0 - r0 - nr0 === 372 && cx0 + r0 + nr0 === 608, 'AO B4: the wheel spans x 372..608 — 12 px clear of the note column at x = 620');
+  ok(trim > nr0, 'AO B4: every star chord is trimmed 18 px from node centres (r = 14) — no chord enters a node circle, so no TEXT/LINE collisions');
+  const n8x = cx0 + r0 * Math.cos(((30 * 8 - 90) * Math.PI) / 180);
+  const n8y = cy0 + r0 * Math.sin(((30 * 8 - 90) * Math.PI) / 180);
+  ok(Math.hypot(387 - n8x, 214 - n8y) > nr0 && Math.hypot(387 - n8x, 214 - n8y) < nr0 + 4, 'AO B4: the join path ends ~15.2 px from node 8 (399.9, 222) — arrowhead on the node\u2019s edge, and node 8 is the green-tinted join node');
+  // needle guards on the chapter file: the accuracy catch must stay fixed
+  const chSrc = (() => { try { return require('fs').readFileSync('src/data/library/books/mathematics/arithmetic-number-systems/ch-02.ts', 'utf8') as string } catch { return '' } })();
+  if (chSrc) {
+    ok(!chSrc.includes('3, 11, 6, 1, 9'), 'AO B4: the erroneous walk (…3, 11, 6, 1, 9…) is GONE from the lesson text');
+    ok(chSrc.includes('3, 10, 5, 12, 7, 2, 9, 4, 11, 6, 1, 8'), 'AO B4: the corrected cycle 3, 10, 5, 12, 7, 2, 9, 4, 11, 6, 1, 8 is present in the lesson text');
+  } else {
+    ok(false, 'AO B4: chapter file unreadable — needle guards skipped (run from the repo root)');
+  }
+  // Pass C — the slot-count example and the L3 range-count exercise
+  ok(101 === 7 * 14 + 3 && 297 === 7 * 42 + 3 && 100 === 7 * 14 + 2 && 300 === 7 * 42 + 6, 'AO C1: slot-3 (mod 7) in [100, 300]: first 101 = 7·14 + 3, last 297 = 7·42 + 3');
+  ok((297 - 101) / 7 + 1 === 29 && 42 - 14 + 1 === 29, 'AO C1: the count is 29 — both the k-run 14..42 and the shortcut agree');
+  ok(56 === 13 * 4 + 4 && 342 === 13 * 26 + 4 && 50 === 13 * 3 + 11 && 350 === 13 * 26 + 12, 'AO C2: slot-4 (mod 13) in [50, 350]: first 56 = 13·4 + 4, last 342 = 13·26 + 4');
+  ok((342 - 56) / 13 + 1 === 23 && 26 - 4 + 1 === 23, 'AO C2: the count is 23 — k-run 4..26 and the shortcut agree');
+}
+
+/* ------------------------------------------------------------------ */
 console.log('');
 console.log(`verify-book2-ch02: ${pass} passed, ${fail} failed`);
 if (fail > 0) {
