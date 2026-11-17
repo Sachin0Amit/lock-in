@@ -6659,3 +6659,5 @@ unresearched). Chapters 1.2–1.11 + books 2–27 of mathematics.
 **Queued honestly:** the 78 bio/med/arts cover PNGs (roster complete; `gen_covers.py gen` chunks — 2 generated this pass), the six lost shelf generators (plan data recoverable from book.ts), the Drive survey rebuild + the ~440 subtopic continuation, the Campbell 11e retry, the WORK_INVENTORY regeneration.
 
 **Authoring cadence unchanged — run 110 opens the AA ch-3 unit review 3.R exactly as the run-109 pointer set it.**
+
+**Ship note (2026-11-17):** the pass's commit `97a630b` is durable LOCALLY (the .git store survived the earlier wipes; the sandbox restarts do not touch it). The PUSH is blocked: the remote is SSH-configured (unavailable here) and the anonymous HTTPS push requires credentials — no PAT exists in this environment (the earlier runs' pushes rode one-time payload PATs delivered per run). Per the standing protocol the push will ride the next PAT-bearing run; any sibling shipping meanwhile follows FIRST-SHIPPED-STANDS (the commit re-derives on top; the ledger layer is append-friendly).
