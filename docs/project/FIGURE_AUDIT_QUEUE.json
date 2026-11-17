@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-17T09:07:23+08:00",
+  "updated": "2026-11-17T12:36:43.454461+05:30",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
-  "cursor": 52,
+  "cursor": 53,
   "stats": {
     "lessonsWithFigures": 131,
     "figureTotal": 246,
-    "done": 58,
-    "pending": 73
+    "done": 59,
+    "pending": 72
   },
   "items": [
     {
@@ -483,7 +483,9 @@
       "bookId": "arithmetic-and-number-systems",
       "chapter": 2,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "doneOn": "2026-11-17",
+      "doneBy": "audit-bot fire (job 530242, §10 passes A/B/C)"
     },
     {
       "lessonId": "ans-euclidean-algorithm-proven-bezout-identity",

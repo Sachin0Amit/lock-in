@@ -167,6 +167,18 @@
  * gaps, the general problem named for Frobenius. No content reproduced;
  * exposition original.
  *
+ * EXTENDED 2026-11-17 (audit-bot fire, job 530242) for lesson 2.2's
+ * §10 solution visual aids + enrichment — section AP, pinned BEFORE the
+ * prose landed: (AP) B1 the divisor lattice of 36 on the exponent grid
+ * (9 nodes, 12 cover arrows, to = from × label each); B2 the
+ * transitivity chain 4 → 20 → 100 with composed certificate 25; B3 the
+ * cancellation twin panels at c = 2 (3|21 → 6|42 cert 7; 3∤22 → 6∤44);
+ * B4 the k | 5k dress chain (45|225 ⟺ 9|45 ⟺ 5|25, certificates all 5);
+ * C1 product compatibility worked (7|21 → 7|105, cert 15); C2 the
+ * prime-power chains (8 = 2³ → 4 divisors, 9 = 3² → 3, 36 → (2+1)(2+1)
+ * = 9) swept p^e → e+1; C3 the one-way warn (6|12 but 6∤7, 6∤5);
+ * needle guards on every authored string.
+ *
  * Run: bun run scripts/verify-book2-ch02.ts   (exit 1 on any failure)
  */
 
@@ -1506,6 +1518,99 @@ console.log('=== AO. sol-figure geometry + the clock-walk accuracy catch (2.1, a
   ok((297 - 101) / 7 + 1 === 29 && 42 - 14 + 1 === 29, 'AO C1: the count is 29 — both the k-run 14..42 and the shortcut agree');
   ok(56 === 13 * 4 + 4 && 342 === 13 * 26 + 4 && 50 === 13 * 3 + 11 && 350 === 13 * 26 + 12, 'AO C2: slot-4 (mod 13) in [50, 350]: first 56 = 13·4 + 4, last 342 = 13·26 + 4');
   ok((342 - 56) / 13 + 1 === 23 && 26 - 4 + 1 === 23, 'AO C2: the count is 23 — k-run 4..26 and the shortcut agree');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AP. 2.2 sol-figures + Pass C numbers (audit-bot fire 2026-11-17, pinned before prose) ===');
+{
+  // B1 — L1-Q2: the divisor lattice of 36, drawn on the body figure's plan (grid by prime exponents)
+  ok(36 === 2 * 2 * 3 * 3, 'AP B1: 36 = 2·2·3·3 — two prime ingredients, each of exponent 2');
+  const div36 = [1, 2, 3, 4, 6, 9, 12, 18, 36];
+  ok(div36.length === 9 && div36.every((d) => 36 % d === 0), 'AP B1: the node set is exactly the nine divisors L1-Q2 lists — each certified by 36 % d === 0');
+  ok(new Set(div36.map((d) => 36 / d)).size === 9, 'AP B1: the mirror half 36/d lands in the same set — no divisor missed');
+  // covers: node (i, j) = 2^i · 3^j; rightward arrow ×2 (i+1, j), upward arrow ×3 (i, j+1)
+  const cov36: Array<{ f: number; t: number; m: number }> = [];
+  for (let i = 0; i <= 2; i++) {
+    for (let j = 0; j <= 2; j++) {
+      if (i < 2) cov36.push({ f: Math.pow(2, i) * Math.pow(3, j), t: Math.pow(2, i + 1) * Math.pow(3, j), m: 2 });
+      if (j < 2) cov36.push({ f: Math.pow(2, i) * Math.pow(3, j), t: Math.pow(2, i) * Math.pow(3, j + 1), m: 3 });
+    }
+  }
+  ok(cov36.length === 12, `AP B1: the exponent grid yields exactly 12 cover arrows (got ${cov36.length})`);
+  ok(cov36.every((e) => e.t === e.f * e.m), 'AP B1: every drawn arrow satisfies to = from × label — the figure\u2019s whole claim');
+  ok(new Set(cov36.map((e) => `${e.f}>${e.t}`)).size === 12, 'AP B1: the 12 arrows are pairwise distinct');
+  ok(cov36.every((e) => div36.includes(e.f) && div36.includes(e.t)), 'AP B1: every arrow runs node to node — nothing outside the divisor set is drawn');
+  ok(div36.every((d) => cov36.some((e) => e.f === d || e.t === d)) && div36.filter((d) => cov36.some((e) => e.f === d)).length === 8, 'AP B1: every node is touched; exactly node 1 has no incoming arrow (the floor)');
+  const gx = (i: number) => 100 + 140 * i, gy = (j: number) => 310 - 95 * j;
+  ok([0, 1, 2].map(gx).join(',') === '100,240,380' && [0, 1, 2].map(gy).join(',') === '310,215,120', 'AP B1: grid centres — cols x = 100/240/380, rows y = 310/215/120 (R = 16)');
+  ok(100 - 16 === 84 && 380 + 16 === 396 && 480 - 396 === 84, 'AP B1: horizontal span 84..396 in a 480-wide viewBox — 84 px margins, ≥ 8 ✓');
+  ok(120 - 16 === 104 && 310 + 16 === 326, 'AP B1: vertical span 104..326 — top margin 104 px ✓');
+  ok(326 < 345 - 11 && 345 + 3 <= 360 - 8, 'AP B1: node bottoms (326) clear the caption line (345); caption descenders ≤ 348 < 352 = 360 − 8');
+  ok(140 - 2 * 16 === 108 && 95 - 2 * 16 === 63, 'AP B1: in-row rim gap 108 px and in-column rim gap 63 px — the ×2/×3 labels (≈22 × 11 px) clear every circle by ≫ 8 px');
+
+  // B2 — L2-Q1: the transitivity chain 4 → 20 → 100 with the composed certificate
+  ok(20 === 4 * 5 && 100 === 20 * 5, 'AP B2: the two given certificates as drawn — ×5 then ×5');
+  ok(5 * 5 === 25 && 100 === 4 * 25, 'AP B2: the composed certificate is 5 × 5 = 25 and 100 = 4 · 25 ✓');
+  const bw2 = 100, gap2 = 90, x02 = 150, y2 = 70, bh2 = 46;
+  const xs2 = [0, 1, 2].map((i) => x02 + i * (bw2 + gap2));
+  ok(xs2.join(',') === '150,340,530' && xs2[2] + bw2 === 630 && 780 - 630 === 150, 'AP B2: boxes at x 150/340/530 (w 100, h 46, y 70); content ends 630 — 150 px margins both sides');
+  ok(xs2[1] - 6 - (xs2[0] + bw2 + 3) === 81 && xs2[2] - 6 - (xs2[1] + bw2 + 3) === 81, 'AP B2: both arrows trimmed 3 px off the tail box and 6 px off the head rim — 81 px drawn in each 90 px gap');
+  ok(y2 + bh2 + 26 === 142 && 200 - (166 + 3) >= 8, 'AP B2: bracket at y 142 (26 px below the box band), composed-certificate label y 166, caption y 186 — descenders 189 ≤ 192 = 200 − 8');
+
+  // B3 — L4-Q3: the cancellation form at c = 2, twin panels true/false
+  ok(21 === 3 * 7 && 42 === 6 * 7 && 42 === 2 * 21, 'AP B3: true pair — 3 | 21 (certificate 7) scales by 2 to 6 | 42 (certificate 7): the certificate survives');
+  ok(22 === 3 * 7 + 1 && 1 < 3 && 44 === 6 * 7 + 2 && 2 < 6 && 44 === 2 * 22, 'AP B3: false pair — 3 ∤ 22 (remainder 1 < 3) scales by 2 to 6 ∤ 44 (remainder 2 < 6): band-checked both times');
+  ok(2 * (3 * 7 + 1) === 6 * 7 + 2, 'AP B3: scaling the equation 22 = 3·7 + 1 by 2 gives 44 = 6·7 + 2 exactly — the remainder\u2019s growth 1 → 2 is forced, not drawn');
+  const pa3 = [48, 408], pbw3 = 120, pbh3 = 56, py3 = 80;
+  ok(pa3[1] - (pa3[0] + 310) === 50 && pa3[0] + 310 === 358 && pa3[1] + 310 === 718 && 780 - 718 === 62, 'AP B3: panels span 48..358 and 408..718 (each 310 = 120 box + 70 arrow + 120 box) — 50 px between, 62 px right margin');
+  ok(pa3.every((p) => p + 120 + 3 < p + 190 - 6), 'AP B3: both in-panel arrows trimmed clear of the rims (drawn 61 px in the 70 px gap)');
+  ok(py3 + pbh3 === 136 && 168 - 136 === 32 && 200 - 168 === 32, 'AP B3: box band ends 136; verdict lines y 168; caption y 200 — 32 px air each; descenders 203 ≤ 204 = 212 − 8');
+
+  // B4 — L5-Q1: one fact at three depths — every row is k | 5k, certificate 5
+  ok(225 === 45 * 5 && 45 === 9 * 5 && 25 === 5 * 5, 'AP B4: all three rows verify — and the certificate is 5 in every row');
+  ok([45, 9, 5].every((k, i) => 5 * k === [225, 45, 25][i]), 'AP B4: each row is the one shape k | 5k for k = 45, 9, 5');
+  ok(45 % 5 === 0 && 225 % 5 === 0 && 45 / 5 === 9 && 225 / 5 === 45, 'AP B4: link 1 is an honest cancellation instance — 5·9 | 5·45 ⟺ 9 | 45 (c = 5)');
+  ok(9 % 5 !== 0, 'AP B4: link 2 is NOT a cancellation instance (9 is not a multiple of 5) — the figure must say the SHAPE repeats, not cancel');
+  const ry4 = [48, 116, 184], rbwA = 64, rbwB = 92, rbh = 44;
+  ok(ry4[1] - (ry4[0] + rbh) === 24 && ry4[2] - (ry4[1] + rbh) === 24, 'AP B4: rows at y 48/116/184 (h 44) — 24 px gaps carry the between-row notes');
+  ok(120 + rbwA + 3 < 240 - 7 && 240 - 7 - (120 + rbwA + 3) === 46, 'AP B4: in-row arrows run 187..233 (46 px) between the k-box (x 120, w 64) and the 5k-box (x 240, w 92)');
+  ok(120 + rbwA + 3 + 46 === 233 && 233 + 7 === 240, 'AP B4: arrow head lands 7 px short of the 5k-box rim — no attachment');
+  ok(348 + 190 <= 772, 'AP B4: the per-row certificate notes (x 348, ≈190 px wide) end ≤ 772 = 780 − 8');
+  ok(228 < 244 - 11 && 244 + 3 <= 256 - 8, 'AP B4: row bottoms (228) clear the caption (y 244); descenders 247 ≤ 248 = 256 − 8');
+
+  // Pass C1 — the product-compatibility example (7 | 21 → 7 | 105, certificate 15)
+  ok(21 === 7 * 3 && 105 === 21 * 5 && 105 === 7 * 15 && 15 === 3 * 5, 'AP C1: 7 | 21 (cert 3) scales by c = 5 to 7 | 105 (cert 15 = 3·5) — the certificate is the given one × c');
+
+  // Pass C2 — the prime-power chains (the lattice of 8, of 9, and 36 again)
+  const pw = (p: number, e: number) => Array.from({ length: e + 1 }, (_x, k) => Math.pow(p, k));
+  ok(pw(2, 3).join(',') === '1,2,4,8' && pw(3, 2).join(',') === '1,3,9', 'AP C2: the chains — 8 = 2³ walks 1→2→4→8; 9 = 3² walks 1→3→9');
+  ok(pw(2, 3).length === 4 && 3 + 1 === 4 && pw(3, 2).length === 3 && 2 + 1 === 3, 'AP C2: the count is the exponent + 1 — four divisors of 8, three of 9');
+  ok([[2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [5, 2], [7, 3]] .every(([p, e]) => { let c = 0; for (let d = 1; d <= Math.pow(p, e); d++) if (Math.pow(p, e) % d === 0) c++; return c === e + 1; }), 'AP C2: swept — p^e has exactly e+1 divisors for (2,1),(2,2),(2,3),(3,1),(3,2),(5,2),(7,3)');
+  ok((2 + 1) * (2 + 1) === 9 && new Set([1, 2, 3, 4, 6, 9, 12, 18, 36]).size === 9, 'AP C2: 36 = 2²·3² counts (2+1)(2+1) = 9 — matching L1-Q2\u2019s list and B1\u2019s node count');
+
+  // Pass C3 — the one-way warn (the combination law does not run backwards)
+  ok(7 + 5 === 12 && 12 === 6 * 2, 'AP C3: 6 | 12 and 12 = 7 + 5 — a sum of two non-multiples is a multiple');
+  ok(7 === 6 * 1 + 1 && 1 < 6 && 5 === 6 * 0 + 5 && 5 < 6, 'AP C3: yet 6 ∤ 7 (remainder 1) and 6 ∤ 5 (remainder 5) — band-checked; the converse is licensed by nothing');
+  ok(136 === 8 * 17 && 96 % 8 === 0 && 40 % 8 === 0, 'AP C3: 8 | 136 came FROM the pair 8 | 96, 8 | 40 — the arrow runs one way only');
+
+  // needle guards — every authored string must be present in the chapter file
+  const ch2 = (() => { try { return require('fs').readFileSync('src/data/library/books/mathematics/arithmetic-number-systems/ch-02.ts', 'utf8') as string } catch { return '' } })();
+  if (ch2) {
+    const lesson22 = ch2.slice(ch2.indexOf("id: 'ans-the-algebra-of-divisibility'"), ch2.indexOf("id: 'ans-euclidean-algorithm-proven-bezout-identity'"));
+    ok(lesson22.length > 40000, 'AP needle: lesson 2.2 located and non-trivial');
+    ok(lesson22.includes('lattice of 36') && lesson22.includes('every 1→36 path carries 2·2·3·3'), 'AP needle B1: the lattice-of-36 caption is present');
+    ok(lesson22.includes('the composed certificate: 5 × 5 = 25') && lesson22.includes('deliberately not drawn'), 'AP needle B2: the transitivity-chain figure texts are present');
+    ok(lesson22.includes('the certificate survives') && lesson22.includes('the failure scales too'), 'AP needle B3: both panel headers are present');
+    ok(lesson22.includes('one fact, three dresses') && lesson22.includes('the shape repeats'), 'AP needle B4: the dress-chain texts are present');
+    ok(lesson22.includes('Product compatibility, proved and worked'), 'AP needle C1: the fourth-law example is present');
+    ok(lesson22.includes('Prime-power chains') && lesson22.includes('(2 + 1)(2 + 1) = 9'), 'AP needle C2: the prime-power example is present');
+    ok(lesson22.includes('does not run backwards'), 'AP needle C3: the warn callout is present');
+    const svgs22 = [...lesson22.matchAll(/svg: `([\s\S]*?)`,/g)].map((m) => m[1].replace(/\$\{[^}]*\}/g, ''));
+    ok(svgs22.length === 5, `AP needle: 5 svg templates in lesson 2.2 — 1 body + 4 sol figures (got ${svgs22.length})`);
+    ok(svgs22.every((s) => !s.includes('$')), 'AP needle: no raw $ survives outside interpolations in any lesson-2.2 svg');
+  } else {
+    ok(false, 'AP needle: chapter file unreadable — run from the repo root');
+  }
 }
 
 /* ------------------------------------------------------------------ */

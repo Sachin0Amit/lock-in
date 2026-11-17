@@ -955,6 +955,17 @@ export const chapter02: Chapter = {
           text: 'The certificate bookkeeping is worth a second look, because it *computes*: $3 \\mid 12$ with certificate $4$, and $12 \\mid 60$ with certificate $5$ — so $3 \\mid 60$ with certificate $4 \\times 5 = 20$, and indeed $60 = 3 \\cdot 20$. The same run gives $4 \\mid 20$ and $20 \\mid 100$, hence $4 \\mid 100$ with certificate $5 \\times 5 = 25$; $8 \\mid 24$ and $24 \\mid 96$, hence $8 \\mid 96$ with certificate $3 \\times 4 = 12$. Transitivity is not just true — it is *effective*: the proof hands you the new certificate for free. That effectiveness is what makes divisibility chains a computational device and not merely a slogan.',
         },
         {
+          kind: 'example',
+          title: 'Product compatibility, proved and worked',
+          steps: [
+            'Claim: if $a \\mid b$, then $a \\mid bc$ for every natural $c$ — law four of the list. Unwrap the certificate: $b = ak$.',
+            'Multiply through by $c$ and regroup: $bc = (ak) \\cdot c = a(kc)$ — associativity does the work, exactly as in the transitivity proof.',
+            'The bracket $kc$ is a whole number, so the definition is met: $a \\mid bc$, certificate $k \\cdot c$ — the old certificate scaled by $c$. (Transitivity says the same thing in one line: $a \\mid b$ and $b \\mid bc$ — certificate $c$ — force $a \\mid bc$.)',
+            'Work it: $7 \\mid 21$ with certificate $3$, so $7 \\mid 105$ with certificate $3 \\times 5 = 15$ — and indeed $105 = 7 \\cdot 15$ ✓.',
+            'Hence product compatibility is the certificate law in product dress — divisibility travels upward through multiplication, and the composed certificate is the given one multiplied by $c$.',
+          ],
+        },
+        {
           kind: 'derivation',
           title: 'Linear combinations: the closure law',
           statement:
@@ -997,6 +1008,12 @@ export const chapter02: Chapter = {
             'Weight them: $3 \\cdot 96 + 40 = 288 + 40 = 328 = 8 \\cdot (3 \\cdot 12 + 5) = 8 \\cdot 41$ — so $8 \\mid 328$, certificate $41$.',
             'Hence three new divisibility facts, each certified, none requiring any new division to be run — the combination law manufactured them from two certificates.',
           ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The combination law does not run backwards',
+          text: 'A sum of multiples is a multiple — but that arrow points one way. From $8 \\mid 96$ and $8 \\mid 40$ the law certified $8 \\mid 136$; arguing back from $8 \\mid 136$ to conclusions about its summands is licensed by nothing. The smallest honest warning: $6 \\mid 12$ and $12 = 7 + 5$, yet $6 \\nmid 7$ (remainder $1$) and $6 \\nmid 5$ (remainder $5$) — a sum of two non-multiples can be a multiple, so the sum\u2019s divisibility certifies nothing about the parts. When a summand\u2019s divisibility is genuinely needed, it must come from its own certificate — or, from the next lesson, from Bézout\u2019s leverage on the difference. Read every divisibility claim in the direction its proof runs.',
         },
         {
           kind: 'para',
@@ -1107,6 +1124,21 @@ export const chapter02: Chapter = {
         {
           kind: 'para',
           text: 'Read the laws back off the picture. Transitivity is "arrows compose": the two-step path $2 \\to 6 \\to 12$ certifies $2 \\mid 12$ with composed certificate $3 \\times 2 = 6$. The order link is the *vertical*: every arrow climbs, so no path descends, and $1$ — which divides everything — sits at the bottom while $12$ sits at the top. The divisor count is the node count: twelve\u2019s divisors are exactly $1, 2, 3, 4, 6, 12$ — six of them, each reachable from $1$ by some arrow path. And the two distinct routes from $1$ to $12$ — through $2$ then $6$, or through $3$ then $6$… and the four-step paths $1 \\to 2 \\to 4 \\to 12$ and $1 \\to 3 \\to 6 \\to 12$ — all describe the *same* prime content $2 \\cdot 2 \\cdot 3$ in different orders. That every route to the top carries the same cargo is the fundamental theorem of arithmetic, Chapter 4\u2019s summit, reached there through Bézout\u2019s identity — the business of the very next lesson.',
+        },
+        {
+          kind: 'para',
+          text: 'The lattice picture earns its keep on fresh numbers too. Give a prime power $p^e$ the same treatment and the whole architecture is forced: every arrow carries the same multiplier $\\times p$, so the lattice is a single chain $1 \\to p \\to p^2 \\to \\cdots \\to p^e$ with no branch anywhere — there is no other divisor to route through, because a divisor of a prime power must itself be a power of that prime (the factor hunt of FM 3.1 finds nothing else to try). The chain climbs one exponent at a time, so counting its nodes is counting arrows plus one, and the divisor count falls out of the picture. A number with two distinct prime ingredients branches, and the branches re-merge at the top — the two routes to $6$ in twelve\u2019s lattice were the first sight of this — and that crossing pattern is what Exercise L1\u2019s divisor hunt for $36$ has been counting all along.',
+        },
+        {
+          kind: 'example',
+          title: 'Prime-power chains: the lattice of $8$, of $9$, and $36$ again',
+          steps: [
+            '$8 = 2^3$: the chain is $1 \\to 2 \\to 4 \\to 8$ — three $\\times 2$ arrows, no branches — so four divisors, $1, 2, 4, 8$. The count is the exponent plus one.',
+            '$9 = 3^2$: the chain is $1 \\to 3 \\to 9$ — two $\\times 3$ arrows — so three divisors, $1, 3, 9$. Nothing sits strictly between $3$ and $9$ on the lattice: a between-node would have to be a power of $3$, and there is none.',
+            'Now return to $36 = 2^2 \\cdot 3^2$ — Exercise L1\u2019s nine divisors gain an address. The $2$-chain $1 \\to 2 \\to 4$ and the $3$-chain $1 \\to 3 \\to 9$ cross in a $3 \\times 3$ grid of nodes — the exponent of $2$ picks the column, the exponent of $3$ picks the row — and the grid has $(2 + 1)(2 + 1) = 9$ nodes.',
+            'The pattern $(2 + 1)(2 + 1) = 9$ is the divisor-count rule in miniature — one factor per prime ingredient, each reading off that prime\u2019s exponent. Chapter 4\u2019s unique factorisation is what makes the grid honest: no other prime can sneak a node in.',
+            'Hence the lattice is a counting instrument and not only a picture of transitivity — chains count, grids multiply, and both counts agree with the pair-by-pair hunts the exercises ran.',
+          ],
         },
         {
           kind: 'callout',
@@ -1228,6 +1260,46 @@ export const chapter02: Chapter = {
                     'Hence nine divisors — the node count of 36\u2019s lattice.',
                   ],
                   answer: '1, 2, 3, 4, 6, 9, 12, 18, 36 — nine divisors',
+                  figures: [
+                    {
+                      caption:
+                        'The divisor lattice of 36, drawn on the same plan as the lesson\u2019s lattice of 12: nine nodes — 1, 2, 3, 4, 6, 9, 12, 18, 36 — with rightward arrows multiplying by 2 and upward arrows by 3; the node count is exactly the nine-divisor list the solution hunts pair by pair, and every 1→36 path carries 2·2·3·3 = 36.',
+                      svg: `<svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Divisor lattice of 36: nine nodes 1, 2, 3, 4, 6, 9, 12, 18, 36; rightward arrows multiply by 2, upward arrows by 3; every 1→36 path carries 2·2·3·3 — the node count is the divisor count">
+  <defs>
+    <marker id="l36-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  ${(() => {
+    const R = 16, DX = 140, DY = 95, X0 = 100, Y0 = 310;
+    const val = (i: number, j: number) => Math.pow(2, i) * Math.pow(3, j);
+    const gx = (i: number) => X0 + DX * i, gy = (j: number) => Y0 - DY * j;
+    let out = '';
+    out += `<text x="240" y="345" font-size="12.5" fill="currentColor" opacity="0.8" text-anchor="middle">the lattice of 36 — rightward ×2, upward ×3; nine nodes, nine divisors</text>`;
+    for (let j = 0; j <= 2; j++) {
+      for (let i = 0; i <= 1; i++) {
+        out += `<line x1="${gx(i) + R + 3}" y1="${gy(j)}" x2="${gx(i + 1) - R - 5}" y2="${gy(j)}" stroke="currentColor" stroke-width="1.5" marker-end="url(#l36-arrow)"/>`;
+        out += `<text x="${(gx(i) + gx(i + 1)) / 2}" y="${gy(j) - 7}" font-size="11" fill="currentColor" opacity="0.9" text-anchor="middle">×2</text>`;
+      }
+    }
+    for (let i = 0; i <= 2; i++) {
+      for (let j = 0; j <= 1; j++) {
+        out += `<line x1="${gx(i)}" y1="${gy(j) - R - 3}" x2="${gx(i)}" y2="${gy(j + 1) + R + 5}" stroke="currentColor" stroke-width="1.5" marker-end="url(#l36-arrow)"/>`;
+        out += `<text x="${gx(i) + 9}" y="${(gy(j) + gy(j + 1)) / 2 + 4}" font-size="11" fill="currentColor" opacity="0.9" text-anchor="start">×3</text>`;
+      }
+    }
+    for (let j = 0; j <= 2; j++) {
+      for (let i = 0; i <= 2; i++) {
+        const top = i === 2 && j === 2;
+        out += `<circle cx="${gx(i)}" cy="${gy(j)}" r="${R}" fill="${top ? '#dcfce7' : 'none'}" stroke="${top ? '#16a34a' : 'currentColor'}" stroke-width="${top ? 2 : 1.5}"/>`;
+        out += `<text x="${gx(i)}" y="${gy(j) + 4.5}" font-size="13" font-weight="700" fill="${top ? '#166534' : 'currentColor'}" text-anchor="middle">${val(i, j)}</text>`;
+      }
+    }
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Fill the multipliers: $12 = 3 \\cdot k$, $91 = 7 \\cdot k$, $144 = 12 \\cdot k$.',
@@ -1253,6 +1325,40 @@ export const chapter02: Chapter = {
                     'Hence $4 \\mid 100$ — the proof of the law, executed on one chain.',
                   ],
                   answer: '4 | 100 with composed certificate 25',
+                  figures: [
+                    {
+                      caption:
+                        'The chain of L2-Q1 drawn: each arrow multiplies by its label (×5, then ×5 again), and transitivity is exactly their composition — the composed certificate 5 × 5 = 25 certifies 4 | 100 with 100 = 4 · 25. In the divisor lattice this skip edge is deliberately not drawn; the chain is what certifies it.',
+                      svg: `<svg viewBox="0 0 780 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Transitivity chain: three boxes 4, 20, 100 joined by arrows labelled times 5 and times 5, with a bracket underneath reading the composed certificate 5 times 5 equals 25, and 100 equals 4 times 25">
+  <defs>
+    <marker id="tc-arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="currentColor"/></marker>
+  </defs>
+  ${(() => {
+    const BW = 100, GAP = 90, X0 = 150, Y = 70, BH = 46, VALS = [4, 20, 100];
+    const xs = VALS.map((_v, i) => X0 + i * (BW + GAP));
+    let out = '';
+    out += `<text x="390" y="36" font-size="12.5" fill="currentColor" opacity="0.85" text-anchor="middle">transitivity: certificates compose — 20 = 4 · 5 and 100 = 20 · 5</text>`;
+    for (let i = 0; i < 3; i++) {
+      const last = i === 2;
+      out += `<rect x="${xs[i]}" y="${Y}" width="${BW}" height="${BH}" rx="7" fill="${last ? '#dcfce7' : '#fef3c7'}" stroke="${last ? '#16a34a' : '#f59e0b'}" stroke-width="${last ? 2 : 1.5}"/>`;
+      out += `<text x="${xs[i] + BW / 2}" y="${Y + BH / 2 + 5}" font-size="14.5" font-weight="700" fill="currentColor" text-anchor="middle">${VALS[i]}</text>`;
+    }
+    for (let i = 0; i < 2; i++) {
+      const a = xs[i] + BW + 3, b = xs[i + 1] - 6;
+      out += `<line x1="${a}" y1="${Y + BH / 2}" x2="${b}" y2="${Y + BH / 2}" stroke="currentColor" stroke-width="1.6" marker-end="url(#tc-arrow)"/>`;
+      out += `<text x="${(a + b) / 2}" y="${Y + BH / 2 - 10}" font-size="12" fill="currentColor" opacity="0.85" text-anchor="middle">×5</text>`;
+    }
+    const b1 = xs[0] + BW / 2, b2 = xs[2] + BW / 2, by = Y + BH + 26;
+    out += `<line x1="${b1}" y1="${by}" x2="${b2}" y2="${by}" stroke="currentColor" stroke-width="1.3"/>`;
+    out += `<line x1="${b1}" y1="${by - 6}" x2="${b1}" y2="${by + 6}" stroke="currentColor" stroke-width="1.3"/>`;
+    out += `<line x1="${b2}" y1="${by - 6}" x2="${b2}" y2="${by + 6}" stroke="currentColor" stroke-width="1.3"/>`;
+    out += `<text x="390" y="166" font-size="12.5" font-weight="700" fill="currentColor" text-anchor="middle">the composed certificate: 5 × 5 = 25 — 100 = 4 · 25 ✓</text>`;
+    out += `<text x="390" y="186" font-size="12.5" fill="currentColor" opacity="0.85" text-anchor="middle">transitivity certifies the skip edge 4 | 100 — in the divisor lattice it is deliberately not drawn</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Use the combination law: given $14 \\mid 98$ and $14 \\mid 42$, certify $14 \\mid 140$ and $14 \\mid 56$.',
@@ -1347,6 +1453,41 @@ export const chapter02: Chapter = {
                     'Hence the equivalence in both directions — divisibility is invariant under multiplying both divisor and dividend.',
                   ],
                   answer: 'ac | bc ⟺ a | b; 3 | 21 ⟺ 6 | 42 ✓ and 3 ∤ 22 ⟺ 6 ∤ 44 ✓',
+                  figures: [
+                    {
+                      caption:
+                        'The cancellation form at c = 2, both directions drawn side by side: scaling the true pair 3 | 21 by 2 gives the true pair 6 | 42 — certificate 7 both times; scaling the false pair 3 ∤ 22 (remainder 1) by 2 gives the false pair 6 ∤ 44 (remainder 2). The verdict — true or false — survives the scaling either way.',
+                      svg: `<svg viewBox="0 0 780 212" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Twin panels for the cancellation form at c equals 2: left panel, 3 divides 21 scaling to 6 divides 42, both true with certificate 7; right panel, 3 does not divide 22 scaling to 6 does not divide 44, both false with remainders 1 and 2">
+  <defs>
+    <marker id="sc-arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="currentColor"/></marker>
+  </defs>
+  ${(() => {
+    const PA = [48, 408], BW = 120, BH = 56, Y = 80;
+    let out = '';
+    out += `<text x="390" y="34" font-size="12.5" fill="currentColor" opacity="0.85" text-anchor="middle">the cancellation form: ac | bc ⟺ a | b — scale both sides by c = 2 and the verdict follows</text>`;
+    for (let p = 0; p < 2; p++) {
+      const pa = PA[p];
+      out += `<text x="${pa + 155}" y="62" font-size="12.5" font-weight="700" fill="${p === 0 ? '#166534' : 'currentColor'}" text-anchor="middle">${p === 0 ? 'both true — the certificate survives' : 'both false — the failure scales too'}</text>`;
+      const mains = p === 0 ? ['3 | 21', '6 | 42'] : ['3 ∤ 22', '6 ∤ 44'];
+      const subs = p === 0 ? ['certificate 7', 'certificate 7'] : ['remainder 1', 'remainder 2'];
+      const fills = p === 0 ? ['#dcfce7', '#16a34a'] : ['#fef3c7', '#f59e0b'];
+      for (let b = 0; b < 2; b++) {
+        const bx = pa + b * 190;
+        out += `<rect x="${bx}" y="${Y}" width="${BW}" height="${BH}" rx="7" fill="${fills[0]}" stroke="${fills[1]}" stroke-width="1.5"/>`;
+        out += `<text x="${bx + BW / 2}" y="${Y + 22}" font-size="14.5" font-weight="700" fill="currentColor" text-anchor="middle">${mains[b]}</text>`;
+        out += `<text x="${bx + BW / 2}" y="${Y + 44}" font-size="11" fill="currentColor" opacity="0.85" text-anchor="middle">${subs[b]}</text>`;
+      }
+      const a = pa + BW + 3, b2 = pa + 190 - 6;
+      out += `<line x1="${a}" y1="${Y + BH / 2}" x2="${b2}" y2="${Y + BH / 2}" stroke="currentColor" stroke-width="1.6" marker-end="url(#sc-arrow)"/>`;
+      out += `<text x="${(a + b2) / 2}" y="${Y + BH / 2 - 10}" font-size="12" fill="currentColor" opacity="0.85" text-anchor="middle">×2</text>`;
+      out += `<text x="${pa + 155}" y="168" font-size="12" fill="currentColor" opacity="0.85" text-anchor="middle">${p === 0 ? '3 | 21 ⟶ ×2 ⟶ 6 | 42 — certificate 7 both times ✓' : '3 ∤ 22 ⟶ ×2 ⟶ 6 ∤ 44 — the remainders grow 1 → 2, both legal'}</text>`;
+    }
+    out += `<text x="390" y="200" font-size="12.5" fill="currentColor" opacity="0.85" text-anchor="middle">the verdict — true or false — survives scaling both sides; that is ac | bc ⟺ a | b at c = 2</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -1363,6 +1504,43 @@ export const chapter02: Chapter = {
                     'Hence all three true, all one fact — $25 = 5^2$ — dressed at three cancellation depths.',
                   ],
                   answer: '45 | 225 ⟺ 9 | 45 ⟺ 5 | 25 — one shared factor 5 between neighbours',
+                  figures: [
+                    {
+                      caption:
+                        'The chain of L5-Q1 drawn as three rows of one shape: each row is k | 5k with certificate 5 (225 = 45 · 5, 45 = 9 · 5, 25 = 5 · 5). The top link is an honest cancellation — 5 · 9 | 5 · 45 cancels the shared 5 to 9 | 45; the bottom link is the same shape at a fresh k, not a cancellation. One fact, three dresses.',
+                      svg: `<svg viewBox="0 0 780 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three rows all showing the shape k divides 5k: 45 divides 225, 9 divides 45, 5 divides 25, each arrow labelled times 5 with certificate 5, the bottom row green as the base fact, with notes that the first link cancels the shared 5 and the second is the shape repeating">
+  <defs>
+    <marker id="dc-arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="currentColor"/></marker>
+  </defs>
+  ${(() => {
+    const RY = [48, 116, 184], BWA = 64, BWB = 92, BH = 44;
+    const KA = [45, 9, 5], KB = [225, 45, 25];
+    const NOTES = ['225 = 5 · 45 — certificate 5 ✓', '45 = 5 · 9 — certificate 5 ✓', '25 = 5 · 5 — certificate 5 ✓'];
+    const GAPS = [
+      '⟺ cancel the shared 5: 5 · 9 | 5 · 45 ⟶ 9 | 45',
+      '⟺ the shape repeats: 9 | 9 · 5 is k | 5k again — fresh k, certificate 5',
+    ];
+    let out = '';
+    out += `<text x="390" y="26" font-size="13" font-weight="700" fill="currentColor" text-anchor="middle">45 | 225 ⟺ 9 | 45 ⟺ 5 | 25 — the shape k | 5k worn at three depths</text>`;
+    for (let r = 0; r < 3; r++) {
+      const base = r === 2;
+      out += `<rect x="120" y="${RY[r]}" width="${BWA}" height="${BH}" rx="7" fill="${base ? '#dcfce7' : '#fef3c7'}" stroke="${base ? '#16a34a' : '#f59e0b'}" stroke-width="${base ? 2 : 1.5}"/>`;
+      out += `<text x="${120 + BWA / 2}" y="${RY[r] + 27}" font-size="14.5" font-weight="700" fill="currentColor" text-anchor="middle">${KA[r]}</text>`;
+      out += `<line x1="${120 + BWA + 3}" y1="${RY[r] + BH / 2}" x2="233" y2="${RY[r] + BH / 2}" stroke="currentColor" stroke-width="1.6" marker-end="url(#dc-arrow)"/>`;
+      out += `<text x="210" y="${RY[r] + 14}" font-size="12" fill="currentColor" opacity="0.85" text-anchor="middle">×5</text>`;
+      out += `<rect x="240" y="${RY[r]}" width="${BWB}" height="${BH}" rx="7" fill="${base ? '#dcfce7' : '#fef3c7'}" stroke="${base ? '#16a34a' : '#f59e0b'}" stroke-width="${base ? 2 : 1.5}"/>`;
+      out += `<text x="${240 + BWB / 2}" y="${RY[r] + 27}" font-size="14.5" font-weight="700" fill="${base ? '#166534' : 'currentColor'}" text-anchor="middle">${KB[r]}</text>`;
+      out += `<text x="348" y="${RY[r] + 27}" font-size="12" fill="currentColor" opacity="0.85" text-anchor="start">${NOTES[r]}</text>`;
+      if (r < 2) {
+        out += `<text x="120" y="${RY[r] + BH + 17}" font-size="11.5" fill="currentColor" opacity="0.9" text-anchor="start">${GAPS[r]}</text>`;
+      }
+    }
+    out += `<text x="390" y="244" font-size="12.5" fill="currentColor" opacity="0.85" text-anchor="middle">one fact, three dresses: every row is k | 5k with certificate 5 — cancel the shared 5 to walk down</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'From $6 \\mid 42$, prove $6 \\mid 420$. Then explain why the reverse implication fails in general, using $12 \\mid 3 \\cdot 4$.',
