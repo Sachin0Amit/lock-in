@@ -545,3 +545,31 @@ server.log
 !/scripts/verify-languages-shelf-planning.ts
 !/scripts/e2e-hl-shelf.sh
 !/scripts/run-hl-e2e-phase.sh
+# ==== the 2026-11-17 rebuild-pass durability block (root-cause fix: the
+# exam-ledger pass's data/gate/builders/matcher were NOT whitelisted, never
+# pushed, and were lost in the sandbox wipe that also emptied the DB — these
+# entries make the rebuilt artifacts durable) ====
+!/scripts/ledger_data/
+!/scripts/ledger_data/**
+!/scripts/verify-shelf-exam-topics.ts
+!/scripts/process_drive_tocs.py
+!/scripts/build_phys_chem_ledgers.py
+!/scripts/build_biology_ledger.py
+!/scripts/build_medical_ledger.py
+!/scripts/build_ecf_ledger.py
+!/scripts/build_humanities_ledger.py
+!/scripts/build_arts_music_ledger.py
+!/scripts/build_ese_ledger.py
+!/scripts/gen_biology_shelf.py
+!/scripts/gen_chemistry_shelf.py
+!/scripts/gen_physics_shelf.py
+!/scripts/gen_medical_shelf.py
+!/scripts/gen_arts_music_shelf.py
+!/scripts/gen_economics_finance_shelf.py
+!/scripts/verify-bio-med-arts-shelf-planning.ts
+!/scripts/verify-chemistry-shelf-planning.ts
+!/scripts/verify-physics-shelf-planning.ts
+!/scripts/verify-ecf-shelf-planning.ts
+!/scripts/dump_shelf_plan_data.ts
+!/scripts/ledger_data_working/
+!/scripts/ledger_data_working/**
