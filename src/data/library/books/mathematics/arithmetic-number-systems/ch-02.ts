@@ -1724,6 +1724,34 @@ export const chapter02: Chapter = {
         },
         {
           kind: 'derivation',
+          title: 'The bulk step: q subtractions in one division',
+          statement:
+            'Claim: for $a > b \\ge 1$, one division step $(a, b) \\to (b, a \\bmod b)$ preserves the common-divisor set exactly — the invariance lemma applied $q$ times at once. This is the licence the algorithm’s note invokes when it says “with subtraction run in bulk”, and it is why one division sentence does the work of a whole march of subtractions.',
+          steps: [
+            {
+              label: 'March the invariance lemma down the pair',
+              formula: '(a, b) \\to (a - b, b) \\to (a - 2b, b) \\to \\dots \\to (a - qb, b)',
+              explanation:
+                'Each application of Lesson 2.2’s subtraction lemma preserves the common-divisor set, and each moves the first seat down by one more copy of $b$. Lesson 2.1’s division chooses $q$ as exactly the count of subtractions possible before the difference would go negative — so after $q$ of them the first seat holds $a - qb = a \\bmod b$, the remainder in its band $0 \\le r < b$.',
+            },
+            {
+              label: 'The whole march preserves the set',
+              formula: '\\{d : d \\mid a, \\ d \\mid b\\} = \\{d : d \\mid (a \\bmod b), \\ d \\mid b\\}',
+              explanation:
+                'A set that cannot change at any single landing cannot change over the whole march: the common divisors of $(a, b)$ are precisely the common divisors of $(a \\bmod b, b)$. Nothing here used what $q$ was — any number of bulk subtractions would do.',
+            },
+            {
+              label: 'One division sentence, same guarantee',
+              formula: 'a = q \\cdot b + (a \\bmod b) \\ \\Rightarrow\\ \\gcd(a, b) = \\gcd(a \\bmod b, b)',
+              explanation:
+                'This is exactly Lesson 2.1’s division sentence with $r = a \\bmod b$ in its band. Instance: $210 = 4 \\cdot 45 + 30$ packs four subtractions — $(210, 45) \\to (165, 45) \\to (120, 45) \\to (75, 45) \\to (30, 45)$ — and the common-divisor set $\\{1, 3, 5, 15\\}$ never moved: $\\gcd(210, 45) = \\gcd(30, 45) = 15$.',
+            },
+          ],
+          result:
+            '$\\gcd(a, b) = \\gcd(b, a \\bmod b)$: the division loop inherits the invariance lemma wholesale — one division equals $q$ subtractions, and the common-divisor set never moves.',
+        },
+        {
+          kind: 'derivation',
           title: 'Termination by descent — the least-number principle’s third burn',
           statement:
             'Claim: iterating $(a, b) \\to (b, a \\bmod b)$ halts after finitely many steps, and it halts exactly when a remainder $0$ appears. This is the descent argument of Lesson 2.1, run on a marching pair.',
@@ -1923,6 +1951,36 @@ export const chapter02: Chapter = {
             'Check as a natural difference: $5 \\cdot 45 = 225$ and $1 \\cdot 210 = 210$, and $225 - 210 = 15$ ✓.',
             'Hence Bézout’s identity on the instance: $\\gcd(210, 45) = 5 \\cdot 45 - 1 \\cdot 210$ — coefficients $(x, y) = (-1, 5)$ in the signed dress.',
           ],
+          figures: [
+            {
+              caption:
+                'The backward-substitution climb of Illustration 2 as three landings: the bottom sentence isolates the survivor 15 on one 45 and one 30; substituting sentence 2 (30 = 210 − 4·45) trades that 30 for the inputs; collecting the 45s — 1 + 4 of them — lands Bézout’s line 15 = 5·45 − 1·210, checked as the natural difference 225 − 210 = 15.',
+              svg: `<svg viewBox="0 0 780 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Backward substitution for (210, 45) in three stages: the bottom sentence 15 = 45 − 1·30; substituting sentence 2, 30 = 210 − 4·45, gives 15 = 45 − 1·(210 − 4·45); collecting the 45s, 1 plus 4, gives 15 = 5·45 − 1·210; check 225 − 210 = 15">
+  <defs>
+    <marker id="bs-arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="currentColor"/></marker>
+  </defs>
+  ${(() => {
+    const CX = 390;
+    const rows = [
+      { y: 40, x: CX - 200, w: 400, tag: 'the bottom sentence', text: '15 = 45 − 1 · 30', hot: false },
+      { y: 120, x: CX - 240, w: 480, tag: 'substituted', text: '15 = 45 − 1 · (210 − 4 · 45)', hot: false },
+      { y: 200, x: CX - 200, w: 400, tag: 'the 45s collected', text: '15 = 5 · 45 − 1 · 210', hot: true },
+    ];
+    let out = '';
+    rows.forEach(r => {
+      out += `<rect x="${r.x}" y="${r.y}" width="${r.w}" height="46" rx="7" fill="${r.hot ? '#dcfce7' : '#fef3c7'}" stroke="${r.hot ? '#16a34a' : '#f59e0b'}" stroke-width="${r.hot ? 2 : 1.5}"/>`;
+      out += `<text x="${CX}" y="${r.y + 29}" font-size="17" font-weight="${r.hot ? 700 : 400}" fill="${r.hot ? '#166534' : 'currentColor'}" text-anchor="middle">${r.text}</text>`;
+      out += `<text x="${r.x - 10}" y="${r.y + 29}" font-size="11.5" fill="#b45309" text-anchor="end">${r.tag}</text>`;
+    });
+    out += `<line x1="${CX}" y1="86" x2="${CX}" y2="118" stroke="currentColor" stroke-width="1.6" marker-end="url(#bs-arrow)"/>`;
+    out += `<text x="${CX + 12}" y="105" font-size="12.5" fill="currentColor" opacity="0.9">substitute sentence 2: 30 = 210 − 4 · 45</text>`;
+    out += `<line x1="${CX}" y1="166" x2="${CX}" y2="198" stroke="currentColor" stroke-width="1.6" marker-end="url(#bs-arrow)"/>`;
+    out += `<text x="${CX + 12}" y="185" font-size="12.5" fill="currentColor" opacity="0.9">collect the 45s: 1 + 4 = 5</text>`;
+    out += `<text x="${CX}" y="276" font-size="12.5" fill="currentColor" opacity="0.9" text-anchor="middle">check as a natural difference: 5 · 45 = 225 and 1 · 210 = 210 — 225 − 210 = 15 ✓</text>`;
+    return out;
+  })()}\n</svg>`,
+            },
+          ],
         },
         {
           kind: 'para',
@@ -1967,6 +2025,17 @@ export const chapter02: Chapter = {
         {
           kind: 'para',
           text: 'Two reductions cash Bézout further. First, the **scaled reduction**: dividing both inputs by their gcd never spoils coprimality — $\\gcd(a/d, b/d) = 1$ whenever $d = \\gcd(a, b)$ — because dividing the identity $d = ax + by$ through by $d$ (Lesson 2.2’s cancellation) yields $1 = (a/d)x + (b/d)y$. Instance: $(210, 45)$ scales to $(14, 3)$, and $15 = 5 \\cdot 45 - 1 \\cdot 210$ divided by 15 reads $1 = 5 \\cdot 3 - 1 \\cdot 14$ ✓ ($15 - 14 = 1$). The next lesson builds its whole solution theory on this reduction. Second, the **LCM payoff**: FM 3.5 banked the product rule $\\gcd(a, b) \\cdot \\mathrm{lcm}(a, b) = a \\cdot b$ — and now the gcd is computable without factorising, so the lcm comes along free: $\\mathrm{lcm}(210, 45) = \\frac{210 \\cdot 45}{15} = 630$, a common multiple of both ($630 = 3 \\cdot 210 = 14 \\cdot 45$), and the least — the smaller multiples 210 and 420 both miss ($420 = 9 \\cdot 45 + 15$, the old stub).',
+        },
+        {
+          kind: 'example',
+          title: 'Put the certificate to work: gcd(91, 104), the ladder of FM 4.2, and the scaled line',
+          steps: [
+            'Split: run the loop on $(91, 104)$: $104 = 1 \\cdot 91 + 13$.',
+            'Now, $91 = 7 \\cdot 13 + 0$ — remainder zero: stop; the survivor is $13$.',
+            'So, $\\gcd(91, 104) = 13$: the pair is not coprime, and the fraction $91/104$ must reduce — $91 = 7 \\cdot 13$ and $104 = 8 \\cdot 13$ give $91/104 = 7/8$, exactly FM 4.2’s ladder with its rung now computed by the loop.',
+            'Take: Bézout’s line for the pair: $13 = 1 \\cdot 104 - 1 \\cdot 91$ — check $104 - 91 = 13$ ✓.',
+            'Hence the scaled reduction reads the certificate off: dividing by $13$, $1 = 1 \\cdot 8 - 1 \\cdot 7$ ✓ ($8 - 7 = 1$) — the scaled pair $(7, 8)$ is coprime, so $7/8$ is fully reduced.',
+          ],
         },
         {
           kind: 'callout',
@@ -2069,6 +2138,56 @@ export const chapter02: Chapter = {
                     'Hence both engines answer $6$: the loop is the walk with its repeats compressed (Lesson 2.1’s point — repeated subtraction *is* division).',
                   ],
                   answer: 'gcd(48, 18) = 6 — four subtractions, or three divisions',
+                  figures: [
+                    {
+                      caption:
+                        'The two engines on (48, 18) drawn together: the subtraction walk on top — four one-subtraction states ending at the meeting pair (6, 6) — and the division loop below, holding the pair after each sentence: (48, 18) → (18, 12) → (12, 6) → (6, 0). The amber drop-lines mark where the pair continues; the walk’s state (30, 18) is packed into division 1, the seats swap at (12, 18) → (18, 12), and the meet (6, 6) is exactly the loop’s remainder 0. Same survivor 6: four subtractions, three divisions.',
+                      svg: `<svg viewBox="0 0 920 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two engines on the pair (48, 18): the subtraction walk (48, 18), (30, 18), (12, 18), (12, 6), (6, 6) with arrows minus 18, minus 18, minus 12, minus 6; below it the division loop holds (48, 18), (18, 12), (12, 6), (6, 0) with the division sentences 48 = 2·18 + 12, 18 = 1·12 + 6, 12 = 2·6 + 0; dashed drop-lines connect the shared stages; survivor 6 in both engines">
+  <defs>
+    <marker id="sw-arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="currentColor"/></marker>
+  </defs>
+  ${(() => {
+    const BW = 80, BH = 44, GAP = 64, X0 = 132, YTOP = 40, YBOT = 150;
+    const xs = [0, 1, 2, 3, 4].map(i => X0 + i * (BW + GAP));
+    const xb = [xs[0], xs[2], xs[3], xs[4]];
+    const topStates = ['(48, 18)', '(30, 18)', '(12, 18)', '(12, 6)', '(6, 6)'];
+    const subLabels = ['−18', '−18', '−12', '−6'];
+    const botStates = ['(48, 18)', '(18, 12)', '(12, 6)', '(6, 0)'];
+    const divEq = ['48 = 2 · 18 + 12', '18 = 1 · 12 + 6', '12 = 2 · 6 + 0'];
+    let out = '';
+    out += `<text x="132" y="26" font-size="12.5" fill="currentColor" opacity="0.85">the subtraction engine — one subtraction at a time</text>`;
+    for (let i = 0; i < 4; i++) {
+      const a = xs[i] + BW + 4, b = xs[i + 1] - 6, m = (a + b) / 2, ym = YTOP + BH / 2;
+      out += `<line x1="${a}" y1="${ym}" x2="${b}" y2="${ym}" stroke="currentColor" stroke-width="1.6" marker-end="url(#sw-arrow)"/>`;
+      out += `<text x="${m}" y="${ym - 10}" font-size="12" fill="currentColor" opacity="0.9" text-anchor="middle">${subLabels[i]}</text>`;
+    }
+    topStates.forEach((s, i) => {
+      const last = i === 4;
+      out += `<rect x="${xs[i]}" y="${YTOP}" width="${BW}" height="${BH}" rx="7" fill="${last ? '#dcfce7' : '#fef3c7'}" stroke="${last ? '#16a34a' : '#f59e0b'}" stroke-width="${last ? 2 : 1.5}"/>`;
+      out += `<text x="${xs[i] + BW / 2}" y="${YTOP + BH / 2 + 5}" font-size="14" font-weight="700" fill="${last ? '#166534' : 'currentColor'}" text-anchor="middle">${s}</text>`;
+    });
+    for (let k = 0; k < 4; k++) {
+      const cx = xb[k] + BW / 2;
+      out += `<line x1="${cx}" y1="${YTOP + BH}" x2="${cx}" y2="${YBOT}" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="4 3"/>`;
+    }
+    out += `<text x="316" y="122" font-size="11" fill="#b45309" text-anchor="middle">packed into division 1</text>`;
+    out += `<text x="460" y="122" font-size="11" fill="#b45309" text-anchor="middle">seats swap</text>`;
+    for (let i = 0; i < 3; i++) {
+      const a = xb[i] + BW + 4, b = xb[i + 1] - 6, m = (a + b) / 2, ym = YBOT + BH / 2;
+      out += `<line x1="${a}" y1="${ym}" x2="${b}" y2="${ym}" stroke="currentColor" stroke-width="1.6" marker-end="url(#sw-arrow)"/>`;
+      out += `<text x="${m}" y="${ym + 38}" font-size="12" fill="currentColor" opacity="0.9" text-anchor="middle">${divEq[i]}</text>`;
+    }
+    botStates.forEach((s, i) => {
+      const last = i === 3;
+      out += `<rect x="${xb[i]}" y="${YBOT}" width="${BW}" height="${BH}" rx="7" fill="${last ? '#dcfce7' : '#fef3c7'}" stroke="${last ? '#16a34a' : '#f59e0b'}" stroke-width="${last ? 2 : 1.5}"/>`;
+      out += `<text x="${xb[i] + BW / 2}" y="${YBOT + BH / 2 + 5}" font-size="14" font-weight="700" fill="${last ? '#166534' : 'currentColor'}" text-anchor="middle">${s}</text>`;
+    });
+    out += `<text x="460" y="232" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle">the same walk at two compressions: 4 subtraction steps vs 3 division steps — survivor 6 both ways</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Find $\\gcd(1{,}071, 462)$ and write down the quotient sequence.',
@@ -2116,6 +2235,41 @@ export const chapter02: Chapter = {
                     'Hence the product rule verifies: $15 \\cdot 630 = 9{,}450 = 210 \\cdot 45$ ✓ — the algorithm now computes the HCF without factorising, so the LCM comes along free.',
                   ],
                   answer: 'lcm(210, 45) = 630; 15·630 = 210·45 = 9,450',
+                  figures: [
+                    {
+                      caption:
+                        'The two multiple ladders on one number line: the 45-ladder (amber) ticks every 45, the 210-ladder (green) at 210, 420 and 630. The first tick both share is 630 — ringed. At 210 and 420 the 45-ladder simply has no tick (210 = 4·45 + 30, 420 = 9·45 + 15 — the old stubs), so 630 is the least common multiple, and 15 · 630 = 9,450 = 210 · 45 checks.',
+                      svg: `<svg viewBox="0 0 920 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two multiple ladders on one number line from 0 to 660: amber ticks every 45 (the 45-ladder), green tall ticks at 210, 420 and 630 (the 210-ladder); notes show that at 210 the 45-ladder misses by 30 and at 420 by 15; the first tick both ladders share is 630, ringed green — lcm equals 9,450 divided by 15 equals 630">
+  ${(() => {
+    const X0 = 70, S = 780 / 660, AXY = 170;
+    const x = (v) => X0 + v * S;
+    let out = '';
+    out += `<text x="460" y="34" font-size="13.5" font-weight="600" fill="currentColor" text-anchor="middle">lcm(210, 45) = (210 · 45) / gcd = 9,450 / 15 = 630</text>`;
+    out += `<line x1="150" y1="60" x2="180" y2="60" stroke="#f59e0b" stroke-width="2.5"/>`;
+    out += `<text x="188" y="64" font-size="12" fill="currentColor" opacity="0.85">multiples of 45</text>`;
+    out += `<line x1="430" y1="60" x2="460" y2="60" stroke="#16a34a" stroke-width="3"/>`;
+    out += `<text x="468" y="64" font-size="12" fill="currentColor" opacity="0.85">multiples of 210</text>`;
+    out += `<text x="318" y="112" font-size="11" fill="#b45309" text-anchor="middle">210 = 4 · 45 + 30 — the 45-ladder misses by 30</text>`;
+    out += `<text x="566" y="112" font-size="11" fill="#b45309" text-anchor="middle">420 = 9 · 45 + 15 — misses by 15</text>`;
+    for (let k = 1; k <= 14; k++) {
+      const gx = x(45 * k);
+      out += `<line x1="${gx}" y1="135" x2="${gx}" y2="${AXY}" stroke="#f59e0b" stroke-width="2"/>`;
+    }
+    [210, 420, 630].forEach(v => {
+      out += `<line x1="${x(v)}" y1="118" x2="${x(v)}" y2="${AXY}" stroke="#16a34a" stroke-width="3"/>`;
+    });
+    out += `<line x1="${X0}" y1="${AXY}" x2="850" y2="${AXY}" stroke="currentColor" stroke-width="1.5"/>`;
+    out += `<circle cx="${x(630)}" cy="${AXY}" r="15" fill="none" stroke="#16a34a" stroke-width="2.5"/>`;
+    out += `<text x="${X0}" y="200" font-size="11" fill="currentColor" opacity="0.7" text-anchor="middle">0</text>`;
+    out += `<text x="${x(210)}" y="200" font-size="12" font-weight="700" fill="#166534" text-anchor="middle">210</text>`;
+    out += `<text x="${x(420)}" y="200" font-size="12" font-weight="700" fill="#166534" text-anchor="middle">420</text>`;
+    out += `<text x="${x(630)}" y="200" font-size="12" font-weight="700" fill="#166534" text-anchor="middle">630</text>`;
+    out += `<text x="${x(630)}" y="216" font-size="11" fill="#166534" text-anchor="middle">the first shared tick</text>`;
+    out += `<text x="460" y="240" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle">15 · 630 = 9,450 = 210 · 45 ✓ — 210 and 420 both miss, so 630 is the least common multiple</text>`;
+    return out;
+  })()}\n</svg>`,
+                    },
+                  ],
                 },
               ],
             },
