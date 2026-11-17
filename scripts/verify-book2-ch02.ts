@@ -1594,7 +1594,7 @@ console.log('=== AP. 2.2 sol-figures + Pass C numbers (audit-bot fire 2026-11-17
   ok(136 === 8 * 17 && 96 % 8 === 0 && 40 % 8 === 0, 'AP C3: 8 | 136 came FROM the pair 8 | 96, 8 | 40 — the arrow runs one way only');
 
   // needle guards — every authored string must be present in the chapter file
-  const ch2 = (() => { try { return require('fs').readFileSync('src/data/library/books/mathematics/arithmetic-number-systems/ch-02.ts', 'utf8') as string } catch { return '' } })();
+  const ch2 = (() => { try { return require('fs').readFileSync('src/data/library/books/mathematics/arithmetic-number-systems/ch-02.ts', 'utf8') as string } catch { return '' } })(); // eslint-disable-line @typescript-eslint/no-require-imports
   if (ch2) {
     const lesson22 = ch2.slice(ch2.indexOf("id: 'ans-the-algebra-of-divisibility'"), ch2.indexOf("id: 'ans-euclidean-algorithm-proven-bezout-identity'"));
     ok(lesson22.length > 40000, 'AP needle: lesson 2.2 located and non-trivial');
