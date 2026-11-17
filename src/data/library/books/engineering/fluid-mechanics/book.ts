@@ -45,11 +45,7 @@ const chapters: Chapter[] = [
       'Viscosity: Newton\u2019s Law and Its Census',
       'Surface Tension and Capillarity',
       'Vapour Pressure and Cavitation Named',
-      'Introduction 175 5.1.5 Operation as vDS Is Increased',
-      'Introduction 1067 16.1.7 Obtaining the PUN from the PDN',
-      'Introduction 1192 Index IN-1',
-      'Surface-mount technology: the joy and the pain',
-      'Cathode-ray tube 947 Appendix: Symbols, Abbreviations, Deﬁnitions'
+      'Density of Compressed Liquid',
     ],
   },
   {
@@ -65,7 +61,6 @@ const chapters: Chapter[] = [
       'Hydrostatic Forces on Plane Surfaces',
       'Curved Surfaces and Buoyancy',
       'Stability and the Metacentre',
-      'Force determination 142 9.3 Waveform terms and definitions'
     ],
   },
   {
@@ -81,7 +76,6 @@ const chapters: Chapter[] = [
       'The Material Derivative: Local + Convective',
       'Stream Function and Velocity Potential',
       'The Reynolds Transport Theorem',
-      'Summary of important formulae 281 15.5 Thévenin’s theorem'
     ],
   },
   {
@@ -112,10 +106,6 @@ const chapters: Chapter[] = [
       'Navier-Stokes Read Term-by-Term',
       'Couette and Poiseuille Earned',
       'The Honest Verdict on Differential Routes',
-      'Electrostatic terms',
-      'Terms and concepts 261 14.11 Selectivity',
-      'The j operator 264 Terms and concepts',
-      'Signed binary subtraction 525 Terms and concepts'
     ],
   },
   {
@@ -130,6 +120,7 @@ const chapters: Chapter[] = [
       'The Buckingham Pi Theorem Worked',
       'The Group Census',
       'Similitude and Model Testing',
+      'Dimensional Analysis',
     ],
   },
   {
@@ -145,11 +136,6 @@ const chapters: Chapter[] = [
       'The Moody Chart and Friction Factor',
       'Minor Losses in Fittings',
       'Pipe Systems and the System Curve',
-      'Summary 117 Region',
-      'Summary of important formulae',
-      'Summary of important formulae 261 14.10 Bandwidth',
-      'Signed binary addition 524 Summary of important formulae',
-      'Summary of important formulae 713 34.4 Demand for electricity and the'
     ],
   },
   {
@@ -165,7 +151,6 @@ const chapters: Chapter[] = [
       'Growth, Transition, Separation',
       'The Drag Census',
       'Lift and the Aerofoil Glimpse',
-      'Terminals 151 4.7.3 Varactors'
     ],
   },
   {
@@ -196,7 +181,7 @@ const chapters: Chapter[] = [
       'The Euler Equation Earned',
       'Specific Speed: the Compass',
       'The Doorsteps: Machines Elsewhere, Rates Above',
-      'VCO implementation: through-hole versus surface-mount'
+      'Power of a Water-Drawing Pump',
     ],
   },
 ]

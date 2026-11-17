@@ -1,0 +1,641 @@
+{
+ "agent": "computer-science",
+ "autoReview": [
+  {
+   "book": "computer-organization-architecture",
+   "chapter": 4,
+   "title": "Floating-Point Arithmetic: IEEE 754 Priced",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "False positive: '754' is the IEEE floating-point standard number, not a page run (raw title verified clean in book.ts). IEEE 754 arithmetic is core COA datapath content; DLD ch1 keeps only the representation half."
+  },
+  {
+   "book": "assembly-and-microprocessors",
+   "chapter": 2,
+   "title": "The 8085 Architecture",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "False positive: 8085 is the microprocessor part number, not a page run (verified clean in raw book.ts). The chapter's core lesson."
+  },
+  {
+   "book": "assembly-and-microprocessors",
+   "chapter": 2,
+   "title": "The 8085 Instruction Set by Family",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "False positive: part number 8085; title clean in raw data. Core lesson of 'The 8085 Generation'."
+  },
+  {
+   "book": "assembly-and-microprocessors",
+   "chapter": 3,
+   "title": "The 8086 Architecture",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "False positive: 8086 is the part number. Core lesson of 'The 8086 Family'."
+  },
+  {
+   "book": "assembly-and-microprocessors",
+   "chapter": 7,
+   "title": "Interrupt Controllers and the 8259",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "False positive: 8259 is the PIC part number. Core interfacing lesson."
+  },
+  {
+   "book": "assembly-and-microprocessors",
+   "chapter": 7,
+   "title": "The 8255 and the Peripheral Family",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "False positive: 8255 is the PPI part number. Core interfacing lesson."
+  },
+  {
+   "book": "software-engineering",
+   "chapter": 4,
+   "title": "The Quality-Model Census: McCall and ISO 9126",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "False positive: 9126 is the ISO quality-model standard; McCall/ISO 9126 are the canonical software-quality models, squarely in requirements engineering's non-functional-quality territory."
+  },
+  {
+   "book": "deep-learning",
+   "chapter": 1,
+   "title": "The Trio That Made 2012",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "False positive: 2012 is the AlexNet year. The trio (GPUs, big data, AlexNet) is the standard DL-history lesson opening 'The Depth Idea'."
+  },
+  {
+   "book": "data-structures",
+   "chapter": 6,
+   "title": "The Priority Queue in Practice",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Not a duplicate: ch4 'The Queue Family' introduces the priority queue as an ADT in the queue census; ch6 is the heap implementation that justifies the Heaps chapter. Different treatments; removing it would gut ch6."
+  },
+  {
+   "book": "set-theory",
+   "chapter": 3,
+   "title": "Functions, Defined Exactly",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Functions are core set theory (ch3 'Relations and Functions, Formally'); the target ToC ch2 is 'Finite Automata' — no fit. ToC already carries its own toolkit lesson (ch1 'The Toolkit: Sets, Languages, Logic'). Token-score artifact."
+  },
+  {
+   "book": "computer-fundamentals",
+   "chapter": 1,
+   "title": "The Basic Structure and Operation of the Computer (the information processing cycle; the program development tools)",
+   "verdict": "veto",
+   "action": "retitle",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "The Basic Structure and Operation of the Computer",
+   "reason": "Score artifact: foundation-chemistry is an absurd target for the CS entry book's opening lesson. The only real defect is the OCR-style parenthetical gloss — retitle in place."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 8,
+   "title": "Optical Communication",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Optical (fibre) communication is EM/communication theory. The COA ch8 target covers optical STORAGE (SSDs, optical disks, tape), not optical transmission — a token confound. EM theory is a legitimate home."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 4,
+   "title": "Computing Elasticity",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Economics elasticity (computing its values) has nothing to do with cloud elasticity; 'computing' is a verb here. Token-score artifact."
+  },
+  {
+   "book": "statistics-for-economics",
+   "chapter": 1,
+   "title": "Collection of Data",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Statistics data-collection methods; the OOP ch5 target is nonsense. Token-score artifact."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "title": "Vision",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "A bare 'Vision' line inside a 228-item chemistry chapter is OCR junk; human vision is physiology (biology scope), and machine vision is NOT a home for it — do not move it into computer-vision ch1. Chemistry agent should remove."
+  },
+  {
+   "book": "nursing",
+   "chapter": 4,
+   "title": "Safety and Infection Prevention and Control",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Infection prevention and control is clinical nursing; 'safety/prevention/control' tokens collided with cybersecurity's incident-response vocabulary. Token-score artifact."
+  },
+  {
+   "book": "python-programming",
+   "chapter": 7,
+   "title": "Typing’s Honest Contract",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Type hints / gradual typing is a modern idiom: ch7 'The Modern Idiom Census' (generators, typing, stdlib) is its correct home. ch5 'Objects the Python Way' already owns the object protocol (self, dunders, MRO/duck typing). The chapter move would misfile the lesson and thin ch7."
+  }
+ ],
+ "misplaced": [
+  {
+   "book": "digital-logic-design",
+   "chapter": 3,
+   "title": "Four-Variable Maps and Beyond",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Four-variable Karnaugh maps are the heart of Boolean simplification (classic Mano ch3). Token scores pulled 'variables' toward algebra/genetics books; nonsense. Owns its spot."
+  },
+  {
+   "book": "algorithms",
+   "chapter": 9,
+   "title": "Geometric Algorithms: Convex Hull, Sweep Line, Cross Products",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Computational geometry is an algorithm family in the frontier chapter; 'geometric' tokens lured the scorer into elementary-algebra/arithmetic. Keep."
+  },
+  {
+   "book": "theory-of-computation",
+   "chapter": 9,
+   "title": "P: Measuring Time on Machines",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "P is THE complexity class and ToC owns complexity classes (routing sanity). 'P'/'measuring' token noise toward geometry. Keep."
+  },
+  {
+   "book": "theory-of-computation",
+   "chapter": 9,
+   "title": "NP: the Two Definitions and Their Equality",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "NP's two definitions (verification vs nondeterminism) and their equivalence is core ToC ch9. Token noise. Keep."
+  },
+  {
+   "book": "compiler-design",
+   "chapter": 9,
+   "title": "The Doorsteps: Languages and Runtimes",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "House doorstep pattern: the synthesis chapter's closing pointer to programming-languages-paradigms and runtimes. Not a misplaced lesson."
+  },
+  {
+   "book": "python-programming",
+   "chapter": 8,
+   "title": "The Doorsteps: the Stack Above",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Same doorstep pattern ('stack' tokens collided with communication books). Keep."
+  },
+  {
+   "book": "artificial-intelligence",
+   "chapter": 8,
+   "title": "The Philosophical Questions",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Philosophy OF AI (Turing test legacy, strong AI, machine consciousness) is a canonical closing topic of the AI book's 'Perception and Communication, Named'. The ethics book owns moral theory generally, not AI's philosophical questions."
+  },
+  {
+   "book": "machine-learning",
+   "chapter": 9,
+   "title": "The Doorsteps: Depth, Craft, Generation",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Doorstep pattern pointing to deep-learning/data-craft/generative-AI. Keep."
+  },
+  {
+   "book": "deep-learning",
+   "chapter": 8,
+   "title": "The Doorsteps: the Application Worlds",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Doorstep pattern pointing to the application worlds. Keep."
+  },
+  {
+   "book": "computer-vision",
+   "chapter": 8,
+   "title": "The Doorsteps: the Forward Problem and Generation",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Doorstep pattern (graphics' forward problem; generative models). Keep."
+  },
+  {
+   "book": "reinforcement-learning",
+   "chapter": 1,
+   "title": "The Vocabulary: Policy, Return and Discount",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Policy, return and discounting are RL's first vocabulary — nothing to move; token scores meaningless here. Keep."
+  }
+ ],
+ "dupes": [
+  {
+   "title": "The Craft Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "House synthesis pattern: each book's closing 'Craft Census' surveys the craft of its OWN field (39 CS + 5 math books, all in their synthesis chapters). Same title, different subjects — not a duplicate topic."
+  },
+  {
+   "title": "The Salient Features of the Animal Phyla: Non-Chordates to Chordate Classes",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Token-overlap artifact ('salient/features/traced'): the CS member is JS ch5 'The Event Loop Traced' — core JavaScript. The phyla/hysteresis strays belong to the biology/chemistry/physics agents."
+  },
+  {
+   "title": "The Least-Squares Fit",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "ML's 'Least Squares Derived' is the fitting method inside its own regression chapter (ML angle); statistics/linear-algebra/econometrics own the pure-fit theory from their own angles. Genuinely different treatments."
+  },
+  {
+   "title": "Binary Trees and Their Properties",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "DS ch5 'Binary Trees and Their Properties' (properties) and 'The Threaded Binary Tree, Named' (a distinct variant) are different lessons; discrete-mathematics' 'Rooted and Binary Trees' is the graph-theory angle. The inorganic-chemistry line is a token artifact for its agent."
+  },
+  {
+   "title": "Flip-Flops and Their Triggering",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "digital-logic-design owns logic-level flip-flops (canonical CS home per routing sanity); vlsi-design's 'Latches and Flip-Flops in Silicon' is the transistor-level implementation — genuinely different treatment. The vlsi '18.2.2 SR Flip-Flop' run-on and power-systems' line are engineering-side junk for that agent."
+  },
+  {
+   "title": "Textures and the Aliasing Disease",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Token artifact ('Disease Demonstrated'): graphics texture aliasing, crypto ECB patterns, data-viz distortion, and Python name aliasing are four different, legitimate lessons, each in its specialist book."
+  },
+  {
+   "title": "Chemical Coordination and Integration",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "CS members are Doorsteps-pattern lessons ('Coordination, Platform, Integration') in synthesis chapters; the endocrine topic belongs to animal-physiology. No CS-side duplication."
+  },
+  {
+   "title": "The Field on One Page",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "House pattern: AI, cryptography, ML and RL each summarize their OWN field on one page."
+  },
+  {
+   "title": "Strong Induction, Well-Ordering and the Proof Census (Implication, Converse, Contrapositive, Contradiction)",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "ToC ch1's proof census is the self-contained toolkit for machine constructions and undecidability proofs (construction/contradiction/induction scope); discrete-mathematics owns the general proof-technique census. Genuinely different treatments."
+  },
+  {
+   "title": "Context-Free Grammars and Parse Trees",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Canonical genuinely-different pair: compiler-design uses CFGs and parse trees for parsing (ch3 Syntax Analysis); ToC treats them as formal language theory (ch5, Chomsky hierarchy). Topology's member is a token artifact for its agent."
+  },
+  {
+   "title": "Dynamic Allocation’s Diseases",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "C teaches malloc/free practice and its bug classes; OS ch6 'Contiguous Allocation and Its Disease' teaches memory-management policy — different levels of the same words. foundation-biology's line is junk for its agent."
+  },
+  {
+   "title": "Computer organization — basic architecture, CPU, I/O organisation, memory organisation, peripheral devices, trends; hardware/software issues; data representation and programming; operating systems: basics, processes, characteristics, applications; memory management, virtual memory, file systems,",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "The CS member is OS ch8 'Devices as Files' (Linux practice pole — legit); it matched the syllabus run-on by token accident. The run-on lines themselves are junk in industrial-engineering/power-electronics — that agent should remove them."
+  },
+  {
+   "title": "The Language on One Page",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "C, C++ and Python each summarize their OWN language. House synthesis pattern."
+  },
+  {
+   "title": "The Discipline on One Page",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "cybersecurity, HCI and parallel computing each summarize their OWN discipline. House synthesis pattern."
+  },
+  {
+   "title": "The Transducer Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "IoT's sensing-layer transducer census (sensors as the physical-digital bridge, selected under budgets) vs electrical-measurements'/experimental-physics' instrument-transducer theory — application vs instrumentation angles."
+  },
+  {
+   "title": "Shortest Paths: Dijkstra Derived",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "algorithms derives Dijkstra with correctness/complexity in its Graph Algorithms chapter; discrete-mathematics' 'Dijkstra Met' is the graph-theory survey angle — the genuinely-different pair the directive's example describes."
+  },
+  {
+   "title": "Minimum Spanning Trees: Prim and Kruskal",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Same pair pattern as shortest paths: algorithms derives Prim/Kruskal; discrete-mathematics surveys spanning trees."
+  },
+  {
+   "title": "Diffie-Hellman Traced",
+   "action": "consolidate",
+   "winner": "cryptography",
+   "reason": "Diffie-Hellman IS a cryptographic key-exchange protocol; cryptography ch6 'The Public-Key Revolution' is its specialist home and keeps the traced walkthrough. number-theory's one-line 'Diffie–Hellman' (ch9 payoff chapter) retells the same protocol — consolidate; number-theory keeps primitive roots/discrete-log machinery and can doorstep the payoff."
+  },
+  {
+   "title": "Cantor’s Diagonal Argument",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "set-theory owns the uncountability proof; ToC ch8 wields diagonalization for undecidability (with Russell's wound) — genuinely different treatments."
+  },
+  {
+   "title": "Number Base Conversions: the Honest Craft",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "digital-logic-design owns binary/octal/hex conversion as the digital prerequisite (routing sanity); power-systems' 'Base Conversion Worked' is per-unit base conversion — a different subject, engineering agent's call."
+  },
+  {
+   "title": "Evaluation Orders and the Dependency Graph",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "compiler ch4: attribute-evaluation order and dependency DAGs in syntax-directed translation; parallel ch2: task-dependency graphs in parallel design — different subjects sharing the phrase."
+  },
+  {
+   "title": "The Anomaly Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "DBMS ch5's anomalies are normalization anomalies (insert/update/delete); financial-economics' are market anomalies — different subjects sharing a title."
+  },
+  {
+   "title": "Static versus Dynamic: the Honest Trade",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "OOP ch5 covers the static-vs-runtime shape trade (binding/dispatch in OO); PLP ch2 covers static-vs-dynamic SCOPE — different language concepts, each in its specialist book."
+  },
+  {
+   "title": "Queues and Pub-Sub",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "backend ch6 teaches message-queue/pub-sub middleware (scale discipline); OOP ch8 teaches the Observer design pattern — architectural infrastructure vs OO pattern, different treatments."
+  },
+  {
+   "title": "Separate Compilation and the Preprocessor",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Language-specific practice per routing sanity: C's header/preprocessor model vs C++'s ODR/linkage/separate-compilation model — distinct lessons in each language's book."
+  },
+  {
+   "title": "The Slicing Trap, Priced on a Bug",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Token artifact ('Trap, Priced on a Bug'): C++ object slicing vs Python mutable-default trap — different lessons, each core to its language book."
+  },
+  {
+   "title": "The Platform on One Page",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Java's JVM platform vs JavaScript's web platform — each book's own synthesis."
+  },
+  {
+   "title": "The Toolchain Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Python's toolchain (pip/venv/packaging) is core python-programming ch1; computational-chemistry's copy is chemistry-side (their agent's call)."
+  },
+  {
+   "title": "The Testing Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Python's pytest/testing census is core practice; building-materials' is materials testing — different subjects, engineering agent's call."
+  },
+  {
+   "title": "The Test Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Frontend's testing census (unit/component/tooling) is core ch7; high-voltage-engineering's is HV testing — different subjects, engineering agent's call."
+  },
+  {
+   "title": "Vector Clocks, Named",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Vector clocks are distributed-systems core (ch3 Time, Ordering and Elections); electrical-machines' 'Vector Groups by the Clock' is transformer vector groups — token artifact, engineering agent's call."
+  },
+  {
+   "title": "The Commitment Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "cloud ch6's commitment census is cost-engineering reserved-capacity commitments; behavioural-economics' is commitment devices — different subjects."
+  },
+  {
+   "title": "The Incident Lifecycle Traced",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "cybersecurity's incident-response lifecycle (ch7 Assurance and Incident Response) is the specialist home; mobile-app's 'The Lifecycle Traced' is the Android ACTIVITY lifecycle — token artifact, different subject."
+  },
+  {
+   "title": "The Engine on One Page",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Deep learning's engine vs information retrieval's search engine — each book's own synthesis."
+  },
+  {
+   "title": "The Field on One Page with Its Strata",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Computer vision's field strata vs NLP's field strata — each book's own synthesis."
+  },
+  {
+   "title": "The Retrieval-Augmentation Contract",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Generative-AI owns the RAG contract proper (ch7 The Application Era); IR's member is its doorstep pointer lesson to RAG — by-design pointer, not a duplicate treatment."
+  },
+  {
+   "title": "Heuristic Evaluation Traced",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Nielsen's heuristic evaluation is HCI's classic method (ch4 The Evaluation Discipline); IR's 'Boolean Evaluation Traced' is boolean retrieval evaluation — token artifact."
+  },
+  {
+   "title": "The Capacity Arithmetic",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "IR ch5's capacity arithmetic (index-space estimation in Index Construction and Compression) is legit IR; operations-management's capacity planning is a different subject."
+  },
+  {
+   "title": "The Application Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "IoT's application-domains census is core ch1; digital-signal-processing's applications census is engineering-side (their agent's call)."
+  },
+  {
+   "title": "The Digital Twin Named Honestly",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "IoT's digital twin is the edge/cloud control-loop construct (ch4 The Edge and Cloud Partnership); cad-cam's is the manufacturing-lifecycle twin — different treatments; engineering agent adjudicates its side."
+  }
+ ],
+ "thin": [
+  {
+   "book": "computer-fundamentals",
+   "chapter": 1,
+   "action": "keep",
+   "targetChapter": 0,
+   "reason": "The thin flag followed the false auto-move of lesson [0]; vetoed and retitled, ch1 keeps its 3 lessons (structure/hardware census/software)."
+  },
+  {
+   "book": "assembly-and-microprocessors",
+   "chapter": 2,
+   "action": "keep",
+   "targetChapter": 0,
+   "reason": "Thin only because the two core 8085 lessons were falsely removed; with vetoes applied ch2 keeps all 3 lessons."
+  },
+  {
+   "book": "assembly-and-microprocessors",
+   "chapter": 3,
+   "action": "keep",
+   "targetChapter": 0,
+   "reason": "Same: veto restores 'The 8086 Architecture'; ch3 keeps 3 lessons."
+  },
+  {
+   "book": "assembly-and-microprocessors",
+   "chapter": 7,
+   "action": "keep",
+   "targetChapter": 0,
+   "reason": "Same: vetoes restore the 8259 and 8255 lessons; ch7 keeps 4 lessons."
+  },
+  {
+   "book": "data-structures",
+   "chapter": 6,
+   "action": "keep",
+   "targetChapter": 0,
+   "reason": "Vetoing the priority-queue 'dup' removal restores the third lesson; Heaps and Priority Queues is a proper chapter at 3."
+  },
+  {
+   "book": "python-programming",
+   "chapter": 7,
+   "action": "keep",
+   "targetChapter": 0,
+   "reason": "Thin only via the chapter-move; vetoed — 'The Modern Idiom Census' keeps generators/typing/stdlib (3 lessons) as a coherent chapter."
+  },
+  {
+   "book": "deep-learning",
+   "chapter": 1,
+   "action": "keep",
+   "targetChapter": 0,
+   "reason": "'The Trio That Made 2012' was falsely removed; ch1 keeps 3 lessons."
+  }
+ ],
+ "order": [],
+ "extra": [
+  {
+   "book": "computer-fundamentals",
+   "chapter": 1,
+   "title": "The Basic Structure and Operation of the Computer (the information processing cycle; the program development tools)",
+   "action": "retitle",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "The Basic Structure and Operation of the Computer",
+   "reason": "junkSuspect: parenthetical gloss is OCR-style run-on; lesson is the correct ch1 opener. Keep in place, clean the title."
+  },
+  {
+   "book": "assembly-and-microprocessors",
+   "chapter": 3,
+   "title": "Segmentation: the 16-bit Trick",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "junkSuspect 'numeric run' is a false positive: '16-bit' is the essential content (segmentation as the 16-bit addressing trick). Keep as titled."
+  },
+  {
+   "book": "compiler-design",
+   "chapter": 1,
+   "title": "The Processor Census: Compile versus Interpret (the language-translator family — assembler, compiler, interpreter)",
+   "action": "retitle",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "The Processor Census: Compile versus Interpret",
+   "reason": "junkSuspect: parenthetical gloss run-on; the translator-census lesson is correctly placed in ch1 'The Compiler's Job'. Drop the gloss."
+  },
+  {
+   "book": "java-programming",
+   "chapter": 8,
+   "title": "The Pitfalls Census and the Ecosystem (the applet and servlet eras named)",
+   "action": "retitle",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "The Pitfalls Census and the Ecosystem",
+   "reason": "junkSuspect: parenthetical gloss run-on; the pitfalls/ecosystem lesson is correctly placed in ch8 'The Effective Craft'. Drop the gloss."
+  }
+ ],
+ "notes": "All 11 misAdjudicate items KEEP (token scores are noise; verified against chapter context). All 17 autoActions VETOED: 8 'junk-certain' removes are numeric false positives (8085/8086/8259/8255 part numbers, IEEE 754, ISO 9126, the 2012 AlexNet year — raw titles verified clean in book.ts); the DS priority-queue 'dup' is ADT-vs-implementation, not duplication; 8 cross-discipline moves are token-score absurdities (chemistry/economics/nursing/OOP/COA targets); the python typing chapter-move would misfile modern idioms. With vetoes applied, all 7 thin chapters resolve to keep at full strength. Dupes: 39/40 clusters are house-pattern syntheses (Craft/Field/Language/Platform/Engine-on-One-Page, Doorsteps) or token artifacts ('Disease Demonstrated', 'Lifecycle Traced', 'Salient Features') — keep-both; the only consolidation is Diffie-Hellman to cryptography, the specialist whose subject it IS. junkSuspect: 3 parenthetical-gloss retitles, 1 keep. Chapter order: all 44 books follow classic textbook progressions (Mano, Stallings, Sipser, dragon-book, K&R, Sutton, Manning et al.) — nothing clearly wrong to flag. Free scan found no non-CS junk lines inside CS books beyond the flagged items. No new topics invented; nothing moved into or out of the four exempt math books."
+}

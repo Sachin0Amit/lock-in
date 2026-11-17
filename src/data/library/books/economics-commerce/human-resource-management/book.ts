@@ -28,8 +28,6 @@ const chapters: Chapter[] = [
       'The Line-and-Staff Craft',
       'The Strategic Register',
       'The Metrics Census',
-      'Nature and Significance of Management',
-      '11-3b Some Important Common Resources'
     ],
   },
   {
@@ -135,8 +133,6 @@ const chapters: Chapter[] = [
       'The Analytics Census',
       'The Gig Honesty',
       'The Professional Doorway',
-      '1-2 How People Interact 8 Key Concepts',
-      '17-2e Why People Sometimes Cooperate'
     ],
   },
 ]

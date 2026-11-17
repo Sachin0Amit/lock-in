@@ -56,7 +56,6 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Motivation in the Public Service',
       'Leadership and Communication',
       'The Decision Craft',
       'Morale and the Committee\u2019s Groupthink',
@@ -104,7 +103,6 @@ const chapters: Chapter[] = [
       'The Apex: PMO and Cabinet Secretariat',
       'The Ministries and the Departments',
       'The Civil Services\u2019 Craft',
-      'The Collector and the Local Government',
     ],
   },
   {
@@ -135,8 +133,6 @@ const chapters: Chapter[] = [
       'The Implementation Science',
       'The e-Governance Models',
       'The Charters and the Reforms',
-      'Government Policies, Interventions and the Development Industry',
-      'Welfare Schemes for Vulnerable Sections: Poverty and Hunger',
     ],
   },
   {

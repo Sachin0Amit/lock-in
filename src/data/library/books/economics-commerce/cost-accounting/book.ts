@@ -28,10 +28,7 @@ const chapters: Chapter[] = [
       'The Behaviour Register',
       'The Cost Sheet Assembled',
       'Centre versus Unit',
-      '7-2a Cost and the Willingness to Sell 139 9-3c The Infant-Industry Argument',
-      '14-2d Spilt Milk and Other Sunk Costs',
-      '13-1c The Cost of Capital as an Opportunity Cost 249 Upward',
-      '15-3b The Monopoly’s Profit: A Social Cost? 303 17-2b Oligopolies as a Prisoners’ Dilemma'
+      'Spilt Milk and Other Sunk Costs',
     ],
   },
   {
@@ -92,7 +89,6 @@ const chapters: Chapter[] = [
       'The Batch Arithmetic',
       'The Contract Registers',
       'The Process-and-Joint Ledger',
-      'The Costs of Production 247 If They Make Zero Profit?'
     ],
   },
   {

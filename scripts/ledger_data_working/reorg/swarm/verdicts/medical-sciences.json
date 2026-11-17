@@ -1,0 +1,1223 @@
+{
+ "agent": "medical-sciences",
+ "autoReview": [
+  {
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "title": "The 305-Day Register Named",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "junk-certain is a false positive: the 305-day lactation register is the standard dairy-production concept, exactly the house style (ration crafts beside 'The Pearson Square Named') in the husbandry-and-nutrition register; the numeric-run heuristic flagged a real constant, not a page run."
+  },
+  {
+   "book": "histology",
+   "chapter": 5,
+   "title": "The Filtration Barrier Held with Its Cells",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "not a dup of ch3's 'The Barrier Held with Its Cells': ch5's is the glomerular filtration barrier (renal-endocrine histology), ch3's is the alveolar blood-air barrier (cardiorespiratory histology, beside the surfactant receipt) — two distinct lessons, each in its correct chapter."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 5,
+   "title": "The NAND function",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "digital-logic-design",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "misplaced, but nursing is a token artifact (NAND matched NANDA nursing diagnoses): the NAND function is Boolean logic — the honest home is digital-logic-design ch2 'Boolean Algebra and Logic Gates', not a medical book."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "BIO Surface Waves and the Swimming Medicine\b",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "OCR-mangled junk title with no honest medical-sciences home; medical-biochemistry ch2 (plasma proteins and enzyme diagnosis) would receive noise; remove at source in the physics shelf."
+  },
+  {
+   "book": "atomic-physics",
+   "chapter": 2,
+   "title": "BIO Electron Volts and Cancer Radiotherapy \b",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "the electron-volt energy scale is the physics register's own subject (radiotherapy is the application example); general-surgery ch6 (hernia/biliary/colorectal) is a nonsense target, and the clinical radiotherapy anchor already exists at general-surgery ch7 ('Radiotherapy and Radiodiagnosis'); the physics agent should retitle the mangled 'BIO…\\b' prefix at source."
+  },
+  {
+   "book": "statistics-for-economics",
+   "chapter": 6,
+   "title": "The Labour Registers",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "homonym artifact: 'labour' here is labour-force/official statistics (its own book's ch6 'The Official Data System'), not obstetric labour; obstetrics-gynaecology must not receive it."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 3,
+   "title": "In the Department of Biochemistry at the University Production of Urea",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "OCR-mangled sentence; the urea-cycle topic is already owned by medical-biochemistry ch5 ('The Urea Engine and Its Consequence') — no honest home for the mangled line; remove at source."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 1,
+   "title": "Nucleic Acids: DNA and RNA",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "nucleic-acid structure is the molecular-biology register itself; medical-microbiology ch1 owns the host-pathogen and laboratory craft, not nucleic-acid chemistry."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 1,
+   "title": "The Cytoplasm Is Organized by the Molecular Anatomy Reveals Evolutionary Relationships",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "OCR-mangled concatenation; 'molecular anatomy' is not gross anatomy — the anatomy book must not receive it; no honest home, remove at source."
+  },
+  {
+   "book": "economic-botany",
+   "chapter": 1,
+   "title": "Interactions among Molecules 9 Importance in Medicine",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "OCR-mangled line (stray page number, concatenated fragments); medical-biochemistry ch2's plasma-protein/enzyme register is not an honest home; remove at source."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 7,
+   "title": "Homeostasis and Its Mechanisms",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "the general animal homeostasis register stays with the biology shelf; medical-physiology ch1 already owns the human-clinical frame ('The Internal Milieu Held as the Frame') — genuinely different treatments, keep-both."
+  },
+  {
+   "book": "anatomy",
+   "chapter": 1,
+   "title": "Anesthesia",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "bare specialty word with no anatomy content; general-surgery ch7 already owns 'Anesthesiology' in the allied-specialty register — covered, so remove rather than move (and ch1 'Principles-and-Sterility' would be the wrong chapter anyway)."
+  },
+  {
+   "book": "anatomy",
+   "chapter": 1,
+   "title": "Orthopedics",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "bare specialty word; general-surgery ch7 already owns 'Orthopaedics' — covered; remove rather than move."
+  },
+  {
+   "book": "medical-microbiology",
+   "chapter": 1,
+   "title": "Human Diseases Caused by Viruses, Bacteria and Fungi",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "the pathogen-classed human-disease census IS the medical-microbiology register (ch1's host-pathogen frame); the biology-shelf immunology book owns immune machinery and its ch8 is the techniques register — no honest target."
+  },
+  {
+   "book": "medical-microbiology",
+   "chapter": 7,
+   "title": "Emerging Infectious Diseases and the Pathogenicity Mechanisms",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "emerging infectious disease with pathogenicity mechanisms is the clinical/public register (med-micro ch7 'Infection-Control-and-Public'); the biology-shelf microbiology ch1 is the Discovery Register — the move demotes the clinical register to the general one."
+  },
+  {
+   "book": "community-medicine",
+   "chapter": 6,
+   "title": "Social and Preventive Medicine (Community Medicine)",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "economic-botany is an absurd token-match target; the line is self-referential curriculum noise (the book's own discipline name) duplicating the book's whole subject — remove."
+  },
+  {
+   "book": "pharmacology",
+   "chapter": 1,
+   "title": "Scientific Inquiry and Reasoning Skills: Knowledge of Scientific Concepts and Principles",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "junkSuspect adjudication: outcome approved (remove) but for the right reason — an MCAT exam-blueprint skill-section line with no pharmacology lesson content; 'already covered in internal-medicine' is false (the internal-medicine copy is itself removed)."
+  },
+  {
+   "book": "forensic-medicine",
+   "chapter": 7,
+   "title": "Scientific Inquiry and Reasoning Skills: Reasoning about the Design and Execution of Research",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "junkSuspect adjudication: outcome approved (remove) with corrected reason — an MCAT exam-blueprint skill-section line, not forensic content; it is not 'covered in internal-medicine' (that copy is also removed)."
+  },
+  {
+   "book": "community-medicine",
+   "chapter": 3,
+   "title": "Scientific Inquiry and Reasoning Skills: Data-based and Statistical Reasoning",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "junkSuspect adjudication: outcome approved (remove) with corrected reason — an MCAT exam-blueprint skill-section line; the substantive statistical-reasoning register is already owned by community-medicine ch3's own lessons (p-value, sensitivity-PPV, life-table)."
+  },
+  {
+   "book": "internal-medicine",
+   "chapter": 1,
+   "title": "Scientific Inquiry and Reasoning Skills: Scientific Reasoning and Problem Solving",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "MCAT exam-blueprint skill-section line, not a medical lesson; ping-ponging it to pharmacology ch1 just relocates the noise — remove, as with the three sibling copies (whose auto-removals are approved)."
+  },
+  {
+   "book": "internal-medicine",
+   "chapter": 7,
+   "title": "Physiological Adaptation and Clinical Instability",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "physiological adaptation/clinical instability is the critical-care register of internal-medicine ch7 (qSOFA, shock division, WHO ladder); medical-physiology ch3 (blood and haemostasis) is the wrong home."
+  },
+  {
+   "book": "general-surgery",
+   "chapter": 3,
+   "title": "General Surgery (including Orthopedics, Anesthesia and Radiodiagnosis)",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "anatomy ch5 (head and neck) is a nonsense target; the line is self-referential curriculum noise duplicating the book's own subject — its named specialties are already anchored as general-surgery ch7's specialty lines (Anesthesiology, Orthopaedics, Radiotherapy and Radiodiagnosis, Ophthalmology and ENT)."
+  },
+  {
+   "book": "general-surgery",
+   "chapter": 7,
+   "title": "Orthopaedics",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "'Orthopaedics' is the allied-specialty register line of general-surgery ch7; dentistry ch1 (oral-anatomy review) matched on 'orthodontics' tokens — no honest dental home."
+  },
+  {
+   "book": "dentistry",
+   "chapter": 2,
+   "title": "General Human Anatomy with Embryology and Histology",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "BDS professional-register subject line: professional-subject lines route to the professional books (dentistry), not to the core clinical books — the core anatomy register stays separate, so no cross-book dup."
+  },
+  {
+   "book": "dentistry",
+   "chapter": 2,
+   "title": "General Human Physiology, Biochemistry, Nutrition and Dietetics",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "BDS professional-register subject line stays in dentistry ch2; plant-pathology ch1 (founding concepts of plant disease) is an absurd token-match target."
+  },
+  {
+   "book": "dentistry",
+   "chapter": 3,
+   "title": "General Pathology and Microbiology",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "BDS subject line stays in the dentistry professional register; foundation-biology ch9 (the doorstep) is not an honest home for a human pathology subject line."
+  },
+  {
+   "book": "dentistry",
+   "chapter": 3,
+   "title": "General and Dental Pharmacology and Therapeutics",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "BDS subject line (general + dental pharmacology) stays in dentistry; medical-physiology ch8 is an absurd target — the physiology book does not own pharmacology subjects."
+  },
+  {
+   "book": "dentistry",
+   "chapter": 3,
+   "title": "Oral Pathology and Oral Microbiology",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "oral pathology and oral microbiology is a core BDS subject — the dentistry book's own register; 'already covered in foundation-biology' is false (general biology does not cover oral pathology)."
+  },
+  {
+   "book": "nursing",
+   "chapter": 4,
+   "title": "Safety and Infection Prevention and Control",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "NCLEX client-need subcategory line of the nursing clinical arc; cybersecurity ch4 (software and web attacks) matched on 'safety' tokens — absurd."
+  },
+  {
+   "book": "nursing",
+   "chapter": 4,
+   "title": "Applied Anatomy and Applied Physiology for Nurses",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "nursing professional-register subject line; plant-anatomy ch5 (the leaf) is an absurd token-match target on 'anatomy'."
+  },
+  {
+   "book": "pharmacy",
+   "chapter": 1,
+   "title": "Anatomy, Physiology and Pathophysiology for Pharmacists",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "B.Pharm professional-register subject line stays in pharmacy ch1's profession register; plant-anatomy ch5 is an absurd target."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "title": "Animal Genetics and Breeding",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "B.V.Sc professional-register subject line in the husbandry register; genetics ch4 (chromosome errors) is the general-biology register — animal breeding routes to veterinary/animal husbandry, not human genetics."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "title": "Livestock Products Technology",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "B.V.Sc subject line (dairy/meat/wool products processing) in the husbandry register; biotechnology ch7 (expression and the industrial register) is not its home."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 3,
+   "title": "Veterinary Pharmacology and Toxicology",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "B.V.Sc subject line in the veterinary register; medical-physiology ch8 is an absurd target."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 3,
+   "title": "Veterinary Microbiology and Pathology",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "B.V.Sc subject line; 'already covered in foundation-biology' is false — veterinary microbiology/pathology is the veterinary register, not general biology."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 4,
+   "title": "Veterinary Surgery, Anaesthesiology and Diagnostic Imaging (including Orthopedics)",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "B.V.Sc specialty line — veterinary surgery is NOT covered by the human anatomy book; keep it as the fuller of the within-chapter surgery pair (the shorter 'Veterinary Surgery and Radiology' twin is removed instead, see extra)."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 4,
+   "title": "Veterinary Gynecology, Obstetrics and Andrology",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "B.V.Sc specialty line — veterinary theriogenology is NOT covered by the human obstetrics book; keep it as the fuller of the within-chapter pair (the shorter 'Veterinary Gynaecology and Obstetrics' twin is removed instead, see misplaced)."
+  },
+  {
+   "book": "anatomy",
+   "chapter": 8,
+   "title": "Applied Anatomy: The Clinical Surface Register",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "applied/surface anatomy belongs with ch8's surface-projection and imaging correlate; moving to ch3 (the thorax) would narrow a whole-body register to one region."
+  },
+  {
+   "book": "histology",
+   "chapter": 1,
+   "title": "The Preparation Arc Held",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "tissue preparation (fixation, processing, sectioning) is the method chapter's own subject; ch7 (pathology doorway) does not own it."
+  },
+  {
+   "book": "histology",
+   "chapter": 2,
+   "title": "The Three Muscles by Their Slides",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "skeletal/cardiac/smooth muscle histology belongs to the basic-tissues chapter; moving to ch3 just because cardiac muscle is cardiovascular is wrong."
+  },
+  {
+   "book": "histology",
+   "chapter": 3,
+   "title": "The Barrier Held with Its Cells",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "ch3's barrier is the alveolar blood-air barrier (beside the surfactant receipt) — it belongs in the cardiorespiratory chapter, not ch5 (renal/endocrine); the score compared it against the glomerular filtration barrier, which is a different lesson that already exists in ch5."
+  },
+  {
+   "book": "medical-microbiology",
+   "chapter": 7,
+   "title": "The Human Disease Census: Malaria to Chikungunya",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "the disease census (malaria-to-chikungunya) is the public-register surveillance line of ch7; malaria is parasitic — moving it into ch5 (clinical virology) would misfile it."
+  },
+  {
+   "book": "medical-microbiology",
+   "chapter": 7,
+   "title": "Food Spoilage and Microbial Toxins",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "food safety and food-borne toxins belong to ch7's infection-control-and-public register; the gram-positive chapter (ch2) is wrong — the relevant toxins span many organism classes."
+  },
+  {
+   "book": "general-surgery",
+   "chapter": 4,
+   "title": "The Parkland Receipt Priced Straight",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "the Parkland burn-resuscitation formula belongs in ch4 (trauma-and-burn registers); ch3 (surgical infection) is the wrong register."
+  },
+  {
+   "book": "nursing",
+   "chapter": 4,
+   "title": "Management of Care and Coordination",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "management-of-care is the NCLEX client-need subcategory of the clinical-nursing arc (ch4, with Safety, Risk Reduction, Psychosocial, Basic Care and Comfort); moving it alone to ch5 would fragment the blueprint set — ch5's leadership register carries its own process arc."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 1,
+   "title": "Veterinary Anatomy and Physiology: The Comparative Frame",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "the comparative frame IS ch1's subject; ch5 (veterinary public health and doorway) has nothing to do with it."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "title": "Veterinary Biochemistry",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "the B.V.Sc biochemistry subject line sits with the husbandry-and-nutrition register (ch2) whose ration/dairy crafts it anchors; ch5 (public health and doorway) is not its home."
+  }
+ ],
+ "misplaced": [
+  {
+   "book": "anatomy",
+   "chapter": 7,
+   "title": "The Arch-and-Pouch Craft",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "the pharyngeal arch-and-pouch craft is core embryology in the embryology-for-the-clinic chapter; the best-book hints (animal-diversity/architecture/indian-history) are token noise."
+  },
+  {
+   "book": "medical-physiology",
+   "chapter": 1,
+   "title": "The Internal Milieu Held as the Frame",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "homeostasis as the founding frame of human physiology — the clinical-human register; genuinely different from the biology shelf's general-animal treatment (keep-both per cluster)."
+  },
+  {
+   "book": "medical-physiology",
+   "chapter": 2,
+   "title": "The Coupling Cycle Walked Slowly",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "excitation-contraction coupling in the excitable-tissues chapter; the molecular-biology/rhythm-meter hints are token artifacts."
+  },
+  {
+   "book": "medical-physiology",
+   "chapter": 5,
+   "title": "The CO2 Honesty Held Straight",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "CO2 transport and acid-base honesty in the respiratory chapter; hints (plant-ecology/internal-medicine) are noise."
+  },
+  {
+   "book": "medical-physiology",
+   "chapter": 7,
+   "title": "The Calcium Register Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "calcium homeostasis (PTH/vitamin D/calcitonin) in the GI-and-endocrine register; the biotechnology/community-medicine hints are token noise."
+  },
+  {
+   "book": "medical-biochemistry",
+   "chapter": 8,
+   "title": "Applied Nutrition and Dietetics",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "clinical nutrition/dietetics is the applied register of the integration chapter; no dietetics book exists in the library, so medical biochemistry is the honest medical home."
+  },
+  {
+   "book": "medical-biochemistry",
+   "chapter": 8,
+   "title": "The Chemical Processes of Life",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "the integration chapter's summary frame (biochemistry as the chemical processes of life); the psychology hint is token noise."
+  },
+  {
+   "book": "histology",
+   "chapter": 4,
+   "title": "The Stomach\u2019s Cells by Their Secretions",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "gastric-cell histology (parietal/chief cells by secretion) in the GI-and-glandular chapter; correct placement."
+  },
+  {
+   "book": "medical-microbiology",
+   "chapter": 1,
+   "title": "The AB-Toxin Craft Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AB-toxin mechanisms in the host-pathogen chapter — core clinical microbiology."
+  },
+  {
+   "book": "medical-microbiology",
+   "chapter": 5,
+   "title": "The A-E Route Map Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "the hepatitis A-E route map in the clinical virology register; the nursing/clinical-immunology hints are token noise."
+  },
+  {
+   "book": "medical-microbiology",
+   "chapter": 6,
+   "title": "The Sibling Cross-Reference Held Straight",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "the mycology-parasitology bridge lesson (cross-reference to the biology-shelf parasitology register) — the preview chapter's own closing craft; the photography/classical-dance hints are noise."
+  },
+  {
+   "book": "clinical-immunology",
+   "chapter": 1,
+   "title": "CARS: Reading Comprehension (humanities and social sciences passages)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "MCAT exam-section descriptor leaked into the bridge-and-review chapter; no medical-sciences home for a reading-comprehension test blueprint — junk."
+  },
+  {
+   "book": "forensic-medicine",
+   "chapter": 2,
+   "title": "The Four Signs by Their Clocks",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "early post-mortem signs with their time clocks (algor/rigor/livor) — the death register's own thanatology craft; the mandarin/japanese/arithmetic hints are token noise."
+  },
+  {
+   "book": "forensic-medicine",
+   "chapter": 3,
+   "title": "The Rule-of-Nines Fixed by Drill",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "burn-extent (TBSA) estimation belongs to the forensic thermal-and-electrical register the book's own design claims for ch3; general-surgery ch4 owns the complementary Parkland fluid arithmetic — genuinely different treatments, keep-both."
+  },
+  {
+   "book": "community-medicine",
+   "chapter": 6,
+   "title": "Health Promotion and Maintenance",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "winner of the exact-dup cluster: health promotion is community medicine's register (ch6's health-system register plus ch1's prevention census); the nursing copy is removed."
+  },
+  {
+   "book": "internal-medicine",
+   "chapter": 4,
+   "title": "The Three-Jaundice Division Fixed Once",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "the pre-hepatic/hepatic/post-hepatic division is the gastroenterology-and-hepatology workup; medical-biochemistry ch6's panel-and-urine version is a genuinely different (laboratory) treatment."
+  },
+  {
+   "book": "internal-medicine",
+   "chapter": 6,
+   "title": "Dermatology and STD",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "the physician's register owns the dermatology-and-STD clinical line (no dermatology book exists in the library); the forensic/obg hints are noise."
+  },
+  {
+   "book": "pediatrics",
+   "chapter": 5,
+   "title": "Child Health Nursing for the Paediatrician",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "child health nursing is the nursing professional register — already covered by nursing ch5 'Child Health Nursing'; the paediatrician's view is the pediatrics book itself."
+  },
+  {
+   "book": "dentistry",
+   "chapter": 2,
+   "title": "Pre-clinical Conservative Dentistry",
+   "action": "move",
+   "targetBook": "dentistry",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "conservative dentistry (cavity preparation and restoration craft) belongs to the restorative-and-endodontic craft (ch4), not the cariology-and-prevention register (ch2); intra-book move."
+  },
+  {
+   "book": "dentistry",
+   "chapter": 3,
+   "title": "Fourth Year: Periodontology",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "curriculum-timeline noise duplicating the chapter's own subject (ch3 IS the periodontology register); completes the auto-dedup that removed the sibling 'Third/Fourth Year' lines."
+  },
+  {
+   "book": "nursing",
+   "chapter": 1,
+   "title": "Safe and Effective Care Environment",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "the NCLEX client-need umbrella line in the foundation register — the nursing professional register's own competency map; the psychology/forensic hints are noise."
+  },
+  {
+   "book": "nursing",
+   "chapter": 4,
+   "title": "The Reduction of Risk Potential",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "NCLEX client-need category of the clinical-nursing arc; the acting/database/mechanics hints are token noise."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "title": "Animal Welfare, Ethics and Jurisprudence",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "B.V.Sc subject line in the husbandry register (beside the Five-Freedoms lesson and the Cruelty Act); animal-behaviour (biology) owns the general register, not the veterinary professional one."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 4,
+   "title": "Veterinary Gynaecology and Obstetrics",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "within-chapter duplicate of the fuller 'Veterinary Gynecology, Obstetrics and Andrology' line; the veterinary register stays via the fuller line — NOT via the human obstetrics-gynaecology book (best-book hint rejected)."
+  }
+ ],
+ "dupes": [
+  {
+   "title": "The Media\u2019s Political Economy",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "token-similarity artifact spanning unrelated disciplines; the two medical-microbiology members are distinct registers — the pathogen-classed disease census (ch1) vs the public-register disease census (ch7) — no consolidation warranted; non-medical members belong to their own agents."
+  },
+  {
+   "title": "Community Health Nursing and Epidemiology",
+   "action": "consolidate",
+   "winner": "nursing",
+   "reason": "community-health nursing is the nursing professional register (nursing ch5 'Community Health Nursing' is the anchor); community-medicine's copy is removed (its epidemiology half is owned by community-medicine ch2, its nursing half by nursing ch5); pediatrics' copy is removed (misplaced verdict); nursing's other members (mental-health, geriatric-palliative, child-health) are distinct nursing specialties and stay."
+  },
+  {
+   "title": "The Calcium Trigger Walked Slowly",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "genuinely different treatments: the general-animal calcium trigger (animal-physiology) vs the human excitation-contraction coupling (medical-physiology ch2); the other members (clone, ribosome sites, 3-against-4 polyrhythm) are token-phrase artifacts in unrelated books."
+  },
+  {
+   "title": "Chemotherapy/Antibiotics",
+   "action": "consolidate",
+   "winner": "pharmacology",
+   "reason": "the medical chemotherapy register consolidates to pharmacology ch5 (target census by classes; the approved auto-action removes medical-microbiology's duplicate 'Chemotherapy and the Antibiotic Classes', whose MIC/susceptibility craft remains in med-micro ch1); the biology-shelf members (evolution's selection framing, microbiology's control-era register) are genuinely different general-register treatments retained by the biology agent."
+  },
+  {
+   "title": "The Plexus Walked Once",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "'Walked Once' is the house-style cadence, not a topic; the members are distinct registers each in its correct book — brachial plexus (anatomy), comparative systems arc, ADPIE process arc (nursing), labour movements (obg)."
+  },
+  {
+   "title": "Scientific Inquiry and Reasoning Skills: Data-based and Statistical Reasoning",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "all four copies are MCAT exam-blueprint skill-section lines leaked into medical books (pharmacology, forensic-medicine, community-medicine, internal-medicine); all removed — three via approved auto-actions, the internal-medicine copy via veto-amend — no medical-sciences home, so no winner retained."
+  },
+  {
+   "title": "Veterinary Anatomy (Gross Anatomy, Histology and Embryology, Splanchnology)",
+   "action": "consolidate",
+   "winner": "veterinary-medicine",
+   "reason": "the veterinary-anatomy register is owned by veterinary-medicine ch1 ('Veterinary Anatomy and Physiology: The Comparative Frame'); the B.V.Sc line leaked into the human anatomy book's thorax chapter is removed (see extra); anatomy ch7's 'First Year: General Human Anatomy' copy is self-referential curriculum noise (removed); dentistry's BDS general-anatomy line stays as the professional-register treatment (auto-remove vetoed)."
+  },
+  {
+   "title": "Veterinary Clinical Medicine (including Clinical Biochemistry and Laboratory Diagnosis)",
+   "action": "consolidate",
+   "winner": "veterinary-medicine",
+   "reason": "the veterinary clinical register is owned by veterinary-medicine (ch2 'Veterinary Biochemistry' + ch4 'Veterinary Medicine: The Clinical Register'); the medical-biochemistry ch8 copy — a B.V.Sc line leaked into the human book — is removed (see extra)."
+  },
+  {
+   "title": "General Pathology and Microbiology",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "genuinely different professional registers: the BDS general pathology-and-microbiology line, the BDS oral-pathology-and-oral-microbiology line (both stay in dentistry), and the B.V.Sc veterinary line (stays in veterinary-medicine); each routes to its own professional book per the professional-register rule."
+  },
+  {
+   "title": "The Multi-Step Register",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "unrelated topics sharing 'multi-step' tokens — organic-synthesis route planning vs multistage carcinogenesis ('The Multi-Step Clonal Honesty'); each stays in its own book."
+  },
+  {
+   "title": "The Food-Products Technology Register",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "different registers: industrial food-products chemistry (chemistry shelf) vs the B.V.Sc livestock-products-technology line (veterinary husbandry register); the veterinary line stays."
+  },
+  {
+   "title": "The Glucose Dial Held as One Arithmetic",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "the general-animal glucose register (animal-physiology) vs the human-clinical glucose dial (medical-physiology ch7) — genuinely different treatments across the biology/medical shelves."
+  },
+  {
+   "title": "The Internal Milieu Held as the Founding Gift",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "the general internal-milieu founding (animal-physiology, biology shelf) vs the human homeostasis frame (medical-physiology ch1) — genuinely different registers."
+  },
+  {
+   "title": "Sexually Transmitted Diseases and Their Prevention",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "the general-biology STD-prevention line (developmental-biology — the biology agent's call) and the clinical dermatology-STD register (internal-medicine ch6 'Dermatology and STD') are genuinely different treatments; the medical-physiology ch3 copy is a misplaced duplicate and is removed (see extra)."
+  },
+  {
+   "title": "The Starling-and-Oedema Mechanisms Named",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "the classic physiology/pathology split: Starling forces and oedema mechanisms (medical-physiology ch4) vs the haemodynamic-disorders register (pathology ch3) — genuinely different treatments."
+  },
+  {
+   "title": "General Human Physiology, Biochemistry, Nutrition and Dietetics",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "the BDS combined subject line (stays in dentistry ch2 as the professional register) vs medical-biochemistry's applied-nutrition register (ch8 integration) — different treatments, not an exact dup."
+  },
+  {
+   "title": "Veterinary Pharmacology (including Chemotherapy)",
+   "action": "consolidate",
+   "winner": "veterinary-medicine",
+   "reason": "veterinary pharmacology is owned by veterinary-medicine ch3 ('Veterinary Pharmacology and Toxicology' — the auto-move to medical-physiology is vetoed); the human pharmacology book's stray copy is removed as already covered (see extra)."
+  },
+  {
+   "title": "The Coverage Arithmetic Cross-Referenced",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "exact title but different subjects: vaccination-coverage arithmetic (medical-microbiology ch7 public register) vs screening-coverage arithmetic (obstetrics-gynaecology ch6 oncology-and-screening register) — genuinely different treatments; both stay."
+  },
+  {
+   "title": "Health Promotion and Maintenance",
+   "action": "consolidate",
+   "winner": "community-medicine",
+   "reason": "health promotion is the community-medicine register (ch6's health-system register plus ch1's prevention census); the exact-duplicate nursing ch4 copy is removed (approved auto-action); nursing keeps its health-promotion craft via the community-health-nursing register."
+  },
+  {
+   "title": "General Surgery (including Orthopedics, Anesthesia and Radiodiagnosis)",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "different professional registers: the veterinary surgery line stays (auto-remove vetoed); the human general-surgery copy is self-referential curriculum noise in its own book and is removed (auto-move vetoed and amended to remove), with its named specialties already anchored as general-surgery ch7's specialty lines."
+  },
+  {
+   "title": "Obstetrics and Gynecology",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "the veterinary gynecology-obstetrics-andrology line stays (auto-remove vetoed; its shorter within-chapter twin removed instead); the obg copy is a self-referential curriculum line duplicating the book's own subject — removed (see extra); no cross-book duplicate remains."
+  },
+  {
+   "title": "The Red-Flag Honesty Priced Straight",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "same title, different subjects: oral-medicine red flags (dentistry ch6, the potentially-malignant register) vs developmental red flags (pediatrics ch1, the growth-and-development register) — genuinely different treatments; both stay."
+  }
+ ],
+ "thin": [],
+ "order": [],
+ "extra": [
+  {
+   "book": "anatomy",
+   "chapter": 3,
+   "title": "Semester I: Anatomy",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "curriculum-timeline noise: a semester marker duplicating the book's own subject."
+  },
+  {
+   "book": "anatomy",
+   "chapter": 3,
+   "title": "Veterinary Anatomy (Gross Anatomy, Histology and Embryology, Splanchnology)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "B.V.Sc subject line leaked into the human anatomy book's thorax chapter; the veterinary register is already owned by veterinary-medicine ch1 ('Veterinary Anatomy and Physiology: The Comparative Frame')."
+  },
+  {
+   "book": "anatomy",
+   "chapter": 7,
+   "title": "First Year: General Human Anatomy including Embryology and Histology",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "junkSuspect adjudication: self-referential first-year curriculum marker duplicating the book's own subject (the book IS general human anatomy with embryology and histology coverage)."
+  },
+  {
+   "book": "medical-physiology",
+   "chapter": 3,
+   "title": "Dermatology and Sexually Transmitted Diseases",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "misplaced MBBS/nursing subject line in the blood-and-haemostasis chapter; duplicates internal-medicine ch6's 'Dermatology and STD' (the clinical register owner)."
+  },
+  {
+   "book": "medical-physiology",
+   "chapter": 3,
+   "title": "Physiological Integrity",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "NCLEX client-need category leaked into the physiology book; nursing owns the client-need register (its ch4 clinical arc) — no physiology lesson exists under this label."
+  },
+  {
+   "book": "medical-physiology",
+   "chapter": 5,
+   "title": "Semester II: Physiology",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "curriculum-timeline noise duplicating the book's own subject."
+  },
+  {
+   "book": "medical-biochemistry",
+   "chapter": 5,
+   "title": "Semester IV: Genetics",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "curriculum-timeline noise in the nitrogen-and-urea chapter; genetics is owned by the biology-shelf genetics book and the molecular register is already covered by med-biochem ch7."
+  },
+  {
+   "book": "medical-biochemistry",
+   "chapter": 8,
+   "title": "Semester I: Biochemistry",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "curriculum-timeline noise duplicating the book's own subject."
+  },
+  {
+   "book": "medical-biochemistry",
+   "chapter": 8,
+   "title": "Veterinary Clinical Medicine (including Clinical Biochemistry and Laboratory Diagnosis)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "junkSuspect adjudication: B.V.Sc line leaked into the human biochemistry book's integration chapter; the veterinary register is owned by veterinary-medicine (ch2 'Veterinary Biochemistry', ch4 'Veterinary Medicine: The Clinical Register')."
+  },
+  {
+   "book": "pathology",
+   "chapter": 4,
+   "title": "Semester III: Pathology",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "curriculum-timeline noise duplicating the book's own subject."
+  },
+  {
+   "book": "pharmacology",
+   "chapter": 3,
+   "title": "Semester IV: Pharmacology",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "curriculum-timeline noise duplicating the book's own subject."
+  },
+  {
+   "book": "pharmacology",
+   "chapter": 3,
+   "title": "Veterinary Pharmacology (including Chemotherapy)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "B.V.Sc line in the human pharmacology book; already covered by veterinary-medicine ch3 ('Veterinary Pharmacology and Toxicology')."
+  },
+  {
+   "book": "medical-microbiology",
+   "chapter": 1,
+   "title": "Semester I: Microbiology",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "curriculum-timeline noise duplicating the book's own subject."
+  },
+  {
+   "book": "forensic-medicine",
+   "chapter": 5,
+   "title": "First Year: Dental Materials",
+   "action": "move",
+   "targetBook": "dentistry",
+   "targetChapter": 4,
+   "newTitle": "Dental Materials",
+   "reason": "dental materials is a BDS subject belonging to the dentistry register's restorative-and-endodontic craft (ch4); it leaked into the forensic sexual-offence chapter as a first-year curriculum marker — move and strip the marker prefix."
+  },
+  {
+   "book": "internal-medicine",
+   "chapter": 1,
+   "title": "Semester IV: Communication and Educational Technology",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "curriculum-timeline noise; clinical communication is already owned by ch1's own lessons (SOCRATES, breaking-bad-news)."
+  },
+  {
+   "book": "internal-medicine",
+   "chapter": 1,
+   "title": "Critical Analysis and Reasoning Skills (CARS)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "MCAT exam-section line; same noise family as the four SIRS copies — no medical-sciences home."
+  },
+  {
+   "book": "internal-medicine",
+   "chapter": 6,
+   "title": "Psychiatry",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "bare specialty word in the haematology-neurology chapter, but the physician's register is the honest survey-depth home in a library with no psychiatry book (the mental-disorders general register lives in the psychology book); kept per the unsure-to-keep rule."
+  },
+  {
+   "book": "obstetrics-gynaecology",
+   "chapter": 3,
+   "title": "Obstetrics and Gynecology",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "self-referential curriculum line duplicating the book's own subject (the whole book IS obstetrics and gynaecology); the veterinary treatment of the topic stays in veterinary-medicine."
+  },
+  {
+   "book": "obstetrics-gynaecology",
+   "chapter": 4,
+   "title": "The 96-Hour Honesty Named",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "junkSuspect adjudication: numeric-run false positive — a clinical-constant lesson (the 96-hour window) in the puerperium-lactation-contraception register."
+  },
+  {
+   "book": "pediatrics",
+   "chapter": 3,
+   "title": "Semester II: Nutrition",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "curriculum-timeline noise duplicating the chapter's own subject (nutrition-and-immunisation)."
+  },
+  {
+   "book": "nursing",
+   "chapter": 1,
+   "title": "Semester VI: Nursing Research and Statistics",
+   "action": "retitle",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "Nursing Research and Statistics",
+   "reason": "nursing research is a real nursing professional subject; the honest cleanup strips the semester marker; kept in the foundation register (no research chapter exists)."
+  },
+  {
+   "book": "nursing",
+   "chapter": 4,
+   "title": "Semester VIII: Management of Nursing Services and Education",
+   "action": "move",
+   "targetBook": "nursing",
+   "targetChapter": 5,
+   "newTitle": "Management of Nursing Services and Education",
+   "reason": "management of nursing services/education is the leadership register (ch5 'The Community, Leadership-and-Process Registers'); strip the semester marker and place it with the leadership-process register."
+  },
+  {
+   "book": "nursing",
+   "chapter": 5,
+   "title": "Semester VII: Midwifery and Obstetrical Nursing",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "semester-marker duplicate of ch5's own 'Midwifery and Obstetric Nursing' lesson."
+  },
+  {
+   "book": "community-medicine",
+   "chapter": 6,
+   "title": "Community Health Nursing and Epidemiology",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "nursing-curriculum line: community-health nursing is the nursing register (nursing ch5 'Community Health Nursing') and epidemiology is owned by community-medicine ch2 (the epidemiology craft) — both halves already covered."
+  },
+  {
+   "book": "dentistry",
+   "chapter": 5,
+   "title": "The 30-Minute Honesty Priced Straight",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "junkSuspect adjudication: numeric-run false positive — the avulsed-tooth 30-minute reimplantation window in the oral-surgery-and-trauma register."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "title": "Animal Nutrition and Livestock Production Management",
+   "action": "retitle",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "Animal Nutrition",
+   "reason": "the livestock-production-management half duplicates ch2's fuller 'Livestock Production Management (including Poultry…)' line; the honest residue is the animal-nutrition subject anchoring the chapter's ration crafts (Pearson square, 305-day register)."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "title": "Livestock Farm Practices",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "vague variant of livestock production management — covered by the fuller LPM line and by the chapter's own practical crafts."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "title": "Livestock Production Management (including Poultry Production and Hatchery Management, Fodder Production and Grassland Management)",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "junkSuspect adjudication: long-line false positive — a genuine B.V.Sc subject with subtopics (not a page-run); it is the LPM anchor (the chapter's vaguer variants are removed/retitled instead)."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 3,
+   "title": "The 70-Percent Honesty Priced Straight",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "junkSuspect adjudication: numeric-run false positive — the ~70% herd-immunity threshold beside the ring-vaccination craft (the book's own description names it)."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 4,
+   "title": "Veterinary Surgery and Radiology",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "within-chapter duplicate of the fuller 'Veterinary Surgery, Anaesthesiology and Diagnostic Imaging (including Orthopedics)' line (kept — auto-remove vetoed)."
+  },
+  {
+   "book": "pharmacy",
+   "chapter": 3,
+   "title": "Pharmaceutical Management, Jurisprudence and Drug Regulatory Affairs",
+   "action": "move",
+   "targetBook": "pharmacy",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "the management/jurisprudence/regulatory subject line sits in the pharmacognosy-and-medchem chapter; the regulatory register (pharmacopoeia, clinical phases, scheduling) is ch5 'The Clinical, Analysis-and-Regulatory Registers'."
+  },
+  {
+   "book": "pharmacy",
+   "chapter": 3,
+   "title": "Pharmaceutical Engineering",
+   "action": "move",
+   "targetBook": "pharmacy",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "pharmaceutical engineering (unit operations) belongs to the pharmaceutics craft (ch2, beside 'Dosage Forms, Unit Operations and Drug Delivery'), not the pharmacognosy-medchem chapter."
+  }
+ ],
+ "notes": "All 19 medical-sciences books scanned; all 24 misAdjudicate items, all 22 dup clusters, all 10 junkSuspect items adjudicated (thinChapters empty, no clearly-wrong chapter order found). Auto-actions: 9 approved (dentistry year-marker dups, nursing SECE dup + health-promotion dup, the four MCAT/biostat noise removals, med-micro chemotherapy dup) and 44 vetoed/amended — the dominant error class was token-matched moves that would strip professional-register subject lines out of dentistry/nursing/pharmacy/veterinary-medicine into absurd targets (plant-anatomy, plant-pathology, cybersecurity, foundation-biology, biotechnology, genetics, medical-physiology) and wrongly dedupe genuinely distinct lessons (the two histology barriers, vet specialty twins). Free scan removed ~21 curriculum-timeline/exam-blueprint noise lines, retitled 2 real nursing subjects, and moved 4 misplaced lines to honest homes (Dental Materials to dentistry ch4, Pre-clinical Conservative Dentistry to dentistry ch4, nursing management line to nursing ch5, 2 pharmacy subject lines to their craft chapters). Cross-shelf keeps verified: medical vs biology-shelf splits hold (physiology, immunology, microbiology) per the keep-both rule for genuinely different treatments."
+}

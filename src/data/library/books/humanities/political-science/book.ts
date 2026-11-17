@@ -31,9 +31,7 @@ const chapters: Chapter[] = [
       'Authority and Legitimacy',
       'The State and Sovereignty',
       'The Approaches\u2019 Census',
-    
-      'Paper-I 4. Political Organization and Social Control (band, tribe, chiefdom, kingdom and state; power, authority and legitimacy; law and justice in simple societies)',
-      'Unit 2: Research Methodology and Methods'
+      'Unit 2: Research Methodology and Methods',
     ],
   },
   {
@@ -46,9 +44,9 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Freedom: Negative and Positive',
-      'Equality and Social Justice',
       'Rights and Citizenship',
       'Secularism and Nationalism',
+      'I 4. Political Organization and Social Control',
     ],
   },
   {
@@ -63,9 +61,8 @@ const chapters: Chapter[] = [
       'Liberalism and Conservatism',
       'Socialism and Its Variants',
       'Feminism, Ecologism, the Newer Currents',
-      'The Political Economy and Globalisation',
       'Chapter XII. Philosophical Liberalism',
-      'Chapter XXVII. Karl Marx'
+      'Chapter XXVII. Karl Marx',
     ],
   },
   {
@@ -82,6 +79,7 @@ const chapters: Chapter[] = [
       'Voting, Parties and Party Systems',
       'Groups, Interests and Movements',
       'Civil Liberties, Civil Rights and American Political Culture',
+      'The RPA and the Elections',
     ],
   },
   {
@@ -95,8 +93,6 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Constitutions and the Rule of Law',
       'Executives and Leadership',
-      'Legislatures and the Judiciary',
-      'The Comparative Constitutional Glance',
       'Foundations of American Democracy and the Branches of Government',
     ],
   },
@@ -113,9 +109,7 @@ const chapters: Chapter[] = [
       'Rights, Duties and the Directive Principles',
       'The Basic Structure Earned',
       'The Amendments\u2019 Census',
-    
       'Unit 7: Pedagogy, Andragogy and Assessment',
-      'Acknowledgements (signed M. Laxmikanth)'
     ],
   },
   {
@@ -129,7 +123,6 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Federal Structure\u2019s Challenges',
       'The Organs at Work',
-      'The RPA and the Elections',
       'The Bodies\u2019 Census',
       'The Union Executive: President, Prime Minister and Council of Ministers',
       'Parliament: Lok Sabha, Rajya Sabha and Committees',
@@ -137,8 +130,8 @@ const chapters: Chapter[] = [
       'Federalism, State Governments and Local Bodies',
       'The Election Commission and Electoral Reforms',
       'Constitutional and Statutory Bodies: CAG to UPSC',
-    
-      'Theories of the State - liberal, neo-liberal, Marxist, pluralist, post-colonial and feminist'
+      'Theories of the State - liberal, neo-liberal, Marxist, pluralist, post-colonial and feminist',
+      'Legislatures and the Judiciary',
     ],
   },
   {
@@ -154,8 +147,7 @@ const chapters: Chapter[] = [
       'Communalism and Secularism in Politics',
       'Regionalism and the Language Question',
       'Representation and the Quota Debate',
-    
-      'Paper-II 9. History of Administration of Tribal Areas, Tribal Policies and Programmes of Tribal Development (concept of PTGs; role of NGOs; role of anthropology in tribal and rural development; contributions to the understanding of regionalism, communalism and ethnic and political movements)'
+      'Ii 9. History Of Administration Of Tribal Areas, Tribal Policies And',
     ],
   },
   {
@@ -171,8 +163,8 @@ const chapters: Chapter[] = [
       'Gandhi\u2019s Swaraj and Satyagraha',
       'Ambedkar\u2019s Argument',
       'The Modern Debate\u2019s Poles',
-    
-      'Indian Political Thought - Dharamshastra, Arthashastra and Buddhist traditions; Sir Syed Ahmed Khan, Sri Aurobindo, M. K. Gandhi, B. R. Ambedkar, M. N. Roy'
+      'Indian Political Thought - Dharamshastra, Arthashastra and Buddhist traditions; Sir Syed Ahmed Khan, Sri Aurobindo, M. K. Gandhi, B. R. Ambedkar, M. N. Roy',
+      'The Comparative Constitutional Glance',
     ],
   },
   {
@@ -188,11 +180,9 @@ const chapters: Chapter[] = [
       'The Global Governance Pointer',
       'The Public Policy Pointer',
       'The Doorstep: Judging Politics',
-    
       'Unit 9: Globalization',
-      'Unit 1: Thinking Geographically',
       'Unit 2: Cognition',
-      'Current Affairs, including General Knowledge (national and international current affairs; political events; global environment; sports; awards and personalities; technology and science; cultural events; Indian business environment)'
+      'Current Affairs, including General Knowledge (national and international current affairs; political events; global environment; sports; awards and personalities; technology and science; cultural events; Indian business environment)',
     ],
   },
 ]

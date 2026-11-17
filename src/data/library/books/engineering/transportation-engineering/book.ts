@@ -59,7 +59,6 @@ const chapters: Chapter[] = [
       'Cambers and Widths Priced',
       'SSD and OSD Earned',
       'The Design-Speed Census',
-      'A parting shot: confusing markings and itty-bitty components'
     ],
   },
   {
@@ -120,9 +119,7 @@ const chapters: Chapter[] = [
       'The Traffic Arithmetic',
       'IRC Flexible Worked',
       'IRC Rigid and Its Joints',
-    
-      'Transportation — tunneling: alignment, methods of construction, disposal of muck, drainage, lighting and ventilation',
-      'Scanning tunneling microscope preamplifier'
+      'Transportation \u2014 Tunneling: Alignment, Methods Of Construction, Disposal',
     ],
   },
   {

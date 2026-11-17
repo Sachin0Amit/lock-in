@@ -104,7 +104,6 @@ const chapters: Chapter[] = [
       'The Invasion\u2019s Hypotheses Held',
       'The Palaeo Honesty',
       'Vegetation Types of the World and the Indian Biogeographical Zones',
-      'Ecology and the Environment',
     ],
   },
   {

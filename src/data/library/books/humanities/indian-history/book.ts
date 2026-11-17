@@ -30,8 +30,7 @@ const chapters: Chapter[] = [
       'The Three Registers of Evidence',
       'The Foreign Accounts',
       'The Periodisation Debate',
-      'Chapter III. Three Doctors of the Church',
-      'Chapter V. The Fifth and Sixth Centuries'
+      'Chapter V. The Fifth and Sixth Centuries',
     ],
   },
   {
@@ -47,8 +46,7 @@ const chapters: Chapter[] = [
       'The Harappan Town and Its Craft',
       'The Sites and the Script',
       'The Decline Question',
-    
-      'Paper-II 1. Evolution of the Indian Culture and Civilization (prehistoric and protohistoric cultures; pre-Harappan, Harappan and post-Harappan; palaeo-anthropological evidences from India; ethno-archaeology in India)'
+      'Ii 1. Evolution Of The Indian Culture And Civilization (prehistoric And',
     ],
   },
   {
@@ -63,8 +61,6 @@ const chapters: Chapter[] = [
       'The Vedic Corpus as Evidence',
       'Buddhism and Jainism',
       'The Mahajanapadas and the Nandas',
-      'Sixth Edition',
-      'Preface to the Sixth Edition (continued — signed M. Laxmikanth)'
     ],
   },
   {
@@ -94,7 +90,6 @@ const chapters: Chapter[] = [
       'The Tripartite Struggle',
       'The Chola State and Its Assemblies',
       'The Temple as Engine',
-      'The Southeast-Asian Reach',
     ],
   },
   {
@@ -153,11 +148,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Acts and the Raj\u2019s Construction',
       'The Reform and the Revival Movements',
-      'The 1857 Revolt and Its Consequences',
-      'The Rise of Indian Nationalism and the Moderates',
       'The Gandhian Phase and Mass Movements',
-      'The Constitution, Partition and Integration of States',
-      'Pages 3–32: body text of that same history book (Chapter 1: The Revolt of 1857 — Economic Causes, Political Causes, Administrative Causes, Socio-Religious Causes, Influence of Outside Events, Discontent Among Sepoys, Beginning and Spread, Storm Centres and Leaders of the Revolt, Suppression of'
     ],
   },
   {
@@ -169,14 +160,12 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Nationalism\u2019s Engines and the Moderates',
       'Gandhi\u2019s Arrival and the Mass Movements',
       'The Left, the Revolutionaries and the INA',
       'Towards Freedom and Partition',
       'The Contributors From Every Region',
-      'Modern Indian History: The Significant Events, Personalities and Issues',
-    
-      'Unit 4: Teacher Education'
+      'Unit 4: Teacher Education',
+      'The Rise of Indian Nationalism and the Moderates',
     ],
   },
   {
@@ -190,8 +179,8 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Integration and Reorganisation',
       'The Planned Economy and the Green Revolution',
-      'The Wars and the Foreign-Policy Arc',
       'The Emergency, Coalitions and the Reforms',
+      'The Constitution, Partition and Integration of States',
     ],
   },
   {
@@ -206,7 +195,8 @@ const chapters: Chapter[] = [
       'The Long Culture Thread',
       'The Synthesis: One Chronicle',
       'The Doorstep: the Republic and Beyond',
-      'Part I. From the Renaissance to Hume'
+      'Part I. From the Renaissance to Hume',
+      'Unit 1 (common to Dance and Drama/Theatre): Cultural History of India',
     ],
   },
 ]

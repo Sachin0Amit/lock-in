@@ -28,7 +28,6 @@ const chapters: Chapter[] = [
       'The Productivity Arithmetic',
       'The Strategy Register',
       'The History Told',
-      'FYI: Lessons from a Pin Factory 261 15-2 How Monopolies Make Production and Pricing'
     ],
   },
   {
@@ -119,8 +118,6 @@ const chapters: Chapter[] = [
       'The JIT Register',
       'The Bullwhip Honesty',
       'The Global Doorway',
-      'Problems and Applications 264 FYI: Why a Monopoly Does Not Have a Supply Curve',
-      'Outcome 341 18-2 The Supply of Labor'
     ],
   },
   {

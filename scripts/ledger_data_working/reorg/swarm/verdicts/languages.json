@@ -1,0 +1,2450 @@
+{
+ "agent": "languages",
+ "autoReview": [
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Cross hide scratch take tie wave",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "OCR-scrambled vocabulary word-list, not a physics topic; the foundation-physics target is pure token noise — junk to remove, not move."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Points",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Single-word OCR fragment with no drawing content; the 1.0 score matched the word 'points' to the drawing book — junk, remove."
+  },
+  {
+   "book": "japanese",
+   "chapter": 1,
+   "title": "Note: The scans are of GENKI I (An Integrated Course in Elementary Japanese, 2nd ed.) — not a JEE mathematics book — so the JEE-style exercise entries do not appear. Below is the complete printed table of contents (もくじ, pp. 6–11), one entry per line",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Scanner meta-note about the GENKI table of contents; the waves-and-oscillations target is pure token noise — junk, remove."
+  },
+  {
+   "book": "french",
+   "chapter": 7,
+   "title": "The Reading Ladder",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Every language course owns its own reading ladder (reading French ≠ reading Mandarin); identical scaffold titles across language books are independent per-language lessons, so consolidating to mandarin is a clear error."
+  },
+  {
+   "book": "german",
+   "chapter": 8,
+   "title": "The Reading Ladder",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Per-language reading ladder: German reading progression is the German book's own syllabus stage; mandarin is not the specialist for German reading — keep."
+  },
+  {
+   "book": "hindi",
+   "chapter": 6,
+   "title": "The Reading Ladder",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Per-language reading ladder (Hindi reading progression); identical title across languages is not a duplicate treatment — keep."
+  },
+  {
+   "book": "russian",
+   "chapter": 7,
+   "title": "The Reading Ladder",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Per-language reading ladder (Russian reading progression); keep — not a mandarin duplicate."
+  },
+  {
+   "book": "spanish",
+   "chapter": 6,
+   "title": "The Reading Ladder",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Per-language reading ladder (Spanish reading progression); keep — not a mandarin duplicate."
+  },
+  {
+   "book": "english",
+   "chapter": 9,
+   "title": "The Digital Register",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "English's digital register (email/messaging/netiquette) is a language-register lesson inside The Academic and Professional Register; marketing's digital chapter treats digital marketing — different subjects, not a duplicate."
+  },
+  {
+   "book": "english",
+   "chapter": 4,
+   "title": "The Phrasal Verbs and the Collocations",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Authored vocabulary-craft scaffold (the book description places phrasal verbs + collocations under the vocabulary method); ch2's 'Gerunds, Infinitives and Phrasal Verbs' is the grammar-side treatment — genuinely different treatments, keep both."
+  },
+  {
+   "book": "english",
+   "chapter": 8,
+   "title": "The Indian English Census",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The book's own syllabus puts the Indian English census in the usage traps ('the Indian English features priced without shame'); it is register/usage content, not grammar-core material — leave in ch8."
+  },
+  {
+   "book": "german",
+   "chapter": 2,
+   "title": "The Subjunctive and Konjunktiv Register",
+   "verdict": "amend",
+   "action": "move-chapter",
+   "targetBook": "german",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Subjunctive/Konjunktiv is verb mood, not the perfect-tense engine; ch5 already owns only the polite-Konjunktiv note. The honest home is ch3 The Verb Core (verb morphology)."
+  }
+ ],
+ "misplaced": [
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Be/get used to … (I’m used to …)",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine English usage lesson (Murphy 'be/get used to') — belongs in the basics chapter."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Countable and uncountable",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Core English noun-grammar topic; stays in the ladder chapter (score hints to set-theory are token noise)."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Additional exercises",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Answer-section furniture from a grammar workbook — no honest lesson content."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "The road. 6 to somebody",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "OCR-mangled exercise-answer fragment; no honest home."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "It isn’t true what they say. g I’m staying with friends",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise-prompt fragment from a grammar workbook, not a lesson title."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "What’s all that noise? What’s happening? (what / happen?)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise-prompt fragment (Murphy drill line), not a lesson topic."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "What’s the matter? (why / you / cry?)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise-prompt fragment (Murphy drill line), not a lesson topic."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Amy is a student. (what / she / study?)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise-prompt fragment (Murphy drill line), not a lesson topic."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Who are those people? (what / they / do?)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise-prompt fragment (Murphy drill line), not a lesson topic."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Fractions and decimals",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Saying fractions/decimals aloud is beginner English vocabulary; foundation-mathematics is exempt and teaches the mathematics, not the English phrasing."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Addresses",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Survival-English basics lesson (giving/understanding addresses); honest in the ladder chapter."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "The order of other elements in the sentence: general principles",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine English syntax topic (sentence-element order) from a comprehensive English grammar; flagged only as a 'long line', not junk."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Arch. archaic",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry (Hammer-style front-matter list) — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Esp. especially",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Occ. occasionally",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Sth. something",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Describing Where Things Are",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine beginner-ESL lesson (place prepositions); the software-engineering score is token noise."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "第5課 沖縄旅行 A Trip to Okinawa",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "GENKI I reading/writing lesson (A Trip to Okinawa) leaked into the English book; routes to japanese's reading chapter."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "第12課 七夕 Tanabata Festival",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "GENKI I reading/writing lesson (Tanabata) leaked into the English book; routes to japanese's reading chapter."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "日本地図 Map of Japan",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "GENKI's Map of Japan companion page leaked into the English book; belongs with japanese's readings."
+  },
+  {
+   "book": "english",
+   "chapter": 2,
+   "title": "Conditionals and Wish",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine English grammar (Murphy conditionals unit); the intra-book relocation to ch3 Grammar Core II is approved in autoActions, but the lesson itself belongs in English."
+  },
+  {
+   "book": "english",
+   "chapter": 2,
+   "title": "Gerunds, Infinitives and Phrasal Verbs",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine English verb-pattern grammar; the grammar-side treatment distinct from ch4's vocabulary-side phrasal-verbs lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 2,
+   "title": "If I knew … I wish I knew …",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine English grammar (second conditional/wish, Murphy unit title) — belongs with the grammar core."
+  },
+  {
+   "book": "english",
+   "chapter": 2,
+   "title": "Conjunctions of purpose and result",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine English grammar (complex-sentence conjunctions, comprehensive-grammar section)."
+  },
+  {
+   "book": "english",
+   "chapter": 2,
+   "title": "Conjunctions of manner and degree",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine English grammar (conjunction/adverb classes, comprehensive-grammar section)."
+  },
+  {
+   "book": "english",
+   "chapter": 2,
+   "title": "Main types of adverb",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine English grammar (adverb typology); trigonometry score is token noise."
+  },
+  {
+   "book": "english",
+   "chapter": 2,
+   "title": "Aux. auxiliary",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 2,
+   "title": "Describing Two Activities",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine beginner-ESL lesson (talking about two simultaneous activities)."
+  },
+  {
+   "book": "english",
+   "chapter": 3,
+   "title": "Prefer and would rather",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine English grammar (prefer/would rather usage); advanced-algebra score is token noise."
+  },
+  {
+   "book": "english",
+   "chapter": 4,
+   "title": "Irregularities in the formation of comparatives and superlatives",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine English grammar (irregular comparatives/superlatives); distinct from german's regular-comparative lesson (different language)."
+  },
+  {
+   "book": "english",
+   "chapter": 4,
+   "title": "List of sources",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Back-matter furniture."
+  },
+  {
+   "book": "english",
+   "chapter": 8,
+   "title": "Other points of spelling",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine English usage topic (spelling points); harmony score is token noise."
+  },
+  {
+   "book": "hindi",
+   "chapter": 2,
+   "title": "Cardinal numbers",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Hindi number vocabulary (ek, do, teen…) in the nominal system — honest Hindi content; set-theory score is token noise."
+  },
+  {
+   "book": "hindi",
+   "chapter": 2,
+   "title": "CultureNote 日本の教育制度(1) Japan's Educational System (1)",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "GENKI culture note about Japan's education system in the Hindi book — Japanese-course content; routes to japanese's culture-note cluster in the everyday chapter."
+  },
+  {
+   "book": "hindi",
+   "chapter": 3,
+   "title": "Have something done",
+   "action": "move",
+   "targetBook": "english",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Murphy's English causative unit leaked into the Hindi verbal system (Hindi causatives are already covered by 'The Passive and the Causative'-style authored lessons); routes to the English grammar core II."
+  },
+  {
+   "book": "hindi",
+   "chapter": 7,
+   "title": "Useful Expressions 郵便局で At the Post Office",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "GENKI useful-expressions list (At the Post Office) in the Hindi book — Japanese survival content; routes to japanese's everyday-conversations chapter."
+  },
+  {
+   "book": "hindi",
+   "chapter": 8,
+   "title": "The Contemporary Registers",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Contemporary Hindi literature registers in the literature survey — honest Hindi content."
+  },
+  {
+   "book": "sanskrit",
+   "chapter": 1,
+   "title": "Declension of the indefinite article ein and negative kein",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Hammer's German declension section (ein/kein) leaked into the Sanskrit book; routes to german's nominal core."
+  },
+  {
+   "book": "japanese",
+   "chapter": 1,
+   "title": "The First Weeks’ Plan",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The Japanese course's own first-weeks plan — distinct from mandarin's ear-training plan (different design)."
+  },
+  {
+   "book": "japanese",
+   "chapter": 1,
+   "title": "Comparison among Three or More Items",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Genuine Japanese comparison grammar (yori/ichiban) but stranded in the sounds-and-scripts chapter; intra-book move to the grammar core."
+  },
+  {
+   "book": "japanese",
+   "chapter": 3,
+   "title": "CultureNote 日本の祭り Japanese Festivals",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine GENKI culture note in its own book — stays."
+  },
+  {
+   "book": "japanese",
+   "chapter": 3,
+   "title": "Useful Expressions 駅で At the Station",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine GENKI useful-expressions list in its own book — stays."
+  },
+  {
+   "book": "japanese",
+   "chapter": 7,
+   "title": "CultureNote 日本の伝統文化 Japenese Traditional Culture",
+   "action": "retitle",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "CultureNote 日本の伝統文化 Japanese Traditional Culture",
+   "reason": "Genuine culture note; retitle fixes the OCR typo 'Japenese' → 'Japanese'."
+  },
+  {
+   "book": "japanese",
+   "chapter": 7,
+   "title": "CultureNote 日本の交通機関 Public Transportation in Japan",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine GENKI culture note in its own book — stays."
+  },
+  {
+   "book": "german",
+   "chapter": 2,
+   "title": "The Genitive and Case Combinations",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine German case grammar in the nominal core; sanskrit score is token noise."
+  },
+  {
+   "book": "german",
+   "chapter": 6,
+   "title": "第3課 デートの約束 Making a Date",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "GENKI lesson 3 (Making a Date) leaked into the German book; routes to japanese's everyday-conversations chapter."
+  },
+  {
+   "book": "french",
+   "chapter": 3,
+   "title": "Auxiliary verbs (have/do/can etc.) I think so / I hope so etc",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy's English auxiliary-verbs unit leaked into the French verb engine; English already owns the topic ('Modals and Auxiliary Verbs', grammar core II) — consolidated, no honest separate home."
+  },
+  {
+   "book": "spanish",
+   "chapter": 9,
+   "title": "Useful Expressions きょうしつ In the Classroom",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "GENKI useful-expressions list (In the Classroom) in the Spanish DELE chapter — Japanese survival content; routes to japanese."
+  },
+  {
+   "book": "spanish",
+   "chapter": 9,
+   "title": "Useful Expressions 体の部分 Parts of the Body",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "GENKI useful-expressions list (Parts of the Body) in the Spanish book; routes to japanese's everyday chapter."
+  },
+  {
+   "book": "spanish",
+   "chapter": 9,
+   "title": "Useful Expressions 健康と病気 Health and Illness",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "GENKI useful-expressions list (Health and Illness) in the Spanish book; routes to japanese's everyday chapter."
+  },
+  {
+   "book": "arabic",
+   "chapter": 2,
+   "title": "The Throat’s Treasury",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine Arabic phonetics lesson (the pharyngeal/emphatic 'throat sounds'); korean/german/sanskrit scores are token noise."
+  },
+  {
+   "book": "italian",
+   "chapter": 3,
+   "title": "The washing machine has been repaired. (It / work) now",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment (present perfect drill) leaked into the Italian verb engine — junk, no honest home."
+  }
+ ],
+ "dupes": [
+  {
+   "title": "Practical Perspective: Pushbutton Telephone Practical Perspective: Filtering Digital",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk cluster (library-wide scan furniture): the languages members — english's 'Preface to the fifth edition' and the japanese GENKI scanner note — are front-matter junk being removed; no winner."
+  },
+  {
+   "title": "Polyprotic Acid Titrations 632 For Review 699 | Key Terms 699 | Questions and Exercises",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "'Additional exercises' + 'Key to Additional exercises' are answer-key furniture: the english ch1 and spanish ch4 copies are both removed as junk; no lesson survives."
+  },
+  {
+   "title": "Post Office Box",
+   "action": "consolidate",
+   "winner": "japanese",
+   "reason": "All members are GENKI Japanese survival-expression lists (time/age, post office, station, classroom, body, colors, health); the subject IS Japanese — japanese is the winner and the misplaced copies (french/hindi/spanish) are moved to japanese ch7."
+  },
+  {
+   "title": "The Pronunciation’s Polish",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Per-language pronunciation-polish lessons (french/german/italian/japanese/portuguese/russian/spanish): same syllabus stage, genuinely different per-language treatments — all stay."
+  },
+  {
+   "title": "The False Friends’ Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "False friends are per-language (German-English, Italian-English, Portuguese-English, Spanish-English; russian has two distinct levels: Cyrillic look-alikes in ch1 + lexical false friends in ch6) — all stay."
+  },
+  {
+   "title": "CultureNote 日本の祝日 Japanese National Holidays",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Distinct GENKI culture notes (currency, houses, festivals, climate); hindi's copy of 'Japanese National Holidays' routes to japanese (move recorded in extra)."
+  },
+  {
+   "title": "The First Real Texts",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "'The First Real Texts' is the per-language first-reading stage (arabic/japanese/korean/mandarin/russian) — different scripts and texts, all stay."
+  },
+  {
+   "title": "The Immersion’s Sea",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "'The Immersion's Sea' is the per-language immersion stage (arabic/italian/korean/mandarin/russian) — all stay."
+  },
+  {
+   "title": "Put the verb into the correct form, positive (I’m doing etc.) or negative (I’m not doing etc.)",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "OCR exercise-prompt junk cluster; the french ch3 copy ('Put the verb into the correct form…') is removed — no winner."
+  },
+  {
+   "title": "The Short and Long Vowels",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Arabic short/long vowels vs japanese sokuon+long vowels: different phonics systems; the foundation-economics member is outside this discipline's scope."
+  },
+  {
+   "title": "The A1-A2 Can-Dos",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "A1-A2 can-dos are per-language CEFR checklists (french/german/italian/portuguese) — all stay."
+  },
+  {
+   "title": "The Listening Drill",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "The listening drill is the per-language listening stage (arabic/german/russian/spanish) — all stay."
+  },
+  {
+   "title": "Relative Clauses and Reported Speech",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "english's 'Relative Clauses and Reported Speech' and 'The Reported Speech and the Tags' are complementary English lessons; korean's 'The Reported Speech's Korean Way' is Korean grammar — three different treatments, all stay."
+  },
+  {
+   "title": "To … (afraid to do) and preposition + -ing (afraid of -ing)",
+   "action": "consolidate",
+   "winner": "english",
+   "reason": "Verb + preposition + -ing patterns are English grammar; english's 'To … (afraid to do) and preposition + -ing' is the winner — the french and russian copies are Murphy English leaks removed as already covered."
+  },
+  {
+   "title": "Irregularities in the formation of comparatives and superlatives",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "English irregular comparatives (english ch4) vs German regular comparatives (german ch3) are different-language treatments; the true duplicate is german's own OCR-shortened second copy (removed in extra)."
+  },
+  {
+   "title": "The Adjective’s Agreement",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Adjective agreement is per-language grammar (hindi/russian/spanish) — all stay."
+  },
+  {
+   "title": "The Fluency’s Craft",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Fluency craft per language (german/portuguese/russian) — all stay."
+  },
+  {
+   "title": "The Object Pronouns’ Placement",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Object-pronoun placement is per-language grammar (french/italian/spanish) — all stay."
+  },
+  {
+   "title": "The Message and the Letter",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Message/letter frames per language (french/italian/spanish) — all stay."
+  },
+  {
+   "title": "The Repair’s Craft",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Conversation-repair craft per language (french/mandarin/spanish) — all stay."
+  },
+  {
+   "title": "The Subjunctive’s First Steps",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Subjunctive first steps per language (italian/portuguese/spanish) — all stay."
+  },
+  {
+   "title": "Ɪ Ger bitten, Engl bit y Ger Füße, Fr tu",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Two distinct rows of the same German vowel chart (ɪ vs i:); both route to german ch1 (moves recorded in extra)."
+  },
+  {
+   "title": "Modals and Auxiliary Verbs",
+   "action": "consolidate",
+   "winner": "english",
+   "reason": "'Modals and Auxiliary Verbs' (english grammar core) is the winner; the french copy is Murphy's English auxiliary unit — removed as an English leak already covered by english."
+  },
+  {
+   "title": "The Fluency Craft",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "'The Fluency Craft': english's (English speaking) and hindi's (Hindi speaking) — different languages, both stay."
+  },
+  {
+   "title": "Ɔ Ger kommen, Engl caught œy Ger Mäuse",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Two distinct rows of the German consonant chart (Ɔ and K); both route to german ch1 (moves recorded in extra)."
+  },
+  {
+   "title": "The First Reading Weeks",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "First reading weeks: hindi (Devanagari) vs japanese (hiragana) — different scripts, both stay."
+  },
+  {
+   "title": "The Gender’s Logic and Its Exceptions",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Gender logic per language (hindi vs spanish) — both stay."
+  },
+  {
+   "title": "CultureNote 日本の教育制度(1) Japan's Educational System (1)",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Distinct GENKI culture notes (education system vs foods); hindi's copy routes to japanese ch7 (move in extra)."
+  },
+  {
+   "title": "The Gender’s Memory Method",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Gender memory method per language (french vs hindi) — both stay."
+  },
+  {
+   "title": "The Boards’ Craft",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "'The Boards' Craft': hindi boards and sanskrit boards are separate Indian board-exam prep tracks for different languages — both stay."
+  },
+  {
+   "title": "The First Weeks’ Plan",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "japanese's first-weeks plan vs mandarin's first-week ear-training plan — different designs, both stay."
+  },
+  {
+   "title": "1-1c Principle 3: Rational People Think at the Margin 6 2-4 Let’s Get Going",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk cluster: 'I think it's going to rain' is a Murphy exercise-prompt fragment; the japanese ch3 copy is removed — no winner."
+  },
+  {
+   "title": "The Shopping and the Directions",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Shopping/directions situations: japanese and spanish everyday chapters — different languages, both stay."
+  },
+  {
+   "title": "The Vowels’ Pure Discipline",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "german's vowel discipline vs the vocal-music member (different discipline); the german lesson stays."
+  },
+  {
+   "title": "The Verb-Final Tail-Park",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Verb-final discipline: german's verbal bracket vs korean's SOV — different languages, both stay."
+  },
+  {
+   "title": "The Dictionary’s Craft",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Dictionary craft per language (german/russian) — both stay."
+  },
+  {
+   "title": "The Gender and the Definite Article",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Gender+article: arabic and french nominal systems — different languages, both stay."
+  },
+  {
+   "title": "The Reflexive Routine",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Reflexives: french routine vs spanish progressive+reflexive — different languages, both stay."
+  },
+  {
+   "title": "The Café and the Market",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Café/market situations: french and portuguese — different languages, both stay."
+  },
+  {
+   "title": "The Ser-Estar Sibling Divide and the Ficar’s Third",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Ser/estar: portuguese (with ficar's third) vs spanish (divide introduced) — per-language treatments, both stay."
+  },
+  {
+   "title": "The Present’s Three Families",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Present's three families: portuguese and spanish verb systems — per-language, both stay."
+  },
+  {
+   "title": "The First Real Texts and the Far Door",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "First real texts + far door: italian and spanish reading chapters — per-language, both stay."
+  },
+  {
+   "title": "The A2’s Target",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "A2 target: italian CILS and portuguese CAPLE exam targets — per-language, both stay."
+  },
+  {
+   "title": "The B1’s Horizon Named",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "B1 horizon: italian CILS and portuguese CAPLE exam horizons — per-language, both stay."
+  }
+ ],
+ "thin": [],
+ "order": [],
+ "extra": [
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Where’s your mother? (she / work / today?)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise-prompt fragment (Murphy drill line)."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Tim (work) today. He’s taken the day off",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise-prompt fragment (Murphy drill line)."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "In principle, abbreviations have been kept to a minimum. The following have been used where required by considerations of space",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Header line of the imported abbreviation legend (junkSuspect) — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Austr. Austrian",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry (Hammer-style front-matter list) — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Bav. Bavarian",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry (Hammer-style front-matter list) — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Elev. elevated",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry (Hammer-style front-matter list) — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Etw. etwas",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry (Hammer-style front-matter list) — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Jd. jemand",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry (Hammer-style front-matter list) — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Jdm. jemandem",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry (Hammer-style front-matter list) — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Jdn. jemanden",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry (Hammer-style front-matter list) — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Obs. obsolete",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry (Hammer-style front-matter list) — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "O.s. oneself",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry (Hammer-style front-matter list) — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Pej. pejorative",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry (Hammer-style front-matter list) — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Sb. somebody",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry (Hammer-style front-matter list) — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Sw. Switzerland",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry (Hammer-style front-matter list) — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Vulg. vulgar",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry (Hammer-style front-matter list) — furniture, not a lesson."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Allerdings",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Auch",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Bloß",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Denn",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Doch",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Eben",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Eigentlich",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Einfach",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Erst",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Etwa",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Freilich",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Gleich",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Halt",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Immerhin",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Jedenfalls",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Lediglich",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Noch",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Ohnehin",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Ruhig",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Sowieso",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Überhaupt",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Übrigens",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Vielleicht",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Wohl",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Zwar",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German modal-particle register line: genuine single-word register but GERMAN — routes to german's vocabulary craft (joins the existing particle 'Schließlich'), never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Ɪ Ger bitten, Engl bit y Ger Füße, Fr tu",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line (Hammer's vowel table with Ger/Engl/Fr examples) — routes to german's sounds chapter, never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "E: Ger beten, Fr écouter y: Ger Mühle, Fr mur",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line (Hammer's vowel table with Ger/Engl/Fr examples) — routes to german's sounds chapter, never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Ε Ger Bett, Engl bed œ Ger Hölle",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line (Hammer's vowel table with Ger/Engl/Fr examples) — routes to german's sounds chapter, never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Ε: Ger wäre, Fr scène ø Ger Hölle, Fr peu",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line (Hammer's vowel table with Ger/Engl/Fr examples) — routes to german's sounds chapter, never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "A: Ger Vater, Engl father au Ger Maus, Engl mouse",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line (Hammer's vowel table with Ger/Engl/Fr examples) — routes to german's sounds chapter, never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "U Ger Butter, Engl butter ɐ Ger bitter",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line (Hammer's vowel table with Ger/Engl/Fr examples) — routes to german's sounds chapter, never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "B Ger bitte, Engl bit x Ger Buch, Scots loch",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line (Hammer's vowel table with Ger/Engl/Fr examples) — routes to german's sounds chapter, never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "T Ger tun, Engl ton ç Ger mich, Engl Hugh",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line (Hammer's vowel table with Ger/Engl/Fr examples) — routes to german's sounds chapter, never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "D Ger dumm, Engl dumb h Ger holen, Engl hole",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line (Hammer's vowel table with Ger/Engl/Fr examples) — routes to german's sounds chapter, never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "F Ger faul, Engl fool ŋ Ger hung, Engl hung",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line (Hammer's vowel table with Ger/Engl/Fr examples) — routes to german's sounds chapter, never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "V Ger wann, Engl van l Ger laut, Engl loud",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line (Hammer's vowel table with Ger/Engl/Fr examples) — routes to german's sounds chapter, never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "S Ger lassen, Engl sat ʀ Ger rot",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line (Hammer's vowel table with Ger/Engl/Fr examples) — routes to german's sounds chapter, never english."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "はじめに/Preface",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "GENKI front-matter (preface page) — junk furniture."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Noun1のnoun2",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "GENKI lesson-1 grammar point (Noun1 の Noun2) leaked into the English book; routes to japanese's grammar core."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "第6課 ロバートさんの一日 A Day in Robert's Life",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "GENKI I reading/writing lesson (A Day in Robert's Life); routes to japanese's reading chapter."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "第8課 バーベキュー Barbecue",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "GENKI I lesson 8 dialogue (Barbecue); routes to japanese's everyday-conversations chapter."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "第9課 かぶき Kabuki",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "GENKI I lesson 9 dialogue (Kabuki); routes to japanese's everyday-conversations chapter."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "第10課 かさじぞう The Folktale Kasajizo",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "GENKI I reading/writing lesson (The Folktale Kasajizo); routes to japanese's reading chapter."
+  },
+  {
+   "book": "english",
+   "chapter": 2,
+   "title": "The werden-passive",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "German passive voice (werden-passive, Hammer section) leaked into the English grammar core; routes to german's verb core."
+  },
+  {
+   "book": "english",
+   "chapter": 2,
+   "title": "The sein-passive",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "German stative passive (sein-passive, Hammer section) leaked into the English grammar core; routes to german's verb core."
+  },
+  {
+   "book": "english",
+   "chapter": 2,
+   "title": "Conj. conjunction",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry — furniture."
+  },
+  {
+   "book": "english",
+   "chapter": 2,
+   "title": "Prep. preposition",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry — furniture."
+  },
+  {
+   "book": "english",
+   "chapter": 3,
+   "title": "Z Ger sail, Engl zero j Ger ja, Engl year",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German consonant-chart IPA line — routes to german's sounds chapter."
+  },
+  {
+   "book": "english",
+   "chapter": 4,
+   "title": "Let’s go out now. It isn’t raining (it / rain) any more",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise-prompt fragment (Murphy drill line)."
+  },
+  {
+   "book": "english",
+   "chapter": 4,
+   "title": "You can turn off the radio. (I / listen) to it",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise-prompt fragment (Murphy drill line)."
+  },
+  {
+   "book": "english",
+   "chapter": 4,
+   "title": "Acad. Academic",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry — furniture."
+  },
+  {
+   "book": "english",
+   "chapter": 4,
+   "title": "Inf. informal",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry — furniture."
+  },
+  {
+   "book": "english",
+   "chapter": 6,
+   "title": "G Ger gut, Engl good n Ger neun, Engl nine",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German consonant-chart IPA line — routes to german's sounds chapter."
+  },
+  {
+   "book": "english",
+   "chapter": 7,
+   "title": "We’re going to get wet. h The company is losing money",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise-prompt fragment (Murphy drill line)."
+  },
+  {
+   "book": "english",
+   "chapter": 7,
+   "title": "The situation is already very bad and now (it / get) worse",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise-prompt fragment (Murphy drill line)."
+  },
+  {
+   "book": "english",
+   "chapter": 7,
+   "title": "Ɔ Ger kommen, Engl caught œy Ger Mäuse",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line — routes to german's sounds chapter."
+  },
+  {
+   "book": "english",
+   "chapter": 8,
+   "title": "We need to leave soon. b They’re lying",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise-prompt fragment (Murphy drill line)."
+  },
+  {
+   "book": "english",
+   "chapter": 8,
+   "title": "I need to eat something soon. d They’re trying to sell it",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise-prompt fragment (Murphy drill line)."
+  },
+  {
+   "book": "english",
+   "chapter": 8,
+   "title": "They don’t need their car any more. e It’s getting late",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise-prompt fragment (Murphy drill line)."
+  },
+  {
+   "book": "english",
+   "chapter": 10,
+   "title": "A Ger Band, Fr pas ai Ger fein, Engl fine",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line — routes to german's sounds chapter."
+  },
+  {
+   "book": "english",
+   "chapter": 10,
+   "title": "活用表 Conjugation Chart",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Japanese conjugation chart (GENKI appendix) leaked into the English exam chapter; routes to japanese's verb system."
+  },
+  {
+   "book": "hindi",
+   "chapter": 1,
+   "title": "CultureNote 日本の祝日 Japanese National Holidays",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "GENKI culture note (Japanese National Holidays) in the Hindi book; routes to japanese's culture-note cluster (with Festivals)."
+  },
+  {
+   "book": "hindi",
+   "chapter": 2,
+   "title": "Measurement phrases: genitive, von or apposition?",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Hammer's German measurement-phrases section ('genitive, von or apposition' — 'von' betrays German) in the Hindi book; routes to german's nominal core."
+  },
+  {
+   "book": "hindi",
+   "chapter": 4,
+   "title": "The position of nicht and other negative elements",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "German word-order section (position of nicht) in the Hindi book; routes to german's word-order chapter."
+  },
+  {
+   "book": "hindi",
+   "chapter": 5,
+   "title": "Lit. literary",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry — furniture."
+  },
+  {
+   "book": "sanskrit",
+   "chapter": 1,
+   "title": "Declension of derjenige and derselbe",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Hammer's German pronoun declension section in the Sanskrit book; routes to german's nominal core."
+  },
+  {
+   "book": "sanskrit",
+   "chapter": 1,
+   "title": "Declension of jemand, niemand",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Hammer's German pronoun declension section in the Sanskrit book; routes to german's nominal core."
+  },
+  {
+   "book": "sanskrit",
+   "chapter": 2,
+   "title": "A., acc. Accusative",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Case/gender abbreviation legend entries (Hammer-style front matter) — furniture, not Sanskrit lessons."
+  },
+  {
+   "book": "sanskrit",
+   "chapter": 2,
+   "title": "D., dat. dative",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Case/gender abbreviation legend entries (Hammer-style front matter) — furniture, not Sanskrit lessons."
+  },
+  {
+   "book": "sanskrit",
+   "chapter": 2,
+   "title": "Fem. feminine",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Case/gender abbreviation legend entries (Hammer-style front matter) — furniture, not Sanskrit lessons."
+  },
+  {
+   "book": "sanskrit",
+   "chapter": 2,
+   "title": "Masc. masculine",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Case/gender abbreviation legend entries (Hammer-style front matter) — furniture, not Sanskrit lessons."
+  },
+  {
+   "book": "sanskrit",
+   "chapter": 2,
+   "title": "N., nom. nominative",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Case/gender abbreviation legend entries (Hammer-style front matter) — furniture, not Sanskrit lessons."
+  },
+  {
+   "book": "sanskrit",
+   "chapter": 2,
+   "title": "Neut. neuter",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Case/gender abbreviation legend entries (Hammer-style front matter) — furniture, not Sanskrit lessons."
+  },
+  {
+   "book": "sanskrit",
+   "chapter": 2,
+   "title": "[body text of acknowledgements, ending:] Martin Durrell / Manchester",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Acknowledgements body text signed 'Martin Durrell / Manchester' (Hammer's German Grammar author) — scan junk (junkSuspect)."
+  },
+  {
+   "book": "sanskrit",
+   "chapter": 3,
+   "title": "I don’t have anywhere to live right now. c It’s starting to rain",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment (junkSuspect) — junk."
+  },
+  {
+   "book": "sanskrit",
+   "chapter": 4,
+   "title": "Techn. technical",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry — furniture."
+  },
+  {
+   "book": "sanskrit",
+   "chapter": 10,
+   "title": "The 2 (school / the school etc.)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "OCR-mangled fragment ('The 2') of an English article-usage unit; english's articles lesson already covers the topic — no honest home."
+  },
+  {
+   "book": "sanskrit",
+   "chapter": 10,
+   "title": "第3課 まいにちのせいかつ Daily Life",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Japanese lesson (Daily Life) leaked into the Sanskrit book; routes to japanese's everyday-conversations chapter."
+  },
+  {
+   "book": "japanese",
+   "chapter": 1,
+   "title": "Note: The scans are of GENKI I (An Integrated Course in Elementary Japanese, 2nd ed.) — not a JEE mathematics book — so the JEE-style exercise entries do not appear. Below is the complete printed table of contents (もくじ, pp. 6–11), one entry per line",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "junkSuspect adjudication: scanner meta-note about the GENKI table-of-contents pages — junk, no honest home (the autoAction's move to waves-and-oscillations is vetoed in autoReview)."
+  },
+  {
+   "book": "japanese",
+   "chapter": 1,
+   "title": "I: Ger bitten, Engl beat u: Ger Kuh, Fr trou",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line in the Japanese book; routes to german's sounds chapter."
+  },
+  {
+   "book": "japanese",
+   "chapter": 1,
+   "title": "第10課 冬休みの予定 Winter Vacation Plans",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "GENKI lesson-10 dialogue (Winter Vacation Plans) stranded in the sounds-and-scripts chapter; intra-book move to everyday conversations."
+  },
+  {
+   "book": "japanese",
+   "chapter": 3,
+   "title": "Andrew started evening classes recently. (He / learn) Japanese",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment — junk."
+  },
+  {
+   "book": "japanese",
+   "chapter": 3,
+   "title": "I think it’s going to rain",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment (junkSuspect) — junk."
+  },
+  {
+   "book": "japanese",
+   "chapter": 4,
+   "title": "The 4 (the giraffe / the telephone / the old etc.)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "OCR-mangled fragment ('The 4') with no identifiable topic — junk, no honest home."
+  },
+  {
+   "book": "japanese",
+   "chapter": 6,
+   "title": "The sentences on the right follow those on the left. Which sentence goes with which?",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise instruction line (junkSuspect) — junk, not a lesson."
+  },
+  {
+   "book": "japanese",
+   "chapter": 10,
+   "title": "P Ger passen, Engl pass ʃ Ger schließen, Engl sheet",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German consonant-chart IPA line in the Japanese book; routes to german's sounds chapter."
+  },
+  {
+   "book": "german",
+   "chapter": 2,
+   "title": "(The weather / change). Look at those clouds",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment — junk."
+  },
+  {
+   "book": "german",
+   "chapter": 2,
+   "title": "Ausklammerung: placing elements after the end of the verbal bracket",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Genuine German word-order topic (junkSuspect false positive) but wrong chapter — Ausklammerung is the verbal-bracket's law; intra-book move to the word-order chapter alongside 'Word Order and the Verbal Bracket'."
+  },
+  {
+   "book": "german",
+   "chapter": 2,
+   "title": "Where required, the plural of a noun is indicated within brackets after the noun, e.g. das Lager (-), i.e. die Lager; der Hut ('e), i.e. die Hüte, etc. (-en, -en) or (-n, -n) indicate a weak masculine noun, e.g der Mensch, des Menschen, die Menschen (see 1.3.2)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Meta legend note about plural notation (junkSuspect) — furniture, not a lesson."
+  },
+  {
+   "book": "german",
+   "chapter": 3,
+   "title": "Regular formation of comparative and superlative",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Within-book duplicate (OCR-shortened variant) of ch3's 'Regular formation of the comparative and superlative' — consolidate on the fuller title."
+  },
+  {
+   "book": "german",
+   "chapter": 3,
+   "title": "Sentences used for illustration which are ungrammatical in German are indicated by an asterisk, e.g. *Jedoch dann ist er nicht gekommen",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Meta legend note about asterisk notation (junkSuspect) — furniture, not a lesson."
+  },
+  {
+   "book": "german",
+   "chapter": 3,
+   "title": "Sg., sing. singular",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry — furniture."
+  },
+  {
+   "book": "german",
+   "chapter": 4,
+   "title": "A great time and doesn’t want to come back",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment — junk."
+  },
+  {
+   "book": "german",
+   "chapter": 4,
+   "title": "K Ger kommen, Engl come m Ger mich, Engl mine",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German consonant-chart IPA line stranded in the word-order chapter; intra-book move to the sounds chapter."
+  },
+  {
+   "book": "german",
+   "chapter": 7,
+   "title": "第11課 友だち募集 Looking for Friends",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "GENKI lesson-11 dialogue (Looking for Friends) in the German book; routes to japanese's everyday-conversations chapter."
+  },
+  {
+   "book": "french",
+   "chapter": 2,
+   "title": "もくじ divider page",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Japanese 'table of contents' divider page — scan junk."
+  },
+  {
+   "book": "french",
+   "chapter": 2,
+   "title": "Useful Expressions じかん・とし Time/Age",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "GENKI useful-expressions list (Time/Age) in the French book; routes to japanese's everyday-conversations chapter."
+  },
+  {
+   "book": "french",
+   "chapter": 3,
+   "title": "Verb + -ing (enjoy doing / stop doing etc.)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy English verb-pattern unit in the French verb engine (French has no -ing form); english's gerund/infinitive lessons already cover it."
+  },
+  {
+   "book": "french",
+   "chapter": 3,
+   "title": "Verb + to … (decide to … / forget to … etc.)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy English verb-pattern unit in the French verb engine; covered by english's gerunds/infinitives lesson."
+  },
+  {
+   "book": "french",
+   "chapter": 3,
+   "title": "Verb + -ing or to … 1 (remember, regret etc.)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy English verb-pattern unit in the French verb engine; covered by english."
+  },
+  {
+   "book": "french",
+   "chapter": 3,
+   "title": "Verb + -ing or to … 2 (try, need, help)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy English verb-pattern unit in the French verb engine; covered by english."
+  },
+  {
+   "book": "french",
+   "chapter": 3,
+   "title": "Verb + -ing or to … 3 (like / would like etc.)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy English verb-pattern unit in the French verb engine; covered by english."
+  },
+  {
+   "book": "french",
+   "chapter": 3,
+   "title": "Verb + preposition + -ing (succeed in -ing / insist on -ing etc.)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy English verb-pattern unit (junkSuspect) in the French verb engine; covered by english ch2's 'To … (afraid to do) and preposition + -ing'."
+  },
+  {
+   "book": "french",
+   "chapter": 3,
+   "title": "What’s happening in the pictures? Choose from these verbs",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exercise-prompt fragment — junk."
+  },
+  {
+   "book": "french",
+   "chapter": 3,
+   "title": "She’s taking a picture. 4 his head",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "OCR-mangled exercise fragment — junk."
+  },
+  {
+   "book": "french",
+   "chapter": 3,
+   "title": "Put the verb into the correct form, positive (I’m doing etc.) or negative (I’m not doing etc.)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment (junkSuspect) — junk."
+  },
+  {
+   "book": "spanish",
+   "chapter": 1,
+   "title": "Kate phoned last night. She’s on holiday with friends. (She / have)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment (junkSuspect) — junk."
+  },
+  {
+   "book": "spanish",
+   "chapter": 1,
+   "title": "If necessary, a stressed syllable in a word is indicated by the mark placed before the stressed syllable, and/or by the use of bold type, e.g. die Dok'toren, unter'schreiben. Where it is required, a stressed word in context is shown by underlining, e.g. Wie bist du denn gekommen?",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Hammer's German stress-notation legend ('die Dok'toren, unter'schreiben… Wie bist du denn gekommen?') in the Spanish book (junkSuspect) — furniture, junk."
+  },
+  {
+   "book": "spanish",
+   "chapter": 3,
+   "title": "Lists of words are in general alphabetical, unless it appeared more helpful to the user to present them in a different order",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Meta legend note (junkSuspect) — furniture, not a lesson."
+  },
+  {
+   "book": "spanish",
+   "chapter": 3,
+   "title": "O: Ger Boot, Fr eau ə Ger bitte, Engl china",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "German vowel-chart IPA line in the Spanish book; routes to german's sounds chapter."
+  },
+  {
+   "book": "spanish",
+   "chapter": 4,
+   "title": "Key to Additional exercises",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Answer-key back matter — furniture."
+  },
+  {
+   "book": "spanish",
+   "chapter": 4,
+   "title": "第12課 病気 Feeling Ill",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Japanese lesson (Feeling Ill) in the Spanish book; routes to japanese's everyday-conversations chapter."
+  },
+  {
+   "book": "spanish",
+   "chapter": 8,
+   "title": "第11課 休みのあと After the Vacation",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Japanese lesson (After the Vacation) in the Spanish book; routes to japanese's everyday-conversations chapter."
+  },
+  {
+   "book": "spanish",
+   "chapter": 9,
+   "title": "Useful Expressions 色 Colors",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "GENKI useful-expressions list (Colors) in the Spanish book; routes to japanese's everyday-conversations chapter."
+  },
+  {
+   "book": "mandarin",
+   "chapter": 1,
+   "title": "I heard you started a new job. (you / enjoy / it?)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment — junk."
+  },
+  {
+   "book": "mandarin",
+   "chapter": 3,
+   "title": "Dan has been in the same job for a long time. (He / start) to get bored",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment (junkSuspect) — junk."
+  },
+  {
+   "book": "mandarin",
+   "chapter": 8,
+   "title": "We’re not in a hurry. (why / you / walk / so fast?)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment — junk."
+  },
+  {
+   "book": "mandarin",
+   "chapter": 8,
+   "title": "(I / look) for Sophie. Do you know where she is?",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment — junk."
+  },
+  {
+   "book": "mandarin",
+   "chapter": 8,
+   "title": "(They / build) a new hospital. It will be finished next year",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment — junk."
+  },
+  {
+   "book": "korean",
+   "chapter": 1,
+   "title": "第4課 メアリーさんのしゅうまつ Mary's Weekend",
+   "action": "move",
+   "targetBook": "japanese",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "GENKI lesson-4 dialogue (Mary's Weekend) in the Korean book; routes to japanese's everyday-conversations chapter."
+  },
+  {
+   "book": "korean",
+   "chapter": 4,
+   "title": "Adverbs of direction: hin and her",
+   "action": "move",
+   "targetBook": "german",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Hammer's German adverbs section (hin and her — German direction adverbs) in the Korean book; routes to german's vocabulary craft."
+  },
+  {
+   "book": "korean",
+   "chapter": 7,
+   "title": "Abbrev. abbreviated",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry — furniture."
+  },
+  {
+   "book": "korean",
+   "chapter": 7,
+   "title": "Coll. colloquial",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry — furniture."
+  },
+  {
+   "book": "arabic",
+   "chapter": 1,
+   "title": "The 28 Letters’ Census",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "junkSuspect adjudication (numeric-run flag): genuine lesson — the Arabic alphabet has exactly 28 letters; keep."
+  },
+  {
+   "book": "arabic",
+   "chapter": 1,
+   "title": "Iv IF YOU ARE NOT SURE WHICH UNITS YOU NEED TO STUDY, USE THE STUDY GUIDE ON PAGE",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy study-guide blurb fragment (junkSuspect) — junk."
+  },
+  {
+   "book": "arabic",
+   "chapter": 1,
+   "title": "Vi IF YOU ARE NOT SURE WHICH UNITS YOU NEED TO STUDY, USE THE STUDY GUIDE ON PAGE",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy study-guide blurb fragment (junkSuspect) — junk."
+  },
+  {
+   "book": "arabic",
+   "chapter": 4,
+   "title": "He a shoelace. 5 behind a tree",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "OCR-mangled exercise fragment — junk, no honest home."
+  },
+  {
+   "book": "arabic",
+   "chapter": 4,
+   "title": "Indic. Indicative",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Abbreviation-legend entry — furniture."
+  },
+  {
+   "book": "russian",
+   "chapter": 1,
+   "title": "The 33 Letters’ Census",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "junkSuspect adjudication (numeric-run flag): genuine lesson — the Cyrillic alphabet has exactly 33 letters; keep."
+  },
+  {
+   "book": "russian",
+   "chapter": 1,
+   "title": "I haven’t seen you for ages. (what / you / do / these days?)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment — junk."
+  },
+  {
+   "book": "russian",
+   "chapter": 3,
+   "title": "Preposition (in/for/about etc.) + -ing",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy English unit (preposition + -ing) in the Russian nominal chapter; english ch2 already covers it — consolidated to english."
+  },
+  {
+   "book": "russian",
+   "chapter": 5,
+   "title": "Please don’t make so much noise. a I’m getting hungry. 1 f",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment — junk."
+  },
+  {
+   "book": "russian",
+   "chapter": 5,
+   "title": "Please don’t make so much noise. I’m trying (I / try) to work",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment — junk."
+  },
+  {
+   "book": "portuguese",
+   "chapter": 3,
+   "title": "It is said that … he is said to … he is supposed to …",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy English reporting-passive unit in the Portuguese verb engine; english ch2's voice/agreement lesson already covers the passive."
+  },
+  {
+   "book": "portuguese",
+   "chapter": 4,
+   "title": "Ben is a student, but he’s not very happy. (He / enjoy) his course",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment (junkSuspect) — junk."
+  },
+  {
+   "book": "italian",
+   "chapter": 9,
+   "title": "Paul and Sarah have had an argument and now (they / speak)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Murphy exercise-prompt fragment — junk."
+  }
+ ],
+ "notes": "13 books swept. Verified every misAdjudicate item, all 20 junkSuspect items, all 44 dup clusters and 22 autoActions; no thin chapters; all 13 chapter ladders are pedagogically sound (script/sounds → nominal → verbal → syntax → skills → exam). Big patterns: (1) Hammer's German material leaked library-wide — 25 modal particles + 15 vowel/consonant-chart IPA lines + werden/sein-passive + ein/kein/derjenige/jemand declensions + measurement-phrases + nicht-position + hin/her all route back to german (particles → ch7 vocabulary craft joining 'Schließlich', chart lines → ch1 sounds, declension → ch2 nominal, passive → ch3 verb core, nicht → ch4 word order); (2) GENKI Japanese lesson/culture/useful-expression material leaked into english, hindi, sanskrit, german, french, spanish, korean — routed to japanese ch7 (dialogues/survival expressions) or ch8 (readings: Okinawa, Robert's Life, Kasajizo, Tanabata, Map of Japan), grammar points to ch4 (Noun1のnoun2), 活用表 to ch5; (3) Murphy English exercise-prompt fragments and verb-pattern units scattered across all 13 books — prompts removed as junk, English-grammar units removed as covered by english's grammar core (or moved there for 'Have something done'); (4) abbreviation legends and meta notes removed as furniture; (5) vetoed the detector's consolidation of per-language scaffold titles ('The Reading Ladder' ×5, digital register) and its junk 'moves' into physics/drawing/waves books; amended the subjunctive move to german ch3. Kept Hammer's genuine single-word registers, each language's own grammar lessons, and all per-language syllabus stages (can-dos, listening drills, first real texts, immersion seas, exam doorsteps)."
+}

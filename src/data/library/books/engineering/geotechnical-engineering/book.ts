@@ -44,9 +44,7 @@ const chapters: Chapter[] = [
       'The Three-Phase Arithmetic',
       'Atterberg and the Plasticity Chart',
       'Classification by Two Families',
-    
-      'Geo-technical Engineering — soil exploration: planning and methods; properties of soil, classification, various tests and inter-relationships; permeability and seepage; compressibility, consolidation and shearing resistance; earth pressure theories and stress distribution in soil; properties and',
-      'Summary of important formulae 396 20.12 Relationship between a and b'
+      'Geo-technical Engineering \u2014 Soil Exploration: Planning And Methods;',
     ],
   },
   {
@@ -62,7 +60,6 @@ const chapters: Chapter[] = [
       'Flow Nets Drawn and Read',
       'Piping and Quicksand Priced',
       'Capillarity and Seepage Force',
-      'Constant 153 Summary of important formulae'
     ],
   },
   {
@@ -123,7 +120,6 @@ const chapters: Chapter[] = [
       'The Triaxial Census',
       'Effective versus Total, Honestly',
       'Clays versus Sands in Strain',
-      'Problems 293 7.2.3 Summary Tables'
     ],
   },
   {
@@ -184,9 +180,7 @@ const chapters: Chapter[] = [
       'Static Formulae, Dynamic Caution',
       'Groups and Negative Friction',
       'The Synthesis and Doorsteps',
-    
-      'Geo-technical Engineering and Foundation Engineering',
-      'Binary subtraction 520 24.7 Relation between impulse response and'
+      'Geo-technical Engineering And Foundation Engineering',
     ],
   },
 ]

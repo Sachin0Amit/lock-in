@@ -58,8 +58,6 @@ const chapters: Chapter[] = [
       'The Source-Control Receipt Priced Straight',
       'The Necrotising Red-Flags Held',
       'The Biofilm Honesty Named',
-    
-      'General Surgery (including Orthopedics, Anesthesia and Radiodiagnosis)'
     ],
   },
   {

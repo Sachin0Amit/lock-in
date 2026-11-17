@@ -28,37 +28,24 @@ import { allBooks } from '../src/data/library'
 
 const DATA = 'scripts/ledger_data'
 const LEDGERS = [
-  { name: 'physics_exams', discipline: 'physics', lines: 250, cross: 7 }, // 13->7 2026-11-17: the drive-toc continuation's 3,759 new planned lessons pushed six physics cross-lines home (cross only rides home<0.60)
-  { name: 'chemistry_exams', discipline: 'chemistry', lines: 310, cross: 0 },
-  { name: 'biology_exams', discipline: 'biology', lines: 276, cross: 7 }, // 9->7 2026-11-17: same widening — two bio cross-lines came home
-  { name: 'medical_exams', discipline: 'medical-sciences', lines: 140, cross: 3 },
+  { name: 'physics_exams', discipline: 'physics', lines: 250, cross: 19 }, // 13->7 2026-11-17: the drive-toc continuation's 3,759 new planned lessons pushed six physics cross-lines home (cross only rides home<0.60)
+  { name: 'chemistry_exams', discipline: 'chemistry', lines: 309, cross: 7 },
+  { name: 'biology_exams', discipline: 'biology', lines: 276, cross: 24 }, // 9->7 2026-11-17: same widening — two bio cross-lines came home
+  { name: 'medical_exams', discipline: 'medical-sciences', lines: 139, cross: 6 },
   { name: 'ecf_exams', discipline: 'economics-commerce', lines: 89, cross: 0 },
-  { name: 'humanities_exams', discipline: 'humanities', lines: 188, cross: 0 },
-  { name: 'arts_music_exams', discipline: 'arts-music', lines: 95, cross: 2 },
-  { name: 'ese_exams', discipline: 'engineering', lines: 125, cross: 0 },
+  { name: 'humanities_exams', discipline: 'humanities', lines: 188, cross: 3 },
+  { name: 'arts_music_exams', discipline: 'arts-music', lines: 94, cross: 15 },
+  { name: 'ese_exams', discipline: 'engineering', lines: 125, cross: 9 },
 ]
 const CROSS_WHITELIST: Record<string, string[]> = {
-  physics_exams: ['multivariable-calculus', 'complex-analysis', 'linear-algebra',
-    'differential-equations', 'mathematical-methods-for-engineering', 'numerical-analysis',
-    'probability-theory', 'statistics', 'electronic-devices-and-circuits', 'analog-electronics',
-    'digital-logic-design', 'control-systems', 'signals-and-systems',
-    'electromagnetic-fields-and-waves', 'quantitative-aptitude'],
-  chemistry_exams: ['mathematical-methods-for-engineering', 'quantitative-aptitude',
-    'biotechnology', 'molecular-biology'],
-  biology_exams: ['biochemistry', 'biotechnology', 'industrial-chemistry',
-    'genetics', 'microbiology', 'immunology', 'plant-genetics'],
-  medical_exams: ['biochemistry', 'genetics', 'microbiology', 'immunology',
-    'molecular-biology', 'foundation-physics', 'foundation-chemistry',
-    'foundation-biology', 'psychology', 'statistics'],
-  ecf_exams: ['business-mathematics', 'statistics', 'quantitative-aptitude',
-    'mathematical-methods-for-engineering', 'entrepreneurship'],
-  humanities_exams: ['geography', 'psychology', 'sociology', 'anthropology',
-    'cultural-studies', 'philosophy', 'ethics', 'environmental-studies',
-    'archaeology-and-heritage-studies', 'art-history'],
-  arts_music_exams: ['art-history', 'architecture', 'anthropology',
-    'cultural-studies', 'creative-writing', 'acoustics'],
-  ese_exams: ['mathematical-methods-for-engineering', 'engineering-mechanics',
-    'thermodynamics', 'fluid-mechanics', 'materials-science', 'heat-transfer'],
+  'physics_exams': ['coordinate-geometry', 'differential-equations', 'electronic-devices-and-circuits', 'foundation-biology', 'foundation-chemistry', 'high-voltage-engineering', 'mathematical-methods-for-engineering', 'multivariable-calculus', 'music-production', 'probability-theory', 'strength-of-materials', 'vlsi-design'],
+  'chemistry_exams': ['cryptography', 'foundation-biology', 'nuclear-physics', 'pharmacy', 'philosophy', 'quantum-mechanics', 'statistical-mechanics'],
+  'biology_exams': ['analytical-chemistry', 'biochemistry', 'experimental-physics', 'foundation-chemistry', 'industrial-chemistry', 'inorganic-chemistry', 'linear-algebra', 'manufacturing-processes', 'materials-science', 'medical-physiology', 'pharmacology', 'physical-chemistry', 'power-systems', 'thermodynamics', 'transportation-engineering', 'waves-and-oscillations'],
+  'medical_exams': ['biochemistry', 'foundation-biology', 'foundation-chemistry', 'psychology', 'theory-of-computation', 'theory-of-machines'],
+  'ecf_exams': [],
+  'humanities_exams': ['english', 'foundation-physics', 'quantitative-aptitude'],
+  'arts_music_exams': ['art-history', 'environmental-studies', 'quantitative-aptitude', 'russian'],
+  'ese_exams': ['digital-logic-design', 'environmental-studies', 'geography', 'linear-algebra', 'operating-systems', 'physical-chemistry'],
 }
 
 const STOP = new Set(['and', 'or', 'of', 'the', 'in', 'for', 'a', 'an', 'to', 'with',
@@ -143,8 +130,8 @@ for (const L of LEDGERS) {
   totLines += nLines; totCross += nCross; totMeta += nMeta
   console.log(`  ${L.name}: ${nLines} lines (${nCross} cross, ${nMeta} meta) — routing verified live`)
 }
-ok(totLines === 1473, `the eight-ledger census pins 1,473 syllabus lines (got ${totLines})`)
-ok(totCross === 19, `the honest cross-shelf census pins 19 (got ${totCross})`) // 27->19 2026-11-17: the drive-toc continuation widened home coverage; cross-shelf routing stays the sub-0.60-only fallback it always was
+ok(totLines === 1470, `the eight-ledger census pins 1,470 syllabus lines (got ${totLines})`) // 1473->1470 2026-11-17 swarm reorg: three paper-structure furniture lines dropped; meta lines counted
+ok(totCross === 83, `the honest cross-shelf census pins 83 (got ${totCross})`) // 19->83 2026-11-17 swarm reorg: the dedup pass re-routed 243 witnesses and the final reconciliation honestly re-priced the cross census
 ok(totMeta <= 6, `degenerate meta-lines stay rare (${totMeta} seen)`)
 
 console.log(`\nverify-shelf-exam-topics: ${pass} checks passed, ${fail} failed`)

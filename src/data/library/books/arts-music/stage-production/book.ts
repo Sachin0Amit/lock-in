@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Hard-Soft Division Named',
       'The Load Honesty Cross-Referenced',
       'The Hard-Soft Honesty Held',
+      'Theatre Design and techniques (theatre architecture, stagecraft, theatre management and organisation)',
     ],
   },
   {

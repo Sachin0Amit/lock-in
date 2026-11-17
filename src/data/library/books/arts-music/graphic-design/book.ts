@@ -28,10 +28,8 @@ const chapters: Chapter[] = [
       'The Three-Seconds Honesty Priced Straight',
       'The Closure Named',
       'The Breathing Receipt Named',
-    
-      'Elective IV: Printmaking (Graphic Art)',
-      'Part-A: Environment and society — general awareness of environmental, social and cultural connections with design',
-      'Part-B: Design aptitude — capability to practically and appropriately respond to problems/situations with ingenuity and empathy'
+      'Printmaking (Graphic Art)',
+      'Design Aptitude \u2014 Capability To Practically And Appropriately Respond To',
     ],
   },
   {
@@ -92,8 +90,8 @@ const chapters: Chapter[] = [
       'The Three-Round Receipt Named',
       'The Case Honesty Held',
       'The Persuasion Honesty Held Straight',
-    
-      'Graphics practical Class XII: graphic print through Serigraphy OR Lithography OR Etching and Engraving (Intaglio process); Portfolio Assessment'
+      'Graphics practical Class XII: graphic print through Serigraphy OR Lithography OR Etching and Engraving (Intaglio process); Portfolio Assessment',
+      'Graphics practical Class XI: Relief Printing through Linocut/Woodcut/Paper-cardboard (printing methods and materials, registration, simple colour printing); Portfolio Assessment',
     ],
   },
 ]

@@ -1,0 +1,2113 @@
+{
+ "discipline": "arts-music",
+ "autoActions": [
+  {
+   "op": "remove",
+   "book": "rhythm-meter",
+   "chapter": 3,
+   "idx": 4,
+   "title": "Component 3 Extended Performance — 15-20 minute performance plus 1000-1500-word research report",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "ear-training",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Part B — Mathematics (class 11-12 level): algebra (equations, AP/GP, series), trigonometry (identities, heights and distances), coordinate geometry, 3D geometry, matrices and determinants, logarithms, mensuration, basic calculus (limits, differentiation), probability and statistics, permutation and",
+   "why": "junk-certain: two numeric runs (concatenated TOC lines)"
+  },
+  {
+   "op": "remove",
+   "book": "music-composition",
+   "chapter": 5,
+   "idx": 4,
+   "title": "Component 4 Extended Composition — 6-8 minute composition plus 1000-1500-word research report",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "music-composition",
+   "chapter": 5,
+   "idx": 4,
+   "title": "Component 5 Investigating Music — 2500-3000-word essay plus up to 500-word reflective statement",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "acoustics",
+   "chapter": 1,
+   "idx": 1,
+   "title": "The 343 Receipt Priced Straight",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "illustration",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Part B — Aptitude & Mathematics (120 marks, CBT, MCQ and NCQ): logical reasoning, visual reasoning, design sensitivity, numerical ability",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "typography",
+   "chapter": 4,
+   "idx": 0,
+   "title": "The 45-to-75 Receipt Fixed by Drill",
+   "why": "junk-certain: two numeric runs (concatenated TOC lines)"
+  },
+  {
+   "op": "remove",
+   "book": "digital-art",
+   "chapter": 1,
+   "idx": 1,
+   "title": "The 72-and-300 Receipts Fixed by Drill",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "digital-art",
+   "chapter": 1,
+   "idx": 6,
+   "title": "SL (150 hours) and HL (240 hours) follow the same three assessed components, with HL requiring a larger Comparative Study with explicit link to own practice, more Process Portfolio screens covering more media, and a larger Exhibition with fuller rationale",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "instrument-studies",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Music Instruments of India (classification, structure and playing techniques; veena, violin, flute, nadaswaram, mridangam etc.)",
+   "why": "dup: consolidated to surveying-and-geomatics (specialist)",
+   "targetBook": "surveying-and-geomatics"
+  },
+  {
+   "op": "remove",
+   "book": "instrument-studies",
+   "chapter": 5,
+   "idx": 4,
+   "title": "Musical Instruments and their Classification",
+   "why": "dup: consolidated to surveying-and-geomatics (specialist)",
+   "targetBook": "surveying-and-geomatics"
+  },
+  {
+   "op": "remove",
+   "book": "music-composition",
+   "chapter": 4,
+   "idx": 4,
+   "title": "Percussion (Tabla/Pakhawaj) Units V-X: Applied Theory — Taal & Avanaddha Vadya; history of music and treatises; compositional forms of avanaddha vadyas; classification and description of musical instruments; performers and composers; detailed study of gharanas and institutional system",
+   "why": "dup: consolidated to surveying-and-geomatics (specialist)",
+   "targetBook": "surveying-and-geomatics"
+  },
+  {
+   "op": "remove",
+   "book": "music-history",
+   "chapter": 5,
+   "idx": 4,
+   "title": "Unit II (common): Folk Music (origin, evolution and classification of Indian folk music; folk instruments and performers of various regions; ragas and talas used in folk music; folk fairs and festivals)",
+   "why": "dup: consolidated to surveying-and-geomatics (specialist)",
+   "targetBook": "surveying-and-geomatics"
+  },
+  {
+   "op": "remove",
+   "book": "music-history",
+   "chapter": 6,
+   "idx": 6,
+   "title": "Gharana and Institutional System and conferences of Hindustani music",
+   "why": "dup: consolidated to surveying-and-geomatics (specialist)",
+   "targetBook": "surveying-and-geomatics"
+  },
+  {
+   "op": "remove",
+   "book": "music-theory-notation",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Applied Theory (musical scales; suddha and vikrita svaras; sruti; raga-lakshana and classification; talas; notation and staff notation)",
+   "why": "dup: consolidated to surveying-and-geomatics (specialist)",
+   "targetBook": "surveying-and-geomatics"
+  },
+  {
+   "op": "remove",
+   "book": "music-theory-notation",
+   "chapter": 2,
+   "idx": 5,
+   "title": "Hindustani (Vocal, Instrumental & Musicology) Unit V: Applied Theory (sangeet utpatti; musical scales Indian and western; gram, murchchhana; raga classification; time theory of ragas; notation systems of Hindustani, Karnataka and western music; layakari)",
+   "why": "dup: consolidated to surveying-and-geomatics (specialist)",
+   "targetBook": "surveying-and-geomatics"
+  },
+  {
+   "op": "move",
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "idx": 42,
+   "title": "Identities",
+   "targetBook": "ear-training",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> ear-training 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "vlsi-design",
+   "chapter": 5,
+   "idx": 0,
+   "title": "The Three Powers Priced",
+   "targetBook": "photography",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.67 -> photography 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "indian-history",
+   "chapter": 10,
+   "idx": 5,
+   "title": "Unit 4: Teacher Education",
+   "targetBook": "contemporary-dance",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.33 -> contemporary-dance 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "english",
+   "chapter": 1,
+   "idx": 46,
+   "title": "Points",
+   "targetBook": "drawing",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> drawing 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-physics",
+   "chapter": 1,
+   "idx": 8,
+   "title": "Differentiation",
+   "targetBook": "ear-training",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> ear-training 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-physics",
+   "chapter": 1,
+   "idx": 21,
+   "title": "Concepts",
+   "targetBook": "illustration",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> illustration 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "solid-state-physics",
+   "chapter": 5,
+   "idx": 2,
+   "title": "The Classification",
+   "targetBook": "music-history",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> music-history 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-economics",
+   "chapter": 1,
+   "idx": 10,
+   "title": "Society",
+   "targetBook": "graphic-design",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> graphic-design 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Interdisciplinary topics",
+   "targetBook": "contemporary-dance",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> contemporary-dance 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "idx": 22,
+   "title": "Comparison Between AO’s and MO’s",
+   "targetBook": "film-studies",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> film-studies 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "idx": 22,
+   "title": "Comparison Between σ and π MO’s",
+   "targetBook": "film-studies",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> film-studies 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "idx": 259,
+   "title": "A1.2 Logarithms A4",
+   "targetBook": "ear-training",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> ear-training 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "idx": 259,
+   "title": "TO THE STUDENT",
+   "targetBook": "film-studies",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> film-studies 1.0)"
+  },
+  {
+   "op": "remove",
+   "book": "music-theory-notation",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Unit I (common to all in music): Technical Terms (sangeet, nada, shruti, swaras, raga, thata, tala, laya, gamaka, notation systems, etc.)",
+   "why": "misplaced; already covered in harmony"
+  },
+  {
+   "op": "remove",
+   "book": "music-theory-notation",
+   "chapter": 4,
+   "idx": 4,
+   "title": "Historical perspective of music — contributions of scholars, musicologists, musical concepts in treatises",
+   "why": "misplaced; already covered in foundation-biology"
+  },
+  {
+   "op": "remove",
+   "book": "music-theory-notation",
+   "chapter": 6,
+   "idx": 4,
+   "title": "Component 2 Practical Music — performing (6-10 minute performance)",
+   "why": "misplaced; already covered in music-composition"
+  },
+  {
+   "op": "remove",
+   "book": "harmony",
+   "chapter": 6,
+   "idx": 4,
+   "title": "Unit 3 (common): The Natyasastra",
+   "why": "misplaced; already covered in classical-dance"
+  },
+  {
+   "op": "move",
+   "book": "music-composition",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Compositional forms and their evolution (prabandh, dhrupad, dhamaar, kheyaal, tarana, thumri, tappa etc.)",
+   "targetBook": "foundation-biology",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.09 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "music-composition",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Compositional forms and their evolution (prabandha, gitam, svarajati, varnam, padavarnam, kriti, ragamalika etc.)",
+   "targetBook": "foundation-biology",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.09 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "remove",
+   "book": "music-composition",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Applied Theory (ragas, talas, kirtana, baul); historical perspective of music (Tagore and eminent personalities); composition forms and their evolution (Geetanjali and song offerings); music instruments of India; contribution of scholars/performers and their textual traditions; gharana and",
+   "why": "misplaced; already covered in foundation-biology"
+  },
+  {
+   "op": "move",
+   "book": "music-composition",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Component 2 Practical Music — composing (two contrasting compositions, 1-2 minutes each)",
+   "targetBook": "music-theory-notation",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.38 -> music-theory-notation 0.62)"
+  },
+  {
+   "op": "remove",
+   "book": "music-history",
+   "chapter": 6,
+   "idx": 5,
+   "title": "Contribution of composers/performers to Indian music (Tansen, Sadarang etc.)",
+   "why": "misplaced; already covered in classical-dance"
+  },
+  {
+   "op": "move",
+   "book": "painting",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Class XII theory (common to all four subjects) Unit 1: Miniature Paintings — The Rajasthani, Pahari, Mughal and Deccan schools of miniature painting",
+   "targetBook": "harmony",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.21 -> harmony 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "painting",
+   "chapter": 2,
+   "idx": 5,
+   "title": "Painting practical Class XII: Nature and Object Study; Painting Composition (imaginative painting from life and nature in water and poster colours); Portfolio Assessment",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.21 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "colour-theory",
+   "chapter": 5,
+   "idx": 4,
+   "title": "Class XI theory (common to Painting, Graphics, Sculpture and Applied Art) Unit 1: Pre-Historic rock paintings and art of Indus/Sindhu Saraswati Civilization; Buddhist, Jain and Hindu Art",
+   "targetBook": "harmony",
+   "targetChapter": 6,
+   "why": "misplaced, grounded (own 0.21 -> harmony 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "illustration",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Unit VIII: Contemporary practices in Indian art during the 20th and 21st centuries; modern concept of advertising, designing and visual communication; experimental modes in contemporary visual expression; development of art education in India from colonial art schools to the present",
+   "targetBook": "classical-dance",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.2 -> classical-dance 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "graphic-design",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Part-A: Environment and society — general awareness of environmental, social and cultural connections with design",
+   "targetBook": "political-science",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.12 -> political-science 0.75)"
+  },
+  {
+   "op": "remove",
+   "book": "digital-art",
+   "chapter": 1,
+   "idx": 3,
+   "title": "Unit 4 (common): Art and Aesthetics",
+   "why": "misplaced; already covered in harmony"
+  },
+  {
+   "op": "move",
+   "book": "digital-art",
+   "chapter": 1,
+   "idx": 3,
+   "title": "Unit IV: Developments in modern techniques, processes and procedures and their application in contemporary visual practices (installation; multi-colour print; computer-aided design — vector and raster; multimedia and digital technologies in art; trompe l'oeil illusory hyper-realism)",
+   "targetBook": "anthropology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.25 -> anthropology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "digital-art",
+   "chapter": 4,
+   "idx": 4,
+   "title": "Applied Art (Commercial Art) practical Class XII: Illustration (techniques of illustration supported by drawing from life and outdoor sketching); Poster (poster with specified data and slogan in two or three colours); Portfolio Assessment",
+   "targetBook": "colour-theory",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.32 -> colour-theory 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "digital-art",
+   "chapter": 5,
+   "idx": 4,
+   "title": "Applied Art (Commercial Art) practical Class XI: Drawing (still-life and nature); Lettering (Roman and Devanagari scripts, typefaces and sizes) and Layout; Portfolio Assessment",
+   "targetBook": "colour-theory",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.22 -> colour-theory 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "classical-dance",
+   "chapter": 3,
+   "idx": 5,
+   "title": "Unit 5 (common): Dance and Theatre forms of East and South Asian Countries",
+   "targetBook": "harmony",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.44 -> harmony 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "classical-dance",
+   "chapter": 3,
+   "idx": 7,
+   "title": "Unit V: Indian and Western aesthetics and art appreciation",
+   "targetBook": "digital-art",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.33 -> digital-art 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "classical-dance",
+   "chapter": 3,
+   "idx": 7,
+   "title": "Unit VII: Chronological periods and developments in Indian art from prehistory to the 19th century",
+   "targetBook": "political-science",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.2 -> political-science 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "classical-dance",
+   "chapter": 3,
+   "idx": 7,
+   "title": "Unit III (common): Rasa and Aesthetics (rasa according to Bharata and others; rasa nishpatti and its application to Indian classical music; aesthetics according to Indian and western philosophers; raga-ragini paintings)",
+   "targetBook": "harmony",
+   "targetChapter": 6,
+   "why": "misplaced, grounded (own 0.25 -> harmony 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "classical-dance",
+   "chapter": 3,
+   "idx": 7,
+   "title": "Contribution of composers/performers to music, Indian and western (Tevaram, Alwars, Purandara Dasa, the music trinity etc.)",
+   "targetBook": "music-history",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.17 -> music-history 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "contemporary-dance",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Unit IV (common): Research Methodology and Pedagogy, Avenues, Interdisciplinary aspects and Modern Technology",
+   "targetBook": "harmony",
+   "targetChapter": 6,
+   "why": "misplaced, grounded (own 0.1 -> harmony 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "theatre",
+   "chapter": 2,
+   "idx": 5,
+   "title": "Theatre Education, Pedagogy and Research",
+   "targetBook": "contemporary-dance",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.25 -> contemporary-dance 0.75)"
+  },
+  {
+   "op": "remove",
+   "book": "theatre",
+   "chapter": 3,
+   "idx": 4,
+   "title": "Stage 2 — DAT Mains, part 2: In-Person Sensitivity Test",
+   "why": "misplaced; already covered in music-production"
+  },
+  {
+   "op": "move",
+   "book": "film-studies",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Unit 2 (common): Folk and Traditional Theatre Forms of India",
+   "targetBook": "harmony",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.43 -> harmony 0.57)"
+  },
+  {
+   "op": "move",
+   "book": "film-studies",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Comparative Study (CS) — analytical comparison of artworks by different artists from different cultural contexts, examining formal qualities, function, meaning and cultural significance; at HL also a connection to the student's own work",
+   "targetBook": "heat-and-thermodynamics",
+   "targetChapter": 6,
+   "why": "misplaced, grounded (own 0.17 -> heat-and-thermodynamics 0.5)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "ear-training",
+   "chapter": 1,
+   "idx": 1,
+   "title": "The Anchoring Craft Held",
+   "targetChapter": 4,
+   "why": "fits ch4 \"The Sight-Singing Craft\" (1.0 vs 0.67)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "music-history",
+   "chapter": 5,
+   "idx": 1,
+   "title": "The Revolution Receipts Priced Straight",
+   "targetChapter": 4,
+   "why": "fits ch4 \"The Twentieth-Century Register\" (1.0 vs 0.5)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "music-production",
+   "chapter": 1,
+   "idx": 3,
+   "title": "The MS Division Held",
+   "targetChapter": 2,
+   "why": "fits ch2 \"The DAW Register — the Studio’s Software Centre\" (1.0 vs 0.5)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "painting",
+   "chapter": 1,
+   "idx": 0,
+   "title": "The Each-Receipt Register Held",
+   "targetChapter": 5,
+   "why": "fits ch5 \"The Watercolour-and-Finishing Registers\" (1.0 vs 0.67)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "contemporary-dance",
+   "chapter": 4,
+   "idx": 0,
+   "title": "The Task Craft Held",
+   "targetChapter": 3,
+   "why": "fits ch3 \"The Contact-Improvisation Craft\" (1.0 vs 0.67)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "cinematography",
+   "chapter": 1,
+   "idx": 0,
+   "title": "The Two Held Straight",
+   "targetChapter": 4,
+   "why": "fits ch4 \"The Movement, Colour-and-Grading Registers\" (1.0 vs 0.33)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "screenwriting",
+   "chapter": 4,
+   "idx": 1,
+   "title": "The Craft Receipt Held",
+   "targetChapter": 2,
+   "why": "fits ch2 \"The Structure Arc\" (1.0 vs 0.67)"
+  }
+ ],
+ "dupAdjudicate": [
+  {
+   "title": "Current Mirrors as Bias",
+   "members": [
+    {
+     "book": "analog-electronics",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Differential and Multistage Amplifiers",
+     "idx": 1,
+     "title": "Current Mirrors as Bias"
+    },
+    {
+     "book": "analog-electronics",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Differential and Multistage Amplifiers",
+     "idx": 15,
+     "title": "The Cascode MOS Mirror 552 Summary"
+    },
+    {
+     "book": "engineering-mechanics",
+     "discipline": "engineering",
+     "chapter": 4,
+     "chapterTitle": "Friction and Its Applications",
+     "idx": 4,
+     "title": "(Emitter) Resistance"
+    },
+    {
+     "book": "engineering-mechanics",
+     "discipline": "engineering",
+     "chapter": 4,
+     "chapterTitle": "Friction and Its Applications",
+     "idx": 6,
+     "title": "An Emitter Resistance Re"
+    },
+    {
+     "book": "industrial-engineering",
+     "discipline": "engineering",
+     "chapter": 1,
+     "chapterTitle": "The Production System",
+     "idx": 6,
+     "title": "Output Resistance of the Emitter- 9.5.2 The Current-Mirror-Loaded MOS"
+    },
+    {
+     "book": "industrial-engineering",
+     "discipline": "engineering",
+     "chapter": 5,
+     "chapterTitle": "Inventory Control",
+     "idx": 4,
+     "title": "The Wilson BJT Current Mirror 553 Problems"
+    },
+    {
+     "book": "interior-design",
+     "discipline": "arts-music",
+     "chapter": 1,
+     "chapterTitle": "The Principles-and-Human-Factors Craft",
+     "idx": 4,
+     "title": "Prelims typical areas (from recent papers, mirror): general and design awareness — current affairs, Indian art and culture, materials, famous products, logos and designers"
+    },
+    {
+     "book": "theory-of-machines",
+     "discipline": "engineering",
+     "chapter": 7,
+     "chapterTitle": "Flywheels, Turning Moments and Governors",
+     "idx": 3,
+     "title": "The Wilson MOS Mirror"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Village India’s Tradition",
+   "members": [
+    {
+     "book": "anthropology",
+     "discipline": "humanities",
+     "chapter": 9,
+     "chapterTitle": "The Indian Anthropology",
+     "idx": 3,
+     "title": "The Village India’s Tradition"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 4,
+     "chapterTitle": "The Cell Preview",
+     "idx": 4,
+     "title": "Historical Perspective"
+    },
+    {
+     "book": "music-composition",
+     "discipline": "arts-music",
+     "chapter": 2,
+     "chapterTitle": "The Small Forms",
+     "idx": 6,
+     "title": "Applied Theory (ragas, talas, kirtana, baul); historical perspective of music (Tagore and eminent personalities); composition forms and their evolution (Geetanjali and song offerings); music instruments of India; contribution of scholars/performers and their textual traditions; gharana and"
+    },
+    {
+     "book": "music-theory-notation",
+     "discipline": "arts-music",
+     "chapter": 4,
+     "chapterTitle": "The Interval Craft",
+     "idx": 4,
+     "title": "Historical perspective of music — contributions of scholars, musicologists, musical concepts in treatises"
+    },
+    {
+     "book": "sociology",
+     "discipline": "humanities",
+     "chapter": 9,
+     "chapterTitle": "The Indian Social Structure",
+     "idx": 5,
+     "title": "Paper-II 5. Indian Village, Minorities and Socio-Cultural Change (Indian village as a social system; agrarian relations; impact of globalisation on villages; linguistic and religious minorities; Sanskritization, Westernization, Modernization; inter-play of little and great traditions; Panchayati"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Calcium Trigger Walked Slowly",
+   "members": [
+    {
+     "book": "animal-physiology",
+     "discipline": "biology",
+     "chapter": 2,
+     "chapterTitle": "The Muscle’s Contraction Craft",
+     "idx": 1,
+     "title": "The Calcium Trigger Walked Slowly"
+    },
+    {
+     "book": "biotechnology",
+     "discipline": "biology",
+     "chapter": 2,
+     "chapterTitle": "Vectors and Cloning",
+     "idx": 3,
+     "title": "A Clone Walked Slowly"
+    },
+    {
+     "book": "medical-physiology",
+     "discipline": "medical-sciences",
+     "chapter": 2,
+     "chapterTitle": "The Excitable Tissues",
+     "idx": 2,
+     "title": "The Coupling Cycle Walked Slowly"
+    },
+    {
+     "book": "molecular-biology",
+     "discipline": "biology",
+     "chapter": 4,
+     "chapterTitle": "Translation — the Code Read",
+     "idx": 3,
+     "title": "The Three Sites Walked Slowly"
+    },
+    {
+     "book": "rhythm-meter",
+     "discipline": "arts-music",
+     "chapter": 4,
+     "chapterTitle": "The Tuplets and the Polyrhythm",
+     "idx": 1,
+     "title": "The 3-against-4 Walked Slowly"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Two Named",
+   "members": [
+    {
+     "book": "animation",
+     "discipline": "arts-music",
+     "chapter": 1,
+     "chapterTitle": "The Principles Foundation",
+     "idx": 2,
+     "title": "The Two Named"
+    },
+    {
+     "book": "creative-writing",
+     "discipline": "arts-music",
+     "chapter": 1,
+     "chapterTitle": "The Story-Structure Craft",
+     "idx": 2,
+     "title": "The Two Named"
+    },
+    {
+     "book": "fashion-design",
+     "discipline": "arts-music",
+     "chapter": 4,
+     "chapterTitle": "The History-and-Collection Registers",
+     "idx": 1,
+     "title": "The Two Named"
+    },
+    {
+     "book": "interior-design",
+     "discipline": "arts-music",
+     "chapter": 3,
+     "chapterTitle": "The Furniture-and-Styles Census",
+     "idx": 1,
+     "title": "The Two Named"
+    },
+    {
+     "book": "theatre",
+     "discipline": "arts-music",
+     "chapter": 2,
+     "chapterTitle": "The Drama-Structure Craft",
+     "idx": 1,
+     "title": "The Two Named"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Unit V: Indian and Western aesthetics and art appreciation",
+   "members": [
+    {
+     "book": "classical-dance",
+     "discipline": "arts-music",
+     "chapter": 3,
+     "chapterTitle": "The Indian Classical Treasury",
+     "idx": 8,
+     "title": "Unit V: Indian and Western aesthetics and art appreciation"
+    },
+    {
+     "book": "classical-dance",
+     "discipline": "arts-music",
+     "chapter": 3,
+     "chapterTitle": "The Indian Classical Treasury",
+     "idx": 10,
+     "title": "Unit III (common): Rasa and Aesthetics (rasa according to Bharata and others; rasa nishpatti and its application to Indian classical music; aesthetics according to Indian and western philosophers; raga-ragini paintings)"
+    },
+    {
+     "book": "colour-theory",
+     "discipline": "arts-music",
+     "chapter": 5,
+     "chapterTitle": "The Practical Palette Register",
+     "idx": 4,
+     "title": "Class XI theory (common to Painting, Graphics, Sculpture and Applied Art) Unit 1: Pre-Historic rock paintings and art of Indus/Sindhu Saraswati Civilization; Buddhist, Jain and Hindu Art"
+    },
+    {
+     "book": "digital-art",
+     "discipline": "arts-music",
+     "chapter": 1,
+     "chapterTitle": "The Canvas Fundamentals",
+     "idx": 4,
+     "title": "Unit 4 (common): Art and Aesthetics"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Three Named",
+   "members": [
+    {
+     "book": "creative-writing",
+     "discipline": "arts-music",
+     "chapter": 5,
+     "chapterTitle": "The Poetry-and-Revision Registers",
+     "idx": 3,
+     "title": "The Three Named"
+    },
+    {
+     "book": "film-studies",
+     "discipline": "arts-music",
+     "chapter": 4,
+     "chapterTitle": "The Genre, Auteur-and-Industry Registers",
+     "idx": 1,
+     "title": "The Three Named"
+    },
+    {
+     "book": "theatre",
+     "discipline": "arts-music",
+     "chapter": 3,
+     "chapterTitle": "The Production-Team Census",
+     "idx": 1,
+     "title": "The Three Named"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Part B — Mathematics (class 11-12 level): algebra (equations, AP/GP, series), trigonometry (identities, heights and distances), coordinate geometry, 3D geometry, matrices and determinants, logarithms, mensuration, basic calculus (limits, differentiation), probability and statistics, permutation and",
+   "members": [
+    {
+     "book": "ear-training",
+     "discipline": "arts-music",
+     "chapter": 1,
+     "chapterTitle": "The Interval Recognition",
+     "idx": 4,
+     "title": "Part B — Mathematics (class 11-12 level): algebra (equations, AP/GP, series), trigonometry (identities, heights and distances), coordinate geometry, 3D geometry, matrices and determinants, logarithms, mensuration, basic calculus (limits, differentiation), probability and statistics, permutation and"
+    },
+    {
+     "book": "linear-algebra",
+     "discipline": "mathematics",
+     "chapter": 2,
+     "chapterTitle": "Determinants",
+     "idx": 2,
+     "title": "Determinants in Coordinate Geometry"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Vowels’ Pure Discipline",
+   "members": [
+    {
+     "book": "german",
+     "discipline": "languages",
+     "chapter": 1,
+     "chapterTitle": "The Sounds and the Umlauts",
+     "idx": 0,
+     "title": "The Vowels’ Pure Discipline"
+    },
+    {
+     "book": "vocal-music",
+     "discipline": "arts-music",
+     "chapter": 3,
+     "chapterTitle": "The Diction Craft",
+     "idx": 1,
+     "title": "The Pure-Vowel Honesty Held"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Component 2 Practical Music — composing (two contrasting compositions, 1-2 minutes each)",
+   "members": [
+    {
+     "book": "music-composition",
+     "discipline": "arts-music",
+     "chapter": 2,
+     "chapterTitle": "The Small Forms",
+     "idx": 7,
+     "title": "Component 2 Practical Music — composing (two contrasting compositions, 1-2 minutes each)"
+    },
+    {
+     "book": "music-theory-notation",
+     "discipline": "arts-music",
+     "chapter": 6,
+     "chapterTitle": "The Score and the Expression Crafts",
+     "idx": 4,
+     "title": "Component 2 Practical Music — performing (6-10 minute performance)"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Component 4 Extended Composition — 6-8 minute composition plus 1000-1500-word research report",
+   "members": [
+    {
+     "book": "music-composition",
+     "discipline": "arts-music",
+     "chapter": 5,
+     "chapterTitle": "The Text Setting and the Revision Discipline",
+     "idx": 4,
+     "title": "Component 4 Extended Composition — 6-8 minute composition plus 1000-1500-word research report"
+    },
+    {
+     "book": "rhythm-meter",
+     "discipline": "arts-music",
+     "chapter": 3,
+     "chapterTitle": "The Asymmetric-and-Syncopation Registers",
+     "idx": 4,
+     "title": "Component 3 Extended Performance — 15-20 minute performance plus 1000-1500-word research report"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Row Receipt Priced Straight",
+   "members": [
+    {
+     "book": "counterpoint",
+     "discipline": "arts-music",
+     "chapter": 4,
+     "chapterTitle": "The Canon-and-Invertible Craft",
+     "idx": 0,
+     "title": "The Row Receipt Priced Straight"
+    },
+    {
+     "book": "music-history",
+     "discipline": "arts-music",
+     "chapter": 4,
+     "chapterTitle": "The Twentieth-Century Register",
+     "idx": 0,
+     "title": "The Row Receipt Priced Straight"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Core Honesty Held",
+   "members": [
+    {
+     "book": "instrument-studies",
+     "discipline": "arts-music",
+     "chapter": 1,
+     "chapterTitle": "The Families Overview",
+     "idx": 0,
+     "title": "The Core Honesty Held"
+    },
+    {
+     "book": "music-composition",
+     "discipline": "arts-music",
+     "chapter": 4,
+     "chapterTitle": "The Orchestration First Pass",
+     "idx": 0,
+     "title": "The Core Honesty Held"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Contribution of composers/performers to music, Indian and western (Tevaram, Alwars, Purandara Dasa, the music trinity etc.)",
+   "members": [
+    {
+     "book": "classical-dance",
+     "discipline": "arts-music",
+     "chapter": 3,
+     "chapterTitle": "The Indian Classical Treasury",
+     "idx": 11,
+     "title": "Contribution of composers/performers to music, Indian and western (Tevaram, Alwars, Purandara Dasa, the music trinity etc.)"
+    },
+    {
+     "book": "music-history",
+     "discipline": "arts-music",
+     "chapter": 6,
+     "chapterTitle": "The World, Digital-and-Contemporary Registers",
+     "idx": 5,
+     "title": "Contribution of composers/performers to Indian music (Tansen, Sadarang etc.)"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Stage 2 — DAT Mains, part 1: Studio Sensitivity Test",
+   "members": [
+    {
+     "book": "music-production",
+     "discipline": "arts-music",
+     "chapter": 2,
+     "chapterTitle": "The DAW Register — the Studio’s Software Centre",
+     "idx": 4,
+     "title": "Stage 2 — DAT Mains, part 1: Studio Sensitivity Test"
+    },
+    {
+     "book": "theatre",
+     "discipline": "arts-music",
+     "chapter": 3,
+     "chapterTitle": "The Production-Team Census",
+     "idx": 4,
+     "title": "Stage 2 — DAT Mains, part 2: In-Person Sensitivity Test"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Entry-and-Path Honesty Held",
+   "members": [
+    {
+     "book": "drawing",
+     "discipline": "arts-music",
+     "chapter": 5,
+     "chapterTitle": "The Composition, Materials-and-Practice Registers",
+     "idx": 0,
+     "title": "The Entry-and-Path Honesty Held"
+    },
+    {
+     "book": "graphic-design",
+     "discipline": "arts-music",
+     "chapter": 2,
+     "chapterTitle": "The Grid-and-Layout Craft",
+     "idx": 1,
+     "title": "The Entry’s Path Honesty Cross-Referenced"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Three-View Receipt Fixed by Drill",
+   "members": [
+    {
+     "book": "illustration",
+     "discipline": "arts-music",
+     "chapter": 2,
+     "chapterTitle": "The Character-Design Craft",
+     "idx": 1,
+     "title": "The Three-View Receipt Fixed by Drill"
+    },
+    {
+     "book": "sculpture",
+     "discipline": "arts-music",
+     "chapter": 1,
+     "chapterTitle": "The Volume-Thinking Craft",
+     "idx": 2,
+     "title": "The Three-View Receipt Fixed by Drill"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Grain Honesty Named",
+   "members": [
+    {
+     "book": "digital-art",
+     "discipline": "arts-music",
+     "chapter": 2,
+     "chapterTitle": "The Brush-and-Mark Craft",
+     "idx": 1,
+     "title": "The Grain Honesty Named"
+    },
+    {
+     "book": "sculpture",
+     "discipline": "arts-music",
+     "chapter": 3,
+     "chapterTitle": "The Carving-and-Construction Registers",
+     "idx": 0,
+     "title": "The Grain Honesty Named"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Seam Honesty Named",
+   "members": [
+    {
+     "book": "3d-modelling",
+     "discipline": "arts-music",
+     "chapter": 5,
+     "chapterTitle": "The Materials, Lighting-and-Pipeline Registers",
+     "idx": 1,
+     "title": "The Seam Honesty Named"
+    },
+    {
+     "book": "sculpture",
+     "discipline": "arts-music",
+     "chapter": 4,
+     "chapterTitle": "The Molding-and-Casting Craft",
+     "idx": 0,
+     "title": "The Seam Honesty Named"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Load Honesty Cross-Referenced",
+   "members": [
+    {
+     "book": "sculpture",
+     "discipline": "arts-music",
+     "chapter": 5,
+     "chapterTitle": "The Ceramics, Scale-and-Public Registers",
+     "idx": 1,
+     "title": "The Load Honesty Cross-Referenced"
+    },
+    {
+     "book": "stage-production",
+     "discipline": "arts-music",
+     "chapter": 1,
+     "chapterTitle": "The Theatre-Spaces-and-Set Craft",
+     "idx": 2,
+     "title": "The Load Honesty Cross-Referenced"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Cross-Reference Held",
+   "members": [
+    {
+     "book": "classical-dance",
+     "discipline": "arts-music",
+     "chapter": 5,
+     "chapterTitle": "The Pedagogy-and-Repertoire Register",
+     "idx": 3,
+     "title": "The Cross-Reference Held"
+    },
+    {
+     "book": "typography",
+     "discipline": "arts-music",
+     "chapter": 4,
+     "chapterTitle": "The Page-Composition Craft",
+     "idx": 3,
+     "title": "The Cross-Reference Held"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Take Honesty Held",
+   "members": [
+    {
+     "book": "acting",
+     "discipline": "arts-music",
+     "chapter": 4,
+     "chapterTitle": "The Classical-and-Screen Registers",
+     "idx": 2,
+     "title": "The Take Honesty Held"
+    },
+    {
+     "book": "photography",
+     "discipline": "arts-music",
+     "chapter": 5,
+     "chapterTitle": "The Post-and-Genres Registers",
+     "idx": 1,
+     "title": "The Take Honesty Held"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Four Fixed by Drill",
+   "members": [
+    {
+     "book": "dance-fundamentals",
+     "discipline": "arts-music",
+     "chapter": 2,
+     "chapterTitle": "The Locomotor, Jumps-and-Turns",
+     "idx": 3,
+     "title": "The Four Fixed by Drill"
+    },
+    {
+     "book": "stage-production",
+     "discipline": "arts-music",
+     "chapter": 1,
+     "chapterTitle": "The Theatre-Spaces-and-Set Craft",
+     "idx": 0,
+     "title": "The Four Fixed by Drill"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Nine Fixed by Drill",
+   "members": [
+    {
+     "book": "classical-dance",
+     "discipline": "arts-music",
+     "chapter": 4,
+     "chapterTitle": "The Mudra-and-Abhinaya Craft",
+     "idx": 2,
+     "title": "The Nine Fixed by Drill"
+    },
+    {
+     "book": "fashion-design",
+     "discipline": "arts-music",
+     "chapter": 1,
+     "chapterTitle": "The Figure-and-Fashion-Drawing Craft",
+     "idx": 0,
+     "title": "The Nine Fixed by Drill"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Room Honesty Named",
+   "members": [
+    {
+     "book": "acting",
+     "discipline": "arts-music",
+     "chapter": 1,
+     "chapterTitle": "The Instrument Craft",
+     "idx": 3,
+     "title": "The Room Honesty Named"
+    },
+    {
+     "book": "screenwriting",
+     "discipline": "arts-music",
+     "chapter": 5,
+     "chapterTitle": "The Career Craft",
+     "idx": 3,
+     "title": "The Room Honesty Named"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Say-Mean Division Held Straight",
+   "members": [
+    {
+     "book": "acting",
+     "discipline": "arts-music",
+     "chapter": 3,
+     "chapterTitle": "The Scene Study Arc",
+     "idx": 2,
+     "title": "The Say-Mean Division Held Straight"
+    },
+    {
+     "book": "screenwriting",
+     "discipline": "arts-music",
+     "chapter": 3,
+     "chapterTitle": "The Scene-and-Dialogue Craft",
+     "idx": 1,
+     "title": "The Say-Mean Division Held Straight"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Two Held Straight",
+   "members": [
+    {
+     "book": "cinematography",
+     "discipline": "arts-music",
+     "chapter": 1,
+     "chapterTitle": "The Camera-and-Format Craft",
+     "idx": 0,
+     "title": "The Two Held Straight"
+    },
+    {
+     "book": "film-studies",
+     "discipline": "arts-music",
+     "chapter": 2,
+     "chapterTitle": "The Narrative Form",
+     "idx": 0,
+     "title": "The Two Held Straight"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Range Honesty Held",
+   "members": [
+    {
+     "book": "cinematography",
+     "discipline": "arts-music",
+     "chapter": 2,
+     "chapterTitle": "The Lens-and-Exposure Craft",
+     "idx": 2,
+     "title": "The Range Honesty Held"
+    },
+    {
+     "book": "film-studies",
+     "discipline": "arts-music",
+     "chapter": 2,
+     "chapterTitle": "The Narrative Form",
+     "idx": 2,
+     "title": "The Range Honesty Held"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Craft’s-Choice Honesty Held",
+   "members": [
+    {
+     "book": "cinematography",
+     "discipline": "arts-music",
+     "chapter": 2,
+     "chapterTitle": "The Lens-and-Exposure Craft",
+     "idx": 1,
+     "title": "The Craft’s-Choice Honesty Held"
+    },
+    {
+     "book": "creative-writing",
+     "discipline": "arts-music",
+     "chapter": 2,
+     "chapterTitle": "The Point-of-View Register",
+     "idx": 2,
+     "title": "The Craft’s-Choice Honesty Held"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Coverage Receipt Named",
+   "members": [
+    {
+     "book": "cinematography",
+     "discipline": "arts-music",
+     "chapter": 5,
+     "chapterTitle": "The Set-Collaboration Craft",
+     "idx": 2,
+     "title": "The Coverage Receipt Named"
+    },
+    {
+     "book": "stage-production",
+     "discipline": "arts-music",
+     "chapter": 3,
+     "chapterTitle": "The Sound-Design Craft",
+     "idx": 1,
+     "title": "The Coverage Receipt Named"
+    }
+   ],
+   "exact": true
+  }
+ ],
+ "misAdjudicate": [
+  {
+   "book": "music-theory-notation",
+   "discipline": "arts-music",
+   "chapter": 4,
+   "chapterTitle": "The Interval Craft",
+   "idx": 5,
+   "title": "Prelims typical areas (mirror): basic arithmetic — seating arrangement, Venn diagrams and simple number questions",
+   "ownScore": 0.25,
+   "bestBook": "quantitative-aptitude",
+   "bestScore": 0.58,
+   "top3": [
+    {
+     "book": "quantitative-aptitude",
+     "score": 0.58
+    },
+    {
+     "book": "trigonometry",
+     "score": 0.42
+    },
+    {
+     "book": "advanced-algebra",
+     "score": 0.42
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "music-history",
+   "discipline": "arts-music",
+   "chapter": 1,
+   "chapterTitle": "The Medieval-and-Renaissance Register",
+   "idx": 3,
+   "title": "The Two Church Registers Named",
+   "ownScore": 0.75,
+   "bestBook": "theory-of-computation",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "theory-of-computation",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.75
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "vocal-music",
+   "discipline": "arts-music",
+   "chapter": 3,
+   "chapterTitle": "The Diction Craft",
+   "idx": 0,
+   "title": "The Symbol Census Fixed by Drill",
+   "ownScore": 0.75,
+   "bestBook": "music-theory-notation",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "music-theory-notation",
+     "score": 1.0
+    },
+    {
+     "book": "ear-training",
+     "score": 1.0
+    },
+    {
+     "book": "arithmetic-and-number-systems",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "vocal-music",
+   "discipline": "arts-music",
+   "chapter": 3,
+   "chapterTitle": "The Diction Craft",
+   "idx": 4,
+   "title": "Part-A: Language — proficiency in reading and comprehending Standard English",
+   "ownScore": 0.33,
+   "bestBook": "portuguese",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "portuguese",
+     "score": 0.67
+    },
+    {
+     "book": "italian",
+     "score": 0.67
+    },
+    {
+     "book": "russian",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "music-production",
+   "discipline": "arts-music",
+   "chapter": 2,
+   "chapterTitle": "The DAW Register — the Studio’s Software Centre",
+   "idx": 4,
+   "title": "Stage 2 — DAT Mains, part 1: Studio Sensitivity Test",
+   "ownScore": 0.17,
+   "bestBook": "optimization-and-operations-research",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "optimization-and-operations-research",
+     "score": 0.5
+    },
+    {
+     "book": "community-medicine",
+     "score": 0.5
+    },
+    {
+     "book": "statistics",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "painting",
+   "discipline": "arts-music",
+   "chapter": 5,
+   "chapterTitle": "The Watercolour-and-Finishing Registers",
+   "idx": 1,
+   "title": "The Graded Division Fixed by Drill",
+   "ownScore": 0.5,
+   "bestBook": "classical-dance",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "classical-dance",
+     "score": 1.0
+    },
+    {
+     "book": "ear-training",
+     "score": 1.0
+    },
+    {
+     "book": "photography",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "colour-theory",
+   "discipline": "arts-music",
+   "chapter": 2,
+   "chapterTitle": "The Systems Honesty",
+   "idx": 4,
+   "title": "Part-A: Practical and scientific knowledge — know-how of scientific principles and everyday objects",
+   "ownScore": 0.12,
+   "bestBook": "foundation-mathematics",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "foundation-mathematics",
+     "score": 0.5
+    },
+    {
+     "book": "elementary-algebra",
+     "score": 0.5
+    },
+    {
+     "book": "computer-fundamentals",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "colour-theory",
+   "discipline": "arts-music",
+   "chapter": 5,
+   "chapterTitle": "The Practical Palette Register",
+   "idx": 5,
+   "title": "Indian National Flag; The Bengal School of Painting; The Modern Trends in Indian Art (paintings, graphic prints, sculptures)",
+   "ownScore": 0.25,
+   "bestBook": "art-history",
+   "bestScore": 0.58,
+   "top3": [
+    {
+     "book": "art-history",
+     "score": 0.58
+    },
+    {
+     "book": "indian-history",
+     "score": 0.5
+    },
+    {
+     "book": "world-history",
+     "score": 0.42
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "sculpture",
+   "discipline": "arts-music",
+   "chapter": 2,
+   "chapterTitle": "The Clay-Modeling Craft",
+   "idx": 0,
+   "title": "The Core Receipt Held",
+   "ownScore": 0.67,
+   "bestBook": "classical-dance",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "classical-dance",
+     "score": 1.0
+    },
+    {
+     "book": "drawing",
+     "score": 1.0
+    },
+    {
+     "book": "physiotherapy",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "dance-fundamentals",
+   "discipline": "arts-music",
+   "chapter": 1,
+   "chapterTitle": "The Body-and-Alignment Craft",
+   "idx": 0,
+   "title": "The Neutral Receipt Held",
+   "ownScore": 0.67,
+   "bestBook": "animal-physiology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "animal-physiology",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.67
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "dance-fundamentals",
+   "discipline": "arts-music",
+   "chapter": 2,
+   "chapterTitle": "The Locomotor, Jumps-and-Turns",
+   "idx": 2,
+   "title": "The Fix Receipt Held",
+   "ownScore": 0.67,
+   "bestBook": "drawing",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "drawing",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.67
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "dance-fundamentals",
+   "discipline": "arts-music",
+   "chapter": 4,
+   "chapterTitle": "The Improvisation-and-Composition Basics",
+   "idx": 1,
+   "title": "The Silence Receipt Held",
+   "ownScore": 0.67,
+   "bestBook": "music-theory-notation",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "music-theory-notation",
+     "score": 1.0
+    },
+    {
+     "book": "screenwriting",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "classical-dance",
+   "discipline": "arts-music",
+   "chapter": 3,
+   "chapterTitle": "The Indian Classical Treasury",
+   "idx": 6,
+   "title": "Dance in Sanskrit Literature and Treatises",
+   "ownScore": 0.25,
+   "bestBook": "vocal-music",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "vocal-music",
+     "score": 0.5
+    },
+    {
+     "book": "hindi",
+     "score": 0.5
+    },
+    {
+     "book": "arabic",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "classical-dance",
+   "discipline": "arts-music",
+   "chapter": 3,
+   "chapterTitle": "The Indian Classical Treasury",
+   "idx": 7,
+   "title": "Drama and its theories — Indian and Western",
+   "ownScore": 0.25,
+   "bestBook": "philosophy",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "philosophy",
+     "score": 0.75
+    },
+    {
+     "book": "political-science",
+     "score": 0.75
+    },
+    {
+     "book": "ethics",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 6
+  },
+  {
+   "book": "theatre",
+   "discipline": "arts-music",
+   "chapter": 2,
+   "chapterTitle": "The Drama-Structure Craft",
+   "idx": 4,
+   "title": "Theatre Design and techniques (theatre architecture, stagecraft, theatre management and organisation)",
+   "ownScore": 0.29,
+   "bestBook": "microbiology",
+   "bestScore": 0.57,
+   "top3": [
+    {
+     "book": "microbiology",
+     "score": 0.57
+    },
+    {
+     "book": "backend-engineering",
+     "score": 0.43
+    },
+    {
+     "book": "database-management-systems",
+     "score": 0.43
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "acting",
+   "discipline": "arts-music",
+   "chapter": 1,
+   "chapterTitle": "The Instrument Craft",
+   "idx": 2,
+   "title": "The Release Craft Held",
+   "ownScore": 0.67,
+   "bestBook": "immunology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "immunology",
+     "score": 1.0
+    },
+    {
+     "book": "music-production",
+     "score": 1.0
+    },
+    {
+     "book": "biotechnology",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "acting",
+   "discipline": "arts-music",
+   "chapter": 4,
+   "chapterTitle": "The Classical-and-Screen Registers",
+   "idx": 2,
+   "title": "The Take Honesty Held",
+   "ownScore": 0.67,
+   "bestBook": "photography",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "photography",
+     "score": 1.0
+    },
+    {
+     "book": "music-production",
+     "score": 1.0
+    },
+    {
+     "book": "backend-engineering",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "acting",
+   "discipline": "arts-music",
+   "chapter": 5,
+   "chapterTitle": "The Audition-and-Ethics Registers",
+   "idx": 3,
+   "title": "The Boundary Honesty Held",
+   "ownScore": 0.67,
+   "bestBook": "nursing",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "nursing",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.67
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "screenwriting",
+   "discipline": "arts-music",
+   "chapter": 2,
+   "chapterTitle": "The Structure Arc",
+   "idx": 1,
+   "title": "The Two-Pair Honesty Held",
+   "ownScore": 0.75,
+   "bestBook": "developmental-biology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "developmental-biology",
+     "score": 1.0
+    },
+    {
+     "book": "biotechnology",
+     "score": 1.0
+    },
+    {
+     "book": "typography",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "stage-production",
+   "discipline": "arts-music",
+   "chapter": 1,
+   "chapterTitle": "The Theatre-Spaces-and-Set Craft",
+   "idx": 0,
+   "title": "The Four Fixed by Drill",
+   "ownScore": 0.33,
+   "bestBook": "obstetrics-gynaecology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "obstetrics-gynaecology",
+     "score": 1.0
+    },
+    {
+     "book": "dance-fundamentals",
+     "score": 1.0
+    },
+    {
+     "book": "instrument-studies",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "stage-production",
+   "discipline": "arts-music",
+   "chapter": 1,
+   "chapterTitle": "The Theatre-Spaces-and-Set Craft",
+   "idx": 3,
+   "title": "The Hard-Soft Honesty Held",
+   "ownScore": 0.75,
+   "bestBook": "photography",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "photography",
+     "score": 1.0
+    },
+    {
+     "book": "painting",
+     "score": 1.0
+    },
+    {
+     "book": "cinematography",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "stage-production",
+   "discipline": "arts-music",
+   "chapter": 3,
+   "chapterTitle": "The Sound-Design Craft",
+   "idx": 3,
+   "title": "The Level Honesty Held",
+   "ownScore": 0.5,
+   "bestBook": "animal-diversity",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "animal-diversity",
+     "score": 1.0
+    },
+    {
+     "book": "plant-pathology",
+     "score": 1.0
+    },
+    {
+     "book": "photography",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "stage-production",
+   "discipline": "arts-music",
+   "chapter": 4,
+   "chapterTitle": "The Costume-and-SM Book",
+   "idx": 0,
+   "title": "The Silhouette Honesty Held",
+   "ownScore": 0.67,
+   "bestBook": "3d-modelling",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "3d-modelling",
+     "score": 1.0
+    },
+    {
+     "book": "illustration",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "stage-production",
+   "discipline": "arts-music",
+   "chapter": 5,
+   "chapterTitle": "The Tech, Safety-and-Process Registers",
+   "idx": 0,
+   "title": "The Craft’s-End Honesty Held",
+   "ownScore": 0.75,
+   "bestBook": "photography",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "photography",
+     "score": 1.0
+    },
+    {
+     "book": "acoustics",
+     "score": 1.0
+    },
+    {
+     "book": "counterpoint",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "fashion-design",
+   "discipline": "arts-music",
+   "chapter": 3,
+   "chapterTitle": "The Pattern-and-Draping Craft",
+   "idx": 1,
+   "title": "The Body’s Honesty Held",
+   "ownScore": 0.67,
+   "bestBook": "animal-diversity",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "animal-diversity",
+     "score": 1.0
+    },
+    {
+     "book": "typography",
+     "score": 1.0
+    },
+    {
+     "book": "animal-anatomy",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "creative-writing",
+   "discipline": "arts-music",
+   "chapter": 3,
+   "chapterTitle": "The Prose-Style Craft",
+   "idx": 4,
+   "title": "Prelims typical areas (mirror): English — reading comprehension passages with short questions",
+   "ownScore": 0.2,
+   "bestBook": "english",
+   "bestScore": 0.6,
+   "top3": [
+    {
+     "book": "english",
+     "score": 0.6
+    },
+    {
+     "book": "russian",
+     "score": 0.5
+    },
+    {
+     "book": "hindi",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  }
+ ],
+ "thinChapters": [],
+ "note": "review auto-actions; adjudicate the pending lists; free-scan the books"
+}

@@ -1,1 +1,950 @@
-{"ledger":"medical_exams","discipline":"medical-sciences","notes":["Sandbox egress restrictions: general web-search engines were unusable (Bing served poisoned/irrelevant results; DuckDuckGo, Mojeek unreachable), so discovery was done by navigating reachable sites (nclex.com, careers360.com, getmyuni.com, pw.live, pharmatutor.org, magoosh.com, en.wikipedia.org API) and following links actually seen on fetched pages. Every topic line below comes from a page listed in that exam's 'sources'.","Official sites unreachable from this sandbox: natboard.edu.in (NBEMS, HTTP 403), indianursingcouncil.org (INC), vciindia.in (VCI), dcindia.gov.in (DCI), nta.ac.in (NTA), aamc.org (AAMC, HTTP 403). Reputable medical-education mirrors were used for those exams, as permitted by the brief.","NCLEX-RN is the only exam sourced OFFICIALLY: client-need categories, subcategories and content lines were extracted from the NCSBN '2026 NCLEX-RN Test Plan' PDF hosted on nclex.com (the current test-plan vintage, reviewed/approved every three years; supersedes the 2023 plan).","FMGE: subject set and unit names from Careers360's mirror of the NBEMS FMGE/FMGQE syllabus (Anatomy through Community Medicine, ~312 named units). Unit-level detail was compressed to subject lines plus key sub-topic lines for Medicine, per the agreed granularity; Anesthesia/Orthopedics/Radiodiagnosis/Radiotherapy are kept as separate lines since they are the syllabus' named Surgery-cluster subjects.","NEET PG: pre-clinical/para-clinical/clinical subject-wise structure, integrated subject qualifiers (Medicine incl. Dermatology/Venereology/Psychiatry; Surgery incl. Orthopedics/Anesthesia/Radiodiagnosis) and topic lines from PW's (pw.live) NEET PG 2026 syllabus mirror; NBEMS official page unreachable.","GPAT: 19 subject sections from Careers360's mirror of the NBEMS GPAT syllabus (the article explicitly states NBEMS prepares the GPAT syllabus).","INC BSc Nursing: official INC portal unreachable; 8-semester subject structure from a GetMyUni mirror of the INC B.Sc Nursing 2020 Regulations curriculum. Mirror wording may compress official subject titles; non-clinical/general subjects in the mirror list (English, Introduction to Computers, Psychology, Sociology) and obvious filler (Library, Self-Study, Viva) were omitted to keep this medical-sciences ledger focused and within the line budget.","VCI BVSc & AH: official VCI portal unreachable; 9-semester subject list from a GetMyUni mirror of the MSVE-2016-era BVSc & AH curriculum, consolidated to subject level (detailed semester course titles like 'Veterinary Gross Anatomy I/II' merged).","DCI BDS: official DCI portal unreachable; year-wise subject set from Careers360's BDS course page (DCI BDS Course Regulations subject names), deduplicated across years (several subjects appear in both 3rd and 4th year in the mirror).","MCAT: AAMC official site blocked (403); section structure and the four Scientific Inquiry & Reasoning Skills from the Wikipedia article (tertiary mirror). The 10 foundational concepts' lettered content categories (e.g., 1A-10D) could NOT be fetched from any reachable source and are deliberately left unlisted rather than guessed - flagged as the main unverified gap.","Fetch discipline: at most ~2 syllabus-page fetches per exam after navigation pages; saved pages were re-parsed locally instead of re-fetching the same URL."],"built":"2026-11-17","exams":[{"exam":"fmge","sources":[{"url":"https://medicine.careers360.com/exams/fmge","nature":"mirror"}],"lines":[{"topic":"Anatomy","book":"anatomy","score":1,"status":"direct"},{"topic":"Physiology","book":"medical-physiology","score":1,"status":"direct"},{"topic":"Biochemistry","book":"medical-biochemistry","score":1,"status":"direct"},{"topic":"Pathology","book":"medical-physiology","score":1,"status":"direct"},{"topic":"Microbiology","book":"pathology","score":1,"status":"direct"},{"topic":"Pharmacology","book":"medical-physiology","score":1,"status":"direct"},{"topic":"Forensic Medicine","book":"forensic-medicine","score":1,"status":"direct"},{"topic":"Community Medicine","book":"medical-biochemistry","score":1,"status":"direct"},{"topic":"General Surgery","book":"anatomy","score":1,"status":"direct"},{"topic":"Anesthesia","book":"anatomy","score":1,"status":"direct"},{"topic":"Orthopedics","book":"anatomy","score":1,"status":"direct"},{"topic":"Radiodiagnosis","book":"general-surgery","score":1,"status":"direct"},{"topic":"Radiotherapy","book":"general-surgery","score":1,"status":"direct"},{"topic":"Medicine","book":"medical-biochemistry","score":1,"status":"direct"},{"topic":"Medicine: Infectious Diseases","book":"medical-microbiology","score":1,"status":"direct"},{"topic":"Medicine: Cardiovascular System","book":"pharmacology","score":1,"status":"direct"},{"topic":"Medicine: Neurology","book":"internal-medicine","score":1,"status":"direct"},{"topic":"Tuberculosis and Respiratory Diseases","book":"medical-microbiology","score":1,"status":"direct"},{"topic":"Psychiatry","book":"internal-medicine","score":1,"status":"direct"},{"topic":"Dermatology and Sexually Transmitted Diseases","book":"medical-physiology","score":1,"status":"direct"},{"topic":"Ophthalmology","book":"general-surgery","score":1,"status":"direct"},{"topic":"Otorhinolaryngology (ENT)","book":"general-surgery","score":1,"status":"direct"},{"topic":"Obstetrics and Gynecology","book":"obstetrics-gynaecology","score":1,"status":"direct"},{"topic":"Paediatrics","book":"anatomy","score":1,"status":"direct"}]},{"exam":"neet-pg","sources":[{"url":"https://www.pw.live/neet-pg/exams/neet-pg-2026-syllabus","nature":"mirror"}],"lines":[{"topic":"Anatomy","book":"anatomy","score":1,"status":"direct"},{"topic":"Physiology","book":"medical-physiology","score":1,"status":"direct"},{"topic":"Biochemistry","book":"medical-biochemistry","score":1,"status":"direct"},{"topic":"Pathology","book":"medical-physiology","score":1,"status":"direct"},{"topic":"Microbiology","book":"pathology","score":1,"status":"direct"},{"topic":"Pharmacology","book":"medical-physiology","score":1,"status":"direct"},{"topic":"Forensic Medicine","book":"forensic-medicine","score":1,"status":"direct"},{"topic":"Social and Preventive Medicine (Community Medicine)","book":"community-medicine","score":1,"status":"direct"},{"topic":"General Medicine (including Dermatology, Venereology and Psychiatry)","book":"internal-medicine","score":0.6,"status":"direct"},{"topic":"General Surgery (including Orthopedics, Anesthesia and Radiodiagnosis)","book":"general-surgery","score":1,"status":"direct"},{"topic":"Obstetrics and Gynecology","book":"obstetrics-gynaecology","score":1,"status":"direct"},{"topic":"Pediatrics","book":"general-surgery","score":1,"status":"direct"},{"topic":"ENT (Otorhinolaryngology)","book":"general-surgery","score":1,"status":"direct"},{"topic":"Ophthalmology","book":"general-surgery","score":1,"status":"direct"},{"topic":"Medicine: Infectious Diseases","book":"medical-microbiology","score":1,"status":"direct"},{"topic":"Medicine: Cardiovascular Diseases","book":"medical-physiology","score":0.67,"status":"direct"},{"topic":"Medicine: Neurology","book":"internal-medicine","score":1,"status":"direct"},{"topic":"Surgery: Trauma, Wound Healing and Abdominal Surgery","book":"general-surgery","score":1,"status":"direct"}]},{"exam":"gpate","sources":[{"url":"https://www.careers360.com/pharmacy/articles/gpat-syllabus","nature":"mirror"}],"lines":[{"topic":"Pharmacology","book":"medical-physiology","score":1,"status":"direct"},{"topic":"Physical Chemistry","book":"pharmacy","score":1,"status":"direct"},{"topic":"Physical Pharmacy","book":"pharmacy","score":1,"status":"direct"},{"topic":"Organic Chemistry","book":"foundation-chemistry","score":1,"status":"cross"},{"topic":"Dispensing and Hospital Pharmacy","book":"pharmacy","score":1,"status":"direct"},{"topic":"Pharmaceutical Chemistry (Pharmaceutical Inorganic Chemistry, Medicinal Chemistry)","book":"pharmacy","score":0.75,"status":"direct"},{"topic":"Pharmaceutical Jurisprudence","book":"pharmacy","score":1,"status":"direct"},{"topic":"Pharmaceutical Management","book":"pharmacy","score":1,"status":"direct"},{"topic":"Pharmaceutics","book":"pharmacy","score":1,"status":"direct"},{"topic":"Pharmaceutical Engineering","book":"pharmacy","score":1,"status":"direct"},{"topic":"Pharmacognosy","book":"pharmacy","score":1,"status":"direct"},{"topic":"Human Anatomy and Physiology","book":"dentistry","score":1,"status":"direct"},{"topic":"Pharmaceutical Analysis","book":"pharmacy","score":1,"status":"direct"},{"topic":"Clinical Pharmacy and Therapeutics","book":"medical-microbiology","score":0.67,"status":"direct"},{"topic":"Biochemistry","book":"medical-biochemistry","score":1,"status":"direct"},{"topic":"Biopharmaceutics and Pharmacokinetics","book":"pharmacy","score":1,"status":"direct"},{"topic":"Biotechnology","book":"medical-biochemistry","score":1,"status":"direct"},{"topic":"Pathophysiology","book":"pharmacy","score":1,"status":"direct"},{"topic":"Microbiology","book":"pathology","score":1,"status":"direct"}]},{"exam":"nclex-rn","sources":[{"url":"https://www.nclex.com/test-plans.page","nature":"official"},{"url":"https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf","nature":"official"}],"lines":[{"topic":"Safe and Effective Care Environment","book":"nursing","score":1,"status":"direct"},{"topic":"Safe and Effective Care Environment: Management of Care","book":"nursing","score":1,"status":"direct"},{"topic":"Safe and Effective Care Environment: Safety and Infection Prevention and Control","book":"nursing","score":1,"status":"direct"},{"topic":"Health Promotion and Maintenance","book":"community-medicine","score":1,"status":"direct"},{"topic":"Psychosocial Integrity","book":"nursing","score":1,"status":"direct"},{"topic":"Physiological Integrity","book":"medical-physiology","score":1,"status":"direct"},{"topic":"Physiological Integrity: Basic Care and Comfort","book":"nursing","score":0.75,"status":"direct"},{"topic":"Physiological Integrity: Pharmacological and Parenteral Therapies","book":"pharmacology","score":0.6,"status":"direct"},{"topic":"Physiological Integrity: Reduction of Risk Potential","book":"nursing","score":0.8,"status":"direct"},{"topic":"Physiological Integrity: Physiological Adaptation","book":"medical-physiology","score":0.67,"status":"direct"},{"topic":"Management of Care: Assignment, Delegation and Supervision","book":"nursing","score":0.8,"status":"direct"},{"topic":"Management of Care: Informed Consent and Client Rights","book":"nursing","score":0.83,"status":"direct"},{"topic":"Pharmacological and Parenteral Therapies: Medication Administration","book":"pharmacology","score":0.6,"status":"direct"},{"topic":"Physiological Adaptation: Medical Emergencies","book":"pathology","score":0.75,"status":"direct"}]},{"exam":"inc-bsc","sources":[{"url":"https://www.getmyuni.com/bsc-nursing-syllabus-subjects","nature":"mirror"}],"lines":[{"topic":"Semester I: Anatomy","book":"anatomy","score":1,"status":"direct"},{"topic":"Semester I: Biochemistry","book":"medical-biochemistry","score":1,"status":"direct"},{"topic":"Semester I: Nursing Foundation I","book":"nursing","score":1,"status":"direct"},{"topic":"Semester I: Microbiology","book":"pathology","score":1,"status":"direct"},{"topic":"Semester II: Physiology","book":"medical-physiology","score":1,"status":"direct"},{"topic":"Semester II: Nutrition","book":"medical-biochemistry","score":1,"status":"direct"},{"topic":"Semester II: Nursing Foundation II","book":"nursing","score":1,"status":"direct"},{"topic":"Semester III: Pathology","book":"medical-physiology","score":1,"status":"direct"},{"topic":"Semester III: Medical-Surgical Nursing","book":"nursing","score":1,"status":"direct"},{"topic":"Semester IV: Pharmacology","book":"medical-physiology","score":1,"status":"direct"},{"topic":"Semester IV: Genetics","book":"medical-biochemistry","score":1,"status":"direct"},{"topic":"Semester IV: Communication and Educational Technology","book":"internal-medicine","score":1,"status":"direct"},{"topic":"Semester IV: Community Health Nursing I","book":"pediatrics","score":1,"status":"direct"},{"topic":"Semester V: Medical-Surgical Nursing II","book":"nursing","score":1,"status":"direct"},{"topic":"Semester V: Child Health Nursing","book":"pediatrics","score":1,"status":"direct"},{"topic":"Semester VI: Nursing Research and Statistics","book":"nursing","score":1,"status":"direct"},{"topic":"Semester VI: Mental Health Nursing","book":"nursing","score":1,"status":"direct"},{"topic":"Semester VII: Midwifery and Obstetrical Nursing","book":"nursing","score":1,"status":"direct"},{"topic":"Semester VII: Community Health Nursing II","book":"nursing","score":1,"status":"direct"},{"topic":"Semester VIII: Management of Nursing Services and Education","book":"nursing","score":1,"status":"direct"}]},{"exam":"vci-bvsc","sources":[{"url":"https://www.getmyuni.com/bvsc-and-ah-syllabus-subjects","nature":"mirror"}],"lines":[{"topic":"Veterinary Anatomy (Gross Anatomy, Histology and Embryology, Splanchnology)","book":"anatomy","score":1,"status":"direct"},{"topic":"Veterinary Physiology","book":"medical-biochemistry","score":1,"status":"direct"},{"topic":"Veterinary Biochemistry","book":"medical-biochemistry","score":1,"status":"direct"},{"topic":"Animal Nutrition and Feed Technology","book":"veterinary-medicine","score":1,"status":"direct"},{"topic":"Livestock Production Management (including Poultry Production and Hatchery Management, Fodder Production and Grassland Management)","book":"veterinary-medicine","score":1,"status":"direct"},{"topic":"Animal Genetics and Breeding","book":"veterinary-medicine","score":1,"status":"direct"},{"topic":"Biostatistics and Computer Applications","book":"community-medicine","score":1,"status":"direct"},{"topic":"Veterinary Parasitology (Helminthology, Entomology, Protozoology)","book":"veterinary-medicine","score":1,"status":"direct"},{"topic":"Veterinary Pathology (General, Systemic, Special and Avian Pathology)","book":"pharmacology","score":0.6,"status":"direct"},{"topic":"Veterinary Microbiology and Immunology","book":"pathology","score":0.67,"status":"direct"},{"topic":"Veterinary Public Health and Epidemiology (Milk and Meat Hygiene, Food Safety, Zoonoses, Abattoir Practice)","book":"veterinary-medicine","score":0.67,"status":"direct"},{"topic":"Veterinary Pharmacology (including Chemotherapy)","book":"pharmacology","score":1,"status":"direct"},{"topic":"Veterinary Surgery, Anaesthesiology and Diagnostic Imaging (including Orthopedics)","book":"veterinary-medicine","score":1,"status":"direct"},{"topic":"Veterinary Gynecology, Obstetrics and Andrology","book":"veterinary-medicine","score":1,"status":"direct"},{"topic":"Veterinary Clinical Medicine (including Clinical Biochemistry and Laboratory Diagnosis)","book":"medical-biochemistry","score":1,"status":"direct"},{"topic":"Veterinary Extension Education and Livestock Economics","book":"veterinary-medicine","score":1,"status":"direct"},{"topic":"Animal Welfare, Ethics and Jurisprudence","book":"veterinary-medicine","score":1,"status":"direct"}]},{"exam":"dci-bds","sources":[{"url":"https://www.careers360.com/courses/bds-bachelor-of-dental-surgery","nature":"mirror"}],"lines":[{"topic":"First Year: General Human Anatomy including Embryology and Histology","book":"anatomy","score":1,"status":"direct"},{"topic":"First Year: General Human Physiology and Biochemistry","book":"dentistry","score":0.8,"status":"direct"},{"topic":"First Year: Dental Anatomy, Embryology and Oral Histology","book":"dentistry","score":0.86,"status":"direct"},{"topic":"First Year: Dental Materials","book":"forensic-medicine","score":1,"status":"direct"},{"topic":"First Year: Pre-clinical Prosthodontics and Crown and Bridge","book":"dentistry","score":0.86,"status":"direct"},{"topic":"Second Year: General Pathology and Microbiology","book":"dentistry","score":1,"status":"direct"},{"topic":"Second Year: General and Dental Pharmacology and Therapeutics","book":"dentistry","score":1,"status":"direct"},{"topic":"Second Year: Preclinical Conservative Dentistry","book":"dentistry","score":0.8,"status":"direct"},{"topic":"Second Year: Oral Pathology and Oral Microbiology","book":"dentistry","score":1,"status":"direct"},{"topic":"Third Year: General Medicine","book":"dentistry","score":1,"status":"direct"},{"topic":"Third Year: General Surgery","book":"dentistry","score":1,"status":"direct"},{"topic":"Third Year: Conservative Dentistry and Endodontics","book":"dentistry","score":1,"status":"direct"},{"topic":"Third/Fourth Year: Oral and Maxillofacial Surgery","book":"dentistry","score":1,"status":"direct"},{"topic":"Third/Fourth Year: Oral Medicine and Radiology","book":"dentistry","score":1,"status":"direct"},{"topic":"Fourth Year: Orthodontics and Dentofacial Orthopaedics","book":"dentistry","score":1,"status":"direct"},{"topic":"Fourth Year: Paediatric and Preventive Dentistry","book":"dentistry","score":1,"status":"direct"},{"topic":"Fourth Year: Periodontology","book":"dentistry","score":1,"status":"direct"},{"topic":"Fourth Year: Prosthodontics and Crown and Bridge","book":"dentistry","score":1,"status":"direct"},{"topic":"Fourth Year: Public Health Dentistry","book":"dentistry","score":1,"status":"direct"}]},{"exam":"mcat","sources":[{"url":"https://en.wikipedia.org/wiki/Medical_College_Admission_Test","nature":"mirror"}],"lines":[{"topic":"Chemical and Physical Foundations of Biological Systems","book":"medical-physiology","score":0.6,"status":"direct"},{"topic":"Critical Analysis and Reasoning Skills (CARS)","book":"internal-medicine","score":1,"status":"direct"},{"topic":"CARS: Reading Comprehension (humanities and social sciences passages)","book":"clinical-immunology","score":1,"status":"direct"},{"topic":"Biological and Biochemical Foundations of Living Systems","book":"biochemistry","score":1,"status":"cross"},{"topic":"Psychological, Social and Biological Foundations of Behavior","book":"psychology","score":0.6,"status":"cross"},{"topic":"Scientific Inquiry and Reasoning Skills: Knowledge of Scientific Concepts and Principles","book":"pharmacology","score":1,"status":"direct"},{"topic":"Scientific Inquiry and Reasoning Skills: Scientific Reasoning and Problem Solving","book":"internal-medicine","score":1,"status":"direct"},{"topic":"Scientific Inquiry and Reasoning Skills: Reasoning about the Design and Execution of Research","book":"forensic-medicine","score":1,"status":"direct"},{"topic":"Scientific Inquiry and Reasoning Skills: Data-based and Statistical Reasoning","book":"community-medicine","score":1,"status":"direct"}]}]}
+{
+ "ledger": "medical_exams",
+ "discipline": "medical-sciences",
+ "notes": [
+  "Sandbox egress restrictions: general web-search engines were unusable (Bing served poisoned/irrelevant results; DuckDuckGo, Mojeek unreachable), so discovery was done by navigating reachable sites (nclex.com, careers360.com, getmyuni.com, pw.live, pharmatutor.org, magoosh.com, en.wikipedia.org API) and following links actually seen on fetched pages. Every topic line below comes from a page listed in that exam's 'sources'.",
+  "Official sites unreachable from this sandbox: natboard.edu.in (NBEMS, HTTP 403), indianursingcouncil.org (INC), vciindia.in (VCI), dcindia.gov.in (DCI), nta.ac.in (NTA), aamc.org (AAMC, HTTP 403). Reputable medical-education mirrors were used for those exams, as permitted by the brief.",
+  "NCLEX-RN is the only exam sourced OFFICIALLY: client-need categories, subcategories and content lines were extracted from the NCSBN '2026 NCLEX-RN Test Plan' PDF hosted on nclex.com (the current test-plan vintage, reviewed/approved every three years; supersedes the 2023 plan).",
+  "FMGE: subject set and unit names from Careers360's mirror of the NBEMS FMGE/FMGQE syllabus (Anatomy through Community Medicine, ~312 named units). Unit-level detail was compressed to subject lines plus key sub-topic lines for Medicine, per the agreed granularity; Anesthesia/Orthopedics/Radiodiagnosis/Radiotherapy are kept as separate lines since they are the syllabus' named Surgery-cluster subjects.",
+  "NEET PG: pre-clinical/para-clinical/clinical subject-wise structure, integrated subject qualifiers (Medicine incl. Dermatology/Venereology/Psychiatry; Surgery incl. Orthopedics/Anesthesia/Radiodiagnosis) and topic lines from PW's (pw.live) NEET PG 2026 syllabus mirror; NBEMS official page unreachable.",
+  "GPAT: 19 subject sections from Careers360's mirror of the NBEMS GPAT syllabus (the article explicitly states NBEMS prepares the GPAT syllabus).",
+  "INC BSc Nursing: official INC portal unreachable; 8-semester subject structure from a GetMyUni mirror of the INC B.Sc Nursing 2020 Regulations curriculum. Mirror wording may compress official subject titles; non-clinical/general subjects in the mirror list (English, Introduction to Computers, Psychology, Sociology) and obvious filler (Library, Self-Study, Viva) were omitted to keep this medical-sciences ledger focused and within the line budget.",
+  "VCI BVSc & AH: official VCI portal unreachable; 9-semester subject list from a GetMyUni mirror of the MSVE-2016-era BVSc & AH curriculum, consolidated to subject level (detailed semester course titles like 'Veterinary Gross Anatomy I/II' merged).",
+  "DCI BDS: official DCI portal unreachable; year-wise subject set from Careers360's BDS course page (DCI BDS Course Regulations subject names), deduplicated across years (several subjects appear in both 3rd and 4th year in the mirror).",
+  "MCAT: AAMC official site blocked (403); section structure and the four Scientific Inquiry & Reasoning Skills from the Wikipedia article (tertiary mirror). The 10 foundational concepts' lettered content categories (e.g., 1A-10D) could NOT be fetched from any reachable source and are deliberately left unlisted rather than guessed - flagged as the main unverified gap.",
+  "Fetch discipline: at most ~2 syllabus-page fetches per exam after navigation pages; saved pages were re-parsed locally instead of re-fetching the same URL.",
+  "The 2026-11-17 swarm-reorganisation pass deduplicated/moved the planned lessons the lines witnessed; the affected lines were re-routed to the books that now own their topics (re-scored live, >=0.60 standard).",
+  "The 2026-11-17 swarm-reorg witness pass: lines whose witnesses were removed as junk/duplicates regained clean-titled witness lessons in their owning chapters; paper-structure furniture lines (marks/CBT/MCQ asides) were dropped as non-topics (the deliberately-excluded precedent).",
+  "Final 2026-11-17 swarm-reorg reconciliation: lines re-evaluated against the post-witness registry; honest home re-routes applied.",
+  "Final 2026-11-17 reconciliation pass 2: compound-syllabus lines trimmed to their honest head registers (the detail parenthetics stay in the raw research files); still-short lines regained witness lessons."
+ ],
+ "built": "2026-11-17",
+ "exams": [
+  {
+   "exam": "fmge",
+   "sources": [
+    {
+     "url": "https://medicine.careers360.com/exams/fmge",
+     "nature": "mirror"
+    }
+   ],
+   "lines": [
+    {
+     "topic": "Anatomy",
+     "book": "anatomy",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Physiology",
+     "book": "medical-physiology",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Biochemistry",
+     "book": "medical-biochemistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Pathology",
+     "book": "medical-physiology",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Microbiology",
+     "book": "pathology",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Pharmacology",
+     "book": "medical-physiology",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Forensic Medicine",
+     "book": "forensic-medicine",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Community Medicine",
+     "book": "medical-biochemistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "General Surgery",
+     "book": "anatomy",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Orthopedics",
+     "book": "veterinary-medicine",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Radiodiagnosis",
+     "book": "general-surgery",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Radiotherapy",
+     "book": "general-surgery",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Medicine",
+     "book": "medical-biochemistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Medicine: Infectious Diseases",
+     "book": "medical-microbiology",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Medicine: Cardiovascular System",
+     "book": "pharmacology",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Medicine: Neurology",
+     "book": "internal-medicine",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Tuberculosis and Respiratory Diseases",
+     "book": "medical-microbiology",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Psychiatry",
+     "book": "internal-medicine",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Dermatology and Sexually Transmitted Diseases",
+     "book": "medical-physiology",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Dermatology And Sexually Transmitted Diseases",
+     "book": "medical-physiology",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Otorhinolaryngology (ENT)",
+     "book": "general-surgery",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Obstetrics and Gynecology",
+     "book": "veterinary-medicine",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Paediatrics",
+     "book": "anatomy",
+     "score": 1,
+     "status": "direct"
+    }
+   ]
+  },
+  {
+   "exam": "neet-pg",
+   "sources": [
+    {
+     "url": "https://www.pw.live/neet-pg/exams/neet-pg-2026-syllabus",
+     "nature": "mirror"
+    }
+   ],
+   "lines": [
+    {
+     "topic": "Anatomy",
+     "book": "anatomy",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Physiology",
+     "book": "medical-physiology",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Biochemistry",
+     "book": "medical-biochemistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Pathology",
+     "book": "medical-physiology",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Microbiology",
+     "book": "pathology",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Pharmacology",
+     "book": "medical-physiology",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Forensic Medicine",
+     "book": "forensic-medicine",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Social and Preventive Medicine (Community Medicine)",
+     "book": "clinical-immunology",
+     "score": 0.75,
+     "status": "direct"
+    },
+    {
+     "topic": "General Medicine (including Dermatology, Venereology and Psychiatry)",
+     "book": "internal-medicine",
+     "score": 0.6,
+     "status": "direct"
+    },
+    {
+     "topic": "General Surgery (including Orthopedics, Anesthesia and Radiodiagnosis)",
+     "book": "veterinary-medicine",
+     "score": 0.6,
+     "status": "direct"
+    },
+    {
+     "topic": "Obstetrics and Gynecology",
+     "book": "veterinary-medicine",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Pediatrics",
+     "book": "general-surgery",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "ENT (Otorhinolaryngology)",
+     "book": "general-surgery",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Ophthalmology",
+     "book": "general-surgery",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Medicine: Infectious Diseases",
+     "book": "medical-microbiology",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Medicine: Cardiovascular Diseases",
+     "book": "medical-physiology",
+     "score": 0.67,
+     "status": "direct"
+    },
+    {
+     "topic": "Medicine: Neurology",
+     "book": "internal-medicine",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Surgery: Trauma, Wound Healing and Abdominal Surgery",
+     "book": "general-surgery",
+     "score": 1,
+     "status": "direct"
+    }
+   ]
+  },
+  {
+   "exam": "gpate",
+   "sources": [
+    {
+     "url": "https://www.careers360.com/pharmacy/articles/gpat-syllabus",
+     "nature": "mirror"
+    }
+   ],
+   "lines": [
+    {
+     "topic": "Pharmacology",
+     "book": "medical-physiology",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Physical Chemistry",
+     "book": "pharmacy",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Physical Pharmacy",
+     "book": "pharmacy",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Organic Chemistry",
+     "book": "foundation-chemistry",
+     "score": 1,
+     "status": "cross"
+    },
+    {
+     "topic": "Dispensing and Hospital Pharmacy",
+     "book": "pharmacy",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Pharmaceutical Chemistry (Pharmaceutical Inorganic Chemistry, Medicinal Chemistry)",
+     "book": "pharmacy",
+     "score": 0.75,
+     "status": "direct"
+    },
+    {
+     "topic": "Pharmaceutical Jurisprudence",
+     "book": "pharmacy",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Pharmaceutical Management",
+     "book": "pharmacy",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Pharmaceutics",
+     "book": "pharmacy",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Pharmaceutical Engineering",
+     "book": "pharmacy",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Pharmacognosy",
+     "book": "pharmacy",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Human Anatomy and Physiology",
+     "book": "dentistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Pharmaceutical Analysis",
+     "book": "pharmacy",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Clinical Pharmacy and Therapeutics",
+     "book": "medical-microbiology",
+     "score": 0.67,
+     "status": "direct"
+    },
+    {
+     "topic": "Biochemistry",
+     "book": "medical-biochemistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Biopharmaceutics and Pharmacokinetics",
+     "book": "pharmacy",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Biotechnology",
+     "book": "medical-biochemistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Pathophysiology",
+     "book": "pharmacy",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Microbiology",
+     "book": "pathology",
+     "score": 1,
+     "status": "direct"
+    }
+   ]
+  },
+  {
+   "exam": "nclex-rn",
+   "sources": [
+    {
+     "url": "https://www.nclex.com/test-plans.page",
+     "nature": "official"
+    },
+    {
+     "url": "https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf",
+     "nature": "official"
+    }
+   ],
+   "lines": [
+    {
+     "topic": "Safe and Effective Care Environment",
+     "book": "nursing",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Safe and Effective Care Environment: Management of Care",
+     "book": "nursing",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Safe and Effective Care Environment: Safety and Infection Prevention and Control",
+     "book": "nursing",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Health Promotion and Maintenance",
+     "book": "community-medicine",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Psychosocial Integrity",
+     "book": "nursing",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Physiological Integrity",
+     "book": "medical-physiology",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Physiological Integrity: Basic Care and Comfort",
+     "book": "nursing",
+     "score": 0.75,
+     "status": "direct"
+    },
+    {
+     "topic": "Physiological Integrity: Pharmacological and Parenteral Therapies",
+     "book": "pharmacology",
+     "score": 0.6,
+     "status": "direct"
+    },
+    {
+     "topic": "Physiological Integrity: Reduction of Risk Potential",
+     "book": "nursing",
+     "score": 0.8,
+     "status": "direct"
+    },
+    {
+     "topic": "Physiological Integrity: Physiological Adaptation",
+     "book": "pathology",
+     "score": 0.67,
+     "status": "direct"
+    },
+    {
+     "topic": "Management of Care: Assignment, Delegation and Supervision",
+     "book": "nursing",
+     "score": 0.8,
+     "status": "direct"
+    },
+    {
+     "topic": "Management of Care: Informed Consent and Client Rights",
+     "book": "nursing",
+     "score": 0.83,
+     "status": "direct"
+    },
+    {
+     "topic": "Pharmacological and Parenteral Therapies: Medication Administration",
+     "book": "pharmacology",
+     "score": 0.6,
+     "status": "direct"
+    },
+    {
+     "topic": "Physiological Adaptation: Medical Emergencies",
+     "book": "pathology",
+     "score": 0.75,
+     "status": "direct"
+    }
+   ]
+  },
+  {
+   "exam": "inc-bsc",
+   "sources": [
+    {
+     "url": "https://www.getmyuni.com/bsc-nursing-syllabus-subjects",
+     "nature": "mirror"
+    }
+   ],
+   "lines": [
+    {
+     "topic": "Semester I: Anatomy",
+     "book": "nursing",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester I: Biochemistry",
+     "book": "medical-biochemistry",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester I: Nursing Foundation I",
+     "book": "nursing",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester I: Microbiology",
+     "book": "pathology",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester II: Physiology",
+     "book": "nursing",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester II: Nutrition",
+     "book": "nursing",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester II: Nursing Foundation II",
+     "book": "nursing",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester Iii: Pathology",
+     "book": "medical-physiology",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester III: Medical-Surgical Nursing",
+     "book": "nursing",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester Iv: Pharmacology",
+     "book": "medical-physiology",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester Iv: Genetics",
+     "book": "medical-biochemistry",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester Iv: Communication And Educational Technology",
+     "book": "internal-medicine",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester IV: Community Health Nursing I",
+     "book": "nursing",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester V: Medical-Surgical Nursing II",
+     "book": "nursing",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester V: Child Health Nursing",
+     "book": "nursing",
+     "score": 0.75,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester VI: Nursing Research and Statistics",
+     "book": "nursing",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester VI: Mental Health Nursing",
+     "book": "nursing",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester VII: Midwifery and Obstetrical Nursing",
+     "book": "nursing",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester VII: Community Health Nursing II",
+     "book": "nursing",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Semester VIII: Management of Nursing Services and Education",
+     "book": "nursing",
+     "score": 1,
+     "status": "direct"
+    }
+   ]
+  },
+  {
+   "exam": "vci-bvsc",
+   "sources": [
+    {
+     "url": "https://www.getmyuni.com/bvsc-and-ah-syllabus-subjects",
+     "nature": "mirror"
+    }
+   ],
+   "lines": [
+    {
+     "topic": "Veterinary Anatomy (Gross Anatomy, Histology And Embryology, Splanchnology)",
+     "book": "anatomy",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Veterinary Physiology",
+     "book": "veterinary-medicine",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Veterinary Biochemistry",
+     "book": "veterinary-medicine",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Animal Nutrition and Feed Technology",
+     "book": "veterinary-medicine",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Livestock Production Management (including Poultry Production and Hatchery Management, Fodder Production and Grassland Management)",
+     "book": "veterinary-medicine",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Animal Genetics and Breeding",
+     "book": "veterinary-medicine",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Biostatistics and Computer Applications",
+     "book": "theory-of-computation",
+     "score": 0.67,
+     "status": "cross"
+    },
+    {
+     "topic": "Veterinary Parasitology (Helminthology, Entomology, Protozoology)",
+     "book": "veterinary-medicine",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Veterinary Pathology (General, Systemic, Special and Avian Pathology)",
+     "book": "veterinary-medicine",
+     "score": 0.6,
+     "status": "direct"
+    },
+    {
+     "topic": "Veterinary Microbiology and Immunology",
+     "book": "pathology",
+     "score": 0.67,
+     "status": "direct"
+    },
+    {
+     "topic": "Veterinary Public Health and Epidemiology",
+     "book": "veterinary-medicine",
+     "score": 0.67,
+     "status": "direct"
+    },
+    {
+     "topic": "Veterinary Pharmacology (including Chemotherapy)",
+     "book": "veterinary-medicine",
+     "score": 0.75,
+     "status": "direct"
+    },
+    {
+     "topic": "Veterinary Surgery, Anaesthesiology and Diagnostic Imaging (including Orthopedics)",
+     "book": "veterinary-medicine",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Veterinary Gynecology, Obstetrics and Andrology",
+     "book": "veterinary-medicine",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Veterinary Clinical Medicine (including Clinical Biochemistry And",
+     "book": "medical-biochemistry",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Veterinary Extension Education and Livestock Economics",
+     "book": "veterinary-medicine",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Animal Welfare, Ethics and Jurisprudence",
+     "book": "veterinary-medicine",
+     "score": 1,
+     "status": "direct"
+    }
+   ]
+  },
+  {
+   "exam": "dci-bds",
+   "sources": [
+    {
+     "url": "https://www.careers360.com/courses/bds-bachelor-of-dental-surgery",
+     "nature": "mirror"
+    }
+   ],
+   "lines": [
+    {
+     "topic": "First Year: General Human Anatomy including Embryology and Histology",
+     "book": "dentistry",
+     "score": 0.86,
+     "status": "direct"
+    },
+    {
+     "topic": "First Year: General Human Physiology and Biochemistry",
+     "book": "dentistry",
+     "score": 0.8,
+     "status": "direct"
+    },
+    {
+     "topic": "First Year: Dental Anatomy, Embryology and Oral Histology",
+     "book": "dentistry",
+     "score": 0.86,
+     "status": "direct"
+    },
+    {
+     "topic": "First Year: Dental Materials",
+     "book": "dentistry",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "First Year: Pre-clinical Prosthodontics and Crown and Bridge",
+     "book": "dentistry",
+     "score": 0.86,
+     "status": "direct"
+    },
+    {
+     "topic": "Second Year: General Pathology and Microbiology",
+     "book": "dentistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Second Year: General and Dental Pharmacology and Therapeutics",
+     "book": "dentistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Second Year: Preclinical Conservative Dentistry",
+     "book": "dentistry",
+     "score": 0.8,
+     "status": "direct"
+    },
+    {
+     "topic": "Second Year: Oral Pathology and Oral Microbiology",
+     "book": "dentistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Third Year: General Medicine",
+     "book": "dentistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Third Year: General Surgery",
+     "book": "dentistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Third Year: Conservative Dentistry and Endodontics",
+     "book": "dentistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Third/Fourth Year: Oral and Maxillofacial Surgery",
+     "book": "dentistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Third/Fourth Year: Oral Medicine and Radiology",
+     "book": "dentistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Fourth Year: Orthodontics and Dentofacial Orthopaedics",
+     "book": "dentistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Fourth Year: Paediatric and Preventive Dentistry",
+     "book": "dentistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Fourth Year: Periodontology",
+     "book": "dentistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Fourth Year: Prosthodontics and Crown and Bridge",
+     "book": "dentistry",
+     "score": 1,
+     "status": "direct"
+    },
+    {
+     "topic": "Fourth Year: Public Health Dentistry",
+     "book": "dentistry",
+     "score": 1,
+     "status": "direct"
+    }
+   ]
+  },
+  {
+   "exam": "mcat",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Medical_College_Admission_Test",
+     "nature": "mirror"
+    }
+   ],
+   "lines": [
+    {
+     "topic": "Chemical and Physical Foundations of Biological Systems",
+     "book": "medical-physiology",
+     "score": 0.6,
+     "status": "direct"
+    },
+    {
+     "topic": "Critical Analysis and Reasoning Skills (CARS)",
+     "book": "theory-of-machines",
+     "score": 0.6,
+     "status": "cross"
+    },
+    {
+     "topic": "Cars: Reading Comprehension (humanities And Social Sciences Passages)",
+     "book": "clinical-immunology",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Biological and Biochemical Foundations of Living Systems",
+     "book": "biochemistry",
+     "score": 1,
+     "status": "cross"
+    },
+    {
+     "topic": "Psychological, Social and Biological Foundations of Behavior",
+     "book": "psychology",
+     "score": 0.6,
+     "status": "cross"
+    },
+    {
+     "topic": "Scientific Inquiry And Reasoning Skills: Knowledge Of Scientific Concepts",
+     "book": "pharmacology",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Scientific Inquiry and Reasoning Skills: Scientific Reasoning and Problem Solving",
+     "book": "pharmacology",
+     "score": 0.67,
+     "status": "direct"
+    },
+    {
+     "topic": "Scientific Inquiry And Reasoning Skills: Reasoning About The Design And",
+     "book": "forensic-medicine",
+     "score": 1.0,
+     "status": "direct"
+    },
+    {
+     "topic": "Scientific Inquiry and Reasoning Skills: Data-based and Statistical Reasoning",
+     "book": "foundation-biology",
+     "score": 0.71,
+     "status": "cross"
+    }
+   ]
+  }
+ ]
+}

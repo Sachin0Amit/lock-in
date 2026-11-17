@@ -1,0 +1,5622 @@
+[
+ {
+  "title": "Practical Perspective: Pushbutton Telephone Practical Perspective: Filtering Digital",
+  "members": [
+   {
+    "book": "analog-and-digital-communication",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Communication Worldview",
+    "idx": 12,
+    "title": "Practical Perspective: Pushbutton Telephone Practical Perspective: Filtering Digital"
+   },
+   {
+    "book": "analog-and-digital-communication",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Communication Worldview",
+    "idx": 14,
+    "title": "Analogue-to-digital conversion 507 Summary of important formulae"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Analog Signal Chain",
+    "idx": 7,
+    "title": "Note: The scanned pages are not a JEE mathematics book \u2014 they are the front matter and Contents of *The Art of Electronics, Third Edition* (Horowitz & Hill, Cambridge University Press). Transcribing them exactly as printed"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "The Operational Amplifier",
+    "idx": 18,
+    "title": "Summary of important formulae 416 20.29 Operational amplifiers"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Timers and Function Circuits",
+    "idx": 5,
+    "title": "Designing a Bandpass Filter 555 Periodic Voltage Source"
+   },
+   {
+    "book": "antennas-and-wave-propagation",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Antenna Idea",
+    "idx": 3,
+    "title": "This publication is in copyright. Subject to statutory exception and to the provisions of relevant collective licensing agreements, no reproduction of any part may take place without the written permission of Cambridge University Press"
+   },
+   {
+    "book": "art-history",
+    "discipline": "humanities",
+    "chapter": 6,
+    "chapterTitle": "India: The Ancient Register",
+    "idx": 5,
+    "title": "Sixth Edition / M Laxmikanth \u2014 McGraw Hill Education (India) Private Limited [title page]"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Circuit Idea",
+    "idx": 13,
+    "title": "And RC Circuits 220 Practical Perspective: A Household Distribution"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Circuit Idea",
+    "idx": 14,
+    "title": "Practical Perspective: Artificial Pacemaker 221 Circuit"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Circuit Idea",
+    "idx": 24,
+    "title": "Summary of important formulae 163 10.1 Basic a.c. circuits"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Sinusoidal Steady State",
+    "idx": 5,
+    "title": "Practical Perspective: Capacitive Touch 9.3 The Phasor"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Sinusoidal Steady State",
+    "idx": 12,
+    "title": "Summary of important formulae 149 9.6 Average and r.m.s. values of sinusoidal"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Resonance and Coupled Circuits",
+    "idx": 15,
+    "title": "Finding the Unbounded Response in an RC"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Resonance and Coupled Circuits",
+    "idx": 16,
+    "title": "Finding Finding v, p, and w Induced by a 8.6 Finding the Overdamped Step Response of a"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Resonance and Coupled Circuits",
+    "idx": 22,
+    "title": "Summary of important formulae 130 8.11 Mutual inductance"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Resonance and Coupled Circuits",
+    "idx": 23,
+    "title": "Summary of important formulae 244 14 Resonance in AC Circuits"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Transients",
+    "idx": 8,
+    "title": "Practical Perspective: Transmission and Practical Perspective: Pushbutton Telephone"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Transients",
+    "idx": 9,
+    "title": "Transform 444 Practical Perspective: Bass Volume"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Transients",
+    "idx": 10,
+    "title": "Practical Perspective: Surge Suppressors 483 16.1 Fourier Series Analysis: An Overview"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Network Functions and Frequency Response",
+    "idx": 0,
+    "title": "Poles and Zeros as Character"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Network Functions and Frequency Response",
+    "idx": 9,
+    "title": "Poles and Zeros of F(s) 470 Practical Perspective: Bass Volume"
+   },
+   {
+    "book": "control-systems",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "The Root Locus",
+    "idx": 2,
+    "title": "Poles and Zeros Added"
+   },
+   {
+    "book": "control-systems",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "The Root Locus",
+    "idx": 4,
+    "title": "Loading Effects 358 12.8 Finding and Plotting the Poles and Zeros of an"
+   },
+   {
+    "book": "digital-signal-processing",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "Filter Structures and Finite Word Length",
+    "idx": 4,
+    "title": "Designing a Parallel RLC Bandpass Filter 555 16.6 Estimating the rms Value of a Periodic"
+   },
+   {
+    "book": "electrical-machines",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "The Single-Phase Transformer",
+    "idx": 9,
+    "title": "Summary of important formulae 611 transformer"
+   },
+   {
+    "book": "electrical-machines",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "The Single-Phase Transformer",
+    "idx": 11,
+    "title": "Summary of important formulae 621 transformer"
+   },
+   {
+    "book": "electrical-machines",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "DC Machines",
+    "idx": 15,
+    "title": "Summary of important formulae 868 40.12 Soft-starting induction motors"
+   },
+   {
+    "book": "electromagnetic-fields-and-waves",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Electrostatics I: Coulomb and Gauss",
+    "idx": 3,
+    "title": "Practical Perspective: Heating with Electric Cases"
+   },
+   {
+    "book": "electromagnetic-theory",
+    "discipline": "physics",
+    "chapter": 2,
+    "chapterTitle": "Electrostatics in Vacuum",
+    "idx": 4,
+    "title": "(Images 2 and 4 are duplicates of the contents pages above; images 5\u201312 are chapter body pages 3.1\u20133.4 \u2014 Introduction, Illustrations 3.1\u20133.7, Work Done to Move a Charge in an Electrostatic Field, Potential and Potential Difference, Continuous Charges, Finding Potential Difference \u2014 and contain no"
+   },
+   {
+    "book": "electronic-devices-and-circuits",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Semiconductor Substrate",
+    "idx": 4,
+    "title": "Preface to the First Edition \u2014 xxv"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Statics Frame",
+    "idx": 21,
+    "title": "Third edition"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Statics Frame",
+    "idx": 24,
+    "title": "Preface to the Third Edition \u2014 xxix"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Statics Frame",
+    "idx": 61,
+    "title": "Summary of important formulae 361 19.7 Construction and static characteristics of"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Structural Analysis",
+    "idx": 6,
+    "title": "Cambridge University Press has no responsibility for the persistence or accuracy of URLs for external or third-party Internet websites referred to in this publication and does not guarantee that any content on such websites is, or will remain, accurate or appropriate"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Kinetics: Force and Acceleration",
+    "idx": 4,
+    "title": "Preface to the Second Edition \u2014 xxvii"
+   },
+   {
+    "book": "english",
+    "discipline": "languages",
+    "chapter": 1,
+    "chapterTitle": "The Ladder and the Basics",
+    "idx": 17,
+    "title": "Preface to the fifth edition"
+   },
+   {
+    "book": "fluid-mechanics",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Fluid Kinematics",
+    "idx": 4,
+    "title": "Summary of important formulae 281 15.5 Th\u00e9venin\u2019s theorem"
+   },
+   {
+    "book": "fluid-mechanics",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Differential Analysis",
+    "idx": 7,
+    "title": "Signed binary subtraction 525 Terms and concepts"
+   },
+   {
+    "book": "fluid-mechanics",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Viscous Internal Flow",
+    "idx": 5,
+    "title": "Summary of important formulae"
+   },
+   {
+    "book": "fluid-mechanics",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Viscous Internal Flow",
+    "idx": 6,
+    "title": "Summary of important formulae 261 14.10 Bandwidth"
+   },
+   {
+    "book": "fluid-mechanics",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Viscous Internal Flow",
+    "idx": 7,
+    "title": "Signed binary addition 524 Summary of important formulae"
+   },
+   {
+    "book": "fluid-mechanics",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Viscous Internal Flow",
+    "idx": 8,
+    "title": "Summary of important formulae 713 34.4 Demand for electricity and the"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 18,
+    "title": "Concept Application Exercise 1.1"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 24,
+    "title": "Concept Application Exercise 1.2"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 28,
+    "title": "Concept Application Exercise 1.3"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 33,
+    "title": "Concept Application Exercise 2.1"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 42,
+    "title": "Concept Application Exercise 2.2"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 51,
+    "title": "Concept Application Exercise 3.1"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 52,
+    "title": "Concept Application Exercise 3.2"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 73,
+    "title": "Concept Application Exercise 4.1"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 86,
+    "title": "Concept Application Exercise 5.1"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 91,
+    "title": "Concept Application Exercise 6.1"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 94,
+    "title": "Concept Application Exercise 6.2"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 99,
+    "title": "Concept Application Exercise 7.1"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 100,
+    "title": "Concept Application Exercise 7.2"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 102,
+    "title": "Concept Applications Exercise 7.3"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 136,
+    "title": "Concept Application Exercise 10.1"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 160,
+    "title": "Concept Application Exercise 3.3"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 168,
+    "title": "Concept Application Exercise 4.2"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 175,
+    "title": "Concept Application Exercise 4.3"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 176,
+    "title": "Concept Application Exercise 4.4"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 179,
+    "title": "Concept Application Exercise 5.2"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 184,
+    "title": "Concept Application Exercise 5.3"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 192,
+    "title": "Concept Application Exercise 6.3"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 214,
+    "title": "Concept Application Exercise 8.1"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 215,
+    "title": "Page 2: [duplicate of page 1 \u2014 same contents entries]"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 217,
+    "title": "Concept Application Exercise 8.2"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 218,
+    "title": "Page 4: [duplicate of page 3 \u2014 same contents entries]"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 233,
+    "title": "Concept Application Exercise 9.1"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 236,
+    "title": "Concept Application Exercise 9.2"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 249,
+    "title": "Concept Application Exercise 9.3"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 269,
+    "title": "Concept Application Exercise 2.3"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 274,
+    "title": "Concept Application Exercise 3.4"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 275,
+    "title": "Concept Application Exercise 3.5"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 276,
+    "title": "Concept Application Exercise 3.6"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 277,
+    "title": "Concept Application Exercise 3.7"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 278,
+    "title": "Concept Application Exercise 3.8"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 295,
+    "title": "Concept Application Exercise 6.4"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 296,
+    "title": "Concept Application Exercise 6.5"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 363,
+    "title": "Preface to the fifth edition \u2014 xxx"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Measurement Craft and the Mole",
+    "idx": 203,
+    "title": "Pand again the piston moves out, work is done by the system"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 4,
+    "chapterTitle": "The Periodic Table at First Pass",
+    "idx": 12,
+    "title": "Page 5: [chapter title page / first content page (8 Alkynes, 8.1 Introduction) \u2014 no table of contents entry]"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 4,
+    "chapterTitle": "The Periodic Table at First Pass",
+    "idx": 13,
+    "title": "Page 11: [content page (8.3.2\u20138.3.4) \u2014 no table of contents entry]"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "What Physics Measures",
+    "idx": 10,
+    "title": "Some Important Trigonometric Formulae"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "What Physics Measures",
+    "idx": 57,
+    "title": "Preface (continued)"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Work, Energy and Power",
+    "idx": 16,
+    "title": "Introduction to Potential"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Work, Energy and Power",
+    "idx": 18,
+    "title": "The Work Done to Move a Charge"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 10,
+    "chapterTitle": "Electricity at First Pass",
+    "idx": 0,
+    "title": "Charge, Current and Voltage"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 10,
+    "chapterTitle": "Electricity at First Pass",
+    "idx": 13,
+    "title": "Voltage Divider"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 10,
+    "chapterTitle": "Electricity at First Pass",
+    "idx": 27,
+    "title": "Voltage Sources"
+   },
+   {
+    "book": "geotechnical-engineering",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Soil Idea",
+    "idx": 4,
+    "title": "Summary of important formulae 396 20.12 Relationship between a and b"
+   },
+   {
+    "book": "geotechnical-engineering",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Soil Water, Permeability and Seepage",
+    "idx": 4,
+    "title": "Constant 153 Summary of important formulae"
+   },
+   {
+    "book": "heat-and-thermodynamics",
+    "discipline": "physics",
+    "chapter": 10,
+    "chapterTitle": "Potentials and Maxwell\u2019s Relations",
+    "idx": 5,
+    "title": "Preface to the Third Edition"
+   },
+   {
+    "book": "heat-transfer",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Unsteady Conduction",
+    "idx": 4,
+    "title": "Practical Perspective: Transient Effects 474 Summary"
+   },
+   {
+    "book": "heat-transfer",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Convection Fundamentals",
+    "idx": 4,
+    "title": "Transconductance versus drain current"
+   },
+   {
+    "book": "heat-transfer",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Radiation",
+    "idx": 6,
+    "title": "Practical Perspective: Resistive Touch"
+   },
+   {
+    "book": "heat-transfer",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Radiation",
+    "idx": 7,
+    "title": "Practical Perspective: A Household Distribution"
+   },
+   {
+    "book": "heat-transfer",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Radiation",
+    "idx": 8,
+    "title": "Practical Perspective: Clock for Computer Problems"
+   },
+   {
+    "book": "heat-transfer",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Radiation",
+    "idx": 9,
+    "title": "Practical Perspective: Characterizing an"
+   },
+   {
+    "book": "high-voltage-engineering",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The High-Voltage World",
+    "idx": 8,
+    "title": "Practical Perspective: Active High-Q"
+   },
+   {
+    "book": "high-voltage-engineering",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The High-Voltage World",
+    "idx": 9,
+    "title": "Summary 521 Practical Perspective: Active High-Q"
+   },
+   {
+    "book": "high-voltage-engineering",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Generation of High Voltages and Currents",
+    "idx": 4,
+    "title": "Drain current versus drain-source voltage: output conductance"
+   },
+   {
+    "book": "high-voltage-engineering",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Generation of High Voltages and Currents",
+    "idx": 5,
+    "title": "Determining the Voltage, Given the Current, 8.2 Finding the Overdamped Natural Response of a"
+   },
+   {
+    "book": "high-voltage-engineering",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Generation of High Voltages and Currents",
+    "idx": 6,
+    "title": "Determining the Current, Given the Voltage, 8.3 Calculating Branch Currents in the Natural"
+   },
+   {
+    "book": "high-voltage-engineering",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Generation of High Voltages and Currents",
+    "idx": 7,
+    "title": "Voltages and currents in a star-connected Summary of important formulae"
+   },
+   {
+    "book": "high-voltage-engineering",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "Measurement of High Voltages",
+    "idx": 4,
+    "title": "Designing a Simple Voltage Divider 65 Using a Test Source"
+   },
+   {
+    "book": "hydraulics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Hydraulics Viewpoint",
+    "idx": 7,
+    "title": "Summary of important formulae 27 5.2 Hydraulic analogy"
+   },
+   {
+    "book": "indian-history",
+    "discipline": "humanities",
+    "chapter": 3,
+    "chapterTitle": "The Vedic World and the Second Urbanisation",
+    "idx": 3,
+    "title": "Sixth Edition"
+   },
+   {
+    "book": "indian-history",
+    "discipline": "humanities",
+    "chapter": 3,
+    "chapterTitle": "The Vedic World and the Second Urbanisation",
+    "idx": 4,
+    "title": "Preface to the Sixth Edition (continued \u2014 signed M. Laxmikanth)"
+   },
+   {
+    "book": "japanese",
+    "discipline": "languages",
+    "chapter": 1,
+    "chapterTitle": "The Sounds and the Scripts",
+    "idx": 5,
+    "title": "Note: The scans are of GENKI I (An Integrated Course in Elementary Japanese, 2nd ed.) \u2014 not a JEE mathematics book \u2014 so the JEE-style exercise entries do not appear. Below is the complete printed table of contents (\u3082\u304f\u3058, pp. 6\u201311), one entry per line"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Design Discipline",
+    "idx": 9,
+    "title": "Core factors 647 Summary of important formulae"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Design Synthesis and the Doorstep",
+    "idx": 15,
+    "title": "List of Examples xii"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Design Synthesis and the Doorstep",
+    "idx": 16,
+    "title": "List of Examples"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Design Synthesis and the Doorstep",
+    "idx": 17,
+    "title": "List of Examples xiii"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Design Synthesis and the Doorstep",
+    "idx": 18,
+    "title": "Xiv List of Examples"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Design Synthesis and the Doorstep",
+    "idx": 19,
+    "title": "List of Examples xv"
+   },
+   {
+    "book": "manufacturing-processes",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "Machine Tools and Operations",
+    "idx": 4,
+    "title": "UNIVERSITY PRESS"
+   },
+   {
+    "book": "manufacturing-processes",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "Machine Tools and Operations",
+    "idx": 5,
+    "title": "Cambridge University Press is part of the University of Cambridge"
+   },
+   {
+    "book": "manufacturing-processes",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "Machine Tools and Operations",
+    "idx": 6,
+    "title": "\u00a9 Cambridge University Press, 1980, 1989"
+   },
+   {
+    "book": "materials-science",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Phase Diagrams and Phase Transformations",
+    "idx": 5,
+    "title": "Practical Perspective: Surge Suppressors 520 16.9 Amplitude and Phase Spectra"
+   },
+   {
+    "book": "materials-science",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Phase Diagrams and Phase Transformations",
+    "idx": 8,
+    "title": "Signed binary multiplication"
+   },
+   {
+    "book": "materials-science",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Phase Diagrams and Phase Transformations",
+    "idx": 9,
+    "title": "Signed binary division"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 3,
+    "chapterTitle": "Newton\u2019s Laws in Full",
+    "idx": 5,
+    "title": "[cover/title page] (duplicate \u2014 Chapter opener / contents page, same as page 1)"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 3,
+    "chapterTitle": "Newton\u2019s Laws in Full",
+    "idx": 6,
+    "title": "[cover/title page] (duplicate of chapter contents page)"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 3,
+    "chapterTitle": "Newton\u2019s Laws in Full",
+    "idx": 8,
+    "title": "Pages 3\u201312 are body content (chapter text, illustrations, sections), not table of contents"
+   },
+   {
+    "book": "modern-physics",
+    "discipline": "physics",
+    "chapter": 5,
+    "chapterTitle": "Matter Waves and Uncertainty",
+    "idx": 5,
+    "title": "Pages 5\u201312 of this scan are chapter body text, not additional contents pages; the complete printed contents (pages 1\u20134, with pages 2 and 4 being duplicates of 1 and 3) is"
+   },
+   {
+    "book": "nuclear-physics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "The Nuclear Properties Register",
+    "idx": 5,
+    "title": "Pages 3\u201312: chapter content pages (Nuclear Physics text, illustrations 7.1\u20137.7), not part of the table of contents"
+   },
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Structure and Nomenclature",
+    "idx": 53,
+    "title": "Page 7: [content page (8.2 Isomerism in Alkynes) \u2014 no table of contents entry]"
+   },
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Structure and Nomenclature",
+    "idx": 73,
+    "title": "Preface to the Original Edition v 2.11 \u0007Summary of Important Families of Organic"
+   },
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Alkanes",
+    "idx": 19,
+    "title": "Page 9: [content page (8.3 Preparation of Alkynes) \u2014 no table of contents entry]"
+   },
+   {
+    "book": "particle-physics",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Beyond the Model",
+    "idx": 4,
+    "title": "(Note: this is a physics text, not a mathematics reference. Only the first four scanned pages contain the table of contents; the remaining pages are chapter content, not TOC entries.)"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Chemical Thermodynamics",
+    "idx": 15,
+    "title": "(Pages 1\u20132, 3\u20134, and 5\u20136 of the scan are duplicate copies of the same three table-of-contents pages; pages 7\u201312 are chapter body pages 3.1\u20133.3 of Chapter 3, Isomerism, and contain no additional contents entries.)"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Chemical Thermodynamics",
+    "idx": 45,
+    "title": "Preface to the second edition xvii"
+   },
+   {
+    "book": "political-science",
+    "discipline": "humanities",
+    "chapter": 6,
+    "chapterTitle": "The Indian Constitution",
+    "idx": 5,
+    "title": "Acknowledgements (signed M. Laxmikanth)"
+   },
+   {
+    "book": "power-electronics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Power-Electronics Idea",
+    "idx": 19,
+    "title": "Summary of important formulae 852 40 Power Electronics"
+   },
+   {
+    "book": "power-electronics",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Line-Frequency Diode Rectifiers",
+    "idx": 4,
+    "title": "Practical Perspective: Clock for Computer 11.5 Power Calculations in Balanced Three-Phase"
+   },
+   {
+    "book": "power-electronics",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Thyristor Converters",
+    "idx": 2,
+    "title": "Voltage and Current Commutation"
+   },
+   {
+    "book": "power-systems",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Power System Worldview",
+    "idx": 11,
+    "title": "Practical Perspective: Balancing Power 18 Cases"
+   },
+   {
+    "book": "power-systems",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Power System Worldview",
+    "idx": 12,
+    "title": "Unbounded Response 250 Practical Perspective: Vampire Power"
+   },
+   {
+    "book": "power-systems",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Power System Worldview",
+    "idx": 14,
+    "title": "Practical Perspective: Vampire Power"
+   },
+   {
+    "book": "power-systems",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Power System Worldview",
+    "idx": 16,
+    "title": "Practical Perspective: Characterizing E.6 Straight-Line Amplitude Plots"
+   },
+   {
+    "book": "power-systems",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Line Performance and Compensation",
+    "idx": 4,
+    "title": "Practical Perspective: Artificial Pacemaker 255 10.2 Average and Reactive Power"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 4,
+    "title": "Concept Application Exercise 2.4"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 5,
+    "title": "Concept Application Exercise 2.5"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 6,
+    "title": "Concept Application Exercise 2.6"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 7,
+    "title": "Concept Application Exercise 2.7"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 8,
+    "title": "Concept Application Exercise 5.4"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 9,
+    "title": "Concept Application Exercise 5.5"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 10,
+    "title": "Concept Application Exercise 6.6"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 11,
+    "title": "Concept Application Exercise 6.7"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 12,
+    "title": "Concept Application Exercise 9.4"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 13,
+    "title": "Concept Application Exercise 4.5"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 14,
+    "title": "Concept Application Exercise 4.6"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 15,
+    "title": "Concept Application Exercise 4.7"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 17,
+    "title": "Concept Application Exercise 7.3"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 18,
+    "title": "Concept Application Exercise 7.4"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 19,
+    "title": "Concept Application Exercise 7.5"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 20,
+    "title": "Concept Application Exercise 8.3"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 21,
+    "title": "Concept Application Exercise 8.4"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 22,
+    "title": "Concept Application Exercise 8.5"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 23,
+    "title": "Concept Application Exercise 1.4"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 24,
+    "title": "Concept Application Exercise 1.5"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Thermal Expansion",
+    "idx": 25,
+    "title": "Concept Application Exercise 1.6"
+   },
+   {
+    "book": "quantum-chemistry",
+    "discipline": "chemistry",
+    "chapter": 4,
+    "chapterTitle": "The Hydrogen Atom\u2019s Orbitals",
+    "idx": 11,
+    "title": "Pages 3\u201312: These are chapter content pages (chapter opener, Overview, and body text of Sections 3.1\u20133.4), not table-of-contents pages \u2014 no further contents entries are printed on them"
+   },
+   {
+    "book": "signals-and-systems",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "System Properties",
+    "idx": 3,
+    "title": "List of Examples xii Practical Perspective: Resistive Touch"
+   },
+   {
+    "book": "signals-and-systems",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "The Laplace Transform",
+    "idx": 1,
+    "title": "Poles and Zeros as Character"
+   },
+   {
+    "book": "sociology",
+    "discipline": "humanities",
+    "chapter": 2,
+    "chapterTitle": "The Methods",
+    "idx": 5,
+    "title": "Note: These 32 pages are the front matter of M. Laxmikanth's \"Indian Polity\" (Sixth Edition), not a JEE mathematics book, and no table of contents (chapter list with page numbers) appears within these pages. No contents entries exist to transcribe beyond the front-matter items listed above"
+   },
+   {
+    "book": "sociology",
+    "discipline": "humanities",
+    "chapter": 2,
+    "chapterTitle": "The Methods",
+    "idx": 6,
+    "title": "There are no numbered topic entries (2.1, 2.2, 1.01), no exercises (JEE Main/JEE Advanced), no Concept Application Exercises, no Answers/Hints/Chapter Summary sections, and no printed page-numbered contents list anywhere in these 32 pages. A contents page appears not to have been included in the"
+   },
+   {
+    "book": "sociology",
+    "discipline": "humanities",
+    "chapter": 9,
+    "chapterTitle": "The Indian Social Structure",
+    "idx": 7,
+    "title": "Preface to the Sixth Edition (with \"Changes in this Edition\" and \"New Chapters\": 1. Goods and Services Tax Council, 2. National Commission for Backward Classes, 3. National Investigation Agency, 4. National Disaster Management Authority, 5. Role of Regional Parties, 6. Coalition Government)"
+   },
+   {
+    "book": "strength-of-materials",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Strain and the Elastic Constants",
+    "idx": 3,
+    "title": "Resistors in Parallel 61 Practical Perspective: Strain Gages"
+   },
+   {
+    "book": "strength-of-materials",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Strain and the Elastic Constants",
+    "idx": 4,
+    "title": "Practical Perspective: Strain Gages 171 Chapter 9 Sinusoidal Steady-State"
+   },
+   {
+    "book": "structural-engineering",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Statically Determinate Beams and Frames",
+    "idx": 3,
+    "title": "Summary of important formulae 642 30.5 Simple analysis of force of alignment"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "Mechanisms and Inversion",
+    "idx": 14,
+    "title": "Machines 703 Summary of important formulae"
+   },
+   {
+    "book": "thermodynamics",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Vapour Power and Refrigeration Cycles",
+    "idx": 4,
+    "title": "Practical Perspective: Heating with Electric"
+   },
+   {
+    "book": "vlsi-design",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Delay",
+    "idx": 4,
+    "title": "Determining the Step Response of an RC 9.1 Finding the Characteristics of a Sinusoidal"
+   },
+   {
+    "book": "world-history",
+    "discipline": "humanities",
+    "chapter": 2,
+    "chapterTitle": "The World Before 1200",
+    "idx": 6,
+    "title": "Preface to the First Edition (signed M. Laxmikanth)"
+   },
+   {
+    "book": "world-history",
+    "discipline": "humanities",
+    "chapter": 2,
+    "chapterTitle": "The World Before 1200",
+    "idx": 7,
+    "title": "Preface to the First Edition (duplicate)"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Polyprotic Acid Titrations 632 For Review 699 | Key Terms 699 | Questions and Exercises",
+  "members": [
+   {
+    "book": "analytical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 3,
+    "chapterTitle": "The Titrimetric Families",
+    "idx": 10,
+    "title": "Polyprotic Acid Titrations 632 For Review 699 | Key Terms 699 | Questions and Exercises"
+   },
+   {
+    "book": "biochemistry",
+    "discipline": "chemistry",
+    "chapter": 4,
+    "chapterTitle": "The Enzyme Machinery",
+    "idx": 10,
+    "title": "Chemical Connections Enzymes: Nature\u2019s Catalysts"
+   },
+   {
+    "book": "computational-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Force-Field Craft",
+    "idx": 12,
+    "title": "For Review 285 | Key Terms 285 | Questions and Exercises 288 9.5 Combining the Localized Electron and Molecular"
+   },
+   {
+    "book": "electricity-and-magnetism",
+    "discipline": "physics",
+    "chapter": 2,
+    "chapterTitle": "Electric Field and Gauss\u2019s Law",
+    "idx": 4,
+    "title": "BIO A Fish with an Electric Dipole Moment \b 704 Localization in Human Hearing\b"
+   },
+   {
+    "book": "electricity-and-magnetism",
+    "discipline": "physics",
+    "chapter": 8,
+    "chapterTitle": "Magnetic Materials and the Earth",
+    "idx": 0,
+    "title": "Dipole Moments"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Structural Analysis",
+    "idx": 8,
+    "title": "Additional Exercises for Chapter"
+   },
+   {
+    "book": "english",
+    "discipline": "languages",
+    "chapter": 1,
+    "chapterTitle": "The Ladder and the Basics",
+    "idx": 7,
+    "title": "Additional exercises"
+   },
+   {
+    "book": "environmental-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "The Atmosphere and Its Cycles",
+    "idx": 7,
+    "title": "Chemical Connections Nitrogen Under Chemical Connections Graphene\u2014Miracle"
+   },
+   {
+    "book": "environmental-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "The Atmosphere and Its Cycles",
+    "idx": 8,
+    "title": "Hybridization and the Localized Electron Model 345 Chemistry in Your Career Educator and Environmental"
+   },
+   {
+    "book": "environmental-chemistry",
+    "discipline": "chemistry",
+    "chapter": 3,
+    "chapterTitle": "The Greenhouse and Climate Chemistry",
+    "idx": 9,
+    "title": "Chemical Connections Nitrous Oxide: Laughing Gas"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 325,
+    "title": "Chemistry in Your Career Artist and Art Educator 779 For Review 852 | Key Terms 852 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Measurement Craft and the Mole",
+    "idx": 177,
+    "title": "Stoichiometry of Precipitation Reactions 137 For Review 238 | Key Terms 238 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Measurement Craft and the Mole",
+    "idx": 179,
+    "title": "Chemical Connections Fireworks"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Measurement Craft and the Mole",
+    "idx": 181,
+    "title": "Bond Polarity and Dipole Moments 297 Chemistry in Your Career Pharmaceuticals Project"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Measurement Craft and the Mole",
+    "idx": 182,
+    "title": "Chemical Connections The Drink of"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Measurement Craft and the Mole",
+    "idx": 186,
+    "title": "For Review 661 | Key Terms 661 | Questions and Exercises 663 Chemical Connections The Chemistry of Sunken"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Measurement Craft and the Mole",
+    "idx": 187,
+    "title": "Chemical Connections Tennessine"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Measurement Craft and the Mole",
+    "idx": 190,
+    "title": "Chemical Connections Titanium Dioxide\u2014Miracle"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 5,
+    "chapterTitle": "Chemical Bonding at First Pass",
+    "idx": 17,
+    "title": "The Localized Electron Bonding Model 315 Chemical Connections Closest Packing of M & Ms"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 26,
+    "title": "For Review 61 | Key Terms 61 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 27,
+    "title": "For Review 31 | Key Terms 31 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 28,
+    "title": "For Review 110 | Key Terms 110 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 29,
+    "title": "For Review 203 | Key Terms 203 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 30,
+    "title": "For Review 158 | Key Terms 158 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 31,
+    "title": "For Review 371 | Key Terms 371 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 32,
+    "title": "Communication: Semiochemicals 336 For Review 419 | Key Terms 419 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 33,
+    "title": "For Review 340 | Key Terms 340 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 34,
+    "title": "For Review 456 | Key Terms 456 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 35,
+    "title": "For Review 589 | Key Terms 589 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 36,
+    "title": "For Review 500 | Key Terms 500 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 37,
+    "title": "For Review 634 | Key Terms 634 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 38,
+    "title": "For Review 739 | Key Terms 739 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 40,
+    "title": "For Review 770 | Key Terms 770 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 41,
+    "title": "For Review 808 | Key Terms 808 | Questions and Exercises 812 22.4 Hydrocarbon Derivatives"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Water and Solutions",
+    "idx": 42,
+    "title": "For Review 901 | Key Terms 901 | Questions and Exercises"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "What Physics Measures",
+    "idx": 68,
+    "title": "BIO Fish Fluorescence\b"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Water and the Industrial Utilities",
+    "idx": 5,
+    "title": "Chemistry in Your Career Senior Scientist"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Water and the Industrial Utilities",
+    "idx": 6,
+    "title": "The Composition of Solutions 123 Chemical Connections Nature Has Hot Plants"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Water and the Industrial Utilities",
+    "idx": 7,
+    "title": "Chemistry in Your Career Associate Professor of Ethnic"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Water and the Industrial Utilities",
+    "idx": 8,
+    "title": "Chemistry in Your Career Ceramics Glazer"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Water and the Industrial Utilities",
+    "idx": 9,
+    "title": "Chemistry in Your Career NASA Researcher"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Acid-and-Alkali Industries",
+    "idx": 36,
+    "title": "The Properties of a Group: The Alkali Metals 282 Chemical Connections What\u2019s Hot?"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 6,
+    "chapterTitle": "The Fine-Chemicals Register",
+    "idx": 8,
+    "title": "Electrolytes 119 Chemistry in Your Career Vice President of Food and"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 6,
+    "chapterTitle": "The Fine-Chemicals Register",
+    "idx": 9,
+    "title": "Chemistry in Your Career Executive Publisher 165 Chemical Connections 0.046 Femtometer Is a"
+   },
+   {
+    "book": "inorganic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "Bonding\u2019s Inorganic Dress",
+    "idx": 15,
+    "title": "Dipole Moments (\u03bc)"
+   },
+   {
+    "book": "inorganic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "Bonding\u2019s Inorganic Dress",
+    "idx": 25,
+    "title": "Dipole Moment"
+   },
+   {
+    "book": "inorganic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "Bonding\u2019s Inorganic Dress",
+    "idx": 27,
+    "title": "Chemistry in Your Career Materials Team Lead"
+   },
+   {
+    "book": "inorganic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 3,
+    "chapterTitle": "Hydrogen and the s-Block",
+    "idx": 43,
+    "title": "Nitrous oxide N2O"
+   },
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 4,
+    "chapterTitle": "The Aromatic Register",
+    "idx": 21,
+    "title": "Chemistry in Your Career Staff Director of Select"
+   },
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 4,
+    "chapterTitle": "The Aromatic Register",
+    "idx": 22,
+    "title": "Chemistry in Your Career COO and Clinic Director"
+   },
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 4,
+    "chapterTitle": "The Aromatic Register",
+    "idx": 23,
+    "title": "The Chemistry of Oxygen 800 Chemistry in Your Career Associate Director"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Chemical Thermodynamics",
+    "idx": 28,
+    "title": "Chemistry in Your Career Advanced Emergency Medical"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Chemical Thermodynamics",
+    "idx": 29,
+    "title": "Commission Data Analyst 465 Chemical Connections Amines"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Chemical Thermodynamics",
+    "idx": 30,
+    "title": "Equilibria 640 Chemistry in Your Career Health Planner"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Chemical Thermodynamics",
+    "idx": 32,
+    "title": "Chemical Connections Entropy: An Organizing Chemistry in Your Career Professor"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Chemical Thermodynamics",
+    "idx": 33,
+    "title": "Chemical Connections Transition Metal Ions Lend Color"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Chemical Thermodynamics",
+    "idx": 34,
+    "title": "Chemical Connections Beethoven: Hair Is the Story"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 3,
+    "chapterTitle": "Chemical Equilibrium",
+    "idx": 7,
+    "title": "Chemical Connections The Lake Nyos Tragedy 439 13.5 Applications of the Equilibrium Constant"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "Solutions and Colligative Properties",
+    "idx": 14,
+    "title": "Colligative Properties of Electrolyte Solutions 452 For Review 539 | Key Terms 539 | Questions and Exercises"
+   },
+   {
+    "book": "spanish",
+    "discipline": "languages",
+    "chapter": 4,
+    "chapterTitle": "The Madrigal Method",
+    "idx": 4,
+    "title": "Key to Additional exercises"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Shot noise in current sources and emitter followers",
+  "members": [
+   {
+    "book": "analog-and-digital-communication",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Communication Worldview",
+    "idx": 7,
+    "title": "Shot noise in current sources and emitter followers"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Analog Signal Chain",
+    "idx": 6,
+    "title": "Small-Signal Operation 587 10.2.4 The Common-Emitter Amplifier"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 5,
+    "title": "Common-Emitter (CE) Amplifiers"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 6,
+    "title": "Emitter) Amplifier with a Source"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 7,
+    "title": "Common-Base (CB) Amplifiers"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 8,
+    "title": "A Common-Emitter Amplifier"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 9,
+    "title": "A Common-Emitter Amplifier with"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 10,
+    "title": "Small-Signal Operation of Current 9.2.2 Input Common-Mode Range"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 11,
+    "title": "The CS and CE Amplifiers with 9.3 Common-Mode Rejection"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 14,
+    "title": "The BJT Cascode 547 9.5.5 Common-Mode Gain and CMRR"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 22,
+    "title": "Use of Input Emitter Followers"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 26,
+    "title": "The common-emitter amplifier revisited"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 27,
+    "title": "Biasing the common-emitter amplifier"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "The Operational Amplifier",
+    "idx": 14,
+    "title": "The Emitter-Follower Case 730 Amplifiers"
+   },
+   {
+    "book": "analytical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 3,
+    "chapterTitle": "The Titrimetric Families",
+    "idx": 0,
+    "title": "Acid-Base Curves"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Two-Port Networks",
+    "idx": 10,
+    "title": "Stopband (or bandstop) filters 382 20.9 Common-base and common-emitter circuits"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Two-Port Networks",
+    "idx": 11,
+    "title": "2-port Networks 388 20.11 Static characteristics for a common-emitter circuit"
+   },
+   {
+    "book": "control-systems",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Transient and Steady-State Analysis",
+    "idx": 6,
+    "title": "Investigating Stability 855 13.1.4 Common-Mode Rejection Ratio"
+   },
+   {
+    "book": "electromagnetic-theory",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "The Vector Grammar of Fields",
+    "idx": 43,
+    "title": "Appendix B Problem-Solving Strategy: Dimensional"
+   },
+   {
+    "book": "electronic-devices-and-circuits",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "The Bipolar Junction Transistor",
+    "idx": 9,
+    "title": "Bode plots 382 20.10 Static characteristics for a common-base circuit"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Electronics for Physicists",
+    "idx": 5,
+    "title": "Transistor as a Common Base Amplifier"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Electronics for Physicists",
+    "idx": 6,
+    "title": "N-p-n Transistor as a Common Base Amplifier"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Electronics for Physicists",
+    "idx": 7,
+    "title": "N-p-n Transistor as a Common Emitter Amplifier"
+   },
+   {
+    "book": "foundation-biology",
+    "discipline": "biology",
+    "chapter": 3,
+    "chapterTitle": "The Chemistry Preview",
+    "idx": 9,
+    "title": "Weak Acids and Bases Have Characteristic"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 27,
+    "title": "Trends in Acidic and Basic Properties Based on Arrhenius and Bronsted\u2013Lowry Concepts"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Force and Newton\u2019s Laws",
+    "idx": 15,
+    "title": "Common Emitter Amplifier"
+   },
+   {
+    "book": "heat-transfer",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Three Modes",
+    "idx": 6,
+    "title": "Input Common-Mode Range and"
+   },
+   {
+    "book": "heat-transfer",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Three Modes",
+    "idx": 8,
+    "title": "Transfer Characteristic 890 Mode Range: Rail-to-Rail Input"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Acid-and-Alkali Industries",
+    "idx": 5,
+    "title": "Bronsted\u2013Lowry Acids and Bases"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Acid-and-Alkali Industries",
+    "idx": 29,
+    "title": "Mixing of Strong Acids and Strong Bases"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Acid-and-Alkali Industries",
+    "idx": 30,
+    "title": "The Br\u00f6nsted\u2013Lowry Acids and Bases"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Acid-and-Alkali Industries",
+    "idx": 32,
+    "title": "Calculation of pH of Extremely Dilute (<10\u207b\u2076 M) Solution of Strong Acids and Strong Bases"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Acid-and-Alkali Industries",
+    "idx": 33,
+    "title": "DI- and Polybasic Acids and DI- and Polyacidic Bases"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Acid-and-Alkali Industries",
+    "idx": 34,
+    "title": "Change in pH of an Acidic Buffer (When an Acid or a Base is Added)"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Acid-and-Alkali Industries",
+    "idx": 35,
+    "title": "Calculation of Degree of Hydrolysis (h), Hydrolysis Constant (Kh), and pH of a Salt (ZnCl\u2082) of Weak Diacidic Base (Zn(OH)\u2082 and Monobasic Acid (HCl)"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Acid-and-Alkali Industries",
+    "idx": 39,
+    "title": "Catalysis 494 14.12 Strategy for Solving Acid\u2013Base Problems: A Summary"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Acid-and-Alkali Industries",
+    "idx": 46,
+    "title": "Sp3 Hybridization 25 3.6 \u0007The Strength of Br\u00f8nsted\u2013Lowry Acids and Bases"
+   },
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Acid-and-Alkali Industries",
+    "idx": 47,
+    "title": "Hybridization 26 3.7 \u0007HOW TO Predict the Outcome of Acid\u2013Base"
+   },
+   {
+    "book": "molecular-biology",
+    "discipline": "biology",
+    "chapter": 1,
+    "chapterTitle": "The DNA Structure",
+    "idx": 10,
+    "title": "From Their Surroundings 20 and Weak Bases"
+   },
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 5,
+    "chapterTitle": "The Halides and the SN Craft",
+    "idx": 8,
+    "title": "Elimination: E1 and E2 reactions at sp3 carbon centers, stereochemistry, acid-base catalysis, common leaving groups"
+   },
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 7,
+    "chapterTitle": "The Carbonyl Register",
+    "idx": 6,
+    "title": "Nucleophilic addition: addition to carbon-carbon and carbon-heteroatom double and triple bonds, addition-elimination reactions, acid-base catalysis"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 4,
+    "chapterTitle": "Ionic Equilibria",
+    "idx": 11,
+    "title": "Buffer Action of Acidic Buffer"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 6,
+    "chapterTitle": "Chemical Kinetics (the fold)",
+    "idx": 56,
+    "title": "Bronsted\u2013Lowry theory"
+   },
+   {
+    "book": "strength-of-materials",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Strain and the Elastic Constants",
+    "idx": 5,
+    "title": "Semiconductor Materials 419 20.34 Common-mode rejection ratio"
+   },
+   {
+    "book": "strength-of-materials",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Shear Force and Bending Moment Diagrams",
+    "idx": 5,
+    "title": "Input Common-Mode Range and Functions"
+   },
+   {
+    "book": "strength-of-materials",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "Bending Stresses in Beams",
+    "idx": 7,
+    "title": "A Common-Base (CB)"
+   },
+   {
+    "book": "strength-of-materials",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "Bending Stresses in Beams",
+    "idx": 9,
+    "title": "Common-mode rejection"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "Mechanisms and Inversion",
+    "idx": 5,
+    "title": "Emitter Characteristics"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Cams and Followers",
+    "idx": 3,
+    "title": "The Source and Emitter Followers"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Cams and Followers",
+    "idx": 4,
+    "title": "An Emitter Follower"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Cams and Followers",
+    "idx": 7,
+    "title": "Emitter follower"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Cams and Followers",
+    "idx": 8,
+    "title": "Emitter follower biasing"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Cams and Followers",
+    "idx": 9,
+    "title": "The emitter follower revisited"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Cams and Followers",
+    "idx": 10,
+    "title": "Source followers"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Laboratory skills expected to be known by all participants (heating and reflux, mass and volume measurement, preparation and dilution of solutions, titrations, pH measurement, filtration, drying of precipitates, instrument operation, graphing and analysis of experimental data)",
+  "members": [
+   {
+    "book": "analytical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "The Analytical Doorway",
+    "idx": 4,
+    "title": "Laboratory skills expected to be known by all participants (heating and reflux, mass and volume measurement, preparation and dilution of solutions, titrations, pH measurement, filtration, drying of precipitates, instrument operation, graphing and analysis of experimental data)"
+   },
+   {
+    "book": "biotechnology",
+    "discipline": "biology",
+    "chapter": 1,
+    "chapterTitle": "The Natural Toolbox",
+    "idx": 2,
+    "title": "The Heat-Proof Polymerase Earned"
+   },
+   {
+    "book": "electronic-devices-and-circuits",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Power Supplies and the Doorstep",
+    "idx": 1,
+    "title": "Figures of Merit Priced"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "Measurement and Uncertainty",
+    "idx": 4,
+    "title": "Experimental Skills"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 2,
+    "chapterTitle": "The Instruments of the Lab",
+    "idx": 6,
+    "title": "Experimental Skills: Vernier calipers \u2014 its use to measure the internal and external diameter and depth of a vessel"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 2,
+    "chapterTitle": "The Instruments of the Lab",
+    "idx": 7,
+    "title": "Experimental Skills: Screw gauge \u2014 its use to determine the thickness/diameter of thin sheet/wire"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 2,
+    "chapterTitle": "The Instruments of the Lab",
+    "idx": 8,
+    "title": "Experimental Skills: Screw gauge \u2014 its use to determine thickness/diameter of thin sheet/wire"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 3,
+    "chapterTitle": "Mechanics and Properties Practicals",
+    "idx": 6,
+    "title": "Experimental Skills: Speed of sound in air at room temperature using a resonance tube"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Heat and Optics Practicals",
+    "idx": 2,
+    "title": "Refractive-Index Craft"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Heat and Optics Practicals",
+    "idx": 5,
+    "title": "Experimental Skills: The plot of the angle of deviation vs angle of incidence for a triangular prism"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Heat and Optics Practicals",
+    "idx": 6,
+    "title": "Experimental Skills: The refractive index of a glass slab using a travelling microscope"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Heat and Optics Practicals",
+    "idx": 7,
+    "title": "Experimental Skills: Refractive index of a glass slab using a travelling microscope"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 5,
+    "chapterTitle": "Electricity and Magnetism Practicals",
+    "idx": 5,
+    "title": "Experimental Skills: The resistivity of the material of a given wire using a metre bridge"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 5,
+    "chapterTitle": "Electricity and Magnetism Practicals",
+    "idx": 6,
+    "title": "Experimental Skills: The resistance of a given wire using Ohm's law"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 5,
+    "chapterTitle": "Electricity and Magnetism Practicals",
+    "idx": 7,
+    "title": "Experimental Skills: Resistance and figure of merit of a galvanometer by half deflection method"
+   },
+   {
+    "book": "experimental-physics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Electronics for Physicists",
+    "idx": 4,
+    "title": "Experimental Skills: Identification of diode, LED, resistor, a capacitor from a mixed collection of such items"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Measurement Craft and the Mole",
+    "idx": 14,
+    "title": "Energy, heat and work, enthalpy and energy, heat capacity, Hess's law, Born-Haber cycle, standard formation enthalpies, solution, solvation and bond enthalpies"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Measurement Craft and the Mole",
+    "idx": 158,
+    "title": "Enthalpy of Combustion or Heat of Combustion (\u0394combH\u00b0)"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 5,
+    "chapterTitle": "Gravitation at First Pass",
+    "idx": 4,
+    "title": "Experimental Skills: Metre scale \u2014 the mass of a given object by the principle of moments"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Momentum and Collisions",
+    "idx": 3,
+    "title": "Centre of Mass Craft"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Momentum and Collisions",
+    "idx": 5,
+    "title": "Centre of Mass of a Semicircular Disc"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 10,
+    "chapterTitle": "Fluid Dynamics",
+    "idx": 3,
+    "title": "Terminal Velocity Taster"
+   },
+   {
+    "book": "multivariable-calculus",
+    "discipline": "mathematics",
+    "chapter": 4,
+    "chapterTitle": "Multiple Integrals",
+    "idx": 2,
+    "title": "Mass, Centres and Moments"
+   },
+   {
+    "book": "optics",
+    "discipline": "physics",
+    "chapter": 10,
+    "chapterTitle": "The Optics Laboratory",
+    "idx": 1,
+    "title": "Refractive-Index Craft"
+   },
+   {
+    "book": "particle-physics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "The Standard Model Census",
+    "idx": 6,
+    "title": "Note: The remaining pages supplied are chapter body pages (p. 1.1 System of Particles and Centre of Mass; p. 1.2 Illustrations 1.1\u20131.2; p. 1.3 Centre of Mass of a Uniform Rod / Semicircular Ring / Semicircular Disc; p. 1.4 Illustrations 1.3\u20131.4; p. 1.5 Illustrations 1.5\u20131.6 and Concept Application"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 3,
+    "chapterTitle": "The Moduli and Elastic Energy",
+    "idx": 5,
+    "title": "Experimental Skills: Young's modulus of elasticity of the material of a metallic wire"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Viscosity and Streamline Flow",
+    "idx": 3,
+    "title": "Terminal Velocity Worked"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Viscosity and Streamline Flow",
+    "idx": 4,
+    "title": "Experimental Skills: Co-efficient of viscosity of a given viscous liquid by measuring the terminal velocity of a given spherical body"
+   },
+   {
+    "book": "solid-state-physics",
+    "discipline": "physics",
+    "chapter": 2,
+    "chapterTitle": "The Reciprocal Lattice and Diffraction",
+    "idx": 4,
+    "title": "Experimental Skills: Specific heat capacity of a given solid and liquid by method of mixtures"
+   },
+   {
+    "book": "statistical-mechanics",
+    "discipline": "physics",
+    "chapter": 5,
+    "chapterTitle": "The Fermi Gas Applications",
+    "idx": 1,
+    "title": "The Specific Heat Proof"
+   },
+   {
+    "book": "thermodynamics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "The First Law for Closed Systems",
+    "idx": 2,
+    "title": "Specific Heats and Enthalpy"
+   },
+   {
+    "book": "waves-and-oscillations",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "Simple Harmonic Motion: Foundations",
+    "idx": 4,
+    "title": "Experimental Skills: Simple pendulum \u2014 dissipation of energy by plotting a graph between the square of amplitude and time"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Adding a Resistive Load to a Voltage 4.19 Finding the Th\u00e9venin Equivalent of a Circuit",
+  "members": [
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Circuit Idea",
+    "idx": 16,
+    "title": "Adding a Resistive Load to a Voltage 4.19 Finding the Th\u00e9venin Equivalent of a Circuit"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "The Theorem Census",
+    "idx": 4,
+    "title": "Finding a Th\u00e9venin Equivalent in the Frequency of Finite Duration"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Sinusoidal Steady State",
+    "idx": 6,
+    "title": "And Capacitance 194 9.6 Series, Parallel, and Delta-to-Wye"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Sinusoidal Steady State",
+    "idx": 9,
+    "title": "Applying Series-Parallel Simplification 62 4.17 Finding the Th\u00e9venin Equivalent Resistance"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Sinusoidal Steady State",
+    "idx": 14,
+    "title": "Polar admittances 259 14.9 Series resonance using complex notation"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Resonance and Coupled Circuits",
+    "idx": 6,
+    "title": "Series and Parallel Resonance"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Resonance and Coupled Circuits",
+    "idx": 17,
+    "title": "Finding the Equivalent Inductance 196 8.7 Finding the Underdamped Step Response of a"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Two-Port Networks",
+    "idx": 1,
+    "title": "Conversions and Equivalent Circuits"
+   },
+   {
+    "book": "electrical-machines",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "The Single-Phase Transformer",
+    "idx": 0,
+    "title": "The Equivalent Circuit Earned"
+   },
+   {
+    "book": "electrical-machines",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Three-Phase Induction Machines",
+    "idx": 2,
+    "title": "The Equivalent Circuit Identified"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Friction and Its Applications",
+    "idx": 11,
+    "title": "Simplification 63 4.18 Finding the Th\u00e9venin Equivalent Resistance"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Kinetics: Force and Acceleration",
+    "idx": 5,
+    "title": "The Effect of Resistor Tolerance on the 4.20 Using a Th\u00e9venin Equivalent to Analyze the"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 10,
+    "chapterTitle": "Electricity at First Pass",
+    "idx": 12,
+    "title": "Finding Coefficient of Resistance"
+   },
+   {
+    "book": "heat-and-thermodynamics",
+    "discipline": "physics",
+    "chapter": 2,
+    "chapterTitle": "Calorimetry",
+    "idx": 6,
+    "title": "Finding Equivalent Capacitance"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "Bearings",
+    "idx": 6,
+    "title": "Finding a Th\u00e9venin Equivalent"
+   },
+   {
+    "book": "power-systems",
+    "discipline": "engineering",
+    "chapter": 10,
+    "chapterTitle": "Stability, Control and Economic Operation",
+    "idx": 6,
+    "title": "Calculating Power in Parallel Loads 390 13.6 Creating a Th\u00e9venin Equivalent in the"
+   },
+   {
+    "book": "strength-of-materials",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Shear Force and Bending Moment Diagrams",
+    "idx": 8,
+    "title": "Complex Notation"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Guided Practice 1208 39.4 The Laser",
+  "members": [
+   {
+    "book": "atomic-physics",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Resonance and Atomic Clocks",
+    "idx": 5,
+    "title": "Guided Practice 1208 39.4 The Laser"
+   },
+   {
+    "book": "electricity-and-magnetism",
+    "discipline": "physics",
+    "chapter": 10,
+    "chapterTitle": "Alternating Currents",
+    "idx": 6,
+    "title": "Guided Practice 739 26 DIRECT-CURRENT CIRCUITS"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Centroids, Centre of Gravity and Moments of Inertia",
+    "idx": 2,
+    "title": "Moments of Inertia and the Parallel-Axis Theorem"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 3,
+    "chapterTitle": "Motion in One Dimension",
+    "idx": 44,
+    "title": "Guided Practice 292 14 PERIODIC MOTION"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 5,
+    "chapterTitle": "Gravitation at First Pass",
+    "idx": 17,
+    "title": "Guided Practice 1273 Exclusion Principle"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Work, Energy and Power",
+    "idx": 26,
+    "title": "Guided Practice\b"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Work, Energy and Power",
+    "idx": 27,
+    "title": "Guided Practice\b 57 Summary\b"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Work, Energy and Power",
+    "idx": 28,
+    "title": "Guided Practice\b 91 Guided Practice\b"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Work, Energy and Power",
+    "idx": 29,
+    "title": "Guided Practice\b 225 Guided Practice"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Rotational Dynamics",
+    "idx": 15,
+    "title": "Parallel-Axis Theorem 287 Guided Practice"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Rotational Dynamics",
+    "idx": 16,
+    "title": "Angular Momentum 316 Guided Practice"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 5,
+    "chapterTitle": "Surface Tension and Surface Energy",
+    "idx": 10,
+    "title": "Equipotential Surfaces 764 Guided Practice"
+   },
+   {
+    "book": "solid-state-physics",
+    "discipline": "physics",
+    "chapter": 8,
+    "chapterTitle": "Magnetism and Superconductivity",
+    "idx": 5,
+    "title": "Superconductivity 975 Guided Practice"
+   },
+   {
+    "book": "statistical-mechanics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "The Bose Gas Applications",
+    "idx": 5,
+    "title": "Applications of Gauss\u2019s Law 729 Guided Practice"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "A Closer Look: Structure of the",
+  "members": [
+   {
+    "book": "atomic-physics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "Hydrogen\u2019s Fine Structure",
+    "idx": 6,
+    "title": "A Closer Look: Structure of the"
+   },
+   {
+    "book": "atomic-physics",
+    "discipline": "physics",
+    "chapter": 2,
+    "chapterTitle": "The Many-Electron Atom",
+    "idx": 16,
+    "title": "A Closer Look: Biomagnetism 574 Model of the Atom"
+   },
+   {
+    "book": "atomic-physics",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Resonance and Atomic Clocks",
+    "idx": 6,
+    "title": "22\u20132 Inductance 597 A Closer Look: Lasers"
+   },
+   {
+    "book": "electricity-and-magnetism",
+    "discipline": "physics",
+    "chapter": 10,
+    "chapterTitle": "Alternating Currents",
+    "idx": 8,
+    "title": "*22\u20133 Alternating Current Circuits 603 A Closer Look: Semiconductors"
+   },
+   {
+    "book": "electronic-devices-and-circuits",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Field-Effect Devices: JFET and MOSFET",
+    "idx": 5,
+    "title": "A closer look at JFETs"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "What Physics Measures",
+    "idx": 101,
+    "title": "10\u20132 Center of Gravity 242 A Closer Look: The Ear"
+   },
+   {
+    "book": "nuclear-physics",
+    "discipline": "physics",
+    "chapter": 2,
+    "chapterTitle": "The Nuclear Force and the Shell Model",
+    "idx": 7,
+    "title": "A Closer Look: Magic in the Sky 754 Appendix E Answers to Odd"
+   },
+   {
+    "book": "power-electronics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Power-Electronics Idea",
+    "idx": 13,
+    "title": "Converter linearity \u2013 a closer look"
+   },
+   {
+    "book": "relativity",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "The Ether Crisis",
+    "idx": 8,
+    "title": "A Closer Look: General Relativity"
+   },
+   {
+    "book": "robotics-and-automation",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Spatial Descriptions and Transformations",
+    "idx": 4,
+    "title": "A Closer Look at Mutual Inductance 203 9.7 Source Transformations and Th\u00e9venin\u2013Norton"
+   },
+   {
+    "book": "solid-state-physics",
+    "discipline": "physics",
+    "chapter": 8,
+    "chapterTitle": "Magnetism and Superconductivity",
+    "idx": 7,
+    "title": "13\u20132 Calorimetry 321 A Closer Look: Superconductivity"
+   },
+   {
+    "book": "waves-and-oscillations",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "Simple Harmonic Motion: Foundations",
+    "idx": 9,
+    "title": "Harmonic Motion 366 A Closer Look: Electrical Effects in"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Current Mirrors as Bias",
+  "members": [
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 1,
+    "title": "Current Mirrors as Bias"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 15,
+    "title": "The Cascode MOS Mirror 552 Summary"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Friction and Its Applications",
+    "idx": 4,
+    "title": "(Emitter) Resistance"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Friction and Its Applications",
+    "idx": 6,
+    "title": "An Emitter Resistance Re"
+   },
+   {
+    "book": "industrial-engineering",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Production System",
+    "idx": 6,
+    "title": "Output Resistance of the Emitter- 9.5.2 The Current-Mirror-Loaded MOS"
+   },
+   {
+    "book": "industrial-engineering",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Inventory Control",
+    "idx": 4,
+    "title": "The Wilson BJT Current Mirror 553 Problems"
+   },
+   {
+    "book": "interior-design",
+    "discipline": "arts-music",
+    "chapter": 1,
+    "chapterTitle": "The Principles-and-Human-Factors Craft",
+    "idx": 4,
+    "title": "Prelims typical areas (from recent papers, mirror): general and design awareness \u2014 current affairs, Indian art and culture, materials, famous products, logos and designers"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Flywheels, Turning Moments and Governors",
+    "idx": 3,
+    "title": "The Wilson MOS Mirror"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Deviation from Ideal Gas Behaviour",
+  "members": [
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 7,
+    "chapterTitle": "The Gas Laws at First Pass",
+    "idx": 9,
+    "title": "Deviation from Ideal Gas Behaviour"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 7,
+    "chapterTitle": "The Gas Laws at First Pass",
+    "idx": 10,
+    "title": "Causes of Deviations from Ideal Gas Behaviour"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 7,
+    "chapterTitle": "The Gas Laws at First Pass",
+    "idx": 11,
+    "title": "Expansion or Compression of an Ideal Gas"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Work, Energy and Power",
+    "idx": 31,
+    "title": "Guided Practice 492 19.6 Internal Energy of an Ideal Gas"
+   },
+   {
+    "book": "heat-and-thermodynamics",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Gas Laws and Maxwell\u2019s Distribution",
+    "idx": 0,
+    "title": "The Ideal Gas Ledger"
+   },
+   {
+    "book": "statistical-mechanics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "The Bose Gas Applications",
+    "idx": 4,
+    "title": "Kinetic-Molecular Model of an Ideal Gas 588 Summary"
+   },
+   {
+    "book": "thermodynamics",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Properties of Pure Substances",
+    "idx": 2,
+    "title": "The Ideal Gas and Its Honest Limits"
+   },
+   {
+    "book": "waves-and-oscillations",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "Simple Harmonic Motion: Foundations",
+    "idx": 8,
+    "title": "12\u20133 Kinetic Theory; Model of an Ideal Gas 303 *18\u20134 The Oscilloscope"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Quantitative Techniques - elementary mathematics topics: Algebra; Averages; Geometry; LCM and HCF; Mensuration; Number Systems; Percentage; Permutation and Combination; Probability; Profit and Loss; Quadratic and Linear Equations; Ratio and Proportion; Simple and Compound Interest; Time and Speed;",
+  "members": [
+   {
+    "book": "art-history",
+    "discipline": "humanities",
+    "chapter": 1,
+    "chapterTitle": "The Art Historian\u2019s Eye",
+    "idx": 4,
+    "title": "Quantitative Techniques - elementary mathematics topics: Algebra; Averages; Geometry; LCM and HCF; Mensuration; Number Systems; Percentage; Permutation and Combination; Probability; Profit and Loss; Quadratic and Linear Equations; Ratio and Proportion; Simple and Compound Interest; Time and Speed;"
+   },
+   {
+    "book": "discrete-mathematics",
+    "discipline": "mathematics",
+    "chapter": 4,
+    "chapterTitle": "Advanced Counting",
+    "idx": 1,
+    "title": "Permutations and Combinations with Repetition"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Measurement Craft and the Mole",
+    "idx": 131,
+    "title": "Simple Ionic Compounds of Type AB2 (Fluorite Type)"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Measurement Craft and the Mole",
+    "idx": 132,
+    "title": "Simple Ionic Compounds of Type A2B (Antifluorite Type)"
+   },
+   {
+    "book": "quantitative-aptitude",
+    "discipline": "mathematics",
+    "chapter": 4,
+    "chapterTitle": "Ratio, Partnership, Ages and Mixtures",
+    "idx": 0,
+    "title": "Ratio and Proportion at Exam Speed"
+   },
+   {
+    "book": "quantitative-aptitude",
+    "discipline": "mathematics",
+    "chapter": 11,
+    "chapterTitle": "Modern Maths at Aptitude Speed",
+    "idx": 2,
+    "title": "Permutations and Combinations at Exam Speed"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "Gear Trains",
+    "idx": 0,
+    "title": "Simple and Compound Trains"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Analysis of growth and decay 113 8.3 Inductance in terms of flux-linkages",
+  "members": [
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Resonance and Coupled Circuits",
+    "idx": 21,
+    "title": "Analysis of growth and decay 113 8.3 Inductance in terms of flux-linkages"
+   },
+   {
+    "book": "differential-equations",
+    "discipline": "mathematics",
+    "chapter": 3,
+    "chapterTitle": "Modeling with First-Order Equations",
+    "idx": 0,
+    "title": "Growth, Decay and Cooling"
+   },
+   {
+    "book": "electrical-machines",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "The Single-Phase Transformer",
+    "idx": 8,
+    "title": "Growth and decay 111 8.2 Unit of inductance"
+   },
+   {
+    "book": "electricity-and-magnetism",
+    "discipline": "physics",
+    "chapter": 5,
+    "chapterTitle": "Current and Resistance",
+    "idx": 7,
+    "title": "Growth and Decay of Current"
+   },
+   {
+    "book": "electricity-and-magnetism",
+    "discipline": "physics",
+    "chapter": 9,
+    "chapterTitle": "Electromagnetic Induction",
+    "idx": 4,
+    "title": "Flux Linkage"
+   },
+   {
+    "book": "heat-transfer",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Synthesis and the Doorstep",
+    "idx": 9,
+    "title": "Leakage and conduction currents in capacitors 126 8.8 Analysis of decay"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Action-angle Variables in Systems of One Degree of Freedom",
+  "members": [
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "What Physics Measures",
+    "idx": 47,
+    "title": "Action-angle Variables in Systems of One Degree of Freedom"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Force and Newton\u2019s Laws",
+    "idx": 16,
+    "title": "Forced Vibrations and the Effect of Dissipative Forces"
+   },
+   {
+    "book": "robotics-and-automation",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Robot Idea",
+    "idx": 0,
+    "title": "Anatomy and Degrees of Freedom"
+   },
+   {
+    "book": "structural-engineering",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Steel Structures",
+    "idx": 4,
+    "title": "Structural Analysis \u2014 free and forced vibrations of single- and multi-degree-freedom systems; suspended cables; concepts and use of computer aided design"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "Mechanisms and Inversion",
+    "idx": 3,
+    "title": "Degrees of Freedom by Gruebler"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 10,
+    "chapterTitle": "Vibrations",
+    "idx": 2,
+    "title": "Forced Vibration and the Magnifier"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Magnetic Induction Due to a Large and Thick",
+  "members": [
+   {
+    "book": "electricity-and-magnetism",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "Electric Charge and Coulomb\u2019s Law",
+    "idx": 5,
+    "title": "Magnetic Induction Due to a Large and Thick"
+   },
+   {
+    "book": "electricity-and-magnetism",
+    "discipline": "physics",
+    "chapter": 5,
+    "chapterTitle": "Current and Resistance",
+    "idx": 5,
+    "title": "Current Carrying Sheet"
+   },
+   {
+    "book": "electricity-and-magnetism",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Magnetic Force and the Field",
+    "idx": 6,
+    "title": "Magnetic Field Due to a Straight Current Carrying Wire of Infinite Length"
+   },
+   {
+    "book": "electricity-and-magnetism",
+    "discipline": "physics",
+    "chapter": 8,
+    "chapterTitle": "Magnetic Materials and the Earth",
+    "idx": 4,
+    "title": "Magnetic Induction Due to a Large Current Carrying Sheet"
+   },
+   {
+    "book": "electromagnetic-theory",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Magnetostatics",
+    "idx": 5,
+    "title": "Magnetic Field Due to a Semi-Infinite Straight Wire"
+   },
+   {
+    "book": "power-systems",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Power System Worldview",
+    "idx": 21,
+    "title": "Force on a current-carrying conductor 140 9.2 Generation of an alternating e.m.f"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Cathode-ray tube 947 Appendix: Symbols, Abbreviations, De\ufb01nitions",
+  "members": [
+   {
+    "book": "fluid-mechanics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Fluid Idea",
+    "idx": 8,
+    "title": "Cathode-ray tube 947 Appendix: Symbols, Abbreviations, De\ufb01nitions"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 280,
+    "title": "Properties of Cathode Rays"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 3,
+    "chapterTitle": "Atomic Structure at First Pass",
+    "idx": 23,
+    "title": "Discovery of Electron\u2014Cathode Rays"
+   },
+   {
+    "book": "industrial-engineering",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Production System",
+    "idx": 15,
+    "title": "Deflecting systems of a cathode-ray tube 948 and Diagrammatic Symbols"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 10,
+    "chapterTitle": "Vibrations",
+    "idx": 8,
+    "title": "Cathode-ray oscilloscope 948 Answers to Exercises"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Graphical Representation for Motion",
+  "members": [
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 3,
+    "chapterTitle": "Motion in One Dimension",
+    "idx": 12,
+    "title": "Graphical Representation for Motion"
+   },
+   {
+    "book": "industrial-engineering",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "The Operations-Research Application Layer",
+    "idx": 6,
+    "title": "Graphical Representation of"
+   },
+   {
+    "book": "manufacturing-processes",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Non-Traditional Machining",
+    "idx": 4,
+    "title": "B.2 The Graphical Representation of a Complex"
+   },
+   {
+    "book": "mathematical-physics",
+    "discipline": "physics",
+    "chapter": 2,
+    "chapterTitle": "Complex Analysis for Physics",
+    "idx": 6,
+    "title": "Graphical Representation of Derivative of a Function"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Chemical Thermodynamics",
+    "idx": 23,
+    "title": "Graphical Representation of Four Thermodynamic Processes"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Appendix E Some Useful Mathematical Approximation",
+  "members": [
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 434,
+    "title": "Appendix E Some Useful Mathematical Approximation"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 10,
+    "chapterTitle": "The Laboratory Register",
+    "idx": 16,
+    "title": "Appendix 1 | Mathematical Procedures A1"
+   },
+   {
+    "book": "materials-science",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Crystal Structures",
+    "idx": 4,
+    "title": "Some Mathematical Properties 673 Appendix C More on Magnetically"
+   },
+   {
+    "book": "nuclear-physics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "The Nuclear Properties Register",
+    "idx": 6,
+    "title": "40-1 PROPERTIES OF ATOMS 1219 42-2 SOME NUCLEAR PROPERTIES"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "The Molecular Picture",
+    "idx": 10,
+    "title": "Some Properties of Atoms"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Conservative Forces and Energy Bookkeeping",
+  "members": [
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Work, Energy and Impulse-Momentum",
+    "idx": 1,
+    "title": "Conservative Forces and Energy Bookkeeping"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Force and Newton\u2019s Laws",
+    "idx": 17,
+    "title": "Path Independence of Conservative Forces 179 10-1 ROTATIONAL VARIABLES"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 5,
+    "chapterTitle": "Work and Energy in Full",
+    "idx": 2,
+    "title": "Conservative Forces"
+   },
+   {
+    "book": "multivariable-calculus",
+    "discipline": "mathematics",
+    "chapter": 5,
+    "chapterTitle": "Vector Calculus",
+    "idx": 3,
+    "title": "Conservative Fields and Path Independence"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Flip-Flops and Their Triggering",
+  "members": [
+   {
+    "book": "digital-logic-design",
+    "discipline": "computer-science",
+    "chapter": 6,
+    "chapterTitle": "Sequential Logic",
+    "idx": 0,
+    "title": "Flip-Flops and Their Triggering"
+   },
+   {
+    "book": "power-systems",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Power System Worldview",
+    "idx": 8,
+    "title": "Single-pulse generation with flip-flops and counters"
+   },
+   {
+    "book": "vlsi-design",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Sequential Circuit Design",
+    "idx": 0,
+    "title": "Latches and Flip-Flops in Silicon"
+   },
+   {
+    "book": "vlsi-design",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Sequential Circuit Design",
+    "idx": 4,
+    "title": "The Situation When QN and QP Are 18.2.2 The SR Flip-Flop"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Simultaneous Appendix F An Abbreviated",
+  "members": [
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Statics Frame",
+    "idx": 52,
+    "title": "Simultaneous Appendix F An Abbreviated"
+   },
+   {
+    "book": "surveying-and-geomatics",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Levelling",
+    "idx": 4,
+    "title": "Appendix F An Abbreviated Table of Trigonometric Identities"
+   },
+   {
+    "book": "thermodynamics",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Properties of Pure Substances",
+    "idx": 6,
+    "title": "Appendix G An Abbreviated Table of Integrals"
+   },
+   {
+    "book": "thermodynamics",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Properties of Pure Substances",
+    "idx": 9,
+    "title": "A.3 Paper-and-Pencil Methods 723 Appendix G An Abbreviated Table of"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Conservation of Angular Momentum 319 Questions/Exercises/Problems",
+  "members": [
+   {
+    "book": "electromagnetic-theory",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "The Vector Grammar of Fields",
+    "idx": 38,
+    "title": "Conservation of Angular Momentum 319 Questions/Exercises/Problems"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Kinetics: Force and Acceleration",
+    "idx": 2,
+    "title": "Angular Momentum and the Gyroscopic Glimpse"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Work, Energy and Impulse-Momentum",
+    "idx": 2,
+    "title": "Linear and Angular Impulse-Momentum"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Rotational Dynamics",
+    "idx": 3,
+    "title": "Angular Momentum"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "A simple SAR example",
+  "members": [
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 10,
+    "chapterTitle": "Lagrange\u2019s Equations and the Doorstep",
+    "idx": 5,
+    "title": "A simple SAR example"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Measurement Craft and the Mole",
+    "idx": 196,
+    "title": "World of interest. It may be a reaction vessel, an engine, an elec- posing force (Energy: A first look 2a). A simple example is the"
+   },
+   {
+    "book": "foundation-economics",
+    "discipline": "economics-commerce",
+    "chapter": 6,
+    "chapterTitle": "The Firm and Market Structures: First Pass",
+    "idx": 5,
+    "title": "14-2a A Simple Example of Profit Maximization"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Design Synthesis and the Doorstep",
+    "idx": 10,
+    "title": "A simple design example: loudspeaker as microphone"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "A final remark",
+  "members": [
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Transients",
+    "idx": 6,
+    "title": "A final remark"
+   },
+   {
+    "book": "strength-of-materials",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Axial Members",
+    "idx": 5,
+    "title": "Final Remarks 1046 Problems"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Cams and Followers",
+    "idx": 5,
+    "title": "Emitter Followers 723 11.3.4 A Final Remark"
+   },
+   {
+    "book": "vlsi-design",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The VLSI Worldview",
+    "idx": 7,
+    "title": "Final Remarks 1057 16.1.2 The CMOS Inverter"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Impulse versus Reaction",
+  "members": [
+   {
+    "book": "fluid-mechanics",
+    "discipline": "engineering",
+    "chapter": 10,
+    "chapterTitle": "The Turbomachinery Principle and the Doorstep",
+    "idx": 0,
+    "title": "Impulse versus Reaction"
+   },
+   {
+    "book": "hydraulics",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Hydraulic Turbines",
+    "idx": 0,
+    "title": "Impulse versus Reaction Cashed"
+   },
+   {
+    "book": "hydraulics",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Hydraulic Turbines",
+    "idx": 1,
+    "title": "Pelton, Francis, Kaplan Worked"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Velocity Analysis",
+    "idx": 3,
+    "title": "Turbo Machinery \u2014 reciprocating and rotary pumps; Pelton wheel, Kaplan and Francis turbines, velocity diagrams, impulse and reaction principles; steam and gas turbines; theory of jet propulsion \u2014 pulse jet and ram jet engines; reciprocating and rotary compressors: theory and applications"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Graphs of Sine and Cosine Functions",
+  "members": [
+   {
+    "book": "mathematical-physics",
+    "discipline": "physics",
+    "chapter": 2,
+    "chapterTitle": "Complex Analysis for Physics",
+    "idx": 4,
+    "title": "Graphs of Sine and Cosine Functions"
+   },
+   {
+    "book": "quantum-mechanics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "The Birth and the Postulates",
+    "idx": 4,
+    "title": "Sine and Cosine Rule for Triangles"
+   },
+   {
+    "book": "statistical-mechanics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "Counting and Entropy",
+    "idx": 17,
+    "title": "A.6 Law of Sines and Law of Cosines"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Velocity Analysis",
+    "idx": 7,
+    "title": "Using the General Solution Method to Find an 9.3 Translating a Sine Expression to a Cosine"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Refrigeration and Air conditioning \u2014 vapour compression refrigeration, refrigerants and working cycles, compressors, condensers, evaporators and expansion devices; other refrigeration systems (vapour absorption, vapour jet, thermo-electric, vortex tube); psychrometric properties and processes,",
+  "members": [
+   {
+    "book": "industrial-engineering",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Production System",
+    "idx": 3,
+    "title": "Refrigeration and Air conditioning \u2014 vapour compression refrigeration, refrigerants and working cycles, compressors, condensers, evaporators and expansion devices; other refrigeration systems (vapour absorption, vapour jet, thermo-electric, vortex tube); psychrometric properties and processes,"
+   },
+   {
+    "book": "manufacturing-processes",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Non-Traditional Machining",
+    "idx": 2,
+    "title": "Beam and Jet Processes"
+   },
+   {
+    "book": "thermodynamics",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Vapour Power and Refrigeration Cycles",
+    "idx": 2,
+    "title": "Vapour-Compression Refrigeration"
+   },
+   {
+    "book": "thermodynamics",
+    "discipline": "engineering",
+    "chapter": 10,
+    "chapterTitle": "Mixtures and Psychrometry",
+    "idx": 3,
+    "title": "Air-Conditioning Priced"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Some examples using the VSEPR theory",
+  "members": [
+   {
+    "book": "computational-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "The Idea and the Toolchain",
+    "idx": 14,
+    "title": "Some examples using the VSEPR theory"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 163,
+    "title": "Some Examples"
+   },
+   {
+    "book": "industrial-engineering",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "The Operations-Research Application Layer",
+    "idx": 8,
+    "title": "Some DAC application examples"
+   },
+   {
+    "book": "quantum-chemistry",
+    "discipline": "chemistry",
+    "chapter": 4,
+    "chapterTitle": "The Hydrogen Atom\u2019s Orbitals",
+    "idx": 9,
+    "title": "Some Examples of Inner Orbital Complexes"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "The Synthesis and Doorsteps",
+  "members": [
+   {
+    "book": "building-materials",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Durability, Selection and the Synthesis",
+    "idx": 2,
+    "title": "The Synthesis and Doorsteps"
+   },
+   {
+    "book": "geotechnical-engineering",
+    "discipline": "engineering",
+    "chapter": 10,
+    "chapterTitle": "Deep Foundations and the Synthesis",
+    "idx": 3,
+    "title": "The Synthesis and Doorsteps"
+   },
+   {
+    "book": "power-systems",
+    "discipline": "engineering",
+    "chapter": 10,
+    "chapterTitle": "Stability, Control and Economic Operation",
+    "idx": 4,
+    "title": "The Synthesis and Doorsteps"
+   },
+   {
+    "book": "transportation-engineering",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Traffic Control and the Synthesis",
+    "idx": 3,
+    "title": "The Synthesis and Doorsteps"
+   }
+  ],
+  "exact": true
+ },
+ {
+  "title": "Angles, Distances and Concurrency",
+  "members": [
+   {
+    "book": "coordinate-geometry",
+    "discipline": "mathematics",
+    "chapter": 2,
+    "chapterTitle": "Straight Lines",
+    "idx": 1,
+    "title": "Angles, Distances and Concurrency"
+   },
+   {
+    "book": "coordinate-geometry",
+    "discipline": "mathematics",
+    "chapter": 12,
+    "chapterTitle": "Lines and Planes in Space",
+    "idx": 2,
+    "title": "Angles and Distances: Lines, Planes, Skew Lines"
+   },
+   {
+    "book": "power-systems",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Protection",
+    "idx": 2,
+    "title": "Distance Protection in the R-X Plane"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Damped Oscillation and the Quality Factor",
+  "members": [
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Resonance and Coupled Circuits",
+    "idx": 5,
+    "title": "Damped Oscillation and the Quality Factor"
+   },
+   {
+    "book": "differential-equations",
+    "discipline": "mathematics",
+    "chapter": 5,
+    "chapterTitle": "The Spring and the Circuit",
+    "idx": 0,
+    "title": "Free and Damped Oscillation"
+   },
+   {
+    "book": "waves-and-oscillations",
+    "discipline": "physics",
+    "chapter": 3,
+    "chapterTitle": "Damped and Forced Oscillations",
+    "idx": 5,
+    "title": "Beyond Small Oscillations: The Damped Driven Pendulum and the Josephson Junction"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Regulation and All-Day Efficiency",
+  "members": [
+   {
+    "book": "electrical-machines",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "The Single-Phase Transformer",
+    "idx": 2,
+    "title": "Regulation and All-Day Efficiency"
+   },
+   {
+    "book": "power-systems",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Line Performance and Compensation",
+    "idx": 0,
+    "title": "Regulation and Efficiency"
+   },
+   {
+    "book": "quantitative-aptitude",
+    "discipline": "mathematics",
+    "chapter": 5,
+    "chapterTitle": "Time and Work",
+    "idx": 2,
+    "title": "Efficiency, Men and Days, Work and Wages"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Computer organization \u2014 basic architecture, CPU, I/O organisation, memory organisation, peripheral devices, trends; hardware/software issues; data representation and programming; operating systems: basics, processes, characteristics, applications; memory management, virtual memory, file systems,",
+  "members": [
+   {
+    "book": "industrial-engineering",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "The Operations-Research Application Layer",
+    "idx": 4,
+    "title": "Computer organization \u2014 basic architecture, CPU, I/O organisation, memory organisation, peripheral devices, trends; hardware/software issues; data representation and programming; operating systems: basics, processes, characteristics, applications; memory management, virtual memory, file systems,"
+   },
+   {
+    "book": "operating-systems",
+    "discipline": "computer-science",
+    "chapter": 8,
+    "chapterTitle": "The Linux Practice Pole",
+    "idx": 1,
+    "title": "Devices as Files"
+   },
+   {
+    "book": "power-electronics",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Device Protection, Gate Drives and the Synthesis",
+    "idx": 4,
+    "title": "Computer Fundamentals \u2014 number systems, Boolean algebra, arithmetic functions; basic architecture, central processing unit, I/O and memory organisation; peripheral devices; data representation and programming; basics of operating system and networking; virtual memory, file systems; elements of"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "The Free-Body Diagram: the Engineer\u2019s First Instrument",
+  "members": [
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Statics Frame",
+    "idx": 0,
+    "title": "The Free-Body Diagram: the Engineer\u2019s First Instrument"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Kinetics: Force and Acceleration",
+    "idx": 0,
+    "title": "The Kinetic Diagram Beside the Free-Body"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Force and Newton\u2019s Laws",
+    "idx": 1,
+    "title": "The Free-Body Ledger"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Contents xiii",
+  "members": [
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Statics Frame",
+    "idx": 64,
+    "title": "Contents xiii"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "What Physics Measures",
+    "idx": 72,
+    "title": "DETAILED CONTENTS xiii"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Design Synthesis and the Doorstep",
+    "idx": 9,
+    "title": "Contents (page xiii)"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Rotation About a Fixed Axis",
+  "members": [
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Kinematics of Particles and Rigid Bodies",
+    "idx": 1,
+    "title": "Rotation About a Fixed Axis"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Rotational Dynamics",
+    "idx": 17,
+    "title": "9\u20133 Dynamics of Rotation about a Fixed Axis 221 16\u20133 Moving Sources and Observers"
+   },
+   {
+    "book": "waves-and-oscillations",
+    "discipline": "physics",
+    "chapter": 8,
+    "chapterTitle": "The Doppler Effect",
+    "idx": 0,
+    "title": "Source and Observer Registers"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Plane Motion of Rigid Bodies",
+  "members": [
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Kinetics: Force and Acceleration",
+    "idx": 1,
+    "title": "Plane Motion of Rigid Bodies"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Work, Energy and Impulse-Momentum",
+    "idx": 3,
+    "title": "Impact of Rigid Bodies"
+   },
+   {
+    "book": "optics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "Ray Optics: Foundations",
+    "idx": 12,
+    "title": "Rotation of Rigid Bodies 272 34 Geometric Optics"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Appendix B Complex Numbers 729 Appendix H Common Standard",
+  "members": [
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Design Discipline",
+    "idx": 8,
+    "title": "Appendix B Complex Numbers 729 Appendix H Common Standard"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "Bearings",
+    "idx": 4,
+    "title": "Appendix B Complex Numbers"
+   },
+   {
+    "book": "strength-of-materials",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "Stress: the Concept",
+    "idx": 5,
+    "title": "Appendix H Common Standard Component Values"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Momentum Conservation and Collisions 245 11.4 Stress, Strain, and Elastic Moduli",
+  "members": [
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Momentum and Collisions",
+    "idx": 13,
+    "title": "Momentum Conservation and Collisions 245 11.4 Stress, Strain, and Elastic Moduli"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 2,
+    "chapterTitle": "Stress and Strain",
+    "idx": 2,
+    "title": "The Stress-Strain Curve"
+   },
+   {
+    "book": "strength-of-materials",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Strain and the Elastic Constants",
+    "idx": 0,
+    "title": "The Stress-Strain Diagram, Read Honestly"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Relative Velocity Craft",
+  "members": [
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 2,
+    "chapterTitle": "Kinematics in Two Dimensions",
+    "idx": 2,
+    "title": "Relative Velocity Craft"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 2,
+    "chapterTitle": "Kinematics in Two Dimensions",
+    "idx": 7,
+    "title": "Acrobats in Equilibrium\b 223 Relative Velocity and Reference Frames\b"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Velocity Analysis",
+    "idx": 1,
+    "title": "The Relative-Velocity Method"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Analyzing a Linear Transformer in the Frequency F(s) Has Distinct Complex Roots",
+  "members": [
+   {
+    "book": "electrical-machines",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "The Single-Phase Transformer",
+    "idx": 7,
+    "title": "Analyzing a Linear Transformer in the Frequency F(s) Has Distinct Complex Roots"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "Bearings",
+    "idx": 5,
+    "title": "B.6 The Roots of a Complex Number"
+   },
+   {
+    "book": "materials-science",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Materials Worldview",
+    "idx": 8,
+    "title": "Using Phasor Diagrams to Analyze a F(s) Has Repeated Complex Roots"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Power Plant Engineering \u2014 Rankine and Brayton cycles with regeneration and reheat; fuels and their properties, flue gas analysis; boilers; steam turbines; condensers, air ejectors, electrostatic precipitators and cooling towers: theory, design, types and applications",
+  "members": [
+   {
+    "book": "structural-engineering",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Steel Structures",
+    "idx": 5,
+    "title": "Power Plant Engineering \u2014 Rankine and Brayton cycles with regeneration and reheat; fuels and their properties, flue gas analysis; boilers; steam turbines; condensers, air ejectors, electrostatic precipitators and cooling towers: theory, design, types and applications"
+   },
+   {
+    "book": "thermodynamics",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Gas Power Cycles",
+    "idx": 2,
+    "title": "Regeneration, Reheat, Intercooling"
+   },
+   {
+    "book": "thermodynamics",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Vapour Power and Refrigeration Cycles",
+    "idx": 1,
+    "title": "Reheat and Regeneration"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "The Doorsteps: Grid, Drive, Renewables",
+  "members": [
+   {
+    "book": "electrical-machines",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Losses, Efficiency and the Doorstep",
+    "idx": 2,
+    "title": "The Doorsteps: Grid, Drive, Renewables"
+   },
+   {
+    "book": "heat-transfer",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Synthesis and the Doorstep",
+    "idx": 2,
+    "title": "The Doorsteps: Solar, Grids, Silicon"
+   },
+   {
+    "book": "power-electronics",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Device Protection, Gate Drives and the Synthesis",
+    "idx": 3,
+    "title": "The Doorsteps: Solar, Grid, Drives"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Composite transimpedance amplifiers",
+  "members": [
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 32,
+    "title": "Composite transimpedance amplifiers"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Feedback Amplifiers",
+    "idx": 9,
+    "title": "Output bandwidth limiting in the transimpedance amplifier"
+   },
+   {
+    "book": "manufacturing-processes",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Sheet Forming and Powder Metallurgy",
+    "idx": 4,
+    "title": "Limiting the bandwidth"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Appendix A \u25a0 Euler Angles in Alternate Conventions and Cayley\u2013Klein Parameters",
+  "members": [
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 3,
+    "chapterTitle": "Newton\u2019s Laws in Full",
+    "idx": 9,
+    "title": "Appendix A \u25a0 Euler Angles in Alternate Conventions and Cayley\u2013Klein Parameters"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 12,
+    "chapterTitle": "The Hamiltonian and Central Forces",
+    "idx": 9,
+    "title": "The Cayley\u2013Klein Parameters and Related Quantities"
+   },
+   {
+    "book": "robotics-and-automation",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Spatial Descriptions and Transformations",
+    "idx": 1,
+    "title": "Euler Angles and Their Singularity"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "The Applications Census",
+  "members": [
+   {
+    "book": "cad-cam",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "Additive Manufacturing",
+    "idx": 3,
+    "title": "The Applications Census"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Two-Port Networks",
+    "idx": 3,
+    "title": "The Applications Census"
+   },
+   {
+    "book": "psychology",
+    "discipline": "humanities",
+    "chapter": 4,
+    "chapterTitle": "Learning",
+    "idx": 3,
+    "title": "The Applications\u2019 Census"
+   }
+  ],
+  "exact": true
+ },
+ {
+  "title": "Sources, Ideal and Dependent",
+  "members": [
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Circuit Idea",
+    "idx": 1,
+    "title": "Sources, Ideal and Dependent"
+   },
+   {
+    "book": "high-voltage-engineering",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The High-Voltage World",
+    "idx": 10,
+    "title": "Testing Interconnections of Ideal Sources"
+   },
+   {
+    "book": "materials-science",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Materials Worldview",
+    "idx": 10,
+    "title": "Source coding 609 29.6 Phasor diagram for an ideal loaded"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "The Passive Sign Convention as Law",
+  "members": [
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Circuit Idea",
+    "idx": 0,
+    "title": "The Passive Sign Convention as Law"
+   },
+   {
+    "book": "optics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "Ray Optics: Foundations",
+    "idx": 0,
+    "title": "Sign Conventions"
+   },
+   {
+    "book": "particle-physics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "The Standard Model Census",
+    "idx": 4,
+    "title": "Four Quadrants and Sign Conventions"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Addition and subtraction of sinusoidal",
+  "members": [
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Sinusoidal Steady State",
+    "idx": 13,
+    "title": "Addition and subtraction of sinusoidal"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Sinusoidal Steady State",
+    "idx": 15,
+    "title": "Addition and subtraction of phasors"
+   },
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 3,
+    "chapterTitle": "The Alkenes and Alkynes",
+    "idx": 36,
+    "title": "Addition and Subtraction"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Other Wideband Amplifier Amplifier (Shunt-Shunt)",
+  "members": [
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 18,
+    "title": "Other Wideband Amplifier Amplifier (Shunt-Shunt)"
+   },
+   {
+    "book": "electrical-machines",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "DC Machines",
+    "idx": 9,
+    "title": "Obtaining Wideband (Shunt-Series)"
+   },
+   {
+    "book": "power-systems",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Line Performance and Compensation",
+    "idx": 2,
+    "title": "Series and Shunt Compensation"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "The Cross Product: Areas and Moments",
+  "members": [
+   {
+    "book": "coordinate-geometry",
+    "discipline": "mathematics",
+    "chapter": 11,
+    "chapterTitle": "The Products of Vectors",
+    "idx": 1,
+    "title": "The Cross Product: Areas and Moments"
+   },
+   {
+    "book": "strength-of-materials",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Deflection of Beams",
+    "idx": 2,
+    "title": "The Moment-Area Theorems"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Minimization: Karnaugh Maps",
+  "members": [
+   {
+    "book": "discrete-mathematics",
+    "discipline": "mathematics",
+    "chapter": 8,
+    "chapterTitle": "Boolean Algebra and Logic Circuits",
+    "idx": 2,
+    "title": "Minimization: Karnaugh Maps"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 10,
+    "chapterTitle": "Lagrange\u2019s Equations and the Doorstep",
+    "idx": 4,
+    "title": "Minimization and Karnaugh maps"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Newton\u2013Raphson: Quadratic, and Fragile",
+  "members": [
+   {
+    "book": "numerical-analysis",
+    "discipline": "mathematics",
+    "chapter": 2,
+    "chapterTitle": "Root Finding",
+    "idx": 2,
+    "title": "Newton\u2013Raphson: Quadratic, and Fragile"
+   },
+   {
+    "book": "power-systems",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "The Bus Model and Load Flow",
+    "idx": 2,
+    "title": "Newton-Raphson and the Jacobian"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Number Base Conversions: the Honest Craft",
+  "members": [
+   {
+    "book": "digital-logic-design",
+    "discipline": "computer-science",
+    "chapter": 1,
+    "chapterTitle": "Binary Systems",
+    "idx": 1,
+    "title": "Number Base Conversions: the Honest Craft"
+   },
+   {
+    "book": "power-systems",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Per-Unit Quantities",
+    "idx": 1,
+    "title": "Base Conversion Worked"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Vector Clocks, Named",
+  "members": [
+   {
+    "book": "distributed-systems",
+    "discipline": "computer-science",
+    "chapter": 3,
+    "chapterTitle": "Time, Ordering and Elections",
+    "idx": 1,
+    "title": "Vector Clocks, Named"
+   },
+   {
+    "book": "electrical-machines",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Three-Phase Transformers",
+    "idx": 1,
+    "title": "Vector Groups by the Clock"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "The Digital Twin Named Honestly",
+  "members": [
+   {
+    "book": "cad-cam",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Industry 4.0 and the Synthesis",
+    "idx": 1,
+    "title": "The Digital Twin Named Honestly"
+   },
+   {
+    "book": "internet-of-things",
+    "discipline": "computer-science",
+    "chapter": 4,
+    "chapterTitle": "The Edge and Cloud Partnership",
+    "idx": 1,
+    "title": "The Digital Twin, Named Honestly"
+   }
+  ],
+  "exact": true
+ },
+ {
+  "title": "Information on this title: www.cambridge.org/9780521809269",
+  "members": [
+   {
+    "book": "analog-and-digital-communication",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Communication Worldview",
+    "idx": 5,
+    "title": "Information on this title: www.cambridge.org/9780521809269"
+   },
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Statics Frame",
+    "idx": 20,
+    "title": "Www.cambridge.org"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Some preliminaries",
+  "members": [
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Statics Frame",
+    "idx": 45,
+    "title": "Some preliminaries"
+   },
+   {
+    "book": "signals-and-systems",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "The Fourier Transform",
+    "idx": 4,
+    "title": "Some Preliminaries 538 17.1 The Derivation of the Fourier Transform"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Xiv Contents",
+  "members": [
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Statics Frame",
+    "idx": 65,
+    "title": "Xiv Contents"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "What Physics Measures",
+    "idx": 75,
+    "title": "Xiv DETAILED CONTENTS"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Equilibrium of the Rigid Body",
+  "members": [
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Moments and Rigid-Body Equilibrium",
+    "idx": 1,
+    "title": "Equilibrium of the Rigid Body"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 7,
+    "chapterTitle": "Rotational Dynamics",
+    "idx": 4,
+    "title": "Rigid-Body Equilibrium and the Torque Balance"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Belt-Pulley Systems and Brake/Clutch Friction",
+  "members": [
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Friction and Its Applications",
+    "idx": 2,
+    "title": "Belt-Pulley Systems and Brake/Clutch Friction"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 3,
+    "chapterTitle": "Newton\u2019s Laws in Full",
+    "idx": 13,
+    "title": "Pulleys Connected with a Belt"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Parallel buses and data links",
+  "members": [
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Centroids, Centre of Gravity and Moments of Inertia",
+    "idx": 6,
+    "title": "Parallel buses and data links"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "Mechanisms and Inversion",
+    "idx": 8,
+    "title": "Other buses and data links: overview"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Generalised Coordinates and Constraints",
+  "members": [
+   {
+    "book": "engineering-mechanics",
+    "discipline": "engineering",
+    "chapter": 10,
+    "chapterTitle": "Lagrange\u2019s Equations and the Doorstep",
+    "idx": 0,
+    "title": "Generalised Coordinates and Constraints"
+   },
+   {
+    "book": "mechanics",
+    "discipline": "physics",
+    "chapter": 11,
+    "chapterTitle": "The Lagrangian Doorstep",
+    "idx": 0,
+    "title": "Generalised Coordinates"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Stress Concentration in Design",
+  "members": [
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Static Loading and the Failure Theories",
+    "idx": 2,
+    "title": "Stress Concentration in Design"
+   },
+   {
+    "book": "strength-of-materials",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Axial Members",
+    "idx": 2,
+    "title": "Saint-Venant, Stress Concentrations, Multiaxial Loading"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Fully integrated high-speed fiber-transceiver modules",
+  "members": [
+   {
+    "book": "high-voltage-engineering",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The High-Voltage World",
+    "idx": 7,
+    "title": "Fully integrated high-speed fiber-transceiver modules"
+   },
+   {
+    "book": "theory-of-machines",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Toothed Gearing",
+    "idx": 3,
+    "title": "ST/SC glass-fiber modules"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "The Standards Census",
+  "members": [
+   {
+    "book": "environmental-chemistry",
+    "discipline": "chemistry",
+    "chapter": 7,
+    "chapterTitle": "The Monitoring and Doorway Crafts",
+    "idx": 1,
+    "title": "The Standards Census"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Design Synthesis and the Doorstep",
+    "idx": 2,
+    "title": "The Standards Census"
+   }
+  ],
+  "exact": true
+ },
+ {
+  "title": "Typical Elements",
+  "members": [
+   {
+    "book": "inorganic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Periodicity at Depth",
+    "idx": 11,
+    "title": "Typical Elements"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Design Synthesis and the Doorstep",
+    "idx": 4,
+    "title": "Databases and languages \u2014 data bases: different types, characteristics and design; transactions and concurrency control; elements of programming languages, typical examples"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "DETAILED CONTENTS xvii",
+  "members": [
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "What Physics Measures",
+    "idx": 78,
+    "title": "DETAILED CONTENTS xvii"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Design Synthesis and the Doorstep",
+    "idx": 13,
+    "title": "Contents (page xvii)"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Xviii CONTENTS",
+  "members": [
+   {
+    "book": "entrepreneurship",
+    "discipline": "economics-commerce",
+    "chapter": 7,
+    "chapterTitle": "Marketing for the Startup",
+    "idx": 4,
+    "title": "Xviii CONTENTS"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Design Synthesis and the Doorstep",
+    "idx": 14,
+    "title": "Contents (page xviii)"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Designing a High-Q Bandpass Filter 602 18.1 Finding the z Parameters of a Two-Port",
+  "members": [
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Two-Port Networks",
+    "idx": 9,
+    "title": "Designing a High-Q Bandpass Filter 602 18.1 Finding the z Parameters of a Two-Port"
+   },
+   {
+    "book": "thermodynamics",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Gas Power Cycles",
+    "idx": 5,
+    "title": "Finding the a Parameters from"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "The Heisler Charts Read Fluently",
+  "members": [
+   {
+    "book": "heat-transfer",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Unsteady Conduction",
+    "idx": 1,
+    "title": "The Heisler Charts Read Fluently"
+   },
+   {
+    "book": "thermodynamics",
+    "discipline": "engineering",
+    "chapter": 10,
+    "chapterTitle": "Mixtures and Psychrometry",
+    "idx": 1,
+    "title": "The Psychrometric Chart, Read Fluently"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "The Process Census",
+  "members": [
+   {
+    "book": "operations-management",
+    "discipline": "economics-commerce",
+    "chapter": 2,
+    "chapterTitle": "Process and Capacity",
+    "idx": 0,
+    "title": "The Process Census"
+   },
+   {
+    "book": "thermodynamics",
+    "discipline": "engineering",
+    "chapter": 10,
+    "chapterTitle": "Mixtures and Psychrometry",
+    "idx": 2,
+    "title": "The Process Census"
+   }
+  ],
+  "exact": true
+ },
+ {
+  "title": "Nozzles and Choking",
+  "members": [
+   {
+    "book": "fluid-mechanics",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "Compressible Flow Basics",
+    "idx": 2,
+    "title": "Nozzles and Choking"
+   },
+   {
+    "book": "thermodynamics",
+    "discipline": "engineering",
+    "chapter": 11,
+    "chapterTitle": "Property Relations, Compressible Flow and the Doorstep",
+    "idx": 1,
+    "title": "Nozzles, Diffusers, Choking"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Viscosity: Newton\u2019s Law and Its Census",
+  "members": [
+   {
+    "book": "fluid-mechanics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Fluid Idea",
+    "idx": 1,
+    "title": "Viscosity: Newton\u2019s Law and Its Census"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Viscosity and Streamline Flow",
+    "idx": 0,
+    "title": "Newton\u2019s Viscosity Law"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Introduction 175 5.1.5 Operation as vDS Is Increased",
+  "members": [
+   {
+    "book": "fluid-mechanics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Fluid Idea",
+    "idx": 4,
+    "title": "Introduction 175 5.1.5 Operation as vDS Is Increased"
+   },
+   {
+    "book": "hydraulics",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Hydraulics Viewpoint",
+    "idx": 4,
+    "title": "The Ideal Diode 175 5.1.6 Operation for vDS > Channel Pinch"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Specific Speed: the Compass",
+  "members": [
+   {
+    "book": "fluid-mechanics",
+    "discipline": "engineering",
+    "chapter": 10,
+    "chapterTitle": "The Turbomachinery Principle and the Doorstep",
+    "idx": 2,
+    "title": "Specific Speed: the Compass"
+   },
+   {
+    "book": "hydraulics",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Hydraulic Turbines",
+    "idx": 2,
+    "title": "The Specific-Speed Compass"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Impedance Angle Restrictions 396 13.12 Using the Transfer Function to Find the",
+  "members": [
+   {
+    "book": "heat-transfer",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "Boiling and Condensation",
+    "idx": 3,
+    "title": "Impedance Angle Restrictions 396 13.12 Using the Transfer Function to Find the"
+   },
+   {
+    "book": "power-systems",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Per-Unit Quantities",
+    "idx": 3,
+    "title": "Load Impedance Restriction 396 13.11 Using the Convolution Integral to Find an"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Diffusion and the Total Current",
+  "members": [
+   {
+    "book": "electronic-devices-and-circuits",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Carrier Transport",
+    "idx": 1,
+    "title": "Diffusion and the Total Current"
+   },
+   {
+    "book": "heat-transfer",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Synthesis and the Doorstep",
+    "idx": 3,
+    "title": "Diffusion Current 147 Superdiode"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Find an Unknown Current",
+  "members": [
+   {
+    "book": "heat-transfer",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Synthesis and the Doorstep",
+    "idx": 8,
+    "title": "Find an Unknown Current"
+   },
+   {
+    "book": "high-voltage-engineering",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The High-Voltage World",
+    "idx": 12,
+    "title": "Find an Unknown Voltage"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "I: Phototransistor output optocouplers",
+  "members": [
+   {
+    "book": "industrial-engineering",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Production System",
+    "idx": 11,
+    "title": "I: Phototransistor output optocouplers"
+   },
+   {
+    "book": "manufacturing-processes",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "Materials for Manufacturing",
+    "idx": 7,
+    "title": "II: Logic-output optocouplers"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Class B Output Stage 897 13.3 BJT Op-Amp Techniques",
+  "members": [
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 21,
+    "title": "Class B Output Stage 897 13.3 BJT Op-Amp Techniques"
+   },
+   {
+    "book": "industrial-engineering",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Production System",
+    "idx": 8,
+    "title": "Class AB Output Stage 902 of the Input Stage"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Integrating suntan monitor",
+  "members": [
+   {
+    "book": "electrical-measurements",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Digital Instruments",
+    "idx": 4,
+    "title": "Integrating suntan monitor"
+   },
+   {
+    "book": "industrial-engineering",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Forecasting and Aggregate Planning",
+    "idx": 3,
+    "title": "A simple delta-sigma for our suntan monitor"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "The Waste Census",
+  "members": [
+   {
+    "book": "industrial-engineering",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Scheduling, MRP and Lean",
+    "idx": 3,
+    "title": "The Waste Census"
+   },
+   {
+    "book": "operations-management",
+    "discipline": "economics-commerce",
+    "chapter": 7,
+    "chapterTitle": "Lean and the Supply Chain",
+    "idx": 0,
+    "title": "The Waste Census"
+   }
+  ],
+  "exact": true
+ },
+ {
+  "title": "317-style regulator: circuit examples",
+  "members": [
+   {
+    "book": "electronic-devices-and-circuits",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Diode Circuits",
+    "idx": 5,
+    "title": "317-style regulator: circuit examples"
+   },
+   {
+    "book": "industrial-engineering",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "The Operations-Research Application Layer",
+    "idx": 7,
+    "title": "317-style regulator: application hints"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Six Sigma Named Honestly",
+  "members": [
+   {
+    "book": "industrial-engineering",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Quality Control",
+    "idx": 3,
+    "title": "Six Sigma Named Honestly"
+   },
+   {
+    "book": "operations-management",
+    "discipline": "economics-commerce",
+    "chapter": 6,
+    "chapterTitle": "Quality Management",
+    "idx": 3,
+    "title": "The Six-Sigma Register"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "ADCs I: Parallel (\"flash\") encoder",
+  "members": [
+   {
+    "book": "control-systems",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Block Diagrams and Signal Flow Graphs",
+    "idx": 4,
+    "title": "ADCs I: Parallel (\"flash\") encoder"
+   },
+   {
+    "book": "robotics-and-automation",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Motion Control, Sensors and End Effectors",
+    "idx": 3,
+    "title": "Modified flash encoders"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Density Arithmetic",
+  "members": [
+   {
+    "book": "building-materials",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Aggregates, Water and Admixtures",
+    "idx": 1,
+    "title": "Density Arithmetic"
+   },
+   {
+    "book": "materials-science",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Atomic Structure and Interatomic Bonding",
+    "idx": 2,
+    "title": "Density Arithmetic"
+   }
+  ],
+  "exact": true
+ },
+ {
+  "title": "Arrhenius and Activation Energy",
+  "members": [
+   {
+    "book": "materials-science",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Diffusion",
+    "idx": 1,
+    "title": "Arrhenius and Activation Energy"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 6,
+    "chapterTitle": "Chemical Kinetics (the fold)",
+    "idx": 2,
+    "title": "Arrhenius\u2019s Activation"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "The Hardness Census",
+  "members": [
+   {
+    "book": "industrial-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Water and the Industrial Utilities",
+    "idx": 0,
+    "title": "The Hardness Census"
+   },
+   {
+    "book": "materials-science",
+    "discipline": "engineering",
+    "chapter": 6,
+    "chapterTitle": "Mechanical Properties and Testing",
+    "idx": 1,
+    "title": "The Hardness Census"
+   }
+  ],
+  "exact": true
+ },
+ {
+  "title": "A Survey of the Representative Elements 776 21.8 Metallurgy and Iron and Steel Production",
+  "members": [
+   {
+    "book": "inorganic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Periodicity at Depth",
+    "idx": 22,
+    "title": "A Survey of the Representative Elements 776 21.8 Metallurgy and Iron and Steel Production"
+   },
+   {
+    "book": "materials-science",
+    "discipline": "engineering",
+    "chapter": 9,
+    "chapterTitle": "The Materials Families",
+    "idx": 0,
+    "title": "Steels and Cast Irons"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Corrosion Forms and Prevention",
+  "members": [
+   {
+    "book": "materials-science",
+    "discipline": "engineering",
+    "chapter": 10,
+    "chapterTitle": "Corrosion, Degradation and Selection",
+    "idx": 1,
+    "title": "Corrosion Forms and Prevention"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 5,
+    "chapterTitle": "Electrochemistry (the fold)",
+    "idx": 15,
+    "title": "Prevention of Corrosion"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "The Mesh-Current Engine",
+  "members": [
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Kirchhoff\u2019s Laws and the Systematic Methods",
+    "idx": 2,
+    "title": "The Mesh-Current Engine"
+   },
+   {
+    "book": "embedded-systems",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Real-Time Systems",
+    "idx": 4,
+    "title": "Using the Mesh-Current Method in the F(s) Has Distinct Real Roots"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Permeability of free space or magnetic 9.11 Alternating system frequencies in practice",
+  "members": [
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Kirchhoff\u2019s Laws and the Systematic Methods",
+    "idx": 11,
+    "title": "Permeability of free space or magnetic 9.11 Alternating system frequencies in practice"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 10,
+    "chapterTitle": "Electricity at First Pass",
+    "idx": 17,
+    "title": "Magnetic Permeability (\u03bc)"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Designing a Fourth-Order Low-Pass Bandpass Filter",
+  "members": [
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Active Filters",
+    "idx": 8,
+    "title": "Designing a Fourth-Order Low-Pass Bandpass Filter"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Sinusoidal Steady State",
+    "idx": 11,
+    "title": "Designing a Fourth-Order Low-Pass Active Sinusoidal Steady-State Response"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "The Ideal Transformer at Circuit Level",
+  "members": [
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Resonance and Coupled Circuits",
+    "idx": 3,
+    "title": "The Ideal Transformer at Circuit Level"
+   },
+   {
+    "book": "electrical-machines",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "The Single-Phase Transformer",
+    "idx": 6,
+    "title": "Summary 688 C.2 The Need for Ideal Transformers"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Basic Electrical Engineering \u2014 DC circuits: Ohm's and Kirchhoff's laws, mesh and nodal analysis, circuit theorems; electromagnetism, Faraday's and Lenz's laws, induced EMF and its uses; single-phase AC circuits; transformers, efficiency; basics of DC machines, induction machines and synchronous",
+  "members": [
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Resonance and Coupled Circuits",
+    "idx": 8,
+    "title": "Basic Electrical Engineering \u2014 DC circuits: Ohm's and Kirchhoff's laws, mesh and nodal analysis, circuit theorems; electromagnetism, Faraday's and Lenz's laws, induced EMF and its uses; single-phase AC circuits; transformers, efficiency; basics of DC machines, induction machines and synchronous"
+   },
+   {
+    "book": "electricity-and-magnetism",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "DC Circuit Craft",
+    "idx": 5,
+    "title": "Nodal Analysis of Capacitive Circuits"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Experimental tests to obtain motor 36 Direct-current Machines",
+  "members": [
+   {
+    "book": "electrical-machines",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "DC Machines",
+    "idx": 13,
+    "title": "Experimental tests to obtain motor 36 Direct-current Machines"
+   },
+   {
+    "book": "electricity-and-magnetism",
+    "discipline": "physics",
+    "chapter": 5,
+    "chapterTitle": "Current and Resistance",
+    "idx": 12,
+    "title": "Summary 802 27.8 The Direct-Current Motor"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "The Component Census",
+  "members": [
+   {
+    "book": "control-systems",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Feedback Idea",
+    "idx": 2,
+    "title": "The Component Census"
+   },
+   {
+    "book": "statistics-for-economics",
+    "discipline": "economics-commerce",
+    "chapter": 4,
+    "chapterTitle": "The Time-Series Craft",
+    "idx": 0,
+    "title": "The Component Census"
+   }
+  ],
+  "exact": true
+ },
+ {
+  "title": "Basic Principles 366 8 Building Blocks of Integrated",
+  "members": [
+   {
+    "book": "control-systems",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Block Diagrams and Signal Flow Graphs",
+    "idx": 3,
+    "title": "Basic Principles 366 8 Building Blocks of Integrated"
+   },
+   {
+    "book": "waves-and-oscillations",
+    "discipline": "physics",
+    "chapter": 9,
+    "chapterTitle": "The Fourier Doorway",
+    "idx": 0,
+    "title": "Harmonics as Building Blocks"
+   }
+  ],
+  "exact": false
+ },
+ {
+  "title": "Microwave and satellite communication \u2014 terrestrial/space type LOS systems, block schematics, link calculations, system design",
+  "members": [
+   {
+    "book": "control-systems",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "Transient and Steady-State Analysis",
+    "idx": 4,
+    "title": "Microwave and satellite communication \u2014 terrestrial/space type LOS systems, block schematics, link calculations, system design"
+   },
+   {
+    "book": "embedded-systems",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Embedded Hardware Design",
+    "idx": 4,
+    "title": "Communication satellites \u2014 orbits, characteristics, systems, uses; fibre-optic communication systems: block schematics, link calculations, system design"
+   }
+  ],
+  "exact": false
+ }
+]

@@ -88,7 +88,6 @@ const chapters: Chapter[] = [
       'The Heterosis\u2019s Hypotheses and Economics',
       'The Wide-Cross Craft',
       'The Objective Dial and the Green Revolution\u2019s Honesty',
-      'With a Variety of Functional Groups'
     ],
   },
   {
@@ -104,7 +103,6 @@ const chapters: Chapter[] = [
       'The Totipotency Engine and the Clonal Arithmetic',
       'The Doubled-Haploid Instant-Inbred',
       'The Rescue-and-Fusion Crafts',
-      'Gene Silencing: miRNA, siRNA and Transgene Silencing',
     ],
   },
   {

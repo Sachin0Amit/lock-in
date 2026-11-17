@@ -29,8 +29,6 @@ const chapters: Chapter[] = [
       'The New Registers',
       'The Structure Map',
       'The Financial Markets Register',
-    
-      'Introductory Macroeconomics: Balance of Payments'
     ],
   },
   {
@@ -121,7 +119,6 @@ const chapters: Chapter[] = [
       'The Resolution Honesty',
       'The Consumer Register',
       'The Professional Doorway',
-      '10-2a Command-and-Control Policies: Regulation 195 Be Taxed?'
     ],
   },
   {

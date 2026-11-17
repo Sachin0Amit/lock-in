@@ -580,3 +580,24 @@ server.log
 !/scripts/build_exam_ledger.ts
 !/scripts/apply_exam_gap_fixes.ts
 !/scripts/emit_shelf_gates.py
+# ==== the 2026-11-17 swarm-reorganisation pass (owner directive: no
+# duplicacy, every topic in its correct book, arranged order) — the
+# re-runnable engine: index dump, detector, plan builder, merger, applier,
+# repair, gate re-pins and the ledger/fold reconciliation chain, committed
+# durable with the reorg data under ledger_data_working/reorg/ ====
+!/scripts/dump_global_topics.ts
+!/scripts/detect_topic_issues.py
+!/scripts/build_reorg_fix_plan.py
+!/scripts/merge_swarm_verdicts.py
+!/scripts/apply_reorg.py
+!/scripts/repair_order_books.py
+!/scripts/re_pin_shelf_gates.py
+!/scripts/write_humanities_verdict.py
+!/scripts/reconcile_fold_ledger.py
+!/scripts/finalize_fold_ledger.py
+!/scripts/close_fold_gaps.py
+!/scripts/reconcile_exam_ledgers.py
+!/scripts/append_exam_witnesses.py
+!/scripts/finalize_exam_ledgers.py
+!/scripts/finalize2_exam_ledgers.py
+!/scripts/ship_swarm_reorg.py

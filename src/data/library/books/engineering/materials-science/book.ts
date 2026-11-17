@@ -36,15 +36,7 @@ const chapters: Chapter[] = [
       'The One Triangle',
       'The Family Census by Bonding',
       'Selection Vocabulary Promised',
-    
-      'Materials Science — electrical engineering materials; crystal structure and defects; ceramic materials: structures, composites, processing and uses; insulating laminates for electronics; magnetic materials: basics, classification, ferrites, ferro/para-magnetic materials and components; nano',
-      'Physical Structure 150 Bootstrapping',
-      'Summary 169 5.1.1 Device Structure',
-      'Structure of Actual Transistors',
-      'Summary 1057 16.1.3 General Structure of CMOS',
-      'Using Phasor Diagrams to Analyze a F(s) Has Repeated Complex Roots',
-      'Using Phasor Diagrams to Analyze Capacitive Improper Rational Function',
-      'Source coding 609 29.6 Phasor diagram for an ideal loaded'
+      'Superconductivity',
     ],
   },
   {
@@ -59,7 +51,6 @@ const chapters: Chapter[] = [
       'The Four Bond Families Priced',
       'Bond Curves: the Modulus Earned',
       'Density Arithmetic',
-      'Short contents'
     ],
   },
   {
@@ -74,9 +65,7 @@ const chapters: Chapter[] = [
       'The Structure Census and Packing',
       'Anisotropy and Allotropy',
       'Bragg\u2019s Law at Engineering Depth',
-    
-      'Electrical Materials — electrical engineering materials, crystal structures and defects, ceramic materials, insulating materials; magnetic materials: basics, properties and applications; ferrites, ferro-magnetic materials and components; basics of solid state physics, conductors;',
-      'Some Mathematical Properties 673 Appendix C More on Magnetically'
+      'Electrical Materials \u2014 Electrical Engineering Materials, Crystal',
     ],
   },
   {
@@ -149,12 +138,6 @@ const chapters: Chapter[] = [
       'The Fe-C Map Read Fluently',
       'TTT Curves and Heat Treatment',
       'Hardenability: the Jominy Craft',
-      'Unity-gain phase splitter',
-      'Practical Perspective: Surge Suppressors 520 16.9 Amplitude and Phase Spectra',
-      'Plotting the Amplitude and Phase Spectra for a',
-      'Binary addition 519 24.6 Deconvolution',
-      'Signed binary multiplication',
-      'Signed binary division'
     ],
   },
   {
@@ -170,7 +153,6 @@ const chapters: Chapter[] = [
       'The Non-Ferrous Niches',
       'Polymers and Ceramics Honestly',
       'Composites and Rule of Mixtures',
-      'Some representative JFETs: a brief tour'
     ],
   },
   {
@@ -183,7 +165,6 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'The Galvanic Couple Priced',
-      'Corrosion Forms and Prevention',
       'Degradation Beyond Metals',
       'The Selection Doorstep: Ashby Named',
     ],

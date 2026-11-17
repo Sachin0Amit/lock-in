@@ -31,7 +31,7 @@
  *     book is a HARD GAP (must be zero).
  *
  *  III. CENSUS INTEGRITY — the shelf census pins match verify-cs-shelf-
- *     planning.ts (364 chapters / 1,218 planned lessons — grown by this
+ *     planning.ts (364 chapters / 1,222 planned lessons — the 2026-11-17 swarm reorg census
  *     pass from 363/1,146); the ledger's own census pins (251 topics
  *     across the seven exams: 52/94/31/19/22/28/5); every routed book id
  *     exists on the shelf; the durable ledger doc exists and cites every
@@ -1273,7 +1273,7 @@ console.log('== III. census integrity ==')
   const totPl = cs.reduce((n, b) => n + b.chapters.reduce((m, c) => m + (c.plannedLessons?.length ?? 0) + c.lessons.length, 0), 0)
   ok(cs.length === 44, `44 CS books (got ${cs.length})`)
   ok(totCh === 364, `CS shelf census 364 chapters (got ${totCh})`)
-  ok(totPl === 1218, `CS shelf census 1,218 planned lessons (got ${totPl})`)
+  ok(totPl === 1222, `CS shelf census 1,222 planned lessons (got ${totPl})`) // 1218->1222 2026-11-17 swarm reorg: the dedup pass removed the padding; the CS shelf gained 4 honest moves in
   const ledger = readFileSync('docs/research/CS_EXAM_TOPIC_LEDGER.md', 'utf8')
   ok(ledger.includes('251'), 'the durable ledger records the 251-topic census')
   for (const id of ['gate2026.iitg.ac.in', 'ugcnetonline.in', 'ioinformatics.org', 'cuet.nta.nic.in', 'cambridgeinternational.org', 'apcentral.collegeboard.org', 'ibo.org']) {

@@ -58,8 +58,6 @@ const chapters: Chapter[] = [
       'The Variation Receipt Held',
       'The Clear-Clever Division Named',
       'The Aloud Receipt Named',
-    
-      'Prelims typical areas (mirror): English — reading comprehension passages with short questions'
     ],
   },
   {
@@ -75,8 +73,6 @@ const chapters: Chapter[] = [
       'The Minimalism Named',
       'The Enter-Leave Receipt Held',
       'The Detail\u2019s-Honesty Named',
-    
-      'Unit II: Various forms of visual arts and their inter-relationship with other modes of creative expression (e.g. performing art, cinema and literature)'
     ],
   },
   {

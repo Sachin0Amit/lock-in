@@ -45,7 +45,6 @@ const chapters: Chapter[] = [
       'The Homology Receipt Held',
       'The Bone Turnover Craft',
       'Joints and the Musculoskeletal Disorders Register',
-      'The Musculoskeletal Disorders: Myasthenia Gravis to Gout',
     ],
   },
   {

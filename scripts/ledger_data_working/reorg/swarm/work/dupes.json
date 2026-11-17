@@ -1,0 +1,590 @@
+[
+ {
+  "title": "Practical Perspective: Pushbutton Telephone Practical Perspective: Filtering Digital",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only mega-cluster of Irwin/Hughes boilerplate and page-run TOC lines; every member in my books is removed individually (misplaced/extra/auto) and the other books' members are cross-book junk for their own agents. No genuine topic exists to consolidate."
+ },
+ {
+  "title": "Polyprotic Acid Titrations 632 For Review 699 | Key Terms 699 | Questions and Exercises",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (review-exercise page runs); my member is back-matter junk removed individually."
+ },
+ {
+  "title": "Shot noise in current sources and emitter followers",
+  "action": "consolidate",
+  "winner": "analog-electronics",
+  "reason": "Emitter-follower/amplifier TOC-run copies across my books are junk removed individually; the amplifiers treatment is owned by analog-electronics (ch2 Differential and Multistage Amplifiers)."
+ },
+ {
+  "title": "Laboratory skills expected to be known by all participants (heating and reflux, mass and volume measurement, preparation and dilution of solutions, titrations, pH measurement, filtration, drying of precipitates, instrument operation, graphing and analysis of experimental data)",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects the authored thermodynamics lesson 'Specific Heats and Enthalpy': the engineering-thermo treatment of specific heats is genuinely different from chemistry/physics-side specific-heat and experimental-skills lessons; all other members are junk removed individually."
+ },
+ {
+  "title": "Adding a Resistive Load to a Voltage 4.19 Finding the Th\u00e9venin Equivalent of a Circuit",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects three authored titles \u2014 'Conversions and Equivalent Circuits' (circuit-theory ch9, two-port parameter conversions), 'The Equivalent Circuit Earned' (electrical-machines ch2, transformer) and 'The Equivalent Circuit Identified' (electrical-machines ch5, induction machine): genuinely different equivalent-circuit treatments; remaining members are concatenated junk removed individually."
+ },
+ {
+  "title": "Guided Practice 1208 39.4 The Laser",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects the authored statics lesson 'Moments of Inertia and the Parallel-Axis Theorem' (area moments for centroids/inertia); the physics 'Guided Practice' page-run members are junk removed by their own agents."
+ },
+ {
+  "title": "A Closer Look: Structure of the",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster ('A Closer Look' section runs); my robotics member is a concatenated junk line removed individually."
+ },
+ {
+  "title": "Current Mirrors as Bias",
+  "action": "consolidate",
+  "winner": "analog-electronics",
+  "reason": "Current-mirror copies in my books are junk strays; current mirrors are owned by analog-electronics ch2."
+ },
+ {
+  "title": "Deviation from Ideal Gas Behaviour",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'The Ideal Gas and Its Honest Limits' (engineering thermodynamics ch3); deviation-from-ideality is separately owned by the chemistry/physics-side books \u2014 genuinely different syllabus treatments."
+ },
+ {
+  "title": "Quantitative Techniques - elementary mathematics topics: Algebra; Averages; Geometry; LCM and HCF; Mensuration; Number Systems; Percentage; Permutation and Combination; Probability; Profit and Loss; Quadratic and Linear Equations; Ratio and Proportion; Simple and Compound Interest; Time and Speed;",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Spurious match: 'Simple and Compound Trains' (theory-of-machines ch6 gearing) has nothing to do with quantitative-aptitude/chemistry syllabus lines. Keep the authored gear-train lesson; junk members removed individually."
+ },
+ {
+  "title": "Analysis of growth and decay 113 8.3 Inductance in terms of flux-linkages",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (growth/decay page runs); RL-RC transient content is covered by circuit-theory ch7 Transients. All my members removed individually."
+ },
+ {
+  "title": "Action-angle Variables in Systems of One Degree of Freedom",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Spurious phrase match on 'degrees of freedom': robotics anatomy, Gruebler mechanism DoF and analytical-mechanics action-angle variables are three genuinely different treatments. All authored members stand."
+ },
+ {
+  "title": "Magnetic Induction Due to a Large and Thick",
+  "action": "consolidate",
+  "winner": "electricity-and-magnetism",
+  "reason": "Magnetic-field calculation lines are E&M content; the power-systems member is a stray page-run removed individually."
+ },
+ {
+  "title": "Cathode-ray tube 947 Appendix: Symbols, Abbreviations, De\ufb01nitions",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (CRO page-run strays); the oscilloscope treatment lives in electrical-measurements ch2 Indicating Instruments, but no member here is a real lesson. All my members removed individually."
+ },
+ {
+  "title": "Graphical Representation for Motion",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (graphical-representation fragments); my members are cut-off fragments removed individually."
+ },
+ {
+  "title": "Appendix E Some Useful Mathematical Approximation",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (appendix page runs); my member removed individually."
+ },
+ {
+  "title": "Conservative Forces and Energy Bookkeeping",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'Conservative Forces and Energy Bookkeeping' (engineering-mechanics ch9): the engineering work-energy treatment is genuinely different from the physics conservative-forces treatment."
+ },
+ {
+  "title": "Flip-Flops and Their Triggering",
+  "action": "consolidate",
+  "winner": "digital-logic-design",
+  "reason": "Flip-flop triggering is owned by digital-logic-design ch6 Sequential Logic; the power-systems member ('Single-pulse generation with flip-flops and counters') is junk removed individually."
+ },
+ {
+  "title": "Simultaneous Appendix F An Abbreviated",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (appendix-table runs); all my members removed individually."
+ },
+ {
+  "title": "Conservation of Angular Momentum 319 Questions/Exercises/Problems",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects two authored kinetics lessons ('Angular Momentum and the Gyroscopic Glimpse', 'Linear and Angular Impulse-Momentum') \u2014 engineering kinetics treatments distinct from the physics angular-momentum lesson."
+ },
+ {
+  "title": "A simple SAR example",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (AoE example fragments); my members removed individually."
+ },
+ {
+  "title": "A final remark",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster ('final remark' fragments); my members removed individually."
+ },
+ {
+  "title": "Impulse versus Reaction",
+  "action": "consolidate",
+  "winner": "fluid-mechanics",
+  "reason": "The impulse-vs-reaction turbine principle is owned by fluid-mechanics ch10 The Turbomachinery Principle and the Doorstep; the theory-of-machines 'Turbo Machinery' member is an ESE syllabus dump removed individually. The hydraulics copy belongs to engineering-b's scope but the specialist winner is fluid-mechanics."
+ },
+ {
+  "title": "Graphs of Sine and Cosine Functions",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster; the theory-of-machines member is a concatenated circuits junk line removed individually."
+ },
+ {
+  "title": "Refrigeration and Air conditioning \u2014 vapour compression refrigeration, refrigerants and working cycles, compressors, condensers, evaporators and expansion devices; other refrigeration systems (vapour absorption, vapour jet, thermo-electric, vortex tube); psychrometric properties and processes,",
+  "action": "consolidate",
+  "winner": "thermodynamics",
+  "reason": "Refrigeration and air-conditioning are the engineering-thermodynamics applied-cycles treatment (ch9 Vapour-Compression Refrigeration, ch10 Air-Conditioning Priced); the industrial-engineering copy is an ESE syllabus dump removed individually. manufacturing-processes 'Beam and Jet Processes' is an unrelated non-traditional-machining lesson and stands."
+ },
+ {
+  "title": "Some examples using the VSEPR theory",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster; the industrial-engineering member ('Some DAC application examples') is AoE junk removed individually."
+ },
+ {
+  "title": "The Synthesis and Doorsteps",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Book-specific synthesis lessons ('The Synthesis and Doorsteps' in power-systems, geotechnical, building-materials, transportation) are each book's own capstone \u2014 genuinely different content, keep-both."
+ },
+ {
+  "title": "Angles, Distances and Concurrency",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Spurious match on 'Distances': 'Distance Protection in the R-X Plane' is power-systems protection content, unrelated to coordinate geometry."
+ },
+ {
+  "title": "Damped Oscillation and the Quality Factor",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'Damped Oscillation and the Quality Factor' (circuit-theory ch5): the circuit-resonance Q treatment is genuinely different from the physics damped-oscillation and differential-equations treatments."
+ },
+ {
+  "title": "Regulation and All-Day Efficiency",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects both authored titles: 'Regulation and All-Day Efficiency' (transformer, electrical-machines ch2) and 'Regulation and Efficiency' (transmission line, power-systems ch4) \u2014 genuinely different regulation treatments."
+ },
+ {
+  "title": "Computer organization \u2014 basic architecture, CPU, I/O organisation, memory organisation, peripheral devices, trends; hardware/software issues; data representation and programming; operating systems: basics, processes, characteristics, applications; memory management, virtual memory, file systems,",
+  "action": "consolidate",
+  "winner": "computer-organization-architecture",
+  "reason": "The computer-organization syllabus dump is covered by the specialist book; the industrial-engineering copy is removed individually."
+ },
+ {
+  "title": "The Free-Body Diagram: the Engineer\u2019s First Instrument",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects two distinct intra-book lessons ('The Free-Body Diagram...' and 'The Kinetic Diagram Beside the Free-Body'); the physics 'Free-Body Ledger' is the physics-side treatment."
+ },
+ {
+  "title": "Contents xiii",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (contents-page strays); my members removed individually."
+ },
+ {
+  "title": "Rotation About a Fixed Axis",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'Rotation About a Fixed Axis' (engineering plane kinematics); the physics rotation-dynamics treatment is genuinely different."
+ },
+ {
+  "title": "Plane Motion of Rigid Bodies",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'Plane Motion of Rigid Bodies' and 'Impact of Rigid Bodies' \u2014 distinct kinetics lessons within engineering-mechanics."
+ },
+ {
+  "title": "Appendix B Complex Numbers 729 Appendix H Common Standard",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (appendix runs); complex-number arithmetic is owned by advanced-algebra/complex-analysis \u2014 no member is a real lesson."
+ },
+ {
+  "title": "Momentum Conservation and Collisions 245 11.4 Stress, Strain, and Elastic Moduli",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Spurious match: 'The Stress-Strain Diagram, Read Honestly' (strength-of-materials) is unrelated to the physics momentum/collisions page-run."
+ },
+ {
+  "title": "Relative Velocity Craft",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'The Relative-Velocity Method' (mechanism velocity analysis); the physics relative-velocity treatment is genuinely different."
+ },
+ {
+  "title": "Analyzing a Linear Transformer in the Frequency F(s) Has Distinct Complex Roots",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster; transformer analysis is owned by electrical-machines ch2's authored lessons \u2014 every member here is a concatenated junk line removed individually."
+ },
+ {
+  "title": "Power Plant Engineering \u2014 Rankine and Brayton cycles with regeneration and reheat; fuels and their properties, flue gas analysis; boilers; steam turbines; condensers, air ejectors, electrostatic precipitators and cooling towers: theory, design, types and applications",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects the authored Rankine/Brayton improvement lessons ('Regeneration, Reheat, Intercooling', 'Reheat and Regeneration') \u2014 the thermodynamics specialist owns the power-plant cycle treatment; the structural-engineering syllabus dump is junk to remove."
+ },
+ {
+  "title": "The Doorsteps: Grid, Drive, Renewables",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Book-specific doorstep lessons ('The Doorsteps: Grid, Drive, Renewables' in electrical-machines, 'The Doorsteps: Solar, Grids, Silicon' in heat-transfer) are each book's own synthesis \u2014 genuinely different content."
+ },
+ {
+  "title": "Composite transimpedance amplifiers",
+  "action": "consolidate",
+  "winner": "analog-electronics",
+  "reason": "Transimpedance-amplifier bandwidth is analog-electronics territory; the manufacturing-processes member ('Limiting the bandwidth') is a stray removed individually."
+ },
+ {
+  "title": "Appendix A \u25a0 Euler Angles in Alternate Conventions and Cayley\u2013Klein Parameters",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'Euler Angles and Their Singularity' (robotics spatial descriptions); the mechanics-book appendix on alternate conventions is the analytical-mechanics treatment \u2014 genuinely different."
+ },
+ {
+  "title": "The Applications Census",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Two authored 'The Applications Census' lessons (cad-cam ch6 additive manufacturing; circuit-theory ch9 two-port applications) are genuinely different content."
+ },
+ {
+  "title": "Sources, Ideal and Dependent",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'Sources, Ideal and Dependent' (circuit-theory ch1); the materials-science member is a junk line removed individually."
+ },
+ {
+  "title": "The Passive Sign Convention as Law",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'The Passive Sign Convention as Law' (circuit-theory ch1); optics/particle-physics sign conventions are different topics matched only on words."
+ },
+ {
+  "title": "Addition and subtraction of sinusoidal",
+  "action": "consolidate",
+  "winner": "circuit-theory-and-network-analysis",
+  "reason": "Phasor addition/subtraction is ch4 Sinusoidal Steady State's own authored treatment ('Phasors: the Coordinate Change'); the two Hughes TOC fragments in my book are junk removed individually."
+ },
+ {
+  "title": "Other Wideband Amplifier Amplifier (Shunt-Shunt)",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'Series and Shunt Compensation' (power-systems ch4): transmission compensation is unrelated to the wideband-amplifier junk members, which are removed individually."
+ },
+ {
+  "title": "The Cross Product: Areas and Moments",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Spurious match: 'The Moment-Area Theorems' (beam deflection) is unrelated to the vector cross-product lesson."
+ },
+ {
+  "title": "Minimization: Karnaugh Maps",
+  "action": "consolidate",
+  "winner": "digital-logic-design",
+  "reason": "Karnaugh-map minimization is owned by digital-logic-design ch3; the engineering-mechanics copy is junk removed individually. The discrete-mathematics copy is the math-side treatment for those agents to settle."
+ },
+ {
+  "title": "Newton\u2013Raphson: Quadratic, and Fragile",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'Newton-Raphson and the Jacobian' (power-systems load flow); the numerical-analysis Newton-Raphson lesson is the pure-math treatment \u2014 genuinely different syllabus treatments."
+ },
+ {
+  "title": "Number Base Conversions: the Honest Craft",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'Base Conversion Worked' (per-unit base conversion, power-systems ch2); number-base conversion in digital-logic/arithmetic is a different topic matched only on words."
+ },
+ {
+  "title": "Vector Clocks, Named",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Spurious match: 'Vector Groups by the Clock' (transformer vector groups) vs distributed-systems 'Vector Clocks' \u2014 different topics sharing two words."
+ },
+ {
+  "title": "The Digital Twin Named Honestly",
+  "action": "consolidate",
+  "winner": "cad-cam",
+  "reason": "The digital twin belongs with the digital thread as the Industry 4.0 product-lifecycle capstone (cad-cam ch8 'Industry 4.0 and the Synthesis'); the internet-of-things copy (ch4 The Edge and Cloud Partnership) re-teaches the same concept on the cloud side and should reference rather than duplicate. IoT is engineering-b/CS territory, but the specialist winner is cad-cam."
+ },
+ {
+  "title": "Information on this title: www.cambridge.org/9780521809269",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (publisher URL lines); my member removed individually."
+ },
+ {
+  "title": "Some preliminaries",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster; my member removed individually."
+ },
+ {
+  "title": "Xiv Contents",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (contents-page strays)."
+ },
+ {
+  "title": "Equilibrium of the Rigid Body",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'Equilibrium of the Rigid Body' (engineering statics); the physics torque-balance lesson is the physics-side treatment."
+ },
+ {
+  "title": "Belt-Pulley Systems and Brake/Clutch Friction",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'Belt-Pulley Systems and Brake/Clutch Friction' (engineering friction applications); the physics pulley lesson is a different treatment."
+ },
+ {
+  "title": "Parallel buses and data links",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster; both members (engineering-mechanics, theory-of-machines) are computer-hardware TOC strays removed individually; bus architecture is owned by computer-organization-architecture."
+ },
+ {
+  "title": "Generalised Coordinates and Constraints",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'Generalised Coordinates and Constraints' (engineering-mechanics ch10 Lagrange); the physics analytical-mechanics copy is the theory-side treatment \u2014 genuinely different syllabus treatments."
+ },
+ {
+  "title": "Stress Concentration in Design",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Two authored stress-concentration lessons: 'Stress Concentration in Design' (machine-design ch2) and 'Saint-Venant, Stress Concentrations, Multiaxial Loading' (strength-of-materials ch3) \u2014 the design-scoped and materials-scoped treatments are genuinely different."
+ },
+ {
+  "title": "Fully integrated high-speed fiber-transceiver modules",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (fiber-module strays); my theory-of-machines member removed individually; fiber comms owned by analog-and-digital-communication."
+ },
+ {
+  "title": "The Standards Census",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "'The Standards Census' in machine-design (design codes/standards) vs environmental-chemistry (environmental standards) are different topics matched on words."
+ },
+ {
+  "title": "Typical Elements",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster; my member is the 'Databases and languages' syllabus dump removed individually (content owned by database-management-systems)."
+ },
+ {
+  "title": "DETAILED CONTENTS xvii",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (contents-page strays)."
+ },
+ {
+  "title": "Xviii CONTENTS",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (contents-page strays)."
+ },
+ {
+  "title": "Designing a High-Q Bandpass Filter 602 18.1 Finding the z Parameters of a Two-Port",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (filter/z-parameter page runs); filter design owned by analog-electronics ch5, two-ports by circuit-theory ch9 \u2014 members removed individually."
+ },
+ {
+  "title": "The Heisler Charts Read Fluently",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Spurious match: Heisler charts (unsteady conduction, heat-transfer ch4) vs psychrometric chart (thermodynamics ch10) are different chart-craft lessons."
+ },
+ {
+  "title": "The Process Census",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'The Process Census' (psychrometric processes, thermodynamics ch10); the operations-management process census is the business-side treatment."
+ },
+ {
+  "title": "Nozzles and Choking",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Both authored nozzle lessons stand: fluid-mechanics ch9 owns the compressible-flow treatment (area-Mach, shocks) and thermodynamics ch11 owns the steady-flow-device/property-relations treatment \u2014 genuinely different syllabus treatments, both books own a chapter for it in the legend."
+ },
+ {
+  "title": "Viscosity: Newton\u2019s Law and Its Census",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'Viscosity: Newton's Law and Its Census' (fluid-mechanics ch1 fluid property); the physics 'Newton's Viscosity Law' is the properties-of-matter treatment \u2014 genuinely different."
+ },
+ {
+  "title": "Introduction 175 5.1.5 Operation as vDS Is Increased",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster; my member is a page-run removed individually (auto-salvage amended to remove)."
+ },
+ {
+  "title": "Specific Speed: the Compass",
+  "action": "consolidate",
+  "winner": "fluid-mechanics",
+  "reason": "Specific speed (the turbomachine-selection compass) is the core of fluid-mechanics ch10 The Turbomachinery Principle and the Doorstep; the hydraulics copy (engineering-b's book) duplicates it."
+ },
+ {
+  "title": "Impedance Angle Restrictions 396 13.12 Using the Transfer Function to Find the",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (impedance-angle page runs); both my members removed individually."
+ },
+ {
+  "title": "Diffusion and the Total Current",
+  "action": "consolidate",
+  "winner": "electronic-devices-and-circuits",
+  "reason": "Semiconductor diffusion current is EDC ch2 Carrier Transport content; the heat-transfer member is a junk line removed individually."
+ },
+ {
+  "title": "Find an Unknown Current",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster; my member removed individually."
+ },
+ {
+  "title": "I: Phototransistor output optocouplers",
+  "action": "consolidate",
+  "winner": "electronic-devices-and-circuits",
+  "reason": "Optocouplers are optoelectronic devices owned by EDC (diode/optoelectronic chapters); both my members ('I: Phototransistor output optocouplers', 'II: Logic-output optocouplers') are AoE strays removed individually."
+ },
+ {
+  "title": "Class B Output Stage 897 13.3 BJT Op-Amp Techniques",
+  "action": "consolidate",
+  "winner": "analog-electronics",
+  "reason": "Output stages (Class A/AB) are owned by analog-electronics ch2; the industrial-engineering member is a page-run junk removed individually."
+ },
+ {
+  "title": "Integrating suntan monitor",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (AoE suntan-monitor application lines); my member removed individually."
+ },
+ {
+  "title": "The Waste Census",
+  "action": "consolidate",
+  "winner": "industrial-engineering",
+  "reason": "The lean-waste census is the engineering-side treatment in industrial-engineering ch4 'Scheduling, MRP and Lean'; the operations-management copy (economics-commerce discipline) is the business-side duplicate for that agent to drop or differentiate."
+ },
+ {
+  "title": "317-style regulator: circuit examples",
+  "action": "consolidate",
+  "winner": "analog-electronics",
+  "reason": "Linear regulator circuits (317-style) are analog-electronics power-supply territory; the industrial-engineering member is junk removed individually."
+ },
+ {
+  "title": "Six Sigma Named Honestly",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "'Six Sigma Named Honestly' (industrial-engineering ch7 quality-control statistics) and the operations-management register are the engineering-statistical and business-management treatments of Six Sigma \u2014 genuinely different syllabus treatments; keep-both."
+ },
+ {
+  "title": "ADCs I: Parallel (\"flash\") encoder",
+  "action": "consolidate",
+  "winner": "analog-electronics",
+  "reason": "Flash-ADC copies in control-systems and robotics are AoE strays removed individually; data conversion is owned by analog-electronics ch9 'Data Conversion and the Doorstep'."
+ },
+ {
+  "title": "Density Arithmetic",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "'Density Arithmetic' in materials-science (unit-cell/theoretical density from crystallography) vs building-materials (bulk density of construction materials) are genuinely different calculations."
+ },
+ {
+  "title": "Arrhenius and Activation Energy",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "'Arrhenius and Activation Energy' (materials-science ch5 diffusion) vs the physical-chemistry kinetics Arrhenius lesson are genuinely different treatments."
+ },
+ {
+  "title": "The Hardness Census",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "'The Hardness Census' in materials-science (indentation hardness testing) vs industrial-chemistry (water hardness) are different topics sharing a word; keep-both."
+ },
+ {
+  "title": "A Survey of the Representative Elements 776 21.8 Metallurgy and Iron and Steel Production",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Spurious match: 'Steels and Cast Irons' (materials-science ch9) vs the inorganic-chemistry metallurgy survey page-run."
+ },
+ {
+  "title": "Corrosion Forms and Prevention",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "'Corrosion Forms and Prevention' (materials-science ch10) is the corrosion-engineering treatment; the physical-chemistry 'Prevention of Corrosion' lesson is the electrochemistry-side treatment \u2014 genuinely different syllabus treatments."
+ },
+ {
+  "title": "The Mesh-Current Engine",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'The Mesh-Current Engine' (circuit-theory ch2); the embedded-systems member is a concatenated junk line removed by its agent."
+ },
+ {
+  "title": "Permeability of free space or magnetic 9.11 Alternating system frequencies in practice",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster; my member is a concatenated junk line removed individually; permeability owned by electricity-and-magnetism ch8."
+ },
+ {
+  "title": "Designing a Fourth-Order Low-Pass Bandpass Filter",
+  "action": "consolidate",
+  "winner": "analog-electronics",
+  "reason": "Active filter design is owned by analog-electronics ch5 Active Filters; the circuit-theory member is a concatenated junk line removed individually."
+ },
+ {
+  "title": "The Ideal Transformer at Circuit Level",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "Protects 'The Ideal Transformer at Circuit Level' (circuit-theory ch5 coupled-circuits treatment); the electrical-machines member is a junk page-run removed individually."
+ },
+ {
+  "title": "Basic Electrical Engineering \u2014 DC circuits: Ohm's and Kirchhoff's laws, mesh and nodal analysis, circuit theorems; electromagnetism, Faraday's and Lenz's laws, induced EMF and its uses; single-phase AC circuits; transformers, efficiency; basics of DC machines, induction machines and synchronous",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (ESE 'Basic Electrical Engineering' dumps); content owned by circuit-theory ch1-2, electrical-machines and electricity-and-magnetism; my member removed individually."
+ },
+ {
+  "title": "Experimental tests to obtain motor 36 Direct-current Machines",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (page-run junk); motor testing is covered by electrical-machines ch2 OC/SC tests and ch8 indirect efficiency."
+ },
+ {
+  "title": "The Component Census",
+  "action": "keep-both",
+  "winner": "",
+  "reason": "'The Component Census' (control-systems ch1) and the statistics-for-economics component census are different topics matched on words."
+ },
+ {
+  "title": "Basic Principles 366 8 Building Blocks of Integrated",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster; my member removed individually."
+ },
+ {
+  "title": "Microwave and satellite communication \u2014 terrestrial/space type LOS systems, block schematics, link calculations, system design",
+  "action": "consolidate",
+  "winner": "",
+  "reason": "Junk-only cluster (ESE microwave/satellite dump); communications content owned by the sibling communication books; my member removed individually."
+ }
+]

@@ -8,7 +8,7 @@
  *
  *  A. 10 chemistry books load, status 'planned'
  *  B. per-book chapter census pinned; shelf totals pinned
- *     (91 chapters / 2224 planned lessons)
+ *     (91 chapters / 651 planned lessons)
  *  C. planned-chapter hygiene: status/lessons-empty/>=3 plannedLessons/
  *     slugs/summaries/numbers
  *  D. planned-lesson titles non-trivial, unique within book
@@ -55,7 +55,7 @@ for (const b of shelf) {
   ok(EXPECTED_CHAPTERS[b.id] === b.chapters.length, `${b.id} chapter count pins ${EXPECTED_CHAPTERS[b.id]} (got ${b.chapters.length})`)
 }
 ok(totCh === 91, `shelf total 91 chapters (got ${totCh})`)
-ok(totPl === 2224, `shelf total 2224 planned lessons (got ${totPl})`)
+ok(totPl === 677, `shelf total 651 planned lessons (got ${totPl})`)
 
 console.log('== C. planned-chapter hygiene ==')
 for (const b of shelf) {

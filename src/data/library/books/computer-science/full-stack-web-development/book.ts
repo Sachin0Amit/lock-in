@@ -120,7 +120,6 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Project Specified Honestly',
       'The Craft Census: Architecture Defended',
-      'The Doorsteps: Platform and Coordination',
     ],
   },
 ]

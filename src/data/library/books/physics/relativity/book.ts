@@ -28,11 +28,7 @@ const chapters: Chapter[] = [
       'The Null Result',
       'The Ad-Hoc Rescue',
       'The Two Postulates',
-      'Special Purpose Diodes',
-      '35-5 MICHELSON’S INTERFEROMETER',
-      'Michelson’s Interferometer',
-      'The Michelson Interferometer',
-      'A Closer Look: General Relativity'
+      'A Closer Look: General Relativity',
     ],
   },
   {
@@ -48,9 +44,6 @@ const chapters: Chapter[] = [
       'Simultaneity Lost',
       'Dilation and Contraction',
       'The Paradox Craft',
-      'Orthogonal Transformations',
-      'The Lorentz Transformations 1231 Schrödinger Equation',
-      'Table 19 Relationships of Metric SI Base and Derived Units'
     ],
   },
   {
@@ -124,7 +117,6 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Wave Solutions',
       'Binary Pulsars and LIGO',
-      'Black Holes Named',
       'The Cross-Reference',
     ],
   },

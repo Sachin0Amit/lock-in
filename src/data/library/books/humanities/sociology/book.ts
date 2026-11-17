@@ -44,12 +44,9 @@ const chapters: Chapter[] = [
       'The Observation and the Ethnography',
       'The Ethics of Research',
       'The Statistics Handshake',
-    
       'Psychological Testing',
-      'Note: These 32 pages are the front matter of M. Laxmikanth\'s "Indian Polity" (Sixth Edition), not a JEE mathematics book, and no table of contents (chapter list with page numbers) appears within these pages. No contents entries exist to transcribe beyond the front-matter items listed above',
-      'There are no numbered topic entries (2.1, 2.2, 1.01), no exercises (JEE Main/JEE Advanced), no Concept Application Exercises, no Answers/Hints/Chapter Summary sections, and no printed page-numbered contents list anywhere in these 32 pages. A contents page appears not to have been included in the',
       'Chapter VIII. John the Scot',
-      'Chapter VIII. Hobbes\'s Leviathan'
+      'Chapter VIII. Hobbes\'s Leviathan',
     ],
   },
   {
@@ -65,8 +62,7 @@ const chapters: Chapter[] = [
       'Durkheim and Weber',
       'The Interactionists and the Functionalists',
       'The Contemporary Syntheses',
-    
-      'Quantitative Techniques (Class 10 elementary mathematics, tested through sets of facts, graphs or other diagrammatic representations of numerical information)'
+      'Quantitative Techniques (Class 10 Elementary Mathematics, Tested Through',
     ],
   },
   {
@@ -127,9 +123,8 @@ const chapters: Chapter[] = [
       'Education and Religion',
       'Work and the Informal Sector',
       'Media and Health',
-    
-      'Indian Foreign Policy - determinants and institutions of policy-making; continuity and change',
-      'Unit VIII: Colonial Economy and Indian Society in Transition (changing composition and direction of trade; commercialisation of agriculture; decline of industries; economic drain; famines and epidemics; the new education; Indian Renaissance; women\'s question; printing press and public opinion)'
+      'Indian Foreign Policy - Determinants And Institutions Of Policy-making;',
+      'Colonial Economy And Indian Society In Transition (changing Composition',
     ],
   },
   {
@@ -143,7 +138,6 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Change Theories',
       'The Movements\u2019 Sociology',
-      'The Population and the Urbanisation',
       'Globalisation\u2019s Dimensions',
     ],
   },
@@ -160,11 +154,9 @@ const chapters: Chapter[] = [
       'The Village Studies Arc',
       'The Tribes and the Plurality',
       'The Indian Family and Kinship',
-    
-      'Paper-II 3. Traditional Indian Social System and Caste (Varnashram, Purushartha, Karma, Rina and Rebirth; theories of the origin of the caste system; dominant caste and caste mobility; jajmani system; tribe-caste continuum; sacred complex; impact of Buddhism, Jainism, Islam and Christianity)',
-      'Paper-II 5. Indian Village, Minorities and Socio-Cultural Change (Indian village as a social system; agrarian relations; impact of globalisation on villages; linguistic and religious minorities; Sanskritization, Westernization, Modernization; inter-play of little and great traditions; Panchayati',
-      'Paper-II 7. Exploitation and Deprivation of Scheduled Castes, Scheduled Tribes and Other Backward Classes; constitutional safeguards; ethnicity and ethnic conflicts; regionalism and demand for autonomy; social change among tribes during colonial and post-independent India',
-      'Preface to the Sixth Edition (with "Changes in this Edition" and "New Chapters": 1. Goods and Services Tax Council, 2. National Commission for Backward Classes, 3. National Investigation Agency, 4. National Disaster Management Authority, 5. Role of Regional Parties, 6. Coalition Government)'
+      'Ii 3. Traditional Indian Social System And Caste (Varnashram, Purushartha,',
+      'Ii 5. Indian Village, Minorities And Socio-Cultural Change (Indian Village',
+      'Ii 7. Exploitation And Deprivation Of Scheduled Castes, Scheduled Tribes',
     ],
   },
   {
@@ -180,6 +172,7 @@ const chapters: Chapter[] = [
       'Poverty, Population, Urbanisation',
       'The Empowerment and the Communal Register',
       'The Doorstep: Society as Laboratory',
+      'The Population and the Urbanisation',
     ],
   },
 ]

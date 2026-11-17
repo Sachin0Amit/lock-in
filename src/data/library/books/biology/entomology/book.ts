@@ -58,7 +58,6 @@ const chapters: Chapter[] = [
       'The Diagnostic Wing Key Held',
       'The Larval Census Priced',
       'The Human Register per Order Held Straight',
-      'Creating and Maintaining Order Requires'
     ],
   },
   {

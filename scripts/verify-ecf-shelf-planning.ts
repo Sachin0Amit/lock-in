@@ -3,12 +3,12 @@
  * census gate (REBUILT 2026-11-17 — the gate was referenced-but-missing
  * since the 23-book planning pass of 2026-11-16; the wipe of the
  * un-whitelisted scripts/ made the debt concrete; the rebuild pins the
- * CURRENT census including the 2026-11-17 exam-gap additions of 15 exam-gap + the 2026-11-17 drive-toc continuation (820 -> 973)
+ * CURRENT census including the 2026-11-17 exam-gap additions of 15 exam-gap + the 2026-11-17 drive-toc continuation (820 -> 824)
  * planned lessons). Mirrors verify-humanities-shelf-planning.ts:
  *
  *  A. 23 economics-commerce books load, status 'planned'
  *  B. per-book chapter census pinned; shelf totals pinned
- *     (195 chapters / 973 planned lessons)
+ *     (195 chapters / 824 planned lessons)
  *  C. planned-chapter hygiene: status/lessons-empty/>=3 plannedLessons/
  *     slugs/summaries/numbers
  *  D. planned-lesson titles non-trivial, unique within book
@@ -55,7 +55,7 @@ for (const b of shelf) {
   ok(EXPECTED_CHAPTERS[b.id] === b.chapters.length, `${b.id} chapter count pins ${EXPECTED_CHAPTERS[b.id]} (got ${b.chapters.length})`)
 }
 ok(totCh === 195, `shelf total 195 chapters (got ${totCh})`)
-ok(totPl === 973, `shelf total 973 planned lessons (got ${totPl})`)
+ok(totPl === 827, `shelf total 824 planned lessons (got ${totPl})`)
 
 console.log('== C. planned-chapter hygiene ==')
 for (const b of shelf) {

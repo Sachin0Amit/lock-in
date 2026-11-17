@@ -36,13 +36,8 @@ const chapters: Chapter[] = [
       'Standards and the SI Honest Note',
       'Errors Priced and Stated',
       'Calibration as Conscience',
-    
-      'Electronic Measurements and Instrumentation — principles of measurement, accuracy, precision and standards; analog and digital systems for measurement; static/dynamic characteristics of measurement systems, errors, statistical analysis and curve fitting; measurement systems for non-electrical',
-      'Technologies 1182 J. Standard Resistance Values and Unit',
-      'Another way: roll-your-own fA/√Hz instrument',
-      'Optoelectronics: detectors',
-      'Motors for regulators 872 Section 4 Measurements',
-      'The vacuum diode 940 measurement'
+      'Another way: roll-your-own fA/\u221aHz instrument',
+      'Electronic Measurements and Instrumentation',
     ],
   },
   {
@@ -73,7 +68,6 @@ const chapters: Chapter[] = [
       'Two-Wattmeter Worked',
       'The Energy Meter\u2019s Craft',
       'Maximum-Demand Glanced',
-      'The vacuum triode 941 42.13 Oscilloscope connection'
     ],
   },
   {
@@ -134,7 +128,6 @@ const chapters: Chapter[] = [
       'Counters and the Time Base',
       'Phase Measured',
       'Specification Sheets Read',
-      'Integrating suntan monitor'
     ],
   },
   {
@@ -165,7 +158,6 @@ const chapters: Chapter[] = [
       'Signal Conditioning Revisited',
       'Telemetry and DAQ Routed',
       'The Synthesis Census',
-      'Leakage flux responsible for the inductive'
     ],
   },
 ]

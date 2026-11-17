@@ -88,8 +88,7 @@ const chapters: Chapter[] = [
       'Said and the Postcolonial Arc',
       'The Gaze and the Gendered Field',
       'The Intersection\u2019s Arrival',
-    
-      'Science and Technology - developments and their applications and effects in everyday life; achievements of Indians in science and technology; indigenisation of technology; awareness in the fields of IT, space, computers, robotics, nanotechnology, biotechnology and intellectual property rights'
+      'Gs-iii: Science And Technology - Developments And Their Applications And',
     ],
   },
   {
@@ -120,8 +119,6 @@ const chapters: Chapter[] = [
       'The Glocal Contra',
       'The Five Scapes',
       'The National-Popular Question',
-    
-      'Paper-I 6. Anthropological Theories (classical evolutionism, diffusionism, functionalism, structural-functionalism, structuralism, culture and personality, neo-evolutionism, cultural materialism, symbolic and interpretive, cognitive theories, post-modernism)'
     ],
   },
   {

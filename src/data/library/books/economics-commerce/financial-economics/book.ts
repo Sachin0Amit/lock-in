@@ -28,12 +28,6 @@ const chapters: Chapter[] = [
       'The Cash-Flow Ledger',
       'Annuities Solved',
       'The NPV Grammar',
-    
-      'Financial Statements of Sole Proprietorship: Financial Statements',
-      '1-3b Principle 9: Prices Rise When the Government 3-1a Production Possibilities',
-      '3-3a Should Serena Williams Mow Her Own Lawn? 55 4-5 Conclusion: How Prices Allocate Resources',
-      'IN THE NEWS: Economics within a Marriage 56 ASK THE EXPERTS: Price Gouging',
-      'Work 63 5-3b Why Did OPEC Fail to Keep the Price of Oil High?'
     ],
   },
   {
@@ -78,7 +72,6 @@ const chapters: Chapter[] = [
       'The Two Lines',
       'Beta Read',
       'The Equation Priced',
-      'The Anomaly Debate',
     ],
   },
   {
@@ -94,7 +87,7 @@ const chapters: Chapter[] = [
       'The Anomaly Census',
       'The Joint-Hypothesis Trap',
       'The Event-Study Craft',
-      '10-3a The Types of Private Solutions 202 Efficiency'
+      'The Anomaly Debate',
     ],
   },
   {

@@ -29,7 +29,6 @@ const chapters: Chapter[] = [
       'The Consonant Vargas',
       'The Conjuncts and the Nasals',
       'The First Reading Weeks',
-      'CultureNote 日本の祝日 Japanese National Holidays'
     ],
   },
   {
@@ -45,9 +44,7 @@ const chapters: Chapter[] = [
       'The Postpositional Vibhakti Census',
       'The Pronouns\u2019 Register',
       'The Adjective\u2019s Agreement',
-      'Measurement phrases: genitive, von or apposition?',
       'Cardinal numbers',
-      'CultureNote 日本の教育制度(1) Japan\'s Educational System (1)'
     ],
   },
   {
@@ -63,7 +60,6 @@ const chapters: Chapter[] = [
       'The Transitive-ne Rule',
       'The Participles and the Compounds',
       'The Conjunctive Participle\u2019s Craft',
-      'Have something done'
     ],
   },
   {
@@ -79,7 +75,6 @@ const chapters: Chapter[] = [
       'The Negation and the Interrogation',
       'The Relative-Correlative Engine',
       'The Complex Sentence\u2019s Craft',
-      'The position of nicht and other negative elements'
     ],
   },
   {
@@ -95,7 +90,6 @@ const chapters: Chapter[] = [
       'The Modern Floor\u2019s Citizenship Line',
       'The Idioms and Proverbs Census',
       'The Gender Memory Method',
-      'Lit. literary'
     ],
   },
   {
@@ -126,7 +120,6 @@ const chapters: Chapter[] = [
       'The Honorifics\u2019 Ladder',
       'The Regional Accents\u2019 Census',
       'The Fluency Craft',
-      'Useful Expressions 郵便局で At the Post Office'
     ],
   },
   {

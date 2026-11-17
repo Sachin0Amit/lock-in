@@ -34,7 +34,6 @@ const chapters: Chapter[] = [
       'The Chain and Its Honest Taxes',
       'Quantisation Noise Priced',
       'The Application Census',
-      'Summary of PC104/ISA 8-bit bus signals'
     ],
   },
   {
@@ -110,7 +109,6 @@ const chapters: Chapter[] = [
       'Poles Under Quantisation',
       'Overflow and Scaling',
       'The Roundoff Census',
-      'Designing a Parallel RLC Bandpass Filter 555 16.6 Estimating the rms Value of a Periodic'
     ],
   },
   {

@@ -38,10 +38,6 @@ const chapters: Chapter[] = [
       'Sectioning a Body: the Method of Internal Forces',
       'Normal, Shear and Bearing Stress',
       'Stress on the Oblique Plane',
-      'When and How to Include the Output',
-      'How to make pseudorandom bytes',
-      'Appendix H Common Standard Component Values',
-      'B.1 Notation 729 Component Values'
     ],
   },
   {
@@ -56,9 +52,7 @@ const chapters: Chapter[] = [
       'The Stress-Strain Diagram, Read Honestly',
       'Hooke, Poisson and the Shear Relation',
       'The Testing Laboratory: UTM, Hardness, Impact',
-      'Resistors in Parallel 61 Practical Perspective: Strain Gages',
-      'Practical Perspective: Strain Gages 171 Chapter 9 Sinusoidal Steady-State',
-      'Semiconductor Materials 419 20.34 Common-mode rejection ratio'
+      'Deformation of Solids: Elastic and Plastic',
     ],
   },
   {
@@ -73,13 +67,6 @@ const chapters: Chapter[] = [
       'Indeterminate Assemblies by Compatibility',
       'Thermal Stresses and Their Bookkeeping',
       'Saint-Venant, Stress Concentrations, Multiaxial Loading',
-      'Problems 355 Problems',
-      'Problems 562 Introduction',
-      'Final Remarks 1046 Problems',
-      'Problems 50 Summary',
-      'Problems 436 Problems',
-      'Summary 476 Problems',
-      'Introduction to Problems'
     ],
   },
   {
@@ -109,14 +96,6 @@ const chapters: Chapter[] = [
       'The Diagrams as a Fluent Craft',
       'Load, Shear and Moment: the Differential Relations',
       'Singularity Functions for Beam Bookkeeping',
-      'The Depletion-Type MOSFET 291 7.2.1 The MOSFET Case',
-      'Current-Source Loads 518 9.3.1 The MOS Case',
-      'Input Common-Mode Range and Functions',
-      'FET types',
-      'Generating a differential output',
-      'Complex Notation',
-      'The NAND function',
-      'Support the use of this textbook in teaching, please visit'
     ],
   },
   {
@@ -132,13 +111,6 @@ const chapters: Chapter[] = [
       'Section Modulus and Beam Design',
       'Shearing Stresses and Shear Flow',
       'The Shear Centre',
-      '(BJTs) 304 7.3.3 The Common-Source (CS) and',
-      'The Common-Source (Common',
-      'A Common-Source (CS)',
-      'A Common-Base (CB)',
-      'Wiring: The Interconnect 1181 H. Filter Design Material',
-      'Common-mode rejection',
-      'With Symmetry 630 and Symmetric'
     ],
   },
   {
@@ -184,9 +156,6 @@ const chapters: Chapter[] = [
       'Slenderness: Buckling versus Crushing',
       'Castigliano\u2019s Theorem',
       'Strain Energy and Impact Loading',
-      'Summary 292 7.2.2 The BJT Case',
-      'The MOSFET Case',
-      'The BJT Case'
     ],
   },
 ]

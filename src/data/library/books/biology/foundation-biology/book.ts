@@ -28,42 +28,10 @@ const chapters: Chapter[] = [
       'The Organisation Ladder',
       'Emergence at Each Level',
       'The Three-Domain Preview',
-      'The Living World',
-    
-      'S, p and d Block Elements',
-      'Thermodynamics',
-      'Organization of life',
-      'Microbial Metabolism',
-      'B4 Organelles and compartmentalisation',
+      'Reproduction: The Modes and Strategies',
+      'Organization Of Life',
+      'B4 Organelles And Compartmentalisation',
       'D10 Homeostasis',
-      'Ethology',
-      'Ryan Steed, University of North',
-      'Carolina-Asheville',
-      'Angela K. Stoeckman, Bethel University',
-      'Evelyn Swain, Presbyterian College Preface viii',
-      'Jeremy Thorner, University of',
-      'Candace Timpte, Georgia Gwinnett College',
-      'Michael Trakselis, Baylor University',
-      'Didem Vardar-Ulu, Boston University',
-      'Thomas Vida, University of Houston',
-      'Yu Wang, The University of Alabama',
-      'James D. West, The College of Wooster',
-      'Chuan Xiao, University of Texas-El Paso',
-      'We hope our readers will continue to provide input for 21 Lipid Biosynthesis',
-      'David L. Nelson',
-      'Aaron A. Hoskins',
-      'Madison, Wisconsin',
-      'Glossary G-1',
-      'Organisms Differ Widely in Their Sources the First Genes and Catalysts',
-      'Cytoskeleton and Is Highly Dynamic 6 Functional Genomics Shows the Allocations',
-      'Attractions',
-      'Physical Foundations 19 Weak Interactions Are Crucial to',
-      'Their Surroundings',
-      'Concentrations',
-      'Tendency to Proceed Spontaneously',
-      'Metabolism Is Regulated to Achieve',
-      '125,337,357 (valid %PDF header, no trailer dictionary, no %%EOF; Google',
-      'An Introduction to Metabolism'
     ],
   },
   {
@@ -79,12 +47,9 @@ const chapters: Chapter[] = [
       'The Controlled Experiment\u2019s Craft',
       'What a Theory Really Is',
       'The Model Organism Idea',
-    
       'Inquiry 1: Exploring and designing in biology',
       'Inquiry 2: Collecting and processing data in biology',
       'Inquiry 3: Concluding and evaluating in biology',
-      'CAMPBELL BIOLOGY — ELEVENTH EDITION — Urry / Cain / Wasserman / Minorsky / Reece',
-      '(https://archive.org/stream/campbell-biology_202502/Campbell%20Biology_djvu.txt)'
     ],
   },
   {
@@ -100,12 +65,6 @@ const chapters: Chapter[] = [
       'The Four Biomolecule Families',
       'Shape Is Function',
       'The Handoff Map',
-      'Robert J. Warburton, Shepherd University 7 Carbohydrates and Glycobiology',
-      'Alexander G. Zestos, American University 10 Lipids',
-      'In the Department of Biochemistry at the University Production of Urea',
-      'Michael M. Cox Ill INFORMATION PATHWAYS',
-      'Energy Coupling Links Reactions in Biology 22 The pH Scale Designates the H+ and OH',
-      'Weak Acids and Bases Have Characteristic'
     ],
   },
   {
@@ -121,12 +80,7 @@ const chapters: Chapter[] = [
       'Prokaryote against Eukaryote',
       'The Microscope\u2019s Craft',
       'The Size Arithmetic',
-    
       'Historical Perspective',
-      'Finally, we express our deepest appreciation to our',
-      '(Don\'t Try This at Home!)',
-      'With HTTP 416). This transcription is the sanctioned WEB FALLBACK: the',
-      'Publisher\'s Brief Contents from the Internet Archive full-text scan'
     ],
   },
   {
@@ -142,8 +96,8 @@ const chapters: Chapter[] = [
       'The Genetic Code Preview',
       'The Two Engines Meet',
       'The Deep Books Named',
-      'Assume full responsibility for errors of fact or emphasis. 13 Introduction to Metabolism',
-      'Book writing. Mammalian Metabolism'
+      'Photosynthesis and Energy',
+      'An Introduction to Metabolism',
     ],
   },
   {
@@ -162,7 +116,6 @@ const chapters: Chapter[] = [
       'The Monera, Protista and Fungi: Salient Features and Classification',
       'Lichens, Viruses and Viroids: The Edge of the Five Kingdoms',
       'Biological Classification',
-      'Features but Differ in Important Ways 5 The First Cell Probably Used Inorganic Fuels'
     ],
   },
   {
@@ -178,7 +131,6 @@ const chapters: Chapter[] = [
       'The Population\u2019s Growth Logic',
       'Energy Flows, Matter Cycles',
       'The Biosphere as One System',
-      'Individuals whose special efforts went into this book. We'
     ],
   },
   {

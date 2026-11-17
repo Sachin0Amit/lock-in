@@ -42,7 +42,7 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'The Basic Structure and Operation of the Computer (the information processing cycle; the program development tools)',
+      'The Basic Structure and Operation of the Computer',
       'A Census of Hardware: Desktops to Embedded Chips',
       'Software: the Invisible Half of the Machine',
     ],
@@ -75,6 +75,9 @@ const chapters: Chapter[] = [
       'Codes: ASCII, Unicode and BCD',
       'Text, Images and Sound as Bits',
       'Compression: Lossless and Lossy',
+      'Decimal to Binary Conversion',
+      'Binary to Decimal Conversion',
+      'Decimal and Binary Number System',
     ],
   },
   {

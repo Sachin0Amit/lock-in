@@ -43,7 +43,6 @@ const chapters: Chapter[] = [
       'The PPM Arithmetic Named',
       'The Fluorosis Map Cross-Referenced',
       'The Technique Honesty Held Straight',
-      'Pre-clinical Conservative Dentistry',
       'General Human Anatomy with Embryology and Histology',
       'General Human Physiology, Biochemistry, Nutrition and Dietetics',
     ],
@@ -64,8 +63,6 @@ const chapters: Chapter[] = [
       'General Pathology and Microbiology',
       'General and Dental Pharmacology and Therapeutics',
       'Oral Pathology and Oral Microbiology',
-    
-      'Fourth Year: Periodontology'
     ],
   },
   {
@@ -81,6 +78,8 @@ const chapters: Chapter[] = [
       'The Reversible Honesty Priced Straight',
       'The Working-Length Honesty Held',
       'The MTA Named',
+      'Pre-clinical Conservative Dentistry',
+      'First Year: Dental Materials',
     ],
   },
   {
@@ -98,8 +97,6 @@ const chapters: Chapter[] = [
       'The 30-Minute Honesty Priced Straight',
       'Pre-clinical Prosthodontics and Crown and Bridge',
       'Orthodontics and Dentofacial Orthopaedics',
-    
-      'Third/Fourth Year: Oral and Maxillofacial Surgery'
     ],
   },
   {
@@ -115,8 +112,6 @@ const chapters: Chapter[] = [
       'The Bidirectional Honesty Named',
       'The India Burden Held Straight',
       'The DCI Register Named',
-    
-      'Third/Fourth Year: Oral Medicine and Radiology'
     ],
   },
 ]

@@ -58,8 +58,7 @@ const chapters: Chapter[] = [
       'The Scale Named',
       'The Study-Presentation Division Named',
       'The Tool Honesty Held',
-    
-      'Prelims typical areas (mirror): drawing and design — drawing a scene from a given viewpoint, storyboards, posters, product ideas and redesign for specific users'
+      'Prelims Typical Areas (mirror): Drawing And Design \u2014 Drawing A Scene From',
     ],
   },
   {

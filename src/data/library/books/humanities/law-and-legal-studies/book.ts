@@ -30,13 +30,9 @@ const chapters: Chapter[] = [
       'The Legal Families',
       'The Indian System\u2019s Mixed Parentage',
       'The Courts\u2019 Hierarchy and the Profession',
-    
-      'Paper-II 4. Emergence, Growth and Development of Anthropology in India (contributions of 18th-20th century scholar-administrators and of Indian anthropologists to tribal and caste studies)',
-      'Year-Wise Break-up of the UPSC Questions on Indian Polity (General Studies—Prelims) — table of 20 years (2000–2019), with Note I and Note II',
-      'Year-Wise Break-up of the UPSC Questions on Indian Polity (General Studies—Prelims) — duplicate',
-      'Year-Wise Break-up of the UPSC Marks on Indian Polity (General Studies—Mains) — table of 20 years (2000–2019), with Note I and Note II',
-      'Year-Wise Break-up of the UPSC Marks on Indian Polity (General Studies—Mains) — duplicate',
-      'The scanned pages do not match the described book. They are not a JEE mathematics reference (Cengage-style) and contain no table of contents to transcribe. What was actually provided'
+      'Year-Wise Break-up of the UPSC Questions on Indian Polity (General Studies\u2014Prelims) \u2014 duplicate',
+      'Year-Wise Break-up of the UPSC Marks on Indian Polity (General Studies\u2014Mains) \u2014 duplicate',
+      'Ii 4. Emergence, Growth And Development Of Anthropology In India',
     ],
   },
   {
@@ -67,8 +63,7 @@ const chapters: Chapter[] = [
       'The Remedies',
       'The Federal Division\u2019s Legal Form',
       'The Emergency\u2019s Legal History',
-    
-      'Paper-I 10. Concept of Human Growth and Development (stages of growth; factors affecting growth; ageing and senescence; somatotypes; methodologies for growth studies)'
+      'I 10. Concept Of Human Growth And Development (stages Of Growth; Factors',
     ],
   },
   {
@@ -128,7 +123,6 @@ const chapters: Chapter[] = [
       'The Sources and the Consent Problem',
       'The Subjects and the Treaty\u2019s Life',
       'The UN\u2019s Legal Frame',
-      'The Human Rights Register',
     ],
   },
   {
@@ -144,8 +138,7 @@ const chapters: Chapter[] = [
       'The Case\u2019s Reading and the Precedent',
       'The Interpretation\u2019s Rules',
       'The Fact-Situation and the Logical Census',
-    
-      'Logical Reasoning (analytical and logical ability; analogy; blood relations; calendars; clocks; coding and decoding; seating and linear/matrix arrangements; logical sequence; premises, assumptions and conclusions; puzzles; binary logic; diagrams; data interpretation - pie charts)'
+      'Logical Reasoning (analytical And Logical Ability; Analogy; Blood',
     ],
   },
   {

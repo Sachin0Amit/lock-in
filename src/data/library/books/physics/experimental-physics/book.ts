@@ -47,11 +47,9 @@ const chapters: Chapter[] = [
       'Zero-Error Discipline',
       'The Apparatus Census and the Measurement Techniques',
       'The Medical-Imaging Instruments: Ultrasound to MRI',
-    
-      'Experimental Skills: Vernier calipers — its use to measure the internal and external diameter and depth of a vessel',
-      'Experimental Skills: Screw gauge — its use to determine the thickness/diameter of thin sheet/wire',
-      'Experimental Skills: Screw gauge — its use to determine thickness/diameter of thin sheet/wire',
-      'Vernier Callipers'
+      'Experimental Skills: Vernier calipers \u2014 its use to measure the internal and external diameter and depth of a vessel',
+      'Experimental Skills: Screw gauge \u2014 its use to determine the thickness/diameter of thin sheet/wire',
+      'Reading a Vernier Callipers',
     ],
   },
   {
@@ -69,12 +67,10 @@ const chapters: Chapter[] = [
       'Viscosity Registers',
       'The Resonance-Column Measurement of Sound Speed',
       'Surface-Tension Measurement of Water by Capillary Rise',
-    
-      'Experimental Skills: Speed of sound in air at room temperature using a resonance tube',
-      'Pitot Tube',
-      'Quinck\'s Tube',
-      'Kundt\'s Tube',
-      'Routh\'s Procedure'
+      'Experimental Skills: Co-efficient of viscosity of a given viscous liquid by measuring the terminal velocity of a given spherical body',
+      'Experimental Skills: Metre scale \u2014 the mass of a given object by the principle of moments',
+      'Experimental Skills: Young\'s modulus of elasticity of the material of a metallic wire',
+      'Experimental Skills: Simple pendulum \u2014 dissipation of energy by plotting a graph between the square of amplitude and time',
     ],
   },
   {
@@ -88,14 +84,9 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Calorimeter Craft',
       'Focal Registers',
-      'Refractive-Index Craft',
-      'The Grating Measurement',
       'The u-v Method for Concave Mirrors and Convex Lenses',
-    
       'Experimental Skills: The plot of the angle of deviation vs angle of incidence for a triangular prism',
       'Experimental Skills: The refractive index of a glass slab using a travelling microscope',
-      'Experimental Skills: Refractive index of a glass slab using a travelling microscope',
-      'Lateral Displacement of Emergent Beam Through a Glass Slab'
     ],
   },
   {
@@ -112,11 +103,10 @@ const chapters: Chapter[] = [
       'Carey-Foster Named',
       'The Earth\u2019s Field',
       'The Ohm\'s-Law Verification with Voltmeter and Ammeter',
-    
       'Experimental Skills: The resistivity of the material of a given wire using a metre bridge',
-      'Experimental Skills: The resistance of a given wire using Ohm\'s law',
       'Experimental Skills: Resistance and figure of merit of a galvanometer by half deflection method',
-      'Deflection Magnetometer'
+      'Deflection Magnetometer',
+      'Vibration Magnetometer',
     ],
   },
   {
@@ -132,11 +122,7 @@ const chapters: Chapter[] = [
       'The Transistor Measured',
       'The Op-Amp Craft',
       'The Digital Taster',
-    
       'Experimental Skills: Identification of diode, LED, resistor, a capacitor from a mixed collection of such items',
-      'Transistor as a Common Base Amplifier',
-      'N-p-n Transistor as a Common Base Amplifier',
-      'N-p-n Transistor as a Common Emitter Amplifier'
     ],
   },
   {
@@ -152,7 +138,6 @@ const chapters: Chapter[] = [
       'The Transducer Census',
       'Noise and Filters',
       'The Chi-Squared Honesty',
-      'BIO Flux Through a Basking Shark’s Mouth  723 Interferometry1176'
     ],
   },
   {

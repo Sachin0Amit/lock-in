@@ -29,14 +29,7 @@ const chapters: Chapter[] = [
       'The Buffer Systems',
       'The Transport Registers',
       'Significance of H-Bonding in Biological Systems',
-      'Potassium Carbonate (K2CO3)',
-      'Magnesium Carbonate (MgCO3)',
-      'Basic Lead Carbonate, 2PbCO3·Pb(OH)2',
-      'Carbonate (CO3^2–) and Oxalate (C2O4^2–)',
       'To life in each Focus, and a suite of self-check questions. These try as an evolving subject',
-      'Review of two mathematical tools that are used throughout the trochemical cell, a biological cell, and so on. The surroundings',
-      'Made in the surroundings. The type of system depends on the',
-      'Oxosalts – carbonates, bicarbonates, nitrates and nitrites'
     ],
   },
   {
@@ -53,9 +46,8 @@ const chapters: Chapter[] = [
       'The Structure Ladder',
       'The Denaturation Register',
       'Protein Folding, Misfolding and the Named Proteins: Myoglobin to Chymotrypsin',
-      'Energy and Respiration',
       'Food Proteins and Post-Mortem Muscle Changes',
-      'Protein Purification Schemes from Cell to Crystal',
+      'BIO Using Crystals to Determine Protein',
     ],
   },
   {
@@ -72,11 +64,6 @@ const chapters: Chapter[] = [
       'The Binding Arithmetic',
       'The Purification Census',
       'The Biochemical Separation Techniques: Chromatography, Centrifugation and Electrophoresis',
-      'The Separation Crafts: Chromatography, Centrifugation and Electrophoresis',
-    
-      'Tools (Tool 1 experimental techniques, Tool 2 technology, Tool 3 mathematics)',
-      'Rent that can drive a motor and be used to raise a weight',
-      'Silicates in technology'
     ],
   },
   {
@@ -96,9 +83,7 @@ const chapters: Chapter[] = [
       'Vitamins, Coenzymes and Minerals',
       'Enzymes as Drug Targets',
       'Catalytic Action of Enzymes',
-      'Drug–Enzyme Interaction',
-      'Competitive Inhibitors',
-      'Chemical Connections Enzymes: Nature’s Catalysts'
+      'Chemical Connections Enzymes: Nature\u2019s Catalysts',
     ],
   },
   {
@@ -114,24 +99,6 @@ const chapters: Chapter[] = [
       'The Polysaccharide Register',
       'The Lipid Census',
       'The Aggregate Behaviour',
-      'The Biomolecule Census',
-      'Biological Molecules: The Census',
-      'The Chemistry of Biomolecules',
-      'Food Carbohydrates: Starch, Pectin and Dietary Fibre',
-      'Food Lipids: Rancidity and Polymorphism',
-      'The Balanced Diet and Nutrients',
-      'Sucrose/Cane sugar (C12H22O11)',
-      'Maltose (Malt sugar, C12H22O11)',
-      'Starch/Amylum (C6H10O5)n',
-      'Polymorphism and Allotropy',
-      'Inversion of Cane Sugar (C₁₂H₂₂O₁₁)',
-      'He2 molecule',
-      'Li2 molecule',
-      'Be2 molecule',
-      'Biological importance',
-      'Amphoteric behaviour – aluminates',
-      'Triatomic Molecule',
-      'Polar and Nonpolar Molecules'
     ],
   },
   {
@@ -163,7 +130,6 @@ const chapters: Chapter[] = [
       'The RNA Census',
       'The Technology Preview',
       'Molecular Biology and the Biomolecules',
-      'DNA Fingerprinting'
     ],
   },
   {
@@ -179,10 +145,8 @@ const chapters: Chapter[] = [
       'The Pyruvate Fork',
       'The Citric Turn',
       'The Oxidative Craft',
-      'The Metabolic Pathways and Their Regulation: Pentose Phosphate to Gluconeogenesis',
       'The Pentose Phosphate Pathway and Gluconeogenesis',
-      'Nitrogen Metabolism: Fixation, Amino Acids and Nucleotides',
-      'Oxidative Cleavage'
+      'Energy and Respiration',
     ],
   },
   {
@@ -198,6 +162,8 @@ const chapters: Chapter[] = [
       'The Synthesis Preview',
       'The Urea Cycle',
       'The Nucleotide Preview',
+      'Nitrogen Metabolism: Fixation, Amino Acids and Nucleotides',
+      'Metabolism of Nitrogen containing compounds',
     ],
   },
   {
@@ -213,10 +179,7 @@ const chapters: Chapter[] = [
       'The Regulation Craft',
       'The Hormone First Pass',
       'The Research Doorway',
-      'Spectroscopy for Biochemists: UV-Visible, Fluorescence and Mass Spectrometry',
-      'Enzymatic and Non-Enzymatic Browning',
-      'Mass spectrometry detects isotopes',
-      'By high-resolution mass spectrometry'
+      'The Balanced Diet and Nutrients',
     ],
   },
 ]

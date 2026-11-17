@@ -1,0 +1,1933 @@
+[
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 1,
+  "idx": 7,
+  "title": "Splitting 860 (PSRR)",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 1,
+  "idx": 7,
+  "title": "Summary 927 Realization",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 1,
+  "idx": 8,
+  "title": "(VTC) 1136 18.2.1 The Latch",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 1,
+  "idx": 9,
+  "title": "Summary 1183 Prefixes J-1",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 1,
+  "idx": 15,
+  "title": "Avenue of the Americas, New York, NY 10013-2473, USA",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 1,
+  "idx": 18,
+  "title": "ISBN 978-0-521-80926-9 Hardback",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 1,
+  "idx": 18,
+  "title": "Preface to the Third Edition \u2014 xxix",
+  "why": "junk-certain: front/back-matter furniture"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 1,
+  "idx": 21,
+  "title": "The challenge: 10 mV, 1%, 10 M\u03a9, 1.8 V single supply",
+  "why": "junk-certain: two numeric runs (concatenated TOC lines)"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 1,
+  "idx": 35,
+  "title": "RS-232",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 1,
+  "idx": 41,
+  "title": "Summary 49 Resistors",
+  "why": "junk-certain: summary/BIO banner with digits"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 1,
+  "idx": 41,
+  "title": "Summary 435 Summary",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 1,
+  "idx": 50,
+  "title": "Summary of important formulae 361 19.7 Construction and static characteristics of",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 1,
+  "idx": 50,
+  "title": "Logarithmic units 404 20.22 JUGFET",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 3,
+  "idx": 4,
+  "title": "Degeneration 741 Method",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 3,
+  "idx": 10,
+  "title": "Appliances 382 Chapter",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "salvage",
+  "book": "engineering-mechanics",
+  "chapter": 4,
+  "idx": 8,
+  "title": "Gates 1167 Summary",
+  "newTitle": "Gates"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 4,
+  "idx": 11,
+  "title": "Simplification 63 4.18 Finding the Th\u00e9venin Equivalent Resistance",
+  "why": "junk-certain: two numeric runs (concatenated TOC lines)"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 5,
+  "idx": 4,
+  "title": "Area 1149 Cells",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 7,
+  "idx": 5,
+  "title": "Transformers 646 30.9 Rotary motion",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "engineering-mechanics",
+  "chapter": 8,
+  "idx": 4,
+  "title": "Preface to the Second Edition \u2014 xxvii",
+  "why": "junk-certain: front/back-matter furniture"
+ },
+ {
+  "op": "remove",
+  "book": "strength-of-materials",
+  "chapter": 1,
+  "idx": 5,
+  "title": "Appendix H Common Standard Component Values",
+  "why": "junk-certain: front/back-matter furniture"
+ },
+ {
+  "op": "remove",
+  "book": "strength-of-materials",
+  "chapter": 1,
+  "idx": 5,
+  "title": "B.1 Notation 729 Component Values",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "strength-of-materials",
+  "chapter": 2,
+  "idx": 4,
+  "title": "Practical Perspective: Strain Gages 171 Chapter 9 Sinusoidal Steady-State",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "strength-of-materials",
+  "chapter": 2,
+  "idx": 4,
+  "title": "Semiconductor Materials 419 20.34 Common-mode rejection ratio",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "strength-of-materials",
+  "chapter": 3,
+  "idx": 3,
+  "title": "Problems 355 Problems",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "strength-of-materials",
+  "chapter": 3,
+  "idx": 3,
+  "title": "Problems 562 Introduction",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "strength-of-materials",
+  "chapter": 3,
+  "idx": 3,
+  "title": "Final Remarks 1046 Problems",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "strength-of-materials",
+  "chapter": 3,
+  "idx": 4,
+  "title": "Problems 436 Problems",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "salvage",
+  "book": "strength-of-materials",
+  "chapter": 3,
+  "idx": 4,
+  "title": "Summary 476 Problems",
+  "newTitle": "Problems"
+ },
+ {
+  "op": "remove",
+  "book": "strength-of-materials",
+  "chapter": 5,
+  "idx": 3,
+  "title": "The Depletion-Type MOSFET 291 7.2.1 The MOSFET Case",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "strength-of-materials",
+  "chapter": 5,
+  "idx": 3,
+  "title": "Current-Source Loads 518 9.3.1 The MOS Case",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "strength-of-materials",
+  "chapter": 6,
+  "idx": 4,
+  "title": "(BJTs) 304 7.3.3 The Common-Source (CS) and",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "strength-of-materials",
+  "chapter": 6,
+  "idx": 7,
+  "title": "Wiring: The Interconnect 1181 H. Filter Design Material",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "strength-of-materials",
+  "chapter": 6,
+  "idx": 8,
+  "title": "With Symmetry 630 and Symmetric",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "strength-of-materials",
+  "chapter": 9,
+  "idx": 4,
+  "title": "Summary 292 7.2.2 The BJT Case",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "theory-of-machines",
+  "chapter": 1,
+  "idx": 9,
+  "title": "Terms and concepts 131 8.12 Coupling coefficient",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "theory-of-machines",
+  "chapter": 1,
+  "idx": 9,
+  "title": "Direction of induced e.m.f. 144 speed and number of pole pairs",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "theory-of-machines",
+  "chapter": 1,
+  "idx": 9,
+  "title": "Relative permeability 155 Terms and concepts",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "theory-of-machines",
+  "chapter": 1,
+  "idx": 10,
+  "title": "Simple comparator 509 Terms and concepts",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "theory-of-machines",
+  "chapter": 1,
+  "idx": 10,
+  "title": "Machines 703 Summary of important formulae",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "theory-of-machines",
+  "chapter": 4,
+  "idx": 5,
+  "title": "Emitter Followers 723 11.3.4 A Final Remark",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "theory-of-machines",
+  "chapter": 4,
+  "idx": 5,
+  "title": "The Source Follower 916 Introduction",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "theory-of-machines",
+  "chapter": 6,
+  "idx": 3,
+  "title": "Inverter Implementation 1125 18.1.2 Restoring the Value of VOH to VDD",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "theory-of-machines",
+  "chapter": 10,
+  "idx": 8,
+  "title": "Cathode-ray oscilloscope 948 Answers to Exercises",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "machine-design",
+  "chapter": 1,
+  "idx": 3,
+  "title": "(VTC) 369 8.1 IC Design Philosophy",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "machine-design",
+  "chapter": 1,
+  "idx": 3,
+  "title": "Inverter Sizing 1165 18.4.3 The Row-Address Decoder",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "machine-design",
+  "chapter": 1,
+  "idx": 6,
+  "title": "Appendix B Complex Numbers 729 Appendix H Common Standard",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "machine-design",
+  "chapter": 1,
+  "idx": 6,
+  "title": "Core factors 647 Summary of important formulae",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "machine-design",
+  "chapter": 6,
+  "idx": 4,
+  "title": "Appendix B Complex Numbers",
+  "why": "junk-certain: front/back-matter furniture"
+ },
+ {
+  "op": "remove",
+  "book": "thermodynamics",
+  "chapter": 1,
+  "idx": 3,
+  "title": "Filter 597 17.9 Calculating Energy Contained in a Rectangular",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "thermodynamics",
+  "chapter": 1,
+  "idx": 4,
+  "title": "Energy stored in a charged capacitor 123 8.5 Ferromagnetic-cored inductor in a",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "thermodynamics",
+  "chapter": 1,
+  "idx": 4,
+  "title": "Types of capacitor and capacitance 127 8.10 Energy stored in an inductor",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "thermodynamics",
+  "chapter": 3,
+  "idx": 6,
+  "title": "Appendix G An Abbreviated Table of Integrals",
+  "why": "junk-certain: front/back-matter furniture"
+ },
+ {
+  "op": "remove",
+  "book": "thermodynamics",
+  "chapter": 3,
+  "idx": 7,
+  "title": "Equations 720 Table of Trigonometric",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "thermodynamics",
+  "chapter": 3,
+  "idx": 7,
+  "title": "A.3 Paper-and-Pencil Methods 723 Appendix G An Abbreviated Table of",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "fluid-mechanics",
+  "chapter": 1,
+  "idx": 4,
+  "title": "Introduction 175 5.1.5 Operation as vDS Is Increased",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "fluid-mechanics",
+  "chapter": 1,
+  "idx": 4,
+  "title": "Introduction 1067 16.1.7 Obtaining the PUN from the PDN",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "salvage",
+  "book": "fluid-mechanics",
+  "chapter": 1,
+  "idx": 4,
+  "title": "Introduction 1192 Index IN-1",
+  "newTitle": "Introduction"
+ },
+ {
+  "op": "remove",
+  "book": "fluid-mechanics",
+  "chapter": 1,
+  "idx": 6,
+  "title": "Cathode-ray tube 947 Appendix: Symbols, Abbreviations, De\ufb01nitions",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "fluid-mechanics",
+  "chapter": 2,
+  "idx": 4,
+  "title": "Force determination 142 9.3 Waveform terms and definitions",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "fluid-mechanics",
+  "chapter": 3,
+  "idx": 4,
+  "title": "Summary of important formulae 281 15.5 Th\u00e9venin\u2019s theorem",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "fluid-mechanics",
+  "chapter": 5,
+  "idx": 5,
+  "title": "Terms and concepts 261 14.11 Selectivity",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "fluid-mechanics",
+  "chapter": 5,
+  "idx": 5,
+  "title": "The j operator 264 Terms and concepts",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "fluid-mechanics",
+  "chapter": 5,
+  "idx": 5,
+  "title": "Signed binary subtraction 525 Terms and concepts",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "salvage",
+  "book": "fluid-mechanics",
+  "chapter": 7,
+  "idx": 4,
+  "title": "Summary 117 Region",
+  "newTitle": "Region"
+ },
+ {
+  "op": "remove",
+  "book": "fluid-mechanics",
+  "chapter": 7,
+  "idx": 6,
+  "title": "Summary of important formulae 261 14.10 Bandwidth",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "fluid-mechanics",
+  "chapter": 7,
+  "idx": 6,
+  "title": "Signed binary addition 524 Summary of important formulae",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "fluid-mechanics",
+  "chapter": 7,
+  "idx": 6,
+  "title": "Summary of important formulae 713 34.4 Demand for electricity and the",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "salvage",
+  "book": "fluid-mechanics",
+  "chapter": 8,
+  "idx": 4,
+  "title": "Terminals 151 4.7.3 Varactors",
+  "newTitle": "Terminals"
+ },
+ {
+  "op": "remove",
+  "book": "heat-transfer",
+  "chapter": 1,
+  "idx": 3,
+  "title": "Slew Rate 113 4.3.7 Operation in the Reverse Breakdown",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "heat-transfer",
+  "chapter": 1,
+  "idx": 4,
+  "title": "Implementation 859 13.1.6 Slew Rate",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "heat-transfer",
+  "chapter": 1,
+  "idx": 5,
+  "title": "Classification of Output Stages 888 13.2.5 Slew Rate",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "heat-transfer",
+  "chapter": 1,
+  "idx": 5,
+  "title": "Transfer Characteristic 890 Mode Range: Rail-to-Rail Input",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "heat-transfer",
+  "chapter": 1,
+  "idx": 5,
+  "title": "Magnitude of the generated or induced e.m.f. 145 9.5 Average and r.m.s. values of an alternating",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "heat-transfer",
+  "chapter": 4,
+  "idx": 4,
+  "title": "Practical Perspective: Transient Effects 474 Summary",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "heat-transfer",
+  "chapter": 4,
+  "idx": 5,
+  "title": "Fibreoptics 613 29.9 Methods of reducing leakage flux",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "heat-transfer",
+  "chapter": 6,
+  "idx": 3,
+  "title": "Impedance Angle Restrictions 396 13.12 Using the Transfer Function to Find the",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "heat-transfer",
+  "chapter": 6,
+  "idx": 3,
+  "title": "Calculating Butterworth Transfer Functions 592 17.7 Applying Parseval\u2019s Theorem to an Ideal",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "heat-transfer",
+  "chapter": 9,
+  "idx": 3,
+  "title": "Diffusion Current 147 Superdiode",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "heat-transfer",
+  "chapter": 9,
+  "idx": 3,
+  "title": "Leakage Currents 288 7.1.6 Determining the VTC by Graphical",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "heat-transfer",
+  "chapter": 9,
+  "idx": 4,
+  "title": "Packages and Heat Sinks 924 14.1.4 Obtaining the Filter Transfer",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "heat-transfer",
+  "chapter": 9,
+  "idx": 4,
+  "title": "The Transfer Function 500 16.4 An Alternative Trigonometric Form of the Fourier",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "heat-transfer",
+  "chapter": 9,
+  "idx": 5,
+  "title": "Leakage and conduction currents in capacitors 126 8.8 Analysis of decay",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "manufacturing-processes",
+  "chapter": 6,
+  "idx": 6,
+  "title": "\u00a9 Cambridge University Press, 1980, 1989",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "industrial-engineering",
+  "chapter": 1,
+  "idx": 5,
+  "title": "Output Current Limits 112 4.3.6 The Ideal-Diode Model",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "industrial-engineering",
+  "chapter": 1,
+  "idx": 6,
+  "title": "Class A Output Stage 890 13.2.6 Increasing the Input Common",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "industrial-engineering",
+  "chapter": 1,
+  "idx": 6,
+  "title": "Class AB Output Stage 902 of the Input Stage",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "industrial-engineering",
+  "chapter": 1,
+  "idx": 11,
+  "title": "RPC system requirements 873 Sensing and Actuation",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "industrial-engineering",
+  "chapter": 1,
+  "idx": 11,
+  "title": "Deflecting systems of a cathode-ray tube 948 and Diagrammatic Symbols",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "industrial-engineering",
+  "chapter": 3,
+  "idx": 4,
+  "title": "The decibel (dB) 369 20.5 Smoothing",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "industrial-engineering",
+  "chapter": 5,
+  "idx": 4,
+  "title": "The Wilson BJT Current Mirror 553 Problems",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "industrial-engineering",
+  "chapter": 6,
+  "idx": 5,
+  "title": "Relationship between D and // 150 4.7 Other Diode Applications",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "industrial-engineering",
+  "chapter": 6,
+  "idx": 6,
+  "title": "317-style regulator: application hints",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "industrial-engineering",
+  "chapter": 6,
+  "idx": 8,
+  "title": "A.4 Applications 725 Integrals",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "industrial-engineering",
+  "chapter": 7,
+  "idx": 6,
+  "title": "Light acceptance 617 29.13 Simplification of the approximate",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "robotics-and-automation",
+  "chapter": 1,
+  "idx": 4,
+  "title": "Loop Biquad 1041 15.4.7 Generating Triangular",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "robotics-and-automation",
+  "chapter": 2,
+  "idx": 4,
+  "title": "A Closer Look at Mutual Inductance 203 9.7 Source Transformations and Th\u00e9venin\u2013Norton",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "robotics-and-automation",
+  "chapter": 4,
+  "idx": 4,
+  "title": "Problems 765 Loop Response",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "cad-cam",
+  "chapter": 1,
+  "idx": 3,
+  "title": "The Oscillation Criterion 1068 16.2 Digital Logic Inverters",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "cad-cam",
+  "chapter": 1,
+  "idx": 6,
+  "title": "The AND function 533 25.9 Digital or analogue?",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "cad-cam",
+  "chapter": 1,
+  "idx": 6,
+  "title": "Digital oscilloscope 950 Index",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "materials-science",
+  "chapter": 1,
+  "idx": 4,
+  "title": "Physical Structure 150 Bootstrapping",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "materials-science",
+  "chapter": 1,
+  "idx": 4,
+  "title": "Summary 169 5.1.1 Device Structure",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "materials-science",
+  "chapter": 1,
+  "idx": 5,
+  "title": "Summary 1057 16.1.3 General Structure of CMOS",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "materials-science",
+  "chapter": 1,
+  "idx": 7,
+  "title": "Source coding 609 29.6 Phasor diagram for an ideal loaded",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "materials-science",
+  "chapter": 3,
+  "idx": 4,
+  "title": "Some Mathematical Properties 673 Appendix C More on Magnetically",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "materials-science",
+  "chapter": 8,
+  "idx": 5,
+  "title": "Practical Perspective: Surge Suppressors 520 16.9 Amplitude and Phase Spectra",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "materials-science",
+  "chapter": 8,
+  "idx": 6,
+  "title": "Binary addition 519 24.6 Deconvolution",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 5,
+  "title": "Simulation Circuit 1034 15.4.3 Triggering the Bistable Circuit",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 5,
+  "title": "Two-Integrator Loop 1040 15.4.6 Generating Square Waveforms",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 5,
+  "title": "Circuit Implementation 1042 Waveforms",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 6,
+  "title": "Biquad Circuit 1044 Summary",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 9,
+  "title": "And RC Circuits 220 Practical Perspective: A Household Distribution",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 9,
+  "title": "Practical Perspective: Artificial Pacemaker 221 Circuit",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 9,
+  "title": "Timing 308 Circuits",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 13,
+  "title": "13.14 A Circuit with Both Internally Generated",
+  "why": "junk-certain: section-number prefix"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 13,
+  "title": "Analyzing a Wye-Wye Circuit 420 and Externally Applied Impulses",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "salvage",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 13,
+  "title": "Circuit 276 15.1 Normalized (so that \u03c9 c = 1 rad s)",
+  "newTitle": "Circuit"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 14,
+  "title": "Charging and discharging currents 110 8.1 Inductive and non-inductive circuits",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 14,
+  "title": "Summary of important formulae 163 10.1 Basic a.c. circuits",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 14,
+  "title": "Terms and concepts 163 10.2 Alternating current in a resistive circuit",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 14,
+  "title": "Networks 400 20.19 Stabilizing voltages supplies",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 14,
+  "title": "Distortion 415 20.28 Integrated circuits",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 2,
+  "idx": 7,
+  "title": "Summary 19 4.5 Introduction to the Mesh-Current",
+  "why": "junk-certain: summary/BIO banner with digits"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 2,
+  "idx": 9,
+  "title": "Mesh-Current Method 135 12.3 Four Useful Transform Pairs",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 3,
+  "idx": 5,
+  "title": "Inductor and Capacitor Duality 198 13.1 Summary of the s-Domain Equivalent",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 3,
+  "idx": 5,
+  "title": "Admittance, conductance and susceptance 269 15 Network Theorems Applied to",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 3,
+  "idx": 5,
+  "title": "Log scales 368 20.4 Bridge rectifier network",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 4,
+  "idx": 6,
+  "title": "And Capacitance 194 9.6 Series, Parallel, and Delta-to-Wye",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 4,
+  "idx": 6,
+  "title": "Problems 715 Complex Poles",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 4,
+  "idx": 7,
+  "title": "Applying Series-Parallel Simplification 62 4.17 Finding the Th\u00e9venin Equivalent Resistance",
+  "why": "junk-certain: two numeric runs (concatenated TOC lines)"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 4,
+  "idx": 9,
+  "title": "Summary of important formulae 149 9.6 Average and r.m.s. values of sinusoidal",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 4,
+  "idx": 10,
+  "title": "Polar admittances 259 14.9 Series resonance using complex notation",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 4,
+  "idx": 11,
+  "title": "Parallel admittance 271 15.1 One stage further",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 5,
+  "idx": 11,
+  "title": "The Need for Rapid Analysis 193 5.4.1 Technology Scaling",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 5,
+  "idx": 13,
+  "title": "Mutual Inductance 199 Simplifications",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 5,
+  "idx": 15,
+  "title": "Finding the Equivalent Inductance 196 8.7 Finding the Underdamped Step Response of a",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 5,
+  "idx": 16,
+  "title": "PSpice Sensitivity Analysis Results 133 12.2 An Abbreviated List of Operational",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 5,
+  "idx": 16,
+  "title": "Network Theorems Applied to AC Networks 325 39 Motor Selection and Efficiency",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 5,
+  "idx": 16,
+  "title": "Analysis of growth and decay 113 8.3 Inductance in terms of flux-linkages",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 5,
+  "idx": 16,
+  "title": "Summary of important formulae 130 8.11 Mutual inductance",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 5,
+  "idx": 16,
+  "title": "Summary of important formulae 244 14 Resonance in AC Circuits",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 7,
+  "idx": 5,
+  "title": "The Resonator Poles 1029 15.2.5 A Final Remark",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 7,
+  "idx": 8,
+  "title": "Transform 444 Practical Perspective: Bass Volume",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 7,
+  "idx": 8,
+  "title": "Practical Perspective: Surge Suppressors 483 16.1 Fourier Series Analysis: An Overview",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 8,
+  "idx": 4,
+  "title": "Summary 561 10 Frequency Response",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 8,
+  "idx": 5,
+  "title": "Introduction 888 13.2.4 Frequency Response",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 8,
+  "idx": 5,
+  "title": "Issues in Deep-Submicron Design 1179 D. Some Useful Network Theorems",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 8,
+  "idx": 5,
+  "title": "The Inductor 184 Domain",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 8,
+  "idx": 5,
+  "title": "Poles and Zeros of F(s) 470 Practical Perspective: Bass Volume",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 8,
+  "idx": 5,
+  "title": "Load Restrictions 395 13.9 Deriving the Transfer Function of a Circuit",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 8,
+  "idx": 5,
+  "title": "Logarithms 365 20.3 Full-wave rectifier network",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 8,
+  "idx": 5,
+  "title": "Frequency response 407 20.23 IGFET",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 9,
+  "idx": 5,
+  "title": "Types 1037 15.4.5 A Bistable Circuit with Noninverting",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 9,
+  "idx": 8,
+  "title": "Designing a High-Q Bandpass Filter 602 18.1 Finding the z Parameters of a Two-Port",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 9,
+  "idx": 8,
+  "title": "Stopband (or bandstop) filters 382 20.9 Common-base and common-emitter circuits",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 9,
+  "idx": 8,
+  "title": "2-port Networks 388 20.11 Static characteristics for a common-emitter circuit",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 9,
+  "idx": 8,
+  "title": "The need for conversion 499 sequential circuits",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "electrical-machines",
+  "chapter": 2,
+  "idx": 5,
+  "title": "Parseval\u2019s Theorem 681 Transformers",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "electrical-machines",
+  "chapter": 2,
+  "idx": 5,
+  "title": "Summary 688 C.2 The Need for Ideal Transformers",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "electrical-machines",
+  "chapter": 2,
+  "idx": 6,
+  "title": "Growth and decay 111 8.2 Unit of inductance",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "electrical-machines",
+  "chapter": 2,
+  "idx": 6,
+  "title": "Summary of important formulae 611 transformer",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "electrical-machines",
+  "chapter": 2,
+  "idx": 6,
+  "title": "Terms and concepts 611 29.7 Useful and leakage fluxes in a transformer",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "electrical-machines",
+  "chapter": 2,
+  "idx": 6,
+  "title": "Summary of important formulae 621 transformer",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "electrical-machines",
+  "chapter": 2,
+  "idx": 6,
+  "title": "Principle of action of a transformer 648 Terms and concepts",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "electrical-machines",
+  "chapter": 4,
+  "idx": 14,
+  "title": "Braking 748 36.4 Armature reaction",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "electrical-machines",
+  "chapter": 4,
+  "idx": 14,
+  "title": "Summary of important formulae 868 40.12 Soft-starting induction motors",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "electrical-machines",
+  "chapter": 5,
+  "idx": 5,
+  "title": "Motor fitted with a cage rotor 747 36.3 Calculation of e.m.f. generated in an",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "power-systems",
+  "chapter": 1,
+  "idx": 4,
+  "title": "Frequency Compensation 858 (CMRR)",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "power-systems",
+  "chapter": 1,
+  "idx": 4,
+  "title": "Power Dissipation 894 13.2.7 Increasing the Output Voltage Range",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "power-systems",
+  "chapter": 1,
+  "idx": 10,
+  "title": "Unbounded Response 250 Practical Perspective: Vampire Power",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "power-systems",
+  "chapter": 1,
+  "idx": 10,
+  "title": "Summary 256 10.3 The RMS Value and Power Calculations",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "power-systems",
+  "chapter": 1,
+  "idx": 13,
+  "title": "Summary 714 E.7 Correcting Straight-Line Amplitude Plots for",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "power-systems",
+  "chapter": 1,
+  "idx": 14,
+  "title": "Powers of 10 10 Household Appliances",
+  "why": "junk-certain: two numeric runs (concatenated TOC lines)"
+ },
+ {
+  "op": "remove",
+  "book": "power-systems",
+  "chapter": 1,
+  "idx": 15,
+  "title": "Force on a current-carrying conductor 140 9.2 Generation of an alternating e.m.f",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "power-systems",
+  "chapter": 2,
+  "idx": 3,
+  "title": "Load Impedance Restriction 396 13.11 Using the Convolution Integral to Find an",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "power-systems",
+  "chapter": 3,
+  "idx": 3,
+  "title": "Breakdown and Input Protection 290 7.2 Small-Signal Operation and Models",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "power-systems",
+  "chapter": 4,
+  "idx": 4,
+  "title": "Practical Perspective: Artificial Pacemaker 255 10.2 Average and Reactive Power",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "power-systems",
+  "chapter": 4,
+  "idx": 4,
+  "title": "Calculating Average and Reactive Power 380 Theorems",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "power-systems",
+  "chapter": 4,
+  "idx": 4,
+  "title": "Calculating Average and Reactive Power 389 13.5 Analyzing a Circuit with Multiple Meshes",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "power-systems",
+  "chapter": 7,
+  "idx": 5,
+  "title": "Summary 309 11.6 Measuring Average Power in Three-Phase",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "power-systems",
+  "chapter": 10,
+  "idx": 6,
+  "title": "Calculating Power in Parallel Loads 390 13.6 Creating a Th\u00e9venin Equivalent in the",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "control-systems",
+  "chapter": 1,
+  "idx": 3,
+  "title": "Miller\u2019s Theorem 699 11 Feedback",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "control-systems",
+  "chapter": 3,
+  "idx": 3,
+  "title": "Basic Principles 366 8 Building Blocks of Integrated",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "control-systems",
+  "chapter": 4,
+  "idx": 6,
+  "title": "Investigating Stability 855 13.1.4 Common-Mode Rejection Ratio",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "control-systems",
+  "chapter": 4,
+  "idx": 7,
+  "title": "Frequency Domain 341 12.1 Using Step Functions to Represent a Function",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "control-systems",
+  "chapter": 6,
+  "idx": 4,
+  "title": "Loading Effects 358 12.8 Finding and Plotting the Poles and Zeros of an",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "control-systems",
+  "chapter": 10,
+  "idx": 5,
+  "title": "Nonlinear Amplitude Control 1073 (VTC)",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "control-systems",
+  "chapter": 10,
+  "idx": 9,
+  "title": "The hybrid stepping motor 876 and Actuators",
+  "why": "junk-certain: page-number/section-code run"
+ },
+ {
+  "op": "remove",
+  "book": "strength-of-materials",
+  "chapter": 7,
+  "idx": 0,
+  "title": "Mohr\u2019s Circle for Plane Stress",
+  "why": "dup within book: kept the ch1 copy"
+ },
+ {
+  "op": "remove",
+  "book": "machine-design",
+  "chapter": 2,
+  "idx": 5,
+  "title": "Designs by the masters: Agilent's world-class \"multislope\" converters",
+  "why": "dup within book: kept the ch1 copy"
+ },
+ {
+  "op": "remove",
+  "book": "materials-science",
+  "chapter": 3,
+  "idx": 3,
+  "title": "Electrical Materials \u2014 electrical engineering materials, crystal structures and defects, ceramic materials, insulating materials; magnetic materials: basics, properties and applications; ferrites, ferro-magnetic materials and components; basics of solid state physics, conductors;",
+  "why": "dup within book: kept the ch1 copy"
+ },
+ {
+  "op": "remove",
+  "book": "electrical-machines",
+  "chapter": 7,
+  "idx": 2,
+  "title": "Power-Angle and Parallel Operation",
+  "why": "dup within book: kept the ch3 copy"
+ },
+ {
+  "op": "move",
+  "book": "engineering-mechanics",
+  "chapter": 1,
+  "idx": 42,
+  "title": "Identities",
+  "targetBook": "ear-training",
+  "targetChapter": 1,
+  "why": "misplaced, grounded (own 0.0 -> ear-training 1.0)"
+ },
+ {
+  "op": "move",
+  "book": "engineering-mechanics",
+  "chapter": 1,
+  "idx": 52,
+  "title": "Introductory",
+  "targetBook": "microeconomics",
+  "targetChapter": 1,
+  "why": "misplaced, grounded (own 0.0 -> microeconomics 0.5)"
+ },
+ {
+  "op": "move",
+  "book": "engineering-mechanics",
+  "chapter": 3,
+  "idx": 5,
+  "title": "Cambridge University Press has no responsibility for the persistence or accuracy of URLs for external or third-party Internet websites referred to in this publication and does not guarantee that any content on such websites is, or will remain, accurate or appropriate",
+  "targetBook": "probability-theory",
+  "targetChapter": 3,
+  "why": "misplaced, grounded (own 0.12 -> probability-theory 0.5)"
+ },
+ {
+  "op": "move",
+  "book": "strength-of-materials",
+  "chapter": 5,
+  "idx": 3,
+  "title": "Input Common-Mode Range and Functions",
+  "targetBook": "heat-and-thermodynamics",
+  "targetChapter": 7,
+  "why": "misplaced, grounded (own 0.4 -> heat-and-thermodynamics 0.8)"
+ },
+ {
+  "op": "move",
+  "book": "strength-of-materials",
+  "chapter": 5,
+  "idx": 6,
+  "title": "The NAND function",
+  "targetBook": "nursing",
+  "targetChapter": 5,
+  "why": "misplaced, grounded (own 0.5 -> nursing 1.0)"
+ },
+ {
+  "op": "move",
+  "book": "strength-of-materials",
+  "chapter": 6,
+  "idx": 6,
+  "title": "A Common-Base (CB)",
+  "targetBook": "physical-chemistry",
+  "targetChapter": 4,
+  "why": "misplaced, grounded (own 0.5 -> physical-chemistry 1.0)"
+ },
+ {
+  "op": "move",
+  "book": "theory-of-machines",
+  "chapter": 1,
+  "idx": 4,
+  "title": "Maintenance \u2014 failure concepts and characteristics, reliability, failure analysis; machine vibration, data acquisition, fault detection, vibration monitoring; field balancing of rotors; noise monitoring; wear and debris analysis; signature analysis; NDT techniques in condition monitoring",
+  "targetBook": "physical-chemistry",
+  "targetChapter": 12,
+  "why": "misplaced, grounded (own 0.17 -> physical-chemistry 0.5)"
+ },
+ {
+  "op": "move",
+  "book": "theory-of-machines",
+  "chapter": 2,
+  "idx": 7,
+  "title": "Using the General Solution Method to Find an 9.3 Translating a Sine Expression to a Cosine",
+  "targetBook": "foundation-chemistry",
+  "targetChapter": 8,
+  "why": "misplaced, grounded (own 0.25 -> foundation-chemistry 0.5)"
+ },
+ {
+  "op": "remove",
+  "book": "machine-design",
+  "chapter": 6,
+  "idx": 4,
+  "title": "B.6 The Roots of a Complex Number",
+  "why": "misplaced; already covered in inorganic-chemistry"
+ },
+ {
+  "op": "remove",
+  "book": "fluid-mechanics",
+  "chapter": 1,
+  "idx": 2,
+  "title": "Surface Tension and Capillarity",
+  "why": "misplaced; already covered in properties-of-matter"
+ },
+ {
+  "op": "move",
+  "book": "heat-transfer",
+  "chapter": 4,
+  "idx": 4,
+  "title": "Capacitance of a multi-plate capacitor",
+  "targetBook": "electricity-and-magnetism",
+  "targetChapter": 4,
+  "why": "misplaced, grounded (own 0.5 -> electricity-and-magnetism 0.75)"
+ },
+ {
+  "op": "move",
+  "book": "manufacturing-processes",
+  "chapter": 1,
+  "idx": 6,
+  "title": "Logic pathology",
+  "targetBook": "plant-anatomy",
+  "targetChapter": 3,
+  "why": "misplaced, grounded (own 0.5 -> plant-anatomy 1.0)"
+ },
+ {
+  "op": "remove",
+  "book": "industrial-engineering",
+  "chapter": 1,
+  "idx": 3,
+  "title": "Refrigeration and Air conditioning \u2014 vapour compression refrigeration, refrigerants and working cycles, compressors, condensers, evaporators and expansion devices; other refrigeration systems (vapour absorption, vapour jet, thermo-electric, vortex tube); psychrometric properties and processes,",
+  "why": "misplaced; already covered in thermodynamics"
+ },
+ {
+  "op": "move",
+  "book": "industrial-engineering",
+  "chapter": 1,
+  "idx": 5,
+  "title": "It furthers the University's mission by disseminating knowledge in the pursuit of education, learning, and research at the highest international levels of excellence",
+  "targetBook": "sociology",
+  "targetChapter": 2,
+  "why": "misplaced, grounded (own 0.08 -> sociology 0.5)"
+ },
+ {
+  "op": "remove",
+  "book": "industrial-engineering",
+  "chapter": 6,
+  "idx": 4,
+  "title": "Computer organization \u2014 basic architecture, CPU, I/O organisation, memory organisation, peripheral devices, trends; hardware/software issues; data representation and programming; operating systems: basics, processes, characteristics, applications; memory management, virtual memory, file systems,",
+  "why": "misplaced; already covered in community-medicine"
+ },
+ {
+  "op": "move",
+  "book": "cad-cam",
+  "chapter": 2,
+  "idx": 2,
+  "title": "Transformations by Matrices",
+  "targetBook": "microbiology",
+  "targetChapter": 3,
+  "why": "misplaced, grounded (own 0.5 -> microbiology 1.0)"
+ },
+ {
+  "op": "remove",
+  "book": "materials-science",
+  "chapter": 1,
+  "idx": 4,
+  "title": "Structure of Actual Transistors",
+  "why": "misplaced; already covered in foundation-chemistry"
+ },
+ {
+  "op": "move",
+  "book": "materials-science",
+  "chapter": 1,
+  "idx": 5,
+  "title": "Using Phasor Diagrams to Analyze Capacitive Improper Rational Function",
+  "targetBook": "heat-and-thermodynamics",
+  "targetChapter": 6,
+  "why": "misplaced, grounded (own 0.12 -> heat-and-thermodynamics 0.5)"
+ },
+ {
+  "op": "move",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 5,
+  "title": "An Alternative Two-Integrator-Loop 15.4.8 Generation of Sine Waves",
+  "targetBook": "foundation-physics",
+  "targetChapter": 8,
+  "why": "misplaced, grounded (own 0.43 -> foundation-physics 0.57)"
+ },
+ {
+  "op": "move",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 8,
+  "title": "Adding a Resistive Load to a Voltage 4.19 Finding the Th\u00e9venin Equivalent of a Circuit",
+  "targetBook": "foundation-physics",
+  "targetChapter": 10,
+  "why": "misplaced, grounded (own 0.38 -> foundation-physics 0.5)"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 1,
+  "idx": 10,
+  "title": "Determining Average Power Delivered to a 13.1 Transforming a Circuit into the s Domain",
+  "why": "misplaced; already covered in foundation-physics"
+ },
+ {
+  "op": "move",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 4,
+  "idx": 7,
+  "title": "Determining the Step Response of a Circuit with 9.5 Adding Cosines Using Phasors",
+  "targetBook": "foundation-physics",
+  "targetChapter": 10,
+  "why": "misplaced, grounded (own 0.38 -> foundation-physics 0.5)"
+ },
+ {
+  "op": "move",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 5,
+  "idx": 8,
+  "title": "Basic Electrical Engineering \u2014 DC circuits: Ohm's and Kirchhoff's laws, mesh and nodal analysis, circuit theorems; electromagnetism, Faraday's and Lenz's laws, induced EMF and its uses; single-phase AC circuits; transformers, efficiency; basics of DC machines, induction machines and synchronous",
+  "targetBook": "engineering-mechanics",
+  "targetChapter": 3,
+  "why": "misplaced, grounded (own 0.48 -> engineering-mechanics 0.52)"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 6,
+  "idx": 7,
+  "title": "Using the General Solution Method to Find an 9.2 Finding the Characteristics of a Sinusoidal",
+  "why": "misplaced; already covered in foundation-chemistry"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 7,
+  "idx": 4,
+  "title": "Engineering Mathematics \u2014 matrix theory, eigen values and eigen vectors; numerical methods for solution of non-linear algebraic equations and differential equations; Fourier series; linear, non-linear and partial differential equations; complex variables; probability and statistics fundamentals,",
+  "why": "misplaced; already covered in foundation-chemistry"
+ },
+ {
+  "op": "remove",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 9,
+  "idx": 1,
+  "title": "Conversions and Equivalent Circuits",
+  "why": "misplaced; already covered in electrical-machines"
+ },
+ {
+  "op": "move",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 9,
+  "idx": 3,
+  "title": "Communication networks \u2014 principles/practices/technologies/uses; OSI model/security; basic packet multiplexed streams/scheduling; cellular networks: types, analysis; protocols (TCP/TCPIP)",
+  "targetBook": "physical-chemistry",
+  "targetChapter": 3,
+  "why": "misplaced, grounded (own 0.16 -> physical-chemistry 0.5)"
+ },
+ {
+  "op": "remove",
+  "book": "control-systems",
+  "chapter": 4,
+  "idx": 4,
+  "title": "Microwave and satellite communication \u2014 terrestrial/space type LOS systems, block schematics, link calculations, system design",
+  "why": "misplaced; already covered in embedded-systems"
+ },
+ {
+  "op": "move",
+  "book": "control-systems",
+  "chapter": 10,
+  "idx": 4,
+  "title": "Mechatronics \u2014 microprocessors and microcontrollers: architecture, programming, I/O, computer interfacing; programmable logic controller; sensors and actuators (piezoelectric accelerometer, Hall effect sensor, optical encoder, resolver, inductosyn, pneumatic and hydraulic actuators, stepper motor);",
+  "targetBook": "industrial-engineering",
+  "targetChapter": 6,
+  "why": "misplaced, grounded (own 0.17 -> industrial-engineering 0.5)"
+ },
+ {
+  "op": "move-chapter",
+  "book": "machine-design",
+  "chapter": 1,
+  "idx": 2,
+  "title": "From Stress to Dimension",
+  "targetChapter": 2,
+  "why": "fits ch2 \"Static Loading and the Failure Theories\" (0.5 vs 0.0)"
+ },
+ {
+  "op": "move-chapter",
+  "book": "thermodynamics",
+  "chapter": 1,
+  "idx": 2,
+  "title": "Processes and Cycles",
+  "targetChapter": 5,
+  "why": "fits ch5 \"The Second Law\" (1.0 vs 0.5)"
+ },
+ {
+  "op": "move-chapter",
+  "book": "thermodynamics",
+  "chapter": 8,
+  "idx": 3,
+  "title": "The Cycle Comparison Census",
+  "targetChapter": 1,
+  "why": "fits ch1 \"The Energy Worldview\" (0.67 vs 0.33)"
+ },
+ {
+  "op": "move-chapter",
+  "book": "thermodynamics",
+  "chapter": 9,
+  "idx": 1,
+  "title": "Reheat and Regeneration",
+  "targetChapter": 8,
+  "why": "fits ch8 \"Gas Power Cycles\" (1.0 vs 0.5)"
+ },
+ {
+  "op": "move-chapter",
+  "book": "robotics-and-automation",
+  "chapter": 6,
+  "idx": 0,
+  "title": "The Lagrangian Route for Arms",
+  "targetChapter": 4,
+  "why": "fits ch4 \"Inverse Kinematics\" (0.67 vs 0.33)"
+ },
+ {
+  "op": "move-chapter",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 4,
+  "idx": 1,
+  "title": "Impedance Arithmetic",
+  "targetChapter": 5,
+  "why": "fits ch5 \"Resonance and Coupled Circuits\" (1.0 vs 0.5)"
+ },
+ {
+  "op": "move-chapter",
+  "book": "circuit-theory-and-network-analysis",
+  "chapter": 5,
+  "idx": 4,
+  "title": "RLC Circuits and Natural, Forced and Complete Responses",
+  "targetChapter": 8,
+  "why": "fits ch8 \"Network Functions and Frequency Response\" (0.5 vs 0.17)"
+ },
+ {
+  "op": "move-chapter",
+  "book": "electrical-machines",
+  "chapter": 2,
+  "idx": 0,
+  "title": "The Equivalent Circuit Earned",
+  "targetChapter": 5,
+  "why": "fits ch5 \"Three-Phase Induction Machines\" (1.0 vs 0.67)"
+ },
+ {
+  "op": "move-chapter",
+  "book": "electrical-machines",
+  "chapter": 4,
+  "idx": 6,
+  "title": "Three-Phase Induction Motors: Construction and Slip",
+  "targetChapter": 5,
+  "why": "fits ch5 \"Three-Phase Induction Machines\" (0.83 vs 0.17)"
+ },
+ {
+  "op": "move-chapter",
+  "book": "electrical-machines",
+  "chapter": 4,
+  "idx": 6,
+  "title": "Alternators and Synchronous Machines",
+  "targetChapter": 7,
+  "why": "fits ch7 \"Synchronous Machines\" (0.67 vs 0.33)"
+ },
+ {
+  "op": "move-chapter",
+  "book": "electrical-machines",
+  "chapter": 4,
+  "idx": 6,
+  "title": "Single-Phase Motors: Split Phase, Capacitor and Universal",
+  "targetChapter": 6,
+  "why": "fits ch6 \"Single-Phase Induction and Special Machines\" (1.0 vs 0.0)"
+ },
+ {
+  "op": "move-chapter",
+  "book": "electrical-machines",
+  "chapter": 4,
+  "idx": 7,
+  "title": "Reluctance motor",
+  "targetChapter": 6,
+  "why": "fits ch6 \"Single-Phase Induction and Special Machines\" (0.5 vs 0.0)"
+ },
+ {
+  "op": "move-chapter",
+  "book": "electrical-machines",
+  "chapter": 4,
+  "idx": 10,
+  "title": "Selecting a motor",
+  "targetChapter": 6,
+  "why": "fits ch6 \"Single-Phase Induction and Special Machines\" (0.5 vs 0.0)"
+ }
+]

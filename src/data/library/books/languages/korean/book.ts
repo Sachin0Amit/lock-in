@@ -28,7 +28,6 @@ const chapters: Chapter[] = [
       'The Consonants\u2019 Shape-as-Articulation',
       'The Vowels\u2019 Strokes and Philosophy',
       'The Fifteen Minutes\u2019 Honest Promise',
-      '第4課 メアリーさんのしゅうまつ Mary\'s Weekend'
     ],
   },
   {
@@ -74,7 +73,6 @@ const chapters: Chapter[] = [
       'The Questions and the Enders\u2019 Census',
       'The Conjunctions\u2019 First Set',
       'The Reported Speech\u2019s Korean Way',
-      'Adverbs of direction: hin and her'
     ],
   },
   {
@@ -120,8 +118,6 @@ const chapters: Chapter[] = [
       'The Journal, Message and Email Suits',
       'The 2-Set Keyboard\u2019s Map',
       'The First Real Texts',
-      'Abbrev. abbreviated',
-      'Coll. colloquial'
     ],
   },
   {

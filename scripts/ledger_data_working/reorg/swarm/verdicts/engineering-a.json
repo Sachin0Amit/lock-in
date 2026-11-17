@@ -1,0 +1,4018 @@
+{
+ "agent": "engineering-a",
+ "autoReview": [
+  {
+   "book": "machine-design",
+   "chapter": 1,
+   "title": "From Stress to Dimension",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Veto the ch1->ch2 move: this is the design discipline's charter (stress turned into dimensions), the thesis lesson of ch1 The Design Discipline; it is not a static-loading lesson."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 1,
+   "title": "Processes and Cycles",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Veto the ch1->ch5 move: thermodynamic process/cycle vocabulary is ch1 The Energy Worldview fundamental content; the Second Law chapter is not its home."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 8,
+   "title": "The Cycle Comparison Census",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Veto the ch8->ch1 move: the comparative census of gas cycles caps the cycles arc in ch8; the worldview chapter is not its home."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 9,
+   "title": "Reheat and Regeneration",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Veto the ch9->ch8 move: reheat and regeneration are Rankine (vapour-power) improvements \u2014 ch9 content; gas-cycle improvements already have their own ch8 lesson (Regeneration, Reheat, Intercooling). Genuinely different cycle families."
+  },
+  {
+   "book": "robotics-and-automation",
+   "chapter": 6,
+   "title": "The Lagrangian Route for Arms",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Veto the ch6->ch4 move: Lagrangian dynamics of arms is ch6 Dynamics and Trajectory Generation content, not inverse kinematics."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 4,
+   "title": "Impedance Arithmetic",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Veto the ch4->ch5 move: phasor-domain impedance arithmetic is the core of ch4 Sinusoidal Steady State."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 5,
+   "title": "RLC Circuits and Natural, Forced and Complete Responses",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Veto the ch5->ch8 move: the RLC response taxonomy grounds the resonance chapter (with ch5 'Damped Oscillation and the Quality Factor'); Network Functions is not its home \u2014 if anywhere it leans toward ch7 Transients."
+  },
+  {
+   "book": "electrical-machines",
+   "chapter": 2,
+   "title": "The Equivalent Circuit Earned",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Veto the ch2->ch5 move: the transformer equivalent circuit is ch2 The Single-Phase Transformer core; ch5 has its own authored induction-machine lesson ('The Equivalent Circuit Identified') \u2014 distinct treatments."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 7,
+   "title": "Mohr\u2019s Circle for Plane Stress",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Veto the removal: there is no ch1 copy ('Stress on the Oblique Plane' is the precursor concept, not a duplicate). Mohr's circle for plane stress is the anchor lesson of ch7 Transformation of Stress and Strain."
+  },
+  {
+   "book": "electrical-machines",
+   "chapter": 7,
+   "title": "Power-Angle and Parallel Operation",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Veto the removal: not a duplicate of ch3 'Parallel Operation\u2019s Conditions' (transformer paralleling). Synchronous-machine power-angle and paralleling is distinct ch7 content."
+  },
+  {
+   "book": "cad-cam",
+   "chapter": 2,
+   "title": "Transformations by Matrices",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Veto the move to microbiology: matrix transformations of geometry are core CAD content of ch2 Geometric Modelling; microbiology is a token-score artifact."
+  },
+  {
+   "book": "fluid-mechanics",
+   "chapter": 1,
+   "title": "Surface Tension and Capillarity",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Veto the removal: fluid properties own the engineering treatment (capillarity/cavitation as fluid properties in ch1 The Fluid Idea); properties-of-matter owns the physics-side molecular treatment \u2014 genuinely different syllabus treatments, keep-both."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 9,
+   "title": "Conversions and Equivalent Circuits",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Veto the removal: two-port parameter conversions (z/y/h/g/ABCD) and their equivalent circuits is core ch9 Two-Port Networks content; it is not covered in electrical-machines."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Identities",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: junk AoE appendix fragment; ear-training is an absurd target."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Introductory",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: junk fragment; microeconomics is an absurd target."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 3,
+   "title": "Cambridge University Press has no responsibility for the persistence or accuracy of URLs for external or third-party Internet websites referred to in this publication and does not guarantee that any content on such websites is, or will remain, accurate or appropriate",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: publisher disclaimer boilerplate; probability-theory is an absurd target."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 5,
+   "title": "Input Common-Mode Range and Functions",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: op-amp TOC stray; heat-and-thermodynamics is an absurd target."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 5,
+   "title": "The NAND function",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: digital-logic stray covered by digital-logic-design ch2; nursing is an absurd target."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 6,
+   "title": "A Common-Base (CB)",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: electronics TOC fragment; physical-chemistry is an absurd target."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 1,
+   "title": "Maintenance \u2014 failure concepts and characteristics, reliability, failure analysis; machine vibration, data acquisition, fault detection, vibration monitoring; field balancing of rotors; noise monitoring; wear and debris analysis; signature analysis; NDT techniques in condition monitoring",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: concatenated ESE-syllabus dump, covered piecemeal by ToM ch8 (balancing) and ch10 (vibrations); physical-chemistry is an absurd target."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 2,
+   "title": "Using the General Solution Method to Find an 9.3 Translating a Sine Expression to a Cosine",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: concatenated circuits-book junk; foundation-chemistry is an absurd target."
+  },
+  {
+   "book": "manufacturing-processes",
+   "chapter": 1,
+   "title": "Logic pathology",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: digital-electronics junk; plant-anatomy is an absurd target."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 1,
+   "title": "It furthers the University's mission by disseminating knowledge in the pursuit of education, learning, and research at the highest international levels of excellence",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: publisher boilerplate; sociology is an absurd target."
+  },
+  {
+   "book": "materials-science",
+   "chapter": 1,
+   "title": "Using Phasor Diagrams to Analyze Capacitive Improper Rational Function",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: concatenated junk line; heat-and-thermodynamics is an absurd target."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 1,
+   "title": "An Alternative Two-Integrator-Loop 15.4.8 Generation of Sine Waves",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: concatenated analog-electronics junk; foundation-physics is an absurd target."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 1,
+   "title": "Adding a Resistive Load to a Voltage 4.19 Finding the Th\u00e9venin Equivalent of a Circuit",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: concatenated junk; Th\u00e9venin is covered by circuit-theory ch3 The Theorem Census."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 4,
+   "title": "Determining the Step Response of a Circuit with 9.5 Adding Cosines Using Phasors",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: concatenated junk; foundation-physics is an absurd target."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 5,
+   "title": "Basic Electrical Engineering \u2014 DC circuits: Ohm's and Kirchhoff's laws, mesh and nodal analysis, circuit theorems; electromagnetism, Faraday's and Lenz's laws, induced EMF and its uses; single-phase AC circuits; transformers, efficiency; basics of DC machines, induction machines and synchronous",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: syllabus dump covered across circuit-theory ch1-2, electrical-machines and electricity-and-magnetism; engineering-mechanics is an absurd target."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 9,
+   "title": "Communication networks \u2014 principles/practices/technologies/uses; OSI model/security; basic packet multiplexed streams/scheduling; cellular networks: types, analysis; protocols (TCP/TCPIP)",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: syllabus dump covered by computer-networks; physical-chemistry is an absurd target."
+  },
+  {
+   "book": "control-systems",
+   "chapter": 10,
+   "title": "Mechatronics \u2014 microprocessors and microcontrollers: architecture, programming, I/O, computer interfacing; programmable logic controller; sensors and actuators (piezoelectric accelerometer, Hall effect sensor, optical encoder, resolver, inductosyn, pneumatic and hydraulic actuators, stepper motor);",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend move->remove: syllabus dump covered by robotics-and-automation ch7-8 (sensors/actuators, automation) and embedded-systems; industrial-engineering is not its home."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 4,
+   "title": "Gates 1167 Summary",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend salvage->remove: junk page-run; a bare 'Gates' lesson in the friction chapter is noise, not a salvage."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 3,
+   "title": "Summary 476 Problems",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend salvage->remove: junk page-run; a bare 'Problems' lesson is noise."
+  },
+  {
+   "book": "fluid-mechanics",
+   "chapter": 1,
+   "title": "Introduction 1192 Index IN-1",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend salvage->remove: junk page-run; a bare 'Introduction' lesson is noise."
+  },
+  {
+   "book": "fluid-mechanics",
+   "chapter": 7,
+   "title": "Summary 117 Region",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend salvage->remove: junk page-run; a bare 'Region' lesson is noise."
+  },
+  {
+   "book": "fluid-mechanics",
+   "chapter": 8,
+   "title": "Terminals 151 4.7.3 Varactors",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend salvage->remove: junk page-run; a bare 'Terminals' lesson is noise."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 1,
+   "title": "Circuit 276 15.1 Normalized (so that \u03c9 c = 1 rad s)",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Amend salvage->remove: junk page-run; a bare 'Circuit' lesson is noise."
+  }
+ ],
+ "misplaced": [
+  {
+   "book": "cad-cam",
+   "chapter": 1,
+   "title": "Multiplexed LED digital display",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray (multiplexed LED display)."
+  },
+  {
+   "book": "cad-cam",
+   "chapter": 8,
+   "title": "OT Security Named",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored: operational-technology security is an Industry 4.0 (ch8) topic; internet-of-things is the computer-science-side treatment."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 1,
+   "title": "The Two-Input NOR Gate",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital stray; covered by digital-logic-design ch2 Boolean Algebra and Logic Gates."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 1,
+   "title": "The Two-Input NAND Gate",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital stray; covered by digital-logic-design ch2."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 1,
+   "title": "Two important details",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk fragment."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 2,
+   "title": "Using Essential Nodes and Essential Branches",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Cut-off fragment; essential nodes/branches are part of ch2's systematic methods already."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 4,
+   "title": "Addition and subtraction of sinusoidal",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Hughes TOC fragment; sinusoid addition is owned by ch4 Phasors: the Coordinate Change."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 4,
+   "title": "Addition and subtraction of phasors",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Hughes TOC fragment; phasor arithmetic is owned by ch4."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 5,
+   "title": "Graphical Analysis Using the MOSFET",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray (MOSFET graphical analysis)."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 5,
+   "title": "The Role of the Substrate\u2014The Body Analysis",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray (substrate body effect)."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 5,
+   "title": "Finding the Unbounded Response in an RC",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Cut-off fragment."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 5,
+   "title": "Analysis of the resultant flux due to",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Cut-off fragment; resultant rotating flux is owned by electrical-machines ch5."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 6,
+   "title": "\"Two out of three isn't bad\": creating a perfect op-amp",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (op-amp creation)."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 7,
+   "title": "A final remark",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk fragment."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 7,
+   "title": "Sequential Switching",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Stray TOC line; sequential-switching transients fold into ch7 first-order treatment."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 9,
+   "title": "ADC Technologies",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Stray; data conversion owned by analog-electronics ch9 Data Conversion and the Doorstep."
+  },
+  {
+   "book": "control-systems",
+   "chapter": 1,
+   "title": "Basic Principles of Sinusoidal and Vice Versa",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk line."
+  },
+  {
+   "book": "control-systems",
+   "chapter": 1,
+   "title": "Feedback shift register sequences",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital stray; feedback shift-register sequences covered by digital-logic-design ch6 Sequential Logic."
+  },
+  {
+   "book": "control-systems",
+   "chapter": 3,
+   "title": "ADCs I: Parallel (\"flash\") encoder",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray; data conversion owned by analog-electronics ch9."
+  },
+  {
+   "book": "control-systems",
+   "chapter": 4,
+   "title": "Active peak detector",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (active peak detector)."
+  },
+  {
+   "book": "control-systems",
+   "chapter": 5,
+   "title": "Stability Stated Honestly",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored: the stability statement opens ch5 Stability and Routh-Hurwitz; the DSP/fluids scores are artifacts."
+  },
+  {
+   "book": "control-systems",
+   "chapter": 5,
+   "title": "Some comments about logic inputs",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (logic inputs)."
+  },
+  {
+   "book": "control-systems",
+   "chapter": 10,
+   "title": "Programmable logic \u2013 HDL entry",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital stray; HDL entry covered by digital-logic-design ch9 Programmable and Modern Logic."
+  },
+  {
+   "book": "control-systems",
+   "chapter": 10,
+   "title": "Implementation with a microcontroller",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray; microcontroller implementation covered by embedded-systems."
+  },
+  {
+   "book": "electrical-machines",
+   "chapter": 2,
+   "title": "RFID: Identification at a Distance",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (RFID)."
+  },
+  {
+   "book": "electrical-machines",
+   "chapter": 2,
+   "title": "Analyzing a Linear Transformer in the Frequency F(s) Has Distinct Complex Roots",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated circuits junk line."
+  },
+  {
+   "book": "electrical-machines",
+   "chapter": 7,
+   "title": "Parallel chip \"bus\" interface \u2013 an example",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (bus interfacing)."
+  },
+  {
+   "book": "electrical-machines",
+   "chapter": 8,
+   "title": "Efficiency Tested Indirectly",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored: indirect efficiency testing (summation of losses) is exactly ch8 Losses, Efficiency and the Doorstep content."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Viii Contents",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter contents-header junk (AoE TOC run)."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "X Contents",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter contents-header junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Reduction in Nonlinear",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE TOC cut-off fragment; no engineering-mechanics home."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Xii Contents",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter contents-header junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "From Indication to Illumination",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE optoelectronics section fragment ('from indication to illumination' = LEDs/displays); no authored home."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "CAMBRIDGE",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Imprint junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Third edition",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Edition-statement junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Bootstrapping",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE circuit-technique stray (bootstrapping); covered by analog-electronics."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "It's impossible!",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE section fragment junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Wrong \u2013 it is possible!",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE section fragment junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "The 34401A 6.5-digit front end",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE DMM front-end stray."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "In defense of the beleaguered",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE fragment junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Three-terminal precision references",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE voltage-reference stray."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "The basic PAL",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Programmable-logic stray; covered by digital-logic-design ch9 Programmable and Modern Logic."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "The FPGA",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Programmable-logic stray; covered by digital-logic-design ch9."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Advice",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk fragment."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Some preliminaries",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk fragment."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Idle tones",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE delta-sigma stray ('idle tones')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "B.4 Useful Identities",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Appendix-code junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Frequencies",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk fragment."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Contents ix",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter contents-header junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Contents xi",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter contents-header junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Contents xiii",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter contents-header junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Xiv Contents",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter contents-header junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Contents xv",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter contents-header junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "WEBSITE",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 2,
+   "title": "What about MOSFETs?",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE electronics stray."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 3,
+   "title": "Effects of Fan-In and Fan-Out on Problems",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital-logic stray (fan-in/fan-out); covered by digital-logic-design."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 3,
+   "title": "Not quite perfect",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk fragment."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 3,
+   "title": "Additional Exercises for Chapter",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Back-matter junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 3,
+   "title": "Review of Chapter",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Back-matter junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 4,
+   "title": "The Common-Gate (CG) and the",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics TOC cut-off fragment."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 4,
+   "title": "Catalog of common gates",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital-logic stray."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 4,
+   "title": "Shift registers",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital-electronics TOC stray; covered by digital-logic-design ch7 Registers, Counters and the Memory Unit."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 5,
+   "title": "Th\u00e9venin's theorem generalized",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Circuits-book TOC stray; covered by circuit-theory-and-network-analysis ch3 The Theorem Census."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 5,
+   "title": "Parallel buses and data links",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Computer-hardware stray; covered by computer-organization-architecture."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 8,
+   "title": "Angular Momentum and the Gyroscopic Glimpse",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored kinetics lesson: angular momentum is the rigid-body kinetic relation (ch8), and 'the Gyroscopic Glimpse' is this book's deliberate doorstep toward theory-of-machines ch9; token score is an artifact."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 8,
+   "title": "Second edition",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Edition-statement junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 10,
+   "title": "Minimization and Karnaugh maps",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital-logic stray; covered by digital-logic-design ch3 Simplification of Boolean Functions."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 10,
+   "title": "A simple SAR example",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE ADC stray."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 10,
+   "title": "To Write Simultaneous Equations",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk fragment."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 10,
+   "title": "Karnaugh maps for simplifying",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital-logic stray; covered by digital-logic-design ch3."
+  },
+  {
+   "book": "fluid-mechanics",
+   "chapter": 10,
+   "title": "The Doorsteps: Machines Elsewhere, Rates Above",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored doorstep section of ch10 The Turbomachinery Principle and the Doorstep (machines elsewhere, transport rates above); fits its chapter."
+  },
+  {
+   "book": "heat-transfer",
+   "chapter": 1,
+   "title": "Active Mode",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray (transistor active mode)."
+  },
+  {
+   "book": "heat-transfer",
+   "chapter": 1,
+   "title": "Input Common-Mode Range and",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Op-amp TOC cut-off stray."
+  },
+  {
+   "book": "heat-transfer",
+   "chapter": 8,
+   "title": "Switchers: top-level view",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (switching supplies)."
+  },
+  {
+   "book": "heat-transfer",
+   "chapter": 8,
+   "title": "Practical Perspective: A Household Distribution",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Irwin TOC stray; household distribution is circuit-theory ch6 three-phase treatment."
+  },
+  {
+   "book": "heat-transfer",
+   "chapter": 8,
+   "title": "Practical Perspective: Clock for Computer Problems",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Irwin TOC stray."
+  },
+  {
+   "book": "heat-transfer",
+   "chapter": 9,
+   "title": "The Doorsteps: Solar, Grids, Silicon",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored doorstep section of ch9 The Synthesis and the Doorstep (solar radiation, exchanger grids, silicon cooling); fits its chapter."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 1,
+   "title": "Productivity Measured Honestly",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored: productivity is the production-system chapter's core metric; operations-management is the business-side treatment (keep-both across disciplines)."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 1,
+   "title": "Current issues of national and international importance relating to social, economic and industrial development",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "ESE general-studies syllabus dump; no engineering home."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 1,
+   "title": "Production of rotating magnetic flux by",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electrical cut-off fragment; rotating field owned by electrical-machines ch5 The Rotating Field Earned."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 4,
+   "title": "Lean: the Pull Discipline",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored: lean is named in the ch4 chapter title (Scheduling, MRP and Lean) \u2014 exact fit."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 6,
+   "title": "Queues Priced on Service Systems",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored: queueing is the operations-research application layer (ch6); the embedded-systems score is a token artifact."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 6,
+   "title": "Graphical Representation of",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Cut-off fragment."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 6,
+   "title": "Some DAC application examples",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (DAC applications)."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 6,
+   "title": "Parallel multichannel delta-sigma data-acquisition system",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (delta-sigma DAQ)."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 7,
+   "title": "Six Sigma Named Honestly",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored: Six Sigma is quality-control (ch7) content; operations-management's register is the business-side treatment."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 1,
+   "title": "From Stress to Dimension",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored: the design discipline's charter (stress analysis turned into dimensions) \u2014 the thesis of ch1 The Design Discipline, not strength-of-materials content."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 1,
+   "title": "Nonvolatile memory",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Computer stray; nonvolatile memory covered by computer-organization-architecture ch6/ch8."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 2,
+   "title": "Hans Camenzind: The Inventor of the Class D",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE biographical sidebar (Hans Camenzind)."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 2,
+   "title": "Printed in the United States of America",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Imprint junk."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 2,
+   "title": "ADCs: choices and tradeoffs",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray; data conversion owned by analog-electronics ch9 Data Conversion and the Doorstep."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 3,
+   "title": "The golden rules",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE op-amp 'golden rules' stray."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 6,
+   "title": "Number per package",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('number per package')."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 6,
+   "title": "Hexadecimal numbers",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital stray; hexadecimal covered by digital-logic-design ch1 Binary Systems."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "Databases and languages \u2014 data bases: different types, characteristics and design; transactions and concurrency control; elements of programming languages, typical examples",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "ESE syllabus dump; covered by database-management-systems and programming-languages-paradigms."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "Realization of the Various Filter Element",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics cut-off fragment (filter realisation); covered by analog-electronics ch5 Active Filters."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "An example: \"It's too hot!\"",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE example stray."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "An example: the millivoltmeter, revisited",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE example stray."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "Contents (page xiii)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter contents junk."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "A simple design example: loudspeaker as microphone",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE example stray."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "An example: pseudorandom byte generator",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE example stray."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "Contents (page xvii)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter contents junk."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "Contents (page xviii)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter contents junk."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "List of Examples xii",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter list junk."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "List of Examples",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter list junk."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "List of Examples xiii",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter list junk."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "Xiv List of Examples",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter list junk."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "List of Examples xv",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter list junk."
+  },
+  {
+   "book": "manufacturing-processes",
+   "chapter": 1,
+   "title": "Fabricated in CMOS and Bipolar Processes K-1",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk / stray auto-appended TOC line with no correct home in this book."
+  },
+  {
+   "book": "manufacturing-processes",
+   "chapter": 1,
+   "title": "Manufacturing spread of FET characteristics",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk / stray auto-appended TOC line with no correct home in this book."
+  },
+  {
+   "book": "manufacturing-processes",
+   "chapter": 1,
+   "title": "Logic identities",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk / stray auto-appended TOC line with no correct home in this book."
+  },
+  {
+   "book": "manufacturing-processes",
+   "chapter": 1,
+   "title": "II: Logic-output optocouplers",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk / stray auto-appended TOC line with no correct home in this book."
+  },
+  {
+   "book": "manufacturing-processes",
+   "chapter": 5,
+   "title": "Tool Geometry by Two Systems",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored machining lesson: tool geometry in the ASA and orthogonal rake systems \u2014 core of ch5 Machining Mechanics."
+  },
+  {
+   "book": "manufacturing-processes",
+   "chapter": 7,
+   "title": "B.2 The Graphical Representation of a Complex",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk / stray auto-appended TOC line with no correct home in this book."
+  },
+  {
+   "book": "materials-science",
+   "chapter": 1,
+   "title": "Using Phasor Diagrams to Analyze a F(s) Has Repeated Complex Roots",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated circuits junk line."
+  },
+  {
+   "book": "materials-science",
+   "chapter": 2,
+   "title": "The Four Bond Families Priced",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored: the four bond families (ionic, covalent, metallic, van der Waals) are ch2 Atomic Structure and Interatomic Bonding core."
+  },
+  {
+   "book": "materials-science",
+   "chapter": 2,
+   "title": "Short contents",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter junk ('short contents')."
+  },
+  {
+   "book": "materials-science",
+   "chapter": 8,
+   "title": "Unity-gain phase splitter",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray (phase splitter)."
+  },
+  {
+   "book": "materials-science",
+   "chapter": 8,
+   "title": "Plotting the Amplitude and Phase Spectra for a",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Signals cut-off stray; spectra owned by signals-and-systems ch5 The Fourier Transform."
+  },
+  {
+   "book": "materials-science",
+   "chapter": 8,
+   "title": "Signed binary multiplication",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital stray; covered by digital-logic-design ch1 Binary Systems."
+  },
+  {
+   "book": "materials-science",
+   "chapter": 8,
+   "title": "Signed binary division",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital stray; covered by digital-logic-design ch1."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 1,
+   "title": "Unity-gain power buffers",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (unity-gain buffers)."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 1,
+   "title": "Commercial power-supply modules",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (supply modules)."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 1,
+   "title": "Single-pulse generation with flip-flops and counters",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital stray; flip-flops/counters covered by digital-logic-design ch6-7."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 1,
+   "title": "ADE7753 multifunction ac power metering IC",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (metering IC)."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 1,
+   "title": "Practical Perspective: Balancing Power 18 Cases",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Irwin TOC page-run stray."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 1,
+   "title": "Practical Perspective: Vampire Power",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Irwin TOC stray; standby 'vampire' power is not a grid-systems topic."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 1,
+   "title": "Average Power Consumption of Common",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Cut-off fragment; household power calculus belongs to circuit-theory ch4 power treatment."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 1,
+   "title": "Distributed/Embedded generation",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Cut-off fragment; distributed generation is covered by ch1 The Generation Census and ch10 economic operation."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 7,
+   "title": "A riff on robust input protection",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (input protection)."
+  },
+  {
+   "book": "robotics-and-automation",
+   "chapter": 1,
+   "title": "A brief history",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk fragment (bare 'a brief history')."
+  },
+  {
+   "book": "robotics-and-automation",
+   "chapter": 2,
+   "title": "Rotation Matrices Composed",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored: rotation matrices are the core of ch2 Spatial Descriptions and Transformations; the computer-graphics score is spurious."
+  },
+  {
+   "book": "robotics-and-automation",
+   "chapter": 2,
+   "title": "Using Special Source Transformation",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Circuits stray (source transformation)."
+  },
+  {
+   "book": "robotics-and-automation",
+   "chapter": 5,
+   "title": "An Alternative Approach for 13.1.3 DC VoltageGain",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated electronics junk."
+  },
+  {
+   "book": "robotics-and-automation",
+   "chapter": 6,
+   "title": "Blends and the Time-Scaling Craft",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored: trajectory blends and time-scaling are ch6 Dynamics and Trajectory Generation core; the cad-cam score is spurious."
+  },
+  {
+   "book": "robotics-and-automation",
+   "chapter": 8,
+   "title": "Logic family chronology \u2013 a brief history",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital-electronics stray (logic-family chronology)."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 1,
+   "title": "When and How to Include the Output",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk cut-off fragment."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 1,
+   "title": "How to make pseudorandom bytes",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE junk ('how to make pseudorandom bytes')."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 2,
+   "title": "Resistors in Parallel 61 Practical Perspective: Strain Gages",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated Irwin/Hughes TOC run; strain gauges are properly owned by SoM ch7 Strain Gauges and Rosettes."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 3,
+   "title": "Problems 50 Summary",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Page-run junk."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 3,
+   "title": "Introduction to Problems",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Back-matter junk."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 5,
+   "title": "Generating a differential output",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray (differential output)."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 5,
+   "title": "Complex Notation",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Hughes circuits TOC stray; complex notation for AC is owned by circuit-theory ch4 Sinusoidal Steady State."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 6,
+   "title": "The Common-Source (Common",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics TOC cut-off fragment."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 6,
+   "title": "A Common-Source (CS)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics TOC cut-off fragment."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 6,
+   "title": "Common-mode rejection",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray (CMRR); covered by analog-electronics."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 1,
+   "title": "Emitter Characteristics",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray (transistor emitter characteristics)."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 1,
+   "title": "Lock-in detection",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE measurement stray (lock-in detection)."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 1,
+   "title": "Battery characteristics",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (battery characteristics)."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 1,
+   "title": "Other buses and data links: overview",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Computer-hardware stray; covered by computer-organization-architecture ch9 Input/Output."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 1,
+   "title": "Determination of the B/H characteristic",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electrical stray (B/H determination); magnetic materials owned by electricity-and-magnetism ch8 Magnetic Materials and the Earth."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 2,
+   "title": "Programmable pulse-width generator",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital-electronics stray."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 2,
+   "title": "An n-pulse generator",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital-electronics stray."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 5,
+   "title": "Determination of efficiency",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Cut-off fragment; gear efficiency is covered by ToM ch5-6 gearing lessons."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 10,
+   "title": "Finding the 1/f corner frequency",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray (1/f noise corner)."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 10,
+   "title": "Frequency-Selective",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics cut-off fragment."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 3,
+   "title": "List of Tables \u2014 xxii",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter list junk."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 3,
+   "title": "List of Tables xvi",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter list junk."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 3,
+   "title": "List of Tables xvi Summary",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter list junk."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 3,
+   "title": "Xvi List of Tables",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter list junk."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 3,
+   "title": "List of Tables",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter list junk."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 4,
+   "title": "Simplified \"x86\" instruction set",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Computer stray; covered by assembly-and-microprocessors / computer-organization-architecture."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 8,
+   "title": "The Cycle Comparison Census",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored: comparative census capping the gas-power-cycles arc of ch8; not worldview (ch1) or second-law content."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 8,
+   "title": "Hybrid parameters",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Two-port stray; covered by circuit-theory-and-network-analysis ch9 Two-Port Networks."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 9,
+   "title": "Practical Perspective: Heating with Electric",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Irwin TOC cut-off stray (resistive heating); thermodynamics owns cycles, not circuit-level heating examples."
+  }
+ ],
+ "dupes": [
+  {
+   "title": "Practical Perspective: Pushbutton Telephone Practical Perspective: Filtering Digital",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only mega-cluster of Irwin/Hughes boilerplate and page-run TOC lines; every member in my books is removed individually (misplaced/extra/auto) and the other books' members are cross-book junk for their own agents. No genuine topic exists to consolidate."
+  },
+  {
+   "title": "Polyprotic Acid Titrations 632 For Review 699 | Key Terms 699 | Questions and Exercises",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (review-exercise page runs); my member is back-matter junk removed individually."
+  },
+  {
+   "title": "Shot noise in current sources and emitter followers",
+   "action": "consolidate",
+   "winner": "analog-electronics",
+   "reason": "Emitter-follower/amplifier TOC-run copies across my books are junk removed individually; the amplifiers treatment is owned by analog-electronics (ch2 Differential and Multistage Amplifiers)."
+  },
+  {
+   "title": "Laboratory skills expected to be known by all participants (heating and reflux, mass and volume measurement, preparation and dilution of solutions, titrations, pH measurement, filtration, drying of precipitates, instrument operation, graphing and analysis of experimental data)",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects the authored thermodynamics lesson 'Specific Heats and Enthalpy': the engineering-thermo treatment of specific heats is genuinely different from chemistry/physics-side specific-heat and experimental-skills lessons; all other members are junk removed individually."
+  },
+  {
+   "title": "Adding a Resistive Load to a Voltage 4.19 Finding the Th\u00e9venin Equivalent of a Circuit",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects three authored titles \u2014 'Conversions and Equivalent Circuits' (circuit-theory ch9, two-port parameter conversions), 'The Equivalent Circuit Earned' (electrical-machines ch2, transformer) and 'The Equivalent Circuit Identified' (electrical-machines ch5, induction machine): genuinely different equivalent-circuit treatments; remaining members are concatenated junk removed individually."
+  },
+  {
+   "title": "Guided Practice 1208 39.4 The Laser",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects the authored statics lesson 'Moments of Inertia and the Parallel-Axis Theorem' (area moments for centroids/inertia); the physics 'Guided Practice' page-run members are junk removed by their own agents."
+  },
+  {
+   "title": "A Closer Look: Structure of the",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster ('A Closer Look' section runs); my robotics member is a concatenated junk line removed individually."
+  },
+  {
+   "title": "Current Mirrors as Bias",
+   "action": "consolidate",
+   "winner": "analog-electronics",
+   "reason": "Current-mirror copies in my books are junk strays; current mirrors are owned by analog-electronics ch2."
+  },
+  {
+   "title": "Deviation from Ideal Gas Behaviour",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'The Ideal Gas and Its Honest Limits' (engineering thermodynamics ch3); deviation-from-ideality is separately owned by the chemistry/physics-side books \u2014 genuinely different syllabus treatments."
+  },
+  {
+   "title": "Quantitative Techniques - elementary mathematics topics: Algebra; Averages; Geometry; LCM and HCF; Mensuration; Number Systems; Percentage; Permutation and Combination; Probability; Profit and Loss; Quadratic and Linear Equations; Ratio and Proportion; Simple and Compound Interest; Time and Speed;",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious match: 'Simple and Compound Trains' (theory-of-machines ch6 gearing) has nothing to do with quantitative-aptitude/chemistry syllabus lines. Keep the authored gear-train lesson; junk members removed individually."
+  },
+  {
+   "title": "Analysis of growth and decay 113 8.3 Inductance in terms of flux-linkages",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (growth/decay page runs); RL-RC transient content is covered by circuit-theory ch7 Transients. All my members removed individually."
+  },
+  {
+   "title": "Action-angle Variables in Systems of One Degree of Freedom",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious phrase match on 'degrees of freedom': robotics anatomy, Gruebler mechanism DoF and analytical-mechanics action-angle variables are three genuinely different treatments. All authored members stand."
+  },
+  {
+   "title": "Magnetic Induction Due to a Large and Thick",
+   "action": "consolidate",
+   "winner": "electricity-and-magnetism",
+   "reason": "Magnetic-field calculation lines are E&M content; the power-systems member is a stray page-run removed individually."
+  },
+  {
+   "title": "Cathode-ray tube 947 Appendix: Symbols, Abbreviations, De\ufb01nitions",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (CRO page-run strays); the oscilloscope treatment lives in electrical-measurements ch2 Indicating Instruments, but no member here is a real lesson. All my members removed individually."
+  },
+  {
+   "title": "Graphical Representation for Motion",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (graphical-representation fragments); my members are cut-off fragments removed individually."
+  },
+  {
+   "title": "Appendix E Some Useful Mathematical Approximation",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (appendix page runs); my member removed individually."
+  },
+  {
+   "title": "Conservative Forces and Energy Bookkeeping",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'Conservative Forces and Energy Bookkeeping' (engineering-mechanics ch9): the engineering work-energy treatment is genuinely different from the physics conservative-forces treatment."
+  },
+  {
+   "title": "Flip-Flops and Their Triggering",
+   "action": "consolidate",
+   "winner": "digital-logic-design",
+   "reason": "Flip-flop triggering is owned by digital-logic-design ch6 Sequential Logic; the power-systems member ('Single-pulse generation with flip-flops and counters') is junk removed individually."
+  },
+  {
+   "title": "Simultaneous Appendix F An Abbreviated",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (appendix-table runs); all my members removed individually."
+  },
+  {
+   "title": "Conservation of Angular Momentum 319 Questions/Exercises/Problems",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects two authored kinetics lessons ('Angular Momentum and the Gyroscopic Glimpse', 'Linear and Angular Impulse-Momentum') \u2014 engineering kinetics treatments distinct from the physics angular-momentum lesson."
+  },
+  {
+   "title": "A simple SAR example",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (AoE example fragments); my members removed individually."
+  },
+  {
+   "title": "A final remark",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster ('final remark' fragments); my members removed individually."
+  },
+  {
+   "title": "Impulse versus Reaction",
+   "action": "consolidate",
+   "winner": "fluid-mechanics",
+   "reason": "The impulse-vs-reaction turbine principle is owned by fluid-mechanics ch10 The Turbomachinery Principle and the Doorstep; the theory-of-machines 'Turbo Machinery' member is an ESE syllabus dump removed individually. The hydraulics copy belongs to engineering-b's scope but the specialist winner is fluid-mechanics."
+  },
+  {
+   "title": "Graphs of Sine and Cosine Functions",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster; the theory-of-machines member is a concatenated circuits junk line removed individually."
+  },
+  {
+   "title": "Refrigeration and Air conditioning \u2014 vapour compression refrigeration, refrigerants and working cycles, compressors, condensers, evaporators and expansion devices; other refrigeration systems (vapour absorption, vapour jet, thermo-electric, vortex tube); psychrometric properties and processes,",
+   "action": "consolidate",
+   "winner": "thermodynamics",
+   "reason": "Refrigeration and air-conditioning are the engineering-thermodynamics applied-cycles treatment (ch9 Vapour-Compression Refrigeration, ch10 Air-Conditioning Priced); the industrial-engineering copy is an ESE syllabus dump removed individually. manufacturing-processes 'Beam and Jet Processes' is an unrelated non-traditional-machining lesson and stands."
+  },
+  {
+   "title": "Some examples using the VSEPR theory",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster; the industrial-engineering member ('Some DAC application examples') is AoE junk removed individually."
+  },
+  {
+   "title": "The Synthesis and Doorsteps",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Book-specific synthesis lessons ('The Synthesis and Doorsteps' in power-systems, geotechnical, building-materials, transportation) are each book's own capstone \u2014 genuinely different content, keep-both."
+  },
+  {
+   "title": "Angles, Distances and Concurrency",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious match on 'Distances': 'Distance Protection in the R-X Plane' is power-systems protection content, unrelated to coordinate geometry."
+  },
+  {
+   "title": "Damped Oscillation and the Quality Factor",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'Damped Oscillation and the Quality Factor' (circuit-theory ch5): the circuit-resonance Q treatment is genuinely different from the physics damped-oscillation and differential-equations treatments."
+  },
+  {
+   "title": "Regulation and All-Day Efficiency",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects both authored titles: 'Regulation and All-Day Efficiency' (transformer, electrical-machines ch2) and 'Regulation and Efficiency' (transmission line, power-systems ch4) \u2014 genuinely different regulation treatments."
+  },
+  {
+   "title": "Computer organization \u2014 basic architecture, CPU, I/O organisation, memory organisation, peripheral devices, trends; hardware/software issues; data representation and programming; operating systems: basics, processes, characteristics, applications; memory management, virtual memory, file systems,",
+   "action": "consolidate",
+   "winner": "computer-organization-architecture",
+   "reason": "The computer-organization syllabus dump is covered by the specialist book; the industrial-engineering copy is removed individually."
+  },
+  {
+   "title": "The Free-Body Diagram: the Engineer\u2019s First Instrument",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects two distinct intra-book lessons ('The Free-Body Diagram...' and 'The Kinetic Diagram Beside the Free-Body'); the physics 'Free-Body Ledger' is the physics-side treatment."
+  },
+  {
+   "title": "Contents xiii",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (contents-page strays); my members removed individually."
+  },
+  {
+   "title": "Rotation About a Fixed Axis",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'Rotation About a Fixed Axis' (engineering plane kinematics); the physics rotation-dynamics treatment is genuinely different."
+  },
+  {
+   "title": "Plane Motion of Rigid Bodies",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'Plane Motion of Rigid Bodies' and 'Impact of Rigid Bodies' \u2014 distinct kinetics lessons within engineering-mechanics."
+  },
+  {
+   "title": "Appendix B Complex Numbers 729 Appendix H Common Standard",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (appendix runs); complex-number arithmetic is owned by advanced-algebra/complex-analysis \u2014 no member is a real lesson."
+  },
+  {
+   "title": "Momentum Conservation and Collisions 245 11.4 Stress, Strain, and Elastic Moduli",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious match: 'The Stress-Strain Diagram, Read Honestly' (strength-of-materials) is unrelated to the physics momentum/collisions page-run."
+  },
+  {
+   "title": "Relative Velocity Craft",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'The Relative-Velocity Method' (mechanism velocity analysis); the physics relative-velocity treatment is genuinely different."
+  },
+  {
+   "title": "Analyzing a Linear Transformer in the Frequency F(s) Has Distinct Complex Roots",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster; transformer analysis is owned by electrical-machines ch2's authored lessons \u2014 every member here is a concatenated junk line removed individually."
+  },
+  {
+   "title": "Power Plant Engineering \u2014 Rankine and Brayton cycles with regeneration and reheat; fuels and their properties, flue gas analysis; boilers; steam turbines; condensers, air ejectors, electrostatic precipitators and cooling towers: theory, design, types and applications",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects the authored Rankine/Brayton improvement lessons ('Regeneration, Reheat, Intercooling', 'Reheat and Regeneration') \u2014 the thermodynamics specialist owns the power-plant cycle treatment; the structural-engineering syllabus dump is junk to remove."
+  },
+  {
+   "title": "The Doorsteps: Grid, Drive, Renewables",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Book-specific doorstep lessons ('The Doorsteps: Grid, Drive, Renewables' in electrical-machines, 'The Doorsteps: Solar, Grids, Silicon' in heat-transfer) are each book's own synthesis \u2014 genuinely different content."
+  },
+  {
+   "title": "Composite transimpedance amplifiers",
+   "action": "consolidate",
+   "winner": "analog-electronics",
+   "reason": "Transimpedance-amplifier bandwidth is analog-electronics territory; the manufacturing-processes member ('Limiting the bandwidth') is a stray removed individually."
+  },
+  {
+   "title": "Appendix A \u25a0 Euler Angles in Alternate Conventions and Cayley\u2013Klein Parameters",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'Euler Angles and Their Singularity' (robotics spatial descriptions); the mechanics-book appendix on alternate conventions is the analytical-mechanics treatment \u2014 genuinely different."
+  },
+  {
+   "title": "The Applications Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Two authored 'The Applications Census' lessons (cad-cam ch6 additive manufacturing; circuit-theory ch9 two-port applications) are genuinely different content."
+  },
+  {
+   "title": "Sources, Ideal and Dependent",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'Sources, Ideal and Dependent' (circuit-theory ch1); the materials-science member is a junk line removed individually."
+  },
+  {
+   "title": "The Passive Sign Convention as Law",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'The Passive Sign Convention as Law' (circuit-theory ch1); optics/particle-physics sign conventions are different topics matched only on words."
+  },
+  {
+   "title": "Addition and subtraction of sinusoidal",
+   "action": "consolidate",
+   "winner": "circuit-theory-and-network-analysis",
+   "reason": "Phasor addition/subtraction is ch4 Sinusoidal Steady State's own authored treatment ('Phasors: the Coordinate Change'); the two Hughes TOC fragments in my book are junk removed individually."
+  },
+  {
+   "title": "Other Wideband Amplifier Amplifier (Shunt-Shunt)",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'Series and Shunt Compensation' (power-systems ch4): transmission compensation is unrelated to the wideband-amplifier junk members, which are removed individually."
+  },
+  {
+   "title": "The Cross Product: Areas and Moments",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious match: 'The Moment-Area Theorems' (beam deflection) is unrelated to the vector cross-product lesson."
+  },
+  {
+   "title": "Minimization: Karnaugh Maps",
+   "action": "consolidate",
+   "winner": "digital-logic-design",
+   "reason": "Karnaugh-map minimization is owned by digital-logic-design ch3; the engineering-mechanics copy is junk removed individually. The discrete-mathematics copy is the math-side treatment for those agents to settle."
+  },
+  {
+   "title": "Newton\u2013Raphson: Quadratic, and Fragile",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'Newton-Raphson and the Jacobian' (power-systems load flow); the numerical-analysis Newton-Raphson lesson is the pure-math treatment \u2014 genuinely different syllabus treatments."
+  },
+  {
+   "title": "Number Base Conversions: the Honest Craft",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'Base Conversion Worked' (per-unit base conversion, power-systems ch2); number-base conversion in digital-logic/arithmetic is a different topic matched only on words."
+  },
+  {
+   "title": "Vector Clocks, Named",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious match: 'Vector Groups by the Clock' (transformer vector groups) vs distributed-systems 'Vector Clocks' \u2014 different topics sharing two words."
+  },
+  {
+   "title": "The Digital Twin Named Honestly",
+   "action": "consolidate",
+   "winner": "cad-cam",
+   "reason": "The digital twin belongs with the digital thread as the Industry 4.0 product-lifecycle capstone (cad-cam ch8 'Industry 4.0 and the Synthesis'); the internet-of-things copy (ch4 The Edge and Cloud Partnership) re-teaches the same concept on the cloud side and should reference rather than duplicate. IoT is engineering-b/CS territory, but the specialist winner is cad-cam."
+  },
+  {
+   "title": "Information on this title: www.cambridge.org/9780521809269",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (publisher URL lines); my member removed individually."
+  },
+  {
+   "title": "Some preliminaries",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster; my member removed individually."
+  },
+  {
+   "title": "Xiv Contents",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (contents-page strays)."
+  },
+  {
+   "title": "Equilibrium of the Rigid Body",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'Equilibrium of the Rigid Body' (engineering statics); the physics torque-balance lesson is the physics-side treatment."
+  },
+  {
+   "title": "Belt-Pulley Systems and Brake/Clutch Friction",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'Belt-Pulley Systems and Brake/Clutch Friction' (engineering friction applications); the physics pulley lesson is a different treatment."
+  },
+  {
+   "title": "Parallel buses and data links",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster; both members (engineering-mechanics, theory-of-machines) are computer-hardware TOC strays removed individually; bus architecture is owned by computer-organization-architecture."
+  },
+  {
+   "title": "Generalised Coordinates and Constraints",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'Generalised Coordinates and Constraints' (engineering-mechanics ch10 Lagrange); the physics analytical-mechanics copy is the theory-side treatment \u2014 genuinely different syllabus treatments."
+  },
+  {
+   "title": "Stress Concentration in Design",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Two authored stress-concentration lessons: 'Stress Concentration in Design' (machine-design ch2) and 'Saint-Venant, Stress Concentrations, Multiaxial Loading' (strength-of-materials ch3) \u2014 the design-scoped and materials-scoped treatments are genuinely different."
+  },
+  {
+   "title": "Fully integrated high-speed fiber-transceiver modules",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (fiber-module strays); my theory-of-machines member removed individually; fiber comms owned by analog-and-digital-communication."
+  },
+  {
+   "title": "The Standards Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "'The Standards Census' in machine-design (design codes/standards) vs environmental-chemistry (environmental standards) are different topics matched on words."
+  },
+  {
+   "title": "Typical Elements",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster; my member is the 'Databases and languages' syllabus dump removed individually (content owned by database-management-systems)."
+  },
+  {
+   "title": "DETAILED CONTENTS xvii",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (contents-page strays)."
+  },
+  {
+   "title": "Xviii CONTENTS",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (contents-page strays)."
+  },
+  {
+   "title": "Designing a High-Q Bandpass Filter 602 18.1 Finding the z Parameters of a Two-Port",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (filter/z-parameter page runs); filter design owned by analog-electronics ch5, two-ports by circuit-theory ch9 \u2014 members removed individually."
+  },
+  {
+   "title": "The Heisler Charts Read Fluently",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious match: Heisler charts (unsteady conduction, heat-transfer ch4) vs psychrometric chart (thermodynamics ch10) are different chart-craft lessons."
+  },
+  {
+   "title": "The Process Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'The Process Census' (psychrometric processes, thermodynamics ch10); the operations-management process census is the business-side treatment."
+  },
+  {
+   "title": "Nozzles and Choking",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Both authored nozzle lessons stand: fluid-mechanics ch9 owns the compressible-flow treatment (area-Mach, shocks) and thermodynamics ch11 owns the steady-flow-device/property-relations treatment \u2014 genuinely different syllabus treatments, both books own a chapter for it in the legend."
+  },
+  {
+   "title": "Viscosity: Newton\u2019s Law and Its Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'Viscosity: Newton's Law and Its Census' (fluid-mechanics ch1 fluid property); the physics 'Newton's Viscosity Law' is the properties-of-matter treatment \u2014 genuinely different."
+  },
+  {
+   "title": "Introduction 175 5.1.5 Operation as vDS Is Increased",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster; my member is a page-run removed individually (auto-salvage amended to remove)."
+  },
+  {
+   "title": "Specific Speed: the Compass",
+   "action": "consolidate",
+   "winner": "fluid-mechanics",
+   "reason": "Specific speed (the turbomachine-selection compass) is the core of fluid-mechanics ch10 The Turbomachinery Principle and the Doorstep; the hydraulics copy (engineering-b's book) duplicates it."
+  },
+  {
+   "title": "Impedance Angle Restrictions 396 13.12 Using the Transfer Function to Find the",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (impedance-angle page runs); both my members removed individually."
+  },
+  {
+   "title": "Diffusion and the Total Current",
+   "action": "consolidate",
+   "winner": "electronic-devices-and-circuits",
+   "reason": "Semiconductor diffusion current is EDC ch2 Carrier Transport content; the heat-transfer member is a junk line removed individually."
+  },
+  {
+   "title": "Find an Unknown Current",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster; my member removed individually."
+  },
+  {
+   "title": "I: Phototransistor output optocouplers",
+   "action": "consolidate",
+   "winner": "electronic-devices-and-circuits",
+   "reason": "Optocouplers are optoelectronic devices owned by EDC (diode/optoelectronic chapters); both my members ('I: Phototransistor output optocouplers', 'II: Logic-output optocouplers') are AoE strays removed individually."
+  },
+  {
+   "title": "Class B Output Stage 897 13.3 BJT Op-Amp Techniques",
+   "action": "consolidate",
+   "winner": "analog-electronics",
+   "reason": "Output stages (Class A/AB) are owned by analog-electronics ch2; the industrial-engineering member is a page-run junk removed individually."
+  },
+  {
+   "title": "Integrating suntan monitor",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (AoE suntan-monitor application lines); my member removed individually."
+  },
+  {
+   "title": "The Waste Census",
+   "action": "consolidate",
+   "winner": "industrial-engineering",
+   "reason": "The lean-waste census is the engineering-side treatment in industrial-engineering ch4 'Scheduling, MRP and Lean'; the operations-management copy (economics-commerce discipline) is the business-side duplicate for that agent to drop or differentiate."
+  },
+  {
+   "title": "317-style regulator: circuit examples",
+   "action": "consolidate",
+   "winner": "analog-electronics",
+   "reason": "Linear regulator circuits (317-style) are analog-electronics power-supply territory; the industrial-engineering member is junk removed individually."
+  },
+  {
+   "title": "Six Sigma Named Honestly",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "'Six Sigma Named Honestly' (industrial-engineering ch7 quality-control statistics) and the operations-management register are the engineering-statistical and business-management treatments of Six Sigma \u2014 genuinely different syllabus treatments; keep-both."
+  },
+  {
+   "title": "ADCs I: Parallel (\"flash\") encoder",
+   "action": "consolidate",
+   "winner": "analog-electronics",
+   "reason": "Flash-ADC copies in control-systems and robotics are AoE strays removed individually; data conversion is owned by analog-electronics ch9 'Data Conversion and the Doorstep'."
+  },
+  {
+   "title": "Density Arithmetic",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "'Density Arithmetic' in materials-science (unit-cell/theoretical density from crystallography) vs building-materials (bulk density of construction materials) are genuinely different calculations."
+  },
+  {
+   "title": "Arrhenius and Activation Energy",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "'Arrhenius and Activation Energy' (materials-science ch5 diffusion) vs the physical-chemistry kinetics Arrhenius lesson are genuinely different treatments."
+  },
+  {
+   "title": "The Hardness Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "'The Hardness Census' in materials-science (indentation hardness testing) vs industrial-chemistry (water hardness) are different topics sharing a word; keep-both."
+  },
+  {
+   "title": "A Survey of the Representative Elements 776 21.8 Metallurgy and Iron and Steel Production",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious match: 'Steels and Cast Irons' (materials-science ch9) vs the inorganic-chemistry metallurgy survey page-run."
+  },
+  {
+   "title": "Corrosion Forms and Prevention",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "'Corrosion Forms and Prevention' (materials-science ch10) is the corrosion-engineering treatment; the physical-chemistry 'Prevention of Corrosion' lesson is the electrochemistry-side treatment \u2014 genuinely different syllabus treatments."
+  },
+  {
+   "title": "The Mesh-Current Engine",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'The Mesh-Current Engine' (circuit-theory ch2); the embedded-systems member is a concatenated junk line removed by its agent."
+  },
+  {
+   "title": "Permeability of free space or magnetic 9.11 Alternating system frequencies in practice",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster; my member is a concatenated junk line removed individually; permeability owned by electricity-and-magnetism ch8."
+  },
+  {
+   "title": "Designing a Fourth-Order Low-Pass Bandpass Filter",
+   "action": "consolidate",
+   "winner": "analog-electronics",
+   "reason": "Active filter design is owned by analog-electronics ch5 Active Filters; the circuit-theory member is a concatenated junk line removed individually."
+  },
+  {
+   "title": "The Ideal Transformer at Circuit Level",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Protects 'The Ideal Transformer at Circuit Level' (circuit-theory ch5 coupled-circuits treatment); the electrical-machines member is a junk page-run removed individually."
+  },
+  {
+   "title": "Basic Electrical Engineering \u2014 DC circuits: Ohm's and Kirchhoff's laws, mesh and nodal analysis, circuit theorems; electromagnetism, Faraday's and Lenz's laws, induced EMF and its uses; single-phase AC circuits; transformers, efficiency; basics of DC machines, induction machines and synchronous",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (ESE 'Basic Electrical Engineering' dumps); content owned by circuit-theory ch1-2, electrical-machines and electricity-and-magnetism; my member removed individually."
+  },
+  {
+   "title": "Experimental tests to obtain motor 36 Direct-current Machines",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (page-run junk); motor testing is covered by electrical-machines ch2 OC/SC tests and ch8 indirect efficiency."
+  },
+  {
+   "title": "The Component Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "'The Component Census' (control-systems ch1) and the statistics-for-economics component census are different topics matched on words."
+  },
+  {
+   "title": "Basic Principles 366 8 Building Blocks of Integrated",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster; my member removed individually."
+  },
+  {
+   "title": "Microwave and satellite communication \u2014 terrestrial/space type LOS systems, block schematics, link calculations, system design",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk-only cluster (ESE microwave/satellite dump); communications content owned by the sibling communication books; my member removed individually."
+  }
+ ],
+ "thin": [],
+ "order": [],
+ "extra": [
+  {
+   "book": "cad-cam",
+   "chapter": 1,
+   "title": "On-board interconnections",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('On-board interconnections')."
+  },
+  {
+   "book": "cad-cam",
+   "chapter": 1,
+   "title": "R\u20132R ladder DACs",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray (R-2R ladder DACs); data conversion owned by analog-electronics ch9."
+  },
+  {
+   "book": "cad-cam",
+   "chapter": 4,
+   "title": "Step 3: getting to e_n",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Math fragment ('Step 3: getting to e_n')."
+  },
+  {
+   "book": "cad-cam",
+   "chapter": 4,
+   "title": "A.1 Preliminary Steps",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Appendix fragment ('A.1 Preliminary Steps')."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 1,
+   "title": "Obtaining Linear Amplification by 8.2 IC Biasing: Current Sources and Current",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk line (junkSuspect)."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 1,
+   "title": "Divider 65 with Dependent Sources and Resistors",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Page-run junk (junkSuspect)."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 1,
+   "title": "Using a d\u2019Arsonval Voltmeter 72 Dependent Sources",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Page-run junk (junkSuspect)."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 2,
+   "title": "Stuck-node tracer",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE troubleshooting stray ('Stuck-node tracer')."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 2,
+   "title": "Choosing a battery",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Choosing a battery')."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 2,
+   "title": "Choosing a DAC",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Choosing a DAC')."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 2,
+   "title": "A Special Case in the Mesh-Current",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Cut-off fragment ('A Special Case in the Mesh-Current')."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 2,
+   "title": "Permeability of free space or magnetic 9.11 Alternating system frequencies in practice",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk line (junkSuspect); permeability is owned by electricity-and-magnetism ch8."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 3,
+   "title": "Finding a Th\u00e9venin Equivalent in the Frequency of Finite Duration",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk line (junkSuspect)."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 4,
+   "title": "Determining R. and R 30 General Impedances",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Page-run junk (junkSuspect)."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 4,
+   "title": "Practical Perspective: Capacitive Touch 9.3 The Phasor",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Irwin TOC stray ('Practical Perspective: Capacitive Touch 9.3 The Phasor')."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 4,
+   "title": "Applying a Delta-to-Wye Transform",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Stray TOC line; the delta-to-wye transform is covered by ch2 systematic methods and ch6 line-versus-phase arithmetic."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 4,
+   "title": "Designing a Fourth-Order Low-Pass Active Sinusoidal Steady-State Response",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk; active filter design owned by analog-electronics ch5."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 5,
+   "title": "Magnetically Coupled Circuits and Ideal Transformers",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Generic aggregate TOC line duplicating the authored ch5 lessons 'Mutual Inductance and the Dot Convention' and 'The Ideal Transformer at Circuit Level'."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 5,
+   "title": "Iterative Analysis Using the 5.4 Technology Scaling (Moore\u2019s Law) and",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk line (junkSuspect)."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 5,
+   "title": "Bandwidth Extension",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Amplifier-topic stray ('Bandwidth Extension'); covered by analog-electronics frequency-response treatment."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 5,
+   "title": "Finding Finding v, p, and w Induced by a 8.6 Finding the Overdamped Step Response of a",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk line (junkSuspect)."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 5,
+   "title": "Calculating the Coupling Coefficient and Stored 8.9 Comparing the Three-Step Response",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk line (junkSuspect)."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 6,
+   "title": "Darlington connection",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Transistor-configuration stray; Darlington covered by electronic-devices-and-circuits."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 6,
+   "title": "Interboard connections",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Interboard connections')."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 7,
+   "title": "Practical Perspective: Transmission and Practical Perspective: Pushbutton Telephone",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Irwin TOC stray ('Practical Perspective: Transmission and Practical Perspective: Pushbutton Telephone')."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 7,
+   "title": "Using the General Solution Method to Find an 9.4 Calculating the rms Value of a Triangular",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk line (junkSuspect)."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 8,
+   "title": "Increasing /^ by Eliminating the Miller Poles",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Sedra-Smith stray ('Increasing /^ by Eliminating the Miller Poles'); amplifier bandwidth owned by analog-electronics."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 9,
+   "title": "Delta-to-Wye (Pi-to-Tee) Equivalent 5.7 A More Realistic Model for the Operational",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk line (junkSuspect)."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 9,
+   "title": "Analyzing Two Cascaded Integrating Amplifiers",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Textbook example stray ('Analyzing Two Cascaded Integrating Amplifiers')."
+  },
+  {
+   "book": "circuit-theory-and-network-analysis",
+   "chapter": 10,
+   "title": "Driving Cables",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Driving Cables'); transmission lines owned by electromagnetic-fields-and-waves / analog-and-digital-communication."
+  },
+  {
+   "book": "control-systems",
+   "chapter": 4,
+   "title": "Evaluating the Frequency Response 2.6.3 Effect of Vos and IOs on the Operation",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk line (junkSuspect)."
+  },
+  {
+   "book": "control-systems",
+   "chapter": 5,
+   "title": "Increasing fH by Buffering the Input 11.7 The Stability Problem",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk line (junkSuspect)."
+  },
+  {
+   "book": "control-systems",
+   "chapter": 10,
+   "title": "Federico Faggin: A Pioneer in Microprocessor",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE biographical junk (Federico Faggin)."
+  },
+  {
+   "book": "control-systems",
+   "chapter": 10,
+   "title": "NMOS LSI interfacing",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (NMOS LSI interfacing)."
+  },
+  {
+   "book": "electrical-machines",
+   "chapter": 3,
+   "title": "\"Poles\" and decibels per octave",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Filter stray ('Poles' and decibels per octave)."
+  },
+  {
+   "book": "electrical-machines",
+   "chapter": 4,
+   "title": "Obtaining Wideband (Shunt-Series)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Amplifier stray ('Obtaining Wideband (Shunt-Series)')."
+  },
+  {
+   "book": "electrical-machines",
+   "chapter": 4,
+   "title": "Stator windings",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Stray; stator windings are covered by ch7 EMF and Winding Factors."
+  },
+  {
+   "book": "electrical-machines",
+   "chapter": 4,
+   "title": "Expression for the e.m.f. of a stator winding",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Stray; stator-winding EMF is covered by ch7 EMF and Winding Factors."
+  },
+  {
+   "book": "electrical-machines",
+   "chapter": 4,
+   "title": "Experimental tests to obtain motor 36 Direct-current Machines",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Page-run junk (junkSuspect); motor testing covered by ch2 OC/SC tests and ch8 indirect efficiency."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Appendices A-L",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter junk ('Appendices A-L')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Appendices",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter junk ('Appendices')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "* Available online at www.oup.com/he/sedra-smith8e",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Publisher URL junk (Sedra-Smith companion site)."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "(ISSCC)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Conference-code junk ('(ISSCC)')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Fundamentalist",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE section fragment ('Fundamentalist')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "The Creator of the pA741: David Fullagar",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE biographical sidebar (David Fullagar, op-amp creator)."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Www.cambridge.org",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Publisher URL junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "A catalog record for this publication is available from the British Library",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "British Library catalog boilerplate (junkSuspect)."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Connectors",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Connectors')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Transconductance",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Transconductance')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "The 34420A 7.5-digit frontend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE DMM stray (34420A)."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Switchers: looking more closely",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE switching-supply stray."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Synchronizer",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Synchronizer')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Photomultipliers",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE optoelectronics stray ('Photomultipliers')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "TOSLINK",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('TOSLINK')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Versatile Link",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Versatile Link')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Wrapup",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Wrapup')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "AD7873 touchscreen digitizer",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (touchscreen digitizer IC)."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "More on Deriving the Th\u00e9venin",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Circuits-book fragment ('More on Deriving the Th\u00e9venin')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Radiators",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Radiators')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Simultaneous Appendix F An Abbreviated",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Appendix-run junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Flashlight",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Textbook-example fragment ('Flashlight')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Fig. 1.5",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Figure-code junk (Fig. 1.5)."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Fig. 1.7",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Figure-code junk (Fig. 1.7)."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Fibreoptics",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Fibreoptics')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Www.pearsoned.co.uk/hughes",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Publisher URL junk (Hughes)."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 3,
+   "title": "Engineering Aptitude covering Logical reasoning and Analytical ability",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "ESE general-aptitude syllabus line; no home in a mechanics book."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 3,
+   "title": "Electrical Engineering: An Overview 4 Realistic Resistors",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Page-run junk ('Electrical Engineering: An Overview 4 Realistic Resistors')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 4,
+   "title": "(Emitter) Resistance",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics cut-off fragment ('(Emitter) Resistance')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 4,
+   "title": "An Emitter Resistance Re",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics cut-off fragment ('An Emitter Resistance Re')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 4,
+   "title": "Effect of the Output Resistance of the 9.4 DC Offset",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated electronics junk."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 4,
+   "title": "Gate standardization",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital-logic stray ('Gate standardization')."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 4,
+   "title": "Of rotor resistance",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Cut-off fragment; rotor-resistance control is electrical-machines ch5 material."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 5,
+   "title": "Th\u00e9venin\u2019s theorem",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Circuits stray; covered by circuit-theory ch3 The Theorem Census."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 7,
+   "title": "PLL components",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray (PLL components)."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 7,
+   "title": "Relative permittivity",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "E&M stray; relative permittivity owned by electricity-and-magnetism ch4 Capacitors and Dielectrics."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 8,
+   "title": "The Effect of Resistor Tolerance on the 4.20 Using a Th\u00e9venin Equivalent to Analyze the",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk line (junkSuspect)."
+  },
+  {
+   "book": "fluid-mechanics",
+   "chapter": 1,
+   "title": "Surface-mount technology: the joy and the pain",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Surface-mount technology: the joy and the pain')."
+  },
+  {
+   "book": "fluid-mechanics",
+   "chapter": 5,
+   "title": "Electrostatic terms",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Stray fragment ('Electrostatic terms')."
+  },
+  {
+   "book": "fluid-mechanics",
+   "chapter": 7,
+   "title": "Summary of important formulae",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "TOC boilerplate stray ('Summary of important formulae')."
+  },
+  {
+   "book": "fluid-mechanics",
+   "chapter": 10,
+   "title": "VCO implementation: through-hole versus surface-mount",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (VCO implementation)."
+  },
+  {
+   "book": "heat-transfer",
+   "chapter": 2,
+   "title": "Hysteresis loss",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Magnetic-hysteresis stray; iron losses are owned by electrical-machines ch8 The Loss Census Across Families."
+  },
+  {
+   "book": "heat-transfer",
+   "chapter": 4,
+   "title": "When operating current is not your choice",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('When operating current is not your choice')."
+  },
+  {
+   "book": "heat-transfer",
+   "chapter": 5,
+   "title": "Transconductance versus drain current",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray ('Transconductance versus drain current')."
+  },
+  {
+   "book": "heat-transfer",
+   "chapter": 8,
+   "title": "Practical Perspective: Resistive Touch",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Irwin TOC stray ('Practical Perspective: Resistive Touch')."
+  },
+  {
+   "book": "heat-transfer",
+   "chapter": 8,
+   "title": "Practical Perspective: Characterizing an",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Irwin TOC cut-off stray."
+  },
+  {
+   "book": "heat-transfer",
+   "chapter": 9,
+   "title": "Dependence of ic on the Collector",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "BJT stray ('Dependence of ic on the Collector')."
+  },
+  {
+   "book": "heat-transfer",
+   "chapter": 9,
+   "title": "Find an Unknown Current",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Stray fragment ('Find an Unknown Current')."
+  },
+  {
+   "book": "heat-transfer",
+   "chapter": 9,
+   "title": "Current magnification",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Circuits stray; current magnification is the parallel-resonance topic of circuit-theory ch5."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 1,
+   "title": "Output Resistance of the Emitter- 9.5.2 The Current-Mirror-Loaded MOS",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk line (junkSuspect)."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 1,
+   "title": "A monostable application: limiting pulse width and duty cycle",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray (monostable application)."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 1,
+   "title": "I: Phototransistor output optocouplers",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('I: Phototransistor output optocouplers')."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 1,
+   "title": "Generating plant",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Stray TOC line; generating plant is owned by power-systems ch1 The Generation Census."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 3,
+   "title": "A simple delta-sigma for our suntan monitor",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (suntan-monitor delta-sigma)."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 7,
+   "title": "FETs as variable resistors",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('FETs as variable resistors')."
+  },
+  {
+   "book": "industrial-engineering",
+   "chapter": 7,
+   "title": "Six DACs",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Six DACs')."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 1,
+   "title": "Designs by the masters: Agilent's accurate DMMs",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE junk ('Designs by the masters: Agilent's accurate DMMs') \u2014 the ch2 twin was auto-removed; this copy fell through."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 1,
+   "title": "Memory wrapup",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Computer stray ('Memory wrapup')."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 6,
+   "title": "Finding a Th\u00e9venin Equivalent",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Circuits stray; covered by circuit-theory ch3 The Theorem Census."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "Example: sensitive millivoltmeter",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE example stray ('Example: sensitive millivoltmeter')."
+  },
+  {
+   "book": "machine-design",
+   "chapter": 9,
+   "title": "A design example: 40\u03b5 \"lightning detector\" preamp",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE example stray (lightning-detector preamp)."
+  },
+  {
+   "book": "manufacturing-processes",
+   "chapter": 4,
+   "title": "Limiting the bandwidth",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray ('Limiting the bandwidth')."
+  },
+  {
+   "book": "manufacturing-processes",
+   "chapter": 6,
+   "title": "UNIVERSITY PRESS",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Imprint junk ('UNIVERSITY PRESS')."
+  },
+  {
+   "book": "manufacturing-processes",
+   "chapter": 6,
+   "title": "Cambridge University Press is part of the University of Cambridge",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Publisher boilerplate (junkSuspect)."
+  },
+  {
+   "book": "manufacturing-processes",
+   "chapter": 6,
+   "title": "Switchers: basic operation",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Switchers: basic operation')."
+  },
+  {
+   "book": "manufacturing-processes",
+   "chapter": 9,
+   "title": "Test fixture for compensation and calibration",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Test fixture for compensation and calibration')."
+  },
+  {
+   "book": "manufacturing-processes",
+   "chapter": 10,
+   "title": "The lessons: error budget, unspecified parameters",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('The lessons: error budget, unspecified parameters')."
+  },
+  {
+   "book": "materials-science",
+   "chapter": 1,
+   "title": "Materials Science \u2014 electrical engineering materials; crystal structure and defects; ceramic materials: structures, composites, processing and uses; insulating laminates for electronics; magnetic materials: basics, classification, ferrites, ferro/para-magnetic materials and components; nano",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "ESE materials syllabus dump; every named topic is already owned by this book's own planned chapters (ch2-ch10)."
+  },
+  {
+   "book": "materials-science",
+   "chapter": 9,
+   "title": "Some representative JFETs: a brief tour",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('Some representative JFETs: a brief tour')."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 1,
+   "title": "Pseudorandom bit sequences and noise generation",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (pseudorandom bit sequences)."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 1,
+   "title": "The Step Response of a Parallel RLC and Distribution of Electric Power",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk line (junkSuspect)."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 1,
+   "title": "Practical Perspective: Characterizing E.6 Straight-Line Amplitude Plots",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Irwin TOC stray ('Practical Perspective: Characterizing')."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 1,
+   "title": "Making Power Calculations Involving Household",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Irwin cut-off fragment; household power calculus belongs to circuit-theory ch4."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 5,
+   "title": "Coaxial cable",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Stray; coax is communication-transmission media, covered by analog-and-digital-communication / electromagnetic fields."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 5,
+   "title": "Resistor-string DACs",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (resistor-string DACs)."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 9,
+   "title": "Gain-setting resistors",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (gain-setting resistors)."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 9,
+   "title": "Optocouplers and relays",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (optocouplers and relays)."
+  },
+  {
+   "book": "power-systems",
+   "chapter": 10,
+   "title": "Higher stability: TCXO, OCXO, and beyond",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Oscillator stray (TCXO/OCXO stability)."
+  },
+  {
+   "book": "robotics-and-automation",
+   "chapter": 6,
+   "title": "Butterworth Polynomials up to the Eighth",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Filter-design stray (Butterworth polynomials); active filters owned by analog-electronics ch5."
+  },
+  {
+   "book": "robotics-and-automation",
+   "chapter": 7,
+   "title": "Modified flash encoders",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray ('Modified flash encoders')."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 5,
+   "title": "FET types",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray ('FET types')."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 5,
+   "title": "Support the use of this textbook in teaching, please visit",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Publisher boilerplate ('Support the use of this textbook...')."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 9,
+   "title": "The MOSFET Case",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray ('The MOSFET Case')."
+  },
+  {
+   "book": "strength-of-materials",
+   "chapter": 9,
+   "title": "The BJT Case",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics stray ('The BJT Case')."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 2,
+   "title": "Turbo Machinery \u2014 reciprocating and rotary pumps; Pelton wheel, Kaplan and Francis turbines, velocity diagrams, impulse and reaction principles; steam and gas turbines; theory of jet propulsion \u2014 pulse jet and ram jet engines; reciprocating and rotary compressors: theory and applications",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "ESE turbomachinery syllabus dump; the engineering treatment of turbomachines is owned by fluid-mechanics ch10 The Turbomachinery Principle and the Doorstep."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 2,
+   "title": "Step-triggered pulses",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital-electronics stray ('Step-triggered pulses')."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 4,
+   "title": "The Source and Emitter Followers",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (emitter/source follower TOC run) in the Cams and Followers chapter."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 4,
+   "title": "An Emitter Follower",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (emitter/source follower TOC run) in the Cams and Followers chapter."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 4,
+   "title": "Emitter follower",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (emitter/source follower TOC run) in the Cams and Followers chapter."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 4,
+   "title": "Emitter follower biasing",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (emitter/source follower TOC run) in the Cams and Followers chapter."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 4,
+   "title": "The emitter follower revisited",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (emitter/source follower TOC run) in the Cams and Followers chapter."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 4,
+   "title": "Source followers",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray (emitter/source follower TOC run) in the Cams and Followers chapter."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 5,
+   "title": "Calculation of efficiency from the",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Cut-off fragment (junkSuspect); gear efficiency covered by ch5-6."
+  },
+  {
+   "book": "theory-of-machines",
+   "chapter": 10,
+   "title": "Determining the 3-dB Frequency",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics filter fragment ('Determining the 3-dB Frequency')."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 1,
+   "title": "Standardized Prefixes to Signify 10.1 Annual Energy Requirements of Electric",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concatenated junk line (junkSuspect)."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 3,
+   "title": "Tables xiv",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter junk ('Tables xiv')."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 8,
+   "title": "VII: ac-input optocouplers",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "AoE stray ('VII: ac-input optocouplers')."
+  },
+  {
+   "book": "thermodynamics",
+   "chapter": 8,
+   "title": "Finding the a Parameters from",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Two-port cut-off fragment ('Finding the a Parameters from'); covered by circuit-theory ch9."
+  }
+ ],
+ "notes": "16 engineering books (a-set). All 165 misAdjudicate items adjudicated: 16 keep (authored lessons that genuinely fit \u2014 e.g. 'From Stress to Dimension', 'Angular Momentum and the Gyroscopic Glimpse', the four 'Doorsteps' sections, 'Tool Geometry by Two Systems', 'Six Sigma Named Honestly'), 149 remove (Drive-PDF TOC pollution: Art-of-Electronics/Irwin/Hughes runs, front/back matter, ESE syllabus dumps, electronics strays). Token scores were ignored per brief; routing decided by engineering knowledge + legend. 98 dup clusters touching my books adjudicated: 46 keep-both (genuinely different treatments: e.g. fluid-mechanics vs thermodynamics nozzles, machine-design vs strength-of-materials stress concentration, EM transformer vs induction-machine equivalent circuits), 19 consolidate to specialist winners (refrigeration->thermodynamics, turbomachinery/specific-speed->fluid-mechanics, digital twin->cad-cam, ADCs/filters->analog-electronics, flip-flops->digital-logic-design, lean-waste->industrial-engineering), 33 junk-only clusters with empty winner (all members removed individually). autoReview: 13 vetoes (wrong intra-book move-chapters and wrong dedups \u2014 e.g. Mohr's Circle for Plane Stress, Power-Angle and Parallel Operation, Conversions and Equivalent Circuits, Transformations by Matrices, Surface Tension and Capillarity) and 23 amends (score-driven moves of junk to absurd books converted to removes; salvage single-words converted to removes). 135 free-scan extras remove remaining unflagged pollution. thinChapters: none in my 16 books. Chapter order of all 16 books reviewed against standard syllabi (Hibbeler/Beer, Cengel, Incropera, Craig, Callister, Ogata, Chapman...) \u2014 no clearly-wrong pedagogical order found. Approved by default: all junk-certain removes, the multi-plate-capacitor move to electricity-and-magnetism ch4 Capacitors and Dielectrics, and the electrical-machines ch4 redistributions to ch5/6/7."
+}

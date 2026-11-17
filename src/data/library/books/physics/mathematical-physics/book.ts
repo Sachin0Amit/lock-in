@@ -28,7 +28,7 @@ const chapters: Chapter[] = [
       'Euler-Lagrange Derived',
       'The Brachistochrone Worked',
       'The Main Customers',
-      'The Hamilton–Jacobi Equation for Hamilton\'s Principal Function'
+      'Some Techniques of the Calculus of Variations',
     ],
   },
   {
@@ -44,14 +44,6 @@ const chapters: Chapter[] = [
       'The Residue Craft',
       'Branch Honesty',
       'Dispersion Dividends',
-      'Graphs of Sine and Cosine Functions',
-      'Inverse Trigonometric Functions',
-      'Graphical Representation of Derivative of a Function',
-      'Derivative of Function sin x',
-      'Derivative of Function cos x',
-      'Differentiation of Commonly Used Functions',
-      'Elementary Integration',
-      'Analysis of Angular SHM'
     ],
   },
   {
@@ -112,7 +104,6 @@ const chapters: Chapter[] = [
       'Convolution Worked',
       'The Initial-Value Solver',
       'The Green Hand Prepared',
-      'BIO Woodpecker Impulse 237 Capacitors in the Toolbox  795 CHAPTER'
     ],
   },
   {
@@ -143,7 +134,7 @@ const chapters: Chapter[] = [
       'The Group Grammar',
       'Tensors and the Metric',
       'The Tensor Customers',
-      'The Eigenvalues of the Inertia Tensor and the Principal Axis Transformation'
+      'Orthogonal Transformations',
     ],
   },
   {

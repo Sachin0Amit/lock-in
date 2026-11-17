@@ -216,7 +216,6 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Set Theory and Venn Diagrams: the Counting Craft',
       'Functions, Logarithms and Inequalities at Exam Speed',
-      'Permutations and Combinations at Exam Speed',
       'Probability at Exam Speed',
       'Heights and Distances at Exam Speed',
     ],

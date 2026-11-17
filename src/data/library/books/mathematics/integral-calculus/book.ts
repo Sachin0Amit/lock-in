@@ -65,6 +65,8 @@ const chapters: Chapter[] = [
       'Trigonometric Integrals and Standard Substitutions',
       'Quadratic and Biquadratic Forms',
       'Hyperbolic Integrals and Inverse Substitutions',
+      'Integration as Inverse of Differentiation',
+      'Elementary Integration',
     ],
   },
   {
@@ -94,6 +96,10 @@ const chapters: Chapter[] = [
       'The Fundamental Theorems of Calculus',
       'Definite By Parts, and Series by Integration',
       'The Logarithm Defined as an Integral',
+      'Algebraic Method to Evaluate Definite Integral',
+      'Geometrical Method to Evaluate Definite Integral',
+      'Geometrical Significance of a Definite Integral',
+      'Graphical Interpretation of Integration',
     ],
   },
   {
@@ -109,6 +115,8 @@ const chapters: Chapter[] = [
       'Odd, Even and Periodic Integrands',
       'Leibniz\u2019s Rule: Differentiating under the Integral',
       'Piecewise Integrands: Modulus, GIF and Signum',
+      'Properties of Definite Integral',
+      'Some Important Properties of Integration',
     ],
   },
   {

@@ -41,9 +41,8 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Three Coordinate Systems, Honestly',
-      'Gradient, Divergence, Curl — Read Physically',
+      'Gradient, Divergence, Curl \u2014 Read Physically',
       'The Integral Theorems as Engine',
-      'Armature and field connections 855 40.5 The thyristor in practice'
     ],
   },
   {
@@ -58,7 +57,6 @@ const chapters: Chapter[] = [
       'The Charge Census Worked',
       'Flux Density and Gauss\u2019s Craft',
       'The Point Form of Gauss\u2019s Law',
-      'Practical Perspective: Heating with Electric Cases'
     ],
   },
   {
@@ -72,9 +70,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Potential Earned from Work',
       'Poisson, Laplace and Uniqueness',
-      'Dielectrics and Boundary Conditions',
       'Capacitance Census and Energy',
-      'Charged plates 124 8.6 Growth in an inductive circuit'
     ],
   },
   {
@@ -89,7 +85,6 @@ const chapters: Chapter[] = [
       'Biot-Savart\u2019s Census',
       'Ampere\u2019s Craft and Curl',
       'The Lorentz Engine',
-      'Materials and Boundary Conditions',
     ],
   },
   {
@@ -105,10 +100,6 @@ const chapters: Chapter[] = [
       'Air-Gap Craft Worked',
       'Inductance of Simple Configurations',
       'The Machinery Machines Presuppose',
-      'True low-dropout regulators',
-      'Simple Magnetic Circuits 151 9.8 Representation of an alternating quantity',
-      'Mechanical analogy of an inductive circuit 232 13.10 Parallel loads',
-      'Polar impedances 256 14.8 Mechanical analogy of a resonant circuit'
     ],
   },
   {
@@ -123,7 +114,6 @@ const chapters: Chapter[] = [
       'Faraday: Transformer versus Motional',
       'Displacement Current Earned',
       'The Four Equations, Read and Interpreted',
-      'Boundary Conditions Derived',
     ],
   },
   {
@@ -154,6 +144,7 @@ const chapters: Chapter[] = [
       'Reflection and VSWR',
       'The Smith Chart as a First Language',
       'Matching and S-Parameters',
+      'The right way \u2013 I: Far-end termination',
     ],
   },
   {

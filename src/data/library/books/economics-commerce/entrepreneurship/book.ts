@@ -58,7 +58,6 @@ const chapters: Chapter[] = [
       'The Canvas Worked',
       'The Pivot Honesty',
       'The Pitch Craft',
-      '15-5d Doing Nothing 311 Summary'
     ],
   },
   {
@@ -119,7 +118,6 @@ const chapters: Chapter[] = [
       'The Budget Brand Craft',
       'The Pricing First Pass',
       'The Customer Honesty',
-      'Xviii CONTENTS'
     ],
   },
   {

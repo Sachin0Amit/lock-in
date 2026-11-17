@@ -58,7 +58,6 @@ const chapters: Chapter[] = [
       'The Passato Prossimo\u2019s Machine',
       'The Imperfetto and the Two Pasts\u2019 Division',
       'The Reflexive and the Piacere\u2019s Inversion',
-      'The washing machine has been repaired. (It / work) now'
     ],
   },
   {
@@ -149,7 +148,6 @@ const chapters: Chapter[] = [
       'The A2\u2019s Target',
       'The B1\u2019s Horizon Named',
       'The Doorstep: The Florence Barista',
-      'Paul and Sarah have had an argument and now (they / speak)'
     ],
   },
 ]

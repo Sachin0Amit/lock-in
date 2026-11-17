@@ -44,8 +44,6 @@ const chapters: Chapter[] = [
       'The Partitive\u2019s Demanded \u2019Some\u2019',
       'The Adjective\u2019s Position Circus',
       'The Numbers\u2019 Arithmetic and the Comparison',
-      'もくじ divider page',
-      'Useful Expressions じかん・とし Time/Age'
     ],
   },
   {
@@ -58,19 +56,9 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'The Three Families and the Irregular Canon',
-      'The Passé Composé\u2019s Machine',
+      'The Pass\u00e9 Compos\u00e9\u2019s Machine',
       'The Imparfait and the Two Pasts\u2019 Division',
       'The Reflexive Routine',
-      'Auxiliary verbs (have/do/can etc.) I think so / I hope so etc',
-      'Verb + -ing (enjoy doing / stop doing etc.)',
-      'Verb + to … (decide to … / forget to … etc.)',
-      'Verb + -ing or to … 1 (remember, regret etc.)',
-      'Verb + -ing or to … 2 (try, need, help)',
-      'Verb + -ing or to … 3 (like / would like etc.)',
-      'Verb + preposition + -ing (succeed in -ing / insist on -ing etc.)',
-      'What’s happening in the pictures? Choose from these verbs',
-      'She’s taking a picture. 4 his head',
-      'Put the verb into the correct form, positive (I’m doing etc.) or negative (I’m not doing etc.)'
     ],
   },
   {
@@ -86,7 +74,6 @@ const chapters: Chapter[] = [
       'The Question\u2019s Three Registers',
       'The Object Pronouns\u2019 Placement',
       'The Y and En Twins',
-      'Were implemented in 2006. Naturally, these revisions have been implemented throughout the rest of the book. The other most thoroughgoing revision is in the account of valency in Chapter 18, where it had become apparent that the account of verb complements was overly complex and gave too much'
     ],
   },
   {

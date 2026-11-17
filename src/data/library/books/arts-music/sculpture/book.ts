@@ -28,8 +28,6 @@ const chapters: Chapter[] = [
       'The Hole Receipt Named',
       'The Three-View Receipt Fixed by Drill',
       'The Finish Honesty Cross-Referenced',
-    
-      'Elective V: Sculpture'
     ],
   },
   {
@@ -45,8 +43,7 @@ const chapters: Chapter[] = [
       'The Tool-Mark Honesty Named',
       'The Shrink Register Named',
       'The Venting Honesty Named',
-    
-      'Sculpture practical Class XI-XII: Modeling in Relief (clay or plaster of Paris); Modeling in Round; Portfolio Assessment (folk-art sculpture pieces included)'
+      'Sculpture Practical Class Xi-xii: Modeling In Relief (clay Or Plaster Of',
     ],
   },
   {
@@ -62,8 +59,7 @@ const chapters: Chapter[] = [
       'The Caliper Craft Fixed by Drill',
       'The Tack Named',
       'The Transformation Receipt Priced Straight',
-    
-      'Unit III: Traditional medium, materials and techniques and their application in all disciplines of visual expression (carving and casting processes; impasto, glazing; intaglio/relief print; fresco; preparation of ground for murals, wasli for miniatures)'
+      'Traditional Medium, Materials And Techniques And Their Application In All',
     ],
   },
   {

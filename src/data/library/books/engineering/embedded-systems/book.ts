@@ -47,8 +47,7 @@ const chapters: Chapter[] = [
       'The Memory Map Read Fluently',
       'The Peripheral Census',
       'Clocking and Reset Honestly',
-    
-      'Communication satellites — orbits, characteristics, systems, uses; fibre-optic communication systems: block schematics, link calculations, system design'
+      'Communication Satellites \u2014 Orbits, Characteristics, Systems, Uses;',
     ],
   },
   {
@@ -63,8 +62,6 @@ const chapters: Chapter[] = [
       'Deadlines and Their Consequences',
       'RMS and EDF Priced',
       'Priority Inversion Fixed Honestly',
-      'GBW, f_T, slew rate and "m," and settling time',
-      'Using the Mesh-Current Method in the F(s) Has Distinct Real Roots'
     ],
   },
   {
@@ -80,7 +77,6 @@ const chapters: Chapter[] = [
       'Kernel Services Earned',
       'ISR Discipline',
       'The RTOS Census Table',
-      'The right way – I: Far-end termination'
     ],
   },
   {
@@ -96,7 +92,6 @@ const chapters: Chapter[] = [
       'Timers and Their Modes',
       'UART, SPI, I2C Priced',
       'The Layering Craft',
-      'Precision coil driver'
     ],
   },
   {

@@ -62,6 +62,7 @@ const chapters: Chapter[] = [
       'The Centres of a Triangle in Coordinates',
       'Polar Coordinates',
       'Locus and Its Equation',
+      'Cartesian Coordinates',
     ],
   },
   {
@@ -184,6 +185,8 @@ const chapters: Chapter[] = [
       'Points and Planes in Space',
       'Direction Cosines and Direction Ratios',
       'Distance, Section and the Sphere',
+      'Direction Cosines',
+      'Geometry and stereometry',
     ],
   },
   {
@@ -198,6 +201,8 @@ const chapters: Chapter[] = [
       'Vectors: Position, Components, Types',
       'Addition, Scalar Multiplication and the Section Formula',
       'Linear Combination, Dependence and Independence',
+      'Some Properties of Vector Addition',
+      'Finding Rectangular Components of a Vector in Three Dimensions',
     ],
   },
   {
@@ -212,6 +217,8 @@ const chapters: Chapter[] = [
       'The Dot Product: Angles and Projections',
       'The Cross Product: Areas and Moments',
       'Triple Products and Lagrange\u2019s Identity',
+      'Dot Product of Unit Vectors',
+      'Multiplying Vectors',
     ],
   },
   {

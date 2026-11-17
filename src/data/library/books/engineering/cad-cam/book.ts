@@ -32,12 +32,6 @@ const chapters: Chapter[] = [
       'CAD, CAM, CIM Located',
       'The Integration-Tools Census',
       'The Data Ladder',
-      'The Oscillation Criterion 1068 16.2 Digital Logic Inverters',
-      'Multiplexed LED digital display',
-      'On-board interconnections',
-      'R–2R ladder DACs',
-      'The AND function 533 25.9 Digital or analogue?',
-      'Digital oscilloscope 950 Index'
     ],
   },
   {
@@ -82,8 +76,6 @@ const chapters: Chapter[] = [
       'IGES and STEP Priced',
       'Model-Based Definition Glanced',
       'PDM and Change Control',
-      'Step 3: getting to e_n',
-      'A.1 Preliminary Steps'
     ],
   },
   {

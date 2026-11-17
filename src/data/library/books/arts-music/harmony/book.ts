@@ -103,8 +103,6 @@ const chapters: Chapter[] = [
       'The Tonicisation-Modulation Division Held Straight',
       'The Pivot Honesty Named',
       'The Tonal\u2019s End Held Straight',
-    
-      'Unit 3 (common): The Natyasastra'
     ],
   },
 ]

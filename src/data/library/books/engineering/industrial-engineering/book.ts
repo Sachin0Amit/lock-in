@@ -37,20 +37,7 @@ const chapters: Chapter[] = [
       'The Production Census',
       'Layout Families by Volume-Variety',
       'Productivity Measured Honestly',
-    
-      'Refrigeration and Air conditioning — vapour compression refrigeration, refrigerants and working cycles, compressors, condensers, evaporators and expansion devices; other refrigeration systems (vapour absorption, vapour jet, thermo-electric, vortex tube); psychrometric properties and processes,',
-      'Current issues of national and international importance relating to social, economic and industrial development',
-      'Output Current Limits 112 4.3.6 The Ideal-Diode Model',
-      'Output Resistance of the Emitter- 9.5.2 The Current-Mirror-Loaded MOS',
-      'Class A Output Stage 890 13.2.6 Increasing the Input Common',
-      'Class AB Output Stage 902 of the Input Stage',
-      'It furthers the University\'s mission by disseminating knowledge in the pursuit of education, learning, and research at the highest international levels of excellence',
-      'A monostable application: limiting pulse width and duty cycle',
-      'I: Phototransistor output optocouplers',
-      'Production of rotating magnetic flux by',
-      'Generating plant',
-      'RPC system requirements 873 Sensing and Actuation',
-      'Deflecting systems of a cathode-ray tube 948 and Diagrammatic Symbols'
+      'Refrigeration And Air Conditioning \u2014 Vapour Compression Refrigeration,',
     ],
   },
   {
@@ -79,8 +66,6 @@ const chapters: Chapter[] = [
       'The Forecasting Census',
       'Forecast Error Measured',
       'Aggregate Strategies Priced',
-      'A simple delta-sigma for our suntan monitor',
-      'The decibel (dB) 369 20.5 Smoothing'
     ],
   },
   {
@@ -95,7 +80,6 @@ const chapters: Chapter[] = [
       'Sequencing: Johnson and the Rules',
       'The MRP Engine',
       'Lean: the Pull Discipline',
-      'The Waste Census',
     ],
   },
   {
@@ -111,7 +95,6 @@ const chapters: Chapter[] = [
       'Safety Stock and Service Level',
       'ABC and the Census',
       'Inventory as the Mirror',
-      'The Wilson BJT Current Mirror 553 Problems'
     ],
   },
   {
@@ -127,14 +110,6 @@ const chapters: Chapter[] = [
       'Transportation and Assignment',
       'Network Flows at Production Speed',
       'Queues Priced on Service Systems',
-    
-      'Computer organization — basic architecture, CPU, I/O organisation, memory organisation, peripheral devices, trends; hardware/software issues; data representation and programming; operating systems: basics, processes, characteristics, applications; memory management, virtual memory, file systems,',
-      'Relationship between D and // 150 4.7 Other Diode Applications',
-      'Graphical Representation of',
-      '317-style regulator: application hints',
-      'Some DAC application examples',
-      'Parallel multichannel delta-sigma data-acquisition system',
-      'A.4 Applications 725 Integrals'
     ],
   },
   {
@@ -150,9 +125,6 @@ const chapters: Chapter[] = [
       'Process Capability',
       'Acceptance Sampling and OC Curves',
       'Six Sigma Named Honestly',
-      'FETs as variable resistors',
-      'Six DACs',
-      'Light acceptance 617 29.13 Simplification of the approximate'
     ],
   },
   {

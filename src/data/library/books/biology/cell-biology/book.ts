@@ -28,15 +28,7 @@ const chapters: Chapter[] = [
       'Resolution against Magnification',
       'The Two Electron Microscopes',
       'The Centrifuge\u2019s Layers',
-      'Cellular Energetics: Enzymes, Energy and Respiration',
-    
-      'Atomic Structure and Periodicity',
-      'Structure and Bonding',
-      'Jamie Towle-Weicksel, Rhode Island College I STRUCTURE AND CATALYSIS',
-      'Xuemin Wang, University of Missouri-St. Louis 6 Enzymes',
-      'Eukaryotic Cells Have a Variety of Membranous Eukaryotic Cells Evolved from Simpler',
-      'Organelles, Which Can Be Isolated for Study 6 Precursors in Several Stages',
-      'Three-Dimensional Structure Is Described by Water Interacts Electrostatically with Charged'
+      'Unit 3: Cellular Energetics',
     ],
   },
   {
@@ -49,7 +41,6 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'The Nucleoid and the Ribosomes',
-      'The Wall and the Gram Craft',
       'Attachment and Motion',
       'The Plasmid and the Endospore',
     ],
@@ -98,7 +89,6 @@ const chapters: Chapter[] = [
       'The Endosymbiotic Evidence',
       'The Plastid Family',
       'The Maternal Lineage',
-      'Brief Contents (units and chapters, printed order)'
     ],
   },
   {
@@ -115,7 +105,6 @@ const chapters: Chapter[] = [
       'The Matrix as Information',
       'The Three Junctions',
       'Cilia, Flagella, Centrioles and the Nucleus Register',
-      'Bacterial and Archaeal Cells Share Common Three and a Half Billion Years Ago'
     ],
   },
   {

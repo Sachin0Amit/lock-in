@@ -99,8 +99,7 @@ const chapters: Chapter[] = [
       'Muskingum Worked',
       'The Mass Curve Drawn',
       'The Flood-Control Census',
-    
-      'Hydrology — hydrological cycle, ground water hydrology, well hydrology and related data analysis; streams and their gauging; river morphology; flood, drought and their management; capacity of reservoirs'
+      'Hydrology \u2014 Hydrological Cycle, Ground Water Hydrology, Well Hydrology And',
     ],
   },
   {
@@ -161,7 +160,6 @@ const chapters: Chapter[] = [
       'The Waterlogging Note',
       'The Synthesis Page',
       'The Doorsteps Named',
-      'For password-protected online resources tailored to'
     ],
   },
 ]

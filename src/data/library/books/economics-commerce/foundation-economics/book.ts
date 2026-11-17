@@ -28,23 +28,9 @@ const chapters: Chapter[] = [
       'Opportunity Cost Arithmetic',
       'The Agent Register',
       'Positive versus Normative',
-      '1-4 Conclusion',
-      'Organize Economic Activity',
       'FYI: Adam Smith and the Invisible Hand',
-      'Farmers?',
-      'Drug-Related Crime?',
-      '5-4 Conclusion',
-      '8-4 Conclusion',
-      '9-4 Conclusion 182 Problems and Applications',
-      'PART IV The Economics of the Key Concepts',
-      '10-4 Conclusion 206 Problems and Applications',
-      'Miniature Golf',
       'CASE STUDY: Monopoly Drugs versus Generic Drugs',
-      'IN THE NEWS: Europe versus Google',
-      'Key Concepts 313 Problems and Applications',
       'Society',
-      '16-4 Conclusion',
-      'Key Concepts 334 The Markets for the Factors'
     ],
   },
   {
@@ -60,8 +46,6 @@ const chapters: Chapter[] = [
       'The Frontier Geometry',
       'Marginal Analysis',
       'The Circular Flow',
-      '2-1b The Role of Assumptions',
-      '5-1c The Midpoint Method: A Better Way to Calculate'
     ],
   },
   {
@@ -76,26 +60,8 @@ const chapters: Chapter[] = [
       'The Demand Law',
       'The Supply Law',
       'The Clearing Price',
-      'Everyday Registers',
-      'Elasticity and Its Applications',
       'Supply, Demand and Government Policies',
-      'Monopoly, Oligopoly and Price Discrimination First Pass',
-      'Externalities, Public Goods and Common Resources',
-      'Earnings and Discrimination',
-      'Demand 65 Key Concepts',
-      'CASE STUDY: Two Ways to Reduce the Quantity of Smoking 6-1a How Price Ceilings Affect Market Outcomes',
-      '6-1b How Price Floors Affect Market Outcomes 116 7-3b Evaluating the Market Equilibrium',
-      '6-2a How Taxes on Sellers Affect Market Outcomes 121 Key Concepts',
-      'ASK THE EXPERTS: The Laffer Curve',
-      'Surplus 135 9-3a The Jobs Argument',
-      '11-1 The Different Kinds of Goods',
-      '11-3a The Tragedy of the Commons',
-      '15-5a Increasing Competition with Antitrust Laws',
-      '18-1 The Demand for Labor',
-      'Oligopoly 337 Labor',
-      '17-1 Markets with Only a Few Sellers 338 Labor',
-      '17-1a A Duopoly Example 338 18-1d What Causes the Labor-Demand Curve to Shift?',
-      '17-1d How the Size of an Oligopoly Affects the Market'
+      'CASE STUDY: Adam Smith Would Have Loved Uber',
     ],
   },
   {
@@ -112,8 +78,7 @@ const chapters: Chapter[] = [
       'Income and Cross Registers',
       'The Time Honesty',
       'Percentage Changes and Elasticities',
-      'Run 115 7-3a The Benevolent Social Planner',
-      '13-4a The Relationship between Short-Run and Long-Run 15-1b Government-Created Monopolies'
+      'Elasticity and Its Applications',
     ],
   },
   {
@@ -130,10 +95,7 @@ const chapters: Chapter[] = [
       'The Failure Census',
       'The Remedy Register',
       'Interdependence and the Gains',
-      'ASK THE EXPERTS: Rent Control 116 IN THE NEWS: The Invisible Hand Can Park Your Car',
-      'Of a Payroll Tax?',
-      'Questions for Review 128 8-1a How a Tax Affects Market Participants',
-      '8-2 The Determinants of the Deadweight Loss'
+      'Externalities, Public Goods and Common Resources',
     ],
   },
   {
@@ -149,9 +111,8 @@ const chapters: Chapter[] = [
       'The Shutdown Logic',
       'The Structure Census',
       'Profit Kept Honest',
-      '4-1b What Is Competition?',
-      '14-2a A Simple Example of Profit Maximization',
-      'Summary 263 15-2b A Monopoly’s Revenue'
+      'Monopoly, Oligopoly and Price Discrimination First Pass',
+      'IN THE NEWS: Europe versus Google',
     ],
   },
   {
@@ -167,9 +128,6 @@ const chapters: Chapter[] = [
       'The Expenditure Map',
       'The Twin Worries',
       'The Long-Run Question',
-      'Questions for Review',
-      '3-4 Conclusion 58 Questions for Review',
-      'Summary 313 Questions for Review'
     ],
   },
   {
@@ -200,10 +158,7 @@ const chapters: Chapter[] = [
       'Deficit Honesty',
       'Direct and Indirect',
       'The Fairness Register',
-      '6-2 Taxes 120 Summary',
-      '6-2b How Taxes on Buyers Affect Market Outcomes 122 Questions for Review',
-      '10-2b Market-Based Policy 1: Corrective Taxes and 12-2b Administrative Burden',
-      'ASK THE EXPERTS: Vaccines 196 12-2d Lump-Sum Taxes'
+      'ASK THE EXPERTS: The Laffer Curve',
     ],
   },
   {

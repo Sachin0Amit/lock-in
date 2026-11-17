@@ -51,6 +51,7 @@ const chapters: Chapter[] = [
       'Floating-Point: the Fraction and the Exponent',
       'Error Detection and Correction: Parity, Hamming',
       'Binary Codes and Storage Registers',
+      'Digital Electronics: Analog and Digital Circuits',
     ],
   },
   {
@@ -112,6 +113,7 @@ const chapters: Chapter[] = [
       'Multiplexers: the Data Selector',
       'Magnitude Comparators and Decimal Adders',
       'ROM and PLA: Logic as Memory',
+      'Combinational functions available as ICs',
     ],
   },
   {
@@ -142,6 +144,7 @@ const chapters: Chapter[] = [
       'Counters: Ripple versus Synchronous',
       'The Memory Unit at Logic Level',
       'Register-Transfer: the Machine Language of Design',
+      'Modulo-n counter: a timing example',
     ],
   },
   {
@@ -170,6 +173,7 @@ const chapters: Chapter[] = [
       'Hardware Description Languages: the RTL Idea',
       'From PLA to FPGA: the Programmable Ladder',
       'The Synthesis Flow and Verification Craft',
+      'ELEVEN: Programmable Logic Devices',
     ],
   },
   {

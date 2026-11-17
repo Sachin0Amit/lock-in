@@ -88,10 +88,10 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Growth, Decay and Cooling',
       'Mixing and Population Dynamics',
       'Orthogonal Trajectories',
       'Existence and Uniqueness: the Honest Guarantee',
+      'The Logistic Equation',
     ],
   },
   {
@@ -120,7 +120,6 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Free and Damped Oscillation',
       'Forcing and Resonance',
       'The RLC Twin',
     ],
@@ -138,6 +137,7 @@ const chapters: Chapter[] = [
       'The Phase Plane: Critical Points and their Stability',
       'Qualitative Methods for Nonlinear Systems',
       'Predator\u2013Prey and Linked Populations',
+      'Chaotic Trajectories and Liapunov Exponents',
     ],
   },
   {

@@ -103,7 +103,6 @@ const chapters: Chapter[] = [
       'The Two Conditions',
       'The 2SLS Worked',
       'The Natural-Experiment Register',
-      '2-3a Differences in Scientific Judgments'
     ],
   },
   {
@@ -149,9 +148,7 @@ const chapters: Chapter[] = [
       'The Tools Named',
       'The Paper Read',
       'The Research Doorway',
-    
       'Project Work',
-      'Project Work / Practical Work'
     ],
   },
 ]

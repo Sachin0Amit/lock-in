@@ -29,8 +29,8 @@ const chapters: Chapter[] = [
       'The Map and Its Projections',
       'The Grid and the Time\u2019s Arithmetic',
       'The Modern Tools\u2019 Census',
-    
-      'Emerging Areas'
+      'Emerging Areas',
+      'Unit 1: Thinking Geographically',
     ],
   },
   {
@@ -122,8 +122,7 @@ const chapters: Chapter[] = [
       'The Distribution\u2019s Why',
       'The Transition and the Dividend',
       'The Migration Register',
-    
-      'Paper-I 3. Economic Organization (formalist-substantivist debate; principles of production, distribution and exchange in hunting-gathering, fishing, pastoral, horticultural and agricultural communities; globalisation and indigenous economic systems)'
+      'I 3. Economic Organization (formalist-substantivist Debate; Principles Of',
     ],
   },
   {
@@ -155,7 +154,6 @@ const chapters: Chapter[] = [
       'The Primary Activities',
       'The Industry\u2019s Location Theories',
       'The Transport and the Trade',
-      'The Resources and the Development Question',
     ],
   },
   {
@@ -186,10 +184,9 @@ const chapters: Chapter[] = [
       'The Resources\u2019 Indian Register',
       'The Agriculture and the Industries',
       'The Transport and the Regional Question',
-    
       'Indian Economy and Economic Development - issues relating to planning, mobilisation of resources, growth, development and employment; inclusive growth; government budgeting; effects of liberalisation on the economy; infrastructure (energy, ports, roads, airports, railways); investment models',
-      'Planning and Economic Development - Nehruvian and Gandhian perspectives; role of planning and the public sector; Green Revolution, land reforms and agrarian relations; liberalisation and economic reforms',
-      'Paper-II 6. Tribal Situation in India (bio-genetic variability and socio-economic characteristics; problems of tribal communities - land alienation, poverty, indebtedness, literacy, employment, health and nutrition; impact of developmental projects, forest policy, urbanisation and industrialisation'
+      'Planning And Economic Development - Nehruvian And Gandhian Perspectives;',
+      'Ii 6. Tribal Situation In India (bio-genetic Variability And',
     ],
   },
   {

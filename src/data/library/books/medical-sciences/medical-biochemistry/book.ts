@@ -88,8 +88,7 @@ const chapters: Chapter[] = [
       'The PKU Screening Receipt Priced Straight',
       'The Gout\u2019s Urate Honesty',
       'The One-Carbon Craft Named',
-    
-      'Semester IV: Genetics'
+      'Semester Iv: Genetics',
     ],
   },
   {
@@ -137,9 +136,8 @@ const chapters: Chapter[] = [
       'The Bridge Held Honestly',
       'Applied Nutrition and Dietetics',
       'The Chemical Processes of Life',
-    
       'Semester I: Biochemistry',
-      'Veterinary Clinical Medicine (including Clinical Biochemistry and Laboratory Diagnosis)'
+      'Veterinary Clinical Medicine (including Clinical Biochemistry And',
     ],
   },
 ]

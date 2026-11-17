@@ -500,6 +500,15 @@ function extract(src: Source): { topic: string; book: string; chapter: boolean }
 }
 
 // ---------------------------------------------------------------------------
+// fold ledger (tier 2 of the toc-as-lessons contract): a surveyed topic
+// folded into a real host lesson of its routed book counts as covered —
+// added by the 2026-11-17 swarm reorg so deliberate title-hygiene retitles
+// do not register as coverage gaps.
+const foldLedger: { source: string; topic: string; book: string; host: string }[] =
+  JSON.parse(readFileSync('docs/project/TOC_FOLD_LEDGER.json', 'utf8'))
+const foldCovered = new Set(foldLedger.map((f) => `${f.source}::${norm(f.topic)}::${f.book}`))
+let foldHits = 0
+
 // 4. Run the audit.
 // ---------------------------------------------------------------------------
 console.log('== topic coverage audit (survey → shelf books) ==')
@@ -519,7 +528,11 @@ for (const src of sources) {
   for (const t of topics) {
     topicTotal++
     const { hit, total } = coverCount(t.topic, bookBlob[t.book] ?? new Set())
-    const covered = total === 0 ? true : hit / total >= 0.6 && (total < 3 ? hit >= 1 : hit >= 2)
+    let covered = total === 0 ? true : hit / total >= 0.6 && (total < 3 ? hit >= 1 : hit >= 2)
+    if (!covered && foldCovered.has(`${src.id}::${norm(t.topic)}::${t.book}`)) {
+      covered = true
+      foldHits++
+    }
     if (!covered) {
       // is it at least covered somewhere else in the shelf?
       let anywhere = ''
@@ -542,7 +555,7 @@ for (const src of sources) {
   console.log(`  ${src.id.padEnd(34)} ${String(topics.length).padStart(3)} topics — ${tag}`)
 }
 
-console.log(`\n  topic entries audited: ${topicTotal}`)
+console.log(`\n  topic entries audited: ${topicTotal} (fold-mediated tier-2 coverage: ${foldHits})`)
 console.log(`  covered in routed book: ${topicTotal - hardGaps - softCross}`)
 console.log(`  covered elsewhere (cross-ref, reviewed): ${softCross}`)
 console.log(`  HARD GAPS (in NO book): ${hardGaps}`)

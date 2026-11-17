@@ -43,9 +43,8 @@ const chapters: Chapter[] = [
       'The Balanced Onset Held',
       'The Forward Register Named',
       'The Half-Voice Honesty Named',
-    
-      'Paper 1 Listening — Section A: Compositional Techniques and Performance Practice (aural perception, music literacy and applied contextual understanding in relation to the set works)',
-      'Paper 1 Listening — Section B: Understanding Music (musical understanding, including compositional techniques and their effects, in the set works)'
+      'Paper 1 Listening \u2014 Section A: Compositional Techniques And Performance',
+      'Paper 1 Listening \u2014 Section B: Understanding Music (musical Understanding,',
     ],
   },
   {
@@ -61,8 +60,6 @@ const chapters: Chapter[] = [
       'The Pure-Vowel Honesty Held',
       'The Nasal Census Named',
       'The Linking Receipt Named',
-    
-      'Part-A: Language — proficiency in reading and comprehending Standard English'
     ],
   },
   {

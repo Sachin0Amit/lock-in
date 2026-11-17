@@ -139,7 +139,6 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Server on One Page',
       'The Craft Census',
-      'The Doorsteps: Coordination, Platform, Integration',
     ],
   },
 ]

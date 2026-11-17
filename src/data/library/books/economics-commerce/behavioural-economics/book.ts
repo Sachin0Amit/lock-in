@@ -28,7 +28,6 @@ const chapters: Chapter[] = [
       'The Revealed Inheritance',
       'The Systematic Error Crux',
       'The Two Engines',
-      '1-1c Principle 3: Rational People Think at the Margin 6 2-4 Let’s Get Going'
     ],
   },
   {

@@ -28,11 +28,7 @@ const chapters: Chapter[] = [
       'The 72-and-300 Receipts Fixed by Drill',
       'The Upsampling Consequence Named',
       'The Hand-Eye Receipt Named',
-    
-      'Unit 4 (common): Art and Aesthetics',
-      'Unit IV: Developments in modern techniques, processes and procedures and their application in contemporary visual practices (installation; multi-colour print; computer-aided design — vector and raster; multimedia and digital technologies in art; trompe l\'oeil illusory hyper-realism)',
-      'Unit IX: Art of the Far East, South East and Central Asia and the ancient Near-East',
-      'SL (150 hours) and HL (240 hours) follow the same three assessed components, with HL requiring a larger Comparative Study with explicit link to own practice, more Process Portfolio screens covering more media, and a larger Exhibition with fuller rationale'
+      'Sl (150 Hours) And Hl (240 Hours) Follow The Same Three Assessed',
     ],
   },
   {
@@ -78,8 +74,7 @@ const chapters: Chapter[] = [
       'The Two-Screen Caution Named',
       'The Disclosure Craft Priced Straight',
       'The Swatches Register Named',
-    
-      'Applied Art (Commercial Art) practical Class XII: Illustration (techniques of illustration supported by drawing from life and outdoor sketching); Poster (poster with specified data and slogan in two or three colours); Portfolio Assessment'
+      'Applied Art (Commercial Art) Practical Class Xii: Illustration (techniques',
     ],
   },
   {
@@ -95,8 +90,7 @@ const chapters: Chapter[] = [
       'The Block-Paint Division Named',
       'The Calibration Honesty Named',
       'The Platform Named at Survey Depth',
-    
-      'Applied Art (Commercial Art) practical Class XI: Drawing (still-life and nature); Lettering (Roman and Devanagari scripts, typefaces and sizes) and Layout; Portfolio Assessment'
+      'Applied Art (Commercial Art) Practical Class Xi: Drawing (still-life And',
     ],
   },
 ]

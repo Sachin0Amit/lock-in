@@ -36,7 +36,6 @@ const chapters: Chapter[] = [
       'The Radiation Mechanism, Honestly',
       'The Family Census',
       'The Parameter Vocabulary Earned',
-      'This publication is in copyright. Subject to statutory exception and to the provisions of relevant collective licensing agreements, no reproduction of any part may take place without the written permission of Cambridge University Press'
     ],
   },
   {
@@ -112,7 +111,6 @@ const chapters: Chapter[] = [
       'The Ground Wave\u2019s Niche',
       'LOS, Radio Horizon, Fading Named',
       'The Link Arithmetic Practised',
-      'Propagation Delay 1150 18.3.3 Flash Memory'
     ],
   },
   {

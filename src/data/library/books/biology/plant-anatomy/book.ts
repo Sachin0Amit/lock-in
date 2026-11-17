@@ -29,9 +29,6 @@ const chapters: Chapter[] = [
       'The Modified-Organ Preview',
       'The Open-Growth Honesty',
       'Morphology and Modifications of Flowering Plants',
-      'The Angiosperm Life Cycle and the Gametophytes',
-    
-      'Metabolism of Nitrogen containing compounds'
     ],
   },
   {
@@ -47,6 +44,7 @@ const chapters: Chapter[] = [
       'The Three Simple Tissues',
       'The Tracheary Craft',
       'The Secretory Register Named',
+      'Embryogenesis and the Apical Meristems',
     ],
   },
   {
@@ -126,6 +124,7 @@ const chapters: Chapter[] = [
       'Pollen-Pistil Interaction and Double Fertilization',
       'Post-Fertilization: Endosperm, Embryo, Seed and Fruit',
       'Apomixis, Parthenocarpy and Polyembryony',
+      'The Angiosperm Life Cycle and the Gametophytes',
     ],
   },
   {

@@ -30,10 +30,8 @@ const chapters: Chapter[] = [
       'The Branches\u2019 Census',
       'The Western-Indian Contrast',
       'The Shelf\u2019s Own Map',
-    
-      'Unit X: Historical Method, Research, Methodology and Historiography (scope and importance of history; objectivity and bias; causation; research methodology and hypothesis; trends in historical research; Indian and western historiography; thesis writing and plagiarism)',
       'Unit 6: Recent Western Philosophy',
-      'Unit 9: Logic'
+      'Historical Method, Research, Methodology And Historiography (scope And',
     ],
   },
   {
@@ -49,6 +47,7 @@ const chapters: Chapter[] = [
       'The Forms\u2019 Census',
       'The Fallacies\u2019 Register',
       'The Formal Handoff',
+      'Unit 9: Logic',
     ],
   },
   {
@@ -113,13 +112,11 @@ const chapters: Chapter[] = [
       'Socrates, Plato and the Theory of Forms',
       'Aristotle: Logic, Ethics and Metaphysics',
       'Medieval Philosophy: Augustine to Aquinas',
-      'The Rationalists: Descartes, Spinoza and Leibniz',
-      'The Empiricists: Locke, Berkeley and Hume',
-      'Kant and the Critical Philosophy',
       'Nietzsche, Existentialism and the Analytic Turn',
-    
-      'Western Political Thought - Plato, Aristotle, Machiavelli, Hobbes, Locke, J. S. Mill, Marx, Gramsci, Hannah Arendt',
-      'Chapter IV. Saint Augustine\'s Philosophy and Theology'
+      'Chapter IV. Saint Augustine\'s Philosophy and Theology',
+      'Chapter III. Pythagoras',
+      'Chapter IV. Erasmus and More',
+      'Western Political Thought - Plato, Aristotle, Machiavelli, Hobbes, Locke,',
     ],
   },
   {
@@ -135,6 +132,12 @@ const chapters: Chapter[] = [
       'The Empiricists',
       'The Kantian Turn',
       'The Nineteenth Century\u2019s Register',
+      'The Rationalists: Descartes, Spinoza and Leibniz',
+      'The Empiricists: Locke, Berkeley and Hume',
+      'Kant and the Critical Philosophy',
+      'Chapter VII. Francis Bacon',
+      'Chapter IX. Descartes',
+      'Chapter XI. Leibniz',
     ],
   },
   {
@@ -146,7 +149,6 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'The Analytic Turn',
       'The Phenomenological Register',
       'The Existential Arc',
       'The Contemporary Indian-Analytic Register',
@@ -161,7 +163,6 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Equality and Justice',
       'The Contract\u2019s Census',
       'The Indian Voices',
       'The Democracy and Gender Registers',

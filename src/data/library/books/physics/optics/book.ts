@@ -28,20 +28,9 @@ const chapters: Chapter[] = [
       'Mirror Formulas Derived',
       'Snell and the Critical Angle',
       'TIR Applications',
-    
       'Geometric Optics',
-      'Image Formation from Plain Mirror',
-      'Photon Counts Emitted by a Source per Second',
-      'Production of X-Rays (Coolidge\'s Tube)',
-      'Photons Have Momentum',
-      'X Rays and the Ordering of the Elements',
-      'BIO Horses on a Curved Path 70 BIO Transparency and Index of Refraction',
-      'BIO Jet Propulsion in Squids 257 Smartphones, Capacitors, and Dielectrics 800 BIO X-Ray Absorption and Medical Imaging',
-      'Rotation of Rigid Bodies 272 34 Geometric Optics',
-      'Summary 942 OPTICS',
-      'Light Emitted as Photons: X-Ray Production 1259 Dimensions',
-      'Geometrical Optics 662 In Perspective: Marie Curie',
-      '24–2 Spherical Mirrors 665 Appendix A Review of Mathematics'
+      'Image Formation by a Plane Mirror',
+      'Lateral Displacement of Emergent Beam Through a Glass Slab',
     ],
   },
   {
@@ -59,8 +48,8 @@ const chapters: Chapter[] = [
       'Two-Lens Systems',
       'Linear Magnification Produced by a Lens',
       'Lenses with Different Media on Either Side',
-      'Mutual Inductance 988 34.4 Thin Lenses',
-      '24–3 Lenses 676 A–1 Basic Operations'
+      'Refraction at a Spherical Surface Convex Towards the Rarer Medium',
+      'Lateral Magnification for Refracting Spherical Surface',
     ],
   },
   {
@@ -87,16 +76,12 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Microscope and Telescope',
       'The Eye Corrected',
       'Resolving Previewed',
       'Camera and Spectrometer',
       'Photometry: The Luminous Intensity Ledger',
-      'Fresnel and Fraunhofer Diffractions',
-      'DIFFRACTION 1185 DNA',
       'Fresnel and Fraunhofer Diffraction',
-      '25–3 The Microscope 713 A–6 Trigonometry',
-      '26–3 Diffraction 741 Appendix D Selected Isotopes'
+      'Solid Angle of a Surface Not Normal to Axis of Cone',
     ],
   },
   {
@@ -112,7 +97,6 @@ const chapters: Chapter[] = [
       'Wavefronts Read',
       'Coherence Introduced',
       'The Wave\u2019s Honesty',
-      '38-3 PHOTONS, MOMENTUM, COMPTON SCATTERING, LIGHT'
     ],
   },
   {
@@ -128,11 +112,11 @@ const chapters: Chapter[] = [
       'The Intensity Ledger',
       'Thin Films and Newton\u2019s Rings',
       'Lloyd\u2019s Mirror',
-      'Double Differentiation',
       'Maximum Order of Interference Fringes',
       'Shape of Interference Fringes in YDSE',
-      '35-3 INTERFERENCE AND DOUBLE-SLIT INTENSITY 1059 Some Consequences of the Lorentz Equations',
-      'Multiple Slits'
+      'Multiple Slits',
+      'Fresnel\'s Biprism',
+      'Michelson\u2019s Interferometer',
     ],
   },
   {
@@ -162,7 +146,6 @@ const chapters: Chapter[] = [
       'Malus Derived',
       'Brewster Again',
       'Double Refraction',
-      'Optical Activity',
       'Polaroids and the Plane of Polarisation',
     ],
   },
@@ -191,11 +174,8 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Focal-Length Practicals',
-      'Refractive-Index Craft',
       'The Grating Measurement',
-      'Error Arithmetic',
       'Graphical Method for Determining Focal Length of a Convex Lens',
-      'Author Index'
     ],
   },
 ]

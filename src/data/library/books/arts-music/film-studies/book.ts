@@ -28,9 +28,7 @@ const chapters: Chapter[] = [
       'The Liveness Cross-Reference Held Straight',
       'The Everything Honesty Held',
       'The See-Again Division Named',
-    
-      'Unit 2 (common): Folk and Traditional Theatre Forms of India',
-      'Comparative Study (CS) — analytical comparison of artworks by different artists from different cultural contexts, examining formal qualities, function, meaning and cultural significance; at HL also a connection to the student\'s own work'
+      'Comparative Study (cs) \u2014 Analytical Comparison Of Artworks By Different',
     ],
   },
   {

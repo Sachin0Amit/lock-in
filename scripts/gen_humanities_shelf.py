@@ -13,7 +13,7 @@ archaeology-and-heritage-studies; Art History owned here with the future
 Arts shelf cross-referencing it).
 
 16 books promoted to src/data/library/books/humanities/<slug>/book.ts,
-status 'planned', ZERO lessons written — 157 chapters / 763 planned (644 + the 2026-11-17 exam-gap + drive-toc continuation additions, which landed directly in book.ts — this authored generator's plan data now TRAILS the shipped book.ts files)
+status 'planned', ZERO lessons written — 157 chapters / 698 planned (644 authored here + the exam-gap/drive-toc additions, then the 2026-11-17 swarm reorganisation deduplicated/moved them in book.ts — this authored generator's plan data now TRAILS the shipped book.ts files)
 lessons in total. The authored plan data (chapters, summaries,
 planned-lesson titles, positioning, research notes) lives in this script;
 the emitter below writes the house-format book.ts files. Idempotent:

@@ -1,0 +1,936 @@
+===== world-history — World History
+  CH1 The Historian’s Craft
+    [0] How History Is Written
+    [1] Sources: Literary and Archaeological
+    [2] Time, Periodisation and the Calendar
+    [3] Acknowledgements (duplicate)
+    [4] Chapter XIII. The Sources of Plato's Opinions
+    [5] Part I. The Fathers
+    [6] Part II. The Schoolmen
+  CH2 The World Before 1200
+    [0] The First Farmers and Cities
+    [1] The Classical World: Greece and Rome
+    [2] The Silk Roads and the Medieval World
+    [3] The World in 1200: the Starting Line
+    [4] Agriculture - major crops and cropping patterns, irrigation systems, storage, transport and marketing of agricultural produce, e-technology in the aid of farmers; direct and indirect farm subsidies and minimum support prices; Public Distribution System and food security; food processing and related
+    [5] Unit 6: Consequences of Industrialization
+    [6] Preface to the First Edition (signed M. Laxmikanth)
+    [7] Preface to the First Edition (duplicate)
+  CH3 Land-Based Empires
+    [0] The Gunpowder Empires
+    [1] Ming-Qing China and the Tribute World
+    [2] The Aztec and Inca States
+    [3] Empire’s Legitimation Craft
+    [4] About the Civil Services Examination — A. Preliminary Examination / B. Main Examination (Qualifying Papers: Paper A, Paper B)
+  CH4 Networks of Exchange
+    [0] The Indian Ocean World
+    [1] The Trans-Saharan Caravans
+    [2] Goods, Technologies, Religions in Motion
+    [3] The Land and Sea Route Comparison
+    [4] ABOUT THE AUTHOR
+    [5] Part I. The Pre-Socratics
+  CH5 Transoceanic Interconnections
+    [0] The Voyages and Their Instruments
+    [1] The Columbian Exchange
+    [2] The Atlantic System Begins
+    [3] The First Global Silver Economy
+    [4] Biological Basis of Behavior
+  CH6 The Atlantic Revolutions
+    [0] The Enlightenment and Its Ideas
+    [1] America and France
+    [2] Haiti and Latin America
+    [3] The Abolition Wave and the Echoes
+  CH7 Industry and Capital
+    [0] Why Britain First: the Engines
+    [1] The Factory World and Its Cities
+    [2] Capitalism, Socialism and the Century’s Debate
+    [3] The Industrial-Military Engine
+    [4] Chapter XII. The Thirteenth Century
+  CH8 Nationalism and Imperialism
+    [0] The Nation-State and Its Engines
+    [1] Unifications: Italy and Germany
+    [2] The Scramble and the Age of Imperialism
+    [3] The Colonised World Responds
+    [4] Globalisation - responses from developed and developing societies
+  CH9 The World Wars
+    [0] The Great War and Its Peace
+    [1] The Russian Revolution
+    [2] Fascism, Nazism and the Interwar World
+    [3] The Second World War: Theatres and the Holocaust
+    [4] Chapter III. Pythagoras
+    [5] Chapter IV. Heraclitus
+    [6] Chapter V. Parmenides
+    [7] Chapter VI. Empedocles
+    [8] Chapter IX. The Atomists
+    [9] Chapter X. Protagoras
+    [10] Chapter XXVI. Cynics and Sceptics
+    [11] Chapter XXVII. The Epicureans
+    [12] Chapter XXIX. Stoicism
+    [13] Chapter XXX. Plotinus
+    [14] Chapter VI. Saint Benedict and Gregory the Great
+    [15] Chapter XIII. Saint Thomas Aquinas
+    [16] Chapter XIV. Franciscan Schoolmen
+    [17] Chapter XV. The Eclipse of the Papacy
+    [18] Chapter IV. Erasmus and More
+    [19] Chapter VII. Francis Bacon
+    [20] Chapter IX. Descartes
+    [21] Chapter X. Spinoza
+    [22] Chapter XI. Leibniz
+    [23] Chapter XXIV. Schopenhauer
+    [24] Chapter XXV. Nietzsche
+    [25] Chapter XXVIII. Bergson
+    [26] Chapter XXX. John Dewey
+  CH10 The Cold War and Decolonisation
+    [0] The UN and the Postwar Order
+    [1] The Cold War’s Crises and Races
+    [2] Decolonisation and the New Boundaries
+    [3] The Soviet Collapse
+    [4] Global Conflict, the Cold War and Decolonization
+  CH11 Globalisation and the Doorstep
+    [0] Globalisation and Its Discontents
+    [1] The Political Philosophies Accounted
+    [2] The Multipolar Present
+    [3] The Doorstep: India’s Arc and the Order’s Theory
+===== indian-history — Indian History
+  CH1 The Sources and the Periodisation
+    [0] The Three Registers of Evidence
+    [1] The Foreign Accounts
+    [2] The Periodisation Debate
+    [3] Chapter III. Three Doctors of the Church
+    [4] Chapter V. The Fifth and Sixth Centuries
+  CH2 Prehistoric and Harappan India
+    [0] The Stone-Age Sequence
+    [1] The Harappan Town and Its Craft
+    [2] The Sites and the Script
+    [3] The Decline Question
+    [4] Paper-II 1. Evolution of the Indian Culture and Civilization (prehistoric and protohistoric cultures; pre-Harappan, Harappan and post-Harappan; palaeo-anthropological evidences from India; ethno-archaeology in India)
+  CH3 The Vedic World and the Second Urbanisation
+    [0] The Vedic Corpus as Evidence
+    [1] Buddhism and Jainism
+    [2] The Mahajanapadas and the Nandas
+    [3] Sixth Edition
+    [4] Preface to the Sixth Edition (continued — signed M. Laxmikanth)
+  CH4 From the Mauryas to the Guptas
+    [0] The Mauryan State and Ashoka’s Dhamma
+    [1] The Post-Mauryan World and the Art Schools
+    [2] The Guptas and the Golden-Age Question
+    [3] Harsha and the Arc’s Close
+  CH5 The Early Medieval South
+    [0] The Tripartite Struggle
+    [1] The Chola State and Its Assemblies
+    [2] The Temple as Engine
+    [3] The Southeast-Asian Reach
+  CH6 The Delhi Sultanate
+    [0] The Five Dynasties
+    [1] Administration, Economy and Society
+    [2] The Sultanate’s Architecture
+    [3] Vijayanagar and the Bahmanis
+  CH7 The Mughal Empire
+    [0] The Establishment and Akbar’s Synthesis
+    [1] The Mansabdari Engine
+    [2] The Culture Register
+    [3] The Marathas and the Decline’s Historiography
+  CH8 The Eighteenth Century
+    [0] The Successor States
+    [1] The Carnatic Wars and the Companies
+    [2] Plassey and Buxar
+    [3] The Impact of the Conquest
+  CH9 Colonial Rule and the Response
+    [0] The Acts and the Raj’s Construction
+    [1] The Reform and the Revival Movements
+    [2] The 1857 Revolt and Its Consequences
+    [3] The Rise of Indian Nationalism and the Moderates
+    [4] The Gandhian Phase and Mass Movements
+    [5] The Constitution, Partition and Integration of States
+    [6] Pages 3–32: body text of that same history book (Chapter 1: The Revolt of 1857 — Economic Causes, Political Causes, Administrative Causes, Socio-Religious Causes, Influence of Outside Events, Discontent Among Sepoys, Beginning and Spread, Storm Centres and Leaders of the Revolt, Suppression of
+  CH10 The Freedom Struggle
+    [0] Nationalism’s Engines and the Moderates
+    [1] Gandhi’s Arrival and the Mass Movements
+    [2] The Left, the Revolutionaries and the INA
+    [3] Towards Freedom and Partition
+    [4] The Contributors From Every Region
+    [5] Modern Indian History: The Significant Events, Personalities and Issues
+    [6] Unit 4: Teacher Education
+  CH11 Post-Independence India
+    [0] Integration and Reorganisation
+    [1] The Planned Economy and the Green Revolution
+    [2] The Wars and the Foreign-Policy Arc
+    [3] The Emergency, Coalitions and the Reforms
+  CH12 The Culture Thread and the Doorstep
+    [0] The Long Culture Thread
+    [1] The Synthesis: One Chronicle
+    [2] The Doorstep: the Republic and Beyond
+    [3] Part I. From the Renaissance to Hume
+===== political-science — Political Science
+  CH1 What Is Politics?
+    [0] Power and Its Faces
+    [1] Authority and Legitimacy
+    [2] The State and Sovereignty
+    [3] The Approaches’ Census
+    [4] Paper-I 4. Political Organization and Social Control (band, tribe, chiefdom, kingdom and state; power, authority and legitimacy; law and justice in simple societies)
+    [5] Unit 2: Research Methodology and Methods
+  CH2 The Concepts of Political Theory
+    [0] Freedom: Negative and Positive
+    [1] Equality and Social Justice
+    [2] Rights and Citizenship
+    [3] Secularism and Nationalism
+  CH3 Ideologies and the Political Economy
+    [0] Liberalism and Conservatism
+    [1] Socialism and Its Variants
+    [2] Feminism, Ecologism, the Newer Currents
+    [3] The Political Economy and Globalisation
+    [4] Chapter XII. Philosophical Liberalism
+    [5] Chapter XXVII. Karl Marx
+  CH4 Democracy and Representation
+    [0] Democracy’s Models and Legitimacy
+    [1] Regimes: The Census
+    [2] Voting, Parties and Party Systems
+    [3] Groups, Interests and Movements
+    [4] Civil Liberties, Civil Rights and American Political Culture
+  CH5 Constitutions and Institutions
+    [0] Constitutions and the Rule of Law
+    [1] Executives and Leadership
+    [2] Legislatures and the Judiciary
+    [3] The Comparative Constitutional Glance
+    [4] Foundations of American Democracy and the Branches of Government
+  CH6 The Indian Constitution
+    [0] The Making and the Salient Features
+    [1] Rights, Duties and the Directive Principles
+    [2] The Basic Structure Earned
+    [3] The Amendments’ Census
+    [4] Unit 7: Pedagogy, Andragogy and Assessment
+    [5] Acknowledgements (signed M. Laxmikanth)
+  CH7 The Indian State at Work
+    [0] The Federal Structure’s Challenges
+    [1] The Organs at Work
+    [2] The RPA and the Elections
+    [3] The Bodies’ Census
+    [4] The Union Executive: President, Prime Minister and Council of Ministers
+    [5] Parliament: Lok Sabha, Rajya Sabha and Committees
+    [6] The Judiciary and Judicial Review
+    [7] Federalism, State Governments and Local Bodies
+    [8] The Election Commission and Electoral Reforms
+    [9] Constitutional and Statutory Bodies: CAG to UPSC
+    [10] Theories of the State - liberal, neo-liberal, Marxist, pluralist, post-colonial and feminist
+  CH8 Identity Politics in India
+    [0] Caste’s Political Career
+    [1] Communalism and Secularism in Politics
+    [2] Regionalism and the Language Question
+    [3] Representation and the Quota Debate
+    [4] Paper-II 9. History of Administration of Tribal Areas, Tribal Policies and Programmes of Tribal Development (concept of PTGs; role of NGOs; role of anthropology in tribal and rural development; contributions to the understanding of regionalism, communalism and ethnic and political movements)
+  CH9 Indian Political Thought
+    [0] Kautilya and the Arthashastra
+    [1] Gandhi’s Swaraj and Satyagraha
+    [2] Ambedkar’s Argument
+    [3] The Modern Debate’s Poles
+    [4] Indian Political Thought - Dharamshastra, Arthashastra and Buddhist traditions; Sir Syed Ahmed Khan, Sri Aurobindo, M. K. Gandhi, B. R. Ambedkar, M. N. Roy
+  CH10 The World Order and the Doorstep
+    [0] Multilevel Politics and Security
+    [1] The Global Governance Pointer
+    [2] The Public Policy Pointer
+    [3] The Doorstep: Judging Politics
+    [4] Unit 9: Globalization
+    [5] Unit 1: Thinking Geographically
+    [6] Unit 2: Cognition
+    [7] Current Affairs, including General Knowledge (national and international current affairs; political events; global environment; sports; awards and personalities; technology and science; cultural events; Indian business environment)
+===== international-relations — International Relations
+  CH1 The Discipline of IR
+    [0] The Birth From the Great War
+    [1] Anarchy and the Self-Help World
+    [2] The Westphalian Myth Interrogated
+    [3] The Levels of Analysis
+    [4] Federalism - constitutional provisions; changing nature of centre-state relations; integrationist tendencies and regional aspirations; inter-state disputes
+    [5] Approaches to the Study of International Relations - idealist, realist, Marxist, functionalist and systems theory
+    [6] Regionalisation of World Politics - EU, ASEAN, APEC, SAARC, NAFTA
+  CH2 The Theories of IR
+    [0] Classical and Neo-Realism
+    [1] Liberalism and the Democratic Peace
+    [2] The English School and Constructivism
+    [3] The Radical Family and the Critical Turn
+  CH3 War and Security
+    [0] War’s Causes Priced
+    [1] Deterrence and the Nuclear Logic
+    [2] Terrorism, Proliferation, Collective Security
+    [3] The Widening of Security
+  CH4 The International History Register
+    [0] The Concert to the Thirty-Years Crisis
+    [1] The Cold War’s Structure
+    [2] The Unipolar Moment
+    [3] The Multipolar Question
+  CH5 International Law and Organisation
+    [0] International Law in an Anarchy
+    [1] The UN System
+    [2] The Regional Bodies’ Census
+    [3] The NGOs and the Global Civil Society
+    [4] Security - linkages between development and spread of extremism; role of external state and non-state actors in internal security challenges; communication networks, media and social networking sites in internal security, basics of cyber security; money-laundering and its prevention; border
+    [5] United Nations - envisaged role and actual record; specialised UN agencies; need for UN reforms
+  CH6 The Global Political Economy
+    [0] Trade: From GATT to the WTO
+    [1] The Bretton Woods Family
+    [2] Development’s Political Economy
+    [3] The Sanctions and the Weaponised Interdependence
+    [4] Evolution of the International Economic System - from Brettonwoods to WTO; socialist economies and the CMEA; Third World demand for a new international economic order
+    [5] India and the Global South - relations with Africa and Latin America; leadership role in NIEO and WTO negotiations
+  CH7 The Environment and Human Security
+    [0] The Climate Regime’s Architecture
+    [1] The Migration and Refugee Regime
+    [2] Health and Human Security
+    [3] Resources as Stakes
+  CH8 India and the World
+    [0] The Foreign Policy’s Evolution
+    [1] The Neighbourhood as a Set
+    [2] The Diaspora’s Policy
+    [3] The Groupings and the Multilateral Ledger
+  CH9 The World Order and the Doorstep
+    [0] The Rise of China and the Order
+    [1] The Ruptures and the Global South
+    [2] Technology and the Order
+    [3] The Doorstep: Reading the Newsfeed
+===== public-administration — Public Administration
+  CH1 The Discipline of Public Administration
+    [0] The Meaning and the POSDCORB Census
+    [1] The Publicness Criterion
+    [2] Wilson’s Essay and the Dichotomy
+    [3] The Five Paradigms
+  CH2 The Administrative Thought
+    [0] Kautilya’s Machine
+    [1] Weber’s Ideal Type
+    [2] The Classical School and the Human Relations Turn
+    [3] Simon and the Later Thinkers
+  CH3 Administrative Behaviour
+    [0] Motivation in the Public Service
+    [1] Leadership and Communication
+    [2] The Decision Craft
+    [3] Morale and the Committee’s Groupthink
+  CH4 The Organisation Theories
+    [0] The Machine and Its Correction
+    [1] The Systems View
+    [2] The Contingency Turn
+    [3] The Public Organisation’s Own Peculiarity
+  CH5 Accountability and Control
+    [0] The Legislative Control and the CAG
+    [1] The Internal and Judicial Leash
+    [2] The Ombudsman’s Idea and the Lokpal
+    [3] The RTI and the Transparency Revolution
+  CH6 The Indian Administration
+    [0] The Apex: PMO and Cabinet Secretariat
+    [1] The Ministries and the Departments
+    [2] The Civil Services’ Craft
+    [3] The Collector and the Local Government
+  CH7 Planning and Financial Administration
+    [0] The Planning’s Evolution
+    [1] The Budget’s Craft
+    [2] The CAG and the PAC’s Follow-Through
+    [3] The Debt and the Fiscal Discipline
+  CH8 Policy and Implementation
+    [0] The Policy Cycle and Its Limits
+    [1] The Implementation Science
+    [2] The e-Governance Models
+    [3] The Charters and the Reforms
+    [4] Government Policies, Interventions and the Development Industry
+    [5] Welfare Schemes for Vulnerable Sections: Poverty and Hunger
+  CH9 The Personnel, the Ethics Handshake and the Doorstep
+    [0] The Personnel Administration
+    [1] The Integrity Institutionalised
+    [2] The Administrative Culture’s Change
+    [3] The Doorstep: The Reader’s Own Office
+===== law-and-legal-studies — Law and Legal Studies
+  CH1 The Legal Map
+    [0] The Definitions and the Sources
+    [1] The Legal Families
+    [2] The Indian System’s Mixed Parentage
+    [3] The Courts’ Hierarchy and the Profession
+    [4] Paper-II 4. Emergence, Growth and Development of Anthropology in India (contributions of 18th-20th century scholar-administrators and of Indian anthropologists to tribal and caste studies)
+    [5] Year-Wise Break-up of the UPSC Questions on Indian Polity (General Studies—Prelims) — table of 20 years (2000–2019), with Note I and Note II
+    [6] Year-Wise Break-up of the UPSC Questions on Indian Polity (General Studies—Prelims) — duplicate
+    [7] Year-Wise Break-up of the UPSC Marks on Indian Polity (General Studies—Mains) — table of 20 years (2000–2019), with Note I and Note II
+    [8] Year-Wise Break-up of the UPSC Marks on Indian Polity (General Studies—Mains) — duplicate
+    [9] The scanned pages do not match the described book. They are not a JEE mathematics reference (Cengage-style) and contain no table of contents to transcribe. What was actually provided
+  CH2 Jurisprudence
+    [0] The Natural Law Arc
+    [1] The Positivists: Austin to Hart
+    [2] The Historical and the Sociological
+    [3] The Critical Family and the Hart-Fuller Debate
+  CH3 Constitutional Law
+    [0] The Rights and the Courts’ Growth
+    [1] The Remedies
+    [2] The Federal Division’s Legal Form
+    [3] The Emergency’s Legal History
+    [4] Paper-I 10. Concept of Human Growth and Development (stages of growth; factors affecting growth; ageing and senescence; somatotypes; methodologies for growth studies)
+  CH4 Administrative Law
+    [0] The Delegated Legislation and Its Control
+    [1] The Natural Justice’s Twin Rules
+    [2] The Review’s Grounds and the Tribunals
+    [3] The Writs’ Census
+  CH5 The Private-Law Census
+    [0] The Contract’s Anatomy
+    [1] The Tort’s Census
+    [2] The Commercial Core
+    [3] The Personal-Law Question
+  CH6 Criminal Law
+    [0] Mens Rea and Actus Reus
+    [1] The IPC’s General Principles
+    [2] The Procedure’s Frame
+    [3] The Juvenile and the Cyber Registers
+  CH7 International Law
+    [0] The Sources and the Consent Problem
+    [1] The Subjects and the Treaty’s Life
+    [2] The UN’s Legal Frame
+    [3] The Human Rights Register
+  CH8 Legal Reasoning
+    [0] The IRAC Craft
+    [1] The Case’s Reading and the Precedent
+    [2] The Interpretation’s Rules
+    [3] The Fact-Situation and the Logical Census
+    [4] Logical Reasoning (analytical and logical ability; analogy; blood relations; calendars; clocks; coding and decoding; seating and linear/matrix arrangements; logical sequence; premises, assumptions and conclusions; puzzles; binary logic; diagrams; data interpretation - pie charts)
+  CH9 The Profession and the ADR
+    [0] The Advocate’s Ethics
+    [1] The Legal Aid’s Promise
+    [2] The ADR’s Rise
+    [3] The Legal Education and the Future
+  CH10 The Contemporary and the Doorstep
+    [0] The Cases That Shaped the Republic
+    [1] The Technology Law’s Rise
+    [2] The Environmental Jurisprudence
+    [3] The Doorstep: The Living Text
+===== sociology — Sociology
+  CH1 The Sociological Eye
+    [0] The Birth From Modernity
+    [1] The Sociological Imagination
+    [2] The Science Debate and the Uses
+  CH2 The Methods
+    [0] The Survey and Its Sampling
+    [1] The Observation and the Ethnography
+    [2] The Ethics of Research
+    [3] The Statistics Handshake
+    [4] Psychological Testing
+    [5] Note: These 32 pages are the front matter of M. Laxmikanth's "Indian Polity" (Sixth Edition), not a JEE mathematics book, and no table of contents (chapter list with page numbers) appears within these pages. No contents entries exist to transcribe beyond the front-matter items listed above
+    [6] There are no numbered topic entries (2.1, 2.2, 1.01), no exercises (JEE Main/JEE Advanced), no Concept Application Exercises, no Answers/Hints/Chapter Summary sections, and no printed page-numbered contents list anywhere in these 32 pages. A contents page appears not to have been included in the
+    [7] Chapter VIII. John the Scot
+    [8] Chapter VIII. Hobbes's Leviathan
+  CH3 The Theorists
+    [0] Marx and the Conflict Register
+    [1] Durkheim and Weber
+    [2] The Interactionists and the Functionalists
+    [3] The Contemporary Syntheses
+    [4] Quantitative Techniques (Class 10 elementary mathematics, tested through sets of facts, graphs or other diagrammatic representations of numerical information)
+  CH4 Culture and Socialisation
+    [0] Culture’s Components
+    [1] The Socialisation Engines
+    [2] The Dramaturgy of the Self
+    [3] The Microsociology Register
+  CH5 Groups, Networks and Organisations
+    [0] The Group’s Types
+    [1] The Networks and the Weak Ties
+    [2] The Organisations’ Dialectic
+    [3] The Deviance and Control Arc
+  CH6 Stratification
+    [0] The Theories of Stratification
+    [1] Class and Status
+    [2] Caste’s Specificity
+    [3] The Global Inequality
+  CH7 The Institutional Census
+    [0] Family and Marriage
+    [1] Education and Religion
+    [2] Work and the Informal Sector
+    [3] Media and Health
+    [4] Indian Foreign Policy - determinants and institutions of policy-making; continuity and change
+    [5] Unit VIII: Colonial Economy and Indian Society in Transition (changing composition and direction of trade; commercialisation of agriculture; decline of industries; economic drain; famines and epidemics; the new education; Indian Renaissance; women's question; printing press and public opinion)
+  CH8 Change, Movements and Globalisation
+    [0] The Change Theories
+    [1] The Movements’ Sociology
+    [2] The Population and the Urbanisation
+    [3] Globalisation’s Dimensions
+  CH9 The Indian Social Structure
+    [0] The Caste’s Anatomy and Change
+    [1] The Village Studies Arc
+    [2] The Tribes and the Plurality
+    [3] The Indian Family and Kinship
+    [4] Paper-II 3. Traditional Indian Social System and Caste (Varnashram, Purushartha, Karma, Rina and Rebirth; theories of the origin of the caste system; dominant caste and caste mobility; jajmani system; tribe-caste continuum; sacred complex; impact of Buddhism, Jainism, Islam and Christianity)
+    [5] Paper-II 5. Indian Village, Minorities and Socio-Cultural Change (Indian village as a social system; agrarian relations; impact of globalisation on villages; linguistic and religious minorities; Sanskritization, Westernization, Modernization; inter-play of little and great traditions; Panchayati
+    [6] Paper-II 7. Exploitation and Deprivation of Scheduled Castes, Scheduled Tribes and Other Backward Classes; constitutional safeguards; ethnicity and ethnic conflicts; regionalism and demand for autonomy; social change among tribes during colonial and post-independent India
+    [7] Preface to the Sixth Edition (with "Changes in this Edition" and "New Chapters": 1. Goods and Services Tax Council, 2. National Commission for Backward Classes, 3. National Investigation Agency, 4. National Disaster Management Authority, 5. Role of Regional Parties, 6. Coalition Government)
+  CH10 Social Change in India and the Doorstep
+    [0] Women and Organisations
+    [1] Poverty, Population, Urbanisation
+    [2] The Empowerment and the Communal Register
+    [3] The Doorstep: Society as Laboratory
+===== anthropology — Anthropology
+  CH1 The Four Fields
+    [0] The Map of the Four Fields
+    [1] The Holism’s Method
+    [2] The Discipline’s History and Its Reckoning
+    [3] Paper-I 12. Applications of Anthropology (anthropology of sports, nutritional anthropology, design of defence and other equipment, forensic anthropology, applied human genetics - paternity diagnosis, genetic counselling, eugenics, DNA technology, serogenetics and cytogenetics)
+  CH2 The Fieldwork Craft
+    [0] Participant Observation
+    [1] The Interview Census and the Ethics
+    [2] The Writing Culture Debate
+    [3] The Multi-Sited Present
+    [4] Unit 3: Learner and Learning Process
+    [5] English Language (comprehension of passages; grammar; word meanings; idioms; analogies; synonyms and antonyms; sentence correction; jumbled sentences; summary-based questions)
+  CH3 The Biological Frame
+    [0] The Genetics Base and the Primates
+    [1] The Fossil Record’s Walk
+    [2] The Variation and the Race Question
+    [3] The Upper Paleolithic Revolution
+    [4] Paper-I 9. Human Genetics (methods and applications; Mendelian genetics in man; genetic polymorphism and selection; chromosomal aberrations; race and racism; ecological anthropology - bio-cultural adaptations; epidemiological anthropology)
+    [5] Unit 1: Biological Bases of Behavior
+  CH4 Culture and the Individual
+    [0] Culture’s Attributes and Its Critics
+    [1] The Relativism Debate and Its Limits
+    [2] The Culture Change Engines
+    [3] The Language Arc
+    [4] Statutory Institutions and Commissions - Election Commission, CAG, Finance Commission, UPSC and the national commissions (SC, ST, Women, Human Rights, Minorities, Backward Classes)
+  CH5 Subsistence and Exchange
+    [0] The Food Census
+    [1] Reciprocity, Redistribution, Market
+    [2] The Embedded Economy
+    [3] The Contemporary Register
+  CH6 Kinship and Marriage
+    [0] Marriage’s Cross-Cultural Census
+    [1] Residence and Descent
+    [2] The Terminology Census and the Alliance Theories
+    [3] The Family’s Forms
+  CH7 Politics, Religion and the Arts
+    [0] The Leaderless Societies
+    [1] The Religion and Magic Register
+    [2] The Ritual Craft
+    [3] The Arts’ Anthropology
+    [4] State in Comparative Perspective - changing nature of the State in capitalist and socialist, advanced industrial and developing societies
+    [5] Paper-I 5. Religion (anthropological approaches; monotheism and polytheism; sacred and profane; myths and rituals; animism, animatism, fetishism, naturism and totemism; religion, magic and science; magico-religious functionaries)
+    [6] Paper-II 8. Impact of Hinduism, Buddhism, Christianity, Islam and Other Religions on Tribal Societies; Tribe and Nation State (comparative study of tribal communities in India and other countries)
+  CH8 Stratification, Identity and the Applied Register
+    [0] The Stratification’s Cross-Cultural Census
+    [1] Ethnicity, Racism and the Diaspora
+    [2] The Medical Anthropology Register
+    [3] The Applied Anthropology’s Arc
+  CH9 The Indian Anthropology
+    [0] The Linguistic-Ethnic Stock
+    [1] The Caste’s Ethnographic Reading
+    [2] The Tribes of India
+    [3] The Village India’s Tradition
+  CH10 The Theory Census and the Doorstep
+    [0] Evolutionism and Its Error
+    [1] Particularism and Functionalism
+    [2] The Structural and the Interpretive
+    [3] The Doorstep: One Species
+===== cultural-studies — Cultural Studies
+  CH1 The Project of Cultural Studies
+    [0] The Birmingham Founding
+    [1] The Interdisciplinarity’s Claim
+    [2] Culture’s Three Registers
+    [3] Chapter XXIX. William James
+  CH2 The Linguistic Turn
+    [0] Saussure and the Sign
+    [1] Barthes and the Myth
+    [2] Foucault and the Discourse
+    [3] Culture as Text
+  CH3 Ideology and Power
+    [0] Gramsci’s Hegemony
+    [1] The Apparatus and the Hail
+    [2] The Culture Industry and the Counter
+    [3] The Media’s Political Economy
+  CH4 The Subject of Culture
+    [0] The Psychoanalytic Register
+    [1] Identity’s Articulation
+    [2] The Performativity and the Subcultures
+    [3] The Active Audience
+  CH5 Difference and Representation
+    [0] The Representation Problem
+    [1] Said and the Postcolonial Arc
+    [2] The Gaze and the Gendered Field
+    [3] The Intersection’s Arrival
+    [4] Science and Technology - developments and their applications and effects in everyday life; achievements of Indians in science and technology; indigenisation of technology; awareness in the fields of IT, space, computers, robotics, nanotechnology, biotechnology and intellectual property rights
+  CH6 The Media Culture
+    [0] The Television’s Age
+    [1] The Celebrity and the Fandom
+    [2] The Music and the Sport
+    [3] The Platform’s Culture
+  CH7 Globalisation and Culture
+    [0] The Imperialism Thesis
+    [1] The Glocal Contra
+    [2] The Five Scapes
+    [3] The National-Popular Question
+    [4] Paper-I 6. Anthropological Theories (classical evolutionism, diffusionism, functionalism, structural-functionalism, structuralism, culture and personality, neo-evolutionism, cultural materialism, symbolic and interpretive, cognitive theories, post-modernism)
+  CH8 The Indian Register and the Doorstep
+    [0] The Subaltern and the Dalit Registers
+    [1] The Cinema’s Cultural Work
+    [2] The Digital Publics
+    [3] The Doorstep: The Reader’s Own Feed
+===== psychology — Psychology
+  CH1 The Science of Mind
+    [0] The Schools’ Census
+    [1] The Method’s Register
+    [2] The Ethics of Research
+    [3] The Biopsychosocial Lens
+  CH2 The Biological Bases
+    [0] The Neuron and the Transmitters
+    [1] The Brain’s Tour
+    [2] The Imaging and the Endocrine Handshake
+    [3] The Genetics of Behaviour
+  CH3 Sensation and Perception
+    [0] The Thresholds
+    [1] The Senses’ Census
+    [2] The Gestalt Organisation
+    [3] The Constructive Perception
+  CH4 Learning
+    [0] The Classical Engine
+    [1] The Operant Contingencies
+    [2] The Observational Register
+    [3] The Applications’ Census
+  CH5 Memory and Cognition
+    [0] The Memory’s Stages
+    [1] The Forgetting’s Science
+    [2] The Heuristics and the Biases
+    [3] The Language and the Metacognition
+  CH6 Motivation and Emotion
+    [0] The Motivation Census
+    [1] The Emotion Theories
+    [2] The Expression’s Universality Debate
+    [3] The Stress-Coping Arc
+  CH7 The Self and Personality
+    [0] The Attributes and the Assessment
+    [1] The Intelligence’s Honest History
+    [2] The Self’s Psychology
+    [3] The Personality Theories’ Census
+  CH8 Development and the Social Register
+    [0] The Development’s Arc
+    [1] The Attribution’s Errors
+    [2] The Attitudes and the Persuasion
+    [3] The Influence and the Groups
+    [4] Chapter XII. The Influence of Sparta
+  CH9 Disorders and Wellelling
+    [0] The Disorders’ Census
+    [1] The Explanation’s Models
+    [2] The Therapeutic Approaches
+    [3] The Wellbeing and the Resilience
+  CH10 The Applications and the Doorstep
+    [0] The Educational Applications
+    [1] The Organisational and Community Registers
+    [2] The IT and the Media’s Psychology
+    [3] The Doorstep: The Reader’s Own Mind
+===== philosophy — Philosophy
+  CH1 What Is Philosophy?
+    [0] The Word and the Method
+    [1] The Branches’ Census
+    [2] The Western-Indian Contrast
+    [3] The Shelf’s Own Map
+    [4] Unit X: Historical Method, Research, Methodology and Historiography (scope and importance of history; objectivity and bias; causation; research methodology and hypothesis; trends in historical research; Indian and western historiography; thesis writing and plagiarism)
+    [5] Unit 6: Recent Western Philosophy
+    [6] Unit 9: Logic
+  CH2 The Logic Base
+    [0] The Argument’s Anatomy
+    [1] The Forms’ Census
+    [2] The Fallacies’ Register
+    [3] The Formal Handoff
+  CH3 Epistemology
+    [0] The JTB and the Gettier
+    [1] The Justification’s Theories
+    [2] Rationalism against Empiricism
+    [3] The Indian Pramana Register
+  CH4 Metaphysics
+    [0] The Substance and the Causation
+    [1] The Mind-Body Problem
+    [2] The Free Will Question
+    [3] The God Question and the Proofs
+  CH5 The Indian Systems
+    [0] The Nyaya-Vaisheshika Pair
+    [1] The Samkhya-Yoga Pair
+    [2] The Mimamsa-Vedanta Pair
+    [3] The Heterodox Trio
+  CH6 The Western Canon: Ancient and Medieval
+    [0] The Presocratics’ Turn
+    [1] The Athens Trio
+    [2] The Hellenistic Therapies
+    [3] The Medieval Synthesis
+    [4] The Presocratics: Thales to Heraclitus
+    [5] Socrates, Plato and the Theory of Forms
+    [6] Aristotle: Logic, Ethics and Metaphysics
+    [7] Medieval Philosophy: Augustine to Aquinas
+    [8] The Rationalists: Descartes, Spinoza and Leibniz
+    [9] The Empiricists: Locke, Berkeley and Hume
+    [10] Kant and the Critical Philosophy
+    [11] Nietzsche, Existentialism and the Analytic Turn
+    [12] Western Political Thought - Plato, Aristotle, Machiavelli, Hobbes, Locke, J. S. Mill, Marx, Gramsci, Hannah Arendt
+    [13] Chapter IV. Saint Augustine's Philosophy and Theology
+  CH7 The Western Canon: Modern
+    [0] The Rationalists
+    [1] The Empiricists
+    [2] The Kantian Turn
+    [3] The Nineteenth Century’s Register
+  CH8 The Western Canon: Contemporary
+    [0] The Analytic Turn
+    [1] The Phenomenological Register
+    [2] The Existential Arc
+    [3] The Contemporary Indian-Analytic Register
+  CH9 The Socio-Political Philosophy
+    [0] Equality and Justice
+    [1] The Contract’s Census
+    [2] The Indian Voices
+    [3] The Democracy and Gender Registers
+  CH10 The Applied Close and the Doorstep
+    [0] The Environmental Register
+    [1] The Technology Questions
+    [2] The Death and Meaning Registers
+    [3] The Doorstep: The Examined Life
+===== ethics — Ethics
+  CH1 The Ethics and Human Interface
+    [0] The Moral Register Defined
+    [1] The Determinants of Ethics
+    [2] The Personal and the Public
+    [3] The Human Values Register
+  CH2 The Meta Walk
+    [0] The Relativism Challenge
+    [1] The Subjectivism Escape
+    [2] The Religion Question
+    [3] The Objectivity’s Middle
+  CH3 The Normative Census
+    [0] The Utilitarian Register
+    [1] The Kantian Register
+    [2] The Virtue Register
+    [3] The Thinkers from India and the World
+    [4] Paper-I 11. Relevance of Menarche, Menopause and Other Bio-events to Fertility; Demographic Theories; Factors Influencing Fecundity, Fertility, Natality and Mortality
+    [5] Chapter XXIII. Aristotle's Physics
+  CH4 The Applied Census
+    [0] The Bioethics Register
+    [1] The Business Ethics Register
+    [2] The Environmental Ethics Register
+    [3] The Media and Technology Register
+  CH5 Attitude and Values
+    [0] The Attitude’s ABC
+    [1] The Consistency Theories
+    [2] The Persuasion Craft
+    [3] The Values’ Census
+  CH6 Aptitude and Emotional Intelligence
+    [0] The Foundational Values in Full
+    [1] The Integrity and Objectivity Craft
+    [2] The Empathy-Tolerance-Compassion Register
+    [3] The Emotional Intelligence’s Application
+    [4] Dedicated to My Wife Mamadgi Vidya and My Daughters Mamadgi Anjali Mamadgi Aishwarya and My Native Place Dhanasiri (Zaheerabad – Telangana) [dedication page]
+  CH7 Ethics in Public Administration
+    [0] The Public Service’s Values
+    [1] The Dilemma’s Typology
+    [2] The Sources of Guidance
+    [3] The Strengthening Craft
+  CH8 Probity in Governance
+    [0] The Concept and Basis of Public Service
+    [1] The RTI and the Codes
+    [2] The Charters and the Service Quality
+    [3] The Corruption’s Challenges
+  CH9 The Case-Study Craft and the Doorstep
+    [0] The Case Study’s Anatomy
+    [1] The Case Bank’s Frames
+    [2] The International and Funding Registers
+    [3] The Doorstep: The Conscience’s Mirror
+===== geography — Geography
+  CH1 The Geographic Eye
+    [0] The Discipline’s Craft
+    [1] The Map and Its Projections
+    [2] The Grid and the Time’s Arithmetic
+    [3] The Modern Tools’ Census
+    [4] Emerging Areas
+  CH2 The Earth and Its Structure
+    [0] The Interior’s Inference
+    [1] The Plate Engine
+    [2] The Rocks’ Cycle
+    [3] The Shakes and the Fires’ Register
+    [4] Geomorphology, Climatology, Oceanography and Biogeography
+  CH3 The Landforms
+    [0] The Weathering Register
+    [1] The Fluvial Arc
+    [2] The Glacial and the Aeolian Registers
+    [3] The Karst and the Coastal Registers
+  CH4 The Climate
+    [0] The Atmosphere’s Engine
+    [1] The Wind Belts and the Monsoon
+    [2] The World Climate Census
+    [3] The Change’s Honest Register
+  CH5 The Oceans
+    [0] The Floor’s Anatomy
+    [1] The Temperature and Salinity Maps
+    [2] The Waves, Tides and Currents
+    [3] The Resources and the Regulation
+  CH6 The Soils and the Biomes
+    [0] The Soil’s Genesis and Profile
+    [1] The Indian Soils’ Register
+    [2] The Biomes’ Transect
+    [3] The Conservation Register
+  CH7 Population and Migration
+    [0] The Human Geography’s Scope
+    [1] The Distribution’s Why
+    [2] The Transition and the Dividend
+    [3] The Migration Register
+    [4] Paper-I 3. Economic Organization (formalist-substantivist debate; principles of production, distribution and exchange in hunting-gathering, fishing, pastoral, horticultural and agricultural communities; globalisation and indigenous economic systems)
+  CH8 Settlements and the Landscapes
+    [0] The Settlements’ Census
+    [1] The Cultural Landscapes
+    [2] The Political Geography
+    [3] The Cities’ Models
+    [4] Geographical Techniques
+  CH9 The Economic Geography
+    [0] The Primary Activities
+    [1] The Industry’s Location Theories
+    [2] The Transport and the Trade
+    [3] The Resources and the Development Question
+  CH10 India: The Physical Environment
+    [0] The Physiographic Divisions
+    [1] The Drainage’s Contrasting Regimes
+    [2] The Indian Monsoon Applied
+    [3] The Hazards’ Census
+  CH11 India: The Human and Economic Register
+    [0] The Population’s Census
+    [1] The Resources’ Indian Register
+    [2] The Agriculture and the Industries
+    [3] The Transport and the Regional Question
+    [4] Indian Economy and Economic Development - issues relating to planning, mobilisation of resources, growth, development and employment; inclusive growth; government budgeting; effects of liberalisation on the economy; infrastructure (energy, ports, roads, airports, railways); investment models
+    [5] Planning and Economic Development - Nehruvian and Gandhian perspectives; role of planning and the public sector; Green Revolution, land reforms and agrarian relations; liberalisation and economic reforms
+    [6] Paper-II 6. Tribal Situation in India (bio-genetic variability and socio-economic characteristics; problems of tribal communities - land alienation, poverty, indebtedness, literacy, employment, health and nutrition; impact of developmental projects, forest policy, urbanisation and industrialisation
+  CH12 The Synthesis and the Doorstep
+    [0] The Map Sense’s Synthesis
+    [1] The Current Geography’s Thread
+    [2] The GS Register’s Whole Map
+    [3] The Doorstep: The Reader’s Own Atlas
+===== environmental-studies — Environmental Studies
+  CH1 The Multidisciplinary Nature
+    [0] The Definition and the Scope
+    [1] The Multidisciplinary Map
+    [2] The Segments’ Census
+    [3] The Field Work’s Announcement
+    [4] Research Methodology and Programme Evaluation
+  CH2 The Natural Resources
+    [0] The Renewable-Exhaustible Census
+    [1] The Forest and the Water Ledgers
+    [2] The Energy and the Food Registers
+    [3] The Sustainable Frame
+    [4] Social Justice - government policies and interventions for development; development processes and the role of NGOs, SHGs, donors and other stakeholders; welfare schemes for vulnerable sections; social sector services relating to health, education and human resources; poverty and hunger
+  CH3 Ecosystems
+    [0] The Structure’s Ladder
+    [1] The Energy’s Flow and the Pyramids
+    [2] The Biogeochemical Cycles
+    [3] The Ecosystem Census and the Succession
+  CH4 Biodiversity
+    [0] The Three Levels and the Census
+    [1] India’s Megadiversity
+    [2] The HIPPO Threats
+    [3] The Conservation’s Craft and the Acts
+  CH5 The Pollution Census
+    [0] The Air and the AQI’s Arithmetic
+    [1] The Water and the Eutrophication
+    [2] The Soil, Marine and Noise Registers
+    [3] The Waste’s Census and the Bhopal Lesson
+  CH6 Social Issues and the Environment
+    [0] The IPAT Equation
+    [1] The Equity’s Question
+    [2] The Ethics and the Legislation
+    [3] The Environmental Justice’s Register
+    [4] Population Issues - Gender and Special Groups
+  CH7 Human Population and the Environment
+    [0] The Growth Curves and the Capacity
+    [1] The India’s Population Register
+    [2] The Health and the Disease Ladder
+    [3] The Rights’ Environment
+  CH8 The Field Work and the Doorstep
+    [0] The Field Work’s Method
+    [1] The Project’s Writing
+    [2] The Climate Synthesis
+    [3] The Doorstep: The Reader’s Own Consumption
+===== archaeology-and-heritage-studies — Archaeology and Heritage Studies
+  CH1 The Searches
+    [0] From the Cabinet to the Method
+    [1] The Indian Story’s Full Arc
+    [2] The Identity Question
+  CH2 The Evidence
+    [0] The Formation Processes
+    [1] The Survival’s Bias
+    [2] The Evidence’s Census
+    [3] The Context’s Sanctity and the Typology
+  CH3 Survey and Excavation
+    [0] The Site’s Discovery
+    [1] The Geophysical Craft
+    [2] The Excavation’s Discipline
+    [3] The Underwater Register and the Ethics
+  CH4 When? The Dating Engine
+    [0] The Relative Census
+    [1] The Radiocarbon’s Arithmetic
+    [2] The Trapped-Charge Family
+    [3] The Calendar’s Assembly
+  CH5 Reading the Record
+    [0] The Social Archaeology
+    [1] The Environmental Craft
+    [2] The Diet and the Trade
+    [3] The Experimental and Ethno Registers
+  CH6 The Theory Register
+    [0] The Culture-Historical Age
+    [1] The Processual Claim
+    [2] The Post-Processual Answer
+    [3] The Change’s Explanation
+  CH7 The Indian Record
+    [0] The Palaeolithic to the Neolithic Arc
+    [1] The Harappan’s Excavation Story
+    [2] The Megalithic and the Early-Historical Cities
+    [3] The Epigraphy and Numismatics Craft
+  CH8 The Heritage Keeping
+    [0] The Heritage’s Definition
+    [1] The Museology’s Craft
+    [2] The Site’s Management
+    [3] The Legal Frame and the World Heritage
+  CH9 The Ethics, the Public and the Doorstep
+    [0] The Antiquities’ Ethics
+    [1] The Public Archaeology
+    [2] The Synthesis Map
+    [3] The Doorstep: The Museum Visit
+===== art-history — Art History
+  CH1 The Art Historian’s Eye
+    [0] The Visual Vocabulary
+    [1] The Medium’s Craft
+    [2] The Panofsky Method
+    [3] The Attribution’s Limits
+    [4] Quantitative Techniques - elementary mathematics topics: Algebra; Averages; Geometry; LCM and HCF; Mensuration; Number Systems; Percentage; Permutation and Combination; Probability; Profit and Loss; Quadratic and Linear Equations; Ratio and Proportion; Simple and Compound Interest; Time and Speed;
+  CH2 The Ancient World
+    [0] The Stone Age’s Images
+    [1] Mesopotamia and Persia
+    [2] The Egyptian Grammar
+    [3] The Prehistoric Aegean
+  CH3 The Classical World
+    [0] The Greek Arc
+    [1] The Etruscan Prelude
+    [2] The Roman Register
+    [3] The Classical Afterlife
+  CH4 The Medieval and Renaissance Europe
+    [0] The Byzantine and the Romanesque
+    [1] The Gothic Light
+    [2] The Renaissance’s Three Acts
+    [3] The Baroque Engine
+  CH5 The Asian Arts
+    [0] The Chinese Registers
+    [1] The Japanese Registers
+    [2] The Southeast Asian Monuments
+    [3] The Islamic Aniconic Register
+  CH6 India: The Ancient Register
+    [0] The Mauryan Stone
+    [1] The Three Relief Schools
+    [2] The Gupta Idiom and Ajanta
+    [3] The Rock-Cut Craft
+    [4] India and South Asia - SAARC and regional co-operation; India's 'Look East' policy; impediments to regional co-operation
+    [5] Sixth Edition / M Laxmikanth — McGraw Hill Education (India) Private Limited [title page]
+  CH7 India: The Medieval Register
+    [0] The Nagara Census
+    [1] The Dravida and the Vesara
+    [2] The Chola Bronze and the Miniature’s Birth
+    [3] The Indo-Islamic and the Court Paintings
+  CH8 India: The Modern Register
+    [0] The Company School and the Kalighat
+    [1] Ravi Varma and the Bengal School
+    [2] The Progressives and the Contemporary
+    [3] The Architecture’s Modern and the Folk Registers
+    [4] Pages 1–2: '[cover/title page]' — cover of *Spectrum's A Brief History of Modern India*
+  CH9 The Americas, Africa and Oceania
+    [0] The Pre-Columbian Americas
+    [1] The African Bronzes and Masks
+    [2] The Oceania Registers
+    [3] The Contemporary’s Global Field
+  CH10 The Modern, the Contemporary and the Doorstep
+    [0] The Modern Revolution’s Arc
+    [1] The Contemporary Field
+    [2] The Museum Era’s History
+    [3] The Doorstep: The Gallery Visit

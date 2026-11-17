@@ -28,13 +28,13 @@ const chapters: Chapter[] = [
       'Spring-Mass and Pendulum',
       'The Energy Clock',
       'Periods Derived',
-    
-      'Experimental Skills: Simple pendulum — dissipation of energy by plotting a graph between the square of amplitude and time',
       'Pendulum of Large Length but Small Amplitude',
       'Physical Pendulum (Compound Pendulum)',
-      'BIO Tendons Are Nonideal Springs 184 BIO Interference and Butterfly Wings',
-      '12–3 Kinetic Theory; Model of an Ideal Gas 303 *18–4 The Oscilloscope',
-      'Harmonic Motion 366 A Closer Look: Electrical Effects in'
+      'Oscillation of a Liquid Column in a Two Arm Tube',
+      'Case 2: Spring\u2013Mass System Oscillating in a Vertical Plane',
+      'Calculation of K_eff for a Complicated Spring\u2013Mass System',
+      'Case 1: Spring\u2013Mass System Oscillating on a Smooth Horizontal Surface',
+      'Analysis of Angular SHM',
     ],
   },
   {
@@ -50,10 +50,7 @@ const chapters: Chapter[] = [
       'Phasors',
       'Superposition of SHMs',
       'Lissajous Curves',
-      'Direction Cosines',
-      'Two Blocks in Contact Moving on an Inclined Plane',
-      'A Few Terms Related to SHM',
-      'Appendix A Mathematics Review'
+      'Opposite Phase SHMs',
     ],
   },
   {
@@ -69,11 +66,9 @@ const chapters: Chapter[] = [
       'Three Regimes',
       'Resonance Curves',
       'Everyday Resonance',
-      'Some Useful Terms and Definitions',
       'Beyond Small Oscillations: The Damped Driven Pendulum and the Josephson Junction',
       'Bifurcations, Driven-damped Harmonic Oscillator, and Parametric Resonance',
-      'BIO Canine Resonance ',
-      'BIO Resonance and the Sensitivity of the Ear  519 than ac1038 BIO A Fossil Both Ancient and Recent'
+      'Forced Vibrations and the Effect of Dissipative Forces',
     ],
   },
   {
@@ -89,14 +84,8 @@ const chapters: Chapter[] = [
       'Normal Modes',
       'Energy Exchange',
       'The Continuum Limit',
-    
-      'C.3 Wave phenomena',
-      'Single oscillator',
-      'Oscillation of a Liquid Column in a Two Arm Tube',
-      'General Expression for a Sinusoidal Wave',
-      'Analytical Treatment of Stationary Waves',
       'Transistor as an Oscillator',
-      '3Mathematical Description of a Wave 469 OF THERMODYNAMICS'
+      'Free Vibrations of a Linear Triatomic Molecule',
     ],
   },
   {
@@ -113,10 +102,8 @@ const chapters: Chapter[] = [
       'Speed on a String',
       'The Progressive Wave',
       'The Wave Model and Its Vocabulary',
-      'Condition for Oscillation: The Speed Becomes Zero Before Tension',
       'Power Transmitted Along the String by a Sine Wave',
-      'BIO Eating and Transverse Waves  477 BIO Making Radioactive Isotopes for',
-      '9–1 Description of Rotational Motion 214 16–1 Description of Waves'
+      '1Types of Mechanical Waves',
     ],
   },
   {
@@ -132,12 +119,14 @@ const chapters: Chapter[] = [
       'Standing Waves Built',
       'Harmonics on Strings',
       'Reflection at Boundaries',
-      'Elementary Algebra',
-      'Boolean Algebra',
-      'Data Transmission and Retrieval',
-      'Reflection and Transmission at Oblique Incidence',
-      'BIO Hearing Loss from Amplified Sound  506 When dc Power Transmission Is Better BIO Linear Accelerators in Medicine',
-      '10–1 Conditions for Static Equilibrium 237 Standing Waves'
+      'Vibrations of Composite Strings',
+      'Linear and Nonlinear Media',
+      'Quinck\'s Tube',
+      'Kundt\'s Tube',
+      'Sonometer',
+      'Case I: Transverse Mode of Vibration',
+      'Case II: Longitudinal Mode of Vibrations',
+      'Melde\'s Experiment',
     ],
   },
   {
@@ -153,7 +142,6 @@ const chapters: Chapter[] = [
       'The Decibel Scale',
       'Organ Pipes',
       'Beats as Ledger',
-      'Intensity of Magnetization'
     ],
   },
   {
@@ -165,11 +153,9 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Source and Observer Registers',
       'The Wind Asymmetry',
       'Light\u2019s Doppler Preview',
       'Train Problems',
-      'Coherent Sources'
     ],
   },
   {
@@ -185,7 +171,6 @@ const chapters: Chapter[] = [
       'Square and Sawtooth',
       'The Spectrum Idea',
       'The Transform Named',
-      'BIO Waves on a Snake’s Body  465 A Magnetic Eruption on the Sun 997 BIO A Radioactive Building'
     ],
   },
 ]

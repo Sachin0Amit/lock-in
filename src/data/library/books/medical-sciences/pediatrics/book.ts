@@ -58,8 +58,6 @@ const chapters: Chapter[] = [
       'The Refeeding Craft Priced Straight',
       'The Schedule Fixed by Drill',
       'The Screen-Time Honesty Held Straight',
-    
-      'Semester II: Nutrition'
     ],
   },
   {
@@ -90,7 +88,6 @@ const chapters: Chapter[] = [
       'The Spacer Honesty Named',
       'The Status Arithmetic Priced Straight',
       'The Early-Intervention Craft Named',
-      'Child Health Nursing for the Paediatrician',
     ],
   },
 ]

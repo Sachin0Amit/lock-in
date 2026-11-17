@@ -74,6 +74,20 @@ const chapters: Chapter[] = [
   },
   {
     number: 3,
+    slug: 'recurrence-relations-at-depth',
+    title: 'Recurrence Relations at Depth',
+    summary:
+      'The general theory Discrete Mathematics\u2019s chapter opened: linear recurrences with constant coefficients (homogeneous and not — the characteristic equation and the particular-solution craft, fully derived), theCatalog of famous recurrences (the Catalan family counted several ways, the derangement recurrence, the Tower of Hanoi), generating functions as the unified solver, and the asymptotic idea (what happens as n grows — big-O met from Discrete Mathematics, cross-referenced).',
+    status: 'planned',
+    lessons: [],
+    plannedLessons: [
+      'Linear Recurrences: the General Theory',
+      'The Catalan Family',
+      'Asymptotics: the Growth of Counts',
+    ],
+  },
+  {
+    number: 4,
     slug: 'generating-functions',
     title: 'Generating Functions',
     summary:
@@ -86,20 +100,6 @@ const chapters: Chapter[] = [
       'Solving Recurrences the Slick Way',
       'Change-Making and Partitions',
       'Exponential Generating Functions',
-    ],
-  },
-  {
-    number: 4,
-    slug: 'recurrence-relations-at-depth',
-    title: 'Recurrence Relations at Depth',
-    summary:
-      'The general theory Discrete Mathematics\u2019s chapter opened: linear recurrences with constant coefficients (homogeneous and not — the characteristic equation and the particular-solution craft, fully derived), theCatalog of famous recurrences (the Catalan family counted several ways, the derangement recurrence, the Tower of Hanoi), generating functions as the unified solver, and the asymptotic idea (what happens as n grows — big-O met from Discrete Mathematics, cross-referenced).',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'Linear Recurrences: the General Theory',
-      'The Catalan Family',
-      'Asymptotics: the Growth of Counts',
     ],
   },
   {

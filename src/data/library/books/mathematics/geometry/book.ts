@@ -199,6 +199,7 @@ const chapters: Chapter[] = [
       'Prisms and Cylinders',
       'Pyramids, Cones and Frustums',
       'Spheres, Hemispheres and Combinations of Solids',
+      'Relation in Half Angle of Cone and Solid Angle at Vertex',
     ],
   },
   {

@@ -42,8 +42,6 @@ const chapters: Chapter[] = [
       'The Parameters Priced Honestly',
       'The WQI Earned',
       'The Standards Read as Law',
-    
-      'Environmental Engineering — Air, Noise pollution and Ecology: concepts and general methodology'
     ],
   },
   {
@@ -118,8 +116,6 @@ const chapters: Chapter[] = [
       'The Control-Device Census',
       'The AQI Earned',
       'The Indoor Honest Note',
-    
-      'Basics of Energy and Environment: conservation, environmental pollution and degradation, climate change, environmental impact assessment'
     ],
   },
   {
@@ -135,7 +131,6 @@ const chapters: Chapter[] = [
       'Collection Routes Priced',
       'Recovery and Composting Earned',
       'The Sanitary Landfill Craft',
-      'VI: Solid-state relays (triac/SCR output)'
     ],
   },
   {

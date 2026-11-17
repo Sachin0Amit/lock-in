@@ -28,9 +28,6 @@ const chapters: Chapter[] = [
       'The Three Planes with the Imaging Correlate',
       'The Nine-Region Map Held',
       'The Surgical-Safety Honesty',
-    
-      'Anesthesia',
-      'Orthopedics'
     ],
   },
   {
@@ -61,9 +58,7 @@ const chapters: Chapter[] = [
       'The Pleural Recess and Its Consequences',
       'The Mediastinal Map Held',
       'The Surface Anatomy with the Auscultation Points',
-    
-      'Semester I: Anatomy',
-      'Veterinary Anatomy (Gross Anatomy, Histology and Embryology, Splanchnology)'
+      'Veterinary Anatomy (Gross Anatomy, Histology And Embryology, Splanchnology)',
     ],
   },
   {
@@ -124,8 +119,6 @@ const chapters: Chapter[] = [
       'The Heart\u2019s Septation Registers',
       'The Arch-and-Pouch Craft',
       'The Critical-Period Receipt Priced Straight',
-    
-      'First Year: General Human Anatomy including Embryology and Histology'
     ],
   },
   {

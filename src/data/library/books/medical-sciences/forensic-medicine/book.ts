@@ -88,8 +88,6 @@ const chapters: Chapter[] = [
       'The Hymen Honesty Priced Straight',
       'The Victim-First Register Named',
       'The Special Honesty Held Carefully',
-    
-      'First Year: Dental Materials'
     ],
   },
   {
@@ -120,8 +118,7 @@ const chapters: Chapter[] = [
       'The Report\u2019s Structure Held',
       'The Impartiality Frame Held Straight',
       'The Doctor\u2019s Legal Role Named',
-    
-      'Scientific Inquiry and Reasoning Skills: Reasoning about the Design and Execution of Research'
+      'Scientific Inquiry And Reasoning Skills: Reasoning About The Design And',
     ],
   },
 ]

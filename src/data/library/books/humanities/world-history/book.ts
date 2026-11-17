@@ -47,12 +47,8 @@ const chapters: Chapter[] = [
       'The First Farmers and Cities',
       'The Classical World: Greece and Rome',
       'The Silk Roads and the Medieval World',
-      'The World in 1200: the Starting Line',
-    
-      'Agriculture - major crops and cropping patterns, irrigation systems, storage, transport and marketing of agricultural produce, e-technology in the aid of farmers; direct and indirect farm subsidies and minimum support prices; Public Distribution System and food security; food processing and related',
-      'Unit 6: Consequences of Industrialization',
-      'Preface to the First Edition (signed M. Laxmikanth)',
-      'Preface to the First Edition (duplicate)'
+      'Consequences of Industrialization',
+      'Gs-iii: Agriculture - Major Crops And Cropping Patterns, Irrigation',
     ],
   },
   {
@@ -68,7 +64,6 @@ const chapters: Chapter[] = [
       'Ming-Qing China and the Tribute World',
       'The Aztec and Inca States',
       'Empire\u2019s Legitimation Craft',
-      'About the Civil Services Examination — A. Preliminary Examination / B. Main Examination (Qualifying Papers: Paper A, Paper B)'
     ],
   },
   {
@@ -101,8 +96,6 @@ const chapters: Chapter[] = [
       'The Columbian Exchange',
       'The Atlantic System Begins',
       'The First Global Silver Economy',
-    
-      'Biological Basis of Behavior'
     ],
   },
   {
@@ -116,7 +109,6 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Enlightenment and Its Ideas',
       'America and France',
-      'Haiti and Latin America',
       'The Abolition Wave and the Echoes',
     ],
   },
@@ -166,7 +158,6 @@ const chapters: Chapter[] = [
       'The Russian Revolution',
       'Fascism, Nazism and the Interwar World',
       'The Second World War: Theatres and the Holocaust',
-      'Chapter III. Pythagoras',
       'Chapter IV. Heraclitus',
       'Chapter V. Parmenides',
       'Chapter VI. Empedocles',
@@ -180,15 +171,11 @@ const chapters: Chapter[] = [
       'Chapter XIII. Saint Thomas Aquinas',
       'Chapter XIV. Franciscan Schoolmen',
       'Chapter XV. The Eclipse of the Papacy',
-      'Chapter IV. Erasmus and More',
-      'Chapter VII. Francis Bacon',
-      'Chapter IX. Descartes',
       'Chapter X. Spinoza',
-      'Chapter XI. Leibniz',
       'Chapter XXIV. Schopenhauer',
       'Chapter XXV. Nietzsche',
       'Chapter XXVIII. Bergson',
-      'Chapter XXX. John Dewey'
+      'Chapter XXX. John Dewey',
     ],
   },
   {
@@ -204,7 +191,7 @@ const chapters: Chapter[] = [
       'The Cold War\u2019s Crises and Races',
       'Decolonisation and the New Boundaries',
       'The Soviet Collapse',
-      'Global Conflict, the Cold War and Decolonization',
+      'Unit 8: Cold War And Decolonization',
     ],
   },
   {

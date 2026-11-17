@@ -29,8 +29,9 @@ const chapters: Chapter[] = [
       'The Medium\u2019s Craft',
       'The Panofsky Method',
       'The Attribution\u2019s Limits',
-    
-      'Quantitative Techniques - elementary mathematics topics: Algebra; Averages; Geometry; LCM and HCF; Mensuration; Number Systems; Percentage; Permutation and Combination; Probability; Profit and Loss; Quadratic and Linear Equations; Ratio and Proportion; Simple and Compound Interest; Time and Speed;'
+      'Unit 4 (common): Art and Aesthetics',
+      'Unit VI: Chronological periods from prehistory to post-modern art and artists of the West, with a focus on the movements that transformed its history',
+      'Unit II: Various forms of visual arts and their inter-relationship with other modes of creative expression (e.g. performing art, cinema and literature)',
     ],
   },
   {
@@ -91,6 +92,7 @@ const chapters: Chapter[] = [
       'The Japanese Registers',
       'The Southeast Asian Monuments',
       'The Islamic Aniconic Register',
+      'Unit IX: Art of the Far East, South East and Central Asia and the ancient Near-East',
     ],
   },
   {
@@ -106,9 +108,9 @@ const chapters: Chapter[] = [
       'The Three Relief Schools',
       'The Gupta Idiom and Ajanta',
       'The Rock-Cut Craft',
-    
-      'India and South Asia - SAARC and regional co-operation; India\'s \'Look East\' policy; impediments to regional co-operation',
-      'Sixth Edition / M Laxmikanth — McGraw Hill Education (India) Private Limited [title page]'
+      'Class XI theory (common to Painting, Graphics, Sculpture and Applied Art) Unit 1: Pre-Historic rock paintings and art of Indus/Sindhu Saraswati Civilization; Buddhist, Jain and Hindu Art',
+      'Unit VII: Chronological periods and developments in Indian art from prehistory to the 19th century',
+      'India And South Asia - Saarc And Regional Co-operation; India\'s \'Look',
     ],
   },
   {
@@ -124,6 +126,7 @@ const chapters: Chapter[] = [
       'The Dravida and the Vesara',
       'The Chola Bronze and the Miniature\u2019s Birth',
       'The Indo-Islamic and the Court Paintings',
+      'Class XII theory (common to all four subjects) Unit 1: Miniature Paintings \u2014 The Rajasthani, Pahari, Mughal and Deccan schools of miniature painting',
     ],
   },
   {
@@ -139,7 +142,9 @@ const chapters: Chapter[] = [
       'Ravi Varma and the Bengal School',
       'The Progressives and the Contemporary',
       'The Architecture\u2019s Modern and the Folk Registers',
-      'Pages 1–2: \'[cover/title page]\' — cover of *Spectrum\'s A Brief History of Modern India*'
+      'Unit VIII: Contemporary practices in Indian art during the 20th and 21st centuries; modern concept of advertising, designing and visual communication; experimental modes in contemporary visual expression; development of art education in India from colonial art schools to the present',
+      'The Contemporary\u2019s Global Field',
+      'Indian National Flag; The Bengal School of Painting; The Modern Trends in Indian Art (paintings, graphic prints, sculptures)',
     ],
   },
   {
@@ -154,7 +159,6 @@ const chapters: Chapter[] = [
       'The Pre-Columbian Americas',
       'The African Bronzes and Masks',
       'The Oceania Registers',
-      'The Contemporary\u2019s Global Field',
     ],
   },
   {
@@ -170,6 +174,7 @@ const chapters: Chapter[] = [
       'The Contemporary Field',
       'The Museum Era\u2019s History',
       'The Doorstep: The Gallery Visit',
+      'Unit IV: Developments in modern techniques, processes and procedures and their application in contemporary visual practices (installation; multi-colour print; computer-aided design \u2014 vector and raster; multimedia and digital technologies in art; trompe l\'oeil illusory hyper-realism)',
     ],
   },
 ]

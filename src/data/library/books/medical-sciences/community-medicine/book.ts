@@ -58,9 +58,6 @@ const chapters: Chapter[] = [
       'The Sensitivity-PPV Arithmetic Fixed by Drill',
       'The p-Value Honesty Held Straight',
       'The Life-Table Honesty Named',
-    
-      'Biostatistics and Computer Applications',
-      'Scientific Inquiry and Reasoning Skills: Data-based and Statistical Reasoning'
     ],
   },
   {
@@ -107,9 +104,6 @@ const chapters: Chapter[] = [
       'The UHC Honesty Held',
       'The SDG Frame Named',
       'Health Promotion and Maintenance',
-      'Community Health Nursing and Epidemiology',
-    
-      'Social and Preventive Medicine (Community Medicine)'
     ],
   },
 ]

@@ -28,10 +28,6 @@ const chapters: Chapter[] = [
       'Magnitudes and Modulus',
       'Telescope Arithmetic',
       'The Window Register',
-    
-      'Inquiry 2: Collecting and processing data',
-      'Fractional Change in the Radius of Sphere',
-      'BIO Exhaling Adiabatically  630 the Sky'
     ],
   },
   {
@@ -47,8 +43,6 @@ const chapters: Chapter[] = [
       'The L-R-T Tie',
       'The OBAFGKM Census',
       'The Master Map',
-      'Radius of Curvature',
-      'Radius of Gyration'
     ],
   },
   {
@@ -124,7 +118,6 @@ const chapters: Chapter[] = [
       'The Comparative Census',
       'Kepler Inherited',
       'The Detection Craft',
-      'Celestial Mechanics: Two-Body Orbits',
     ],
   },
   {
@@ -140,8 +133,6 @@ const chapters: Chapter[] = [
       'The Observatory Census',
       'The Data Craft',
       'The Open Questions',
-    
-      'Tool 2: Technology'
     ],
   },
 ]

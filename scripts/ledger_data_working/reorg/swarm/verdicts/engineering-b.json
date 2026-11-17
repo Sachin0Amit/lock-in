@@ -1,0 +1,1614 @@
+{
+ "agent": "engineering-b",
+ "autoReview": [
+  {
+   "book": "power-electronics",
+   "chapter": 1,
+   "title": "The 723 regulator",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "LM723 is a real linear-regulator IC and ch1's 'Switching Priced Against Linear' thread keeps its neighbours ('Taxonomy of linear regulator ICs', 'Lower-dropout regulators'); '723' was mistaken for a page number."
+  },
+  {
+   "book": "electronic-devices-and-circuits",
+   "chapter": 4,
+   "title": "317-style regulator: circuit examples",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "electronic-devices-and-circuits",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "LM317 circuit examples are a real power-supply topic (removal loses it) but belong in ch9 'Power Supplies and the Doorstep', not ch4 Diode Circuits."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 8,
+   "title": "The 555 Census",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The 555 timer IS the core of ch8 'Timers and Function Circuits'; '555' was mistaken for a page number."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "Isolating input capacitance: cascoding the transimpedance amplifier",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Cascoding vs bootstrapping are two distinct transimpedance-amplifier techniques and both belong in ch2; 'already covered in heat-and-thermodynamics' is token-score nonsense."
+  },
+  {
+   "book": "building-materials",
+   "chapter": 8,
+   "title": "Three Elements Specified",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "A worked specification example fits ch8 'Durability, Selection and the Synthesis'; 'already covered in digital-art' is token-score nonsense."
+  },
+  {
+   "book": "signals-and-systems",
+   "chapter": 7,
+   "title": "The Discrete Sibling’s ROC",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The z-transform ROC is core ch7 material, not a duplicate of ch4's discrete Fourier-series sibling; token false positive."
+  },
+  {
+   "book": "electromagnetic-fields-and-waves",
+   "chapter": 7,
+   "title": "The Wave Equation Earned",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Deriving the wave equation is the natural opener of ch7 'Plane Waves'; 'already covered in fluid-mechanics' is token-score nonsense."
+  },
+  {
+   "book": "power-electronics",
+   "chapter": 1,
+   "title": "Advanced Electronics Topics",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Vague survey-TOC artifact with no honest home; the territory is owned by the electronics specialist books. The physical-chemistry target is token noise."
+  },
+  {
+   "book": "power-electronics",
+   "chapter": 1,
+   "title": "Lee De Forest—A Father of the Electronics Age",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "electronic-devices-and-circuits",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Electronics-age biography belongs in the devices book's opening chapter; electricity-and-magnetism (physics) is the wrong shelf."
+  },
+  {
+   "book": "power-electronics",
+   "chapter": 1,
+   "title": "Harry Nyquist: A Diverse Electronics",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "signals-and-systems",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Nyquist's sampling theorem makes signals-and-systems ch8 (Sampling and Reconstruction) the honest home; electricity-and-magnetism is the wrong shelf."
+  },
+  {
+   "book": "power-electronics",
+   "chapter": 1,
+   "title": "Introduction to analogue and electronic",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Cut-off TOC fragment with no completable topic and no honest home."
+  },
+  {
+   "book": "power-electronics",
+   "chapter": 8,
+   "title": "Computer Fundamentals — number systems, Boolean algebra, arithmetic functions; basic architecture, central processing unit, I/O and memory organisation; peripheral devices; data representation and programming; basics of operating system and networking; virtual memory, file systems; elements of",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Syllabus paste enumerating topics owned by the CS books (computer-fundamentals, digital-logic-design, computer-organization-architecture); industrial-engineering ch1 is a token-score artifact."
+  },
+  {
+   "book": "electrical-measurements",
+   "chapter": 1,
+   "title": "Electronic Measurements and Instrumentation — principles of measurement, accuracy, precision and standards; analog and digital systems for measurement; static/dynamic characteristics of measurement systems, errors, statistical analysis and curve fitting; measurement systems for non-electrical",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Syllabus paste of this very book's own scope (standards, errors, analog/digital instruments, transducers are its chapters); physical-chemistry ch12 is a token-score artifact."
+  },
+  {
+   "book": "electronic-devices-and-circuits",
+   "chapter": 3,
+   "title": "John Milton Miller: Capacitance Multiplication",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "electronic-devices-and-circuits",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Miller-capacitance multiplication belongs with ch6 'Frequency Response and Miller'; heat-and-thermodynamics is a token-score artifact."
+  },
+  {
+   "book": "electronic-devices-and-circuits",
+   "chapter": 5,
+   "title": "Operation of the npn Transistor in the",
+   "verdict": "amend",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "Operation of the npn Transistor",
+   "reason": "Already in its correct chapter (ch5 The Bipolar Junction Transistor); power-electronics ch8 is wrong. Retitle strips the truncation."
+  },
+  {
+   "book": "electronic-devices-and-circuits",
+   "chapter": 6,
+   "title": "Analyzing a Noninverting-Amplifier Circuit Using",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 4,
+   "newTitle": "Analyzing a Noninverting-Amplifier Circuit",
+   "reason": "Noninverting-amplifier analysis is op-amp craft -> analog-electronics ch4; foundation-physics is a token-score artifact. Retitle strips the truncation."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 1,
+   "title": "Note: The scanned pages are not a JEE mathematics book — they are the front matter and Contents of *The Art of Electronics, Third Edition* (Horowitz & Hill, Cambridge University Press). Transcribing them exactly as printed",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "A transcription-note artifact, not a lesson; electricity-and-magnetism ch6 is a token-score artifact."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "Emitter) Amplifier with a Source",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Cut-off fragment ('(Common-)Emitter) Amplifier with a Source...'); no honest home."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "Reducing input capacitance: bootstrapping the transimpedance amplifier",
+   "verdict": "amend",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Bootstrapping the transimpedance amplifier belongs in ch2 with its cascoding twin; heat-and-thermodynamics is a token-score artifact."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 4,
+   "title": "A Detailed Look at Op-Amp Behavior and Selected Circuits",
+   "verdict": "amend",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Op-amp behaviour and selected circuits is core ch4 material; foundation-physics is a token-score artifact."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 4,
+   "title": "Impedance and Reactance in Real Circuits",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "circuit-theory-and-network-analysis",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Impedance/reactance in real AC circuits is sinusoidal-steady-state theory -> circuit-theory ch4; high-voltage ch3 (electrostatics) is wrong."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 4,
+   "title": "Ebers-Moll Applied to Basic Transistor Circuits",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "electronic-devices-and-circuits",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Ebers-Moll is the BJT large-signal model -> electronic-devices ch5; foundation-physics is a token-score artifact."
+  },
+  {
+   "book": "vlsi-design",
+   "chapter": 1,
+   "title": "Combinational functions available as ICs",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "digital-logic-design",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Combinational MSI/LSI functions are digital-logic ch5 territory ('Combinational MSI and LSI Blocks'); heat-and-thermodynamics is a token-score artifact."
+  },
+  {
+   "book": "vlsi-design",
+   "chapter": 5,
+   "title": "The Three Powers Priced",
+   "verdict": "amend",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The three CMOS power components (dynamic/short-circuit/leakage) are ch5 'Power' core; photography is a token-score artifact."
+  },
+  {
+   "book": "vlsi-design",
+   "chapter": 7,
+   "title": "Digital circuits — Boolean algebra and uses; logic gates, digital IC families; combinational and sequential circuits; basics of multiplexers, counters/registers/memories/microprocessors: design and applications",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Syllabus paste owned by digital-logic-design (Boolean algebra, gates, families, sequential, memory); electrical-measurements ch7 is a token-score artifact."
+  },
+  {
+   "book": "vlsi-design",
+   "chapter": 7,
+   "title": "Analyzing an RL Circuit That Has Sequential Techniques",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mash of an RL-circuit fragment and a sequential-techniques fragment; foundation-physics is a token-score artifact."
+  },
+  {
+   "book": "embedded-systems",
+   "chapter": 2,
+   "title": "Communication satellites — orbits, characteristics, systems, uses; fibre-optic communication systems: block schematics, link calculations, system design",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Syllabus paste spanning two owners (satellite route -> antennas-and-wave-propagation ch6/ch7; fibre links -> electromagnetic-fields-and-waves ch9); control-systems ch6 is a token-score artifact."
+  },
+  {
+   "book": "embedded-systems",
+   "chapter": 5,
+   "title": "Precision coil driver",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "A precision (op-amp) coil driver is precision-circuit craft -> analog-electronics ch4; electrical-measurements ch1 is a token-score artifact."
+  },
+  {
+   "book": "antennas-and-wave-propagation",
+   "chapter": 1,
+   "title": "This publication is in copyright. Subject to statutory exception and to the provisions of relevant collective licensing agreements, no reproduction of any part may take place without the written permission of Cambridge University Press",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Copyright front-matter junk; foundation-biology is a token-score artifact."
+  },
+  {
+   "book": "structural-engineering",
+   "chapter": 9,
+   "title": "Structural Analysis — free and forced vibrations of single- and multi-degree-freedom systems; suspended cables; concepts and use of computer aided design",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Syllabus paste: vibrations are owned by theory-of-machines ch10, suspended cables by structural ch2, CAD by cad-cam; engineering-mechanics ch10 (Lagrange) is not the honest single home."
+  },
+  {
+   "book": "structural-engineering",
+   "chapter": 9,
+   "title": "Power Plant Engineering — Rankine and Brayton cycles with regeneration and reheat; fuels and their properties, flue gas analysis; boilers; steam turbines; condensers, air ejectors, electrostatic precipitators and cooling towers: theory, design, types and applications",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Syllabus paste owned by thermodynamics (ch8 Gas Power Cycles, ch9 Vapour Power); electricity-and-magnetism is a token-score artifact."
+  },
+  {
+   "book": "environmental-engineering",
+   "chapter": 1,
+   "title": "Environmental Engineering — Air, Noise pollution and Ecology: concepts and general methodology",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Syllabus paste: air pollution is this book's own ch6, ecology/general methodology is environmental-studies; no single honest home."
+  },
+  {
+   "book": "environmental-engineering",
+   "chapter": 6,
+   "title": "Basics of Energy and Environment: conservation, environmental pollution and degradation, climate change, environmental impact assessment",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Syllabus paste owned by environmental-studies (energy, pollution, climate, EIA basics); placing it in environmental-studies ch8 duplicates that book."
+  },
+  {
+   "book": "environmental-engineering",
+   "chapter": 7,
+   "title": "VI: Solid-state relays (triac/SCR output)",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "power-electronics",
+   "targetChapter": 7,
+   "newTitle": "Solid-State Relays (Triac/SCR Output)",
+   "reason": "SSRs are triac/SCR-based AC-control devices -> power-electronics ch7 'AC Controllers, Drives and Applications'; foundation-chemistry is a token-score artifact. Retitle strips the roman-numeral prefix."
+  },
+  {
+   "book": "electrical-measurements",
+   "chapter": 1,
+   "title": "Standards and the SI Honest Note",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Standards and SI units open ch1 'The Measurement Discipline'; ch6 (potentiometers/magnetic measurements) is the wrong home."
+  },
+  {
+   "book": "renewable-energy",
+   "chapter": 3,
+   "title": "The I-V Curve Earned",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The I-V curve is the heart of ch3 'Solar Photovoltaics'; wind-energy ch4 is absurd."
+  },
+  {
+   "book": "antennas-and-wave-propagation",
+   "chapter": 1,
+   "title": "The Radiation Mechanism, Honestly",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Radiation mechanism is the canonical opener of ch1 'The Antenna Idea'; microstrip ch5 is wrong."
+  },
+  {
+   "book": "antennas-and-wave-propagation",
+   "chapter": 8,
+   "title": "The Doorsteps Named",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "A synthesis-chapter closer for ch8 'Antenna Measurements and the Synthesis'; the array chapter is wrong."
+  },
+  {
+   "book": "digital-signal-processing",
+   "chapter": 8,
+   "title": "The Doorsteps Named",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "A synthesis-chapter closer for ch8; multirate ch7 is wrong."
+  },
+  {
+   "book": "transportation-engineering",
+   "chapter": 7,
+   "title": "The Study Census Worked",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Traffic studies (the study census) are core ch7 'Traffic Engineering'; geometric-design ch2 is wrong."
+  },
+  {
+   "book": "construction-management",
+   "chapter": 3,
+   "title": "Materials Managed Honestly",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Site materials management fits ch3 'Site Organisation and Resources'; cost-estimation ch5 is wrong."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "Amplifier 535 9.5.1 Differential-to-Single-Ended",
+   "verdict": "amend",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "Differential-to-Single-Ended Conversion",
+   "reason": "'Amplifier' alone is meaningless; the real content is the differential-to-single-ended conversion technique, which fits ch2's differential-amplifier arc."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "Amplifiers 887 13.2.3 VoltageGain",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "'Amplifiers' alone is meaningless; amplifier-gain fundamentals are already covered by ch2's arc and electronic-devices ch6."
+  },
+  {
+   "book": "vlsi-design",
+   "chapter": 8,
+   "title": "Summary 1144 Flops",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "'Flops' salvages to nothing honest; flip-flops are already covered by ch8 'Latches and Flip-Flops in Silicon'."
+  }
+ ],
+ "misplaced": [
+  {
+   "book": "power-electronics",
+   "chapter": 1,
+   "title": "Converter linearity – a closer look",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Data-converter (ADC/DAC) linearity is data-conversion craft, not power electronics; analog-electronics ch9 'Data Conversion and the Doorstep' owns it."
+  },
+  {
+   "book": "power-electronics",
+   "chapter": 1,
+   "title": "Undersampling flash-converter example",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Flash-converter example (undersampling) is data-conversion craft -> analog-electronics ch9."
+  },
+  {
+   "book": "power-electronics",
+   "chapter": 2,
+   "title": "ELEVEN: Programmable Logic Devices",
+   "action": "move",
+   "targetBook": "digital-logic-design",
+   "targetChapter": 9,
+   "newTitle": "Programmable Logic Devices",
+   "reason": "PLDs are digital-logic territory ('Programmable and Modern Logic'); 'ELEVEN:' is a Drive-TOC chapter-number prefix, stripped by retitle."
+  },
+  {
+   "book": "electrical-measurements",
+   "chapter": 1,
+   "title": "Errors Priced and Stated",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Error analysis is the measurement discipline's core; the molecular-biology token hint is noise."
+  },
+  {
+   "book": "electrical-measurements",
+   "chapter": 1,
+   "title": "Another way: roll-your-own fA/√Hz instrument",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Building a sensitive (fA/√Hz) electronic instrument fits the measurement discipline's precision spirit."
+  },
+  {
+   "book": "electrical-measurements",
+   "chapter": 6,
+   "title": "Calibration Priced End-to-End",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Extends ch6's potentiometer-as-calibration arc; the evolution token hint is noise."
+  },
+  {
+   "book": "electrical-measurements",
+   "chapter": 7,
+   "title": "Phase Measured",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Digital phase measurement belongs in Digital Instruments (counters/time-base craft)."
+  },
+  {
+   "book": "high-voltage-engineering",
+   "chapter": 1,
+   "title": "BJT voltage noise, revisited",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Transistor noise is low-noise analog design; joins analog ch1's noise arc."
+  },
+  {
+   "book": "high-voltage-engineering",
+   "chapter": 1,
+   "title": "Practical Perspective: Active High-Q",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Active high-Q is active-filter craft -> analog ch5."
+  },
+  {
+   "book": "high-voltage-engineering",
+   "chapter": 1,
+   "title": "Testing Interconnections of Ideal Sources",
+   "action": "move",
+   "targetBook": "circuit-theory-and-network-analysis",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Interconnecting ideal (independent) sources is circuit-theory fundamentals -> ch1 'The Circuit Idea'."
+  },
+  {
+   "book": "high-voltage-engineering",
+   "chapter": 1,
+   "title": "Testing Interconnections of Ideal Independent",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Truncated twin of the preceding line; no separate topic."
+  },
+  {
+   "book": "high-voltage-engineering",
+   "chapter": 4,
+   "title": "The Gaseous and Liquid Census",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Gaseous/liquid insulant applications are ch4's core census; the physical-chemistry token hint is noise."
+  },
+  {
+   "book": "high-voltage-engineering",
+   "chapter": 5,
+   "title": "Determining the Voltage, Given the Current, 8.2 Finding the Overdamped Natural Response of a",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "RLC natural-response TOC mash; owned by circuit-theory ch7 'Transients'."
+  },
+  {
+   "book": "high-voltage-engineering",
+   "chapter": 7,
+   "title": "Apparatus Priced One by One",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Testing apparatus item-by-item fits 'High-Voltage Testing and Standards'."
+  },
+  {
+   "book": "electromagnetic-fields-and-waves",
+   "chapter": 3,
+   "title": "Potential Earned from Work",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Work-to-potential is core Electrostatics II; the thermodynamics token hint is noise."
+  },
+  {
+   "book": "electromagnetic-fields-and-waves",
+   "chapter": 6,
+   "title": "Displacement Current Earned",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Displacement current is Maxwell's bridge; core ch6 lesson."
+  },
+  {
+   "book": "electronic-devices-and-circuits",
+   "chapter": 1,
+   "title": "A first (but naive) guess",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "House-style pedagogical lesson inside the substrate chapter; the topology token hint is noise."
+  },
+  {
+   "book": "electronic-devices-and-circuits",
+   "chapter": 2,
+   "title": "Qualitative Description of Junction Summary",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "'Junction'+'Summary' mash; junction physics is covered by ch3's depletion-region lesson."
+  },
+  {
+   "book": "electronic-devices-and-circuits",
+   "chapter": 7,
+   "title": "A closer look at JFETs",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "JFET deep-dive fits ch7 'Field-Effect Devices: JFET and MOSFET'."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 1,
+   "title": "Crossover distortion and output impedance",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Real output-stage imperfections fit the signal-chain overview's distortion thread."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "The CS and CE Amplifiers with 9.3 Common-Mode Rejection",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mash; common-mode rejection already covered by 'CMRR and PSRR' and 'Calculating the CMRR'."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "The common-emitter amplifier revisited",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Revisiting the CE stage as a multistage building block fits ch2's arc."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "Biasing the common-emitter amplifier",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "BJT biasing is owned by electronic-devices-and-circuits ch5 'Biasing and the Q-Point'; moving it there would duplicate."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "Introduction to op-amps – the \"perfect component\"",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "The op-amp introduction ('the perfect component') belongs in ch4 'The Operational Amplifier', not the differential/multistage chapter."
+  },
+  {
+   "book": "signals-and-systems",
+   "chapter": 7,
+   "title": "Inversion by Two Routes",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "z-transform inversion by partial fractions vs power series; core ch7."
+  },
+  {
+   "book": "signals-and-systems",
+   "chapter": 7,
+   "title": "The s-to-z Glance",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "s-plane to z-plane mapping is classic z-transform material."
+  },
+  {
+   "book": "signals-and-systems",
+   "chapter": 8,
+   "title": "The Standard Chain Drawn",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Drawing the standard sampling/reconstruction chain fits ch8."
+  },
+  {
+   "book": "analog-and-digital-communication",
+   "chapter": 1,
+   "title": "Advanced Communication Topics",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Vague survey-TOC artifact; the territory is this book's own ch6-ch9."
+  },
+  {
+   "book": "analog-and-digital-communication",
+   "chapter": 1,
+   "title": "EIGHT: Low-Noise Techniques",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 1,
+   "newTitle": "Low-Noise Techniques",
+   "reason": "Low-noise design craft is analog territory (joins ch1's noise arc); 'EIGHT:' is a Drive-TOC chapter-number prefix, stripped by retitle."
+  },
+  {
+   "book": "analog-and-digital-communication",
+   "chapter": 1,
+   "title": "Finding e_n from noise-figure specifications",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Extracting e_n from noise-figure specs is low-noise analog design; the econometrics token hint is noise."
+  },
+  {
+   "book": "analog-and-digital-communication",
+   "chapter": 1,
+   "title": "Selecting low-noise JFETs",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Low-noise transistor selection belongs with the analog noise arc."
+  },
+  {
+   "book": "vlsi-design",
+   "chapter": 1,
+   "title": "Modulo-n counter: a timing example",
+   "action": "move",
+   "targetBook": "digital-logic-design",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Counters are sequential-logic territory ('Registers, Counters and the Memory Unit')."
+  },
+  {
+   "book": "embedded-systems",
+   "chapter": 3,
+   "title": "Using the Mesh-Current Method in the F(s) Has Distinct Real Roots",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Circuits-textbook mash; mesh method owned by circuit-theory ch2, natural response by ch7."
+  },
+  {
+   "book": "embedded-systems",
+   "chapter": 8,
+   "title": "Three Cases Priced End-to-End",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Case studies close the design-methodology chapter; the token hint is noise."
+  },
+  {
+   "book": "digital-signal-processing",
+   "chapter": 1,
+   "title": "The Chain and Its Honest Taxes",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The DSP chain and its costs is the worldview chapter's core lesson."
+  },
+  {
+   "book": "digital-signal-processing",
+   "chapter": 3,
+   "title": "DIF Priced Against DIT",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Decimation-in-frequency vs decimation-in-time is FFT-chapter core."
+  },
+  {
+   "book": "digital-signal-processing",
+   "chapter": 8,
+   "title": "Two Designs Priced End-to-End",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Worked synthesis designs close the book."
+  },
+  {
+   "book": "structural-engineering",
+   "chapter": 5,
+   "title": "Reciprocity and the Honest Verdict",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Maxwell-Betti reciprocity is force-method material."
+  },
+  {
+   "book": "surveying-and-geomatics",
+   "chapter": 3,
+   "title": "Contours Read Honestly",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Contouring follows levelling's terrain-reading craft."
+  },
+  {
+   "book": "building-materials",
+   "chapter": 3,
+   "title": "The Alternative Glance",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "A glance at alternative binders belongs in the cement chapter."
+  },
+  {
+   "book": "geotechnical-engineering",
+   "chapter": 1,
+   "title": "Classification by Two Families",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Two-family soil classification (fine vs coarse) is core ch1."
+  },
+  {
+   "book": "geotechnical-engineering",
+   "chapter": 4,
+   "title": "The Uniform-Approximation Census",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Approximate stress-distribution methods fit ch4."
+  },
+  {
+   "book": "transportation-engineering",
+   "chapter": 6,
+   "title": "Scanning tunneling microscope preamplifier",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "The STM preamplifier is the classic low-capacitance transimpedance-amplifier application; joins ch2's TIA cluster."
+  },
+  {
+   "book": "transportation-engineering",
+   "chapter": 7,
+   "title": "Capacity and LOS Graded",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Capacity and level-of-service grading is traffic-engineering core."
+  },
+  {
+   "book": "environmental-engineering",
+   "chapter": 2,
+   "title": "Population Forecasted by Three Crafts",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Population forecasting drives water-demand design; the statistics token hint is noise."
+  },
+  {
+   "book": "hydraulics",
+   "chapter": 1,
+   "title": "The Applied Census Named",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Naming hydraulics' applied branches opens the viewpoint chapter."
+  },
+  {
+   "book": "hydraulics",
+   "chapter": 4,
+   "title": "Distortion for Rivers",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Distorted physical models for river studies are similitude practice."
+  },
+  {
+   "book": "hydraulics",
+   "chapter": 5,
+   "title": "Normal Depth Computed",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Normal-depth computation is uniform-flow core."
+  },
+  {
+   "book": "hydraulics",
+   "chapter": 5,
+   "title": "The Geometry Honest Notes",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Channel-geometry conventions belong with uniform flow."
+  },
+  {
+   "book": "water-resources-engineering",
+   "chapter": 4,
+   "title": "The UH Earned and Derived",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Unit-hydrograph derivation is the hydrograph chapter's core."
+  }
+ ],
+ "dupes": [
+  {
+   "title": "Shot noise in current sources and emitter followers",
+   "action": "consolidate",
+   "winner": "analog-electronics",
+   "reason": "Low-noise analog design: consolidate the analog-and-digital-communication ch1 copy into analog-electronics ch1's noise arc (with the amended moves of 'EIGHT: Low-Noise Techniques', 'Finding e_n from noise-figure specifications', 'Selecting low-noise JFETs')."
+  },
+  {
+   "title": "The Discrete Sibling Learned / The Discrete Sibling's ROC",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Discrete Fourier-series sibling (signals ch4) vs z-transform ROC (signals ch7) are different topics; the auto-remove of the ROC lesson is vetoed as a token false positive."
+  },
+  {
+   "title": "V: / VI: Solid-state relays (transistor / triac-SCR output)",
+   "action": "consolidate",
+   "winner": "power-electronics",
+   "reason": "SSRs are triac/SCR AC-control devices: one honest home at power-electronics ch7 (AC Controllers), reached by amending the environmental-engineering copy's move; the electronic-devices 'V:' junk copy stays removed."
+  },
+  {
+   "title": "The SDR Doorstep / The SDR Doorway",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "digital-signal-processing ch7 treats SDR as multirate implementation; analog-and-digital-communication ch5 treats it as receiver architecture - genuinely different syllabus treatments."
+  }
+ ],
+ "thin": [
+  {
+   "book": "antennas-and-wave-propagation",
+   "chapter": 1,
+   "action": "keep",
+   "targetChapter": 0,
+   "reason": "Three coherent lessons (radiation mechanism, family census, parameter vocabulary) make a standard intro chapter; the move-chapter that would gut it is vetoed."
+  },
+  {
+   "book": "digital-signal-processing",
+   "chapter": 8,
+   "action": "keep",
+   "targetChapter": 0,
+   "reason": "Synthesis chapters are conventionally compact (map, two worked designs, doorsteps); no honest merge target."
+  },
+  {
+   "book": "building-materials",
+   "chapter": 8,
+   "action": "keep",
+   "targetChapter": 0,
+   "reason": "Durability + worked specification example + synthesis; vetoing the removal of 'Three Elements Specified' keeps the chapter honest."
+  }
+ ],
+ "order": [],
+ "extra": [
+  {
+   "book": "power-electronics",
+   "chapter": 1,
+   "title": "Drives — basic concepts of adjustable speed DC and AC drives; DC-DC switched mode converters; DC-AC switched mode converters; resonant converters; high frequency inductors and transformers; power supplies",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Syllabus paste of the book's own scope (drives ch7, DC-DC ch5, DC-AC ch6, SMPS/isolation ch5)."
+  },
+  {
+   "book": "power-electronics",
+   "chapter": 1,
+   "title": "Pros and Cons of ΔΣ oversampling converters",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Delta-sigma converter trade-offs are data-conversion craft -> analog ch9."
+  },
+  {
+   "book": "power-electronics",
+   "chapter": 1,
+   "title": "Some unusual A/D and D/A converters",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Unusual converter architectures are data-conversion craft -> analog ch9."
+  },
+  {
+   "book": "power-electronics",
+   "chapter": 1,
+   "title": "Regulators and servomechanisms",
+   "action": "move",
+   "targetBook": "control-systems",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Voltage regulators and servomechanisms are the two canonical feedback systems -> control-systems ch1 'The Feedback Idea'."
+  },
+  {
+   "book": "power-electronics",
+   "chapter": 6,
+   "title": "Nanoamp wide-compliance bipolarity current source",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "A nanoamp wide-compliance bipolar current source is precision op-amp craft -> analog ch4."
+  },
+  {
+   "book": "electrical-measurements",
+   "chapter": 1,
+   "title": "Optoelectronics: detectors",
+   "action": "move",
+   "targetBook": "electronic-devices-and-circuits",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Optoelectronic detectors belong with 'Optoelectronic and Special Devices' (ch8)."
+  },
+  {
+   "book": "electrical-measurements",
+   "chapter": 9,
+   "title": "Leakage flux responsible for the inductive",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Truncated mash; leakage flux is owned by electrical-machines ch2 (transformers)."
+  },
+  {
+   "book": "high-voltage-engineering",
+   "chapter": 1,
+   "title": "Dropout voltages compared",
+   "action": "move",
+   "targetBook": "power-electronics",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "LDO dropout comparisons join ch1's linear-regulator thread ('Lower-dropout regulators')."
+  },
+  {
+   "book": "high-voltage-engineering",
+   "chapter": 1,
+   "title": "Fully integrated high-speed fiber-transceiver modules",
+   "action": "move",
+   "targetBook": "electronic-devices-and-circuits",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Integrated high-speed fibre-transceiver modules are optoelectronic devices -> ch8."
+  },
+  {
+   "book": "high-voltage-engineering",
+   "chapter": 1,
+   "title": "Find an Unknown Voltage",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Vague circuits-textbook exercise fragment; owned by circuit-theory ch1-ch2."
+  },
+  {
+   "book": "high-voltage-engineering",
+   "chapter": 1,
+   "title": "An Alternate Approach to Determining the Order Voltage Pulse",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled fragment; no honest reconstruction."
+  },
+  {
+   "book": "high-voltage-engineering",
+   "chapter": 5,
+   "title": "Determining the Current, Given the Voltage, 8.3 Calculating Branch Currents in the Natural",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "RLC natural-response TOC mash; owned by circuit-theory ch7."
+  },
+  {
+   "book": "high-voltage-engineering",
+   "chapter": 5,
+   "title": "Voltages and currents in a star-connected Summary of important formulae",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Three-phase/star mash; owned by circuit-theory ch6."
+  },
+  {
+   "book": "high-voltage-engineering",
+   "chapter": 6,
+   "title": "Designing a Simple Voltage Divider 65 Using a Test Source",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Page-number mash; voltage dividers owned by circuit-theory ch1."
+  },
+  {
+   "book": "electromagnetic-fields-and-waves",
+   "chapter": 2,
+   "title": "Practical Perspective: Heating with Electric Cases",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled 'Practical Perspective' fragment from a circuits textbook; no honest home in electrostatics."
+  },
+  {
+   "book": "electromagnetic-fields-and-waves",
+   "chapter": 5,
+   "title": "True low-dropout regulators",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "LDO regulators are covered by power-electronics ch1's linear-regulator thread; not field theory."
+  },
+  {
+   "book": "electronic-devices-and-circuits",
+   "chapter": 1,
+   "title": "Optoelectronics: emitters",
+   "action": "move",
+   "targetBook": "electronic-devices-and-circuits",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Optoelectronic emitters belong in ch8 'Optoelectronic and Special Devices', not the substrate chapter."
+  },
+  {
+   "book": "electronic-devices-and-circuits",
+   "chapter": 1,
+   "title": "Indicators and LEDs",
+   "action": "move",
+   "targetBook": "electronic-devices-and-circuits",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "LED indicator applications belong with the optoelectronic lessons of ch8."
+  },
+  {
+   "book": "electronic-devices-and-circuits",
+   "chapter": 2,
+   "title": "Current sharing in paralleled BJTs",
+   "action": "move",
+   "targetBook": "power-electronics",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Paralleling power BJTs for current sharing joins power-electronics ch2 ('Paralleling MOSFETs')."
+  },
+  {
+   "book": "electronic-devices-and-circuits",
+   "chapter": 8,
+   "title": "The Thyristar Family Named",
+   "action": "move",
+   "targetBook": "power-electronics",
+   "targetChapter": 2,
+   "newTitle": "The Thyristor Family Named",
+   "reason": "The thyristor family (SCR/TRIAC/GTO) is power-semiconductor territory -> power-electronics ch2; retitle fixes the OCR spelling 'Thyristar'."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 1,
+   "title": "IV: Analog-oriented optocouplers",
+   "action": "move",
+   "targetBook": "electronic-devices-and-circuits",
+   "targetChapter": 8,
+   "newTitle": "Analog-Oriented Optocouplers",
+   "reason": "Optocouplers are optoelectronic devices -> electronic-devices ch8; retitle strips the roman-numeral prefix."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "Classification of Amplifiers Based on 2.7.1 Frequency Dependence of the",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Truncated mash ('Classification of Amplifiers Based on...' + section number); classification is covered by ch1's chain overview."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "A Common-Emitter Amplifier with",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Dangling truncation; CE amplifiers covered by 'Common-Emitter (CE) Amplifiers' and the revisited lessons."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "Other Wideband Amplifier Amplifier (Shunt-Shunt)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mash ('Other Wideband Amplifier...' + 'Amplifier (Shunt-Shunt)'); shunt-shunt (transimpedance) is covered by the TIA cluster and ch3 topologies."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "Small-Signal Operation of Current 9.2.2 Input Common-Mode Range",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mash ('Small-Signal Operation of Current [Mirrors]' + 'Input Common-Mode Range'); both covered in ch2's arc."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "Determining the Equivalent Load 18.4.1 Ring Oscillators and Other Pulse",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mash ('Determining the Equivalent Load' + 'Ring Oscillators...'); ring-oscillator content is salvaged via the ch3 twin."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "Designing a Summing Amplifier",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Op-amp circuit design exercises belong in ch4 'The Operational Amplifier'."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "Designing a Noninverting Amplifier",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Op-amp circuit design exercises belong in ch4."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 2,
+   "title": "Designing a Broadband Bandreject Op Amp Transient Response",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mash ('Designing a Broadband Bandreject...' + 'Op Amp Transient Response'); bandreject owned by ch5, transient response by ch4."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 3,
+   "title": "Realization of the Bandpass Oscillator",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Bandpass oscillator realization belongs in ch7 'Oscillators' (LC family), not the feedback chapter."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 3,
+   "title": "Determining the Propagation Delay 18.4 Ring Oscillators and Special-Purpose",
+   "action": "move",
+   "targetBook": "vlsi-design",
+   "targetChapter": 4,
+   "newTitle": "Ring Oscillators",
+   "reason": "Ring oscillators are the canonical on-chip delay-measurement circuit -> vlsi ch4 'Delay'; retitle salvages the mash's real content."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 4,
+   "title": "Designing a Broadband Bandpass Op Amp 17.3 Deriving an Operational Fourier Transform",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mash ('Designing a Broadband Bandpass...' + 'Deriving an Operational Fourier Transform'); bandpass owned by ch5, Fourier by signals-and-systems."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 6,
+   "title": "AD7927 ADC with sequencer",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "An ADC with sequencer is data-conversion hardware -> ch9 'Data Conversion and the Doorstep'."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 8,
+   "title": "Sample-and-Hold Earned",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "The sample-and-hold is the data-conversion front-end -> ch9."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 8,
+   "title": "Monostable multivibrators",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exact singular/plural duplicate of 'Monostable multivibrators' in the same chapter."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 9,
+   "title": "Fundamental bus signals: data, address, strobe",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Computer-bus junk (data/address/strobe); owned by computer-organization-architecture."
+  },
+  {
+   "book": "analog-electronics",
+   "chapter": 9,
+   "title": "Prefaces xvii 25 Data Transmission and Signals",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter mash; data transmission owned by analog-and-digital-communication."
+  },
+  {
+   "book": "signals-and-systems",
+   "chapter": 2,
+   "title": "List of Examples xii Practical Perspective: Resistive Touch",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter mash ('List of Examples' + a circuits-text 'Practical Perspective' fragment)."
+  },
+  {
+   "book": "signals-and-systems",
+   "chapter": 5,
+   "title": "Scaling a Prototype Low-Pass Op Amp 17.2 Finding the Fourier Transform from the Laplace",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mash ('Scaling a Prototype Low-Pass' + 'Finding the Fourier Transform from the Laplace'); owned by analog ch5 and signals ch6."
+  },
+  {
+   "book": "analog-and-digital-communication",
+   "chapter": 1,
+   "title": "Practical Perspective: Pushbutton Telephone Practical Perspective: Filtering Digital",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mash of two 'Practical Perspective' TOC fragments; DTMF/digital-filtering territory is covered by the book's own chapters."
+  },
+  {
+   "book": "analog-and-digital-communication",
+   "chapter": 1,
+   "title": "Charting comparative noise",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Part of the low-noise cluster; completes analog ch1's noise arc."
+  },
+  {
+   "book": "analog-and-digital-communication",
+   "chapter": 1,
+   "title": "Calculating the integrated noise",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Integrated-noise computation is low-noise analog design -> analog ch1."
+  },
+  {
+   "book": "analog-and-digital-communication",
+   "chapter": 6,
+   "title": "Resistor coding",
+   "action": "move",
+   "targetBook": "circuit-theory-and-network-analysis",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Resistor (colour) coding is passive-component literacy -> circuit-theory ch1 'The Circuit Idea'."
+  },
+  {
+   "book": "vlsi-design",
+   "chapter": 1,
+   "title": "VLSI design — principles, MUX/ROM/PLA-based design, Moore and Mealy circuit design; pipeline concepts and functions; design for testability, examples",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Syllabus paste of the book's own scope (MUX/PLA ch7, Moore/Mealy ch8, pipelining ch9, DFT ch10)."
+  },
+  {
+   "book": "vlsi-design",
+   "chapter": 4,
+   "title": "Determining the Step Response of an RC 9.1 Finding the Characteristics of a Sinusoidal",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mash ('RC step response' + 'characteristics of a sinusoidal...'); RC transients owned by circuit-theory ch7."
+  },
+  {
+   "book": "vlsi-design",
+   "chapter": 5,
+   "title": "Shockley and Silicon Valley",
+   "action": "move",
+   "targetBook": "vlsi-design",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Transistor-industry history belongs in the worldview chapter, alongside the Wanless CMOS history note - not in ch5 'Power'."
+  },
+  {
+   "book": "vlsi-design",
+   "chapter": 8,
+   "title": "The Situation When QN and QP Are 18.2.2 The SR Flip-Flop",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mash; SR flip-flops covered by ch8 'Latches and Flip-Flops in Silicon'."
+  },
+  {
+   "book": "embedded-systems",
+   "chapter": 3,
+   "title": "GBW, f_T, slew rate and \"m,\" and settling time",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 4,
+   "newTitle": "GBW, f_T, Slew Rate and Settling Time",
+   "reason": "Op-amp dynamic characteristics (gain-bandwidth, transition frequency, slew rate, settling time) are analog ch4 material, not real-time-systems scheduling; retitle repairs the mangled tail."
+  },
+  {
+   "book": "embedded-systems",
+   "chapter": 4,
+   "title": "The right way – I: Far-end termination",
+   "action": "move",
+   "targetBook": "electromagnetic-fields-and-waves",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Far-end transmission-line termination is matching craft -> EM ch8 'Transmission Lines' ('Reflection and VSWR', 'Matching and S-Parameters'); not RTOS material."
+  },
+  {
+   "book": "structural-engineering",
+   "chapter": 8,
+   "title": "Design of Concrete and Masonry Structures — principles of prestressed concrete design including materials and methods; earthquake resistant design of structures; design of masonry structure",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Syllabus paste: prestressed concrete covered by ch8's own 'Prestressing and Its Losses'; masonry/earthquake items have no honest chapter and cannot be invented."
+  },
+  {
+   "book": "geotechnical-engineering",
+   "chapter": 1,
+   "title": "Geo-technical Engineering — soil exploration: planning and methods; properties of soil, classification, various tests and inter-relationships; permeability and seepage; compressibility, consolidation and shearing resistance; earth pressure theories and stress distribution in soil; properties and",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Syllabus paste of the book's own scope (exploration ch7, properties/classification ch1, seepage ch2, consolidation ch5, shear ch6, earth pressure ch8)."
+  },
+  {
+   "book": "transportation-engineering",
+   "chapter": 2,
+   "title": "A parting shot: confusing markings and itty-bitty components",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Electronics-textbook junk line (confusing component markings); no honest home in geometric design."
+  },
+  {
+   "book": "transportation-engineering",
+   "chapter": 6,
+   "title": "Transportation — tunneling: alignment, methods of construction, disposal of muck, drainage, lighting and ventilation",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Syllabus paste with no honest single home (underground construction methods are shared by construction-management ch4 and transportation ch4 alignment craft)."
+  },
+  {
+   "book": "hydraulics",
+   "chapter": 1,
+   "title": "Hydraulic Machines and Hydro Power — various pumps, air vessels, hydraulic turbines: types, classifications and performance parameters; power house: classification and layout, storage, pondage, control of supply",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Syllabus paste: turbines/pumps are hydraulics ch8-ch9, powerhouse/storage/pondage is renewable-energy ch5's small-hydro material."
+  },
+  {
+   "book": "hydraulics",
+   "chapter": 1,
+   "title": "Unregulated split supply – on the bench!",
+   "action": "move",
+   "targetBook": "electronic-devices-and-circuits",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "A bench split power supply is power-supply craft -> electronic-devices ch9."
+  },
+  {
+   "book": "water-resources-engineering",
+   "chapter": 5,
+   "title": "Hydrology — hydrological cycle, ground water hydrology, well hydrology and related data analysis; streams and their gauging; river morphology; flood, drought and their management; capacity of reservoirs",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Syllabus paste of the book's own scope (cycle ch1, groundwater ch6, gauging ch2/ch4, floods ch5, reservoirs ch5)."
+  },
+  {
+   "book": "water-resources-engineering",
+   "chapter": 9,
+   "title": "For password-protected online resources tailored to",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter junk fragment."
+  }
+ ],
+ "notes": "Reviewed all 145 auto-actions touching my 22 books: approved 101 junk removals; amended/vetoed 44 (every auto-move and move-chapter carried an unreliable token-score target such as physical-chemistry, photography or foundation-biology; six removals were numeric/token false positives - LM723, the 555 timer, the LM317, TIA cascoding, 'Three Elements Specified', the z-ROC, the EM wave equation). Adjudicated all 50 misAdjudicate items (12 moves, 7 removes, 31 keeps), all 36 junkSuspects (pastes and page-number mashes -> remove), 4 dupe clusters and 3 thin chapters (all keep - intro/synthesis chapters are conventionally light). Free scan added 57 extra findings: the Drive-PDF pollution concentrated as a six-lesson low-noise cluster in analog-and-digital-communication ch1 (consolidated into analog-electronics ch1), a data-converter cluster in power-electronics ch1 (moved to analog-electronics ch9), syllabus-soup pastes (removed as covered by their owning books) and page-number TOC mashes (removed). All 22 books' chapter order is pedagogically sound - no reorder flags. No moves into/out of the four exempt authored math books; every move target verified in the legend."
+}

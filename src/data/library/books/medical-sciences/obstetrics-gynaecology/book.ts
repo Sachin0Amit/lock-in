@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Screening Timeline Craft Held',
       'The Anti-D Receipt Priced Straight',
       'The High-Risk Identification Held',
+      'The Menstrual Cycle, Pregnancy, Parturition and Lactation',
     ],
   },
   {
@@ -58,8 +59,6 @@ const chapters: Chapter[] = [
       'The Four-T Division Fixed by Drill',
       'The Golden-Minute Honesty Held',
       'The Never Honesty Named',
-    
-      'Obstetrics and Gynecology'
     ],
   },
   {
@@ -75,6 +74,7 @@ const chapters: Chapter[] = [
       'The 96-Hour Honesty Named',
       'The Legal Honesty Priced Straight',
       'The Six-Week Visit Held',
+      'Reproductive Health: STDs, Contraception, MTP and Amniocentesis',
     ],
   },
   {
@@ -90,6 +90,7 @@ const chapters: Chapter[] = [
       'The Size-Symptom Honesty Held',
       'The Rotterdam Honesty Named',
       'The HRT Honesty Priced Straight',
+      'Infertility and the Assisted Reproductive Technologies: IVF, ZIFT, GIFT',
     ],
   },
   {

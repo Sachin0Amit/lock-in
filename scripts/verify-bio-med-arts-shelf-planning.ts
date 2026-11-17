@@ -9,7 +9,7 @@
  *
  *  A. books load, status 'planned' (23 + 19 + 36)
  *  B. per-book chapter census pinned; shelf totals pinned
- *     (biology 182 ch / 964 planned · medical 121 ch / 585 · arts 183/816 — post the 2026-11-17 drive-toc continuation)
+ *     (biology 182 ch / 820 planned · medical 121 ch / 562 · arts 183/793 — post the 2026-11-17 swarm reorg)
  *  C. planned-chapter hygiene  D. lesson titles  E. prefix reservation
  *  F. book hygiene  G. handoff language  H. survey evidence base
  *  I. planning-only  J. covers
@@ -31,9 +31,9 @@ const ok = (cond: boolean, label: string) => {
 const EXPECTED_CHAPTERS: Record<string, number> = { 'animal-anatomy': 7, 'animal-behaviour': 5, 'animal-diversity': 8, 'animal-physiology': 8, 'biotechnology': 9, 'cell-biology': 9, 'developmental-biology': 7, 'ecology': 8, 'economic-botany': 7, 'entomology': 6, 'evolution': 9, 'foundation-biology': 9, 'genetics': 9, 'immunology': 8, 'microbiology': 9, 'molecular-biology': 9, 'parasitology': 6, 'plant-anatomy': 8, 'plant-ecology': 8, 'plant-genetics': 8, 'plant-pathology': 8, 'plant-physiology': 9, 'plant-taxonomy': 8, 'anatomy': 8, 'clinical-immunology': 6, 'community-medicine': 6, 'dentistry': 6, 'forensic-medicine': 7, 'general-surgery': 7, 'histology': 7, 'internal-medicine': 7, 'medical-biochemistry': 8, 'medical-microbiology': 7, 'medical-physiology': 8, 'nursing': 5, 'obstetrics-gynaecology': 6, 'pathology': 7, 'pediatrics': 5, 'pharmacology': 6, 'pharmacy': 5, 'physiotherapy': 5, 'veterinary-medicine': 5, '3d-modelling': 5, 'acoustics': 6, 'acting': 5, 'animation': 5, 'architecture': 5, 'cinematography': 5, 'classical-dance': 5, 'colour-theory': 5, 'contemporary-dance': 5, 'counterpoint': 6, 'creative-writing': 5, 'dance-fundamentals': 5, 'digital-art': 5, 'drawing': 5, 'ear-training': 5, 'fashion-design': 4, 'film-studies': 5, 'graphic-design': 5, 'harmony': 6, 'illustration': 5, 'instrument-studies': 5, 'interior-design': 4, 'music-composition': 5, 'music-history': 6, 'music-production': 5, 'music-theory-notation': 6, 'painting': 5, 'perspective': 5, 'photography': 5, 'rhythm-meter': 6, 'screenwriting': 5, 'sculpture': 5, 'stage-production': 5, 'theatre': 4, 'typography': 5, 'vocal-music': 5 }
 
 const SHELVES: Record<string, { n: number; ch: number; pl: number; doc: string }> = {
-  'biology': { n: 23, ch: 182, pl: 964, doc: 'BIOLOGY' }, // 867->964 drive-toc continuation
-  'medical-sciences': { n: 19, ch: 121, pl: 585, doc: 'MEDICAL' },
-  'arts-music': { n: 36, ch: 183, pl: 816, doc: 'ARTS_MUSIC' },
+  'biology': { n: 23, ch: 182, pl: 820, doc: 'BIOLOGY' }, // 867->812 drive-toc; 812->820 the 2026-11-17 swarm-reorg witnesses
+  'medical-sciences': { n: 19, ch: 121, pl: 562, doc: 'MEDICAL' }, // 549->562 swarm-reorg witnesses
+  'arts-music': { n: 36, ch: 183, pl: 793, doc: 'ARTS_MUSIC' }, // 754->793 swarm-reorg witnesses
 }
 
 for (const [disc, meta] of Object.entries(SHELVES)) {

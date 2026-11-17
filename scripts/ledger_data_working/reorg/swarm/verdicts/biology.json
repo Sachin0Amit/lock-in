@@ -1,0 +1,3161 @@
+{
+ "agent": "biology",
+ "autoReview": [
+  {
+   "book": "manufacturing-processes",
+   "chapter": 1,
+   "title": "Logic pathology",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mangled fragment with no honest home; plant-anatomy ch3 (The Root) has zero affinity - the token score is noise."
+  },
+  {
+   "book": "cad-cam",
+   "chapter": 2,
+   "title": "Transformations by Matrices",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "linear-algebra",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Matrix transformations are linear algebra's own register (Linear Transformations chapter); microbiology ch3 is a token-score artifact."
+  },
+  {
+   "book": "antennas-and-wave-propagation",
+   "chapter": 1,
+   "title": "This publication is in copyright. Subject to statutory exception and to the provisions of relevant collective licensing agreements, no reproduction of any part may take place without the written permission of Cambridge University Press",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Publisher boilerplate junk; foundation-biology ch4 is not a home for a copyright notice."
+  },
+  {
+   "book": "world-history",
+   "chapter": 2,
+   "title": "Agriculture - major crops and cropping patterns, irrigation systems, storage, transport and marketing of agricultural produce, e-technology in the aid of farmers; direct and indirect farm subsidies and minimum support prices; Public Distribution System and food security; food processing and related",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "development-economics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "The agriculture-and-rural-transformation register owns crops/irrigation/PDS/food security; biotechnology ch5 (Sequencing) is absurd."
+  },
+  {
+   "book": "law-and-legal-studies",
+   "chapter": 1,
+   "title": "Paper-II 4. Emergence, Growth and Development of Anthropology in India (contributions of 18th-20th century scholar-administrators and of Indian anthropologists to tribal and caste studies)",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "anthropology",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "An anthropology-of-India syllabus line; cell-biology ch7 (The Cell Cycle and Mitosis) is a homonym artifact."
+  },
+  {
+   "book": "anthropology",
+   "chapter": 1,
+   "title": "Paper-I 12. Applications of Anthropology (anthropology of sports, nutritional anthropology, design of defence and other equipment, forensic anthropology, applied human genetics - paternity diagnosis, genetic counselling, eugenics, DNA technology, serogenetics and cytogenetics)",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "anthropology",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "The applied register owns applications-of-anthropology; biotechnology ch3 (PCR) is absurd."
+  },
+  {
+   "book": "cultural-studies",
+   "chapter": 5,
+   "title": "Science and Technology - developments and their applications and effects in everyday life; achievements of Indians in science and technology; indigenisation of technology; awareness in the fields of IT, space, computers, robotics, nanotechnology, biotechnology and intellectual property rights",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "General-studies syllabus line with no honest single home; genetics ch9 is absurd."
+  },
+  {
+   "book": "philosophy",
+   "chapter": 1,
+   "title": "Unit 9: Logic",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "philosophy",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Logic belongs to philosophy's own Logic Base chapter (and mathematical-logic); genetics ch3 (The Chromosome Theory) is absurd."
+  },
+  {
+   "book": "geography",
+   "chapter": 11,
+   "title": "Indian Economy and Economic Development - issues relating to planning, mobilisation of resources, growth, development and employment; inclusive growth; government budgeting; effects of liberalisation on the economy; infrastructure (energy, ports, roads, airports, railways); investment models",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The line already sits in geography ch11 (India: The Human and Economic Register) - its honest chapter; cell-biology ch3 is noise."
+  },
+  {
+   "book": "geography",
+   "chapter": 11,
+   "title": "Paper-II 6. Tribal Situation in India (bio-genetic variability and socio-economic characteristics; problems of tribal communities - land alienation, poverty, indebtedness, literacy, employment, health and nutrition; impact of developmental projects, forest policy, urbanisation and industrialisation",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "anthropology",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "The tribal-studies register belongs to anthropology's India chapter; foundation-biology ch1 (What Life Is) is absurd."
+  },
+  {
+   "book": "environmental-studies",
+   "chapter": 2,
+   "title": "Social Justice - government policies and interventions for development; development processes and the role of NGOs, SHGs, donors and other stakeholders; welfare schemes for vulnerable sections; social sector services relating to health, education and human resources; poverty and hunger",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "public-administration",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "The policy-and-implementation register owns development-policy lines; molecular-biology ch8 is absurd."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 1,
+   "title": "Combined Rotation and Translation",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Rigid-body mechanics stays in mechanics; molecular-biology ch4 (Translation - the Code Read) is a word-confusion artifact."
+  },
+  {
+   "book": "atomic-physics",
+   "chapter": 2,
+   "title": "Atoms and Nuclei",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Nuclear/atomic physics stays in atomic-physics; cell-biology ch7 (The Cell Cycle and Mitosis) is a 'nucleus' homonym artifact."
+  },
+  {
+   "book": "solid-state-physics",
+   "chapter": 1,
+   "title": "BIO Using Crystals to Determine Protein",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "biochemistry",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Protein crystallography is the protein-structure chapter's method; foundation-biology ch3 is only the chemistry preview."
+  },
+  {
+   "book": "particle-physics",
+   "chapter": 1,
+   "title": "Note: The remaining pages supplied are chapter body pages (p. 1.1 System of Particles and Centre of Mass; p. 1.2 Illustrations 1.1–1.2; p. 1.3 Centre of Mass of a Uniform Rod / Semicircular Ring / Semicircular Disc; p. 1.4 Illustrations 1.3–1.4; p. 1.5 Illustrations 1.5–1.6 and Concept Application",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Publisher's note junk; biotechnology ch3 is absurd."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 1,
+   "title": "Experimental Skills",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The physics practical register's own syllabus line; foundation-biology ch8 already carries its own Practical skills lesson."
+  },
+  {
+   "book": "business-studies",
+   "chapter": 1,
+   "title": "Nature and Purpose of Business (Evolution and Fundamentals of Business)",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Business-studies ch1's own register; foundation-biology ch2 is a score artifact."
+  },
+  {
+   "book": "accounting",
+   "chapter": 1,
+   "title": "Key Concept",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Generic textbook furniture fragment; plant-pathology ch1 is a 'concepts' homonym artifact."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "title": "Medicinal chemistry",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "pharmacy",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "MedChem belongs to pharmacy's Pharmacognosy-and-MedChem register; economic-botany ch5 owns medicinal plants, not medicinal chemistry."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "title": "Neurotransmitters",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "animal-physiology",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Synaptic neurotransmission is the excitable register's subject; plant-physiology ch1 (Water Relations) is absurd."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "title": "Antibiotics",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "microbiology",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "The control-and-resistance register owns antibiotics; evolution ch2 is the resistance-evolution confusion."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 2,
+   "title": "Calculation of the Density of a Metal by Using Unit Cell Dimensions",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "physical-chemistry",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Unit-cell density arithmetic is the Solid State chapter's own; foundation-biology ch4 is a cell/unit-cell homonym artifact."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 2,
+   "title": "Figure 2A.1 (a) An open system can exchange matter and energy",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Figure-caption fragment; thermodynamic systems are the thermodynamics registers' own content."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 2,
+   "title": "With its surroundings, but it cannot exchange matter. (c) An system does work has more energy than before the expansion",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Figure-caption continuation; microbiology ch3 is absurd."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 7,
+   "title": "Combined State",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "inorganic-chemistry",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Free-vs-combined occurrence of metals is the metallurgical register's opening; plant-physiology ch1 is absurd."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 8,
+   "title": "Explosion Temperature",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "industrial-chemistry",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Combustion/explosion energetics belongs with fuels and energy; plant-pathology ch4 (Epidemiology) is absurd."
+  },
+  {
+   "book": "organic-chemistry",
+   "chapter": 1,
+   "title": "Structure-Reactivity Correlations",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Core organic-chemistry register; microbiology ch5 (The Viral Register) is absurd."
+  },
+  {
+   "book": "organic-chemistry",
+   "chapter": 11,
+   "title": "Chemistry in Everyday Life: The Drug and Sweetener Registers",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Organic-chemistry ch11's own everyday-life register; foundation-biology ch1 (What Life Is) is absurd."
+  },
+  {
+   "book": "inorganic-chemistry",
+   "chapter": 2,
+   "title": "The Molecular-Structure Register",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The inorganic bonding register; molecular-biology ch1 is a 'molecular' homonym artifact."
+  },
+  {
+   "book": "inorganic-chemistry",
+   "chapter": 3,
+   "title": "Water, Heavy Water and Hydrogen Peroxide",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Hydrogen chemistry's own register; foundation-biology ch3 is only the general water preview."
+  },
+  {
+   "book": "environmental-chemistry",
+   "chapter": 4,
+   "title": "Determination of Alkalinity in a Given Water Sample",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The water-analysis register's own lab lesson; foundation-biology ch2 is absurd."
+  },
+  {
+   "book": "environmental-chemistry",
+   "chapter": 4,
+   "title": "Down sea water process",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The Dow seawater process is water chemistry's own; foundation-biology ch3 is absurd."
+  },
+  {
+   "book": "biochemistry",
+   "chapter": 1,
+   "title": "The Cellular pH",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Biochemistry ch1 (Water, pH and the Living Buffer) owns cellular pH; cell-biology ch1 is the theory-and-tools chapter."
+  },
+  {
+   "book": "biochemistry",
+   "chapter": 2,
+   "title": "Energy and Respiration",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "biochemistry",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Respiration and energy metabolism belong to the Carbohydrate Metabolism chapter (within-book misfile); ecology ch4 is an energy-word artifact."
+  },
+  {
+   "book": "biochemistry",
+   "chapter": 2,
+   "title": "Food Proteins and Post-Mortem Muscle Changes",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Food-protein biochemistry is biochemistry's own register; foundation-biology ch3 is a preview shelf."
+  },
+  {
+   "book": "biochemistry",
+   "chapter": 3,
+   "title": "The Biochemical Separation Techniques: Chromatography, Centrifugation and Electrophoresis",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Biochemistry's own methods register; microbiology ch1 (The Discovery Register) is wrong."
+  },
+  {
+   "book": "biochemistry",
+   "chapter": 4,
+   "title": "Enzyme Types, Nomenclature and Properties",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The Enzyme Machinery's own register; cell-biology ch9 (Cell Communication) is absurd."
+  },
+  {
+   "book": "biochemistry",
+   "chapter": 4,
+   "title": "Enzymes as Drug Targets",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Enzyme chemistry stays in the Enzyme Machinery; cell-biology ch9 is absurd."
+  },
+  {
+   "book": "biochemistry",
+   "chapter": 4,
+   "title": "Catalytic Action of Enzymes",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The Enzyme Machinery's own register; cell-biology ch9 is absurd."
+  },
+  {
+   "book": "biochemistry",
+   "chapter": 4,
+   "title": "Chemical Connections Enzymes: Nature’s Catalysts",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The Enzyme Machinery's own boxed register; cell-biology ch6 is absurd."
+  },
+  {
+   "book": "biochemistry",
+   "chapter": 5,
+   "title": "Biological Molecules: The Census",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Umbrella duplicating biochemistry's own ch2/ch5/ch7 registers and foundation-biology ch3's Four Biomolecule Families preview."
+  },
+  {
+   "book": "biochemistry",
+   "chapter": 7,
+   "title": "Molecular Biology and the Biomolecules",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The nucleic-acid register's bridge lesson; foundation-biology ch3 is a preview shelf."
+  },
+  {
+   "book": "quantum-chemistry",
+   "chapter": 6,
+   "title": "MO against VB",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The molecular-orbital machinery's own register; immunology ch2 is absurd."
+  },
+  {
+   "book": "industrial-chemistry",
+   "chapter": 6,
+   "title": "The Food-Products Technology Register",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Industrial food-products technology; economic-botany owns plant products, not food processing technology."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "S, p and d Block Elements",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Chemistry-shelf topic covered by foundation-chemistry ch4 and inorganic-chemistry's registers; manufacturing-processes ch9 is absurd."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Cytoskeleton and Is Highly Dynamic 6 Functional Genomics Shows the Allocations",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mangled Lehninger TOC run; mechanics ch7 is absurd."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 2,
+   "title": "Inquiry 1: Exploring and designing in biology",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The biology inquiry-craft lessons belong in How Biologists Know; industrial-chemistry is absurd."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 2,
+   "title": "Inquiry 2: Collecting and processing data in biology",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Biology's own data-craft lesson; industrial-chemistry ch5 is absurd."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 2,
+   "title": "Inquiry 3: Concluding and evaluating in biology",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Biology's own evaluation-craft lesson; industrial-chemistry is absurd."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 3,
+   "title": "Robert J. Warburton, Shepherd University 7 Carbohydrates and Glycobiology",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mangled reviewer-TOC line; the carbohydrate register lives in biochemistry ch5 and organic-chemistry ch10."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 3,
+   "title": "In the Department of Biochemistry at the University Production of Urea",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mangled acknowledgments mash; the urea cycle is covered by biochemistry ch9 and medical-biochemistry ch5's own registers."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 8,
+   "title": "Tool 3: Mathematics",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The biologist's-craft mathematics tool; construction-management ch2 is absurd."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 9,
+   "title": "Adolescence, Drug and Alcohol Abuse: The Health Register",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The NEET-register health line in the Doorstep chapter (which names the NEET register); foundation-chemistry ch6 is absurd."
+  },
+  {
+   "book": "cell-biology",
+   "chapter": 1,
+   "title": "Structure and Bonding",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "foundation-chemistry",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Chemical bonding at first pass; manufacturing-processes ch1 is a materials-word artifact."
+  },
+  {
+   "book": "cell-biology",
+   "chapter": 1,
+   "title": "Jamie Towle-Weicksel, Rhode Island College I STRUCTURE AND CATALYSIS",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mangled reviewer-TOC line; structure-and-catalysis is biochemistry's register."
+  },
+  {
+   "book": "cell-biology",
+   "chapter": 1,
+   "title": "Three-Dimensional Structure Is Described by Water Interacts Electrostatically with Charged",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mashed Lehninger TOC lines."
+  },
+  {
+   "book": "cell-biology",
+   "chapter": 4,
+   "title": "Membrane Assembly and Protein Targeting",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The endomembrane system's own register; molecular-biology ch4 is a partial-subject artifact."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 1,
+   "title": "Nucleic Acids: DNA and RNA",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The DNA-structure chapter's own register; medical-microbiology ch1 is absurd."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 1,
+   "title": "The Molecular Basis of Inheritance",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The DNA-structure chapter's NEET-register opener; cell-biology ch5 is an mtDNA-word artifact."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 1,
+   "title": "Vishwa D. Trivedi, Bethune Cookman University 3 Amino Acids, Peptides, and Proteins",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mangled reviewer-TOC line; amino acids and proteins are biochemistry ch2/ch3's register."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 1,
+   "title": "Todd M. Weaver, University of Wisconsin La Crosse 8 Nucleotides and Nucleic Acids",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mangled reviewer-TOC line; nucleotide chemistry is biochemistry ch7 and molecular-biology ch1's own opener."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 1,
+   "title": "The Cytoplasm Is Organized by the Molecular Anatomy Reveals Evolutionary Relationships",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mashed TOC lines; anatomy ch3 is absurd."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 1,
+   "title": "From Their Surroundings 20 and Weak Bases",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mangled Lehninger TOC run; the acid-base register is physical-chemistry's own."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 1,
+   "title": "•=M:jf1 Entropy: Things Fall Apart 22 an Equilibrium Constant",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mangled Lehninger TOC run; thermodynamics is physical-chemistry's register."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 4,
+   "title": "Lori Wallrath, University of Iowa-Iowa City of Proteins",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mangled reviewer-TOC line; protein function is biochemistry ch3's register."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 7,
+   "title": "Chemical Equilibria",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "physical-chemistry",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Chemical equilibrium belongs to its exact chapter, not ch1 (Chemical Thermodynamics)."
+  },
+  {
+   "book": "genetics",
+   "chapter": 2,
+   "title": "Meiosis and Genetic Diversity",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Covered by cell-biology ch8's meiosis register (Crossing Over and Assortment; The Four Distinct Gametes); foundation-biology ch5 is only the preview."
+  },
+  {
+   "book": "genetics",
+   "chapter": 2,
+   "title": "Genetic Continuity Is Vested in Single 2.3 Buffering against pH Changes",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mashed Lehninger TOC lines."
+  },
+  {
+   "book": "evolution",
+   "chapter": 1,
+   "title": "Cellular Dimensions Are Limited by Diffusion 3 Allow Evolution",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mashed TOC lines; foundation-biology ch2 is noise."
+  },
+  {
+   "book": "evolution",
+   "chapter": 1,
+   "title": "Of Energy and Biosynthetic Precursors 3 Biological Evolution Began More Than",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mashed Lehninger TOC lines."
+  },
+  {
+   "book": "evolution",
+   "chapter": 2,
+   "title": "Natural Selection and Its Types",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Duplicates evolution ch2's own Three Modes' Curves and genetics ch7's Selection's Three Modes; the proposed move would create a second in-book dup."
+  },
+  {
+   "book": "evolution",
+   "chapter": 2,
+   "title": "And present research groups, who helped us balance",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Acknowledgments fragment; foundation-chemistry ch4 is absurd."
+  },
+  {
+   "book": "biotechnology",
+   "chapter": 1,
+   "title": "The Principles and Processes of Biotechnology",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The toolbox chapter's NEET-register umbrella; foundation-biology ch9 is the shelf doorway, not a processes lesson."
+  },
+  {
+   "book": "biotechnology",
+   "chapter": 1,
+   "title": "The Tools of rDNA Technology",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The Natural Toolbox chapter's own subject; biochemistry ch7 is the nucleic-acid register, not rDNA tools."
+  },
+  {
+   "book": "biotechnology",
+   "chapter": 9,
+   "title": "Abbreviated Solutions to Problems AS-1",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Back-matter furniture; foundation-chemistry ch8 is absurd."
+  },
+  {
+   "book": "microbiology",
+   "chapter": 2,
+   "title": "The Prokaryotic Cell: Structure and Function",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "NEET umbrella duplicating microbiology ch2's authored register (wall/morphology/biofilm/spore) and foundation-biology ch4's prokaryote preview."
+  },
+  {
+   "book": "microbiology",
+   "chapter": 2,
+   "title": "Living Organisms Exist in a Dynamic Steady Macromolecular Structure and Function",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mangled Lehninger TOC run."
+  },
+  {
+   "book": "microbiology",
+   "chapter": 3,
+   "title": "Redox Reactions, Electron Transport and Oxidative Phosphorylation",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Bacterial respiratory chains are the metabolic-diversity register's subject; the mammalian pathway version is biochemistry's."
+  },
+  {
+   "book": "microbiology",
+   "chapter": 3,
+   "title": "Photosynthesis and the Calvin Cycle in Microbes",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Microbial photosynthesis is metabolic diversity; plant-physiology owns the plant photosynthesis registers."
+  },
+  {
+   "book": "microbiology",
+   "chapter": 3,
+   "title": "Growth and Death Kinetics with Serial Dilution",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Growth kinetics is the growth chapter's own arithmetic; foundation-chemistry ch7 is absurd."
+  },
+  {
+   "book": "microbiology",
+   "chapter": 5,
+   "title": "Viruses, Viroids and the Subviral Agents",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The viral register owns viruses and subviral agents; foundation-biology ch1 (What Life Is) is absurd."
+  },
+  {
+   "book": "microbiology",
+   "chapter": 9,
+   "title": "Microbes in Human Welfare: Sewage Treatment, Energy, Biocontrol and Biofertilisers",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The applied register's own lesson; molecular-biology ch8 is absurd."
+  },
+  {
+   "book": "immunology",
+   "chapter": 3,
+   "title": "Antibody Structure, Function and Diversity",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Umbrella duplicating immunology ch3's own Antibody's Anatomy and Classes and Affinity-Maturation Engine; foundation-biology ch3 is absurd."
+  },
+  {
+   "book": "plant-physiology",
+   "chapter": 1,
+   "title": "Hydrogen Bonding Gives Water Its Unusual",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Truncated Lehninger TOC line; water chemistry is foundation-biology ch3 and biochemistry ch1's register."
+  },
+  {
+   "book": "plant-physiology",
+   "chapter": 1,
+   "title": "•=Mlf) Louis Pasteur and Optical Activity: Nonpolar Gases Are Poorly Soluble in Water",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mangled Lehninger TOC run."
+  },
+  {
+   "book": "plant-physiology",
+   "chapter": 1,
+   "title": "The Ionization of Water Is Expressed by",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Truncated Lehninger TOC line; biochemistry ch1 owns water ionization."
+  },
+  {
+   "book": "plant-physiology",
+   "chapter": 3,
+   "title": "Criticism; and to the many students and teachers who 20 Photosynthesis and Carbohydrate",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mashed acknowledgments-TOC line."
+  },
+  {
+   "book": "plant-physiology",
+   "chapter": 7,
+   "title": "Sexual Reproduction in Flowering Plants",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Duplicates plant-anatomy ch7's flower-and-fruit register (pollination, double fertilization, post-fertilization, apomixis); plant-taxonomy ch2 is classification history."
+  },
+  {
+   "book": "plant-physiology",
+   "chapter": 7,
+   "title": "Growth, Development and Reproduction in Ferns and Mosses",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "plant-taxonomy",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "The bryophyte-and-pteridophyte register owns fern and moss reproduction; foundation-biology ch1 is absurd."
+  },
+  {
+   "book": "plant-taxonomy",
+   "chapter": 5,
+   "title": "The Water’s Constraint Held",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "An honest bryophyte water-constraint lesson in its correct chapter; the stated reason (covered in animal-diversity) is nonsense."
+  },
+  {
+   "book": "economic-botany",
+   "chapter": 1,
+   "title": "Interactions among Molecules 9 Importance in Medicine",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Mangled Lehninger TOC run; medical-biochemistry ch2 is not a home for a mash."
+  },
+  {
+   "book": "animal-diversity",
+   "chapter": 1,
+   "title": "Distribution, Systematics and the Classification of Animals",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Umbrella duplicating animal-diversity ch1's own systematics lessons; microbiology ch5 is absurd."
+  },
+  {
+   "book": "animal-diversity",
+   "chapter": 1,
+   "title": "The Diversity of Organisms: Classification and Cladistics",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Duplicates foundation-biology ch6's classification preview (Biological Classification, The Binomial Craft) and animal-diversity ch1's own systematics lessons."
+  },
+  {
+   "book": "animal-diversity",
+   "chapter": 1,
+   "title": "Structure, Function and Evolutionary Relationships",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The body-plan chapter's integrative theme; foundation-biology ch3 is absurd."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 3,
+   "title": "Hormone Action and Its Disorders: Hypo- to Hyper-Activity",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "medical-physiology",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Endocrine disorders are the clinical endocrine register's subject; biochemistry ch10 is the bioenergetics doorway."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 5,
+   "title": "Body Fluids: Blood and Lymph",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The circulatory chapter's fluid register; foundation-physics ch4 (Force and Newton's Laws) is absurd."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 7,
+   "title": "Homeostasis and Its Mechanisms",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Duplicates animal-physiology ch8's Internal Milieu Held as the Founding Gift and medical-physiology ch1's own milieu lesson; the move would create an in-target dup."
+  },
+  {
+   "book": "developmental-biology",
+   "chapter": 1,
+   "title": "Reproductive Health: Contraception, MTP and Assisted Reproduction",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Near-dup of the fuller reproductive-health lesson (moved to obgyn ch4) and the ART lesson (moved to obgyn ch5); foundation-biology ch1 is absurd."
+  },
+  {
+   "book": "medical-microbiology",
+   "chapter": 1,
+   "title": "Human Diseases Caused by Viruses, Bacteria and Fungi",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Book-level umbrella duplicating the book's own pathogen registers (ch2-ch3, ch5, ch6); immunology ch8 is absurd."
+  },
+  {
+   "book": "medical-microbiology",
+   "chapter": 7,
+   "title": "Emerging Infectious Diseases and the Pathogenicity Mechanisms",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The infection-control-and-public register's own subject; microbiology ch1 is the discovery register, the wrong framing."
+  },
+  {
+   "book": "community-medicine",
+   "chapter": 6,
+   "title": "Social and Preventive Medicine (Community Medicine)",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Self-referential syllabus line; economic-botany ch1 (The Plant-Gift Census) is absurd."
+  },
+  {
+   "book": "dentistry",
+   "chapter": 2,
+   "title": "General Human Physiology, Biochemistry, Nutrition and Dietetics",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "BDS syllabus furniture; the subjects live in their own books; plant-pathology ch1 is absurd."
+  },
+  {
+   "book": "dentistry",
+   "chapter": 3,
+   "title": "General Pathology and Microbiology",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "BDS syllabus furniture; foundation-biology ch9 is absurd."
+  },
+  {
+   "book": "nursing",
+   "chapter": 4,
+   "title": "Applied Anatomy and Applied Physiology for Nurses",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Nursing syllabus furniture; plant-anatomy ch5 (The Leaf) is absurd."
+  },
+  {
+   "book": "pharmacy",
+   "chapter": 1,
+   "title": "Anatomy, Physiology and Pathophysiology for Pharmacists",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Pharmacy syllabus furniture; plant-anatomy ch5 is absurd."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "title": "Animal Genetics and Breeding",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The husbandry register owns livestock breeding; genetics ch4 (The Chromosome Errors) is the wrong chapter."
+  },
+  {
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "title": "Livestock Products Technology",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The husbandry register's own subject; biotechnology ch7 is absurd."
+  },
+  {
+   "book": "music-composition",
+   "chapter": 2,
+   "title": "Compositional forms and their evolution (prabandh, dhrupad, dhamaar, kheyaal, tarana, thumri, tappa etc.)",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Hindustani small-forms register; foundation-biology ch2 is absurd."
+  },
+  {
+   "book": "music-composition",
+   "chapter": 2,
+   "title": "Compositional forms and their evolution (prabandha, gitam, svarajati, varnam, padavarnam, kriti, ragamalika etc.)",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Carnatic small-forms register; foundation-biology ch2 is absurd."
+  },
+  {
+   "book": "painting",
+   "chapter": 2,
+   "title": "Painting practical Class XII: Nature and Object Study; Painting Composition (imaginative painting from life and nature in water and poster colours); Portfolio Assessment",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The CBSE practical register's own chapter; foundation-biology ch3 is absurd."
+  },
+  {
+   "book": "economic-botany",
+   "chapter": 7,
+   "title": "The 2050 Challenge Held",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The authored closer of the Future Register; the junk-certain numeric-run heuristic misfired on 2050."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 3,
+   "title": "The Handoff Map",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "move-chapter veto: the chemistry preview's closing handoff map belongs in ch3; the ch1 fit-score is noise."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 2,
+   "title": "The Two Strands’ Two Crafts",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "move-chapter veto: the leading/lagging crafts belong in the Replication Factory chapter."
+  },
+  {
+   "book": "genetics",
+   "chapter": 1,
+   "title": "Heredity and Variation",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "move-chapter veto: the Mendel-chapter opener stays; ch5 (Extranuclear Inheritance) is wrong."
+  },
+  {
+   "book": "biotechnology",
+   "chapter": 4,
+   "title": "The Clone Verified",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "move-chapter veto: clone verification is the Libraries-and-Screening chapter's own lesson."
+  },
+  {
+   "book": "plant-anatomy",
+   "chapter": 3,
+   "title": "The Modified-Root Census",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "move-chapter veto: each organ chapter owns its own modifications census; ch1 only previews them."
+  },
+  {
+   "book": "plant-anatomy",
+   "chapter": 4,
+   "title": "The Modified-Stem Census",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "move-chapter veto: the stem chapter owns its own modifications census."
+  },
+  {
+   "book": "plant-taxonomy",
+   "chapter": 4,
+   "title": "The Three-Coloured Census",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "move-chapter veto: the algal colour census belongs to the Algal Line chapter."
+  },
+  {
+   "book": "animal-diversity",
+   "chapter": 3,
+   "title": "The Nematode Register Held",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "move-chapter veto: the roundworm register belongs in the Flatworms-and-Roundworms chapter."
+  },
+  {
+   "book": "animal-anatomy",
+   "chapter": 6,
+   "title": "The Two Fertilisation Registers",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "move-chapter veto: internal/external fertilisation belongs with the reproductive anatomy."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 4,
+   "title": "The Route Register Held",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "move-chapter veto: the digestive route belongs in the Digestion-and-Absorption chapter."
+  }
+ ],
+ "misplaced": [
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "The Living World",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "NEET umbrella duplicating ch1's own register: The Properties of Life, The Organisation Ladder and The Three-Domain Preview already carry the living-world content."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "David L. Nelson",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Author-name junk from the scraped acknowledgments."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Attractions",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Truncated TOC fragment - the continuation of the 'Weak Interactions ... attractions' junk line."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Physical Foundations 19 Weak Interactions Are Crucial to",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled Lehninger TOC run; intermolecular-force chemistry is the chemistry shelf's register."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 3,
+   "title": "The Handoff Map",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The chemistry preview's closing map to the molecular books - an authored lesson in its correct chapter."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 4,
+   "title": "(Don't Try This at Home!)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Scraped box-title fragment with no honest lesson home."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 5,
+   "title": "The Two Engines Meet",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The Two Engines Previewed chapter's centerpiece lesson."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 6,
+   "title": "The Monera, Protista and Fungi: Salient Features and Classification",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The foundation book's kingdom-survey preview; the specialist registers live in microbiology ch2/ch6/ch7 - the length heuristic misfired."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 6,
+   "title": "Lichens, Viruses and Viroids: The Edge of the Five Kingdoms",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The five-kingdoms edge preview belongs in the diversity chapter; microbiology ch5 owns the specialist register."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 6,
+   "title": "Biological Classification",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The classification preview in the Unity-and-Diversity chapter - complements The Binomial Craft (naming) with the kingdoms scheme."
+  },
+  {
+   "book": "cell-biology",
+   "chapter": 1,
+   "title": "The Doctrine’s Arc",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The cell-theory opener of the Theory-and-Tools chapter."
+  },
+  {
+   "book": "cell-biology",
+   "chapter": 5,
+   "title": "The Maternal Lineage",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mitochondrial/plastid maternal inheritance belongs with the energy organelles."
+  },
+  {
+   "book": "cell-biology",
+   "chapter": 5,
+   "title": "Brief Contents (units and chapters, printed order)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Publisher furniture scraped from the TOC."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 1,
+   "title": "The Packing Ladder",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Nucleosome packing belongs in the DNA-structure chapter."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 5,
+   "title": "D12 Stability and change",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Coded junk fragment; operon-regulation stability is covered by ch5's own lessons."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 8,
+   "title": "The Two Phage Cycles",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Lytic/lysogenic cycles fit the mobile-elements-and-viruses chapter; microbiology ch5's viral register is a genuinely different organism-level treatment."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 9,
+   "title": "The Doorstep Drawn",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The Genomes-and-Doorway chapter's closer."
+  },
+  {
+   "book": "genetics",
+   "chapter": 1,
+   "title": "Heredity and Variation",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The chapter-opening definition of the subject; ch5 (Extranuclear) is the wrong target."
+  },
+  {
+   "book": "genetics",
+   "chapter": 1,
+   "title": "Variation: The Raw Material",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The variation-concept opener framing Mendel's populations; evolution ch2 owns the sources-of-variation depth."
+  },
+  {
+   "book": "genetics",
+   "chapter": 2,
+   "title": "Dominance’s Hierarchy",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Complete/incomplete/codominance hierarchy - the Extensions chapter's opener."
+  },
+  {
+   "book": "genetics",
+   "chapter": 3,
+   "title": "Linkage and Its Breaking",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Linkage and recombination - the Chromosome Theory chapter's core."
+  },
+  {
+   "book": "genetics",
+   "chapter": 4,
+   "title": "The Aneuploid Census",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Aneuploidy belongs in the Chromosome Errors chapter."
+  },
+  {
+   "book": "genetics",
+   "chapter": 6,
+   "title": "The Pedigree’s Honest Complications",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Pedigree complications belong in the counselling-craft chapter."
+  },
+  {
+   "book": "genetics",
+   "chapter": 7,
+   "title": "Selection’s Three Modes",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Selection modes in the population-genetics register; evolution ch2's modes-curves is a genuinely different treatment."
+  },
+  {
+   "book": "genetics",
+   "chapter": 8,
+   "title": "The Twin Studies’ Logic and Limits",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Twin-study heritability belongs in the quantitative chapter."
+  },
+  {
+   "book": "evolution",
+   "chapter": 2,
+   "title": "Darwin's Contribution and the Modern Synthetic Theory",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Darwin's contribution and the modern synthesis are the selection chapter's historical frame - not covered elsewhere in the book."
+  },
+  {
+   "book": "evolution",
+   "chapter": 2,
+   "title": "Chemotherapy/Antibiotics",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Antibiotics consolidate to microbiology ch8's control-and-resistance register (dup cluster); the evolution angle (resistance) is already covered there by The Resistance Era Honestly Told."
+  },
+  {
+   "book": "evolution",
+   "chapter": 2,
+   "title": "Titration Curves Reveal the pKa of Weak Acids",
+   "action": "move",
+   "targetBook": "physical-chemistry",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Analytical acid-base titration chemistry - belongs to Ionic Equilibria, not Variation and Selection."
+  },
+  {
+   "book": "ecology",
+   "chapter": 3,
+   "title": "Are Stereospecific 18 van der Waals Interactions Are Weak Interatomic",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled Lehninger TOC run."
+  },
+  {
+   "book": "ecology",
+   "chapter": 8,
+   "title": "The Doorway Drawn",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The Applied-Craft chapter's closer."
+  },
+  {
+   "book": "microbiology",
+   "chapter": 1,
+   "title": "The Microscopy Register: Light to Electron",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The discovery-tools register; cell-biology ch1's resolution-theory treatment is genuinely different."
+  },
+  {
+   "book": "microbiology",
+   "chapter": 8,
+   "title": "Disinfection and Sterilization",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "NEET umbrella duplicating ch8's own The Sterilisation Census and Its Arithmetic."
+  },
+  {
+   "book": "microbiology",
+   "chapter": 9,
+   "title": "Fermented Foods and Beverages",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The food-products register - genuinely distinct from ch9's industrial fermentation census."
+  },
+  {
+   "book": "microbiology",
+   "chapter": 9,
+   "title": "Aerobic and Anaerobic Respiration with Chemolithotrophy",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Duplicates ch3's metabolic-diversity register (Entner-Doudoroff, Glyoxylate and Chemolithotrophy lesson)."
+  },
+  {
+   "book": "immunology",
+   "chapter": 7,
+   "title": "The Vaccines’ Census and the mRNA Story",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The vaccine census and mRNA story belong in the Vaccines' Craft chapter."
+  },
+  {
+   "book": "plant-anatomy",
+   "chapter": 1,
+   "title": "The Angiosperm Life Cycle and the Gametophytes",
+   "action": "move",
+   "targetBook": "plant-anatomy",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "The life-cycle and gametophyte register belongs to the Flower-and-Fruit chapter (the reproductive arc), not the body-organisation opener."
+  },
+  {
+   "book": "plant-anatomy",
+   "chapter": 8,
+   "title": "The Doorway Drawn",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The Adaptive-Anomalous-Doorway chapter's closer."
+  },
+  {
+   "book": "plant-physiology",
+   "chapter": 4,
+   "title": "Plant Secondary Metabolites: Alkaloids, Terpenes and Flavonoids",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Consolidated to economic-botany ch5's The Secondary-Metabolite Honesty (dup cluster); also misfiled in the Calvin-cycle chapter."
+  },
+  {
+   "book": "plant-physiology",
+   "chapter": 6,
+   "title": "Does not work, they are never shy about letting us know",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Scraped prose fragment."
+  },
+  {
+   "book": "plant-physiology",
+   "chapter": 9,
+   "title": "Embryogenesis and the Apical Meristems",
+   "action": "move",
+   "targetBook": "plant-anatomy",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Where the apical meristems come from (embryogenesis) is the Meristems-and-Tissues chapter's opener."
+  },
+  {
+   "book": "plant-ecology",
+   "chapter": 2,
+   "title": "The Stage-Classified Arithmetic",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Stage-classified demography belongs in the Plant Populations chapter."
+  },
+  {
+   "book": "plant-ecology",
+   "chapter": 6,
+   "title": "Vegetation Types of the World and the Indian Biogeographical Zones",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "World vegetation types and Indian biogeographical zones belong in the Global Register; the length heuristic misfired."
+  },
+  {
+   "book": "plant-genetics",
+   "chapter": 6,
+   "title": "Gene Silencing: miRNA, siRNA and Transgene Silencing",
+   "action": "move",
+   "targetBook": "molecular-biology",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "The miRNA/siRNA silencing machinery is the eukaryotic-regulation register's subject; the mutation-and-tissue-culture chapter is the wrong home."
+  },
+  {
+   "book": "plant-pathology",
+   "chapter": 1,
+   "title": "The Three Dinner Registers",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Biotroph/necrotroph/hemibiotroph lifestyles - the founding-concepts register."
+  },
+  {
+   "book": "plant-pathology",
+   "chapter": 1,
+   "title": "The Mechanisms of Pathogenesis",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Pathogenesis mechanisms belong in the Founding Concepts chapter."
+  },
+  {
+   "book": "plant-pathology",
+   "chapter": 6,
+   "title": "The Chemical Honesty by Mode of Action",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Fungicide modes of action belong in the Management Craft chapter."
+  },
+  {
+   "book": "economic-botany",
+   "chapter": 2,
+   "title": "The Economic Importance of Algae and Fungi",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by the specialists: plant-taxonomy ch4's The Economic Extracts (algae) and microbiology ch6's The Economic Registers (fungi)."
+  },
+  {
+   "book": "economic-botany",
+   "chapter": 6,
+   "title": "The Seed-and-Label Craft",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Seed testing and labelling belong in the Horticulture Register."
+  },
+  {
+   "book": "animal-diversity",
+   "chapter": 1,
+   "title": "Phylogenetic Relationships: Classical and Molecular Tools",
+   "action": "move",
+   "targetBook": "evolution",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Phylogenetic methodology (classical and molecular tools) is the Tree-Building Craft chapter's subject."
+  },
+  {
+   "book": "animal-anatomy",
+   "chapter": 2,
+   "title": "Joints and the Musculoskeletal Disorders Register",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Joints belong in the Integument-and-Skeleton chapter; its disorders register stays here as the comparative census."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 1,
+   "title": "The Human Nervous System and the Nerve Impulse",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The nerve impulse is covered by ch1's own lessons; the human neuroanatomy side is anatomy ch6's register."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 1,
+   "title": "Neural Control and Coordination",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "NEET umbrella duplicating the whole Excitable Register."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 2,
+   "title": "B8 Muscle and motility",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Coded junk fragment; muscle and motility are covered by ch2's own lessons."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 3,
+   "title": "Chemical Coordination and Integration",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "NEET umbrella duplicating the Endocrine Register's own lessons."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 4,
+   "title": "Digestion and Nutrition",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "NEET umbrella duplicating the Digestion-and-Absorption Register's own lessons; clinical nutrition lives on the medical shelf."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 5,
+   "title": "The Circulatory Disorders Register: Hypertension to Heart Failure",
+   "action": "move",
+   "targetBook": "internal-medicine",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Human-clinical circulatory disorders (hypertension to heart failure) are the Cardiovascular Medicine register's subject."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 5,
+   "title": "Respiratory Volumes and Capacities",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Spirometry belongs in the Gas-Transport chapter."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 5,
+   "title": "Coronary Artery Disease, Angina and Heart Failure",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Subset of the circulatory-disorders register moved to internal-medicine ch2 - keeping both would duplicate it."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 5,
+   "title": "Chemical and Neural Signalling",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Umbrella: neural signalling is ch1's excitable register, chemical signalling is ch3's endocrine register."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 5,
+   "title": "Breathing and Respiration in Animals",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "NEET umbrella duplicating the Gas-Transport chapter's own lessons."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 6,
+   "title": "The Human Excretory System: Urine Formation and Its Regulation",
+   "action": "move",
+   "targetBook": "medical-physiology",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "The human renal register belongs to the Renal System chapter; animal-physiology keeps the comparative osmoregulation."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 6,
+   "title": "Excretory Products and Their Elimination",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "NEET umbrella duplicating ch6's own lessons (nitrogen census, ammonotelism/ureotelism/uricotelism)."
+  },
+  {
+   "book": "developmental-biology",
+   "chapter": 1,
+   "title": "The Acrosome’s Lock-and-Key Receipt",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The fertilisation opener; the plant-pathology cluster member (Flor lock-and-key) is a fuzzy-match artifact - different subject."
+  },
+  {
+   "book": "developmental-biology",
+   "chapter": 1,
+   "title": "The Human Reproductive Systems and Gametogenesis",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The gamete context for fertilisation - ch1's own register."
+  },
+  {
+   "book": "developmental-biology",
+   "chapter": 1,
+   "title": "The Menstrual Cycle, Pregnancy, Parturition and Lactation",
+   "action": "move",
+   "targetBook": "obstetrics-gynaecology",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "The cycle-pregnancy-parturition-lactation arc is the Pregnancy-and-ANC register's subject, not the fertilisation-cleavage register."
+  },
+  {
+   "book": "developmental-biology",
+   "chapter": 1,
+   "title": "Reproductive Health: STDs, Contraception, MTP and Amniocentesis",
+   "action": "move",
+   "targetBook": "obstetrics-gynaecology",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Contraception/MTP reproductive health is the Puerperium-Lactation-and-Contraception register's subject."
+  },
+  {
+   "book": "developmental-biology",
+   "chapter": 1,
+   "title": "Birth Control and Its Methods",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Contraception dup - covered by the fuller reproductive-health lesson moved to obgyn ch4."
+  },
+  {
+   "book": "developmental-biology",
+   "chapter": 1,
+   "title": "Pregnancy and the Placenta",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Pregnancy is covered by the menstrual-cycle/pregnancy lesson moved to obgyn ch1; the placenta is that register's own content."
+  },
+  {
+   "book": "developmental-biology",
+   "chapter": 7,
+   "title": "The Integration Named as the Crown",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The Evo-Devo Crown chapter's closer."
+  },
+  {
+   "book": "animal-behaviour",
+   "chapter": 4,
+   "title": "Communication and Pheromones",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Signal communication and pheromones fit the Evolution register (honest-cost signalling); the mechanism side stays in ch1."
+  },
+  {
+   "book": "entomology",
+   "chapter": 2,
+   "title": "The Moult Engine and the JH Dial",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The moult engine and juvenile-hormone dial belong in Insect Physiology."
+  }
+ ],
+ "dupes": [
+  {
+   "title": "Shot noise in current sources and emitter followers",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Fuzzy-match artifact: heterogeneous electronics/chemistry/junk lines; the biology-side members are mangled TOC runs removed individually - no genuine duplication."
+  },
+  {
+   "title": "Laboratory skills expected to be known by all participants (heating and reflux, mass and volume measurement, preparation and dilution of solutions, titrations, pH measurement, filtration, drying of precipitates, instrument operation, graphing and analysis of experimental data)",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Each discipline keeps its own lab-skills register; the biotechnology member is the Taq-polymerase lesson - a fuzzy match, not a dup."
+  },
+  {
+   "title": "The Media’s Political Economy",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Fuzzy-match artifact: the immunology/medical-microbiology members are health-science lessons; no genuine duplication among them."
+  },
+  {
+   "title": "The Salient Features of the Animal Phyla: Non-Chordates to Chordate Classes",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "The animal-phyla survey (animal-diversity ch1) and the plant-group salient-features registers (plant-taxonomy ch4, foundation-biology ch6) are different kingdoms' surveys."
+  },
+  {
+   "title": "Inquiry 2: Collecting and processing data",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "The biology, physics and chemistry inquiry lessons are discipline-specific variants - genuinely different treatments."
+  },
+  {
+   "title": "Features but Differ in Important Ways 5 The First Cell Probably Used Inorganic Fuels",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "All members are OCR-mangled Lehninger TOC runs; every copy is removed by its own agent - no honest lesson to keep."
+  },
+  {
+   "title": "The Village India’s Tradition",
+   "action": "consolidate",
+   "winner": "anthropology",
+   "reason": "The cultural register belongs to anthropology; the foundation-biology member is a vague misfiled fragment removed separately."
+  },
+  {
+   "title": "The Calcium Trigger Walked Slowly",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Fuzzy artifact on the 'Walked Slowly' idiom: animal-physiology's calcium-trigger lesson, biotechnology's clone lesson and molecular-biology's ribosome-site lesson are different subjects."
+  },
+  {
+   "title": "Chemical Coordination and Integration",
+   "action": "consolidate",
+   "winner": "animal-physiology",
+   "reason": "The Endocrine Register's authored lessons own chemical coordination; the NEET-umbrella copy is removed as an in-book dup; the CS/physical-chemistry members are misfiles for their agents."
+  },
+  {
+   "title": "The Green Revolution Ledger",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "The breeding-science (plant-genetics ch5), economics, geography and history framings are genuinely different treatments."
+  },
+  {
+   "title": "Put the verb into the correct form, positive (I’m doing etc.) or negative (I’m not doing etc.)",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Fuzzy artifact: plant-physiology's water-potential engine lesson is a different subject."
+  },
+  {
+   "title": "IUPAC Rules for Chain Terminating Functional Groups (—CHO, —COOH, —CONH2, —COCl, —C≡N)",
+   "action": "consolidate",
+   "winner": "organic-chemistry",
+   "reason": "Nomenclature is organic-chemistry's own register; the plant-genetics member is the junk functional-groups line removed."
+  },
+  {
+   "title": "The Pentose Phosphate Pathway and Gluconeogenesis",
+   "action": "consolidate",
+   "winner": "biochemistry",
+   "reason": "The Carbohydrate Metabolism chapter owns the pentose-phosphate pathway and gluconeogenesis; the molecular-biology and microbiology members are mangled TOC runs removed."
+  },
+  {
+   "title": "Chemotherapy/Antibiotics",
+   "action": "consolidate",
+   "winner": "microbiology",
+   "reason": "The Control Craft and Resistance Era chapter owns antibiotics and resistance; evolution's copy is removed here; the medical-shelf copies are the medical agent's call."
+  },
+  {
+   "title": "The Plexus Walked Once",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Fuzzy artifact on 'Walked Once': anatomy's brachial-plexus lesson and animal-anatomy's systems-arc survey are different subjects."
+  },
+  {
+   "title": "Dynamic Allocation’s Diseases",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Fuzzy artifact on 'Dynamic': the foundation-biology member is the junk cytoskeleton TOC run removed separately; the CS members are the CS agent's call."
+  },
+  {
+   "title": "Optical Activity",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "The optics polarisation-phenomenon treatment and the organic-chemistry chirality treatment are genuinely different; the plant-physiology member is junk removed."
+  },
+  {
+   "title": "The Career Map",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Each discipline's career map (foundation-biology ch8's biologist career map vs banking/operations) is its own lesson."
+  },
+  {
+   "title": "Brief Contents (units and chapters, printed order)",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "All three members are publisher TOC furniture - removed everywhere; no honest lesson to keep."
+  },
+  {
+   "title": "S, p and d Block Elements",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Foundation-chemistry's first-pass and inorganic-chemistry's depth treatments are genuinely different; the foundation-biology stray is a misfile removed via autoReview."
+  },
+  {
+   "title": "Xuemin Wang, University of Missouri-St. Louis 6 Enzymes",
+   "action": "consolidate",
+   "winner": "biochemistry",
+   "reason": "The Enzyme Machinery owns enzymes; all three members are mangled reviewer-TOC runs removed by their agents."
+  },
+  {
+   "title": "The Doorway Drawn",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Ecology's, immunology's and plant-anatomy's doorway closers are each book's own synthesis - different subjects sharing a closer idiom."
+  },
+  {
+   "title": "The Lab Register and Safety",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Biology-lab safety and high-voltage-lab safety are different registers."
+  },
+  {
+   "title": "The Peripheral Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Immunology's peripheral-tolerance census and embedded-systems' peripherals register are different subjects."
+  },
+  {
+   "title": "The Guptas and the Golden-Age Question",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Microbiology's Golden-Age (of discovery) arc and indian-history's Gupta question are different subjects."
+  },
+  {
+   "title": "The Environmental Register",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Biotechnology's environmental applications and philosophy's environmental-ethics register are different subjects."
+  },
+  {
+   "title": "The Environmental Craft",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Microbiology's environmental microbiology and archaeology's heritage craft are different subjects."
+  },
+  {
+   "title": "Are Stereospecific 18 van der Waals Interactions Are Weak Interatomic",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Both members are mangled Lehninger TOC runs - removed; no honest lesson to keep."
+  },
+  {
+   "title": "The Genetic Code Preview",
+   "action": "consolidate",
+   "winner": "foundation-biology",
+   "reason": "The Two Engines Previewed chapter owns the genetic-code preview; the foundation-chemistry member is a misfile for the chemistry agent."
+  },
+  {
+   "title": "Isomerism (constitutional, configuration, conformation, tautomerism)",
+   "action": "consolidate",
+   "winner": "organic-chemistry",
+   "reason": "Isomerism is organic-chemistry ch1's own; the plant-physiology member is the junk configuration/conformation line removed."
+  },
+  {
+   "title": "Population Attributes: Growth, Birth and Death Rates",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Foundation-biology's population-growth preview and ecology's population-arithmetic depth are the foundation-vs-specialist pattern."
+  },
+  {
+   "title": "The Wall and the Gram Craft",
+   "action": "consolidate",
+   "winner": "microbiology",
+   "reason": "The Bacterial Architecture chapter owns the Gram-and-wall difference; cell-biology ch2's copy is removed via extra - its chapter keeps nucleoid/attachment/plasmid."
+  },
+  {
+   "title": "The Mutualism Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Ecology's interaction-census mutualism and microbiology's fungal mutualisms (lichen/mycorrhiza) are genuinely different scopes."
+  },
+  {
+   "title": "The Antigen-Antibody Instrument",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Immunology's techniques register and microbiology's diagnostic-detection application are genuinely different treatments."
+  },
+  {
+   "title": "The Secondary-Metabolite Honesty",
+   "action": "consolidate",
+   "winner": "economic-botany",
+   "reason": "The Medicinal Register owns the plant secondary-metabolite census; plant-physiology's copy is removed - also misfiled in the Calvin-cycle chapter."
+  },
+  {
+   "title": "The Quiet Foundation Held",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Plant-ecology's and plant-taxonomy's closing syntheses are book-specific capstones - same title idiom, different subjects."
+  },
+  {
+   "title": "The Vavilov Centres Mapped",
+   "action": "consolidate",
+   "winner": "plant-genetics",
+   "reason": "The Genetic Resources register owns the Vavilov centres as the germplasm-origin concept; economic-botany's copy is removed - its Domestication Syndrome lesson keeps the origin story."
+  },
+  {
+   "title": "The Acrosome’s Lock-and-Key Receipt",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Fuzzy artifact on the 'Lock-and-Key Receipt' idiom: developmental-biology's acrosome lesson and plant-pathology's Flor gene-for-gene lesson are different subjects."
+  },
+  {
+   "title": "The Glucose Dial Held as One Arithmetic",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Animal-physiology's comparative glucose regulation and medical-physiology's human-clinical treatment are genuinely different."
+  },
+  {
+   "title": "The Internal Milieu Held as the Founding Gift",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Animal-physiology's comparative capstone and medical-physiology's human homeostasis founding are genuinely different."
+  },
+  {
+   "title": "Sexually Transmitted Diseases and Their Prevention",
+   "action": "consolidate",
+   "winner": "medical-microbiology",
+   "reason": "The clinical infection register owns STDs; developmental-biology's copy is removed here; the medical-physiology copy is misfiled in its blood chapter for the medical agent."
+  }
+ ],
+ "thin": [],
+ "order": [],
+ "extra": [
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Organization of life",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "In-book dup of The Organisation Ladder."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Microbial Metabolism",
+   "action": "move",
+   "targetBook": "microbiology",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Microbial metabolism is the metabolic-diversity register's subject."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "B4 Organelles and compartmentalisation",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Coded junk fragment; the organelle preview is ch4's own register (Prokaryote against Eukaryote)."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "D10 Homeostasis",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Coded junk fragment; homeostasis is covered by The Properties of Life."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Ethology",
+   "action": "move",
+   "targetBook": "animal-behaviour",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Ethology is the animal-behaviour register's own subject."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Ryan Steed, University of North",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Reviewer-name fragment from the scraped preface."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Carolina-Asheville",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Reviewer-affiliation fragment."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Angela K. Stoeckman, Bethel University",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Reviewer-name fragment."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Evelyn Swain, Presbyterian College Preface viii",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Reviewer-name fragment."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Jeremy Thorner, University of",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Reviewer-name fragment (junkSuspect)."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Candace Timpte, Georgia Gwinnett College",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Reviewer-name fragment."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Michael Trakselis, Baylor University",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Reviewer-name fragment."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Didem Vardar-Ulu, Boston University",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Reviewer-name fragment."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Thomas Vida, University of Houston",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Reviewer-name fragment."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Yu Wang, The University of Alabama",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Reviewer-name fragment."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "James D. West, The College of Wooster",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Reviewer-name fragment."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Chuan Xiao, University of Texas-El Paso",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Reviewer-name fragment."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "We hope our readers will continue to provide input for 21 Lipid Biosynthesis",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled acknowledgments-TOC mash (junkSuspect)."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Aaron A. Hoskins",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Reviewer-name fragment."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Madison, Wisconsin",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Location fragment from the acknowledgments."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Organisms Differ Widely in Their Sources the First Genes and Catalysts",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mashed Lehninger TOC lines (junkSuspect)."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Their Surroundings",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Truncated Lehninger TOC fragment."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Tendency to Proceed Spontaneously",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Truncated Lehninger TOC fragment (spontaneity/free energy is physical-chemistry's register)."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "Metabolism Is Regulated to Achieve",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Truncated Lehninger TOC fragment."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 1,
+   "title": "An Introduction to Metabolism",
+   "action": "move",
+   "targetBook": "foundation-biology",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "The metabolism preview belongs with the energy-engine preview; the mangled ch5 copy is auto-removed, so this clean copy lands in ch5."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 2,
+   "title": "CAMPBELL BIOLOGY — ELEVENTH EDITION — Urry / Cain / Wasserman / Minorsky / Reece",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Edition boilerplate (junkSuspect)."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 2,
+   "title": "(https://archive.org/stream/campbell-biology_202502/Campbell%20Biology_djvu.txt)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "URL junk."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 3,
+   "title": "Alexander G. Zestos, American University 10 Lipids",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled reviewer-TOC line; lipids are biochemistry ch5 and foundation-biology ch3's biomolecule register."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 3,
+   "title": "Michael M. Cox Ill INFORMATION PATHWAYS",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled Lehninger part-heading mash."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 3,
+   "title": "Energy Coupling Links Reactions in Biology 22 The pH Scale Designates the H+ and OH",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mashed Lehninger TOC lines (junkSuspect)."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 4,
+   "title": "Historical Perspective",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Vague scraped fragment; the cell-theory history is ch4's own The Cell Theory's Arc."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 4,
+   "title": "Finally, we express our deepest appreciation to our",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Acknowledgments fragment."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 4,
+   "title": "Publisher's Brief Contents from the Internet Archive full-text scan",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Publisher furniture (dup-cluster member)."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 5,
+   "title": "Book writing. Mammalian Metabolism",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled fragment."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 6,
+   "title": "Features but Differ in Important Ways 5 The First Cell Probably Used Inorganic Fuels",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled Lehninger TOC run (dup-cluster member)."
+  },
+  {
+   "book": "foundation-biology",
+   "chapter": 7,
+   "title": "Individuals whose special efforts went into this book. We",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Acknowledgments fragment."
+  },
+  {
+   "book": "cell-biology",
+   "chapter": 1,
+   "title": "Cellular Energetics: Enzymes, Energy and Respiration",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Umbrella covered by biochemistry's Enzyme Machinery (ch4) and Carbohydrate Metabolism (ch8) registers; the tools chapter is the wrong home."
+  },
+  {
+   "book": "cell-biology",
+   "chapter": 1,
+   "title": "Eukaryotic Cells Have a Variety of Membranous Eukaryotic Cells Evolved from Simpler",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mashed Lehninger TOC lines (junkSuspect)."
+  },
+  {
+   "book": "cell-biology",
+   "chapter": 1,
+   "title": "Organelles, Which Can Be Isolated for Study 6 Precursors in Several Stages",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mashed Lehninger TOC lines (junkSuspect)."
+  },
+  {
+   "book": "cell-biology",
+   "chapter": 2,
+   "title": "The Wall and the Gram Craft",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Consolidated to microbiology ch2's The Gram Craft and the Wall Difference (dup cluster); the prokaryotic-architecture chapter keeps nucleoid/attachment/plasmid."
+  },
+  {
+   "book": "cell-biology",
+   "chapter": 6,
+   "title": "Bacterial and Archaeal Cells Share Common Three and a Half Billion Years Ago",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mashed Lehninger TOC lines (junkSuspect)."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 1,
+   "title": "University of Wisconsin-Madison for their numerous the Pentose Phosphate Pathway",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled reviewer-TOC line; the pentose-phosphate register is biochemistry ch8's (dup-cluster member)."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 3,
+   "title": "Https://www.poly-ed.com/text-book-resources/campbell-biology-11th-edition",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "URL junk."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 6,
+   "title": "Koni Stone, California State University Stanislaus",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Reviewer-name fragment."
+  },
+  {
+   "book": "molecular-biology",
+   "chapter": 6,
+   "title": "Neurons, Synapses, and Signaling",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Campbell TOC line; neural signalling is animal-physiology ch1's excitable register (medical-physiology ch2 owns the clinical version)."
+  },
+  {
+   "book": "genetics",
+   "chapter": 5,
+   "title": "Monoclonal antibodies and their applications",
+   "action": "move",
+   "targetBook": "immunology",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Monoclonal antibodies and the hybridoma door are the B-Cell-and-Antibody-Craft register's subject."
+  },
+  {
+   "book": "genetics",
+   "chapter": 7,
+   "title": "D11 Selection",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Coded junk fragment."
+  },
+  {
+   "book": "genetics",
+   "chapter": 7,
+   "title": "In Vino, Veritas 17 Nonpolar Compounds Force Energetically",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled Lehninger TOC run (junkSuspect)."
+  },
+  {
+   "book": "genetics",
+   "chapter": 8,
+   "title": "In Vitro Studies May Overlook Important Genomic Comparisons Have Increasing",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled Lehninger TOC run (junkSuspect)."
+  },
+  {
+   "book": "evolution",
+   "chapter": 2,
+   "title": "CORRUPT at source — deterministic truncation proven twice at byte",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Pipeline artifact, not a lesson title (junkSuspect)."
+  },
+  {
+   "book": "evolution",
+   "chapter": 7,
+   "title": "Domains of Life 3 RNA or Related Precursors May Have Been",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled Lehninger TOC run."
+  },
+  {
+   "book": "ecology",
+   "chapter": 5,
+   "title": "The 10-Percent Honesty",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine authored lesson (the trophic 10% energy-transfer honesty); the junk heuristic misfired on the numeral."
+  },
+  {
+   "book": "biotechnology",
+   "chapter": 3,
+   "title": "Drive serves exactly those bytes both times and rejects range resumes",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Pipeline artifact (junkSuspect)."
+  },
+  {
+   "book": "biotechnology",
+   "chapter": 4,
+   "title": "Archive OCR dropped — restored by that cross-check)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "OCR-log fragment."
+  },
+  {
+   "book": "biotechnology",
+   "chapter": 6,
+   "title": "Offer instead our sincere thanks- and the finished book",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Acknowledgments fragment."
+  },
+  {
+   "book": "biotechnology",
+   "chapter": 8,
+   "title": "The Health and Agriculture Applications: Insulin, Vaccines and Bt Crops",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "NEET umbrella dup of ch8's own lessons (The Insulin Receipt, The Vaccines and the Therapy Arc, The Agricultural Registers Told Straight)."
+  },
+  {
+   "book": "biotechnology",
+   "chapter": 9,
+   "title": "We want especially to thank our students at the 14 Glycolysis, Gluconeogenesis, and",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled acknowledgments-TOC line (junkSuspect)."
+  },
+  {
+   "book": "biotechnology",
+   "chapter": 9,
+   "title": "It. We are grateful to the students and staff of our past",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Acknowledgments fragment."
+  },
+  {
+   "book": "biotechnology",
+   "chapter": 9,
+   "title": "Showed extraordinary patience with, and support for, our 23 Hormonal Regulation and Integration of",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled acknowledgments-TOC line (junkSuspect)."
+  },
+  {
+   "book": "microbiology",
+   "chapter": 2,
+   "title": "The Morphology of Bacteria",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "In-book dup of The Morphological Census."
+  },
+  {
+   "book": "microbiology",
+   "chapter": 3,
+   "title": "We lack the space here to acknowledge all the other 12 Biochemical Signaling",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mashed acknowledgments-TOC line (junkSuspect)."
+  },
+  {
+   "book": "microbiology",
+   "chapter": 3,
+   "title": "Of Wisconsin-Madison, who helped us with advice and 19 Oxidative Phosphorylation",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled acknowledgments-TOC line; oxidative phosphorylation is covered by ch3's own redox/ETC lesson (junkSuspect)."
+  },
+  {
+   "book": "microbiology",
+   "chapter": 9,
+   "title": "The competing demands on our time; to our colleagues 18 Amino Acid Oxidation and the",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled acknowledgments-TOC line (junkSuspect)."
+  },
+  {
+   "book": "immunology",
+   "chapter": 1,
+   "title": "Nonspecific Defense of the Host",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "NEET umbrella duplicating ch1's own innate register (barriers, inflammation, phagocytes, complement)."
+  },
+  {
+   "book": "immunology",
+   "chapter": 1,
+   "title": "Defence Against Disease",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Book-level umbrella dup of the whole immunology register."
+  },
+  {
+   "book": "immunology",
+   "chapter": 1,
+   "title": "Humoral and Cell-Mediated Immunity with Passive Immunization",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Umbrella duplicating ch3 (B cell) and ch4 (T cell) registers."
+  },
+  {
+   "book": "immunology",
+   "chapter": 6,
+   "title": "Major histocompatibility complex",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Scraped glossary fragment; MHC is ch2's identity-cards register."
+  },
+  {
+   "book": "immunology",
+   "chapter": 6,
+   "title": "Macromolecules Are the Major Constituents 2.1 Weak Interactions in Aqueous Systems",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled Lehninger TOC run (junkSuspect)."
+  },
+  {
+   "book": "plant-anatomy",
+   "chapter": 1,
+   "title": "Metabolism of Nitrogen containing compounds",
+   "action": "move",
+   "targetBook": "biochemistry",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Nitrogen-containing-compound metabolism is the chemistry-shelf biochemistry register."
+  },
+  {
+   "book": "plant-physiology",
+   "chapter": 3,
+   "title": "The Photochemical and Biosynthetic Phases: Cyclic and Non-Cyclic Photophosphorylation",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine NEET-register lesson in the light-reactions chapter; the junk heuristic misfired on length."
+  },
+  {
+   "book": "plant-physiology",
+   "chapter": 5,
+   "title": "The ATP Ledger, Amphibolic Pathways and the Respiratory Quotient",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine lesson; the ATP-ledger/amphibolic census is distinct enough from ch5's RQ craft."
+  },
+  {
+   "book": "plant-physiology",
+   "chapter": 6,
+   "title": "Hormones and neurotransmitters",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Animal chemical-coordination fragment; covered by animal-physiology ch1/ch3's registers; the plant growth-regulator chapter is the wrong home."
+  },
+  {
+   "book": "plant-taxonomy",
+   "chapter": 7,
+   "title": "The Five Exam Families: Malvaceae, Cruciferae, Leguminoceae, Compositae and Graminae",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine key-families lesson; the junk heuristic misfired on length."
+  },
+  {
+   "book": "plant-taxonomy",
+   "chapter": 7,
+   "title": "Partners (Brook, Beth, and Tim) and our families, who Nucleotides, and Related Molecules",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Acknowledgments-TOC mash (junkSuspect)."
+  },
+  {
+   "book": "economic-botany",
+   "chapter": 1,
+   "title": "The Vavilov Centres Mapped",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Consolidated to plant-genetics ch8's The Vavilov's Centres Priced (dup cluster); ch1's Domestication Syndrome lesson keeps the origin story."
+  },
+  {
+   "book": "economic-botany",
+   "chapter": 7,
+   "title": "GM Crops and Their Regulation: Bt Cotton, Bt Brinjal and Golden Rice",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by biotechnology ch8's agricultural registers; economic-botany's future register keeps the economics frame."
+  },
+  {
+   "book": "animal-diversity",
+   "chapter": 1,
+   "title": "The Salient Features of the Animal Phyla: Non-Chordates to Chordate Classes",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Genuine phyla-survey opener of the body-plan chapter; the junk heuristic misfired."
+  },
+  {
+   "book": "animal-diversity",
+   "chapter": 3,
+   "title": "M•tfl• On Being One's Own Rabbit",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled Campbell box-title fragment."
+  },
+  {
+   "book": "animal-diversity",
+   "chapter": 5,
+   "title": "Comments and suggestions . If something in the book 15 The Metabolism of Glycogen in Animals",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled acknowledgments-TOC line (junkSuspect)."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 3,
+   "title": "An Introduction to Invertebrates",
+   "action": "move",
+   "targetBook": "animal-diversity",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "An introduction to invertebrates is the animal-diversity body-plan chapter's opener, not an endocrine-register lesson."
+  },
+  {
+   "book": "animal-physiology",
+   "chapter": 6,
+   "title": "Renal Disorders: Uraemia, Calculi, Nephritis and Dialysis",
+   "action": "move",
+   "targetBook": "internal-medicine",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Clinical renal disorders are the nephrology register's subject; animal-physiology keeps the comparative nephron engine."
+  },
+  {
+   "book": "animal-anatomy",
+   "chapter": 2,
+   "title": "The Musculoskeletal Disorders: Myasthenia Gravis to Gout",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "In-book dup of the Joints-and-Musculoskeletal-Disorders register kept in ch2; clinical depth is internal-medicine ch7's own register."
+  },
+  {
+   "book": "animal-behaviour",
+   "chapter": 1,
+   "title": "That they helped guide to completion. We, of course, II BIOENERGETICS AND METABOLISM",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Mangled acknowledgments-TOC run (junkSuspect)."
+  },
+  {
+   "book": "entomology",
+   "chapter": 3,
+   "title": "Creating and Maintaining Order Requires",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Scraped prose fragment."
+  },
+  {
+   "book": "parasitology",
+   "chapter": 2,
+   "title": "The Protozoan and Helminthic Parasites",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Umbrella dup: protistan parasites are ch2's own lessons; helminths are ch3/ch4's registers."
+  },
+  {
+   "book": "developmental-biology",
+   "chapter": 1,
+   "title": "Infertility and the Assisted Reproductive Technologies: IVF, ZIFT, GIFT",
+   "action": "move",
+   "targetBook": "obstetrics-gynaecology",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Infertility and ART (IVF/ZIFT/GIFT) are the gynaecology register's subject, not the fertilisation-cleavage register (junkSuspect adjudicated as genuine but misfiled)."
+  }
+ ],
+ "notes": "Reviewed all 141 autoActions (approved the junk-certain removes, the dup-within removes and a handful of honest moves; 121 vetoes/amendments listed - most block word-homonym artifacts like 'translation', 'cell', 'molecular', 'concepts' that would have scattered non-biology lines into biology books and drained specialist registers). Adjudicated all 71 misAdjudicate items (37 keep / 25 remove / 9 move), all 41 dup clusters (26 keep-both / 15 consolidate - winners: microbiology x2, biochemistry x2, organic-chemistry x2, animal-physiology, anthropology, foundation-biology, economic-botany, plant-genetics, medical-microbiology, 3 all-junk clusters), and all 55 junkSuspects (9 kept as heuristic misfires - e.g. The 10-Percent Honesty, The Five Exam Families, Vegetation Types of the World; 46 removed/moved). Free-scan added 86 extras: 73 OCR-junk/umbrella removals (reviewer names, Lehninger/Campbell TOC mashes, acknowledgments), 8 honest moves (monoclonal antibodies to immunology, nitrogen metabolism to biochemistry, invertebrate intro to animal-diversity, ethology to animal-behaviour, renal disorders to internal-medicine, ART to obgyn, microbial metabolism to microbiology, metabolism preview to ch5) and 5 keep-confirmations. Developmental-biology ch1's injected NCERT human-reproduction block was routed to the medical shelf (obgyn ch1/ch4/ch5) with the umbrella dups removed; animal-physiology's human-clinical lessons went to internal-medicine/medical-physiology keeping the book comparative. No thin chapters; no clearly-wrong pedagogical order."
+}

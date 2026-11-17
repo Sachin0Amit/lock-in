@@ -28,9 +28,8 @@ const chapters: Chapter[] = [
       'The Boundary Craft Named',
       'The Supervision Requirement Held Straight',
       'The Application Honesty Named',
-    
       'Safe and Effective Care Environment',
-      'Semester VI: Nursing Research and Statistics'
+      'Nursing Research and Statistics',
     ],
   },
   {
@@ -78,15 +77,10 @@ const chapters: Chapter[] = [
       'The CPR Arithmetic Priced Straight',
       'Safety and Infection Prevention and Control',
       'The Reduction of Risk Potential',
-      'Health Promotion and Maintenance',
       'Psychosocial Integrity and Mental Health Nursing',
       'Management of Care and Coordination',
       'Basic Care and Comfort',
       'Applied Anatomy and Applied Physiology for Nurses',
-      'Adult Health Nursing: Geriatric and Palliative Care',
-    
-      'Safe and Effective Care Environment: Management of Care',
-      'Semester VIII: Management of Nursing Services and Education'
     ],
   },
   {
@@ -102,11 +96,8 @@ const chapters: Chapter[] = [
       'The Five-Rights Craft Named',
       'The Maslow Honesty Named',
       'The ADPIE Arc Walked Once',
-      'Community Health Nursing',
-      'Child Health Nursing',
       'Midwifery and Obstetric Nursing',
-    
-      'Semester VII: Midwifery and Obstetrical Nursing'
+      'Semester VIII: Management of Nursing Services and Education',
     ],
   },
 ]

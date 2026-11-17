@@ -28,10 +28,9 @@ const chapters: Chapter[] = [
       'The Ledger Craft Fixed by Drill',
       'The C Clef\u2019s Movable Honesty Named',
       'The Accidentals\u2019 Register',
-    
       'Applied Theory (musical scales; suddha and vikrita svaras; sruti; raga-lakshana and classification; talas; notation and staff notation)',
-      'Prominent Banis, music training, education and propagation (gurukula sampradaya, institutional training)',
-      'Part-A: Analytical and logical reasoning — ability to analyse qualitative and quantitative information'
+      'Karnataka Music Unit X: Prominent Banis, Music Training, Education And',
+      'Analytical And Logical Reasoning \u2014 Ability To Analyse Qualitative And',
     ],
   },
   {
@@ -47,10 +46,8 @@ const chapters: Chapter[] = [
       'The Dot-and-Tie Held Apart',
       'The Two Meters Previewed',
       'The Off-Beat Honesty Named',
-    
       'Unit I (common to all in music): Technical Terms (sangeet, nada, shruti, swaras, raga, thata, tala, laya, gamaka, notation systems, etc.)',
-      'Hindustani (Vocal, Instrumental & Musicology) Unit V: Applied Theory (sangeet utpatti; musical scales Indian and western; gram, murchchhana; raga classification; time theory of ragas; notation systems of Hindustani, Karnataka and western music; layakari)',
-      'Core musical activities across components: listening, composing and performing, working with Western notation and connecting a wide variety of music'
+      'Core Musical Activities Across Components: Listening, Composing And',
     ],
   },
   {
@@ -66,6 +63,7 @@ const chapters: Chapter[] = [
       'The Three Minors Held Apart',
       'The Circle Receipt Priced Straight',
       'The Gapped Honesty Held Straight',
+      'Hindustani (Vocal, Instrumental & Musicology) Unit V: Applied Theory (sangeet utpatti; musical scales Indian and western; gram, murchchhana; raga classification; time theory of ragas; notation systems of Hindustani, Karnataka and western music; layakari)',
     ],
   },
   {
@@ -81,9 +79,8 @@ const chapters: Chapter[] = [
       'The Quality Census by Its Arithmetic',
       'The Summing Receipt Priced Straight',
       'The Consonance Division Held',
-    
-      'Historical perspective of music — contributions of scholars, musicologists, musical concepts in treatises',
-      'Prelims typical areas (mirror): basic arithmetic — seating arrangement, Venn diagrams and simple number questions'
+      'Karnataka Music Unit Vi: Historical Perspective Of Music \u2014 Contributions',
+      'Prelims Typical Areas (mirror): Basic Arithmetic \u2014 Seating Arrangement,',
     ],
   },
   {
@@ -114,8 +111,7 @@ const chapters: Chapter[] = [
       'The Dynamics by Their Arithmetic',
       'The Articulation Census Named',
       'The Slur-and-Phrase Held Apart',
-    
-      'Component 2 Practical Music — performing (6-10 minute performance)'
+      'Component 2 Practical Music \u2014 Performing (6-10 Minute Performance)',
     ],
   },
 ]

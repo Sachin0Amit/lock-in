@@ -28,8 +28,6 @@ const chapters: Chapter[] = [
       'The Homology Census',
       'The Island Logic',
       'Evolution Watched Live',
-      'Cellular Dimensions Are Limited by Diffusion 3 Allow Evolution',
-      'Of Energy and Biosynthetic Precursors 3 Biological Evolution Began More Than'
     ],
   },
   {
@@ -45,13 +43,7 @@ const chapters: Chapter[] = [
       'The Three Modes\u2019 Curves',
       'The Receipts of Selection',
       'Sexual Selection\u2019s Honest Tail',
-      'Natural Selection and Its Types',
       'Darwin\'s Contribution and the Modern Synthetic Theory',
-    
-      'Chemotherapy/Antibiotics',
-      'And present research groups, who helped us balance',
-      'Titration Curves Reveal the pKa of Weak Acids',
-      'CORRUPT at source — deterministic truncation proven twice at byte'
     ],
   },
   {
@@ -97,6 +89,7 @@ const chapters: Chapter[] = [
       'The Clade\u2019s Logic',
       'The Methods Named',
       'The Clock and Its Error Bars',
+      'Phylogenetic Relationships: Classical and Molecular Tools',
     ],
   },
   {
@@ -127,7 +120,6 @@ const chapters: Chapter[] = [
       'The RNA World\u2019s Logic',
       'The Protocell Idea',
       'The Timeline Fixed',
-      'Domains of Life 3 RNA or Related Precursors May Have Been'
     ],
   },
   {

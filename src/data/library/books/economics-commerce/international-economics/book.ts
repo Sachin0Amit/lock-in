@@ -27,16 +27,6 @@ const chapters: Chapter[] = [
       'The Labour-Cost Arithmetic',
       'The Gains Ledger',
       'The Wage Honesty',
-      'The Model\u2019s Limits',
-      '3-2a Absolute Advantage 52 and Quantity Supplied',
-      'FYI: The Legacy of Adam Smith and David Ricardo 55 4-4a Equilibrium',
-      '3-3 Applications of Comparative Advantage 55 4-4b Three Steps to Analyzing Changes in Equilibrium',
-      'ASK THE EXPERTS: Trade between China and',
-      '5-3a Can Good News for Farming Be Bad News for',
-      'ASK THE EXPERTS: Trade Deals 182 Questions for Review',
-      '10-3 Private Solutions to Externalities 202 12-4 Conclusion: The Trade-off between Equity and',
-      'Education 308 17-3a Restraint of Trade and the Antitrust Laws',
-      'ASK THE EXPERTS: Nash Equilibrium 341 18-2a The Trade-off between Work and Leisure'
     ],
   },
   {
@@ -52,7 +42,6 @@ const chapters: Chapter[] = [
       'The Four Theorems Read',
       'The Leontief Paradox',
       'The Empirical Honesty',
-      'IN THE NEWS: The Coase Theorem in Action 205 Questions for Review'
     ],
   },
   {
@@ -68,10 +57,6 @@ const chapters: Chapter[] = [
       'Intra-Industry Evidence',
       'The Krugman Model',
       'Dumping\u2019s Arithmetic',
-      '1-1d Principle 4: People Respond to Incentives 7 IN THE NEWS: Why You Should Study Economics',
-      '3-3b Should the United States Trade with Other Countries? 56 IN THE NEWS: Price Increases after Disasters',
-      '7-1a Willingness to Pay 134 IN THE NEWS: Trade as a Tool for Economic Development',
-      '7-1c How a Lower Price Raises Consumer Surplus 136 IN THE NEWS: Should the Winners from Free Trade'
     ],
   },
   {
@@ -87,8 +72,6 @@ const chapters: Chapter[] = [
       'Quota Arithmetic',
       'Effective Protection',
       'Protection\u2019s Politics',
-      'Welfare 131 9-2 The Winners and Losers from Trade',
-      'And Patent Protection 194 12-2a Deadweight Losses'
     ],
   },
   {
@@ -104,9 +87,6 @@ const chapters: Chapter[] = [
       'The Rounds Told',
       'Regionalism Classified',
       'The Indian Trade Register',
-      'Preface: To the Student vi 1-3c Principle 10: Society Faces a Short-Run Trade-off',
-      '1-1a Principle 1: People Face Trade-offs 4 2-3c Perception versus Reality',
-      '1-2a Principle 5: Trade Can Make Everyone Better Off 8 Questions for Review'
     ],
   },
   {

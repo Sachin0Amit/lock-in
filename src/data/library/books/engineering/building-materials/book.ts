@@ -63,6 +63,7 @@ const chapters: Chapter[] = [
       'Hydration\u2019s Chemistry and Heat',
       'The Testing Census',
       'The Alternative Glance',
+      'Cement',
     ],
   },
   {
@@ -122,6 +123,7 @@ const chapters: Chapter[] = [
       'Paints and Finishes',
       'Geosynthetics Priced',
       'The Sustainability Census',
+      'Ceramics',
     ],
   },
   {

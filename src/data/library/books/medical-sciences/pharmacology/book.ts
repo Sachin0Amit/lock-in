@@ -29,8 +29,7 @@ const chapters: Chapter[] = [
       'The Plateau Receipt Fixed by Drill',
       'The Monitoring Register Named',
       'Pharmacological and Parenteral Therapies',
-    
-      'Scientific Inquiry and Reasoning Skills: Knowledge of Scientific Concepts and Principles'
+      'Scientific Inquiry And Reasoning Skills: Knowledge Of Scientific Concepts',
     ],
   },
   {
@@ -61,9 +60,6 @@ const chapters: Chapter[] = [
       'The Atropine Craft Priced Straight',
       'The Seizure-Kind Honesty Named',
       'The D2 Consequence Held',
-    
-      'Semester IV: Pharmacology',
-      'Veterinary Pharmacology (including Chemotherapy)'
     ],
   },
   {
@@ -92,7 +88,6 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Insulin Timing Honesty Held',
       'The Taper Register Named',
-      'The Target Census by Its Classes',
       'The Stewardship Honesty Cross-Referenced',
     ],
   },

@@ -75,6 +75,7 @@ const chapters: Chapter[] = [
       'The Operant Contingencies',
       'The Observational Register',
       'The Applications\u2019 Census',
+      'Unit 3: Learner and Learning Process',
     ],
   },
   {

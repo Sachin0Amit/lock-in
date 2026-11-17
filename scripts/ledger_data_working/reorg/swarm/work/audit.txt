@@ -1,0 +1,1231 @@
+### engineering-mechanics
+-- ch1
+  [ 0] dup :: The Free-Body Diagram: the Engineer’s First Instrument
+  [ 1] ---- :: Force Vectors and Their Resultants
+  [ 2] ---- :: Equilibrium of a Particle: 2D and 3D
+  [ 3] ---- :: Appendices A-L
+  [ 4] MISADJ :: Viii Contents
+  [ 5] MISADJ :: X Contents
+  [ 6] MISADJ :: Reduction in Nonlinear
+  [ 7] junkC|auto:remove :: Splitting 860 (PSRR)
+  [ 8] junkC|auto:remove :: Summary 927 Realization
+  [ 9] MISADJ :: Xii Contents
+  [10] junkC|auto:remove :: (VTC) 1136 18.2.1 The Latch
+  [11] ---- :: Appendices
+  [12] junkC|auto:remove :: Summary 1183 Prefixes J-1
+  [13] ---- :: * Available online at www.oup.com/he/sedra-smith8e
+  [14] MISADJ :: From Indication to Illumination
+  [15] ---- :: (ISSCC)
+  [16] ---- :: Fundamentalist
+  [17] ---- :: The Creator of the pA741: David Fullagar
+  [18] MISADJ :: CAMBRIDGE
+  [19] junkC|auto:remove :: Avenue of the Americas, New York, NY 10013-2473, USA
+  [20] dup :: Www.cambridge.org
+  [21] MISADJ|dup :: Third edition
+  [22] junkSusp :: A catalog record for this publication is available from the British Library
+  [23] junkC|auto:remove :: ISBN 978-0-521-80926-9 Hardback
+  [24] junkC|dup|auto:remove :: Preface to the Third Edition — xxix
+  [25] ---- :: Connectors
+  [26] ---- :: Transconductance
+  [27] MISADJ :: Bootstrapping
+  [28] junkC|auto:remove :: The challenge: 10 mV, 1%, 10 MΩ, 1.8 V single supply
+  [29] MISADJ :: It's impossible!
+  [30] MISADJ :: Wrong – it is possible!
+  [31] MISADJ :: The 34401A 6.5-digit front end
+  [32] ---- :: The 34420A 7.5-digit frontend
+  [33] MISADJ :: In defense of the beleaguered
+  [34] ---- :: Switchers: looking more closely
+  [35] MISADJ :: Three-terminal precision references
+  [36] ---- :: Synchronizer
+  [37] MISADJ :: The basic PAL
+  [38] MISADJ :: The FPGA
+  [39] MISADJ :: Advice
+  [40] ---- :: Photomultipliers
+  [41] ---- :: TOSLINK
+  [42] ---- :: Versatile Link
+  [43] junkC|auto:remove :: RS-232
+  [44] ---- :: Wrapup
+  [45] MISADJ|dup :: Some preliminaries
+  [46] MISADJ :: Idle tones
+  [47] ---- :: AD7873 touchscreen digitizer
+  [48] ---- :: More on Deriving the Thévenin
+  [49] ---- :: Radiators
+  [50] junkC|auto:remove :: Summary 49 Resistors
+  [51] junkC|auto:remove :: Summary 435 Summary
+  [52] dup :: Simultaneous Appendix F An Abbreviated
+  [53] auto:move :: Identities
+  [54] MISADJ :: B.4 Useful Identities
+  [55] ---- :: Flashlight
+  [56] ---- :: Fig. 1.5
+  [57] ---- :: Fig. 1.7
+  [58] MISADJ :: Frequencies
+  [59] ---- :: Fibreoptics
+  [60] MISADJ :: Contents ix
+  [61] junkC|dup|auto:remove :: Summary of important formulae 361 19.7 Construction and static characteristics of
+  [62] junkC|auto:remove :: Logarithmic units 404 20.22 JUGFET
+  [63] MISADJ :: Contents xi
+  [64] MISADJ|dup :: Contents xiii
+  [65] MISADJ|dup :: Xiv Contents
+  [66] auto:move :: Introductory
+  [67] MISADJ :: Contents xv
+  [68] MISADJ :: WEBSITE
+  [69] ---- :: Www.pearsoned.co.uk/hughes
+-- ch2
+  [ 0] ---- :: Moments, Couples and Their Algebra
+  [ 1] dup :: Equilibrium of the Rigid Body
+  [ 2] ---- :: Distributed Loads and Their Resultants
+  [ 3] MISADJ :: What about MOSFETs?
+-- ch3
+  [ 0] ---- :: Trusses: the Method of Joints
+  [ 1] ---- :: Trusses: the Method of Sections
+  [ 2] ---- :: Frames and Machines: Multi-force Members
+  [ 3] ---- :: Engineering Aptitude covering Logical reasoning and Analytical ability
+  [ 4] junkC|auto:remove :: Degeneration 741 Method
+  [ 5] MISADJ :: Effects of Fan-In and Fan-Out on Problems
+  [ 6] junkSusp|dup|auto:move :: Cambridge University Press has no responsibility for the persistence or accuracy of URLs for ex
+  [ 7] MISADJ :: Not quite perfect
+  [ 8] MISADJ|dup :: Additional Exercises for Chapter
+  [ 9] MISADJ :: Review of Chapter
+  [10] ---- :: Electrical Engineering: An Overview 4 Realistic Resistors
+  [11] junkC|auto:remove :: Appliances 382 Chapter
+-- ch4
+  [ 0] ---- :: Dry Friction: Tipping versus Sliding
+  [ 1] ---- :: Wedges and the Screw Jack
+  [ 2] dup :: Belt-Pulley Systems and Brake/Clutch Friction
+  [ 3] ---- :: Rolling Resistance Priced
+  [ 4] dup :: (Emitter) Resistance
+  [ 5] MISADJ|junkSusp :: The Common-Gate (CG) and the
+  [ 6] dup :: An Emitter Resistance Re
+  [ 7] ---- :: Effect of the Output Resistance of the 9.4 DC Offset
+  [ 8] junkC|auto:salvage :: Gates 1167 Summary
+  [ 9] MISADJ :: Catalog of common gates
+  [10] MISADJ :: Shift registers
+  [11] junkC|dup|auto:remove :: Simplification 63 4.18 Finding the Thévenin Equivalent Resistance
+  [12] ---- :: Gate standardization
+  [13] ---- :: Of rotor resistance
+-- ch5
+  [ 0] ---- :: Centroids by Composite Parts
+  [ 1] ---- :: Theorems of Pappus-Guldinus
+  [ 2] dup :: Moments of Inertia and the Parallel-Axis Theorem
+  [ 3] ---- :: Products of Inertia and Principal Axes
+  [ 4] junkC|auto:remove :: Area 1149 Cells
+  [ 5] MISADJ :: Thévenin's theorem generalized
+  [ 6] MISADJ|dup :: Parallel buses and data links
+  [ 7] ---- :: Thévenin’s theorem
+-- ch6
+  [ 0] ---- :: The Principle Stated and First Applied
+  [ 1] ---- :: Machines and Linked Bodies by Virtual Work
+  [ 2] ---- :: The Potential-Energy Reading
+-- ch7
+  [ 0] ---- :: Curvilinear Motion and Its Components
+  [ 1] dup :: Rotation About a Fixed Axis
+  [ 2] ---- :: General Plane Motion: the Velocity Construction
+  [ 3] ---- :: PLL components
+  [ 4] ---- :: Relative permittivity
+  [ 5] junkC|auto:remove :: Transformers 646 30.9 Rotary motion
+-- ch8
+  [ 0] dup :: The Kinetic Diagram Beside the Free-Body
+  [ 1] dup :: Plane Motion of Rigid Bodies
+  [ 2] MISADJ|dup :: Angular Momentum and the Gyroscopic Glimpse
+  [ 3] MISADJ :: Second edition
+  [ 4] junkC|dup|auto:remove :: Preface to the Second Edition — xxvii
+  [ 5] junkSusp|dup :: The Effect of Resistor Tolerance on the 4.20 Using a Thévenin Equivalent to Analyze the
+-- ch9
+  [ 0] ---- :: The Work-Energy Engine
+  [ 1] dup :: Conservative Forces and Energy Bookkeeping
+  [ 2] dup :: Linear and Angular Impulse-Momentum
+  [ 3] dup :: Impact of Rigid Bodies
+-- ch10
+  [ 0] dup :: Generalised Coordinates and Constraints
+  [ 1] ---- :: Lagrange’s Equations, Derived and Worked
+  [ 2] ---- :: The Synthesis: Four Formulations, One Mechanics
+  [ 3] ---- :: The Doorstep: from Rigid to Deformable
+  [ 4] MISADJ|dup :: Minimization and Karnaugh maps
+  [ 5] MISADJ|dup :: A simple SAR example
+  [ 6] MISADJ :: To Write Simultaneous Equations
+  [ 7] MISADJ :: Karnaugh maps for simplifying
+### strength-of-materials
+-- ch1
+  [ 0] ---- :: Sectioning a Body: the Method of Internal Forces
+  [ 1] ---- :: Normal, Shear and Bearing Stress
+  [ 2] ---- :: Stress on the Oblique Plane
+  [ 3] MISADJ :: When and How to Include the Output
+  [ 4] MISADJ :: How to make pseudorandom bytes
+  [ 5] junkC|dup|auto:remove :: Appendix H Common Standard Component Values
+  [ 6] junkC|auto:remove :: B.1 Notation 729 Component Values
+-- ch2
+  [ 0] dup :: The Stress-Strain Diagram, Read Honestly
+  [ 1] ---- :: Hooke, Poisson and the Shear Relation
+  [ 2] ---- :: The Testing Laboratory: UTM, Hardness, Impact
+  [ 3] MISADJ|junkSusp|dup :: Resistors in Parallel 61 Practical Perspective: Strain Gages
+  [ 4] junkC|dup|auto:remove :: Practical Perspective: Strain Gages 171 Chapter 9 Sinusoidal Steady-State
+  [ 5] junkC|dup|auto:remove :: Semiconductor Materials 419 20.34 Common-mode rejection ratio
+-- ch3
+  [ 0] ---- :: Indeterminate Assemblies by Compatibility
+  [ 1] ---- :: Thermal Stresses and Their Bookkeeping
+  [ 2] dup :: Saint-Venant, Stress Concentrations, Multiaxial Loading
+  [ 3] junkC|auto:remove :: Problems 355 Problems
+  [ 4] junkC|auto:remove :: Problems 562 Introduction
+  [ 5] junkC|dup|auto:remove :: Final Remarks 1046 Problems
+  [ 6] MISADJ|junkSusp :: Problems 50 Summary
+  [ 7] junkC|auto:remove :: Problems 436 Problems
+  [ 8] junkC|auto:salvage :: Summary 476 Problems
+  [ 9] MISADJ :: Introduction to Problems
+-- ch4
+  [ 0] ---- :: The Torsion Formula Earned
+  [ 1] ---- :: Angle of Twist and Power Transmission
+  [ 2] ---- :: Indeterminate Shafts and Design
+  [ 3] ---- :: The Honest Limits: Noncircular and Thin-Walled
+-- ch5
+  [ 0] ---- :: The Diagrams as a Fluent Craft
+  [ 1] ---- :: Load, Shear and Moment: the Differential Relations
+  [ 2] ---- :: Singularity Functions for Beam Bookkeeping
+  [ 3] junkC|auto:remove :: The Depletion-Type MOSFET 291 7.2.1 The MOSFET Case
+  [ 4] junkC|auto:remove :: Current-Source Loads 518 9.3.1 The MOS Case
+  [ 5] dup|auto:move :: Input Common-Mode Range and Functions
+  [ 6] ---- :: FET types
+  [ 7] MISADJ :: Generating a differential output
+  [ 8] MISADJ|dup :: Complex Notation
+  [ 9] auto:move :: The NAND function
+  [10] ---- :: Support the use of this textbook in teaching, please visit
+-- ch6
+  [ 0] ---- :: The Flexure Formula Earned
+  [ 1] ---- :: Section Modulus and Beam Design
+  [ 2] ---- :: Shearing Stresses and Shear Flow
+  [ 3] ---- :: The Shear Centre
+  [ 4] junkC|auto:remove :: (BJTs) 304 7.3.3 The Common-Source (CS) and
+  [ 5] MISADJ :: The Common-Source (Common
+  [ 6] MISADJ :: A Common-Source (CS)
+  [ 7] dup|auto:move :: A Common-Base (CB)
+  [ 8] junkC|auto:remove :: Wiring: The Interconnect 1181 H. Filter Design Material
+  [ 9] MISADJ|dup :: Common-mode rejection
+  [10] junkC|auto:remove :: With Symmetry 630 and Symmetric
+-- ch7
+  [ 0] auto:remove :: Mohr’s Circle for Plane Stress
+  [ 1] ---- :: Mohr’s Circle for Plane Strain
+  [ 2] ---- :: Strain Gauges and Rosettes
+  [ 3] ---- :: Thin Cylinders Under Pressure
+-- ch8
+  [ 0] ---- :: The Elastic Curve and Double Integration
+  [ 1] ---- :: Macaulay’s Method
+  [ 2] dup :: The Moment-Area Theorems
+  [ 3] ---- :: Indeterminate Beams by Superposition
+-- ch9
+  [ 0] ---- :: Euler’s Column and the End-Condition Census
+  [ 1] ---- :: Slenderness: Buckling versus Crushing
+  [ 2] ---- :: Castigliano’s Theorem
+  [ 3] ---- :: Strain Energy and Impact Loading
+  [ 4] junkC|auto:remove :: Summary 292 7.2.2 The BJT Case
+  [ 5] ---- :: The MOSFET Case
+  [ 6] ---- :: The BJT Case
+### theory-of-machines
+-- ch1
+  [ 0] ---- :: Kinematic Pairs and Chains
+  [ 1] ---- :: The Four-Bar Family and Grashof’s Law
+  [ 2] ---- :: The Slider-Crank and Its Inversions
+  [ 3] dup :: Degrees of Freedom by Gruebler
+  [ 4] junkSusp|auto:move :: Maintenance — failure concepts and characteristics, reliability, failure analysis; machine vibr
+  [ 5] MISADJ|dup :: Emitter Characteristics
+  [ 6] MISADJ :: Lock-in detection
+  [ 7] MISADJ :: Battery characteristics
+  [ 8] MISADJ|dup :: Other buses and data links: overview
+  [ 9] junkC|auto:remove :: Terms and concepts 131 8.12 Coupling coefficient
+  [10] junkC|auto:remove :: Direction of induced e.m.f. 144 speed and number of pole pairs
+  [11] junkC|auto:remove :: Relative permeability 155 Terms and concepts
+  [12] MISADJ :: Determination of the B/H characteristic
+  [13] junkC|auto:remove :: Simple comparator 509 Terms and concepts
+  [14] junkC|dup|auto:remove :: Machines 703 Summary of important formulae
+-- ch2
+  [ 0] ---- :: The Instantaneous-Centre Method
+  [ 1] dup :: The Relative-Velocity Method
+  [ 2] ---- :: Velocity Images and Worked Mechanisms
+  [ 3] junkSusp|dup :: Turbo Machinery — reciprocating and rotary pumps; Pelton wheel, Kaplan and Francis turbines, ve
+  [ 4] MISADJ :: Programmable pulse-width generator
+  [ 5] ---- :: Step-triggered pulses
+  [ 6] MISADJ :: An n-pulse generator
+  [ 7] junkSusp|dup|auto:move :: Using the General Solution Method to Find an 9.3 Translating a Sine Expression to a Cosine
+-- ch3
+  [ 0] ---- :: Acceleration Polygons
+  [ 1] ---- :: The Coriolis Engine
+  [ 2] ---- :: Klein’s Construction
+  [ 3] ---- :: Inertia Forces in Linkages: D’Alembert
+-- ch4
+  [ 0] ---- :: Displacement Diagrams and Their Prices
+  [ 1] ---- :: Constructing the Cam Profile
+  [ 2] ---- :: Pressure Angle and Undercutting
+  [ 3] dup :: The Source and Emitter Followers
+  [ 4] dup :: An Emitter Follower
+  [ 5] junkC|dup|auto:remove :: Emitter Followers 723 11.3.4 A Final Remark
+  [ 6] junkC|auto:remove :: The Source Follower 916 Introduction
+  [ 7] dup :: Emitter follower
+  [ 8] dup :: Emitter follower biasing
+  [ 9] dup :: The emitter follower revisited
+  [10] dup :: Source followers
+-- ch5
+  [ 0] ---- :: The Law of Gearing and the Involute
+  [ 1] ---- :: Tooth Terminology and Interference
+  [ 2] ---- :: Velocity Ratio Bookkeeping
+  [ 3] dup :: ST/SC glass-fiber modules
+  [ 4] junkSusp :: Calculation of efficiency from the
+  [ 5] MISADJ :: Determination of efficiency
+-- ch6
+  [ 0] dup :: Simple and Compound Trains
+  [ 1] ---- :: The Epicyclic Craft
+  [ 2] ---- :: Torque in Planetary Drives
+  [ 3] junkC|auto:remove :: Inverter Implementation 1125 18.1.2 Restoring the Value of VOH to VDD
+-- ch7
+  [ 0] ---- :: Turning-Moment Diagrams and the Flywheel
+  [ 1] ---- :: The Governor Family
+  [ 2] ---- :: Sensitiveness, Stability, Hunting
+  [ 3] dup :: The Wilson MOS Mirror
+-- ch8
+  [ 0] ---- :: Two-Plane Correction of Rotating Masses
+  [ 1] ---- :: Reciprocating Engines: Primary and Secondary
+  [ 2] ---- :: Partial Balancing and the Honest Residue
+-- ch9
+  [ 0] ---- :: The Couple Derived
+  [ 1] ---- :: Ships, Aircraft and Turning Vehicles
+  [ 2] ---- :: Gyroscopic Stability Priced
+-- ch10
+  [ 0] ---- :: Natural Frequency by Three Engines
+  [ 1] ---- :: Damping: the Three Regimes
+  [ 2] dup :: Forced Vibration and the Magnifier
+  [ 3] ---- :: Isolation and Transmissibility
+  [ 4] ---- :: Critical Speed and Whirling of Shafts
+  [ 5] ---- :: Determining the 3-dB Frequency
+  [ 6] MISADJ :: Finding the 1/f corner frequency
+  [ 7] MISADJ :: Frequency-Selective
+  [ 8] junkC|dup|auto:remove :: Cathode-ray oscilloscope 948 Answers to Exercises
+### machine-design
+-- ch1
+  [ 0] ---- :: The Design Process and Its Codes
+  [ 1] ---- :: Factor of Safety Priced Honestly
+  [ 2] MISADJ|auto:move-chapter :: From Stress to Dimension
+  [ 3] junkC|auto:remove :: (VTC) 369 8.1 IC Design Philosophy
+  [ 4] junkC|auto:remove :: Inverter Sizing 1165 18.4.3 The Row-Address Decoder
+  [ 5] ---- :: Designs by the masters: Agilent's accurate DMMs
+  [ 6] MISADJ :: Nonvolatile memory
+  [ 7] ---- :: Memory wrapup
+  [ 8] junkC|dup|auto:remove :: Appendix B Complex Numbers 729 Appendix H Common Standard
+  [ 9] junkC|dup|auto:remove :: Core factors 647 Summary of important formulae
+-- ch2
+  [ 0] ---- :: Ductile versus Brittle Failure
+  [ 1] ---- :: Tresca and von Mises Priced
+  [ 2] dup :: Stress Concentration in Design
+  [ 3] MISADJ :: Hans Camenzind: The Inventor of the Class D
+  [ 4] MISADJ :: Printed in the United States of America
+  [ 5] auto:remove :: Designs by the masters: Agilent's world-class "multislope" converters
+  [ 6] MISADJ :: ADCs: choices and tradeoffs
+-- ch3
+  [ 0] ---- :: The Endurance Limit and Its Modifiers
+  [ 1] ---- :: Goodman, Soderberg, Gerber
+  [ 2] ---- :: Cumulative Damage by Miner’s Rule
+  [ 3] MISADJ :: The golden rules
+-- ch4
+  [ 0] ---- :: The Bolt as a Preloaded Spring
+  [ 1] ---- :: Riveted Joints and Their Efficiency
+  [ 2] ---- :: Fillet and Butt Welds Priced
+  [ 3] ---- :: Eccentric Loads on Weld Groups
+-- ch5
+  [ 0] ---- :: The Shaft Design Equation
+  [ 1] ---- :: Keys and Splines Priced
+  [ 2] ---- :: Couplings and Their Honest Flexibility
+-- ch6
+  [ 0] ---- :: Journal Bearings: Petroff and Beyond
+  [ 1] ---- :: Rolling Bearings: the L10 Arithmetic
+  [ 2] ---- :: Selection, Mounting, Preload
+  [ 3] MISADJ :: Number per package
+  [ 4] junkC|dup|auto:remove :: Appendix B Complex Numbers
+  [ 5] dup|auto:remove :: B.6 The Roots of a Complex Number
+  [ 6] dup :: Finding a Thévenin Equivalent
+  [ 7] MISADJ :: Hexadecimal numbers
+-- ch7
+  [ 0] ---- :: The Lewis Form Factor
+  [ 1] ---- :: Wear and Dynamic Loads
+  [ 2] ---- :: Helical, Bevel and Worm Forces
+  [ 3] ---- :: Gear Materials and Lubrication
+-- ch8
+  [ 0] ---- :: Helical Springs: Wahl’s Correction
+  [ 1] ---- :: Plate Clutches: Wear versus Pressure
+  [ 2] ---- :: Brakes and Self-Energising Geometry
+-- ch9
+  [ 0] ---- :: The Map: Specification to Element
+  [ 1] ---- :: A Gearbox Priced End-to-End
+  [ 2] dup :: The Standards Census
+  [ 3] ---- :: The Doorstep: Makeable and Modelled
+  [ 4] MISADJ|junkSusp|dup :: Databases and languages — data bases: different types, characteristics and design; transactions
+  [ 5] MISADJ :: Realization of the Various Filter Element
+  [ 6] MISADJ :: An example: "It's too hot!"
+  [ 7] ---- :: Example: sensitive millivoltmeter
+  [ 8] MISADJ :: An example: the millivoltmeter, revisited
+  [ 9] MISADJ|dup :: Contents (page xiii)
+  [10] MISADJ|dup :: A simple design example: loudspeaker as microphone
+  [11] ---- :: A design example: 40ε "lightning detector" preamp
+  [12] MISADJ :: An example: pseudorandom byte generator
+  [13] MISADJ|dup :: Contents (page xvii)
+  [14] MISADJ|dup :: Contents (page xviii)
+  [15] MISADJ|dup :: List of Examples xii
+  [16] MISADJ|dup :: List of Examples
+  [17] MISADJ|dup :: List of Examples xiii
+  [18] MISADJ|dup :: Xiv List of Examples
+  [19] MISADJ|dup :: List of Examples xv
+### thermodynamics
+-- ch1
+  [ 0] ---- :: Systems, Boundaries, Properties
+  [ 1] ---- :: The Zeroth Law and Temperature
+  [ 2] auto:move-chapter :: Processes and Cycles
+  [ 3] junkC|auto:remove :: Filter 597 17.9 Calculating Energy Contained in a Rectangular
+  [ 4] junkSusp :: Standardized Prefixes to Signify 10.1 Annual Energy Requirements of Electric
+  [ 5] junkC|auto:remove :: Energy stored in a charged capacitor 123 8.5 Ferromagnetic-cored inductor in a
+  [ 6] junkC|auto:remove :: Types of capacitor and capacitance 127 8.10 Energy stored in an inductor
+-- ch2
+  [ 0] ---- :: Work and Heat as Path Functions
+  [ 1] ---- :: The Closed-System Energy Balance
+  [ 2] dup :: Specific Heats and Enthalpy
+-- ch3
+  [ 0] ---- :: The Saturation Dome Read Honestly
+  [ 1] ---- :: Quality and the Steam Tables
+  [ 2] dup :: The Ideal Gas and Its Honest Limits
+  [ 3] ---- :: Tables xiv
+  [ 4] MISADJ :: List of Tables — xxii
+  [ 5] MISADJ :: List of Tables xvi
+  [ 6] junkC|dup|auto:remove :: Appendix G An Abbreviated Table of Integrals
+  [ 7] MISADJ :: List of Tables xvi Summary
+  [ 8] junkC|auto:remove :: Equations 720 Table of Trigonometric
+  [ 9] junkC|dup|auto:remove :: A.3 Paper-and-Pencil Methods 723 Appendix G An Abbreviated Table of
+  [10] MISADJ :: Xvi List of Tables
+  [11] MISADJ :: List of Tables
+-- ch4
+  [ 0] ---- :: The Steady-Flow Device Census
+  [ 1] ---- :: Throttles and Mixing Chambers
+  [ 2] ---- :: Unsteady Flows: Filling and Emptying
+  [ 3] ---- :: Compressors and Intercooling
+  [ 4] MISADJ :: Simplified "x86" instruction set
+-- ch5
+  [ 0] ---- :: Kelvin-Planck and Clausius, Equivalent
+  [ 1] ---- :: Reversibility and Its Honest Census
+  [ 2] ---- :: The Carnot Ceiling
+-- ch6
+  [ 0] ---- :: Entropy Earned from the Inequality
+  [ 1] ---- :: The TdS Relations
+  [ 2] ---- :: Isentropic Processes and Efficiency
+  [ 3] ---- :: Entropy Generation Priced
+-- ch7
+  [ 0] ---- :: Exergy: the Work Potential
+  [ 1] ---- :: Exergy Destroyed and Entropy Generated
+  [ 2] ---- :: Second-Law Efficiency
+-- ch8
+  [ 0] ---- :: Air-Standard Craft: Otto, Diesel, Dual
+  [ 1] ---- :: The Brayton Cycle
+  [ 2] dup :: Regeneration, Reheat, Intercooling
+  [ 3] MISADJ|auto:move-chapter :: The Cycle Comparison Census
+  [ 4] ---- :: VII: ac-input optocouplers
+  [ 5] dup :: Finding the a Parameters from
+  [ 6] MISADJ :: Hybrid parameters
+-- ch9
+  [ 0] ---- :: The Rankine Cycle and Its Craft
+  [ 1] dup|auto:move-chapter :: Reheat and Regeneration
+  [ 2] dup :: Vapour-Compression Refrigeration
+  [ 3] ---- :: Heat Pumps and Gas Refrigeration
+  [ 4] MISADJ|dup :: Practical Perspective: Heating with Electric
+-- ch10
+  [ 0] ---- :: Gas Mixtures Bookkept
+  [ 1] dup :: The Psychrometric Chart, Read Fluently
+  [ 2] dup :: The Process Census
+  [ 3] dup :: Air-Conditioning Priced
+-- ch11
+  [ 0] ---- :: The Maxwell Relations
+  [ 1] dup :: Nozzles, Diffusers, Choking
+  [ 2] ---- :: The Synthesis: States to Cycles
+  [ 3] ---- :: The Doorstep: Rates and Flows
+### fluid-mechanics
+-- ch1
+  [ 0] ---- :: The No-Shape Answer and the Continuum
+  [ 1] dup :: Viscosity: Newton’s Law and Its Census
+  [ 2] auto:remove :: Surface Tension and Capillarity
+  [ 3] ---- :: Vapour Pressure and Cavitation Named
+  [ 4] junkC|dup|auto:remove :: Introduction 175 5.1.5 Operation as vDS Is Increased
+  [ 5] junkC|auto:remove :: Introduction 1067 16.1.7 Obtaining the PUN from the PDN
+  [ 6] junkC|auto:salvage :: Introduction 1192 Index IN-1
+  [ 7] ---- :: Surface-mount technology: the joy and the pain
+  [ 8] junkC|dup|auto:remove :: Cathode-ray tube 947 Appendix: Symbols, Abbreviations, Deﬁnitions
+-- ch2
+  [ 0] ---- :: Manometers: the Measurement Craft
+  [ 1] ---- :: Hydrostatic Forces on Plane Surfaces
+  [ 2] ---- :: Curved Surfaces and Buoyancy
+  [ 3] ---- :: Stability and the Metacentre
+  [ 4] junkC|auto:remove :: Force determination 142 9.3 Waveform terms and definitions
+-- ch3
+  [ 0] ---- :: Descriptions and Lines of Flow
+  [ 1] ---- :: The Material Derivative: Local + Convective
+  [ 2] ---- :: Stream Function and Velocity Potential
+  [ 3] ---- :: The Reynolds Transport Theorem
+  [ 4] junkC|dup|auto:remove :: Summary of important formulae 281 15.5 Thévenin’s theorem
+-- ch4
+  [ 0] ---- :: Continuity for Control Volumes
+  [ 1] ---- :: The Momentum Engine: Bends, Vanes, Nozzles
+  [ 2] ---- :: Bernoulli and Its Honest Limits
+  [ 3] ---- :: The Grade Lines Drawn
+-- ch5
+  [ 0] ---- :: Differential Continuity
+  [ 1] ---- :: Navier-Stokes Read Term-by-Term
+  [ 2] ---- :: Couette and Poiseuille Earned
+  [ 3] ---- :: The Honest Verdict on Differential Routes
+  [ 4] ---- :: Electrostatic terms
+  [ 5] junkC|auto:remove :: Terms and concepts 261 14.11 Selectivity
+  [ 6] junkC|auto:remove :: The j operator 264 Terms and concepts
+  [ 7] junkC|dup|auto:remove :: Signed binary subtraction 525 Terms and concepts
+-- ch6
+  [ 0] ---- :: The Buckingham Pi Theorem Worked
+  [ 1] ---- :: The Group Census
+  [ 2] ---- :: Similitude and Model Testing
+-- ch7
+  [ 0] ---- :: Hagen-Poiseuille Earned
+  [ 1] ---- :: The Moody Chart and Friction Factor
+  [ 2] ---- :: Minor Losses in Fittings
+  [ 3] ---- :: Pipe Systems and the System Curve
+  [ 4] junkC|auto:salvage :: Summary 117 Region
+  [ 5] dup :: Summary of important formulae
+  [ 6] junkC|dup|auto:remove :: Summary of important formulae 261 14.10 Bandwidth
+  [ 7] junkC|dup|auto:remove :: Signed binary addition 524 Summary of important formulae
+  [ 8] junkC|dup|auto:remove :: Summary of important formulae 713 34.4 Demand for electricity and the
+-- ch8
+  [ 0] ---- :: Prandtl’s Boundary Layer
+  [ 1] ---- :: Growth, Transition, Separation
+  [ 2] ---- :: The Drag Census
+  [ 3] ---- :: Lift and the Aerofoil Glimpse
+  [ 4] junkC|auto:salvage :: Terminals 151 4.7.3 Varactors
+-- ch9
+  [ 0] ---- :: The Mach Number and Flow Regimes
+  [ 1] ---- :: Isentropic Relations
+  [ 2] dup :: Nozzles and Choking
+  [ 3] ---- :: The Normal Shock Introduced
+-- ch10
+  [ 0] dup :: Impulse versus Reaction
+  [ 1] ---- :: The Euler Equation Earned
+  [ 2] dup :: Specific Speed: the Compass
+  [ 3] MISADJ :: The Doorsteps: Machines Elsewhere, Rates Above
+  [ 4] ---- :: VCO implementation: through-hole versus surface-mount
+### heat-transfer
+-- ch1
+  [ 0] ---- :: Rate Equations and Their Origins
+  [ 1] ---- :: The Conductivity Census
+  [ 2] ---- :: Thermal Circuits: the Modes Conspire
+  [ 3] junkC|auto:remove :: Slew Rate 113 4.3.7 Operation in the Reverse Breakdown
+  [ 4] MISADJ :: Active Mode
+  [ 5] junkC|auto:remove :: Implementation 859 13.1.6 Slew Rate
+  [ 6] MISADJ|junkSusp|dup :: Input Common-Mode Range and
+  [ 7] junkC|auto:remove :: Classification of Output Stages 888 13.2.5 Slew Rate
+  [ 8] junkC|dup|auto:remove :: Transfer Characteristic 890 Mode Range: Rail-to-Rail Input
+  [ 9] junkC|auto:remove :: Magnitude of the generated or induced e.m.f. 145 9.5 Average and r.m.s. values of an alternatin
+-- ch2
+  [ 0] ---- :: The Wall and the Resistance Network
+  [ 1] ---- :: Cylinders, Spheres, Logarithmic Means
+  [ 2] ---- :: The Critical Radius Priced
+  [ 3] ---- :: Hysteresis loss
+-- ch3
+  [ 0] ---- :: The Fin Equation Derived
+  [ 1] ---- :: Effectiveness and Efficiency
+  [ 2] ---- :: The Fin Census in Practice
+-- ch4
+  [ 0] ---- :: Lumped Capacitance and the Biot Verdict
+  [ 1] dup :: The Heisler Charts Read Fluently
+  [ 2] ---- :: Semi-Infinite Solids Glanced
+  [ 3] ---- :: When operating current is not your choice
+  [ 4] junkC|dup|auto:remove :: Practical Perspective: Transient Effects 474 Summary
+  [ 5] auto:move :: Capacitance of a multi-plate capacitor
+  [ 6] junkC|auto:remove :: Fibreoptics 613 29.9 Methods of reducing leakage flux
+-- ch5
+  [ 0] ---- :: The Thermal Boundary Layer
+  [ 1] ---- :: The Dimensionless Census Earned
+  [ 2] ---- :: Forced Convection: Plates and Pipes
+  [ 3] ---- :: Free Convection and Its Regimes
+  [ 4] dup :: Transconductance versus drain current
+-- ch6
+  [ 0] ---- :: The Boiling Curve Read
+  [ 1] ---- :: Nucleate Boiling Priced
+  [ 2] ---- :: Nusselt’s Film Condensation Craft
+  [ 3] junkC|dup|auto:remove :: Impedance Angle Restrictions 396 13.12 Using the Transfer Function to Find the
+  [ 4] junkC|auto:remove :: Calculating Butterworth Transfer Functions 592 17.7 Applying Parseval’s Theorem to an Ideal
+-- ch7
+  [ 0] ---- :: The Exchanger Census
+  [ 1] ---- :: LMTD with Correction Factors
+  [ 2] ---- :: NTU and Effectiveness
+  [ 3] ---- :: Design versus Rating
+-- ch8
+  [ 0] ---- :: Blackbody Behaviour and Its Laws
+  [ 1] ---- :: Grey Surfaces and Radiosity
+  [ 2] ---- :: The View-Factor Craft
+  [ 3] ---- :: Radiation Networks and Shields
+  [ 4] ---- :: Combined-Mode Problems Priced
+  [ 5] MISADJ :: Switchers: top-level view
+  [ 6] dup :: Practical Perspective: Resistive Touch
+  [ 7] MISADJ|dup :: Practical Perspective: A Household Distribution
+  [ 8] MISADJ|dup :: Practical Perspective: Clock for Computer Problems
+  [ 9] dup :: Practical Perspective: Characterizing an
+-- ch9
+  [ 0] ---- :: The Map: Fourier to Networks
+  [ 1] ---- :: Three Designs Priced End-to-End
+  [ 2] MISADJ|dup :: The Doorsteps: Solar, Grids, Silicon
+  [ 3] junkC|dup|auto:remove :: Diffusion Current 147 Superdiode
+  [ 4] junkC|auto:remove :: Leakage Currents 288 7.1.6 Determining the VTC by Graphical
+  [ 5] ---- :: Dependence of ic on the Collector
+  [ 6] junkC|auto:remove :: Packages and Heat Sinks 924 14.1.4 Obtaining the Filter Transfer
+  [ 7] junkC|auto:remove :: The Transfer Function 500 16.4 An Alternative Trigonometric Form of the Fourier
+  [ 8] dup :: Find an Unknown Current
+  [ 9] junkC|dup|auto:remove :: Leakage and conduction currents in capacitors 126 8.8 Analysis of decay
+  [10] ---- :: Current magnification
+### manufacturing-processes
+-- ch1
+  [ 0] ---- :: The Alloy Census for Making
+  [ 1] ---- :: Hot versus Cold: the Recrystallisation Line
+  [ 2] ---- :: Castability, Formability, Machinability
+  [ 3] MISADJ :: Fabricated in CMOS and Bipolar Processes K-1
+  [ 4] MISADJ :: Manufacturing spread of FET characteristics
+  [ 5] MISADJ :: Logic identities
+  [ 6] auto:move :: Logic pathology
+  [ 7] MISADJ|dup :: II: Logic-output optocouplers
+-- ch2
+  [ 0] ---- :: Patterns, Moulds and Cores
+  [ 1] ---- :: Solidification and Chvorinov’s Rule
+  [ 2] ---- :: Riser and Gating Arithmetic
+  [ 3] ---- :: The Casting Census and Its Defects
+-- ch3
+  [ 0] ---- :: Deformation Mechanics and Yield Criteria
+  [ 1] ---- :: Forging and Its Loads
+  [ 2] ---- :: Rolling: Mechanics and Geometry
+  [ 3] ---- :: Extrusion and Drawing
+-- ch4
+  [ 0] ---- :: Shearing and Blanking
+  [ 1] ---- :: Bending and Springback
+  [ 2] ---- :: Deep Drawing
+  [ 3] ---- :: Powder Metallurgy’s Honest Niche
+  [ 4] dup :: Limiting the bandwidth
+-- ch5
+  [ 0] ---- :: Merchant’s Orthogonal Craft
+  [ 1] MISADJ :: Tool Geometry by Two Systems
+  [ 2] ---- :: Taylor’s Tool Life
+  [ 3] ---- :: The Economics of Machining
+-- ch6
+  [ 0] ---- :: Turning and the Lathe
+  [ 1] ---- :: Drilling and Milling
+  [ 2] ---- :: Grinding and the Wheel Census
+  [ 3] ---- :: The Finishing Census
+  [ 4] dup :: UNIVERSITY PRESS
+  [ 5] junkSusp|dup :: Cambridge University Press is part of the University of Cambridge
+  [ 6] junkC|dup|auto:remove :: © Cambridge University Press, 1980, 1989
+  [ 7] ---- :: Switchers: basic operation
+-- ch7
+  [ 0] ---- :: The Spark Engine: EDM
+  [ 1] ---- :: ECM and USM
+  [ 2] dup :: Beam and Jet Processes
+  [ 3] ---- :: The Selection Census
+  [ 4] MISADJ|dup :: B.2 The Graphical Representation of a Complex
+-- ch8
+  [ 0] ---- :: The Arc, the Pool, the HAZ
+  [ 1] ---- :: The Arc-Welding Census
+  [ 2] ---- :: Brazing, Soldering, Adhesives
+  [ 3] ---- :: Defects, Distortion and Their Control
+-- ch9
+  [ 0] ---- :: The 3-2-1 Principle
+  [ 1] ---- :: Jigs versus Fixtures
+  [ 2] ---- :: Design Elements of the Jig
+  [ 3] ---- :: Test fixture for compensation and calibration
+-- ch10
+  [ 0] ---- :: Limits, Fits and Tolerances
+  [ 1] ---- :: The Comparator Census
+  [ 2] ---- :: Interferometry: the Wavelength Ruler
+  [ 3] ---- :: Form, Finish and Alignment
+  [ 4] ---- :: The Coordinate Measuring Machine
+  [ 5] ---- :: The lessons: error budget, unspecified parameters
+-- ch11
+  [ 0] ---- :: The Process-Selection Map
+  [ 1] ---- :: The CNC Doorway
+  [ 2] ---- :: The Doorstep: Production Systems
+### industrial-engineering
+-- ch1
+  [ 0] ---- :: The Production Census
+  [ 1] ---- :: Layout Families by Volume-Variety
+  [ 2] MISADJ :: Productivity Measured Honestly
+  [ 3] junkSusp|dup|auto:remove :: Refrigeration and Air conditioning — vapour compression refrigeration, refrigerants and working
+  [ 4] MISADJ|junkSusp :: Current issues of national and international importance relating to social, economic and indust
+  [ 5] junkC|auto:remove :: Output Current Limits 112 4.3.6 The Ideal-Diode Model
+  [ 6] junkSusp|dup :: Output Resistance of the Emitter- 9.5.2 The Current-Mirror-Loaded MOS
+  [ 7] junkC|auto:remove :: Class A Output Stage 890 13.2.6 Increasing the Input Common
+  [ 8] junkC|dup|auto:remove :: Class AB Output Stage 902 of the Input Stage
+  [ 9] junkSusp|auto:move :: It furthers the University's mission by disseminating knowledge in the pursuit of education, le
+  [10] ---- :: A monostable application: limiting pulse width and duty cycle
+  [11] dup :: I: Phototransistor output optocouplers
+  [12] MISADJ :: Production of rotating magnetic flux by
+  [13] ---- :: Generating plant
+  [14] junkC|auto:remove :: RPC system requirements 873 Sensing and Actuation
+  [15] junkC|dup|auto:remove :: Deflecting systems of a cathode-ray tube 948 and Diagrammatic Symbols
+-- ch2
+  [ 0] ---- :: Method Study: the SREDACT Craft
+  [ 1] ---- :: Motion Study and Motion Economy
+  [ 2] ---- :: Time Study: Standard Time Earned
+-- ch3
+  [ 0] ---- :: The Forecasting Census
+  [ 1] ---- :: Forecast Error Measured
+  [ 2] ---- :: Aggregate Strategies Priced
+  [ 3] dup :: A simple delta-sigma for our suntan monitor
+  [ 4] junkC|auto:remove :: The decibel (dB) 369 20.5 Smoothing
+-- ch4
+  [ 0] ---- :: Sequencing: Johnson and the Rules
+  [ 1] ---- :: The MRP Engine
+  [ 2] MISADJ :: Lean: the Pull Discipline
+  [ 3] dup :: The Waste Census
+-- ch5
+  [ 0] ---- :: EOQ Earned and Extended
+  [ 1] ---- :: Safety Stock and Service Level
+  [ 2] ---- :: ABC and the Census
+  [ 3] ---- :: Inventory as the Mirror
+  [ 4] junkC|dup|auto:remove :: The Wilson BJT Current Mirror 553 Problems
+-- ch6
+  [ 0] ---- :: LP Formulated from the Floor
+  [ 1] ---- :: Transportation and Assignment
+  [ 2] ---- :: Network Flows at Production Speed
+  [ 3] MISADJ :: Queues Priced on Service Systems
+  [ 4] junkSusp|dup|auto:remove :: Computer organization — basic architecture, CPU, I/O organisation, memory organisation, periphe
+  [ 5] junkC|auto:remove :: Relationship between D and // 150 4.7 Other Diode Applications
+  [ 6] MISADJ|junkSusp|dup :: Graphical Representation of
+  [ 7] junkC|dup|auto:remove :: 317-style regulator: application hints
+  [ 8] MISADJ|dup :: Some DAC application examples
+  [ 9] MISADJ :: Parallel multichannel delta-sigma data-acquisition system
+  [10] junkC|auto:remove :: A.4 Applications 725 Integrals
+-- ch7
+  [ 0] ---- :: The Control-Chart Family
+  [ 1] ---- :: Process Capability
+  [ 2] ---- :: Acceptance Sampling and OC Curves
+  [ 3] MISADJ|dup :: Six Sigma Named Honestly
+  [ 4] ---- :: FETs as variable resistors
+  [ 5] ---- :: Six DACs
+  [ 6] junkC|auto:remove :: Light acceptance 617 29.13 Simplification of the approximate
+-- ch8
+  [ 0] ---- :: The Map: Layout to Delivery
+  [ 1] ---- :: Line Balancing Priced
+  [ 2] ---- :: The Doorsteps: Projects, CIM, Markets
+### robotics-and-automation
+-- ch1
+  [ 0] dup :: Anatomy and Degrees of Freedom
+  [ 1] ---- :: The Configuration Census
+  [ 2] ---- :: Workspaces and Safety Stated Early
+  [ 3] ---- :: Mechatronics and Robotics
+  [ 4] junkC|auto:remove :: Loop Biquad 1041 15.4.7 Generating Triangular
+  [ 5] MISADJ :: A brief history
+-- ch2
+  [ 0] MISADJ :: Rotation Matrices Composed
+  [ 1] dup :: Euler Angles and Their Singularity
+  [ 2] ---- :: The Homogeneous Transform
+  [ 3] ---- :: The DH Convention Earned
+  [ 4] junkC|dup|auto:remove :: A Closer Look at Mutual Inductance 203 9.7 Source Transformations and Thévenin–Norton
+  [ 5] MISADJ :: Using Special Source Transformation
+-- ch3
+  [ 0] ---- :: DH Frames Through the Chain
+  [ 1] ---- :: The Chain Product Worked
+  [ 2] ---- :: Workspace Mapped from Kinematics
+-- ch4
+  [ 0] ---- :: Multiple Solutions Priced
+  [ 1] ---- :: Closed Form: the Planar Arm
+  [ 2] ---- :: Wrist Partitioning for Real Arms
+  [ 3] ---- :: Numerical Routes Glanced
+  [ 4] junkC|auto:remove :: Problems 765 Loop Response
+-- ch5
+  [ 0] ---- :: The Jacobian Derived and Read
+  [ 1] ---- :: Singularities Priced on Real Postures
+  [ 2] ---- :: Static Forces: the Transpose Duality
+  [ 3] MISADJ|junkSusp :: An Alternative Approach for 13.1.3 DC VoltageGain
+-- ch6
+  [ 0] auto:move-chapter :: The Lagrangian Route for Arms
+  [ 1] ---- :: Cubic and Quintic Trajectories
+  [ 2] MISADJ :: Blends and the Time-Scaling Craft
+  [ 3] ---- :: Butterworth Polynomials up to the Eighth
+-- ch7
+  [ 0] ---- :: Joint Servos: PD and PID
+  [ 1] ---- :: The Sensor Census
+  [ 2] ---- :: Grippers and Programming
+  [ 3] dup :: Modified flash encoders
+-- ch8
+  [ 0] ---- :: Flow Lines and Transfer Machines
+  [ 1] ---- :: Cells, AGVs and the Control Hierarchy
+  [ 2] ---- :: The IIoT Doorstep
+  [ 3] ---- :: The Honest Economics of Automation
+  [ 4] MISADJ :: Logic family chronology – a brief history
+### cad-cam
+-- ch1
+  [ 0] ---- :: CAD, CAM, CIM Located
+  [ 1] ---- :: The Integration-Tools Census
+  [ 2] ---- :: The Data Ladder
+  [ 3] junkC|auto:remove :: The Oscillation Criterion 1068 16.2 Digital Logic Inverters
+  [ 4] MISADJ :: Multiplexed LED digital display
+  [ 5] ---- :: On-board interconnections
+  [ 6] ---- :: R–2R ladder DACs
+  [ 7] junkC|auto:remove :: The AND function 533 25.9 Digital or analogue?
+  [ 8] junkC|auto:remove :: Digital oscilloscope 950 Index
+-- ch2
+  [ 0] ---- :: Wireframe, Surface, Solid
+  [ 1] ---- :: CSG and B-rep
+  [ 2] auto:move :: Transformations by Matrices
+  [ 3] ---- :: Feature-Based Parametric Practice
+-- ch3
+  [ 0] ---- :: Bezier: Bernstein Blends
+  [ 1] ---- :: B-splines and Local Control
+  [ 2] ---- :: NURBS: the Industry’s One Curve
+  [ 3] ---- :: Surfaces and Their Continuity
+-- ch4
+  [ 0] ---- :: IGES and STEP Priced
+  [ 1] ---- :: Model-Based Definition Glanced
+  [ 2] ---- :: PDM and Change Control
+  [ 3] ---- :: Step 3: getting to e_n
+  [ 4] ---- :: A.1 Preliminary Steps
+-- ch5
+  [ 0] ---- :: The G/M Vocabulary as a Language
+  [ 1] ---- :: A Turning Program Written
+  [ 2] ---- :: A Milling Program Written
+  [ 3] ---- :: CAM-Generated and Adaptive
+-- ch6
+  [ 0] ---- :: The Layer-Wise Idea
+  [ 1] ---- :: The Seven Process Families
+  [ 2] ---- :: Design for Additive
+  [ 3] dup :: The Applications Census
+-- ch7
+  [ 0] ---- :: CIM: the Honest Integration
+  [ 1] ---- :: CAPP: Variant and Generative
+  [ 2] ---- :: FMS and Cell Control
+  [ 3] ---- :: Machine Data and OEE
+  [ 4] ---- :: Stand-alone versus integrated
+-- ch8
+  [ 0] ---- :: The Digital Thread Drawn
+  [ 1] dup :: The Digital Twin Named Honestly
+  [ 2] MISADJ :: OT Security Named
+  [ 3] ---- :: The Mechanical Branch’s Map
+### materials-science
+-- ch1
+  [ 0] ---- :: The One Triangle
+  [ 1] ---- :: The Family Census by Bonding
+  [ 2] ---- :: Selection Vocabulary Promised
+  [ 3] junkSusp :: Materials Science — electrical engineering materials; crystal structure and defects; ceramic ma
+  [ 4] junkC|auto:remove :: Physical Structure 150 Bootstrapping
+  [ 5] junkC|auto:remove :: Summary 169 5.1.1 Device Structure
+  [ 6] auto:remove :: Structure of Actual Transistors
+  [ 7] junkC|auto:remove :: Summary 1057 16.1.3 General Structure of CMOS
+  [ 8] MISADJ|junkSusp|dup :: Using Phasor Diagrams to Analyze a F(s) Has Repeated Complex Roots
+  [ 9] junkSusp|auto:move :: Using Phasor Diagrams to Analyze Capacitive Improper Rational Function
+  [10] junkC|dup|auto:remove :: Source coding 609 29.6 Phasor diagram for an ideal loaded
+-- ch2
+  [ 0] MISADJ :: The Four Bond Families Priced
+  [ 1] ---- :: Bond Curves: the Modulus Earned
+  [ 2] dup :: Density Arithmetic
+  [ 3] MISADJ :: Short contents
+-- ch3
+  [ 0] ---- :: The Structure Census and Packing
+  [ 1] ---- :: Anisotropy and Allotropy
+  [ 2] ---- :: Bragg’s Law at Engineering Depth
+  [ 3] junkSusp|auto:remove :: Electrical Materials — electrical engineering materials, crystal structures and defects, cerami
+  [ 4] junkC|dup|auto:remove :: Some Mathematical Properties 673 Appendix C More on Magnetically
+-- ch4
+  [ 0] ---- :: Point Defects and Solid Solutions
+  [ 1] ---- :: Dislocations: the Ductility Engine
+  [ 2] ---- :: Grain Boundaries and Faces
+-- ch5
+  [ 0] ---- :: Fick’s Two Laws
+  [ 1] dup :: Arrhenius and Activation Energy
+  [ 2] ---- :: Carburising Priced
+-- ch6
+  [ 0] ---- :: True versus Engineering
+  [ 1] dup :: The Hardness Census
+  [ 2] ---- :: Impact and the Ductile-Brittle Transition
+-- ch7
+  [ 0] ---- :: Grain Refinement and Hall-Petch
+  [ 1] ---- :: Work Hardening and Recrystallisation
+  [ 2] ---- :: Fatigue and Creep Named and Routed
+  [ 3] ---- :: Brittleness and the NDT Glance
+-- ch8
+  [ 0] ---- :: Lever Rules and Tie Lines
+  [ 1] ---- :: The Fe-C Map Read Fluently
+  [ 2] ---- :: TTT Curves and Heat Treatment
+  [ 3] ---- :: Hardenability: the Jominy Craft
+  [ 4] MISADJ :: Unity-gain phase splitter
+  [ 5] junkC|dup|auto:remove :: Practical Perspective: Surge Suppressors 520 16.9 Amplitude and Phase Spectra
+  [ 6] MISADJ|junkSusp :: Plotting the Amplitude and Phase Spectra for a
+  [ 7] junkC|auto:remove :: Binary addition 519 24.6 Deconvolution
+  [ 8] MISADJ|dup :: Signed binary multiplication
+  [ 9] MISADJ|dup :: Signed binary division
+-- ch9
+  [ 0] dup :: Steels and Cast Irons
+  [ 1] ---- :: The Non-Ferrous Niches
+  [ 2] ---- :: Polymers and Ceramics Honestly
+  [ 3] ---- :: Composites and Rule of Mixtures
+  [ 4] ---- :: Some representative JFETs: a brief tour
+-- ch10
+  [ 0] ---- :: The Galvanic Couple Priced
+  [ 1] dup :: Corrosion Forms and Prevention
+  [ 2] ---- :: Degradation Beyond Metals
+  [ 3] ---- :: The Selection Doorstep: Ashby Named
+### circuit-theory-and-network-analysis
+-- ch1
+  [ 0] dup :: The Passive Sign Convention as Law
+  [ 1] dup :: Sources, Ideal and Dependent
+  [ 2] ---- :: R, L, C: One Dissipator, Two Storers
+  [ 3] ---- :: The Lumped Approximation and Its Doorstep
+  [ 4] junkSusp :: Obtaining Linear Amplification by 8.2 IC Biasing: Current Sources and Current
+  [ 5] junkC|auto:remove :: Simulation Circuit 1034 15.4.3 Triggering the Bistable Circuit
+  [ 6] junkC|auto:remove :: Two-Integrator Loop 1040 15.4.6 Generating Square Waveforms
+  [ 7] junkC|auto:remove :: Circuit Implementation 1042 Waveforms
+  [ 8] junkSusp|auto:move :: An Alternative Two-Integrator-Loop 15.4.8 Generation of Sine Waves
+  [ 9] junkC|auto:remove :: Biquad Circuit 1044 Summary
+  [10] MISADJ :: The Two-Input NOR Gate
+  [11] MISADJ :: The Two-Input NAND Gate
+  [12] MISADJ :: Two important details
+  [13] junkC|dup|auto:remove :: And RC Circuits 220 Practical Perspective: A Household Distribution
+  [14] junkC|dup|auto:remove :: Practical Perspective: Artificial Pacemaker 221 Circuit
+  [15] junkC|auto:remove :: Timing 308 Circuits
+  [16] junkSusp|dup|auto:move :: Adding a Resistive Load to a Voltage 4.19 Finding the Thévenin Equivalent of a Circuit
+  [17] junkSusp :: Divider 65 with Dependent Sources and Resistors
+  [18] junkSusp :: Using a d’Arsonval Voltmeter 72 Dependent Sources
+  [19] junkSusp|auto:remove :: Determining Average Power Delivered to a 13.1 Transforming a Circuit into the s Domain
+  [20] junkC|auto:remove :: 13.14 A Circuit with Both Internally Generated
+  [21] junkC|auto:remove :: Analyzing a Wye-Wye Circuit 420 and Externally Applied Impulses
+  [22] junkC|auto:salvage :: Circuit 276 15.1 Normalized (so that ω c = 1 rad s)
+  [23] junkC|auto:remove :: Charging and discharging currents 110 8.1 Inductive and non-inductive circuits
+  [24] junkC|dup|auto:remove :: Summary of important formulae 163 10.1 Basic a.c. circuits
+  [25] junkC|auto:remove :: Terms and concepts 163 10.2 Alternating current in a resistive circuit
+  [26] junkC|auto:remove :: Networks 400 20.19 Stabilizing voltages supplies
+  [27] junkC|auto:remove :: Distortion 415 20.28 Integrated circuits
+-- ch2
+  [ 0] ---- :: KCL and KVL as Conservation
+  [ 1] ---- :: The Node-Voltage Engine
+  [ 2] dup :: The Mesh-Current Engine
+  [ 3] ---- :: Supernodes, Supermeshes, Choice
+  [ 4] ---- :: Stuck-node tracer
+  [ 5] ---- :: Choosing a battery
+  [ 6] ---- :: Choosing a DAC
+  [ 7] junkC|auto:remove :: Summary 19 4.5 Introduction to the Mesh-Current
+  [ 8] MISADJ :: Using Essential Nodes and Essential Branches
+  [ 9] ---- :: A Special Case in the Mesh-Current
+  [10] junkC|auto:remove :: Mesh-Current Method 135 12.3 Four Useful Transform Pairs
+  [11] junkSusp|dup :: Permeability of free space or magnetic 9.11 Alternating system frequencies in practice
+-- ch3
+  [ 0] ---- :: Superposition Earned
+  [ 1] ---- :: Thevenin and Norton Priced
+  [ 2] ---- :: Maximum Power and Its Match
+  [ 3] ---- :: Reciprocity and Tellegen’s Audit
+  [ 4] junkSusp|dup :: Finding a Thévenin Equivalent in the Frequency of Finite Duration
+  [ 5] junkC|auto:remove :: Inductor and Capacitor Duality 198 13.1 Summary of the s-Domain Equivalent
+  [ 6] junkC|auto:remove :: Admittance, conductance and susceptance 269 15 Network Theorems Applied to
+  [ 7] junkC|auto:remove :: Log scales 368 20.4 Bridge rectifier network
+-- ch4
+  [ 0] ---- :: Phasors: the Coordinate Change
+  [ 1] auto:move-chapter :: Impedance Arithmetic
+  [ 2] ---- :: Complex Power and Power Factor
+  [ 3] ---- :: The AC Wattmeter Census
+  [ 4] junkSusp :: Determining R. and R 30 General Impedances
+  [ 5] dup :: Practical Perspective: Capacitive Touch 9.3 The Phasor
+  [ 6] junkC|dup|auto:remove :: And Capacitance 194 9.6 Series, Parallel, and Delta-to-Wye
+  [ 7] junkC|auto:remove :: Problems 715 Complex Poles
+  [ 8] ---- :: Applying a Delta-to-Wye Transform
+  [ 9] junkC|dup|auto:remove :: Applying Series-Parallel Simplification 62 4.17 Finding the Thévenin Equivalent Resistance
+  [10] junkSusp|auto:move :: Determining the Step Response of a Circuit with 9.5 Adding Cosines Using Phasors
+  [11] dup :: Designing a Fourth-Order Low-Pass Active Sinusoidal Steady-State Response
+  [12] junkC|dup|auto:remove :: Summary of important formulae 149 9.6 Average and r.m.s. values of sinusoidal
+  [13] MISADJ|dup :: Addition and subtraction of sinusoidal
+  [14] junkC|dup|auto:remove :: Polar admittances 259 14.9 Series resonance using complex notation
+  [15] MISADJ|dup :: Addition and subtraction of phasors
+  [16] junkC|auto:remove :: Parallel admittance 271 15.1 One stage further
+-- ch5
+  [ 0] ---- :: Resonance and Q Priced
+  [ 1] ---- :: Selectivity and Tuned Circuits
+  [ 2] ---- :: Mutual Inductance and the Dot Convention
+  [ 3] dup :: The Ideal Transformer at Circuit Level
+  [ 4] auto:move-chapter :: RLC Circuits and Natural, Forced and Complete Responses
+  [ 5] dup :: Damped Oscillation and the Quality Factor
+  [ 6] dup :: Series and Parallel Resonance
+  [ 7] ---- :: Magnetically Coupled Circuits and Ideal Transformers
+  [ 8] junkSusp|dup|auto:move :: Basic Electrical Engineering — DC circuits: Ohm's and Kirchhoff's laws, mesh and nodal analysis
+  [ 9] MISADJ :: Graphical Analysis Using the MOSFET
+  [10] junkSusp :: Iterative Analysis Using the 5.4 Technology Scaling (Moore’s Law) and
+  [11] junkC|auto:remove :: The Need for Rapid Analysis 193 5.4.1 Technology Scaling
+  [12] MISADJ :: The Role of the Substrate—The Body Analysis
+  [13] ---- :: Bandwidth Extension
+  [14] junkC|auto:remove :: Mutual Inductance 199 Simplifications
+  [15] MISADJ|dup :: Finding the Unbounded Response in an RC
+  [16] junkSusp|dup :: Finding Finding v, p, and w Induced by a 8.6 Finding the Overdamped Step Response of a
+  [17] junkC|dup|auto:remove :: Finding the Equivalent Inductance 196 8.7 Finding the Underdamped Step Response of a
+  [18] junkSusp :: Calculating the Coupling Coefficient and Stored 8.9 Comparing the Three-Step Response
+  [19] junkC|auto:remove :: PSpice Sensitivity Analysis Results 133 12.2 An Abbreviated List of Operational
+  [20] junkC|auto:remove :: Network Theorems Applied to AC Networks 325 39 Motor Selection and Efficiency
+  [21] junkC|dup|auto:remove :: Analysis of growth and decay 113 8.3 Inductance in terms of flux-linkages
+  [22] junkC|dup|auto:remove :: Summary of important formulae 130 8.11 Mutual inductance
+  [23] junkC|dup|auto:remove :: Summary of important formulae 244 14 Resonance in AC Circuits
+  [24] MISADJ|junkSusp :: Analysis of the resultant flux due to
+-- ch6
+  [ 0] ---- :: Why Three Phase Won
+  [ 1] ---- :: Line-versus-Phase Arithmetic
+  [ 2] ---- :: The Two-Wattmeter Method
+  [ 3] ---- :: Unbalanced Glances Routed
+  [ 4] ---- :: Darlington connection
+  [ 5] MISADJ :: "Two out of three isn't bad": creating a perfect op-amp
+  [ 6] ---- :: Interboard connections
+  [ 7] junkSusp|auto:remove :: Using the General Solution Method to Find an 9.2 Finding the Characteristics of a Sinusoidal
+-- ch7
+  [ 0] ---- :: First-Order: the Time Constant
+  [ 1] ---- :: Second-Order: the Three Regimes
+  [ 2] ---- :: The Initial- and Final-Value Craft
+  [ 3] ---- :: The Laplace Route Named
+  [ 4] junkSusp|auto:remove :: Engineering Mathematics — matrix theory, eigen values and eigen vectors; numerical methods for 
+  [ 5] junkC|auto:remove :: The Resonator Poles 1029 15.2.5 A Final Remark
+  [ 6] MISADJ|dup :: A final remark
+  [ 7] MISADJ :: Sequential Switching
+  [ 8] dup :: Practical Perspective: Transmission and Practical Perspective: Pushbutton Telephone
+  [ 9] junkC|dup|auto:remove :: Transform 444 Practical Perspective: Bass Volume
+  [10] junkC|dup|auto:remove :: Practical Perspective: Surge Suppressors 483 16.1 Fourier Series Analysis: An Overview
+  [11] junkSusp :: Using the General Solution Method to Find an 9.4 Calculating the rms Value of a Triangular
+-- ch8
+  [ 0] dup :: Poles and Zeros as Character
+  [ 1] ---- :: The Frequency Response Read
+  [ 2] ---- :: Bode’s Craft Introduced
+  [ 3] ---- :: Resonance Re-Read from the Poles
+  [ 4] junkC|auto:remove :: Summary 561 10 Frequency Response
+  [ 5] ---- :: Increasing /^ by Eliminating the Miller Poles
+  [ 6] junkC|auto:remove :: Introduction 888 13.2.4 Frequency Response
+  [ 7] junkC|auto:remove :: Issues in Deep-Submicron Design 1179 D. Some Useful Network Theorems
+  [ 8] junkC|auto:remove :: The Inductor 184 Domain
+  [ 9] junkC|dup|auto:remove :: Poles and Zeros of F(s) 470 Practical Perspective: Bass Volume
+  [10] junkC|auto:remove :: Load Restrictions 395 13.9 Deriving the Transfer Function of a Circuit
+  [11] junkC|auto:remove :: Logarithms 365 20.3 Full-wave rectifier network
+  [12] junkC|auto:remove :: Frequency response 407 20.23 IGFET
+-- ch9
+  [ 0] ---- :: The Parameter Families Defined
+  [ 1] dup|auto:remove :: Conversions and Equivalent Circuits
+  [ 2] ---- :: Cascades by ABCD
+  [ 3] dup :: The Applications Census
+  [ 4] junkSusp|auto:move :: Communication networks — principles/practices/technologies/uses; OSI model/security; basic pack
+  [ 5] junkC|auto:remove :: Types 1037 15.4.5 A Bistable Circuit with Noninverting
+  [ 6] MISADJ :: ADC Technologies
+  [ 7] junkSusp :: Delta-to-Wye (Pi-to-Tee) Equivalent 5.7 A More Realistic Model for the Operational
+  [ 8] ---- :: Analyzing Two Cascaded Integrating Amplifiers
+  [ 9] junkC|dup|auto:remove :: Designing a High-Q Bandpass Filter 602 18.1 Finding the z Parameters of a Two-Port
+  [10] junkC|dup|auto:remove :: Stopband (or bandstop) filters 382 20.9 Common-base and common-emitter circuits
+  [11] junkC|dup|auto:remove :: 2-port Networks 388 20.11 Static characteristics for a common-emitter circuit
+  [12] junkC|auto:remove :: The need for conversion 499 sequential circuits
+-- ch10
+  [ 0] ---- :: The Graph Beneath the Circuit
+  [ 1] ---- :: Cut Sets and Loop Systematics
+  [ 2] ---- :: State Variables as Description
+  [ 3] ---- :: The Doorsteps: Energised, Feedback, Switched
+  [ 4] ---- :: Driving Cables
+### electrical-machines
+-- ch1
+  [ 0] ---- :: Force from Field Energy
+  [ 1] ---- :: Co-Energy and Torque
+  [ 2] ---- :: The Conversion Cycle Drawn
+  [ 3] ---- :: The Machine Census Located
+-- ch2
+  [ 0] dup|auto:move-chapter :: The Equivalent Circuit Earned
+  [ 1] ---- :: OC and SC Tests as Identification
+  [ 2] dup :: Regulation and All-Day Efficiency
+  [ 3] ---- :: The Autotransformer’s Honest Note
+  [ 4] MISADJ :: RFID: Identification at a Distance
+  [ 5] junkC|auto:remove :: Parseval’s Theorem 681 Transformers
+  [ 6] junkC|dup|auto:remove :: Summary 688 C.2 The Need for Ideal Transformers
+  [ 7] MISADJ|junkSusp|dup :: Analyzing a Linear Transformer in the Frequency F(s) Has Distinct Complex Roots
+  [ 8] junkC|dup|auto:remove :: Growth and decay 111 8.2 Unit of inductance
+  [ 9] junkC|dup|auto:remove :: Summary of important formulae 611 transformer
+  [10] junkC|auto:remove :: Terms and concepts 611 29.7 Useful and leakage fluxes in a transformer
+  [11] junkC|dup|auto:remove :: Summary of important formulae 621 transformer
+  [12] junkC|auto:remove :: Principle of action of a transformer 648 Terms and concepts
+-- ch3
+  [ 0] ---- :: The Connection Census
+  [ 1] dup :: Vector Groups by the Clock
+  [ 2] ---- :: Parallel Operation’s Conditions
+  [ 3] ---- :: Tap Changers and Cooling Glanced
+  [ 4] ---- :: "Poles" and decibels per octave
+-- ch4
+  [ 0] ---- :: EMF, Armature Reaction, Commutation
+  [ 1] ---- :: The Family Characteristics
+  [ 2] ---- :: Speed Control and Ward-Leonard
+  [ 3] ---- :: Starters, Losses, the Honest Decline
+  [ 4] ---- :: DC Generators: Construction, Commutation and Characteristics
+  [ 5] ---- :: DC Motors: Speed Control and Starting
+  [ 6] auto:move-chapter :: Three-Phase Induction Motors: Construction and Slip
+  [ 7] auto:move-chapter :: Alternators and Synchronous Machines
+  [ 8] auto:move-chapter :: Single-Phase Motors: Split Phase, Capacitor and Universal
+  [ 9] dup :: Obtaining Wideband (Shunt-Series)
+  [10] auto:move-chapter :: Reluctance motor
+  [11] ---- :: Stator windings
+  [12] ---- :: Expression for the e.m.f. of a stator winding
+  [13] junkSusp|dup :: Experimental tests to obtain motor 36 Direct-current Machines
+  [14] junkC|auto:remove :: Braking 748 36.4 Armature reaction
+  [15] junkC|dup|auto:remove :: Summary of important formulae 868 40.12 Soft-starting induction motors
+  [16] auto:move-chapter :: Selecting a motor
+-- ch5
+  [ 0] ---- :: The Rotating Field Earned
+  [ 1] ---- :: Slip and Torque Arithmetic
+  [ 2] dup :: The Equivalent Circuit Identified
+  [ 3] ---- :: Power Flow and Losses
+  [ 4] ---- :: Starting and Speed Control
+  [ 5] junkC|auto:remove :: Motor fitted with a cage rotor 747 36.3 Calculation of e.m.f. generated in an
+-- ch6
+  [ 0] ---- :: The Double-Revolving-Field Honesty
+  [ 1] ---- :: The Starting Fixes
+  [ 2] ---- :: BLDC, Stepper, Servo Glanced
+-- ch7
+  [ 0] ---- :: EMF and Winding Factors
+  [ 1] ---- :: Regulation by Two Methods
+  [ 2] auto:remove :: Power-Angle and Parallel Operation
+  [ 3] ---- :: Salient-Pole: the Two-Reaction Note
+  [ 4] ---- :: Synchronous Motors and V-Curves
+  [ 5] MISADJ :: Parallel chip "bus" interface – an example
+-- ch8
+  [ 0] ---- :: The Loss Census Across Families
+  [ 1] MISADJ :: Efficiency Tested Indirectly
+  [ 2] dup :: The Doorsteps: Grid, Drive, Renewables
+### power-systems
+-- ch1
+  [ 0] ---- :: The Grid as One Machine
+  [ 1] ---- :: The Generation Census
+  [ 2] ---- :: AC, DC and the HVDC Honest Note
+  [ 3] ---- :: The One-Line Diagram as Language
+  [ 4] junkC|auto:remove :: Frequency Compensation 858 (CMRR)
+  [ 5] junkC|auto:remove :: Power Dissipation 894 13.2.7 Increasing the Output Voltage Range
+  [ 6] MISADJ :: Unity-gain power buffers
+  [ 7] MISADJ :: Commercial power-supply modules
+  [ 8] MISADJ|dup :: Single-pulse generation with flip-flops and counters
+  [ 9] MISADJ :: ADE7753 multifunction ac power metering IC
+  [10] ---- :: Pseudorandom bit sequences and noise generation
+  [11] MISADJ|junkSusp|dup :: Practical Perspective: Balancing Power 18 Cases
+  [12] junkC|dup|auto:remove :: Unbounded Response 250 Practical Perspective: Vampire Power
+  [13] junkC|auto:remove :: Summary 256 10.3 The RMS Value and Power Calculations
+  [14] MISADJ|dup :: Practical Perspective: Vampire Power
+  [15] junkSusp :: The Step Response of a Parallel RLC and Distribution of Electric Power
+  [16] dup :: Practical Perspective: Characterizing E.6 Straight-Line Amplitude Plots
+  [17] junkC|auto:remove :: Summary 714 E.7 Correcting Straight-Line Amplitude Plots for
+  [18] ---- :: Making Power Calculations Involving Household
+  [19] junkC|auto:remove :: Powers of 10 10 Household Appliances
+  [20] MISADJ :: Average Power Consumption of Common
+  [21] junkC|dup|auto:remove :: Force on a current-carrying conductor 140 9.2 Generation of an alternating e.m.f
+  [22] MISADJ :: Distributed/Embedded generation
+-- ch2
+  [ 0] ---- :: The Idea and Its Bases
+  [ 1] dup :: Base Conversion Worked
+  [ 2] ---- :: The Per-Unit Network Built
+  [ 3] junkC|dup|auto:remove :: Load Impedance Restriction 396 13.11 Using the Convolution Integral to Find an
+-- ch3
+  [ 0] ---- :: Inductance from Geometry
+  [ 1] ---- :: Capacitance and Bundling
+  [ 2] ---- :: The Nominal Models and Classes
+  [ 3] junkC|auto:remove :: Breakdown and Input Protection 290 7.2 Small-Signal Operation and Models
+-- ch4
+  [ 0] dup :: Regulation and Efficiency
+  [ 1] ---- :: Ferranti and SIL
+  [ 2] dup :: Series and Shunt Compensation
+  [ 3] ---- :: The Reactive Bookkeeping
+  [ 4] junkC|dup|auto:remove :: Practical Perspective: Artificial Pacemaker 255 10.2 Average and Reactive Power
+  [ 5] junkC|auto:remove :: Calculating Average and Reactive Power 380 Theorems
+  [ 6] junkC|auto:remove :: Calculating Average and Reactive Power 389 13.5 Analyzing a Circuit with Multiple Meshes
+-- ch5
+  [ 0] ---- :: The Field Around a Conductor
+  [ 1] ---- :: String Efficiency and Grading
+  [ 2] ---- :: Corona Priced Honestly
+  [ 3] ---- :: Cables and Their Thermal Limits
+  [ 4] ---- :: Coaxial cable
+  [ 5] ---- :: Resistor-string DACs
+-- ch6
+  [ 0] ---- :: The Y-Bus Built
+  [ 1] ---- :: Gauss-Seidel, Honestly Slow
+  [ 2] dup :: Newton-Raphson and the Jacobian
+  [ 3] ---- :: Fast-Decoupled and Distribution Glances
+-- ch7
+  [ 0] ---- :: Fault MVA by Thevenin
+  [ 1] ---- :: The Breaker’s Duty Priced
+  [ 2] ---- :: Arc Physics Glanced Honestly
+  [ 3] ---- :: The Duration Discipline
+  [ 4] MISADJ :: A riff on robust input protection
+  [ 5] junkC|auto:remove :: Summary 309 11.6 Measuring Average Power in Three-Phase
+-- ch8
+  [ 0] ---- :: Fortescue’s Components Earned
+  [ 1] ---- :: Sequence Impedances Assembled
+  [ 2] ---- :: The LG Fault Priced
+  [ 3] ---- :: The LL and LLG Faults Priced
+-- ch9
+  [ 0] ---- :: The Relay Idea and Its Curves
+  [ 1] ---- :: Directional and Differential Craft
+  [ 2] dup :: Distance Protection in the R-X Plane
+  [ 3] ---- :: CTs, PTs and Their Honest Burden
+  [ 4] ---- :: Gain-setting resistors
+  [ 5] ---- :: Optocouplers and relays
+-- ch10
+  [ 0] ---- :: The Swing Equation Earned
+  [ 1] ---- :: Equal-Area Worked
+  [ 2] ---- :: Voltage and Frequency Control
+  [ 3] ---- :: Economic Dispatch with Losses
+  [ 4] dup :: The Synthesis and Doorsteps
+  [ 5] ---- :: Higher stability: TCXO, OCXO, and beyond
+  [ 6] junkC|dup|auto:remove :: Calculating Power in Parallel Loads 390 13.6 Creating a Thévenin Equivalent in the
+### control-systems
+-- ch1
+  [ 0] ---- :: Open versus Closed, Priced
+  [ 1] ---- :: Two Historical Engines
+  [ 2] dup :: The Component Census
+  [ 3] junkC|auto:remove :: Miller’s Theorem 699 11 Feedback
+  [ 4] ---- :: Gain Desensitivity
+  [ 5] MISADJ :: Basic Principles of Sinusoidal and Vice Versa
+  [ 6] ---- :: Gain nonlinearity
+  [ 7] MISADJ :: Feedback shift register sequences
+-- ch2
+  [ 0] ---- :: The Analogous Structures
+  [ 1] ---- :: Linearisation and Its Limits
+  [ 2] ---- :: Transfer Functions Earned
+-- ch3
+  [ 0] ---- :: Block-Diagram Algebra
+  [ 1] ---- :: Signal-Flow Graphs Drawn
+  [ 2] ---- :: Mason’s Gain Rule Earned
+  [ 3] junkC|dup|auto:remove :: Basic Principles 366 8 Building Blocks of Integrated
+  [ 4] MISADJ|dup :: ADCs I: Parallel ("flash") encoder
+-- ch4
+  [ 0] ---- :: Second-Order Specs Priced
+  [ 1] ---- :: The Dominant-Pole Honesty
+  [ 2] ---- :: System Types and Error Constants
+  [ 3] ---- :: Disturbance Rejection Priced
+  [ 4] junkSusp|dup|auto:remove :: Microwave and satellite communication — terrestrial/space type LOS systems, block schematics, l
+  [ 5] junkSusp :: Evaluating the Frequency Response 2.6.3 Effect of Vos and IOs on the Operation
+  [ 6] junkC|dup|auto:remove :: Investigating Stability 855 13.1.4 Common-Mode Rejection Ratio
+  [ 7] MISADJ :: Active peak detector
+  [ 8] junkC|auto:remove :: Frequency Domain 341 12.1 Using Step Functions to Represent a Function
+-- ch5
+  [ 0] MISADJ :: Stability Stated Honestly
+  [ 1] ---- :: Routh-Hurwitz Worked
+  [ 2] ---- :: The Special Cases Solved
+  [ 3] junkSusp :: Increasing fH by Buffering the Input 11.7 The Stability Problem
+  [ 4] MISADJ :: Some comments about logic inputs
+-- ch6
+  [ 0] ---- :: The Rules Earned One by One
+  [ 1] ---- :: Design by Locus
+  [ 2] dup :: Poles and Zeros Added
+  [ 3] ---- :: The jomega Crossings
+  [ 4] junkC|dup|auto:remove :: Loading Effects 358 12.8 Finding and Plotting the Poles and Zeros of an
+-- ch7
+  [ 0] ---- :: Bode Drawn Fluently
+  [ 1] ---- :: Margins Read Honestly
+  [ 2] ---- :: Nyquist’s Criterion Earned
+  [ 3] ---- :: Mr and Bandwidth Priced
+-- ch8
+  [ 0] ---- :: Lag: the Steady-State Engine
+  [ 1] ---- :: Lead: the Phase-Margin Engine
+  [ 2] ---- :: Lag-Lead and the Trade-Off Census
+-- ch9
+  [ 0] ---- :: The Controller Census Priced
+  [ 1] ---- :: Ziegler-Nichols Tuning
+  [ 2] ---- :: Anti-Windup and the Honest Limits
+-- ch10
+  [ 0] ---- :: The Model and Its Solutions
+  [ 1] ---- :: Controllability and Observability
+  [ 2] ---- :: The Digital Glance
+  [ 3] ---- :: The Doorsteps: Drives, Servos, Processes
+  [ 4] junkSusp|auto:move :: Mechatronics — microprocessors and microcontrollers: architecture, programming, I/O, computer i
+  [ 5] junkC|auto:remove :: Nonlinear Amplitude Control 1073 (VTC)
+  [ 6] ---- :: Federico Faggin: A Pioneer in Microprocessor
+  [ 7] MISADJ :: Programmable logic – HDL entry
+  [ 8] MISADJ :: Implementation with a microcontroller
+  [ 9] ---- :: NMOS LSI interfacing
+  [10] junkC|auto:remove :: The hybrid stepping motor 876 and Actuators

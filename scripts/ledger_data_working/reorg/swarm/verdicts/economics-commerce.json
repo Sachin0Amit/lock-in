@@ -1,0 +1,1822 @@
+{
+ "agent": "economics-commerce",
+ "autoReview": [
+  {
+   "book": "foundation-economics",
+   "chapter": 9,
+   "title": "6-2 Taxes 120 Summary",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Salvaging a bare 'Taxes' lesson would duplicate ch9's authored 'Direct and Indirect' and ch3's 'Supply, Demand and Government Policies' (tax incidence); the TOC fragment should be removed instead."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Introductory",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "OCR fragment of 'Introductory Microeconomics: Introduction, Theory of Consumer Behaviour', which already exists intact in microeconomics ch1; nothing honest to move into my shelf."
+  },
+  {
+   "book": "political-science",
+   "chapter": 1,
+   "title": "Unit 2: Research Methodology and Methods",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Political-science owns its own research-methods unit; econometrics ch7 is panel/time-series registers - a wrong inbound target."
+  },
+  {
+   "book": "political-science",
+   "chapter": 10,
+   "title": "Current Affairs, including General Knowledge (national and international current affairs; political events; global environment; sports; awards and personalities; technology and science; cultural events; Indian business environment)",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Generic GK/current-affairs exam furniture; no honest home in international-economics ch9 (globalisation) - moving it there would pollute the specialist book."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 1,
+   "title": "Farmers?",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Cut-off question fragment (Mankiw elasticity box); contains no world-history topic."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 1,
+   "title": "PART IV The Economics of the Key Concepts",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC part furniture; no power-systems content (target was token-score noise)."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 1,
+   "title": "Society",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Orphan single-word fragment; no graphic-design content."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 3,
+   "title": "Demand 65 Key Concepts",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Page-number TOC run."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 4,
+   "title": "Computing Elasticity",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "First lesson of the Elasticities at First Pass chapter itself; cloud-computing target is pure token-score noise."
+  },
+  {
+   "book": "microeconomics",
+   "chapter": 1,
+   "title": "Introductory Microeconomics: Introduction",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Book-title fragment duplicating idx4 ('...Introduction, Theory of Consumer Behaviour') in the same chapter; foundation-economics ch1 already owns the intro register with authored lessons."
+  },
+  {
+   "book": "international-economics",
+   "chapter": 1,
+   "title": "FYI: The Legacy of Adam Smith and David Ricardo 55 4-4a Equilibrium",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Page-number TOC run; the Smith-Ricardo legacy is already covered by intl ch1's authored Ricardian lessons and foundation ch1's Adam Smith FYI."
+  },
+  {
+   "book": "development-economics",
+   "chapter": 2,
+   "title": "Employment: Growth, Informalisation and Issues",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "development-economics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Indian labour-market register (employment growth, informalisation) belongs with population and migration - the Todaro migration model lives in dev ch4; geography is the wrong discipline."
+  },
+  {
+   "book": "financial-economics",
+   "chapter": 1,
+   "title": "Financial Statements of Sole Proprietorship: Financial Statements",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Accounting ch3 Final Accounts is the specialist home for sole-proprietorship financial statements; the financial-economics copy is the duplicate to remove (public-economics was a nonsense target)."
+  },
+  {
+   "book": "business-studies",
+   "chapter": 1,
+   "title": "Internal Trade: Wholesale and Retail",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Internal (domestic wholesale/retail) trade is business-studies' own register; international-economics owns cross-border trade."
+  },
+  {
+   "book": "business-studies",
+   "chapter": 1,
+   "title": "Nature and Purpose of Business (Evolution and Fundamentals of Business)",
+   "verdict": "amend",
+   "action": "retitle",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "Nature and Purpose of Business",
+   "reason": "Core business-studies ch1 content; only the parenthetical NCERT part-title needs stripping (foundation-biology target was noise)."
+  },
+  {
+   "book": "accounting",
+   "chapter": 1,
+   "title": "The Theory Base of Accounting: Concepts and Standards",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "NCERT theory-base register line for accounting ch1's own concepts-and-standards lessons; foundation-physics target is noise."
+  },
+  {
+   "book": "accounting",
+   "chapter": 1,
+   "title": "Key Concept",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Bare TOC fragment."
+  },
+  {
+   "book": "financial-management-and-corporate-finance",
+   "chapter": 10,
+   "title": "Reconstitution of a Partnership Firm",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Accounting ch6's authored Admission Case / Retirement and Death / Dissolution Register already cover partnership reconstitution; moving would duplicate them."
+  },
+  {
+   "book": "banking",
+   "chapter": 1,
+   "title": "The Financial Markets Register",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Financial-markets landscape is banking ch1's institutional context; investment-analysis ch1 already has 'The Market Machinery'."
+  },
+  {
+   "book": "statistics-for-economics",
+   "chapter": 1,
+   "title": "Collection of Data",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "NCERT unit of statistics-for-economics ch1 itself (object-oriented-programming target is token noise)."
+  },
+  {
+   "book": "statistics-for-economics",
+   "chapter": 1,
+   "title": "Organisation and Presentation of Data",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Core ch1 register (sociology target is noise)."
+  },
+  {
+   "book": "statistics-for-economics",
+   "chapter": 6,
+   "title": "The Labour Registers",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Official labour-statistics registers of the Official Data System chapter (obstetrics-gynaecology target is noise)."
+  },
+  {
+   "book": "business-mathematics",
+   "chapter": 7,
+   "title": "The Theory Cross-Reference",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Probability-theory cross-reference belongs in the business-mathematics probability chapter (trigonometry target is noise)."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "title": "General Introduction",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Generic OCR fragment; contains no economics content - must not land in microeconomics."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "title": "An Introduction",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Generic OCR fragment; no economics content."
+  },
+  {
+   "book": "physical-chemistry",
+   "chapter": 1,
+   "title": "A1.3 Graphing Functions A6",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Appendix-code fragment; business-mathematics ch4 already has 'The Function Craft'."
+  },
+  {
+   "book": "financial-economics",
+   "chapter": 4,
+   "title": "The Two Lines",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "CML/SML two lines is the CAPM chapter's own geometry; ch4 is already the flagged thin chapter - the move would gut it."
+  },
+  {
+   "book": "financial-economics",
+   "chapter": 6,
+   "title": "The Two Uses Census",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Hedging and speculation (the two uses of derivatives) is derivatives-foundations content; ch2 risk-and-return has no derivatives slot."
+  },
+  {
+   "book": "cost-accounting",
+   "chapter": 4,
+   "title": "The Overhead Census",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "The overhead census opens the Overhead Machinery chapter; ch1 cost sheet has its own authored lessons."
+  },
+  {
+   "book": "behavioural-economics",
+   "chapter": 6,
+   "title": "The Ethics Register",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Nudge ethics is core choice-architecture content; international-business's Global CSR frame is a different subject - not a duplicate."
+  },
+  {
+   "book": "business-studies",
+   "chapter": 1,
+   "title": "The Classification",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Classification of business forms is ch1's opening lesson; the music-history link is token noise."
+  },
+  {
+   "book": "accounting",
+   "chapter": 3,
+   "title": "Financial Statements of Sole Proprietorship: Accounts from Incomplete Records",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Accounting ch3 Final Accounts IS the specialist home (single-entry/statement-of-affairs); the public-economics claim is spurious - the financial-economics copy is the duplicate."
+  },
+  {
+   "book": "monetary-economics",
+   "chapter": 7,
+   "title": "The 2008 Chain",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "'2008' is a year, not a page number - the global-financial-crisis chain is core Instability-and-Crisis content."
+  },
+  {
+   "book": "human-resource-management",
+   "chapter": 5,
+   "title": "The 360 Register",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "'360' is 360-degree feedback - core performance-management content, not a page run."
+  },
+  {
+   "book": "development-economics",
+   "chapter": 2,
+   "title": "Liberalisation, Privatisation and Globalisation: The 1991 Appraisal",
+   "verdict": "veto",
+   "action": "",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "'1991' is a year, not a page number - the LPG appraisal is core Indian development register."
+  },
+  {
+   "book": "public-economics",
+   "chapter": 1,
+   "title": "15-1 Why Monopolies Arise",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "microeconomics",
+   "targetChapter": 6,
+   "newTitle": "Why Monopolies Arise",
+   "reason": "Salvage: a real topic (barriers to entry/natural monopoly) missing from micro ch6's authored list - strip the section code and give it its specialist home."
+  }
+ ],
+ "misplaced": [
+  {
+   "book": "foundation-economics",
+   "chapter": 1,
+   "title": "Organize Economic Activity",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Cut-off fragment of Principle 6 (markets organize economic activity); the invisible-hand register is covered by ch1's 'FYI: Adam Smith and the Invisible Hand'."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 1,
+   "title": "Miniature Golf",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Orphan cut-off fragment; no honest topic."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 1,
+   "title": "IN THE NEWS: Europe versus Google",
+   "action": "move",
+   "targetBook": "foundation-economics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "EU antitrust case against Google is a monopoly/market-structures news case; belongs in the first-pass firm-and-market-structures chapter, not the economic problem."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 3,
+   "title": "The Clearing Price",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Market-clearing price IS the demand-supply equilibrium concept of ch3."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 3,
+   "title": "Elasticity and Its Applications",
+   "action": "move",
+   "targetBook": "foundation-economics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Elasticity content belongs in the Elasticities at First Pass chapter."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 3,
+   "title": "Earnings and Discrimination",
+   "action": "move",
+   "targetBook": "microeconomics",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Labour earnings and discrimination are factor-market content; micro ch8 Factor Markets is the specialist register (foundation has no labour chapter)."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 3,
+   "title": "ASK THE EXPERTS: The Laffer Curve",
+   "action": "move",
+   "targetBook": "foundation-economics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Tax-rate vs revenue debate is government-and-policy first-pass content (ch9 owns the budget/tax register)."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 3,
+   "title": "11-3a The Tragedy of the Commons",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Section-code TOC fragment; commons content is covered by the 'Externalities, Public Goods and Common Resources' lesson (itself moving to ch5)."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 4,
+   "title": "The Time Honesty",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Time-horizon of elasticities (short-run vs long-run) is core elasticity content."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 4,
+   "title": "Percentage Changes and Elasticities",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Percentage-change arithmetic underlies elasticity computation."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 5,
+   "title": "The Remedy Register",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Remedies for market failure are ch5's own register."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 6,
+   "title": "4-1b What Is Competition?",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Section-code TOC fragment; the competition definition is covered by ch6's Structure Census."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 7,
+   "title": "Questions for Review",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Book-end furniture, not a lesson."
+  },
+  {
+   "book": "microeconomics",
+   "chapter": 6,
+   "title": "The Mark-Up Arithmetic",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Monopoly mark-up arithmetic is core ch6 content."
+  },
+  {
+   "book": "microeconomics",
+   "chapter": 8,
+   "title": "ASK THE EXPERTS: Congesting Pricing",
+   "action": "move",
+   "targetBook": "microeconomics",
+   "targetChapter": 10,
+   "newTitle": "ASK THE EXPERTS: Congestion Pricing",
+   "reason": "Congestion pricing is an externality application (ch10 Externalities Priced); fix the OCR typo en route."
+  },
+  {
+   "book": "microeconomics",
+   "chapter": 10,
+   "title": "The Remedy Register",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Intermediate-level failure remedies; genuinely distinct from foundation ch5's first-pass register (ladder design)."
+  },
+  {
+   "book": "macroeconomics",
+   "chapter": 7,
+   "title": "PART I Introduction 1 2-2 The Economist as Policy Adviser",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC part/section run."
+  },
+  {
+   "book": "macroeconomics",
+   "chapter": 7,
+   "title": "17-3b Controversies over Antitrust Policy",
+   "action": "move",
+   "targetBook": "microeconomics",
+   "targetChapter": 7,
+   "newTitle": "Controversies over Antitrust Policy",
+   "reason": "Antitrust policy debates belong with oligopoly (Mankiw ch17 placement); strip the section code en route."
+  },
+  {
+   "book": "macroeconomics",
+   "chapter": 9,
+   "title": "The Friction Story",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Nominal-frictions story is business-cycle/expectations content."
+  },
+  {
+   "book": "international-economics",
+   "chapter": 1,
+   "title": "ASK THE EXPERTS: Trade between China and",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Cut-off fragment; China-US trade gains are covered by ch1's Gains Ledger."
+  },
+  {
+   "book": "international-economics",
+   "chapter": 4,
+   "title": "Protection’s Politics",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Political economy of protection is trade-policy content."
+  },
+  {
+   "book": "international-economics",
+   "chapter": 5,
+   "title": "1-1a Principle 1: People Face Trade-offs 4 2-3c Perception versus Reality",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC page-number run (ten-principles furniture)."
+  },
+  {
+   "book": "international-economics",
+   "chapter": 9,
+   "title": "The GVC Preview",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Global value chains are the globalisation chapter's own register."
+  },
+  {
+   "book": "development-economics",
+   "chapter": 1,
+   "title": "Indian Economy on the Eve of Independence",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "NCERT IED opening unit; the colonial-legacy baseline of ch1's India development register."
+  },
+  {
+   "book": "development-economics",
+   "chapter": 3,
+   "title": "The Index Arithmetic",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Poverty/inequality index computation in its measurement context (distinct from statistics-for-economics' price-index chapter)."
+  },
+  {
+   "book": "development-economics",
+   "chapter": 5,
+   "title": "Human Capital Formation in India",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "India's human-capital formation register is ch5's own."
+  },
+  {
+   "book": "development-economics",
+   "chapter": 5,
+   "title": "Comparative Development Experiences: India and Its Neighbours",
+   "action": "move",
+   "targetBook": "development-economics",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Comparing India vs neighbours on the development measures is ch1's meaning-and-measure register, not human capital."
+  },
+  {
+   "book": "public-economics",
+   "chapter": 8,
+   "title": "Is What You Give Up to Get It",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Cut-off fragment of Principle 2; opportunity cost is foundation ch1's own lesson."
+  },
+  {
+   "book": "monetary-economics",
+   "chapter": 1,
+   "title": "The Three-Way Distinction",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Money-classification distinction in the money's-nature chapter."
+  },
+  {
+   "book": "econometrics",
+   "chapter": 2,
+   "title": "The First Inference Registers",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "First inferential registers of OLS are ch2's own."
+  },
+  {
+   "book": "econometrics",
+   "chapter": 5,
+   "title": "The Two Diagnoses",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Heteroskedasticity and autocorrelation are literally the two diagnoses of ch5."
+  },
+  {
+   "book": "econometrics",
+   "chapter": 6,
+   "title": "2-3a Differences in Scientific Judgments",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC fragment from Mankiw ch2; not econometrics content."
+  },
+  {
+   "book": "econometrics",
+   "chapter": 9,
+   "title": "Project Work",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Applied-projects chapter's project register."
+  },
+  {
+   "book": "econometrics",
+   "chapter": 9,
+   "title": "Project Work / Practical Work",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Slash-variant duplicate of 'Project Work' in the same chapter."
+  },
+  {
+   "book": "behavioural-economics",
+   "chapter": 1,
+   "title": "The Two Engines",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "System 1/System 2 dual-process engines are core ch1 content."
+  },
+  {
+   "book": "behavioural-economics",
+   "chapter": 7,
+   "title": "The Finance Preview",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Behavioural-finance preview as the experimental doorway."
+  },
+  {
+   "book": "financial-economics",
+   "chapter": 1,
+   "title": "The NPV Grammar",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "NPV grammar is the time-value engine's own (theory side; FM&CF owns the practice register)."
+  },
+  {
+   "book": "financial-economics",
+   "chapter": 1,
+   "title": "1-3b Principle 9: Prices Rise When the Government 3-1a Production Possibilities",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC run of Mankiw principles."
+  },
+  {
+   "book": "financial-economics",
+   "chapter": 6,
+   "title": "The Two Uses Census",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Hedging and speculation (the two uses of derivatives) is derivatives-foundations content."
+  },
+  {
+   "book": "financial-economics",
+   "chapter": 8,
+   "title": "The YTM Craft",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Theory-side yield treatment; investment-analysis ch5 owns the computation practice (practice/theory split)."
+  },
+  {
+   "book": "business-studies",
+   "chapter": 1,
+   "title": "Private, Public and Global Enterprises",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Ownership classification of enterprises is ch1's forms register."
+  },
+  {
+   "book": "business-studies",
+   "chapter": 4,
+   "title": "IN THE NEWS: What Should We Do about Climate 12-3a The Benefits Principle",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC run; environment covered by ch3's Environment First Pass and tax principles by public-economics ch5."
+  },
+  {
+   "book": "business-studies",
+   "chapter": 7,
+   "title": "The Control Cycle",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "The control cycle is the controlling chapter's opening."
+  },
+  {
+   "book": "accounting",
+   "chapter": 1,
+   "title": "The Standards Register",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Accounting concepts and standards are ch1's theory base."
+  },
+  {
+   "book": "accounting",
+   "chapter": 1,
+   "title": "Theoretical Framework: Introduction to Accounting",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "CBSE Part-A unit line naming ch1's own content."
+  },
+  {
+   "book": "accounting",
+   "chapter": 5,
+   "title": "The Bank Reconciliation Statement",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "BRS sits with ch5's verification cluster (rectification/suspense)."
+  },
+  {
+   "book": "accounting",
+   "chapter": 8,
+   "title": "Computerised Accounting (optional alternative Part B)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Duplicate of ch8's 'Computerised Accounting and Spreadsheets'."
+  },
+  {
+   "book": "cost-accounting",
+   "chapter": 1,
+   "title": "Centre versus Unit",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Cost-centre vs cost-unit distinction is core cost concepts."
+  },
+  {
+   "book": "cost-accounting",
+   "chapter": 1,
+   "title": "14-2d Spilt Milk and Other Sunk Costs",
+   "action": "retitle",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "Spilt Milk and Other Sunk Costs",
+   "reason": "Sunk-cost concept belongs in cost concepts; strip the section code."
+  },
+  {
+   "book": "cost-accounting",
+   "chapter": 8,
+   "title": "The ABC Doorway",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Activity-based costing/budgeting as the modern doorway capstone of the cost book."
+  },
+  {
+   "book": "banking",
+   "chapter": 1,
+   "title": "The New Registers",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "New-generation banking registers belong in the landscape chapter."
+  },
+  {
+   "book": "banking",
+   "chapter": 1,
+   "title": "Introductory Macroeconomics: Balance of Payments",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Misplaced NCERT unit-title fragment; the BoP is fully owned by international-economics ch6."
+  },
+  {
+   "book": "investment-analysis",
+   "chapter": 6,
+   "title": "The Use Honesty",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "The honest uses of derivatives (hedge vs speculate) are ch6's practice register."
+  },
+  {
+   "book": "statistics-for-economics",
+   "chapter": 1,
+   "title": "The Statistical Tools in Use",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Statistical tools in use is ch1's register."
+  },
+  {
+   "book": "statistics-for-economics",
+   "chapter": 5,
+   "title": "2-2c Why Economists’ Advice Is Not Always Followed",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC fragment; positive-vs-normative is foundation ch1 content."
+  },
+  {
+   "book": "business-mathematics",
+   "chapter": 2,
+   "title": "The Inequality Reading",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Reading inequalities is the equations-and-inequalities chapter's own."
+  },
+  {
+   "book": "entrepreneurship",
+   "chapter": 1,
+   "title": "The Definition Honesty",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "The honest definition of entrepreneurship opens the mindset chapter."
+  },
+  {
+   "book": "marketing",
+   "chapter": 1,
+   "title": "The Definition Craft",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Defining marketing opens the value-craft chapter."
+  },
+  {
+   "book": "marketing",
+   "chapter": 7,
+   "title": "The Four Honesty Terms",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "The four service characteristics (IHIP) are services-marketing content."
+  },
+  {
+   "book": "human-resource-management",
+   "chapter": 1,
+   "title": "11-3b Some Important Common Resources",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC fragment; common resources covered by public-economics ch2's Ostrom Commons."
+  },
+  {
+   "book": "human-resource-management",
+   "chapter": 8,
+   "title": "17-2e Why People Sometimes Cooperate",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC fragment; cooperation covered by micro ch7's game theory."
+  },
+  {
+   "book": "international-business",
+   "chapter": 2,
+   "title": "9-2b The Gains and Losses of an Importing Country",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC fragment; importing-country welfare covered by international-economics ch4's Tariff Geometry."
+  }
+ ],
+ "dupes": [
+  {
+   "title": "Summary 1208 of the Atom",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious boilerplate cluster ('Summary/Questions' furniture across physics/economics books) - different subjects; my member (foundation ch7) is junk removed separately."
+  },
+  {
+   "title": "The Media’s Political Economy",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious fuzzy cluster; my members (dev ch1 syllabus lines, dev ch2 employment) are adjudicated individually - no genuine cross-book duplication."
+  },
+  {
+   "title": "Key Concept",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "'Key Concepts' TOC-furniture cluster, not topics; every member is removed as junk in its own book."
+  },
+  {
+   "title": "The Research Doorway",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Per-book research-doorway capstones pointing to each discipline's own research frontier - deliberate series convention, not topical duplication."
+  },
+  {
+   "title": "The Least-Squares Fit",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Econometrics owns OLS-for-economics (the modelling); mathematics-shelf statistics owns general regression; physics/ML own their own registers - different subjects."
+  },
+  {
+   "title": "Dielectrics and Boundary Conditions",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious: EM boundary conditions vs public-economics' market/state boundary conditions - different subjects."
+  },
+  {
+   "title": "A simple SAR example",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious junk cluster; my member (foundation ch6 '14-2a...') is a TOC fragment removed as junk."
+  },
+  {
+   "title": "The Green Revolution Ledger",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Three genuinely different treatments: economic ledger (development-economics), history (indian-history), breeding science (plant-genetics)."
+  },
+  {
+   "title": "Statutory Institutions and Commissions - Election Commission, CAG, Finance Commission, UPSC and the national commissions (SC, ST, Women, Human Rights, Minorities, Backward Classes)",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Finance Commission as a fiscal-federalism case (public-economics) vs constitutional-bodies survey (political-science) - different registers."
+  },
+  {
+   "title": "The Short and Long Vowels",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious: vowel length vs short-run/long-run time horizons; my junk-prefixed member is auto-removed as a TOC run."
+  },
+  {
+   "title": "The Professional Doorway",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Per-profession capstones (banker/CFO/HR professional/analyst) - deliberate series convention."
+  },
+  {
+   "title": "Everyday Registers",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious: everyday registers of demand-supply vs acids-bases vs surface tension - different subjects."
+  },
+  {
+   "title": "Appendix Graphing: A Brief Review",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Appendix boilerplate cluster; the business-mathematics member is an appendix line removed as junk."
+  },
+  {
+   "title": "The Classification",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Classification of business forms vs matter classification vs band classification - different subjects."
+  },
+  {
+   "title": "The Indian Register",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Per-book India registers: business environment (business-studies), BoP (international-economics), national accounts (macroeconomics) - different subjects."
+  },
+  {
+   "title": "The Channel Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Marketing's channel census vs the startup's resource-constrained channel census vs monetary-transmission channels - different subjects/levels."
+  },
+  {
+   "title": "The Doorway Map",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Per-book final doorway maps - series convention."
+  },
+  {
+   "title": "The Career Map",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Per-discipline career maps (banking/biology/operations) - different professions."
+  },
+  {
+   "title": "The Census Read",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Performance census vs market-entry census vs segmentation census - different subjects."
+  },
+  {
+   "title": "The Research Map",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Per-discipline research maps (international-business vs chemistry books)."
+  },
+  {
+   "title": "The Base-Rate Neglect",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "The behavioural bias (behavioural-economics) vs base-rate probability math (probability-theory) - genuinely different treatments."
+  },
+  {
+   "title": "The Decision Tree",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Business-mathematics first-pass decision tree vs full decision analysis in optimization-and-operations-research - different levels per the ladder design."
+  },
+  {
+   "title": "PERT-CPM Worked",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "PERT-CPM as operations project-craft practice vs network-optimization theory in optimization-and-operations-research - different registers."
+  },
+  {
+   "title": "The Anomaly Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious: market-efficiency anomalies (financial-economics) vs DB-normalization anomalies (DBMS) - different subjects."
+  },
+  {
+   "title": "The Commitment Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious: commitment devices (behavioural) vs cloud reliability commitments - different subjects."
+  },
+  {
+   "title": "The Capacity Arithmetic",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious: process capacity vs index-construction capacity - different subjects."
+  },
+  {
+   "title": "Xviii CONTENTS",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Junk cluster of TOC furniture; the entrepreneurship member is removed as junk."
+  },
+  {
+   "title": "The Process Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious: operations process census vs thermodynamic process census - different subjects."
+  },
+  {
+   "title": "The Waste Census",
+   "action": "consolidate",
+   "winner": "operations-management",
+   "reason": "Identical muda/waste-census duplication: lean operations is operations-management's own register (ch7 Lean and the Supply Chain); industrial-engineering's copy yields to the specialist management book."
+  },
+  {
+   "title": "Six Sigma Named Honestly",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "The statistical meaning of six sigma (industrial-engineering 'Named Honestly') vs the six-sigma program register (operations-management) - genuinely different treatments."
+  },
+  {
+   "title": "The Component Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious: time-series components vs control-system components - different subjects."
+  },
+  {
+   "title": "The Short-Term Register",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious: short-term sources of finance vs VLSI short-circuit test furniture."
+  },
+  {
+   "title": "1-1c Principle 3: Rational People Think at the Margin 6 2-4 Let’s Get Going",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Junk TOC-run cluster; both members are removed as junk in their own books."
+  },
+  {
+   "title": "The Model’s Limits",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious: Ricardian model limits vs atomic-model limits - different subjects."
+  },
+  {
+   "title": "FYI: Adam Smith and the Invisible Hand",
+   "action": "consolidate",
+   "winner": "foundation-economics",
+   "reason": "The invisible-hand FYI stays at the introductory level; the international-economics member is a page-mangled TOC run removed as junk (its Smith-Ricardo legacy lives in intl ch1's authored Ricardian lessons)."
+  },
+  {
+   "title": "The Model Craft",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Economic model craft (foundation ch2) vs IMC communication-model craft (marketing ch6) - different subjects."
+  },
+  {
+   "title": "The Frontier Geometry",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Portfolio efficient-frontier geometry (financial-economics) vs production-possibility-frontier geometry (foundation ch2) - different objects."
+  },
+  {
+   "title": "Externalities, Public Goods and Common Resources",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "First-pass treatment (foundation ch5 after the intra-book move) vs intermediate treatment (micro ch10) - the ladder design."
+  },
+  {
+   "title": "The Time Honesty",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious: elasticity time-horizon vs molecular-dynamics timestep honesty - different subjects."
+  },
+  {
+   "title": "The Remedy Register",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "First-pass failure remedies (foundation ch5) vs intermediate remedies (micro ch10) - the ladder design."
+  },
+  {
+   "title": "Copyright 2024 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s)",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Copyright boilerplate junk cluster; each member removed as junk in its own book."
+  },
+  {
+   "title": "Human Capital Formation in India",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "India's human-capital formation register (development ch5) vs growth-theory human-capital extension (macro ch8) - different registers."
+  },
+  {
+   "title": "Mundell-Fleming Solved",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Solved in the open-macro specialist register (international-economics ch8) vs previewed at macro's doorway (macro ch10) - the preview/hands-off ladder design."
+  },
+  {
+   "title": "10-3a The Types of Private Solutions 202 Efficiency",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Both members are junk TOC runs (auto-removed); the private-solutions/Coase topic is covered by public-economics ch3's Coase Honesty - cluster moot."
+  },
+  {
+   "title": "The Gender Register",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Gender gaps in human capital (development ch5) vs gender budgeting (public ch9) - different subjects."
+  },
+  {
+   "title": "The UPI Case",
+   "action": "consolidate",
+   "winner": "banking",
+   "reason": "UPI is a payment system: banking ch4 Payments and Technology owns the case; monetary-economics ch8 keeps CBDC/crypto for the modern-money register and drops the duplicate copy."
+  },
+  {
+   "title": "The Data Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Econometric data structures (cross-section/panel) vs statistical data kinds and collection (statistics-for-economics ch1) - different registers per the ECF routing."
+  },
+  {
+   "title": "The Error Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Spurious: specification-error census (econometrics) vs analytical measurement-error census - different subjects."
+  },
+  {
+   "title": "The Cash-Flow Ledger",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Cash-flow statement preparation (accounting ch8) vs cash-flow streams for time-value arithmetic (financial-economics ch1) - different subjects."
+  },
+  {
+   "title": "Financial Statements of Sole Proprietorship: Accounts from Incomplete Records",
+   "action": "consolidate",
+   "winner": "accounting",
+   "reason": "Financial statements of sole proprietorship IS final-accounts content; accounting ch3 keeps the specialist lesson, financial-economics' misplaced copy is removed."
+  },
+  {
+   "title": "The Nature and Significance",
+   "action": "consolidate",
+   "winner": "business-studies",
+   "reason": "Nature and significance of management is the management-principles register; business-studies ch4 keeps it, HRM ch1's NCERT-title copy is removed."
+  },
+  {
+   "title": "The Method Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Training-methods census (HRM ch4) vs pricing-methods census (marketing ch4) - different subjects."
+  },
+  {
+   "title": "The Trade Told",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Global-production trade-offs (international-business ch4) vs the inventory trade-off (operations-management ch4) - different subjects."
+  },
+  {
+   "title": "The Career Doorway",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Per-discipline career doorways (international-business vs industrial-chemistry)."
+  }
+ ],
+ "thin": [
+  {
+   "book": "financial-economics",
+   "chapter": 4,
+   "action": "keep",
+   "targetChapter": 0,
+   "reason": "With the 'The Two Lines' move vetoed (CML/SML is the CAPM's own geometry), ch4 retains The Two Lines / Beta Read / The Equation Priced - a coherent CAPM register; 'The Anomaly Debate' rightly departs to Market Efficiency. No merge needed."
+  }
+ ],
+ "order": [],
+ "extra": [
+  {
+   "book": "foundation-economics",
+   "chapter": 1,
+   "title": "Drug-Related Crime?",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Orphan question fragment; no honest topic."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 2,
+   "title": "2-1b The Role of Assumptions",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC fragment; assumptions are covered by ch2's The Model Craft."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 2,
+   "title": "5-1c The Midpoint Method: A Better Way to Calculate",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC fragment; the midpoint method is covered by ch4's Computing Elasticity."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 3,
+   "title": "CASE STUDY: Two Ways to Reduce the Quantity of Smoking 6-1a How Price Ceilings Affect Market Outcomes",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Concatenated TOC run; the smoking case is elasticity/policy content covered by ch3-ch4."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 3,
+   "title": "15-5a Increasing Competition with Antitrust Laws",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC fragment; antitrust covered by ch5's Remedy Register and micro ch6's Regulation Remedies."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 3,
+   "title": "17-1d How the Size of an Oligopoly Affects the Market",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC fragment; oligopoly outcomes covered by micro ch7's Cournot and Bertrand."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 5,
+   "title": "Of a Payroll Tax?",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Cut-off fragment; payroll-tax incidence covered by ch5's Deadweight Arithmetic."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 6,
+   "title": "14-2a A Simple Example of Profit Maximization",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC fragment; covered by ch6's Profit Kept Honest."
+  },
+  {
+   "book": "microeconomics",
+   "chapter": 1,
+   "title": "PART I Introduction 1 PART VII Topics for Further Study",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC furniture."
+  },
+  {
+   "book": "microeconomics",
+   "chapter": 1,
+   "title": "Consumers, Producers, and the Efficiency FYI: Import Quotas: Another Way to Restrict Trade",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Concatenated TOC run; surplus/efficiency covered by micro ch3 and ch9, import quotas by international-economics ch4."
+  },
+  {
+   "book": "microeconomics",
+   "chapter": 2,
+   "title": "7-1b Using the Demand Curve to Measure Consumer 9-3 The Arguments for Restricting Trade",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Concatenated TOC run; consumer-surplus measurement covered by micro ch3, trade-restriction arguments by international-economics ch4."
+  },
+  {
+   "book": "microeconomics",
+   "chapter": 8,
+   "title": "15-4a A Parable about Pricing",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC fragment; the pricing parable (price discrimination) covered by micro ch6's Discrimination Degrees."
+  },
+  {
+   "book": "macroeconomics",
+   "chapter": 2,
+   "title": "PART VIII The Data of Macroeconomics",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC furniture."
+  },
+  {
+   "book": "macroeconomics",
+   "chapter": 3,
+   "title": "16-3a The Debate over Advertising",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC fragment; the advertising debate is covered by marketing ch6's Advertising Machinery."
+  },
+  {
+   "book": "macroeconomics",
+   "chapter": 6,
+   "title": "CASE STUDY: Adam Smith Would Have Loved Uber",
+   "action": "move",
+   "targetBook": "foundation-economics",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Surge pricing is the market-clearing news case for the demand-supply first pass (Mankiw ch4 register); nothing to do with inflation and unemployment."
+  },
+  {
+   "book": "macroeconomics",
+   "chapter": 6,
+   "title": "IN THE NEWS: The Case for Toll Roads",
+   "action": "move",
+   "targetBook": "microeconomics",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "Congestion tolls are externality pricing (ch10 Externalities Priced), not inflation/unemployment content."
+  },
+  {
+   "book": "macroeconomics",
+   "chapter": 6,
+   "title": "CASE STUDY: Near-Empty Restaurants and Off-Season",
+   "action": "move",
+   "targetBook": "microeconomics",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "The off-season case (covering variable costs, staying open at a loss) is the shutdown decision - micro ch5's Shutdown and Exit."
+  },
+  {
+   "book": "macroeconomics",
+   "chapter": 6,
+   "title": "CASE STUDY: The Microsoft Case",
+   "action": "move",
+   "targetBook": "microeconomics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "The classic antitrust case belongs with monopoly's Regulation Remedies (micro ch6)."
+  },
+  {
+   "book": "macroeconomics",
+   "chapter": 6,
+   "title": "CASE STUDY: Technology Spillovers, Industrial Policy, 12-2 Taxes and Efficiency",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Concatenated TOC run; technology spillovers covered by micro ch10's Externalities Priced."
+  },
+  {
+   "book": "macroeconomics",
+   "chapter": 10,
+   "title": "On Its Ability to Produce Goods and Services 13 3-1 A Parable for the Modern Economy",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Concatenated TOC run; productivity covered by macro ch8, the PPC/trade parable by foundation ch2-ch10."
+  },
+  {
+   "book": "international-economics",
+   "chapter": 1,
+   "title": "3-2a Absolute Advantage 52 and Quantity Supplied",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Page-number TOC run; absolute advantage covered by ch1's Labour-Cost Arithmetic."
+  },
+  {
+   "book": "international-economics",
+   "chapter": 1,
+   "title": "5-3a Can Good News for Farming Be Bad News for",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Cut-off fragment; the farming-elasticity paradox covered by foundation ch4."
+  },
+  {
+   "book": "international-economics",
+   "chapter": 3,
+   "title": "1-1d Principle 4: People Respond to Incentives 7 IN THE NEWS: Why You Should Study Economics",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC run."
+  },
+  {
+   "book": "international-economics",
+   "chapter": 3,
+   "title": "3-3b Should the United States Trade with Other Countries? 56 IN THE NEWS: Price Increases after Disasters",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC run."
+  },
+  {
+   "book": "international-economics",
+   "chapter": 5,
+   "title": "1-2a Principle 5: Trade Can Make Everyone Better Off 8 Questions for Review",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC run."
+  },
+  {
+   "book": "development-economics",
+   "chapter": 1,
+   "title": "Indian Economic Development: Current Challenges facing the Indian Economy",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "The India current-challenges register line belongs in ch1's India register (long line, but honest syllabus content)."
+  },
+  {
+   "book": "development-economics",
+   "chapter": 1,
+   "title": "Indian Economic Development: Current Challenges facing Indian Economy",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Variant duplicate of the same chapter line one slot up (dropped article)."
+  },
+  {
+   "book": "development-economics",
+   "chapter": 2,
+   "title": "Demanded 71 CASE STUDY: Lines at the Gas Pump",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Page-number TOC run; the gas-line shortage case covered by foundation ch3's government-policies lesson."
+  },
+  {
+   "book": "monetary-economics",
+   "chapter": 2,
+   "title": "10-2c Market-Based Policy 2: Tradable Pollution CASE STUDY: How the Tax Burden Is Distributed",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Concatenated TOC run; cap-and-trade covered by public-economics ch3's Cap-and-Trade Register, tax burden by ch5's Incidence Geometry."
+  },
+  {
+   "book": "monetary-economics",
+   "chapter": 2,
+   "title": "CASE STUDY: An Illegal Phone Call",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "The price-fixing collusion case is covered by micro ch7's Prisoners' Dilemma Tournament (cartels); nothing to do with the financial-system map."
+  },
+  {
+   "book": "behavioural-economics",
+   "chapter": 1,
+   "title": "1-1c Principle 3: Rational People Think at the Margin 6 2-4 Let’s Get Going",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC run; marginal thinking covered by foundation ch2's Marginal Analysis."
+  },
+  {
+   "book": "financial-economics",
+   "chapter": 1,
+   "title": "3-3a Should Serena Williams Mow Her Own Lawn? 55 4-5 Conclusion: How Prices Allocate Resources",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC run; comparative advantage covered by foundation ch10 and international-economics ch1."
+  },
+  {
+   "book": "financial-economics",
+   "chapter": 1,
+   "title": "IN THE NEWS: Economics within a Marriage 56 ASK THE EXPERTS: Price Gouging",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC run."
+  },
+  {
+   "book": "financial-economics",
+   "chapter": 1,
+   "title": "Work 63 5-3b Why Did OPEC Fail to Keep the Price of Oil High?",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC run; the OPEC cartel story covered by micro ch7."
+  },
+  {
+   "book": "business-studies",
+   "chapter": 4,
+   "title": "Fayol's and Taylor's Principles of Management",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "NCERT unit-title duplicate of ch4's own 'Fayol's Fourteen' and 'Taylor's Register'."
+  },
+  {
+   "book": "business-studies",
+   "chapter": 4,
+   "title": "1-1b Principle 2: The Cost of Something ASK THE EXPERTS: Ticket Resale",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC run."
+  },
+  {
+   "book": "business-studies",
+   "chapter": 4,
+   "title": "1-2c Principle 7: Governments Can Sometimes CHAPTER",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC run."
+  },
+  {
+   "book": "accounting",
+   "chapter": 5,
+   "title": "CASE STUDY: How Much Is a Life Worth?",
+   "action": "move",
+   "targetBook": "public-economics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "The value-of-life cost-benefit case belongs with public expenditure's Shadow-Price Craft, not bills of exchange."
+  },
+  {
+   "book": "accounting",
+   "chapter": 6,
+   "title": "Admission of a Partner",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "NCERT chapter-title duplicate of ch6's The Admission Case."
+  },
+  {
+   "book": "accounting",
+   "chapter": 6,
+   "title": "Retirement and Death of a Partner",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Duplicate of ch6's Retirement and Death."
+  },
+  {
+   "book": "financial-management-and-corporate-finance",
+   "chapter": 1,
+   "title": "PART V Firm Behavior and 14-2f Measuring Profit in Our Graph for the Competitive",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC run."
+  },
+  {
+   "book": "business-mathematics",
+   "chapter": 2,
+   "title": "CASE STUDY: Can Congress Distribute the Burden Problems and Applications",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC run; tax-burden distribution covered by public-economics ch5's Incidence Geometry."
+  },
+  {
+   "book": "entrepreneurship",
+   "chapter": 7,
+   "title": "Xviii CONTENTS",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC furniture."
+  },
+  {
+   "book": "public-economics",
+   "chapter": 1,
+   "title": "CASE STUDY: Why the Cow Is Not Extinct",
+   "action": "move",
+   "targetBook": "public-economics",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "The common-resources/property-rights case belongs with Public Goods at Depth (Ostrom Commons), not the why-government boundary chapter."
+  },
+  {
+   "book": "public-economics",
+   "chapter": 8,
+   "title": "5-3c Does Drug Interdiction Increase or Decrease",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "Cut-off fragment; the drug-interdiction supply-demand case covered by foundation ch3."
+  },
+  {
+   "book": "international-business",
+   "chapter": 1,
+   "title": "14-3c Why Do Competitive Firms Stay in Business",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "",
+   "newTitle": "",
+   "reason": "TOC fragment; zero-profit operation covered by micro ch5's The Benchmark's Distance."
+  }
+ ],
+ "notes": "All 119 auto-actions reviewed (83 approved by default, 36 vetoed/amended - mostly score-noise moves to absurd targets like cloud-computing/graphic-design/plant-pathology and four year-number false positives: 'The 2008 Chain', 'The 360 Register', 'The 1991 Appraisal'). 62 misAdjudicate items resolved: 40 keeps (crafted lessons in honest homes), 8 intra/cross-book moves, 1 retitle, 13 removes (TOC fragments and duplicates). 54 dup clusters adjudicated: 50 keep-both (spurious cross-subject matches and deliberate per-book series conventions - research/professional doorways, career maps, Indian registers, first-pass-vs-deepening ladder pairs), 4 consolidations (waste census->operations-management, UPI case->banking, sole-proprietorship financial statements->accounting, nature-and-significance of management->business-studies, Adam Smith FYI->foundation-economics). All 38 junkSuspects adjudicated (via autoReview amendments, misplaced and extra); 46 extra free-scan findings: macro ch6's four misplaced micro cases (Uber/toll-roads/off-season restaurants/Microsoft) routed to their topical homes, the value-of-life and cow cases routed within public-economics/accounting, employment-informalisation routed to dev ch4, and the remaining OCR/TOC junk removed. Thin chapter financial-economics ch4 kept (CAPM register stays coherent once the Two Lines veto holds). No clearly-wrong chapter order found across the 23 books; authored mathematics books untouched."
+}

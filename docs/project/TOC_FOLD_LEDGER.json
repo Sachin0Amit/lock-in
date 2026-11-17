@@ -635,9 +635,9 @@
   "source": "m1-02",
   "topic": "Trigonometric Identities",
   "book": "trigonometry",
-  "host": "Compound Angles: the Sum and Difference Formulas",
+  "host": "Product–Sum Transformations",
   "mode": "section",
-  "note": "Named subsection inside Compound Angles: the Sum and Difference Formulas: formal definition + at least one worked example treating the surveyed topic."
+  "note": "Named subsection inside Compound Angles: the Sum and Difference Formulas: formal definition + at least one worked example treating the surveyed topic. [host re-adjudicated 2026-11-17 swarm reorg: the old host was consolidated; the fold rides the surviving lesson of the same chapter]"
  },
  {
   "source": "m1-02",
@@ -1235,7 +1235,7 @@
   "source": "root-kreyszig-eng-math",
   "topic": "Complex Matrices and Forms. Optional",
   "book": "linear-algebra",
-  "host": "The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues",
+  "host": "The Symmetric Promise: Self-Adjoint, Normal and Unitary Operators",
   "mode": "section",
   "note": "Named subsection inside The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues: formal definition + at least one worked example treating the surveyed topic."
  },
@@ -1291,7 +1291,7 @@
   "source": "root-strang-intro-la-5e",
   "topic": "Complex Numbers",
   "book": "linear-algebra",
-  "host": "The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues",
+  "host": "The Symmetric Promise: Self-Adjoint, Normal and Unitary Operators",
   "mode": "glossary",
   "note": "A terms-block entry for this topic inside The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues, used at least once in the lesson prose."
  },
@@ -1339,7 +1339,7 @@
   "source": "root-axler-ladr-4e",
   "topic": "Complex Numbers",
   "book": "linear-algebra",
-  "host": "Rⁿ and Subspaces — the scalar field F and the digression on fields (Abstract Algebra’s ground, cross-referenced), sums and direct sums of subspaces",
+  "host": "Rⁿ and Subspaces",
   "mode": "glossary",
   "note": "A terms-block entry for this topic inside Rⁿ and Subspaces — the scalar field F and the digression on fields (Abstract Algebra’s ground, cross-referenced), sums and direct sums of subspaces, used at least once in the lesson prose."
  },
@@ -1347,7 +1347,7 @@
   "source": "root-axler-ladr-4e",
   "topic": "Lists",
   "book": "linear-algebra",
-  "host": "Rⁿ and Subspaces — the scalar field F and the digression on fields (Abstract Algebra’s ground, cross-referenced), sums and direct sums of subspaces",
+  "host": "Rⁿ and Subspaces",
   "mode": "glossary",
   "note": "A terms-block entry for this topic inside Rⁿ and Subspaces — the scalar field F and the digression on fields (Abstract Algebra’s ground, cross-referenced), sums and direct sums of subspaces, used at least once in the lesson prose."
  },
@@ -1395,7 +1395,7 @@
   "source": "root-axler-ladr-4e",
   "topic": "Diagonal Matrices",
   "book": "linear-algebra",
-  "host": "Diagonalization and Cayley–Hamilton — diagonalizable operators, the conditions for diagonalizability, commuting operators, and the Gershgorin disk theorem",
+  "host": "Diagonalization and Cayley–Hamilton",
   "mode": "glossary",
   "note": "A terms-block entry for this topic inside Diagonalization and Cayley–Hamilton — diagonalizable operators, the conditions for diagonalizability, commuting operators, and the Gershgorin disk theorem, used at least once in the lesson prose."
  },
@@ -1443,7 +1443,7 @@
   "source": "root-axler-ladr-4e",
   "topic": "Cholesky Factorization",
   "book": "linear-algebra",
-  "host": "The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues",
+  "host": "The Symmetric Promise: Self-Adjoint, Normal and Unitary Operators",
   "mode": "glossary",
   "note": "A terms-block entry for this topic inside The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues, used at least once in the lesson prose."
  },
@@ -1483,7 +1483,7 @@
   "source": "root-axler-ladr-4e",
   "topic": "Volume via Singular Values",
   "book": "linear-algebra",
-  "host": "Quadratic Forms and the Conics Re-read — Axler’s closing arc: bilinear forms and symmetric bilinear forms, alternating multilinear forms, defining the determinant as the signed volume of an operator — with operators applied to ellipsoids and parallelepipeds (the image-body reading), and the tensor product",
+  "host": "Quadratic Forms and the Conics Re-read",
   "mode": "section",
   "note": "Named subsection inside Quadratic Forms and the Conics Re-read — Axler’s closing arc: bilinear forms and symmetric bilinear forms, alternating multilinear forms, defining the determinant as the signed volume of an operator — with operators applied to ellipsoids and parallelepipeds (the image-body reading), and the tensor product: formal definition + at least one worked example treating the surveyed topic."
  },
@@ -1923,9 +1923,9 @@
   "source": "root-kreyszig-eng-math",
   "topic": "Modeling of Free Oscillations of a Mass–Spring System",
   "book": "differential-equations",
-  "host": "Free and Damped Oscillation",
+  "host": "Forcing and Resonance",
   "mode": "section",
-  "note": "Named subsection inside Free and Damped Oscillation: formal definition + at least one worked example treating the surveyed topic."
+  "note": "Named subsection inside Free and Damped Oscillation: formal definition + at least one worked example treating the surveyed topic. [host re-adjudicated 2026-11-17 swarm reorg: the old host was consolidated; the fold rides the surviving lesson of the same chapter]"
  },
  {
   "source": "root-kreyszig-eng-math",
@@ -2539,17 +2539,17 @@
   "source": "root-stewart-et-metric",
   "topic": "Applications to Physics and Engineering",
   "book": "multivariable-calculus",
-  "host": "Mass, Centres and Moments",
+  "host": "The Double Integral and Iteration",
   "mode": "example-family",
-  "note": "At least two worked examples inside Mass, Centres and Moments of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+  "note": "At least two worked examples inside Mass, Centres and Moments of exactly this topic type (per TOC_LESSON_GUIDE.md). [host re-adjudicated 2026-11-17 swarm reorg: the old host was consolidated; the fold rides the surviving lesson of the same chapter]"
  },
  {
   "source": "root-stewart-et-metric",
   "topic": "Applications to Economics and Biology",
   "book": "multivariable-calculus",
-  "host": "Mass, Centres and Moments",
+  "host": "The Double Integral and Iteration",
   "mode": "example-family",
-  "note": "At least two worked examples inside Mass, Centres and Moments of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+  "note": "At least two worked examples inside Mass, Centres and Moments of exactly this topic type (per TOC_LESSON_GUIDE.md). [host re-adjudicated 2026-11-17 swarm reorg: the old host was consolidated; the fold rides the surviving lesson of the same chapter]"
  },
  {
   "source": "root-stewart-et-metric",
@@ -3027,7 +3027,7 @@
   "source": "root-rosen-discrete-8e",
   "topic": "Set Operations",
   "book": "discrete-mathematics",
-  "host": "Sets (Complements, Cartesian Products, Power Sets), Functions (Injections, Surjections, Inverses, Composition) and Sequences at Work",
+  "host": "Sets, Functions and Sequences at Work",
   "mode": "section",
   "note": "Named subsection inside the Sets/Functions lesson: formal definition + at least one worked example treating the surveyed topic."
  },
@@ -3035,7 +3035,7 @@
   "source": "root-rosen-discrete-8e",
   "topic": "Sequences and Summations",
   "book": "discrete-mathematics",
-  "host": "Sets (Complements, Cartesian Products, Power Sets), Functions (Injections, Surjections, Inverses, Composition) and Sequences at Work",
+  "host": "Sets, Functions and Sequences at Work",
   "mode": "section",
   "note": "Named subsection inside the Sets/Functions lesson: formal definition + at least one worked example treating the surveyed topic."
  },
@@ -3043,7 +3043,7 @@
   "source": "root-rosen-discrete-8e",
   "topic": "Cardinality of Sets",
   "book": "discrete-mathematics",
-  "host": "Sets (Complements, Cartesian Products, Power Sets), Functions (Injections, Surjections, Inverses, Composition) and Sequences at Work",
+  "host": "Sets, Functions and Sequences at Work",
   "mode": "section",
   "note": "Named subsection inside the Sets/Functions lesson: formal definition + at least one worked example treating the surveyed topic."
  },
@@ -3214,5 +3214,229 @@
   "host": "Converting Between Bases",
   "mode": "section",
   "note": "Named subsection inside Converting Between Bases: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Digression on Fields",
+  "book": "linear-algebra",
+  "host": "Rⁿ and Subspaces",
+  "mode": "section",
+  "note": "Axler LADR 4e surveyed line, previously carried by the long lesson title the 2026-11-17 swarm reorg shortened (title hygiene); now folded as a named subsection of the retitled host that carries the same content."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Sums of Subspaces",
+  "book": "linear-algebra",
+  "host": "Rⁿ and Subspaces",
+  "mode": "section",
+  "note": "Axler LADR 4e surveyed line, previously carried by the long lesson title the 2026-11-17 swarm reorg shortened (title hygiene); now folded as a named subsection of the retitled host that carries the same content."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Range and Surjectivity",
+  "book": "linear-algebra",
+  "host": "Kernel, Range and Rank-Nullity",
+  "mode": "section",
+  "note": "Axler LADR 4e surveyed line, previously carried by the long lesson title the 2026-11-17 swarm reorg shortened (title hygiene); now folded as a named subsection of the retitled host that carries the same content."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Invertibility and Isomorphisms",
+  "book": "linear-algebra",
+  "host": "Composition and Change of Basis",
+  "mode": "section",
+  "note": "Axler LADR 4e surveyed line, previously carried by the long lesson title the 2026-11-17 swarm reorg shortened (title hygiene); now folded as a named subsection of the retitled host that carries the same content."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Diagonalizable Operators",
+  "book": "linear-algebra",
+  "host": "Diagonalization and Cayley–Hamilton",
+  "mode": "section",
+  "note": "Axler LADR 4e surveyed line, previously carried by the long lesson title the 2026-11-17 swarm reorg shortened (title hygiene); now folded as a named subsection of the retitled host that carries the same content."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Conditions for Diagonalizability",
+  "book": "linear-algebra",
+  "host": "Diagonalization and Cayley–Hamilton",
+  "mode": "section",
+  "note": "Axler LADR 4e surveyed line, previously carried by the long lesson title the 2026-11-17 swarm reorg shortened (title hygiene); now folded as a named subsection of the retitled host that carries the same content."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Commuting Operators",
+  "book": "linear-algebra",
+  "host": "Diagonalization and Cayley–Hamilton",
+  "mode": "section",
+  "note": "Axler LADR 4e surveyed line, previously carried by the long lesson title the 2026-11-17 swarm reorg shortened (title hygiene); now folded as a named subsection of the retitled host that carries the same content."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Polar Decomposition",
+  "book": "linear-algebra",
+  "host": "The Symmetric Promise: Self-Adjoint, Normal and Unitary Operators",
+  "mode": "section",
+  "note": "Axler LADR 4e surveyed line, previously carried by the long lesson title the 2026-11-17 swarm reorg shortened (title hygiene); now folded as a named subsection of the retitled host that carries the same content."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Operators Applied to Ellipsoids and Parallelepipeds",
+  "book": "linear-algebra",
+  "host": "Quadratic Forms and the Conics Re-read",
+  "mode": "section",
+  "note": "Axler LADR 4e surveyed line, previously carried by the long lesson title the 2026-11-17 swarm reorg shortened (title hygiene); now folded as a named subsection of the retitled host that carries the same content."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Bilinear Forms and Quadratic Forms",
+  "book": "linear-algebra",
+  "host": "Quadratic Forms and the Conics Re-read",
+  "mode": "section",
+  "note": "Axler LADR 4e surveyed line, previously carried by the long lesson title the 2026-11-17 swarm reorg shortened (title hygiene); now folded as a named subsection of the retitled host that carries the same content."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Symmetric Bilinear Forms",
+  "book": "linear-algebra",
+  "host": "Quadratic Forms and the Conics Re-read",
+  "mode": "section",
+  "note": "Axler LADR 4e surveyed line, previously carried by the long lesson title the 2026-11-17 swarm reorg shortened (title hygiene); now folded as a named subsection of the retitled host that carries the same content."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Alternating Multilinear Forms",
+  "book": "linear-algebra",
+  "host": "Quadratic Forms and the Conics Re-read",
+  "mode": "section",
+  "note": "Axler LADR 4e surveyed line, previously carried by the long lesson title the 2026-11-17 swarm reorg shortened (title hygiene); now folded as a named subsection of the retitled host that carries the same content."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Multilinear Forms",
+  "book": "linear-algebra",
+  "host": "Quadratic Forms and the Conics Re-read",
+  "mode": "section",
+  "note": "Axler LADR 4e surveyed line, previously carried by the long lesson title the 2026-11-17 swarm reorg shortened (title hygiene); now folded as a named subsection of the retitled host that carries the same content."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Defining the Determinant",
+  "book": "linear-algebra",
+  "host": "Quadratic Forms and the Conics Re-read",
+  "mode": "section",
+  "note": "Axler LADR 4e surveyed line, previously carried by the long lesson title the 2026-11-17 swarm reorg shortened (title hygiene); now folded as a named subsection of the retitled host that carries the same content."
+ },
+ {
+  "source": "m1-03",
+  "topic": "Formula to Transform the Product into Sum or Difference",
+  "book": "trigonometry",
+  "host": "Product–Sum Transformations",
+  "mode": "section",
+  "note": "Survey line re-folded by the 2026-11-17 swarm reorg: the witness lesson title was shortened/consolidated (title hygiene), the surveyed content rides the named subsection of the surviving host lesson."
+ },
+ {
+  "source": "m1-03",
+  "topic": "Formulas to Transform the Sum or Difference into Product",
+  "book": "trigonometry",
+  "host": "Product–Sum Transformations",
+  "mode": "section",
+  "note": "Survey line re-folded by the 2026-11-17 swarm reorg: the witness lesson title was shortened/consolidated (title hygiene), the surveyed content rides the named subsection of the surviving host lesson."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Formula for Permutation",
+  "book": "advanced-algebra",
+  "host": "Permutations: the Arrangement Count",
+  "mode": "section",
+  "note": "Survey line re-folded by the 2026-11-17 swarm reorg: the witness lesson title was shortened/consolidated (title hygiene), the surveyed content rides the named subsection of the surviving host lesson."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "The Matrix Eigenvalue Problem",
+  "book": "differential-equations",
+  "host": "Systems of First-Order Equations: the Vector X′ = AX",
+  "mode": "section",
+  "note": "Survey line re-folded by the 2026-11-17 swarm reorg: the witness lesson title was shortened/consolidated (title hygiene), the surveyed content rides the named subsection of the surviving host lesson."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "The Rank Theorem",
+  "book": "real-analysis",
+  "host": "The Inverse and Implicit Function Theorems",
+  "mode": "section",
+  "note": "Survey line re-folded by the 2026-11-17 swarm reorg: the witness lesson title was shortened/consolidated (title hygiene), the surveyed content rides the named subsection of the surviving host lesson."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Minimization of Circuits",
+  "book": "discrete-mathematics",
+  "host": "Gates and Combinational Circuits",
+  "mode": "section",
+  "note": "Survey line re-folded by the 2026-11-17 swarm reorg: the witness lesson title was shortened/consolidated (title hygiene), the surveyed content rides the named subsection of the surviving host lesson."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Null Space and Injectivity",
+  "book": "linear-algebra",
+  "host": "Kernel, Range and Rank-Nullity",
+  "mode": "section",
+  "note": "Survey line re-folded by the 2026-11-17 swarm reorg: the witness lesson title was shortened/consolidated (title hygiene), the surveyed content rides the named subsection of the surviving host lesson."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Eigenvalues and Eigenvectors",
+  "book": "linear-algebra",
+  "host": "The Characteristic Polynomial",
+  "mode": "section",
+  "note": "Survey line re-folded by the 2026-11-17 swarm reorg: the witness lesson title was shortened/consolidated (title hygiene), the surveyed content rides the named subsection of the surviving host lesson."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Minimization Problems",
+  "book": "linear-algebra",
+  "host": "Least Squares: the Overdetermined Verdict",
+  "mode": "section",
+  "note": "Survey line re-folded by the 2026-11-17 swarm reorg: the witness lesson title was shortened/consolidated (title hygiene), the surveyed content rides the named subsection of the surviving host lesson."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Spectral Theorem",
+  "book": "linear-algebra",
+  "host": "The Symmetric Promise: Self-Adjoint, Normal and Unitary Operators",
+  "mode": "section",
+  "note": "Survey line re-folded by the 2026-11-17 swarm reorg: the witness lesson title was shortened/consolidated (title hygiene), the surveyed content rides the named subsection of the surviving host lesson."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Properties of an Operator as Determined by Its Eigenvalues",
+  "book": "linear-algebra",
+  "host": "Diagonalization and Cayley–Hamilton",
+  "mode": "section",
+  "note": "Survey line re-folded by the 2026-11-17 swarm reorg: the witness lesson title was shortened/consolidated (title hygiene), the surveyed content rides the named subsection of the surviving host lesson."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Alternating Multilinear Forms and Permutations",
+  "book": "linear-algebra",
+  "host": "Quadratic Forms and the Conics Re-read",
+  "mode": "section",
+  "note": "Survey line re-folded by the 2026-11-17 swarm reorg: the witness lesson title was shortened/consolidated (title hygiene), the surveyed content rides the named subsection of the surviving host lesson."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Tensor Products",
+  "book": "linear-algebra",
+  "host": "Quadratic Forms and the Conics Re-read",
+  "mode": "section",
+  "note": "Survey line re-folded by the 2026-11-17 swarm reorg: the witness lesson title was shortened/consolidated (title hygiene), the surveyed content rides the named subsection of the surviving host lesson."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Eigenvectors and Eigenvalues",
+  "book": "linear-algebra",
+  "host": "The Characteristic Polynomial",
+  "mode": "section",
+  "note": "Survey line re-folded by the 2026-11-17 swarm reorg: the witness lesson title was shortened/consolidated (title hygiene), the surveyed content rides the named subsection of the surviving host lesson."
  }
 ]

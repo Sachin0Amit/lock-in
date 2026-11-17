@@ -106,6 +106,7 @@ const chapters: Chapter[] = [
       'Differentiability versus Continuity',
       'The Families Differentiated: Polynomial to Inverse Trig',
       'The Hyperbolic Family Differentiated',
+      'Graphical Representation of Derivative of a Function',
     ],
   },
   {
@@ -122,6 +123,11 @@ const chapters: Chapter[] = [
       'Logarithmic Differentiation and the Determinant Rule',
       'Higher Order Derivatives and Functional Relations',
       'Differentiation of One Function with Respect to Another',
+      'Derivative of Function sin x',
+      'Derivative of Function cos x',
+      'Differentiation of Commonly Used Functions',
+      'Chain Rule or "Outside Inside" Rule',
+      'Double Differentiation',
     ],
   },
   {

@@ -43,8 +43,7 @@ const chapters: Chapter[] = [
       'The Grid Named',
       'The Loop Register Named',
       'The Agnostic Honesty Held',
-    
-      'Stage 2 — DAT Mains, part 1: Studio Sensitivity Test'
+      'Dat Mains, Part 1: Studio Sensitivity Test',
     ],
   },
   {

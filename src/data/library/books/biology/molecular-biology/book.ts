@@ -30,12 +30,6 @@ const chapters: Chapter[] = [
       'The Packing Ladder',
       'Nucleic Acids: DNA and RNA',
       'The Molecular Basis of Inheritance',
-      'Vishwa D. Trivedi, Bethune Cookman University 3 Amino Acids, Peptides, and Proteins',
-      'Todd M. Weaver, University of Wisconsin La Crosse 8 Nucleotides and Nucleic Acids',
-      'University of Wisconsin-Madison for their numerous the Pentose Phosphate Pathway',
-      'The Cytoplasm Is Organized by the Molecular Anatomy Reveals Evolutionary Relationships',
-      'From Their Surroundings 20 and Weak Bases',
-      '•=M:jf1 Entropy: Things Fall Apart 22 an Equilibrium Constant'
     ],
   },
   {
@@ -66,7 +60,8 @@ const chapters: Chapter[] = [
       'The Three RNA Products',
       'The Eukaryotic Processing',
       'The Two-Kingdom Contrast',
-      'Https://www.poly-ed.com/text-book-resources/campbell-biology-11th-edition'
+      'Transcription',
+      'Gene',
     ],
   },
   {
@@ -83,8 +78,6 @@ const chapters: Chapter[] = [
       'The Charging Enzyme\u2019s Knowledge',
       'The Three Sites Walked Slowly',
       'Protein Synthesis: Transcription to Translation',
-      'Lori Wallrath, University of Iowa-Iowa City of Proteins',
-      'Chris Wang, Ambrose University 5 Protein Function'
     ],
   },
   {
@@ -100,8 +93,6 @@ const chapters: Chapter[] = [
       'The trp Mirror',
       'The Two Families\u2019 Logic',
       'The Budget\u2019s Significance',
-    
-      'D12 Stability and change'
     ],
   },
   {
@@ -117,8 +108,7 @@ const chapters: Chapter[] = [
       'The Enhancer\u2019s Reach',
       'The RNA-Level Register',
       'Differential Expression\u2019s Honesty',
-      'Koni Stone, California State University Stanislaus',
-      'Neurons, Synapses, and Signaling'
+      'Gene Silencing: miRNA, siRNA and Transgene Silencing',
     ],
   },
   {
@@ -134,8 +124,6 @@ const chapters: Chapter[] = [
       'The Causes and the Ames Screen',
       'The Repair Census',
       'Evolution\u2019s Raw Material',
-    
-      'Chemical Equilibria'
     ],
   },
   {
@@ -166,6 +154,7 @@ const chapters: Chapter[] = [
       'The Human Map at Headline Depth',
       'The Model Genomes Named',
       'The Doorstep Drawn',
+      'DNA Fingerprinting',
     ],
   },
 ]

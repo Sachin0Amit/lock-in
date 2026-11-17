@@ -28,13 +28,11 @@ const chapters: Chapter[] = [
       'The Two-Craft Named',
       'The Two-Idea Rule Named',
       'The Invention\u2019s-against-Reference Division Held Straight',
-    
-      'Unit VIII: Contemporary practices in Indian art during the 20th and 21st centuries; modern concept of advertising, designing and visual communication; experimental modes in contemporary visual expression; development of art education in India from colonial art schools to the present',
-      'Part B — Aptitude & Mathematics (120 marks, CBT, MCQ and NCQ): logical reasoning, visual reasoning, design sensitivity, numerical ability',
-      'Part B — aptitude core areas: logical reasoning (series, coding-decoding), visual reasoning (2D-3D transformation), architectural awareness, general awareness (environment, culture), design sensitivity, language interpretation',
-      'Part-A: Creativity — grasp of verbal and non-verbal analogies, metaphors, signs and symbols',
-      'Stage 1 — DAT Prelims: paper-and-pencil/pen test; questions may involve text and visuals; question paper in English only (official handbook statement)',
-      'Prelims typical areas (mirror): reasoning and visual ability — cube folding, mirror images, pattern series, counting figures, coding-decoding, directions'
+      'Aptitude & Mathematics : Logical Reasoning, Visual Reasoning, Design',
+      'Aptitude Core Areas: Logical Reasoning (series, Coding-decoding), Visual',
+      'Creativity \u2014 Grasp Of Verbal And Non-verbal Analogies, Metaphors, Signs',
+      'Dat Prelims: /pen Test; Questions May Involve Text And Visuals; Question',
+      'Prelims Typical Areas (mirror): Reasoning And Visual Ability \u2014 Cube',
     ],
   },
   {
@@ -80,8 +78,7 @@ const chapters: Chapter[] = [
       'The Voice\u2019s-Own Receipt Priced Straight',
       'The Appropriation Caution Named',
       'The Approval Cycle Honesty Named',
-    
-      'Process Portfolio (PP) — documentation of experimentation, skill-building, critical reflection and range of media across the course'
+      'Process Portfolio (pp) \u2014 Documentation Of Experimentation, Skill-building,',
     ],
   },
   {

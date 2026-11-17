@@ -29,9 +29,6 @@ const chapters: Chapter[] = [
       'The Consonant Matrix',
       'The Sh-List\u2019s Precision',
       'The Mastery Drill',
-      'Declension of the indefinite article ein and negative kein',
-      'Declension of derjenige and derselbe',
-      'Declension of jemand, niemand'
     ],
   },
   {
@@ -47,13 +44,6 @@ const chapters: Chapter[] = [
       'The -a Stem Mountain',
       'The Other Stems and the Genders',
       'The Pronouns\u2019 Treasuries',
-      'A., acc. Accusative',
-      'D., dat. dative',
-      'Fem. feminine',
-      'Masc. masculine',
-      'N., nom. nominative',
-      'Neut. neuter',
-      '[body text of acknowledgements, ending:] Martin Durrell / Manchester'
     ],
   },
   {
@@ -69,7 +59,6 @@ const chapters: Chapter[] = [
       'The La-Series Census',
       'The Passive and the Causative',
       'The Participle Families',
-      'I don’t have anywhere to live right now. c It’s starting to rain'
     ],
   },
   {
@@ -85,7 +74,6 @@ const chapters: Chapter[] = [
       'The Consonant and Visarga Sandhi',
       'The Samasa\u2019s Types',
       'The Compound\u2019s Reading Craft',
-      'Techn. technical'
     ],
   },
   {
@@ -176,8 +164,6 @@ const chapters: Chapter[] = [
       'The University Registers',
       'The Modern Life',
       'The Doorstep: The Treasury Open',
-      'The 2 (school / the school etc.)',
-      '第3課 まいにちのせいかつ Daily Life'
     ],
   },
 ]

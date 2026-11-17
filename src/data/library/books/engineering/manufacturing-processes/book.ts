@@ -41,11 +41,6 @@ const chapters: Chapter[] = [
       'The Alloy Census for Making',
       'Hot versus Cold: the Recrystallisation Line',
       'Castability, Formability, Machinability',
-      'Fabricated in CMOS and Bipolar Processes K-1',
-      'Manufacturing spread of FET characteristics',
-      'Logic identities',
-      'Logic pathology',
-      'II: Logic-output optocouplers'
     ],
   },
   {
@@ -91,7 +86,6 @@ const chapters: Chapter[] = [
       'Bending and Springback',
       'Deep Drawing',
       'Powder Metallurgy\u2019s Honest Niche',
-      'Limiting the bandwidth'
     ],
   },
   {
@@ -122,10 +116,6 @@ const chapters: Chapter[] = [
       'Drilling and Milling',
       'Grinding and the Wheel Census',
       'The Finishing Census',
-      'UNIVERSITY PRESS',
-      'Cambridge University Press is part of the University of Cambridge',
-      '© Cambridge University Press, 1980, 1989',
-      'Switchers: basic operation'
     ],
   },
   {
@@ -139,9 +129,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Spark Engine: EDM',
       'ECM and USM',
-      'Beam and Jet Processes',
       'The Selection Census',
-      'B.2 The Graphical Representation of a Complex'
     ],
   },
   {
@@ -171,7 +159,6 @@ const chapters: Chapter[] = [
       'The 3-2-1 Principle',
       'Jigs versus Fixtures',
       'Design Elements of the Jig',
-      'Test fixture for compensation and calibration'
     ],
   },
   {
@@ -188,7 +175,6 @@ const chapters: Chapter[] = [
       'Interferometry: the Wavelength Ruler',
       'Form, Finish and Alignment',
       'The Coordinate Measuring Machine',
-      'The lessons: error budget, unspecified parameters'
     ],
   },
   {

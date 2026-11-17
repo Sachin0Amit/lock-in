@@ -39,11 +39,8 @@ const chapters: Chapter[] = [
       'Doping and Mass Action',
       'Direct versus Indirect: the LED Note',
       'Fermi Levels Under Doping',
-      'Preface to the First Edition — xxv',
       'A first (but naive) guess',
-      'Optoelectronics: emitters',
-      'Indicators and LEDs',
-      'Basic attenuators 360 19.4 An n-type semiconductor'
+      'Lee De Forest\u2014A Father of the Electronics Age',
     ],
   },
   {
@@ -59,9 +56,6 @@ const chapters: Chapter[] = [
       'Diffusion and the Total Current',
       'Generation, Recombination, Lifetime',
       'Continuity and Poisson, Earned',
-      'Qualitative Description of Junction Summary',
-      'Diffusion Capacitance 167 5.1 Device Structure and Physical Operation',
-      'Current sharing in paralleled BJTs'
     ],
   },
   {
@@ -77,9 +71,6 @@ const chapters: Chapter[] = [
       'The Diode Equation from Carriers',
       'Zener versus Avalanche',
       'Capacitance and the Storage Note',
-      'Modeling the Diode 191 Saturation',
-      'Biasing Using Diodes 907 Summary',
-      'John Milton Miller: Capacitance Multiplication'
     ],
   },
   {
@@ -96,8 +87,6 @@ const chapters: Chapter[] = [
       'The Zener Regulator Priced',
       'Zener Diodes and Applications',
       'Rectifiers with Filters and Regulation',
-      '317-style regulator: circuit examples',
-      'The low-pass or lag circuit 372 20.6 Zener diode'
     ],
   },
   {
@@ -113,12 +102,10 @@ const chapters: Chapter[] = [
       'Characteristics and Configurations',
       'Biasing and the Q-Point',
       'The Stability Craft',
-      'Operation of the npn Transistor in the',
-      'Biasing the Class AB Circuit 907 to-Rail Output Swing',
       'The Invention of the BJT',
       'An aside: the perfect transistor',
-      'V: Solid-state relays (transistor output)',
-      'Bode plots 382 20.10 Static characteristics for a common-base circuit'
+      'Ebers-Moll Applied to Basic Transistor Circuits',
+      'Transistors',
     ],
   },
   {
@@ -133,7 +120,7 @@ const chapters: Chapter[] = [
       'Small-Signal Models Earned',
       'The Three Configurations Priced',
       'Frequency Response and Miller',
-      'Analyzing a Noninverting-Amplifier Circuit Using'
+      'John Milton Miller: Capacitance Multiplication',
     ],
   },
   {
@@ -149,8 +136,7 @@ const chapters: Chapter[] = [
       'The MOS Capacitor Earned',
       'MOSFET I-V: Three Regions',
       'The CMOS Doorway Named',
-      'Variations 1181 G. Comparison of the MOSFET and the BJT * G-1',
-      'A closer look at JFETs'
+      'A closer look at JFETs',
     ],
   },
   {
@@ -165,8 +151,11 @@ const chapters: Chapter[] = [
       'LEDs: the Direct Bandgap Cashed',
       'Photodiodes and Solar Cells',
       'Tunnel and Varactor Notes',
-      'The Thyristar Family Named',
-      'Graphical display devices 939 42.12 Use of the oscilloscope in waveform'
+      'Fully integrated high-speed fiber-transceiver modules',
+      'Optoelectronics: detectors',
+      'Optoelectronics: emitters',
+      'Indicators and LEDs',
+      'IV: Analog-oriented optocouplers',
     ],
   },
   {
@@ -179,9 +168,10 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'The Linear Regulator Craft',
-      'Figures of Merit Priced',
       'The Synthesis Map',
       'The Doorsteps Named',
+      '317-style regulator: circuit examples',
+      'Unregulated split supply \u2013 on the bench!',
     ],
   },
 ]

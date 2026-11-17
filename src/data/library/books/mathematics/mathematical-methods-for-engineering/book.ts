@@ -76,7 +76,6 @@ const chapters: Chapter[] = [
       'Systems and the Matrix Exponential',
       'Series Solutions: Bessel and Legendre',
       'Boundary-Value Problems',
-      'Sturm–Liouville Problems: Eigenfunctions and Orthogonality',
       'Gamma, Beta and the Error Functions',
     ],
   },
@@ -123,6 +122,7 @@ const chapters: Chapter[] = [
       'Separation on the String and the Bar',
       'D\u2019Alembert\u2019s Travelling Wave',
       'Laplace in the Rectangle and the Disc',
+      'Sturm\u2013Liouville Problems: Eigenfunctions and Orthogonality',
     ],
   },
   {
@@ -136,7 +136,6 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Residues at Engineering Speed',
       'Potential Problems by Mapping',
-      'Phasors',
     ],
   },
   {

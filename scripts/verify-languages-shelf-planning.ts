@@ -7,7 +7,7 @@
  *
  *  A. all 13 language books load, status 'planned' (planning pass only)
  *  B. per-book chapter + planned-lesson census printed; shelf totals pinned
- *     (122 chapters / 734 planned lessons after the 2026-11-17 drive-toc continuation (500 -> 734) — mismatches FAIL below)
+ *     (122 chapters / 631 planned lessons after the 2026-11-17 drive-toc continuation (500 -> 631) — mismatches FAIL below)
  *  C. every planned chapter: status 'planned', empty lessons array,
  *     plannedLessons >= 3, slugs unique within book, numbers 1..N,
  *     summaries > 200 chars
@@ -79,7 +79,7 @@ for (const b of lang) {
   ok(EXPECTED_CHAPTERS[b.id] === b.chapters.length, `${b.id} chapter count pins ${EXPECTED_CHAPTERS[b.id]} (got ${b.chapters.length})`)
 }
 ok(totCh === 122, `shelf total 122 chapters (got ${totCh})`)
-ok(totPl === 734, `shelf total 734 planned lessons (post the 2026-11-17 drive-toc continuation; got ${totPl})`)
+ok(totPl === 631, `shelf total 631 planned lessons (post the 2026-11-17 drive-toc continuation; got ${totPl})`)
 
 console.log('== C. planned-chapter hygiene ==')
 for (const b of lang) {
@@ -160,7 +160,7 @@ for (const b of lang) {
 
 console.log('== K. the durable generator ==')
 ok(existsSync('scripts/gen_languages_shelf.py'), 'scripts/gen_languages_shelf.py exists (the pass\'s idempotent plan source)')
-ok(readFileSync('scripts/gen_languages_shelf.py', 'utf8').includes('122 chapters / 734 planned'), 'generator header pins the shelf census (post drive-toc continuation)')
+ok(readFileSync('scripts/gen_languages_shelf.py', 'utf8').includes('122 chapters / 631 planned'), 'generator header pins the shelf census (post drive-toc continuation)')
 
 // ---- summary ----
 console.log(`\nverify-languages-shelf-planning: ${pass} checks passed, ${fail} failed`)

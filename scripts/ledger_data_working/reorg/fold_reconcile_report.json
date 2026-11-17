@@ -1,0 +1,128 @@
+{
+ "resolved": [
+  {
+   "source": "root-kreyszig-eng-math",
+   "topic": "Complex Matrices and Forms. Optional",
+   "book": "linear-algebra",
+   "host": "The Symmetric Promise: Self-Adjoint, Normal and Unitary Operators",
+   "mode": "section",
+   "note": "Named subsection inside The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues: formal definition + at least one worked example treating the surveyed topic. [host retitle-mapped 2026-11-17 swarm reorg]",
+   "oldHost": "The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues"
+  },
+  {
+   "source": "root-strang-intro-la-5e",
+   "topic": "Complex Numbers",
+   "book": "linear-algebra",
+   "host": "The Symmetric Promise: Self-Adjoint, Normal and Unitary Operators",
+   "mode": "glossary",
+   "note": "A terms-block entry for this topic inside The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues, used at least once in the lesson prose. [host retitle-mapped 2026-11-17 swarm reorg]",
+   "oldHost": "The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues"
+  },
+  {
+   "source": "root-axler-ladr-4e",
+   "topic": "Complex Numbers",
+   "book": "linear-algebra",
+   "host": "Rⁿ and Subspaces",
+   "mode": "glossary",
+   "note": "A terms-block entry for this topic inside Rⁿ and Subspaces — the scalar field F and the digression on fields (Abstract Algebra’s ground, cross-referenced), sums and direct sums of subspaces, used at least once in the lesson prose. [host retitle-mapped 2026-11-17 swarm reorg]",
+   "oldHost": "Rⁿ and Subspaces — the scalar field F and the digression on fields (Abstract Algebra’s ground, cross-referenced), sums and direct sums of subspaces"
+  },
+  {
+   "source": "root-axler-ladr-4e",
+   "topic": "Lists",
+   "book": "linear-algebra",
+   "host": "Rⁿ and Subspaces",
+   "mode": "glossary",
+   "note": "A terms-block entry for this topic inside Rⁿ and Subspaces — the scalar field F and the digression on fields (Abstract Algebra’s ground, cross-referenced), sums and direct sums of subspaces, used at least once in the lesson prose. [host retitle-mapped 2026-11-17 swarm reorg]",
+   "oldHost": "Rⁿ and Subspaces — the scalar field F and the digression on fields (Abstract Algebra’s ground, cross-referenced), sums and direct sums of subspaces"
+  },
+  {
+   "source": "root-axler-ladr-4e",
+   "topic": "Diagonal Matrices",
+   "book": "linear-algebra",
+   "host": "Diagonalization and Cayley–Hamilton",
+   "mode": "glossary",
+   "note": "A terms-block entry for this topic inside Diagonalization and Cayley–Hamilton — diagonalizable operators, the conditions for diagonalizability, commuting operators, and the Gershgorin disk theorem, used at least once in the lesson prose. [host retitle-mapped 2026-11-17 swarm reorg]",
+   "oldHost": "Diagonalization and Cayley–Hamilton — diagonalizable operators, the conditions for diagonalizability, commuting operators, and the Gershgorin disk theorem"
+  },
+  {
+   "source": "root-axler-ladr-4e",
+   "topic": "Cholesky Factorization",
+   "book": "linear-algebra",
+   "host": "The Symmetric Promise: Self-Adjoint, Normal and Unitary Operators",
+   "mode": "glossary",
+   "note": "A terms-block entry for this topic inside The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues, used at least once in the lesson prose. [host retitle-mapped 2026-11-17 swarm reorg]",
+   "oldHost": "The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues"
+  },
+  {
+   "source": "root-axler-ladr-4e",
+   "topic": "Volume via Singular Values",
+   "book": "linear-algebra",
+   "host": "Quadratic Forms and the Conics Re-read",
+   "mode": "section",
+   "note": "Named subsection inside Quadratic Forms and the Conics Re-read — Axler’s closing arc: bilinear forms and symmetric bilinear forms, alternating multilinear forms, defining the determinant as the signed volume of an operator — with operators applied to ellipsoids and parallelepipeds (the image-body reading), and the tensor product: formal definition + at least one worked example treating the surveyed topic. [host retitle-mapped 2026-11-17 swarm reorg]",
+   "oldHost": "Quadratic Forms and the Conics Re-read — Axler’s closing arc: bilinear forms and symmetric bilinear forms, alternating multilinear forms, defining the determinant as the signed volume of an operator — with operators applied to ellipsoids and parallelepipeds (the image-body reading), and the tensor product"
+  },
+  {
+   "source": "root-rosen-discrete-8e",
+   "topic": "Set Operations",
+   "book": "discrete-mathematics",
+   "host": "Sets, Functions and Sequences at Work",
+   "mode": "section",
+   "note": "Named subsection inside the Sets/Functions lesson: formal definition + at least one worked example treating the surveyed topic. [host retitle-mapped 2026-11-17 swarm reorg]",
+   "oldHost": "Sets (Complements, Cartesian Products, Power Sets), Functions (Injections, Surjections, Inverses, Composition) and Sequences at Work"
+  },
+  {
+   "source": "root-rosen-discrete-8e",
+   "topic": "Sequences and Summations",
+   "book": "discrete-mathematics",
+   "host": "Sets, Functions and Sequences at Work",
+   "mode": "section",
+   "note": "Named subsection inside the Sets/Functions lesson: formal definition + at least one worked example treating the surveyed topic. [host retitle-mapped 2026-11-17 swarm reorg]",
+   "oldHost": "Sets (Complements, Cartesian Products, Power Sets), Functions (Injections, Surjections, Inverses, Composition) and Sequences at Work"
+  },
+  {
+   "source": "root-rosen-discrete-8e",
+   "topic": "Cardinality of Sets",
+   "book": "discrete-mathematics",
+   "host": "Sets, Functions and Sequences at Work",
+   "mode": "section",
+   "note": "Named subsection inside the Sets/Functions lesson: formal definition + at least one worked example treating the surveyed topic. [host retitle-mapped 2026-11-17 swarm reorg]",
+   "oldHost": "Sets (Complements, Cartesian Products, Power Sets), Functions (Injections, Surjections, Inverses, Composition) and Sequences at Work"
+  }
+ ],
+ "unresolved": [
+  {
+   "source": "m1-02",
+   "topic": "Trigonometric Identities",
+   "book": "trigonometry",
+   "host": "Compound Angles: the Sum and Difference Formulas",
+   "mode": "section",
+   "note": "Named subsection inside Compound Angles: the Sum and Difference Formulas: formal definition + at least one worked example treating the surveyed topic."
+  },
+  {
+   "source": "root-kreyszig-eng-math",
+   "topic": "Modeling of Free Oscillations of a Mass–Spring System",
+   "book": "differential-equations",
+   "host": "Free and Damped Oscillation",
+   "mode": "section",
+   "note": "Named subsection inside Free and Damped Oscillation: formal definition + at least one worked example treating the surveyed topic."
+  },
+  {
+   "source": "root-stewart-et-metric",
+   "topic": "Applications to Physics and Engineering",
+   "book": "multivariable-calculus",
+   "host": "Mass, Centres and Moments",
+   "mode": "example-family",
+   "note": "At least two worked examples inside Mass, Centres and Moments of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+  },
+  {
+   "source": "root-stewart-et-metric",
+   "topic": "Applications to Economics and Biology",
+   "book": "multivariable-calculus",
+   "host": "Mass, Centres and Moments",
+   "mode": "example-family",
+   "note": "At least two worked examples inside Mass, Centres and Moments of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+  }
+ ]
+}

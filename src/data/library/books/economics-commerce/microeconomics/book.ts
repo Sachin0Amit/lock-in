@@ -28,13 +28,7 @@ const chapters: Chapter[] = [
       'Utility\u2019s Ordinal Honesty',
       'Indifference Geometry',
       'The Budget Line',
-    
       'Introductory Microeconomics: Introduction, Theory of Consumer Behaviour',
-      'Introductory Microeconomics: Introduction',
-      'PART I Introduction 1 PART VII Topics for Further Study',
-      'Copyright 2018 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. WCN 02-200-203',
-      'Consumers, Producers, and the Efficiency FYI: Import Quotas: Another Way to Restrict Trade',
-      '10-3c Why Private Solutions Do Not Always Work 204 Key Concepts'
     ],
   },
   {
@@ -50,7 +44,6 @@ const chapters: Chapter[] = [
       'Demand Extracted',
       'Corner Honesty',
       'The Engel Classification',
-      '7-1b Using the Demand Curve to Measure Consumer 9-3 The Arguments for Restricting Trade'
     ],
   },
   {
@@ -67,9 +60,6 @@ const chapters: Chapter[] = [
       'Elasticity Registers',
       'Surplus Measured Again',
       '9-2c Effects of a Tariff',
-      '7-1d What Does Consumer Surplus Measure? 137 Compensate the Losers?',
-      '7-2 Producer Surplus 139 9-3b The National-Security Argument',
-      '7-2c How a Higher Price Raises Producer Surplus 141 9-3e The Protection-as-a-Bargaining-Chip Argument'
     ],
   },
   {
@@ -100,6 +90,7 @@ const chapters: Chapter[] = [
       'Shutdown and Exit',
       'Industry Supply',
       'The Benchmark\u2019s Distance',
+      'CASE STUDY: Near-Empty Restaurants and Off-Season',
     ],
   },
   {
@@ -115,6 +106,8 @@ const chapters: Chapter[] = [
       'The Deadweight Ledger',
       'Discrimination Degrees',
       'Regulation Remedies',
+      '15-1 Why Monopolies Arise',
+      'CASE STUDY: The Microsoft Case',
     ],
   },
   {
@@ -130,7 +123,8 @@ const chapters: Chapter[] = [
       'Cournot and Bertrand',
       'The Stackelberg Leader',
       'Nash Introduced',
-      'CASE STUDY: The Prisoners’ Dilemma Tournament'
+      'CASE STUDY: The Prisoners\u2019 Dilemma Tournament',
+      '17-3b Controversies over Antitrust Policy',
     ],
   },
   {
@@ -146,8 +140,7 @@ const chapters: Chapter[] = [
       'VMP and MRP',
       'The Labour-Supply Honesty',
       'The Monopsony Named',
-      'ASK THE EXPERTS: Congesting Pricing',
-      '15-4a A Parable about Pricing'
+      'Earnings and Discrimination',
     ],
   },
   {
@@ -163,7 +156,6 @@ const chapters: Chapter[] = [
       'The Contract Curve',
       'The Welfare Theorems',
       'Efficiency versus Equity',
-      '10-3b The Coase Theorem 203 Summary'
     ],
   },
   {
@@ -179,6 +171,8 @@ const chapters: Chapter[] = [
       'Public Goods and Riders',
       'The Lemons Named',
       'The Remedy Register',
+      'ASK THE EXPERTS: Congesting Pricing',
+      'IN THE NEWS: The Case for Toll Roads',
     ],
   },
   {
@@ -194,8 +188,6 @@ const chapters: Chapter[] = [
       'Price Supports',
       'The Auction Registers',
       'The Behavioural Doorway',
-      'CASE STUDY: The Minimum Wage 118 CASE STUDY: Should There Be a Market for Organs?',
-      'ASK THE EXPERTS: The Minimum Wage 119 ASK THE EXPERTS: Supplying Kidneys'
     ],
   },
 ]

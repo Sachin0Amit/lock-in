@@ -29,12 +29,8 @@ const chapters: Chapter[] = [
       'The Receipts Classified',
       'The Standards Register',
       'The Theory Base of Accounting: Concepts and Standards',
-    
       'Theoretical Framework: Introduction to Accounting',
-      'Key Concept',
-      'Organization 181 Key Concepts',
-      'Key Concepts 264 15-2c Profit Maximization',
-      '15-6 Conclusion: The Prevalence of Monopolies 311 Key Concepts'
+      'Computerised Accounting (optional Alternative Part B)',
     ],
   },
   {
@@ -49,7 +45,6 @@ const chapters: Chapter[] = [
       'The Journal Ledger',
       'The Subsidiary Register',
       'The Balancing Arithmetic',
-      'The Errors Census',
       'Recording of Transactions: Journal to Ledger',
     ],
   },
@@ -99,7 +94,7 @@ const chapters: Chapter[] = [
       'The Rectification Craft',
       'The Suspense Role',
       'The Bank Reconciliation Statement',
-      'CASE STUDY: How Much Is a Life Worth?'
+      'The Errors Census',
     ],
   },
   {
@@ -115,8 +110,6 @@ const chapters: Chapter[] = [
       'The Admission Case',
       'Retirement and Death',
       'The Dissolution Register',
-      'Admission of a Partner',
-      'Retirement and Death of a Partner',
     ],
   },
   {
@@ -148,8 +141,6 @@ const chapters: Chapter[] = [
       'The Common-Size Registers',
       'The Cash-Flow Ledger',
       'Computerised Accounting and Spreadsheets',
-    
-      'Computerised Accounting (optional alternative Part B)'
     ],
   },
 ]

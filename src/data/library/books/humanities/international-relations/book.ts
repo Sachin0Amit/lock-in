@@ -25,14 +25,12 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'The Birth From the Great War',
       'Anarchy and the Self-Help World',
       'The Westphalian Myth Interrogated',
       'The Levels of Analysis',
-    
-      'Federalism - constitutional provisions; changing nature of centre-state relations; integrationist tendencies and regional aspirations; inter-state disputes',
       'Approaches to the Study of International Relations - idealist, realist, Marxist, functionalist and systems theory',
-      'Regionalisation of World Politics - EU, ASEAN, APEC, SAARC, NAFTA'
+      'Regionalisation of World Politics - EU, ASEAN, APEC, SAARC, NAFTA',
+      'Federalism - Constitutional Provisions; Changing Nature Of Centre-state',
     ],
   },
   {
@@ -75,7 +73,6 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'The Concert to the Thirty-Years Crisis',
-      'The Cold War\u2019s Structure',
       'The Unipolar Moment',
       'The Multipolar Question',
     ],
@@ -109,11 +106,9 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Trade: From GATT to the WTO',
       'The Bretton Woods Family',
-      'Development\u2019s Political Economy',
       'The Sanctions and the Weaponised Interdependence',
-    
       'Evolution of the International Economic System - from Brettonwoods to WTO; socialist economies and the CMEA; Third World demand for a new international economic order',
-      'India and the Global South - relations with Africa and Latin America; leadership role in NIEO and WTO negotiations'
+      'India and the Global South - relations with Africa and Latin America; leadership role in NIEO and WTO negotiations',
     ],
   },
   {
@@ -127,7 +122,6 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Climate Regime\u2019s Architecture',
       'The Migration and Refugee Regime',
-      'Health and Human Security',
       'Resources as Stakes',
     ],
   },
@@ -156,7 +150,6 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'The Rise of China and the Order',
-      'The Ruptures and the Global South',
       'Technology and the Order',
       'The Doorstep: Reading the Newsfeed',
     ],

@@ -1,0 +1,3477 @@
+{
+ "discipline": "mathematics",
+ "autoActions": [
+  {
+   "op": "remove",
+   "book": "differential-calculus",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Trigonometric, Exponential and Logarithmic Limits",
+   "why": "dup: consolidated to advanced-algebra (authored-owns)",
+   "targetBook": "advanced-algebra"
+  },
+  {
+   "op": "remove",
+   "book": "geometry",
+   "chapter": 4,
+   "idx": 2,
+   "title": "The Similarity Criteria: AA, SAS, SSS",
+   "why": "dup within book: kept the ch3 copy"
+  },
+  {
+   "op": "remove",
+   "book": "coordinate-geometry",
+   "chapter": 6,
+   "idx": 1,
+   "title": "Parametric Form, Chords and Position",
+   "why": "dup within book: kept the ch5 copy"
+  },
+  {
+   "op": "remove",
+   "book": "abstract-algebra",
+   "chapter": 6,
+   "idx": 3,
+   "title": "Quotient Rings and Root Fields",
+   "why": "dup within book: kept the ch5 copy"
+  },
+  {
+   "op": "move",
+   "book": "geometry",
+   "chapter": 10,
+   "idx": 0,
+   "title": "Cross-Sections and Solids of Revolution",
+   "targetBook": "environmental-studies",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.67 -> environmental-studies 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "discrete-mathematics",
+   "chapter": 1,
+   "idx": 0,
+   "title": "Continuous versus Discrete",
+   "targetBook": "signals-and-systems",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.67 -> signals-and-systems 1.0)"
+  },
+  {
+   "op": "remove",
+   "book": "discrete-mathematics",
+   "chapter": 1,
+   "idx": 1,
+   "title": "Sets (Complements, Cartesian Products, Power Sets), Functions (Injections, Surjections, Inverses, Composition) and Sequences at Work",
+   "why": "misplaced; already covered in foundation-physics"
+  },
+  {
+   "op": "move",
+   "book": "discrete-mathematics",
+   "chapter": 2,
+   "idx": 1,
+   "title": "The Growth of Functions: Big-O and Its Kin",
+   "targetBook": "combinatorics",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.75 -> combinatorics 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "set-theory",
+   "chapter": 3,
+   "idx": 2,
+   "title": "Functions, Defined Exactly",
+   "targetBook": "theory-of-computation",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.67 -> theory-of-computation 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "mathematical-logic",
+   "chapter": 5,
+   "idx": 0,
+   "title": "Structures, Satisfaction and Models",
+   "targetBook": "foundation-chemistry",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.33 -> foundation-chemistry 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "complex-analysis",
+   "chapter": 6,
+   "idx": 4,
+   "title": "Harmonic Functions and the Dirichlet Problem",
+   "targetBook": "mathematical-physics",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.75 -> mathematical-physics 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "abstract-algebra",
+   "chapter": 1,
+   "idx": 2,
+   "title": "Monoids and Semigroups: the Lighter Structures",
+   "targetBook": "foundation-chemistry",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.25 -> foundation-chemistry 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "mathematical-methods-for-engineering",
+   "chapter": 1,
+   "idx": 3,
+   "title": "Hyperbolic Functions: cosh, sinh and the Catenary",
+   "targetBook": "heat-and-thermodynamics",
+   "targetChapter": 7,
+   "why": "misplaced, grounded (own 0.2 -> heat-and-thermodynamics 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "mathematical-methods-for-engineering",
+   "chapter": 2,
+   "idx": 5,
+   "title": "Gamma, Beta and the Error Functions",
+   "targetBook": "heat-and-thermodynamics",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.25 -> heat-and-thermodynamics 0.75)"
+  },
+  {
+   "op": "remove",
+   "book": "mathematical-methods-for-engineering",
+   "chapter": 7,
+   "idx": 3,
+   "title": "Calculus of Variations: the Euler-Lagrange Engine",
+   "why": "misplaced; already covered in mechanics"
+  },
+  {
+   "op": "move",
+   "book": "advanced-mathematical-foundations",
+   "chapter": 6,
+   "idx": 2,
+   "title": "Typesetting Mathematics: TeX and the Written Look",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.2 -> waves-and-oscillations 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "advanced-mathematical-foundations",
+   "chapter": 7,
+   "idx": 1,
+   "title": "The Other Shelves’ Mathematics",
+   "targetBook": "statistics",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> statistics 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "engineering-mechanics",
+   "chapter": 3,
+   "idx": 5,
+   "title": "Cambridge University Press has no responsibility for the persistence or accuracy of URLs for external or third-party Internet websites referred to in this publication and does not guarantee that any content on such websites is, or will remain, accurate or appropriate",
+   "targetBook": "probability-theory",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.12 -> probability-theory 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "mechanics",
+   "chapter": 7,
+   "idx": 8,
+   "title": "Dynamics of Combination of Translation and Rotation",
+   "targetBook": "geometry",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.5 -> geometry 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "mechanics",
+   "chapter": 9,
+   "idx": 4,
+   "title": "Compound Machines",
+   "targetBook": "trigonometry",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.5 -> trigonometry 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "properties-of-matter",
+   "chapter": 4,
+   "idx": 4,
+   "title": "Polynomial, Linear, and Quadratic Equations",
+   "targetBook": "linear-algebra",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.5 -> linear-algebra 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "waves-and-oscillations",
+   "chapter": 6,
+   "idx": 4,
+   "title": "Elementary Algebra",
+   "targetBook": "abstract-algebra",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> abstract-algebra 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "idx": 8,
+   "title": "Finding Rectangular (x and y) Components of a Vector",
+   "targetBook": "multivariable-calculus",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.5 -> multivariable-calculus 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "quantum-mechanics",
+   "chapter": 8,
+   "idx": 4,
+   "title": "The Transition from a Discrete to a Continuous System",
+   "targetBook": "discrete-mathematics",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> discrete-mathematics 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "business-mathematics",
+   "chapter": 7,
+   "idx": 3,
+   "title": "The Theory Cross-Reference",
+   "targetBook": "trigonometry",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.67 -> trigonometry 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "physical-chemistry",
+   "chapter": 6,
+   "idx": 26,
+   "title": "Analysis of Zero Group (NH4+)",
+   "targetBook": "advanced-mathematical-foundations",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.5 -> advanced-mathematical-foundations 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "inorganic-chemistry",
+   "chapter": 1,
+   "idx": 4,
+   "title": "The Classification of Elements and the Periodic Law",
+   "targetBook": "abstract-algebra",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.5 -> abstract-algebra 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "inorganic-chemistry",
+   "chapter": 7,
+   "idx": 9,
+   "title": "Complexation reactions, definition of coordination number, complex formation constants",
+   "targetBook": "differential-equations",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.12 -> differential-equations 0.5)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "geometry",
+   "chapter": 7,
+   "idx": 4,
+   "title": "Power of a Point",
+   "targetChapter": 1,
+   "why": "fits ch1 \"Points, Lines and Planes: the Axiomatic Idea\" (0.5 vs 0.0)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "geometry",
+   "chapter": 8,
+   "idx": 3,
+   "title": "Inscribed, Circumscribed and the Regular Polygons",
+   "targetChapter": 6,
+   "why": "fits ch6 \"Quadrilaterals and Polygons\" (0.5 vs 0.0)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "coordinate-geometry",
+   "chapter": 4,
+   "idx": 0,
+   "title": "The Equation of a Circle in All Its Forms",
+   "targetChapter": 6,
+   "why": "fits ch6 \"The Ellipse\" (1.0 vs 0.67)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "integral-calculus",
+   "chapter": 3,
+   "idx": 3,
+   "title": "The Logarithm Defined as an Integral",
+   "targetChapter": 1,
+   "why": "fits ch1 \"The Indefinite Integral\" (0.67 vs 0.33)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "multivariable-calculus",
+   "chapter": 4,
+   "idx": 3,
+   "title": "Jacobians and the Change of Variables",
+   "targetChapter": 2,
+   "why": "fits ch2 \"Partial Derivatives and the Gradient\" (0.67 vs 0.0)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "differential-equations",
+   "chapter": 4,
+   "idx": 5,
+   "title": "The Cauchy-Euler Equation",
+   "targetChapter": 1,
+   "why": "fits ch1 \"The Language of Differential Equations\" (0.67 vs 0.33)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "linear-algebra",
+   "chapter": 7,
+   "idx": 4,
+   "title": "Positive Definite Matrices: the Energy Test",
+   "targetChapter": 6,
+   "why": "fits ch6 \"Eigenvalues and Eigenvectors\" (0.6 vs 0.0)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "number-theory",
+   "chapter": 7,
+   "idx": 3,
+   "title": "Pell’s Equation",
+   "targetChapter": 1,
+   "why": "fits ch1 \"The Ground Arithmetic Banked\" (0.5 vs 0.0)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "real-analysis",
+   "chapter": 5,
+   "idx": 0,
+   "title": "The ε-δ Limit, Earned",
+   "targetChapter": 6,
+   "why": "fits ch6 \"Differentiation\" (1.0 vs 0.5)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "real-analysis",
+   "chapter": 6,
+   "idx": 4,
+   "title": "The Inverse and Implicit Function Theorems",
+   "targetChapter": 5,
+   "why": "fits ch5 \"Limits and Continuity at Depth\" (1.0 vs 0.25)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "topology",
+   "chapter": 1,
+   "idx": 2,
+   "title": "Continuity in Metric Spaces",
+   "targetChapter": 5,
+   "why": "fits ch5 \"Compactness\" (1.0 vs 0.67)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "mathematical-methods-for-engineering",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Sturm–Liouville Problems: Eigenfunctions and Orthogonality",
+   "targetChapter": 5,
+   "why": "fits ch5 \"The Classic PDEs\" (0.6 vs 0.2)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "mathematical-methods-for-engineering",
+   "chapter": 7,
+   "idx": 1,
+   "title": "Discretizing the Heat Equation",
+   "targetChapter": 2,
+   "why": "fits ch2 \"ODEs for Engineers: the Model Shelf\" (0.67 vs 0.33)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "advanced-mathematical-foundations",
+   "chapter": 1,
+   "idx": 2,
+   "title": "Where Every Reader Stands",
+   "targetChapter": 5,
+   "why": "fits ch5 \"The Great Open Problems\" (0.75 vs 0.0)"
+  }
+ ],
+ "dupAdjudicate": [
+  {
+   "title": "The Craft Census",
+   "members": [
+    {
+     "book": "abstract-algebra",
+     "discipline": "mathematics",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "artificial-intelligence",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "assembly-and-microprocessors",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "backend-engineering",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "big-data-engineering",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "blockchain",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "c-programming",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "cloud-computing",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "compiler-design",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "computer-graphics",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "computer-networks",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "computer-organization-architecture",
+     "discipline": "computer-science",
+     "chapter": 11,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "computer-vision",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "cpp-programming",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "cryptography",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "cybersecurity",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "data-mining",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "data-science",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "data-structures",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "database-management-systems",
+     "discipline": "computer-science",
+     "chapter": 10,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "deep-learning",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "digital-logic-design",
+     "discipline": "computer-science",
+     "chapter": 10,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 10,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "distributed-systems",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "frontend-engineering",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "generative-ai-and-llms",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Frontier",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "human-computer-interaction",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "information-retrieval",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "internet-of-things",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "java-programming",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "javascript-and-web-technologies",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "machine-learning",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "mathematical-logic",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "natural-language-processing",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "object-oriented-programming",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "operating-systems",
+     "discipline": "computer-science",
+     "chapter": 10,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "parallel-computing",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "programming-languages-paradigms",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "python-programming",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "reinforcement-learning",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "set-theory",
+     "discipline": "mathematics",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "software-engineering",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "theory-of-computation",
+     "discipline": "computer-science",
+     "chapter": 10,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "topology",
+     "discipline": "mathematics",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Laboratory skills expected to be known by all participants (heating and reflux, mass and volume measurement, preparation and dilution of solutions, titrations, pH measurement, filtration, drying of precipitates, instrument operation, graphing and analysis of experimental data)",
+   "members": [
+    {
+     "book": "analytical-chemistry",
+     "discipline": "chemistry",
+     "chapter": 8,
+     "chapterTitle": "The Analytical Doorway",
+     "idx": 4,
+     "title": "Laboratory skills expected to be known by all participants (heating and reflux, mass and volume measurement, preparation and dilution of solutions, titrations, pH measurement, filtration, drying of precipitates, instrument operation, graphing and analysis of experimental data)"
+    },
+    {
+     "book": "biotechnology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Natural Toolbox",
+     "idx": 2,
+     "title": "The Heat-Proof Polymerase Earned"
+    },
+    {
+     "book": "electronic-devices-and-circuits",
+     "discipline": "engineering",
+     "chapter": 9,
+     "chapterTitle": "Power Supplies and the Doorstep",
+     "idx": 1,
+     "title": "Figures of Merit Priced"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "Measurement and Uncertainty",
+     "idx": 4,
+     "title": "Experimental Skills"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 2,
+     "chapterTitle": "The Instruments of the Lab",
+     "idx": 6,
+     "title": "Experimental Skills: Vernier calipers — its use to measure the internal and external diameter and depth of a vessel"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 2,
+     "chapterTitle": "The Instruments of the Lab",
+     "idx": 7,
+     "title": "Experimental Skills: Screw gauge — its use to determine the thickness/diameter of thin sheet/wire"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 2,
+     "chapterTitle": "The Instruments of the Lab",
+     "idx": 8,
+     "title": "Experimental Skills: Screw gauge — its use to determine thickness/diameter of thin sheet/wire"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 3,
+     "chapterTitle": "Mechanics and Properties Practicals",
+     "idx": 6,
+     "title": "Experimental Skills: Speed of sound in air at room temperature using a resonance tube"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Heat and Optics Practicals",
+     "idx": 2,
+     "title": "Refractive-Index Craft"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Heat and Optics Practicals",
+     "idx": 5,
+     "title": "Experimental Skills: The plot of the angle of deviation vs angle of incidence for a triangular prism"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Heat and Optics Practicals",
+     "idx": 6,
+     "title": "Experimental Skills: The refractive index of a glass slab using a travelling microscope"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Heat and Optics Practicals",
+     "idx": 7,
+     "title": "Experimental Skills: Refractive index of a glass slab using a travelling microscope"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 5,
+     "chapterTitle": "Electricity and Magnetism Practicals",
+     "idx": 5,
+     "title": "Experimental Skills: The resistivity of the material of a given wire using a metre bridge"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 5,
+     "chapterTitle": "Electricity and Magnetism Practicals",
+     "idx": 6,
+     "title": "Experimental Skills: The resistance of a given wire using Ohm's law"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 5,
+     "chapterTitle": "Electricity and Magnetism Practicals",
+     "idx": 7,
+     "title": "Experimental Skills: Resistance and figure of merit of a galvanometer by half deflection method"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 6,
+     "chapterTitle": "Electronics for Physicists",
+     "idx": 4,
+     "title": "Experimental Skills: Identification of diode, LED, resistor, a capacitor from a mixed collection of such items"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 14,
+     "title": "Energy, heat and work, enthalpy and energy, heat capacity, Hess's law, Born-Haber cycle, standard formation enthalpies, solution, solvation and bond enthalpies"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 158,
+     "title": "Enthalpy of Combustion or Heat of Combustion (ΔcombH°)"
+    },
+    {
+     "book": "foundation-physics",
+     "discipline": "physics",
+     "chapter": 5,
+     "chapterTitle": "Gravitation at First Pass",
+     "idx": 4,
+     "title": "Experimental Skills: Metre scale — the mass of a given object by the principle of moments"
+    },
+    {
+     "book": "mechanics",
+     "discipline": "physics",
+     "chapter": 6,
+     "chapterTitle": "Momentum and Collisions",
+     "idx": 3,
+     "title": "Centre of Mass Craft"
+    },
+    {
+     "book": "mechanics",
+     "discipline": "physics",
+     "chapter": 6,
+     "chapterTitle": "Momentum and Collisions",
+     "idx": 5,
+     "title": "Centre of Mass of a Semicircular Disc"
+    },
+    {
+     "book": "mechanics",
+     "discipline": "physics",
+     "chapter": 10,
+     "chapterTitle": "Fluid Dynamics",
+     "idx": 3,
+     "title": "Terminal Velocity Taster"
+    },
+    {
+     "book": "multivariable-calculus",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "Multiple Integrals",
+     "idx": 2,
+     "title": "Mass, Centres and Moments"
+    },
+    {
+     "book": "optics",
+     "discipline": "physics",
+     "chapter": 10,
+     "chapterTitle": "The Optics Laboratory",
+     "idx": 1,
+     "title": "Refractive-Index Craft"
+    },
+    {
+     "book": "particle-physics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Standard Model Census",
+     "idx": 6,
+     "title": "Note: The remaining pages supplied are chapter body pages (p. 1.1 System of Particles and Centre of Mass; p. 1.2 Illustrations 1.1–1.2; p. 1.3 Centre of Mass of a Uniform Rod / Semicircular Ring / Semicircular Disc; p. 1.4 Illustrations 1.3–1.4; p. 1.5 Illustrations 1.5–1.6 and Concept Application"
+    },
+    {
+     "book": "properties-of-matter",
+     "discipline": "physics",
+     "chapter": 3,
+     "chapterTitle": "The Moduli and Elastic Energy",
+     "idx": 5,
+     "title": "Experimental Skills: Young's modulus of elasticity of the material of a metallic wire"
+    },
+    {
+     "book": "properties-of-matter",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Viscosity and Streamline Flow",
+     "idx": 3,
+     "title": "Terminal Velocity Worked"
+    },
+    {
+     "book": "properties-of-matter",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Viscosity and Streamline Flow",
+     "idx": 4,
+     "title": "Experimental Skills: Co-efficient of viscosity of a given viscous liquid by measuring the terminal velocity of a given spherical body"
+    },
+    {
+     "book": "solid-state-physics",
+     "discipline": "physics",
+     "chapter": 2,
+     "chapterTitle": "The Reciprocal Lattice and Diffraction",
+     "idx": 4,
+     "title": "Experimental Skills: Specific heat capacity of a given solid and liquid by method of mixtures"
+    },
+    {
+     "book": "statistical-mechanics",
+     "discipline": "physics",
+     "chapter": 5,
+     "chapterTitle": "The Fermi Gas Applications",
+     "idx": 1,
+     "title": "The Specific Heat Proof"
+    },
+    {
+     "book": "thermodynamics",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "The First Law for Closed Systems",
+     "idx": 2,
+     "title": "Specific Heats and Enthalpy"
+    },
+    {
+     "book": "waves-and-oscillations",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "Simple Harmonic Motion: Foundations",
+     "idx": 4,
+     "title": "Experimental Skills: Simple pendulum — dissipation of energy by plotting a graph between the square of amplitude and time"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Subgroups and Cyclic Groups",
+   "members": [
+    {
+     "book": "abstract-algebra",
+     "discipline": "mathematics",
+     "chapter": 2,
+     "chapterTitle": "Groups",
+     "idx": 1,
+     "title": "Subgroups and Cyclic Groups"
+    },
+    {
+     "book": "abstract-algebra",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "Normality and Homomorphisms",
+     "idx": 1,
+     "title": "Normal Subgroups and Factor Groups"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Matter and Its Purity",
+     "idx": 183,
+     "title": "Beckmann Rearrangement"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 72,
+     "title": "Claisen Rearrangement Reaction"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 74,
+     "title": "Fries Rearrangement Reaction"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 84,
+     "title": "Claisen–Schmidt Reaction"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 105,
+     "title": "Lossen Rearrangement Reaction"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 106,
+     "title": "Curtius Rearrangement Reaction"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 107,
+     "title": "Claisen-Schmidt Rearrangement Reaction"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 119,
+     "title": "Rearrangement Reactions"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 120,
+     "title": "Benzidine Rearrangement Reaction"
+    },
+    {
+     "book": "industrial-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Acid-and-Alkali Industries",
+     "idx": 28,
+     "title": "Reaction of Aldehydes and Ketones with N3H (Hydrazoic Acid) in Acidic Conditions (Claisen–Schmidt Rearrangement Type Reaction)"
+    },
+    {
+     "book": "inorganic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 7,
+     "chapterTitle": "Coordination Chemistry",
+     "idx": 19,
+     "title": "Application of Claisen–Schmidt Reaction"
+    },
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 4,
+     "chapterTitle": "The Aromatic Register",
+     "idx": 14,
+     "title": "Hofmann Bromamide Rearrangement or Degradation Reaction"
+    },
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 5,
+     "chapterTitle": "The Halides and the SN Craft",
+     "idx": 23,
+     "title": "Application of Beckmann Rearrangement Reaction: (Synthesis of Nylon-6 or Perlon-L)"
+    },
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 5,
+     "chapterTitle": "The Halides and the SN Craft",
+     "idx": 33,
+     "title": "Reactions with cyclic intermediates or cyclic Rearrangements occur when a participating group"
+    },
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 7,
+     "chapterTitle": "The Carbonyl Register",
+     "idx": 48,
+     "title": "Additions to carbonyl groups can be The Beckmann rearrangement"
+    },
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 9,
+     "chapterTitle": "The Amines and the Nitrogen Register",
+     "idx": 28,
+     "title": "Hofmann–Martius Rearrangement"
+    },
+    {
+     "book": "physical-chemistry",
+     "discipline": "chemistry",
+     "chapter": 3,
+     "chapterTitle": "Chemical Equilibrium",
+     "idx": 5,
+     "title": "Lobry de Bruyn van Ekenstein Rearrangement Reaction"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Least-Squares Fit",
+   "members": [
+    {
+     "book": "econometrics",
+     "discipline": "economics-commerce",
+     "chapter": 2,
+     "chapterTitle": "Simple Regression and OLS",
+     "idx": 0,
+     "title": "The Least-Squares Fit"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "Measurement and Uncertainty",
+     "idx": 3,
+     "title": "Least Squares Introduced"
+    },
+    {
+     "book": "linear-algebra",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "Orthogonality and Least Squares",
+     "idx": 3,
+     "title": "Least Squares: the Overdetermined Verdict"
+    },
+    {
+     "book": "machine-learning",
+     "discipline": "computer-science",
+     "chapter": 2,
+     "chapterTitle": "Linear Models: Regression",
+     "idx": 0,
+     "title": "Least Squares Derived"
+    },
+    {
+     "book": "numerical-analysis",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "Interpolation and Approximation",
+     "idx": 3,
+     "title": "Splines and Least Squares"
+    },
+    {
+     "book": "statistics",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "Bivariate Data: Correlation and Regression",
+     "idx": 3,
+     "title": "Least Squares: the Two Regression Lines"
+    },
+    {
+     "book": "statistics",
+     "discipline": "mathematics",
+     "chapter": 5,
+     "chapterTitle": "Probability Meets Data: Sampling Distributions",
+     "idx": 3,
+     "title": "Chi-Square and F Introduced"
+    },
+    {
+     "book": "statistics",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "Hypothesis Testing",
+     "idx": 2,
+     "title": "The Chi-Square Family"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Quantitative Techniques - elementary mathematics topics: Algebra; Averages; Geometry; LCM and HCF; Mensuration; Number Systems; Percentage; Permutation and Combination; Probability; Profit and Loss; Quadratic and Linear Equations; Ratio and Proportion; Simple and Compound Interest; Time and Speed;",
+   "members": [
+    {
+     "book": "art-history",
+     "discipline": "humanities",
+     "chapter": 1,
+     "chapterTitle": "The Art Historian’s Eye",
+     "idx": 4,
+     "title": "Quantitative Techniques - elementary mathematics topics: Algebra; Averages; Geometry; LCM and HCF; Mensuration; Number Systems; Percentage; Permutation and Combination; Probability; Profit and Loss; Quadratic and Linear Equations; Ratio and Proportion; Simple and Compound Interest; Time and Speed;"
+    },
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "Advanced Counting",
+     "idx": 1,
+     "title": "Permutations and Combinations with Repetition"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 131,
+     "title": "Simple Ionic Compounds of Type AB2 (Fluorite Type)"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 132,
+     "title": "Simple Ionic Compounds of Type A2B (Antifluorite Type)"
+    },
+    {
+     "book": "quantitative-aptitude",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "Ratio, Partnership, Ages and Mixtures",
+     "idx": 0,
+     "title": "Ratio and Proportion at Exam Speed"
+    },
+    {
+     "book": "quantitative-aptitude",
+     "discipline": "mathematics",
+     "chapter": 11,
+     "chapterTitle": "Modern Maths at Aptitude Speed",
+     "idx": 2,
+     "title": "Permutations and Combinations at Exam Speed"
+    },
+    {
+     "book": "theory-of-machines",
+     "discipline": "engineering",
+     "chapter": 6,
+     "chapterTitle": "Gear Trains",
+     "idx": 0,
+     "title": "Simple and Compound Trains"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Tangents, Normals, Chord of Contact",
+   "members": [
+    {
+     "book": "coordinate-geometry",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "The Circle",
+     "idx": 2,
+     "title": "Tangents, Normals, Chord of Contact"
+    },
+    {
+     "book": "coordinate-geometry",
+     "discipline": "mathematics",
+     "chapter": 5,
+     "chapterTitle": "The Parabola",
+     "idx": 2,
+     "title": "Tangents and Normals to the Parabola"
+    },
+    {
+     "book": "coordinate-geometry",
+     "discipline": "mathematics",
+     "chapter": 6,
+     "chapterTitle": "The Ellipse",
+     "idx": 2,
+     "title": "Tangents, Normals and the Reflection Property"
+    },
+    {
+     "book": "coordinate-geometry",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "The Hyperbola",
+     "idx": 1,
+     "title": "Tangents, Normals and the Asymptotes"
+    },
+    {
+     "book": "coordinate-geometry",
+     "discipline": "mathematics",
+     "chapter": 8,
+     "chapterTitle": "The Conic Family Unified",
+     "idx": 2,
+     "title": "Tangents and Chords of Contact, Unified"
+    },
+    {
+     "book": "differential-calculus",
+     "discipline": "mathematics",
+     "chapter": 5,
+     "chapterTitle": "Applications I: Tangents, Normals and Rates",
+     "idx": 0,
+     "title": "Tangents and Normals in All Their Forms"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Analysis of growth and decay 113 8.3 Inductance in terms of flux-linkages",
+   "members": [
+    {
+     "book": "circuit-theory-and-network-analysis",
+     "discipline": "engineering",
+     "chapter": 5,
+     "chapterTitle": "Resonance and Coupled Circuits",
+     "idx": 21,
+     "title": "Analysis of growth and decay 113 8.3 Inductance in terms of flux-linkages"
+    },
+    {
+     "book": "differential-equations",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "Modeling with First-Order Equations",
+     "idx": 0,
+     "title": "Growth, Decay and Cooling"
+    },
+    {
+     "book": "electrical-machines",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "The Single-Phase Transformer",
+     "idx": 8,
+     "title": "Growth and decay 111 8.2 Unit of inductance"
+    },
+    {
+     "book": "electricity-and-magnetism",
+     "discipline": "physics",
+     "chapter": 5,
+     "chapterTitle": "Current and Resistance",
+     "idx": 7,
+     "title": "Growth and Decay of Current"
+    },
+    {
+     "book": "electricity-and-magnetism",
+     "discipline": "physics",
+     "chapter": 9,
+     "chapterTitle": "Electromagnetic Induction",
+     "idx": 4,
+     "title": "Flux Linkage"
+    },
+    {
+     "book": "heat-transfer",
+     "discipline": "engineering",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 9,
+     "title": "Leakage and conduction currents in capacitors 126 8.8 Analysis of decay"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Relationship Between Formula of a Compound and Number of Voids Filled",
+   "members": [
+    {
+     "book": "inorganic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Periodicity at Depth",
+     "idx": 20,
+     "title": "Relationship Between Formula of a Compound and Number of Voids Filled"
+    },
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 9,
+     "chapterTitle": "The Amines and the Nitrogen Register",
+     "idx": 31,
+     "title": "\u0007Determining the Formula of a Compound"
+    },
+    {
+     "book": "trigonometry",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "The Transformation Formulas",
+     "idx": 0,
+     "title": "Compound Angles: the Sum and Difference Formulas"
+    },
+    {
+     "book": "trigonometry",
+     "discipline": "mathematics",
+     "chapter": 5,
+     "chapterTitle": "Inverse Trigonometric Functions",
+     "idx": 3,
+     "title": "Sums, Differences and Multiple Angles as One Inverse"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Conservative Forces and Energy Bookkeeping",
+   "members": [
+    {
+     "book": "engineering-mechanics",
+     "discipline": "engineering",
+     "chapter": 9,
+     "chapterTitle": "Work, Energy and Impulse-Momentum",
+     "idx": 1,
+     "title": "Conservative Forces and Energy Bookkeeping"
+    },
+    {
+     "book": "foundation-physics",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Force and Newton’s Laws",
+     "idx": 17,
+     "title": "Path Independence of Conservative Forces 179 10-1 ROTATIONAL VARIABLES"
+    },
+    {
+     "book": "mechanics",
+     "discipline": "physics",
+     "chapter": 5,
+     "chapterTitle": "Work and Energy in Full",
+     "idx": 2,
+     "title": "Conservative Forces"
+    },
+    {
+     "book": "multivariable-calculus",
+     "discipline": "mathematics",
+     "chapter": 5,
+     "chapterTitle": "Vector Calculus",
+     "idx": 3,
+     "title": "Conservative Fields and Path Independence"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Binary Trees and Their Properties",
+   "members": [
+    {
+     "book": "data-structures",
+     "discipline": "computer-science",
+     "chapter": 5,
+     "chapterTitle": "Trees",
+     "idx": 1,
+     "title": "Binary Trees and Their Properties"
+    },
+    {
+     "book": "data-structures",
+     "discipline": "computer-science",
+     "chapter": 5,
+     "chapterTitle": "Trees",
+     "idx": 4,
+     "title": "The Threaded Binary Tree, Named"
+    },
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "Trees",
+     "idx": 0,
+     "title": "Rooted and Binary Trees"
+    },
+    {
+     "book": "inorganic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 3,
+     "chapterTitle": "Hydrogen and the s-Block",
+     "idx": 9,
+     "title": "Stoichiometry, reactions and properties of binary non-metal hydrides"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Centres of a Triangle in Coordinates",
+   "members": [
+    {
+     "book": "coordinate-geometry",
+     "discipline": "mathematics",
+     "chapter": 1,
+     "chapterTitle": "The Coordinate System and the Locus Idea",
+     "idx": 2,
+     "title": "The Centres of a Triangle in Coordinates"
+    },
+    {
+     "book": "geometry",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "The Circle: Chords, Angles and Tangents",
+     "idx": 1,
+     "title": "Angles in a Circle: Centre, Circumference, Segment"
+    },
+    {
+     "book": "trigonometry",
+     "discipline": "mathematics",
+     "chapter": 6,
+     "chapterTitle": "Properties of Triangles",
+     "idx": 4,
+     "title": "Centres and Circles of a Triangle"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Angles, Distances and Concurrency",
+   "members": [
+    {
+     "book": "coordinate-geometry",
+     "discipline": "mathematics",
+     "chapter": 2,
+     "chapterTitle": "Straight Lines",
+     "idx": 1,
+     "title": "Angles, Distances and Concurrency"
+    },
+    {
+     "book": "coordinate-geometry",
+     "discipline": "mathematics",
+     "chapter": 12,
+     "chapterTitle": "Lines and Planes in Space",
+     "idx": 2,
+     "title": "Angles and Distances: Lines, Planes, Skew Lines"
+    },
+    {
+     "book": "power-systems",
+     "discipline": "engineering",
+     "chapter": 9,
+     "chapterTitle": "Protection",
+     "idx": 2,
+     "title": "Distance Protection in the R-X Plane"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Sum, Product, Quotient and the Chain Rule",
+   "members": [
+    {
+     "book": "differential-calculus",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "The Craft of Differentiation",
+     "idx": 0,
+     "title": "Sum, Product, Quotient and the Chain Rule"
+    },
+    {
+     "book": "topology",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "Continuity Redefined",
+     "idx": 2,
+     "title": "Products and Quotients"
+    },
+    {
+     "book": "trigonometry",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "The Transformation Formulas",
+     "idx": 2,
+     "title": "Product–Sum Transformations"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Damped Oscillation and the Quality Factor",
+   "members": [
+    {
+     "book": "circuit-theory-and-network-analysis",
+     "discipline": "engineering",
+     "chapter": 5,
+     "chapterTitle": "Resonance and Coupled Circuits",
+     "idx": 5,
+     "title": "Damped Oscillation and the Quality Factor"
+    },
+    {
+     "book": "differential-equations",
+     "discipline": "mathematics",
+     "chapter": 5,
+     "chapterTitle": "The Spring and the Circuit",
+     "idx": 0,
+     "title": "Free and Damped Oscillation"
+    },
+    {
+     "book": "waves-and-oscillations",
+     "discipline": "physics",
+     "chapter": 3,
+     "chapterTitle": "Damped and Forced Oscillations",
+     "idx": 5,
+     "title": "Beyond Small Oscillations: The Damped Driven Pendulum and the Josephson Junction"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Continuous versus Discrete",
+   "members": [
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 1,
+     "chapterTitle": "The Discrete Viewpoint",
+     "idx": 0,
+     "title": "Continuous versus Discrete"
+    },
+    {
+     "book": "probability-theory",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "Jointly Distributed Random Variables",
+     "idx": 0,
+     "title": "Joint Distributions: Discrete and Continuous"
+    },
+    {
+     "book": "quantum-mechanics",
+     "discipline": "physics",
+     "chapter": 8,
+     "chapterTitle": "Time-Dependent Transitions",
+     "idx": 4,
+     "title": "The Transition from a Discrete to a Continuous System"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Strong Induction, Well-Ordering and the Proof Census (Implication, Converse, Contrapositive, Contradiction)",
+   "members": [
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "Recursion and Induction at Work",
+     "idx": 1,
+     "title": "Strong Induction, Well-Ordering and the Proof Census (Implication, Converse, Contrapositive, Contradiction)"
+    },
+    {
+     "book": "set-theory",
+     "discipline": "mathematics",
+     "chapter": 5,
+     "chapterTitle": "Well-Ordering and the Ordinals",
+     "idx": 1,
+     "title": "Well-Ordering and Transfinite Induction"
+    },
+    {
+     "book": "theory-of-computation",
+     "discipline": "computer-science",
+     "chapter": 1,
+     "chapterTitle": "The Three Questions",
+     "idx": 2,
+     "title": "The Proof Census: Construction, Contradiction, Induction"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Context-Free Grammars and Parse Trees",
+   "members": [
+    {
+     "book": "compiler-design",
+     "discipline": "computer-science",
+     "chapter": 3,
+     "chapterTitle": "Syntax Analysis",
+     "idx": 0,
+     "title": "Context-Free Grammars and Parse Trees"
+    },
+    {
+     "book": "theory-of-computation",
+     "discipline": "computer-science",
+     "chapter": 5,
+     "chapterTitle": "Context-Free Languages",
+     "idx": 0,
+     "title": "Context-Free Grammars: Definition and Craft"
+    },
+    {
+     "book": "topology",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "Continuity Redefined",
+     "idx": 0,
+     "title": "Preimages: the Definition that Frees"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Calculus of Variations: the Euler-Lagrange Engine",
+   "members": [
+    {
+     "book": "mathematical-methods-for-engineering",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "The Numerical Craft",
+     "idx": 3,
+     "title": "Calculus of Variations: the Euler-Lagrange Engine"
+    },
+    {
+     "book": "mathematical-physics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Calculus of Variations",
+     "idx": 1,
+     "title": "Euler-Lagrange Derived"
+    },
+    {
+     "book": "mechanics",
+     "discipline": "physics",
+     "chapter": 11,
+     "chapterTitle": "The Lagrangian Doorstep",
+     "idx": 1,
+     "title": "The Euler-Lagrange Equations"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Regulation and All-Day Efficiency",
+   "members": [
+    {
+     "book": "electrical-machines",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "The Single-Phase Transformer",
+     "idx": 2,
+     "title": "Regulation and All-Day Efficiency"
+    },
+    {
+     "book": "power-systems",
+     "discipline": "engineering",
+     "chapter": 4,
+     "chapterTitle": "Line Performance and Compensation",
+     "idx": 0,
+     "title": "Regulation and Efficiency"
+    },
+    {
+     "book": "quantitative-aptitude",
+     "discipline": "mathematics",
+     "chapter": 5,
+     "chapterTitle": "Time and Work",
+     "idx": 2,
+     "title": "Efficiency, Men and Days, Work and Wages"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Inscribed, Circumscribed and the Regular Polygons",
+   "members": [
+    {
+     "book": "geometry",
+     "discipline": "mathematics",
+     "chapter": 8,
+     "chapterTitle": "Ruler-and-Compass Constructions",
+     "idx": 3,
+     "title": "Inscribed, Circumscribed and the Regular Polygons"
+    },
+    {
+     "book": "trigonometry",
+     "discipline": "mathematics",
+     "chapter": 6,
+     "chapterTitle": "Properties of Triangles",
+     "idx": 7,
+     "title": "Quadrilaterals and Regular Polygons"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Polar Coordinates",
+   "members": [
+    {
+     "book": "coordinate-geometry",
+     "discipline": "mathematics",
+     "chapter": 1,
+     "chapterTitle": "The Coordinate System and the Locus Idea",
+     "idx": 3,
+     "title": "Polar Coordinates"
+    },
+    {
+     "book": "integral-calculus",
+     "discipline": "mathematics",
+     "chapter": 5,
+     "chapterTitle": "Areas and Applications",
+     "idx": 1,
+     "title": "Areas and Lengths in Polar Coordinates"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Direction Cosines and Direction Ratios",
+   "members": [
+    {
+     "book": "coordinate-geometry",
+     "discipline": "mathematics",
+     "chapter": 9,
+     "chapterTitle": "The Third Dimension: Points, Spheres and Directions",
+     "idx": 1,
+     "title": "Direction Cosines and Direction Ratios"
+    },
+    {
+     "book": "waves-and-oscillations",
+     "discipline": "physics",
+     "chapter": 2,
+     "chapterTitle": "Simple Harmonic Motion: Mathematics",
+     "idx": 4,
+     "title": "Direction Cosines"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Cross Product: Areas and Moments",
+   "members": [
+    {
+     "book": "coordinate-geometry",
+     "discipline": "mathematics",
+     "chapter": 11,
+     "chapterTitle": "The Products of Vectors",
+     "idx": 1,
+     "title": "The Cross Product: Areas and Moments"
+    },
+    {
+     "book": "strength-of-materials",
+     "discipline": "engineering",
+     "chapter": 8,
+     "chapterTitle": "Deflection of Beams",
+     "idx": 2,
+     "title": "The Moment-Area Theorems"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Triple Products and Lagrange’s Identity",
+   "members": [
+    {
+     "book": "coordinate-geometry",
+     "discipline": "mathematics",
+     "chapter": 11,
+     "chapterTitle": "The Products of Vectors",
+     "idx": 2,
+     "title": "Triple Products and Lagrange’s Identity"
+    },
+    {
+     "book": "electricity-and-magnetism",
+     "discipline": "physics",
+     "chapter": 7,
+     "chapterTitle": "Magnetic Force and the Field",
+     "idx": 7,
+     "title": "Triple Products"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Doorstep: Curves Acquire Slopes and Areas",
+   "members": [
+    {
+     "book": "coordinate-geometry",
+     "discipline": "mathematics",
+     "chapter": 13,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 2,
+     "title": "The Doorstep: Curves Acquire Slopes and Areas"
+    },
+    {
+     "book": "mechanics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "Kinematics in One Dimension",
+     "idx": 1,
+     "title": "Graphs by Slope and Area"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Elevation and Depression",
+   "members": [
+    {
+     "book": "physical-chemistry",
+     "discipline": "chemistry",
+     "chapter": 8,
+     "chapterTitle": "Solutions and Colligative Properties",
+     "idx": 1,
+     "title": "Elevation and Depression"
+    },
+    {
+     "book": "trigonometry",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "Heights and Distances",
+     "idx": 0,
+     "title": "Elevation, Depression and the Right Setup"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Partial Fractions: every Denominator Case",
+   "members": [
+    {
+     "book": "integral-calculus",
+     "discipline": "mathematics",
+     "chapter": 2,
+     "chapterTitle": "Integration by Parts and the Advanced Craft",
+     "idx": 1,
+     "title": "Partial Fractions: every Denominator Case"
+    },
+    {
+     "book": "mathematical-methods-for-engineering",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "The Laplace Transform",
+     "idx": 1,
+     "title": "Inversion by Partial Fractions"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Appendix D Some Fundamental Operations of the Calculu",
+   "members": [
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Matter and Its Purity",
+     "idx": 433,
+     "title": "Appendix D Some Fundamental Operations of the Calculu"
+    },
+    {
+     "book": "integral-calculus",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "The Definite Integral",
+     "idx": 1,
+     "title": "The Fundamental Theorems of Calculus"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Course-Level Craft",
+   "members": [
+    {
+     "book": "complex-analysis",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Course-Level Craft"
+    },
+    {
+     "book": "multivariable-calculus",
+     "discipline": "mathematics",
+     "chapter": 6,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Course-Level Craft"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Variable Separable",
+   "members": [
+    {
+     "book": "differential-equations",
+     "discipline": "mathematics",
+     "chapter": 2,
+     "chapterTitle": "First-Order Equations",
+     "idx": 0,
+     "title": "Variable Separable"
+    },
+    {
+     "book": "foundation-physics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "What Physics Measures",
+     "idx": 48,
+     "title": "Action-Angle Variables for Completely Separable Systems"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Part B — Mathematics (class 11-12 level): algebra (equations, AP/GP, series), trigonometry (identities, heights and distances), coordinate geometry, 3D geometry, matrices and determinants, logarithms, mensuration, basic calculus (limits, differentiation), probability and statistics, permutation and",
+   "members": [
+    {
+     "book": "ear-training",
+     "discipline": "arts-music",
+     "chapter": 1,
+     "chapterTitle": "The Interval Recognition",
+     "idx": 4,
+     "title": "Part B — Mathematics (class 11-12 level): algebra (equations, AP/GP, series), trigonometry (identities, heights and distances), coordinate geometry, 3D geometry, matrices and determinants, logarithms, mensuration, basic calculus (limits, differentiation), probability and statistics, permutation and"
+    },
+    {
+     "book": "linear-algebra",
+     "discipline": "mathematics",
+     "chapter": 2,
+     "chapterTitle": "Determinants",
+     "idx": 2,
+     "title": "Determinants in Coordinate Geometry"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Matrix of a Transformation",
+   "members": [
+    {
+     "book": "linear-algebra",
+     "discipline": "mathematics",
+     "chapter": 5,
+     "chapterTitle": "Linear Transformations",
+     "idx": 2,
+     "title": "The Matrix of a Transformation"
+    },
+    {
+     "book": "properties-of-matter",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Molecular Picture",
+     "idx": 8,
+     "title": "Formal Properties of the Transformation Matrix"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Inclusion–Exclusion at Full Depth",
+   "members": [
+    {
+     "book": "combinatorics",
+     "discipline": "mathematics",
+     "chapter": 2,
+     "chapterTitle": "The Binomial Machine",
+     "idx": 2,
+     "title": "Inclusion–Exclusion at Full Depth"
+    },
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "Advanced Counting",
+     "idx": 2,
+     "title": "Inclusion–Exclusion and Derangements"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Equivalence Relations and Partitions",
+   "members": [
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 5,
+     "chapterTitle": "Relations: Order and Equivalence",
+     "idx": 1,
+     "title": "Equivalence Relations and Partitions"
+    },
+    {
+     "book": "set-theory",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "Relations and Functions, Formally",
+     "idx": 3,
+     "title": "Equivalence Relations and Partitions, Deepened"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Transversals and Matching: Hall’s Marriage Theorem",
+   "members": [
+    {
+     "book": "combinatorics",
+     "discipline": "mathematics",
+     "chapter": 5,
+     "chapterTitle": "Partitions and Symmetric Counting",
+     "idx": 1,
+     "title": "Transversals and Matching: Hall’s Marriage Theorem"
+    },
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 6,
+     "chapterTitle": "Graphs: the Mathematics of Connections",
+     "idx": 2,
+     "title": "Bipartite Graphs, Matchings and Hall’s Theorem"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Shortest Paths: Dijkstra Derived",
+   "members": [
+    {
+     "book": "algorithms",
+     "discipline": "computer-science",
+     "chapter": 6,
+     "chapterTitle": "Graph Algorithms",
+     "idx": 2,
+     "title": "Shortest Paths: Dijkstra Derived"
+    },
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 6,
+     "chapterTitle": "Graphs: the Mathematics of Connections",
+     "idx": 5,
+     "title": "Shortest Paths: Dijkstra Met"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Minimum Spanning Trees: Prim and Kruskal",
+   "members": [
+    {
+     "book": "algorithms",
+     "discipline": "computer-science",
+     "chapter": 6,
+     "chapterTitle": "Graph Algorithms",
+     "idx": 1,
+     "title": "Minimum Spanning Trees: Prim and Kruskal"
+    },
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "Trees",
+     "idx": 2,
+     "title": "Spanning Trees: Prim and Kruskal"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Gates and Combinational Circuits",
+   "members": [
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 8,
+     "chapterTitle": "Boolean Algebra and Logic Circuits",
+     "idx": 1,
+     "title": "Gates and Combinational Circuits"
+    },
+    {
+     "book": "vlsi-design",
+     "discipline": "engineering",
+     "chapter": 7,
+     "chapterTitle": "Combinational Circuit Design",
+     "idx": 4,
+     "title": "Digital circuits — Boolean algebra and uses; logic gates, digital IC families; combinational and sequential circuits; basics of multiplexers, counters/registers/memories/microprocessors: design and applications"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Minimization: Karnaugh Maps",
+   "members": [
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 8,
+     "chapterTitle": "Boolean Algebra and Logic Circuits",
+     "idx": 2,
+     "title": "Minimization: Karnaugh Maps"
+    },
+    {
+     "book": "engineering-mechanics",
+     "discipline": "engineering",
+     "chapter": 10,
+     "chapterTitle": "Lagrange’s Equations and the Doorstep",
+     "idx": 4,
+     "title": "Minimization and Karnaugh maps"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Pascal’s Recurrence and the Identity Cascade",
+   "members": [
+    {
+     "book": "combinatorics",
+     "discipline": "mathematics",
+     "chapter": 2,
+     "chapterTitle": "The Binomial Machine",
+     "idx": 0,
+     "title": "Pascal’s Recurrence and the Identity Cascade"
+    },
+    {
+     "book": "number-theory",
+     "discipline": "mathematics",
+     "chapter": 8,
+     "chapterTitle": "Fibonacci and Recurrence",
+     "idx": 1,
+     "title": "The Identity Cascade"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Diffie-Hellman Traced",
+   "members": [
+    {
+     "book": "cryptography",
+     "discipline": "computer-science",
+     "chapter": 6,
+     "chapterTitle": "The Public-Key Revolution",
+     "idx": 1,
+     "title": "Diffie-Hellman Traced"
+    },
+    {
+     "book": "number-theory",
+     "discipline": "mathematics",
+     "chapter": 9,
+     "chapterTitle": "Cryptography: the Modern Payoff",
+     "idx": 1,
+     "title": "Diffie–Hellman"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Cantor’s Diagonal Argument",
+   "members": [
+    {
+     "book": "set-theory",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "Counting the Infinite: Cardinality",
+     "idx": 1,
+     "title": "Cantor’s Diagonal Argument"
+    },
+    {
+     "book": "theory-of-computation",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "Advanced Computability",
+     "idx": 0,
+     "title": "The Diagonal Argument: Cantor’s Cage and Russell’s Wound"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Partitions and Total Probability",
+   "members": [
+    {
+     "book": "probability-theory",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "Total Probability and Bayes",
+     "idx": 0,
+     "title": "Partitions and Total Probability"
+    },
+    {
+     "book": "quantum-chemistry",
+     "discipline": "chemistry",
+     "chapter": 4,
+     "chapterTitle": "The Hydrogen Atom’s Orbitals",
+     "idx": 12,
+     "title": "Plots of Total Probability Density: Shapes of Atomic Orbitals"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Base-Rate Neglect",
+   "members": [
+    {
+     "book": "behavioural-economics",
+     "discipline": "economics-commerce",
+     "chapter": 2,
+     "chapterTitle": "Heuristics and Biases",
+     "idx": 2,
+     "title": "The Base-Rate Neglect"
+    },
+    {
+     "book": "probability-theory",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "Total Probability and Bayes",
+     "idx": 2,
+     "title": "The Base-Rate Cascade"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Liouville and the Fundamental Theorem of Algebra, Proved",
+   "members": [
+    {
+     "book": "complex-analysis",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "Integration in the Plane",
+     "idx": 2,
+     "title": "Liouville and the Fundamental Theorem of Algebra, Proved"
+    },
+    {
+     "book": "real-analysis",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "The Riemann Integral",
+     "idx": 2,
+     "title": "The Fundamental Theorem, Proved"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Potential Problems by Mapping",
+   "members": [
+    {
+     "book": "complex-analysis",
+     "discipline": "mathematics",
+     "chapter": 6,
+     "chapterTitle": "Conformal Mapping",
+     "idx": 2,
+     "title": "Potential Problems by Mapping"
+    },
+    {
+     "book": "mathematical-methods-for-engineering",
+     "discipline": "mathematics",
+     "chapter": 6,
+     "chapterTitle": "Complex Methods for Engineers",
+     "idx": 1,
+     "title": "Potential Problems by Mapping"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Newton–Raphson: Quadratic, and Fragile",
+   "members": [
+    {
+     "book": "numerical-analysis",
+     "discipline": "mathematics",
+     "chapter": 2,
+     "chapterTitle": "Root Finding",
+     "idx": 2,
+     "title": "Newton–Raphson: Quadratic, and Fragile"
+    },
+    {
+     "book": "power-systems",
+     "discipline": "engineering",
+     "chapter": 6,
+     "chapterTitle": "The Bus Model and Load Flow",
+     "idx": 2,
+     "title": "Newton-Raphson and the Jacobian"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Method-Choice Census",
+   "members": [
+    {
+     "book": "mathematical-methods-for-engineering",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "The Numerical Craft",
+     "idx": 0,
+     "title": "The Method-Choice Census"
+    },
+    {
+     "book": "numerical-analysis",
+     "discipline": "mathematics",
+     "chapter": 2,
+     "chapterTitle": "Root Finding",
+     "idx": 3,
+     "title": "The Method-Choice Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Runge-Kutta Named",
+   "members": [
+    {
+     "book": "mathematical-physics",
+     "discipline": "physics",
+     "chapter": 9,
+     "chapterTitle": "The Numerical Register",
+     "idx": 2,
+     "title": "Runge-Kutta Named"
+    },
+    {
+     "book": "numerical-analysis",
+     "discipline": "mathematics",
+     "chapter": 6,
+     "chapterTitle": "Differential Equations, Numerically",
+     "idx": 1,
+     "title": "The Runge–Kutta Family"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Sturm–Liouville Problems: Eigenfunctions and Orthogonality",
+   "members": [
+    {
+     "book": "mathematical-methods-for-engineering",
+     "discipline": "mathematics",
+     "chapter": 2,
+     "chapterTitle": "ODEs for Engineers: the Model Shelf",
+     "idx": 4,
+     "title": "Sturm–Liouville Problems: Eigenfunctions and Orthogonality"
+    },
+    {
+     "book": "mathematical-physics",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "PDEs and the Separation Craft",
+     "idx": 3,
+     "title": "Sturm-Liouville Named"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Steps, Impulses and Initial-Value Problems",
+   "members": [
+    {
+     "book": "mathematical-methods-for-engineering",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "The Laplace Transform",
+     "idx": 2,
+     "title": "Steps, Impulses and Initial-Value Problems"
+    },
+    {
+     "book": "signals-and-systems",
+     "discipline": "engineering",
+     "chapter": 1,
+     "chapterTitle": "The Signal Idea",
+     "idx": 1,
+     "title": "Impulses and Steps, Honestly"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Phasors",
+   "members": [
+    {
+     "book": "mathematical-methods-for-engineering",
+     "discipline": "mathematics",
+     "chapter": 6,
+     "chapterTitle": "Complex Methods for Engineers",
+     "idx": 2,
+     "title": "Phasors"
+    },
+    {
+     "book": "waves-and-oscillations",
+     "discipline": "physics",
+     "chapter": 2,
+     "chapterTitle": "Simple Harmonic Motion: Mathematics",
+     "idx": 1,
+     "title": "Phasors"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Decision Tree",
+   "members": [
+    {
+     "book": "business-mathematics",
+     "discipline": "economics-commerce",
+     "chapter": 7,
+     "chapterTitle": "Probability and Expected Value",
+     "idx": 2,
+     "title": "The Decision Tree"
+    },
+    {
+     "book": "optimization-and-operations-research",
+     "discipline": "mathematics",
+     "chapter": 1,
+     "chapterTitle": "The Modeling Discipline",
+     "idx": 3,
+     "title": "Decision Analysis: Trees, Payoffs and the Value of Information"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "PERT-CPM Worked",
+   "members": [
+    {
+     "book": "operations-management",
+     "discipline": "economics-commerce",
+     "chapter": 5,
+     "chapterTitle": "Scheduling and the Project Craft",
+     "idx": 2,
+     "title": "PERT-CPM Worked"
+    },
+    {
+     "book": "optimization-and-operations-research",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "Network Optimization",
+     "idx": 2,
+     "title": "CPM and PERT: the Critical Path"
+    }
+   ],
+   "exact": false
+  }
+ ],
+ "misAdjudicate": [
+  {
+   "book": "geometry",
+   "discipline": "mathematics",
+   "chapter": 2,
+   "chapterTitle": "Angles, Parallel Lines and the Transversal",
+   "idx": 0,
+   "title": "Angles: Types, Pairs and Measures",
+   "ownScore": 0.5,
+   "bestBook": "trigonometry",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "trigonometry",
+     "score": 0.75
+    },
+    {
+     "book": "mandarin",
+     "score": 0.75
+    },
+    {
+     "book": "typography",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "geometry",
+   "discipline": "mathematics",
+   "chapter": 3,
+   "chapterTitle": "Triangles: Congruence and the Craft of Proof",
+   "idx": 5,
+   "title": "Stewart’s Theorem and the Median Relation",
+   "ownScore": 0.25,
+   "bestBook": "statistics",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "statistics",
+     "score": 0.75
+    },
+    {
+     "book": "trigonometry",
+     "score": 0.75
+    },
+    {
+     "book": "solid-state-physics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "geometry",
+   "discipline": "mathematics",
+   "chapter": 8,
+   "chapterTitle": "Ruler-and-Compass Constructions",
+   "idx": 1,
+   "title": "Bisectors, Perpendiculars and Standard Triangles",
+   "ownScore": 0.75,
+   "bestBook": "coordinate-geometry",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "coordinate-geometry",
+     "score": 1.0
+    },
+    {
+     "book": "trigonometry",
+     "score": 0.5
+    },
+    {
+     "book": "signals-and-systems",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "coordinate-geometry",
+   "discipline": "mathematics",
+   "chapter": 2,
+   "chapterTitle": "Straight Lines",
+   "idx": 4,
+   "title": "Rotation of Axes and the Invariants",
+   "ownScore": 0.33,
+   "bestBook": "linear-algebra",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "linear-algebra",
+     "score": 0.67
+    },
+    {
+     "book": "geometry",
+     "score": 0.67
+    },
+    {
+     "book": "engineering-mechanics",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "coordinate-geometry",
+   "discipline": "mathematics",
+   "chapter": 8,
+   "chapterTitle": "The Conic Family Unified",
+   "idx": 7,
+   "title": "Confocal Conics and Families of Conics",
+   "ownScore": 0.33,
+   "bestBook": "differential-calculus",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "differential-calculus",
+     "score": 0.67
+    },
+    {
+     "book": "linear-algebra",
+     "score": 0.33
+    },
+    {
+     "book": "multivariable-calculus",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 7
+  },
+  {
+   "book": "coordinate-geometry",
+   "discipline": "mathematics",
+   "chapter": 12,
+   "chapterTitle": "Lines and Planes in Space",
+   "idx": 3,
+   "title": "Families of Planes",
+   "ownScore": 0.5,
+   "bestBook": "elementary-algebra",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "elementary-algebra",
+     "score": 1.0
+    },
+    {
+     "book": "differential-equations",
+     "score": 1.0
+    },
+    {
+     "book": "antennas-and-wave-propagation",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "trigonometry",
+   "discipline": "mathematics",
+   "chapter": 3,
+   "chapterTitle": "The Transformation Formulas",
+   "idx": 5,
+   "title": "Summation of Trigonometric Series",
+   "ownScore": 0.33,
+   "bestBook": "real-analysis",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "real-analysis",
+     "score": 0.67
+    },
+    {
+     "book": "discrete-mathematics",
+     "score": 0.67
+    },
+    {
+     "book": "integral-calculus",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "trigonometry",
+   "discipline": "mathematics",
+   "chapter": 4,
+   "chapterTitle": "Trigonometric Equations",
+   "idx": 2,
+   "title": "Max–Min, Graphical and Inequality Methods",
+   "ownScore": 0.2,
+   "bestBook": "optimization-and-operations-research",
+   "bestScore": 0.8,
+   "top3": [
+    {
+     "book": "optimization-and-operations-research",
+     "score": 0.8
+    },
+    {
+     "book": "differential-calculus",
+     "score": 0.8
+    },
+    {
+     "book": "thermodynamics",
+     "score": 0.4
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "trigonometry",
+   "discipline": "mathematics",
+   "chapter": 6,
+   "chapterTitle": "Properties of Triangles",
+   "idx": 7,
+   "title": "Quadrilaterals and Regular Polygons",
+   "ownScore": 0.0,
+   "bestBook": "geometry",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "geometry",
+     "score": 1.0
+    },
+    {
+     "book": "complex-analysis",
+     "score": 0.67
+    },
+    {
+     "book": "coordinate-geometry",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 7
+  },
+  {
+   "book": "differential-calculus",
+   "discipline": "mathematics",
+   "chapter": 6,
+   "chapterTitle": "Applications II: Monotonicity, Concavity and Extrema",
+   "idx": 2,
+   "title": "Maxima and Minima: the Complete Tests",
+   "ownScore": 0.5,
+   "bestBook": "business-mathematics",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "business-mathematics",
+     "score": 0.75
+    },
+    {
+     "book": "advanced-algebra",
+     "score": 0.75
+    },
+    {
+     "book": "trigonometry",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "integral-calculus",
+   "discipline": "mathematics",
+   "chapter": 3,
+   "chapterTitle": "The Definite Integral",
+   "idx": 3,
+   "title": "The Logarithm Defined as an Integral",
+   "ownScore": 0.67,
+   "bestBook": "advanced-algebra",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "advanced-algebra",
+     "score": 1.0
+    },
+    {
+     "book": "differential-calculus",
+     "score": 1.0
+    },
+    {
+     "book": "complex-analysis",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "integral-calculus",
+   "discipline": "mathematics",
+   "chapter": 4,
+   "chapterTitle": "The Properties and the Leibniz Rule",
+   "idx": 3,
+   "title": "Piecewise Integrands: Modulus, GIF and Signum",
+   "ownScore": 0.2,
+   "bestBook": "advanced-algebra",
+   "bestScore": 0.8,
+   "top3": [
+    {
+     "book": "advanced-algebra",
+     "score": 0.8
+    },
+    {
+     "book": "differential-calculus",
+     "score": 0.6
+    },
+    {
+     "book": "properties-of-matter",
+     "score": 0.2
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "integral-calculus",
+   "discipline": "mathematics",
+   "chapter": 5,
+   "chapterTitle": "Areas and Applications",
+   "idx": 1,
+   "title": "Areas and Lengths in Polar Coordinates",
+   "ownScore": 0.75,
+   "bestBook": "coordinate-geometry",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "coordinate-geometry",
+     "score": 1.0
+    },
+    {
+     "book": "trigonometry",
+     "score": 0.75
+    },
+    {
+     "book": "mechanics",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "multivariable-calculus",
+   "discipline": "mathematics",
+   "chapter": 2,
+   "chapterTitle": "Partial Derivatives and the Gradient",
+   "idx": 4,
+   "title": "Taylor’s Formula for Two Variables",
+   "ownScore": 0.5,
+   "bestBook": "numerical-analysis",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "numerical-analysis",
+     "score": 1.0
+    },
+    {
+     "book": "statistics",
+     "score": 0.75
+    },
+    {
+     "book": "elementary-algebra",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "differential-equations",
+   "discipline": "mathematics",
+   "chapter": 1,
+   "chapterTitle": "The Language of Differential Equations",
+   "idx": 1,
+   "title": "Forming Equations from Families of Curves",
+   "ownScore": 0.75,
+   "bestBook": "advanced-algebra",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "advanced-algebra",
+     "score": 1.0
+    },
+    {
+     "book": "physical-chemistry",
+     "score": 0.75
+    },
+    {
+     "book": "vlsi-design",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "differential-equations",
+   "discipline": "mathematics",
+   "chapter": 1,
+   "chapterTitle": "The Language of Differential Equations",
+   "idx": 3,
+   "title": "Direction Fields and Euler’s Preview",
+   "ownScore": 0.75,
+   "bestBook": "numerical-analysis",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "numerical-analysis",
+     "score": 1.0
+    },
+    {
+     "book": "arithmetic-and-number-systems",
+     "score": 0.75
+    },
+    {
+     "book": "complex-analysis",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "differential-equations",
+   "discipline": "mathematics",
+   "chapter": 3,
+   "chapterTitle": "Modeling with First-Order Equations",
+   "idx": 3,
+   "title": "Existence and Uniqueness: the Honest Guarantee",
+   "ownScore": 0.5,
+   "bestBook": "arithmetic-and-number-systems",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "arithmetic-and-number-systems",
+     "score": 1.0
+    },
+    {
+     "book": "electromagnetic-theory",
+     "score": 0.75
+    },
+    {
+     "book": "electromagnetic-fields-and-waves",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "differential-equations",
+   "discipline": "mathematics",
+   "chapter": 4,
+   "chapterTitle": "Second-Order Linear Equations",
+   "idx": 5,
+   "title": "The Cauchy-Euler Equation",
+   "ownScore": 0.67,
+   "bestBook": "mathematical-physics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "mathematical-physics",
+     "score": 1.0
+    },
+    {
+     "book": "complex-analysis",
+     "score": 1.0
+    },
+    {
+     "book": "fluid-mechanics",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "discrete-mathematics",
+   "discipline": "mathematics",
+   "chapter": 5,
+   "chapterTitle": "Relations: Order and Equivalence",
+   "idx": 3,
+   "title": "Topological Sorting: Order for the Algorithm",
+   "ownScore": 0.5,
+   "bestBook": "algorithms",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "algorithms",
+     "score": 1.0
+    },
+    {
+     "book": "elementary-algebra",
+     "score": 0.5
+    },
+    {
+     "book": "abstract-algebra",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "number-theory",
+   "discipline": "mathematics",
+   "chapter": 6,
+   "chapterTitle": "Quadratic Residues and Reciprocity",
+   "idx": 3,
+   "title": "Sums of Two Squares and Pythagorean Triples",
+   "ownScore": 0.2,
+   "bestBook": "elementary-algebra",
+   "bestScore": 0.6,
+   "top3": [
+    {
+     "book": "elementary-algebra",
+     "score": 0.6
+    },
+    {
+     "book": "waves-and-oscillations",
+     "score": 0.6
+    },
+    {
+     "book": "genetics",
+     "score": 0.6
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "set-theory",
+   "discipline": "mathematics",
+   "chapter": 3,
+   "chapterTitle": "Relations and Functions, Formally",
+   "idx": 3,
+   "title": "Equivalence Relations and Partitions, Deepened",
+   "ownScore": 0.5,
+   "bestBook": "discrete-mathematics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "discrete-mathematics",
+     "score": 1.0
+    },
+    {
+     "book": "arithmetic-and-number-systems",
+     "score": 0.75
+    },
+    {
+     "book": "statistical-mechanics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "set-theory",
+   "discipline": "mathematics",
+   "chapter": 5,
+   "chapterTitle": "Well-Ordering and the Ordinals",
+   "idx": 0,
+   "title": "Partial Orders, Chains and Bounds",
+   "ownScore": 0.5,
+   "bestBook": "multivariable-calculus",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "multivariable-calculus",
+     "score": 0.75
+    },
+    {
+     "book": "algorithms",
+     "score": 0.75
+    },
+    {
+     "book": "probability-theory",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "mathematical-logic",
+   "discipline": "mathematics",
+   "chapter": 1,
+   "chapterTitle": "Statements and Connectives",
+   "idx": 0,
+   "title": "Statements: the Raw Material",
+   "ownScore": 0.33,
+   "bestBook": "molecular-biology",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "molecular-biology",
+     "score": 0.67
+    },
+    {
+     "book": "statistics",
+     "score": 0.67
+    },
+    {
+     "book": "data-science",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "combinatorics",
+   "discipline": "mathematics",
+   "chapter": 1,
+   "chapterTitle": "Counting Foundations at Depth",
+   "idx": 0,
+   "title": "The Bank Recalled: Principles and Formulas",
+   "ownScore": 0.75,
+   "bestBook": "complex-analysis",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "complex-analysis",
+     "score": 1.0
+    },
+    {
+     "book": "elementary-algebra",
+     "score": 0.75
+    },
+    {
+     "book": "optimization-and-operations-research",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "combinatorics",
+   "discipline": "mathematics",
+   "chapter": 4,
+   "chapterTitle": "Recurrence Relations at Depth",
+   "idx": 2,
+   "title": "Asymptotics: the Growth of Counts",
+   "ownScore": 0.67,
+   "bestBook": "algorithms",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "algorithms",
+     "score": 1.0
+    },
+    {
+     "book": "microbiology",
+     "score": 0.67
+    },
+    {
+     "book": "ecology",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "probability-theory",
+   "discipline": "mathematics",
+   "chapter": 1,
+   "chapterTitle": "The Sample Space: Probability’s Universe",
+   "idx": 2,
+   "title": "Odds and the First Computations",
+   "ownScore": 0.67,
+   "bestBook": "mathematical-methods-for-engineering",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "mathematical-methods-for-engineering",
+     "score": 1.0
+    },
+    {
+     "book": "trigonometry",
+     "score": 0.67
+    },
+    {
+     "book": "advanced-mathematical-foundations",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "statistics",
+   "discipline": "mathematics",
+   "chapter": 7,
+   "chapterTitle": "Hypothesis Testing",
+   "idx": 0,
+   "title": "The Logic of the Test",
+   "ownScore": 0.5,
+   "bestBook": "molecular-biology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "molecular-biology",
+     "score": 1.0
+    },
+    {
+     "book": "mandarin",
+     "score": 1.0
+    },
+    {
+     "book": "genetics",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "real-analysis",
+   "discipline": "mathematics",
+   "chapter": 4,
+   "chapterTitle": "The Topology of the Real Line",
+   "idx": 3,
+   "title": "Connectedness: the Interval Theorem",
+   "ownScore": 0.67,
+   "bestBook": "topology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "topology",
+     "score": 1.0
+    },
+    {
+     "book": "statistics",
+     "score": 0.67
+    },
+    {
+     "book": "advanced-algebra",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "abstract-algebra",
+   "discipline": "mathematics",
+   "chapter": 2,
+   "chapterTitle": "Groups",
+   "idx": 3,
+   "title": "Conjugacy Classes and the Class Equation",
+   "ownScore": 0.5,
+   "bestBook": "high-voltage-engineering",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "high-voltage-engineering",
+     "score": 0.75
+    },
+    {
+     "book": "arithmetic-and-number-systems",
+     "score": 0.75
+    },
+    {
+     "book": "trigonometry",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "advanced-mathematical-foundations",
+   "discipline": "mathematics",
+   "chapter": 1,
+   "chapterTitle": "The Ladder in One View",
+   "idx": 1,
+   "title": "The Doorstep Chain, Traced End to End",
+   "ownScore": 0.75,
+   "bestBook": "natural-language-processing",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "natural-language-processing",
+     "score": 1.0
+    },
+    {
+     "book": "frontend-engineering",
+     "score": 0.75
+    },
+    {
+     "book": "full-stack-web-development",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "quantitative-aptitude",
+   "discipline": "mathematics",
+   "chapter": 1,
+   "chapterTitle": "The Aptitude Landscape",
+   "idx": 3,
+   "title": "Shortcuts and Their Limits",
+   "ownScore": 0.5,
+   "bestBook": "biotechnology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "biotechnology",
+     "score": 1.0
+    },
+    {
+     "book": "natural-language-processing",
+     "score": 1.0
+    },
+    {
+     "book": "big-data-engineering",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  }
+ ],
+ "thinChapters": [
+  {
+   "book": "discrete-mathematics",
+   "chapter": 1,
+   "chapterTitle": "The Discrete Viewpoint",
+   "plannedLeft": 2
+  },
+  {
+   "book": "discrete-mathematics",
+   "chapter": 2,
+   "chapterTitle": "Algorithms and Their Growth",
+   "plannedLeft": 2
+  },
+  {
+   "book": "mathematical-methods-for-engineering",
+   "chapter": 7,
+   "chapterTitle": "The Numerical Craft",
+   "plannedLeft": 2
+  },
+  {
+   "book": "advanced-mathematical-foundations",
+   "chapter": 1,
+   "chapterTitle": "The Ladder in One View",
+   "plannedLeft": 2
+  },
+  {
+   "book": "advanced-mathematical-foundations",
+   "chapter": 7,
+   "chapterTitle": "The Doorstep Beyond",
+   "plannedLeft": 2
+  }
+ ],
+ "note": "review auto-actions; adjudicate the pending lists; free-scan the books"
+}

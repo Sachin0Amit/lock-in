@@ -1,0 +1,727 @@
+--- C0 (n=177): 'Practical Perspective: Pushbutton Telephone Practical Perspective: Filtering Dig'
+    analog-and-digital-communication|ch1|idx12| Practical Perspective: Pushbutton Telephone Practical Perspective: Filtering Digital
+    analog-and-digital-communication|ch1|idx14| Analogue-to-digital conversion 507 Summary of important formulae
+    analog-electronics|ch1|idx7| Note: The scanned pages are not a JEE mathematics book — they are the front matter and Contents
+    analog-electronics|ch4|idx18| Summary of important formulae 416 20.29 Operational amplifiers
+    analog-electronics|ch8|idx5| Designing a Bandpass Filter 555 Periodic Voltage Source
+    antennas-and-wave-propagation|ch1|idx3| This publication is in copyright. Subject to statutory exception and to the provisions of relev
+    art-history|ch6|idx5| Sixth Edition / M Laxmikanth — McGraw Hill Education (India) Private Limited [title page]
+  * circuit-theory-and-network-analysis|ch1|idx13| And RC Circuits 220 Practical Perspective: A Household Distribution
+  * circuit-theory-and-network-analysis|ch1|idx14| Practical Perspective: Artificial Pacemaker 221 Circuit
+  * circuit-theory-and-network-analysis|ch1|idx24| Summary of important formulae 163 10.1 Basic a.c. circuits
+  * circuit-theory-and-network-analysis|ch4|idx5| Practical Perspective: Capacitive Touch 9.3 The Phasor
+  * circuit-theory-and-network-analysis|ch4|idx12| Summary of important formulae 149 9.6 Average and r.m.s. values of sinusoidal
+  * circuit-theory-and-network-analysis|ch5|idx15| Finding the Unbounded Response in an RC
+  * circuit-theory-and-network-analysis|ch5|idx16| Finding Finding v, p, and w Induced by a 8.6 Finding the Overdamped Step Response of a
+  * circuit-theory-and-network-analysis|ch5|idx22| Summary of important formulae 130 8.11 Mutual inductance
+  * circuit-theory-and-network-analysis|ch5|idx23| Summary of important formulae 244 14 Resonance in AC Circuits
+  * circuit-theory-and-network-analysis|ch7|idx8| Practical Perspective: Transmission and Practical Perspective: Pushbutton Telephone
+  * circuit-theory-and-network-analysis|ch7|idx9| Transform 444 Practical Perspective: Bass Volume
+  * circuit-theory-and-network-analysis|ch7|idx10| Practical Perspective: Surge Suppressors 483 16.1 Fourier Series Analysis: An Overview
+  * circuit-theory-and-network-analysis|ch8|idx0| Poles and Zeros as Character
+  * circuit-theory-and-network-analysis|ch8|idx9| Poles and Zeros of F(s) 470 Practical Perspective: Bass Volume
+  * control-systems|ch6|idx2| Poles and Zeros Added
+  * control-systems|ch6|idx4| Loading Effects 358 12.8 Finding and Plotting the Poles and Zeros of an
+    digital-signal-processing|ch6|idx4| Designing a Parallel RLC Bandpass Filter 555 16.6 Estimating the rms Value of a Periodic
+  * electrical-machines|ch2|idx9| Summary of important formulae 611 transformer
+  * electrical-machines|ch2|idx11| Summary of important formulae 621 transformer
+  * electrical-machines|ch4|idx15| Summary of important formulae 868 40.12 Soft-starting induction motors
+    electromagnetic-fields-and-waves|ch2|idx3| Practical Perspective: Heating with Electric Cases
+    electromagnetic-theory|ch2|idx4| (Images 2 and 4 are duplicates of the contents pages above; images 5–12 are chapter body pages 
+    electronic-devices-and-circuits|ch1|idx4| Preface to the First Edition — xxv
+  * engineering-mechanics|ch1|idx21| Third edition
+  * engineering-mechanics|ch1|idx24| Preface to the Third Edition — xxix
+  * engineering-mechanics|ch1|idx61| Summary of important formulae 361 19.7 Construction and static characteristics of
+  * engineering-mechanics|ch3|idx6| Cambridge University Press has no responsibility for the persistence or accuracy of URLs for ex
+  * engineering-mechanics|ch8|idx4| Preface to the Second Edition — xxvii
+    english|ch1|idx17| Preface to the fifth edition
+  * fluid-mechanics|ch3|idx4| Summary of important formulae 281 15.5 Thévenin’s theorem
+  * fluid-mechanics|ch5|idx7| Signed binary subtraction 525 Terms and concepts
+  * fluid-mechanics|ch7|idx5| Summary of important formulae
+  * fluid-mechanics|ch7|idx6| Summary of important formulae 261 14.10 Bandwidth
+  * fluid-mechanics|ch7|idx7| Signed binary addition 524 Summary of important formulae
+  * fluid-mechanics|ch7|idx8| Summary of important formulae 713 34.4 Demand for electricity and the
+    foundation-chemistry|ch1|idx18| Concept Application Exercise 1.1
+    foundation-chemistry|ch1|idx24| Concept Application Exercise 1.2
+    foundation-chemistry|ch1|idx28| Concept Application Exercise 1.3
+    foundation-chemistry|ch1|idx33| Concept Application Exercise 2.1
+    foundation-chemistry|ch1|idx42| Concept Application Exercise 2.2
+    foundation-chemistry|ch1|idx51| Concept Application Exercise 3.1
+    foundation-chemistry|ch1|idx52| Concept Application Exercise 3.2
+    foundation-chemistry|ch1|idx73| Concept Application Exercise 4.1
+    foundation-chemistry|ch1|idx86| Concept Application Exercise 5.1
+    foundation-chemistry|ch1|idx91| Concept Application Exercise 6.1
+    foundation-chemistry|ch1|idx94| Concept Application Exercise 6.2
+    foundation-chemistry|ch1|idx99| Concept Application Exercise 7.1
+    foundation-chemistry|ch1|idx100| Concept Application Exercise 7.2
+    foundation-chemistry|ch1|idx102| Concept Applications Exercise 7.3
+    foundation-chemistry|ch1|idx136| Concept Application Exercise 10.1
+    foundation-chemistry|ch1|idx160| Concept Application Exercise 3.3
+    foundation-chemistry|ch1|idx168| Concept Application Exercise 4.2
+    foundation-chemistry|ch1|idx175| Concept Application Exercise 4.3
+    foundation-chemistry|ch1|idx176| Concept Application Exercise 4.4
+    foundation-chemistry|ch1|idx179| Concept Application Exercise 5.2
+    foundation-chemistry|ch1|idx184| Concept Application Exercise 5.3
+    foundation-chemistry|ch1|idx192| Concept Application Exercise 6.3
+    foundation-chemistry|ch1|idx214| Concept Application Exercise 8.1
+    foundation-chemistry|ch1|idx215| Page 2: [duplicate of page 1 — same contents entries]
+    foundation-chemistry|ch1|idx217| Concept Application Exercise 8.2
+    foundation-chemistry|ch1|idx218| Page 4: [duplicate of page 3 — same contents entries]
+    foundation-chemistry|ch1|idx233| Concept Application Exercise 9.1
+    foundation-chemistry|ch1|idx236| Concept Application Exercise 9.2
+    foundation-chemistry|ch1|idx249| Concept Application Exercise 9.3
+    foundation-chemistry|ch1|idx269| Concept Application Exercise 2.3
+    foundation-chemistry|ch1|idx274| Concept Application Exercise 3.4
+    foundation-chemistry|ch1|idx275| Concept Application Exercise 3.5
+    foundation-chemistry|ch1|idx276| Concept Application Exercise 3.6
+    foundation-chemistry|ch1|idx277| Concept Application Exercise 3.7
+    foundation-chemistry|ch1|idx278| Concept Application Exercise 3.8
+    foundation-chemistry|ch1|idx295| Concept Application Exercise 6.4
+    foundation-chemistry|ch1|idx296| Concept Application Exercise 6.5
+    foundation-chemistry|ch1|idx363| Preface to the fifth edition — xxx
+    foundation-chemistry|ch2|idx203| Pand again the piston moves out, work is done by the system
+    foundation-chemistry|ch4|idx12| Page 5: [chapter title page / first content page (8 Alkynes, 8.1 Introduction) — no table of co
+    foundation-chemistry|ch4|idx13| Page 11: [content page (8.3.2–8.3.4) — no table of contents entry]
+    foundation-physics|ch1|idx10| Some Important Trigonometric Formulae
+    foundation-physics|ch1|idx57| Preface (continued)
+    foundation-physics|ch6|idx16| Introduction to Potential
+    foundation-physics|ch6|idx18| The Work Done to Move a Charge
+    foundation-physics|ch10|idx0| Charge, Current and Voltage
+    foundation-physics|ch10|idx13| Voltage Divider
+    foundation-physics|ch10|idx27| Voltage Sources
+    geotechnical-engineering|ch1|idx4| Summary of important formulae 396 20.12 Relationship between a and b
+    geotechnical-engineering|ch2|idx4| Constant 153 Summary of important formulae
+    heat-and-thermodynamics|ch10|idx5| Preface to the Third Edition
+  * heat-transfer|ch4|idx4| Practical Perspective: Transient Effects 474 Summary
+  * heat-transfer|ch5|idx4| Transconductance versus drain current
+  * heat-transfer|ch8|idx6| Practical Perspective: Resistive Touch
+  * heat-transfer|ch8|idx7| Practical Perspective: A Household Distribution
+  * heat-transfer|ch8|idx8| Practical Perspective: Clock for Computer Problems
+  * heat-transfer|ch8|idx9| Practical Perspective: Characterizing an
+    high-voltage-engineering|ch1|idx8| Practical Perspective: Active High-Q
+    high-voltage-engineering|ch1|idx9| Summary 521 Practical Perspective: Active High-Q
+    high-voltage-engineering|ch5|idx4| Drain current versus drain-source voltage: output conductance
+    high-voltage-engineering|ch5|idx5| Determining the Voltage, Given the Current, 8.2 Finding the Overdamped Natural Response of a
+    high-voltage-engineering|ch5|idx6| Determining the Current, Given the Voltage, 8.3 Calculating Branch Currents in the Natural
+    high-voltage-engineering|ch5|idx7| Voltages and currents in a star-connected Summary of important formulae
+    high-voltage-engineering|ch6|idx4| Designing a Simple Voltage Divider 65 Using a Test Source
+    hydraulics|ch1|idx7| Summary of important formulae 27 5.2 Hydraulic analogy
+    indian-history|ch3|idx3| Sixth Edition
+    indian-history|ch3|idx4| Preface to the Sixth Edition (continued — signed M. Laxmikanth)
+    japanese|ch1|idx5| Note: The scans are of GENKI I (An Integrated Course in Elementary Japanese, 2nd ed.) — not a J
+  * machine-design|ch1|idx9| Core factors 647 Summary of important formulae
+  * machine-design|ch9|idx15| List of Examples xii
+  * machine-design|ch9|idx16| List of Examples
+  * machine-design|ch9|idx17| List of Examples xiii
+  * machine-design|ch9|idx18| Xiv List of Examples
+  * machine-design|ch9|idx19| List of Examples xv
+  * manufacturing-processes|ch6|idx4| UNIVERSITY PRESS
+  * manufacturing-processes|ch6|idx5| Cambridge University Press is part of the University of Cambridge
+  * manufacturing-processes|ch6|idx6| © Cambridge University Press, 1980, 1989
+  * materials-science|ch8|idx5| Practical Perspective: Surge Suppressors 520 16.9 Amplitude and Phase Spectra
+  * materials-science|ch8|idx8| Signed binary multiplication
+  * materials-science|ch8|idx9| Signed binary division
+    mechanics|ch3|idx5| [cover/title page] (duplicate — Chapter opener / contents page, same as page 1)
+    mechanics|ch3|idx6| [cover/title page] (duplicate of chapter contents page)
+    mechanics|ch3|idx8| Pages 3–12 are body content (chapter text, illustrations, sections), not table of contents
+    modern-physics|ch5|idx5| Pages 5–12 of this scan are chapter body text, not additional contents pages; the complete prin
+    nuclear-physics|ch1|idx5| Pages 3–12: chapter content pages (Nuclear Physics text, illustrations 7.1–7.7), not part of th
+    organic-chemistry|ch1|idx53| Page 7: [content page (8.2 Isomerism in Alkynes) — no table of contents entry]
+    organic-chemistry|ch1|idx73| Preface to the Original Edition v 2.11 Summary of Important Families of Organic
+    organic-chemistry|ch2|idx19| Page 9: [content page (8.3 Preparation of Alkynes) — no table of contents entry]
+    particle-physics|ch7|idx4| (Note: this is a physics text, not a mathematics reference. Only the first four scanned pages c
+    physical-chemistry|ch1|idx15| (Pages 1–2, 3–4, and 5–6 of the scan are duplicate copies of the same three table-of-contents p
+    physical-chemistry|ch1|idx45| Preface to the second edition xvii
+    political-science|ch6|idx5| Acknowledgements (signed M. Laxmikanth)
+    power-electronics|ch1|idx19| Summary of important formulae 852 40 Power Electronics
+    power-electronics|ch3|idx4| Practical Perspective: Clock for Computer 11.5 Power Calculations in Balanced Three-Phase
+    power-electronics|ch4|idx2| Voltage and Current Commutation
+  * power-systems|ch1|idx11| Practical Perspective: Balancing Power 18 Cases
+  * power-systems|ch1|idx12| Unbounded Response 250 Practical Perspective: Vampire Power
+  * power-systems|ch1|idx14| Practical Perspective: Vampire Power
+  * power-systems|ch1|idx16| Practical Perspective: Characterizing E.6 Straight-Line Amplitude Plots
+  * power-systems|ch4|idx4| Practical Perspective: Artificial Pacemaker 255 10.2 Average and Reactive Power
+    properties-of-matter|ch7|idx4| Concept Application Exercise 2.4
+    properties-of-matter|ch7|idx5| Concept Application Exercise 2.5
+    properties-of-matter|ch7|idx6| Concept Application Exercise 2.6
+    properties-of-matter|ch7|idx7| Concept Application Exercise 2.7
+    properties-of-matter|ch7|idx8| Concept Application Exercise 5.4
+    properties-of-matter|ch7|idx9| Concept Application Exercise 5.5
+    properties-of-matter|ch7|idx10| Concept Application Exercise 6.6
+    properties-of-matter|ch7|idx11| Concept Application Exercise 6.7
+    properties-of-matter|ch7|idx12| Concept Application Exercise 9.4
+    properties-of-matter|ch7|idx13| Concept Application Exercise 4.5
+    properties-of-matter|ch7|idx14| Concept Application Exercise 4.6
+    properties-of-matter|ch7|idx15| Concept Application Exercise 4.7
+    properties-of-matter|ch7|idx17| Concept Application Exercise 7.3
+    properties-of-matter|ch7|idx18| Concept Application Exercise 7.4
+    properties-of-matter|ch7|idx19| Concept Application Exercise 7.5
+    properties-of-matter|ch7|idx20| Concept Application Exercise 8.3
+    properties-of-matter|ch7|idx21| Concept Application Exercise 8.4
+    properties-of-matter|ch7|idx22| Concept Application Exercise 8.5
+    properties-of-matter|ch7|idx23| Concept Application Exercise 1.4
+    properties-of-matter|ch7|idx24| Concept Application Exercise 1.5
+    properties-of-matter|ch7|idx25| Concept Application Exercise 1.6
+    quantum-chemistry|ch4|idx11| Pages 3–12: These are chapter content pages (chapter opener, Overview, and body text of Section
+    signals-and-systems|ch2|idx3| List of Examples xii Practical Perspective: Resistive Touch
+    signals-and-systems|ch6|idx1| Poles and Zeros as Character
+    sociology|ch2|idx5| Note: These 32 pages are the front matter of M. Laxmikanth's "Indian Polity" (Sixth Edition), n
+    sociology|ch2|idx6| There are no numbered topic entries (2.1, 2.2, 1.01), no exercises (JEE Main/JEE Advanced), no 
+    sociology|ch9|idx7| Preface to the Sixth Edition (with "Changes in this Edition" and "New Chapters": 1. Goods and S
+  * strength-of-materials|ch2|idx3| Resistors in Parallel 61 Practical Perspective: Strain Gages
+  * strength-of-materials|ch2|idx4| Practical Perspective: Strain Gages 171 Chapter 9 Sinusoidal Steady-State
+    structural-engineering|ch2|idx3| Summary of important formulae 642 30.5 Simple analysis of force of alignment
+  * theory-of-machines|ch1|idx14| Machines 703 Summary of important formulae
+  * thermodynamics|ch9|idx4| Practical Perspective: Heating with Electric
+    vlsi-design|ch4|idx4| Determining the Step Response of an RC 9.1 Finding the Characteristics of a Sinusoidal
+    world-history|ch2|idx6| Preface to the First Edition (signed M. Laxmikanth)
+    world-history|ch2|idx7| Preface to the First Edition (duplicate)
+--- C1 (n=60): 'Polyprotic Acid Titrations 632 For Review 699 | Key Terms 699 | Questions and Ex'
+    analytical-chemistry|ch3|idx10| Polyprotic Acid Titrations 632 For Review 699 | Key Terms 699 | Questions and Exercises
+    biochemistry|ch4|idx10| Chemical Connections Enzymes: Nature’s Catalysts
+    computational-chemistry|ch2|idx12| For Review 285 | Key Terms 285 | Questions and Exercises 288 9.5 Combining the Localized Electr
+    electricity-and-magnetism|ch2|idx4| BIO A Fish with an Electric Dipole Moment  704 Localization in Human Hearing
+    electricity-and-magnetism|ch8|idx0| Dipole Moments
+  * engineering-mechanics|ch3|idx8| Additional Exercises for Chapter
+    english|ch1|idx7| Additional exercises
+    environmental-chemistry|ch1|idx7| Chemical Connections Nitrogen Under Chemical Connections Graphene—Miracle
+    environmental-chemistry|ch1|idx8| Hybridization and the Localized Electron Model 345 Chemistry in Your Career Educator and Enviro
+    environmental-chemistry|ch3|idx9| Chemical Connections Nitrous Oxide: Laughing Gas
+    foundation-chemistry|ch1|idx325| Chemistry in Your Career Artist and Art Educator 779 For Review 852 | Key Terms 852 | Questions
+    foundation-chemistry|ch2|idx177| Stoichiometry of Precipitation Reactions 137 For Review 238 | Key Terms 238 | Questions and Exe
+    foundation-chemistry|ch2|idx179| Chemical Connections Fireworks
+    foundation-chemistry|ch2|idx181| Bond Polarity and Dipole Moments 297 Chemistry in Your Career Pharmaceuticals Project
+    foundation-chemistry|ch2|idx182| Chemical Connections The Drink of
+    foundation-chemistry|ch2|idx186| For Review 661 | Key Terms 661 | Questions and Exercises 663 Chemical Connections The Chemistry
+    foundation-chemistry|ch2|idx187| Chemical Connections Tennessine
+    foundation-chemistry|ch2|idx190| Chemical Connections Titanium Dioxide—Miracle
+    foundation-chemistry|ch5|idx17| The Localized Electron Bonding Model 315 Chemical Connections Closest Packing of M & Ms
+    foundation-chemistry|ch8|idx26| For Review 61 | Key Terms 61 | Questions and Exercises
+    foundation-chemistry|ch8|idx27| For Review 31 | Key Terms 31 | Questions and Exercises
+    foundation-chemistry|ch8|idx28| For Review 110 | Key Terms 110 | Questions and Exercises
+    foundation-chemistry|ch8|idx29| For Review 203 | Key Terms 203 | Questions and Exercises
+    foundation-chemistry|ch8|idx30| For Review 158 | Key Terms 158 | Questions and Exercises
+    foundation-chemistry|ch8|idx31| For Review 371 | Key Terms 371 | Questions and Exercises
+    foundation-chemistry|ch8|idx32| Communication: Semiochemicals 336 For Review 419 | Key Terms 419 | Questions and Exercises
+    foundation-chemistry|ch8|idx33| For Review 340 | Key Terms 340 | Questions and Exercises
+    foundation-chemistry|ch8|idx34| For Review 456 | Key Terms 456 | Questions and Exercises
+    foundation-chemistry|ch8|idx35| For Review 589 | Key Terms 589 | Questions and Exercises
+    foundation-chemistry|ch8|idx36| For Review 500 | Key Terms 500 | Questions and Exercises
+    foundation-chemistry|ch8|idx37| For Review 634 | Key Terms 634 | Questions and Exercises
+    foundation-chemistry|ch8|idx38| For Review 739 | Key Terms 739 | Questions and Exercises
+    foundation-chemistry|ch8|idx40| For Review 770 | Key Terms 770 | Questions and Exercises
+    foundation-chemistry|ch8|idx41| For Review 808 | Key Terms 808 | Questions and Exercises 812 22.4 Hydrocarbon Derivatives
+    foundation-chemistry|ch8|idx42| For Review 901 | Key Terms 901 | Questions and Exercises
+    foundation-physics|ch1|idx68| BIO Fish Fluorescence
+    industrial-chemistry|ch1|idx5| Chemistry in Your Career Senior Scientist
+    industrial-chemistry|ch1|idx6| The Composition of Solutions 123 Chemical Connections Nature Has Hot Plants
+    industrial-chemistry|ch1|idx7| Chemistry in Your Career Associate Professor of Ethnic
+    industrial-chemistry|ch1|idx8| Chemistry in Your Career Ceramics Glazer
+    industrial-chemistry|ch1|idx9| Chemistry in Your Career NASA Researcher
+    industrial-chemistry|ch2|idx36| The Properties of a Group: The Alkali Metals 282 Chemical Connections What’s Hot?
+    industrial-chemistry|ch6|idx8| Electrolytes 119 Chemistry in Your Career Vice President of Food and
+    industrial-chemistry|ch6|idx9| Chemistry in Your Career Executive Publisher 165 Chemical Connections 0.046 Femtometer Is a
+    inorganic-chemistry|ch2|idx15| Dipole Moments (μ)
+    inorganic-chemistry|ch2|idx25| Dipole Moment
+    inorganic-chemistry|ch2|idx27| Chemistry in Your Career Materials Team Lead
+    inorganic-chemistry|ch3|idx43| Nitrous oxide N2O
+    organic-chemistry|ch4|idx21| Chemistry in Your Career Staff Director of Select
+    organic-chemistry|ch4|idx22| Chemistry in Your Career COO and Clinic Director
+    organic-chemistry|ch4|idx23| The Chemistry of Oxygen 800 Chemistry in Your Career Associate Director
+    physical-chemistry|ch1|idx28| Chemistry in Your Career Advanced Emergency Medical
+    physical-chemistry|ch1|idx29| Commission Data Analyst 465 Chemical Connections Amines
+    physical-chemistry|ch1|idx30| Equilibria 640 Chemistry in Your Career Health Planner
+    physical-chemistry|ch1|idx32| Chemical Connections Entropy: An Organizing Chemistry in Your Career Professor
+    physical-chemistry|ch1|idx33| Chemical Connections Transition Metal Ions Lend Color
+    physical-chemistry|ch1|idx34| Chemical Connections Beethoven: Hair Is the Story
+    physical-chemistry|ch3|idx7| Chemical Connections The Lake Nyos Tragedy 439 13.5 Applications of the Equilibrium Constant
+    physical-chemistry|ch8|idx14| Colligative Properties of Electrolyte Solutions 452 For Review 539 | Key Terms 539 | Questions 
+    spanish|ch4|idx4| Key to Additional exercises
+--- C2 (n=54): 'Shot noise in current sources and emitter followers'
+    analog-and-digital-communication|ch1|idx7| Shot noise in current sources and emitter followers
+    analog-electronics|ch1|idx6| Small-Signal Operation 587 10.2.4 The Common-Emitter Amplifier
+    analog-electronics|ch2|idx5| Common-Emitter (CE) Amplifiers
+    analog-electronics|ch2|idx6| Emitter) Amplifier with a Source
+    analog-electronics|ch2|idx7| Common-Base (CB) Amplifiers
+    analog-electronics|ch2|idx8| A Common-Emitter Amplifier
+    analog-electronics|ch2|idx9| A Common-Emitter Amplifier with
+    analog-electronics|ch2|idx10| Small-Signal Operation of Current 9.2.2 Input Common-Mode Range
+    analog-electronics|ch2|idx11| The CS and CE Amplifiers with 9.3 Common-Mode Rejection
+    analog-electronics|ch2|idx14| The BJT Cascode 547 9.5.5 Common-Mode Gain and CMRR
+    analog-electronics|ch2|idx22| Use of Input Emitter Followers
+    analog-electronics|ch2|idx26| The common-emitter amplifier revisited
+    analog-electronics|ch2|idx27| Biasing the common-emitter amplifier
+    analog-electronics|ch4|idx14| The Emitter-Follower Case 730 Amplifiers
+    analytical-chemistry|ch3|idx0| Acid-Base Curves
+  * circuit-theory-and-network-analysis|ch9|idx10| Stopband (or bandstop) filters 382 20.9 Common-base and common-emitter circuits
+  * circuit-theory-and-network-analysis|ch9|idx11| 2-port Networks 388 20.11 Static characteristics for a common-emitter circuit
+  * control-systems|ch4|idx6| Investigating Stability 855 13.1.4 Common-Mode Rejection Ratio
+    electromagnetic-theory|ch1|idx43| Appendix B Problem-Solving Strategy: Dimensional
+    electronic-devices-and-circuits|ch5|idx9| Bode plots 382 20.10 Static characteristics for a common-base circuit
+    experimental-physics|ch6|idx5| Transistor as a Common Base Amplifier
+    experimental-physics|ch6|idx6| N-p-n Transistor as a Common Base Amplifier
+    experimental-physics|ch6|idx7| N-p-n Transistor as a Common Emitter Amplifier
+    foundation-biology|ch3|idx9| Weak Acids and Bases Have Characteristic
+    foundation-chemistry|ch1|idx27| Trends in Acidic and Basic Properties Based on Arrhenius and Bronsted–Lowry Concepts
+    foundation-physics|ch4|idx15| Common Emitter Amplifier
+  * heat-transfer|ch1|idx6| Input Common-Mode Range and
+  * heat-transfer|ch1|idx8| Transfer Characteristic 890 Mode Range: Rail-to-Rail Input
+    industrial-chemistry|ch2|idx5| Bronsted–Lowry Acids and Bases
+    industrial-chemistry|ch2|idx29| Mixing of Strong Acids and Strong Bases
+    industrial-chemistry|ch2|idx30| The Brönsted–Lowry Acids and Bases
+    industrial-chemistry|ch2|idx32| Calculation of pH of Extremely Dilute (<10⁻⁶ M) Solution of Strong Acids and Strong Bases
+    industrial-chemistry|ch2|idx33| DI- and Polybasic Acids and DI- and Polyacidic Bases
+    industrial-chemistry|ch2|idx34| Change in pH of an Acidic Buffer (When an Acid or a Base is Added)
+    industrial-chemistry|ch2|idx35| Calculation of Degree of Hydrolysis (h), Hydrolysis Constant (Kh), and pH of a Salt (ZnCl₂) of 
+    industrial-chemistry|ch2|idx39| Catalysis 494 14.12 Strategy for Solving Acid–Base Problems: A Summary
+    industrial-chemistry|ch2|idx46| Sp3 Hybridization 25 3.6 The Strength of Brønsted–Lowry Acids and Bases
+    industrial-chemistry|ch2|idx47| Hybridization 26 3.7 HOW TO Predict the Outcome of Acid–Base
+    molecular-biology|ch1|idx10| From Their Surroundings 20 and Weak Bases
+    organic-chemistry|ch5|idx8| Elimination: E1 and E2 reactions at sp3 carbon centers, stereochemistry, acid-base catalysis, c
+    organic-chemistry|ch7|idx6| Nucleophilic addition: addition to carbon-carbon and carbon-heteroatom double and triple bonds,
+    physical-chemistry|ch4|idx11| Buffer Action of Acidic Buffer
+    physical-chemistry|ch6|idx56| Bronsted–Lowry theory
+  * strength-of-materials|ch2|idx5| Semiconductor Materials 419 20.34 Common-mode rejection ratio
+  * strength-of-materials|ch5|idx5| Input Common-Mode Range and Functions
+  * strength-of-materials|ch6|idx7| A Common-Base (CB)
+  * strength-of-materials|ch6|idx9| Common-mode rejection
+  * theory-of-machines|ch1|idx5| Emitter Characteristics
+  * theory-of-machines|ch4|idx3| The Source and Emitter Followers
+  * theory-of-machines|ch4|idx4| An Emitter Follower
+  * theory-of-machines|ch4|idx7| Emitter follower
+  * theory-of-machines|ch4|idx8| Emitter follower biasing
+  * theory-of-machines|ch4|idx9| The emitter follower revisited
+  * theory-of-machines|ch4|idx10| Source followers
+--- C3 (n=32): 'Laboratory skills expected to be known by all participants (heating and reflux, '
+    analytical-chemistry|ch8|idx4| Laboratory skills expected to be known by all participants (heating and reflux, mass and volume
+    biotechnology|ch1|idx2| The Heat-Proof Polymerase Earned
+    electronic-devices-and-circuits|ch9|idx1| Figures of Merit Priced
+    experimental-physics|ch1|idx4| Experimental Skills
+    experimental-physics|ch2|idx6| Experimental Skills: Vernier calipers — its use to measure the internal and external diameter a
+    experimental-physics|ch2|idx7| Experimental Skills: Screw gauge — its use to determine the thickness/diameter of thin sheet/wi
+    experimental-physics|ch2|idx8| Experimental Skills: Screw gauge — its use to determine thickness/diameter of thin sheet/wire
+    experimental-physics|ch3|idx6| Experimental Skills: Speed of sound in air at room temperature using a resonance tube
+    experimental-physics|ch4|idx2| Refractive-Index Craft
+    experimental-physics|ch4|idx5| Experimental Skills: The plot of the angle of deviation vs angle of incidence for a triangular 
+    experimental-physics|ch4|idx6| Experimental Skills: The refractive index of a glass slab using a travelling microscope
+    experimental-physics|ch4|idx7| Experimental Skills: Refractive index of a glass slab using a travelling microscope
+    experimental-physics|ch5|idx5| Experimental Skills: The resistivity of the material of a given wire using a metre bridge
+    experimental-physics|ch5|idx6| Experimental Skills: The resistance of a given wire using Ohm's law
+    experimental-physics|ch5|idx7| Experimental Skills: Resistance and figure of merit of a galvanometer by half deflection method
+    experimental-physics|ch6|idx4| Experimental Skills: Identification of diode, LED, resistor, a capacitor from a mixed collectio
+    foundation-chemistry|ch2|idx14| Energy, heat and work, enthalpy and energy, heat capacity, Hess's law, Born-Haber cycle, standa
+    foundation-chemistry|ch2|idx158| Enthalpy of Combustion or Heat of Combustion (ΔcombH°)
+    foundation-physics|ch5|idx4| Experimental Skills: Metre scale — the mass of a given object by the principle of moments
+    mechanics|ch6|idx3| Centre of Mass Craft
+    mechanics|ch6|idx5| Centre of Mass of a Semicircular Disc
+    mechanics|ch10|idx3| Terminal Velocity Taster
+    multivariable-calculus|ch4|idx2| Mass, Centres and Moments
+    optics|ch10|idx1| Refractive-Index Craft
+    particle-physics|ch1|idx6| Note: The remaining pages supplied are chapter body pages (p. 1.1 System of Particles and Centr
+    properties-of-matter|ch3|idx5| Experimental Skills: Young's modulus of elasticity of the material of a metallic wire
+    properties-of-matter|ch4|idx3| Terminal Velocity Worked
+    properties-of-matter|ch4|idx4| Experimental Skills: Co-efficient of viscosity of a given viscous liquid by measuring the termi
+    solid-state-physics|ch2|idx4| Experimental Skills: Specific heat capacity of a given solid and liquid by method of mixtures
+    statistical-mechanics|ch5|idx1| The Specific Heat Proof
+  * thermodynamics|ch2|idx2| Specific Heats and Enthalpy
+    waves-and-oscillations|ch1|idx4| Experimental Skills: Simple pendulum — dissipation of energy by plotting a graph between the sq
+--- C4 (n=17): 'Adding a Resistive Load to a Voltage 4.19 Finding the Thévenin Equivalent of a C'
+  * circuit-theory-and-network-analysis|ch1|idx16| Adding a Resistive Load to a Voltage 4.19 Finding the Thévenin Equivalent of a Circuit
+  * circuit-theory-and-network-analysis|ch3|idx4| Finding a Thévenin Equivalent in the Frequency of Finite Duration
+  * circuit-theory-and-network-analysis|ch4|idx6| And Capacitance 194 9.6 Series, Parallel, and Delta-to-Wye
+  * circuit-theory-and-network-analysis|ch4|idx9| Applying Series-Parallel Simplification 62 4.17 Finding the Thévenin Equivalent Resistance
+  * circuit-theory-and-network-analysis|ch4|idx14| Polar admittances 259 14.9 Series resonance using complex notation
+  * circuit-theory-and-network-analysis|ch5|idx6| Series and Parallel Resonance
+  * circuit-theory-and-network-analysis|ch5|idx17| Finding the Equivalent Inductance 196 8.7 Finding the Underdamped Step Response of a
+  * circuit-theory-and-network-analysis|ch9|idx1| Conversions and Equivalent Circuits
+  * electrical-machines|ch2|idx0| The Equivalent Circuit Earned
+  * electrical-machines|ch5|idx2| The Equivalent Circuit Identified
+  * engineering-mechanics|ch4|idx11| Simplification 63 4.18 Finding the Thévenin Equivalent Resistance
+  * engineering-mechanics|ch8|idx5| The Effect of Resistor Tolerance on the 4.20 Using a Thévenin Equivalent to Analyze the
+    foundation-physics|ch10|idx12| Finding Coefficient of Resistance
+    heat-and-thermodynamics|ch2|idx6| Finding Equivalent Capacitance
+  * machine-design|ch6|idx6| Finding a Thévenin Equivalent
+  * power-systems|ch10|idx6| Calculating Power in Parallel Loads 390 13.6 Creating a Thévenin Equivalent in the
+  * strength-of-materials|ch5|idx8| Complex Notation
+--- C5 (n=14): 'Guided Practice 1208 39.4 The Laser'
+    atomic-physics|ch7|idx5| Guided Practice 1208 39.4 The Laser
+    electricity-and-magnetism|ch10|idx6| Guided Practice 739 26 DIRECT-CURRENT CIRCUITS
+  * engineering-mechanics|ch5|idx2| Moments of Inertia and the Parallel-Axis Theorem
+    foundation-physics|ch3|idx44| Guided Practice 292 14 PERIODIC MOTION
+    foundation-physics|ch5|idx17| Guided Practice 1273 Exclusion Principle
+    foundation-physics|ch6|idx26| Guided Practice
+    foundation-physics|ch6|idx27| Guided Practice 57 Summary
+    foundation-physics|ch6|idx28| Guided Practice 91 Guided Practice
+    foundation-physics|ch6|idx29| Guided Practice 225 Guided Practice
+    mechanics|ch7|idx15| Parallel-Axis Theorem 287 Guided Practice
+    mechanics|ch7|idx16| Angular Momentum 316 Guided Practice
+    properties-of-matter|ch5|idx10| Equipotential Surfaces 764 Guided Practice
+    solid-state-physics|ch8|idx5| Superconductivity 975 Guided Practice
+    statistical-mechanics|ch6|idx5| Applications of Gauss’s Law 729 Guided Practice
+--- C6 (n=12): 'A Closer Look: Structure of the'
+    atomic-physics|ch1|idx6| A Closer Look: Structure of the
+    atomic-physics|ch2|idx16| A Closer Look: Biomagnetism 574 Model of the Atom
+    atomic-physics|ch7|idx6| 22–2 Inductance 597 A Closer Look: Lasers
+    electricity-and-magnetism|ch10|idx8| *22–3 Alternating Current Circuits 603 A Closer Look: Semiconductors
+    electronic-devices-and-circuits|ch7|idx5| A closer look at JFETs
+    foundation-physics|ch1|idx101| 10–2 Center of Gravity 242 A Closer Look: The Ear
+    nuclear-physics|ch2|idx7| A Closer Look: Magic in the Sky 754 Appendix E Answers to Odd
+    power-electronics|ch1|idx13| Converter linearity – a closer look
+    relativity|ch1|idx8| A Closer Look: General Relativity
+  * robotics-and-automation|ch2|idx4| A Closer Look at Mutual Inductance 203 9.7 Source Transformations and Thévenin–Norton
+    solid-state-physics|ch8|idx7| 13–2 Calorimetry 321 A Closer Look: Superconductivity
+    waves-and-oscillations|ch1|idx9| Harmonic Motion 366 A Closer Look: Electrical Effects in
+--- C7 (n=8): 'Current Mirrors as Bias'
+    analog-electronics|ch2|idx1| Current Mirrors as Bias
+    analog-electronics|ch2|idx15| The Cascode MOS Mirror 552 Summary
+  * engineering-mechanics|ch4|idx4| (Emitter) Resistance
+  * engineering-mechanics|ch4|idx6| An Emitter Resistance Re
+  * industrial-engineering|ch1|idx6| Output Resistance of the Emitter- 9.5.2 The Current-Mirror-Loaded MOS
+  * industrial-engineering|ch5|idx4| The Wilson BJT Current Mirror 553 Problems
+    interior-design|ch1|idx4| Prelims typical areas (from recent papers, mirror): general and design awareness — current affa
+  * theory-of-machines|ch7|idx3| The Wilson MOS Mirror
+--- C8 (n=8): 'Deviation from Ideal Gas Behaviour'
+    foundation-chemistry|ch7|idx9| Deviation from Ideal Gas Behaviour
+    foundation-chemistry|ch7|idx10| Causes of Deviations from Ideal Gas Behaviour
+    foundation-chemistry|ch7|idx11| Expansion or Compression of an Ideal Gas
+    foundation-physics|ch6|idx31| Guided Practice 492 19.6 Internal Energy of an Ideal Gas
+    heat-and-thermodynamics|ch4|idx0| The Ideal Gas Ledger
+    statistical-mechanics|ch6|idx4| Kinetic-Molecular Model of an Ideal Gas 588 Summary
+  * thermodynamics|ch3|idx2| The Ideal Gas and Its Honest Limits
+    waves-and-oscillations|ch1|idx8| 12–3 Kinetic Theory; Model of an Ideal Gas 303 *18–4 The Oscilloscope
+--- C9 (n=7): 'Quantitative Techniques - elementary mathematics topics: Algebra; Averages; Geom'
+    art-history|ch1|idx4| Quantitative Techniques - elementary mathematics topics: Algebra; Averages; Geometry; LCM and H
+    discrete-mathematics|ch4|idx1| Permutations and Combinations with Repetition
+    foundation-chemistry|ch2|idx131| Simple Ionic Compounds of Type AB2 (Fluorite Type)
+    foundation-chemistry|ch2|idx132| Simple Ionic Compounds of Type A2B (Antifluorite Type)
+    quantitative-aptitude|ch4|idx0| Ratio and Proportion at Exam Speed
+    quantitative-aptitude|ch11|idx2| Permutations and Combinations at Exam Speed
+  * theory-of-machines|ch6|idx0| Simple and Compound Trains
+--- C10 (n=6): 'Analysis of growth and decay 113 8.3 Inductance in terms of flux-linkages'
+  * circuit-theory-and-network-analysis|ch5|idx21| Analysis of growth and decay 113 8.3 Inductance in terms of flux-linkages
+    differential-equations|ch3|idx0| Growth, Decay and Cooling
+  * electrical-machines|ch2|idx8| Growth and decay 111 8.2 Unit of inductance
+    electricity-and-magnetism|ch5|idx7| Growth and Decay of Current
+    electricity-and-magnetism|ch9|idx4| Flux Linkage
+  * heat-transfer|ch9|idx9| Leakage and conduction currents in capacitors 126 8.8 Analysis of decay
+--- C11 (n=6): 'Action-angle Variables in Systems of One Degree of Freedom'
+    foundation-physics|ch1|idx47| Action-angle Variables in Systems of One Degree of Freedom
+    foundation-physics|ch4|idx16| Forced Vibrations and the Effect of Dissipative Forces
+  * robotics-and-automation|ch1|idx0| Anatomy and Degrees of Freedom
+    structural-engineering|ch9|idx4| Structural Analysis — free and forced vibrations of single- and multi-degree-freedom systems; s
+  * theory-of-machines|ch1|idx3| Degrees of Freedom by Gruebler
+  * theory-of-machines|ch10|idx2| Forced Vibration and the Magnifier
+--- C12 (n=6): 'Magnetic Induction Due to a Large and Thick'
+    electricity-and-magnetism|ch1|idx5| Magnetic Induction Due to a Large and Thick
+    electricity-and-magnetism|ch5|idx5| Current Carrying Sheet
+    electricity-and-magnetism|ch7|idx6| Magnetic Field Due to a Straight Current Carrying Wire of Infinite Length
+    electricity-and-magnetism|ch8|idx4| Magnetic Induction Due to a Large Current Carrying Sheet
+    electromagnetic-theory|ch4|idx5| Magnetic Field Due to a Semi-Infinite Straight Wire
+  * power-systems|ch1|idx21| Force on a current-carrying conductor 140 9.2 Generation of an alternating e.m.f
+--- C13 (n=5): 'Cathode-ray tube 947 Appendix: Symbols, Abbreviations, Deﬁnitions'
+  * fluid-mechanics|ch1|idx8| Cathode-ray tube 947 Appendix: Symbols, Abbreviations, Deﬁnitions
+    foundation-chemistry|ch1|idx280| Properties of Cathode Rays
+    foundation-chemistry|ch3|idx23| Discovery of Electron—Cathode Rays
+  * industrial-engineering|ch1|idx15| Deflecting systems of a cathode-ray tube 948 and Diagrammatic Symbols
+  * theory-of-machines|ch10|idx8| Cathode-ray oscilloscope 948 Answers to Exercises
+--- C14 (n=5): 'Graphical Representation for Motion'
+    foundation-physics|ch3|idx12| Graphical Representation for Motion
+  * industrial-engineering|ch6|idx6| Graphical Representation of
+  * manufacturing-processes|ch7|idx4| B.2 The Graphical Representation of a Complex
+    mathematical-physics|ch2|idx6| Graphical Representation of Derivative of a Function
+    physical-chemistry|ch1|idx23| Graphical Representation of Four Thermodynamic Processes
+--- C15 (n=5): 'Appendix E Some Useful Mathematical Approximation'
+    foundation-chemistry|ch1|idx434| Appendix E Some Useful Mathematical Approximation
+    foundation-chemistry|ch10|idx16| Appendix 1 | Mathematical Procedures A1
+  * materials-science|ch3|idx4| Some Mathematical Properties 673 Appendix C More on Magnetically
+    nuclear-physics|ch1|idx6| 40-1 PROPERTIES OF ATOMS 1219 42-2 SOME NUCLEAR PROPERTIES
+    properties-of-matter|ch1|idx10| Some Properties of Atoms
+--- C16 (n=4): 'Conservative Forces and Energy Bookkeeping'
+  * engineering-mechanics|ch9|idx1| Conservative Forces and Energy Bookkeeping
+    foundation-physics|ch4|idx17| Path Independence of Conservative Forces 179 10-1 ROTATIONAL VARIABLES
+    mechanics|ch5|idx2| Conservative Forces
+    multivariable-calculus|ch5|idx3| Conservative Fields and Path Independence
+--- C17 (n=4): 'Flip-Flops and Their Triggering'
+    digital-logic-design|ch6|idx0| Flip-Flops and Their Triggering
+  * power-systems|ch1|idx8| Single-pulse generation with flip-flops and counters
+    vlsi-design|ch8|idx0| Latches and Flip-Flops in Silicon
+    vlsi-design|ch8|idx4| The Situation When QN and QP Are 18.2.2 The SR Flip-Flop
+--- C18 (n=4): 'Simultaneous Appendix F An Abbreviated'
+  * engineering-mechanics|ch1|idx52| Simultaneous Appendix F An Abbreviated
+    surveying-and-geomatics|ch3|idx4| Appendix F An Abbreviated Table of Trigonometric Identities
+  * thermodynamics|ch3|idx6| Appendix G An Abbreviated Table of Integrals
+  * thermodynamics|ch3|idx9| A.3 Paper-and-Pencil Methods 723 Appendix G An Abbreviated Table of
+--- C19 (n=4): 'Conservation of Angular Momentum 319 Questions/Exercises/Problems'
+    electromagnetic-theory|ch1|idx38| Conservation of Angular Momentum 319 Questions/Exercises/Problems
+  * engineering-mechanics|ch8|idx2| Angular Momentum and the Gyroscopic Glimpse
+  * engineering-mechanics|ch9|idx2| Linear and Angular Impulse-Momentum
+    mechanics|ch7|idx3| Angular Momentum
+--- C20 (n=4): 'A simple SAR example'
+  * engineering-mechanics|ch10|idx5| A simple SAR example
+    foundation-chemistry|ch2|idx196| World of interest. It may be a reaction vessel, an engine, an elec- posing force (Energy: A fir
+    foundation-economics|ch6|idx5| 14-2a A Simple Example of Profit Maximization
+  * machine-design|ch9|idx10| A simple design example: loudspeaker as microphone
+--- C21 (n=4): 'A final remark'
+  * circuit-theory-and-network-analysis|ch7|idx6| A final remark
+  * strength-of-materials|ch3|idx5| Final Remarks 1046 Problems
+  * theory-of-machines|ch4|idx5| Emitter Followers 723 11.3.4 A Final Remark
+    vlsi-design|ch1|idx7| Final Remarks 1057 16.1.2 The CMOS Inverter
+--- C22 (n=4): 'Impulse versus Reaction'
+  * fluid-mechanics|ch10|idx0| Impulse versus Reaction
+    hydraulics|ch8|idx0| Impulse versus Reaction Cashed
+    hydraulics|ch8|idx1| Pelton, Francis, Kaplan Worked
+  * theory-of-machines|ch2|idx3| Turbo Machinery — reciprocating and rotary pumps; Pelton wheel, Kaplan and Francis turbines, ve
+--- C23 (n=4): 'Graphs of Sine and Cosine Functions'
+    mathematical-physics|ch2|idx4| Graphs of Sine and Cosine Functions
+    quantum-mechanics|ch1|idx4| Sine and Cosine Rule for Triangles
+    statistical-mechanics|ch1|idx17| A.6 Law of Sines and Law of Cosines
+  * theory-of-machines|ch2|idx7| Using the General Solution Method to Find an 9.3 Translating a Sine Expression to a Cosine
+--- C24 (n=4): 'Refrigeration and Air conditioning — vapour compression refrigeration, refrigera'
+  * industrial-engineering|ch1|idx3| Refrigeration and Air conditioning — vapour compression refrigeration, refrigerants and working
+  * manufacturing-processes|ch7|idx2| Beam and Jet Processes
+  * thermodynamics|ch9|idx2| Vapour-Compression Refrigeration
+  * thermodynamics|ch10|idx3| Air-Conditioning Priced
+--- C25 (n=4): 'Some examples using the VSEPR theory'
+    computational-chemistry|ch1|idx14| Some examples using the VSEPR theory
+    foundation-chemistry|ch1|idx163| Some Examples
+  * industrial-engineering|ch6|idx8| Some DAC application examples
+    quantum-chemistry|ch4|idx9| Some Examples of Inner Orbital Complexes
+--- C26 (n=4): 'The Synthesis and Doorsteps'
+    building-materials|ch8|idx2| The Synthesis and Doorsteps
+    geotechnical-engineering|ch10|idx3| The Synthesis and Doorsteps
+  * power-systems|ch10|idx4| The Synthesis and Doorsteps
+    transportation-engineering|ch8|idx3| The Synthesis and Doorsteps
+--- C27 (n=3): 'Angles, Distances and Concurrency'
+    coordinate-geometry|ch2|idx1| Angles, Distances and Concurrency
+    coordinate-geometry|ch12|idx2| Angles and Distances: Lines, Planes, Skew Lines
+  * power-systems|ch9|idx2| Distance Protection in the R-X Plane
+--- C28 (n=3): 'Damped Oscillation and the Quality Factor'
+  * circuit-theory-and-network-analysis|ch5|idx5| Damped Oscillation and the Quality Factor
+    differential-equations|ch5|idx0| Free and Damped Oscillation
+    waves-and-oscillations|ch3|idx5| Beyond Small Oscillations: The Damped Driven Pendulum and the Josephson Junction
+--- C29 (n=3): 'Regulation and All-Day Efficiency'
+  * electrical-machines|ch2|idx2| Regulation and All-Day Efficiency
+  * power-systems|ch4|idx0| Regulation and Efficiency
+    quantitative-aptitude|ch5|idx2| Efficiency, Men and Days, Work and Wages
+--- C30 (n=3): 'Computer organization — basic architecture, CPU, I/O organisation, memory organi'
+  * industrial-engineering|ch6|idx4| Computer organization — basic architecture, CPU, I/O organisation, memory organisation, periphe
+    operating-systems|ch8|idx1| Devices as Files
+    power-electronics|ch8|idx4| Computer Fundamentals — number systems, Boolean algebra, arithmetic functions; basic architectu
+--- C31 (n=3): 'The Free-Body Diagram: the Engineer’s First Instrument'
+  * engineering-mechanics|ch1|idx0| The Free-Body Diagram: the Engineer’s First Instrument
+  * engineering-mechanics|ch8|idx0| The Kinetic Diagram Beside the Free-Body
+    foundation-physics|ch4|idx1| The Free-Body Ledger
+--- C32 (n=3): 'Contents xiii'
+  * engineering-mechanics|ch1|idx64| Contents xiii
+    foundation-physics|ch1|idx72| DETAILED CONTENTS xiii
+  * machine-design|ch9|idx9| Contents (page xiii)
+--- C33 (n=3): 'Rotation About a Fixed Axis'
+  * engineering-mechanics|ch7|idx1| Rotation About a Fixed Axis
+    mechanics|ch7|idx17| 9–3 Dynamics of Rotation about a Fixed Axis 221 16–3 Moving Sources and Observers
+    waves-and-oscillations|ch8|idx0| Source and Observer Registers
+--- C34 (n=3): 'Plane Motion of Rigid Bodies'
+  * engineering-mechanics|ch8|idx1| Plane Motion of Rigid Bodies
+  * engineering-mechanics|ch9|idx3| Impact of Rigid Bodies
+    optics|ch1|idx12| Rotation of Rigid Bodies 272 34 Geometric Optics
+--- C35 (n=3): 'Appendix B Complex Numbers 729 Appendix H Common Standard'
+  * machine-design|ch1|idx8| Appendix B Complex Numbers 729 Appendix H Common Standard
+  * machine-design|ch6|idx4| Appendix B Complex Numbers
+  * strength-of-materials|ch1|idx5| Appendix H Common Standard Component Values
+--- C36 (n=3): 'Momentum Conservation and Collisions 245 11.4 Stress, Strain, and Elastic Moduli'
+    mechanics|ch6|idx13| Momentum Conservation and Collisions 245 11.4 Stress, Strain, and Elastic Moduli
+    properties-of-matter|ch2|idx2| The Stress-Strain Curve
+  * strength-of-materials|ch2|idx0| The Stress-Strain Diagram, Read Honestly
+--- C37 (n=3): 'Relative Velocity Craft'
+    mechanics|ch2|idx2| Relative Velocity Craft
+    mechanics|ch2|idx7| Acrobats in Equilibrium 223 Relative Velocity and Reference Frames
+  * theory-of-machines|ch2|idx1| The Relative-Velocity Method
+--- C38 (n=3): 'Analyzing a Linear Transformer in the Frequency F(s) Has Distinct Complex Roots'
+  * electrical-machines|ch2|idx7| Analyzing a Linear Transformer in the Frequency F(s) Has Distinct Complex Roots
+  * machine-design|ch6|idx5| B.6 The Roots of a Complex Number
+  * materials-science|ch1|idx8| Using Phasor Diagrams to Analyze a F(s) Has Repeated Complex Roots
+--- C39 (n=3): 'Power Plant Engineering — Rankine and Brayton cycles with regeneration and rehea'
+    structural-engineering|ch9|idx5| Power Plant Engineering — Rankine and Brayton cycles with regeneration and reheat; fuels and th
+  * thermodynamics|ch8|idx2| Regeneration, Reheat, Intercooling
+  * thermodynamics|ch9|idx1| Reheat and Regeneration
+--- C40 (n=3): 'The Doorsteps: Grid, Drive, Renewables'
+  * electrical-machines|ch8|idx2| The Doorsteps: Grid, Drive, Renewables
+  * heat-transfer|ch9|idx2| The Doorsteps: Solar, Grids, Silicon
+    power-electronics|ch8|idx3| The Doorsteps: Solar, Grid, Drives
+--- C41 (n=3): 'Composite transimpedance amplifiers'
+    analog-electronics|ch2|idx32| Composite transimpedance amplifiers
+    analog-electronics|ch3|idx9| Output bandwidth limiting in the transimpedance amplifier
+  * manufacturing-processes|ch4|idx4| Limiting the bandwidth
+--- C42 (n=3): 'Appendix A ■ Euler Angles in Alternate Conventions and Cayley–Klein Parameters'
+    mechanics|ch3|idx9| Appendix A ■ Euler Angles in Alternate Conventions and Cayley–Klein Parameters
+    mechanics|ch12|idx9| The Cayley–Klein Parameters and Related Quantities
+  * robotics-and-automation|ch2|idx1| Euler Angles and Their Singularity
+--- C43 (n=3): 'The Applications Census'
+  * cad-cam|ch6|idx3| The Applications Census
+  * circuit-theory-and-network-analysis|ch9|idx3| The Applications Census
+    psychology|ch4|idx3| The Applications’ Census
+--- C44 (n=3): 'Sources, Ideal and Dependent'
+  * circuit-theory-and-network-analysis|ch1|idx1| Sources, Ideal and Dependent
+    high-voltage-engineering|ch1|idx10| Testing Interconnections of Ideal Sources
+  * materials-science|ch1|idx10| Source coding 609 29.6 Phasor diagram for an ideal loaded
+--- C45 (n=3): 'The Passive Sign Convention as Law'
+  * circuit-theory-and-network-analysis|ch1|idx0| The Passive Sign Convention as Law
+    optics|ch1|idx0| Sign Conventions
+    particle-physics|ch1|idx4| Four Quadrants and Sign Conventions
+--- C46 (n=3): 'Addition and subtraction of sinusoidal'
+  * circuit-theory-and-network-analysis|ch4|idx13| Addition and subtraction of sinusoidal
+  * circuit-theory-and-network-analysis|ch4|idx15| Addition and subtraction of phasors
+    organic-chemistry|ch3|idx36| Addition and Subtraction
+--- C47 (n=3): 'Other Wideband Amplifier Amplifier (Shunt-Shunt)'
+    analog-electronics|ch2|idx18| Other Wideband Amplifier Amplifier (Shunt-Shunt)
+  * electrical-machines|ch4|idx9| Obtaining Wideband (Shunt-Series)
+  * power-systems|ch4|idx2| Series and Shunt Compensation
+--- C48 (n=2): 'The Cross Product: Areas and Moments'
+    coordinate-geometry|ch11|idx1| The Cross Product: Areas and Moments
+  * strength-of-materials|ch8|idx2| The Moment-Area Theorems
+--- C49 (n=2): 'Minimization: Karnaugh Maps'
+    discrete-mathematics|ch8|idx2| Minimization: Karnaugh Maps
+  * engineering-mechanics|ch10|idx4| Minimization and Karnaugh maps
+--- C50 (n=2): 'Newton–Raphson: Quadratic, and Fragile'
+    numerical-analysis|ch2|idx2| Newton–Raphson: Quadratic, and Fragile
+  * power-systems|ch6|idx2| Newton-Raphson and the Jacobian
+--- C51 (n=2): 'Number Base Conversions: the Honest Craft'
+    digital-logic-design|ch1|idx1| Number Base Conversions: the Honest Craft
+  * power-systems|ch2|idx1| Base Conversion Worked
+--- C52 (n=2): 'Vector Clocks, Named'
+    distributed-systems|ch3|idx1| Vector Clocks, Named
+  * electrical-machines|ch3|idx1| Vector Groups by the Clock
+--- C53 (n=2): 'The Digital Twin Named Honestly'
+  * cad-cam|ch8|idx1| The Digital Twin Named Honestly
+    internet-of-things|ch4|idx1| The Digital Twin, Named Honestly
+--- C54 (n=2): 'Information on this title: www.cambridge.org/9780521809269'
+    analog-and-digital-communication|ch1|idx5| Information on this title: www.cambridge.org/9780521809269
+  * engineering-mechanics|ch1|idx20| Www.cambridge.org
+--- C55 (n=2): 'Some preliminaries'
+  * engineering-mechanics|ch1|idx45| Some preliminaries
+    signals-and-systems|ch5|idx4| Some Preliminaries 538 17.1 The Derivation of the Fourier Transform
+--- C56 (n=2): 'Xiv Contents'
+  * engineering-mechanics|ch1|idx65| Xiv Contents
+    foundation-physics|ch1|idx75| Xiv DETAILED CONTENTS
+--- C57 (n=2): 'Equilibrium of the Rigid Body'
+  * engineering-mechanics|ch2|idx1| Equilibrium of the Rigid Body
+    mechanics|ch7|idx4| Rigid-Body Equilibrium and the Torque Balance
+--- C58 (n=2): 'Belt-Pulley Systems and Brake/Clutch Friction'
+  * engineering-mechanics|ch4|idx2| Belt-Pulley Systems and Brake/Clutch Friction
+    mechanics|ch3|idx13| Pulleys Connected with a Belt
+--- C59 (n=2): 'Parallel buses and data links'
+  * engineering-mechanics|ch5|idx6| Parallel buses and data links
+  * theory-of-machines|ch1|idx8| Other buses and data links: overview
+--- C60 (n=2): 'Generalised Coordinates and Constraints'
+  * engineering-mechanics|ch10|idx0| Generalised Coordinates and Constraints
+    mechanics|ch11|idx0| Generalised Coordinates
+--- C61 (n=2): 'Stress Concentration in Design'
+  * machine-design|ch2|idx2| Stress Concentration in Design
+  * strength-of-materials|ch3|idx2| Saint-Venant, Stress Concentrations, Multiaxial Loading
+--- C62 (n=2): 'Fully integrated high-speed fiber-transceiver modules'
+    high-voltage-engineering|ch1|idx7| Fully integrated high-speed fiber-transceiver modules
+  * theory-of-machines|ch5|idx3| ST/SC glass-fiber modules
+--- C63 (n=2): 'The Standards Census'
+    environmental-chemistry|ch7|idx1| The Standards Census
+  * machine-design|ch9|idx2| The Standards Census
+--- C64 (n=2): 'Typical Elements'
+    inorganic-chemistry|ch1|idx11| Typical Elements
+  * machine-design|ch9|idx4| Databases and languages — data bases: different types, characteristics and design; transactions
+--- C65 (n=2): 'DETAILED CONTENTS xvii'
+    foundation-physics|ch1|idx78| DETAILED CONTENTS xvii
+  * machine-design|ch9|idx13| Contents (page xvii)
+--- C66 (n=2): 'Xviii CONTENTS'
+    entrepreneurship|ch7|idx4| Xviii CONTENTS
+  * machine-design|ch9|idx14| Contents (page xviii)
+--- C67 (n=2): 'Designing a High-Q Bandpass Filter 602 18.1 Finding the z Parameters of a Two-Po'
+  * circuit-theory-and-network-analysis|ch9|idx9| Designing a High-Q Bandpass Filter 602 18.1 Finding the z Parameters of a Two-Port
+  * thermodynamics|ch8|idx5| Finding the a Parameters from
+--- C68 (n=2): 'The Heisler Charts Read Fluently'
+  * heat-transfer|ch4|idx1| The Heisler Charts Read Fluently
+  * thermodynamics|ch10|idx1| The Psychrometric Chart, Read Fluently
+--- C69 (n=2): 'The Process Census'
+    operations-management|ch2|idx0| The Process Census
+  * thermodynamics|ch10|idx2| The Process Census
+--- C70 (n=2): 'Nozzles and Choking'
+  * fluid-mechanics|ch9|idx2| Nozzles and Choking
+  * thermodynamics|ch11|idx1| Nozzles, Diffusers, Choking
+--- C71 (n=2): 'Viscosity: Newton’s Law and Its Census'
+  * fluid-mechanics|ch1|idx1| Viscosity: Newton’s Law and Its Census
+    properties-of-matter|ch4|idx0| Newton’s Viscosity Law
+--- C72 (n=2): 'Introduction 175 5.1.5 Operation as vDS Is Increased'
+  * fluid-mechanics|ch1|idx4| Introduction 175 5.1.5 Operation as vDS Is Increased
+    hydraulics|ch1|idx4| The Ideal Diode 175 5.1.6 Operation for vDS > Channel Pinch
+--- C73 (n=2): 'Specific Speed: the Compass'
+  * fluid-mechanics|ch10|idx2| Specific Speed: the Compass
+    hydraulics|ch8|idx2| The Specific-Speed Compass
+--- C74 (n=2): 'Impedance Angle Restrictions 396 13.12 Using the Transfer Function to Find the'
+  * heat-transfer|ch6|idx3| Impedance Angle Restrictions 396 13.12 Using the Transfer Function to Find the
+  * power-systems|ch2|idx3| Load Impedance Restriction 396 13.11 Using the Convolution Integral to Find an
+--- C75 (n=2): 'Diffusion and the Total Current'
+    electronic-devices-and-circuits|ch2|idx1| Diffusion and the Total Current
+  * heat-transfer|ch9|idx3| Diffusion Current 147 Superdiode
+--- C76 (n=2): 'Find an Unknown Current'
+  * heat-transfer|ch9|idx8| Find an Unknown Current
+    high-voltage-engineering|ch1|idx12| Find an Unknown Voltage
+--- C77 (n=2): 'I: Phototransistor output optocouplers'
+  * industrial-engineering|ch1|idx11| I: Phototransistor output optocouplers
+  * manufacturing-processes|ch1|idx7| II: Logic-output optocouplers
+--- C78 (n=2): 'Class B Output Stage 897 13.3 BJT Op-Amp Techniques'
+    analog-electronics|ch2|idx21| Class B Output Stage 897 13.3 BJT Op-Amp Techniques
+  * industrial-engineering|ch1|idx8| Class AB Output Stage 902 of the Input Stage
+--- C79 (n=2): 'Integrating suntan monitor'
+    electrical-measurements|ch7|idx4| Integrating suntan monitor
+  * industrial-engineering|ch3|idx3| A simple delta-sigma for our suntan monitor
+--- C80 (n=2): 'The Waste Census'
+  * industrial-engineering|ch4|idx3| The Waste Census
+    operations-management|ch7|idx0| The Waste Census
+--- C81 (n=2): '317-style regulator: circuit examples'
+    electronic-devices-and-circuits|ch4|idx5| 317-style regulator: circuit examples
+  * industrial-engineering|ch6|idx7| 317-style regulator: application hints
+--- C82 (n=2): 'Six Sigma Named Honestly'
+  * industrial-engineering|ch7|idx3| Six Sigma Named Honestly
+    operations-management|ch6|idx3| The Six-Sigma Register
+--- C83 (n=2): 'ADCs I: Parallel ("flash") encoder'
+  * control-systems|ch3|idx4| ADCs I: Parallel ("flash") encoder
+  * robotics-and-automation|ch7|idx3| Modified flash encoders
+--- C84 (n=2): 'Density Arithmetic'
+    building-materials|ch4|idx1| Density Arithmetic
+  * materials-science|ch2|idx2| Density Arithmetic
+--- C85 (n=2): 'Arrhenius and Activation Energy'
+  * materials-science|ch5|idx1| Arrhenius and Activation Energy
+    physical-chemistry|ch6|idx2| Arrhenius’s Activation
+--- C86 (n=2): 'The Hardness Census'
+    industrial-chemistry|ch1|idx0| The Hardness Census
+  * materials-science|ch6|idx1| The Hardness Census
+--- C87 (n=2): 'A Survey of the Representative Elements 776 21.8 Metallurgy and Iron and Steel P'
+    inorganic-chemistry|ch1|idx22| A Survey of the Representative Elements 776 21.8 Metallurgy and Iron and Steel Production
+  * materials-science|ch9|idx0| Steels and Cast Irons
+--- C88 (n=2): 'Corrosion Forms and Prevention'
+  * materials-science|ch10|idx1| Corrosion Forms and Prevention
+    physical-chemistry|ch5|idx15| Prevention of Corrosion
+--- C89 (n=2): 'The Mesh-Current Engine'
+  * circuit-theory-and-network-analysis|ch2|idx2| The Mesh-Current Engine
+    embedded-systems|ch3|idx4| Using the Mesh-Current Method in the F(s) Has Distinct Real Roots
+--- C90 (n=2): 'Permeability of free space or magnetic 9.11 Alternating system frequencies in pr'
+  * circuit-theory-and-network-analysis|ch2|idx11| Permeability of free space or magnetic 9.11 Alternating system frequencies in practice
+    foundation-physics|ch10|idx17| Magnetic Permeability (μ)
+--- C91 (n=2): 'Designing a Fourth-Order Low-Pass Bandpass Filter'
+    analog-electronics|ch5|idx8| Designing a Fourth-Order Low-Pass Bandpass Filter
+  * circuit-theory-and-network-analysis|ch4|idx11| Designing a Fourth-Order Low-Pass Active Sinusoidal Steady-State Response
+--- C92 (n=2): 'The Ideal Transformer at Circuit Level'
+  * circuit-theory-and-network-analysis|ch5|idx3| The Ideal Transformer at Circuit Level
+  * electrical-machines|ch2|idx6| Summary 688 C.2 The Need for Ideal Transformers
+--- C93 (n=2): "Basic Electrical Engineering — DC circuits: Ohm's and Kirchhoff's laws, mesh and"
+  * circuit-theory-and-network-analysis|ch5|idx8| Basic Electrical Engineering — DC circuits: Ohm's and Kirchhoff's laws, mesh and nodal analysis
+    electricity-and-magnetism|ch6|idx5| Nodal Analysis of Capacitive Circuits
+--- C94 (n=2): 'Experimental tests to obtain motor 36 Direct-current Machines'
+  * electrical-machines|ch4|idx13| Experimental tests to obtain motor 36 Direct-current Machines
+    electricity-and-magnetism|ch5|idx12| Summary 802 27.8 The Direct-Current Motor
+--- C95 (n=2): 'The Component Census'
+  * control-systems|ch1|idx2| The Component Census
+    statistics-for-economics|ch4|idx0| The Component Census
+--- C96 (n=2): 'Basic Principles 366 8 Building Blocks of Integrated'
+  * control-systems|ch3|idx3| Basic Principles 366 8 Building Blocks of Integrated
+    waves-and-oscillations|ch9|idx0| Harmonics as Building Blocks
+--- C97 (n=2): 'Microwave and satellite communication — terrestrial/space type LOS systems, bloc'
+  * control-systems|ch4|idx4| Microwave and satellite communication — terrestrial/space type LOS systems, block schematics, l
+    embedded-systems|ch2|idx4| Communication satellites — orbits, characteristics, systems, uses; fibre-optic communication sy

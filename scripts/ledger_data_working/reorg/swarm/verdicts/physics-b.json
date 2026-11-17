@@ -1,0 +1,1388 @@
+{
+ "agent": "physics-b",
+ "autoReview": [
+  {
+   "book": "atomic-physics",
+   "chapter": 1,
+   "title": "A Closer Look: Structure of the",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Cut-off Halliday sidebar fragment — junk; foundation-chemistry ch3 was a token-score artifact."
+  },
+  {
+   "book": "atomic-physics",
+   "chapter": 2,
+   "title": "The Structure of Matter: From Atoms to Solids",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "solid-state-physics",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "The atoms-to-solids bridge opens the condensed-matter register (Crystal Structure); foundation-chemistry ch1 is the wrong register."
+  },
+  {
+   "book": "atomic-physics",
+   "chapter": 2,
+   "title": "Atoms and Nuclei",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Umbrella title duplicating the whole scope of the atomic-physics and nuclear-physics books; cell-biology ch7 was an absurd token match."
+  },
+  {
+   "book": "atomic-physics",
+   "chapter": 2,
+   "title": "BIO Electron Volts and Cancer Radiotherapy \b",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Truncated BIO banner; radiotherapy-dose physics is owned by nuclear-physics ch9's radiation-safety register, not general-surgery."
+  },
+  {
+   "book": "atomic-physics",
+   "chapter": 2,
+   "title": "Summary 1208 of the Atom",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Salvage would leave a bare 'Summary of the Atom' fragment duplicating the book's whole subject; the banner line is junk."
+  },
+  {
+   "book": "nuclear-physics",
+   "chapter": 1,
+   "title": "Pages 3–12: chapter content pages (Nuclear Physics text, illustrations 7.1–7.7), not part of the table of contents",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Scan-coverage note, not a lesson title; modern-physics ch8 was a token artifact."
+  },
+  {
+   "book": "nuclear-physics",
+   "chapter": 4,
+   "title": "Natural Radioactivity: Radioactive Decay Series",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Decay series is core decay-laws content already sitting in its specialist chapter; physical-chemistry ch1 is wrong."
+  },
+  {
+   "book": "nuclear-physics",
+   "chapter": 4,
+   "title": "Simultaneous Decay Modes of Radioactive Element",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Simultaneous decay branches belong to the decay-laws chapter; waves-and-oscillations ch3 is a token artifact."
+  },
+  {
+   "book": "nuclear-physics",
+   "chapter": 9,
+   "title": "Radiation from an Arbitrary Source",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Radiation from arbitrary sources is ch9 safety content; renewable-energy ch2 is a token artifact."
+  },
+  {
+   "book": "solid-state-physics",
+   "chapter": 1,
+   "title": "BIO Using Crystals to Determine Protein",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Cut-off BIO banner (X-ray protein-structure sidebar); foundation-biology ch3 is a token artifact."
+  },
+  {
+   "book": "solid-state-physics",
+   "chapter": 2,
+   "title": "Relation in Half Angle of Cone and Solid Angle at Vertex",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "geometry",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "Cone half-angle / solid-angle mensuration is geometry-shelf content (Surface Areas and Volumes); foundation-chemistry ch1 is wrong."
+  },
+  {
+   "book": "solid-state-physics",
+   "chapter": 2,
+   "title": "Non-Conducting Solid Sphere",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The non-conducting-sphere Gauss case is owned by electricity-and-magnetism ch2 'Gauss Chosen Symmetrically'; no standalone lesson needed."
+  },
+  {
+   "book": "solid-state-physics",
+   "chapter": 5,
+   "title": "The Classification",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Authored band-theory classification of solids (conductors/semiconductors/insulators); music-history ch1 is a token artifact."
+  },
+  {
+   "book": "solid-state-physics",
+   "chapter": 8,
+   "title": "Superconductivity 1433 Summary",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Salvage would leave a bare 'Superconductivity' umbrella duplicating the chapter's authored Meissner/BCS/Josephson topics."
+  },
+  {
+   "book": "relativity",
+   "chapter": 1,
+   "title": "A Closer Look: General Relativity",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "GR teaser belongs in the relativity book's opening crisis chapter; electromagnetic-theory ch10 is a token artifact."
+  },
+  {
+   "book": "astrophysics",
+   "chapter": 7,
+   "title": "Celestial Mechanics: Two-Body Orbits",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Two-body orbital mechanics is owned by mechanics ch8 ('Kepler Derived', 'Escape and Orbit'); astrophysics ch7 keeps 'Kepler Inherited' for applications; foundation-physics ch4 is the wrong level."
+  },
+  {
+   "book": "astrophysics",
+   "chapter": 8,
+   "title": "Tool 2: Technology",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "OCR furniture from an inquiry-skills TOC; philosophy ch3 is a token artifact."
+  },
+  {
+   "book": "astrophysics",
+   "chapter": 5,
+   "title": "The Galactic Map",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The galactic map is the opening of the Milky Way chapter (ch5); moving it to stellar-radiation ch2 is a token artifact."
+  },
+  {
+   "book": "particle-physics",
+   "chapter": 1,
+   "title": "Note: The remaining pages supplied are chapter body pages (p. 1.1 System of Particles and Centre of Mass; p. 1.2 Illustrations 1.1–1.2; p. 1.3 Centre of Mass of a Uniform Rod / Semicircular Ring / Semicircular Disc; p. 1.4 Illustrations 1.3–1.4; p. 1.5 Illustrations 1.5–1.6 and Concept Application",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Scan-coverage note; biotechnology ch3 is a token artifact."
+  },
+  {
+   "book": "particle-physics",
+   "chapter": 7,
+   "title": "(Note: this is a physics text, not a mathematics reference. Only the first four scanned pages contain the table of contents; the remaining pages are chapter content, not TOC entries.)",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Scan-coverage note; waves-and-oscillations ch2 is a token artifact."
+  },
+  {
+   "book": "mathematical-physics",
+   "chapter": 1,
+   "title": "The Hamilton–Jacobi Equation for Hamilton's Principal Function",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 12,
+   "newTitle": "",
+   "reason": "Hamilton–Jacobi theory is the Hamiltonian-mechanics register (mechanics ch12); heat-and-thermodynamics ch4 is a token artifact."
+  },
+  {
+   "book": "mathematical-physics",
+   "chapter": 2,
+   "title": "Graphs of Sine and Cosine Functions",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "trigonometry",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Elementary trigonometric graphs belong on the mathematics shelf (Trigonometric Functions and Their Graphs); heat-and-thermodynamics ch7 is a token artifact."
+  },
+  {
+   "book": "mathematical-physics",
+   "chapter": 2,
+   "title": "Inverse Trigonometric Functions",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "trigonometry",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "The trigonometry book has a dedicated Inverse Trigonometric Functions chapter; heat-and-thermodynamics ch7 is a token artifact."
+  },
+  {
+   "book": "mathematical-physics",
+   "chapter": 2,
+   "title": "Graphical Representation of Derivative of a Function",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "differential-calculus",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Elementary derivative craft belongs to differential-calculus ch3 (The Derivative); heat-and-thermodynamics ch7 is a token artifact."
+  },
+  {
+   "book": "mathematical-physics",
+   "chapter": 2,
+   "title": "Derivative of Function sin x",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "differential-calculus",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Standard-function derivatives belong to differential-calculus ch4 (The Craft of Differentiation)."
+  },
+  {
+   "book": "mathematical-physics",
+   "chapter": 2,
+   "title": "Derivative of Function cos x",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "differential-calculus",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Standard-function derivatives belong to differential-calculus ch4 (The Craft of Differentiation)."
+  },
+  {
+   "book": "mathematical-physics",
+   "chapter": 2,
+   "title": "Differentiation of Commonly Used Functions",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "differential-calculus",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Differentiation craft belongs to differential-calculus ch4; heat-and-thermodynamics ch7 is a token artifact."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 1,
+   "title": "Experimental Skills",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Bare umbrella duplicating the book's own scope; foundation-biology ch8 is a token artifact."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 2,
+   "title": "The Pressure-and-Temperature Craft",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Authored instruments-chapter topic (pressure/temperature gauges); foundation-physics ch1 is a token artifact."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 2,
+   "title": "Experimental Skills: Vernier calipers — its use to measure the internal and external diameter and depth of a vessel",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Core instruments-of-the-lab practical; experimental-physics owns the lab register (foundation-physics is the first-pass survey)."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 2,
+   "title": "Experimental Skills: Screw gauge — its use to determine the thickness/diameter of thin sheet/wire",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Core instruments-of-the-lab practical; experimental-physics owns the lab register."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 3,
+   "title": "Experimental Skills: Speed of sound in air at room temperature using a resonance tube",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Duplicate of the authored 'The Resonance-Column Measurement of Sound Speed' in the same chapter; foundation-physics ch3 is wrong."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 5,
+   "title": "Experimental Skills: The resistivity of the material of a given wire using a metre bridge",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Metre-bridge practical is ch5 null-method content; foundation-physics ch1 is the wrong level."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 6,
+   "title": "Experimental Skills: Identification of diode, LED, resistor, a capacitor from a mixed collection of such items",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Electronics-for-physicists practical; foundation-physics ch1 is the wrong level."
+  },
+  {
+   "book": "complex-analysis",
+   "chapter": 6,
+   "title": "Harmonic Functions and the Dirichlet Problem",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The Dirichlet problem via conformal mapping is core complex analysis (ch6 Conformal Mapping); mathematical-physics ch5 is the special-function atlas, a different syllabus."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 5,
+   "title": "Temperature Effects",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Surface tension's temperature dependence is properties-of-matter ch5 content; solid-state ch3 (phonons) is a token artifact."
+  },
+  {
+   "book": "analytical-chemistry",
+   "chapter": 8,
+   "title": "The Solid Characterisation",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "solid-state-physics",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Solid characterisation is the diffraction/determination register (solid-state ch2), not band theory ch5."
+  },
+  {
+   "book": "computational-chemistry",
+   "chapter": 2,
+   "title": "Determination of Atomic Weights and Molecular Formulas",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "foundation-chemistry",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Atomic weights and molecular formulas are the mole/stoichiometry craft (foundation-chemistry ch2); atomic-physics ch1 (Hydrogen's Fine Structure) was an absurd token match."
+  }
+ ],
+ "misplaced": [
+  {
+   "book": "atomic-physics",
+   "chapter": 5,
+   "title": "The Continuous and Characteristic Pair",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored X-ray-spectra topic in its specialist chapter; modern-physics ch4 keeps only the first-pass Compton treatment."
+  },
+  {
+   "book": "nuclear-physics",
+   "chapter": 1,
+   "title": "Stability and Neutron–Proton Ratio (n/p)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Duplicate of the authored 'The Stability Valley' in the same chapter (power-systems etc. were token artifacts)."
+  },
+  {
+   "book": "nuclear-physics",
+   "chapter": 5,
+   "title": "Toppling and Shifting of Normal Reaction",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Rigid-body equilibrium/tipping craft — mechanics ch7 (Rotational Dynamics) owns it."
+  },
+  {
+   "book": "nuclear-physics",
+   "chapter": 9,
+   "title": "The Three Units",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Becquerel/gray/sievert register — authored safety-chapter content; physical-chemistry was a token artifact."
+  },
+  {
+   "book": "nuclear-physics",
+   "chapter": 9,
+   "title": "Measuring Radiation Dosage",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Dosimetry measurement craft fits the Radiation and Safety chapter; animal-diversity was a token artifact."
+  },
+  {
+   "book": "solid-state-physics",
+   "chapter": 2,
+   "title": "Gaseous Mixture",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Gas-mixture content is owned by foundation-chemistry ch7 (gas laws) and heat-and-thermodynamics ch4 (Ideal Gas Ledger); no distinct physics home."
+  },
+  {
+   "book": "solid-state-physics",
+   "chapter": 7,
+   "title": "Piezo Cross-Reference",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Piezoelectricity is the dielectrics/ferroelectrics chapter's own cross-reference; analog-electronics is the device-application register, not the owner."
+  },
+  {
+   "book": "statistical-mechanics",
+   "chapter": 1,
+   "title": "Kepler's Third Law: The Law of Periods",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Owned by mechanics ch8 ('Kepler Derived') and astrophysics ch7 ('Kepler Inherited'); the statmech copy is a stray."
+  },
+  {
+   "book": "statistical-mechanics",
+   "chapter": 1,
+   "title": "Gay-Lussac's Law or Pressure Law",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Owned by foundation-chemistry ch7 gas laws (physics side: heat ch4 'The Ideal Gas Ledger'); statmech counting chapter is a stray home."
+  },
+  {
+   "book": "statistical-mechanics",
+   "chapter": 1,
+   "title": "Validity and Failure of Ohm's Law",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Ohmic vs non-ohmic conductors is Current-and-Resistance content."
+  },
+  {
+   "book": "statistical-mechanics",
+   "chapter": 1,
+   "title": "Guidelines for Applying Kirchhoff's Law",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Owned by electricity-and-magnetism ch6 ('The Kirchhoff Pair')."
+  },
+  {
+   "book": "statistical-mechanics",
+   "chapter": 1,
+   "title": "Guidelines for Applying Ampere's Law",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Owned by electricity-and-magnetism ch7 ('Ampere’s Choices')."
+  },
+  {
+   "book": "statistical-mechanics",
+   "chapter": 1,
+   "title": "Applying Gauss’ Law: Planar Symmetry",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Owned by electricity-and-magnetism ch2 ('Gauss Chosen Symmetrically') — planar symmetry is the canonical Gauss case."
+  },
+  {
+   "book": "statistical-mechanics",
+   "chapter": 1,
+   "title": "Average and Instantaneous Acceleration\b 40 5.2 Using Newton’s Second Law",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk concatenated line (two TOC fragments welded together)."
+  },
+  {
+   "book": "statistical-mechanics",
+   "chapter": 1,
+   "title": "A.6 Law of Sines and Law of Cosines",
+   "action": "move",
+   "targetBook": "trigonometry",
+   "targetChapter": 6,
+   "newTitle": "Law of Sines and Law of Cosines",
+   "reason": "Sine/cosine rules are Properties-of-Triangles content on the mathematics shelf."
+  },
+  {
+   "book": "statistical-mechanics",
+   "chapter": 2,
+   "title": "Examples of Canonical Transformations",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 12,
+   "newTitle": "",
+   "reason": "Canonical transformations are Hamiltonian mechanics — the auto-matcher confused canonical ENSEMBLES with canonical TRANSFORMATIONS."
+  },
+  {
+   "book": "statistical-mechanics",
+   "chapter": 2,
+   "title": "The Symplectic Approach to Canonical Transformations",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 12,
+   "newTitle": "",
+   "reason": "Symplectic machinery of canonical transformations belongs with mechanics ch12 (The Hamiltonian and Central Forces)."
+  },
+  {
+   "book": "statistical-mechanics",
+   "chapter": 7,
+   "title": "Impact Parameter",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 12,
+   "newTitle": "",
+   "reason": "Scattering geometry (impact parameter) is central-force scattering craft — mechanics ch12 owns it."
+  },
+  {
+   "book": "relativity",
+   "chapter": 1,
+   "title": "Special Purpose Diodes",
+   "action": "move",
+   "targetBook": "modern-physics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Zener/photodiode/LED device register — modern-physics ch7 (Semiconductor Devices)."
+  },
+  {
+   "book": "relativity",
+   "chapter": 2,
+   "title": "Orthogonal Transformations",
+   "action": "move",
+   "targetBook": "mathematical-physics",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Orthogonal transformations are the group/tensor machinery of physics; mathematical-physics ch8 owns the physics side (linear-algebra ch5 is the pure-math treatment)."
+  },
+  {
+   "book": "relativity",
+   "chapter": 2,
+   "title": "Table 19 Relationships of Metric SI Base and Derived Units",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk table-reference line (numeric run)."
+  },
+  {
+   "book": "relativity",
+   "chapter": 5,
+   "title": "Two Masses, One Ledger",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Inertial vs gravitational mass is exactly the equivalence-principle chapter's authored content; physical-chemistry was a token artifact."
+  },
+  {
+   "book": "relativity",
+   "chapter": 8,
+   "title": "The Expansion Arithmetic",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Hubble-law arithmetic is the cosmological doorway's own content; photography was a token artifact."
+  },
+  {
+   "book": "relativity",
+   "chapter": 8,
+   "title": "The Handover",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored handover to astrophysics; computer-networks was a token artifact."
+  },
+  {
+   "book": "astrophysics",
+   "chapter": 1,
+   "title": "Fractional Change in the Radius of Sphere",
+   "action": "move",
+   "targetBook": "properties-of-matter",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Thermal-expansion fractional-change craft (token trap: 'sphere' pulled it into the Celestial Sphere chapter)."
+  },
+  {
+   "book": "astrophysics",
+   "chapter": 2,
+   "title": "The L-R-T Tie",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Stefan-Boltzmann L-R-T relation is the chapter's authored core; statistics was a token artifact."
+  },
+  {
+   "book": "astrophysics",
+   "chapter": 2,
+   "title": "Radius of Gyration",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Radius of gyration is moment-of-inertia craft (token trap: 'radius' pulled it into the stellar-radius chapter)."
+  },
+  {
+   "book": "particle-physics",
+   "chapter": 1,
+   "title": "Four Quadrants and Sign Conventions",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Kinematics sign conventions for motion graphs belong to mechanics ch1 (Kinematics in One Dimension)."
+  },
+  {
+   "book": "particle-physics",
+   "chapter": 1,
+   "title": "Displacement of a Particle in nth Second of its",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 1,
+   "newTitle": "Displacement of a Particle in the nth Second of Its Motion",
+   "reason": "Classic kinematics formula lesson (title was OCR-truncated); mechanics ch1 owns it."
+  },
+  {
+   "book": "particle-physics",
+   "chapter": 1,
+   "title": "Structural Model For Electrical Conductor",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The free-electron structural model of conductors is owned by solid-state-physics ch4 ('Drude’s Ledger')."
+  },
+  {
+   "book": "particle-physics",
+   "chapter": 1,
+   "title": "De-Broglie Wavelength Associated with Different Charged Particles",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Owned by modern-physics ch5 ('de Broglie’s Wavelength')."
+  },
+  {
+   "book": "particle-physics",
+   "chapter": 2,
+   "title": "The Discrete Trio",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "C/P/T discrete symmetries are the symmetries chapter's authored content; algorithms was a token artifact."
+  },
+  {
+   "book": "mathematical-physics",
+   "chapter": 1,
+   "title": "The Functional Introduced",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Opening authored lesson of the calculus-of-variations chapter; organic-chemistry was a token artifact."
+  },
+  {
+   "book": "mathematical-physics",
+   "chapter": 2,
+   "title": "Elementary Integration",
+   "action": "move",
+   "targetBook": "integral-calculus",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Elementary/indefinite integration is pure-math shelf content (The Indefinite Integral), not complex-analysis-for-physics."
+  },
+  {
+   "book": "mathematical-physics",
+   "chapter": 2,
+   "title": "Analysis of Angular SHM",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Angular/pendulum SHM analysis belongs to the SHM foundations chapter."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 1,
+   "title": "The Two Uncertainties",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Random vs systematic uncertainty — authored opening content; animal-diversity was a token artifact."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 2,
+   "title": "The Apparatus Census and the Measurement Techniques",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored instruments-chapter topic; high-voltage-engineering was a token artifact."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 2,
+   "title": "The Medical-Imaging Instruments: Ultrasound to MRI",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "No medical-imaging book exists in the 269-book registry; the instruments chapter is the honest home (anatomy was a token artifact)."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 3,
+   "title": "The Resonance-Column Measurement of Sound Speed",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored practical in the mechanics-practicals chapter; fluid-mechanics was a token artifact."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 3,
+   "title": "Pitot Tube",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "Pitot-tube flow measurement is fluid-dynamics craft (mechanics ch10)."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 3,
+   "title": "Quinck's Tube",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Quincke's tube is the sound-interference apparatus — superposition chapter content."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 3,
+   "title": "Kundt's Tube",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Kundt's-tube standing waves belong to Superposition and Standing Waves."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 4,
+   "title": "The u-v Method for Concave Mirrors and Convex Lenses",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored optics-practical method; the first-pass images lesson in foundation-physics ch9 is a different granularity."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 4,
+   "title": "Lateral Displacement of Emergent Beam Through a Glass Slab",
+   "action": "move",
+   "targetBook": "optics",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Lateral-shift theory of refraction through a slab is ray-optics content (optics ch1); structural-engineering was a token artifact."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 5,
+   "title": "The Ohm's-Law Verification with Voltmeter and Ammeter",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored E&M practical in its correct chapter; electricity-and-magnetism was a token artifact."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 5,
+   "title": "Deflection Magnetometer",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Deflection-magnetometer practical pairs with the chapter's 'The Earth’s Field' register; archaeology was a token artifact."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 8,
+   "title": "The Consolidation Map",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Authored course-consolidation doorway; physical-chemistry was a token artifact."
+  }
+ ],
+ "dupes": [
+  {
+   "title": "The u-v Method for Concave Mirrors and Convex Lenses",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Lab-course u-v method vs foundation-physics ch9 first-pass mirror images — different granularity, not duplicates."
+  },
+  {
+   "title": "The Grating Measurement",
+   "action": "consolidate",
+   "winner": "optics",
+   "reason": "Identical grating lesson; optics ch10 (The Optics Laboratory) is the specialist home — the experimental-physics ch4 copy is the general-lab duplicate."
+  },
+  {
+   "title": "The Least-Squares Fit",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Physics error-analysis least squares vs statistics/econometrics/ML/numerics treatments — genuinely different syllabi."
+  },
+  {
+   "title": "The Transducer Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Physicist's signal chain vs electrical-measurements vs IoT sensing-layer treatments — different syllabi."
+  },
+  {
+   "title": "Calculus of Variations: the Euler-Lagrange Engine",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Variations-theory derivation (mathematical-physics ch1) vs Lagrangian-mechanics application (mechanics ch11) — different syllabus treatments; the engineering-methods stray in ch7 is the engineering agent's to clean."
+  },
+  {
+   "title": "Sturm–Liouville Problems: Eigenfunctions and Orthogonality",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Physics PDE eigenvalue craft (mathematical-physics ch4) vs the engineering-methods ODE shelf — different syllabi."
+  },
+  {
+   "title": "Spherical Harmonics Census",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Special-function atlas (mathematical-physics ch5) vs QM angular-momentum register — different syllabi."
+  },
+  {
+   "title": "Runge-Kutta Named",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Physicist's numerical register vs the mathematics-shelf numerical-analysis specialist — different depth and audience."
+  },
+  {
+   "title": "Graphs of Sine and Cosine Functions",
+   "action": "consolidate",
+   "winner": "trigonometry",
+   "reason": "All elementary-trig strays funnel to the trigonometry book: graphs to ch2, sine/cosine rules to ch6."
+  },
+  {
+   "title": "The Pressure-and-Temperature Craft",
+   "action": "consolidate",
+   "winner": "foundation-chemistry",
+   "reason": "Gas-law copies: the statistical-mechanics stray is removed; school-level gas laws live in foundation-chemistry ch7 (physics side covered by heat ch4's Ideal Gas Ledger); the instruments topic in experimental-physics ch2 is a different, surviving topic."
+  },
+  {
+   "title": "Equations of Motion, Infinitesimal Canonical Transformations, and Conservation Theorems in the Poisson Bracket Formulation",
+   "action": "consolidate",
+   "winner": "mechanics",
+   "reason": "Canonical transformations / Poisson brackets are owned by mechanics ch12; the statistical-mechanics copies move there (canonical-ensemble/canonical-transformation confusion)."
+  },
+  {
+   "title": "The Passive Sign Convention as Law",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Circuit, optics and kinematics sign conventions are three different topics falsely token-clustered."
+  },
+  {
+   "title": "Doping and Mass Action",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Solid-state carrier physics (solid-state-physics ch6) vs device-engineering treatment (electronic-devices-and-circuits ch1) — different syllabi."
+  },
+  {
+   "title": "The Research Doorstep",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Book-specific synthesis doorsteps in quantum-mechanics ch9 and solid-state-physics ch9 — distinct closing registers."
+  },
+  {
+   "title": "Nuclear Stability and the Ratio of Neutrons and Protons",
+   "action": "consolidate",
+   "winner": "nuclear-physics",
+   "reason": "The n/p stability topic is nuclear-physics ch1's own register; the stray copy is removed as a duplicate of authored 'The Stability Valley'; foundation-chemistry's stray is the chemistry agent's."
+  },
+  {
+   "title": "Partial Pressures",
+   "action": "consolidate",
+   "winner": "foundation-chemistry",
+   "reason": "The statistical-mechanics Dalton copy is removed; partial pressures belong to the school gas-law register (foundation-chemistry ch7)."
+  },
+  {
+   "title": "Vernier Callipers",
+   "action": "consolidate",
+   "winner": "experimental-physics",
+   "reason": "Vernier craft belongs to the lab register; the bare duplicate line in experimental-physics ch2 is removed; heat-and-thermodynamics' 'Reading a Vernier Callipers' stray is physics-a's to route."
+  },
+  {
+   "title": "Laboratory skills expected to be known by all participants (heating and reflux, mass and volume measurement, preparation and dilution of solutions, titrations, pH measurement, filtration, drying of precipitates, instrument operation, graphing and analysis of experimental data)",
+   "action": "consolidate",
+   "winner": "experimental-physics",
+   "reason": "The JEE experimental-skills practicals belong in experimental-physics; exact internal duplicates (screw-gauge pair, travelling-microscope pair, resonance-tube line) are removed to single lines."
+  },
+  {
+   "title": "Shot noise in current sources and emitter followers",
+   "action": "consolidate",
+   "winner": "experimental-physics",
+   "reason": "Keep the N-p-n common-base and common-emitter amplifier practicals; remove the plain 'Transistor as a Common Base Amplifier' duplicate."
+  },
+  {
+   "title": "Magnetic Resonance Craft",
+   "action": "consolidate",
+   "winner": "atomic-physics",
+   "reason": "Magnetic-resonance craft is atomic-physics ch7's specialist register; foundation-chemistry's FOCUS-banner copy is the chemistry agent's stray."
+  },
+  {
+   "title": "Charged Particles in Fields",
+   "action": "consolidate",
+   "winner": "modern-physics",
+   "reason": "de Broglie wavelength is owned by modern-physics ch5; the particle-physics copy is a stray duplicate; E&M ch7's 'Charged Particles in Fields' is a distinct Lorentz-force topic that stays."
+  },
+  {
+   "title": "The Detection Craft",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Exoplanet detection craft (astrophysics ch7) vs organic-analysis detection — different crafts falsely clustered."
+  },
+  {
+   "title": "The Classification",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Band classification (solid-state ch5), matter classification (foundation-chemistry ch1) and business forms — false token cluster."
+  },
+  {
+   "title": "Inquiry 2: Collecting and processing data",
+   "action": "consolidate",
+   "winner": "foundation-physics",
+   "reason": "Physics-generic inquiry lines reunite in foundation-physics ch1; biology-suffixed inquiry lines stay in foundation-biology ch2."
+  },
+  {
+   "title": "Graphical Representation for Motion",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Each discipline's graphical treatment (motion graphs, derivative graphs, thermodynamic processes) is a different topic; the mathematical-physics copy moves to differential-calculus."
+  },
+  {
+   "title": "Average Acceleration",
+   "action": "consolidate",
+   "winner": "foundation-physics",
+   "reason": "Average/instantaneous acceleration live in foundation-physics ch3; the statistical-mechanics concatenated copy is junk-removed."
+  },
+  {
+   "title": "23-6 APPLYING GAUSS’ LAW: SPHERICAL SYMMETRY 675 Dielectrics: An Atomic View",
+   "action": "consolidate",
+   "winner": "electricity-and-magnetism",
+   "reason": "Gauss symmetries are owned by E&M ch2; all stray concatenated copies are removed as junk/duplicates."
+  },
+  {
+   "title": "Electric Field Due to a Charged Isolated Conducting Plate",
+   "action": "consolidate",
+   "winner": "electricity-and-magnetism",
+   "reason": "Charged-plate/sphere Gauss applications are E&M ch2 content; strays in mechanics/solid-state/statistical-mechanics are removed or rerouted."
+  },
+  {
+   "title": "The Eigenvalues of the Inertia Tensor and the Principal Axis Transformation",
+   "action": "consolidate",
+   "winner": "mechanics",
+   "reason": "Inertia-tensor principal axes belong to mechanics ch7 (Rotational Dynamics); both stray copies converge there."
+  },
+  {
+   "title": "Multiple Electrons in Rectangular Traps 1231 42-7 MEASURING RADIATION DOSAGE",
+   "action": "consolidate",
+   "winner": "nuclear-physics",
+   "reason": "Radiation-dosage measurement lives in nuclear-physics ch9; the atomic-physics page-number stray is junk-removed."
+  },
+  {
+   "title": "General Principles and Processes of Isolation of Elements — 1.1–1.52",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "False token cluster: decay modes (nuclear-physics) vs metallurgical occurrence/extraction lines (chemistry shelf, chemistry agent's to clean)."
+  }
+ ],
+ "thin": [],
+ "order": [],
+ "extra": [
+  {
+   "book": "atomic-physics",
+   "chapter": 1,
+   "title": "Hyperfine and 21 cm",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "JunkSuspect false positive: hyperfine splitting and the 21-cm hydrogen line are genuine fine-structure chapter content ('21' triggered the numeric-run flag)."
+  },
+  {
+   "book": "atomic-physics",
+   "chapter": 2,
+   "title": "Collision of a Neutron with an Atom",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Neutron-atom elastic collision (energy-transfer craft) is momentum-and-collisions content."
+  },
+  {
+   "book": "atomic-physics",
+   "chapter": 2,
+   "title": "Velocity Addition and Thomas Precession",
+   "action": "move",
+   "targetBook": "atomic-physics",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Thomas precession is the relativistic origin of the spin-orbit correction — fine-structure chapter content; velocity addition is its derivation context."
+  },
+  {
+   "book": "atomic-physics",
+   "chapter": 3,
+   "title": "Condition for Looping the Loop in Some Other Cases",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Vertical-circle looping conditions are circular-motion craft."
+  },
+  {
+   "book": "nuclear-physics",
+   "chapter": 2,
+   "title": "Horizontal Range of the Escaping Liquid",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Projectile range of a liquid jet is two-dimensional kinematics."
+  },
+  {
+   "book": "nuclear-physics",
+   "chapter": 4,
+   "title": "E.3 Radioactive decay",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Appendix-section-code prefix line; decay laws are the chapter's authored core."
+  },
+  {
+   "book": "nuclear-physics",
+   "chapter": 5,
+   "title": "Representing Normal Reaction in Different Situations",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Normal-reaction representation is rigid-body/equilibrium craft (pairs with the toppling line)."
+  },
+  {
+   "book": "nuclear-physics",
+   "chapter": 7,
+   "title": "E.5 Fusion and stars",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Section-code prefix line; stellar burning is the chapter's authored core (pp/CNO, barrier arithmetic)."
+  },
+  {
+   "book": "solid-state-physics",
+   "chapter": 2,
+   "title": "Experimental Skills: Specific heat capacity of a given solid and liquid by method of mixtures",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Method-of-mixtures practical is owned by experimental-physics ch4 ('The Calorimeter Craft'); same-granularity duplicate."
+  },
+  {
+   "book": "solid-state-physics",
+   "chapter": 2,
+   "title": "Watch Out: Tight Curves Ahead! 84 BIO The First Law of Exercise Birefringence and Liquid Crystal Displays",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk concatenation of sidebar banners."
+  },
+  {
+   "book": "solid-state-physics",
+   "chapter": 3,
+   "title": "Vibration Magnetometer",
+   "action": "move",
+   "targetBook": "experimental-physics",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Magnetometry practical (pairs with Deflection Magnetometer in the E&M practicals chapter); it sat in phonons only via the 'vibration' token trap."
+  },
+  {
+   "book": "solid-state-physics",
+   "chapter": 4,
+   "title": "Effect of Dielectric on Different Parameters",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Dielectric effects on capacitance/field parameters belong to Capacitors and Dielectrics."
+  },
+  {
+   "book": "solid-state-physics",
+   "chapter": 8,
+   "title": "BIO Ferro Magnetic Nanoparticles",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Truncated BIO banner line — junk per the BIO-line policy."
+  },
+  {
+   "book": "statistical-mechanics",
+   "chapter": 2,
+   "title": "■ Canonical Transformations",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Bullet-marked umbrella fragment; the two substantive canonical-transformation lines move to mechanics ch12."
+  },
+  {
+   "book": "statistical-mechanics",
+   "chapter": 5,
+   "title": "Neutron Leakage",
+   "action": "move",
+   "targetBook": "nuclear-physics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Neutron leakage is reactor-transport content (Fission and the Reactor chapter)."
+  },
+  {
+   "book": "statistical-mechanics",
+   "chapter": 5,
+   "title": "Neutron Capture",
+   "action": "move",
+   "targetBook": "nuclear-physics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Neutron capture is reactor/reaction content, not Fermi-gas applications."
+  },
+  {
+   "book": "statistical-mechanics",
+   "chapter": 7,
+   "title": "Chaotic Trajectories and Liapunov Exponents",
+   "action": "move",
+   "targetBook": "differential-equations",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Chaos and Liapunov exponents are nonlinear-ODE-system content (Systems, the Phase Plane and the Nonlinear World); no dynamics book exists on the shelf."
+  },
+  {
+   "book": "relativity",
+   "chapter": 1,
+   "title": "Michelson’s Interferometer",
+   "action": "move",
+   "targetBook": "optics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "The interferometer instrument belongs in the interference chapter; relativity ch1's authored 'The Null Result' keeps the experiment story."
+  },
+  {
+   "book": "relativity",
+   "chapter": 1,
+   "title": "The Michelson Interferometer",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Duplicate of the 'Michelson’s Interferometer' line in the same chapter."
+  },
+  {
+   "book": "astrophysics",
+   "chapter": 2,
+   "title": "Radius of Curvature",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Trajectory curvature craft (token trap: 'radius' pulled it into the stellar-radius chapter)."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 2,
+   "title": "Vernier Callipers",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Bare instrument-name line duplicating the fuller vernier practical in the same chapter."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 3,
+   "title": "Surface-Tension Measurement of Water by Capillary Rise",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concrete practical at a different granularity from the authored 'Surface-Tension Practicals' umbrella."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 3,
+   "title": "Routh's Procedure",
+   "action": "move",
+   "targetBook": "control-systems",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Routh's procedure is the Routh-Hurwitz stability test — control-systems ch5 is its literal home."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 4,
+   "title": "Experimental Skills: The plot of the angle of deviation vs angle of incidence for a triangular prism",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Prism deviation-plot practical — correct lab book and chapter."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 4,
+   "title": "Experimental Skills: The refractive index of a glass slab using a travelling microscope",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Travelling-microscope practical — correct lab book and chapter."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 4,
+   "title": "Experimental Skills: Refractive index of a glass slab using a travelling microscope",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Exact duplicate (missing 'The') of the travelling-microscope line in the same chapter."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 5,
+   "title": "Experimental Skills: Resistance and figure of merit of a galvanometer by half deflection method",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Concrete practical complementing the authored 'Galvanometer Conversion' register."
+  },
+  {
+   "book": "experimental-physics",
+   "chapter": 6,
+   "title": "Transistor as a Common Base Amplifier",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Duplicate of 'N-p-n Transistor as a Common Base Amplifier' in the same chapter; the common-emitter line stays."
+  },
+  {
+   "book": "mathematical-physics",
+   "chapter": 8,
+   "title": "The Eigenvalues of the Inertia Tensor and the Principal Axis Transformation",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Inertia-tensor principal-axis transformation is rotational-dynamics content (junkSuspect false-flagged as a concatenation but the title itself is clean)."
+  },
+  {
+   "book": "astrophysics",
+   "chapter": 1,
+   "title": "Inquiry 2: Collecting and processing data",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Physics-generic inquiry-skill line: reunites with its siblings Inquiry 1/3 in foundation-physics ch1 (cluster also carried biology-suffixed copies that stay in foundation-biology ch2)."
+  }
+ ],
+ "notes": "9-book adjudication complete. All 47 misAdjudicate items ruled; 38 autoActions amended/vetoed (junk removes, scan-notes and token-trap moves corrected: the auto-matcher repeatedly sent physics to foundation-chemistry/biology/heat-and-thermodynamics/music-history on token scores). Recurring traps fixed: canonical-TRANSFORMATION lines confused with the canonical ENSEMBLE (sent to mechanics ch12); JEE elementary-math lines dumped into mathematical-physics ch2 (routed to trigonometry/differential/integral calculus); 'radius'/'sphere'/'vibration' token traps in astrophysics/solid-state; Experimental-Skills practicals correctly retained in experimental-physics with exact duplicates culled. Junk-title dup clusters left to their auto-removals; verdicts given only for clusters with genuine cross-book duplication. No chapter-order changes needed — all nine progressions are pedagogically sound. No targets in the four exempt authored math books; all targets verified against the legend."
+}

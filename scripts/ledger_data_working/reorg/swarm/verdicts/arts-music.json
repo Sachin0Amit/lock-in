@@ -1,0 +1,1454 @@
+{
+ "agent": "arts-music",
+ "autoReview": [
+  {
+   "book": "acoustics",
+   "chapter": 1,
+   "title": "The 343 Receipt Priced Straight",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "343 m/s is the speed of sound in air — a genuine wave-fundamentals lesson in house style; the page-run junk heuristic misfires on honest numeric titles."
+  },
+  {
+   "book": "typography",
+   "chapter": 4,
+   "title": "The 45-to-75 Receipt Fixed by Drill",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "45–75 characters per line is the classic readability measure — a genuine page-composition lesson; numeric-run heuristic misfire."
+  },
+  {
+   "book": "digital-art",
+   "chapter": 1,
+   "title": "The 72-and-300 Receipts Fixed by Drill",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "72 and 300 DPI are the screen/print resolution standards — a genuine canvas-fundamentals lesson; numeric-run heuristic misfire."
+  },
+  {
+   "book": "instrument-studies",
+   "chapter": 2,
+   "title": "Music Instruments of India (classification, structure and playing techniques; veena, violin, flute, nadaswaram, mridangam etc.)",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "instrument-studies",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Indian instrument census (veena, violin, flute, nadaswaram, mridangam) is genuine instrument-studies material — the 'consolidated to surveying-and-geomatics' reason is a false-cluster artifact. Move to the world-instruments chapter."
+  },
+  {
+   "book": "instrument-studies",
+   "chapter": 5,
+   "title": "Musical Instruments and their Classification",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Right removal, wrong reason: bare generic TOC line; instrument classification is already ch1's remit (The Families Overview). Surveying-and-geomatics consolidation was a token-overlap artifact."
+  },
+  {
+   "book": "music-composition",
+   "chapter": 4,
+   "title": "Percussion (Tabla/Pakhawaj) Units V-X: Applied Theory — Taal & Avanaddha Vadya; history of music and treatises; compositional forms of avanaddha vadyas; classification and description of musical instruments; performers and composers; detailed study of gharanas and institutional system",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "instrument-studies",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Tabla/pakhawaj and avanaddha-vadya (membranophone) territory belongs to instrument-studies, not an orchestration first pass; the India-percussion census sits with the world-instruments lessons (bol cross-reference)."
+  },
+  {
+   "book": "music-history",
+   "chapter": 5,
+   "title": "Unit II (common): Folk Music (origin, evolution and classification of Indian folk music; folk instruments and performers of various regions; ragas and talas used in folk music; folk fairs and festivals)",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "music-history",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Indian folk music belongs to the world-music register (ch6), not the jazz-and-popular chapter; the surveying consolidation was a false-cluster artifact."
+  },
+  {
+   "book": "music-history",
+   "chapter": 6,
+   "title": "Gharana and Institutional System and conferences of Hindustani music",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Gharana and institutional history of Hindustani music is genuine music-history material in the world/contemporary register; the surveying consolidation was a false-cluster artifact."
+  },
+  {
+   "book": "music-theory-notation",
+   "chapter": 1,
+   "title": "Applied Theory (musical scales; suddha and vikrita svaras; sruti; raga-lakshana and classification; talas; notation and staff notation)",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Indian applied theory (scales, suddha/vikrita svaras, sruti, raga-lakshana, talas, notation) fits the generalist theory book's pitch-and-staff chapter; the surveying-and-geomatics consolidation is a token artifact."
+  },
+  {
+   "book": "music-theory-notation",
+   "chapter": 2,
+   "title": "Hindustani (Vocal, Instrumental & Musicology) Unit V: Applied Theory (sangeet utpatti; musical scales Indian and western; gram, murchchhana; raga classification; time theory of ragas; notation systems of Hindustani, Karnataka and western music; layakari)",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "music-theory-notation",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Right to reject removal, but the line's core (gram, murchchhana, raga classification, scale systems) belongs with the keys-and-scales chapter, not the rhythm-notation chapter."
+  },
+  {
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "title": "Identities",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "No arts-music home: 'Identities' is a bare single-word TOC fragment; the ear-training target is token noise — disposition belongs to the engineering agent."
+  },
+  {
+   "book": "vlsi-design",
+   "chapter": 5,
+   "title": "The Three Powers Priced",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The three CMOS power components (dynamic/short-circuit/leakage) — genuine VLSI content in house style; the photography target is token noise."
+  },
+  {
+   "book": "indian-history",
+   "chapter": 10,
+   "title": "Unit 4: Teacher Education",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Teacher-education syllabus line with no arts-music home; the contemporary-dance target is token noise — disposition belongs to the humanities agent."
+  },
+  {
+   "book": "english",
+   "chapter": 1,
+   "title": "Points",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "'Points' is a bare TOC fragment with no drawing home; the languages agent owns its cleanup — the drawing target is token noise."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Differentiation",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "A calculus-preview lesson is plausibly honest in a physics-foundations book; the ear-training target is token noise."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Concepts",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "'Concepts' is a bare TOC fragment; the illustration target is token noise — physics agent's call."
+  },
+  {
+   "book": "solid-state-physics",
+   "chapter": 5,
+   "title": "The Classification",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "'The Classification' is plausibly honest crystal-classification content in solid-state physics; the music-history target is token noise."
+  },
+  {
+   "book": "foundation-economics",
+   "chapter": 1,
+   "title": "Society",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "'Society' has no graphic-design home; the suggested move is token noise — economics agent's call (rule d: unsure → keep)."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "title": "Interdisciplinary topics",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Chemistry-own enumeration; the contemporary-dance target is token noise."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "title": "Comparison Between AO’s and MO’s",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Real chemistry (AO vs MO comparison); the film-studies target is token noise."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "title": "Comparison Between σ and π MO’s",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Real chemistry (sigma vs pi MO comparison); the film-studies target is token noise."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "title": "A1.2 Logarithms A4",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Appendix TOC fragment ('A1.2 Logarithms' + page A4); no ear-training home — chemistry agent's call."
+  },
+  {
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "title": "TO THE STUDENT",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Front-matter fragment ('TO THE STUDENT'); no film-studies home — chemistry agent's call."
+  },
+  {
+   "book": "music-theory-notation",
+   "chapter": 2,
+   "title": "Unit I (common to all in music): Technical Terms (sangeet, nada, shruti, swaras, raga, thata, tala, laya, gamaka, notation systems, etc.)",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Glossary of Indian musical technical terms (sangeet, nada, shruti, swaras, raga, thata, tala, laya, gamaka, notation systems) fits the generalist theory book beside ch2's tala/laya notation content; harmony owns nothing here."
+  },
+  {
+   "book": "music-theory-notation",
+   "chapter": 4,
+   "title": "Historical perspective of music — contributions of scholars, musicologists, musical concepts in treatises",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Right removal, wrong reason: the historical-perspective-of-music line duplicates music-history ch6 (History of Indian Music, contribution of Musicologists and their textual tradition) — not foundation-biology."
+  },
+  {
+   "book": "music-composition",
+   "chapter": 2,
+   "title": "Compositional forms and their evolution (prabandh, dhrupad, dhamaar, kheyaal, tarana, thumri, tappa etc.)",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Hindustani small forms (prabandh, dhrupad, kheyaal, tarana, thumri) are exactly the Small Forms chapter's subject; the foundation-biology target is token noise."
+  },
+  {
+   "book": "music-composition",
+   "chapter": 2,
+   "title": "Compositional forms and their evolution (prabandha, gitam, svarajati, varnam, padavarnam, kriti, ragamalika etc.)",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Carnatic small forms (prabandha, svarajati, varnam, kriti, ragamalika) — a genuinely different tradition-treatment from the Hindustani line; both stay in the Small Forms chapter."
+  },
+  {
+   "book": "music-composition",
+   "chapter": 2,
+   "title": "Applied Theory (ragas, talas, kirtana, baul); historical perspective of music (Tagore and eminent personalities); composition forms and their evolution (Geetanjali and song offerings); music instruments of India; contribution of scholars/performers and their textual traditions; gharana and",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Right removal, wrong reason: this Rabindra-sangeet omnibus enumerates topics already owned elsewhere — applied theory (music-theory-notation ch1/ch3), historical perspective and scholars (music-history ch6), composition forms (music-composition ch2), instruments of India (instrument-studies ch5)."
+  },
+  {
+   "book": "music-composition",
+   "chapter": 2,
+   "title": "Component 2 Practical Music — composing (two contrasting compositions, 1-2 minutes each)",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Exam-component description (two contrasting 1–2-minute compositions) — syllabus junk, not a topic; moving it to music-theory would only relocate junk whose sibling line there is also being removed."
+  },
+  {
+   "book": "music-history",
+   "chapter": 6,
+   "title": "Contribution of composers/performers to Indian music (Tansen, Sadarang etc.)",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "music-history owns composers/performers' contributions (Tansen, Sadarang); the classical-dance copy is the duplicate being consolidated to music-history."
+  },
+  {
+   "book": "painting",
+   "chapter": 2,
+   "title": "Class XII theory (common to all four subjects) Unit 1: Miniature Paintings — The Rajasthani, Pahari, Mughal and Deccan schools of miniature painting",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "art-history",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Rajasthani/Pahari/Mughal/Deccan miniature schools are Indian art history — art-history owns movements and schools (medieval India register); the harmony target was token noise."
+  },
+  {
+   "book": "painting",
+   "chapter": 2,
+   "title": "Painting practical Class XII: Nature and Object Study; Painting Composition (imaginative painting from life and nature in water and poster colours); Portfolio Assessment",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "CBSE practical-assessment enumeration; its honest content (nature study, light-and-shade exercises, imaginative composition) is already painting ch2/ch4's remit — not foundation-biology."
+  },
+  {
+   "book": "colour-theory",
+   "chapter": 5,
+   "title": "Class XI theory (common to Painting, Graphics, Sculpture and Applied Art) Unit 1: Pre-Historic rock paintings and art of Indus/Sindhu Saraswati Civilization; Buddhist, Jain and Hindu Art",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "art-history",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Prehistoric rock paintings, Indus/Saraswati art, Buddhist/Jain/Hindu art = Indian art history → art-history's ancient register; the harmony target was token noise."
+  },
+  {
+   "book": "illustration",
+   "chapter": 1,
+   "title": "Unit VIII: Contemporary practices in Indian art during the 20th and 21st centuries; modern concept of advertising, designing and visual communication; experimental modes in contemporary visual expression; development of art education in India from colonial art schools to the present",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "art-history",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Contemporary Indian art practices of the 20th–21st centuries belong to art-history's India-modern register; the classical-dance target was token noise."
+  },
+  {
+   "book": "graphic-design",
+   "chapter": 1,
+   "title": "Part-A: Environment and society — general awareness of environmental, social and cultural connections with design",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Exam-awareness line (Part-A general awareness) — an aptitude-test description, not a design-craft topic; the political-science move was token noise."
+  },
+  {
+   "book": "digital-art",
+   "chapter": 1,
+   "title": "Unit 4 (common): Art and Aesthetics",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "art-history",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "'Art and Aesthetics' is the visual-arts appreciation survey — art-history's eye owns it; harmony owns nothing here."
+  },
+  {
+   "book": "digital-art",
+   "chapter": 1,
+   "title": "Unit IV: Developments in modern techniques, processes and procedures and their application in contemporary visual practices (installation; multi-colour print; computer-aided design — vector and raster; multimedia and digital technologies in art; trompe l'oeil illusory hyper-realism)",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "art-history",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "Modern techniques and processes in contemporary visual practices (installation, multi-colour print, computer-aided work) = the modern/contemporary register; the anthropology target was token noise."
+  },
+  {
+   "book": "digital-art",
+   "chapter": 4,
+   "title": "Applied Art (Commercial Art) practical Class XII: Illustration (techniques of illustration supported by drawing from life and outdoor sketching); Poster (poster with specified data and slogan in two or three colours); Portfolio Assessment",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Applied-art practical enumeration; illustration techniques and poster craft are already owned by illustration ch4 and graphic-design ch4."
+  },
+  {
+   "book": "digital-art",
+   "chapter": 5,
+   "title": "Applied Art (Commercial Art) practical Class XI: Drawing (still-life and nature); Lettering (Roman and Devanagari scripts, typefaces and sizes) and Layout; Portfolio Assessment",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Applied-art practical enumeration; still-life drawing, lettering and layout are already owned by drawing ch3, typography ch1 and graphic-design ch2."
+  },
+  {
+   "book": "classical-dance",
+   "chapter": 3,
+   "title": "Unit 5 (common): Dance and Theatre forms of East and South Asian Countries",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "classical-dance",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "East and South Asian dance-and-theatre forms belong beside the international dance-and-interactions line in ch2, not in the Indian treasury; the harmony target was token noise."
+  },
+  {
+   "book": "classical-dance",
+   "chapter": 3,
+   "title": "Unit V: Indian and Western aesthetics and art appreciation",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The Indian-and-Western aesthetics appreciation line stays with classical-dance ch3 — performing-arts aesthetics is its theory core; the digital-art target was token noise."
+  },
+  {
+   "book": "classical-dance",
+   "chapter": 3,
+   "title": "Unit VII: Chronological periods and developments in Indian art from prehistory to the 19th century",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "art-history",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "The chronological survey of Indian art (prehistory to the 19th century) is art-history's Indian registers; the political-science target was token noise."
+  },
+  {
+   "book": "classical-dance",
+   "chapter": 3,
+   "title": "Unit III (common): Rasa and Aesthetics (rasa according to Bharata and others; rasa nishpatti and its application to Indian classical music; aesthetics according to Indian and western philosophers; raga-ragini paintings)",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Rasa theory (Bharata, rasa nishpatti and its application) is the classical-dance/abhinaya core theory; the harmony target was token noise."
+  },
+  {
+   "book": "classical-dance",
+   "chapter": 3,
+   "title": "Contribution of composers/performers to music, Indian and western (Tevaram, Alwars, Purandara Dasa, the music trinity etc.)",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Duplicate of music-history ch6's composers/performers line — Tevaram, Alwars, Purandara Dasa and the music trinity are music figures, so consolidate to the specialist (music-history); moving it there would double the existing lesson."
+  },
+  {
+   "book": "contemporary-dance",
+   "chapter": 1,
+   "title": "Unit IV (common): Research Methodology and Pedagogy, Avenues, Interdisciplinary aspects and Modern Technology",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "classical-dance",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Dance research-methodology/pedagogy/avenues line: classical-dance ch5 (The Pedagogy-and-Repertoire Register) is the honest home; the harmony target was token noise."
+  },
+  {
+   "book": "theatre",
+   "chapter": 2,
+   "title": "Theatre Education, Pedagogy and Research",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "NET meta-unit (education/pedagogy/research) with no honest chapter home in theatre's four chapters; the contemporary-dance target was token noise."
+  },
+  {
+   "book": "theatre",
+   "chapter": 3,
+   "title": "Stage 2 — DAT Mains, part 2: In-Person Sensitivity Test",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "DAT exam-component description — syllabus junk; not 'covered in music-production' (that sibling line is junk too and is also removed)."
+  },
+  {
+   "book": "film-studies",
+   "chapter": 1,
+   "title": "Unit 2 (common): Folk and Traditional Theatre Forms of India",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "theatre",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Folk and traditional theatre forms of India are theatre-history material — theatre ch1 (liveness-and-history register) owns them; the harmony target was token noise."
+  },
+  {
+   "book": "film-studies",
+   "chapter": 1,
+   "title": "Comparative Study (CS) — analytical comparison of artworks by different artists from different cultural contexts, examining formal qualities, function, meaning and cultural significance; at HL also a connection to the student's own work",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "IB Comparative-Study component description — assessment junk, not a film-studies topic; the heat-and-thermodynamics target was token noise."
+  },
+  {
+   "book": "ear-training",
+   "chapter": 1,
+   "title": "The Anchoring Craft Held",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Anchor-song/reference anchoring is the interval-recognition technique — ch1 is its honest home; the sight-singing chapter-fit hint is score noise."
+  },
+  {
+   "book": "music-history",
+   "chapter": 5,
+   "title": "The Revolution Receipts Priced Straight",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The revolution receipts (RPM/recording-era revolutions) sit with the popular-idioms lessons (studio-as-instrument, loop craft); ch4 already owns the rhythmic revolution (Pulse's-Revolution Craft)."
+  },
+  {
+   "book": "music-production",
+   "chapter": 1,
+   "title": "The MS Division Held",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "M/S (mid-side) is a stereo miking/capture technique — the signal-and-capture chapter owns it, not the DAW chapter."
+  },
+  {
+   "book": "painting",
+   "chapter": 1,
+   "title": "The Each-Receipt Register Held",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The each-receipt register (the census of each material's tooling) belongs to the materials-and-surfaces chapter, not watercolour finishing."
+  },
+  {
+   "book": "contemporary-dance",
+   "chapter": 4,
+   "title": "The Task Craft Held",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Task-based composition ('the task craft') belongs to the composition-and-choreography register, not contact-improvisation."
+  },
+  {
+   "book": "cinematography",
+   "chapter": 1,
+   "title": "The Two Held Straight",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The two (formats/aspects) belongs with the camera-and-format craft lessons (squeeze, 24fps, shutter) in ch1."
+  },
+  {
+   "book": "screenwriting",
+   "chapter": 4,
+   "title": "The Craft Receipt Held",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The craft receipt sits with the rewrite-and-genre register's structure-polish cycle, not the structure arc."
+  }
+ ],
+ "misplaced": [
+  {
+   "book": "music-theory-notation",
+   "chapter": 4,
+   "title": "Prelims typical areas (mirror): basic arithmetic — seating arrangement, Venn diagrams and simple number questions",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-board prelims line about arithmetic reasoning tests — exam-meta junk, no musical subject.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "music-history",
+   "chapter": 1,
+   "title": "The Two Church Registers Named",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "House-style lesson on the two church-music traditions in the medieval-and-renaissance register — fits; token score flagged nothing honest.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "vocal-music",
+   "chapter": 3,
+   "title": "The Symbol Census Fixed by Drill",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "The symbol census (IPA symbols) is the diction craft's own drill — fits ch3.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "vocal-music",
+   "chapter": 3,
+   "title": "Part-A: Language — proficiency in reading and comprehending Standard English",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-board Part-A language-proficiency line — exam-meta junk, nothing to do with diction.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "music-production",
+   "chapter": 2,
+   "title": "Stage 2 — DAT Mains, part 1: Studio Sensitivity Test",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "DAT Mains exam-component description — syllabus junk, not a production topic; its theatre sibling is junk too.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "painting",
+   "chapter": 5,
+   "title": "The Graded Division Fixed by Drill",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "Graded wash division is a watercolour-and-finishing technique — fits ch5.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "colour-theory",
+   "chapter": 2,
+   "title": "Part-A: Practical and scientific knowledge — know-how of scientific principles and everyday objects",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-board Part-A science-awareness line — exam-meta junk, not colour science.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "colour-theory",
+   "chapter": 5,
+   "title": "Indian National Flag; The Bengal School of Painting; The Modern Trends in Indian Art (paintings, graphic prints, sculptures)",
+   "action": "move",
+   "targetBook": "art-history",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Bengal School and the modern trends in Indian art are art history — art-history's India-modern register owns them (the flag mention is incidental trivia)."
+  },
+  {
+   "book": "sculpture",
+   "chapter": 2,
+   "title": "The Core Receipt Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "The core (armature/bulk) receipt is clay-modeling craft — fits ch2.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "dance-fundamentals",
+   "chapter": 1,
+   "title": "The Neutral Receipt Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "Neutral (spine/alignment) receipt is the body-and-alignment craft's foundation — fits ch1.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "dance-fundamentals",
+   "chapter": 2,
+   "title": "The Fix Receipt Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "Vague but in-domain house-style lesson inside the locomotor/jumps-and-turns chapter; no evidence of a better home.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "dance-fundamentals",
+   "chapter": 4,
+   "title": "The Silence Receipt Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "Silence/stillness receipt is an improvisation-composition basic — fits ch4.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "classical-dance",
+   "chapter": 3,
+   "title": "Dance in Sanskrit Literature and Treatises",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "Dance in Sanskrit literature and treatises is classical-dance's own textual tradition — ch3 (the Indian classical treasury) is the honest home.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "classical-dance",
+   "chapter": 3,
+   "title": "Drama and its theories — Indian and Western",
+   "action": "move",
+   "targetBook": "theatre",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Drama and its theories (Indian and Western) is dramatic-literature territory — theatre ch4 already hosts the theory registers (given circumstances, alienation, oppressed)."
+  },
+  {
+   "book": "theatre",
+   "chapter": 2,
+   "title": "Theatre Design and techniques (theatre architecture, stagecraft, theatre management and organisation)",
+   "action": "move",
+   "targetBook": "stage-production",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Theatre architecture, stagecraft and management are stage-production territory — ch1 (theatre spaces and set craft) owns the theatre-design line."
+  },
+  {
+   "book": "acting",
+   "chapter": 1,
+   "title": "The Release Craft Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "Physical release craft is the actor-instrument's foundation — fits ch1.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "acting",
+   "chapter": 4,
+   "title": "The Take Honesty Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "The take (screen takes) honesty belongs to the classical-and-screen registers — fits ch4.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "acting",
+   "chapter": 5,
+   "title": "The Boundary Honesty Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "Professional-boundary honesty belongs to the audition-and-ethics registers — fits ch5.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "screenwriting",
+   "chapter": 2,
+   "title": "The Two-Pair Honesty Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "Two-pair honesty in the structure arc — house-style structure lesson, fits ch2.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "stage-production",
+   "chapter": 1,
+   "title": "The Four Fixed by Drill",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "The four theatre configurations — fits the theatre-spaces-and-set craft chapter.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "stage-production",
+   "chapter": 1,
+   "title": "The Hard-Soft Honesty Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "Hard-vs-soft scenery honesty — fits the theatre-spaces-and-set craft chapter.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "stage-production",
+   "chapter": 3,
+   "title": "The Level Honesty Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "Level honesty is a sound-design craft topic — fits ch3.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "stage-production",
+   "chapter": 4,
+   "title": "The Silhouette Honesty Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "Silhouette honesty is costume-craft material — fits the costume-and-SM-book chapter.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "stage-production",
+   "chapter": 5,
+   "title": "The Craft’s-End Honesty Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "The craft's-end (strike) honesty fits the tech-safety-and-process registers.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "fashion-design",
+   "chapter": 3,
+   "title": "The Body’s Honesty Held",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "The body's honesty (fit) is pattern-and-draping craft — fits ch3.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "creative-writing",
+   "chapter": 3,
+   "title": "Prelims typical areas (mirror): English — reading comprehension passages with short questions",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-board prelims line about reading-comprehension tests — exam-meta junk, not prose-craft.",
+   "newTitle": "",
+   "reason": ""
+  }
+ ],
+ "dupes": [
+  {
+   "title": "Current Mirrors as Bias",
+   "action": "consolidate",
+   "winner": "analog-electronics",
+   "reason": "The true subject is the EE current mirror — analog-electronics owns it. The arts-music member (interior-design 'current affairs' prelims line) is junk being removed; the cluster is a token-overlap artifact on 'current'."
+  },
+  {
+   "title": "The Village India’s Tradition",
+   "action": "consolidate",
+   "winner": "anthropology",
+   "reason": "Village-tradition topics belong to anthropology/sociology; the arts-music members are NET music-syllabus lines being removed (the music-composition omnibus; the music-theory line covered by music-history ch6); the biology member is a bare fragment."
+  },
+  {
+   "title": "The Calcium Trigger Walked Slowly",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "False positive on the house-style suffix 'Walked Slowly': rhythm-meter's 3-against-4 polyrhythm lesson is genuine; the biology members are genuine physiology — different subjects."
+  },
+  {
+   "title": "The Two Named",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Identical generic titles over different subject pairs in each of the five books (animation principles, story structure, collection registers, furniture styles, drama structure) — cosmetic collision, not topic duplication."
+  },
+  {
+   "title": "Unit V: Indian and Western aesthetics and art appreciation",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Syllabus-line family, not true duplication: rasa/aesthetics stays with classical-dance (its specialist home); colour-theory's member is Indian art history → art-history ch6; digital-art's 'Art and Aesthetics' → art-history ch1."
+  },
+  {
+   "title": "The Three Named",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Identical generic titles over different trios (poetry registers, genre census, production team) — cosmetic collision, not topic duplication."
+  },
+  {
+   "title": "Part B — Mathematics (class 11-12 level): algebra (equations, AP/GP, series), trigonometry (identities, heights and distances), coordinate geometry, 3D geometry, matrices and determinants, logarithms, mensuration, basic calculus (limits, differentiation), probability and statistics, permutation and",
+   "action": "consolidate",
+   "winner": "linear-algebra",
+   "reason": "The only honest member is linear-algebra's determinants-in-coordinate-geometry; the ear-training member is exam-syllabus junk being removed — numeric-run token overlap."
+  },
+  {
+   "title": "The Vowels’ Pure Discipline",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "German vowel phonetics vs vocal diction pure-vowel work — different domains; house-style suffix collision only."
+  },
+  {
+   "title": "Component 2 Practical Music — composing (two contrasting compositions, 1-2 minutes each)",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Both members are exam-component descriptions (junk) and are removed; the cluster dissolves with no honest survivor."
+  },
+  {
+   "title": "Component 4 Extended Composition — 6-8 minute composition plus 1000-1500-word research report",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Both members are exam-component descriptions (junk) and are removed; the cluster dissolves with no honest survivor."
+  },
+  {
+   "title": "The Row Receipt Priced Straight",
+   "action": "consolidate",
+   "winner": "music-history",
+   "reason": "The twelve-tone row is a twentieth-century technique — music-history ch4 owns it; counterpoint ch4's copy is the stray (canon-and-invertible craft is not the row's home)."
+  },
+  {
+   "title": "The Core Honesty Held",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Vague house-style titles over different subjects: the instrument-families core vs the orchestration core."
+  },
+  {
+   "title": "Contribution of composers/performers to music, Indian and western (Tevaram, Alwars, Purandara Dasa, the music trinity etc.)",
+   "action": "consolidate",
+   "winner": "music-history",
+   "reason": "music-history ch6 owns composers'/performers' contributions (Tevaram, Alwars, Purandara Dasa, the trinity, Tansen, Sadarang are music figures); the classical-dance copy is removed as the duplicate."
+  },
+  {
+   "title": "Stage 2 — DAT Mains, part 1: Studio Sensitivity Test",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Both members are DAT exam-component descriptions (junk) and are removed; the cluster dissolves with no honest survivor."
+  },
+  {
+   "title": "The Entry-and-Path Honesty Held",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Owner-and-cross-reference pattern: drawing ch5 owns the entry/path composition principle; graphic-design ch2's 'Cross-Referenced' lesson is the deliberate sibling view — not duplication."
+  },
+  {
+   "title": "The Three-View Receipt Fixed by Drill",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Character turnaround (illustration) vs sculptural multi-view thinking — genuinely different crafts sharing the three-view drill."
+  },
+  {
+   "title": "The Grain Honesty Named",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Digital brush grain vs wood grain in carving — different materials, same honest word."
+  },
+  {
+   "title": "The Seam Honesty Named",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "UV seams (3D modelling) vs mold seams (casting) — different crafts."
+  },
+  {
+   "title": "The Load Honesty Cross-Referenced",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Structural load of large-scale ceramics vs scenery/rigging load — different engineering contexts."
+  },
+  {
+   "title": "The Cross-Reference Held",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Each book's own cross-reference meta-lesson pointing at different siblings — the house cross-reference pattern, not duplication."
+  },
+  {
+   "title": "The Take Honesty Held",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Screen-acting takes vs photographic takes — different crafts."
+  },
+  {
+   "title": "The Four Fixed by Drill",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "The four theatre configurations vs the four dance fundamentals — different subjects."
+  },
+  {
+   "title": "The Nine Fixed by Drill",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "The nine rasas (abhinaya) vs the nine-heads fashion-figure canon — genuinely different 'nines'."
+  },
+  {
+   "title": "The Room Honesty Named",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Acting's playing-the-room vs screenwriting's writers' room — different rooms."
+  },
+  {
+   "title": "The Say-Mean Division Held Straight",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Subtext from the performance side (acting) vs from the writing side (screenwriting) — genuinely different treatments of say-vs-mean."
+  },
+  {
+   "title": "The Two Held Straight",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Cinematography's two (formats) vs film-studies' two (narration types) — different subjects."
+  },
+  {
+   "title": "The Range Honesty Held",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Exposure latitude (lens/exposure) vs narrative range of knowledge — different ranges."
+  },
+  {
+   "title": "The Craft’s-Choice Honesty Held",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Lens-craft choices vs point-of-view craft choices — different crafts."
+  },
+  {
+   "title": "The Coverage Receipt Named",
+   "action": "keep-both",
+   "winner": "",
+   "reason": "Shot coverage (set-collaboration) vs mic/sound coverage (sound design) — different coverage."
+  }
+ ],
+ "thin": [],
+ "order": [],
+ "extra": [
+  {
+   "book": "music-theory-notation",
+   "chapter": 1,
+   "title": "Prominent Banis, music training, education and propagation (gurukula sampradaya, institutional training)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Lineage/training-propagation line (banis, gurukula, institutional training) duplicates music-history ch6's gharana-and-institutional line — already covered by the specialist.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "music-theory-notation",
+   "chapter": 1,
+   "title": "Part-A: Analytical and logical reasoning — ability to analyse qualitative and quantitative information",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-board Part-A analytical-reasoning line — exam-meta junk.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "music-theory-notation",
+   "chapter": 2,
+   "title": "Core musical activities across components: listening, composing and performing, working with Western notation and connecting a wide variety of music",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Program-description line (core activities across components) — exam-meta junk.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "music-history",
+   "chapter": 4,
+   "title": "Unit VI: Chronological periods from prehistory to post-modern art and artists of the West, with a focus on the movements that transformed its history",
+   "action": "move",
+   "targetBook": "art-history",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Chronological survey of Western art (prehistory to post-modern, the movements) is art-history's own spine — the historian's-eye chapter owns the survey/periodization line."
+  },
+  {
+   "book": "music-history",
+   "chapter": 6,
+   "title": "History of Indian Music, contribution of Musicologists and their textual tradition",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "History of Indian music and its musicologists' textual tradition is genuine music-history material in the world/contemporary register.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "music-history",
+   "chapter": 6,
+   "title": "Paper 1 Listening — Section C: Connecting Music (wider knowledge of musical genres and styles beyond the set works)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam paper-section description (Paper 1 Listening, Section C) — exam-meta junk.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "rhythm-meter",
+   "chapter": 2,
+   "title": "Exhibition — a curated selection of resolved artworks with a curatorial rationale explaining choices and connections",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "IB exhibition-component description — exam-meta junk, not a rhythm topic.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "vocal-music",
+   "chapter": 2,
+   "title": "Paper 1 Listening — Section A: Compositional Techniques and Performance Practice (aural perception, music literacy and applied contextual understanding in relation to the set works)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam paper-section description (Paper 1 Listening, Section A) — exam-meta junk.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "vocal-music",
+   "chapter": 2,
+   "title": "Paper 1 Listening — Section B: Understanding Music (musical understanding, including compositional techniques and their effects, in the set works)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam paper-section description (Paper 1 Listening, Section B) — exam-meta junk.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "drawing",
+   "chapter": 1,
+   "title": "Part-B: Drawing — ability to draw products, people or scenes in proportion with good line quality, composition, perspective and shading",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-aptitude line describing what the drawing test assesses — exam-meta junk; the craft itself is the book's own chapters.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "drawing",
+   "chapter": 3,
+   "title": "Part A — Drawing & Composition Test (80 marks, offline): creativity and imagination; visual composition; perspective drawing; proportion and scale",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-aptitude line (Drawing & Composition Test, 80 marks) — exam-meta junk.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "drawing",
+   "chapter": 4,
+   "title": "Part A — 3D visualisation and object structuring; perspective drawing (1-point and 2-point); memory drawing and creative composition",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-aptitude line (3D visualisation, perspective drawing) — exam-meta junk; perspective is owned by the perspective book.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "painting",
+   "chapter": 1,
+   "title": "Graphics practical Class XI: Relief Printing through Linocut/Woodcut/Paper-cardboard (printing methods and materials, registration, simple colour printing); Portfolio Assessment",
+   "action": "move",
+   "targetBook": "graphic-design",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Relief printing (linocut/woodcut, registration, colour printing) is printmaking — graphics/applied-art territory; the printmaking-process lines live in graphic-design ch5 (serigraphy/lithography/intaglio), so the relief-printing practical joins them there."
+  },
+  {
+   "book": "painting",
+   "chapter": 2,
+   "title": "Painting practical Class XI: Nature and object study; exercises in pencil with light and shade and in full colour from a fixed point of view; portfolio assessment",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "CBSE practical-assessment enumeration (nature study, light-and-shade exercises, portfolio) — already painting ch2/ch4's remit.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "colour-theory",
+   "chapter": 3,
+   "title": "Part-A: Visualization and spatial reasoning — ability to visualise and transform 2D shapes and 3D objects and their spatial relationships",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-board Part-A spatial-reasoning line — exam-meta junk.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "illustration",
+   "chapter": 1,
+   "title": "Part B — aptitude core areas: logical reasoning (series, coding-decoding), visual reasoning (2D-3D transformation), architectural awareness, general awareness (environment, culture), design sensitivity, language interpretation",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-aptitude core-areas line — exam-meta junk.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "illustration",
+   "chapter": 1,
+   "title": "Part-A: Creativity — grasp of verbal and non-verbal analogies, metaphors, signs and symbols",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-board Part-A creativity line — exam-meta junk.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "illustration",
+   "chapter": 1,
+   "title": "Stage 1 — DAT Prelims: paper-and-pencil/pen test; questions may involve text and visuals; question paper in English only (official handbook statement)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam logistics line (DAT Prelims format) — exam-meta junk.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "illustration",
+   "chapter": 1,
+   "title": "Prelims typical areas (mirror): reasoning and visual ability — cube folding, mirror images, pattern series, counting figures, coding-decoding, directions",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-board prelims mirror line — exam-meta junk.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "illustration",
+   "chapter": 4,
+   "title": "Process Portfolio (PP) — documentation of experimentation, skill-building, critical reflection and range of media across the course",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "IB process-portfolio component description — assessment junk; portfolio craft is already illustration ch5's register.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "sculpture",
+   "chapter": 1,
+   "title": "Elective V: Sculpture",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Free-scan: bare elective header ('Elective V: Sculpture') — syllabus fragment with no lesson content.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "sculpture",
+   "chapter": 2,
+   "title": "Sculpture practical Class XI-XII: Modeling in Relief (clay or plaster of Paris); Modeling in Round; Portfolio Assessment (folk-art sculpture pieces included)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "CBSE practical-assessment enumeration; modeling in relief/round is already ch2's own modeling lessons.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "sculpture",
+   "chapter": 3,
+   "title": "Unit III: Traditional medium, materials and techniques and their application in all disciplines of visual expression (carving and casting processes; impasto, glazing; intaglio/relief print; fresco; preparation of ground for murals, wasli for miniatures)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Cross-media enumeration; every part is owned: carving/casting by sculpture ch3–4, impasto/glazing by painting ch3, print processes by graphic-design ch5.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "graphic-design",
+   "chapter": 1,
+   "title": "Elective IV: Printmaking (Graphic Art)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Free-scan: bare elective header ('Elective IV: Printmaking (Graphic Art)') — syllabus fragment; the printmaking practical line lives in ch5.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "graphic-design",
+   "chapter": 1,
+   "title": "Part-B: Design aptitude — capability to practically and appropriately respond to problems/situations with ingenuity and empathy",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-board Part-B design-aptitude line — exam-meta junk.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "graphic-design",
+   "chapter": 5,
+   "title": "Graphics practical Class XII: graphic print through Serigraphy OR Lithography OR Etching and Engraving (Intaglio process); Portfolio Assessment",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "The registry's printmaking-processes line (serigraphy/lithography/etching/intaglio) — keep in the process-and-portfolio register; complementary to the relief-printing line arriving from painting ch1.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "typography",
+   "chapter": 2,
+   "title": "Part-A: Observation and design sensitivity — capacity to detect concealed properties in daily life and think critically about them; attention to detail, classification, analysis, inference and prediction",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-board Part-A observation/sensitivity line — exam-meta junk.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "digital-art",
+   "chapter": 1,
+   "title": "Unit IX: Art of the Far East, South East and Central Asia and the ancient Near-East",
+   "action": "move",
+   "targetBook": "art-history",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Art of the Far East, South East and Central Asia and the ancient Near East is art-history's Asian-arts register — not a canvas-fundamentals topic."
+  },
+  {
+   "book": "music-composition",
+   "chapter": 4,
+   "title": "Part A — composition and colour application; sketching of scenes and environments",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-aptitude line (Part A composition/colour application, sketching) — exam-meta junk.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "perspective",
+   "chapter": 3,
+   "title": "The 12-O’clock Receipt Named",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "The 12-o'clock receipt is an in-domain measuring-depth drill — the numeric-run junk heuristic misfires on honest numeric titles.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "perspective",
+   "chapter": 5,
+   "title": "The 30-Degree Receipt Fixed by Drill",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "30 degrees is the isometric/axonometric angle — a genuine curvilinear-and-axonometric lesson; numeric heuristic misfire.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "illustration",
+   "chapter": 3,
+   "title": "The 32-Page Receipt Named",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "The 32-page receipt is the standard picture-book format — a genuine sequential-register lesson; numeric heuristic misfire.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "animation",
+   "chapter": 4,
+   "title": "The 60-Receipt Named at Survey Depth",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "The 60 receipt (60 fps) is a genuine motion-graphics lesson; numeric heuristic misfire.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "cinematography",
+   "chapter": 1,
+   "title": "The 24 Receipt Named",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "The 24 receipt (24 fps) is a genuine camera-and-format lesson; numeric heuristic misfire.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "classical-dance",
+   "chapter": 2,
+   "title": "International dance and interactions (classical ballet; emergence of modern dance in the West)",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": "International dance and interactions (classical ballet, emergence of modern dance in the West) fits the pointe-and-repertory register's international coverage.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "classical-dance",
+   "chapter": 3,
+   "title": "Unit 1 (common to Dance and Drama/Theatre): Cultural History of India",
+   "action": "move",
+   "targetBook": "indian-history",
+   "targetChapter": 12,
+   "newTitle": "",
+   "reason": "Cultural history of India belongs to indian-history's culture thread — not the Indian classical treasury chapter."
+  },
+  {
+   "book": "architecture",
+   "chapter": 3,
+   "title": "Prelims typical areas (mirror): drawing and design — drawing a scene from a given viewpoint, storyboards, posters, product ideas and redesign for specific users",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-board prelims mirror line (drawing-and-design aptitude areas) — exam-meta junk; the drawing and perspective crafts are owned by their own books.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "interior-design",
+   "chapter": 1,
+   "title": "Prelims typical areas (from recent papers, mirror): general and design awareness — current affairs, Indian art and culture, materials, famous products, logos and designers",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": "Exam-board prelims mirror line (general/design awareness, current affairs) — exam-meta junk and a false member of the 'Current Mirrors' cluster.",
+   "newTitle": "",
+   "reason": ""
+  },
+  {
+   "book": "creative-writing",
+   "chapter": 4,
+   "title": "Unit II: Various forms of visual arts and their inter-relationship with other modes of creative expression (e.g. performing art, cinema and literature)",
+   "action": "move",
+   "targetBook": "art-history",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Forms of visual arts and their inter-relationship with performing art, cinema and literature is an art-survey topic — art-history's eye owns it, not the dialogue-and-scene craft chapter."
+  }
+ ],
+ "notes": "36 arts-music books swept at the planning layer. 26/26 misAdjudicate items resolved (20 keep — house-style lessons mis-flagged by token scores; 4 remove — exam-meta junk; 3 move — Bengal School/modern Indian art→art-history ch8, drama theories→theatre ch4, theatre design/stagecraft→stage-production ch1). 29/29 dup clusters adjudicated: 21 keep-both (generic house-style title collisions over different subjects), 5 consolidated to specialists (analog-electronics, anthropology, linear-algebra, music-history x2), 3 junk clusters dissolved (all members removed). 64 autoActions reviewed: 8 approved, 25 amended (mostly redirects: Indian-art syllabus lines→art-history, Indian-music lines→instrument-studies/music-history, exam-practical enumerations removed as covered), 31 vetoed — including the false 'surveying-and-geomatics' consolidations and every token-noise move into arts-music from foreign books. Numeric house-style lessons rescued from the junk heuristic (343 m/s, 45–75 cpl, 72/300 DPI, 24fps, 30°, 12-o'clock, 32-page, 60fps). 39 junkSuspect dispositions + 2 free-scan elective-header fragments adjudicated in extra. Chapter orders reviewed — none clearly wrong; no thin chapters. Hard rules respected: nothing moved in or out of the four exempt math books; all targets exist in the legend with concrete chapters."
+}

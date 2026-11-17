@@ -64,7 +64,7 @@ const chapters: Chapter[] = [
       'Module Arithmetic and Mismatch',
       'MPPT and the Matching Engine',
       'Systems Sized Honestly',
-      'Diodes 174 5.1.4 Applying a Small vDS'
+      'Photovoltaic cell',
     ],
   },
   {

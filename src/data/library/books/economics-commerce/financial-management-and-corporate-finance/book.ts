@@ -28,7 +28,6 @@ const chapters: Chapter[] = [
       'The Goal Honesty',
       'The Agency Ledger',
       'The CFO Persona',
-      'PART V Firm Behavior and 14-2f Measuring Profit in Our Graph for the Competitive'
     ],
   },
   {
@@ -165,9 +164,8 @@ const chapters: Chapter[] = [
       'The Option Registers',
       'The Swap Idea',
       'Hedge versus Speculation',
-    
-      'Reconstitution of a Partnership Firm',
-      'Reconstitution and Dissolution of Partnership Firms'
+      'Reconstitution Of A Partnership Firm',
+      'Reconstitution And Dissolution Of Partnership Firms',
     ],
   },
   {

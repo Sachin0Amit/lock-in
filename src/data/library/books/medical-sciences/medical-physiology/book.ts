@@ -58,9 +58,9 @@ const chapters: Chapter[] = [
       'The Cascade with the PT-and-aPTT Craft',
       'The Transfusion Arithmetic Priced Straight',
       'The Anaemia Preview Named',
-    
-      'Dermatology and Sexually Transmitted Diseases',
-      'Physiological Integrity'
+      'Dermatology And Sexually Transmitted Diseases',
+      'Physiological Integrity',
+      'Semester Iii: Pathology',
     ],
   },
   {
@@ -91,8 +91,6 @@ const chapters: Chapter[] = [
       'The Spirogram Fixed by Drill',
       'The Curve\u2019s Shifts by Their Mechanisms',
       'The CO2 Honesty Held Straight',
-    
-      'Semester II: Physiology'
     ],
   },
   {
@@ -108,6 +106,7 @@ const chapters: Chapter[] = [
       'The Countercurrent Concentration Engine',
       'The Four Disorders Fixed by Drill',
       'The Anion-Gap Craft Named',
+      'The Human Excretory System: Urine Formation and Its Regulation',
     ],
   },
   {
@@ -123,6 +122,7 @@ const chapters: Chapter[] = [
       'The Liver\u2019s Processing Named',
       'The Glucose Dial with the Preview',
       'The Calcium Register Held',
+      'Hormone Action and Its Disorders: Hypo- to Hyper-Activity',
     ],
   },
   {
@@ -138,6 +138,7 @@ const chapters: Chapter[] = [
       'The Autonomic Table Held for the Doorway',
       'The Place Arithmetic Named',
       'The Extremes as the Crown',
+      'Semester Iv: Pharmacology',
     ],
   },
 ]

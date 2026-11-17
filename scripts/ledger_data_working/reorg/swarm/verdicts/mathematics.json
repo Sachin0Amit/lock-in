@@ -1,0 +1,1247 @@
+{
+  "agent": "mathematics",
+  "autoReview": [
+    {
+      "book": "differential-calculus",
+      "chapter": 1,
+      "title": "Trigonometric, Exponential and Logarithmic Limits",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Advanced-algebra authors nothing on limits (written lessons end at ch3, Complex Numbers; ch9/ch10 are planned only) — the \"authored-owns\" rationale is false. Trigonometric/exponential/logarithmic standard limits are canonical differential-calculus ch1 content; removing them would leave the limit chapter without its standard-limit families."
+    },
+    {
+      "book": "geometry",
+      "chapter": 4,
+      "title": "The Similarity Criteria: AA, SAS, SSS",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Similarity criteria (AA/SAS/SSS) are a distinct topic from ch3’s congruence criteria (SAS/ASA/AAS/SSS/RHS): same-shape vs same-size. The detector fused them on tokens; removing ch4’s lesson would gut the Similarity chapter."
+    },
+    {
+      "book": "coordinate-geometry",
+      "chapter": 6,
+      "title": "Parametric Form, Chords and Position",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "The ellipse chapter’s parametric treatment is conic-specific (parametric form, chords, position for the ellipse); the kept ch5 copy covers the parabola. Each conic chapter legitimately carries its own parametric lesson."
+    },
+    {
+      "book": "abstract-algebra",
+      "chapter": 6,
+      "title": "Quotient Rings and Root Fields",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Quotient rings as ROOT FIELDS — F[x]/<p(x)> adjoining a root — is the distinct construction ch7’s Galois door depends on; ch5’s lesson teaches the general quotient-ring construction. Different subjects fused on tokens."
+    },
+    {
+      "book": "geometry",
+      "chapter": 10,
+      "title": "Cross-Sections and Solids of Revolution",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Cross-sections and solids of revolution is mensuration — geometry ch10’s own subject (surface areas and volumes). \"environmental-studies ch2 The Natural Resources\" is a pure token misroute."
+    },
+    {
+      "book": "discrete-mathematics",
+      "chapter": 1,
+      "title": "Continuous versus Discrete",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "The continuous-versus-discrete viewpoint is the discrete-mathematics book’s opener. signals-and-systems ch1 teaches continuous-time vs discrete-time SIGNALS — a different concept sharing tokens."
+    },
+    {
+      "book": "discrete-mathematics",
+      "chapter": 1,
+      "title": "Sets (Complements, Cartesian Products, Power Sets), Functions (Injections, Surjections, Inverses, Composition) and Sequences at Work",
+      "verdict": "amend",
+      "action": "retitle",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "Sets, Functions and Sequences at Work",
+      "reason": "Sets, functions and sequences are core discrete content (the \"at Work\" survey for the CS syllabus — Rosen devotes his longest early chapter to exactly this); the title is bloated, not junk, and the \"already covered in foundation-physics\" rationale is groundless. Retitle and keep; removal would gut ch1 (see thin verdicts)."
+    },
+    {
+      "book": "discrete-mathematics",
+      "chapter": 2,
+      "title": "The Growth of Functions: Big-O and Its Kin",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Growth of functions (Big-O and kin) belongs in ch2 \"Algorithms and Their Growth\" — the Rosen placement. combinatorics ch4’s asymptotics lesson is the growth of counting sequences — a different subject."
+    },
+    {
+      "book": "set-theory",
+      "chapter": 3,
+      "title": "Functions, Defined Exactly",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "The set-theoretic definition of a function (set of ordered pairs with the exactness property) is set-theory ch3’s own formal content; theory-of-computation ch2 (Finite Automata) merely uses functions."
+    },
+    {
+      "book": "mathematical-logic",
+      "chapter": 5,
+      "title": "Structures, Satisfaction and Models",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Structures, satisfaction and models is model theory — mathematical-logic ch5’s core. foundation-chemistry ch3 (Atomic Structure) is an absurd token route."
+    },
+    {
+      "book": "complex-analysis",
+      "chapter": 6,
+      "title": "Harmonic Functions and the Dirichlet Problem",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "The conformal-mapping treatment of harmonic functions and the Dirichlet problem is complex-analysis ch6’s own (it sits in the Conformal Mapping arc). mathematical-physics ch5 is the special-function atlas — a different, shallower treatment; the specialist home is complex analysis."
+    },
+    {
+      "book": "abstract-algebra",
+      "chapter": 1,
+      "title": "Monoids and Semigroups: the Lighter Structures",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Monoids and semigroups are abstract-algebra ch1’s own lighter structures; foundation-chemistry ch3 is an absurd token route."
+    },
+    {
+      "book": "mathematical-methods-for-engineering",
+      "chapter": 1,
+      "title": "Hyperbolic Functions: cosh, sinh and the Catenary",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Hyperbolic functions (cosh, sinh, the catenary) are standard engineering-methods content. heat-and-thermodynamics ch7 (Second Law and Heat Engines) is an absurd token route."
+    },
+    {
+      "book": "mathematical-methods-for-engineering",
+      "chapter": 2,
+      "title": "Gamma, Beta and the Error Functions",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Gamma, Beta and the error functions are the engineering special-function shelf’s own content; heat-and-thermodynamics ch5 (Specific Heats of Gases) matched only on the \"gamma\" token (heat-capacity ratio)."
+    },
+    {
+      "book": "mathematical-methods-for-engineering",
+      "chapter": 7,
+      "title": "Calculus of Variations: the Euler-Lagrange Engine",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Genuine syllabus split: engineering methods (mathematical-methods-for-engineering) vs physics methods (mathematical-physics ch1, The Calculus of Variations) vs Lagrangian mechanics (mechanics ch11) — mirrors the physics-vs-engineering thermodynamics pattern. Cluster verdict: keep-both."
+    },
+    {
+      "book": "advanced-mathematical-foundations",
+      "chapter": 6,
+      "title": "Typesetting Mathematics: TeX and the Written Look",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Typesetting mathematics with TeX is ch6 \"Reading and Writing Research Mathematics\"’s own content; waves-and-oscillations ch2 (SHM Mathematics) is an absurd token route."
+    },
+    {
+      "book": "advanced-mathematical-foundations",
+      "chapter": 7,
+      "title": "The Other Shelves’ Mathematics",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "\"The Other Shelves’ Mathematics\" is the closing meta-chapter’s own lesson (how mathematics lives on other shelves); statistics ch1 (Data and Its Shapes) is an absurd token route."
+    },
+    {
+      "book": "engineering-mechanics",
+      "chapter": 3,
+      "title": "Cambridge University Press has no responsibility for the persistence or accuracy of URLs for external or third-party Internet websites referred to in this publication and does not guarantee that any content on such websites is, or will remain, accurate or appropriate",
+      "verdict": "veto",
+      "action": "remove",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "A publisher-disclaimer OCR blob (\"Cambridge University Press has no responsibility for URLs...\"). Junk must be removed at its source (engineering-mechanics ch3), never imported into probability-theory ch3 (Total Probability and Bayes)."
+    },
+    {
+      "book": "mechanics",
+      "chapter": 7,
+      "title": "Dynamics of Combination of Translation and Rotation",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Dynamics of combined translation and rotation is rigid-body dynamics — mechanics ch7 (Rotational Dynamics)’s own subject. \"translation and rotation\" tokens falsely matched geometry ch5’s rigid MOTIONS; geometry’s transformations are a wholly different subject."
+    },
+    {
+      "book": "mechanics",
+      "chapter": 9,
+      "title": "Compound Machines",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Compound machines is machines/mechanics territory (mechanics ch9 or the engineering machines shelf); there is no honest trigonometry ch3 home — the route is a token artifact."
+    },
+    {
+      "book": "properties-of-matter",
+      "chapter": 4,
+      "title": "Polynomial, Linear, and Quadratic Equations",
+      "verdict": "amend",
+      "action": "remove",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "A school-algebra omnibus (polynomial, linear and quadratic equations). Its honest owner is authored elementary-algebra, which is exempt from inbound moves; linear-algebra ch3 (systems of linear equations) is the wrong rung for single-variable school equations. Remove rather than misfile."
+    },
+    {
+      "book": "waves-and-oscillations",
+      "chapter": 6,
+      "title": "Elementary Algebra",
+      "verdict": "amend",
+      "action": "remove",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "\"Elementary Algebra\" is not abstract algebra — abstract-algebra ch1 (The Abstract Viewpoint) is the wrong rung by definition. Authored elementary-algebra owns the content and is exempt from inbound moves; remove rather than misfile."
+    },
+    {
+      "book": "electromagnetic-theory",
+      "chapter": 1,
+      "title": "Finding Rectangular (x and y) Components of a Vector",
+      "verdict": "amend",
+      "action": "move",
+      "targetBook": "coordinate-geometry",
+      "targetChapter": 10,
+      "newTitle": "",
+      "reason": "Rectangular (x,y) components of a vector are vector-algebra basics: the honest math home is coordinate-geometry ch10 \"Vector Algebra: Arrows with Rules\" (its first lesson covers position, components, types). multivariable-calculus ch5 (Vector Calculus: fields, line/surface integrals) is too advanced a home."
+    },
+    {
+      "book": "quantum-mechanics",
+      "chapter": 8,
+      "title": "The Transition from a Discrete to a Continuous System",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "In its quantum-mechanics ch8 (Time-Dependent Transitions) context this is the discrete-to-continuous spectrum transition — quantum-mechanics is its home. discrete-mathematics ch1 uses \"discrete\" in a wholly different sense; the two \"Continuous versus Discrete\" lessons are not duplicates (see dupes)."
+    },
+    {
+      "book": "business-mathematics",
+      "chapter": 7,
+      "title": "The Theory Cross-Reference",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "\"The Theory Cross-Reference\" is business-mathematics’ own synthesis/cross-reference apparatus (ch7, Probability and Expected Value); no honest inverse-trigonometry home exists — token route."
+    },
+    {
+      "book": "physical-chemistry",
+      "chapter": 6,
+      "title": "Analysis of Zero Group (NH4+)",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Zero-group (NH4+) qualitative analysis is salt-analysis chemistry, physical-chemistry’s own; advanced-mathematical-foundations ch5 (The Great Open Problems) is an absurd token route."
+    },
+    {
+      "book": "inorganic-chemistry",
+      "chapter": 1,
+      "title": "The Classification of Elements and the Periodic Law",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "The classification of elements and the periodic law is inorganic-chemistry ch1’s own subject; abstract-algebra ch3 (Cosets and Lagrange) matched on \"periodic/group\" tokens — absurd."
+    },
+    {
+      "book": "inorganic-chemistry",
+      "chapter": 7,
+      "title": "Complexation reactions, definition of coordination number, complex formation constants",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Complexation reactions and coordination numbers are coordination chemistry (inorganic-chemistry ch7); differential-equations ch1 is an absurd token route."
+    },
+    {
+      "book": "geometry",
+      "chapter": 7,
+      "title": "Power of a Point",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Power of a point is a circle theorem (intersecting chords/tangents: PA·PB = PC·PD) — ch7 The Circle’s own content; ch1 is the axiomatics chapter."
+    },
+    {
+      "book": "geometry",
+      "chapter": 8,
+      "title": "Inscribed, Circumscribed and the Regular Polygons",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "This is the ruler-and-compass CONSTRUCTION of incircles/circumcircles and regular polygons — the construction discipline of ch8. ch6 covers quadrilateral/polygon properties and has no construction agenda."
+    },
+    {
+      "book": "coordinate-geometry",
+      "chapter": 4,
+      "title": "The Equation of a Circle in All Its Forms",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "The equation of a circle in all its forms is ch4 The Circle’s own opening lesson; ch6 is The Ellipse — a pure token misroute."
+    },
+    {
+      "book": "integral-calculus",
+      "chapter": 3,
+      "title": "The Logarithm Defined as an Integral",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Defining ln x = integral of dt/t requires the definite integral; ch3 sits immediately after the Fundamental Theorems of Calculus — exactly right. Moving to ch1 (indefinite-integral craft) would place it before the machinery it needs."
+    },
+    {
+      "book": "multivariable-calculus",
+      "chapter": 4,
+      "title": "Jacobians and the Change of Variables",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Jacobians and change of variables serve multiple-integral substitution — ch4 (Multiple Integrals) is their home and where they are used; ch2 is partial derivatives."
+    },
+    {
+      "book": "differential-equations",
+      "chapter": 4,
+      "title": "The Cauchy-Euler Equation",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "The Cauchy-Euler equation is a second-order linear ODE solved by the power ansatz — it needs ch4’s characteristic-equation machinery; ch1 (language of ODEs) would place it before the fundamentals it depends on."
+    },
+    {
+      "book": "number-theory",
+      "chapter": 7,
+      "title": "Pell’s Equation",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Pell’s equation is solved by continued fractions — it is ch7 (Continued Fractions)’s own closing arc; ch1 (ground arithmetic) would place it before the machinery it depends on."
+    },
+    {
+      "book": "real-analysis",
+      "chapter": 5,
+      "title": "The ε-δ Limit, Earned",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "The ε-δ limit is the definition at the heart of ch5 \"Limits and Continuity at Depth\"; ch6 (Differentiation) merely consumes it."
+    },
+    {
+      "book": "real-analysis",
+      "chapter": 6,
+      "title": "The Inverse and Implicit Function Theorems",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "The inverse and implicit function theorems are theorems about derivatives — the differentiation chapter is their standard home (they close its arc); ch5 is limits/continuity."
+    },
+    {
+      "book": "topology",
+      "chapter": 1,
+      "title": "Continuity in Metric Spaces",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Continuity in metric spaces is ch1 (Metric Spaces)’s own content; ch5 is compactness."
+    },
+    {
+      "book": "mathematical-methods-for-engineering",
+      "chapter": 7,
+      "title": "Discretizing the Heat Equation",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "Discretizing the heat equation is numerical PDE craft — exactly ch7 (The Numerical Craft); ch2 is the ODE shelf and cannot host a PDE-numerics lesson."
+    },
+    {
+      "book": "advanced-mathematical-foundations",
+      "chapter": 1,
+      "title": "Where Every Reader Stands",
+      "verdict": "veto",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": null,
+      "newTitle": "",
+      "reason": "\"Where Every Reader Stands\" is the ladder-overview chapter’s reader-placement lesson; ch5 (The Great Open Problems) is a pure token misroute."
+    }
+  ],
+  "misplaced": [
+    {
+      "book": "geometry",
+      "chapter": 2,
+      "title": "Angles: Types, Pairs and Measures",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Types and pairs of angles with the parallel-line/transversal apparatus is Euclidean geometry’s own foundation; trigonometry ch1 treats angle-as-rotation and radian measure for a different purpose. Token noise (top3 included mandarin/typography)."
+    },
+    {
+      "book": "geometry",
+      "chapter": 3,
+      "title": "Stewart’s Theorem and the Median Relation",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Stewart’s theorem (the side-median relation) is a pure synthetic triangle theorem — geometry’s own; the statistics hint is pure token noise."
+    },
+    {
+      "book": "geometry",
+      "chapter": 8,
+      "title": "Bisectors, Perpendiculars and Standard Triangles",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Bisectors, perpendiculars and standard triangles ARE the ruler-and-compass constructions — ch8’s own discipline; coordinate-geometry hint is token noise."
+    },
+    {
+      "book": "coordinate-geometry",
+      "chapter": 2,
+      "title": "Rotation of Axes and the Invariants",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Rotation of axes and its invariants is classic analytic geometry (shifting/rotating axes, later used to de-tilt conics) — ch2’s own alongside axis-shifting."
+    },
+    {
+      "book": "coordinate-geometry",
+      "chapter": 8,
+      "title": "Confocal Conics and Families of Conics",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Confocal conics and families of conics is advanced conic theory — exactly ch8 \"The Conic Family Unified\"; the differential-calculus hint is token noise."
+    },
+    {
+      "book": "coordinate-geometry",
+      "chapter": 12,
+      "title": "Families of Planes",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Families of planes is the 3D analogue of ch2’s family of lines — native to ch12 (Lines and Planes in Space); the elementary-algebra hint is token noise (and that book is exempt)."
+    },
+    {
+      "book": "trigonometry",
+      "chapter": 3,
+      "title": "Summation of Trigonometric Series",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Summing trigonometric series via the 2sin(d/2) device is a standard transformation-formulas technique; the real-analysis hint is token noise."
+    },
+    {
+      "book": "trigonometry",
+      "chapter": 4,
+      "title": "Max–Min, Graphical and Inequality Methods",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Max-min, graphical and inequality (range) methods are standard trigonometric-equation solution techniques; the optimization hint is token noise."
+    },
+    {
+      "book": "trigonometry",
+      "chapter": 6,
+      "title": "Quadrilaterals and Regular Polygons",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "The trigonometric treatment of quadrilaterals (splitting into triangles, area via sine/cosine rules) and regular polygons is the designed capstone of Properties of Triangles; geometry ch6 holds the properties treatment — different treatments, both legitimate (see dupes CL19)."
+    },
+    {
+      "book": "differential-calculus",
+      "chapter": 6,
+      "title": "Maxima and Minima: the Complete Tests",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "The complete maxima/minima tests ARE ch6’s declared subject (monotonicity, concavity, extrema); the business-mathematics hint is token noise."
+    },
+    {
+      "book": "integral-calculus",
+      "chapter": 3,
+      "title": "The Logarithm Defined as an Integral",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "The logarithm defined as an integral is the definite-integral chapter’s payoff lesson (ln x = integral dt/t right after the Fundamental Theorems); advanced-algebra teaches logarithm LAWS, not this construction."
+    },
+    {
+      "book": "integral-calculus",
+      "chapter": 4,
+      "title": "Piecewise Integrands: Modulus, GIF and Signum",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Piecewise integrands (modulus, greatest-integer, signum) are standard definite-integral craft — ch4’s own; the advanced-algebra hint is token noise."
+    },
+    {
+      "book": "integral-calculus",
+      "chapter": 5,
+      "title": "Areas and Lengths in Polar Coordinates",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Polar areas and arc lengths are integral-calculus applications; coordinate-geometry owns the polar coordinate system, not these integrals (see dupes CL20)."
+    },
+    {
+      "book": "multivariable-calculus",
+      "chapter": 2,
+      "title": "Taylor’s Formula for Two Variables",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Taylor’s formula for two variables is core multivariable calculus; the numerical-analysis hint is token noise."
+    },
+    {
+      "book": "differential-equations",
+      "chapter": 1,
+      "title": "Forming Equations from Families of Curves",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Forming ODEs from families of curves (eliminating constants) is the classic opening craft of differential equations."
+    },
+    {
+      "book": "differential-equations",
+      "chapter": 1,
+      "title": "Direction Fields and Euler’s Preview",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Direction fields and the Euler preview are the standard qualitative opener of the DE language chapter; numerical-analysis ch6 holds the full Euler analysis — this is deliberately the preview."
+    },
+    {
+      "book": "differential-equations",
+      "chapter": 3,
+      "title": "Existence and Uniqueness: the Honest Guarantee",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Existence and uniqueness (Picard-Lindelöf) is core first-order ODE theory; the arithmetic hint is absurd token noise."
+    },
+    {
+      "book": "differential-equations",
+      "chapter": 4,
+      "title": "The Cauchy-Euler Equation",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "The Cauchy-Euler (equidimensional) equation is standard second-order-linear content — ch4’s own (also vetoed auto #33 that tried to relocate it to ch1)."
+    },
+    {
+      "book": "discrete-mathematics",
+      "chapter": 5,
+      "title": "Topological Sorting: Order for the Algorithm",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Topological sorting is taught inside partial orders in Rosen-style discrete math (ch5’s own arc: partial orders -> Hasse diagrams -> topological sort); the algorithms book holds the full algorithm treatment — different syllabi, and no duplicate cluster was detected."
+    },
+    {
+      "book": "number-theory",
+      "chapter": 6,
+      "title": "Sums of Two Squares and Pythagorean Triples",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Sums of two squares (Fermat’s theorem) and Pythagorean triples are number theory proper; the elementary-algebra hint is token noise (and exempt)."
+    },
+    {
+      "book": "set-theory",
+      "chapter": 3,
+      "title": "Equivalence Relations and Partitions, Deepened",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "The formal set-theoretic treatment, marked \"Deepened\" by design: discrete-mathematics holds the CS-survey copy — different syllabi (see dupes CL33)."
+    },
+    {
+      "book": "set-theory",
+      "chapter": 5,
+      "title": "Partial Orders, Chains and Bounds",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Partial orders, chains and bounds feed Zorn’s lemma and the ordinal chapter — ch5’s own ground; the multivariable hint is token noise."
+    },
+    {
+      "book": "mathematical-logic",
+      "chapter": 1,
+      "title": "Statements: the Raw Material",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Statements (propositions) are logic’s opening raw material; the molecular-biology hint is token noise."
+    },
+    {
+      "book": "combinatorics",
+      "chapter": 1,
+      "title": "The Bank Recalled: Principles and Formulas",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "The counting-bank recall opens the specialist book’s deepened arc; the complex-analysis hint is token noise."
+    },
+    {
+      "book": "combinatorics",
+      "chapter": 4,
+      "title": "Asymptotics: the Growth of Counts",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Asymptotics of counting sequences is analytic-combinatorics territory; algorithms’ Big-O is complexity analysis — a different subject sharing tokens."
+    },
+    {
+      "book": "probability-theory",
+      "chapter": 1,
+      "title": "Odds and the First Computations",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Odds are the classical probability measure and its first computations; the engineering-methods hint is token noise."
+    },
+    {
+      "book": "statistics",
+      "chapter": 7,
+      "title": "The Logic of the Test",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "The logic of the hypothesis test is statistics’ own core; the molecular-biology hint is token noise."
+    },
+    {
+      "book": "real-analysis",
+      "chapter": 4,
+      "title": "Connectedness: the Interval Theorem",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Connectedness of intervals is the real-line topology chapter’s own theorem; topology owns the general theory at a different depth — different syllabi."
+    },
+    {
+      "book": "abstract-algebra",
+      "chapter": 2,
+      "title": "Conjugacy Classes and the Class Equation",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Conjugacy classes and the class equation are core finite-group theory; the high-voltage-engineering hint is absurd token noise."
+    },
+    {
+      "book": "advanced-mathematical-foundations",
+      "chapter": 1,
+      "title": "The Doorstep Chain, Traced End to End",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "The doorstep chain traced end-to-end is the ladder-overview chapter’s own lesson; the NLP hint is token noise."
+    },
+    {
+      "book": "quantitative-aptitude",
+      "chapter": 1,
+      "title": "Shortcuts and Their Limits",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Shortcuts and their limits is the aptitude book’s own opener material (speed-vs-rigor); the biotechnology hint is token noise."
+    }
+  ],
+  "dupes": [
+    {
+      "title": "The Craft Census",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Registry-wide synthesis-chapter template: each book’s \"Craft Census\" recaps its OWN craft (abstract-algebra’s algebraic structures, topology’s invariants, ...). Different content by design in every book; no specialist owns \"recapping a book\". Not true duplicates."
+    },
+    {
+      "title": "Laboratory skills expected to be known by all participants (heating and reflux, mass and volume measurement, preparation and dilution of solutions, titrations, pH measurement, filtration, drying of precipitates, instrument operation, graphing and analysis of experimental data)",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Fuzzy cluster. The single true blob copy sits in analytical-chemistry ch8 (OCR’d lab-skills syllabus — chemistry slice to remove). The math member, multivariable-calculus ch4 \"Mass, Centres and Moments\", is a legitimate multiple-integral application (moments/centroids of mass) and stays."
+    },
+    {
+      "title": "Subgroups and Cyclic Groups",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "False positive: only abstract-algebra ch2 owns the topic; its ch4 member is normal-subgroups/factor-groups — a distinct subject fused on \"subgroup/group\" tokens; the 17 chemistry members are rearrangement REACTIONS (spurious token match, chemistry slice)."
+    },
+    {
+      "title": "The Least-Squares Fit",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Genuine cross-syllabus technique with no single owner: linear-algebra teaches the projection theory, statistics the two-regression-lines treatment, numerical-analysis the curve-fitting use, econometrics/experimental-physics/machine-learning their applied versions. statistics ch5/ch7 members are spurious chi-SQUARE token matches, not least-squares lessons."
+    },
+    {
+      "title": "Quantitative Techniques - elementary mathematics topics: Algebra; Averages; Geometry; LCM and HCF; Mensuration; Number Systems; Percentage; Permutation and Combination; Probability; Profit and Loss; Quadratic and Linear Equations; Ratio and Proportion; Simple and Compound Interest; Time and Speed;",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "The blob exists only in art-history ch1 (OCR’d exam syllabus — arts slice to remove). The math members are fuzzy-matched legitimate lessons: discrete P&C-with-repetition and quantitative-aptitude exam-speed recaps (the survey-vs-exam-speed ladder). Not duplicates of the blob or of each other."
+    },
+    {
+      "title": "Tangents, Normals, Chord of Contact",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Standard analytic-geometry arrangement: each conic chapter carries its own tangents/normals lesson (circle, parabola, ellipse, hyperbola) with the unified recap in ch8 — that is ch8’s stated purpose. differential-calculus ch5’s is the derivative-based treatment — a different syllabus."
+    },
+    {
+      "title": "Analysis of growth and decay 113 8.3 Inductance in terms of flux-linkages",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "differential-equations ch3 \"Growth, Decay and Cooling\" is the canonical ODE modeling topic and stays. The true blob copies are EE TOC lines (circuit-theory/electrical-machines/heat-transfer — engineering slices); the physics members are RL-circuit growth/decay lessons."
+    },
+    {
+      "title": "Relationship Between Formula of a Compound and Number of Voids Filled",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "False positive: trigonometry’s members are compound-angle identities and inverse-trig sums (matched on \"compound\"/\"sums\"/\"differences\" tokens); the voids-in-crystal-lattices topic is inorganic-chemistry’s own."
+    },
+    {
+      "title": "Conservative Forces and Energy Bookkeeping",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Not true duplicates: multivariable-calculus owns the conservative VECTOR field criterion (path independence, curl — core vector calculus); the physics members are the force/energy work-energy treatments for the mechanics syllabus."
+    },
+    {
+      "title": "Binary Trees and Their Properties",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "discrete-mathematics’ rooted/binary trees is the Rosen-style survey unit (math-for-CS syllabus); data-structures owns the implementation-depth treatment — different syllabi. The inorganic-chemistry member is a spurious \"binary hydrides\" token match."
+    },
+    {
+      "title": "The Centres of a Triangle in Coordinates",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Not true duplicates: coordinate-geometry computes triangle centres by coordinates; trigonometry’s \"Centres and Circircles of a Triangle\" is the sine/cosine-rule treatment (circumradius/inradius relations). The geometry member is a circle-angles lesson matched on \"centre\" — spurious."
+    },
+    {
+      "title": "Angles, Distances and Concurrency",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "The within-coordinate-geometry pair is by design (2D straight-lines concurrency vs 3D lines/planes/skew lines — same chapter-pair structure as ch2 vs ch12). The power-systems member is distance-relay protection (EE — engineering slice)."
+    },
+    {
+      "title": "Sum, Product, Quotient and the Chain Rule",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "False positive: topology’s \"Products and Quotients\" are topological constructions; trigonometry’s product-sum formulas are trig identities; only the differential-calculus member is about differentiation rules. Each stays in its own home."
+    },
+    {
+      "title": "Damped Oscillation and the Quality Factor",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Genuine syllabus split: differential-equations teaches the damped harmonic oscillator as a second-order-ODE application; circuit-theory’s is the RLC circuit; waves-and-oscillations’ is the driven/nonlinear physics. Three audiences, three treatments."
+    },
+    {
+      "title": "Continuous versus Discrete",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Not true duplicates: each member uses the phrase in its own sense — discrete math’s disciplinary opener, probability’s discrete/continuous random variables, quantum’s discrete-to-continuous spectrum transition (which belongs in quantum-mechanics — see autoReview veto #23)."
+    },
+    {
+      "title": "Strong Induction, Well-Ordering and the Proof Census (Implication, Converse, Contrapositive, Contradiction)",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Three different subjects fused on tokens: discrete math’s proof unit (strong induction/well-ordering), set-theory’s transfinite induction for ordinals, theory-of-computation’s CS proof toolkit. The discrete member’s bloated title is retitled (see extra)."
+    },
+    {
+      "title": "Context-Free Grammars and Parse Trees",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "The topology member is a false positive (preimage continuity — zero CFG content) and must not be removed. The genuine CFG pair (compiler-design vs theory-of-computation) is a CS-slice call: ToC owns formal-language theory; compiler-design teaches parsing for compiler construction — different syllabi."
+    },
+    {
+      "title": "Calculus of Variations: the Euler-Lagrange Engine",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Genuine syllabus split: engineering methods (mathematical-methods-for-engineering) vs physics methods (mathematical-physics ch1 \"The Calculus of Variations\") vs Lagrangian mechanics (mechanics ch11) — mirrors the physics-vs-engineering thermodynamics pattern."
+    },
+    {
+      "title": "Regulation and All-Day Efficiency",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "The quantitative-aptitude member is the time-and-work topic (\"Efficiency, Men and Days, Work and Wages\" — matched on the \"efficiency\" token); transformer regulation/all-day efficiency is electrical-machines’ own (engineering slice). Not duplicates."
+    },
+    {
+      "title": "Inscribed, Circumscribed and the Regular Polygons",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Different treatments: geometry ch8’s is the ruler-and-compass construction of incircles/circumcircles/regular polygons; trigonometry ch6’s is the trigonometric solution/area treatment of quadrilaterals and regular polygons — the Properties-of-Triangles capstone."
+    },
+    {
+      "title": "Polar Coordinates",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Different subjects sharing the phrase: coordinate-geometry teaches the polar coordinate SYSTEM; integral-calculus computes areas/lengths via polar INTEGRALS."
+    },
+    {
+      "title": "Direction Cosines and Direction Ratios",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "coordinate-geometry owns the 3D-analytic-geometry treatment (ch9); the waves-and-oscillations member is the physics use of direction cosines (physics slice to adjudicate its copy)."
+    },
+    {
+      "title": "The Cross Product: Areas and Moments",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "False positive: strength-of-materials’ \"moment-area theorems\" are beam-deflection methods (mechanics of materials), not the vector cross product. coordinate-geometry ch11 is the vector-algebra home."
+    },
+    {
+      "title": "Triple Products and Lagrange’s Identity",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "coordinate-geometry owns the vector-algebra treatment; the electricity-and-magnetism member is the EM vector-toolbox recap for the physics syllabus (physics slice to adjudicate)."
+    },
+    {
+      "title": "The Doorstep: Curves Acquire Slopes and Areas",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "False positive: mechanics’ \"Graphs by Slope and Area\" is kinematics graph reading (slope=velocity, area=displacement); coordinate-geometry’s is the registry’s designed doorstep bridge from coordinates to calculus."
+    },
+    {
+      "title": "Elevation and Depression",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "False positive: physical-chemistry’s \"Elevation and Depression\" is colligative properties (boiling-point elevation, freezing-point depression — its ch8 subject); trigonometry’s is the sighting angles. Different subjects sharing the words."
+    },
+    {
+      "title": "Partial Fractions: every Denominator Case",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Different applications: integral-calculus owns the partial-fraction decomposition technique for integration; mathematical-methods applies it to Laplace-transform inversion — an engineering-syllabus split."
+    },
+    {
+      "title": "Appendix D Some Fundamental Operations of the Calculu",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "False positive: integral-calculus’s \"The Fundamental Theorems of Calculus\" is core content; the actual blob (\"Appendix D Some Fundamental Operations of the Calculu\") is OCR junk stamped in foundation-chemistry (chemistry slice to remove)."
+    },
+    {
+      "title": "The Course-Level Craft",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Registry synthesis-chapter template: each book’s course-level craft recaps its own course (complex analysis’s plane theorems; multivariable’s integral theorems). Different content by design."
+    },
+    {
+      "title": "Variable Separable",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "False positive: the foundation-physics member is action-angle/Hamilton-Jacobi separability (physics slice); differential-equations’ \"Variable Separable\" is the canonical first-order ODE method."
+    },
+    {
+      "title": "Part B — Mathematics (class 11-12 level): algebra (equations, AP/GP, series), trigonometry (identities, heights and distances), coordinate geometry, 3D geometry, matrices and determinants, logarithms, mensuration, basic calculus (limits, differentiation), probability and statistics, permutation and",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "False positive: linear-algebra’s \"Determinants in Coordinate Geometry\" is a legitimate determinant-application lesson; the blob is OCR junk in ear-training (arts slice to remove)."
+    },
+    {
+      "title": "The Matrix of a Transformation",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "linear-algebra owns the linear-map matrix; the properties-of-matter member is the crystallography/materials use (physics slice) — token overlap only."
+    },
+    {
+      "title": "Inclusion–Exclusion at Full Depth",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Designed laddering: combinatorics treats inclusion-exclusion \"at Full Depth\" (its stated marker); discrete-mathematics teaches it in its counting unit for the CS-math syllabus with derangements. Different depth and syllabus."
+    },
+    {
+      "title": "Equivalence Relations and Partitions",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Designed laddering (the \"Deepened\" marker says it): discrete-mathematics introduces equivalence relations for the CS syllabus; set-theory deepens them as formal set-theoretic structure. Different syllabi."
+    },
+    {
+      "title": "Transversals and Matching: Hall’s Marriage Theorem",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Different treatments: combinatorics treats Hall’s theorem as transversal/matching theory; discrete-mathematics teaches it inside bipartite-graph theory for the CS syllabus."
+    },
+    {
+      "title": "Shortest Paths: Dijkstra Derived",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Designed laddering: discrete-mathematics \"meets\" Dijkstra in its graph unit (survey depth — \"Dijkstra Met\"); algorithms derives it in full (\"Dijkstra Derived\"). Survey vs specialist."
+    },
+    {
+      "title": "Minimum Spanning Trees: Prim and Kruskal",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "discrete-mathematics’ Trees chapter includes spanning-tree algorithms (Rosen-style CS-math syllabus); algorithms owns the full greedy-algorithm treatment. Survey vs specialist split."
+    },
+    {
+      "title": "Gates and Combinational Circuits",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "discrete-mathematics’ Boolean-algebra/logic-circuits unit is Rosen-standard; the vlsi-design member is a whole OCR’d EE syllabus blob (engineering slice to clean). Not math-book duplicates."
+    },
+    {
+      "title": "Minimization: Karnaugh Maps",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "discrete-mathematics owns Karnaugh-map minimization in its Boolean-algebra unit; the engineering-mechanics member is a wrong-topic stamp in a mechanics book (engineering slice to remove) — not a math duplicate."
+    },
+    {
+      "title": "Pascal’s Recurrence and the Identity Cascade",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Different subjects fused on tokens: combinatorics’ Pascal/binomial identity cascade vs number-theory’s Fibonacci identity cascade (in its Fibonacci chapter)."
+    },
+    {
+      "title": "Diffie-Hellman Traced",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Genuine syllabus split: number-theory’s cryptography-payoff chapter applies discrete logs for the math syllabus; cryptography owns the protocol-security treatment for CS."
+    },
+    {
+      "title": "Cantor’s Diagonal Argument",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "set-theory owns the uncountability proof; theory-of-computation’s diagonal argument is the computability/halting application — different subjects sharing the technique."
+    },
+    {
+      "title": "Partitions and Total Probability",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "False positive: the quantum-chemistry member is orbital probability-DENSITY plots; probability-theory’s is the law of total probability over sample-space partitions."
+    },
+    {
+      "title": "The Base-Rate Neglect",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Different treatments: behavioural-economics owns the cognitive-bias treatment; probability-theory’s base-rate cascade is the Bayes-theorem application for the math syllabus."
+    },
+    {
+      "title": "Liouville and the Fundamental Theorem of Algebra, Proved",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "False positive: real-analysis’s \"The Fundamental Theorem, Proved\" is the Fundamental Theorem of CALCULUS (Riemann-integral chapter); complex-analysis’s is Liouville proving the Fundamental Theorem of ALGEBRA. Different theorems sharing tokens."
+    },
+    {
+      "title": "Potential Problems by Mapping",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Genuine syllabus split: complex-analysis owns the full conformal-mapping treatment; mathematical-methods-for-engineering keeps the engineering-speed mirror — its ch6 \"Complex Methods for Engineers\" exists for exactly that audience."
+    },
+    {
+      "title": "Newton–Raphson: Quadratic, and Fragile",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "numerical-analysis owns the Newton-Raphson root-finding method; power-systems’ is the load-flow application (engineering slice). Different syllabi."
+    },
+    {
+      "title": "The Method-Choice Census",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Different scope: numerical-analysis ch2’s census chooses among root-finders; mathematical-methods ch7’s is the engineering method-choice survey across the numerical shelf. Not the same lesson."
+    },
+    {
+      "title": "Runge-Kutta Named",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "numerical-analysis owns Runge-Kutta theory (convergence order, stiffness); mathematical-physics’ named treatment serves the physics syllabus. Different syllabi."
+    },
+    {
+      "title": "Sturm–Liouville Problems: Eigenfunctions and Orthogonality",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "Engineering-methods vs physics-methods syllabus split (mirrors the physics-vs-engineering thermodynamics pattern) — both survey treatments for their own audiences."
+    },
+    {
+      "title": "Steps, Impulses and Initial-Value Problems",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "mathematical-methods treats steps/impulses for Laplace-transform IVPs (engineering math); signals-and-systems teaches them as signal primitives (EE syllabus). Different syllabi."
+    },
+    {
+      "title": "Phasors",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "mathematical-methods uses phasors as its engineering complex-method tool; waves-and-oscillations teaches phasor representation of oscillations (physics syllabus). Different syllabi."
+    },
+    {
+      "title": "The Decision Tree",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "optimization-and-OR owns decision analysis (ch1’s subject); business-mathematics carries the business-course version — a business-vs-OR syllabus split."
+    },
+    {
+      "title": "PERT-CPM Worked",
+      "action": "keep-both",
+      "winner": "",
+      "reason": "OR teaches network-scheduling optimization (ch4); operations-management teaches PERT-CPM as production management — a business-vs-OR syllabus split."
+    }
+  ],
+  "thin": [
+    {
+      "book": "discrete-mathematics",
+      "chapter": 1,
+      "action": "keep",
+      "targetChapter": 0,
+      "reason": "With auto #5 and #23 vetoed and #6 amended to retitle-and-keep, ch1 retains its full trio (discrete viewpoint opener, logic toolkit, sets/functions/sequences at work) — three planned lessons, no merge needed."
+    },
+    {
+      "book": "discrete-mathematics",
+      "chapter": 2,
+      "action": "keep",
+      "targetChapter": 0,
+      "reason": "Veto of auto #7 keeps all three lessons (algorithms as objects, Big-O growth of functions, complexity census) — a coherent Rosen-style unit; no merge."
+    },
+    {
+      "book": "mathematical-methods-for-engineering",
+      "chapter": 7,
+      "action": "keep",
+      "targetChapter": 0,
+      "reason": "Vetoes of #14 and #40 keep all four lessons (method-choice census, heat-equation discretization, finite-element idea, calculus of variations) — the numerical-craft arc is intact; no merge."
+    },
+    {
+      "book": "advanced-mathematical-foundations",
+      "chapter": 1,
+      "action": "keep",
+      "targetChapter": 0,
+      "reason": "Veto of #41 keeps the full three-lesson overview (shelf as one climb, doorstep chain traced end-to-end, where every reader stands); no merge."
+    },
+    {
+      "book": "advanced-mathematical-foundations",
+      "chapter": 7,
+      "action": "keep",
+      "targetChapter": 0,
+      "reason": "Veto of #16 keeps the closing trio (graduate landscape, the other shelves’ mathematics, the closing page); no merge."
+    }
+  ],
+  "order": [
+    {
+      "book": "combinatorics",
+      "newOrder": [
+        1,
+        2,
+        4,
+        3,
+        5,
+        6
+      ],
+      "reason": "Recurrence relations (ch4) are the substrate that generating functions (ch3) operate on: ch3’s \"Solving Recurrences the Slick Way\" currently precedes ch4’s \"Linear Recurrences: the General Theory\" — applications before the fundamentals they depend on. Swap ch3/ch4 so recurrences come first."
+    }
+  ],
+  "extra": [
+    {
+      "book": "linear-algebra",
+      "chapter": 4,
+      "title": "Rⁿ and Subspaces — the scalar field F and the digression on fields (Abstract Algebra’s ground, cross-referenced), sums and direct sums of subspaces",
+      "action": "retitle",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "Rⁿ and Subspaces",
+      "reason": "Planned title carries an essay-long descriptor after the em dash; strip to the honest head \"Rⁿ and Subspaces\". The descriptor’s content (fields digression, direct sums) remains the lesson’s scope — nothing invented."
+    },
+    {
+      "book": "linear-algebra",
+      "chapter": 5,
+      "title": "Kernel, Range and Rank-Nullity — the null space and injectivity, the range and surjectivity — with invertibility and isomorphisms (Axler’s isomorphic reading of a space)",
+      "action": "retitle",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "Kernel, Range and Rank-Nullity",
+      "reason": "Strip the long descriptor to the honest head \"Kernel, Range and Rank-Nullity\"; the null-space/injectivity, range/surjectivity and isomorphism content stays the lesson’s scope."
+    },
+    {
+      "book": "linear-algebra",
+      "chapter": 6,
+      "title": "Diagonalization and Cayley–Hamilton — diagonalizable operators, the conditions for diagonalizability, commuting operators, and the Gershgorin disk theorem",
+      "action": "retitle",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "Diagonalization and Cayley–Hamilton",
+      "reason": "Strip the descriptor to the honest head \"Diagonalization and Cayley–Hamilton\"; diagonalizability conditions, commuting operators and the Gershgorin disk remain in scope."
+    },
+    {
+      "book": "linear-algebra",
+      "chapter": 6,
+      "title": "The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues",
+      "action": "retitle",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "The Symmetric Promise: Self-Adjoint, Normal and Unitary Operators",
+      "reason": "The title is an Axler blurb, not a lesson title. Honest compression taken from the descriptor itself (which lists the self-adjoint/Hermitian and normal operators, isometries and unitary operators) — no new subject invented."
+    },
+    {
+      "book": "linear-algebra",
+      "chapter": 8,
+      "title": "Quadratic Forms and the Conics Re-read — Axler’s closing arc: bilinear forms and symmetric bilinear forms, alternating multilinear forms, defining the determinant as the signed volume of an operator — with operators applied to ellipsoids and parallelepipeds (the image-body reading), and the tensor product",
+      "action": "retitle",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "Quadratic Forms and the Conics Re-read",
+      "reason": "Strip the closing-arc descriptor to the honest head \"Quadratic Forms and the Conics Re-read\"; bilinear forms, determinant-as-volume and the tensor product remain in scope."
+    },
+    {
+      "book": "discrete-mathematics",
+      "chapter": 1,
+      "title": "Sets (Complements, Cartesian Products, Power Sets), Functions (Injections, Surjections, Inverses, Composition) and Sequences at Work",
+      "action": "retitle",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "Sets, Functions and Sequences at Work",
+      "reason": "Strip the parenthetical inventory; sets, functions and sequences are core discrete content (the \"at Work\" survey) — keep the lesson, clean the title. Matches the autoReview amendment of auto #6."
+    },
+    {
+      "book": "discrete-mathematics",
+      "chapter": 3,
+      "title": "Strong Induction, Well-Ordering and the Proof Census (Implication, Converse, Contrapositive, Contradiction)",
+      "action": "retitle",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "Strong Induction, Well-Ordering and the Proof Census",
+      "reason": "Strip the trailing parenthetical (Implication, Converse, Contrapositive, Contradiction) — a bloated enumeration, not junk; the lesson stays."
+    },
+    {
+      "book": "trigonometry",
+      "chapter": 2,
+      "title": "Allied Angles: the n × 90° ± θ Machine",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Allied angles (the n×90°±θ machine) is a real, standard topic; the × and ± are honest mathematics, not OCR junk. The flag was character-driven."
+    },
+    {
+      "book": "differential-equations",
+      "chapter": 2,
+      "title": "First Order, Higher Degree: Solvable for p, Clairaut and Lagrange",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "\"First order, higher degree: solvable for p, Clairaut and Lagrange\" is the exact standard ODE topic (equations solvable for p; Clairaut and Lagrange equations). Honest title, correct chapter."
+    },
+    {
+      "book": "combinatorics",
+      "chapter": 5,
+      "title": "Combinatorial Designs: Block Designs, Steiner Systems and Latin Squares",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "Block designs, Steiner systems and Latin squares are core design theory — combinatorics’ own subject; the enumerated title is informative, not junk."
+    },
+    {
+      "book": "real-analysis",
+      "chapter": 9,
+      "title": "The Lebesgue Doorstep: Measure, Measurable Functions and Simple Functions",
+      "action": "keep",
+      "targetBook": "",
+      "targetChapter": 0,
+      "newTitle": "",
+      "reason": "The Lebesgue doorstep (measure, measurable functions, simple functions) is the designed bridge from the Riemann integral to measure theory — real-analysis’s own closing doorstep; title is honest."
+    }
+  ],
+  "notes": "Math shelf is structurally clean. All 31 misplaced flags were token-score false positives — every one kept in place (the scores had routed e.g. Stewart’s theorem to statistics and the complete maxima/minima tests to business-mathematics). 40 of 42 auto-actions vetoed or amended: the score engine misrouted core mathematics to other disciplines (solids of revolution -> environmental-studies, model theory -> foundation-chemistry, hyperbolic functions -> heat-and-thermodynamics) and foreign junk toward our books; the 2 approvals are #34 (positive-definite matrices -> eigenvalue chapter) and #39 (Sturm-Liouville -> PDE chapter). All 54 dup clusters resolved keep-both: the bulk are false-positive token matches protecting legitimate lessons (topology’s preimages vs CFGs; real-analysis’s FTC vs Liouville’s FTA; trig compound angles vs chemistry’s voids), the rest are genuine cross-syllabus mirrors (physics/engineering/business vs math treatments, and the discrete-survey vs combinatorics-specialist ladder). All 5 thin chapters were artifacts of the vetoed auto-actions and are restored to full size. junkSuspects: 7 retitles (strip Axler-essay bloat from linear-algebra titles and two discrete omnibus titles), 4 keeps. One order fix: combinatorics recurrences before generating functions. Zero removals from any of the 28 math books — no junk was found in our own planned lists, and the authored four were not touched in either direction."
+}

@@ -1,0 +1,5397 @@
+{
+ "discipline": "biology",
+ "autoActions": [
+  {
+   "op": "remove",
+   "book": "foundation-biology",
+   "chapter": 1,
+   "idx": 28,
+   "title": "Glossary G-1",
+   "why": "junk-certain: front/back-matter furniture"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-biology",
+   "chapter": 1,
+   "idx": 36,
+   "title": "125,337,357 (valid %PDF header, no trailer dictionary, no %%EOF; Google",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-biology",
+   "chapter": 4,
+   "idx": 7,
+   "title": "With HTTP 416). This transcription is the sanctioned WEB FALLBACK: the",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "economic-botany",
+   "chapter": 7,
+   "idx": 3,
+   "title": "The 2050 Challenge Held",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-biology",
+   "chapter": 5,
+   "idx": 4,
+   "title": "Assume full responsibility for errors of fact or emphasis. 13 Introduction to Metabolism",
+   "why": "dup within book: kept the ch1 copy"
+  },
+  {
+   "op": "remove",
+   "book": "biotechnology",
+   "chapter": 2,
+   "idx": 4,
+   "title": "The Processes of rDNA Technology",
+   "why": "dup within book: kept the ch1 copy"
+  },
+  {
+   "op": "move",
+   "book": "manufacturing-processes",
+   "chapter": 1,
+   "idx": 6,
+   "title": "Logic pathology",
+   "targetBook": "plant-anatomy",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.5 -> plant-anatomy 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "cad-cam",
+   "chapter": 2,
+   "idx": 2,
+   "title": "Transformations by Matrices",
+   "targetBook": "microbiology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.5 -> microbiology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "antennas-and-wave-propagation",
+   "chapter": 1,
+   "idx": 3,
+   "title": "This publication is in copyright. Subject to statutory exception and to the provisions of relevant collective licensing agreements, no reproduction of any part may take place without the written permission of Cambridge University Press",
+   "targetBook": "foundation-biology",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.05 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "world-history",
+   "chapter": 2,
+   "idx": 3,
+   "title": "Agriculture - major crops and cropping patterns, irrigation systems, storage, transport and marketing of agricultural produce, e-technology in the aid of farmers; direct and indirect farm subsidies and minimum support prices; Public Distribution System and food security; food processing and related",
+   "targetBook": "biotechnology",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.29 -> biotechnology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "law-and-legal-studies",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Paper-II 4. Emergence, Growth and Development of Anthropology in India (contributions of 18th-20th century scholar-administrators and of Indian anthropologists to tribal and caste studies)",
+   "targetBook": "cell-biology",
+   "targetChapter": 7,
+   "why": "misplaced, grounded (own 0.25 -> cell-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "anthropology",
+   "chapter": 1,
+   "idx": 3,
+   "title": "Paper-I 12. Applications of Anthropology (anthropology of sports, nutritional anthropology, design of defence and other equipment, forensic anthropology, applied human genetics - paternity diagnosis, genetic counselling, eugenics, DNA technology, serogenetics and cytogenetics)",
+   "targetBook": "biotechnology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.21 -> biotechnology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "cultural-studies",
+   "chapter": 5,
+   "idx": 4,
+   "title": "Science and Technology - developments and their applications and effects in everyday life; achievements of Indians in science and technology; indigenisation of technology; awareness in the fields of IT, space, computers, robotics, nanotechnology, biotechnology and intellectual property rights",
+   "targetBook": "genetics",
+   "targetChapter": 9,
+   "why": "misplaced, grounded (own 0.45 -> genetics 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "philosophy",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Unit 9: Logic",
+   "targetBook": "genetics",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.5 -> genetics 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "geography",
+   "chapter": 11,
+   "idx": 4,
+   "title": "Indian Economy and Economic Development - issues relating to planning, mobilisation of resources, growth, development and employment; inclusive growth; government budgeting; effects of liberalisation on the economy; infrastructure (energy, ports, roads, airports, railways); investment models",
+   "targetBook": "cell-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.42 -> cell-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "geography",
+   "chapter": 11,
+   "idx": 5,
+   "title": "Paper-II 6. Tribal Situation in India (bio-genetic variability and socio-economic characteristics; problems of tribal communities - land alienation, poverty, indebtedness, literacy, employment, health and nutrition; impact of developmental projects, forest policy, urbanisation and industrialisation",
+   "targetBook": "foundation-biology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.27 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "environmental-studies",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Social Justice - government policies and interventions for development; development processes and the role of NGOs, SHGs, donors and other stakeholders; welfare schemes for vulnerable sections; social sector services relating to health, education and human resources; poverty and hunger",
+   "targetBook": "molecular-biology",
+   "targetChapter": 8,
+   "why": "misplaced, grounded (own 0.33 -> molecular-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "mechanics",
+   "chapter": 1,
+   "idx": 7,
+   "title": "Combined Rotation and Translation",
+   "targetBook": "molecular-biology",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.33 -> molecular-biology 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "atomic-physics",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Atoms and Nuclei",
+   "targetBook": "cell-biology",
+   "targetChapter": 7,
+   "why": "misplaced, grounded (own 0.5 -> cell-biology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "solid-state-physics",
+   "chapter": 1,
+   "idx": 4,
+   "title": "BIO Using Crystals to Determine Protein",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.2 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "particle-physics",
+   "chapter": 1,
+   "idx": 6,
+   "title": "Note: The remaining pages supplied are chapter body pages (p. 1.1 System of Particles and Centre of Mass; p. 1.2 Illustrations 1.1–1.2; p. 1.3 Centre of Mass of a Uniform Rod / Semicircular Ring / Semicircular Disc; p. 1.4 Illustrations 1.3–1.4; p. 1.5 Illustrations 1.5–1.6 and Concept Application",
+   "targetBook": "biotechnology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.11 -> biotechnology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "experimental-physics",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Experimental Skills",
+   "targetBook": "foundation-biology",
+   "targetChapter": 8,
+   "why": "misplaced, grounded (own 0.5 -> foundation-biology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "business-studies",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Nature and Purpose of Business (Evolution and Fundamentals of Business)",
+   "targetBook": "foundation-biology",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.4 -> foundation-biology 0.6)"
+  },
+  {
+   "op": "move",
+   "book": "accounting",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Key Concept",
+   "targetBook": "plant-pathology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> plant-pathology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Medicinal chemistry",
+   "targetBook": "economic-botany",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.5 -> economic-botany 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "idx": 94,
+   "title": "Neurotransmitters",
+   "targetBook": "plant-physiology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> plant-physiology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "idx": 101,
+   "title": "Antibiotics",
+   "targetBook": "evolution",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.0 -> evolution 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "idx": 197,
+   "title": "Transcription",
+   "targetBook": "molecular-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.0 -> molecular-biology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "idx": 197,
+   "title": "Gene",
+   "targetBook": "molecular-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.0 -> molecular-biology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 2,
+   "idx": 121,
+   "title": "Photosynthesis and Energy",
+   "targetBook": "foundation-biology",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.0 -> foundation-biology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 2,
+   "idx": 123,
+   "title": "Calculation of the Density of a Metal by Using Unit Cell Dimensions",
+   "targetBook": "foundation-biology",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.14 -> foundation-biology 0.57)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 2,
+   "idx": 188,
+   "title": "Figure 2A.1 (a) An open system can exchange matter and energy",
+   "targetBook": "microbiology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.29 -> microbiology 0.57)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 2,
+   "idx": 189,
+   "title": "With its surroundings, but it cannot exchange matter. (c) An system does work has more energy than before the expansion",
+   "targetBook": "microbiology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.08 -> microbiology 0.54)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 7,
+   "idx": 4,
+   "title": "Combined State",
+   "targetBook": "plant-physiology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> plant-physiology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 8,
+   "idx": 20,
+   "title": "Explosion Temperature",
+   "targetBook": "plant-pathology",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.5 -> plant-pathology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "organic-chemistry",
+   "chapter": 1,
+   "idx": 8,
+   "title": "Structure-Reactivity Correlations",
+   "targetBook": "microbiology",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.33 -> microbiology 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "organic-chemistry",
+   "chapter": 11,
+   "idx": 6,
+   "title": "Chemistry in Everyday Life: The Drug and Sweetener Registers",
+   "targetBook": "foundation-biology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.33 -> foundation-biology 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "inorganic-chemistry",
+   "chapter": 2,
+   "idx": 5,
+   "title": "The Molecular-Structure Register",
+   "targetBook": "molecular-biology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.67 -> molecular-biology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "inorganic-chemistry",
+   "chapter": 3,
+   "idx": 7,
+   "title": "Water, Heavy Water and Hydrogen Peroxide",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.25 -> foundation-biology 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "environmental-chemistry",
+   "chapter": 4,
+   "idx": 6,
+   "title": "Determination of Alkalinity in a Given Water Sample",
+   "targetBook": "foundation-biology",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.2 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "environmental-chemistry",
+   "chapter": 4,
+   "idx": 6,
+   "title": "Down sea water process",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.25 -> foundation-biology 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "biochemistry",
+   "chapter": 1,
+   "idx": 1,
+   "title": "The Cellular pH",
+   "targetBook": "cell-biology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> cell-biology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "biochemistry",
+   "chapter": 2,
+   "idx": 5,
+   "title": "Energy and Respiration",
+   "targetBook": "ecology",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.5 -> ecology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "biochemistry",
+   "chapter": 2,
+   "idx": 5,
+   "title": "Food Proteins and Post-Mortem Muscle Changes",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.17 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "biochemistry",
+   "chapter": 3,
+   "idx": 4,
+   "title": "The Biochemical Separation Techniques: Chromatography, Centrifugation and Electrophoresis",
+   "targetBook": "microbiology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> microbiology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "biochemistry",
+   "chapter": 4,
+   "idx": 4,
+   "title": "Enzyme Types, Nomenclature and Properties",
+   "targetBook": "cell-biology",
+   "targetChapter": 9,
+   "why": "misplaced, grounded (own 0.25 -> cell-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "biochemistry",
+   "chapter": 4,
+   "idx": 4,
+   "title": "Enzymes as Drug Targets",
+   "targetBook": "cell-biology",
+   "targetChapter": 9,
+   "why": "misplaced, grounded (own 0.33 -> cell-biology 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "biochemistry",
+   "chapter": 4,
+   "idx": 4,
+   "title": "Catalytic Action of Enzymes",
+   "targetBook": "cell-biology",
+   "targetChapter": 9,
+   "why": "misplaced, grounded (own 0.33 -> cell-biology 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "biochemistry",
+   "chapter": 4,
+   "idx": 5,
+   "title": "Chemical Connections Enzymes: Nature’s Catalysts",
+   "targetBook": "cell-biology",
+   "targetChapter": 6,
+   "why": "misplaced, grounded (own 0.2 -> cell-biology 0.6)"
+  },
+  {
+   "op": "move",
+   "book": "biochemistry",
+   "chapter": 5,
+   "idx": 4,
+   "title": "Biological Molecules: The Census",
+   "targetBook": "foundation-biology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.33 -> foundation-biology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "biochemistry",
+   "chapter": 7,
+   "idx": 4,
+   "title": "Molecular Biology and the Biomolecules",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.0 -> foundation-biology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "quantum-chemistry",
+   "chapter": 6,
+   "idx": 3,
+   "title": "MO against VB",
+   "targetBook": "immunology",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.0 -> immunology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "industrial-chemistry",
+   "chapter": 6,
+   "idx": 4,
+   "title": "The Food-Products Technology Register",
+   "targetBook": "economic-botany",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> economic-botany 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-biology",
+   "chapter": 1,
+   "idx": 5,
+   "title": "S, p and d Block Elements",
+   "targetBook": "manufacturing-processes",
+   "targetChapter": 9,
+   "why": "misplaced, grounded (own 0.5 -> manufacturing-processes 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-biology",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Thermodynamics",
+   "targetBook": "physical-chemistry",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> physical-chemistry 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-biology",
+   "chapter": 1,
+   "idx": 27,
+   "title": "Cytoskeleton and Is Highly Dynamic 6 Functional Genomics Shows the Allocations",
+   "targetBook": "mechanics",
+   "targetChapter": 7,
+   "why": "misplaced, grounded (own 0.14 -> mechanics 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-biology",
+   "chapter": 1,
+   "idx": 30,
+   "title": "Concentrations",
+   "targetBook": "foundation-chemistry",
+   "targetChapter": 8,
+   "why": "misplaced, grounded (own 0.0 -> foundation-chemistry 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-biology",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Inquiry 1: Exploring and designing in biology",
+   "targetBook": "industrial-chemistry",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.25 -> industrial-chemistry 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-biology",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Inquiry 2: Collecting and processing data in biology",
+   "targetBook": "industrial-chemistry",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.4 -> industrial-chemistry 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-biology",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Inquiry 3: Concluding and evaluating in biology",
+   "targetBook": "industrial-chemistry",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.25 -> industrial-chemistry 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-biology",
+   "chapter": 3,
+   "idx": 4,
+   "title": "Robert J. Warburton, Shepherd University 7 Carbohydrates and Glycobiology",
+   "targetBook": "organic-chemistry",
+   "targetChapter": 10,
+   "why": "misplaced, grounded (own 0.17 -> organic-chemistry 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-biology",
+   "chapter": 3,
+   "idx": 5,
+   "title": "In the Department of Biochemistry at the University Production of Urea",
+   "targetBook": "medical-biochemistry",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.2 -> medical-biochemistry 0.5)"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-biology",
+   "chapter": 3,
+   "idx": 7,
+   "title": "Weak Acids and Bases Have Characteristic",
+   "why": "misplaced; already covered in foundation-chemistry"
+  },
+  {
+   "op": "move",
+   "book": "foundation-biology",
+   "chapter": 8,
+   "idx": 4,
+   "title": "Tool 3: Mathematics",
+   "targetBook": "construction-management",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.5 -> construction-management 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-biology",
+   "chapter": 9,
+   "idx": 4,
+   "title": "Adolescence, Drug and Alcohol Abuse: The Health Register",
+   "targetBook": "foundation-chemistry",
+   "targetChapter": 6,
+   "why": "misplaced, grounded (own 0.17 -> foundation-chemistry 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "cell-biology",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Atomic Structure and Periodicity",
+   "targetBook": "foundation-chemistry",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.33 -> foundation-chemistry 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "cell-biology",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Structure and Bonding",
+   "targetBook": "manufacturing-processes",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> manufacturing-processes 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "cell-biology",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Jamie Towle-Weicksel, Rhode Island College I STRUCTURE AND CATALYSIS",
+   "targetBook": "foundation-chemistry",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.12 -> foundation-chemistry 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "cell-biology",
+   "chapter": 1,
+   "idx": 8,
+   "title": "Three-Dimensional Structure Is Described by Water Interacts Electrostatically with Charged",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.38 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "cell-biology",
+   "chapter": 4,
+   "idx": 4,
+   "title": "Membrane Assembly and Protein Targeting",
+   "targetBook": "molecular-biology",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.5 -> molecular-biology 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "molecular-biology",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Nucleic Acids: DNA and RNA",
+   "targetBook": "medical-microbiology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> medical-microbiology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "molecular-biology",
+   "chapter": 1,
+   "idx": 4,
+   "title": "The Molecular Basis of Inheritance",
+   "targetBook": "cell-biology",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.33 -> cell-biology 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "molecular-biology",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Vishwa D. Trivedi, Bethune Cookman University 3 Amino Acids, Peptides, and Proteins",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.11 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "molecular-biology",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Todd M. Weaver, University of Wisconsin La Crosse 8 Nucleotides and Nucleic Acids",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.12 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "molecular-biology",
+   "chapter": 1,
+   "idx": 5,
+   "title": "The Cytoplasm Is Organized by the Molecular Anatomy Reveals Evolutionary Relationships",
+   "targetBook": "anatomy",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.29 -> anatomy 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "molecular-biology",
+   "chapter": 1,
+   "idx": 5,
+   "title": "From Their Surroundings 20 and Weak Bases",
+   "targetBook": "physical-chemistry",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.33 -> physical-chemistry 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "molecular-biology",
+   "chapter": 1,
+   "idx": 5,
+   "title": "•=M:jf1 Entropy: Things Fall Apart 22 an Equilibrium Constant",
+   "targetBook": "physical-chemistry",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.14 -> physical-chemistry 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "molecular-biology",
+   "chapter": 4,
+   "idx": 5,
+   "title": "Lori Wallrath, University of Iowa-Iowa City of Proteins",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.17 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "remove",
+   "book": "molecular-biology",
+   "chapter": 4,
+   "idx": 5,
+   "title": "Chris Wang, Ambrose University 5 Protein Function",
+   "why": "misplaced; already covered in foundation-biology"
+  },
+  {
+   "op": "move",
+   "book": "molecular-biology",
+   "chapter": 7,
+   "idx": 4,
+   "title": "Chemical Equilibria",
+   "targetBook": "physical-chemistry",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> physical-chemistry 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "genetics",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Meiosis and Genetic Diversity",
+   "targetBook": "foundation-biology",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.33 -> foundation-biology 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "genetics",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Genetic Continuity Is Vested in Single 2.3 Buffering against pH Changes",
+   "targetBook": "foundation-biology",
+   "targetChapter": 6,
+   "why": "misplaced, grounded (own 0.29 -> foundation-biology 0.57)"
+  },
+  {
+   "op": "move",
+   "book": "evolution",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Cellular Dimensions Are Limited by Diffusion 3 Allow Evolution",
+   "targetBook": "foundation-biology",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.17 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "evolution",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Of Energy and Biosynthetic Precursors 3 Biological Evolution Began More Than",
+   "targetBook": "foundation-biology",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.29 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "evolution",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Natural Selection and Its Types",
+   "targetBook": "genetics",
+   "targetChapter": 7,
+   "why": "misplaced, grounded (own 0.33 -> genetics 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "evolution",
+   "chapter": 2,
+   "idx": 6,
+   "title": "And present research groups, who helped us balance",
+   "targetBook": "foundation-chemistry",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.17 -> foundation-chemistry 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "biotechnology",
+   "chapter": 1,
+   "idx": 4,
+   "title": "The Principles and Processes of Biotechnology",
+   "targetBook": "foundation-biology",
+   "targetChapter": 9,
+   "why": "misplaced, grounded (own 0.33 -> foundation-biology 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "biotechnology",
+   "chapter": 1,
+   "idx": 4,
+   "title": "The Tools of rDNA Technology",
+   "targetBook": "biochemistry",
+   "targetChapter": 7,
+   "why": "misplaced, grounded (own 0.33 -> biochemistry 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "biotechnology",
+   "chapter": 9,
+   "idx": 7,
+   "title": "Abbreviated Solutions to Problems AS-1",
+   "targetBook": "foundation-chemistry",
+   "targetChapter": 8,
+   "why": "misplaced, grounded (own 0.33 -> foundation-chemistry 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "microbiology",
+   "chapter": 2,
+   "idx": 4,
+   "title": "The Prokaryotic Cell: Structure and Function",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.5 -> foundation-biology 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "microbiology",
+   "chapter": 2,
+   "idx": 5,
+   "title": "Living Organisms Exist in a Dynamic Steady Macromolecular Structure and Function",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.25 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "microbiology",
+   "chapter": 3,
+   "idx": 6,
+   "title": "Redox Reactions, Electron Transport and Oxidative Phosphorylation",
+   "targetBook": "cell-biology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> cell-biology 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "microbiology",
+   "chapter": 3,
+   "idx": 6,
+   "title": "Photosynthesis and the Calvin Cycle in Microbes",
+   "targetBook": "plant-physiology",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.5 -> plant-physiology 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "microbiology",
+   "chapter": 3,
+   "idx": 6,
+   "title": "Growth and Death Kinetics with Serial Dilution",
+   "targetBook": "foundation-chemistry",
+   "targetChapter": 7,
+   "why": "misplaced, grounded (own 0.4 -> foundation-chemistry 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "microbiology",
+   "chapter": 5,
+   "idx": 4,
+   "title": "Viruses, Viroids and the Subviral Agents",
+   "targetBook": "foundation-biology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.25 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "microbiology",
+   "chapter": 9,
+   "idx": 4,
+   "title": "Microbes in Human Welfare: Sewage Treatment, Energy, Biocontrol and Biofertilisers",
+   "targetBook": "molecular-biology",
+   "targetChapter": 8,
+   "why": "misplaced, grounded (own 0.25 -> molecular-biology 0.5)"
+  },
+  {
+   "op": "remove",
+   "book": "immunology",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Human Health and Disease",
+   "why": "misplaced; already covered in environmental-studies"
+  },
+  {
+   "op": "move",
+   "book": "immunology",
+   "chapter": 3,
+   "idx": 4,
+   "title": "Antibody Structure, Function and Diversity",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.5 -> foundation-biology 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "plant-physiology",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Hydrogen Bonding Gives Water Its Unusual",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.2 -> foundation-biology 0.6)"
+  },
+  {
+   "op": "remove",
+   "book": "plant-physiology",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Configuration and Conformation 14 Solutes",
+   "why": "misplaced; already covered in organic-chemistry"
+  },
+  {
+   "op": "move",
+   "book": "plant-physiology",
+   "chapter": 1,
+   "idx": 4,
+   "title": "•=Mlf) Louis Pasteur and Optical Activity: Nonpolar Gases Are Poorly Soluble in Water",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.1 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "plant-physiology",
+   "chapter": 1,
+   "idx": 4,
+   "title": "The Ionization of Water Is Expressed by",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.33 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "plant-physiology",
+   "chapter": 3,
+   "idx": 5,
+   "title": "Criticism; and to the many students and teachers who 20 Photosynthesis and Carbohydrate",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.14 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "plant-physiology",
+   "chapter": 7,
+   "idx": 5,
+   "title": "Sexual Reproduction in Flowering Plants",
+   "targetBook": "plant-taxonomy",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.5 -> plant-taxonomy 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "plant-physiology",
+   "chapter": 7,
+   "idx": 5,
+   "title": "Growth, Development and Reproduction in Ferns and Mosses",
+   "targetBook": "foundation-biology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.4 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "remove",
+   "book": "plant-taxonomy",
+   "chapter": 5,
+   "idx": 3,
+   "title": "The Water’s Constraint Held",
+   "why": "misplaced; already covered in animal-diversity"
+  },
+  {
+   "op": "move",
+   "book": "plant-ecology",
+   "chapter": 6,
+   "idx": 5,
+   "title": "Ecology and the Environment",
+   "targetBook": "ecology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> ecology 1.0)"
+  },
+  {
+   "op": "remove",
+   "book": "plant-genetics",
+   "chapter": 5,
+   "idx": 4,
+   "title": "With a Variety of Functional Groups",
+   "why": "misplaced; already covered in organic-chemistry"
+  },
+  {
+   "op": "move",
+   "book": "economic-botany",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Interactions among Molecules 9 Importance in Medicine",
+   "targetBook": "medical-biochemistry",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.2 -> medical-biochemistry 0.6)"
+  },
+  {
+   "op": "move",
+   "book": "animal-diversity",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Distribution, Systematics and the Classification of Animals",
+   "targetBook": "microbiology",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.25 -> microbiology 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "animal-diversity",
+   "chapter": 1,
+   "idx": 6,
+   "title": "The Diversity of Organisms: Classification and Cladistics",
+   "targetBook": "foundation-biology",
+   "targetChapter": 6,
+   "why": "misplaced, grounded (own 0.25 -> foundation-biology 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "animal-diversity",
+   "chapter": 1,
+   "idx": 6,
+   "title": "Structure, Function and Evolutionary Relationships",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.0 -> foundation-biology 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "animal-physiology",
+   "chapter": 3,
+   "idx": 4,
+   "title": "Hormone Action and Its Disorders: Hypo- to Hyper-Activity",
+   "targetBook": "biochemistry",
+   "targetChapter": 10,
+   "why": "misplaced, grounded (own 0.33 -> biochemistry 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "animal-physiology",
+   "chapter": 5,
+   "idx": 6,
+   "title": "Body Fluids: Blood and Lymph",
+   "targetBook": "foundation-physics",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.0 -> foundation-physics 0.75)"
+  },
+  {
+   "op": "remove",
+   "book": "animal-physiology",
+   "chapter": 5,
+   "idx": 8,
+   "title": "The Integration of Body Systems",
+   "why": "misplaced; already covered in biotechnology"
+  },
+  {
+   "op": "move",
+   "book": "animal-physiology",
+   "chapter": 7,
+   "idx": 4,
+   "title": "Homeostasis and Its Mechanisms",
+   "targetBook": "medical-physiology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> medical-physiology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "developmental-biology",
+   "chapter": 1,
+   "idx": 6,
+   "title": "Reproductive Health: Contraception, MTP and Assisted Reproduction",
+   "targetBook": "foundation-biology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> foundation-biology 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "developmental-biology",
+   "chapter": 1,
+   "idx": 11,
+   "title": "Reproduction: The Modes and Strategies",
+   "targetBook": "foundation-biology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "remove",
+   "book": "developmental-biology",
+   "chapter": 1,
+   "idx": 12,
+   "title": "Sexually Transmitted Diseases and Their Prevention",
+   "why": "misplaced; already covered in medical-physiology"
+  },
+  {
+   "op": "move",
+   "book": "medical-microbiology",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Human Diseases Caused by Viruses, Bacteria and Fungi",
+   "targetBook": "immunology",
+   "targetChapter": 8,
+   "why": "misplaced, grounded (own 0.17 -> immunology 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "medical-microbiology",
+   "chapter": 7,
+   "idx": 5,
+   "title": "Emerging Infectious Diseases and the Pathogenicity Mechanisms",
+   "targetBook": "microbiology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.4 -> microbiology 0.6)"
+  },
+  {
+   "op": "move",
+   "book": "community-medicine",
+   "chapter": 6,
+   "idx": 6,
+   "title": "Social and Preventive Medicine (Community Medicine)",
+   "targetBook": "economic-botany",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> economic-botany 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "dentistry",
+   "chapter": 2,
+   "idx": 5,
+   "title": "General Human Physiology, Biochemistry, Nutrition and Dietetics",
+   "targetBook": "plant-pathology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> plant-pathology 0.6)"
+  },
+  {
+   "op": "move",
+   "book": "dentistry",
+   "chapter": 3,
+   "idx": 4,
+   "title": "General Pathology and Microbiology",
+   "targetBook": "foundation-biology",
+   "targetChapter": 9,
+   "why": "misplaced, grounded (own 0.0 -> foundation-biology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "nursing",
+   "chapter": 4,
+   "idx": 8,
+   "title": "Applied Anatomy and Applied Physiology for Nurses",
+   "targetBook": "plant-anatomy",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.25 -> plant-anatomy 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "pharmacy",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Anatomy, Physiology and Pathophysiology for Pharmacists",
+   "targetBook": "plant-anatomy",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.25 -> plant-anatomy 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Animal Genetics and Breeding",
+   "targetBook": "genetics",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.33 -> genetics 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Livestock Products Technology",
+   "targetBook": "biotechnology",
+   "targetChapter": 7,
+   "why": "misplaced, grounded (own 0.0 -> biotechnology 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "music-composition",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Compositional forms and their evolution (prabandh, dhrupad, dhamaar, kheyaal, tarana, thumri, tappa etc.)",
+   "targetBook": "foundation-biology",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.09 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "music-composition",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Compositional forms and their evolution (prabandha, gitam, svarajati, varnam, padavarnam, kriti, ragamalika etc.)",
+   "targetBook": "foundation-biology",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.09 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "painting",
+   "chapter": 2,
+   "idx": 5,
+   "title": "Painting practical Class XII: Nature and Object Study; Painting Composition (imaginative painting from life and nature in water and poster colours); Portfolio Assessment",
+   "targetBook": "foundation-biology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.21 -> foundation-biology 0.5)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "foundation-biology",
+   "chapter": 3,
+   "idx": 3,
+   "title": "The Handoff Map",
+   "targetChapter": 1,
+   "why": "fits ch1 \"What Life Is\" (0.5 vs 0.0)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "molecular-biology",
+   "chapter": 2,
+   "idx": 1,
+   "title": "The Two Strands’ Two Crafts",
+   "targetChapter": 1,
+   "why": "fits ch1 \"The DNA Structure\" (1.0 vs 0.33)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "genetics",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Heredity and Variation",
+   "targetChapter": 5,
+   "why": "fits ch5 \"The Extranuclear Inheritance\" (0.5 vs 0.0)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "biotechnology",
+   "chapter": 4,
+   "idx": 3,
+   "title": "The Clone Verified",
+   "targetChapter": 2,
+   "why": "fits ch2 \"Vectors and Cloning\" (1.0 vs 0.5)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "plant-anatomy",
+   "chapter": 3,
+   "idx": 3,
+   "title": "The Modified-Root Census",
+   "targetChapter": 1,
+   "why": "fits ch1 \"The Body’s Organisation\" (1.0 vs 0.67)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "plant-anatomy",
+   "chapter": 4,
+   "idx": 3,
+   "title": "The Modified-Stem Census",
+   "targetChapter": 1,
+   "why": "fits ch1 \"The Body’s Organisation\" (1.0 vs 0.67)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "plant-taxonomy",
+   "chapter": 4,
+   "idx": 0,
+   "title": "The Three-Coloured Census",
+   "targetChapter": 1,
+   "why": "fits ch1 \"The Three Crafts\" (0.67 vs 0.33)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "animal-diversity",
+   "chapter": 3,
+   "idx": 2,
+   "title": "The Nematode Register Held",
+   "targetChapter": 2,
+   "why": "fits ch2 \"The Sponges and the Cnidarians\" (0.67 vs 0.33)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "animal-anatomy",
+   "chapter": 6,
+   "idx": 2,
+   "title": "The Two Fertilisation Registers",
+   "targetChapter": 4,
+   "why": "fits ch4 \"The Respiratory and Circulatory Registers\" (0.67 vs 0.33)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "animal-physiology",
+   "chapter": 4,
+   "idx": 0,
+   "title": "The Route Register Held",
+   "targetChapter": 3,
+   "why": "fits ch3 \"The Endocrine Register\" (1.0 vs 0.67)"
+  }
+ ],
+ "dupAdjudicate": [
+  {
+   "title": "Shot noise in current sources and emitter followers",
+   "members": [
+    {
+     "book": "analog-and-digital-communication",
+     "discipline": "engineering",
+     "chapter": 1,
+     "chapterTitle": "The Communication Worldview",
+     "idx": 7,
+     "title": "Shot noise in current sources and emitter followers"
+    },
+    {
+     "book": "analog-electronics",
+     "discipline": "engineering",
+     "chapter": 1,
+     "chapterTitle": "The Analog Signal Chain",
+     "idx": 6,
+     "title": "Small-Signal Operation 587 10.2.4 The Common-Emitter Amplifier"
+    },
+    {
+     "book": "analog-electronics",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Differential and Multistage Amplifiers",
+     "idx": 5,
+     "title": "Common-Emitter (CE) Amplifiers"
+    },
+    {
+     "book": "analog-electronics",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Differential and Multistage Amplifiers",
+     "idx": 6,
+     "title": "Emitter) Amplifier with a Source"
+    },
+    {
+     "book": "analog-electronics",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Differential and Multistage Amplifiers",
+     "idx": 7,
+     "title": "Common-Base (CB) Amplifiers"
+    },
+    {
+     "book": "analog-electronics",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Differential and Multistage Amplifiers",
+     "idx": 8,
+     "title": "A Common-Emitter Amplifier"
+    },
+    {
+     "book": "analog-electronics",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Differential and Multistage Amplifiers",
+     "idx": 9,
+     "title": "A Common-Emitter Amplifier with"
+    },
+    {
+     "book": "analog-electronics",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Differential and Multistage Amplifiers",
+     "idx": 10,
+     "title": "Small-Signal Operation of Current 9.2.2 Input Common-Mode Range"
+    },
+    {
+     "book": "analog-electronics",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Differential and Multistage Amplifiers",
+     "idx": 11,
+     "title": "The CS and CE Amplifiers with 9.3 Common-Mode Rejection"
+    },
+    {
+     "book": "analog-electronics",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Differential and Multistage Amplifiers",
+     "idx": 14,
+     "title": "The BJT Cascode 547 9.5.5 Common-Mode Gain and CMRR"
+    },
+    {
+     "book": "analog-electronics",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Differential and Multistage Amplifiers",
+     "idx": 22,
+     "title": "Use of Input Emitter Followers"
+    },
+    {
+     "book": "analog-electronics",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Differential and Multistage Amplifiers",
+     "idx": 26,
+     "title": "The common-emitter amplifier revisited"
+    },
+    {
+     "book": "analog-electronics",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Differential and Multistage Amplifiers",
+     "idx": 27,
+     "title": "Biasing the common-emitter amplifier"
+    },
+    {
+     "book": "analog-electronics",
+     "discipline": "engineering",
+     "chapter": 4,
+     "chapterTitle": "The Operational Amplifier",
+     "idx": 14,
+     "title": "The Emitter-Follower Case 730 Amplifiers"
+    },
+    {
+     "book": "analytical-chemistry",
+     "discipline": "chemistry",
+     "chapter": 3,
+     "chapterTitle": "The Titrimetric Families",
+     "idx": 0,
+     "title": "Acid-Base Curves"
+    },
+    {
+     "book": "circuit-theory-and-network-analysis",
+     "discipline": "engineering",
+     "chapter": 9,
+     "chapterTitle": "Two-Port Networks",
+     "idx": 10,
+     "title": "Stopband (or bandstop) filters 382 20.9 Common-base and common-emitter circuits"
+    },
+    {
+     "book": "circuit-theory-and-network-analysis",
+     "discipline": "engineering",
+     "chapter": 9,
+     "chapterTitle": "Two-Port Networks",
+     "idx": 11,
+     "title": "2-port Networks 388 20.11 Static characteristics for a common-emitter circuit"
+    },
+    {
+     "book": "control-systems",
+     "discipline": "engineering",
+     "chapter": 4,
+     "chapterTitle": "Transient and Steady-State Analysis",
+     "idx": 6,
+     "title": "Investigating Stability 855 13.1.4 Common-Mode Rejection Ratio"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 43,
+     "title": "Appendix B Problem-Solving Strategy: Dimensional"
+    },
+    {
+     "book": "electronic-devices-and-circuits",
+     "discipline": "engineering",
+     "chapter": 5,
+     "chapterTitle": "The Bipolar Junction Transistor",
+     "idx": 9,
+     "title": "Bode plots 382 20.10 Static characteristics for a common-base circuit"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 6,
+     "chapterTitle": "Electronics for Physicists",
+     "idx": 5,
+     "title": "Transistor as a Common Base Amplifier"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 6,
+     "chapterTitle": "Electronics for Physicists",
+     "idx": 6,
+     "title": "N-p-n Transistor as a Common Base Amplifier"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 6,
+     "chapterTitle": "Electronics for Physicists",
+     "idx": 7,
+     "title": "N-p-n Transistor as a Common Emitter Amplifier"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 3,
+     "chapterTitle": "The Chemistry Preview",
+     "idx": 9,
+     "title": "Weak Acids and Bases Have Characteristic"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Matter and Its Purity",
+     "idx": 27,
+     "title": "Trends in Acidic and Basic Properties Based on Arrhenius and Bronsted–Lowry Concepts"
+    },
+    {
+     "book": "foundation-physics",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Force and Newton’s Laws",
+     "idx": 15,
+     "title": "Common Emitter Amplifier"
+    },
+    {
+     "book": "heat-transfer",
+     "discipline": "engineering",
+     "chapter": 1,
+     "chapterTitle": "The Three Modes",
+     "idx": 6,
+     "title": "Input Common-Mode Range and"
+    },
+    {
+     "book": "heat-transfer",
+     "discipline": "engineering",
+     "chapter": 1,
+     "chapterTitle": "The Three Modes",
+     "idx": 8,
+     "title": "Transfer Characteristic 890 Mode Range: Rail-to-Rail Input"
+    },
+    {
+     "book": "industrial-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Acid-and-Alkali Industries",
+     "idx": 5,
+     "title": "Bronsted–Lowry Acids and Bases"
+    },
+    {
+     "book": "industrial-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Acid-and-Alkali Industries",
+     "idx": 29,
+     "title": "Mixing of Strong Acids and Strong Bases"
+    },
+    {
+     "book": "industrial-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Acid-and-Alkali Industries",
+     "idx": 30,
+     "title": "The Brönsted–Lowry Acids and Bases"
+    },
+    {
+     "book": "industrial-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Acid-and-Alkali Industries",
+     "idx": 32,
+     "title": "Calculation of pH of Extremely Dilute (<10⁻⁶ M) Solution of Strong Acids and Strong Bases"
+    },
+    {
+     "book": "industrial-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Acid-and-Alkali Industries",
+     "idx": 33,
+     "title": "DI- and Polybasic Acids and DI- and Polyacidic Bases"
+    },
+    {
+     "book": "industrial-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Acid-and-Alkali Industries",
+     "idx": 34,
+     "title": "Change in pH of an Acidic Buffer (When an Acid or a Base is Added)"
+    },
+    {
+     "book": "industrial-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Acid-and-Alkali Industries",
+     "idx": 35,
+     "title": "Calculation of Degree of Hydrolysis (h), Hydrolysis Constant (Kh), and pH of a Salt (ZnCl₂) of Weak Diacidic Base (Zn(OH)₂ and Monobasic Acid (HCl)"
+    },
+    {
+     "book": "industrial-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Acid-and-Alkali Industries",
+     "idx": 39,
+     "title": "Catalysis 494 14.12 Strategy for Solving Acid–Base Problems: A Summary"
+    },
+    {
+     "book": "industrial-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Acid-and-Alkali Industries",
+     "idx": 46,
+     "title": "Sp3 Hybridization 25 3.6 \u0007The Strength of Brønsted–Lowry Acids and Bases"
+    },
+    {
+     "book": "industrial-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Acid-and-Alkali Industries",
+     "idx": 47,
+     "title": "Hybridization 26 3.7 \u0007HOW TO Predict the Outcome of Acid–Base"
+    },
+    {
+     "book": "molecular-biology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The DNA Structure",
+     "idx": 10,
+     "title": "From Their Surroundings 20 and Weak Bases"
+    },
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 5,
+     "chapterTitle": "The Halides and the SN Craft",
+     "idx": 8,
+     "title": "Elimination: E1 and E2 reactions at sp3 carbon centers, stereochemistry, acid-base catalysis, common leaving groups"
+    },
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 7,
+     "chapterTitle": "The Carbonyl Register",
+     "idx": 6,
+     "title": "Nucleophilic addition: addition to carbon-carbon and carbon-heteroatom double and triple bonds, addition-elimination reactions, acid-base catalysis"
+    },
+    {
+     "book": "physical-chemistry",
+     "discipline": "chemistry",
+     "chapter": 4,
+     "chapterTitle": "Ionic Equilibria",
+     "idx": 11,
+     "title": "Buffer Action of Acidic Buffer"
+    },
+    {
+     "book": "physical-chemistry",
+     "discipline": "chemistry",
+     "chapter": 6,
+     "chapterTitle": "Chemical Kinetics (the fold)",
+     "idx": 56,
+     "title": "Bronsted–Lowry theory"
+    },
+    {
+     "book": "strength-of-materials",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Strain and the Elastic Constants",
+     "idx": 5,
+     "title": "Semiconductor Materials 419 20.34 Common-mode rejection ratio"
+    },
+    {
+     "book": "strength-of-materials",
+     "discipline": "engineering",
+     "chapter": 5,
+     "chapterTitle": "Shear Force and Bending Moment Diagrams",
+     "idx": 5,
+     "title": "Input Common-Mode Range and Functions"
+    },
+    {
+     "book": "strength-of-materials",
+     "discipline": "engineering",
+     "chapter": 6,
+     "chapterTitle": "Bending Stresses in Beams",
+     "idx": 7,
+     "title": "A Common-Base (CB)"
+    },
+    {
+     "book": "strength-of-materials",
+     "discipline": "engineering",
+     "chapter": 6,
+     "chapterTitle": "Bending Stresses in Beams",
+     "idx": 9,
+     "title": "Common-mode rejection"
+    },
+    {
+     "book": "theory-of-machines",
+     "discipline": "engineering",
+     "chapter": 1,
+     "chapterTitle": "Mechanisms and Inversion",
+     "idx": 5,
+     "title": "Emitter Characteristics"
+    },
+    {
+     "book": "theory-of-machines",
+     "discipline": "engineering",
+     "chapter": 4,
+     "chapterTitle": "Cams and Followers",
+     "idx": 3,
+     "title": "The Source and Emitter Followers"
+    },
+    {
+     "book": "theory-of-machines",
+     "discipline": "engineering",
+     "chapter": 4,
+     "chapterTitle": "Cams and Followers",
+     "idx": 4,
+     "title": "An Emitter Follower"
+    },
+    {
+     "book": "theory-of-machines",
+     "discipline": "engineering",
+     "chapter": 4,
+     "chapterTitle": "Cams and Followers",
+     "idx": 7,
+     "title": "Emitter follower"
+    },
+    {
+     "book": "theory-of-machines",
+     "discipline": "engineering",
+     "chapter": 4,
+     "chapterTitle": "Cams and Followers",
+     "idx": 8,
+     "title": "Emitter follower biasing"
+    },
+    {
+     "book": "theory-of-machines",
+     "discipline": "engineering",
+     "chapter": 4,
+     "chapterTitle": "Cams and Followers",
+     "idx": 9,
+     "title": "The emitter follower revisited"
+    },
+    {
+     "book": "theory-of-machines",
+     "discipline": "engineering",
+     "chapter": 4,
+     "chapterTitle": "Cams and Followers",
+     "idx": 10,
+     "title": "Source followers"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Laboratory skills expected to be known by all participants (heating and reflux, mass and volume measurement, preparation and dilution of solutions, titrations, pH measurement, filtration, drying of precipitates, instrument operation, graphing and analysis of experimental data)",
+   "members": [
+    {
+     "book": "analytical-chemistry",
+     "discipline": "chemistry",
+     "chapter": 8,
+     "chapterTitle": "The Analytical Doorway",
+     "idx": 4,
+     "title": "Laboratory skills expected to be known by all participants (heating and reflux, mass and volume measurement, preparation and dilution of solutions, titrations, pH measurement, filtration, drying of precipitates, instrument operation, graphing and analysis of experimental data)"
+    },
+    {
+     "book": "biotechnology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Natural Toolbox",
+     "idx": 2,
+     "title": "The Heat-Proof Polymerase Earned"
+    },
+    {
+     "book": "electronic-devices-and-circuits",
+     "discipline": "engineering",
+     "chapter": 9,
+     "chapterTitle": "Power Supplies and the Doorstep",
+     "idx": 1,
+     "title": "Figures of Merit Priced"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "Measurement and Uncertainty",
+     "idx": 4,
+     "title": "Experimental Skills"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 2,
+     "chapterTitle": "The Instruments of the Lab",
+     "idx": 6,
+     "title": "Experimental Skills: Vernier calipers — its use to measure the internal and external diameter and depth of a vessel"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 2,
+     "chapterTitle": "The Instruments of the Lab",
+     "idx": 7,
+     "title": "Experimental Skills: Screw gauge — its use to determine the thickness/diameter of thin sheet/wire"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 2,
+     "chapterTitle": "The Instruments of the Lab",
+     "idx": 8,
+     "title": "Experimental Skills: Screw gauge — its use to determine thickness/diameter of thin sheet/wire"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 3,
+     "chapterTitle": "Mechanics and Properties Practicals",
+     "idx": 6,
+     "title": "Experimental Skills: Speed of sound in air at room temperature using a resonance tube"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Heat and Optics Practicals",
+     "idx": 2,
+     "title": "Refractive-Index Craft"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Heat and Optics Practicals",
+     "idx": 5,
+     "title": "Experimental Skills: The plot of the angle of deviation vs angle of incidence for a triangular prism"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Heat and Optics Practicals",
+     "idx": 6,
+     "title": "Experimental Skills: The refractive index of a glass slab using a travelling microscope"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Heat and Optics Practicals",
+     "idx": 7,
+     "title": "Experimental Skills: Refractive index of a glass slab using a travelling microscope"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 5,
+     "chapterTitle": "Electricity and Magnetism Practicals",
+     "idx": 5,
+     "title": "Experimental Skills: The resistivity of the material of a given wire using a metre bridge"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 5,
+     "chapterTitle": "Electricity and Magnetism Practicals",
+     "idx": 6,
+     "title": "Experimental Skills: The resistance of a given wire using Ohm's law"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 5,
+     "chapterTitle": "Electricity and Magnetism Practicals",
+     "idx": 7,
+     "title": "Experimental Skills: Resistance and figure of merit of a galvanometer by half deflection method"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 6,
+     "chapterTitle": "Electronics for Physicists",
+     "idx": 4,
+     "title": "Experimental Skills: Identification of diode, LED, resistor, a capacitor from a mixed collection of such items"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 14,
+     "title": "Energy, heat and work, enthalpy and energy, heat capacity, Hess's law, Born-Haber cycle, standard formation enthalpies, solution, solvation and bond enthalpies"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 158,
+     "title": "Enthalpy of Combustion or Heat of Combustion (ΔcombH°)"
+    },
+    {
+     "book": "foundation-physics",
+     "discipline": "physics",
+     "chapter": 5,
+     "chapterTitle": "Gravitation at First Pass",
+     "idx": 4,
+     "title": "Experimental Skills: Metre scale — the mass of a given object by the principle of moments"
+    },
+    {
+     "book": "mechanics",
+     "discipline": "physics",
+     "chapter": 6,
+     "chapterTitle": "Momentum and Collisions",
+     "idx": 3,
+     "title": "Centre of Mass Craft"
+    },
+    {
+     "book": "mechanics",
+     "discipline": "physics",
+     "chapter": 6,
+     "chapterTitle": "Momentum and Collisions",
+     "idx": 5,
+     "title": "Centre of Mass of a Semicircular Disc"
+    },
+    {
+     "book": "mechanics",
+     "discipline": "physics",
+     "chapter": 10,
+     "chapterTitle": "Fluid Dynamics",
+     "idx": 3,
+     "title": "Terminal Velocity Taster"
+    },
+    {
+     "book": "multivariable-calculus",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "Multiple Integrals",
+     "idx": 2,
+     "title": "Mass, Centres and Moments"
+    },
+    {
+     "book": "optics",
+     "discipline": "physics",
+     "chapter": 10,
+     "chapterTitle": "The Optics Laboratory",
+     "idx": 1,
+     "title": "Refractive-Index Craft"
+    },
+    {
+     "book": "particle-physics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Standard Model Census",
+     "idx": 6,
+     "title": "Note: The remaining pages supplied are chapter body pages (p. 1.1 System of Particles and Centre of Mass; p. 1.2 Illustrations 1.1–1.2; p. 1.3 Centre of Mass of a Uniform Rod / Semicircular Ring / Semicircular Disc; p. 1.4 Illustrations 1.3–1.4; p. 1.5 Illustrations 1.5–1.6 and Concept Application"
+    },
+    {
+     "book": "properties-of-matter",
+     "discipline": "physics",
+     "chapter": 3,
+     "chapterTitle": "The Moduli and Elastic Energy",
+     "idx": 5,
+     "title": "Experimental Skills: Young's modulus of elasticity of the material of a metallic wire"
+    },
+    {
+     "book": "properties-of-matter",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Viscosity and Streamline Flow",
+     "idx": 3,
+     "title": "Terminal Velocity Worked"
+    },
+    {
+     "book": "properties-of-matter",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Viscosity and Streamline Flow",
+     "idx": 4,
+     "title": "Experimental Skills: Co-efficient of viscosity of a given viscous liquid by measuring the terminal velocity of a given spherical body"
+    },
+    {
+     "book": "solid-state-physics",
+     "discipline": "physics",
+     "chapter": 2,
+     "chapterTitle": "The Reciprocal Lattice and Diffraction",
+     "idx": 4,
+     "title": "Experimental Skills: Specific heat capacity of a given solid and liquid by method of mixtures"
+    },
+    {
+     "book": "statistical-mechanics",
+     "discipline": "physics",
+     "chapter": 5,
+     "chapterTitle": "The Fermi Gas Applications",
+     "idx": 1,
+     "title": "The Specific Heat Proof"
+    },
+    {
+     "book": "thermodynamics",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "The First Law for Closed Systems",
+     "idx": 2,
+     "title": "Specific Heats and Enthalpy"
+    },
+    {
+     "book": "waves-and-oscillations",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "Simple Harmonic Motion: Foundations",
+     "idx": 4,
+     "title": "Experimental Skills: Simple pendulum — dissipation of energy by plotting a graph between the square of amplitude and time"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Media’s Political Economy",
+   "members": [
+    {
+     "book": "cultural-studies",
+     "discipline": "humanities",
+     "chapter": 3,
+     "chapterTitle": "Ideology and Power",
+     "idx": 3,
+     "title": "The Media’s Political Economy"
+    },
+    {
+     "book": "development-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Meaning and the Measure",
+     "idx": 5,
+     "title": "Indian Economic Development: Current Challenges facing the Indian Economy"
+    },
+    {
+     "book": "development-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Meaning and the Measure",
+     "idx": 6,
+     "title": "Indian Economic Development: Current Challenges facing Indian Economy"
+    },
+    {
+     "book": "development-economics",
+     "discipline": "economics-commerce",
+     "chapter": 2,
+     "chapterTitle": "Growth Theory and Poverty Traps",
+     "idx": 5,
+     "title": "Employment: Growth, Informalisation and Issues"
+    },
+    {
+     "book": "environmental-studies",
+     "discipline": "humanities",
+     "chapter": 2,
+     "chapterTitle": "The Natural Resources",
+     "idx": 4,
+     "title": "Social Justice - government policies and interventions for development; development processes and the role of NGOs, SHGs, donors and other stakeholders; welfare schemes for vulnerable sections; social sector services relating to health, education and human resources; poverty and hunger"
+    },
+    {
+     "book": "environmental-studies",
+     "discipline": "humanities",
+     "chapter": 7,
+     "chapterTitle": "Human Population and the Environment",
+     "idx": 2,
+     "title": "The Health and the Disease Ladder"
+    },
+    {
+     "book": "geography",
+     "discipline": "humanities",
+     "chapter": 9,
+     "chapterTitle": "The Economic Geography",
+     "idx": 3,
+     "title": "The Resources and the Development Question"
+    },
+    {
+     "book": "geography",
+     "discipline": "humanities",
+     "chapter": 11,
+     "chapterTitle": "India: The Human and Economic Register",
+     "idx": 4,
+     "title": "Indian Economy and Economic Development - issues relating to planning, mobilisation of resources, growth, development and employment; inclusive growth; government budgeting; effects of liberalisation on the economy; infrastructure (energy, ports, roads, airports, railways); investment models"
+    },
+    {
+     "book": "immunology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Innate Register",
+     "idx": 5,
+     "title": "Human Health and Disease"
+    },
+    {
+     "book": "international-relations",
+     "discipline": "humanities",
+     "chapter": 6,
+     "chapterTitle": "The Global Political Economy",
+     "idx": 2,
+     "title": "Development’s Political Economy"
+    },
+    {
+     "book": "international-relations",
+     "discipline": "humanities",
+     "chapter": 7,
+     "chapterTitle": "The Environment and Human Security",
+     "idx": 2,
+     "title": "Health and Human Security"
+    },
+    {
+     "book": "medical-microbiology",
+     "discipline": "medical-sciences",
+     "chapter": 1,
+     "chapterTitle": "The Host-Pathogen-and-Laboratory Craft",
+     "idx": 6,
+     "title": "Human Diseases Caused by Viruses, Bacteria and Fungi"
+    },
+    {
+     "book": "medical-microbiology",
+     "discipline": "medical-sciences",
+     "chapter": 7,
+     "chapterTitle": "The Infection-Control-and-Public Register",
+     "idx": 4,
+     "title": "The Human Disease Census: Malaria to Chikungunya"
+    },
+    {
+     "book": "philosophy",
+     "discipline": "humanities",
+     "chapter": 9,
+     "chapterTitle": "The Socio-Political Philosophy",
+     "idx": 0,
+     "title": "Equality and Justice"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 1,
+     "chapterTitle": "What Is Politics?",
+     "idx": 4,
+     "title": "Paper-I 4. Political Organization and Social Control (band, tribe, chiefdom, kingdom and state; power, authority and legitimacy; law and justice in simple societies)"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 2,
+     "chapterTitle": "The Concepts of Political Theory",
+     "idx": 1,
+     "title": "Equality and Social Justice"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 3,
+     "chapterTitle": "Ideologies and the Political Economy",
+     "idx": 3,
+     "title": "The Political Economy and Globalisation"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 8,
+     "chapterTitle": "Identity Politics in India",
+     "idx": 4,
+     "title": "Paper-II 9. History of Administration of Tribal Areas, Tribal Policies and Programmes of Tribal Development (concept of PTGs; role of NGOs; role of anthropology in tribal and rural development; contributions to the understanding of regionalism, communalism and ethnic and political movements)"
+    },
+    {
+     "book": "public-administration",
+     "discipline": "humanities",
+     "chapter": 8,
+     "chapterTitle": "Policy and Implementation",
+     "idx": 4,
+     "title": "Government Policies, Interventions and the Development Industry"
+    },
+    {
+     "book": "public-administration",
+     "discipline": "humanities",
+     "chapter": 8,
+     "chapterTitle": "Policy and Implementation",
+     "idx": 5,
+     "title": "Welfare Schemes for Vulnerable Sections: Poverty and Hunger"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Salient Features of the Animal Phyla: Non-Chordates to Chordate Classes",
+   "members": [
+    {
+     "book": "animal-diversity",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Body-Plan Craft",
+     "idx": 4,
+     "title": "The Salient Features of the Animal Phyla: Non-Chordates to Chordate Classes"
+    },
+    {
+     "book": "electrical-measurements",
+     "discipline": "engineering",
+     "chapter": 6,
+     "chapterTitle": "Potentiometers and Magnetic Measurements",
+     "idx": 2,
+     "title": "Hysteresis Loops Traced"
+    },
+    {
+     "book": "electricity-and-magnetism",
+     "discipline": "physics",
+     "chapter": 8,
+     "chapterTitle": "Magnetic Materials and the Earth",
+     "idx": 9,
+     "title": "Salient Features of Hysteresis Loop"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 6,
+     "chapterTitle": "Unity and Diversity",
+     "idx": 4,
+     "title": "The Monera, Protista and Fungi: Salient Features and Classification"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Matter and Its Purity",
+     "idx": 169,
+     "title": "Salient Features"
+    },
+    {
+     "book": "javascript-and-web-technologies",
+     "discipline": "computer-science",
+     "chapter": 5,
+     "chapterTitle": "Asynchronous JavaScript",
+     "idx": 0,
+     "title": "The Event Loop Traced"
+    },
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Structure and Nomenclature",
+     "idx": 16,
+     "title": "Salient Features of Hybridisation"
+    },
+    {
+     "book": "plant-taxonomy",
+     "discipline": "biology",
+     "chapter": 4,
+     "chapterTitle": "The Algal Line",
+     "idx": 4,
+     "title": "The Salient-Features Register: Algae, Bryophytes, Pteridophytes and Gymnosperms"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 6,
+     "chapterTitle": "The Indian Constitution",
+     "idx": 0,
+     "title": "The Making and the Salient Features"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Inquiry 2: Collecting and processing data",
+   "members": [
+    {
+     "book": "astrophysics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Celestial Sphere and the Observation Craft",
+     "idx": 4,
+     "title": "Inquiry 2: Collecting and processing data"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 2,
+     "chapterTitle": "How Biologists Know",
+     "idx": 4,
+     "title": "Inquiry 1: Exploring and designing in biology"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 2,
+     "chapterTitle": "How Biologists Know",
+     "idx": 5,
+     "title": "Inquiry 2: Collecting and processing data in biology"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 2,
+     "chapterTitle": "How Biologists Know",
+     "idx": 6,
+     "title": "Inquiry 3: Concluding and evaluating in biology"
+    },
+    {
+     "book": "foundation-physics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "What Physics Measures",
+     "idx": 4,
+     "title": "Inquiry 1: Exploring and designing"
+    },
+    {
+     "book": "foundation-physics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "What Physics Measures",
+     "idx": 5,
+     "title": "Inquiry 3: Concluding and evaluating"
+    },
+    {
+     "book": "industrial-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Acid-and-Alkali Industries",
+     "idx": 4,
+     "title": "Inquiry process (Inquiry 1 exploring and designing, Inquiry 2 collecting and processing data, Inquiry 3 concluding and evaluating)"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Features but Differ in Important Ways 5 The First Cell Probably Used Inorganic Fuels",
+   "members": [
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 6,
+     "chapterTitle": "Unity and Diversity",
+     "idx": 7,
+     "title": "Features but Differ in Important Ways 5 The First Cell Probably Used Inorganic Fuels"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Matter and Its Purity",
+     "idx": 365,
+     "title": "Features of solids"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 154,
+     "title": "Important Features of Enthalpy"
+    },
+    {
+     "book": "industrial-chemistry",
+     "discipline": "chemistry",
+     "chapter": 7,
+     "chapterTitle": "The Fuels-and-Energy Register",
+     "idx": 1,
+     "title": "The Fuel-Cell Register"
+    },
+    {
+     "book": "physical-chemistry",
+     "discipline": "chemistry",
+     "chapter": 5,
+     "chapterTitle": "Electrochemistry (the fold)",
+     "idx": 4,
+     "title": "Batteries, Fuel Cells and Corrosion"
+    },
+    {
+     "book": "physical-chemistry",
+     "discipline": "chemistry",
+     "chapter": 6,
+     "chapterTitle": "Chemical Kinetics (the fold)",
+     "idx": 44,
+     "title": "Important Features of Solid Catalysts (Heterogeneous Catalyst)"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Village India’s Tradition",
+   "members": [
+    {
+     "book": "anthropology",
+     "discipline": "humanities",
+     "chapter": 9,
+     "chapterTitle": "The Indian Anthropology",
+     "idx": 3,
+     "title": "The Village India’s Tradition"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 4,
+     "chapterTitle": "The Cell Preview",
+     "idx": 4,
+     "title": "Historical Perspective"
+    },
+    {
+     "book": "music-composition",
+     "discipline": "arts-music",
+     "chapter": 2,
+     "chapterTitle": "The Small Forms",
+     "idx": 6,
+     "title": "Applied Theory (ragas, talas, kirtana, baul); historical perspective of music (Tagore and eminent personalities); composition forms and their evolution (Geetanjali and song offerings); music instruments of India; contribution of scholars/performers and their textual traditions; gharana and"
+    },
+    {
+     "book": "music-theory-notation",
+     "discipline": "arts-music",
+     "chapter": 4,
+     "chapterTitle": "The Interval Craft",
+     "idx": 4,
+     "title": "Historical perspective of music — contributions of scholars, musicologists, musical concepts in treatises"
+    },
+    {
+     "book": "sociology",
+     "discipline": "humanities",
+     "chapter": 9,
+     "chapterTitle": "The Indian Social Structure",
+     "idx": 5,
+     "title": "Paper-II 5. Indian Village, Minorities and Socio-Cultural Change (Indian village as a social system; agrarian relations; impact of globalisation on villages; linguistic and religious minorities; Sanskritization, Westernization, Modernization; inter-play of little and great traditions; Panchayati"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Calcium Trigger Walked Slowly",
+   "members": [
+    {
+     "book": "animal-physiology",
+     "discipline": "biology",
+     "chapter": 2,
+     "chapterTitle": "The Muscle’s Contraction Craft",
+     "idx": 1,
+     "title": "The Calcium Trigger Walked Slowly"
+    },
+    {
+     "book": "biotechnology",
+     "discipline": "biology",
+     "chapter": 2,
+     "chapterTitle": "Vectors and Cloning",
+     "idx": 3,
+     "title": "A Clone Walked Slowly"
+    },
+    {
+     "book": "medical-physiology",
+     "discipline": "medical-sciences",
+     "chapter": 2,
+     "chapterTitle": "The Excitable Tissues",
+     "idx": 2,
+     "title": "The Coupling Cycle Walked Slowly"
+    },
+    {
+     "book": "molecular-biology",
+     "discipline": "biology",
+     "chapter": 4,
+     "chapterTitle": "Translation — the Code Read",
+     "idx": 3,
+     "title": "The Three Sites Walked Slowly"
+    },
+    {
+     "book": "rhythm-meter",
+     "discipline": "arts-music",
+     "chapter": 4,
+     "chapterTitle": "The Tuplets and the Polyrhythm",
+     "idx": 1,
+     "title": "The 3-against-4 Walked Slowly"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Chemical Coordination and Integration",
+   "members": [
+    {
+     "book": "animal-physiology",
+     "discipline": "biology",
+     "chapter": 3,
+     "chapterTitle": "The Endocrine Register",
+     "idx": 5,
+     "title": "Chemical Coordination and Integration"
+    },
+    {
+     "book": "backend-engineering",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 2,
+     "title": "The Doorsteps: Coordination, Platform, Integration"
+    },
+    {
+     "book": "full-stack-web-development",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Capstone Build",
+     "idx": 2,
+     "title": "The Doorsteps: Platform and Coordination"
+    },
+    {
+     "book": "physical-chemistry",
+     "discipline": "chemistry",
+     "chapter": 12,
+     "chapterTitle": "The Physical Doorway",
+     "idx": 9,
+     "title": "Of physical and chemical data, and a set of character tables. 1.1 Integration"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Green Revolution Ledger",
+   "members": [
+    {
+     "book": "development-economics",
+     "discipline": "economics-commerce",
+     "chapter": 6,
+     "chapterTitle": "Agriculture and Rural Transformation",
+     "idx": 1,
+     "title": "The Green Revolution Ledger"
+    },
+    {
+     "book": "geography",
+     "discipline": "humanities",
+     "chapter": 11,
+     "chapterTitle": "India: The Human and Economic Register",
+     "idx": 5,
+     "title": "Planning and Economic Development - Nehruvian and Gandhian perspectives; role of planning and the public sector; Green Revolution, land reforms and agrarian relations; liberalisation and economic reforms"
+    },
+    {
+     "book": "indian-history",
+     "discipline": "humanities",
+     "chapter": 11,
+     "chapterTitle": "Post-Independence India",
+     "idx": 1,
+     "title": "The Planned Economy and the Green Revolution"
+    },
+    {
+     "book": "plant-genetics",
+     "discipline": "biology",
+     "chapter": 5,
+     "chapterTitle": "The Breeding Register — the Self-and-Cross Crafts",
+     "idx": 3,
+     "title": "The Objective Dial and the Green Revolution’s Honesty"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Put the verb into the correct form, positive (I’m doing etc.) or negative (I’m not doing etc.)",
+   "members": [
+    {
+     "book": "french",
+     "discipline": "languages",
+     "chapter": 3,
+     "chapterTitle": "The Verb Engine",
+     "idx": 13,
+     "title": "Put the verb into the correct form, positive (I’m doing etc.) or negative (I’m not doing etc.)"
+    },
+    {
+     "book": "physical-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "Thermodynamics Advanced (the fold)",
+     "idx": 7,
+     "title": "Rules for Assigning Positive or Negative Sign to Electrode Potentials"
+    },
+    {
+     "book": "plant-physiology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Water Relations",
+     "idx": 0,
+     "title": "The Potential Engine and Its Signs"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 2,
+     "chapterTitle": "The Concepts of Political Theory",
+     "idx": 0,
+     "title": "Freedom: Negative and Positive"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "IUPAC Rules for Chain Terminating Functional Groups (—CHO, —COOH, —CONH2, —COCl, —C≡N)",
+   "members": [
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 5,
+     "chapterTitle": "The Halides and the SN Craft",
+     "idx": 13,
+     "title": "IUPAC Rules for Chain Terminating Functional Groups (—CHO, —COOH, —CONH2, —COCl, —C≡N)"
+    },
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 11,
+     "chapterTitle": "The Synthetic and Practical Doorway",
+     "idx": 12,
+     "title": "Oxidations and reductions: switching between the different oxidation levels of common functional groups"
+    },
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 11,
+     "chapterTitle": "The Synthetic and Practical Doorway",
+     "idx": 14,
+     "title": "Poly-Functional Compounds Containing More than Two Like-Functional Groups"
+    },
+    {
+     "book": "plant-genetics",
+     "discipline": "biology",
+     "chapter": 5,
+     "chapterTitle": "The Breeding Register — the Self-and-Cross Crafts",
+     "idx": 4,
+     "title": "With a Variety of Functional Groups"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Pentose Phosphate Pathway and Gluconeogenesis",
+   "members": [
+    {
+     "book": "biochemistry",
+     "discipline": "chemistry",
+     "chapter": 8,
+     "chapterTitle": "The Carbohydrate Metabolism",
+     "idx": 5,
+     "title": "The Pentose Phosphate Pathway and Gluconeogenesis"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "What Life Is",
+     "idx": 27,
+     "title": "Madison, Wisconsin"
+    },
+    {
+     "book": "microbiology",
+     "discipline": "biology",
+     "chapter": 3,
+     "chapterTitle": "Growth and the Metabolic Diversity",
+     "idx": 10,
+     "title": "Of Wisconsin-Madison, who helped us with advice and 19 Oxidative Phosphorylation"
+    },
+    {
+     "book": "molecular-biology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The DNA Structure",
+     "idx": 8,
+     "title": "University of Wisconsin-Madison for their numerous the Pentose Phosphate Pathway"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Chemotherapy/Antibiotics",
+   "members": [
+    {
+     "book": "evolution",
+     "discipline": "biology",
+     "chapter": 2,
+     "chapterTitle": "Variation and Selection",
+     "idx": 6,
+     "title": "Chemotherapy/Antibiotics"
+    },
+    {
+     "book": "medical-microbiology",
+     "discipline": "medical-sciences",
+     "chapter": 1,
+     "chapterTitle": "The Host-Pathogen-and-Laboratory Craft",
+     "idx": 5,
+     "title": "Chemotherapy and the Antibiotic Classes"
+    },
+    {
+     "book": "microbiology",
+     "discipline": "biology",
+     "chapter": 8,
+     "chapterTitle": "The Control Craft and the Resistance Era",
+     "idx": 1,
+     "title": "The Antibiotic Arc and the Classes’ Targets"
+    },
+    {
+     "book": "pharmacology",
+     "discipline": "medical-sciences",
+     "chapter": 5,
+     "chapterTitle": "The Endocrine, Metabolic-and-Chemotherapy Registers",
+     "idx": 2,
+     "title": "The Target Census by Its Classes"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Plexus Walked Once",
+   "members": [
+    {
+     "book": "anatomy",
+     "discipline": "medical-sciences",
+     "chapter": 2,
+     "chapterTitle": "The Upper Limb",
+     "idx": 0,
+     "title": "The Plexus Walked Once"
+    },
+    {
+     "book": "animal-anatomy",
+     "discipline": "biology",
+     "chapter": 7,
+     "chapterTitle": "The Comparative Register and the Doorway",
+     "idx": 1,
+     "title": "The Systems’ Arc Walked Once"
+    },
+    {
+     "book": "nursing",
+     "discipline": "medical-sciences",
+     "chapter": 5,
+     "chapterTitle": "The Community, Leadership-and-Process Registers",
+     "idx": 3,
+     "title": "The ADPIE Arc Walked Once"
+    },
+    {
+     "book": "obstetrics-gynaecology",
+     "discipline": "medical-sciences",
+     "chapter": 2,
+     "chapterTitle": "The Labour-and-Delivery Register",
+     "idx": 1,
+     "title": "The Movements Walked Once"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Dynamic Allocation’s Diseases",
+   "members": [
+    {
+     "book": "c-programming",
+     "discipline": "computer-science",
+     "chapter": 4,
+     "chapterTitle": "Pointers and Arrays",
+     "idx": 2,
+     "title": "Dynamic Allocation’s Diseases"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "What Life Is",
+     "idx": 30,
+     "title": "Cytoskeleton and Is Highly Dynamic 6 Functional Genomics Shows the Allocations"
+    },
+    {
+     "book": "operating-systems",
+     "discipline": "computer-science",
+     "chapter": 6,
+     "chapterTitle": "Memory Management",
+     "idx": 0,
+     "title": "Contiguous Allocation and Its Disease"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Optical Activity",
+   "members": [
+    {
+     "book": "optics",
+     "discipline": "physics",
+     "chapter": 8,
+     "chapterTitle": "Polarisation",
+     "idx": 3,
+     "title": "Optical Activity"
+    },
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Structure and Nomenclature",
+     "idx": 13,
+     "title": "Stereochemistry (E/Z, cis/trans isomers, chirality, optical activity, Cahn-Ingold-Prelog system, Fischer projections, D/L); cyclohexane conformations"
+    },
+    {
+     "book": "plant-physiology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Water Relations",
+     "idx": 6,
+     "title": "•=Mlf) Louis Pasteur and Optical Activity: Nonpolar Gases Are Poorly Soluble in Water"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Career Map",
+   "members": [
+    {
+     "book": "banking",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "The Banking Doorway",
+     "idx": 3,
+     "title": "The Career Map"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 8,
+     "chapterTitle": "The Biologist’s Craft",
+     "idx": 3,
+     "title": "The Career Map"
+    },
+    {
+     "book": "operations-management",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "The Operations Doorway",
+     "idx": 3,
+     "title": "The Career Map"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Brief Contents (units and chapters, printed order)",
+   "members": [
+    {
+     "book": "cell-biology",
+     "discipline": "biology",
+     "chapter": 5,
+     "chapterTitle": "The Energy Organelles",
+     "idx": 4,
+     "title": "Brief Contents (units and chapters, printed order)"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 4,
+     "chapterTitle": "The Cell Preview",
+     "idx": 8,
+     "title": "Publisher's Brief Contents from the Internet Archive full-text scan"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Matter and Its Purity",
+     "idx": 357,
+     "title": "Vi BRIEF CONTENTS"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "S, p and d Block Elements",
+   "members": [
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "What Life Is",
+     "idx": 5,
+     "title": "S, p and d Block Elements"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 4,
+     "chapterTitle": "The Periodic Table at First Pass",
+     "idx": 1,
+     "title": "Groups and Periods"
+    },
+    {
+     "book": "inorganic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 4,
+     "chapterTitle": "The p-Block: First Families",
+     "idx": 10,
+     "title": "Prediction of Group, Period and Block of a Given Element"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Xuemin Wang, University of Missouri-St. Louis 6 Enzymes",
+   "members": [
+    {
+     "book": "cell-biology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Theory and the Tools",
+     "idx": 8,
+     "title": "Xuemin Wang, University of Missouri-St. Louis 6 Enzymes"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "What Life Is",
+     "idx": 21,
+     "title": "Yu Wang, The University of Alabama"
+    },
+    {
+     "book": "molecular-biology",
+     "discipline": "biology",
+     "chapter": 4,
+     "chapterTitle": "Translation — the Code Read",
+     "idx": 6,
+     "title": "Chris Wang, Ambrose University 5 Protein Function"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Doorway Drawn",
+   "members": [
+    {
+     "book": "ecology",
+     "discipline": "biology",
+     "chapter": 8,
+     "chapterTitle": "The Applied Craft and the Doorway",
+     "idx": 3,
+     "title": "The Doorway Drawn"
+    },
+    {
+     "book": "immunology",
+     "discipline": "biology",
+     "chapter": 8,
+     "chapterTitle": "The Techniques and the Doorway",
+     "idx": 3,
+     "title": "The Doorway Drawn"
+    },
+    {
+     "book": "plant-anatomy",
+     "discipline": "biology",
+     "chapter": 8,
+     "chapterTitle": "The Adaptive, the Anomalous and the Doorway",
+     "idx": 3,
+     "title": "The Doorway Drawn"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Lab Register and Safety",
+   "members": [
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 8,
+     "chapterTitle": "The Biologist’s Craft",
+     "idx": 1,
+     "title": "The Lab Register and Safety"
+    },
+    {
+     "book": "high-voltage-engineering",
+     "discipline": "engineering",
+     "chapter": 1,
+     "chapterTitle": "The High-Voltage World",
+     "idx": 2,
+     "title": "The Lab and Its Safety Law"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Peripheral Census",
+   "members": [
+    {
+     "book": "embedded-systems",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Embedded Hardware Design",
+     "idx": 2,
+     "title": "The Peripheral Census"
+    },
+    {
+     "book": "immunology",
+     "discipline": "biology",
+     "chapter": 5,
+     "chapterTitle": "The Regulation and Tolerance Question",
+     "idx": 2,
+     "title": "The Peripheral Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Guptas and the Golden-Age Question",
+   "members": [
+    {
+     "book": "indian-history",
+     "discipline": "humanities",
+     "chapter": 4,
+     "chapterTitle": "From the Mauryas to the Guptas",
+     "idx": 2,
+     "title": "The Guptas and the Golden-Age Question"
+    },
+    {
+     "book": "microbiology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Discovery Register",
+     "idx": 3,
+     "title": "The Golden-Age Arc"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Environmental Register",
+   "members": [
+    {
+     "book": "biotechnology",
+     "discipline": "biology",
+     "chapter": 8,
+     "chapterTitle": "The Medical and Agricultural Registers",
+     "idx": 3,
+     "title": "The Environmental Register"
+    },
+    {
+     "book": "philosophy",
+     "discipline": "humanities",
+     "chapter": 10,
+     "chapterTitle": "The Applied Close and the Doorstep",
+     "idx": 0,
+     "title": "The Environmental Register"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Environmental Craft",
+   "members": [
+    {
+     "book": "archaeology-and-heritage-studies",
+     "discipline": "humanities",
+     "chapter": 5,
+     "chapterTitle": "Reading the Record",
+     "idx": 1,
+     "title": "The Environmental Craft"
+    },
+    {
+     "book": "microbiology",
+     "discipline": "biology",
+     "chapter": 9,
+     "chapterTitle": "The Applied Register",
+     "idx": 2,
+     "title": "The Environmental Craft"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Are Stereospecific 18 van der Waals Interactions Are Weak Interatomic",
+   "members": [
+    {
+     "book": "ecology",
+     "discipline": "biology",
+     "chapter": 3,
+     "chapterTitle": "The Interaction Census",
+     "idx": 5,
+     "title": "Are Stereospecific 18 van der Waals Interactions Are Weak Interatomic"
+    },
+    {
+     "book": "heat-and-thermodynamics",
+     "discipline": "physics",
+     "chapter": 8,
+     "chapterTitle": "Real Gases and Liquefaction",
+     "idx": 1,
+     "title": "van der Waals Read"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Genetic Code Preview",
+   "members": [
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 5,
+     "chapterTitle": "The Two Engines Previewed",
+     "idx": 1,
+     "title": "The Genetic Code Preview"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Matter and Its Purity",
+     "idx": 245,
+     "title": "Heredity: the Genetic Code"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Isomerism (constitutional, configuration, conformation, tautomerism)",
+   "members": [
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Structure and Nomenclature",
+     "idx": 12,
+     "title": "Isomerism (constitutional, configuration, conformation, tautomerism)"
+    },
+    {
+     "book": "plant-physiology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Water Relations",
+     "idx": 5,
+     "title": "Configuration and Conformation 14 Solutes"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Population Attributes: Growth, Birth and Death Rates",
+   "members": [
+    {
+     "book": "ecology",
+     "discipline": "biology",
+     "chapter": 2,
+     "chapterTitle": "The Population’s Arithmetic",
+     "idx": 4,
+     "title": "Population Attributes: Growth, Birth and Death Rates"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 7,
+     "chapterTitle": "The Ecological Frame",
+     "idx": 1,
+     "title": "The Population’s Growth Logic"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Wall and the Gram Craft",
+   "members": [
+    {
+     "book": "cell-biology",
+     "discipline": "biology",
+     "chapter": 2,
+     "chapterTitle": "The Prokaryotic Architecture",
+     "idx": 1,
+     "title": "The Wall and the Gram Craft"
+    },
+    {
+     "book": "microbiology",
+     "discipline": "biology",
+     "chapter": 2,
+     "chapterTitle": "The Bacterial Architecture",
+     "idx": 0,
+     "title": "The Gram Craft and the Wall Difference"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Mutualism Census",
+   "members": [
+    {
+     "book": "ecology",
+     "discipline": "biology",
+     "chapter": 3,
+     "chapterTitle": "The Interaction Census",
+     "idx": 2,
+     "title": "The Mutualism Census"
+    },
+    {
+     "book": "microbiology",
+     "discipline": "biology",
+     "chapter": 6,
+     "chapterTitle": "The Fungal Register",
+     "idx": 1,
+     "title": "The Mutualism Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Antigen-Antibody Instrument",
+   "members": [
+    {
+     "book": "immunology",
+     "discipline": "biology",
+     "chapter": 8,
+     "chapterTitle": "The Techniques and the Doorway",
+     "idx": 0,
+     "title": "The Antigen-Antibody Instrument"
+    },
+    {
+     "book": "microbiology",
+     "discipline": "biology",
+     "chapter": 9,
+     "chapterTitle": "The Applied Register",
+     "idx": 9,
+     "title": "Antigen and Antibody Detection in Microbial Diagnosis"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Secondary-Metabolite Honesty",
+   "members": [
+    {
+     "book": "economic-botany",
+     "discipline": "biology",
+     "chapter": 5,
+     "chapterTitle": "The Medicinal Register",
+     "idx": 0,
+     "title": "The Secondary-Metabolite Honesty"
+    },
+    {
+     "book": "plant-physiology",
+     "discipline": "biology",
+     "chapter": 4,
+     "chapterTitle": "Photosynthesis — the Calvin Cycle and the Path Variants",
+     "idx": 5,
+     "title": "Plant Secondary Metabolites: Alkaloids, Terpenes and Flavonoids"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Quiet Foundation Held",
+   "members": [
+    {
+     "book": "plant-ecology",
+     "discipline": "biology",
+     "chapter": 8,
+     "chapterTitle": "The Conservation and the Doorway",
+     "idx": 3,
+     "title": "The Quiet Foundation Held"
+    },
+    {
+     "book": "plant-taxonomy",
+     "discipline": "biology",
+     "chapter": 8,
+     "chapterTitle": "The Modern Tools and the Doorway",
+     "idx": 3,
+     "title": "The Quiet Foundation Held"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Vavilov Centres Mapped",
+   "members": [
+    {
+     "book": "economic-botany",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Plant-Gift Census",
+     "idx": 2,
+     "title": "The Vavilov Centres Mapped"
+    },
+    {
+     "book": "plant-genetics",
+     "discipline": "biology",
+     "chapter": 8,
+     "chapterTitle": "The Genetic Resources and the Doorway",
+     "idx": 0,
+     "title": "The Vavilov’s Centres Priced"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Acrosome’s Lock-and-Key Receipt",
+   "members": [
+    {
+     "book": "developmental-biology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Fertilisation and the Cleavage",
+     "idx": 0,
+     "title": "The Acrosome’s Lock-and-Key Receipt"
+    },
+    {
+     "book": "plant-pathology",
+     "discipline": "biology",
+     "chapter": 7,
+     "chapterTitle": "The Host-Resistance Register",
+     "idx": 1,
+     "title": "The Flor Lock-and-Key Receipt"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Glucose Dial Held as One Arithmetic",
+   "members": [
+    {
+     "book": "animal-physiology",
+     "discipline": "biology",
+     "chapter": 3,
+     "chapterTitle": "The Endocrine Register",
+     "idx": 3,
+     "title": "The Glucose Dial Held as One Arithmetic"
+    },
+    {
+     "book": "medical-physiology",
+     "discipline": "medical-sciences",
+     "chapter": 7,
+     "chapterTitle": "The GI-and-Endocrine Systems",
+     "idx": 2,
+     "title": "The Glucose Dial with the Preview"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Internal Milieu Held as the Founding Gift",
+   "members": [
+    {
+     "book": "animal-physiology",
+     "discipline": "biology",
+     "chapter": 8,
+     "chapterTitle": "The Sensory Register and the Doorway",
+     "idx": 3,
+     "title": "The Internal Milieu Held as the Founding Gift"
+    },
+    {
+     "book": "medical-physiology",
+     "discipline": "medical-sciences",
+     "chapter": 1,
+     "chapterTitle": "The Cell and Transport Basis",
+     "idx": 0,
+     "title": "The Internal Milieu Held as the Frame"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Sexually Transmitted Diseases and Their Prevention",
+   "members": [
+    {
+     "book": "developmental-biology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Fertilisation and the Cleavage",
+     "idx": 14,
+     "title": "Sexually Transmitted Diseases and Their Prevention"
+    },
+    {
+     "book": "medical-physiology",
+     "discipline": "medical-sciences",
+     "chapter": 3,
+     "chapterTitle": "The Blood and Haemostasis",
+     "idx": 4,
+     "title": "Dermatology and Sexually Transmitted Diseases"
+    }
+   ],
+   "exact": false
+  }
+ ],
+ "misAdjudicate": [
+  {
+   "book": "foundation-biology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "What Life Is",
+   "idx": 4,
+   "title": "The Living World",
+   "ownScore": 0.5,
+   "bestBook": "molecular-biology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "molecular-biology",
+     "score": 1.0
+    },
+    {
+     "book": "plant-taxonomy",
+     "score": 1.0
+    },
+    {
+     "book": "law-and-legal-studies",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "foundation-biology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "What Life Is",
+   "idx": 25,
+   "title": "David L. Nelson",
+   "ownScore": 0.0,
+   "bestBook": "art-history",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "art-history",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 23
+  },
+  {
+   "book": "foundation-biology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "What Life Is",
+   "idx": 31,
+   "title": "Attractions",
+   "ownScore": 0.0,
+   "bestBook": "electrical-measurements",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "electrical-measurements",
+     "score": 1.0
+    },
+    {
+     "book": "surveying-and-geomatics",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 27
+  },
+  {
+   "book": "foundation-biology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "What Life Is",
+   "idx": 32,
+   "title": "Physical Foundations 19 Weak Interactions Are Crucial to",
+   "ownScore": 0.2,
+   "bestBook": "physical-chemistry",
+   "bestScore": 0.6,
+   "top3": [
+    {
+     "book": "physical-chemistry",
+     "score": 0.6
+    },
+    {
+     "book": "econometrics",
+     "score": 0.6
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.4
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 28
+  },
+  {
+   "book": "foundation-biology",
+   "discipline": "biology",
+   "chapter": 3,
+   "chapterTitle": "The Chemistry Preview",
+   "idx": 3,
+   "title": "The Handoff Map",
+   "ownScore": 0.5,
+   "bestBook": "advanced-algebra",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "advanced-algebra",
+     "score": 1.0
+    },
+    {
+     "book": "advanced-mathematical-foundations",
+     "score": 1.0
+    },
+    {
+     "book": "circuit-theory-and-network-analysis",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "foundation-biology",
+   "discipline": "biology",
+   "chapter": 4,
+   "chapterTitle": "The Cell Preview",
+   "idx": 6,
+   "title": "(Don't Try This at Home!)",
+   "ownScore": 0.25,
+   "bestBook": "transportation-engineering",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "transportation-engineering",
+     "score": 0.5
+    },
+    {
+     "book": "frontend-engineering",
+     "score": 0.5
+    },
+    {
+     "book": "philosophy",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 6
+  },
+  {
+   "book": "foundation-biology",
+   "discipline": "biology",
+   "chapter": 5,
+   "chapterTitle": "The Two Engines Previewed",
+   "idx": 2,
+   "title": "The Two Engines Meet",
+   "ownScore": 0.67,
+   "bestBook": "world-history",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "world-history",
+     "score": 1.0
+    },
+    {
+     "book": "statistics",
+     "score": 1.0
+    },
+    {
+     "book": "optimization-and-operations-research",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "foundation-biology",
+   "discipline": "biology",
+   "chapter": 6,
+   "chapterTitle": "Unity and Diversity",
+   "idx": 4,
+   "title": "The Monera, Protista and Fungi: Salient Features and Classification",
+   "ownScore": 0.17,
+   "bestBook": "political-science",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "political-science",
+     "score": 0.5
+    },
+    {
+     "book": "natural-language-processing",
+     "score": 0.33
+    },
+    {
+     "book": "data-science",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "foundation-biology",
+   "discipline": "biology",
+   "chapter": 6,
+   "chapterTitle": "Unity and Diversity",
+   "idx": 5,
+   "title": "Lichens, Viruses and Viroids: The Edge of the Five Kingdoms",
+   "ownScore": 0.17,
+   "bestBook": "microbiology",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "microbiology",
+     "score": 0.67
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.33
+    },
+    {
+     "book": "drawing",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "foundation-biology",
+   "discipline": "biology",
+   "chapter": 6,
+   "chapterTitle": "Unity and Diversity",
+   "idx": 6,
+   "title": "Biological Classification",
+   "ownScore": 0.5,
+   "bestBook": "plant-ecology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "plant-ecology",
+     "score": 1.0
+    },
+    {
+     "book": "geography",
+     "score": 1.0
+    },
+    {
+     "book": "psychology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 6
+  },
+  {
+   "book": "cell-biology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "The Theory and the Tools",
+   "idx": 0,
+   "title": "The Doctrine’s Arc",
+   "ownScore": 0.5,
+   "bestBook": "international-relations",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "international-relations",
+     "score": 1.0
+    },
+    {
+     "book": "political-science",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "cell-biology",
+   "discipline": "biology",
+   "chapter": 5,
+   "chapterTitle": "The Energy Organelles",
+   "idx": 3,
+   "title": "The Maternal Lineage",
+   "ownScore": 0.0,
+   "bestBook": "plant-genetics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "plant-genetics",
+     "score": 1.0
+    },
+    {
+     "book": "community-medicine",
+     "score": 0.5
+    },
+    {
+     "book": "clinical-immunology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "cell-biology",
+   "discipline": "biology",
+   "chapter": 5,
+   "chapterTitle": "The Energy Organelles",
+   "idx": 4,
+   "title": "Brief Contents (units and chapters, printed order)",
+   "ownScore": 0.33,
+   "bestBook": "computer-organization-architecture",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "computer-organization-architecture",
+     "score": 0.67
+    },
+    {
+     "book": "topology",
+     "score": 0.5
+    },
+    {
+     "book": "ethics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "molecular-biology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "The DNA Structure",
+   "idx": 3,
+   "title": "The Packing Ladder",
+   "ownScore": 0.5,
+   "bestBook": "computer-fundamentals",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "computer-fundamentals",
+     "score": 1.0
+    },
+    {
+     "book": "physical-chemistry",
+     "score": 0.5
+    },
+    {
+     "book": "solid-state-physics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "molecular-biology",
+   "discipline": "biology",
+   "chapter": 5,
+   "chapterTitle": "The Prokaryotic Regulation",
+   "idx": 4,
+   "title": "D12 Stability and change",
+   "ownScore": 0.33,
+   "bestBook": "power-systems",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "power-systems",
+     "score": 0.67
+    },
+    {
+     "book": "digital-signal-processing",
+     "score": 0.67
+    },
+    {
+     "book": "international-relations",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "molecular-biology",
+   "discipline": "biology",
+   "chapter": 8,
+   "chapterTitle": "Mobile Elements and Viruses",
+   "idx": 2,
+   "title": "The Two Phage Cycles",
+   "ownScore": 0.67,
+   "bestBook": "microbiology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "microbiology",
+     "score": 1.0
+    },
+    {
+     "book": "biotechnology",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "molecular-biology",
+   "discipline": "biology",
+   "chapter": 9,
+   "chapterTitle": "Genomes and the Doorstep",
+   "idx": 3,
+   "title": "The Doorstep Drawn",
+   "ownScore": 0.5,
+   "bestBook": "multivariable-calculus",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "multivariable-calculus",
+     "score": 1.0
+    },
+    {
+     "book": "fluid-mechanics",
+     "score": 1.0
+    },
+    {
+     "book": "construction-management",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "genetics",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "Mendel’s Logic",
+   "idx": 4,
+   "title": "Heredity and Variation",
+   "ownScore": 0.5,
+   "bestBook": "evolution",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "evolution",
+     "score": 1.0
+    },
+    {
+     "book": "foundation-biology",
+     "score": 0.5
+    },
+    {
+     "book": "molecular-biology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "genetics",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "Mendel’s Logic",
+   "idx": 5,
+   "title": "Variation: The Raw Material",
+   "ownScore": 0.0,
+   "bestBook": "statistics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "statistics",
+     "score": 1.0
+    },
+    {
+     "book": "molecular-biology",
+     "score": 0.67
+    },
+    {
+     "book": "construction-management",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "genetics",
+   "discipline": "biology",
+   "chapter": 2,
+   "chapterTitle": "The Extensions’ Census",
+   "idx": 0,
+   "title": "Dominance’s Hierarchy",
+   "ownScore": 0.5,
+   "bestBook": "plant-taxonomy",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "plant-taxonomy",
+     "score": 1.0
+    },
+    {
+     "book": "anatomy",
+     "score": 0.5
+    },
+    {
+     "book": "mobile-app-development",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "genetics",
+   "discipline": "biology",
+   "chapter": 3,
+   "chapterTitle": "The Chromosome Theory",
+   "idx": 1,
+   "title": "Linkage and Its Breaking",
+   "ownScore": 0.5,
+   "bestBook": "power-systems",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "power-systems",
+     "score": 1.0
+    },
+    {
+     "book": "graphic-design",
+     "score": 0.5
+    },
+    {
+     "book": "internal-medicine",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "genetics",
+   "discipline": "biology",
+   "chapter": 4,
+   "chapterTitle": "The Chromosome Errors",
+   "idx": 1,
+   "title": "The Aneuploid Census",
+   "ownScore": 0.5,
+   "bestBook": "plant-genetics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "plant-genetics",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.5
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "genetics",
+   "discipline": "biology",
+   "chapter": 6,
+   "chapterTitle": "The Pedigree and the Counselling Craft",
+   "idx": 2,
+   "title": "The Pedigree’s Honest Complications",
+   "ownScore": 0.33,
+   "bestBook": "internal-medicine",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "internal-medicine",
+     "score": 0.67
+    },
+    {
+     "book": "plant-genetics",
+     "score": 0.67
+    },
+    {
+     "book": "pediatrics",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "genetics",
+   "discipline": "biology",
+   "chapter": 7,
+   "chapterTitle": "The Population Register",
+   "idx": 3,
+   "title": "Selection’s Three Modes",
+   "ownScore": 0.67,
+   "bestBook": "evolution",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "evolution",
+     "score": 1.0
+    },
+    {
+     "book": "heat-transfer",
+     "score": 1.0
+    },
+    {
+     "book": "atomic-physics",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "genetics",
+   "discipline": "biology",
+   "chapter": 8,
+   "chapterTitle": "The Quantitative and the Epigenetic",
+   "idx": 1,
+   "title": "The Twin Studies’ Logic and Limits",
+   "ownScore": 0.75,
+   "bestBook": "law-and-legal-studies",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "law-and-legal-studies",
+     "score": 1.0
+    },
+    {
+     "book": "psychology",
+     "score": 1.0
+    },
+    {
+     "book": "ecology",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "evolution",
+   "discipline": "biology",
+   "chapter": 2,
+   "chapterTitle": "Variation and Selection",
+   "idx": 5,
+   "title": "Darwin's Contribution and the Modern Synthetic Theory",
+   "ownScore": 0.4,
+   "bestBook": "philosophy",
+   "bestScore": 0.8,
+   "top3": [
+    {
+     "book": "philosophy",
+     "score": 0.8
+    },
+    {
+     "book": "microbiology",
+     "score": 0.6
+    },
+    {
+     "book": "plant-genetics",
+     "score": 0.6
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "evolution",
+   "discipline": "biology",
+   "chapter": 2,
+   "chapterTitle": "Variation and Selection",
+   "idx": 6,
+   "title": "Chemotherapy/Antibiotics",
+   "ownScore": 0.5,
+   "bestBook": "pharmacology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "pharmacology",
+     "score": 1.0
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.5
+    },
+    {
+     "book": "medical-microbiology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "evolution",
+   "discipline": "biology",
+   "chapter": 2,
+   "chapterTitle": "Variation and Selection",
+   "idx": 8,
+   "title": "Titration Curves Reveal the pKa of Weak Acids",
+   "ownScore": 0.33,
+   "bestBook": "physical-chemistry",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "physical-chemistry",
+     "score": 0.67
+    },
+    {
+     "book": "analytical-chemistry",
+     "score": 0.5
+    },
+    {
+     "book": "ecology",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 6
+  },
+  {
+   "book": "ecology",
+   "discipline": "biology",
+   "chapter": 3,
+   "chapterTitle": "The Interaction Census",
+   "idx": 5,
+   "title": "Are Stereospecific 18 van der Waals Interactions Are Weak Interatomic",
+   "ownScore": 0.14,
+   "bestBook": "physical-chemistry",
+   "bestScore": 0.57,
+   "top3": [
+    {
+     "book": "physical-chemistry",
+     "score": 0.57
+    },
+    {
+     "book": "heat-and-thermodynamics",
+     "score": 0.43
+    },
+    {
+     "book": "nuclear-physics",
+     "score": 0.29
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "ecology",
+   "discipline": "biology",
+   "chapter": 8,
+   "chapterTitle": "The Applied Craft and the Doorway",
+   "idx": 3,
+   "title": "The Doorway Drawn",
+   "ownScore": 0.5,
+   "bestBook": "financial-economics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "financial-economics",
+     "score": 1.0
+    },
+    {
+     "book": "genetics",
+     "score": 1.0
+    },
+    {
+     "book": "banking",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "microbiology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "The Discovery Register",
+   "idx": 4,
+   "title": "The Microscopy Register: Light to Electron",
+   "ownScore": 0.25,
+   "bestBook": "cell-biology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "cell-biology",
+     "score": 1.0
+    },
+    {
+     "book": "foundation-biology",
+     "score": 1.0
+    },
+    {
+     "book": "plant-physiology",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "microbiology",
+   "discipline": "biology",
+   "chapter": 8,
+   "chapterTitle": "The Control Craft and the Resistance Era",
+   "idx": 4,
+   "title": "Disinfection and Sterilization",
+   "ownScore": 0.0,
+   "bestBook": "environmental-engineering",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "environmental-engineering",
+     "score": 0.5
+    },
+    {
+     "book": "medical-microbiology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "microbiology",
+   "discipline": "biology",
+   "chapter": 9,
+   "chapterTitle": "The Applied Register",
+   "idx": 6,
+   "title": "Fermented Foods and Beverages",
+   "ownScore": 0.33,
+   "bestBook": "economic-botany",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "economic-botany",
+     "score": 0.67
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.33
+    },
+    {
+     "book": "russian",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "microbiology",
+   "discipline": "biology",
+   "chapter": 9,
+   "chapterTitle": "The Applied Register",
+   "idx": 10,
+   "title": "Aerobic and Anaerobic Respiration with Chemolithotrophy",
+   "ownScore": 0.0,
+   "bestBook": "biochemistry",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "biochemistry",
+     "score": 0.5
+    },
+    {
+     "book": "plant-physiology",
+     "score": 0.5
+    },
+    {
+     "book": "physiotherapy",
+     "score": 0.25
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 9
+  },
+  {
+   "book": "immunology",
+   "discipline": "biology",
+   "chapter": 7,
+   "chapterTitle": "The Vaccines’ Craft",
+   "idx": 1,
+   "title": "The Vaccines’ Census and the mRNA Story",
+   "ownScore": 0.75,
+   "bestBook": "biotechnology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "biotechnology",
+     "score": 1.0
+    },
+    {
+     "book": "molecular-biology",
+     "score": 0.5
+    },
+    {
+     "book": "medical-microbiology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "plant-anatomy",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "The Body’s Organisation",
+   "idx": 5,
+   "title": "The Angiosperm Life Cycle and the Gametophytes",
+   "ownScore": 0.0,
+   "bestBook": "plant-taxonomy",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "plant-taxonomy",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.75
+    },
+    {
+     "book": "plant-genetics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "plant-anatomy",
+   "discipline": "biology",
+   "chapter": 8,
+   "chapterTitle": "The Adaptive, the Anomalous and the Doorway",
+   "idx": 3,
+   "title": "The Doorway Drawn",
+   "ownScore": 0.5,
+   "bestBook": "financial-economics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "financial-economics",
+     "score": 1.0
+    },
+    {
+     "book": "genetics",
+     "score": 1.0
+    },
+    {
+     "book": "banking",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "plant-physiology",
+   "discipline": "biology",
+   "chapter": 4,
+   "chapterTitle": "Photosynthesis — the Calvin Cycle and the Path Variants",
+   "idx": 5,
+   "title": "Plant Secondary Metabolites: Alkaloids, Terpenes and Flavonoids",
+   "ownScore": 0.17,
+   "bestBook": "economic-botany",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "economic-botany",
+     "score": 0.67
+    },
+    {
+     "book": "evolution",
+     "score": 0.33
+    },
+    {
+     "book": "environmental-studies",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "plant-physiology",
+   "discipline": "biology",
+   "chapter": 6,
+   "chapterTitle": "The Growth Regulator Census",
+   "idx": 5,
+   "title": "Does not work, they are never shy about letting us know",
+   "ownScore": 0.22,
+   "bestBook": "quantitative-aptitude",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "quantitative-aptitude",
+     "score": 0.67
+    },
+    {
+     "book": "arithmetic-and-number-systems",
+     "score": 0.56
+    },
+    {
+     "book": "evolution",
+     "score": 0.44
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "plant-physiology",
+   "discipline": "biology",
+   "chapter": 9,
+   "chapterTitle": "The Doorway",
+   "idx": 4,
+   "title": "Embryogenesis and the Apical Meristems",
+   "ownScore": 0.33,
+   "bestBook": "plant-genetics",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "plant-genetics",
+     "score": 0.67
+    },
+    {
+     "book": "plant-anatomy",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "plant-ecology",
+   "discipline": "biology",
+   "chapter": 2,
+   "chapterTitle": "The Plant Populations",
+   "idx": 2,
+   "title": "The Stage-Classified Arithmetic",
+   "ownScore": 0.67,
+   "bestBook": "hydraulics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "hydraulics",
+     "score": 1.0
+    },
+    {
+     "book": "computer-vision",
+     "score": 0.67
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "plant-ecology",
+   "discipline": "biology",
+   "chapter": 6,
+   "chapterTitle": "The Global Register",
+   "idx": 4,
+   "title": "Vegetation Types of the World and the Indian Biogeographical Zones",
+   "ownScore": 0.5,
+   "bestBook": "geography",
+   "bestScore": 0.83,
+   "top3": [
+    {
+     "book": "geography",
+     "score": 0.83
+    },
+    {
+     "book": "archaeology-and-heritage-studies",
+     "score": 0.67
+    },
+    {
+     "book": "international-business",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "plant-genetics",
+   "discipline": "biology",
+   "chapter": 6,
+   "chapterTitle": "The Mutation-and-Tissue-Culture Registers",
+   "idx": 4,
+   "title": "Gene Silencing: miRNA, siRNA and Transgene Silencing",
+   "ownScore": 0.2,
+   "bestBook": "molecular-biology",
+   "bestScore": 0.6,
+   "top3": [
+    {
+     "book": "molecular-biology",
+     "score": 0.6
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.6
+    },
+    {
+     "book": "developmental-biology",
+     "score": 0.2
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "plant-pathology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "The Founding Concepts",
+   "idx": 2,
+   "title": "The Three Dinner Registers",
+   "ownScore": 0.67,
+   "bestBook": "plant-anatomy",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "plant-anatomy",
+     "score": 1.0
+    },
+    {
+     "book": "plant-physiology",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "plant-pathology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "The Founding Concepts",
+   "idx": 4,
+   "title": "The Mechanisms of Pathogenesis",
+   "ownScore": 0.0,
+   "bestBook": "obstetrics-gynaecology",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "obstetrics-gynaecology",
+     "score": 0.5
+    },
+    {
+     "book": "manufacturing-processes",
+     "score": 0.5
+    },
+    {
+     "book": "evolution",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "plant-pathology",
+   "discipline": "biology",
+   "chapter": 6,
+   "chapterTitle": "The Management Craft",
+   "idx": 2,
+   "title": "The Chemical Honesty by Mode of Action",
+   "ownScore": 0.5,
+   "bestBook": "evolution",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "evolution",
+     "score": 0.75
+    },
+    {
+     "book": "heat-transfer",
+     "score": 0.75
+    },
+    {
+     "book": "animal-physiology",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "economic-botany",
+   "discipline": "biology",
+   "chapter": 2,
+   "chapterTitle": "The Cereals and the Pulses",
+   "idx": 4,
+   "title": "The Economic Importance of Algae and Fungi",
+   "ownScore": 0.25,
+   "bestBook": "microbiology",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "microbiology",
+     "score": 0.75
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.5
+    },
+    {
+     "book": "statistics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "economic-botany",
+   "discipline": "biology",
+   "chapter": 6,
+   "chapterTitle": "The Horticulture Register",
+   "idx": 3,
+   "title": "The Seed-and-Label Craft",
+   "ownScore": 0.67,
+   "bestBook": "data-science",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "data-science",
+     "score": 1.0
+    },
+    {
+     "book": "plant-taxonomy",
+     "score": 1.0
+    },
+    {
+     "book": "solid-state-physics",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "animal-diversity",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "The Body-Plan Craft",
+   "idx": 6,
+   "title": "Phylogenetic Relationships: Classical and Molecular Tools",
+   "ownScore": 0.0,
+   "bestBook": "plant-pathology",
+   "bestScore": 0.6,
+   "top3": [
+    {
+     "book": "plant-pathology",
+     "score": 0.6
+    },
+    {
+     "book": "plant-genetics",
+     "score": 0.6
+    },
+    {
+     "book": "evolution",
+     "score": 0.6
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "animal-anatomy",
+   "discipline": "biology",
+   "chapter": 2,
+   "chapterTitle": "The Integument and the Skeleton",
+   "idx": 4,
+   "title": "Joints and the Musculoskeletal Disorders Register",
+   "ownScore": 0.5,
+   "bestBook": "physiotherapy",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "physiotherapy",
+     "score": 0.75
+    },
+    {
+     "book": "interior-design",
+     "score": 0.5
+    },
+    {
+     "book": "sculpture",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "animal-physiology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "The Excitable Register",
+   "idx": 4,
+   "title": "The Human Nervous System and the Nerve Impulse",
+   "ownScore": 0.2,
+   "bestBook": "animal-anatomy",
+   "bestScore": 0.8,
+   "top3": [
+    {
+     "book": "animal-anatomy",
+     "score": 0.8
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.6
+    },
+    {
+     "book": "anatomy",
+     "score": 0.6
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "animal-physiology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "The Excitable Register",
+   "idx": 5,
+   "title": "Neural Control and Coordination",
+   "ownScore": 0.33,
+   "bestBook": "animal-behaviour",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "animal-behaviour",
+     "score": 0.67
+    },
+    {
+     "book": "transportation-engineering",
+     "score": 0.67
+    },
+    {
+     "book": "backend-engineering",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "animal-physiology",
+   "discipline": "biology",
+   "chapter": 2,
+   "chapterTitle": "The Muscle’s Contraction Craft",
+   "idx": 5,
+   "title": "B8 Muscle and motility",
+   "ownScore": 0.5,
+   "bestBook": "medical-physiology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "medical-physiology",
+     "score": 1.0
+    },
+    {
+     "book": "japanese",
+     "score": 0.5
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "animal-physiology",
+   "discipline": "biology",
+   "chapter": 3,
+   "chapterTitle": "The Endocrine Register",
+   "idx": 5,
+   "title": "Chemical Coordination and Integration",
+   "ownScore": 0.33,
+   "bestBook": "backend-engineering",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "backend-engineering",
+     "score": 0.67
+    },
+    {
+     "book": "full-stack-web-development",
+     "score": 0.67
+    },
+    {
+     "book": "software-engineering",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "animal-physiology",
+   "discipline": "biology",
+   "chapter": 4,
+   "chapterTitle": "The Digestion and Absorption Register",
+   "idx": 4,
+   "title": "Digestion and Nutrition",
+   "ownScore": 0.5,
+   "bestBook": "veterinary-medicine",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "veterinary-medicine",
+     "score": 1.0
+    },
+    {
+     "book": "environmental-engineering",
+     "score": 0.5
+    },
+    {
+     "book": "analytical-chemistry",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "animal-physiology",
+   "discipline": "biology",
+   "chapter": 5,
+   "chapterTitle": "The Gas Transport and the Circulation",
+   "idx": 4,
+   "title": "The Circulatory Disorders Register: Hypertension to Heart Failure",
+   "ownScore": 0.33,
+   "bestBook": "internal-medicine",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "internal-medicine",
+     "score": 0.67
+    },
+    {
+     "book": "nursing",
+     "score": 0.5
+    },
+    {
+     "book": "pediatrics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "animal-physiology",
+   "discipline": "biology",
+   "chapter": 5,
+   "chapterTitle": "The Gas Transport and the Circulation",
+   "idx": 5,
+   "title": "Respiratory Volumes and Capacities",
+   "ownScore": 0.0,
+   "bestBook": "medical-physiology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "medical-physiology",
+     "score": 1.0
+    },
+    {
+     "book": "heat-and-thermodynamics",
+     "score": 0.67
+    },
+    {
+     "book": "pharmacology",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "animal-physiology",
+   "discipline": "biology",
+   "chapter": 5,
+   "chapterTitle": "The Gas Transport and the Circulation",
+   "idx": 7,
+   "title": "Coronary Artery Disease, Angina and Heart Failure",
+   "ownScore": 0.17,
+   "bestBook": "histology",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "histology",
+     "score": 0.5
+    },
+    {
+     "book": "internal-medicine",
+     "score": 0.5
+    },
+    {
+     "book": "medical-physiology",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 6
+  },
+  {
+   "book": "animal-physiology",
+   "discipline": "biology",
+   "chapter": 5,
+   "chapterTitle": "The Gas Transport and the Circulation",
+   "idx": 8,
+   "title": "Chemical and Neural Signalling",
+   "ownScore": 0.33,
+   "bestBook": "animal-diversity",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "animal-diversity",
+     "score": 0.67
+    },
+    {
+     "book": "animal-behaviour",
+     "score": 0.67
+    },
+    {
+     "book": "developmental-biology",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 7
+  },
+  {
+   "book": "animal-physiology",
+   "discipline": "biology",
+   "chapter": 5,
+   "chapterTitle": "The Gas Transport and the Circulation",
+   "idx": 10,
+   "title": "Breathing and Respiration in Animals",
+   "ownScore": 0.33,
+   "bestBook": "ecology",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "ecology",
+     "score": 0.67
+    },
+    {
+     "book": "cell-biology",
+     "score": 0.67
+    },
+    {
+     "book": "plant-anatomy",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 8
+  },
+  {
+   "book": "animal-physiology",
+   "discipline": "biology",
+   "chapter": 6,
+   "chapterTitle": "The Osmoregulation and Excretion Register",
+   "idx": 5,
+   "title": "The Human Excretory System: Urine Formation and Its Regulation",
+   "ownScore": 0.0,
+   "bestBook": "law-and-legal-studies",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "law-and-legal-studies",
+     "score": 0.5
+    },
+    {
+     "book": "molecular-biology",
+     "score": 0.5
+    },
+    {
+     "book": "ethics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "animal-physiology",
+   "discipline": "biology",
+   "chapter": 6,
+   "chapterTitle": "The Osmoregulation and Excretion Register",
+   "idx": 7,
+   "title": "Excretory Products and Their Elimination",
+   "ownScore": 0.0,
+   "bestBook": "elementary-algebra",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "elementary-algebra",
+     "score": 0.67
+    },
+    {
+     "book": "linear-algebra",
+     "score": 0.67
+    },
+    {
+     "book": "coordinate-geometry",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 7
+  },
+  {
+   "book": "developmental-biology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "The Fertilisation and the Cleavage",
+   "idx": 0,
+   "title": "The Acrosome’s Lock-and-Key Receipt",
+   "ownScore": 0.5,
+   "bestBook": "plant-pathology",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "plant-pathology",
+     "score": 0.75
+    },
+    {
+     "book": "plant-genetics",
+     "score": 0.75
+    },
+    {
+     "book": "immunology",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "developmental-biology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "The Fertilisation and the Cleavage",
+   "idx": 4,
+   "title": "The Human Reproductive Systems and Gametogenesis",
+   "ownScore": 0.0,
+   "bestBook": "anatomy",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "anatomy",
+     "score": 0.75
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.75
+    },
+    {
+     "book": "animal-anatomy",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "developmental-biology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "The Fertilisation and the Cleavage",
+   "idx": 5,
+   "title": "The Menstrual Cycle, Pregnancy, Parturition and Lactation",
+   "ownScore": 0.2,
+   "bestBook": "obstetrics-gynaecology",
+   "bestScore": 0.8,
+   "top3": [
+    {
+     "book": "obstetrics-gynaecology",
+     "score": 0.8
+    },
+    {
+     "book": "animal-physiology",
+     "score": 0.6
+    },
+    {
+     "book": "portuguese",
+     "score": 0.4
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "developmental-biology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "The Fertilisation and the Cleavage",
+   "idx": 9,
+   "title": "Reproductive Health: STDs, Contraception, MTP and Amniocentesis",
+   "ownScore": 0.0,
+   "bestBook": "obstetrics-gynaecology",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "obstetrics-gynaecology",
+     "score": 0.67
+    },
+    {
+     "book": "forensic-medicine",
+     "score": 0.5
+    },
+    {
+     "book": "parasitology",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 8
+  },
+  {
+   "book": "developmental-biology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "The Fertilisation and the Cleavage",
+   "idx": 11,
+   "title": "Birth Control and Its Methods",
+   "ownScore": 0.0,
+   "bestBook": "sociology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "sociology",
+     "score": 1.0
+    },
+    {
+     "book": "obstetrics-gynaecology",
+     "score": 0.67
+    },
+    {
+     "book": "optimization-and-operations-research",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 10
+  },
+  {
+   "book": "developmental-biology",
+   "discipline": "biology",
+   "chapter": 1,
+   "chapterTitle": "The Fertilisation and the Cleavage",
+   "idx": 13,
+   "title": "Pregnancy and the Placenta",
+   "ownScore": 0.0,
+   "bestBook": "plant-anatomy",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "plant-anatomy",
+     "score": 0.5
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.5
+    },
+    {
+     "book": "animal-physiology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 11
+  },
+  {
+   "book": "developmental-biology",
+   "discipline": "biology",
+   "chapter": 7,
+   "chapterTitle": "The Evo-Devo Crown",
+   "idx": 3,
+   "title": "The Integration Named as the Crown",
+   "ownScore": 0.67,
+   "bestBook": "microbiology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "microbiology",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.67
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "animal-behaviour",
+   "discipline": "biology",
+   "chapter": 4,
+   "chapterTitle": "The Evolution Register",
+   "idx": 4,
+   "title": "Communication and Pheromones",
+   "ownScore": 0.0,
+   "bestBook": "entomology",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "entomology",
+     "score": 0.5
+    },
+    {
+     "book": "construction-management",
+     "score": 0.5
+    },
+    {
+     "book": "parallel-computing",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "entomology",
+   "discipline": "biology",
+   "chapter": 2,
+   "chapterTitle": "The Insect Physiology",
+   "idx": 2,
+   "title": "The Moult Engine and the JH Dial",
+   "ownScore": 0.67,
+   "bestBook": "animal-physiology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "animal-physiology",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.67
+    },
+    {
+     "book": "plant-genetics",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  }
+ ],
+ "thinChapters": [],
+ "note": "review auto-actions; adjudicate the pending lists; free-scan the books"
+}

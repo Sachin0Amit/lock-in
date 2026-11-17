@@ -1,0 +1,5334 @@
+{
+ "agent": "physics-a",
+ "autoReview": [
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Elementary Trigonometry",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Trig refresher is legitimate toolkit content for an absolute-beginner physics book; the art-history target is token noise."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Differentiation",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Calculus is beyond the Class-10 first-pass scope of this book; differential-calculus (ch3-4) owns the topic. Do not ship to ear-training."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Couple",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "A couple is torque mechanics (rotational dynamics); theory-of-machines is the engineering register."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Concepts",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Meaningless one-word fragment; the illustration target is pure token noise."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Communication Systems 9.1–9.10",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Numeric-run junk (also on the junkSuspect list); construction-management is an absurd target."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Basic Communication System",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "analog-and-digital-communication",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Communication-system basics belong in the communication worldview chapter, not construction-management."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "A.1 Introduction",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Appendix-numbered junk with no lesson content."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Superconductors",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Superconductivity belongs with current and resistance in the physics shelf (zero-resistance treatment); materials-science is the engineering register."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Gears",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Gears complete the first-pass simple-machines set (Lever, Wheel-and-Axle) under work/efficiency in ch6."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Generators",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "A generator at first pass belongs in the electricity chapter ('Expression for Induced EMF in AC Dynamo' already lives there); electrical-machines is the engineering register."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "POWER 1101 38-6 SCHRÖDINGER’S EQUATION",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Salvage would rename a Halliday TOC run to the meaningless title 'POWER' in a motion chapter — junk, remove."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "General Equation for Direct Impact",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Direct-impact equation is collision mechanics (mechanics ch6 'Collision or Impact'); the robotics target is token noise."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Work Done by Gravity",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Already correctly placed in the work-energy chapter; water-resources-engineering is an absurd target."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Average Translational Kinetic Energy Per Molecule of Gas",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "heat-and-thermodynamics",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Kinetic-theory content (3/2)kT belongs to heat-and-thermodynamics ch3, not foundation-chemistry."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 7,
+   "title": "Simple Machines",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "First-pass simple machines belong with work/energy/efficiency (ch6), not theory-of-machines."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 8,
+   "title": "Frequency Modulation",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "analog-and-digital-communication",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "FM is angle modulation — analog-and-digital-communication ch4; power-electronics is wrong."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 9,
+   "title": "Images Formed by Concave and Convex Mirrors",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Core first-pass mirror content of ch9; experimental-physics is the lab treatment and does not 'cover' it."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 9,
+   "title": "The Color of Light and Spectra",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "First-pass light content; physical-chemistry does not own it."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Charge, Current and Voltage",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "This is literally the opening content of the first-pass electricity chapter; circuit-theory is the engineering register."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Voltage Sources",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Cells and batteries at first pass belong in ch10; circuit-theory is the engineering register."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 1,
+   "title": "Combined Rotation and Translation",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Duplicates mechanics ch7 'Dynamics of Combination of Translation and Rotation'; the molecular-biology target is absurd."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 5,
+   "title": "Power: The Rate of Doing Work",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The full mechanics book legitimately owns its own power treatment (physics vs engineering register, like heat-and-thermodynamics vs engineering thermodynamics)."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 7,
+   "title": "Rigid-Body Equilibrium and the Torque Balance",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Core rotational-dynamics content; the physical-chemistry target is token noise."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 7,
+   "title": "Dynamics of Combination of Translation and Rotation",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Core rotational-dynamics content; the geometry target is token noise."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 7,
+   "title": "Radioactive Equilibrium",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "nuclear-physics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Radioactive (secular) equilibrium is decay-law content (nuclear-physics ch4); physical-chemistry is wrong."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 7,
+   "title": "Conditions for Equilibrium",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Equilibrium conditions belong in ch7; the physical-chemistry target is absurd."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 9,
+   "title": "Compound Machines",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Compound machines complete the first-pass simple-machines set; the trigonometry target is absurd."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 12,
+   "title": "Oscillations about Equilibrium and Normal Coordinates",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Hamiltonian small-oscillations application fits ch12; the physical-chemistry target is absurd."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 1,
+   "title": "Deriving the Equations",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The three equations of motion are 1D-kinematics content — ch1's own; moving them to 2D kinematics is backwards."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 1,
+   "title": "Some Properties of Vector Addition",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "coordinate-geometry",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "Vector-addition properties are vector algebra (coordinate-geometry ch10 'Vector Algebra: Arrows with Rules')."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 1,
+   "title": "1Types of Mechanical Waves",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 5,
+   "newTitle": "Types of Mechanical Waves",
+   "reason": "Wave types belong to wave-motion fundamentals; also strip the OCR digit prefix."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 4,
+   "title": "Experimental Skills: Co-efficient of viscosity of a given viscous liquid by measuring the terminal velocity of a given spherical body",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "experimental-physics",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Viscosity practical belongs in experimental-physics ch3 (Mechanics and Properties Practicals); foundation-physics ch3 (motion) is wrong."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 4,
+   "title": "Polynomial, Linear, and Quadratic Equations",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "School algebra owned by the exempt elementary-algebra book; linear-algebra 1.0 is a token false-positive."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 5,
+   "title": "Temperature Effects",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Temperature effect on surface tension is exactly ch5 content; the solid-state-physics target is absurd."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 5,
+   "title": "Solid Angle of a Surface Not Normal to Axis of Cone",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "optics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Solid angle supports photometry/luminous-intensity (optics ch4); foundation-chemistry is an absurd target."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 7,
+   "title": "Water’s Anomaly",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The anomalous expansion of water is the classic thermal-expansion example of ch7; foundation-chemistry is wrong."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 7,
+   "title": "Concept Application Exercise 2.4",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Exercise-numbering junk — remove; do not move it to fluid-mechanics."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 3,
+   "title": "Rotation 214 16 Mechanical Waves; Sound",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Salvage of a TOC run yields a junk title in the wrong chapter — remove."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 4,
+   "title": "Poiseuille’s Register",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Poiseuille flow law belongs in ch4 viscosity; the lab chapter already has 'Viscosity Practicals'."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 7,
+   "title": "Propagation in Linear Media",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "EM propagation in media → e-m-theory ch6 'Electromagnetic Plane Waves' is the physics home (engineering fields-and-waves target rejected)."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 3,
+   "title": "Beyond Small Oscillations: The Damped Driven Pendulum and the Josephson Junction",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The damped driven pendulum is literally damped/forced-oscillation content — ch3's home register."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 4,
+   "title": "C.3 Wave phenomena",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Appendix-lettered fragment; the high-voltage-engineering target is absurd."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 4,
+   "title": "Oscillation of a Liquid Column in a Two Arm Tube",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "The U-tube liquid column is the classic single-DOF SHM example → ch1 foundations (not mechanics ch2)."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 4,
+   "title": "General Expression for a Sinusoidal Wave",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Covered by ch5 'The Progressive Wave'; the foundation-physics move is wrong."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 4,
+   "title": "Analytical Treatment of Stationary Waves",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Covered by ch6 'Standing Waves Built'; the foundation-physics move is wrong."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 5,
+   "title": "The Wave Model and Its Vocabulary",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The wave-model lesson IS ch5's opening content."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 5,
+   "title": "Condition for Oscillation: The Speed Becomes Zero Before Tension",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "String/circle slackening condition is vertical-circle mechanics (mechanics ch4), not 1D kinematics."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 5,
+   "title": "Power Transmitted Along the String by a Sine Wave",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Wave power on strings is waves-ch5 content; foundation-physics does not cover it."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 6,
+   "title": "Elementary Algebra",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Math spray; the abstract-algebra target is nonsense."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 6,
+   "title": "Boolean Algebra",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "discrete-mathematics",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Boolean algebra → discrete-mathematics ch8 'Boolean Algebra and Logic Circuits'; cad-cam is absurd."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 1,
+   "title": "Temperature of the Sun and Solar Constant",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "heat-and-thermodynamics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Stefan-law radiation application on the sun → ch9 radiation register; renewable-energy is the engineering register."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 2,
+   "title": "Power of a Water-Drawing Pump",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "fluid-mechanics",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "Pump power is turbomachinery (fluid-mechanics ch10); engineering thermodynamics ch9 is a weaker fit."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 2,
+   "title": "Initial Rate of Fall in Temperature (Rate of Cooling)",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Rate-of-cooling corrections belong in calorimetry ch2; the foundation-physics target is wrong."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 6,
+   "title": "Summary 568 Processes",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Salvage of a TOC run yields a junk title — remove."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 1,
+   "title": "Touch Screens and Capacitance",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Capacitance application → capacitors chapter; heat-and-thermodynamics is an absurd target."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 5,
+   "title": "Blood Pressure 379 Currents and Planetary Magnetism 922 Cancer Radiotherapy",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "BIO-banner TOC run — junk, remove."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 6,
+   "title": "AC Circuits Containing Resistor Only",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "AC content → ch10 Alternating Currents, not foundation-physics."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 6,
+   "title": "AC Circuits Containing Inductor Only",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "AC content → ch10 Alternating Currents; foundation-physics does not cover inductor-only AC."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 6,
+   "title": "Digital Electronics: Analog and Digital Circuits",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "digital-logic-design",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Digital-electronics survey → digital-logic-design ch1 (Binary Systems); electrical-measurements ch4 (instrument transformers) is wrong."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 7,
+   "title": "Magnetic Field Due to a Straight Current Carrying Wire of Infinite Length",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Core Biot-Savart geometry of ch7; foundation-physics is the wrong register."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Finding Rectangular (x and y) Components of a Vector",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The vector-grammar chapter legitimately refreshes vector components as a prerequisite; multivariable-calculus already owns the general treatment."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Gravitational Field Due to a Uniform Disc at a Point on Its Axis",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Gravitational-field calculation → mechanics ch8 'Gravitation and Orbits' (Field and Potential)."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Electric Field Due to a Charged Isolated Conducting Plate",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Electrostatics calculation → ch2 'Electrostatics in Vacuum'; power-systems is an absurd target."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Electric Field Due to a Long Uniformly Charged Cylinder",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Gauss-law application → ch2 'Electrostatics in Vacuum'; power-systems is an absurd target."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Electric Field Near Uniformly Volume Charged Plane",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Gauss-law application → ch2 'Electrostatics in Vacuum'; power-systems is an absurd target."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "BIO Surface Waves and the Swimming Medicine",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "BIO-banner junk; the medical-biochemistry target is absurd."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 2,
+   "title": "(Images 2 and 4 are duplicates of the contents pages above; images 5–12 are chapter body pages 3.1–3.4 — Introduction, Illustrations 3.1–3.7, Work Done to Move a Charge in an Electrostatic Field, Potential and Potential Difference, Continuous Charges, Finding Potential Difference — and contain no",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Scan-description fragment, not a lesson; the electricity-and-magnetism target is absurd."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 3,
+   "title": "Gravitational Field Intensity Due to Continuous Mass Distribution",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Gravitational field → mechanics ch8 'Gravitation and Orbits'."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 4,
+   "title": "Electric Field Intensity Due to a Short Dipole at Some General Point",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Electric dipole fields → ch3 'Multipoles and Dielectric Matter'; power-systems is an absurd target."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 4,
+   "title": "Magnetic Field Due to a Semi-Infinite Straight Wire",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Magnetostatics geometry — already in its home chapter (e-m-theory ch4)."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 4,
+   "title": "Finding Magnetic Field Inside a Long Solenoid",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Ampere's-law application — already in its home chapter (Magnetostatics)."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 8,
+   "title": "Optical Communication",
+   "verdict": "amend",
+   "action": "move",
+   "targetBook": "optics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Optical communication → optics ch9 'Laser and Fibre Optics'; e-m-theory ch8 keeps 'Fibres as Guides' as the waveguide treatment; computer-organization is absurd."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Questions/Exercises/Problems 804 Summary",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Salvage of a TOC run yields a junk title — remove."
+  },
+  {
+   "book": "optics",
+   "chapter": 1,
+   "title": "Summary 942 OPTICS",
+   "verdict": "veto",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Salvage of a TOC run yields a junk title — remove."
+  },
+  {
+   "book": "optics",
+   "chapter": 5,
+   "title": "The Wave’s Honesty",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "House-style wave-nature lesson of ch5; the modern-physics target is wrong."
+  },
+  {
+   "book": "quantum-mechanics",
+   "chapter": 2,
+   "title": "The Time-Dependent Schrodinger Equation and Wave Packets",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "The TDSE and wave packets belong in the wave-function craft chapter (ch2); moving them to the time-independent chapter is backwards."
+  },
+  {
+   "book": "quantum-mechanics",
+   "chapter": 2,
+   "title": "Finite Potential Wells and Barrier Tunnelling Depths",
+   "verdict": "amend",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "ch3 already owns 'Wells and Levels' and 'Tunnelling'; moving this duplicate into ch3 would double the topic."
+  },
+  {
+   "book": "quantum-mechanics",
+   "chapter": 8,
+   "title": "The Transition from a Discrete to a Continuous System",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Transitions from discrete bound states to the continuum fit ch8; the discrete-mathematics target is a token false-positive."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 4,
+   "title": "Boundaries in Magnetic Matter",
+   "verdict": "veto",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": null,
+   "newTitle": "",
+   "reason": "Magnetic boundary conditions are distinct from ch3's dielectric boundaries — both chapters need their own lesson; this is not an intra-book duplicate."
+  }
+ ],
+ "misplaced": [
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "The Scope of Physics",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Defining scope lesson of ch1 — fits."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Laws, Theories and Guesses",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Nature-of-physics content of ch1 — fits."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Theoretical skills",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Skills-heading, plausibly part of the laws/inquiry register; unsure → keep."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "SI Prefixes",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "SI prefixes are core measurement content of ch1."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Dot Product of Unit Vectors",
+   "action": "move",
+   "targetBook": "coordinate-geometry",
+   "targetChapter": 11,
+   "newTitle": "",
+   "reason": "Dot product of unit vectors is vector algebra (coordinate-geometry ch11 'The Products of Vectors'); beyond first-pass scope."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "How to Analyze and Draw the Graphs",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Graph analysis is a measurement/data skill of ch1."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Pull is Easier Than Push",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Classic friction demo (pulling vs pushing a roller) belongs with friction in ch4."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Rocket Propulsion",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Rocket propulsion is a Newton's-third-law application; the book has no momentum chapter, so ch4 is the first-pass home."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Polytropic Process",
+   "action": "move",
+   "targetBook": "heat-and-thermodynamics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Polytropic process is a first-law process family → heat ch6."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Reversible Process",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by heat-and-thermodynamics ch6 'Reversible and Irreversible Processes'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Irreversible Process",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by heat-and-thermodynamics ch6 'Reversible and Irreversible Processes'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Qualitative Discussion",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Vague furniture heading with no lesson content."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Post Office Box",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "The Post Office Box is a Wheatstone-bridge instrument → e-m ch5 'Current and Resistance' (Wheatstone's Bridge lives there)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Bar Magnet",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "Bar magnet is first-pass magnetism → ch10 'Electricity at First Pass' (The Magnetic Taster register)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Strength of Bar Magnet",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "Strength of a bar magnet is first-pass magnetism → ch10."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Inductive Reactance",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "Inductive reactance sits under ch10's existing 'Resistance and Reactance' lesson."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Capacitive Reactance",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "Capacitive reactance sits under ch10's existing 'Resistance and Reactance' lesson."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Ionosphere",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Ionosphere is physics-relevant (ionized layer, radio reflection); kept with its sibling atmosphere-layer items; unsure → keep."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Size of Nuclei",
+   "action": "move",
+   "targetBook": "modern-physics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Nuclear size (R=R0*A^(1/3)) → modern-physics ch6 'The Nucleus at First Pass' (Nuclear Arithmetic)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Need for Modulation",
+   "action": "move",
+   "targetBook": "analog-and-digital-communication",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Need for modulation is an AM-chapter topic → analog-and-digital-communication ch3."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Percent Modulation",
+   "action": "move",
+   "targetBook": "analog-and-digital-communication",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Percent modulation (modulation index) is AM content → ch3."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Pulse Modulation",
+   "action": "move",
+   "targetBook": "analog-and-digital-communication",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Pulse modulation → ch7 'Pulse and Source Coding'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Demodulation",
+   "action": "move",
+   "targetBook": "analog-and-digital-communication",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Demodulation/detection → ch5 'Receivers'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Fractals and Dimensionality",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Fractals/dimensionality have no home book in the registry (no chaos/dynamics title) and are not foundation content."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Selected Bibliography",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Back-matter junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "A.6 Laplacian",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Appendix-numbered junk; the Laplacian is covered by multivariable-calculus ch5 / e-m-theory ch1 vector grammar."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Advertisement (continued)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "CONTENTS vii",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "TOC run junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "IN A TRAP",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Fragment of a TOC run ('TRAPS 1197 ...')."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "BIO Electrocardiography\b",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "BIO sidebar banner junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "DETAILED CONTENTS",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "TOC run junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Using and Converting Units\b",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Unit conversion is core measurement content of ch1."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "DETAILED CONTENTS xv",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "TOC run junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Physics and Its Role in Technology",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Scope-of-physics content — fits ch1."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "The Physics Tool Kit",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Measurement-toolkit theme — fits ch1."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Center of Gravity",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by mechanics ch6 (center-of-mass/gravity register); duplicate cluster winner is mechanics."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "The Lever",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "The lever is a first-pass simple machine → ch6 (work, efficiency, mechanical advantage)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "The Wheel-and-Axle",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "The wheel-and-axle is a first-pass simple machine → ch6."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Rectification and Amplification",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by modern-physics ch7 'Rectifiers and Transistors'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "A.5 Right-Triangle Trigonometry",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Appendix-numbered junk; the trig refresher already lives in ch1 as 'Elementary Trigonometry'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "D.3 Trigonometric Operations",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Appendix-numbered junk; the trigonometry book owns the operations."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "CONTENTS ii",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "TOC run junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Iii CONTENTS",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "TOC run junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 2,
+   "title": "Types of Collision",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by mechanics ch6 'Collision Taxonomy'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 2,
+   "title": "Decimal to Binary Conversion",
+   "action": "move",
+   "targetBook": "computer-fundamentals",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Base conversion is data representation → computer-fundamentals ch3."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 2,
+   "title": "Binary to Decimal Conversion",
+   "action": "move",
+   "targetBook": "computer-fundamentals",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Base conversion is data representation → computer-fundamentals ch3."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 2,
+   "title": "Table 3 Conversion Table for Area",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Table-numbered junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 2,
+   "title": "Table 4 Conversion Table for Volume",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Table-numbered junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 2,
+   "title": "Table 6 Conversion Table for Density",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Table-numbered junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Scalars and Vectors Introduced",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Vector introduction belongs to the motion chapter's plan."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Classic One-Dimensional Problems",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "1D problem practice — fits ch3."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Rounding Off",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Rounding is covered by ch2 'Significant Figures' (error-analysis register)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Defining Instantaneous Velocity and Instantaneous Acceleration",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Defining instantaneous velocity/acceleration is ch3's core."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Subtraction of Vectors",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Vector subtraction fits the vector-intro block of the motion chapter."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Finding a Vector if x and y Components of the Vector are Given",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Component resolution is standard motion-chapter content (projectiles need it)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Finding Rectangular Components of a Vector in Three Dimensions",
+   "action": "move",
+   "targetBook": "coordinate-geometry",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "3D rectangular components are vector algebra (coordinate-geometry ch10); a 1D-motion chapter has no 3D register."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Instantaneous Acceleration",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by ch3 idx6 'Defining Instantaneous Velocity and Instantaneous Acceleration'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Graphical Representation for Motion",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by ch3's own 'Motion Graphs Read Honestly'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Minimum Velocity and Angle to Hit a Given Point",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Minimum launch speed to hit a point is a 2D projectile problem → mechanics ch2."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Velocity of Approach",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Approach velocity is first-pass relative motion in 1D — plausibly ch3."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Important Terminology Related to Circular Motion",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Circular-motion terminology → mechanics ch4 'Circular Motion and Non-Inertial Frames'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Escape Speed",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Escape speed belongs in the gravitation chapter at first pass."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Factors Affecting Speed of Sound in Gas",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Factors affecting the speed of sound → ch8 'Waves and Sound at First Pass'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Polarization Vector",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "The polarization vector (P) is dielectric physics → e-m-theory ch3 'Multipoles and Dielectric Matter'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Separated by a Distance from Each Other",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Orphaned fragment with no topic."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Three Configurations of a Transistor",
+   "action": "move",
+   "targetBook": "modern-physics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Transistor configurations (CB/CE/CC) → modern-physics ch7 'Semiconductor Devices'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "The Logistic Equation",
+   "action": "move",
+   "targetBook": "differential-equations",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "The logistic equation is the classic first-order modelling example → differential-equations ch3."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Vector Operations",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Vector operations fit the vector-intro block of the motion chapter."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "The Electric Displacement",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by e-m-theory ch3 'The D Field' (electric displacement)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Multiplying Vectors",
+   "action": "move",
+   "targetBook": "coordinate-geometry",
+   "targetChapter": 11,
+   "newTitle": "",
+   "reason": "Vector multiplication (dot/cross) is beyond first-pass motion → coordinate-geometry ch11 'The Products of Vectors'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Position and Displacement",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Position and displacement — core ch3 content (clean copy of an auto-removed numbered duplicate)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Speed of Ducks \b",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "BIO sidebar junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "MOTION ALONG Questions/Exercises/Problems\b",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Questions banner junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 4,
+   "title": "Analysis of Frictional Force Between Two Blocks in Contact: Condition of Existence of Static Friction",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Two-block static friction is a coherent ch4 friction topic (verbose but not mangled)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 4,
+   "title": "If Force Applied on Lower Block",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Case-fragment continuation of the two-block friction item — not a lesson."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 4,
+   "title": "If Force Applied on Upper Block",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Case-fragment continuation of the two-block friction item — not a lesson."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 4,
+   "title": "Rolling of an Object Without Net External Force",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Free rolling under no net force is a first-law illustration at first pass; unsure → keep."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 4,
+   "title": "Quasi-Static Process",
+   "action": "move",
+   "targetBook": "heat-and-thermodynamics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Quasi-static process is a thermodynamic process → heat ch6."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 4,
+   "title": "Forced Vibrations and the Effect of Dissipative Forces",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Forced vibrations with dissipation → waves ch3 'Damped and Forced Oscillations'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 5,
+   "title": "The Universal Law",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Universal gravitation — core ch5 content."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 5,
+   "title": "Experimental Skills: Metre scale — the mass of a given object by the principle of moments",
+   "action": "move",
+   "targetBook": "experimental-physics",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Metre-scale/moments practical → experimental-physics ch3 'Mechanics and Properties Practicals'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 5,
+   "title": "Variation of Acceleration Due to Gravity",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Variation of g is classic first-pass gravitation content."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 5,
+   "title": "Height of Satellite",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Satellite height fits ch5's satellite register."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 5,
+   "title": "Concept of Image Forming at Object Itself",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Image-forming-at-object-itself is a mirror/optics idea → ch9 'Light at First Pass'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 5,
+   "title": "Hydrostatic Pressure",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Hydrostatic pressure sits with ch5's existing thrust/pressure items."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 5,
+   "title": "Table 12 Mass and Weight Density",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Table-numbered junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Numerical Practice",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Vague practice furniture."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Positive Work (0° ≤ θ < 90°)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by ch6 'Work and Its Angle' (sign of work by angle range)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Work Depends on the Frame of Reference",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Frame-dependence of work is a legitimate work-energy lesson."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Work Done by a Pair of Interacting Forces",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Work by interacting force pairs fits ch6 (third-law pair work)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Work Done in Stretching a Wire",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by properties-of-matter ch3 'Energy in a Wire'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Emissive Power, Absorptive Power and Emissivity",
+   "action": "move",
+   "targetBook": "heat-and-thermodynamics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Emissive/absorptive power and emissivity are radiation-exchange vocabulary → heat ch9."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Energy Dissipated While Charging",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Energy dissipated while charging a capacitor → e-m ch4 'Capacitors and Dielectrics'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Energy Dissipated While Discharging",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Energy dissipated while discharging a capacitor → e-m ch4."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Introduction to Potential",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Electric potential intro → e-m ch3 'Electric Potential and Conductors'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "The Work Done to Move a Charge",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Work to move a charge → e-m ch3."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "BIO Work and Muscle Fibers\b",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "BIO sidebar junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Guided Practice\b",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Guided-practice banner junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Guided Practice\b 91 Guided Practice\b",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Guided-practice banner junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Commercial Generator Power Output",
+   "action": "move",
+   "targetBook": "electrical-machines",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Generator power output ratings → electrical-machines ch8 (losses/efficiency register)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "D.4 Finding a Power",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Appendix-numbered junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "A–2 Powers of Ten and Scientiﬁc Notation",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Appendix-numbered junk; scientific notation is covered by ch1 estimation and foundation-mathematics."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 7,
+   "title": "Temperature versus Heat",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Temperature vs heat is ch7's opening distinction."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 7,
+   "title": "Liquid Subjected to Constant Horizontal Acceleration",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Liquid under constant horizontal acceleration is fluid statics of accelerating frames → mechanics ch9."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 7,
+   "title": "Density of Compressed Liquid",
+   "action": "move",
+   "targetBook": "fluid-mechanics",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Density of a compressed liquid is a fluid property → fluid-mechanics ch1 'The Fluid Idea'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 7,
+   "title": "BIO Liquid Cohesion in Trees\b",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "BIO sidebar junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 8,
+   "title": "The Wave Picture",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "The wave picture is ch8's opening."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 8,
+   "title": "Amplitude Modulation",
+   "action": "move",
+   "targetBook": "analog-and-digital-communication",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Amplitude modulation is communication content → analog-and-digital-communication ch3."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 9,
+   "title": "Refraction and Lenses",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Refraction and lenses — core ch9 content."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 9,
+   "title": "Regular Reflection",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Regular reflection — first-pass light content."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 9,
+   "title": "Image Formation",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by ch9's own mirror/lens image-formation lessons."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 9,
+   "title": "Refraction Through a Parallel Slab",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Refraction through a parallel slab (lateral shift) is classic first-pass optics."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 9,
+   "title": "Refraction Across Multiple Slabs",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Refraction across multiple slabs is classic first-pass optics."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 9,
+   "title": "Rules for Image Formation",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Image-formation rules for mirrors/lenses — fits ch9."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 9,
+   "title": "Substituting Data into Formulas",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Vague problem-solving furniture."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Effect of Shape of Earth",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Effect of the Earth's shape is a variation-of-g factor → ch5 gravitation."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Effect of Humidity",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Humidity plausibly affects electrostatic leakage/conduction; unsure → keep."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "A Ring of Charge",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Field of a ring of charge → e-m ch2 'Electric Field and Gauss's Law'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Sharing of Charge",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Charge sharing between conductors → e-m ch1 'Electric Charge and Coulomb's Law'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Finding Coefficient of Resistance",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Temperature coefficient of resistance → e-m ch5 'Current and Resistance' (Resistivity and Temperature)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Voltage Divider",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Voltage divider is DC circuit craft → e-m ch6."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Calculation of Effective Resistance",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by ch10 'Resistance Arithmetic'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Parallel Grouping",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Parallel grouping pairs with the existing 'Series Grouping' lesson."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Magnetic Permeability (μ)",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Magnetic permeability (material property) → e-m ch8 'Magnetic Materials and the Earth'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Skin Effect",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Skin effect is a conductor boundary phenomenon → e-m-theory ch7 'Waves at Boundaries' (The Conductor's Skin)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "The Coriolis Effect",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "The Coriolis effect → mechanics ch4 (Coriolis in the Large)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Induced Dipoles",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Induced dipoles are dielectric polarization → e-m-theory ch3."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Conductors, Insulators, and Induced Charges",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Conductors, insulators and induced charge is first-pass electricity content."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Table 18 Charge",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Table-numbered junk."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 1,
+   "title": "Position of a Point",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Position of a point fits 1D kinematics."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 1,
+   "title": "Tangential and Radial Acceleration",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Tangential/radial acceleration decomposition is circular motion → ch4."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 1,
+   "title": "Total Acceleration",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Total (tangential+radial) acceleration is circular motion → ch4."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 1,
+   "title": "Acceleration Due to Gravity",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Free-fall g in 1D kinematics — fits."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 1,
+   "title": "Some Definitions",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Vague furniture heading."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 1,
+   "title": "Some Techniques of the Calculus of Variations",
+   "action": "move",
+   "targetBook": "mathematical-physics",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Calculus-of-variations techniques → mathematical-physics ch1 'The Calculus of Variations'."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 1,
+   "title": "Finite Rotations",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Finite rotations (non-commuting rotation algebra) are rigid-body dynamics → ch7."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 1,
+   "title": "The Eigenvalue Equation and the Principal Axis Transformation",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Eigenvalues/principal-axis transformation of the inertia tensor → ch7 rotational dynamics."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 1,
+   "title": "Another Look at Constant Acceleration",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Constant-acceleration revisit fits ch1."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 2,
+   "title": "Vibrations of Composite Strings",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Vibrations of composite strings are standing-wave content → waves ch6."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 3,
+   "title": "Friction’s Full Dress",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Full friction treatment — core ch3."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 3,
+   "title": "[cover/title page] (duplicate — Chapter opener / contents page, same as page 1)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Scan-descriptor junk."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 3,
+   "title": "[cover/title page] (duplicate of chapter contents page)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Scan-descriptor junk."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 3,
+   "title": "Pages 3–12 are body content (chapter text, illustrations, sections), not table of contents",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Scan-descriptor junk."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 3,
+   "title": "Pulleys Connected with a Belt",
+   "action": "move",
+   "targetBook": "engineering-mechanics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Belt-connected pulleys are belt-friction machines → engineering-mechanics ch4 'Friction and Its Applications'."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 4,
+   "title": "Condition of Completing Vertical Circle",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by ch4 'Vertical Circles'."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 5,
+   "title": "Binomial Expression and Theorem",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Binomial theorem is owned by the exempt elementary/advanced algebra books."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 5,
+   "title": "Dependence of Rate of Cooling",
+   "action": "move",
+   "targetBook": "heat-and-thermodynamics",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Rate-of-cooling dependence is calorimetry → heat ch2 (The Cooling Curve)."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 5,
+   "title": "Alternative Method",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Vague fragment."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 6,
+   "title": "Collision Taxonomy",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Collision taxonomy — core ch6."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 6,
+   "title": "Centre of Mass of a Semicircular Disc",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "COM of a semicircular disc fits the COM craft of ch6."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 6,
+   "title": "Second Approach",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Vague fragment."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 6,
+   "title": "Center of Mass and Linear Momentum",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "COM and linear momentum — core ch6."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 6,
+   "title": "A New Look at Momentum",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Momentum reinterpretation — fits ch6."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 7,
+   "title": "Rolling as Pure Rotation About Point of Contact",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Rolling as pure rotation about the contact point — core ch7."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 8,
+   "title": "Integration as Inverse of Differentiation",
+   "action": "move",
+   "targetBook": "integral-calculus",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Integration as inverse of differentiation is calculus → integral-calculus ch1."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 8,
+   "title": "MI of a Square Lamina About Its Diagonal",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "MI of a square lamina about its diagonal → ch7 (The Axis Theorems register)."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 8,
+   "title": "Expression for Gravitational Potential at a Point",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Gravitational potential at a point — core ch8."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 8,
+   "title": "D.2 Squares and Square Roots",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Appendix-numbered junk."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 9,
+   "title": "Buoyancy Craft",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Buoyancy craft — core fluid statics."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 11,
+   "title": "Simple Applications of the Lagrangian Formulation",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Lagrangian applications — fits ch11."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 11,
+   "title": "Cartesian Coordinates",
+   "action": "move",
+   "targetBook": "coordinate-geometry",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "'Cartesian Coordinates' is a sprayed math TOC line → coordinate-geometry ch1."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 12,
+   "title": "Variational Principles and the Calculus of Constraints",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 11,
+   "newTitle": "",
+   "reason": "Variational principles and constraints belong to the Lagrangian doorstep (ch11)."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 12,
+   "title": "Scattering Cross-Sections and Rutherford",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Rutherford scattering as a central-force application — fits ch12."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 12,
+   "title": "MI of a Triangular Lamina About Its Base",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "MI of a triangular lamina → ch7 (moment-of-inertia register)."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 1,
+   "title": "Why Matter Has Properties",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Why matter has properties — ch1's motivating question."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 1,
+   "title": "Some Important Properties of Integration",
+   "action": "move",
+   "targetBook": "integral-calculus",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Properties of integration → integral-calculus ch4 'The Properties and the Leibniz Rule'."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 1,
+   "title": "Properties of Definite Integral",
+   "action": "move",
+   "targetBook": "integral-calculus",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Properties of the definite integral → integral-calculus ch4."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 1,
+   "title": "Properties of Bar Magnet",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by foundation-physics ch10 (first-pass bar magnet) and e-m ch8's magnetic-materials register."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 1,
+   "title": "Formal Properties of the Transformation Matrix",
+   "action": "move",
+   "targetBook": "linear-algebra",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Transformation-matrix properties → linear-algebra ch5 'Linear Transformations'."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 1,
+   "title": "Some Properties of Atoms",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Atomic properties support the molecular picture; unsure → keep."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 2,
+   "title": "*25–5 Factors Limiting Visual Acuity",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Star-section-numbered junk (visual acuity is physiology)."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 3,
+   "title": "Springs in Numbers",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Springs in numbers — elastic-energy content of ch3."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 3,
+   "title": "Important Facts About Elasticity",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Elasticity facts — fits ch3."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 3,
+   "title": "Reynolds Number",
+   "action": "move",
+   "targetBook": "properties-of-matter",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Reynolds number belongs with viscosity/flow regimes → ch4."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 3,
+   "title": "Avogadro's Number",
+   "action": "move",
+   "targetBook": "heat-and-thermodynamics",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Avogadro's number is kinetic-theory vocabulary → heat ch3."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 3,
+   "title": "Case 1: Spring–Mass System Oscillating on a Smooth Horizontal Surface",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Spring–mass oscillation is SHM → waves ch1 'Simple Harmonic Motion: Foundations'."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 3,
+   "title": "Vibration in Rods",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Rod vibrations support elastic-modulus measurement; unsure → keep."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 3,
+   "title": "Poisson Brackets and Other Canonical Invariants",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 12,
+   "newTitle": "",
+   "reason": "Poisson brackets and canonical invariants → mechanics ch12 (Hamiltonian register)."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 3,
+   "title": "A.1 Signed Numbers",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Appendix-numbered junk."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 4,
+   "title": "Terminal Velocity Worked",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Terminal velocity worked — core viscosity content."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 4,
+   "title": "Opposite Phase SHMs",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Opposite-phase SHM superposition → waves ch2 (Superposition of SHMs)."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 4,
+   "title": "Measuring Things",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Vague furniture heading."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 5,
+   "title": "Friction Acting on Multiple Surfaces",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Friction on multiple surfaces → mechanics ch3 'Newton's Laws in Full' (Friction's Full Dress)."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 5,
+   "title": "Condition for Leaving the Circle: Tension Becomes Zero Before Speed",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Leaving-the-vertical-circle condition → mechanics ch4 (Vertical Circles)."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 5,
+   "title": "Selection of Gaussian Surface",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Gaussian-surface selection → e-m ch2 'Electric Field and Gauss's Law' (Gauss Chosen Symmetrically)."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 6,
+   "title": "Coalescence Problems",
+   "action": "move",
+   "targetBook": "properties-of-matter",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Drop coalescence is surface-energy content → ch5."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 6,
+   "title": "Chain Rule or \"Outside Inside\" Rule",
+   "action": "move",
+   "targetBook": "differential-calculus",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "The chain rule is differentiation craft → differential-calculus ch4."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 7,
+   "title": "Numerical Practice",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Vague practice furniture."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 7,
+   "title": "Some Applications",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by ch7 'Applications Register'."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 7,
+   "title": "Linear and Nonlinear Media",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Linear vs nonlinear media is the linearity/superposition discussion → waves ch6."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 7,
+   "title": "Table 17 Coefficient of Volume Expansion",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Table-numbered junk."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 8,
+   "title": "Capillary and Frame Methods",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Capillary and frame methods — ch8 lab content."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 2,
+   "title": "Direction Cosines",
+   "action": "move",
+   "targetBook": "coordinate-geometry",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Direction cosines are 3D geometry → coordinate-geometry ch9."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 2,
+   "title": "Two Blocks in Contact Moving on an Inclined Plane",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Two blocks on an inclined plane is a Newton's-law problem → mechanics ch3."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 4,
+   "title": "Single oscillator",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Fragment heading ('single oscillator') with no lesson content."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 6,
+   "title": "The Superposition Principle",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Superposition principle — ch6's opening."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 6,
+   "title": "Data Transmission and Retrieval",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Composite data-transmission/retrieval title with no single correct home; not waves content."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 6,
+   "title": "Reflection and Transmission at Oblique Incidence",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Reflection/transmission at oblique incidence (Fresnel coefficients) → e-m-theory ch7 'Waves at Boundaries'."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 8,
+   "title": "Coherent Sources",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by optics ch5 'Coherence Introduced'."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 9,
+   "title": "Harmonics as Building Blocks",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Harmonics as building blocks — ch9's opening."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 1,
+   "title": "Power of Thin Lens in Case the Medium are Different on Both Sides",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by optics ch2 'Lenses with Different Media on Either Side'."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 3,
+   "title": "Graphical Interpretation of Integration",
+   "action": "move",
+   "targetBook": "integral-calculus",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Graphical interpretation of integration is calculus → integral-calculus ch3 (the cited pollution example)."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 3,
+   "title": "Graphical Interpretation of Work Done",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Graphical interpretation of work done (area under F–x) → mechanics ch5 'Work and Energy in Full'."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 3,
+   "title": "Path Symmetry",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Cryptic fragment with no assignable topic."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 3,
+   "title": "Free Vibrations of a Linear Triatomic Molecule",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Normal modes of a linear triatomic molecule → waves ch4 'Coupled Oscillations and Normal Modes'."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 5,
+   "title": "cp and cv Defined",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "cp and cv defined — ch5's opening."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 5,
+   "title": "Adiabatic Process",
+   "action": "move",
+   "targetBook": "heat-and-thermodynamics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "The adiabatic process belongs in the processes enumeration of ch6 (isochoric/isobaric/isothermal live there)."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 6,
+   "title": "Processes on the P-V Plane",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Processes on the P–V plane — core ch6."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 6,
+   "title": "Cycles as Area",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Cycles as area — core ch6."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 6,
+   "title": "Geometrical Significance of a Definite Integral",
+   "action": "move",
+   "targetBook": "integral-calculus",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Geometrical significance of a definite integral is calculus → integral-calculus ch3."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 6,
+   "title": "Reversible and Irreversible Processes",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Reversible/irreversible processes — core ch6."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 7,
+   "title": "Two Statements, One Law",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Kelvin/Clausius statements — ch7's opening."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 9,
+   "title": "The Greenhouse Effect and the Radiation Budget",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Greenhouse effect and radiation budget is physics radiation content of ch9."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 10,
+   "title": "The Doorway",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "House-style chapter closer."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 4,
+   "title": "Dielectrics Introduced",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Dielectrics introduced — ch4's opening."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 5,
+   "title": "Current Carrying Sheet",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Field of a current sheet → ch7 (Ampere's Choices register)."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 5,
+   "title": "Work Done in Changing Orientation of a Current",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 7,
+   "newTitle": "Work Done in Reorienting a Current Loop",
+   "reason": "Work to reorient a current loop is torque content of ch7 (title is OCR-truncated)."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 5,
+   "title": "Growth and Decay of Current",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by ch9 'Inductance and LR Transients'."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 5,
+   "title": "Current Gains in a Transistor",
+   "action": "move",
+   "targetBook": "modern-physics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Transistor current gains → modern-physics ch7 'Semiconductor Devices'."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 5,
+   "title": "Pulse Code Modulation",
+   "action": "move",
+   "targetBook": "analog-and-digital-communication",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Pulse code modulation → analog-and-digital-communication ch7 'Pulse and Source Coding'."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 5,
+   "title": "Physical Interpretation of Bound Currents",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Physical interpretation of bound currents → e-m-theory ch4 'Magnetostatics' (Magnetisation and H)."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 6,
+   "title": "Joule Heating and the Power Ledger",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Joule heating and power ledger — core ch6."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 6,
+   "title": "Mixed Grouping",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by ch6 'Cells in Combination'."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 7,
+   "title": "Product Rule",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by differential-calculus ch4 'The Craft of Differentiation'."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 7,
+   "title": "Triple Products",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by coordinate-geometry ch11 'Triple Products and Lagrange's Identity'."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 7,
+   "title": "Product Rules",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by differential-calculus ch4."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 8,
+   "title": "The Three Behaviours",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Dia/para/ferro behaviours — ch8's opening."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 9,
+   "title": "Flux Linkage",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Flux linkage — core induction content."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 10,
+   "title": "Root Mean Square (RMS) Value of Current",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by ch10 'rms and Phasors'."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 11,
+   "title": "Electrical Symmetry",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Electrical symmetry (symmetric-network reduction) is DC circuit craft → ch6."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Line and Surface Integrals",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Line and surface integrals are the chapter's own vector-grammar toolkit."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Theme D: Fields",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Syllabus 'Theme D' furniture heading."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Limits of the Values of Trigonometric Ratios",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by the trigonometry book (Trigonometric Functions and Their Graphs)."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Algebraic Method to Evaluate Definite Integral",
+   "action": "move",
+   "targetBook": "integral-calculus",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Algebraic evaluation of definite integrals → integral-calculus ch3."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Geometrical Method to Evaluate Definite Integral",
+   "action": "move",
+   "targetBook": "integral-calculus",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Geometrical evaluation of definite integrals → integral-calculus ch3."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Field of Uniformly Charged Disk",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Field of a uniformly charged disk is an electrostatics calculation → ch2."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Problems Involving Plates",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Plate problems are electrostatics (Gauss/capacitor plates) → ch2."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "The Harmonic Oscillator Problem as an Example of the Hamilton–Jacobi Method",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 12,
+   "newTitle": "",
+   "reason": "Harmonic oscillator via the Hamilton–Jacobi method → mechanics ch12 (Hamiltonian register)."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Examples of Relativistic Field Theories",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Relativistic field theories (QFT-level) have no home in the registry; not vector-grammar content."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "REVIEW & SUMMARY 8 PROBLEMS",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Review banner junk."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 10,
+   "title": "The QED Doorstep",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "QED doorway — house-style closer of the chapter."
+  },
+  {
+   "book": "optics",
+   "chapter": 1,
+   "title": "Image Formation from Plain Mirror",
+   "action": "retitle",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "Image Formation by a Plane Mirror",
+   "reason": "Fits ray optics ch1; 'Plain Mirror' is an OCR mangling of 'plane mirror'."
+  },
+  {
+   "book": "optics",
+   "chapter": 1,
+   "title": "Photon Counts Emitted by a Source per Second",
+   "action": "move",
+   "targetBook": "modern-physics",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Photon counts per second → modern-physics ch2 'Photons and the Photoelectric Effect'."
+  },
+  {
+   "book": "optics",
+   "chapter": 1,
+   "title": "Production of X-Rays (Coolidge's Tube)",
+   "action": "move",
+   "targetBook": "modern-physics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "X-ray production (Coolidge tube) → modern-physics ch4 'X-Rays and the Compton Craft' (Production Register)."
+  },
+  {
+   "book": "optics",
+   "chapter": 1,
+   "title": "X Rays and the Ordering of the Elements",
+   "action": "move",
+   "targetBook": "modern-physics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "X-rays and Moseley ordering of elements → modern-physics ch4 (Characteristic Lines)."
+  },
+  {
+   "book": "optics",
+   "chapter": 4,
+   "title": "Photometry: The Luminous Intensity Ledger",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Photometry and luminous intensity fit the optical-instruments chapter."
+  },
+  {
+   "book": "optics",
+   "chapter": 6,
+   "title": "The Intensity Ledger",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Intensity ledger — interference content of ch6."
+  },
+  {
+   "book": "optics",
+   "chapter": 6,
+   "title": "Double Differentiation",
+   "action": "move",
+   "targetBook": "differential-calculus",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "'Double Differentiation' (second derivative) is calculus craft → differential-calculus ch4."
+  },
+  {
+   "book": "modern-physics",
+   "chapter": 1,
+   "title": "Blackbody Radiation: Kirchhoff, Wien and Stefan",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by ch1 'The Radiation Laws' (Kirchhoff/Wien/Stefan are exactly those laws)."
+  },
+  {
+   "book": "modern-physics",
+   "chapter": 3,
+   "title": "The Series Census",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Hydrogen spectral-series census — core ch3."
+  },
+  {
+   "book": "modern-physics",
+   "chapter": 7,
+   "title": "Doping and Carriers",
+   "action": "keep",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Doping and carriers — ch7's opening."
+  },
+  {
+   "book": "modern-physics",
+   "chapter": 7,
+   "title": "Logic Gates and Truth Table",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by ch7 'Logic Gates Previewed'; the deep treatment lives in digital-logic-design."
+  },
+  {
+   "book": "modern-physics",
+   "chapter": 7,
+   "title": "Logic Gates Using 'NAND' Gate",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by ch7 'Logic Gates Previewed'; the deep treatment lives in digital-logic-design."
+  },
+  {
+   "book": "quantum-mechanics",
+   "chapter": 1,
+   "title": "Sine and Cosine Rule for Triangles",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by trigonometry ch6 'Properties of Triangles' (sine/cosine rules)."
+  },
+  {
+   "book": "quantum-mechanics",
+   "chapter": 1,
+   "title": "Quotient Rule",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by differential-calculus ch4 'The Craft of Differentiation'."
+  },
+  {
+   "book": "quantum-mechanics",
+   "chapter": 1,
+   "title": "Rule of Substitution",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by integral-calculus (substitution is core to the ch1-2 craft)."
+  },
+  {
+   "book": "quantum-mechanics",
+   "chapter": 2,
+   "title": "Scattering in One Dimension and the Reflection Coefficient",
+   "action": "move",
+   "targetBook": "quantum-mechanics",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "1D scattering and reflection coefficient → ch3 (TISE: wells, barriers, tunnelling)."
+  },
+  {
+   "book": "quantum-mechanics",
+   "chapter": 2,
+   "title": "Shifted Symmetry",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Cryptic fragment with no assignable topic."
+  },
+  {
+   "book": "quantum-mechanics",
+   "chapter": 2,
+   "title": "D.1 Scientific Notation",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Appendix-numbered junk."
+  },
+  {
+   "book": "quantum-mechanics",
+   "chapter": 5,
+   "title": "Decimal and Binary Number System",
+   "action": "move",
+   "targetBook": "computer-fundamentals",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Decimal/binary number systems → computer-fundamentals ch3 'Data Representation'."
+  },
+  {
+   "book": "quantum-mechanics",
+   "chapter": 6,
+   "title": "Page 1: [table of contents page 1]",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Scan-descriptor junk."
+  },
+  {
+   "book": "quantum-mechanics",
+   "chapter": 6,
+   "title": "Page 2: [table of contents page 2]",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Scan-descriptor junk."
+  },
+  {
+   "book": "quantum-mechanics",
+   "chapter": 6,
+   "title": "Table 22 The Greek Alphabet",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Table-numbered junk."
+  }
+ ],
+ "dupes": [
+  {
+   "title": "Practical Perspective: Pushbutton Telephone Practical Perspective: Filtering Digital",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk banner/TOC run sprayed across 50+ books — remove everywhere, no live topic."
+  },
+  {
+   "title": "Polyprotic Acid Titrations 632 For Review 699 | Key Terms 699 | Questions and Exercises",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run (chemistry page numbers) — remove everywhere."
+  },
+  {
+   "title": "Shot noise in current sources and emitter followers",
+   "action": "keep-both",
+   "winner": "analog-electronics",
+   "reason": "Shot-noise in circuits (analog-electronics) vs lab signal noise (experimental-physics) are genuinely different treatments; physics-shelf spray copies should be removed."
+  },
+  {
+   "title": "Summary 1208 of the Atom",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run ('Summary 1208 of the Atom') — remove everywhere."
+  },
+  {
+   "title": "Laboratory skills expected to be known by all participants (heating and reflux, mass and volume measurement, preparation and dilution of solutions, titrations, pH measurement, filtration, drying of precipitates, instrument operation, graphing and analysis of experimental data)",
+   "action": "consolidate",
+   "winner": "analytical-chemistry",
+   "reason": "A chemistry-lab syllabus line sprayed across books; physics copies are junk, chemistry owns laboratory skills."
+  },
+  {
+   "title": "Adding a Resistive Load to a Voltage 4.19 Finding the Thévenin Equivalent of a Circuit",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run (circuit-theory page numbers) — remove everywhere."
+  },
+  {
+   "title": "Guided Practice 1208 39.4 The Laser",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run ('Guided Practice 1208 39.4 The Laser') — remove everywhere."
+  },
+  {
+   "title": "A Closer Look: Structure of the",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Truncated 'A Closer Look:' fragment — remove everywhere."
+  },
+  {
+   "title": "The Salient Features of the Animal Phyla: Non-Chordates to Chordate Classes",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Biology phyla line sprayed into non-biology books — remove everywhere."
+  },
+  {
+   "title": "Deviation from Ideal Gas Behaviour",
+   "action": "consolidate",
+   "winner": "heat-and-thermodynamics",
+   "reason": "Real-gas deviation is owned by heat-and-thermodynamics ch8 'Real Gases and Liquefaction'."
+  },
+  {
+   "title": "Post Office Box",
+   "action": "consolidate",
+   "winner": "electricity-and-magnetism",
+   "reason": "Post Office Box is a Wheatstone-bridge instrument — physics home e-m ch5 (Wheatstone's Bridge)."
+  },
+  {
+   "title": "Inquiry 2: Collecting and processing data",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Generic syllabus 'Inquiry' furniture — remove everywhere."
+  },
+  {
+   "title": "Analysis of growth and decay 113 8.3 Inductance in terms of flux-linkages",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run — remove everywhere."
+  },
+  {
+   "title": "Action-angle Variables in Systems of One Degree of Freedom",
+   "action": "consolidate",
+   "winner": "mechanics",
+   "reason": "Action-angle variables are Hamiltonian mechanics → mechanics ch12."
+  },
+  {
+   "title": "Magnetic Induction Due to a Large and Thick",
+   "action": "consolidate",
+   "winner": "electromagnetic-theory",
+   "reason": "Thick current-sheet/wire fields are magnetostatics → e-m-theory ch4 keeps the deep copy; stray copies in the intro book consolidate into its ch7 Ampere register."
+  },
+  {
+   "title": "Graphical Representation for Motion",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Topic already covered by foundation-physics ch3 'Motion Graphs Read Honestly' and mechanics ch1 'Graphs by Slope and Area' — remove sprayed copies."
+  },
+  {
+   "title": "Appendix E Some Useful Mathematical Approximation",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Appendix-numbered junk — remove everywhere (approximation methods are owned by the math-methods books)."
+  },
+  {
+   "title": "Dielectrics and Boundary Conditions",
+   "action": "consolidate",
+   "winner": "electromagnetic-theory",
+   "reason": "Dielectric boundary conditions are owned by e-m-theory ch3 'Boundaries in Matter'."
+  },
+  {
+   "title": "Types of Intermolecular Forces and their Characteristics",
+   "action": "consolidate",
+   "winner": "properties-of-matter",
+   "reason": "Intermolecular-force types are owned by properties-of-matter ch1 'The Molecular Picture'."
+  },
+  {
+   "title": "Conservative Forces and Energy Bookkeeping",
+   "action": "consolidate",
+   "winner": "mechanics",
+   "reason": "Conservative-force bookkeeping is owned by mechanics ch5 'Work and Energy in Full'."
+  },
+  {
+   "title": "Conservation of Angular Momentum 319 Questions/Exercises/Problems",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run (angular momentum + page numbers) — remove everywhere."
+  },
+  {
+   "title": "Graphs of Sine and Cosine Functions",
+   "action": "consolidate",
+   "winner": "trigonometry",
+   "reason": "Sine/cosine graphs are owned by the trigonometry book."
+  },
+  {
+   "title": "Case 2: Spring–Mass System Oscillating in a Vertical Plane",
+   "action": "consolidate",
+   "winner": "waves-and-oscillations",
+   "reason": "Spring–mass SHM examples are owned by waves ch1 'Simple Harmonic Motion: Foundations'."
+  },
+  {
+   "title": "Equations of Motion, Infinitesimal Canonical Transformations, and Conservation Theorems in the Poisson Bracket Formulation",
+   "action": "consolidate",
+   "winner": "mechanics",
+   "reason": "Poisson-bracket equations of motion are Hamiltonian mechanics → mechanics ch12."
+  },
+  {
+   "title": "Light Scattered as Photons: Compton 41.2 Particle in a Three-Dimensional Box",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run (Compton + particle-in-box page numbers) — remove everywhere."
+  },
+  {
+   "title": "Algebraic Method to Evaluate Definite Integral",
+   "action": "consolidate",
+   "winner": "integral-calculus",
+   "reason": "Definite-integral evaluation methods are owned by integral-calculus ch3."
+  },
+  {
+   "title": "Damped Oscillation and the Quality Factor",
+   "action": "consolidate",
+   "winner": "waves-and-oscillations",
+   "reason": "Damping and quality factor are owned by waves ch3."
+  },
+  {
+   "title": "Continuous versus Discrete",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Vague sprayed title; the qm ch8 member 'The Transition from a Discrete to a Continuous System' is a different real topic that stays."
+  },
+  {
+   "title": "Calculus of Variations: the Euler-Lagrange Engine",
+   "action": "keep-both",
+   "winner": "mathematical-physics",
+   "reason": "Variational calculus as math-methods (mathematical-physics ch1) vs Lagrangian mechanics (mechanics ch11) are genuinely different treatments."
+  },
+  {
+   "title": "The Free-Body Diagram: the Engineer’s First Instrument",
+   "action": "keep-both",
+   "winner": "engineering-mechanics",
+   "reason": "Free-body diagrams: engineering statics vs school first-pass (foundation-physics ch4 'The Free-Body Ledger') are genuinely different treatments."
+  },
+  {
+   "title": "Contents xiii",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "TOC junk ('Contents xiii') — remove everywhere."
+  },
+  {
+   "title": "Rotation About a Fixed Axis",
+   "action": "consolidate",
+   "winner": "mechanics",
+   "reason": "Rotation about a fixed axis is owned by mechanics ch7 'Rotational Dynamics'."
+  },
+  {
+   "title": "Plane Motion of Rigid Bodies",
+   "action": "consolidate",
+   "winner": "mechanics",
+   "reason": "Plane motion of rigid bodies is owned by mechanics ch7."
+  },
+  {
+   "title": "Momentum Conservation and Collisions 245 11.4 Stress, Strain, and Elastic Moduli",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run — remove everywhere."
+  },
+  {
+   "title": "Relative Velocity Craft",
+   "action": "consolidate",
+   "winner": "mechanics",
+   "reason": "Relative velocity is owned by mechanics ch2 'Relative Velocity Craft'."
+  },
+  {
+   "title": "Appendix A ■ Euler Angles in Alternate Conventions and Cayley–Klein Parameters",
+   "action": "consolidate",
+   "winner": "mechanics",
+   "reason": "Euler angles/Cayley–Klein parameters are owned by mechanics ch12 ('The Cayley–Klein Parameters and Related Quantities')."
+  },
+  {
+   "title": "The Passive Sign Convention as Law",
+   "action": "keep-both",
+   "winner": "circuit-theory-and-network-analysis",
+   "reason": "False-positive pairing: optics ch1 'Sign Conventions' (mirror/lens signs) is a different topic from the circuit passive-sign convention."
+  },
+  {
+   "title": "Bar Magnet",
+   "action": "consolidate",
+   "winner": "foundation-physics",
+   "reason": "Bar-magnet basics at first pass → foundation ch10 (moved there); the deep treatment already lives in e-m ch8."
+  },
+  {
+   "title": "Physical Interpretation of Bound Currents",
+   "action": "consolidate",
+   "winner": "electromagnetic-theory",
+   "reason": "Bound currents → e-m-theory ch4; bound charges → e-m-theory ch3; only the e-m-theory copies stay."
+  },
+  {
+   "title": "Center of Gravity",
+   "action": "consolidate",
+   "winner": "mechanics",
+   "reason": "Center of gravity is owned by mechanics ch6 (center-of-mass register)."
+  },
+  {
+   "title": "Decimal to Binary Conversion",
+   "action": "consolidate",
+   "winner": "computer-fundamentals",
+   "reason": "Base conversion is data representation → computer-fundamentals ch3."
+  },
+  {
+   "title": "Finding Rectangular (x and y) Components of a Vector",
+   "action": "keep-both",
+   "winner": "foundation-physics",
+   "reason": "Vector components: school first pass (foundation ch3) vs E&M-prereq refresh (e-m-theory ch1) are genuinely different treatments."
+  },
+  {
+   "title": "Average Acceleration",
+   "action": "consolidate",
+   "winner": "foundation-physics",
+   "reason": "Average acceleration is owned by foundation ch3."
+  },
+  {
+   "title": "POWER 1101 38-6 SCHRÖDINGER’S EQUATION",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run — remove everywhere."
+  },
+  {
+   "title": "Mass, Weight and g",
+   "action": "consolidate",
+   "winner": "foundation-physics",
+   "reason": "Mass, weight and g is owned by foundation ch5 gravitation."
+  },
+  {
+   "title": "Image Formation",
+   "action": "consolidate",
+   "winner": "optics",
+   "reason": "Image formation is owned by optics ch1 (plane-mirror copy retitled); the foundation ch9 copy is redundant within its own chapter."
+  },
+  {
+   "title": "Conductors, Insulators, and Induced Charges",
+   "action": "consolidate",
+   "winner": "foundation-physics",
+   "reason": "Conductors/insulators/induced charge at first pass → foundation ch10."
+  },
+  {
+   "title": "Combined Rotation and Translation",
+   "action": "consolidate",
+   "winner": "mechanics",
+   "reason": "Combined rotation+translation is owned by mechanics ch7 'Dynamics of Combination of Translation and Rotation'."
+  },
+  {
+   "title": "Electric Field Due to a Charged Isolated Conducting Plate",
+   "action": "consolidate",
+   "winner": "electromagnetic-theory",
+   "reason": "Charged conducting plate field → e-m-theory ch2 'Electrostatics in Vacuum'."
+  },
+  {
+   "title": "Everyday Registers",
+   "action": "consolidate",
+   "winner": "properties-of-matter",
+   "reason": "Only the surface-tension 'Everyday Registers' copy is meaningful; other copies are spray."
+  },
+  {
+   "title": "Appendix Graphing: A Brief Review",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Appendix-numbered junk — remove everywhere."
+  },
+  {
+   "title": "Irreversible Reactions",
+   "action": "keep-both",
+   "winner": "heat-and-thermodynamics",
+   "reason": "False-positive pairing: chemistry 'irreversible reactions' vs thermodynamic 'reversible and irreversible processes' are different topics; the heat ch6 item is correct as-is."
+  },
+  {
+   "title": "Effects of Radiation",
+   "action": "consolidate",
+   "winner": "nuclear-physics",
+   "reason": "Effects of radiation are owned by nuclear-physics ch9 'Radiation and Safety'."
+  },
+  {
+   "title": "Conduction in Metals",
+   "action": "consolidate",
+   "winner": "heat-and-thermodynamics",
+   "reason": "Conduction in metals is heat-transfer content → heat ch9."
+  },
+  {
+   "title": "Charged Particles in Fields",
+   "action": "consolidate",
+   "winner": "electricity-and-magnetism",
+   "reason": "Charged particles in fields (Lorentz force) is owned by e-m ch7."
+  },
+  {
+   "title": "The Earth’s Elements",
+   "action": "consolidate",
+   "winner": "electricity-and-magnetism",
+   "reason": "Earth's magnetic elements are owned by e-m ch8 'Magnetic Materials and the Earth'."
+  },
+  {
+   "title": "Electric Charge and Electric Field 678 C The Greek Alphabet A-4",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run — remove everywhere."
+  },
+  {
+   "title": "Optical Activity",
+   "action": "keep-both",
+   "winner": "optics",
+   "reason": "Optical activity: physical optics treatment (optics ch8) vs molecular chirality (organic chemistry) are genuinely different syllabus treatments."
+  },
+  {
+   "title": "Direction Cosines and Direction Ratios",
+   "action": "consolidate",
+   "winner": "coordinate-geometry",
+   "reason": "Direction cosines/ratios are 3D geometry → coordinate-geometry ch9."
+  },
+  {
+   "title": "Triple Products and Lagrange’s Identity",
+   "action": "consolidate",
+   "winner": "coordinate-geometry",
+   "reason": "Triple products and Lagrange's identity are owned by coordinate-geometry ch11."
+  },
+  {
+   "title": "The Doorstep: Curves Acquire Slopes and Areas",
+   "action": "keep-both",
+   "winner": "mechanics",
+   "reason": "False-positive pairing of each book's own items (calculus doorway closer vs mechanics' 'Graphs by Slope and Area') — both stay."
+  },
+  {
+   "title": "Variable Separable",
+   "action": "consolidate",
+   "winner": "differential-equations",
+   "reason": "Variable-separable method is owned by differential-equations ch2."
+  },
+  {
+   "title": "The Matrix of a Transformation",
+   "action": "consolidate",
+   "winner": "linear-algebra",
+   "reason": "Matrix of a transformation is owned by linear-algebra ch5."
+  },
+  {
+   "title": "Phasors",
+   "action": "consolidate",
+   "winner": "waves-and-oscillations",
+   "reason": "Phasors for SHM are owned by waves ch2."
+  },
+  {
+   "title": "Xiv Contents",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "TOC junk ('Xiv Contents') — remove everywhere."
+  },
+  {
+   "title": "Equilibrium of the Rigid Body",
+   "action": "consolidate",
+   "winner": "mechanics",
+   "reason": "Rigid-body equilibrium is owned by mechanics ch7 (Rigid-Body Equilibrium and the Torque Balance)."
+  },
+  {
+   "title": "Belt-Pulley Systems and Brake/Clutch Friction",
+   "action": "consolidate",
+   "winner": "engineering-mechanics",
+   "reason": "Belt-pulley/brake friction is engineering statics content."
+  },
+  {
+   "title": "Generalised Coordinates and Constraints",
+   "action": "keep-both",
+   "winner": "mechanics",
+   "reason": "Generalised coordinates: Lagrangian mechanics (mechanics ch11) vs the engineering Lagrange chapter are genuinely different treatments."
+  },
+  {
+   "title": "DETAILED CONTENTS xvii",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "TOC junk ('DETAILED CONTENTS xvii') — remove everywhere."
+  },
+  {
+   "title": "Viscosity: Newton’s Law and Its Census",
+   "action": "keep-both",
+   "winner": "properties-of-matter",
+   "reason": "Viscosity: properties-of-matter treatment vs fluid-mechanics engineering treatment — genuinely different syllabi (like physics heat vs engineering thermodynamics)."
+  },
+  {
+   "title": "Permeability of free space or magnetic 9.11 Alternating system frequencies in practice",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run — remove everywhere."
+  },
+  {
+   "title": "Basic Electrical Engineering — DC circuits: Ohm's and Kirchhoff's laws, mesh and nodal analysis, circuit theorems; electromagnetism, Faraday's and Lenz's laws, induced EMF and its uses; single-phase AC circuits; transformers, efficiency; basics of DC machines, induction machines and synchronous",
+   "action": "keep-both",
+   "winner": "electricity-and-magnetism",
+   "reason": "DC circuits: first-pass physics craft (e-m ch6) vs engineering circuit theory are genuinely different syllabus treatments."
+  },
+  {
+   "title": "Experimental tests to obtain motor 36 Direct-current Machines",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run — remove everywhere."
+  },
+  {
+   "title": "Basic Principles 366 8 Building Blocks of Integrated",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run — remove everywhere."
+  },
+  {
+   "title": "Electronic Measurements and Instrumentation — principles of measurement, accuracy, precision and standards; analog and digital systems for measurement; static/dynamic characteristics of measurement systems, errors, statistical analysis and curve fitting; measurement systems for non-electrical",
+   "action": "consolidate",
+   "winner": "electrical-measurements",
+   "reason": "Electronic measurement/instrumentation syllabus line is owned by electrical-measurements."
+  },
+  {
+   "title": "Shunts and Multipliers",
+   "action": "keep-both",
+   "winner": "electricity-and-magnetism",
+   "reason": "Shunts/multipliers: school galvanometer conversion (e-m ch11) vs instrumentation engineering (electrical-measurements ch2) are genuinely different treatments."
+  },
+  {
+   "title": "Gradient, Divergence, Curl — Read Physically",
+   "action": "keep-both",
+   "winner": "electromagnetic-theory",
+   "reason": "Gradient/div/curl: physics vector grammar (e-m-theory ch1) vs engineering fields-and-waves are genuinely different treatments."
+  },
+  {
+   "title": "Poisson, Laplace and Uniqueness",
+   "action": "keep-both",
+   "winner": "electromagnetic-theory",
+   "reason": "Poisson/Laplace/uniqueness: physics vs engineering treatments both stay."
+  },
+  {
+   "title": "Biot-Savart Geometries",
+   "action": "keep-both",
+   "winner": "electricity-and-magnetism",
+   "reason": "Biot–Savart geometries: first-pass (e-m ch7) vs engineering (fields-and-waves ch4) treatments both stay."
+  },
+  {
+   "title": "Displacement Current Earned",
+   "action": "keep-both",
+   "winner": "electromagnetic-theory",
+   "reason": "Displacement current: physics (e-m-theory ch5) vs engineering treatments both stay."
+  },
+  {
+   "title": "The Rectangular Guide: TE and TM",
+   "action": "keep-both",
+   "winner": "electromagnetic-theory",
+   "reason": "Rectangular waveguide TE/TM: physics vs engineering treatments both stay."
+  },
+  {
+   "title": "Drift and Mobility",
+   "action": "keep-both",
+   "winner": "electricity-and-magnetism",
+   "reason": "Drift/mobility in conductors (e-m ch5) vs carrier transport in semiconductors (EDC ch2) are different contexts."
+  },
+  {
+   "title": "Photodiodes and Solar Cells",
+   "action": "consolidate",
+   "winner": "electronic-devices-and-circuits",
+   "reason": "Photodiodes/solar cells are optoelectronic devices → EDC ch8."
+  },
+  {
+   "title": "Digital communication basics — sampling, quantizing, coding; PCM, DPCM, multiplexing (audio/video); digital modulation: ASK, FSK, PSK; multiple access: TDMA, FDMA, CDMA; optical communication: fibre optics, theory, practice/standards",
+   "action": "consolidate",
+   "winner": "analog-and-digital-communication",
+   "reason": "Digital-communication basics (sampling/quantizing/coding) are owned by analog-and-digital-communication ch7-8."
+  },
+  {
+   "title": "The Half-Wave Dipole Analysed",
+   "action": "keep-both",
+   "winner": "electromagnetic-theory",
+   "reason": "Half-wave dipole: radiating-systems physics (e-m-theory ch9) vs antenna engineering both stay."
+  },
+  {
+   "title": "Pulse Code Modulation",
+   "action": "consolidate",
+   "winner": "analog-and-digital-communication",
+   "reason": "Pulse code modulation is owned by analog-and-digital-communication ch7."
+  },
+  {
+   "title": "Ferromagnetism",
+   "action": "consolidate",
+   "winner": "electricity-and-magnetism",
+   "reason": "Ferromagnetism is owned by e-m ch8 'Ferromagnetic Substances'."
+  },
+  {
+   "title": "Photoelectric Effect",
+   "action": "consolidate",
+   "winner": "modern-physics",
+   "reason": "Photoelectric effect is owned by modern-physics ch2."
+  },
+  {
+   "title": "Inclined-Plane Problems",
+   "action": "consolidate",
+   "winner": "foundation-physics",
+   "reason": "Inclined-plane problems are first-pass force content → foundation ch4."
+  },
+  {
+   "title": "Projectile from Height at Certain Angle with Horizontal",
+   "action": "consolidate",
+   "winner": "mechanics",
+   "reason": "Projectile motion is owned by mechanics ch2 'Kinematics in Two Dimensions'."
+  },
+  {
+   "title": "Apparent Weight",
+   "action": "keep-both",
+   "winner": "foundation-physics",
+   "reason": "Apparent weight: first-pass gravitation (foundation ch5) vs rotating-frame analysis (mechanics) are different treatments."
+  },
+  {
+   "title": "Variation of Acceleration Due to Gravity",
+   "action": "keep-both",
+   "winner": "foundation-physics",
+   "reason": "Different items: variation-of-g in foundation gravitation vs g-as-free-fall-acceleration in mechanics kinematics — both stay."
+  },
+  {
+   "title": "Eddy Currents",
+   "action": "consolidate",
+   "winner": "electricity-and-magnetism",
+   "reason": "Eddy currents are owned by e-m ch9 'Electromagnetic Induction'."
+  },
+  {
+   "title": "Gravity and Weight",
+   "action": "consolidate",
+   "winner": "foundation-physics",
+   "reason": "Gravity and weight at first pass → foundation ch5 (Mass, Weight and g)."
+  },
+  {
+   "title": "Numerical Practice",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Vague practice furniture — remove everywhere."
+  },
+  {
+   "title": "Energy to Kinetic Energy\b 203 BIO Detecting DNA with Diffraction\b",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk BIO/TOC run — remove everywhere."
+  },
+  {
+   "title": "Summary 1433 Guided Practice",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run — remove everywhere."
+  },
+  {
+   "title": "The u-v Method for Concave Mirrors and Convex Lenses",
+   "action": "consolidate",
+   "winner": "experimental-physics",
+   "reason": "The u–v method is a focal-length practical → experimental-physics ch4."
+  },
+  {
+   "title": "The Color of Light and Spectra",
+   "action": "consolidate",
+   "winner": "foundation-physics",
+   "reason": "Colour of light and spectra at first pass → foundation ch9."
+  },
+  {
+   "title": "Dipole–Induced Dipole Forces",
+   "action": "consolidate",
+   "winner": "properties-of-matter",
+   "reason": "Dipole–induced-dipole forces are intermolecular-force content → properties ch1."
+  },
+  {
+   "title": "Some Definitions",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Vague furniture heading — remove everywhere."
+  },
+  {
+   "title": "The Eigenvalues of the Inertia Tensor and the Principal Axis Transformation",
+   "action": "keep-both",
+   "winner": "mechanics",
+   "reason": "Inertia-tensor eigenvalues: rigid-body physics (mechanics ch7) vs tensor-algebra math (mathematical-physics ch8) are genuinely different treatments."
+  },
+  {
+   "title": "Relating Linear and Angular Kinematics 279 13.8 Black Holes",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run — remove everywhere."
+  },
+  {
+   "title": "Initial Rate of Fall in Temperature (Rate of Cooling)",
+   "action": "consolidate",
+   "winner": "heat-and-thermodynamics",
+   "reason": "Rate of cooling is owned by heat ch2 calorimetry; the mechanics copy moves out."
+  },
+  {
+   "title": "Conditions for Equilibrium",
+   "action": "consolidate",
+   "winner": "mechanics",
+   "reason": "Conditions for equilibrium are owned by mechanics ch7."
+  },
+  {
+   "title": "Text: differentiation and integration, including a table of the Contents",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk scan-description — remove everywhere."
+  },
+  {
+   "title": "Polar and Nonpolar Molecules",
+   "action": "consolidate",
+   "winner": "properties-of-matter",
+   "reason": "Polar/nonpolar molecules support the molecular picture → properties ch1."
+  },
+  {
+   "title": "Root Mean Square (RMS) Value of Current",
+   "action": "consolidate",
+   "winner": "electricity-and-magnetism",
+   "reason": "RMS current is owned by e-m ch10 (rms and Phasors)."
+  },
+  {
+   "title": "Molecular Interpretation of Entrop",
+   "action": "consolidate",
+   "winner": "statistical-mechanics",
+   "reason": "Molecular interpretation of entropy is owned by statistical-mechanics ch1."
+  },
+  {
+   "title": "Effect of Temperature on ΔrG° of the Overall Reduction Process",
+   "action": "consolidate",
+   "winner": "physical-chemistry",
+   "reason": "Reaction ΔrG° temperature effect is chemistry; the properties copy 'Temperature Effects' is a different topic (surface tension) that stays."
+  },
+  {
+   "title": "Condition for Leaving the Circle: Tension Becomes Zero Before Speed",
+   "action": "consolidate",
+   "winner": "mechanics",
+   "reason": "Leaving-the-circle/string-slackening condition is owned by mechanics ch4."
+  },
+  {
+   "title": "Error Arithmetic",
+   "action": "consolidate",
+   "winner": "experimental-physics",
+   "reason": "Error arithmetic is owned by experimental-physics ch1 'Measurement and Uncertainty'; lab-chapter copies removed."
+  },
+  {
+   "title": "BIO Magnetic Resonance Imaging\b 898 CHAPTER",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk BIO/TOC run — remove everywhere."
+  },
+  {
+   "title": "ALTERNATING CURRENT 1018 35.1 Interference and Coherent Sources",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run — remove everywhere."
+  },
+  {
+   "title": "Triatomic Molecule",
+   "action": "consolidate",
+   "winner": "waves-and-oscillations",
+   "reason": "Triatomic-molecule normal modes are owned by waves ch4."
+  },
+  {
+   "title": "Maxwell’s Distribution",
+   "action": "consolidate",
+   "winner": "heat-and-thermodynamics",
+   "reason": "Maxwell's distribution is owned by heat ch4."
+  },
+  {
+   "title": "Vernier Callipers",
+   "action": "consolidate",
+   "winner": "experimental-physics",
+   "reason": "Vernier callipers are lab instruments → experimental-physics ch2."
+  },
+  {
+   "title": "Adiabatic Process",
+   "action": "consolidate",
+   "winner": "heat-and-thermodynamics",
+   "reason": "Adiabatic process is owned by heat ch5-6."
+  },
+  {
+   "title": "Isothermal Process",
+   "action": "consolidate",
+   "winner": "heat-and-thermodynamics",
+   "reason": "Isothermal process is owned by heat ch6."
+  },
+  {
+   "title": "Are Stereospecific 18 van der Waals Interactions Are Weak Interatomic",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run — remove everywhere."
+  },
+  {
+   "title": "TRAPS 1197 The p-n­Junction",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run — remove everywhere."
+  },
+  {
+   "title": "The L-C Circuit 1002 34.8 Microscopes and Telescopes",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Junk TOC run — remove everywhere."
+  },
+  {
+   "title": "Appendix F Answers to Odd-Numbered Problems and to All Chapter",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Back-matter junk — remove everywhere."
+  },
+  {
+   "title": "The Grating Measurement",
+   "action": "keep-both",
+   "winner": "optics",
+   "reason": "Grating measurement: the optics course's own lab (ch10) vs the general lab course (experimental-physics ch4) are genuinely different treatments."
+  },
+  {
+   "title": "The Model’s Limits",
+   "action": "consolidate",
+   "winner": "modern-physics",
+   "reason": "The model's limits (Bohr model) is owned by modern-physics ch3."
+  },
+  {
+   "title": "The Particulate Nature of Matter",
+   "action": "consolidate",
+   "winner": "foundation-chemistry",
+   "reason": "Particulate nature of matter is a chemistry/matter theme; the modern-physics copy is a syllabus 'Theme B' line that gets removed."
+  },
+  {
+   "title": "Scientific Notation",
+   "action": "consolidate",
+   "winner": "",
+   "reason": "Basic skill covered by foundation-mathematics/foundation-physics estimation; remove spray copies."
+  },
+  {
+   "title": "Spherical Harmonics Census",
+   "action": "keep-both",
+   "winner": "quantum-mechanics",
+   "reason": "Spherical harmonics: QM angular momentum (qm ch4) vs special-function atlas (mathematical-physics ch5) are genuinely different treatments."
+  },
+  {
+   "title": "The Research Doorstep",
+   "action": "keep-both",
+   "winner": "quantum-mechanics",
+   "reason": "Each book's own concluding 'doorstep' closer — house style, both stay."
+  }
+ ],
+ "thin": [],
+ "order": [
+  {
+   "book": "heat-and-thermodynamics",
+   "newOrder": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    5,
+    7,
+    8,
+    9,
+    10
+   ],
+   "reason": "Swap ch5 and ch6: Specific Heats of Gases (cp/cv, Mayer's relation cp-cv=R, the adiabatic equation) are first-law derivations, so the First Law chapter must precede Specific Heats. All other chapter orders of my 10 books are pedagogically sound (standard ladders)."
+  }
+ ],
+ "extra": [
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 1,
+   "title": "The Laplace–Runge–Lenz Vector",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 12,
+   "newTitle": "",
+   "reason": "The Laplace–Runge–Lenz vector is the hidden symmetry of the Kepler problem → mechanics ch12 (Symmetries and Conserved Quantities)."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 1,
+   "title": "Magnetism as a Relativistic Phenomenon",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Magnetism as a relativistic phenomenon belongs in the magnetic-force chapter (Purcell treatment)."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 1,
+   "title": "BIO Charge Distribution Inside a Nerve Cell \b",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "BIO sidebar junk."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 3,
+   "title": "Induced EMF in a Stationary Conductor",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Induced EMF in a stationary conductor (transformer EMF) → ch9 'Electromagnetic Induction'."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 3,
+   "title": "In Perspective: Michael Faraday",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Biographical sidebar furniture."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 4,
+   "title": "Geometry and stereometry",
+   "action": "move",
+   "targetBook": "coordinate-geometry",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "'Geometry and stereometry' is solid geometry → coordinate-geometry ch9 'The Third Dimension'."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 4,
+   "title": "Accumulation of a Radioactive Element in Radioactive Series",
+   "action": "move",
+   "targetBook": "nuclear-physics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Accumulation of a radioactive element in decay series → nuclear-physics ch4 'The Decay Laws'."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 7,
+   "title": "Charged Disk",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Charged-disk field is an electrostatics calculation → e-m-theory ch2."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 8,
+   "title": "Magnetic Induction Due to a Large Current Carrying Sheet",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Field of a large current sheet → ch7 (Ampere's Choices register)."
+  },
+  {
+   "book": "electricity-and-magnetism",
+   "chapter": 10,
+   "title": "Inductors, Power Transmission, and Lightning Using Isotopes to Measure Ancient Climate\b",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk concatenated TOC run."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Limits of the Values of Trigonometric Ratios",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 4,
+   "newTitle": "Magnetic Induction Due to a Large and Thick Current Sheet",
+   "reason": "Truncated title completed honestly; thick current-sheet fields are magnetostatics → ch4."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "title": "Capacitance and Dielectrics 781 Answers to Odd-Numbered Problems\b A-9",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk TOC run (answers/appendix line)."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 3,
+   "title": "6Wave Interference, Boundary Conditions, 19.2Work Done During Volume Changes",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk concatenated TOC run."
+  },
+  {
+   "book": "electromagnetic-theory",
+   "chapter": 7,
+   "title": "Fresnel's Biprism",
+   "action": "move",
+   "targetBook": "optics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Fresnel's biprism is an interference apparatus → optics ch6 'Interference'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Venturimeter",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by mechanics ch10 'Torricelli and Venturi' (the venturimeter is a Venturi application)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Case 2: Spring–Mass System Oscillating in a Vertical Plane",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Spring–mass SHM example → waves ch1 foundations."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Calculation of K_eff for a Complicated Spring–Mass System",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 1,
+   "newTitle": "",
+   "reason": "Effective spring constants are SHM-foundations content → waves ch1."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Sonometer",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Sonometer demonstrates standing waves on strings → waves ch6."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Electroscope",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "Electroscope is first-pass electrostatics instrumentation → ch10."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Rheostat",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "Rheostat is a basic first-pass circuit element → ch10."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Polarization",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Light polarization belongs in the light chapter (ch9 has 'Polarization by Reflection')."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Action-angle Variables in Systems of One Degree of Freedom",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 12,
+   "newTitle": "",
+   "reason": "Action-angle variables are Hamiltonian mechanics → mechanics ch12."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Action-Angle Variables for Completely Separable Systems",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 12,
+   "newTitle": "",
+   "reason": "Action-angle variables for separable systems → mechanics ch12."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Attractors",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Attractors (dynamical systems) have no home book in the registry and are not foundation content."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Advertisement — xi",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Physical Interpretation of Bound Charges",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by e-m-theory ch3 'Polarisation and Bound Charge' (bound charges)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Advertisement",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Front-matter junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "BIO Fish Fluorescence\b",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "BIO sidebar junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "DETAILED CONTENTS xiii",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "TOC run junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Xiv DETAILED CONTENTS",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "TOC run junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "DETAILED CONTENTS xv",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "TOC run junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Xvi DETAILED CONTENTS",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "TOC run junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "DETAILED CONTENTS xvii",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "TOC run junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "26–4 Polarization",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Numeric-run junk ('26–4 Polarization'); polarization itself is handled elsewhere."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 1,
+   "title": "Ferromagnetism",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by e-m ch8 'Ferromagnetic Substances'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Calculation of Various Parameters in Projectile Motion",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Projectile parameters are 2D kinematics → mechanics ch2."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Constraints on a Rod Having Combined Translational and Rotational Motion",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Constraint motion of a rod → mechanics ch3 'Constraint Relations'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Pressure Distribution in a Closed Accelerated Container",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Pressure in an accelerated container is accelerating-fluid statics → mechanics ch9."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Modified Manometric Equation",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Modified manometric equation → mechanics ch9 (Barometers and Manometers)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Motion of a Ball in a Tunnel Through the Earth",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Ball in a tunnel through the Earth is a gravitation/SHM classic → mechanics ch8."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Average Life",
+   "action": "move",
+   "targetBook": "nuclear-physics",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Average (mean) life is a radioactive-decay quantity → nuclear-physics ch4 'The Decay Laws'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Approximate Potentials at Large Distances",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Far-field approximate potentials are the multipole-expansion idea → e-m-theory ch3."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Jefimenko's Equations",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Jefimenko's equations are retarded-field radiation content → e-m-theory ch9 (Retarded Potentials)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Light Scattered as Photons: Compton 41.2 Particle in a Three-Dimensional Box",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk TOC run; Compton scattering and particle-in-box are covered by modern-physics ch4 / qm respectively."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 3,
+   "title": "Equations of Motion, Infinitesimal Canonical Transformations, and Conservation Theorems in the Poisson Bracket Formulation",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 12,
+   "newTitle": "",
+   "reason": "Poisson-bracket formulation of equations of motion is Hamiltonian mechanics (junkSuspect adjudication) -> mechanics ch12."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 4,
+   "title": "Charging of a Body",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 10,
+   "newTitle": "",
+   "reason": "Charging of a body is first-pass electrostatics → ch10."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 4,
+   "title": "Common Emitter Amplifier",
+   "action": "move",
+   "targetBook": "analog-electronics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Common-emitter amplifier is an amplifier circuit → analog-electronics ch6 'BJT Amplifiers'."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 5,
+   "title": "Graphical Variation of E on x-Axis Due to a Point Charge",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Graph of E on the axis of a point charge → e-m ch2."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 5,
+   "title": "Apparent Shift of an Object Due to Refraction",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Apparent shift by refraction is light content → ch9."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 5,
+   "title": "Variation of Binding Energy per Nucleon with Mass Number",
+   "action": "move",
+   "targetBook": "nuclear-physics",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Binding energy per nucleon curve → nuclear-physics ch3."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Comments on Potential",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "'Comments on Potential' pairs with electric potential → e-m ch3."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Liénard-Wiechert Potentials",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Liénard–Wiechert potentials are retarded radiation potentials → e-m-theory ch9."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Nonconservative Forces and Internal Energy BIO The Airy Disk in an Eagle’s Eye\b",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Junk TOC/BIO run."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Guided Practice\b 57 Summary\b",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Guided-practice banner junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 6,
+   "title": "Application of Conservation of Mechanical Energy for Finding the Acceleration of Rolling Object",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "JunkSuspect adjudication: intra-book duplicate of ch4's rolling items (auto-action removal approved); long concatenated line."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 7,
+   "title": "Shape of Liquid Meniscus",
+   "action": "move",
+   "targetBook": "properties-of-matter",
+   "targetChapter": 5,
+   "newTitle": "",
+   "reason": "Meniscus shape follows contact angle/surface tension → properties ch5."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 7,
+   "title": "Case I: Transverse Mode of Vibration",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Transverse mode of vibration → waves ch6 (standing-wave modes)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 7,
+   "title": "Case II: Longitudinal Mode of Vibrations",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Longitudinal mode of vibration → waves ch6."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 7,
+   "title": "Table 13 Specific Gravity of Certain Liquids",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Table-numbered junk."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Finding Potential Difference Across the Capacitors Connected in Series",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Potential difference across series capacitors → e-m ch4 'Capacitors and Dielectrics' (Networks of Capacitors)."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Finding Potential Difference Across the Capacitors Connected in Parallel",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Potential difference across parallel capacitors → e-m ch4."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "Poincaré Maps",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Poincaré maps (chaos) have no home book in the registry."
+  },
+  {
+   "book": "foundation-physics",
+   "chapter": 10,
+   "title": "A Deceptive Parallel",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Cryptic fragment with no assignable topic."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 1,
+   "title": "More About Coefficient of Thermal Conductivity",
+   "action": "move",
+   "targetBook": "heat-and-thermodynamics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Thermal conductivity is conduction content → ch9 (Conduction Ledger)."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 1,
+   "title": "The Heavy Symmetrical Top with One Point Fixed",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "The heavy symmetrical top with one point fixed is rigid-body dynamics → mechanics ch7 (the cited pollution example)."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 2,
+   "title": "Finding Equivalent Capacitance",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 4,
+   "newTitle": "",
+   "reason": "Finding equivalent capacitance → e-m ch4 'Capacitors and Dielectrics' (Networks of Capacitors) — the cited pollution example."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 3,
+   "title": "Quantitative Discussion",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Vague furniture heading."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 5,
+   "title": "Reading a Vernier Callipers",
+   "action": "move",
+   "targetBook": "experimental-physics",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Reading a vernier callipers is lab-instrument craft → experimental-physics ch2 'The Instruments of the Lab'."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 9,
+   "title": "Kirchhoff’s Rules",
+   "action": "retitle",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "Kirchhoff's Law of Radiation",
+   "reason": "In the radiation chapter (with the emissivity lesson) this is Kirchhoff's radiation law; the plural 'Rules' phrasing is the misapplied circuit name."
+  },
+  {
+   "book": "heat-and-thermodynamics",
+   "chapter": 10,
+   "title": "Regulating Neutron Energies",
+   "action": "move",
+   "targetBook": "nuclear-physics",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Regulating neutron energies is reactor moderation → nuclear-physics ch6 'Fission and the Reactor'."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 1,
+   "title": "Infinitesimal Rotations",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Infinitesimal rotations join finite rotations in rigid-body dynamics → ch7."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 1,
+   "title": "\"Ordinary\" Derivatives",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by differential-calculus ch3 'The Derivative'."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 2,
+   "title": "Relative intensity and Dynamic Range",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by waves ch7 'The Decibel Scale' (relative intensity/dynamic range is audio intensity)."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 3,
+   "title": "Trigonometrical Ratios of General Angles (Reduction Formulae)",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by trigonometry ch3 'The Transformation Formulas' (reduction formulae)."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 3,
+   "title": "Constraints Due to Ropes and Pulleys",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by ch3's own 'Constraint Relations'."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 5,
+   "title": "Lami's Theorem",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Lami's theorem is three-force equilibrium → ch3 'Newton's Laws in Full'."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 5,
+   "title": "Carnot Theorem",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by heat-and-thermodynamics ch7 'Carnot Derived'."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 5,
+   "title": "Conditions for Closed Orbits (Bertrand's Theorem)",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 12,
+   "newTitle": "",
+   "reason": "Bertrand's theorem on closed orbits is central-force theory → ch12."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 5,
+   "title": "B The Helmholtz Theorem",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Appendix-lettered duplicate of 'The Helmholtz Theorem' junk."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 6,
+   "title": "Methods to Find Dimensions of Physical Constant or Coefficients",
+   "action": "move",
+   "targetBook": "foundation-physics",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Dimensional methods for physical constants → foundation ch2 'Dimensions and Errors' (The Dimensional Census)."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 6,
+   "title": "Elastic Hysteresis",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by properties-of-matter ch2 'The Stress–Strain Curve' (hysteresis loop)."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 7,
+   "title": "Growth of Ice on Lake",
+   "action": "move",
+   "targetBook": "heat-and-thermodynamics",
+   "targetChapter": 9,
+   "newTitle": "",
+   "reason": "Growth of ice on a lake is a conduction problem → heat ch9."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 7,
+   "title": "Charged Conducting Sphere",
+   "action": "move",
+   "targetBook": "electromagnetic-theory",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Charged conducting sphere is an electrostatics problem → e-m-theory ch2."
+  },
+  {
+   "book": "mechanics",
+   "chapter": 9,
+   "title": "Fluid Statics (the folded line)",
+   "action": "retitle",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "Fluid Statics",
+   "reason": "OCR-mangled chapter title: '(the folded line)' is junk that leaked into the heading itself."
+  },
+  {
+   "book": "modern-physics",
+   "chapter": 2,
+   "title": "Albert Einstein",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Biographical sidebar furniture."
+  },
+  {
+   "book": "modern-physics",
+   "chapter": 2,
+   "title": "In Perspective: Albert Einstein",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Biographical sidebar furniture."
+  },
+  {
+   "book": "modern-physics",
+   "chapter": 5,
+   "title": "Theme B: The particulate nature of matter",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Syllabus 'Theme B' furniture heading."
+  },
+  {
+   "book": "modern-physics",
+   "chapter": 5,
+   "title": "Pages 5–12 of this scan are chapter body text, not additional contents pages; the complete printed contents (pages 1–4, with pages 2 and 4 being duplicates of 1 and 3) is",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Scan-description junk."
+  },
+  {
+   "book": "optics",
+   "chapter": 1,
+   "title": "Photons Have Momentum",
+   "action": "move",
+   "targetBook": "modern-physics",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Photon momentum (p=E/c) → modern-physics ch2 'Photons and the Photoelectric Effect'."
+  },
+  {
+   "book": "optics",
+   "chapter": 4,
+   "title": "Fresnel and Fraunhofer Diffractions",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Intra-chapter duplicate of the idx7 copy which moves to ch7."
+  },
+  {
+   "book": "optics",
+   "chapter": 4,
+   "title": "Fresnel and Fraunhofer Diffraction",
+   "action": "move",
+   "targetBook": "optics",
+   "targetChapter": 7,
+   "newTitle": "",
+   "reason": "Fresnel/Fraunhofer diffraction regimes belong in ch7 'Diffraction'."
+  },
+  {
+   "book": "optics",
+   "chapter": 10,
+   "title": "Author Index",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Back-matter junk."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 2,
+   "title": "Dependence of Resistance on Various Factors",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by e-m ch5 'Resistivity and Temperature'."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 3,
+   "title": "Experimental Skills: Young's modulus of elasticity of the material of a metallic wire",
+   "action": "move",
+   "targetBook": "experimental-physics",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Young's-modulus practical → experimental-physics ch3 'Mechanics and Properties Practicals'."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 4,
+   "title": "Poiseuille's Formula for Flow of Liquid Through a Capillary Tube",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by ch4's own 'Poiseuille's Register'."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 4,
+   "title": "Refraction at a Spherical Surface Convex Towards the Rarer Medium",
+   "action": "move",
+   "targetBook": "optics",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Refraction at a spherical surface → optics ch2 'Lenses and Optical Systems' (basis of the lens-maker equation)."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 4,
+   "title": "Lateral Magnification for Refracting Spherical Surface",
+   "action": "move",
+   "targetBook": "optics",
+   "targetChapter": 2,
+   "newTitle": "",
+   "reason": "Lateral magnification of a refracting spherical surface → optics ch2."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 4,
+   "title": "BIO Measuring Body Fat by Bioelectric",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "BIO sidebar junk."
+  },
+  {
+   "book": "properties-of-matter",
+   "chapter": 6,
+   "title": "Melde's Experiment",
+   "action": "move",
+   "targetBook": "waves-and-oscillations",
+   "targetChapter": 6,
+   "newTitle": "",
+   "reason": "Melde's experiment demonstrates standing waves on strings → waves ch6."
+  },
+  {
+   "book": "quantum-mechanics",
+   "chapter": 7,
+   "title": "Perturbations and the Kolmogorov–Arnold–Moser Theorem",
+   "action": "move",
+   "targetBook": "mechanics",
+   "targetChapter": 12,
+   "newTitle": "",
+   "reason": "KAM theorem is classical perturbation/chaos content of Hamiltonian mechanics → mechanics ch12."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 1,
+   "title": "Experimental Skills: Simple pendulum — dissipation of energy by plotting a graph between the square of amplitude and time",
+   "action": "move",
+   "targetBook": "experimental-physics",
+   "targetChapter": 3,
+   "newTitle": "",
+   "reason": "Simple-pendulum dissipation practical → experimental-physics ch3."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 2,
+   "title": "A Few Terms Related to SHM",
+   "action": "remove",
+   "targetBook": "",
+   "targetChapter": 0,
+   "newTitle": "",
+   "reason": "Covered by waves ch7 'The Decibel Scale'."
+  },
+  {
+   "book": "waves-and-oscillations",
+   "chapter": 7,
+   "title": "Intensity of Magnetization",
+   "action": "move",
+   "targetBook": "electricity-and-magnetism",
+   "targetChapter": 8,
+   "newTitle": "",
+   "reason": "Intensity of magnetization is magnetic-materials content → e-m ch8."
+  }
+ ],
+ "notes": "Adjudicated all 263 misAdjudicate items of my 10 books, 129 dup clusters touching them, 295 auto-actions (79 vetoes/amends), 0 thin chapters, 1 order flag, ~113 free-scan/junkSuspect extras (incl. 'Finding Equivalent Capacitance' heat->E/M and 'The Heavy Symmetrical Top' heat->mechanics, the two cited pollution examples). Planning-layer titles only; book.ts untouched."
+}

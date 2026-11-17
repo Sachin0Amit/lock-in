@@ -1,0 +1,4558 @@
+[
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 4,
+  "title": "Viii Contents",
+  "ownScore": 0.0,
+  "bestBook": "japanese",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "japanese",
+    "score": 0.5
+   },
+   {
+    "book": "topology",
+    "score": 0.5
+   },
+   {
+    "book": "ethics",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 5,
+  "title": "X Contents",
+  "ownScore": 0.0,
+  "bestBook": "japanese",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "japanese",
+    "score": 1.0
+   },
+   {
+    "book": "topology",
+    "score": 1.0
+   },
+   {
+    "book": "ethics",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 6,
+  "title": "Reduction in Nonlinear",
+  "ownScore": 0.0,
+  "bestBook": "acting",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "acting",
+    "score": 0.5
+   },
+   {
+    "book": "russian",
+    "score": 0.5
+   },
+   {
+    "book": "parallel-computing",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 9,
+  "title": "Xii Contents",
+  "ownScore": 0.0,
+  "bestBook": "japanese",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "japanese",
+    "score": 0.5
+   },
+   {
+    "book": "topology",
+    "score": 0.5
+   },
+   {
+    "book": "ethics",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 7
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 14,
+  "title": "From Indication to Illumination",
+  "ownScore": 0.0,
+  "bestBook": "obstetrics-gynaecology",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "obstetrics-gynaecology",
+    "score": 0.5
+   },
+   {
+    "book": "art-history",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 10
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 18,
+  "title": "CAMBRIDGE",
+  "ownScore": 0.0,
+  "bestBook": "english",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "english",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 14
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 21,
+  "title": "Third edition",
+  "ownScore": 0.0,
+  "bestBook": "sculpture",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "sculpture",
+    "score": 0.5
+   },
+   {
+    "book": "distributed-systems",
+    "score": 0.5
+   },
+   {
+    "book": "quantitative-aptitude",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 16
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 27,
+  "title": "Bootstrapping",
+  "ownScore": 0.0,
+  "bestBook": "entrepreneurship",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "entrepreneurship",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 20
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 29,
+  "title": "It's impossible!",
+  "ownScore": 0.0,
+  "bestBook": "abstract-algebra",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "abstract-algebra",
+    "score": 1.0
+   },
+   {
+    "book": "geometry",
+    "score": 1.0
+   },
+   {
+    "book": "international-economics",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 21
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 30,
+  "title": "Wrong \u2013 it is possible!",
+  "ownScore": 0.0,
+  "bestBook": "ethics",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "ethics",
+    "score": 0.5
+   },
+   {
+    "book": "advanced-algebra",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 22
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 31,
+  "title": "The 34401A 6.5-digit front end",
+  "ownScore": 0.25,
+  "bestBook": "arithmetic-and-number-systems",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "arithmetic-and-number-systems",
+    "score": 0.5
+   },
+   {
+    "book": "full-stack-web-development",
+    "score": 0.5
+   },
+   {
+    "book": "philosophy",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 23
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 33,
+  "title": "In defense of the beleaguered",
+  "ownScore": 0.0,
+  "bestBook": "psychology",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "psychology",
+    "score": 0.5
+   },
+   {
+    "book": "cybersecurity",
+    "score": 0.5
+   },
+   {
+    "book": "cloud-computing",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 25
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 35,
+  "title": "Three-terminal precision references",
+  "ownScore": 0.5,
+  "bestBook": "portuguese",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "portuguese",
+    "score": 0.75
+   },
+   {
+    "book": "probability-theory",
+    "score": 0.75
+   },
+   {
+    "book": "3d-modelling",
+    "score": 0.75
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 27
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 37,
+  "title": "The basic PAL",
+  "ownScore": 0.0,
+  "bestBook": "digital-logic-design",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "digital-logic-design",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 29
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 38,
+  "title": "The FPGA",
+  "ownScore": 0.0,
+  "bestBook": "digital-logic-design",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "digital-logic-design",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 30
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 39,
+  "title": "Advice",
+  "ownScore": 0.0,
+  "bestBook": "ecology",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "ecology",
+    "score": 1.0
+   },
+   {
+    "book": "forensic-medicine",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 31
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 45,
+  "title": "Some preliminaries",
+  "ownScore": 0.0,
+  "bestBook": "french",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "french",
+    "score": 0.5
+   },
+   {
+    "book": "database-management-systems",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 36
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 46,
+  "title": "Idle tones",
+  "ownScore": 0.0,
+  "bestBook": "ethics",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "ethics",
+    "score": 0.5
+   },
+   {
+    "book": "physiotherapy",
+    "score": 0.5
+   },
+   {
+    "book": "counterpoint",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 37
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 54,
+  "title": "B.4 Useful Identities",
+  "ownScore": 0.0,
+  "bestBook": "elementary-algebra",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "elementary-algebra",
+    "score": 0.5
+   },
+   {
+    "book": "probability-theory",
+    "score": 0.5
+   },
+   {
+    "book": "trigonometry",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 42
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 58,
+  "title": "Frequencies",
+  "ownScore": 0.0,
+  "bestBook": "genetics",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "genetics",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 46
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 60,
+  "title": "Contents ix",
+  "ownScore": 0.0,
+  "bestBook": "japanese",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "japanese",
+    "score": 1.0
+   },
+   {
+    "book": "topology",
+    "score": 1.0
+   },
+   {
+    "book": "ethics",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 48
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 63,
+  "title": "Contents xi",
+  "ownScore": 0.0,
+  "bestBook": "japanese",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "japanese",
+    "score": 1.0
+   },
+   {
+    "book": "topology",
+    "score": 1.0
+   },
+   {
+    "book": "ethics",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 49
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 64,
+  "title": "Contents xiii",
+  "ownScore": 0.0,
+  "bestBook": "japanese",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "japanese",
+    "score": 0.5
+   },
+   {
+    "book": "topology",
+    "score": 0.5
+   },
+   {
+    "book": "ethics",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 50
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 65,
+  "title": "Xiv Contents",
+  "ownScore": 0.0,
+  "bestBook": "japanese",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "japanese",
+    "score": 0.5
+   },
+   {
+    "book": "topology",
+    "score": 0.5
+   },
+   {
+    "book": "ethics",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 51
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 67,
+  "title": "Contents xv",
+  "ownScore": 0.0,
+  "bestBook": "japanese",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "japanese",
+    "score": 1.0
+   },
+   {
+    "book": "topology",
+    "score": 1.0
+   },
+   {
+    "book": "ethics",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 52
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Statics Frame",
+  "idx": 68,
+  "title": "WEBSITE",
+  "ownScore": 0.0,
+  "bestBook": "frontend-engineering",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "frontend-engineering",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 53
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 2,
+  "chapterTitle": "Moments and Rigid-Body Equilibrium",
+  "idx": 3,
+  "title": "What about MOSFETs?",
+  "ownScore": 0.33,
+  "bestBook": "elementary-algebra",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "elementary-algebra",
+    "score": 0.67
+   },
+   {
+    "book": "theory-of-computation",
+    "score": 0.67
+   },
+   {
+    "book": "mathematical-logic",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 3,
+  "chapterTitle": "Structural Analysis",
+  "idx": 5,
+  "title": "Effects of Fan-In and Fan-Out on Problems",
+  "ownScore": 0.5,
+  "bestBook": "sociology",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "sociology",
+    "score": 0.75
+   },
+   {
+    "book": "english",
+    "score": 0.75
+   },
+   {
+    "book": "elementary-algebra",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 3,
+  "chapterTitle": "Structural Analysis",
+  "idx": 7,
+  "title": "Not quite perfect",
+  "ownScore": 0.33,
+  "bestBook": "elementary-algebra",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "elementary-algebra",
+    "score": 0.67
+   },
+   {
+    "book": "german",
+    "score": 0.67
+   },
+   {
+    "book": "japanese",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 3,
+  "chapterTitle": "Structural Analysis",
+  "idx": 8,
+  "title": "Additional Exercises for Chapter",
+  "ownScore": 0.33,
+  "bestBook": "ethics",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "ethics",
+    "score": 0.67
+   },
+   {
+    "book": "foundation-mathematics",
+    "score": 0.67
+   },
+   {
+    "book": "geography",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 3,
+  "chapterTitle": "Structural Analysis",
+  "idx": 9,
+  "title": "Review of Chapter",
+  "ownScore": 0.5,
+  "bestBook": "advanced-algebra",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "advanced-algebra",
+    "score": 1.0
+   },
+   {
+    "book": "elementary-algebra",
+    "score": 1.0
+   },
+   {
+    "book": "clinical-immunology",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 7
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 4,
+  "chapterTitle": "Friction and Its Applications",
+  "idx": 5,
+  "title": "The Common-Gate (CG) and the",
+  "ownScore": 0.5,
+  "bestBook": "physical-chemistry",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "physical-chemistry",
+    "score": 1.0
+   },
+   {
+    "book": "thermodynamics",
+    "score": 0.5
+   },
+   {
+    "book": "plant-pathology",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 4,
+  "chapterTitle": "Friction and Its Applications",
+  "idx": 9,
+  "title": "Catalog of common gates",
+  "ownScore": 0.33,
+  "bestBook": "physical-chemistry",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "physical-chemistry",
+    "score": 0.67
+   },
+   {
+    "book": "advanced-algebra",
+    "score": 0.67
+   },
+   {
+    "book": "thermodynamics",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 9
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 4,
+  "chapterTitle": "Friction and Its Applications",
+  "idx": 10,
+  "title": "Shift registers",
+  "ownScore": 0.5,
+  "bestBook": "modern-physics",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "modern-physics",
+    "score": 1.0
+   },
+   {
+    "book": "animal-physiology",
+    "score": 1.0
+   },
+   {
+    "book": "instrument-studies",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 10
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 5,
+  "chapterTitle": "Centroids, Centre of Gravity and Moments of Inertia",
+  "idx": 5,
+  "title": "Th\u00e9venin's theorem generalized",
+  "ownScore": 0.33,
+  "bestBook": "topology",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "topology",
+    "score": 0.67
+   },
+   {
+    "book": "trigonometry",
+    "score": 0.67
+   },
+   {
+    "book": "real-analysis",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 5,
+  "chapterTitle": "Centroids, Centre of Gravity and Moments of Inertia",
+  "idx": 6,
+  "title": "Parallel buses and data links",
+  "ownScore": 0.5,
+  "bestBook": "computer-organization-architecture",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "computer-organization-architecture",
+    "score": 0.75
+   },
+   {
+    "book": "computer-fundamentals",
+    "score": 0.5
+   },
+   {
+    "book": "mobile-app-development",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 8,
+  "chapterTitle": "Kinetics: Force and Acceleration",
+  "idx": 2,
+  "title": "Angular Momentum and the Gyroscopic Glimpse",
+  "ownScore": 0.75,
+  "bestBook": "theory-of-machines",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "theory-of-machines",
+    "score": 1.0
+   },
+   {
+    "book": "mechanics",
+    "score": 0.5
+   },
+   {
+    "book": "quantum-mechanics",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 2
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 8,
+  "chapterTitle": "Kinetics: Force and Acceleration",
+  "idx": 3,
+  "title": "Second edition",
+  "ownScore": 0.5,
+  "bestBook": "quantitative-aptitude",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "quantitative-aptitude",
+    "score": 1.0
+   },
+   {
+    "book": "thermodynamics",
+    "score": 0.5
+   },
+   {
+    "book": "physical-chemistry",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 10,
+  "chapterTitle": "Lagrange\u2019s Equations and the Doorstep",
+  "idx": 4,
+  "title": "Minimization and Karnaugh maps",
+  "ownScore": 0.33,
+  "bestBook": "discrete-mathematics",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "discrete-mathematics",
+    "score": 1.0
+   },
+   {
+    "book": "digital-logic-design",
+    "score": 1.0
+   },
+   {
+    "book": "linear-algebra",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 10,
+  "chapterTitle": "Lagrange\u2019s Equations and the Doorstep",
+  "idx": 5,
+  "title": "A simple SAR example",
+  "ownScore": 0.33,
+  "bestBook": "medical-microbiology",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "medical-microbiology",
+    "score": 0.67
+   },
+   {
+    "book": "theory-of-computation",
+    "score": 0.67
+   },
+   {
+    "book": "assembly-and-microprocessors",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 10,
+  "chapterTitle": "Lagrange\u2019s Equations and the Doorstep",
+  "idx": 6,
+  "title": "To Write Simultaneous Equations",
+  "ownScore": 0.33,
+  "bestBook": "elementary-algebra",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "elementary-algebra",
+    "score": 0.67
+   },
+   {
+    "book": "business-mathematics",
+    "score": 0.67
+   },
+   {
+    "book": "advanced-algebra",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "engineering-mechanics",
+  "discipline": "engineering",
+  "chapter": 10,
+  "chapterTitle": "Lagrange\u2019s Equations and the Doorstep",
+  "idx": 7,
+  "title": "Karnaugh maps for simplifying",
+  "ownScore": 0.33,
+  "bestBook": "discrete-mathematics",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "discrete-mathematics",
+    "score": 0.67
+   },
+   {
+    "book": "digital-logic-design",
+    "score": 0.67
+   },
+   {
+    "book": "big-data-engineering",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 7
+ },
+ {
+  "book": "strength-of-materials",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "Stress: the Concept",
+  "idx": 3,
+  "title": "When and How to Include the Output",
+  "ownScore": 0.25,
+  "bestBook": "foundation-mathematics",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "foundation-mathematics",
+    "score": 0.75
+   },
+   {
+    "book": "object-oriented-programming",
+    "score": 0.75
+   },
+   {
+    "book": "advanced-algebra",
+    "score": 0.75
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "strength-of-materials",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "Stress: the Concept",
+  "idx": 4,
+  "title": "How to make pseudorandom bytes",
+  "ownScore": 0.25,
+  "bestBook": "software-engineering",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "software-engineering",
+    "score": 0.5
+   },
+   {
+    "book": "foundation-biology",
+    "score": 0.5
+   },
+   {
+    "book": "theory-of-machines",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "strength-of-materials",
+  "discipline": "engineering",
+  "chapter": 2,
+  "chapterTitle": "Strain and the Elastic Constants",
+  "idx": 3,
+  "title": "Resistors in Parallel 61 Practical Perspective: Strain Gages",
+  "ownScore": 0.17,
+  "bestBook": "properties-of-matter",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "properties-of-matter",
+    "score": 0.5
+   },
+   {
+    "book": "experimental-physics",
+    "score": 0.33
+   },
+   {
+    "book": "geotechnical-engineering",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "strength-of-materials",
+  "discipline": "engineering",
+  "chapter": 3,
+  "chapterTitle": "Axial Members",
+  "idx": 6,
+  "title": "Problems 50 Summary",
+  "ownScore": 0.5,
+  "bestBook": "english",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "english",
+    "score": 1.0
+   },
+   {
+    "book": "entrepreneurship",
+    "score": 1.0
+   },
+   {
+    "book": "elementary-algebra",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "strength-of-materials",
+  "discipline": "engineering",
+  "chapter": 3,
+  "chapterTitle": "Axial Members",
+  "idx": 9,
+  "title": "Introduction to Problems",
+  "ownScore": 0.5,
+  "bestBook": "philosophy",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "philosophy",
+    "score": 1.0
+   },
+   {
+    "book": "environmental-studies",
+    "score": 1.0
+   },
+   {
+    "book": "law-and-legal-studies",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "strength-of-materials",
+  "discipline": "engineering",
+  "chapter": 5,
+  "chapterTitle": "Shear Force and Bending Moment Diagrams",
+  "idx": 7,
+  "title": "Generating a differential output",
+  "ownScore": 0.33,
+  "bestBook": "business-mathematics",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "business-mathematics",
+    "score": 0.67
+   },
+   {
+    "book": "advanced-mathematical-foundations",
+    "score": 0.67
+   },
+   {
+    "book": "differential-calculus",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "strength-of-materials",
+  "discipline": "engineering",
+  "chapter": 5,
+  "chapterTitle": "Shear Force and Bending Moment Diagrams",
+  "idx": 8,
+  "title": "Complex Notation",
+  "ownScore": 0.5,
+  "bestBook": "abstract-algebra",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "abstract-algebra",
+    "score": 1.0
+   },
+   {
+    "book": "advanced-mathematical-foundations",
+    "score": 1.0
+   },
+   {
+    "book": "mathematical-methods-for-engineering",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "strength-of-materials",
+  "discipline": "engineering",
+  "chapter": 6,
+  "chapterTitle": "Bending Stresses in Beams",
+  "idx": 5,
+  "title": "The Common-Source (Common",
+  "ownScore": 0.5,
+  "bestBook": "law-and-legal-studies",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "law-and-legal-studies",
+    "score": 1.0
+   },
+   {
+    "book": "physical-chemistry",
+    "score": 0.5
+   },
+   {
+    "book": "elementary-algebra",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "strength-of-materials",
+  "discipline": "engineering",
+  "chapter": 6,
+  "chapterTitle": "Bending Stresses in Beams",
+  "idx": 6,
+  "title": "A Common-Source (CS)",
+  "ownScore": 0.5,
+  "bestBook": "law-and-legal-studies",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "law-and-legal-studies",
+    "score": 1.0
+   },
+   {
+    "book": "physical-chemistry",
+    "score": 0.5
+   },
+   {
+    "book": "elementary-algebra",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "strength-of-materials",
+  "discipline": "engineering",
+  "chapter": 6,
+  "chapterTitle": "Bending Stresses in Beams",
+  "idx": 9,
+  "title": "Common-mode rejection",
+  "ownScore": 0.33,
+  "bestBook": "statistics",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "statistics",
+    "score": 0.67
+   },
+   {
+    "book": "foundation-mathematics",
+    "score": 0.67
+   },
+   {
+    "book": "internal-medicine",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "theory-of-machines",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "Mechanisms and Inversion",
+  "idx": 5,
+  "title": "Emitter Characteristics",
+  "ownScore": 0.0,
+  "bestBook": "modern-physics",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "modern-physics",
+    "score": 0.5
+   },
+   {
+    "book": "software-engineering",
+    "score": 0.5
+   },
+   {
+    "book": "power-systems",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "theory-of-machines",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "Mechanisms and Inversion",
+  "idx": 6,
+  "title": "Lock-in detection",
+  "ownScore": 0.0,
+  "bestBook": "operating-systems",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "operating-systems",
+    "score": 1.0
+   },
+   {
+    "book": "computer-vision",
+    "score": 0.5
+   },
+   {
+    "book": "relativity",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "theory-of-machines",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "Mechanisms and Inversion",
+  "idx": 7,
+  "title": "Battery characteristics",
+  "ownScore": 0.0,
+  "bestBook": "mobile-app-development",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "mobile-app-development",
+    "score": 0.5
+   },
+   {
+    "book": "cell-biology",
+    "score": 0.5
+   },
+   {
+    "book": "industrial-chemistry",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "theory-of-machines",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "Mechanisms and Inversion",
+  "idx": 8,
+  "title": "Other buses and data links: overview",
+  "ownScore": 0.25,
+  "bestBook": "computer-organization-architecture",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "computer-organization-architecture",
+    "score": 0.5
+   },
+   {
+    "book": "computer-fundamentals",
+    "score": 0.5
+   },
+   {
+    "book": "mobile-app-development",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 7
+ },
+ {
+  "book": "theory-of-machines",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "Mechanisms and Inversion",
+  "idx": 12,
+  "title": "Determination of the B/H characteristic",
+  "ownScore": 0.0,
+  "bestBook": "modern-physics",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "modern-physics",
+    "score": 0.5
+   },
+   {
+    "book": "software-engineering",
+    "score": 0.5
+   },
+   {
+    "book": "power-systems",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 8
+ },
+ {
+  "book": "theory-of-machines",
+  "discipline": "engineering",
+  "chapter": 2,
+  "chapterTitle": "Velocity Analysis",
+  "idx": 4,
+  "title": "Programmable pulse-width generator",
+  "ownScore": 0.0,
+  "bestBook": "digital-logic-design",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "digital-logic-design",
+    "score": 0.5
+   },
+   {
+    "book": "renewable-energy",
+    "score": 0.25
+   },
+   {
+    "book": "abstract-algebra",
+    "score": 0.25
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "theory-of-machines",
+  "discipline": "engineering",
+  "chapter": 2,
+  "chapterTitle": "Velocity Analysis",
+  "idx": 6,
+  "title": "An n-pulse generator",
+  "ownScore": 0.0,
+  "bestBook": "renewable-energy",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "renewable-energy",
+    "score": 0.5
+   },
+   {
+    "book": "abstract-algebra",
+    "score": 0.5
+   },
+   {
+    "book": "cryptography",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "theory-of-machines",
+  "discipline": "engineering",
+  "chapter": 5,
+  "chapterTitle": "Toothed Gearing",
+  "idx": 5,
+  "title": "Determination of efficiency",
+  "ownScore": 0.5,
+  "bestBook": "statistics",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "statistics",
+    "score": 1.0
+   },
+   {
+    "book": "thermodynamics",
+    "score": 0.5
+   },
+   {
+    "book": "physical-chemistry",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "theory-of-machines",
+  "discipline": "engineering",
+  "chapter": 10,
+  "chapterTitle": "Vibrations",
+  "idx": 6,
+  "title": "Finding the 1/f corner frequency",
+  "ownScore": 0.33,
+  "bestBook": "information-retrieval",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "information-retrieval",
+    "score": 0.67
+   },
+   {
+    "book": "computer-vision",
+    "score": 0.67
+   },
+   {
+    "book": "italian",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "theory-of-machines",
+  "discipline": "engineering",
+  "chapter": 10,
+  "chapterTitle": "Vibrations",
+  "idx": 7,
+  "title": "Frequency-Selective",
+  "ownScore": 0.5,
+  "bestBook": "animal-physiology",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "animal-physiology",
+    "score": 1.0
+   },
+   {
+    "book": "cell-biology",
+    "score": 0.5
+   },
+   {
+    "book": "analytical-chemistry",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 7
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Design Discipline",
+  "idx": 2,
+  "title": "From Stress to Dimension",
+  "ownScore": 0.5,
+  "bestBook": "strength-of-materials",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "strength-of-materials",
+    "score": 1.0
+   },
+   {
+    "book": "engineering-mechanics",
+    "score": 1.0
+   },
+   {
+    "book": "russian",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 2
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Design Discipline",
+  "idx": 6,
+  "title": "Nonvolatile memory",
+  "ownScore": 0.5,
+  "bestBook": "computer-organization-architecture",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "computer-organization-architecture",
+    "score": 1.0
+   },
+   {
+    "book": "acting",
+    "score": 0.5
+   },
+   {
+    "book": "big-data-engineering",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 2,
+  "chapterTitle": "Static Loading and the Failure Theories",
+  "idx": 3,
+  "title": "Hans Camenzind: The Inventor of the Class D",
+  "ownScore": 0.25,
+  "bestBook": "japanese",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "japanese",
+    "score": 0.5
+   },
+   {
+    "book": "animal-diversity",
+    "score": 0.25
+   },
+   {
+    "book": "statistics",
+    "score": 0.25
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 2,
+  "chapterTitle": "Static Loading and the Failure Theories",
+  "idx": 4,
+  "title": "Printed in the United States of America",
+  "ownScore": 0.25,
+  "bestBook": "world-history",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "world-history",
+    "score": 0.5
+   },
+   {
+    "book": "cad-cam",
+    "score": 0.25
+   },
+   {
+    "book": "economic-botany",
+    "score": 0.25
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 2,
+  "chapterTitle": "Static Loading and the Failure Theories",
+  "idx": 6,
+  "title": "ADCs: choices and tradeoffs",
+  "ownScore": 0.33,
+  "bestBook": "programming-languages-paradigms",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "programming-languages-paradigms",
+    "score": 0.67
+   },
+   {
+    "book": "optimization-and-operations-research",
+    "score": 0.67
+   },
+   {
+    "book": "photography",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 3,
+  "chapterTitle": "Fatigue and the S-N Diagram",
+  "idx": 3,
+  "title": "The golden rules",
+  "ownScore": 0.5,
+  "bestBook": "photography",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "photography",
+    "score": 1.0
+   },
+   {
+    "book": "ethics",
+    "score": 1.0
+   },
+   {
+    "book": "indian-history",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 6,
+  "chapterTitle": "Bearings",
+  "idx": 3,
+  "title": "Number per package",
+  "ownScore": 0.33,
+  "bestBook": "statistics",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "statistics",
+    "score": 0.67
+   },
+   {
+    "book": "mandarin",
+    "score": 0.67
+   },
+   {
+    "book": "plant-taxonomy",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 6,
+  "chapterTitle": "Bearings",
+  "idx": 7,
+  "title": "Hexadecimal numbers",
+  "ownScore": 0.5,
+  "bestBook": "digital-logic-design",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "digital-logic-design",
+    "score": 1.0
+   },
+   {
+    "book": "computer-fundamentals",
+    "score": 1.0
+   },
+   {
+    "book": "arithmetic-and-number-systems",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "The Design Synthesis and the Doorstep",
+  "idx": 4,
+  "title": "Databases and languages \u2014 data bases: different types, characteristics and design; transactions and concurrency control; elements of programming languages, typical examples",
+  "ownScore": 0.2,
+  "bestBook": "programming-languages-paradigms",
+  "bestScore": 0.53,
+  "top3": [
+   {
+    "book": "programming-languages-paradigms",
+    "score": 0.53
+   },
+   {
+    "book": "database-management-systems",
+    "score": 0.53
+   },
+   {
+    "book": "object-oriented-programming",
+    "score": 0.53
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "The Design Synthesis and the Doorstep",
+  "idx": 5,
+  "title": "Realization of the Various Filter Element",
+  "ownScore": 0.25,
+  "bestBook": "javascript-and-web-technologies",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "javascript-and-web-technologies",
+    "score": 0.5
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "score": 0.5
+   },
+   {
+    "book": "computer-vision",
+    "score": 0.25
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "The Design Synthesis and the Doorstep",
+  "idx": 6,
+  "title": "An example: \"It's too hot!\"",
+  "ownScore": 0.0,
+  "bestBook": "immunology",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "immunology",
+    "score": 0.67
+   },
+   {
+    "book": "foundation-economics",
+    "score": 0.67
+   },
+   {
+    "book": "behavioural-economics",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "The Design Synthesis and the Doorstep",
+  "idx": 8,
+  "title": "An example: the millivoltmeter, revisited",
+  "ownScore": 0.0,
+  "bestBook": "backend-engineering",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "backend-engineering",
+    "score": 0.67
+   },
+   {
+    "book": "statistics",
+    "score": 0.33
+   },
+   {
+    "book": "parallel-computing",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 8
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "The Design Synthesis and the Doorstep",
+  "idx": 9,
+  "title": "Contents (page xiii)",
+  "ownScore": 0.33,
+  "bestBook": "topology",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "topology",
+    "score": 0.67
+   },
+   {
+    "book": "theory-of-computation",
+    "score": 0.67
+   },
+   {
+    "book": "artificial-intelligence",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 9
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "The Design Synthesis and the Doorstep",
+  "idx": 10,
+  "title": "A simple design example: loudspeaker as microphone",
+  "ownScore": 0.2,
+  "bestBook": "computer-fundamentals",
+  "bestScore": 0.6,
+  "top3": [
+   {
+    "book": "computer-fundamentals",
+    "score": 0.6
+   },
+   {
+    "book": "theory-of-computation",
+    "score": 0.6
+   },
+   {
+    "book": "assembly-and-microprocessors",
+    "score": 0.6
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 10
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "The Design Synthesis and the Doorstep",
+  "idx": 12,
+  "title": "An example: pseudorandom byte generator",
+  "ownScore": 0.0,
+  "bestBook": "cryptography",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "cryptography",
+    "score": 0.75
+   },
+   {
+    "book": "abstract-algebra",
+    "score": 0.5
+   },
+   {
+    "book": "computer-fundamentals",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 12
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "The Design Synthesis and the Doorstep",
+  "idx": 13,
+  "title": "Contents (page xvii)",
+  "ownScore": 0.33,
+  "bestBook": "topology",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "topology",
+    "score": 0.67
+   },
+   {
+    "book": "theory-of-computation",
+    "score": 0.67
+   },
+   {
+    "book": "artificial-intelligence",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 13
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "The Design Synthesis and the Doorstep",
+  "idx": 14,
+  "title": "Contents (page xviii)",
+  "ownScore": 0.33,
+  "bestBook": "topology",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "topology",
+    "score": 0.67
+   },
+   {
+    "book": "theory-of-computation",
+    "score": 0.67
+   },
+   {
+    "book": "artificial-intelligence",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 14
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "The Design Synthesis and the Doorstep",
+  "idx": 15,
+  "title": "List of Examples xii",
+  "ownScore": 0.0,
+  "bestBook": "c-programming",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "c-programming",
+    "score": 0.67
+   },
+   {
+    "book": "sanskrit",
+    "score": 0.67
+   },
+   {
+    "book": "statistics",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 15
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "The Design Synthesis and the Doorstep",
+  "idx": 16,
+  "title": "List of Examples",
+  "ownScore": 0.0,
+  "bestBook": "c-programming",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "c-programming",
+    "score": 1.0
+   },
+   {
+    "book": "sanskrit",
+    "score": 1.0
+   },
+   {
+    "book": "statistics",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 16
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "The Design Synthesis and the Doorstep",
+  "idx": 17,
+  "title": "List of Examples xiii",
+  "ownScore": 0.0,
+  "bestBook": "c-programming",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "c-programming",
+    "score": 0.67
+   },
+   {
+    "book": "sanskrit",
+    "score": 0.67
+   },
+   {
+    "book": "statistics",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 17
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "The Design Synthesis and the Doorstep",
+  "idx": 18,
+  "title": "Xiv List of Examples",
+  "ownScore": 0.0,
+  "bestBook": "c-programming",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "c-programming",
+    "score": 0.67
+   },
+   {
+    "book": "sanskrit",
+    "score": 0.67
+   },
+   {
+    "book": "statistics",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 18
+ },
+ {
+  "book": "machine-design",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "The Design Synthesis and the Doorstep",
+  "idx": 19,
+  "title": "List of Examples xv",
+  "ownScore": 0.0,
+  "bestBook": "c-programming",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "c-programming",
+    "score": 1.0
+   },
+   {
+    "book": "sanskrit",
+    "score": 1.0
+   },
+   {
+    "book": "statistics",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 19
+ },
+ {
+  "book": "thermodynamics",
+  "discipline": "engineering",
+  "chapter": 3,
+  "chapterTitle": "Properties of Pure Substances",
+  "idx": 4,
+  "title": "List of Tables \u2014 xxii",
+  "ownScore": 0.33,
+  "bestBook": "trigonometry",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "trigonometry",
+    "score": 0.67
+   },
+   {
+    "book": "french",
+    "score": 0.67
+   },
+   {
+    "book": "theatre",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "thermodynamics",
+  "discipline": "engineering",
+  "chapter": 3,
+  "chapterTitle": "Properties of Pure Substances",
+  "idx": 5,
+  "title": "List of Tables xvi",
+  "ownScore": 0.33,
+  "bestBook": "trigonometry",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "trigonometry",
+    "score": 0.67
+   },
+   {
+    "book": "french",
+    "score": 0.67
+   },
+   {
+    "book": "theatre",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "thermodynamics",
+  "discipline": "engineering",
+  "chapter": 3,
+  "chapterTitle": "Properties of Pure Substances",
+  "idx": 7,
+  "title": "List of Tables xvi Summary",
+  "ownScore": 0.25,
+  "bestBook": "english",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "english",
+    "score": 0.75
+   },
+   {
+    "book": "trigonometry",
+    "score": 0.5
+   },
+   {
+    "book": "french",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "thermodynamics",
+  "discipline": "engineering",
+  "chapter": 3,
+  "chapterTitle": "Properties of Pure Substances",
+  "idx": 10,
+  "title": "Xvi List of Tables",
+  "ownScore": 0.33,
+  "bestBook": "trigonometry",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "trigonometry",
+    "score": 0.67
+   },
+   {
+    "book": "french",
+    "score": 0.67
+   },
+   {
+    "book": "theatre",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 7
+ },
+ {
+  "book": "thermodynamics",
+  "discipline": "engineering",
+  "chapter": 3,
+  "chapterTitle": "Properties of Pure Substances",
+  "idx": 11,
+  "title": "List of Tables",
+  "ownScore": 0.5,
+  "bestBook": "trigonometry",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "trigonometry",
+    "score": 1.0
+   },
+   {
+    "book": "french",
+    "score": 1.0
+   },
+   {
+    "book": "theatre",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 8
+ },
+ {
+  "book": "thermodynamics",
+  "discipline": "engineering",
+  "chapter": 4,
+  "chapterTitle": "Control Volumes",
+  "idx": 4,
+  "title": "Simplified \"x86\" instruction set",
+  "ownScore": 0.25,
+  "bestBook": "assembly-and-microprocessors",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "assembly-and-microprocessors",
+    "score": 0.75
+   },
+   {
+    "book": "computer-organization-architecture",
+    "score": 0.75
+   },
+   {
+    "book": "foundation-biology",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "thermodynamics",
+  "discipline": "engineering",
+  "chapter": 8,
+  "chapterTitle": "Gas Power Cycles",
+  "idx": 3,
+  "title": "The Cycle Comparison Census",
+  "ownScore": 0.67,
+  "bestBook": "molecular-biology",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "molecular-biology",
+    "score": 1.0
+   },
+   {
+    "book": "algorithms",
+    "score": 1.0
+   },
+   {
+    "book": "french",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "thermodynamics",
+  "discipline": "engineering",
+  "chapter": 8,
+  "chapterTitle": "Gas Power Cycles",
+  "idx": 6,
+  "title": "Hybrid parameters",
+  "ownScore": 0.5,
+  "bestBook": "compiler-design",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "compiler-design",
+    "score": 1.0
+   },
+   {
+    "book": "electronic-devices-and-circuits",
+    "score": 0.5
+   },
+   {
+    "book": "computer-graphics",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "thermodynamics",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "Vapour Power and Refrigeration Cycles",
+  "idx": 4,
+  "title": "Practical Perspective: Heating with Electric",
+  "ownScore": 0.25,
+  "bestBook": "electricity-and-magnetism",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "electricity-and-magnetism",
+    "score": 0.5
+   },
+   {
+    "book": "psychology",
+    "score": 0.25
+   },
+   {
+    "book": "photography",
+    "score": 0.25
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "fluid-mechanics",
+  "discipline": "engineering",
+  "chapter": 10,
+  "chapterTitle": "The Turbomachinery Principle and the Doorstep",
+  "idx": 3,
+  "title": "The Doorsteps: Machines Elsewhere, Rates Above",
+  "ownScore": 0.4,
+  "bestBook": "molecular-biology",
+  "bestScore": 0.8,
+  "top3": [
+   {
+    "book": "molecular-biology",
+    "score": 0.8
+   },
+   {
+    "book": "elementary-algebra",
+    "score": 0.6
+   },
+   {
+    "book": "probability-theory",
+    "score": 0.6
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "heat-transfer",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Three Modes",
+  "idx": 4,
+  "title": "Active Mode",
+  "ownScore": 0.5,
+  "bestBook": "english",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "english",
+    "score": 1.0
+   },
+   {
+    "book": "statistics",
+    "score": 0.5
+   },
+   {
+    "book": "music-theory-notation",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "heat-transfer",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Three Modes",
+  "idx": 6,
+  "title": "Input Common-Mode Range and",
+  "ownScore": 0.5,
+  "bestBook": "harmony",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "harmony",
+    "score": 0.75
+   },
+   {
+    "book": "elementary-algebra",
+    "score": 0.75
+   },
+   {
+    "book": "advanced-algebra",
+    "score": 0.75
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "heat-transfer",
+  "discipline": "engineering",
+  "chapter": 8,
+  "chapterTitle": "Radiation",
+  "idx": 5,
+  "title": "Switchers: top-level view",
+  "ownScore": 0.33,
+  "bestBook": "music-theory-notation",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "music-theory-notation",
+    "score": 0.67
+   },
+   {
+    "book": "3d-modelling",
+    "score": 0.67
+   },
+   {
+    "book": "japanese",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "heat-transfer",
+  "discipline": "engineering",
+  "chapter": 8,
+  "chapterTitle": "Radiation",
+  "idx": 7,
+  "title": "Practical Perspective: A Household Distribution",
+  "ownScore": 0.25,
+  "bestBook": "electricity-and-magnetism",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "electricity-and-magnetism",
+    "score": 0.5
+   },
+   {
+    "book": "archaeology-and-heritage-studies",
+    "score": 0.5
+   },
+   {
+    "book": "elementary-algebra",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 7
+ },
+ {
+  "book": "heat-transfer",
+  "discipline": "engineering",
+  "chapter": 8,
+  "chapterTitle": "Radiation",
+  "idx": 8,
+  "title": "Practical Perspective: Clock for Computer Problems",
+  "ownScore": 0.4,
+  "bestBook": "operating-systems",
+  "bestScore": 0.8,
+  "top3": [
+   {
+    "book": "operating-systems",
+    "score": 0.8
+   },
+   {
+    "book": "linear-algebra",
+    "score": 0.6
+   },
+   {
+    "book": "computer-fundamentals",
+    "score": 0.6
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 8
+ },
+ {
+  "book": "heat-transfer",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "The Synthesis and the Doorstep",
+  "idx": 2,
+  "title": "The Doorsteps: Solar, Grids, Silicon",
+  "ownScore": 0.5,
+  "bestBook": "renewable-energy",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "renewable-energy",
+    "score": 0.75
+   },
+   {
+    "book": "elementary-algebra",
+    "score": 0.5
+   },
+   {
+    "book": "vlsi-design",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 2
+ },
+ {
+  "book": "manufacturing-processes",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "Materials for Manufacturing",
+  "idx": 3,
+  "title": "Fabricated in CMOS and Bipolar Processes K-1",
+  "ownScore": 0.25,
+  "bestBook": "electronic-devices-and-circuits",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "electronic-devices-and-circuits",
+    "score": 0.5
+   },
+   {
+    "book": "psychology",
+    "score": 0.5
+   },
+   {
+    "book": "vlsi-design",
+    "score": 0.25
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "manufacturing-processes",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "Materials for Manufacturing",
+  "idx": 4,
+  "title": "Manufacturing spread of FET characteristics",
+  "ownScore": 0.25,
+  "bestBook": "electronic-devices-and-circuits",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "electronic-devices-and-circuits",
+    "score": 0.5
+   },
+   {
+    "book": "machine-design",
+    "score": 0.5
+   },
+   {
+    "book": "cell-biology",
+    "score": 0.25
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "manufacturing-processes",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "Materials for Manufacturing",
+  "idx": 5,
+  "title": "Logic identities",
+  "ownScore": 0.5,
+  "bestBook": "set-theory",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "set-theory",
+    "score": 1.0
+   },
+   {
+    "book": "elementary-algebra",
+    "score": 0.5
+   },
+   {
+    "book": "probability-theory",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "manufacturing-processes",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "Materials for Manufacturing",
+  "idx": 7,
+  "title": "II: Logic-output optocouplers",
+  "ownScore": 0.33,
+  "bestBook": "discrete-mathematics",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "discrete-mathematics",
+    "score": 0.67
+   },
+   {
+    "book": "computer-fundamentals",
+    "score": 0.67
+   },
+   {
+    "book": "computer-organization-architecture",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "manufacturing-processes",
+  "discipline": "engineering",
+  "chapter": 5,
+  "chapterTitle": "Machining Mechanics",
+  "idx": 1,
+  "title": "Tool Geometry by Two Systems",
+  "ownScore": 0.75,
+  "bestBook": "foundation-mathematics",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "foundation-mathematics",
+    "score": 1.0
+   },
+   {
+    "book": "computer-graphics",
+    "score": 1.0
+   },
+   {
+    "book": "advanced-algebra",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 1
+ },
+ {
+  "book": "manufacturing-processes",
+  "discipline": "engineering",
+  "chapter": 7,
+  "chapterTitle": "Non-Traditional Machining",
+  "idx": 4,
+  "title": "B.2 The Graphical Representation of a Complex",
+  "ownScore": 0.33,
+  "bestBook": "abstract-algebra",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "abstract-algebra",
+    "score": 0.67
+   },
+   {
+    "book": "artificial-intelligence",
+    "score": 0.67
+   },
+   {
+    "book": "mathematical-methods-for-engineering",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "industrial-engineering",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Production System",
+  "idx": 2,
+  "title": "Productivity Measured Honestly",
+  "ownScore": 0.33,
+  "bestBook": "plant-pathology",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "plant-pathology",
+    "score": 0.67
+   },
+   {
+    "book": "trigonometry",
+    "score": 0.67
+   },
+   {
+    "book": "frontend-engineering",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 2
+ },
+ {
+  "book": "industrial-engineering",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Production System",
+  "idx": 4,
+  "title": "Current issues of national and international importance relating to social, economic and industrial development",
+  "ownScore": 0.2,
+  "bestBook": "sociology",
+  "bestScore": 0.6,
+  "top3": [
+   {
+    "book": "sociology",
+    "score": 0.6
+   },
+   {
+    "book": "environmental-studies",
+    "score": 0.5
+   },
+   {
+    "book": "geography",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "industrial-engineering",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Production System",
+  "idx": 12,
+  "title": "Production of rotating magnetic flux by",
+  "ownScore": 0.25,
+  "bestBook": "electricity-and-magnetism",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "electricity-and-magnetism",
+    "score": 0.75
+   },
+   {
+    "book": "solid-state-physics",
+    "score": 0.5
+   },
+   {
+    "book": "electromagnetic-theory",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 7
+ },
+ {
+  "book": "industrial-engineering",
+  "discipline": "engineering",
+  "chapter": 4,
+  "chapterTitle": "Scheduling, MRP and Lean",
+  "idx": 2,
+  "title": "Lean: the Pull Discipline",
+  "ownScore": 0.67,
+  "bestBook": "operations-management",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "operations-management",
+    "score": 1.0
+   },
+   {
+    "book": "quantitative-aptitude",
+    "score": 0.67
+   },
+   {
+    "book": "engineering-mechanics",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 2
+ },
+ {
+  "book": "industrial-engineering",
+  "discipline": "engineering",
+  "chapter": 6,
+  "chapterTitle": "The Operations-Research Application Layer",
+  "idx": 3,
+  "title": "Queues Priced on Service Systems",
+  "ownScore": 0.75,
+  "bestBook": "embedded-systems",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "embedded-systems",
+    "score": 1.0
+   },
+   {
+    "book": "backend-engineering",
+    "score": 1.0
+   },
+   {
+    "book": "operating-systems",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "industrial-engineering",
+  "discipline": "engineering",
+  "chapter": 6,
+  "chapterTitle": "The Operations-Research Application Layer",
+  "idx": 6,
+  "title": "Graphical Representation of",
+  "ownScore": 0.0,
+  "bestBook": "abstract-algebra",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "abstract-algebra",
+    "score": 0.5
+   },
+   {
+    "book": "numerical-analysis",
+    "score": 0.5
+   },
+   {
+    "book": "artificial-intelligence",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "industrial-engineering",
+  "discipline": "engineering",
+  "chapter": 6,
+  "chapterTitle": "The Operations-Research Application Layer",
+  "idx": 8,
+  "title": "Some DAC application examples",
+  "ownScore": 0.25,
+  "bestBook": "analog-electronics",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "analog-electronics",
+    "score": 0.5
+   },
+   {
+    "book": "cybersecurity",
+    "score": 0.5
+   },
+   {
+    "book": "algorithms",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "industrial-engineering",
+  "discipline": "engineering",
+  "chapter": 6,
+  "chapterTitle": "The Operations-Research Application Layer",
+  "idx": 9,
+  "title": "Parallel multichannel delta-sigma data-acquisition system",
+  "ownScore": 0.29,
+  "bestBook": "analog-electronics",
+  "bestScore": 0.57,
+  "top3": [
+   {
+    "book": "analog-electronics",
+    "score": 0.57
+   },
+   {
+    "book": "parallel-computing",
+    "score": 0.43
+   },
+   {
+    "book": "philosophy",
+    "score": 0.43
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "industrial-engineering",
+  "discipline": "engineering",
+  "chapter": 7,
+  "chapterTitle": "Quality Control",
+  "idx": 3,
+  "title": "Six Sigma Named Honestly",
+  "ownScore": 0.75,
+  "bestBook": "operations-management",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "operations-management",
+    "score": 1.0
+   },
+   {
+    "book": "trigonometry",
+    "score": 0.75
+   },
+   {
+    "book": "advanced-mathematical-foundations",
+    "score": 0.75
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "robotics-and-automation",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Robot Idea",
+  "idx": 5,
+  "title": "A brief history",
+  "ownScore": 0.5,
+  "bestBook": "law-and-legal-studies",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "law-and-legal-studies",
+    "score": 1.0
+   },
+   {
+    "book": "russian",
+    "score": 0.5
+   },
+   {
+    "book": "graphic-design",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "robotics-and-automation",
+  "discipline": "engineering",
+  "chapter": 2,
+  "chapterTitle": "Spatial Descriptions and Transformations",
+  "idx": 0,
+  "title": "Rotation Matrices Composed",
+  "ownScore": 0.67,
+  "bestBook": "computer-graphics",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "computer-graphics",
+    "score": 1.0
+   },
+   {
+    "book": "mathematical-physics",
+    "score": 0.67
+   },
+   {
+    "book": "linear-algebra",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 0
+ },
+ {
+  "book": "robotics-and-automation",
+  "discipline": "engineering",
+  "chapter": 2,
+  "chapterTitle": "Spatial Descriptions and Transformations",
+  "idx": 5,
+  "title": "Using Special Source Transformation",
+  "ownScore": 0.25,
+  "bestBook": "linear-algebra",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "linear-algebra",
+    "score": 0.5
+   },
+   {
+    "book": "analog-and-digital-communication",
+    "score": 0.5
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "robotics-and-automation",
+  "discipline": "engineering",
+  "chapter": 5,
+  "chapterTitle": "Velocities, Static Forces and Jacobians",
+  "idx": 3,
+  "title": "An Alternative Approach for 13.1.3 DC VoltageGain",
+  "ownScore": 0.33,
+  "bestBook": "harmony",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "harmony",
+    "score": 0.67
+   },
+   {
+    "book": "geography",
+    "score": 0.67
+   },
+   {
+    "book": "arabic",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "robotics-and-automation",
+  "discipline": "engineering",
+  "chapter": 6,
+  "chapterTitle": "Dynamics and Trajectory Generation",
+  "idx": 2,
+  "title": "Blends and the Time-Scaling Craft",
+  "ownScore": 0.5,
+  "bestBook": "cad-cam",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "cad-cam",
+    "score": 0.75
+   },
+   {
+    "book": "big-data-engineering",
+    "score": 0.75
+   },
+   {
+    "book": "digital-signal-processing",
+    "score": 0.75
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 2
+ },
+ {
+  "book": "robotics-and-automation",
+  "discipline": "engineering",
+  "chapter": 8,
+  "chapterTitle": "Industrial Automation and the Doorstep",
+  "idx": 4,
+  "title": "Logic family chronology \u2013 a brief history",
+  "ownScore": 0.4,
+  "bestBook": "law-and-legal-studies",
+  "bestScore": 0.8,
+  "top3": [
+   {
+    "book": "law-and-legal-studies",
+    "score": 0.8
+   },
+   {
+    "book": "artificial-intelligence",
+    "score": 0.6
+   },
+   {
+    "book": "plant-genetics",
+    "score": 0.6
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "cad-cam",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Digital Product Chain",
+  "idx": 4,
+  "title": "Multiplexed LED digital display",
+  "ownScore": 0.25,
+  "bestBook": "typography",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "typography",
+    "score": 0.5
+   },
+   {
+    "book": "archaeology-and-heritage-studies",
+    "score": 0.5
+   },
+   {
+    "book": "electrical-measurements",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "cad-cam",
+  "discipline": "engineering",
+  "chapter": 8,
+  "chapterTitle": "Industry 4.0 and the Synthesis",
+  "idx": 2,
+  "title": "OT Security Named",
+  "ownScore": 0.5,
+  "bestBook": "internet-of-things",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "internet-of-things",
+    "score": 1.0
+   },
+   {
+    "book": "plant-pathology",
+    "score": 1.0
+   },
+   {
+    "book": "embedded-systems",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 2
+ },
+ {
+  "book": "materials-science",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Materials Worldview",
+  "idx": 8,
+  "title": "Using Phasor Diagrams to Analyze a F(s) Has Repeated Complex Roots",
+  "ownScore": 0.12,
+  "bestBook": "advanced-algebra",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "advanced-algebra",
+    "score": 0.5
+   },
+   {
+    "book": "abstract-algebra",
+    "score": 0.38
+   },
+   {
+    "book": "electrical-machines",
+    "score": 0.38
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "materials-science",
+  "discipline": "engineering",
+  "chapter": 2,
+  "chapterTitle": "Atomic Structure and Interatomic Bonding",
+  "idx": 0,
+  "title": "The Four Bond Families Priced",
+  "ownScore": 0.75,
+  "bestBook": "molecular-biology",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "molecular-biology",
+    "score": 1.0
+   },
+   {
+    "book": "foundation-biology",
+    "score": 1.0
+   },
+   {
+    "book": "law-and-legal-studies",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 0
+ },
+ {
+  "book": "materials-science",
+  "discipline": "engineering",
+  "chapter": 2,
+  "chapterTitle": "Atomic Structure and Interatomic Bonding",
+  "idx": 3,
+  "title": "Short contents",
+  "ownScore": 0.5,
+  "bestBook": "japanese",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "japanese",
+    "score": 1.0
+   },
+   {
+    "book": "topology",
+    "score": 0.5
+   },
+   {
+    "book": "ethics",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "materials-science",
+  "discipline": "engineering",
+  "chapter": 8,
+  "chapterTitle": "Phase Diagrams and Phase Transformations",
+  "idx": 4,
+  "title": "Unity-gain phase splitter",
+  "ownScore": 0.25,
+  "bestBook": "analog-electronics",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "analog-electronics",
+    "score": 0.5
+   },
+   {
+    "book": "control-systems",
+    "score": 0.5
+   },
+   {
+    "book": "advanced-algebra",
+    "score": 0.25
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "materials-science",
+  "discipline": "engineering",
+  "chapter": 8,
+  "chapterTitle": "Phase Diagrams and Phase Transformations",
+  "idx": 6,
+  "title": "Plotting the Amplitude and Phase Spectra for a",
+  "ownScore": 0.25,
+  "bestBook": "acoustics",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "acoustics",
+    "score": 0.75
+   },
+   {
+    "book": "analog-and-digital-communication",
+    "score": 0.5
+   },
+   {
+    "book": "differential-equations",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "materials-science",
+  "discipline": "engineering",
+  "chapter": 8,
+  "chapterTitle": "Phase Diagrams and Phase Transformations",
+  "idx": 8,
+  "title": "Signed binary multiplication",
+  "ownScore": 0.33,
+  "bestBook": "digital-logic-design",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "digital-logic-design",
+    "score": 1.0
+   },
+   {
+    "book": "algorithms",
+    "score": 0.67
+   },
+   {
+    "book": "abstract-algebra",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "materials-science",
+  "discipline": "engineering",
+  "chapter": 8,
+  "chapterTitle": "Phase Diagrams and Phase Transformations",
+  "idx": 9,
+  "title": "Signed binary division",
+  "ownScore": 0.33,
+  "bestBook": "digital-logic-design",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "digital-logic-design",
+    "score": 1.0
+   },
+   {
+    "book": "cell-biology",
+    "score": 0.67
+   },
+   {
+    "book": "harmony",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 7
+ },
+ {
+  "book": "circuit-theory-and-network-analysis",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Circuit Idea",
+  "idx": 10,
+  "title": "The Two-Input NOR Gate",
+  "ownScore": 0.25,
+  "bestBook": "digital-logic-design",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "digital-logic-design",
+    "score": 0.75
+   },
+   {
+    "book": "animal-physiology",
+    "score": 0.75
+   },
+   {
+    "book": "computer-organization-architecture",
+    "score": 0.75
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "circuit-theory-and-network-analysis",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Circuit Idea",
+  "idx": 11,
+  "title": "The Two-Input NAND Gate",
+  "ownScore": 0.25,
+  "bestBook": "animal-physiology",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "animal-physiology",
+    "score": 0.75
+   },
+   {
+    "book": "digital-logic-design",
+    "score": 0.75
+   },
+   {
+    "book": "computer-organization-architecture",
+    "score": 0.75
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "circuit-theory-and-network-analysis",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Circuit Idea",
+  "idx": 12,
+  "title": "Two important details",
+  "ownScore": 0.33,
+  "bestBook": "microbiology",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "microbiology",
+    "score": 0.67
+   },
+   {
+    "book": "spanish",
+    "score": 0.67
+   },
+   {
+    "book": "computer-graphics",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 7
+ },
+ {
+  "book": "circuit-theory-and-network-analysis",
+  "discipline": "engineering",
+  "chapter": 2,
+  "chapterTitle": "Kirchhoff\u2019s Laws and the Systematic Methods",
+  "idx": 8,
+  "title": "Using Essential Nodes and Essential Branches",
+  "ownScore": 0.25,
+  "bestBook": "complex-analysis",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "complex-analysis",
+    "score": 0.5
+   },
+   {
+    "book": "integral-calculus",
+    "score": 0.25
+   },
+   {
+    "book": "ecology",
+    "score": 0.25
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 7
+ },
+ {
+  "book": "circuit-theory-and-network-analysis",
+  "discipline": "engineering",
+  "chapter": 4,
+  "chapterTitle": "Sinusoidal Steady State",
+  "idx": 13,
+  "title": "Addition and subtraction of sinusoidal",
+  "ownScore": 0.33,
+  "bestBook": "elementary-algebra",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "elementary-algebra",
+    "score": 0.67
+   },
+   {
+    "book": "foundation-mathematics",
+    "score": 0.67
+   },
+   {
+    "book": "linear-algebra",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 8
+ },
+ {
+  "book": "circuit-theory-and-network-analysis",
+  "discipline": "engineering",
+  "chapter": 4,
+  "chapterTitle": "Sinusoidal Steady State",
+  "idx": 15,
+  "title": "Addition and subtraction of phasors",
+  "ownScore": 0.33,
+  "bestBook": "elementary-algebra",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "elementary-algebra",
+    "score": 0.67
+   },
+   {
+    "book": "foundation-mathematics",
+    "score": 0.67
+   },
+   {
+    "book": "linear-algebra",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 9
+ },
+ {
+  "book": "circuit-theory-and-network-analysis",
+  "discipline": "engineering",
+  "chapter": 5,
+  "chapterTitle": "Resonance and Coupled Circuits",
+  "idx": 9,
+  "title": "Graphical Analysis Using the MOSFET",
+  "ownScore": 0.25,
+  "bestBook": "optimization-and-operations-research",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "optimization-and-operations-research",
+    "score": 0.5
+   },
+   {
+    "book": "integral-calculus",
+    "score": 0.5
+   },
+   {
+    "book": "differential-calculus",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 8
+ },
+ {
+  "book": "circuit-theory-and-network-analysis",
+  "discipline": "engineering",
+  "chapter": 5,
+  "chapterTitle": "Resonance and Coupled Circuits",
+  "idx": 12,
+  "title": "The Role of the Substrate\u2014The Body Analysis",
+  "ownScore": 0.25,
+  "bestBook": "sociology",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "sociology",
+    "score": 0.75
+   },
+   {
+    "book": "plant-ecology",
+    "score": 0.75
+   },
+   {
+    "book": "international-relations",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 10
+ },
+ {
+  "book": "circuit-theory-and-network-analysis",
+  "discipline": "engineering",
+  "chapter": 5,
+  "chapterTitle": "Resonance and Coupled Circuits",
+  "idx": 15,
+  "title": "Finding the Unbounded Response in an RC",
+  "ownScore": 0.33,
+  "bestBook": "mathematical-physics",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "mathematical-physics",
+    "score": 0.67
+   },
+   {
+    "book": "abstract-algebra",
+    "score": 0.33
+   },
+   {
+    "book": "human-computer-interaction",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 12
+ },
+ {
+  "book": "circuit-theory-and-network-analysis",
+  "discipline": "engineering",
+  "chapter": 5,
+  "chapterTitle": "Resonance and Coupled Circuits",
+  "idx": 24,
+  "title": "Analysis of the resultant flux due to",
+  "ownScore": 0.25,
+  "bestBook": "heat-transfer",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "heat-transfer",
+    "score": 0.5
+   },
+   {
+    "book": "multivariable-calculus",
+    "score": 0.5
+   },
+   {
+    "book": "water-resources-engineering",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 15
+ },
+ {
+  "book": "circuit-theory-and-network-analysis",
+  "discipline": "engineering",
+  "chapter": 6,
+  "chapterTitle": "Balanced Three-Phase Circuits",
+  "idx": 5,
+  "title": "\"Two out of three isn't bad\": creating a perfect op-amp",
+  "ownScore": 0.25,
+  "bestBook": "elementary-algebra",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "elementary-algebra",
+    "score": 0.5
+   },
+   {
+    "book": "english",
+    "score": 0.5
+   },
+   {
+    "book": "plant-taxonomy",
+    "score": 0.38
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "circuit-theory-and-network-analysis",
+  "discipline": "engineering",
+  "chapter": 7,
+  "chapterTitle": "Transients",
+  "idx": 6,
+  "title": "A final remark",
+  "ownScore": 0.5,
+  "bestBook": "advanced-mathematical-foundations",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "advanced-mathematical-foundations",
+    "score": 1.0
+   },
+   {
+    "book": "molecular-biology",
+    "score": 0.5
+   },
+   {
+    "book": "russian",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "circuit-theory-and-network-analysis",
+  "discipline": "engineering",
+  "chapter": 7,
+  "chapterTitle": "Transients",
+  "idx": 7,
+  "title": "Sequential Switching",
+  "ownScore": 0.5,
+  "bestBook": "counterpoint",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "counterpoint",
+    "score": 1.0
+   },
+   {
+    "book": "digital-logic-design",
+    "score": 1.0
+   },
+   {
+    "book": "topology",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "circuit-theory-and-network-analysis",
+  "discipline": "engineering",
+  "chapter": 9,
+  "chapterTitle": "Two-Port Networks",
+  "idx": 6,
+  "title": "ADC Technologies",
+  "ownScore": 0.0,
+  "bestBook": "computer-organization-architecture",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "computer-organization-architecture",
+    "score": 0.5
+   },
+   {
+    "book": "javascript-and-web-technologies",
+    "score": 0.5
+   },
+   {
+    "book": "frontend-engineering",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "electrical-machines",
+  "discipline": "engineering",
+  "chapter": 2,
+  "chapterTitle": "The Single-Phase Transformer",
+  "idx": 4,
+  "title": "RFID: Identification at a Distance",
+  "ownScore": 0.33,
+  "bestBook": "ear-training",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "ear-training",
+    "score": 0.67
+   },
+   {
+    "book": "japanese",
+    "score": 0.33
+   },
+   {
+    "book": "law-and-legal-studies",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "electrical-machines",
+  "discipline": "engineering",
+  "chapter": 2,
+  "chapterTitle": "The Single-Phase Transformer",
+  "idx": 7,
+  "title": "Analyzing a Linear Transformer in the Frequency F(s) Has Distinct Complex Roots",
+  "ownScore": 0.38,
+  "bestBook": "advanced-algebra",
+  "bestScore": 0.62,
+  "top3": [
+   {
+    "book": "advanced-algebra",
+    "score": 0.62
+   },
+   {
+    "book": "computer-vision",
+    "score": 0.38
+   },
+   {
+    "book": "abstract-algebra",
+    "score": 0.38
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "electrical-machines",
+  "discipline": "engineering",
+  "chapter": 7,
+  "chapterTitle": "Synchronous Machines",
+  "idx": 5,
+  "title": "Parallel chip \"bus\" interface \u2013 an example",
+  "ownScore": 0.4,
+  "bestBook": "assembly-and-microprocessors",
+  "bestScore": 0.8,
+  "top3": [
+   {
+    "book": "assembly-and-microprocessors",
+    "score": 0.8
+   },
+   {
+    "book": "parallel-computing",
+    "score": 0.6
+   },
+   {
+    "book": "genetics",
+    "score": 0.6
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "electrical-machines",
+  "discipline": "engineering",
+  "chapter": 8,
+  "chapterTitle": "Losses, Efficiency and the Doorstep",
+  "idx": 1,
+  "title": "Efficiency Tested Indirectly",
+  "ownScore": 0.33,
+  "bestBook": "statistics",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "statistics",
+    "score": 0.67
+   },
+   {
+    "book": "thermodynamics",
+    "score": 0.33
+   },
+   {
+    "book": "physical-chemistry",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 1
+ },
+ {
+  "book": "power-systems",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Power System Worldview",
+  "idx": 6,
+  "title": "Unity-gain power buffers",
+  "ownScore": 0.25,
+  "bestBook": "advanced-algebra",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "advanced-algebra",
+    "score": 0.5
+   },
+   {
+    "book": "real-analysis",
+    "score": 0.5
+   },
+   {
+    "book": "complex-analysis",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "power-systems",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Power System Worldview",
+  "idx": 7,
+  "title": "Commercial power-supply modules",
+  "ownScore": 0.25,
+  "bestBook": "renewable-energy",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "renewable-energy",
+    "score": 0.5
+   },
+   {
+    "book": "advanced-algebra",
+    "score": 0.5
+   },
+   {
+    "book": "theory-of-machines",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "power-systems",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Power System Worldview",
+  "idx": 8,
+  "title": "Single-pulse generation with flip-flops and counters",
+  "ownScore": 0.33,
+  "bestBook": "digital-logic-design",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "digital-logic-design",
+    "score": 0.67
+   },
+   {
+    "book": "vlsi-design",
+    "score": 0.33
+   },
+   {
+    "book": "advanced-algebra",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "power-systems",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Power System Worldview",
+  "idx": 9,
+  "title": "ADE7753 multifunction ac power metering IC",
+  "ownScore": 0.25,
+  "bestBook": "electrical-measurements",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "electrical-measurements",
+    "score": 0.5
+   },
+   {
+    "book": "photography",
+    "score": 0.5
+   },
+   {
+    "book": "cinematography",
+    "score": 0.25
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 7
+ },
+ {
+  "book": "power-systems",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Power System Worldview",
+  "idx": 11,
+  "title": "Practical Perspective: Balancing Power 18 Cases",
+  "ownScore": 0.2,
+  "bestBook": "linear-algebra",
+  "bestScore": 0.6,
+  "top3": [
+   {
+    "book": "linear-algebra",
+    "score": 0.6
+   },
+   {
+    "book": "renewable-energy",
+    "score": 0.4
+   },
+   {
+    "book": "ethics",
+    "score": 0.4
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 9
+ },
+ {
+  "book": "power-systems",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Power System Worldview",
+  "idx": 14,
+  "title": "Practical Perspective: Vampire Power",
+  "ownScore": 0.25,
+  "bestBook": "photography",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "photography",
+    "score": 0.5
+   },
+   {
+    "book": "elementary-algebra",
+    "score": 0.5
+   },
+   {
+    "book": "optics",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 10
+ },
+ {
+  "book": "power-systems",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Power System Worldview",
+  "idx": 20,
+  "title": "Average Power Consumption of Common",
+  "ownScore": 0.25,
+  "bestBook": "foundation-physics",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "foundation-physics",
+    "score": 0.75
+   },
+   {
+    "book": "heat-transfer",
+    "score": 0.5
+   },
+   {
+    "book": "business-mathematics",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 14
+ },
+ {
+  "book": "power-systems",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Power System Worldview",
+  "idx": 22,
+  "title": "Distributed/Embedded generation",
+  "ownScore": 0.33,
+  "bestBook": "assembly-and-microprocessors",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "assembly-and-microprocessors",
+    "score": 0.67
+   },
+   {
+    "book": "computer-organization-architecture",
+    "score": 0.67
+   },
+   {
+    "book": "computer-networks",
+    "score": 0.67
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 15
+ },
+ {
+  "book": "power-systems",
+  "discipline": "engineering",
+  "chapter": 7,
+  "chapterTitle": "Symmetrical Faults and Circuit Breakers",
+  "idx": 4,
+  "title": "A riff on robust input protection",
+  "ownScore": 0.25,
+  "bestBook": "electrical-measurements",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "electrical-measurements",
+    "score": 0.5
+   },
+   {
+    "book": "law-and-legal-studies",
+    "score": 0.25
+   },
+   {
+    "book": "power-electronics",
+    "score": 0.25
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "control-systems",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Feedback Idea",
+  "idx": 5,
+  "title": "Basic Principles of Sinusoidal and Vice Versa",
+  "ownScore": 0.25,
+  "bestBook": "mathematical-methods-for-engineering",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "mathematical-methods-for-engineering",
+    "score": 0.5
+   },
+   {
+    "book": "thermodynamics",
+    "score": 0.25
+   },
+   {
+    "book": "physical-chemistry",
+    "score": 0.25
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "control-systems",
+  "discipline": "engineering",
+  "chapter": 1,
+  "chapterTitle": "The Feedback Idea",
+  "idx": 7,
+  "title": "Feedback shift register sequences",
+  "ownScore": 0.25,
+  "bestBook": "animal-physiology",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "animal-physiology",
+    "score": 0.75
+   },
+   {
+    "book": "screenwriting",
+    "score": 0.75
+   },
+   {
+    "book": "medical-physiology",
+    "score": 0.75
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ },
+ {
+  "book": "control-systems",
+  "discipline": "engineering",
+  "chapter": 3,
+  "chapterTitle": "Block Diagrams and Signal Flow Graphs",
+  "idx": 4,
+  "title": "ADCs I: Parallel (\"flash\") encoder",
+  "ownScore": 0.25,
+  "bestBook": "embedded-systems",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "embedded-systems",
+    "score": 0.5
+   },
+   {
+    "book": "analog-electronics",
+    "score": 0.5
+   },
+   {
+    "book": "computer-organization-architecture",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 3
+ },
+ {
+  "book": "control-systems",
+  "discipline": "engineering",
+  "chapter": 4,
+  "chapterTitle": "Transient and Steady-State Analysis",
+  "idx": 7,
+  "title": "Active peak detector",
+  "ownScore": 0.33,
+  "bestBook": "immunology",
+  "bestScore": 0.67,
+  "top3": [
+   {
+    "book": "immunology",
+    "score": 0.67
+   },
+   {
+    "book": "cell-biology",
+    "score": 0.33
+   },
+   {
+    "book": "acting",
+    "score": 0.33
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "control-systems",
+  "discipline": "engineering",
+  "chapter": 5,
+  "chapterTitle": "Stability and Routh-Hurwitz",
+  "idx": 0,
+  "title": "Stability Stated Honestly",
+  "ownScore": 0.67,
+  "bestBook": "digital-signal-processing",
+  "bestScore": 1.0,
+  "top3": [
+   {
+    "book": "digital-signal-processing",
+    "score": 1.0
+   },
+   {
+    "book": "differential-equations",
+    "score": 1.0
+   },
+   {
+    "book": "fluid-mechanics",
+    "score": 1.0
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 0
+ },
+ {
+  "book": "control-systems",
+  "discipline": "engineering",
+  "chapter": 5,
+  "chapterTitle": "Stability and Routh-Hurwitz",
+  "idx": 4,
+  "title": "Some comments about logic inputs",
+  "ownScore": 0.2,
+  "bestBook": "mandarin",
+  "bestScore": 0.6,
+  "top3": [
+   {
+    "book": "mandarin",
+    "score": 0.6
+   },
+   {
+    "book": "elementary-algebra",
+    "score": 0.4
+   },
+   {
+    "book": "english",
+    "score": 0.4
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 4
+ },
+ {
+  "book": "control-systems",
+  "discipline": "engineering",
+  "chapter": 10,
+  "chapterTitle": "State Space, Digital Glimpse and the Doorstep",
+  "idx": 7,
+  "title": "Programmable logic \u2013 HDL entry",
+  "ownScore": 0.0,
+  "bestBook": "digital-logic-design",
+  "bestScore": 0.75,
+  "top3": [
+   {
+    "book": "digital-logic-design",
+    "score": 0.75
+   },
+   {
+    "book": "programming-languages-paradigms",
+    "score": 0.5
+   },
+   {
+    "book": "philosophy",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 5
+ },
+ {
+  "book": "control-systems",
+  "discipline": "engineering",
+  "chapter": 10,
+  "chapterTitle": "State Space, Digital Glimpse and the Doorstep",
+  "idx": 8,
+  "title": "Implementation with a microcontroller",
+  "ownScore": 0.0,
+  "bestBook": "programming-languages-paradigms",
+  "bestScore": 0.5,
+  "top3": [
+   {
+    "book": "programming-languages-paradigms",
+    "score": 0.5
+   },
+   {
+    "book": "cryptography",
+    "score": 0.5
+   },
+   {
+    "book": "human-computer-interaction",
+    "score": 0.5
+   }
+  ],
+  "ledgerTruth": null,
+  "isSpecialist": false,
+  "liveIdx": 6
+ }
+]

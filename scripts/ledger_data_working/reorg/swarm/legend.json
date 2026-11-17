@@ -1,0 +1,10573 @@
+[
+ {
+  "id": "foundation-mathematics",
+  "title": "Foundation Mathematics",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Numbers and Place Value"
+   },
+   {
+    "n": 2,
+    "t": "The Four Operations"
+   },
+   {
+    "n": 3,
+    "t": "Factors, Multiples and Primes"
+   },
+   {
+    "n": 4,
+    "t": "Fractions"
+   },
+   {
+    "n": 5,
+    "t": "Decimals and Percents"
+   },
+   {
+    "n": 6,
+    "t": "Ratio, Rate and Proportion"
+   },
+   {
+    "n": 7,
+    "t": "Integers"
+   },
+   {
+    "n": 8,
+    "t": "Geometry Foundations"
+   },
+   {
+    "n": 9,
+    "t": "Measurement"
+   },
+   {
+    "n": 10,
+    "t": "Data and Graphs"
+   },
+   {
+    "n": 11,
+    "t": "Patterns and the Doorstep of Algebra"
+   }
+  ]
+ },
+ {
+  "id": "arithmetic-and-number-systems",
+  "title": "Arithmetic and Number Systems",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Natural Numbers as a System"
+   },
+   {
+    "n": 2,
+    "t": "The Division Algorithm and the Structure of Divisibility"
+   },
+   {
+    "n": 3,
+    "t": "Positional Systems and Other Bases"
+   },
+   {
+    "n": 4,
+    "t": "Primes and the Fundamental Theorem of Arithmetic"
+   },
+   {
+    "n": 5,
+    "t": "Congruences: The Arithmetic of Remainders"
+   },
+   {
+    "n": 6,
+    "t": "Building the Integers"
+   },
+   {
+    "n": 7,
+    "t": "Building the Rationals"
+   },
+   {
+    "n": 8,
+    "t": "Irrationals and the Real Line"
+   },
+   {
+    "n": 9,
+    "t": "Numeration Through History"
+   },
+   {
+    "n": 10,
+    "t": "The Map of Number Systems"
+   }
+  ]
+ },
+ {
+  "id": "elementary-algebra",
+  "title": "Elementary Algebra",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Letters and Structure"
+   },
+   {
+    "n": 2,
+    "t": "Exponents and Powers"
+   },
+   {
+    "n": 3,
+    "t": "Polynomials"
+   },
+   {
+    "n": 4,
+    "t": "Factorization"
+   },
+   {
+    "n": 5,
+    "t": "Linear Equations in One Variable"
+   },
+   {
+    "n": 6,
+    "t": "Simultaneous Linear Equations"
+   },
+   {
+    "n": 7,
+    "t": "Inequalities"
+   },
+   {
+    "n": 8,
+    "t": "Algebraic Fractions"
+   },
+   {
+    "n": 9,
+    "t": "Quadratic Equations"
+   },
+   {
+    "n": 10,
+    "t": "Graphs of Equations"
+   },
+   {
+    "n": 11,
+    "t": "The Toolbox and the Doorstep"
+   },
+   {
+    "n": 12,
+    "t": "Ratio, Proportion and Variation"
+   }
+  ]
+ },
+ {
+  "id": "advanced-algebra",
+  "title": "Advanced Algebra",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Functions as Objects"
+   },
+   {
+    "n": 2,
+    "t": "The Quadratic at Depth"
+   },
+   {
+    "n": 3,
+    "t": "Complex Numbers: the New Rung"
+   },
+   {
+    "n": 4,
+    "t": "Inequalities: the Classical Engine"
+   },
+   {
+    "n": 5,
+    "t": "Sequences and Series"
+   },
+   {
+    "n": 6,
+    "t": "Counting: Permutations and Combinations"
+   },
+   {
+    "n": 7,
+    "t": "Induction and the Binomial Theorem"
+   },
+   {
+    "n": 8,
+    "t": "The Theory of Equations"
+   },
+   {
+    "n": 9,
+    "t": "Exponentials and Logarithms"
+   },
+   {
+    "n": 10,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "geometry",
+  "title": "Geometry",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Points, Lines and Planes: the Axiomatic Idea"
+   },
+   {
+    "n": 2,
+    "t": "Angles, Parallel Lines and the Transversal"
+   },
+   {
+    "n": 3,
+    "t": "Triangles: Congruence and the Craft of Proof"
+   },
+   {
+    "n": 4,
+    "t": "Similarity: the Geometry of Proportion"
+   },
+   {
+    "n": 5,
+    "t": "Transformations and Symmetry: the Rigid-Motion Idea"
+   },
+   {
+    "n": 6,
+    "t": "Quadrilaterals and Polygons"
+   },
+   {
+    "n": 7,
+    "t": "The Circle: Chords, Angles and Tangents"
+   },
+   {
+    "n": 8,
+    "t": "Ruler-and-Compass Constructions"
+   },
+   {
+    "n": 9,
+    "t": "Areas: Heron’s Formula and the Plane Region"
+   },
+   {
+    "n": 10,
+    "t": "Surface Areas and Volumes"
+   },
+   {
+    "n": 11,
+    "t": "Proof, the Postulates and the Non-Euclidean Door"
+   },
+   {
+    "n": 12,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "coordinate-geometry",
+  "title": "Coordinate Geometry",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Coordinate System and the Locus Idea"
+   },
+   {
+    "n": 2,
+    "t": "Straight Lines"
+   },
+   {
+    "n": 3,
+    "t": "Pair of Straight Lines"
+   },
+   {
+    "n": 4,
+    "t": "The Circle"
+   },
+   {
+    "n": 5,
+    "t": "The Parabola"
+   },
+   {
+    "n": 6,
+    "t": "The Ellipse"
+   },
+   {
+    "n": 7,
+    "t": "The Hyperbola"
+   },
+   {
+    "n": 8,
+    "t": "The Conic Family Unified"
+   },
+   {
+    "n": 9,
+    "t": "The Third Dimension: Points, Spheres and Directions"
+   },
+   {
+    "n": 10,
+    "t": "Vector Algebra: Arrows with Rules"
+   },
+   {
+    "n": 11,
+    "t": "The Products of Vectors"
+   },
+   {
+    "n": 12,
+    "t": "Lines and Planes in Space"
+   },
+   {
+    "n": 13,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "trigonometry",
+  "title": "Trigonometry",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Angles and Their Measures"
+   },
+   {
+    "n": 2,
+    "t": "Trigonometric Functions and Their Graphs"
+   },
+   {
+    "n": 3,
+    "t": "The Transformation Formulas"
+   },
+   {
+    "n": 4,
+    "t": "Trigonometric Equations"
+   },
+   {
+    "n": 5,
+    "t": "Inverse Trigonometric Functions"
+   },
+   {
+    "n": 6,
+    "t": "Properties of Triangles"
+   },
+   {
+    "n": 7,
+    "t": "Heights and Distances"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "differential-calculus",
+  "title": "Differential Calculus",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Idea of the Limit"
+   },
+   {
+    "n": 2,
+    "t": "Continuity"
+   },
+   {
+    "n": 3,
+    "t": "The Derivative"
+   },
+   {
+    "n": 4,
+    "t": "The Craft of Differentiation"
+   },
+   {
+    "n": 5,
+    "t": "Applications I: Tangents, Normals and Rates"
+   },
+   {
+    "n": 6,
+    "t": "Applications II: Monotonicity, Concavity and Extrema"
+   },
+   {
+    "n": 7,
+    "t": "The Mean Value Theorems"
+   },
+   {
+    "n": 8,
+    "t": "Curve Sketching: the Complete Method"
+   },
+   {
+    "n": 9,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "integral-calculus",
+  "title": "Integral Calculus",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Indefinite Integral"
+   },
+   {
+    "n": 2,
+    "t": "Integration by Parts and the Advanced Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Definite Integral"
+   },
+   {
+    "n": 4,
+    "t": "The Properties and the Leibniz Rule"
+   },
+   {
+    "n": 5,
+    "t": "Areas and Applications"
+   },
+   {
+    "n": 6,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "multivariable-calculus",
+  "title": "Multivariable Calculus",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Functions of Several Variables"
+   },
+   {
+    "n": 2,
+    "t": "Partial Derivatives and the Gradient"
+   },
+   {
+    "n": 3,
+    "t": "Extrema in Several Variables"
+   },
+   {
+    "n": 4,
+    "t": "Multiple Integrals"
+   },
+   {
+    "n": 5,
+    "t": "Vector Calculus"
+   },
+   {
+    "n": 6,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "differential-equations",
+  "title": "Differential Equations",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Language of Differential Equations"
+   },
+   {
+    "n": 2,
+    "t": "First-Order Equations"
+   },
+   {
+    "n": 3,
+    "t": "Modeling with First-Order Equations"
+   },
+   {
+    "n": 4,
+    "t": "Second-Order Linear Equations"
+   },
+   {
+    "n": 5,
+    "t": "The Spring and the Circuit"
+   },
+   {
+    "n": 6,
+    "t": "Systems, the Phase Plane and the Nonlinear World"
+   },
+   {
+    "n": 7,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "linear-algebra",
+  "title": "Linear Algebra",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Matrices: the Rectangular Numbers"
+   },
+   {
+    "n": 2,
+    "t": "Determinants"
+   },
+   {
+    "n": 3,
+    "t": "Systems of Linear Equations"
+   },
+   {
+    "n": 4,
+    "t": "Vector Spaces"
+   },
+   {
+    "n": 5,
+    "t": "Linear Transformations"
+   },
+   {
+    "n": 6,
+    "t": "Eigenvalues and Eigenvectors"
+   },
+   {
+    "n": 7,
+    "t": "Orthogonality and Least Squares"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "discrete-mathematics",
+  "title": "Discrete Mathematics",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Discrete Viewpoint"
+   },
+   {
+    "n": 2,
+    "t": "Algorithms and Their Growth"
+   },
+   {
+    "n": 3,
+    "t": "Recursion and Induction at Work"
+   },
+   {
+    "n": 4,
+    "t": "Advanced Counting"
+   },
+   {
+    "n": 5,
+    "t": "Relations: Order and Equivalence"
+   },
+   {
+    "n": 6,
+    "t": "Graphs: the Mathematics of Connections"
+   },
+   {
+    "n": 7,
+    "t": "Trees"
+   },
+   {
+    "n": 8,
+    "t": "Boolean Algebra and Logic Circuits"
+   },
+   {
+    "n": 9,
+    "t": "Models of Computation"
+   },
+   {
+    "n": 10,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "number-theory",
+  "title": "Number Theory",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Ground Arithmetic Banked"
+   },
+   {
+    "n": 2,
+    "t": "The Congruence Machinery"
+   },
+   {
+    "n": 3,
+    "t": "Fermat and Euler"
+   },
+   {
+    "n": 4,
+    "t": "Number-Theoretic Functions"
+   },
+   {
+    "n": 5,
+    "t": "Primitive Roots and Indices"
+   },
+   {
+    "n": 6,
+    "t": "Quadratic Residues and Reciprocity"
+   },
+   {
+    "n": 7,
+    "t": "Continued Fractions"
+   },
+   {
+    "n": 8,
+    "t": "Fibonacci and Recurrence"
+   },
+   {
+    "n": 9,
+    "t": "Cryptography: the Modern Payoff"
+   },
+   {
+    "n": 10,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "set-theory",
+  "title": "Set Theory",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Membership Idea"
+   },
+   {
+    "n": 2,
+    "t": "The Algebra of Sets"
+   },
+   {
+    "n": 3,
+    "t": "Relations and Functions, Formally"
+   },
+   {
+    "n": 4,
+    "t": "Counting the Infinite: Cardinality"
+   },
+   {
+    "n": 5,
+    "t": "Well-Ordering and the Ordinals"
+   },
+   {
+    "n": 6,
+    "t": "The Axiom of Choice"
+   },
+   {
+    "n": 7,
+    "t": "Paradoxes and the Axiomatic Response"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "mathematical-logic",
+  "title": "Mathematical Logic",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Statements and Connectives"
+   },
+   {
+    "n": 2,
+    "t": "Equivalence and Normal Forms"
+   },
+   {
+    "n": 3,
+    "t": "The Quantifiers"
+   },
+   {
+    "n": 4,
+    "t": "Proof: the Methods"
+   },
+   {
+    "n": 5,
+    "t": "Formal Theories and Validity"
+   },
+   {
+    "n": 6,
+    "t": "Computability and Gödel"
+   },
+   {
+    "n": 7,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "combinatorics",
+  "title": "Combinatorics",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Counting Foundations at Depth"
+   },
+   {
+    "n": 2,
+    "t": "The Binomial Machine"
+   },
+   {
+    "n": 3,
+    "t": "Generating Functions"
+   },
+   {
+    "n": 4,
+    "t": "Recurrence Relations at Depth"
+   },
+   {
+    "n": 5,
+    "t": "Partitions and Symmetric Counting"
+   },
+   {
+    "n": 6,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "probability-theory",
+  "title": "Probability Theory",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Sample Space: Probability’s Universe"
+   },
+   {
+    "n": 2,
+    "t": "Conditional Probability and Independence"
+   },
+   {
+    "n": 3,
+    "t": "Total Probability and Bayes"
+   },
+   {
+    "n": 4,
+    "t": "Random Variables"
+   },
+   {
+    "n": 5,
+    "t": "The Great Distributions"
+   },
+   {
+    "n": 6,
+    "t": "Continuous Random Variables"
+   },
+   {
+    "n": 7,
+    "t": "Jointly Distributed Random Variables"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "statistics",
+  "title": "Statistics",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Data and Its Shapes"
+   },
+   {
+    "n": 2,
+    "t": "Central Tendency"
+   },
+   {
+    "n": 3,
+    "t": "Dispersion"
+   },
+   {
+    "n": 4,
+    "t": "Bivariate Data: Correlation and Regression"
+   },
+   {
+    "n": 5,
+    "t": "Probability Meets Data: Sampling Distributions"
+   },
+   {
+    "n": 6,
+    "t": "Estimation and Confidence"
+   },
+   {
+    "n": 7,
+    "t": "Hypothesis Testing"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "real-analysis",
+  "title": "Real Analysis",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Real Numbers at Last"
+   },
+   {
+    "n": 2,
+    "t": "Sequences"
+   },
+   {
+    "n": 3,
+    "t": "Series"
+   },
+   {
+    "n": 4,
+    "t": "The Topology of the Real Line"
+   },
+   {
+    "n": 5,
+    "t": "Limits and Continuity at Depth"
+   },
+   {
+    "n": 6,
+    "t": "Differentiation"
+   },
+   {
+    "n": 7,
+    "t": "The Riemann Integral"
+   },
+   {
+    "n": 8,
+    "t": "Sequences and Series of Functions"
+   },
+   {
+    "n": 9,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "complex-analysis",
+  "title": "Complex Analysis",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Plane Again: Algebra Made Geometric"
+   },
+   {
+    "n": 2,
+    "t": "Analytic Functions"
+   },
+   {
+    "n": 3,
+    "t": "The Elementary Functions in the Plane"
+   },
+   {
+    "n": 4,
+    "t": "Integration in the Plane"
+   },
+   {
+    "n": 5,
+    "t": "Series and the Residue Engine"
+   },
+   {
+    "n": 6,
+    "t": "Conformal Mapping"
+   },
+   {
+    "n": 7,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "abstract-algebra",
+  "title": "Abstract Algebra",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Abstract Viewpoint"
+   },
+   {
+    "n": 2,
+    "t": "Groups"
+   },
+   {
+    "n": 3,
+    "t": "Cosets and Lagrange"
+   },
+   {
+    "n": 4,
+    "t": "Normality and Homomorphisms"
+   },
+   {
+    "n": 5,
+    "t": "Rings and Ideals"
+   },
+   {
+    "n": 6,
+    "t": "Polynomial Rings and Factorization"
+   },
+   {
+    "n": 7,
+    "t": "Fields and the Galois Door"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "topology",
+  "title": "Topology",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Metric Spaces: the Distance Idea"
+   },
+   {
+    "n": 2,
+    "t": "Topological Spaces: the Open-Set Idea"
+   },
+   {
+    "n": 3,
+    "t": "Continuity Redefined"
+   },
+   {
+    "n": 4,
+    "t": "Connectedness"
+   },
+   {
+    "n": 5,
+    "t": "Compactness"
+   },
+   {
+    "n": 6,
+    "t": "Separation and Countability"
+   },
+   {
+    "n": 7,
+    "t": "The Fundamental Group: a Door"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "numerical-analysis",
+  "title": "Numerical Analysis",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Numbers in the Machine"
+   },
+   {
+    "n": 2,
+    "t": "Root Finding"
+   },
+   {
+    "n": 3,
+    "t": "Interpolation and Approximation"
+   },
+   {
+    "n": 4,
+    "t": "Numerical Differentiation and Integration"
+   },
+   {
+    "n": 5,
+    "t": "Linear Systems, Numerically"
+   },
+   {
+    "n": 6,
+    "t": "Differential Equations, Numerically"
+   },
+   {
+    "n": 7,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "mathematical-methods-for-engineering",
+  "title": "Mathematical Methods for Engineering",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Engineer’s Mathematical Landscape"
+   },
+   {
+    "n": 2,
+    "t": "ODEs for Engineers: the Model Shelf"
+   },
+   {
+    "n": 3,
+    "t": "The Laplace Transform"
+   },
+   {
+    "n": 4,
+    "t": "Fourier Series: the Periodic World"
+   },
+   {
+    "n": 5,
+    "t": "The Classic PDEs"
+   },
+   {
+    "n": 6,
+    "t": "Complex Methods for Engineers"
+   },
+   {
+    "n": 7,
+    "t": "The Numerical Craft"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "optimization-and-operations-research",
+  "title": "Optimization and Operations Research",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Modeling Discipline"
+   },
+   {
+    "n": 2,
+    "t": "Linear Programming and the Simplex Method"
+   },
+   {
+    "n": 3,
+    "t": "Sensitivity, Transportation and Assignment"
+   },
+   {
+    "n": 4,
+    "t": "Network Optimization"
+   },
+   {
+    "n": 5,
+    "t": "Dynamic Programming"
+   },
+   {
+    "n": 6,
+    "t": "Integer and Nonlinear Programming"
+   },
+   {
+    "n": 7,
+    "t": "Stochastic Models"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "advanced-mathematical-foundations",
+  "title": "Advanced Mathematical Foundations",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Ladder in One View"
+   },
+   {
+    "n": 2,
+    "t": "The Standard of Proof at Research Level"
+   },
+   {
+    "n": 3,
+    "t": "Problem-Solving at the Frontier"
+   },
+   {
+    "n": 4,
+    "t": "Structure, Symmetry, Mapping"
+   },
+   {
+    "n": 5,
+    "t": "The Great Open Problems"
+   },
+   {
+    "n": 6,
+    "t": "Reading and Writing Research Mathematics"
+   },
+   {
+    "n": 7,
+    "t": "The Doorstep Beyond"
+   }
+  ]
+ },
+ {
+  "id": "quantitative-aptitude",
+  "title": "Quantitative Aptitude",
+  "disc": "mathematics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Aptitude Landscape"
+   },
+   {
+    "n": 2,
+    "t": "Percentage, Profit and Loss, and Discount"
+   },
+   {
+    "n": 3,
+    "t": "Interest and the Money Family"
+   },
+   {
+    "n": 4,
+    "t": "Ratio, Partnership, Ages and Mixtures"
+   },
+   {
+    "n": 5,
+    "t": "Time and Work"
+   },
+   {
+    "n": 6,
+    "t": "Time, Speed and Distance"
+   },
+   {
+    "n": 7,
+    "t": "Averages and Series at Exam Speed"
+   },
+   {
+    "n": 8,
+    "t": "Clocks and Calendars"
+   },
+   {
+    "n": 9,
+    "t": "Mensuration at Exam Speed"
+   },
+   {
+    "n": 10,
+    "t": "Data Sufficiency: the Decision Craft"
+   },
+   {
+    "n": 11,
+    "t": "Modern Maths at Aptitude Speed"
+   },
+   {
+    "n": 12,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "computer-fundamentals",
+  "title": "Computer Fundamentals",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Computing Machine"
+   },
+   {
+    "n": 2,
+    "t": "Interacting with Your Computer"
+   },
+   {
+    "n": 3,
+    "t": "Data Representation: a First Meeting"
+   },
+   {
+    "n": 4,
+    "t": "Inside the Box"
+   },
+   {
+    "n": 5,
+    "t": "Software Families"
+   },
+   {
+    "n": 6,
+    "t": "Connecting Computers"
+   },
+   {
+    "n": 7,
+    "t": "Files and Your Digital Space"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "digital-logic-design",
+  "title": "Digital Logic Design",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Binary Systems"
+   },
+   {
+    "n": 2,
+    "t": "Boolean Algebra and Logic Gates"
+   },
+   {
+    "n": 3,
+    "t": "Simplification of Boolean Functions"
+   },
+   {
+    "n": 4,
+    "t": "Combinational Design"
+   },
+   {
+    "n": 5,
+    "t": "Combinational MSI and LSI Blocks"
+   },
+   {
+    "n": 6,
+    "t": "Sequential Logic"
+   },
+   {
+    "n": 7,
+    "t": "Registers, Counters and the Memory Unit"
+   },
+   {
+    "n": 8,
+    "t": "Asynchronous and Pulse-Mode Circuits"
+   },
+   {
+    "n": 9,
+    "t": "Programmable and Modern Logic"
+   },
+   {
+    "n": 10,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "computer-organization-architecture",
+  "title": "Computer Organization and Architecture",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Architect’s View"
+   },
+   {
+    "n": 2,
+    "t": "Performance and Its Laws"
+   },
+   {
+    "n": 3,
+    "t": "Instruction Set Architectures"
+   },
+   {
+    "n": 4,
+    "t": "Datapath and Control"
+   },
+   {
+    "n": 5,
+    "t": "Pipelining"
+   },
+   {
+    "n": 6,
+    "t": "The Memory Hierarchy"
+   },
+   {
+    "n": 7,
+    "t": "Cache Memory"
+   },
+   {
+    "n": 8,
+    "t": "Internal and External Memory"
+   },
+   {
+    "n": 9,
+    "t": "Input/Output"
+   },
+   {
+    "n": 10,
+    "t": "Parallel Organizations"
+   },
+   {
+    "n": 11,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "assembly-and-microprocessors",
+  "title": "Assembly and Microprocessors",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Machine Below"
+   },
+   {
+    "n": 2,
+    "t": "The 8085 Generation"
+   },
+   {
+    "n": 3,
+    "t": "The 8086 Family"
+   },
+   {
+    "n": 4,
+    "t": "Assembly Language Programming"
+   },
+   {
+    "n": 5,
+    "t": "The Art of Assembly"
+   },
+   {
+    "n": 6,
+    "t": "Interrupts and the Vector Table"
+   },
+   {
+    "n": 7,
+    "t": "Interfacing"
+   },
+   {
+    "n": 8,
+    "t": "The Microcontroller Era"
+   },
+   {
+    "n": 9,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "data-structures",
+  "title": "Data Structures",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Organisation of Data"
+   },
+   {
+    "n": 2,
+    "t": "Arrays and Strings"
+   },
+   {
+    "n": 3,
+    "t": "Linked Lists"
+   },
+   {
+    "n": 4,
+    "t": "Stacks and Queues"
+   },
+   {
+    "n": 5,
+    "t": "Trees"
+   },
+   {
+    "n": 6,
+    "t": "Heaps and Priority Queues"
+   },
+   {
+    "n": 7,
+    "t": "Hash Tables"
+   },
+   {
+    "n": 8,
+    "t": "Graphs and Sets"
+   },
+   {
+    "n": 9,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "algorithms",
+  "title": "Algorithms",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Algorithm Idea"
+   },
+   {
+    "n": 2,
+    "t": "Analysis"
+   },
+   {
+    "n": 3,
+    "t": "Divide and Conquer"
+   },
+   {
+    "n": 4,
+    "t": "Sorting and Selection"
+   },
+   {
+    "n": 5,
+    "t": "Searching: Structures as Machinery"
+   },
+   {
+    "n": 6,
+    "t": "Graph Algorithms"
+   },
+   {
+    "n": 7,
+    "t": "Dynamic Programming"
+   },
+   {
+    "n": 8,
+    "t": "Greedy and Randomized"
+   },
+   {
+    "n": 9,
+    "t": "The Limits and the Frontier"
+   },
+   {
+    "n": 10,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "theory-of-computation",
+  "title": "Theory of Computation",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Three Questions"
+   },
+   {
+    "n": 2,
+    "t": "Finite Automata"
+   },
+   {
+    "n": 3,
+    "t": "Nondeterminism and Regular Expressions"
+   },
+   {
+    "n": 4,
+    "t": "The Regular Boundary"
+   },
+   {
+    "n": 5,
+    "t": "Context-Free Languages"
+   },
+   {
+    "n": 6,
+    "t": "The Church-Turing Thesis"
+   },
+   {
+    "n": 7,
+    "t": "The Undecidable"
+   },
+   {
+    "n": 8,
+    "t": "Advanced Computability"
+   },
+   {
+    "n": 9,
+    "t": "Complexity Classes"
+   },
+   {
+    "n": 10,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "compiler-design",
+  "title": "Compiler Design",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Compiler’s Job"
+   },
+   {
+    "n": 2,
+    "t": "Lexical Analysis"
+   },
+   {
+    "n": 3,
+    "t": "Syntax Analysis"
+   },
+   {
+    "n": 4,
+    "t": "Syntax-Directed Translation"
+   },
+   {
+    "n": 5,
+    "t": "Semantic Analysis"
+   },
+   {
+    "n": 6,
+    "t": "Run-Time Environments"
+   },
+   {
+    "n": 7,
+    "t": "Code Generation"
+   },
+   {
+    "n": 8,
+    "t": "Optimization"
+   },
+   {
+    "n": 9,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "operating-systems",
+  "title": "Operating Systems",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "What an Operating System Is"
+   },
+   {
+    "n": 2,
+    "t": "Processes and Threads"
+   },
+   {
+    "n": 3,
+    "t": "CPU Scheduling"
+   },
+   {
+    "n": 4,
+    "t": "Synchronization"
+   },
+   {
+    "n": 5,
+    "t": "Deadlocks"
+   },
+   {
+    "n": 6,
+    "t": "Memory Management"
+   },
+   {
+    "n": 7,
+    "t": "File Systems and I/O"
+   },
+   {
+    "n": 8,
+    "t": "The Linux Practice Pole"
+   },
+   {
+    "n": 9,
+    "t": "Protection, Security and Virtual Machines"
+   },
+   {
+    "n": 10,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "database-management-systems",
+  "title": "Database Management Systems",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Database Idea"
+   },
+   {
+    "n": 2,
+    "t": "The Relational Model"
+   },
+   {
+    "n": 3,
+    "t": "SQL: the Standard Voice"
+   },
+   {
+    "n": 4,
+    "t": "Database Design and E-R Modeling"
+   },
+   {
+    "n": 5,
+    "t": "Normalization"
+   },
+   {
+    "n": 6,
+    "t": "Storage and Indexing"
+   },
+   {
+    "n": 7,
+    "t": "Query Processing and Optimization"
+   },
+   {
+    "n": 8,
+    "t": "Transactions and Concurrency Control"
+   },
+   {
+    "n": 9,
+    "t": "Recovery and the Transaction Log"
+   },
+   {
+    "n": 10,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "computer-networks",
+  "title": "Computer Networks",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Network and the Internet"
+   },
+   {
+    "n": 2,
+    "t": "Layered Architectures"
+   },
+   {
+    "n": 3,
+    "t": "Transport: TCP and UDP"
+   },
+   {
+    "n": 4,
+    "t": "The Network Layer"
+   },
+   {
+    "n": 5,
+    "t": "The Link Layer"
+   },
+   {
+    "n": 6,
+    "t": "Wireless and Mobile"
+   },
+   {
+    "n": 7,
+    "t": "Sockets and Programming"
+   },
+   {
+    "n": 8,
+    "t": "The Physical Foundations"
+   },
+   {
+    "n": 9,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "computer-graphics",
+  "title": "Computer Graphics",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "What Graphics Promises"
+   },
+   {
+    "n": 2,
+    "t": "The Mathematical Camera Bag"
+   },
+   {
+    "n": 3,
+    "t": "Ray Tracing First"
+   },
+   {
+    "n": 4,
+    "t": "The Raster Pipeline"
+   },
+   {
+    "n": 5,
+    "t": "Light and Material"
+   },
+   {
+    "n": 6,
+    "t": "Curves and Surfaces"
+   },
+   {
+    "n": 7,
+    "t": "Acceleration Structures"
+   },
+   {
+    "n": 8,
+    "t": "The Modern GPU"
+   },
+   {
+    "n": 9,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "software-engineering",
+  "title": "Software Engineering",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "What Software Engineering Is"
+   },
+   {
+    "n": 2,
+    "t": "Software Processes"
+   },
+   {
+    "n": 3,
+    "t": "Agile Software Development"
+   },
+   {
+    "n": 4,
+    "t": "Requirements Engineering"
+   },
+   {
+    "n": 5,
+    "t": "System Modeling and Design"
+   },
+   {
+    "n": 6,
+    "t": "Implementation and Code Craft"
+   },
+   {
+    "n": 7,
+    "t": "Software Testing"
+   },
+   {
+    "n": 8,
+    "t": "Dependability, Evolution and Management"
+   },
+   {
+    "n": 9,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "object-oriented-programming",
+  "title": "Object-Oriented Programming",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Object Idea"
+   },
+   {
+    "n": 2,
+    "t": "Encapsulation and Abstraction"
+   },
+   {
+    "n": 3,
+    "t": "Composition and Inheritance"
+   },
+   {
+    "n": 4,
+    "t": "Polymorphism"
+   },
+   {
+    "n": 5,
+    "t": "The Static and Runtime Shapes"
+   },
+   {
+    "n": 6,
+    "t": "Creational Patterns"
+   },
+   {
+    "n": 7,
+    "t": "Structural Patterns"
+   },
+   {
+    "n": 8,
+    "t": "Behavioral Patterns"
+   },
+   {
+    "n": 9,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "programming-languages-paradigms",
+  "title": "Programming Languages and Paradigms",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Why Languages Differ"
+   },
+   {
+    "n": 2,
+    "t": "Names, Bindings and Scopes"
+   },
+   {
+    "n": 3,
+    "t": "Types and Expressions"
+   },
+   {
+    "n": 4,
+    "t": "Control and Subprograms"
+   },
+   {
+    "n": 5,
+    "t": "Abstraction and Exceptions"
+   },
+   {
+    "n": 6,
+    "t": "The Functional Family"
+   },
+   {
+    "n": 7,
+    "t": "The Logic and Scripting Families"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "c-programming",
+  "title": "C Programming",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Tutorial Introduction"
+   },
+   {
+    "n": 2,
+    "t": "Types, Operators and Expressions"
+   },
+   {
+    "n": 3,
+    "t": "Control Flow and Functions"
+   },
+   {
+    "n": 4,
+    "t": "Pointers and Arrays"
+   },
+   {
+    "n": 5,
+    "t": "Structures and Advanced Data"
+   },
+   {
+    "n": 6,
+    "t": "Input and Output"
+   },
+   {
+    "n": 7,
+    "t": "The UNIX System Interface"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "cpp-programming",
+  "title": "C++ Programming",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The C Subset, Assumed"
+   },
+   {
+    "n": 2,
+    "t": "Objects and Classes"
+   },
+   {
+    "n": 3,
+    "t": "Resources and RAII"
+   },
+   {
+    "n": 4,
+    "t": "Inheritance and Polymorphism"
+   },
+   {
+    "n": 5,
+    "t": "Templates and Generic Code"
+   },
+   {
+    "n": 6,
+    "t": "The Standard Library"
+   },
+   {
+    "n": 7,
+    "t": "Error Handling and Modularity"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "java-programming",
+  "title": "Java Programming",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Java Idea"
+   },
+   {
+    "n": 2,
+    "t": "The Fundamental Structures"
+   },
+   {
+    "n": 3,
+    "t": "Objects and Classes"
+   },
+   {
+    "n": 4,
+    "t": "Inheritance, Interfaces, Generics"
+   },
+   {
+    "n": 5,
+    "t": "Exceptions, IO and Annotations"
+   },
+   {
+    "n": 6,
+    "t": "The Collections and Streams"
+   },
+   {
+    "n": 7,
+    "t": "Concurrency: the JVM Craft"
+   },
+   {
+    "n": 8,
+    "t": "The Effective Craft"
+   },
+   {
+    "n": 9,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "python-programming",
+  "title": "Python Programming",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Python Idea"
+   },
+   {
+    "n": 2,
+    "t": "Data and Control"
+   },
+   {
+    "n": 3,
+    "t": "The Data Structures Census"
+   },
+   {
+    "n": 4,
+    "t": "Functions and Modules"
+   },
+   {
+    "n": 5,
+    "t": "Objects the Python Way"
+   },
+   {
+    "n": 6,
+    "t": "Errors, Files and Testing"
+   },
+   {
+    "n": 7,
+    "t": "The Modern Idiom Census"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "javascript-and-web-technologies",
+  "title": "JavaScript and Web Technologies",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Language of the Web"
+   },
+   {
+    "n": 2,
+    "t": "Values, Operators and Coercion"
+   },
+   {
+    "n": 3,
+    "t": "Objects and the Prototype Model"
+   },
+   {
+    "n": 4,
+    "t": "Functions, Closures and Scope"
+   },
+   {
+    "n": 5,
+    "t": "Asynchronous JavaScript"
+   },
+   {
+    "n": 6,
+    "t": "The Web Core Technologies"
+   },
+   {
+    "n": 7,
+    "t": "Modules, Tooling and the Ecosystem"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "frontend-engineering",
+  "title": "Frontend Engineering",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Frontend Craft"
+   },
+   {
+    "n": 2,
+    "t": "Responsive and Accessible by Default"
+   },
+   {
+    "n": 3,
+    "t": "The Component Idea"
+   },
+   {
+    "n": 4,
+    "t": "State and Data Flow"
+   },
+   {
+    "n": 5,
+    "t": "Styling Systems"
+   },
+   {
+    "n": 6,
+    "t": "Performance Engineering"
+   },
+   {
+    "n": 7,
+    "t": "Testing and Tooling"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "backend-engineering",
+  "title": "Backend Engineering",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Server-Side Contract"
+   },
+   {
+    "n": 2,
+    "t": "The Application Framework Idea"
+   },
+   {
+    "n": 3,
+    "t": "APIs Designed Honestly"
+   },
+   {
+    "n": 4,
+    "t": "The Data Layer from the Server Side"
+   },
+   {
+    "n": 5,
+    "t": "Authentication and Authorization"
+   },
+   {
+    "n": 6,
+    "t": "Caching and Scale Discipline"
+   },
+   {
+    "n": 7,
+    "t": "Reliability, Observability and Deployment"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "full-stack-web-development",
+  "title": "Full-Stack Web Development",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "One System, Two Sides"
+   },
+   {
+    "n": 2,
+    "t": "The Project Skeleton"
+   },
+   {
+    "n": 3,
+    "t": "The Vertical-Slice Discipline"
+   },
+   {
+    "n": 4,
+    "t": "Auth Through the Stack"
+   },
+   {
+    "n": 5,
+    "t": "Production and Deployment"
+   },
+   {
+    "n": 6,
+    "t": "Observability and the Loop"
+   },
+   {
+    "n": 7,
+    "t": "The Capstone Build"
+   }
+  ]
+ },
+ {
+  "id": "distributed-systems",
+  "title": "Distributed Systems",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Distributed Idea"
+   },
+   {
+    "n": 2,
+    "t": "Communication and RPC"
+   },
+   {
+    "n": 3,
+    "t": "Time, Ordering and Elections"
+   },
+   {
+    "n": 4,
+    "t": "Coordination and Consensus"
+   },
+   {
+    "n": 5,
+    "t": "Consistency, Replication and CAP"
+   },
+   {
+    "n": 6,
+    "t": "Fault Tolerance"
+   },
+   {
+    "n": 7,
+    "t": "Distributed Storage and Systems"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "cloud-computing",
+  "title": "Cloud Computing",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Cloud Contract"
+   },
+   {
+    "n": 2,
+    "t": "Virtualization and Containers"
+   },
+   {
+    "n": 3,
+    "t": "The Services Census"
+   },
+   {
+    "n": 4,
+    "t": "Elasticity and the Serverless Discipline"
+   },
+   {
+    "n": 5,
+    "t": "Cloud Security and Identity"
+   },
+   {
+    "n": 6,
+    "t": "Reliability and Cost Engineering"
+   },
+   {
+    "n": 7,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "cybersecurity",
+  "title": "Cybersecurity",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Security Discipline"
+   },
+   {
+    "n": 2,
+    "t": "Cryptographic Tools in Service"
+   },
+   {
+    "n": 3,
+    "t": "Authentication and Access Control"
+   },
+   {
+    "n": 4,
+    "t": "Software and Web Attacks"
+   },
+   {
+    "n": 5,
+    "t": "Network and System Attacks"
+   },
+   {
+    "n": 6,
+    "t": "OS, Database and Cloud Security"
+   },
+   {
+    "n": 7,
+    "t": "Assurance and Incident Response"
+   },
+   {
+    "n": 8,
+    "t": "The Societal Layer"
+   },
+   {
+    "n": 9,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "cryptography",
+  "title": "Cryptography",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Cryptographic Contract"
+   },
+   {
+    "n": 2,
+    "t": "Stream Ciphers and Randomness"
+   },
+   {
+    "n": 3,
+    "t": "The DES Story and AES"
+   },
+   {
+    "n": 4,
+    "t": "Modes and Integrity"
+   },
+   {
+    "n": 5,
+    "t": "Hashes and MACs"
+   },
+   {
+    "n": 6,
+    "t": "The Public-Key Revolution"
+   },
+   {
+    "n": 7,
+    "t": "RSA and Elliptic Curves"
+   },
+   {
+    "n": 8,
+    "t": "Signatures and Protocols"
+   },
+   {
+    "n": 9,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "artificial-intelligence",
+  "title": "Artificial Intelligence",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Agent Discipline"
+   },
+   {
+    "n": 2,
+    "t": "Search: the Solving Machine"
+   },
+   {
+    "n": 3,
+    "t": "Searching in Complex Worlds"
+   },
+   {
+    "n": 4,
+    "t": "Logic and Representation"
+   },
+   {
+    "n": 5,
+    "t": "Planning: the Acting Agent"
+   },
+   {
+    "n": 6,
+    "t": "Uncertain Knowledge and Reasoning"
+   },
+   {
+    "n": 7,
+    "t": "Making Decisions over Time"
+   },
+   {
+    "n": 8,
+    "t": "Perception and Communication, Named"
+   },
+   {
+    "n": 9,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "machine-learning",
+  "title": "Machine Learning",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "What Learning Means"
+   },
+   {
+    "n": 2,
+    "t": "Linear Models: Regression"
+   },
+   {
+    "n": 3,
+    "t": "Linear Models: Classification"
+   },
+   {
+    "n": 4,
+    "t": "Trees and Ensembles"
+   },
+   {
+    "n": 5,
+    "t": "Neural Networks: a First Depth"
+   },
+   {
+    "n": 6,
+    "t": "Unsupervised Structure"
+   },
+   {
+    "n": 7,
+    "t": "Graphical Models and Inference"
+   },
+   {
+    "n": 8,
+    "t": "Evaluating Honest Learners"
+   },
+   {
+    "n": 9,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "deep-learning",
+  "title": "Deep Learning",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Depth Idea"
+   },
+   {
+    "n": 2,
+    "t": "Deep Feedforward Networks"
+   },
+   {
+    "n": 3,
+    "t": "The Training Discipline"
+   },
+   {
+    "n": 4,
+    "t": "Convolutional Networks"
+   },
+   {
+    "n": 5,
+    "t": "Sequence Modeling"
+   },
+   {
+    "n": 6,
+    "t": "Representation and Structure"
+   },
+   {
+    "n": 7,
+    "t": "Generative Models in Deep Learning"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "natural-language-processing",
+  "title": "Natural Language Processing",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Language as Data"
+   },
+   {
+    "n": 2,
+    "t": "Words and Tokens"
+   },
+   {
+    "n": 3,
+    "t": "The Statistical Era: Language Models"
+   },
+   {
+    "n": 4,
+    "t": "Text Classification and Its Classics"
+   },
+   {
+    "n": 5,
+    "t": "Embeddings and the Vector World"
+   },
+   {
+    "n": 6,
+    "t": "From RNN to Transformer"
+   },
+   {
+    "n": 7,
+    "t": "The Application Census"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "computer-vision",
+  "title": "Computer Vision",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Inverse Problem"
+   },
+   {
+    "n": 2,
+    "t": "The Processing Foundations"
+   },
+   {
+    "n": 3,
+    "t": "Features and Matching"
+   },
+   {
+    "n": 4,
+    "t": "Segmentation"
+   },
+   {
+    "n": 5,
+    "t": "Geometry and Calibration"
+   },
+   {
+    "n": 6,
+    "t": "Recognition and Detection"
+   },
+   {
+    "n": 7,
+    "t": "The Modern Era"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "generative-ai-and-llms",
+  "title": "Generative AI and LLMs",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The LLM Idea"
+   },
+   {
+    "n": 2,
+    "t": "Tokenization and Data"
+   },
+   {
+    "n": 3,
+    "t": "Architectures and Scaling Laws"
+   },
+   {
+    "n": 4,
+    "t": "Training the Giants"
+   },
+   {
+    "n": 5,
+    "t": "Alignment and Instruction Following"
+   },
+   {
+    "n": 6,
+    "t": "Serving and Efficiency"
+   },
+   {
+    "n": 7,
+    "t": "The Application Era"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Frontier"
+   }
+  ]
+ },
+ {
+  "id": "reinforcement-learning",
+  "title": "Reinforcement Learning",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Learning Agent, Recalled"
+   },
+   {
+    "n": 2,
+    "t": "Evaluative Feedback and Bandits"
+   },
+   {
+    "n": 3,
+    "t": "Tabular Solutions: DP and Monte Carlo"
+   },
+   {
+    "n": 4,
+    "t": "Temporal-Difference Learning"
+   },
+   {
+    "n": 5,
+    "t": "Approximate Solutions"
+   },
+   {
+    "n": 6,
+    "t": "Planning, Learning and the Modern Census"
+   },
+   {
+    "n": 7,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "data-science",
+  "title": "Data Science",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Analyst’s Contract"
+   },
+   {
+    "n": 2,
+    "t": "The Data Itself"
+   },
+   {
+    "n": 3,
+    "t": "The Visualization Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Statistical Craft, Recalled"
+   },
+   {
+    "n": 5,
+    "t": "The Modeling Craft"
+   },
+   {
+    "n": 6,
+    "t": "Communication and Reproducibility"
+   },
+   {
+    "n": 7,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "big-data-engineering",
+  "title": "Big Data Engineering",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Scale Question"
+   },
+   {
+    "n": 2,
+    "t": "The MapReduce Idea"
+   },
+   {
+    "n": 3,
+    "t": "Distributed Storage and YARN"
+   },
+   {
+    "n": 4,
+    "t": "The Data Warehouse Layer"
+   },
+   {
+    "n": 5,
+    "t": "Spark and the In-Memory Era"
+   },
+   {
+    "n": 6,
+    "t": "Streaming and the Real-Time Question"
+   },
+   {
+    "n": 7,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "data-mining",
+  "title": "Data Mining",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Pattern Families"
+   },
+   {
+    "n": 2,
+    "t": "Classification: the Basics"
+   },
+   {
+    "n": 3,
+    "t": "Association Analysis"
+   },
+   {
+    "n": 4,
+    "t": "Cluster Analysis"
+   },
+   {
+    "n": 5,
+    "t": "Anomaly Detection"
+   },
+   {
+    "n": 6,
+    "t": "Avoiding False Discoveries"
+   },
+   {
+    "n": 7,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "information-retrieval",
+  "title": "Information Retrieval",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Boolean Retrieval and the Inverted Index"
+   },
+   {
+    "n": 2,
+    "t": "The Term Vocabulary"
+   },
+   {
+    "n": 3,
+    "t": "Term Weighting and Scoring"
+   },
+   {
+    "n": 4,
+    "t": "Evaluation of Retrieval"
+   },
+   {
+    "n": 5,
+    "t": "Index Construction and Compression"
+   },
+   {
+    "n": 6,
+    "t": "The Web and the Link Analysis"
+   },
+   {
+    "n": 7,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "blockchain",
+  "title": "Blockchain",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Trust Question"
+   },
+   {
+    "n": 2,
+    "t": "Keys, Addresses and Wallets"
+   },
+   {
+    "n": 3,
+    "t": "Transactions"
+   },
+   {
+    "n": 4,
+    "t": "The Block and the Chain"
+   },
+   {
+    "n": 5,
+    "t": "Consensus and Mining"
+   },
+   {
+    "n": 6,
+    "t": "The Network and the Smart-Contract Era"
+   },
+   {
+    "n": 7,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "internet-of-things",
+  "title": "Internet of Things",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Physical-Digital Bridge"
+   },
+   {
+    "n": 2,
+    "t": "The Sensing Layer"
+   },
+   {
+    "n": 3,
+    "t": "The Constrained Stack"
+   },
+   {
+    "n": 4,
+    "t": "The Edge and Cloud Partnership"
+   },
+   {
+    "n": 5,
+    "t": "IoT Security and Privacy"
+   },
+   {
+    "n": 6,
+    "t": "The Application Worlds"
+   },
+   {
+    "n": 7,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "mobile-app-development",
+  "title": "Mobile App Development",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Mobile Platform"
+   },
+   {
+    "n": 2,
+    "t": "UI and the Layout Discipline"
+   },
+   {
+    "n": 3,
+    "t": "The Activity Lifecycle"
+   },
+   {
+    "n": 4,
+    "t": "Intents and the App Conversation"
+   },
+   {
+    "n": 5,
+    "t": "Data and Persistence"
+   },
+   {
+    "n": 6,
+    "t": "The Cross-Platform Question"
+   },
+   {
+    "n": 7,
+    "t": "Shipping and the Synthesis"
+   }
+  ]
+ },
+ {
+  "id": "human-computer-interaction",
+  "title": "Human-Computer Interaction",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Human Side of the Machine"
+   },
+   {
+    "n": 2,
+    "t": "Guidelines and Theories"
+   },
+   {
+    "n": 3,
+    "t": "The Design Process"
+   },
+   {
+    "n": 4,
+    "t": "The Evaluation Discipline"
+   },
+   {
+    "n": 5,
+    "t": "The Interaction-Style Census"
+   },
+   {
+    "n": 6,
+    "t": "Collaboration and Communication"
+   },
+   {
+    "n": 7,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "parallel-computing",
+  "title": "Parallel Computing",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Parallel Idea"
+   },
+   {
+    "n": 2,
+    "t": "Parallel Algorithm Design"
+   },
+   {
+    "n": 3,
+    "t": "The Communication Operations"
+   },
+   {
+    "n": 4,
+    "t": "Analytical Modeling"
+   },
+   {
+    "n": 5,
+    "t": "The Programming Poles"
+   },
+   {
+    "n": 6,
+    "t": "Parallel Algorithm Families"
+   },
+   {
+    "n": 7,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "advanced-computer-science",
+  "title": "Advanced Computer Science",
+  "disc": "computer-science",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Field’s Map"
+   },
+   {
+    "n": 2,
+    "t": "The Open Questions Register"
+   },
+   {
+    "n": 3,
+    "t": "Reading Research Honestly"
+   },
+   {
+    "n": 4,
+    "t": "The Frontier Census"
+   },
+   {
+    "n": 5,
+    "t": "The Crossing Doors"
+   },
+   {
+    "n": 6,
+    "t": "The Craft of Contributing"
+   },
+   {
+    "n": 7,
+    "t": "The Synthesis and the Life"
+   }
+  ]
+ },
+ {
+  "id": "engineering-mechanics",
+  "title": "Engineering Mechanics",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Statics Frame"
+   },
+   {
+    "n": 2,
+    "t": "Moments and Rigid-Body Equilibrium"
+   },
+   {
+    "n": 3,
+    "t": "Structural Analysis"
+   },
+   {
+    "n": 4,
+    "t": "Friction and Its Applications"
+   },
+   {
+    "n": 5,
+    "t": "Centroids, Centre of Gravity and Moments of Inertia"
+   },
+   {
+    "n": 6,
+    "t": "Virtual Work"
+   },
+   {
+    "n": 7,
+    "t": "Kinematics of Particles and Rigid Bodies"
+   },
+   {
+    "n": 8,
+    "t": "Kinetics: Force and Acceleration"
+   },
+   {
+    "n": 9,
+    "t": "Work, Energy and Impulse-Momentum"
+   },
+   {
+    "n": 10,
+    "t": "Lagrange’s Equations and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "strength-of-materials",
+  "title": "Strength of Materials",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Stress: the Concept"
+   },
+   {
+    "n": 2,
+    "t": "Strain and the Elastic Constants"
+   },
+   {
+    "n": 3,
+    "t": "Axial Members"
+   },
+   {
+    "n": 4,
+    "t": "Torsion of Circular Shafts"
+   },
+   {
+    "n": 5,
+    "t": "Shear Force and Bending Moment Diagrams"
+   },
+   {
+    "n": 6,
+    "t": "Bending Stresses in Beams"
+   },
+   {
+    "n": 7,
+    "t": "Transformation of Stress and Strain"
+   },
+   {
+    "n": 8,
+    "t": "Deflection of Beams"
+   },
+   {
+    "n": 9,
+    "t": "Columns, Buckling and Energy Methods"
+   }
+  ]
+ },
+ {
+  "id": "theory-of-machines",
+  "title": "Theory of Machines",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Mechanisms and Inversion"
+   },
+   {
+    "n": 2,
+    "t": "Velocity Analysis"
+   },
+   {
+    "n": 3,
+    "t": "Acceleration Analysis"
+   },
+   {
+    "n": 4,
+    "t": "Cams and Followers"
+   },
+   {
+    "n": 5,
+    "t": "Toothed Gearing"
+   },
+   {
+    "n": 6,
+    "t": "Gear Trains"
+   },
+   {
+    "n": 7,
+    "t": "Flywheels, Turning Moments and Governors"
+   },
+   {
+    "n": 8,
+    "t": "Balancing of Rotating and Reciprocating Masses"
+   },
+   {
+    "n": 9,
+    "t": "The Gyroscopic Couple"
+   },
+   {
+    "n": 10,
+    "t": "Vibrations"
+   }
+  ]
+ },
+ {
+  "id": "machine-design",
+  "title": "Machine Design",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Design Discipline"
+   },
+   {
+    "n": 2,
+    "t": "Static Loading and the Failure Theories"
+   },
+   {
+    "n": 3,
+    "t": "Fatigue and the S-N Diagram"
+   },
+   {
+    "n": 4,
+    "t": "Joints: Bolted, Riveted and Welded"
+   },
+   {
+    "n": 5,
+    "t": "Shafts, Keys and Couplings"
+   },
+   {
+    "n": 6,
+    "t": "Bearings"
+   },
+   {
+    "n": 7,
+    "t": "Gears in Design"
+   },
+   {
+    "n": 8,
+    "t": "Springs, Brakes and Clutches"
+   },
+   {
+    "n": 9,
+    "t": "The Design Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "thermodynamics",
+  "title": "Thermodynamics",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Energy Worldview"
+   },
+   {
+    "n": 2,
+    "t": "The First Law for Closed Systems"
+   },
+   {
+    "n": 3,
+    "t": "Properties of Pure Substances"
+   },
+   {
+    "n": 4,
+    "t": "Control Volumes"
+   },
+   {
+    "n": 5,
+    "t": "The Second Law"
+   },
+   {
+    "n": 6,
+    "t": "Entropy"
+   },
+   {
+    "n": 7,
+    "t": "Exergy and Irreversibility"
+   },
+   {
+    "n": 8,
+    "t": "Gas Power Cycles"
+   },
+   {
+    "n": 9,
+    "t": "Vapour Power and Refrigeration Cycles"
+   },
+   {
+    "n": 10,
+    "t": "Mixtures and Psychrometry"
+   },
+   {
+    "n": 11,
+    "t": "Property Relations, Compressible Flow and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "fluid-mechanics",
+  "title": "Fluid Mechanics",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Fluid Idea"
+   },
+   {
+    "n": 2,
+    "t": "Fluid Statics"
+   },
+   {
+    "n": 3,
+    "t": "Fluid Kinematics"
+   },
+   {
+    "n": 4,
+    "t": "Control-Volume Analysis"
+   },
+   {
+    "n": 5,
+    "t": "Differential Analysis"
+   },
+   {
+    "n": 6,
+    "t": "Dimensional Analysis and Similitude"
+   },
+   {
+    "n": 7,
+    "t": "Viscous Internal Flow"
+   },
+   {
+    "n": 8,
+    "t": "Boundary Layers and External Flow"
+   },
+   {
+    "n": 9,
+    "t": "Compressible Flow Basics"
+   },
+   {
+    "n": 10,
+    "t": "The Turbomachinery Principle and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "heat-transfer",
+  "title": "Heat Transfer",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Three Modes"
+   },
+   {
+    "n": 2,
+    "t": "One-Dimensional Steady Conduction"
+   },
+   {
+    "n": 3,
+    "t": "Extended Surfaces: Fins"
+   },
+   {
+    "n": 4,
+    "t": "Unsteady Conduction"
+   },
+   {
+    "n": 5,
+    "t": "Convection Fundamentals"
+   },
+   {
+    "n": 6,
+    "t": "Boiling and Condensation"
+   },
+   {
+    "n": 7,
+    "t": "Heat Exchangers"
+   },
+   {
+    "n": 8,
+    "t": "Radiation"
+   },
+   {
+    "n": 9,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "manufacturing-processes",
+  "title": "Manufacturing Processes",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Materials for Manufacturing"
+   },
+   {
+    "n": 2,
+    "t": "Casting"
+   },
+   {
+    "n": 3,
+    "t": "Bulk Forming"
+   },
+   {
+    "n": 4,
+    "t": "Sheet Forming and Powder Metallurgy"
+   },
+   {
+    "n": 5,
+    "t": "Machining Mechanics"
+   },
+   {
+    "n": 6,
+    "t": "Machine Tools and Operations"
+   },
+   {
+    "n": 7,
+    "t": "Non-Traditional Machining"
+   },
+   {
+    "n": 8,
+    "t": "Joining"
+   },
+   {
+    "n": 9,
+    "t": "Work Holding, Jigs and Fixtures"
+   },
+   {
+    "n": 10,
+    "t": "Metrology and Inspection"
+   },
+   {
+    "n": 11,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "industrial-engineering",
+  "title": "Industrial Engineering",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Production System"
+   },
+   {
+    "n": 2,
+    "t": "Work Study"
+   },
+   {
+    "n": 3,
+    "t": "Forecasting and Aggregate Planning"
+   },
+   {
+    "n": 4,
+    "t": "Scheduling, MRP and Lean"
+   },
+   {
+    "n": 5,
+    "t": "Inventory Control"
+   },
+   {
+    "n": 6,
+    "t": "The Operations-Research Application Layer"
+   },
+   {
+    "n": 7,
+    "t": "Quality Control"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "robotics-and-automation",
+  "title": "Robotics and Automation",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Robot Idea"
+   },
+   {
+    "n": 2,
+    "t": "Spatial Descriptions and Transformations"
+   },
+   {
+    "n": 3,
+    "t": "Forward Kinematics"
+   },
+   {
+    "n": 4,
+    "t": "Inverse Kinematics"
+   },
+   {
+    "n": 5,
+    "t": "Velocities, Static Forces and Jacobians"
+   },
+   {
+    "n": 6,
+    "t": "Dynamics and Trajectory Generation"
+   },
+   {
+    "n": 7,
+    "t": "Motion Control, Sensors and End Effectors"
+   },
+   {
+    "n": 8,
+    "t": "Industrial Automation and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "cad-cam",
+  "title": "CAD/CAM",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Digital Product Chain"
+   },
+   {
+    "n": 2,
+    "t": "Geometric Modelling"
+   },
+   {
+    "n": 3,
+    "t": "Curves and Surfaces for Design"
+   },
+   {
+    "n": 4,
+    "t": "CAD Data, Standards and PDM"
+   },
+   {
+    "n": 5,
+    "t": "NC, CNC and Part Programming"
+   },
+   {
+    "n": 6,
+    "t": "Additive Manufacturing"
+   },
+   {
+    "n": 7,
+    "t": "CIM and the Factory Ladder"
+   },
+   {
+    "n": 8,
+    "t": "Industry 4.0 and the Synthesis"
+   }
+  ]
+ },
+ {
+  "id": "materials-science",
+  "title": "Materials Science",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Materials Worldview"
+   },
+   {
+    "n": 2,
+    "t": "Atomic Structure and Interatomic Bonding"
+   },
+   {
+    "n": 3,
+    "t": "Crystal Structures"
+   },
+   {
+    "n": 4,
+    "t": "Imperfections in Solids"
+   },
+   {
+    "n": 5,
+    "t": "Diffusion"
+   },
+   {
+    "n": 6,
+    "t": "Mechanical Properties and Testing"
+   },
+   {
+    "n": 7,
+    "t": "Strengthening Mechanisms and Fracture"
+   },
+   {
+    "n": 8,
+    "t": "Phase Diagrams and Phase Transformations"
+   },
+   {
+    "n": 9,
+    "t": "The Materials Families"
+   },
+   {
+    "n": 10,
+    "t": "Corrosion, Degradation and Selection"
+   }
+  ]
+ },
+ {
+  "id": "circuit-theory-and-network-analysis",
+  "title": "Circuit Theory and Network Analysis",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Circuit Idea"
+   },
+   {
+    "n": 2,
+    "t": "Kirchhoff’s Laws and the Systematic Methods"
+   },
+   {
+    "n": 3,
+    "t": "The Theorem Census"
+   },
+   {
+    "n": 4,
+    "t": "Sinusoidal Steady State"
+   },
+   {
+    "n": 5,
+    "t": "Resonance and Coupled Circuits"
+   },
+   {
+    "n": 6,
+    "t": "Balanced Three-Phase Circuits"
+   },
+   {
+    "n": 7,
+    "t": "Transients"
+   },
+   {
+    "n": 8,
+    "t": "Network Functions and Frequency Response"
+   },
+   {
+    "n": 9,
+    "t": "Two-Port Networks"
+   },
+   {
+    "n": 10,
+    "t": "Topology, State Variables and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "electrical-machines",
+  "title": "Electrical Machines",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Electromechanical Energy Conversion"
+   },
+   {
+    "n": 2,
+    "t": "The Single-Phase Transformer"
+   },
+   {
+    "n": 3,
+    "t": "Three-Phase Transformers"
+   },
+   {
+    "n": 4,
+    "t": "DC Machines"
+   },
+   {
+    "n": 5,
+    "t": "Three-Phase Induction Machines"
+   },
+   {
+    "n": 6,
+    "t": "Single-Phase Induction and Special Machines"
+   },
+   {
+    "n": 7,
+    "t": "Synchronous Machines"
+   },
+   {
+    "n": 8,
+    "t": "Losses, Efficiency and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "power-systems",
+  "title": "Power Systems",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Power System Worldview"
+   },
+   {
+    "n": 2,
+    "t": "Per-Unit Quantities"
+   },
+   {
+    "n": 3,
+    "t": "Transmission Line Modelling"
+   },
+   {
+    "n": 4,
+    "t": "Line Performance and Compensation"
+   },
+   {
+    "n": 5,
+    "t": "Insulators, Cables and Fields"
+   },
+   {
+    "n": 6,
+    "t": "The Bus Model and Load Flow"
+   },
+   {
+    "n": 7,
+    "t": "Symmetrical Faults and Circuit Breakers"
+   },
+   {
+    "n": 8,
+    "t": "Symmetrical Components and Unsymmetrical Faults"
+   },
+   {
+    "n": 9,
+    "t": "Protection"
+   },
+   {
+    "n": 10,
+    "t": "Stability, Control and Economic Operation"
+   }
+  ]
+ },
+ {
+  "id": "control-systems",
+  "title": "Control Systems",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Feedback Idea"
+   },
+   {
+    "n": 2,
+    "t": "Mathematical Modelling"
+   },
+   {
+    "n": 3,
+    "t": "Block Diagrams and Signal Flow Graphs"
+   },
+   {
+    "n": 4,
+    "t": "Transient and Steady-State Analysis"
+   },
+   {
+    "n": 5,
+    "t": "Stability and Routh-Hurwitz"
+   },
+   {
+    "n": 6,
+    "t": "The Root Locus"
+   },
+   {
+    "n": 7,
+    "t": "Frequency Response and Nyquist"
+   },
+   {
+    "n": 8,
+    "t": "Compensators and the Design Craft"
+   },
+   {
+    "n": 9,
+    "t": "P, PI and PID Controllers"
+   },
+   {
+    "n": 10,
+    "t": "State Space, Digital Glimpse and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "power-electronics",
+  "title": "Power Electronics",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Power-Electronics Idea"
+   },
+   {
+    "n": 2,
+    "t": "Power Semiconductor Devices"
+   },
+   {
+    "n": 3,
+    "t": "Line-Frequency Diode Rectifiers"
+   },
+   {
+    "n": 4,
+    "t": "Thyristor Converters"
+   },
+   {
+    "n": 5,
+    "t": "DC-DC Converters"
+   },
+   {
+    "n": 6,
+    "t": "Inverters"
+   },
+   {
+    "n": 7,
+    "t": "AC Controllers, Drives and Applications"
+   },
+   {
+    "n": 8,
+    "t": "Device Protection, Gate Drives and the Synthesis"
+   }
+  ]
+ },
+ {
+  "id": "electrical-measurements",
+  "title": "Electrical Measurements",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Measurement Discipline"
+   },
+   {
+    "n": 2,
+    "t": "Indicating Instruments"
+   },
+   {
+    "n": 3,
+    "t": "Power and Energy Measurement"
+   },
+   {
+    "n": 4,
+    "t": "Instrument Transformers"
+   },
+   {
+    "n": 5,
+    "t": "Bridges"
+   },
+   {
+    "n": 6,
+    "t": "Potentiometers and Magnetic Measurements"
+   },
+   {
+    "n": 7,
+    "t": "Digital Instruments"
+   },
+   {
+    "n": 8,
+    "t": "The Oscilloscope"
+   },
+   {
+    "n": 9,
+    "t": "Transducers, Telemetry and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "high-voltage-engineering",
+  "title": "High Voltage Engineering",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The High-Voltage World"
+   },
+   {
+    "n": 2,
+    "t": "Conduction and Breakdown in Gases"
+   },
+   {
+    "n": 3,
+    "t": "Liquid and Solid Breakdown"
+   },
+   {
+    "n": 4,
+    "t": "Applications of Insulating Materials"
+   },
+   {
+    "n": 5,
+    "t": "Generation of High Voltages and Currents"
+   },
+   {
+    "n": 6,
+    "t": "Measurement of High Voltages"
+   },
+   {
+    "n": 7,
+    "t": "High-Voltage Testing and Standards"
+   },
+   {
+    "n": 8,
+    "t": "Overvoltage and Insulation Coordination"
+   }
+  ]
+ },
+ {
+  "id": "renewable-energy",
+  "title": "Renewable Energy",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Energy Landscape"
+   },
+   {
+    "n": 2,
+    "t": "Solar Thermal"
+   },
+   {
+    "n": 3,
+    "t": "Solar Photovoltaics"
+   },
+   {
+    "n": 4,
+    "t": "Wind Energy"
+   },
+   {
+    "n": 5,
+    "t": "Hydro, Bioenergy and the Emerging Census"
+   },
+   {
+    "n": 6,
+    "t": "Storage and Grid Integration"
+   },
+   {
+    "n": 7,
+    "t": "Economics, Policy and the Synthesis"
+   }
+  ]
+ },
+ {
+  "id": "electromagnetic-fields-and-waves",
+  "title": "Electromagnetic Fields and Waves",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Vector Engine"
+   },
+   {
+    "n": 2,
+    "t": "Electrostatics I: Coulomb and Gauss"
+   },
+   {
+    "n": 3,
+    "t": "Electrostatics II: Potential, Capacitance, Dielectrics"
+   },
+   {
+    "n": 4,
+    "t": "Magnetostatics"
+   },
+   {
+    "n": 5,
+    "t": "Magnetic Circuits and Inductance"
+   },
+   {
+    "n": 6,
+    "t": "Time-Varying Fields and Maxwell’s Equations"
+   },
+   {
+    "n": 7,
+    "t": "Plane Waves"
+   },
+   {
+    "n": 8,
+    "t": "Transmission Lines"
+   },
+   {
+    "n": 9,
+    "t": "Waveguides and Optical Fibres"
+   },
+   {
+    "n": 10,
+    "t": "The Radiation Doorway"
+   }
+  ]
+ },
+ {
+  "id": "electronic-devices-and-circuits",
+  "title": "Electronic Devices and Circuits",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Semiconductor Substrate"
+   },
+   {
+    "n": 2,
+    "t": "Carrier Transport"
+   },
+   {
+    "n": 3,
+    "t": "The PN Junction"
+   },
+   {
+    "n": 4,
+    "t": "Diode Circuits"
+   },
+   {
+    "n": 5,
+    "t": "The Bipolar Junction Transistor"
+   },
+   {
+    "n": 6,
+    "t": "BJT Amplifiers"
+   },
+   {
+    "n": 7,
+    "t": "Field-Effect Devices: JFET and MOSFET"
+   },
+   {
+    "n": 8,
+    "t": "Optoelectronic and Special Devices"
+   },
+   {
+    "n": 9,
+    "t": "Power Supplies and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "analog-electronics",
+  "title": "Analog Electronics",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Analog Signal Chain"
+   },
+   {
+    "n": 2,
+    "t": "Differential and Multistage Amplifiers"
+   },
+   {
+    "n": 3,
+    "t": "Feedback Amplifiers"
+   },
+   {
+    "n": 4,
+    "t": "The Operational Amplifier"
+   },
+   {
+    "n": 5,
+    "t": "Active Filters"
+   },
+   {
+    "n": 6,
+    "t": "Comparators and Schmitt Triggers"
+   },
+   {
+    "n": 7,
+    "t": "Oscillators"
+   },
+   {
+    "n": 8,
+    "t": "Timers and Function Circuits"
+   },
+   {
+    "n": 9,
+    "t": "Data Conversion and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "signals-and-systems",
+  "title": "Signals and Systems",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Signal Idea"
+   },
+   {
+    "n": 2,
+    "t": "System Properties"
+   },
+   {
+    "n": 3,
+    "t": "The LTI Core: Convolution"
+   },
+   {
+    "n": 4,
+    "t": "The Fourier Series"
+   },
+   {
+    "n": 5,
+    "t": "The Fourier Transform"
+   },
+   {
+    "n": 6,
+    "t": "The Laplace Transform"
+   },
+   {
+    "n": 7,
+    "t": "The z-Transform"
+   },
+   {
+    "n": 8,
+    "t": "Sampling and Reconstruction"
+   },
+   {
+    "n": 9,
+    "t": "The Waveform Census and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "analog-and-digital-communication",
+  "title": "Analog and Digital Communication",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Communication Worldview"
+   },
+   {
+    "n": 2,
+    "t": "Random Processes for Communication"
+   },
+   {
+    "n": 3,
+    "t": "Amplitude Modulation"
+   },
+   {
+    "n": 4,
+    "t": "Angle Modulation"
+   },
+   {
+    "n": 5,
+    "t": "Receivers"
+   },
+   {
+    "n": 6,
+    "t": "Information Theory"
+   },
+   {
+    "n": 7,
+    "t": "Pulse and Source Coding"
+   },
+   {
+    "n": 8,
+    "t": "Digital Modulation"
+   },
+   {
+    "n": 9,
+    "t": "Detection, Noise and Error Control"
+   },
+   {
+    "n": 10,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "vlsi-design",
+  "title": "VLSI Design",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The VLSI Worldview"
+   },
+   {
+    "n": 2,
+    "t": "MOS Transistor Theory at Design Depth"
+   },
+   {
+    "n": 3,
+    "t": "CMOS Processing Technology"
+   },
+   {
+    "n": 4,
+    "t": "Delay"
+   },
+   {
+    "n": 5,
+    "t": "Power"
+   },
+   {
+    "n": 6,
+    "t": "Interconnect and Robustness"
+   },
+   {
+    "n": 7,
+    "t": "Combinational Circuit Design"
+   },
+   {
+    "n": 8,
+    "t": "Sequential Circuit Design"
+   },
+   {
+    "n": 9,
+    "t": "Datapath and Array Subsystems"
+   },
+   {
+    "n": 10,
+    "t": "Design Methodology, Testing and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "embedded-systems",
+  "title": "Embedded Systems",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Embedded Idea"
+   },
+   {
+    "n": 2,
+    "t": "Embedded Hardware Design"
+   },
+   {
+    "n": 3,
+    "t": "Real-Time Systems"
+   },
+   {
+    "n": 4,
+    "t": "The RTOS"
+   },
+   {
+    "n": 5,
+    "t": "Device Drivers and I/O"
+   },
+   {
+    "n": 6,
+    "t": "Embedded Networking"
+   },
+   {
+    "n": 7,
+    "t": "Low-Power and Reliability Design"
+   },
+   {
+    "n": 8,
+    "t": "Design Methodology and Case Studies"
+   }
+  ]
+ },
+ {
+  "id": "antennas-and-wave-propagation",
+  "title": "Antennas and Wave Propagation",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Antenna Idea"
+   },
+   {
+    "n": 2,
+    "t": "The Thin-Wire Family"
+   },
+   {
+    "n": 3,
+    "t": "The Array Idea"
+   },
+   {
+    "n": 4,
+    "t": "Aperture and Reflector Antennas"
+   },
+   {
+    "n": 5,
+    "t": "Microstrip and Modern Antennas"
+   },
+   {
+    "n": 6,
+    "t": "Wave Propagation I: Ground and Space Waves"
+   },
+   {
+    "n": 7,
+    "t": "Wave Propagation II: The Sky Wave"
+   },
+   {
+    "n": 8,
+    "t": "Antenna Measurements and the Synthesis"
+   }
+  ]
+ },
+ {
+  "id": "digital-signal-processing",
+  "title": "Digital Signal Processing",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The DSP Worldview"
+   },
+   {
+    "n": 2,
+    "t": "The DFT"
+   },
+   {
+    "n": 3,
+    "t": "The FFT"
+   },
+   {
+    "n": 4,
+    "t": "FIR Filter Design"
+   },
+   {
+    "n": 5,
+    "t": "IIR Filter Design"
+   },
+   {
+    "n": 6,
+    "t": "Filter Structures and Finite Word Length"
+   },
+   {
+    "n": 7,
+    "t": "Multirate Processing and the Applications Census"
+   },
+   {
+    "n": 8,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "structural-engineering",
+  "title": "Structural Engineering",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Structural Frame"
+   },
+   {
+    "n": 2,
+    "t": "Statically Determinate Beams and Frames"
+   },
+   {
+    "n": 3,
+    "t": "Trusses"
+   },
+   {
+    "n": 4,
+    "t": "Deflections and Influence Lines"
+   },
+   {
+    "n": 5,
+    "t": "The Force Methods"
+   },
+   {
+    "n": 6,
+    "t": "The Displacement Methods"
+   },
+   {
+    "n": 7,
+    "t": "The Matrix Stiffness Method"
+   },
+   {
+    "n": 8,
+    "t": "Concrete Structures"
+   },
+   {
+    "n": 9,
+    "t": "Steel Structures"
+   },
+   {
+    "n": 10,
+    "t": "The Professional Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "surveying-and-geomatics",
+  "title": "Surveying and Geomatics",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Surveying Discipline"
+   },
+   {
+    "n": 2,
+    "t": "Linear and Angular Measurement"
+   },
+   {
+    "n": 3,
+    "t": "Levelling"
+   },
+   {
+    "n": 4,
+    "t": "Traversing and Triangulation"
+   },
+   {
+    "n": 5,
+    "t": "Tachometry and Curves"
+   },
+   {
+    "n": 6,
+    "t": "Total Stations and GNSS"
+   },
+   {
+    "n": 7,
+    "t": "Photogrammetry and Remote Sensing"
+   },
+   {
+    "n": 8,
+    "t": "Areas, Volumes and the Synthesis"
+   }
+  ]
+ },
+ {
+  "id": "building-materials",
+  "title": "Building Materials",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Building Worldview"
+   },
+   {
+    "n": 2,
+    "t": "Stones, Bricks and Blocks"
+   },
+   {
+    "n": 3,
+    "t": "Cement"
+   },
+   {
+    "n": 4,
+    "t": "Aggregates, Water and Admixtures"
+   },
+   {
+    "n": 5,
+    "t": "Concrete and Mix Design"
+   },
+   {
+    "n": 6,
+    "t": "Timber and Metals in Construction"
+   },
+   {
+    "n": 7,
+    "t": "Bituminous, Finishing and Modern Materials"
+   },
+   {
+    "n": 8,
+    "t": "Durability, Selection and the Synthesis"
+   }
+  ]
+ },
+ {
+  "id": "geotechnical-engineering",
+  "title": "Geotechnical Engineering",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Soil Idea"
+   },
+   {
+    "n": 2,
+    "t": "Soil Water, Permeability and Seepage"
+   },
+   {
+    "n": 3,
+    "t": "Effective Stress and Compaction"
+   },
+   {
+    "n": 4,
+    "t": "Stress Distribution in Soils"
+   },
+   {
+    "n": 5,
+    "t": "Consolidation"
+   },
+   {
+    "n": 6,
+    "t": "Shear Strength"
+   },
+   {
+    "n": 7,
+    "t": "Site Investigation"
+   },
+   {
+    "n": 8,
+    "t": "Earth Pressure and Slope Stability"
+   },
+   {
+    "n": 9,
+    "t": "Shallow Foundations"
+   },
+   {
+    "n": 10,
+    "t": "Deep Foundations and the Synthesis"
+   }
+  ]
+ },
+ {
+  "id": "transportation-engineering",
+  "title": "Transportation Engineering",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Transportation System"
+   },
+   {
+    "n": 2,
+    "t": "Geometric Design I: Alignment and Sight Distance"
+   },
+   {
+    "n": 3,
+    "t": "Geometric Design II: The Curves and Gradients"
+   },
+   {
+    "n": 4,
+    "t": "Railway Track and Airport Engineering"
+   },
+   {
+    "n": 5,
+    "t": "Highway Materials"
+   },
+   {
+    "n": 6,
+    "t": "Flexible and Rigid Pavements"
+   },
+   {
+    "n": 7,
+    "t": "Traffic Engineering"
+   },
+   {
+    "n": 8,
+    "t": "Traffic Control and the Synthesis"
+   }
+  ]
+ },
+ {
+  "id": "environmental-engineering",
+  "title": "Environmental Engineering",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Environmental Frame"
+   },
+   {
+    "n": 2,
+    "t": "Water Demand and Sources"
+   },
+   {
+    "n": 3,
+    "t": "Water Treatment"
+   },
+   {
+    "n": 4,
+    "t": "Sewerage"
+   },
+   {
+    "n": 5,
+    "t": "Wastewater Treatment"
+   },
+   {
+    "n": 6,
+    "t": "Air Pollution"
+   },
+   {
+    "n": 7,
+    "t": "Municipal Solid Waste"
+   },
+   {
+    "n": 8,
+    "t": "The Regulatory Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "hydraulics",
+  "title": "Hydraulics",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Hydraulics Viewpoint"
+   },
+   {
+    "n": 2,
+    "t": "Flow Measurement"
+   },
+   {
+    "n": 3,
+    "t": "Forces on Immersed Bodies and the Jet Craft"
+   },
+   {
+    "n": 4,
+    "t": "Dimensional Analysis and Hydraulic Similitude"
+   },
+   {
+    "n": 5,
+    "t": "Open-Channel Flow I: Uniform Flow"
+   },
+   {
+    "n": 6,
+    "t": "Open-Channel Flow II: Specific Energy and Critical Flow"
+   },
+   {
+    "n": 7,
+    "t": "The Hydraulic Jump and Gradually-Varied Flow"
+   },
+   {
+    "n": 8,
+    "t": "Hydraulic Turbines"
+   },
+   {
+    "n": 9,
+    "t": "Pumps and the Engineering Synthesis"
+   }
+  ]
+ },
+ {
+  "id": "water-resources-engineering",
+  "title": "Water Resources Engineering",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Water Cycle as Ledger"
+   },
+   {
+    "n": 2,
+    "t": "Precipitation"
+   },
+   {
+    "n": 3,
+    "t": "Abstractions and Runoff"
+   },
+   {
+    "n": 4,
+    "t": "Hydrographs"
+   },
+   {
+    "n": 5,
+    "t": "Floods and Reservoirs"
+   },
+   {
+    "n": 6,
+    "t": "Groundwater"
+   },
+   {
+    "n": 7,
+    "t": "Irrigation"
+   },
+   {
+    "n": 8,
+    "t": "The Hydraulic Structures"
+   },
+   {
+    "n": 9,
+    "t": "The Management Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "construction-management",
+  "title": "Construction Management",
+  "disc": "engineering",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Project Frame"
+   },
+   {
+    "n": 2,
+    "t": "Construction Planning and Network Analysis"
+   },
+   {
+    "n": 3,
+    "t": "Site Organisation and Resources"
+   },
+   {
+    "n": 4,
+    "t": "Construction Equipment and Productivity"
+   },
+   {
+    "n": 5,
+    "t": "Cost Estimation and Contracts"
+   },
+   {
+    "n": 6,
+    "t": "Quality and Safety Management"
+   },
+   {
+    "n": 7,
+    "t": "Modern Construction Management"
+   },
+   {
+    "n": 8,
+    "t": "Closeout, Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "world-history",
+  "title": "World History",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Historian’s Craft"
+   },
+   {
+    "n": 2,
+    "t": "The World Before 1200"
+   },
+   {
+    "n": 3,
+    "t": "Land-Based Empires"
+   },
+   {
+    "n": 4,
+    "t": "Networks of Exchange"
+   },
+   {
+    "n": 5,
+    "t": "Transoceanic Interconnections"
+   },
+   {
+    "n": 6,
+    "t": "The Atlantic Revolutions"
+   },
+   {
+    "n": 7,
+    "t": "Industry and Capital"
+   },
+   {
+    "n": 8,
+    "t": "Nationalism and Imperialism"
+   },
+   {
+    "n": 9,
+    "t": "The World Wars"
+   },
+   {
+    "n": 10,
+    "t": "The Cold War and Decolonisation"
+   },
+   {
+    "n": 11,
+    "t": "Globalisation and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "indian-history",
+  "title": "Indian History",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Sources and the Periodisation"
+   },
+   {
+    "n": 2,
+    "t": "Prehistoric and Harappan India"
+   },
+   {
+    "n": 3,
+    "t": "The Vedic World and the Second Urbanisation"
+   },
+   {
+    "n": 4,
+    "t": "From the Mauryas to the Guptas"
+   },
+   {
+    "n": 5,
+    "t": "The Early Medieval South"
+   },
+   {
+    "n": 6,
+    "t": "The Delhi Sultanate"
+   },
+   {
+    "n": 7,
+    "t": "The Mughal Empire"
+   },
+   {
+    "n": 8,
+    "t": "The Eighteenth Century"
+   },
+   {
+    "n": 9,
+    "t": "Colonial Rule and the Response"
+   },
+   {
+    "n": 10,
+    "t": "The Freedom Struggle"
+   },
+   {
+    "n": 11,
+    "t": "Post-Independence India"
+   },
+   {
+    "n": 12,
+    "t": "The Culture Thread and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "political-science",
+  "title": "Political Science",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "What Is Politics?"
+   },
+   {
+    "n": 2,
+    "t": "The Concepts of Political Theory"
+   },
+   {
+    "n": 3,
+    "t": "Ideologies and the Political Economy"
+   },
+   {
+    "n": 4,
+    "t": "Democracy and Representation"
+   },
+   {
+    "n": 5,
+    "t": "Constitutions and Institutions"
+   },
+   {
+    "n": 6,
+    "t": "The Indian Constitution"
+   },
+   {
+    "n": 7,
+    "t": "The Indian State at Work"
+   },
+   {
+    "n": 8,
+    "t": "Identity Politics in India"
+   },
+   {
+    "n": 9,
+    "t": "Indian Political Thought"
+   },
+   {
+    "n": 10,
+    "t": "The World Order and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "international-relations",
+  "title": "International Relations",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Discipline of IR"
+   },
+   {
+    "n": 2,
+    "t": "The Theories of IR"
+   },
+   {
+    "n": 3,
+    "t": "War and Security"
+   },
+   {
+    "n": 4,
+    "t": "The International History Register"
+   },
+   {
+    "n": 5,
+    "t": "International Law and Organisation"
+   },
+   {
+    "n": 6,
+    "t": "The Global Political Economy"
+   },
+   {
+    "n": 7,
+    "t": "The Environment and Human Security"
+   },
+   {
+    "n": 8,
+    "t": "India and the World"
+   },
+   {
+    "n": 9,
+    "t": "The World Order and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "public-administration",
+  "title": "Public Administration",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Discipline of Public Administration"
+   },
+   {
+    "n": 2,
+    "t": "The Administrative Thought"
+   },
+   {
+    "n": 3,
+    "t": "Administrative Behaviour"
+   },
+   {
+    "n": 4,
+    "t": "The Organisation Theories"
+   },
+   {
+    "n": 5,
+    "t": "Accountability and Control"
+   },
+   {
+    "n": 6,
+    "t": "The Indian Administration"
+   },
+   {
+    "n": 7,
+    "t": "Planning and Financial Administration"
+   },
+   {
+    "n": 8,
+    "t": "Policy and Implementation"
+   },
+   {
+    "n": 9,
+    "t": "The Personnel, the Ethics Handshake and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "law-and-legal-studies",
+  "title": "Law and Legal Studies",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Legal Map"
+   },
+   {
+    "n": 2,
+    "t": "Jurisprudence"
+   },
+   {
+    "n": 3,
+    "t": "Constitutional Law"
+   },
+   {
+    "n": 4,
+    "t": "Administrative Law"
+   },
+   {
+    "n": 5,
+    "t": "The Private-Law Census"
+   },
+   {
+    "n": 6,
+    "t": "Criminal Law"
+   },
+   {
+    "n": 7,
+    "t": "International Law"
+   },
+   {
+    "n": 8,
+    "t": "Legal Reasoning"
+   },
+   {
+    "n": 9,
+    "t": "The Profession and the ADR"
+   },
+   {
+    "n": 10,
+    "t": "The Contemporary and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "sociology",
+  "title": "Sociology",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Sociological Eye"
+   },
+   {
+    "n": 2,
+    "t": "The Methods"
+   },
+   {
+    "n": 3,
+    "t": "The Theorists"
+   },
+   {
+    "n": 4,
+    "t": "Culture and Socialisation"
+   },
+   {
+    "n": 5,
+    "t": "Groups, Networks and Organisations"
+   },
+   {
+    "n": 6,
+    "t": "Stratification"
+   },
+   {
+    "n": 7,
+    "t": "The Institutional Census"
+   },
+   {
+    "n": 8,
+    "t": "Change, Movements and Globalisation"
+   },
+   {
+    "n": 9,
+    "t": "The Indian Social Structure"
+   },
+   {
+    "n": 10,
+    "t": "Social Change in India and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "anthropology",
+  "title": "Anthropology",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Four Fields"
+   },
+   {
+    "n": 2,
+    "t": "The Fieldwork Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Biological Frame"
+   },
+   {
+    "n": 4,
+    "t": "Culture and the Individual"
+   },
+   {
+    "n": 5,
+    "t": "Subsistence and Exchange"
+   },
+   {
+    "n": 6,
+    "t": "Kinship and Marriage"
+   },
+   {
+    "n": 7,
+    "t": "Politics, Religion and the Arts"
+   },
+   {
+    "n": 8,
+    "t": "Stratification, Identity and the Applied Register"
+   },
+   {
+    "n": 9,
+    "t": "The Indian Anthropology"
+   },
+   {
+    "n": 10,
+    "t": "The Theory Census and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "cultural-studies",
+  "title": "Cultural Studies",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Project of Cultural Studies"
+   },
+   {
+    "n": 2,
+    "t": "The Linguistic Turn"
+   },
+   {
+    "n": 3,
+    "t": "Ideology and Power"
+   },
+   {
+    "n": 4,
+    "t": "The Subject of Culture"
+   },
+   {
+    "n": 5,
+    "t": "Difference and Representation"
+   },
+   {
+    "n": 6,
+    "t": "The Media Culture"
+   },
+   {
+    "n": 7,
+    "t": "Globalisation and Culture"
+   },
+   {
+    "n": 8,
+    "t": "The Indian Register and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "psychology",
+  "title": "Psychology",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Science of Mind"
+   },
+   {
+    "n": 2,
+    "t": "The Biological Bases"
+   },
+   {
+    "n": 3,
+    "t": "Sensation and Perception"
+   },
+   {
+    "n": 4,
+    "t": "Learning"
+   },
+   {
+    "n": 5,
+    "t": "Memory and Cognition"
+   },
+   {
+    "n": 6,
+    "t": "Motivation and Emotion"
+   },
+   {
+    "n": 7,
+    "t": "The Self and Personality"
+   },
+   {
+    "n": 8,
+    "t": "Development and the Social Register"
+   },
+   {
+    "n": 9,
+    "t": "Disorders and Wellelling"
+   },
+   {
+    "n": 10,
+    "t": "The Applications and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "philosophy",
+  "title": "Philosophy",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "What Is Philosophy?"
+   },
+   {
+    "n": 2,
+    "t": "The Logic Base"
+   },
+   {
+    "n": 3,
+    "t": "Epistemology"
+   },
+   {
+    "n": 4,
+    "t": "Metaphysics"
+   },
+   {
+    "n": 5,
+    "t": "The Indian Systems"
+   },
+   {
+    "n": 6,
+    "t": "The Western Canon: Ancient and Medieval"
+   },
+   {
+    "n": 7,
+    "t": "The Western Canon: Modern"
+   },
+   {
+    "n": 8,
+    "t": "The Western Canon: Contemporary"
+   },
+   {
+    "n": 9,
+    "t": "The Socio-Political Philosophy"
+   },
+   {
+    "n": 10,
+    "t": "The Applied Close and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "ethics",
+  "title": "Ethics",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Ethics and Human Interface"
+   },
+   {
+    "n": 2,
+    "t": "The Meta Walk"
+   },
+   {
+    "n": 3,
+    "t": "The Normative Census"
+   },
+   {
+    "n": 4,
+    "t": "The Applied Census"
+   },
+   {
+    "n": 5,
+    "t": "Attitude and Values"
+   },
+   {
+    "n": 6,
+    "t": "Aptitude and Emotional Intelligence"
+   },
+   {
+    "n": 7,
+    "t": "Ethics in Public Administration"
+   },
+   {
+    "n": 8,
+    "t": "Probity in Governance"
+   },
+   {
+    "n": 9,
+    "t": "The Case-Study Craft and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "geography",
+  "title": "Geography",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Geographic Eye"
+   },
+   {
+    "n": 2,
+    "t": "The Earth and Its Structure"
+   },
+   {
+    "n": 3,
+    "t": "The Landforms"
+   },
+   {
+    "n": 4,
+    "t": "The Climate"
+   },
+   {
+    "n": 5,
+    "t": "The Oceans"
+   },
+   {
+    "n": 6,
+    "t": "The Soils and the Biomes"
+   },
+   {
+    "n": 7,
+    "t": "Population and Migration"
+   },
+   {
+    "n": 8,
+    "t": "Settlements and the Landscapes"
+   },
+   {
+    "n": 9,
+    "t": "The Economic Geography"
+   },
+   {
+    "n": 10,
+    "t": "India: The Physical Environment"
+   },
+   {
+    "n": 11,
+    "t": "India: The Human and Economic Register"
+   },
+   {
+    "n": 12,
+    "t": "The Synthesis and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "environmental-studies",
+  "title": "Environmental Studies",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Multidisciplinary Nature"
+   },
+   {
+    "n": 2,
+    "t": "The Natural Resources"
+   },
+   {
+    "n": 3,
+    "t": "Ecosystems"
+   },
+   {
+    "n": 4,
+    "t": "Biodiversity"
+   },
+   {
+    "n": 5,
+    "t": "The Pollution Census"
+   },
+   {
+    "n": 6,
+    "t": "Social Issues and the Environment"
+   },
+   {
+    "n": 7,
+    "t": "Human Population and the Environment"
+   },
+   {
+    "n": 8,
+    "t": "The Field Work and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "archaeology-and-heritage-studies",
+  "title": "Archaeology and Heritage Studies",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Searches"
+   },
+   {
+    "n": 2,
+    "t": "The Evidence"
+   },
+   {
+    "n": 3,
+    "t": "Survey and Excavation"
+   },
+   {
+    "n": 4,
+    "t": "When? The Dating Engine"
+   },
+   {
+    "n": 5,
+    "t": "Reading the Record"
+   },
+   {
+    "n": 6,
+    "t": "The Theory Register"
+   },
+   {
+    "n": 7,
+    "t": "The Indian Record"
+   },
+   {
+    "n": 8,
+    "t": "The Heritage Keeping"
+   },
+   {
+    "n": 9,
+    "t": "The Ethics, the Public and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "art-history",
+  "title": "Art History",
+  "disc": "humanities",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Art Historian’s Eye"
+   },
+   {
+    "n": 2,
+    "t": "The Ancient World"
+   },
+   {
+    "n": 3,
+    "t": "The Classical World"
+   },
+   {
+    "n": 4,
+    "t": "The Medieval and Renaissance Europe"
+   },
+   {
+    "n": 5,
+    "t": "The Asian Arts"
+   },
+   {
+    "n": 6,
+    "t": "India: The Ancient Register"
+   },
+   {
+    "n": 7,
+    "t": "India: The Medieval Register"
+   },
+   {
+    "n": 8,
+    "t": "India: The Modern Register"
+   },
+   {
+    "n": 9,
+    "t": "The Americas, Africa and Oceania"
+   },
+   {
+    "n": 10,
+    "t": "The Modern, the Contemporary and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "english",
+  "title": "English",
+  "disc": "languages",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Ladder and the Basics"
+   },
+   {
+    "n": 2,
+    "t": "The Grammar Core I"
+   },
+   {
+    "n": 3,
+    "t": "The Grammar Core II"
+   },
+   {
+    "n": 4,
+    "t": "The Vocabulary Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Reading Craft"
+   },
+   {
+    "n": 6,
+    "t": "The Writing Craft"
+   },
+   {
+    "n": 7,
+    "t": "The Listening and Speaking Craft"
+   },
+   {
+    "n": 8,
+    "t": "The Usage Traps"
+   },
+   {
+    "n": 9,
+    "t": "The Academic and Professional Register"
+   },
+   {
+    "n": 10,
+    "t": "The Exam Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "hindi",
+  "title": "Hindi",
+  "disc": "languages",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Devanagari and the Sounds"
+   },
+   {
+    "n": 2,
+    "t": "The Nominal System"
+   },
+   {
+    "n": 3,
+    "t": "The Verbal System"
+   },
+   {
+    "n": 4,
+    "t": "The Sentence’s Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Vocabulary’s Registers"
+   },
+   {
+    "n": 6,
+    "t": "The Reading and Writing"
+   },
+   {
+    "n": 7,
+    "t": "The Listening and Speaking"
+   },
+   {
+    "n": 8,
+    "t": "The Literature Survey"
+   },
+   {
+    "n": 9,
+    "t": "The Exam Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "sanskrit",
+  "title": "Sanskrit",
+  "disc": "languages",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Script and the Sounds"
+   },
+   {
+    "n": 2,
+    "t": "The Nominal Engine"
+   },
+   {
+    "n": 3,
+    "t": "The Verbal Engine"
+   },
+   {
+    "n": 4,
+    "t": "The Sandhi and the Samasa"
+   },
+   {
+    "n": 5,
+    "t": "The Syntax’s Craft"
+   },
+   {
+    "n": 6,
+    "t": "The First Texts"
+   },
+   {
+    "n": 7,
+    "t": "The Epic Reading"
+   },
+   {
+    "n": 8,
+    "t": "The Composition’s Craft"
+   },
+   {
+    "n": 9,
+    "t": "The Paninian Glance"
+   },
+   {
+    "n": 10,
+    "t": "The Exam Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "japanese",
+  "title": "Japanese",
+  "disc": "languages",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Sounds and the Scripts"
+   },
+   {
+    "n": 2,
+    "t": "The Hiragana Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Katakana Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Grammar Core"
+   },
+   {
+    "n": 5,
+    "t": "The Verb System"
+   },
+   {
+    "n": 6,
+    "t": "The Kanji Craft"
+   },
+   {
+    "n": 7,
+    "t": "The Everyday Conversations"
+   },
+   {
+    "n": 8,
+    "t": "The Reading and Writing"
+   },
+   {
+    "n": 9,
+    "t": "The Listening and Speaking"
+   },
+   {
+    "n": 10,
+    "t": "The JLPT Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "german",
+  "title": "German",
+  "disc": "languages",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Sounds and the Umlauts"
+   },
+   {
+    "n": 2,
+    "t": "The Nominal Core"
+   },
+   {
+    "n": 3,
+    "t": "The Verb Core"
+   },
+   {
+    "n": 4,
+    "t": "The Word Order’s Law"
+   },
+   {
+    "n": 5,
+    "t": "The Perfect Engine"
+   },
+   {
+    "n": 6,
+    "t": "The Everyday Situations"
+   },
+   {
+    "n": 7,
+    "t": "The Vocabulary’s Craft"
+   },
+   {
+    "n": 8,
+    "t": "The Reading and Writing"
+   },
+   {
+    "n": 9,
+    "t": "The Listening and Speaking"
+   },
+   {
+    "n": 10,
+    "t": "The Goethe Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "french",
+  "title": "French",
+  "disc": "languages",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Sounds and the Liaison"
+   },
+   {
+    "n": 2,
+    "t": "The Nominal Core"
+   },
+   {
+    "n": 3,
+    "t": "The Verb Engine"
+   },
+   {
+    "n": 4,
+    "t": "The Negation and the Questions"
+   },
+   {
+    "n": 5,
+    "t": "The Everyday Situations"
+   },
+   {
+    "n": 6,
+    "t": "The Vocabulary’s Craft"
+   },
+   {
+    "n": 7,
+    "t": "The Reading and Writing"
+   },
+   {
+    "n": 8,
+    "t": "The Listening and Speaking"
+   },
+   {
+    "n": 9,
+    "t": "The DELF Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "spanish",
+  "title": "Spanish",
+  "disc": "languages",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Sounds and the Script"
+   },
+   {
+    "n": 2,
+    "t": "The Nominal Core"
+   },
+   {
+    "n": 3,
+    "t": "The Verb Engine"
+   },
+   {
+    "n": 4,
+    "t": "The Madrigal Method"
+   },
+   {
+    "n": 5,
+    "t": "The Everyday Situations"
+   },
+   {
+    "n": 6,
+    "t": "The Reading and Writing"
+   },
+   {
+    "n": 7,
+    "t": "The Listening and Speaking"
+   },
+   {
+    "n": 8,
+    "t": "The Grammar’s Depth"
+   },
+   {
+    "n": 9,
+    "t": "The DELE Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "mandarin",
+  "title": "Mandarin",
+  "disc": "languages",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Tones and the Pinyin"
+   },
+   {
+    "n": 2,
+    "t": "The Characters’ Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Grammar Core"
+   },
+   {
+    "n": 4,
+    "t": "The Everyday Situations"
+   },
+   {
+    "n": 5,
+    "t": "The Vocabulary’s Craft"
+   },
+   {
+    "n": 6,
+    "t": "The Reading and Writing"
+   },
+   {
+    "n": 7,
+    "t": "The Listening and Speaking"
+   },
+   {
+    "n": 8,
+    "t": "The Grammar’s Depth"
+   },
+   {
+    "n": 9,
+    "t": "The HSK Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "korean",
+  "title": "Korean",
+  "disc": "languages",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Hangul’s Miracle"
+   },
+   {
+    "n": 2,
+    "t": "The Nominal Core"
+   },
+   {
+    "n": 3,
+    "t": "The Verb Core"
+   },
+   {
+    "n": 4,
+    "t": "The Sentence’s Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Everyday Situations"
+   },
+   {
+    "n": 6,
+    "t": "The Vocabulary’s Craft"
+   },
+   {
+    "n": 7,
+    "t": "The Reading and Writing"
+   },
+   {
+    "n": 8,
+    "t": "The Listening and Speaking"
+   },
+   {
+    "n": 9,
+    "t": "The TOPIK Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "arabic",
+  "title": "Arabic",
+  "disc": "languages",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Script"
+   },
+   {
+    "n": 2,
+    "t": "The Sounds"
+   },
+   {
+    "n": 3,
+    "t": "The Nominal Core"
+   },
+   {
+    "n": 4,
+    "t": "The Verbal Core"
+   },
+   {
+    "n": 5,
+    "t": "The Everyday Situations"
+   },
+   {
+    "n": 6,
+    "t": "The Registers’ Map"
+   },
+   {
+    "n": 7,
+    "t": "The Reading and Writing"
+   },
+   {
+    "n": 8,
+    "t": "The Listening and Speaking"
+   },
+   {
+    "n": 9,
+    "t": "The Classical Register"
+   },
+   {
+    "n": 10,
+    "t": "The Al-Kitaab Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "russian",
+  "title": "Russian",
+  "disc": "languages",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Cyrillic"
+   },
+   {
+    "n": 2,
+    "t": "The Sounds and the Stress"
+   },
+   {
+    "n": 3,
+    "t": "The Nominal Core"
+   },
+   {
+    "n": 4,
+    "t": "The Verb Core"
+   },
+   {
+    "n": 5,
+    "t": "The Everyday Situations"
+   },
+   {
+    "n": 6,
+    "t": "The Vocabulary’s Craft"
+   },
+   {
+    "n": 7,
+    "t": "The Reading and Writing"
+   },
+   {
+    "n": 8,
+    "t": "The Listening and Speaking"
+   },
+   {
+    "n": 9,
+    "t": "The TORFL Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "portuguese",
+  "title": "Portuguese",
+  "disc": "languages",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Sounds and the Two Worlds"
+   },
+   {
+    "n": 2,
+    "t": "The Nominal Core"
+   },
+   {
+    "n": 3,
+    "t": "The Verb Engine"
+   },
+   {
+    "n": 4,
+    "t": "The Everyday Situations"
+   },
+   {
+    "n": 5,
+    "t": "The Vocabulary’s Craft"
+   },
+   {
+    "n": 6,
+    "t": "The Reading and Writing"
+   },
+   {
+    "n": 7,
+    "t": "The Listening and Speaking"
+   },
+   {
+    "n": 8,
+    "t": "The Grammar’s Depth"
+   },
+   {
+    "n": 9,
+    "t": "The CAPLE Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "italian",
+  "title": "Italian",
+  "disc": "languages",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Sounds and the Song"
+   },
+   {
+    "n": 2,
+    "t": "The Nominal Core"
+   },
+   {
+    "n": 3,
+    "t": "The Verb Engine"
+   },
+   {
+    "n": 4,
+    "t": "The Everyday Situations"
+   },
+   {
+    "n": 5,
+    "t": "The Vocabulary’s Craft"
+   },
+   {
+    "n": 6,
+    "t": "The Reading and Writing"
+   },
+   {
+    "n": 7,
+    "t": "The Listening and Speaking"
+   },
+   {
+    "n": 8,
+    "t": "The Grammar’s Depth"
+   },
+   {
+    "n": 9,
+    "t": "The CILS Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "foundation-physics",
+  "title": "Foundation Physics",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "What Physics Measures"
+   },
+   {
+    "n": 2,
+    "t": "Dimensions and Errors"
+   },
+   {
+    "n": 3,
+    "t": "Motion in One Dimension"
+   },
+   {
+    "n": 4,
+    "t": "Force and Newton’s Laws"
+   },
+   {
+    "n": 5,
+    "t": "Gravitation at First Pass"
+   },
+   {
+    "n": 6,
+    "t": "Work, Energy and Power"
+   },
+   {
+    "n": 7,
+    "t": "Heat at First Pass"
+   },
+   {
+    "n": 8,
+    "t": "Waves and Sound at First Pass"
+   },
+   {
+    "n": 9,
+    "t": "Light at First Pass"
+   },
+   {
+    "n": 10,
+    "t": "Electricity at First Pass"
+   }
+  ]
+ },
+ {
+  "id": "mechanics",
+  "title": "Mechanics",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Kinematics in One Dimension"
+   },
+   {
+    "n": 2,
+    "t": "Kinematics in Two Dimensions"
+   },
+   {
+    "n": 3,
+    "t": "Newton’s Laws in Full"
+   },
+   {
+    "n": 4,
+    "t": "Circular Motion and Non-Inertial Frames"
+   },
+   {
+    "n": 5,
+    "t": "Work and Energy in Full"
+   },
+   {
+    "n": 6,
+    "t": "Momentum and Collisions"
+   },
+   {
+    "n": 7,
+    "t": "Rotational Dynamics"
+   },
+   {
+    "n": 8,
+    "t": "Gravitation and Orbits"
+   },
+   {
+    "n": 9,
+    "t": "Fluid Statics (the folded line)"
+   },
+   {
+    "n": 10,
+    "t": "Fluid Dynamics"
+   },
+   {
+    "n": 11,
+    "t": "The Lagrangian Doorstep"
+   },
+   {
+    "n": 12,
+    "t": "The Hamiltonian and Central Forces"
+   }
+  ]
+ },
+ {
+  "id": "properties-of-matter",
+  "title": "Properties of Matter",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Molecular Picture"
+   },
+   {
+    "n": 2,
+    "t": "Stress and Strain"
+   },
+   {
+    "n": 3,
+    "t": "The Moduli and Elastic Energy"
+   },
+   {
+    "n": 4,
+    "t": "Viscosity and Streamline Flow"
+   },
+   {
+    "n": 5,
+    "t": "Surface Tension and Surface Energy"
+   },
+   {
+    "n": 6,
+    "t": "Capillarity and Excess Pressure"
+   },
+   {
+    "n": 7,
+    "t": "Thermal Expansion"
+   },
+   {
+    "n": 8,
+    "t": "The Property Laboratory"
+   }
+  ]
+ },
+ {
+  "id": "waves-and-oscillations",
+  "title": "Waves and Oscillations",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Simple Harmonic Motion: Foundations"
+   },
+   {
+    "n": 2,
+    "t": "Simple Harmonic Motion: Mathematics"
+   },
+   {
+    "n": 3,
+    "t": "Damped and Forced Oscillations"
+   },
+   {
+    "n": 4,
+    "t": "Coupled Oscillations and Normal Modes"
+   },
+   {
+    "n": 5,
+    "t": "Wave Motion Fundamentals"
+   },
+   {
+    "n": 6,
+    "t": "Superposition and Standing Waves"
+   },
+   {
+    "n": 7,
+    "t": "Sound and Beats"
+   },
+   {
+    "n": 8,
+    "t": "The Doppler Effect"
+   },
+   {
+    "n": 9,
+    "t": "The Fourier Doorway"
+   }
+  ]
+ },
+ {
+  "id": "heat-and-thermodynamics",
+  "title": "Heat and Thermodynamics",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Temperature and the Zeroth Law"
+   },
+   {
+    "n": 2,
+    "t": "Calorimetry"
+   },
+   {
+    "n": 3,
+    "t": "The Kinetic Theory of Gases"
+   },
+   {
+    "n": 4,
+    "t": "Gas Laws and Maxwell’s Distribution"
+   },
+   {
+    "n": 5,
+    "t": "Specific Heats of Gases"
+   },
+   {
+    "n": 6,
+    "t": "The First Law and Its Processes"
+   },
+   {
+    "n": 7,
+    "t": "The Second Law and Heat Engines"
+   },
+   {
+    "n": 8,
+    "t": "Real Gases and Liquefaction"
+   },
+   {
+    "n": 9,
+    "t": "Heat Transfer"
+   },
+   {
+    "n": 10,
+    "t": "Potentials and Maxwell’s Relations"
+   }
+  ]
+ },
+ {
+  "id": "electricity-and-magnetism",
+  "title": "Electricity and Magnetism",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Electric Charge and Coulomb’s Law"
+   },
+   {
+    "n": 2,
+    "t": "Electric Field and Gauss’s Law"
+   },
+   {
+    "n": 3,
+    "t": "Electric Potential and Conductors"
+   },
+   {
+    "n": 4,
+    "t": "Capacitors and Dielectrics"
+   },
+   {
+    "n": 5,
+    "t": "Current and Resistance"
+   },
+   {
+    "n": 6,
+    "t": "DC Circuit Craft"
+   },
+   {
+    "n": 7,
+    "t": "Magnetic Force and the Field"
+   },
+   {
+    "n": 8,
+    "t": "Magnetic Materials and the Earth"
+   },
+   {
+    "n": 9,
+    "t": "Electromagnetic Induction"
+   },
+   {
+    "n": 10,
+    "t": "Alternating Currents"
+   },
+   {
+    "n": 11,
+    "t": "Electrical Instruments"
+   }
+  ]
+ },
+ {
+  "id": "electromagnetic-theory",
+  "title": "Electromagnetic Theory",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Vector Grammar of Fields"
+   },
+   {
+    "n": 2,
+    "t": "Electrostatics in Vacuum"
+   },
+   {
+    "n": 3,
+    "t": "Multipoles and Dielectric Matter"
+   },
+   {
+    "n": 4,
+    "t": "Magnetostatics"
+   },
+   {
+    "n": 5,
+    "t": "Faraday to Maxwell"
+   },
+   {
+    "n": 6,
+    "t": "Electromagnetic Plane Waves"
+   },
+   {
+    "n": 7,
+    "t": "Waves at Boundaries"
+   },
+   {
+    "n": 8,
+    "t": "Waveguides and Resonators"
+   },
+   {
+    "n": 9,
+    "t": "Radiating Systems"
+   },
+   {
+    "n": 10,
+    "t": "Potentials, Gauge and the Door"
+   }
+  ]
+ },
+ {
+  "id": "optics",
+  "title": "Optics",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Ray Optics: Foundations"
+   },
+   {
+    "n": 2,
+    "t": "Lenses and Optical Systems"
+   },
+   {
+    "n": 3,
+    "t": "Prisms and Dispersion"
+   },
+   {
+    "n": 4,
+    "t": "Optical Instruments"
+   },
+   {
+    "n": 5,
+    "t": "The Wave Nature of Light"
+   },
+   {
+    "n": 6,
+    "t": "Interference"
+   },
+   {
+    "n": 7,
+    "t": "Diffraction"
+   },
+   {
+    "n": 8,
+    "t": "Polarisation"
+   },
+   {
+    "n": 9,
+    "t": "Laser and Fibre Optics"
+   },
+   {
+    "n": 10,
+    "t": "The Optics Laboratory"
+   }
+  ]
+ },
+ {
+  "id": "modern-physics",
+  "title": "Modern Physics",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Quantum Crisis"
+   },
+   {
+    "n": 2,
+    "t": "Photons and the Photoelectric Effect"
+   },
+   {
+    "n": 3,
+    "t": "Atomic Models and Hydrogen’s Spectra"
+   },
+   {
+    "n": 4,
+    "t": "X-Rays and the Compton Craft"
+   },
+   {
+    "n": 5,
+    "t": "Matter Waves and Uncertainty"
+   },
+   {
+    "n": 6,
+    "t": "The Nucleus at First Pass"
+   },
+   {
+    "n": 7,
+    "t": "Semiconductor Devices"
+   },
+   {
+    "n": 8,
+    "t": "The Modern Synthesis"
+   }
+  ]
+ },
+ {
+  "id": "quantum-mechanics",
+  "title": "Quantum Mechanics",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Birth and the Postulates"
+   },
+   {
+    "n": 2,
+    "t": "The Wave-Function Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Time-Independent Schrodinger Equation"
+   },
+   {
+    "n": 4,
+    "t": "Ladder Operators and Angular Momentum"
+   },
+   {
+    "n": 5,
+    "t": "The Hydrogen Atom"
+   },
+   {
+    "n": 6,
+    "t": "Spin and Identical Particles"
+   },
+   {
+    "n": 7,
+    "t": "Perturbation Theory"
+   },
+   {
+    "n": 8,
+    "t": "Time-Dependent Transitions"
+   },
+   {
+    "n": 9,
+    "t": "Scattering and the Approximation Crafts"
+   }
+  ]
+ },
+ {
+  "id": "atomic-physics",
+  "title": "Atomic Physics",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Hydrogen’s Fine Structure"
+   },
+   {
+    "n": 2,
+    "t": "The Many-Electron Atom"
+   },
+   {
+    "n": 3,
+    "t": "Zeeman and Stark Effects"
+   },
+   {
+    "n": 4,
+    "t": "Alkali Spectra and Helium’s Two-Electron Problem"
+   },
+   {
+    "n": 5,
+    "t": "X-Ray Spectra"
+   },
+   {
+    "n": 6,
+    "t": "Molecular Spectra"
+   },
+   {
+    "n": 7,
+    "t": "Resonance and Atomic Clocks"
+   },
+   {
+    "n": 8,
+    "t": "Lasers and the Light Amplifier"
+   }
+  ]
+ },
+ {
+  "id": "nuclear-physics",
+  "title": "Nuclear Physics",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Nuclear Properties Register"
+   },
+   {
+    "n": 2,
+    "t": "The Nuclear Force and the Shell Model"
+   },
+   {
+    "n": 3,
+    "t": "Binding Energy and the Semi-Empirical Mass Formula"
+   },
+   {
+    "n": 4,
+    "t": "The Decay Laws"
+   },
+   {
+    "n": 5,
+    "t": "Reactions and Kinematics"
+   },
+   {
+    "n": 6,
+    "t": "Fission and the Reactor"
+   },
+   {
+    "n": 7,
+    "t": "Fusion and Stellar Burning"
+   },
+   {
+    "n": 8,
+    "t": "Accelerators and Detectors"
+   },
+   {
+    "n": 9,
+    "t": "Radiation and Safety"
+   }
+  ]
+ },
+ {
+  "id": "solid-state-physics",
+  "title": "Solid-State Physics",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Crystal Structure"
+   },
+   {
+    "n": 2,
+    "t": "The Reciprocal Lattice and Diffraction"
+   },
+   {
+    "n": 3,
+    "t": "Lattice Vibrations and Phonons"
+   },
+   {
+    "n": 4,
+    "t": "The Free-Electron Model"
+   },
+   {
+    "n": 5,
+    "t": "The Band Theory of Solids"
+   },
+   {
+    "n": 6,
+    "t": "Semiconductors at Carrier Depth"
+   },
+   {
+    "n": 7,
+    "t": "Dielectrics and Ferroelectrics"
+   },
+   {
+    "n": 8,
+    "t": "Magnetism and Superconductivity"
+   },
+   {
+    "n": 9,
+    "t": "The Low-Dimensional Register"
+   }
+  ]
+ },
+ {
+  "id": "statistical-mechanics",
+  "title": "Statistical Mechanics",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Counting and Entropy"
+   },
+   {
+    "n": 2,
+    "t": "The Canonical Ensemble"
+   },
+   {
+    "n": 3,
+    "t": "The Grand Canonical Register"
+   },
+   {
+    "n": 4,
+    "t": "Quantum Statistics Foundations"
+   },
+   {
+    "n": 5,
+    "t": "The Fermi Gas Applications"
+   },
+   {
+    "n": 6,
+    "t": "The Bose Gas Applications"
+   },
+   {
+    "n": 7,
+    "t": "Phase Transitions and Criticality"
+   },
+   {
+    "n": 8,
+    "t": "The Non-Equilibrium Doorway"
+   }
+  ]
+ },
+ {
+  "id": "relativity",
+  "title": "Relativity",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Ether Crisis"
+   },
+   {
+    "n": 2,
+    "t": "The Lorentz Transformations"
+   },
+   {
+    "n": 3,
+    "t": "Relativistic Dynamics"
+   },
+   {
+    "n": 4,
+    "t": "The Geometry of Spacetime"
+   },
+   {
+    "n": 5,
+    "t": "The Equivalence Principle"
+   },
+   {
+    "n": 6,
+    "t": "The Schwarzschild Solution and Its Tests"
+   },
+   {
+    "n": 7,
+    "t": "Gravitational Waves and the Compact Register"
+   },
+   {
+    "n": 8,
+    "t": "The Cosmological Doorway"
+   }
+  ]
+ },
+ {
+  "id": "astrophysics",
+  "title": "Astrophysics",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Celestial Sphere and the Observation Craft"
+   },
+   {
+    "n": 2,
+    "t": "Stellar Radiation and the HR Diagram"
+   },
+   {
+    "n": 3,
+    "t": "Stellar Structure"
+   },
+   {
+    "n": 4,
+    "t": "Stellar Evolution"
+   },
+   {
+    "n": 5,
+    "t": "The Milky Way and the Galaxy Census"
+   },
+   {
+    "n": 6,
+    "t": "Cosmology Foundations"
+   },
+   {
+    "n": 7,
+    "t": "The Planetary Register"
+   },
+   {
+    "n": 8,
+    "t": "The Tools and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "particle-physics",
+  "title": "Particle Physics",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Standard Model Census"
+   },
+   {
+    "n": 2,
+    "t": "Symmetries and Conservation Laws"
+   },
+   {
+    "n": 3,
+    "t": "The Interactions by Diagram"
+   },
+   {
+    "n": 4,
+    "t": "Hadrons and the Quark Model"
+   },
+   {
+    "n": 5,
+    "t": "The Weak Interaction and Unification"
+   },
+   {
+    "n": 6,
+    "t": "The Accelerator Laboratory"
+   },
+   {
+    "n": 7,
+    "t": "Beyond the Model"
+   },
+   {
+    "n": 8,
+    "t": "The Particle Doorway"
+   }
+  ]
+ },
+ {
+  "id": "mathematical-physics",
+  "title": "Mathematical Physics",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Calculus of Variations"
+   },
+   {
+    "n": 2,
+    "t": "Complex Analysis for Physics"
+   },
+   {
+    "n": 3,
+    "t": "Differential Equations by Series"
+   },
+   {
+    "n": 4,
+    "t": "PDEs and the Separation Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Special Function Atlas"
+   },
+   {
+    "n": 6,
+    "t": "Fourier and Laplace Transforms"
+   },
+   {
+    "n": 7,
+    "t": "Green’s Functions"
+   },
+   {
+    "n": 8,
+    "t": "Matrices, Groups and Tensors"
+   },
+   {
+    "n": 9,
+    "t": "The Numerical Register"
+   }
+  ]
+ },
+ {
+  "id": "experimental-physics",
+  "title": "Experimental Physics",
+  "disc": "physics",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Measurement and Uncertainty"
+   },
+   {
+    "n": 2,
+    "t": "The Instruments of the Lab"
+   },
+   {
+    "n": 3,
+    "t": "Mechanics and Properties Practicals"
+   },
+   {
+    "n": 4,
+    "t": "Heat and Optics Practicals"
+   },
+   {
+    "n": 5,
+    "t": "Electricity and Magnetism Practicals"
+   },
+   {
+    "n": 6,
+    "t": "Electronics for Physicists"
+   },
+   {
+    "n": 7,
+    "t": "Signal and Data Analysis"
+   },
+   {
+    "n": 8,
+    "t": "The Research-Lab Doorway"
+   }
+  ]
+ },
+ {
+  "id": "foundation-economics",
+  "title": "Foundation Economics",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Economic Problem"
+   },
+   {
+    "n": 2,
+    "t": "Thinking Like an Economist"
+   },
+   {
+    "n": 3,
+    "t": "Demand and Supply: First Equilibrium"
+   },
+   {
+    "n": 4,
+    "t": "Elasticities at First Pass"
+   },
+   {
+    "n": 5,
+    "t": "Welfare and Market Failure: First Pass"
+   },
+   {
+    "n": 6,
+    "t": "The Firm and Market Structures: First Pass"
+   },
+   {
+    "n": 7,
+    "t": "GDP and the Macro Economy: First Pass"
+   },
+   {
+    "n": 8,
+    "t": "Money and Banking: First Pass"
+   },
+   {
+    "n": 9,
+    "t": "Government and Policy: First Pass"
+   },
+   {
+    "n": 10,
+    "t": "Trade and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "microeconomics",
+  "title": "Microeconomics",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Preferences and Utility"
+   },
+   {
+    "n": 2,
+    "t": "Optimal Choice and Demand"
+   },
+   {
+    "n": 3,
+    "t": "Slutsky Decomposition and Elasticity Deepened"
+   },
+   {
+    "n": 4,
+    "t": "Production and Costs"
+   },
+   {
+    "n": 5,
+    "t": "Perfect Competition"
+   },
+   {
+    "n": 6,
+    "t": "Monopoly"
+   },
+   {
+    "n": 7,
+    "t": "Oligopoly and Game Theory"
+   },
+   {
+    "n": 8,
+    "t": "Factor Markets and Factor Pricing"
+   },
+   {
+    "n": 9,
+    "t": "General Equilibrium and Welfare"
+   },
+   {
+    "n": 10,
+    "t": "Market Failure and Information"
+   },
+   {
+    "n": 11,
+    "t": "Applications and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "macroeconomics",
+  "title": "Macroeconomics",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "National Income Accounting"
+   },
+   {
+    "n": 2,
+    "t": "Money and the Economy: The Macro View"
+   },
+   {
+    "n": 3,
+    "t": "The Keynesian Cross"
+   },
+   {
+    "n": 4,
+    "t": "The IS-LM Machinery"
+   },
+   {
+    "n": 5,
+    "t": "Aggregate Demand and Supply"
+   },
+   {
+    "n": 6,
+    "t": "Inflation and Unemployment"
+   },
+   {
+    "n": 7,
+    "t": "Fiscal Policy and Debt"
+   },
+   {
+    "n": 8,
+    "t": "Growth Theory"
+   },
+   {
+    "n": 9,
+    "t": "Business Cycles and Expectations"
+   },
+   {
+    "n": 10,
+    "t": "The Open Economy and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "international-economics",
+  "title": "International Economics",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Ricardian Logic"
+   },
+   {
+    "n": 2,
+    "t": "The Heckscher-Ohlin Frame"
+   },
+   {
+    "n": 3,
+    "t": "The New Trade Theory"
+   },
+   {
+    "n": 4,
+    "t": "Trade Policy Arithmetic"
+   },
+   {
+    "n": 5,
+    "t": "The WTO and Regionalism"
+   },
+   {
+    "n": 6,
+    "t": "The Balance of Payments"
+   },
+   {
+    "n": 7,
+    "t": "Exchange-Rate Machinery"
+   },
+   {
+    "n": 8,
+    "t": "The Open Macro Register"
+   },
+   {
+    "n": 9,
+    "t": "Globalisation and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "development-economics",
+  "title": "Development Economics",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Meaning and the Measure"
+   },
+   {
+    "n": 2,
+    "t": "Growth Theory and Poverty Traps"
+   },
+   {
+    "n": 3,
+    "t": "Poverty and Inequality"
+   },
+   {
+    "n": 4,
+    "t": "Population and Migration"
+   },
+   {
+    "n": 5,
+    "t": "Human Capital"
+   },
+   {
+    "n": 6,
+    "t": "Agriculture and Rural Transformation"
+   },
+   {
+    "n": 7,
+    "t": "Finance, Trade and Aid"
+   },
+   {
+    "n": 8,
+    "t": "The Sustainable Doorway"
+   }
+  ]
+ },
+ {
+  "id": "public-economics",
+  "title": "Public Economics",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Why Government"
+   },
+   {
+    "n": 2,
+    "t": "Public Goods at Depth"
+   },
+   {
+    "n": 3,
+    "t": "Externalities at Depth"
+   },
+   {
+    "n": 4,
+    "t": "Public Expenditure"
+   },
+   {
+    "n": 5,
+    "t": "Taxation Theory"
+   },
+   {
+    "n": 6,
+    "t": "The Indian Tax System"
+   },
+   {
+    "n": 7,
+    "t": "Public Debt and Deficits"
+   },
+   {
+    "n": 8,
+    "t": "Fiscal Federalism"
+   },
+   {
+    "n": 9,
+    "t": "The Budget Craft and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "monetary-economics",
+  "title": "Monetary Economics",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Money’s Nature and Its Measures"
+   },
+   {
+    "n": 2,
+    "t": "The Financial System’s Map"
+   },
+   {
+    "n": 3,
+    "t": "The Central Bank and the RBI"
+   },
+   {
+    "n": 4,
+    "t": "The Money-Supply Machinery"
+   },
+   {
+    "n": 5,
+    "t": "Monetary Transmission"
+   },
+   {
+    "n": 6,
+    "t": "Inflation Theory Deepened"
+   },
+   {
+    "n": 7,
+    "t": "Instability and Crisis"
+   },
+   {
+    "n": 8,
+    "t": "Modern Money and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "econometrics",
+  "title": "Econometrics",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Idea of Econometrics"
+   },
+   {
+    "n": 2,
+    "t": "Simple Regression and OLS"
+   },
+   {
+    "n": 3,
+    "t": "Multiple Regression"
+   },
+   {
+    "n": 4,
+    "t": "Specification Craft"
+   },
+   {
+    "n": 5,
+    "t": "Heteroskedasticity and Autocorrelation"
+   },
+   {
+    "n": 6,
+    "t": "Endogeneity and Instruments"
+   },
+   {
+    "n": 7,
+    "t": "Panel and Time-Series Registers"
+   },
+   {
+    "n": 8,
+    "t": "Limited and Categorical Outcomes"
+   },
+   {
+    "n": 9,
+    "t": "Applied Projects and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "behavioural-economics",
+  "title": "Behavioural Economics",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Rational Baseline and Its Critique"
+   },
+   {
+    "n": 2,
+    "t": "Heuristics and Biases"
+   },
+   {
+    "n": 3,
+    "t": "Prospect Theory"
+   },
+   {
+    "n": 4,
+    "t": "Time and Self-Control"
+   },
+   {
+    "n": 5,
+    "t": "Social Preferences"
+   },
+   {
+    "n": 6,
+    "t": "Nudge and Choice Architecture"
+   },
+   {
+    "n": 7,
+    "t": "The Experimental Doorway"
+   }
+  ]
+ },
+ {
+  "id": "financial-economics",
+  "title": "Financial Economics",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Time-Value Engine"
+   },
+   {
+    "n": 2,
+    "t": "Risk and Return Foundations"
+   },
+   {
+    "n": 3,
+    "t": "Portfolio Theory"
+   },
+   {
+    "n": 4,
+    "t": "The CAPM and Its Register"
+   },
+   {
+    "n": 5,
+    "t": "Market Efficiency"
+   },
+   {
+    "n": 6,
+    "t": "Derivatives Foundations"
+   },
+   {
+    "n": 7,
+    "t": "Option Pricing Foundations"
+   },
+   {
+    "n": 8,
+    "t": "The No-Arbitrage Doorway"
+   }
+  ]
+ },
+ {
+  "id": "business-studies",
+  "title": "Business Studies",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Nature and Forms of Business"
+   },
+   {
+    "n": 2,
+    "t": "Business Services"
+   },
+   {
+    "n": 3,
+    "t": "Social Responsibility and Ethics"
+   },
+   {
+    "n": 4,
+    "t": "Management Principles"
+   },
+   {
+    "n": 5,
+    "t": "Planning and Organising"
+   },
+   {
+    "n": 6,
+    "t": "Staffing and Directing"
+   },
+   {
+    "n": 7,
+    "t": "Controlling and the Business Environment"
+   },
+   {
+    "n": 8,
+    "t": "Consumer Protection and the Projects Doorway"
+   }
+  ]
+ },
+ {
+  "id": "accounting",
+  "title": "Accounting",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Foundations and the Equation"
+   },
+   {
+    "n": 2,
+    "t": "The Book-Keeping Cycle"
+   },
+   {
+    "n": 3,
+    "t": "Final Accounts"
+   },
+   {
+    "n": 4,
+    "t": "Depreciation, Provisions and Reserves"
+   },
+   {
+    "n": 5,
+    "t": "Bills of Exchange and Rectification"
+   },
+   {
+    "n": 6,
+    "t": "Partnership Accounts"
+   },
+   {
+    "n": 7,
+    "t": "Company Accounts First Pass"
+   },
+   {
+    "n": 8,
+    "t": "The Analysis and Cash-Flow Doorway"
+   }
+  ]
+ },
+ {
+  "id": "cost-accounting",
+  "title": "Cost Accounting",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Cost Concepts and the Cost Sheet"
+   },
+   {
+    "n": 2,
+    "t": "Material Costing"
+   },
+   {
+    "n": 3,
+    "t": "Labour Costing"
+   },
+   {
+    "n": 4,
+    "t": "Overhead Machinery"
+   },
+   {
+    "n": 5,
+    "t": "The Costing Methods Census"
+   },
+   {
+    "n": 6,
+    "t": "Standard Costing and Variances"
+   },
+   {
+    "n": 7,
+    "t": "Marginal Costing and Decisions"
+   },
+   {
+    "n": 8,
+    "t": "Budgets and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "financial-management-and-corporate-finance",
+  "title": "Financial Management & Corporate Finance",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Manager and the Goal"
+   },
+   {
+    "n": 2,
+    "t": "The Time-Value Practice"
+   },
+   {
+    "n": 3,
+    "t": "Capital Budgeting in Full"
+   },
+   {
+    "n": 4,
+    "t": "The Cost of Capital"
+   },
+   {
+    "n": 5,
+    "t": "Capital Structure and Leverage"
+   },
+   {
+    "n": 6,
+    "t": "Dividend Policy"
+   },
+   {
+    "n": 7,
+    "t": "Working Capital Management"
+   },
+   {
+    "n": 8,
+    "t": "The Sources of Finance"
+   },
+   {
+    "n": 9,
+    "t": "Business Valuation and Corporate Actions"
+   },
+   {
+    "n": 10,
+    "t": "Derivatives for the Manager"
+   },
+   {
+    "n": 11,
+    "t": "The Integrated Capstone"
+   }
+  ]
+ },
+ {
+  "id": "banking",
+  "title": "Banking",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Origins and the Landscape"
+   },
+   {
+    "n": 2,
+    "t": "The Bank’s Balance Sheet"
+   },
+   {
+    "n": 3,
+    "t": "Operations and Credit"
+   },
+   {
+    "n": 4,
+    "t": "Payments and Technology"
+   },
+   {
+    "n": 5,
+    "t": "Risk and the Basel Craft"
+   },
+   {
+    "n": 6,
+    "t": "The Insurance Craft"
+   },
+   {
+    "n": 7,
+    "t": "Regulation and the Banking Ethics"
+   },
+   {
+    "n": 8,
+    "t": "The Banking Doorway"
+   }
+  ]
+ },
+ {
+  "id": "investment-analysis",
+  "title": "Investment Analysis",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Investment Landscape"
+   },
+   {
+    "n": 2,
+    "t": "Risk-Return Measurement"
+   },
+   {
+    "n": 3,
+    "t": "Portfolio Construction Practice"
+   },
+   {
+    "n": 4,
+    "t": "Equity Analysis"
+   },
+   {
+    "n": 5,
+    "t": "Fixed-Income Analysis"
+   },
+   {
+    "n": 6,
+    "t": "Derivatives Practice"
+   },
+   {
+    "n": 7,
+    "t": "Mutual Funds and ETFs"
+   },
+   {
+    "n": 8,
+    "t": "Performance and the Ethics Doorway"
+   }
+  ]
+ },
+ {
+  "id": "statistics-for-economics",
+  "title": "Statistics for Economics",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Data and the Descriptive Craft"
+   },
+   {
+    "n": 2,
+    "t": "Correlation and Regression First Pass"
+   },
+   {
+    "n": 3,
+    "t": "Index Numbers"
+   },
+   {
+    "n": 4,
+    "t": "The Time-Series Craft"
+   },
+   {
+    "n": 5,
+    "t": "Probability and Sampling for Economists"
+   },
+   {
+    "n": 6,
+    "t": "The Official Data System"
+   },
+   {
+    "n": 7,
+    "t": "The Survey Craft and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "business-mathematics",
+  "title": "Business Mathematics",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Ratio, Proportion and the Index Craft"
+   },
+   {
+    "n": 2,
+    "t": "Equations and Inequalities"
+   },
+   {
+    "n": 3,
+    "t": "The Commercial and EMI Arithmetic"
+   },
+   {
+    "n": 4,
+    "t": "Progressions and Functions for Finance"
+   },
+   {
+    "n": 5,
+    "t": "Matrices and the Input-Output Taster"
+   },
+   {
+    "n": 6,
+    "t": "The Marginal Calculus"
+   },
+   {
+    "n": 7,
+    "t": "Probability and Expected Value"
+   },
+   {
+    "n": 8,
+    "t": "Integration and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "entrepreneurship",
+  "title": "Entrepreneurship",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Entrepreneurial Mindset"
+   },
+   {
+    "n": 2,
+    "t": "Opportunity and Ideation"
+   },
+   {
+    "n": 3,
+    "t": "The Business-Plan Discipline"
+   },
+   {
+    "n": 4,
+    "t": "Funding the Venture"
+   },
+   {
+    "n": 5,
+    "t": "Launch and the Lean Register"
+   },
+   {
+    "n": 6,
+    "t": "Scaling and the Metric Register"
+   },
+   {
+    "n": 7,
+    "t": "Marketing for the Startup"
+   },
+   {
+    "n": 8,
+    "t": "The Ecosystem and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "marketing",
+  "title": "Marketing",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Foundations: The Value Craft"
+   },
+   {
+    "n": 2,
+    "t": "Segmentation, Targeting and Positioning"
+   },
+   {
+    "n": 3,
+    "t": "Product and Brand"
+   },
+   {
+    "n": 4,
+    "t": "Pricing Strategy"
+   },
+   {
+    "n": 5,
+    "t": "Distribution and Channels"
+   },
+   {
+    "n": 6,
+    "t": "Promotion and the IMC Register"
+   },
+   {
+    "n": 7,
+    "t": "Services and Relationship Marketing"
+   },
+   {
+    "n": 8,
+    "t": "Digital and the Consumer Doorway"
+   }
+  ]
+ },
+ {
+  "id": "human-resource-management",
+  "title": "Human Resource Management",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "HRM Foundations"
+   },
+   {
+    "n": 2,
+    "t": "Planning and the Job Craft"
+   },
+   {
+    "n": 3,
+    "t": "Recruitment and Selection"
+   },
+   {
+    "n": 4,
+    "t": "Training and Development"
+   },
+   {
+    "n": 5,
+    "t": "Performance Management"
+   },
+   {
+    "n": 6,
+    "t": "Compensation and Benefits"
+   },
+   {
+    "n": 7,
+    "t": "Employee Relations and the Labour Register"
+   },
+   {
+    "n": 8,
+    "t": "Contemporary HR and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "operations-management",
+  "title": "Operations Management",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Operations Foundations"
+   },
+   {
+    "n": 2,
+    "t": "Process and Capacity"
+   },
+   {
+    "n": 3,
+    "t": "Forecasting for Operations"
+   },
+   {
+    "n": 4,
+    "t": "Inventory Management"
+   },
+   {
+    "n": 5,
+    "t": "Scheduling and the Project Craft"
+   },
+   {
+    "n": 6,
+    "t": "Quality Management"
+   },
+   {
+    "n": 7,
+    "t": "Lean and the Supply Chain"
+   },
+   {
+    "n": 8,
+    "t": "The Operations Doorway"
+   }
+  ]
+ },
+ {
+  "id": "international-business",
+  "title": "International Business",
+  "disc": "economics-commerce",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Globalisation and the Foundations"
+   },
+   {
+    "n": 2,
+    "t": "Country Differences: The Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Market-Entry Ladder"
+   },
+   {
+    "n": 4,
+    "t": "Global Production and the World Chain"
+   },
+   {
+    "n": 5,
+    "t": "The Global Functions"
+   },
+   {
+    "n": 6,
+    "t": "The Multinational Finance Register"
+   },
+   {
+    "n": 7,
+    "t": "Ethics, Regions and the Doorway"
+   },
+   {
+    "n": 8,
+    "t": "The India Case and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "foundation-chemistry",
+  "title": "Foundation Chemistry",
+  "disc": "chemistry",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Matter and Its Purity"
+   },
+   {
+    "n": 2,
+    "t": "The Measurement Craft and the Mole"
+   },
+   {
+    "n": 3,
+    "t": "Atomic Structure at First Pass"
+   },
+   {
+    "n": 4,
+    "t": "The Periodic Table at First Pass"
+   },
+   {
+    "n": 5,
+    "t": "Chemical Bonding at First Pass"
+   },
+   {
+    "n": 6,
+    "t": "Acids, Bases and Salts"
+   },
+   {
+    "n": 7,
+    "t": "The Gas Laws at First Pass"
+   },
+   {
+    "n": 8,
+    "t": "Water and Solutions"
+   },
+   {
+    "n": 9,
+    "t": "Carbon’s First Pass"
+   },
+   {
+    "n": 10,
+    "t": "The Laboratory Register"
+   }
+  ]
+ },
+ {
+  "id": "physical-chemistry",
+  "title": "Physical Chemistry",
+  "disc": "chemistry",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Chemical Thermodynamics"
+   },
+   {
+    "n": 2,
+    "t": "Thermodynamics Advanced (the fold)"
+   },
+   {
+    "n": 3,
+    "t": "Chemical Equilibrium"
+   },
+   {
+    "n": 4,
+    "t": "Ionic Equilibria"
+   },
+   {
+    "n": 5,
+    "t": "Electrochemistry (the fold)"
+   },
+   {
+    "n": 6,
+    "t": "Chemical Kinetics (the fold)"
+   },
+   {
+    "n": 7,
+    "t": "The Solid State"
+   },
+   {
+    "n": 8,
+    "t": "Solutions and Colligative Properties"
+   },
+   {
+    "n": 9,
+    "t": "The Gaseous and Surface Registers"
+   },
+   {
+    "n": 10,
+    "t": "Spectroscopy Foundations"
+   },
+   {
+    "n": 11,
+    "t": "Photochemistry and the Photophysical Register"
+   },
+   {
+    "n": 12,
+    "t": "The Physical Doorway"
+   }
+  ]
+ },
+ {
+  "id": "organic-chemistry",
+  "title": "Organic Chemistry",
+  "disc": "chemistry",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Structure and Nomenclature"
+   },
+   {
+    "n": 2,
+    "t": "The Alkanes"
+   },
+   {
+    "n": 3,
+    "t": "The Alkenes and Alkynes"
+   },
+   {
+    "n": 4,
+    "t": "The Aromatic Register"
+   },
+   {
+    "n": 5,
+    "t": "The Halides and the SN Craft"
+   },
+   {
+    "n": 6,
+    "t": "Alcohols, Phenols and Ethers"
+   },
+   {
+    "n": 7,
+    "t": "The Carbonyl Register"
+   },
+   {
+    "n": 8,
+    "t": "The Acids and Their Derivatives"
+   },
+   {
+    "n": 9,
+    "t": "The Amines and the Nitrogen Register"
+   },
+   {
+    "n": 10,
+    "t": "The Biomolecules Register"
+   },
+   {
+    "n": 11,
+    "t": "The Synthetic and Practical Doorway"
+   }
+  ]
+ },
+ {
+  "id": "inorganic-chemistry",
+  "title": "Inorganic Chemistry",
+  "disc": "chemistry",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Periodicity at Depth"
+   },
+   {
+    "n": 2,
+    "t": "Bonding’s Inorganic Dress"
+   },
+   {
+    "n": 3,
+    "t": "Hydrogen and the s-Block"
+   },
+   {
+    "n": 4,
+    "t": "The p-Block: First Families"
+   },
+   {
+    "n": 5,
+    "t": "The p-Block: Later Families"
+   },
+   {
+    "n": 6,
+    "t": "The d- and f-Block"
+   },
+   {
+    "n": 7,
+    "t": "Coordination Chemistry"
+   },
+   {
+    "n": 8,
+    "t": "The Bioinorganic Register"
+   },
+   {
+    "n": 9,
+    "t": "The Metallurgical Register"
+   },
+   {
+    "n": 10,
+    "t": "The Qualitative and Nuclear Crafts"
+   }
+  ]
+ },
+ {
+  "id": "analytical-chemistry",
+  "title": "Analytical Chemistry",
+  "disc": "chemistry",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Accuracy and Precision"
+   },
+   {
+    "n": 2,
+    "t": "The Classical Quantitative Crafts"
+   },
+   {
+    "n": 3,
+    "t": "The Titrimetric Families"
+   },
+   {
+    "n": 4,
+    "t": "The Spectroscopic Methods"
+   },
+   {
+    "n": 5,
+    "t": "The Electroanalytical Register"
+   },
+   {
+    "n": 6,
+    "t": "The Chromatographic Register"
+   },
+   {
+    "n": 7,
+    "t": "The Sample and the Validation Crafts"
+   },
+   {
+    "n": 8,
+    "t": "The Analytical Doorway"
+   }
+  ]
+ },
+ {
+  "id": "environmental-chemistry",
+  "title": "Environmental Chemistry",
+  "disc": "chemistry",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Atmosphere and Its Cycles"
+   },
+   {
+    "n": 2,
+    "t": "The Air-Pollution Chemistry"
+   },
+   {
+    "n": 3,
+    "t": "The Greenhouse and Climate Chemistry"
+   },
+   {
+    "n": 4,
+    "t": "The Water-Pollution Chemistry"
+   },
+   {
+    "n": 5,
+    "t": "The Soil and Toxic Chemistry"
+   },
+   {
+    "n": 6,
+    "t": "The Waste and Treatment Crafts"
+   },
+   {
+    "n": 7,
+    "t": "The Monitoring and Doorway Crafts"
+   }
+  ]
+ },
+ {
+  "id": "biochemistry",
+  "title": "Biochemistry",
+  "disc": "chemistry",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Water, pH and the Living Buffer"
+   },
+   {
+    "n": 2,
+    "t": "Amino Acids and Protein Structure"
+   },
+   {
+    "n": 3,
+    "t": "Protein Function"
+   },
+   {
+    "n": 4,
+    "t": "The Enzyme Machinery"
+   },
+   {
+    "n": 5,
+    "t": "The Carbohydrate and Lipid Registers"
+   },
+   {
+    "n": 6,
+    "t": "Membranes and Transport"
+   },
+   {
+    "n": 7,
+    "t": "The Nucleic-Acid Register"
+   },
+   {
+    "n": 8,
+    "t": "The Carbohydrate Metabolism"
+   },
+   {
+    "n": 9,
+    "t": "The Lipid and Nitrogen Metabolism"
+   },
+   {
+    "n": 10,
+    "t": "The Bioenergetics Doorway"
+   }
+  ]
+ },
+ {
+  "id": "quantum-chemistry",
+  "title": "Quantum Chemistry",
+  "disc": "chemistry",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Chemical Origins of Quantum"
+   },
+   {
+    "n": 2,
+    "t": "Postulates and Operators"
+   },
+   {
+    "n": 3,
+    "t": "The Schrodinger Craft and the Model Systems"
+   },
+   {
+    "n": 4,
+    "t": "The Hydrogen Atom’s Orbitals"
+   },
+   {
+    "n": 5,
+    "t": "The Many-Electron Register"
+   },
+   {
+    "n": 6,
+    "t": "The Molecular-Orbital Machinery"
+   },
+   {
+    "n": 7,
+    "t": "The Group-Theory Taster"
+   },
+   {
+    "n": 8,
+    "t": "The Spectroscopy-and-DFT Doorway"
+   }
+  ]
+ },
+ {
+  "id": "computational-chemistry",
+  "title": "Computational Chemistry",
+  "disc": "chemistry",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Idea and the Toolchain"
+   },
+   {
+    "n": 2,
+    "t": "The Force-Field Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Electronic-Structure Ladder"
+   },
+   {
+    "n": 4,
+    "t": "The Molecular-Dynamics Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Conformational and Docking Registers"
+   },
+   {
+    "n": 6,
+    "t": "The Cheminformatics-and-ML Doorway"
+   },
+   {
+    "n": 7,
+    "t": "The Computational Doorway"
+   }
+  ]
+ },
+ {
+  "id": "industrial-chemistry",
+  "title": "Industrial Chemistry",
+  "disc": "chemistry",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Water and the Industrial Utilities"
+   },
+   {
+    "n": 2,
+    "t": "The Acid-and-Alkali Industries"
+   },
+   {
+    "n": 3,
+    "t": "The Fertilizer Industries"
+   },
+   {
+    "n": 4,
+    "t": "Petroleum and the Petrochemicals"
+   },
+   {
+    "n": 5,
+    "t": "The Polymer-and-Elastomer Register"
+   },
+   {
+    "n": 6,
+    "t": "The Fine-Chemicals Register"
+   },
+   {
+    "n": 7,
+    "t": "The Fuels-and-Energy Register"
+   },
+   {
+    "n": 8,
+    "t": "The Process Doorway"
+   }
+  ]
+ },
+ {
+  "id": "foundation-biology",
+  "title": "Foundation Biology",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "What Life Is"
+   },
+   {
+    "n": 2,
+    "t": "How Biologists Know"
+   },
+   {
+    "n": 3,
+    "t": "The Chemistry Preview"
+   },
+   {
+    "n": 4,
+    "t": "The Cell Preview"
+   },
+   {
+    "n": 5,
+    "t": "The Two Engines Previewed"
+   },
+   {
+    "n": 6,
+    "t": "Unity and Diversity"
+   },
+   {
+    "n": 7,
+    "t": "The Ecological Frame"
+   },
+   {
+    "n": 8,
+    "t": "The Biologist’s Craft"
+   },
+   {
+    "n": 9,
+    "t": "The Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "cell-biology",
+  "title": "Cell Biology",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Theory and the Tools"
+   },
+   {
+    "n": 2,
+    "t": "The Prokaryotic Architecture"
+   },
+   {
+    "n": 3,
+    "t": "Membranes and Transport"
+   },
+   {
+    "n": 4,
+    "t": "The Endomembrane System"
+   },
+   {
+    "n": 5,
+    "t": "The Energy Organelles"
+   },
+   {
+    "n": 6,
+    "t": "The Cytoskeleton and the Matrix"
+   },
+   {
+    "n": 7,
+    "t": "The Cell Cycle and Mitosis"
+   },
+   {
+    "n": 8,
+    "t": "Meiosis — the Division for Sex"
+   },
+   {
+    "n": 9,
+    "t": "Cell Communication"
+   }
+  ]
+ },
+ {
+  "id": "molecular-biology",
+  "title": "Molecular Biology",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The DNA Structure"
+   },
+   {
+    "n": 2,
+    "t": "The Replication Factory"
+   },
+   {
+    "n": 3,
+    "t": "Transcription — from Gene to RNA"
+   },
+   {
+    "n": 4,
+    "t": "Translation — the Code Read"
+   },
+   {
+    "n": 5,
+    "t": "The Prokaryotic Regulation"
+   },
+   {
+    "n": 6,
+    "t": "The Eukaryotic Regulation"
+   },
+   {
+    "n": 7,
+    "t": "Mutation and Repair"
+   },
+   {
+    "n": 8,
+    "t": "Mobile Elements and Viruses"
+   },
+   {
+    "n": 9,
+    "t": "Genomes and the Doorstep"
+   }
+  ]
+ },
+ {
+  "id": "genetics",
+  "title": "Genetics",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "Mendel’s Logic"
+   },
+   {
+    "n": 2,
+    "t": "The Extensions’ Census"
+   },
+   {
+    "n": 3,
+    "t": "The Chromosome Theory"
+   },
+   {
+    "n": 4,
+    "t": "The Chromosome Errors"
+   },
+   {
+    "n": 5,
+    "t": "The Extranuclear Inheritance"
+   },
+   {
+    "n": 6,
+    "t": "The Pedigree and the Counselling Craft"
+   },
+   {
+    "n": 7,
+    "t": "The Population Register"
+   },
+   {
+    "n": 8,
+    "t": "The Quantitative and the Epigenetic"
+   },
+   {
+    "n": 9,
+    "t": "The Genomic Doorway"
+   }
+  ]
+ },
+ {
+  "id": "evolution",
+  "title": "Evolution",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Evidence Register"
+   },
+   {
+    "n": 2,
+    "t": "Variation and Selection"
+   },
+   {
+    "n": 3,
+    "t": "Drift, Flow and the Neutral Register"
+   },
+   {
+    "n": 4,
+    "t": "The Origin of Species"
+   },
+   {
+    "n": 5,
+    "t": "The Tree-Building Craft"
+   },
+   {
+    "n": 6,
+    "t": "The Grand Pattern"
+   },
+   {
+    "n": 7,
+    "t": "The Origin of Life"
+   },
+   {
+    "n": 8,
+    "t": "The Human Story"
+   },
+   {
+    "n": 9,
+    "t": "Coevolution and the Webs"
+   }
+  ]
+ },
+ {
+  "id": "ecology",
+  "title": "Ecology",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Organism and Its Environment"
+   },
+   {
+    "n": 2,
+    "t": "The Population’s Arithmetic"
+   },
+   {
+    "n": 3,
+    "t": "The Interaction Census"
+   },
+   {
+    "n": 4,
+    "t": "Communities and Succession"
+   },
+   {
+    "n": 5,
+    "t": "The Ecosystem’s Energy"
+   },
+   {
+    "n": 6,
+    "t": "The Matter Cycles"
+   },
+   {
+    "n": 7,
+    "t": "The Biodiversity and Conservation Register"
+   },
+   {
+    "n": 8,
+    "t": "The Applied Craft and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "biotechnology",
+  "title": "Biotechnology",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Natural Toolbox"
+   },
+   {
+    "n": 2,
+    "t": "Vectors and Cloning"
+   },
+   {
+    "n": 3,
+    "t": "PCR — the Exponential Copier"
+   },
+   {
+    "n": 4,
+    "t": "Libraries and Screening"
+   },
+   {
+    "n": 5,
+    "t": "Sequencing — Reading the Whole"
+   },
+   {
+    "n": 6,
+    "t": "The Editing Era"
+   },
+   {
+    "n": 7,
+    "t": "Expression and the Industrial Register"
+   },
+   {
+    "n": 8,
+    "t": "The Medical and Agricultural Registers"
+   },
+   {
+    "n": 9,
+    "t": "The Ethics, the Safety and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "microbiology",
+  "title": "Microbiology",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Discovery Register"
+   },
+   {
+    "n": 2,
+    "t": "The Bacterial Architecture"
+   },
+   {
+    "n": 3,
+    "t": "Growth and the Metabolic Diversity"
+   },
+   {
+    "n": 4,
+    "t": "The Bacterial Genetics"
+   },
+   {
+    "n": 5,
+    "t": "The Viral Register"
+   },
+   {
+    "n": 6,
+    "t": "The Fungal Register"
+   },
+   {
+    "n": 7,
+    "t": "The Protist Census"
+   },
+   {
+    "n": 8,
+    "t": "The Control Craft and the Resistance Era"
+   },
+   {
+    "n": 9,
+    "t": "The Applied Register"
+   }
+  ]
+ },
+ {
+  "id": "immunology",
+  "title": "Immunology",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Innate Register"
+   },
+   {
+    "n": 2,
+    "t": "The Identity Cards and the Bridge"
+   },
+   {
+    "n": 3,
+    "t": "The B Cell and the Antibody Craft"
+   },
+   {
+    "n": 4,
+    "t": "The T Cell’s Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Regulation and Tolerance Question"
+   },
+   {
+    "n": 6,
+    "t": "The Immunopathology Census"
+   },
+   {
+    "n": 7,
+    "t": "The Vaccines’ Craft"
+   },
+   {
+    "n": 8,
+    "t": "The Techniques and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "plant-anatomy",
+  "title": "Plant Anatomy",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Body’s Organisation"
+   },
+   {
+    "n": 2,
+    "t": "The Meristems and the Tissues"
+   },
+   {
+    "n": 3,
+    "t": "The Root"
+   },
+   {
+    "n": 4,
+    "t": "The Stem"
+   },
+   {
+    "n": 5,
+    "t": "The Leaf"
+   },
+   {
+    "n": 6,
+    "t": "The Secondary Growth"
+   },
+   {
+    "n": 7,
+    "t": "The Flower and the Fruit"
+   },
+   {
+    "n": 8,
+    "t": "The Adaptive, the Anomalous and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "plant-physiology",
+  "title": "Plant Physiology",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Water Relations"
+   },
+   {
+    "n": 2,
+    "t": "The Mineral Nutrition"
+   },
+   {
+    "n": 3,
+    "t": "Photosynthesis — the Light Reactions"
+   },
+   {
+    "n": 4,
+    "t": "Photosynthesis — the Calvin Cycle and the Path Variants"
+   },
+   {
+    "n": 5,
+    "t": "Respiration and the Sugar Traffic"
+   },
+   {
+    "n": 6,
+    "t": "The Growth Regulator Census"
+   },
+   {
+    "n": 7,
+    "t": "The Photoperiodism and the Flowering Signal"
+   },
+   {
+    "n": 8,
+    "t": "The Movements and the Stress Register"
+   },
+   {
+    "n": 9,
+    "t": "The Doorway"
+   }
+  ]
+ },
+ {
+  "id": "plant-taxonomy",
+  "title": "Plant Taxonomy",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Three Crafts"
+   },
+   {
+    "n": 2,
+    "t": "The Classification’s History"
+   },
+   {
+    "n": 3,
+    "t": "The Herbarium and the Field Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Algal Line"
+   },
+   {
+    "n": 5,
+    "t": "The Bryophyte-and-Pteridophyte Register"
+   },
+   {
+    "n": 6,
+    "t": "The Gymnosperm-and-Angiosperm Arc"
+   },
+   {
+    "n": 7,
+    "t": "The Key Families Register"
+   },
+   {
+    "n": 8,
+    "t": "The Modern Tools and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "plant-ecology",
+  "title": "Plant Ecology",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Plant in Its World"
+   },
+   {
+    "n": 2,
+    "t": "The Plant Populations"
+   },
+   {
+    "n": 3,
+    "t": "The Succession Register"
+   },
+   {
+    "n": 4,
+    "t": "The Vegetation Census"
+   },
+   {
+    "n": 5,
+    "t": "The Mutualism Register"
+   },
+   {
+    "n": 6,
+    "t": "The Global Register"
+   },
+   {
+    "n": 7,
+    "t": "The Methods and the Analysis Craft"
+   },
+   {
+    "n": 8,
+    "t": "The Conservation and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "plant-genetics",
+  "title": "Plant Genetics",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Plant’s Classical Classics"
+   },
+   {
+    "n": 2,
+    "t": "The Linkage-and-Mapping Register"
+   },
+   {
+    "n": 3,
+    "t": "The Cytoplasmic and the Epigenetic Registers"
+   },
+   {
+    "n": 4,
+    "t": "The Polyploid’s Crown"
+   },
+   {
+    "n": 5,
+    "t": "The Breeding Register — the Self-and-Cross Crafts"
+   },
+   {
+    "n": 6,
+    "t": "The Mutation-and-Tissue-Culture Registers"
+   },
+   {
+    "n": 7,
+    "t": "The Marker-and-Molecular Register"
+   },
+   {
+    "n": 8,
+    "t": "The Genetic Resources and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "plant-pathology",
+  "title": "Plant Pathology",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Founding Concepts"
+   },
+   {
+    "n": 2,
+    "t": "The Fungal and Oomycete Diseases"
+   },
+   {
+    "n": 3,
+    "t": "The Bacterial, Viral and Nematode Registers"
+   },
+   {
+    "n": 4,
+    "t": "The Epidemiology Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Plant’s Defence Answer"
+   },
+   {
+    "n": 6,
+    "t": "The Management Craft"
+   },
+   {
+    "n": 7,
+    "t": "The Host-Resistance Register"
+   },
+   {
+    "n": 8,
+    "t": "The Diagnosis and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "economic-botany",
+  "title": "Economic Botany",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Plant-Gift Census"
+   },
+   {
+    "n": 2,
+    "t": "The Cereals and the Pulses"
+   },
+   {
+    "n": 3,
+    "t": "The Beverages, Stimulants and Spices"
+   },
+   {
+    "n": 4,
+    "t": "The Fibres and the Woods"
+   },
+   {
+    "n": 5,
+    "t": "The Medicinal Register"
+   },
+   {
+    "n": 6,
+    "t": "The Horticulture Register"
+   },
+   {
+    "n": 7,
+    "t": "The Future Register"
+   }
+  ]
+ },
+ {
+  "id": "animal-diversity",
+  "title": "Animal Diversity",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Body-Plan Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Sponges and the Cnidarians"
+   },
+   {
+    "n": 3,
+    "t": "The Flatworms and the Roundworms"
+   },
+   {
+    "n": 4,
+    "t": "The Annelids and the Molluscs"
+   },
+   {
+    "n": 5,
+    "t": "The Arthropod Crown"
+   },
+   {
+    "n": 6,
+    "t": "The Echinoderms and the Chordate Origins"
+   },
+   {
+    "n": 7,
+    "t": "The Fishes and the Amphibians"
+   },
+   {
+    "n": 8,
+    "t": "The Amniotes, Birds and Mammals"
+   }
+  ]
+ },
+ {
+  "id": "animal-anatomy",
+  "title": "Animal Anatomy",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Tissue Register"
+   },
+   {
+    "n": 2,
+    "t": "The Integument and the Skeleton"
+   },
+   {
+    "n": 3,
+    "t": "The Digestive Register"
+   },
+   {
+    "n": 4,
+    "t": "The Respiratory and Circulatory Registers"
+   },
+   {
+    "n": 5,
+    "t": "The Excretory and Nervous Registers"
+   },
+   {
+    "n": 6,
+    "t": "The Endocrine-and-Reproductive Anatomy"
+   },
+   {
+    "n": 7,
+    "t": "The Comparative Register and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "animal-physiology",
+  "title": "Animal Physiology",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Excitable Register"
+   },
+   {
+    "n": 2,
+    "t": "The Muscle’s Contraction Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Endocrine Register"
+   },
+   {
+    "n": 4,
+    "t": "The Digestion and Absorption Register"
+   },
+   {
+    "n": 5,
+    "t": "The Gas Transport and the Circulation"
+   },
+   {
+    "n": 6,
+    "t": "The Osmoregulation and Excretion Register"
+   },
+   {
+    "n": 7,
+    "t": "The Thermoregulation and Reproduction Registers"
+   },
+   {
+    "n": 8,
+    "t": "The Sensory Register and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "developmental-biology",
+  "title": "Developmental Biology",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Fertilisation and the Cleavage"
+   },
+   {
+    "n": 2,
+    "t": "The Gastrulation and the Germ Layers"
+   },
+   {
+    "n": 3,
+    "t": "The Pattern Formation Register"
+   },
+   {
+    "n": 4,
+    "t": "The Organogenesis and Induction Register"
+   },
+   {
+    "n": 5,
+    "t": "The Stem Cells and the Regeneration Register"
+   },
+   {
+    "n": 6,
+    "t": "The Metamorphosis and Life Histories"
+   },
+   {
+    "n": 7,
+    "t": "The Evo-Devo Crown"
+   }
+  ]
+ },
+ {
+  "id": "animal-behaviour",
+  "title": "Animal Behaviour",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Mechanism Register"
+   },
+   {
+    "n": 2,
+    "t": "The Development Register"
+   },
+   {
+    "n": 3,
+    "t": "The Function Register"
+   },
+   {
+    "n": 4,
+    "t": "The Evolution Register"
+   },
+   {
+    "n": 5,
+    "t": "The Methods, Ethics and Doorway"
+   }
+  ]
+ },
+ {
+  "id": "entomology",
+  "title": "Entomology",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Success and the Anatomy"
+   },
+   {
+    "n": 2,
+    "t": "The Insect Physiology"
+   },
+   {
+    "n": 3,
+    "t": "The Orders Register"
+   },
+   {
+    "n": 4,
+    "t": "The Social Insects"
+   },
+   {
+    "n": 5,
+    "t": "The Medical-and-Veterinary Register"
+   },
+   {
+    "n": 6,
+    "t": "The Economic-and-Beneficial Register"
+   }
+  ]
+ },
+ {
+  "id": "parasitology",
+  "title": "Parasitology",
+  "disc": "biology",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Concepts and the Adaptation Register"
+   },
+   {
+    "n": 2,
+    "t": "The Protistan Parasites"
+   },
+   {
+    "n": 3,
+    "t": "The Trematodes and the Cestodes"
+   },
+   {
+    "n": 4,
+    "t": "The Nematode Register"
+   },
+   {
+    "n": 5,
+    "t": "The Host’s Answers"
+   },
+   {
+    "n": 6,
+    "t": "The Control and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "anatomy",
+  "title": "Anatomy",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Language and the Planes"
+   },
+   {
+    "n": 2,
+    "t": "The Upper Limb"
+   },
+   {
+    "n": 3,
+    "t": "The Thorax"
+   },
+   {
+    "n": 4,
+    "t": "The Abdomen and the Pelvis"
+   },
+   {
+    "n": 5,
+    "t": "The Head and Neck"
+   },
+   {
+    "n": 6,
+    "t": "The Neuroanatomy Core"
+   },
+   {
+    "n": 7,
+    "t": "The Embryology for the Clinic"
+   },
+   {
+    "n": 8,
+    "t": "The Sectional-and-Imaging Correlate"
+   }
+  ]
+ },
+ {
+  "id": "medical-physiology",
+  "title": "Medical Physiology",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Cell and Transport Basis"
+   },
+   {
+    "n": 2,
+    "t": "The Excitable Tissues"
+   },
+   {
+    "n": 3,
+    "t": "The Blood and Haemostasis"
+   },
+   {
+    "n": 4,
+    "t": "The Cardiovascular System"
+   },
+   {
+    "n": 5,
+    "t": "The Respiratory System"
+   },
+   {
+    "n": 6,
+    "t": "The Renal System"
+   },
+   {
+    "n": 7,
+    "t": "The GI-and-Endocrine Systems"
+   },
+   {
+    "n": 8,
+    "t": "The Neurophysiology-and-Integrative Registers"
+   }
+  ]
+ },
+ {
+  "id": "medical-biochemistry",
+  "title": "Medical Biochemistry",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Water-and-Acid-Base Register"
+   },
+   {
+    "n": 2,
+    "t": "The Plasma Proteins and the Enzyme Diagnosis"
+   },
+   {
+    "n": 3,
+    "t": "The Carbohydrate Register in Disease"
+   },
+   {
+    "n": 4,
+    "t": "The Lipid Register in Disease"
+   },
+   {
+    "n": 5,
+    "t": "The Nitrogen-and-Urea Register"
+   },
+   {
+    "n": 6,
+    "t": "The Organ-Function Register"
+   },
+   {
+    "n": 7,
+    "t": "The Vitamins, Minerals-and-Molecular Registers"
+   },
+   {
+    "n": 8,
+    "t": "The Integration Craft and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "histology",
+  "title": "Histology",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Method and the Stains"
+   },
+   {
+    "n": 2,
+    "t": "The Basic Tissues Under the Microscope"
+   },
+   {
+    "n": 3,
+    "t": "The Cardiovascular-and-Respiratory Histology"
+   },
+   {
+    "n": 4,
+    "t": "The GI-and-Glandular Histology"
+   },
+   {
+    "n": 5,
+    "t": "The Renal-and-Endocrine Histology"
+   },
+   {
+    "n": 6,
+    "t": "The Reproductive, Lymphoid-and-Oral Registers"
+   },
+   {
+    "n": 7,
+    "t": "The Pathology Doorway"
+   }
+  ]
+ },
+ {
+  "id": "pathology",
+  "title": "Pathology",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Cell Injury Register"
+   },
+   {
+    "n": 2,
+    "t": "The Inflammation and the Repair"
+   },
+   {
+    "n": 3,
+    "t": "The Haemodynamic Disorders"
+   },
+   {
+    "n": 4,
+    "t": "The Genetic-and-Immune Pathology"
+   },
+   {
+    "n": 5,
+    "t": "The Neoplasia Register"
+   },
+   {
+    "n": 6,
+    "t": "The Infectious-Disease Pathology"
+   },
+   {
+    "n": 7,
+    "t": "The Systemic Pathology Registers"
+   }
+  ]
+ },
+ {
+  "id": "pharmacology",
+  "title": "Pharmacology",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The General Principles — Pharmacokinetics"
+   },
+   {
+    "n": 2,
+    "t": "The General Principles — Pharmacodynamics"
+   },
+   {
+    "n": 3,
+    "t": "The Autonomic-and-CNS Pharmacology"
+   },
+   {
+    "n": 4,
+    "t": "The Cardiovascular, Renal-and-Autacoid Registers"
+   },
+   {
+    "n": 5,
+    "t": "The Endocrine, Metabolic-and-Chemotherapy Registers"
+   },
+   {
+    "n": 6,
+    "t": "The Toxicology-and-Prescribing Register"
+   }
+  ]
+ },
+ {
+  "id": "medical-microbiology",
+  "title": "Medical Microbiology",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Host-Pathogen-and-Laboratory Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Gram-Positive Register"
+   },
+   {
+    "n": 3,
+    "t": "The Gram-Negative Register"
+   },
+   {
+    "n": 4,
+    "t": "The Mycobacteria-and-Other Registers"
+   },
+   {
+    "n": 5,
+    "t": "The Clinical Virology Register"
+   },
+   {
+    "n": 6,
+    "t": "The Mycology and the Parasitology Preview"
+   },
+   {
+    "n": 7,
+    "t": "The Infection-Control-and-Public Register"
+   }
+  ]
+ },
+ {
+  "id": "clinical-immunology",
+  "title": "Clinical Immunology",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Bridge-and-Review Register"
+   },
+   {
+    "n": 2,
+    "t": "The Immunodeficiency Register"
+   },
+   {
+    "n": 3,
+    "t": "The Hypersensitivity Register"
+   },
+   {
+    "n": 4,
+    "t": "The Autoimmunity Register"
+   },
+   {
+    "n": 5,
+    "t": "The Transplantation Register"
+   },
+   {
+    "n": 6,
+    "t": "The Tumour, Vaccine-and-Diagnostics Registers"
+   }
+  ]
+ },
+ {
+  "id": "forensic-medicine",
+  "title": "Forensic Medicine",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Legal-and-Ethics Frame"
+   },
+   {
+    "n": 2,
+    "t": "The Death Register"
+   },
+   {
+    "n": 3,
+    "t": "The Asphyxia-and-Violent-Death Register"
+   },
+   {
+    "n": 4,
+    "t": "The Injury Register"
+   },
+   {
+    "n": 5,
+    "t": "The Sexual-Offence-and-Examination Register"
+   },
+   {
+    "n": 6,
+    "t": "The Toxicology-and-Identity Registers"
+   },
+   {
+    "n": 7,
+    "t": "The Courtroom Craft"
+   }
+  ]
+ },
+ {
+  "id": "community-medicine",
+  "title": "Community Medicine",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Concept Register"
+   },
+   {
+    "n": 2,
+    "t": "The Epidemiology Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Screening-and-Biostatistics Register"
+   },
+   {
+    "n": 4,
+    "t": "The Communicable-and-Nutrition Registers"
+   },
+   {
+    "n": 5,
+    "t": "The Environment-and-Occupation Register"
+   },
+   {
+    "n": 6,
+    "t": "The MCH-and-Health-System Registers"
+   }
+  ]
+ },
+ {
+  "id": "internal-medicine",
+  "title": "Internal Medicine",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Approach to the Patient"
+   },
+   {
+    "n": 2,
+    "t": "The Cardiovascular Medicine"
+   },
+   {
+    "n": 3,
+    "t": "The Respiratory Medicine"
+   },
+   {
+    "n": 4,
+    "t": "The Gastroenterology-and-Hepatology"
+   },
+   {
+    "n": 5,
+    "t": "The Nephrology-and-Endocrine Register"
+   },
+   {
+    "n": 6,
+    "t": "The Haematology-and-Neurology Registers"
+   },
+   {
+    "n": 7,
+    "t": "The Rheumatology-and-Critical-Care Registers"
+   }
+  ]
+ },
+ {
+  "id": "general-surgery",
+  "title": "General Surgery",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Principles-and-Sterility Register"
+   },
+   {
+    "n": 2,
+    "t": "The Perioperative Arc"
+   },
+   {
+    "n": 3,
+    "t": "The Surgical-Infection Register"
+   },
+   {
+    "n": 4,
+    "t": "The Trauma-and-Burn Registers"
+   },
+   {
+    "n": 5,
+    "t": "The Acute Abdomen"
+   },
+   {
+    "n": 6,
+    "t": "The Hernia, Biliary-and-Colorectal Registers"
+   },
+   {
+    "n": 7,
+    "t": "The Urology, Thoracic-and-Oncologic Principles"
+   }
+  ]
+ },
+ {
+  "id": "obstetrics-gynaecology",
+  "title": "Obstetrics & Gynaecology",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Pregnancy-and-ANC Register"
+   },
+   {
+    "n": 2,
+    "t": "The Labour-and-Delivery Register"
+   },
+   {
+    "n": 3,
+    "t": "The Obstetric Complications"
+   },
+   {
+    "n": 4,
+    "t": "The Puerperium, Lactation-and-Contraception Register"
+   },
+   {
+    "n": 5,
+    "t": "The Gynaecology Register"
+   },
+   {
+    "n": 6,
+    "t": "The Oncology-and-Screening Register"
+   }
+  ]
+ },
+ {
+  "id": "pediatrics",
+  "title": "Pediatrics",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Growth-and-Development Register"
+   },
+   {
+    "n": 2,
+    "t": "The Neonatology Register"
+   },
+   {
+    "n": 3,
+    "t": "The Nutrition-and-Immunisation Registers"
+   },
+   {
+    "n": 4,
+    "t": "The Infections of Childhood"
+   },
+   {
+    "n": 5,
+    "t": "The Systemic Pediatrics Registers"
+   }
+  ]
+ },
+ {
+  "id": "dentistry",
+  "title": "Dentistry",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Oral-Anatomy Review"
+   },
+   {
+    "n": 2,
+    "t": "The Cariology-and-Prevention Register"
+   },
+   {
+    "n": 3,
+    "t": "The Periodontology Register"
+   },
+   {
+    "n": 4,
+    "t": "The Restorative-and-Endodontic Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Orthodontic, Prosthodontic-and-Oral-Surgery Registers"
+   },
+   {
+    "n": 6,
+    "t": "The Oral-Medicine-and-Public Register"
+   }
+  ]
+ },
+ {
+  "id": "nursing",
+  "title": "Nursing",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Foundation Register"
+   },
+   {
+    "n": 2,
+    "t": "The Fundamentals-and-Assessment Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Medication-Administration Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Clinical-Nursing Arc"
+   },
+   {
+    "n": 5,
+    "t": "The Community, Leadership-and-Process Registers"
+   }
+  ]
+ },
+ {
+  "id": "pharmacy",
+  "title": "Pharmacy",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Profession Register"
+   },
+   {
+    "n": 2,
+    "t": "The Pharmaceutics Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Pharmacognosy-and-MedChem Registers"
+   },
+   {
+    "n": 4,
+    "t": "The Practice-and-Dispensing Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Clinical, Analysis-and-Regulatory Registers"
+   }
+  ]
+ },
+ {
+  "id": "veterinary-medicine",
+  "title": "Veterinary Medicine",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Comparative Register"
+   },
+   {
+    "n": 2,
+    "t": "The Husbandry-and-Nutrition Register"
+   },
+   {
+    "n": 3,
+    "t": "The Parasitic-and-Infectious Registers"
+   },
+   {
+    "n": 4,
+    "t": "The Small-and-Large-Animal Registers"
+   },
+   {
+    "n": 5,
+    "t": "The Veterinary-Public-Health-and-Doorway Register"
+   }
+  ]
+ },
+ {
+  "id": "physiotherapy",
+  "title": "Physiotherapy",
+  "disc": "medical-sciences",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Foundation-and-Movement-Science Register"
+   },
+   {
+    "n": 2,
+    "t": "The Assessment Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Therapeutic-Exercise-and-Electrotherapy Registers"
+   },
+   {
+    "n": 4,
+    "t": "The Musculoskeletal Register"
+   },
+   {
+    "n": 5,
+    "t": "The Neuro, Cardiopulmonary-and-Community Registers"
+   }
+  ]
+ },
+ {
+  "id": "music-theory-notation",
+  "title": "Music Theory & Notation",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Pitch and the Staff"
+   },
+   {
+    "n": 2,
+    "t": "The Rhythm Notation"
+   },
+   {
+    "n": 3,
+    "t": "The Keys and the Scales"
+   },
+   {
+    "n": 4,
+    "t": "The Interval Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Chord Census"
+   },
+   {
+    "n": 6,
+    "t": "The Score and the Expression Crafts"
+   }
+  ]
+ },
+ {
+  "id": "rhythm-meter",
+  "title": "Rhythm & Meter",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Beat and the Subdivision"
+   },
+   {
+    "n": 2,
+    "t": "The Simple-and-Compound Meters"
+   },
+   {
+    "n": 3,
+    "t": "The Asymmetric-and-Syncopation Registers"
+   },
+   {
+    "n": 4,
+    "t": "The Tuplets and the Polyrhythm"
+   },
+   {
+    "n": 5,
+    "t": "The Phrase and the Hypermeter"
+   },
+   {
+    "n": 6,
+    "t": "The World’s Rhythmic Register"
+   }
+  ]
+ },
+ {
+  "id": "harmony",
+  "title": "Harmony",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Diatonic Progression"
+   },
+   {
+    "n": 2,
+    "t": "The Inversions-and-Six-Four Register"
+   },
+   {
+    "n": 3,
+    "t": "The Cadences-and-Phrases Register"
+   },
+   {
+    "n": 4,
+    "t": "The Non-Chord Tones"
+   },
+   {
+    "n": 5,
+    "t": "The Seventh-Chord Register"
+   },
+   {
+    "n": 6,
+    "t": "The Chromatic-and-Modulation Register"
+   }
+  ]
+ },
+ {
+  "id": "counterpoint",
+  "title": "Counterpoint",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The First Species"
+   },
+   {
+    "n": 2,
+    "t": "The Second-and-Third Species"
+   },
+   {
+    "n": 3,
+    "t": "The Fourth-and-Fifth Species"
+   },
+   {
+    "n": 4,
+    "t": "The Canon-and-Invertible Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Fugue Craft"
+   },
+   {
+    "n": 6,
+    "t": "The Modal-and-Modern Registers"
+   }
+  ]
+ },
+ {
+  "id": "ear-training",
+  "title": "Ear Training",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Interval Recognition"
+   },
+   {
+    "n": 2,
+    "t": "The Melody-and-Rhythm Dictation"
+   },
+   {
+    "n": 3,
+    "t": "The Chord-and-Progression Recognition"
+   },
+   {
+    "n": 4,
+    "t": "The Sight-Singing Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Transposition-and-Aural-Analysis Registers"
+   }
+  ]
+ },
+ {
+  "id": "music-composition",
+  "title": "Music Composition",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Motive and the Theme"
+   },
+   {
+    "n": 2,
+    "t": "The Small Forms"
+   },
+   {
+    "n": 3,
+    "t": "The Sonata Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Orchestration First Pass"
+   },
+   {
+    "n": 5,
+    "t": "The Text Setting and the Revision Discipline"
+   }
+  ]
+ },
+ {
+  "id": "music-history",
+  "title": "Music History",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Medieval-and-Renaissance Register"
+   },
+   {
+    "n": 2,
+    "t": "The Baroque Register"
+   },
+   {
+    "n": 3,
+    "t": "The Classical-and-Romantic Registers"
+   },
+   {
+    "n": 4,
+    "t": "The Twentieth-Century Register"
+   },
+   {
+    "n": 5,
+    "t": "The Jazz-and-Popular Idioms"
+   },
+   {
+    "n": 6,
+    "t": "The World, Digital-and-Contemporary Registers"
+   }
+  ]
+ },
+ {
+  "id": "acoustics",
+  "title": "Acoustics",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Wave Fundamentals"
+   },
+   {
+    "n": 2,
+    "t": "The Pitch’s Arithmetic"
+   },
+   {
+    "n": 3,
+    "t": "The Amplitude-and-Timbre Registers"
+   },
+   {
+    "n": 4,
+    "t": "The Instruments as Vibrators"
+   },
+   {
+    "n": 5,
+    "t": "The Rooms-and-Reverb Craft"
+   },
+   {
+    "n": 6,
+    "t": "The Psychoacoustics Register"
+   }
+  ]
+ },
+ {
+  "id": "instrument-studies",
+  "title": "Instrument Studies",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Families Overview"
+   },
+   {
+    "n": 2,
+    "t": "The Strings-and-Guitars Register"
+   },
+   {
+    "n": 3,
+    "t": "The Keyboards-and-Woodwinds Registers"
+   },
+   {
+    "n": 4,
+    "t": "The Brass-and-Percussion Registers"
+   },
+   {
+    "n": 5,
+    "t": "The World’s Instruments"
+   }
+  ]
+ },
+ {
+  "id": "vocal-music",
+  "title": "Vocal Music",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Instrument’s Own Anatomy"
+   },
+   {
+    "n": 2,
+    "t": "The Technique Register"
+   },
+   {
+    "n": 3,
+    "t": "The Diction Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Indian Classical Voice"
+   },
+   {
+    "n": 5,
+    "t": "The Repertoire-and-Choir Registers"
+   }
+  ]
+ },
+ {
+  "id": "music-production",
+  "title": "Music Production",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Signal-and-Capture Craft"
+   },
+   {
+    "n": 2,
+    "t": "The DAW Register — the Studio’s Software Centre"
+   },
+   {
+    "n": 3,
+    "t": "The Mix Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Mastering-and-Synthesis Registers"
+   },
+   {
+    "n": 5,
+    "t": "The Industry Register and the Doorway"
+   }
+  ]
+ },
+ {
+  "id": "drawing",
+  "title": "Drawing",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Seeing-and-Contour Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Gesture-and-Movement Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Value-and-Form Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Construction-and-Anatomy Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Composition, Materials-and-Practice Registers"
+   }
+  ]
+ },
+ {
+  "id": "painting",
+  "title": "Painting",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Materials-and-Surfaces Census"
+   },
+   {
+    "n": 2,
+    "t": "The Colour-and-Value Practice"
+   },
+   {
+    "n": 3,
+    "t": "The Direct-and-Layered Crafts"
+   },
+   {
+    "n": 4,
+    "t": "The Genres’ Census"
+   },
+   {
+    "n": 5,
+    "t": "The Watercolour-and-Finishing Registers"
+   }
+  ]
+ },
+ {
+  "id": "colour-theory",
+  "title": "Colour Theory",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Light-and-Perception Foundation"
+   },
+   {
+    "n": 2,
+    "t": "The Systems Honesty"
+   },
+   {
+    "n": 3,
+    "t": "The Relationships-and-Harmony Registers"
+   },
+   {
+    "n": 4,
+    "t": "The Context-and-Contrast Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Practical Palette Register"
+   }
+  ]
+ },
+ {
+  "id": "perspective",
+  "title": "Perspective",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Why-and-Window Register"
+   },
+   {
+    "n": 2,
+    "t": "The One-and-Two-Point Crafts"
+   },
+   {
+    "n": 3,
+    "t": "The Measuring-Depth Systems"
+   },
+   {
+    "n": 4,
+    "t": "The Shadows, Reflections-and-Atmosphere"
+   },
+   {
+    "n": 5,
+    "t": "The Curvilinear-and-Axonometric Registers"
+   }
+  ]
+ },
+ {
+  "id": "illustration",
+  "title": "Illustration",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Brief-and-Concept Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Character-Design Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Environment-and-Sequential Registers"
+   },
+   {
+    "n": 4,
+    "t": "The Craft-and-Style Registers"
+   },
+   {
+    "n": 5,
+    "t": "The Business-and-Portfolio Register"
+   }
+  ]
+ },
+ {
+  "id": "sculpture",
+  "title": "Sculpture",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Volume-Thinking Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Clay-Modeling Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Carving-and-Construction Registers"
+   },
+   {
+    "n": 4,
+    "t": "The Molding-and-Casting Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Ceramics, Scale-and-Public Registers"
+   }
+  ]
+ },
+ {
+  "id": "graphic-design",
+  "title": "Graphic Design",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Definition-and-Hierarchy Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Grid-and-Layout Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Identity-and-System Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Editorial-and-Digital Registers"
+   },
+   {
+    "n": 5,
+    "t": "The Process-and-Portfolio Register"
+   }
+  ]
+ },
+ {
+  "id": "typography",
+  "title": "Typography",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Anatomy-of-Letterform"
+   },
+   {
+    "n": 2,
+    "t": "The Classification-and-History Arc"
+   },
+   {
+    "n": 3,
+    "t": "The Selection-and-Detail Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Page-Composition Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Screen, Expressive-and-Technology Registers"
+   }
+  ]
+ },
+ {
+  "id": "photography",
+  "title": "Photography",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Exposure-Triangle Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Light-and-Metering Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Composition-and-Lens Registers"
+   },
+   {
+    "n": 4,
+    "t": "The Studio-and-Flash Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Post-and-Genres Registers"
+   }
+  ]
+ },
+ {
+  "id": "digital-art",
+  "title": "Digital Art",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Canvas Fundamentals"
+   },
+   {
+    "n": 2,
+    "t": "The Brush-and-Mark Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Layers-and-Nondestructive Discipline"
+   },
+   {
+    "n": 4,
+    "t": "The Digital-Colour-and-Painting Techniques"
+   },
+   {
+    "n": 5,
+    "t": "The Concept Workflow-and-Output Register"
+   }
+  ]
+ },
+ {
+  "id": "animation",
+  "title": "Animation",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Principles Foundation"
+   },
+   {
+    "n": 2,
+    "t": "The Timing-and-Spacing Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Keyframe-and-Workflow Craft"
+   },
+   {
+    "n": 4,
+    "t": "The 2D, Cutout-and-Motion-Graphics Registers"
+   },
+   {
+    "n": 5,
+    "t": "The Stop-Motion, 3D-and-Production Pipeline"
+   }
+  ]
+ },
+ {
+  "id": "3d-modelling",
+  "title": "3D Modelling",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Space-and-Coordinates Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Topology-and-Mesh Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Polygon-Modelling Methods"
+   },
+   {
+    "n": 4,
+    "t": "The Sculpting-and-Retopology Arc"
+   },
+   {
+    "n": 5,
+    "t": "The Materials, Lighting-and-Pipeline Registers"
+   }
+  ]
+ },
+ {
+  "id": "dance-fundamentals",
+  "title": "Dance Fundamentals",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Body-and-Alignment Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Locomotor, Jumps-and-Turns"
+   },
+   {
+    "n": 3,
+    "t": "The Musicality-and-Space Registers"
+   },
+   {
+    "n": 4,
+    "t": "The Improvisation-and-Composition Basics"
+   },
+   {
+    "n": 5,
+    "t": "The Rehearsal-and-Wellness Register"
+   }
+  ]
+ },
+ {
+  "id": "classical-dance",
+  "title": "Classical Dance",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Ballet Foundation"
+   },
+   {
+    "n": 2,
+    "t": "The Pointe-and-Repertory Register"
+   },
+   {
+    "n": 3,
+    "t": "The Indian Classical Treasury"
+   },
+   {
+    "n": 4,
+    "t": "The Mudra-and-Abhinaya Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Pedagogy-and-Repertoire Register"
+   }
+  ]
+ },
+ {
+  "id": "contemporary-dance",
+  "title": "Contemporary Dance",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Modern Roots"
+   },
+   {
+    "n": 2,
+    "t": "The Release-and-Floorwork Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Contact-Improvisation Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Composition-and-Choreography Register"
+   },
+   {
+    "n": 5,
+    "t": "The Site, Screen-and-Scene Registers"
+   }
+  ]
+ },
+ {
+  "id": "theatre",
+  "title": "Theatre",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Liveness-and-History Register"
+   },
+   {
+    "n": 2,
+    "t": "The Drama-Structure Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Production-Team Census"
+   },
+   {
+    "n": 4,
+    "t": "The Script-Analysis-and-World Registers"
+   }
+  ]
+ },
+ {
+  "id": "acting",
+  "title": "Acting",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Instrument Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Stanislavski Foundations"
+   },
+   {
+    "n": 3,
+    "t": "The Scene Study Arc"
+   },
+   {
+    "n": 4,
+    "t": "The Classical-and-Screen Registers"
+   },
+   {
+    "n": 5,
+    "t": "The Audition-and-Ethics Registers"
+   }
+  ]
+ },
+ {
+  "id": "film-studies",
+  "title": "Film Studies",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Film-as-Art Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Narrative Form"
+   },
+   {
+    "n": 3,
+    "t": "The Style Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Genre, Auteur-and-Industry Registers"
+   },
+   {
+    "n": 5,
+    "t": "The History-and-Analysis Registers"
+   }
+  ]
+ },
+ {
+  "id": "cinematography",
+  "title": "Cinematography",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Camera-and-Format Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Lens-and-Exposure Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Lighting Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Movement, Colour-and-Grading Registers"
+   },
+   {
+    "n": 5,
+    "t": "The Set-Collaboration Craft"
+   }
+  ]
+ },
+ {
+  "id": "screenwriting",
+  "title": "Screenwriting",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Premise-and-Character Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Structure Arc"
+   },
+   {
+    "n": 3,
+    "t": "The Scene-and-Dialogue Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Rewrite-and-Genre Registers"
+   },
+   {
+    "n": 5,
+    "t": "The Career Craft"
+   }
+  ]
+ },
+ {
+  "id": "stage-production",
+  "title": "Stage Production",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Theatre-Spaces-and-Set Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Lighting-Design Craft"
+   },
+   {
+    "n": 3,
+    "t": "The Sound-Design Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Costume-and-SM Book"
+   },
+   {
+    "n": 5,
+    "t": "The Tech, Safety-and-Process Registers"
+   }
+  ]
+ },
+ {
+  "id": "architecture",
+  "title": "Architecture",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The What-and-Vitruvius Craft"
+   },
+   {
+    "n": 2,
+    "t": "The History Survey"
+   },
+   {
+    "n": 3,
+    "t": "The Drawing Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Structure Basics"
+   },
+   {
+    "n": 5,
+    "t": "The Materials, Space-and-Climate Registers"
+   }
+  ]
+ },
+ {
+  "id": "interior-design",
+  "title": "Interior Design",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Principles-and-Human-Factors Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Lighting-and-Materials Registers"
+   },
+   {
+    "n": 3,
+    "t": "The Furniture-and-Styles Census"
+   },
+   {
+    "n": 4,
+    "t": "The Colour, Textiles-and-Planning Registers"
+   }
+  ]
+ },
+ {
+  "id": "fashion-design",
+  "title": "Fashion Design",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Figure-and-Fashion-Drawing Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Textiles-and-Construction Register"
+   },
+   {
+    "n": 3,
+    "t": "The Pattern-and-Draping Craft"
+   },
+   {
+    "n": 4,
+    "t": "The History-and-Collection Registers"
+   }
+  ]
+ },
+ {
+  "id": "creative-writing",
+  "title": "Creative Writing",
+  "disc": "arts-music",
+  "chapters": [
+   {
+    "n": 1,
+    "t": "The Story-Structure Craft"
+   },
+   {
+    "n": 2,
+    "t": "The Point-of-View Register"
+   },
+   {
+    "n": 3,
+    "t": "The Prose-Style Craft"
+   },
+   {
+    "n": 4,
+    "t": "The Dialogue-and-Scene Craft"
+   },
+   {
+    "n": 5,
+    "t": "The Poetry-and-Revision Registers"
+   }
+  ]
+ }
+]

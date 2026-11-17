@@ -28,10 +28,6 @@ const chapters: Chapter[] = [
       'The Two Highways and the Gate',
       'The Cohesion-Tension Craft',
       'The Stomatal and Ratio Honesty',
-      'Hydrogen Bonding Gives Water Its Unusual',
-      'Configuration and Conformation 14 Solutes',
-      '•=Mlf) Louis Pasteur and Optical Activity: Nonpolar Gases Are Poorly Soluble in Water',
-      'The Ionization of Water Is Expressed by'
     ],
   },
   {
@@ -63,7 +59,6 @@ const chapters: Chapter[] = [
       'The Chemiosmotic Rotary Engine',
       'The Spectra\u2019s Diagnostic Craft',
       'The Photochemical and Biosynthetic Phases: Cyclic and Non-Cyclic Photophosphorylation',
-      'Criticism; and to the many students and teachers who 20 Photosynthesis and Carbohydrate'
     ],
   },
   {
@@ -80,7 +75,6 @@ const chapters: Chapter[] = [
       'The C4 Division of Labour',
       'The CAM Answer and the Productivity Honesty',
       'Photorespiration, the C3-C4-CAM Pathways and the Limiting Factors',
-      'Plant Secondary Metabolites: Alkaloids, Terpenes and Flavonoids',
     ],
   },
   {
@@ -112,9 +106,6 @@ const chapters: Chapter[] = [
       'The GA-and-CK Registers',
       'The ABA-and-Ethylene Honesty',
       'The Network Held Together',
-    
-      'Hormones and neurotransmitters',
-      'Does not work, they are never shy about letting us know'
     ],
   },
   {
@@ -131,8 +122,6 @@ const chapters: Chapter[] = [
       'The Vernalisation Craft',
       'The Florigen Receipt',
       'Photomorphogenesis and the ABC Model of Floral Patterning',
-      'Sexual Reproduction in Flowering Plants',
-      'Growth, Development and Reproduction in Ferns and Mosses',
     ],
   },
   {
@@ -163,7 +152,6 @@ const chapters: Chapter[] = [
       'The Methods Census',
       'The Agriculture Cross-Reference',
       'The Quiet Engine Held',
-      'Embryogenesis and the Apical Meristems',
     ],
   },
 ]

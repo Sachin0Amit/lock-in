@@ -180,7 +180,6 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Classical Ciphers and Their Cracks',
-      'Diffie\u2013Hellman',
       'RSA: the Full Chain',
     ],
   },

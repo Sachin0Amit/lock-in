@@ -69,7 +69,6 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'The Row Receipt Priced Straight',
       'The Exchange\u2019s Arithmetic Held',
       'The Crab Register Named',
       'The Repertoire Receipts Named',

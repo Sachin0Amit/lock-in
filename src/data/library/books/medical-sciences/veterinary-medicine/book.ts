@@ -44,15 +44,13 @@ const chapters: Chapter[] = [
       'The 305-Day Register Named',
       'The Light Honesty Held',
       'The Five-Freedom Honesty Priced Straight',
-      'Animal Nutrition and Livestock Production Management',
+      'Animal Nutrition',
       'Animal Genetics and Breeding',
       'Livestock Products Technology',
       'Veterinary and Animal Husbandry Extension Education',
       'Veterinary Biochemistry',
-      'Livestock Farm Practices',
-    
       'Livestock Production Management (including Poultry Production and Hatchery Management, Fodder Production and Grassland Management)',
-      'Animal Welfare, Ethics and Jurisprudence'
+      'Animal Welfare, Ethics and Jurisprudence',
     ],
   },
   {
@@ -87,12 +85,8 @@ const chapters: Chapter[] = [
       'The IV Calcium Craft Priced Straight',
       'The H-Program Named',
       'The Local\u2019s-Preference Honesty Held',
-      'Veterinary Medicine: The Clinical Register',
-      'Veterinary Gynaecology and Obstetrics',
-      'Veterinary Surgery and Radiology',
-    
       'Veterinary Surgery, Anaesthesiology and Diagnostic Imaging (including Orthopedics)',
-      'Veterinary Gynecology, Obstetrics and Andrology'
+      'Veterinary Gynecology, Obstetrics and Andrology',
     ],
   },
   {

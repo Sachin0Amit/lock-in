@@ -65,7 +65,6 @@ const chapters: Chapter[] = [
       'Diagrams Drawn Fluently',
       'Cables and Three-Hinged Arches',
       'The Determinate Census Solved',
-      'Summary of important formulae 642 30.5 Simple analysis of force of alignment'
     ],
   },
   {
@@ -152,8 +151,7 @@ const chapters: Chapter[] = [
       'Beams and Slabs Designed',
       'Columns and Bond',
       'Prestressing and Its Losses',
-    
-      'Design of Concrete and Masonry Structures — principles of prestressed concrete design including materials and methods; earthquake resistant design of structures; design of masonry structure'
+      'Design Of Concrete And Masonry Structures \u2014 Principles Of Prestressed',
     ],
   },
   {
@@ -169,9 +167,8 @@ const chapters: Chapter[] = [
       'Beams and Beam-Columns',
       'Connections, Simple and Eccentric',
       'Plate Girders and Plastic Analysis',
-    
-      'Structural Analysis — free and forced vibrations of single- and multi-degree-freedom systems; suspended cables; concepts and use of computer aided design',
-      'Power Plant Engineering — Rankine and Brayton cycles with regeneration and reheat; fuels and their properties, flue gas analysis; boilers; steam turbines; condensers, air ejectors, electrostatic precipitators and cooling towers: theory, design, types and applications'
+      'Structural Analysis \u2014 Free And Forced Vibrations Of Single- And',
+      'Power Plant Engineering \u2014 Rankine And Brayton Cycles With Regeneration And',
     ],
   },
   {

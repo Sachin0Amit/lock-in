@@ -28,7 +28,6 @@ const chapters: Chapter[] = [
       'The Skeptics\u2019 Honesty',
       'The Institution Map',
       'The Emerging Story',
-      '14-3c Why Do Competitive Firms Stay in Business'
     ],
   },
   {
@@ -44,7 +43,6 @@ const chapters: Chapter[] = [
       'The Risk Registers',
       'Hofstede Worked',
       'The Ethics Register',
-      '9-2b The Gains and Losses of an Importing Country'
     ],
   },
   {

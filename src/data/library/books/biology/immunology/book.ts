@@ -28,10 +28,6 @@ const chapters: Chapter[] = [
       'The Inflammation\u2019s Engine',
       'The Phagocyte Census',
       'The Complement Arithmetic',
-      'Nonspecific Defense of the Host',
-      'Human Health and Disease',
-      'Defence Against Disease',
-      'Humoral and Cell-Mediated Immunity with Passive Immunization',
     ],
   },
   {
@@ -62,7 +58,7 @@ const chapters: Chapter[] = [
       'The Antibody\u2019s Anatomy and Classes',
       'The Affinity-Maturation Engine',
       'The Memory Register and the Hybridoma Door',
-      'Antibody Structure, Function and Diversity',
+      'Monoclonal antibodies and their applications',
     ],
   },
   {
@@ -109,9 +105,7 @@ const chapters: Chapter[] = [
       'The Immunodeficiency Arc',
       'The Transplant Preview',
       'AIDS, Cancer and the Immune System',
-    
-      'Major histocompatibility complex',
-      'Macromolecules Are the Major Constituents 2.1 Weak Interactions in Aqueous Systems'
+      'Major Histocompatibility Complex',
     ],
   },
   {

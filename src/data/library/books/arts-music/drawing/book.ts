@@ -28,8 +28,7 @@ const chapters: Chapter[] = [
       'The Five-Minute Craft Held',
       'The Ground Honesty Named',
       'The Two-Crafts Division Held',
-    
-      'Part-B: Drawing — ability to draw products, people or scenes in proportion with good line quality, composition, perspective and shading'
+      'Drawing \u2014 Ability To Draw Products, People Or Scenes In Proportion With',
     ],
   },
   {
@@ -60,8 +59,7 @@ const chapters: Chapter[] = [
       'The Two Shadows Held Apart',
       'The Surface Register Named',
       'The Cross Receipt Named',
-    
-      'Part A — Drawing & Composition Test (80 marks, offline): creativity and imagination; visual composition; perspective drawing; proportion and scale'
+      'Drawing & Composition Test : Creativity And Imagination; Visual',
     ],
   },
   {
@@ -77,8 +75,7 @@ const chapters: Chapter[] = [
       'The Landmark Register Fixed by Drill',
       'The Mitten Honesty Named',
       'The Constructive Receipt Named',
-    
-      'Part A — 3D visualisation and object structuring; perspective drawing (1-point and 2-point); memory drawing and creative composition'
+      '3d Visualisation And Object Structuring; Perspective Drawing (1-point And',
     ],
   },
   {

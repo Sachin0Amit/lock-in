@@ -1,0 +1,559 @@
+### engineering-mechanics
+  ch1|idx 1| Force Vectors and Their Resultants
+  ch1|idx 2| Equilibrium of a Particle: 2D and 3D
+  ch1|idx 3| Appendices A-L
+  ch1|idx11| Appendices
+  ch1|idx13| * Available online at www.oup.com/he/sedra-smith8e
+  ch1|idx16| Fundamentalist
+  ch1|idx17| The Creator of the pA741: David Fullagar
+  ch1|idx25| Connectors
+  ch1|idx26| Transconductance
+  ch1|idx32| The 34420A 7.5-digit frontend
+  ch1|idx34| Switchers: looking more closely
+  ch1|idx36| Synchronizer
+  ch1|idx40| Photomultipliers
+  ch1|idx44| Wrapup
+  ch1|idx47| AD7873 touchscreen digitizer
+  ch1|idx48| More on Deriving the Thévenin
+  ch1|idx49| Radiators
+  ch1|idx53| Identities
+  ch1|idx55| Flashlight
+  ch1|idx56| Fig. 1.5
+  ch1|idx57| Fig. 1.7
+  ch1|idx59| Fibreoptics
+  ch1|idx66| Introductory
+  ch1|idx69| Www.pearsoned.co.uk/hughes
+  ch2|idx 0| Moments, Couples and Their Algebra
+  ch2|idx 2| Distributed Loads and Their Resultants
+  ch3|idx 0| Trusses: the Method of Joints
+  ch3|idx 1| Trusses: the Method of Sections
+  ch3|idx 2| Frames and Machines: Multi-force Members
+  ch3|idx 3| Engineering Aptitude covering Logical reasoning and Analytical ability
+  ch4|idx 0| Dry Friction: Tipping versus Sliding
+  ch4|idx 1| Wedges and the Screw Jack
+  ch4|idx 3| Rolling Resistance Priced
+  ch4|idx 7| Effect of the Output Resistance of the 9.4 DC Offset
+  ch4|idx12| Gate standardization
+  ch4|idx13| Of rotor resistance
+  ch5|idx 0| Centroids by Composite Parts
+  ch5|idx 1| Theorems of Pappus-Guldinus
+  ch5|idx 3| Products of Inertia and Principal Axes
+  ch5|idx 7| Thévenin’s theorem
+  ch6|idx 0| The Principle Stated and First Applied
+  ch6|idx 1| Machines and Linked Bodies by Virtual Work
+  ch6|idx 2| The Potential-Energy Reading
+  ch7|idx 0| Curvilinear Motion and Its Components
+  ch7|idx 2| General Plane Motion: the Velocity Construction
+  ch7|idx 3| PLL components
+  ch7|idx 4| Relative permittivity
+  ch9|idx 0| The Work-Energy Engine
+  ch10|idx 1| Lagrange’s Equations, Derived and Worked
+  ch10|idx 2| The Synthesis: Four Formulations, One Mechanics
+  ch10|idx 3| The Doorstep: from Rigid to Deformable
+### strength-of-materials
+  ch1|idx 0| Sectioning a Body: the Method of Internal Forces
+  ch1|idx 1| Normal, Shear and Bearing Stress
+  ch1|idx 2| Stress on the Oblique Plane
+  ch2|idx 1| Hooke, Poisson and the Shear Relation
+  ch2|idx 2| The Testing Laboratory: UTM, Hardness, Impact
+  ch3|idx 0| Indeterminate Assemblies by Compatibility
+  ch3|idx 1| Thermal Stresses and Their Bookkeeping
+  ch4|idx 0| The Torsion Formula Earned
+  ch4|idx 1| Angle of Twist and Power Transmission
+  ch4|idx 2| Indeterminate Shafts and Design
+  ch4|idx 3| The Honest Limits: Noncircular and Thin-Walled
+  ch5|idx 0| The Diagrams as a Fluent Craft
+  ch5|idx 1| Load, Shear and Moment: the Differential Relations
+  ch5|idx 2| Singularity Functions for Beam Bookkeeping
+  ch5|idx 9| The NAND function
+  ch5|idx10| Support the use of this textbook in teaching, please visit
+  ch6|idx 0| The Flexure Formula Earned
+  ch6|idx 1| Section Modulus and Beam Design
+  ch6|idx 2| Shearing Stresses and Shear Flow
+  ch6|idx 3| The Shear Centre
+  ch7|idx 1| Mohr’s Circle for Plane Strain
+  ch7|idx 2| Strain Gauges and Rosettes
+  ch7|idx 3| Thin Cylinders Under Pressure
+  ch8|idx 0| The Elastic Curve and Double Integration
+  ch8|idx 1| Macaulay’s Method
+  ch8|idx 3| Indeterminate Beams by Superposition
+  ch9|idx 0| Euler’s Column and the End-Condition Census
+  ch9|idx 1| Slenderness: Buckling versus Crushing
+  ch9|idx 2| Castigliano’s Theorem
+  ch9|idx 3| Strain Energy and Impact Loading
+  ch9|idx 5| The MOSFET Case
+  ch9|idx 6| The BJT Case
+### theory-of-machines
+  ch1|idx 0| Kinematic Pairs and Chains
+  ch1|idx 1| The Four-Bar Family and Grashof’s Law
+  ch1|idx 2| The Slider-Crank and Its Inversions
+  ch2|idx 0| The Instantaneous-Centre Method
+  ch2|idx 2| Velocity Images and Worked Mechanisms
+  ch2|idx 5| Step-triggered pulses
+  ch3|idx 0| Acceleration Polygons
+  ch3|idx 1| The Coriolis Engine
+  ch3|idx 2| Klein’s Construction
+  ch3|idx 3| Inertia Forces in Linkages: D’Alembert
+  ch4|idx 0| Displacement Diagrams and Their Prices
+  ch4|idx 1| Constructing the Cam Profile
+  ch4|idx 2| Pressure Angle and Undercutting
+  ch5|idx 0| The Law of Gearing and the Involute
+  ch5|idx 1| Tooth Terminology and Interference
+  ch5|idx 2| Velocity Ratio Bookkeeping
+  ch6|idx 1| The Epicyclic Craft
+  ch6|idx 2| Torque in Planetary Drives
+  ch7|idx 0| Turning-Moment Diagrams and the Flywheel
+  ch7|idx 1| The Governor Family
+  ch7|idx 2| Sensitiveness, Stability, Hunting
+  ch8|idx 0| Two-Plane Correction of Rotating Masses
+  ch8|idx 1| Reciprocating Engines: Primary and Secondary
+  ch8|idx 2| Partial Balancing and the Honest Residue
+  ch9|idx 0| The Couple Derived
+  ch9|idx 1| Ships, Aircraft and Turning Vehicles
+  ch9|idx 2| Gyroscopic Stability Priced
+  ch10|idx 0| Natural Frequency by Three Engines
+  ch10|idx 1| Damping: the Three Regimes
+  ch10|idx 3| Isolation and Transmissibility
+  ch10|idx 4| Critical Speed and Whirling of Shafts
+  ch10|idx 5| Determining the 3-dB Frequency
+### machine-design
+  ch1|idx 0| The Design Process and Its Codes
+  ch1|idx 1| Factor of Safety Priced Honestly
+  ch1|idx 5| Designs by the masters: Agilent's accurate DMMs
+  ch1|idx 7| Memory wrapup
+  ch2|idx 0| Ductile versus Brittle Failure
+  ch2|idx 1| Tresca and von Mises Priced
+  ch3|idx 0| The Endurance Limit and Its Modifiers
+  ch3|idx 1| Goodman, Soderberg, Gerber
+  ch3|idx 2| Cumulative Damage by Miner’s Rule
+  ch4|idx 0| The Bolt as a Preloaded Spring
+  ch4|idx 1| Riveted Joints and Their Efficiency
+  ch4|idx 2| Fillet and Butt Welds Priced
+  ch4|idx 3| Eccentric Loads on Weld Groups
+  ch5|idx 0| The Shaft Design Equation
+  ch5|idx 1| Keys and Splines Priced
+  ch5|idx 2| Couplings and Their Honest Flexibility
+  ch6|idx 0| Journal Bearings: Petroff and Beyond
+  ch6|idx 1| Rolling Bearings: the L10 Arithmetic
+  ch6|idx 2| Selection, Mounting, Preload
+  ch7|idx 0| The Lewis Form Factor
+  ch7|idx 1| Wear and Dynamic Loads
+  ch7|idx 2| Helical, Bevel and Worm Forces
+  ch7|idx 3| Gear Materials and Lubrication
+  ch8|idx 0| Helical Springs: Wahl’s Correction
+  ch8|idx 1| Plate Clutches: Wear versus Pressure
+  ch8|idx 2| Brakes and Self-Energising Geometry
+  ch9|idx 0| The Map: Specification to Element
+  ch9|idx 1| A Gearbox Priced End-to-End
+  ch9|idx 3| The Doorstep: Makeable and Modelled
+  ch9|idx 7| Example: sensitive millivoltmeter
+  ch9|idx11| A design example: 40ε "lightning detector" preamp
+### thermodynamics
+  ch1|idx 0| Systems, Boundaries, Properties
+  ch1|idx 1| The Zeroth Law and Temperature
+  ch2|idx 0| Work and Heat as Path Functions
+  ch2|idx 1| The Closed-System Energy Balance
+  ch3|idx 0| The Saturation Dome Read Honestly
+  ch3|idx 1| Quality and the Steam Tables
+  ch3|idx 3| Tables xiv
+  ch4|idx 0| The Steady-Flow Device Census
+  ch4|idx 1| Throttles and Mixing Chambers
+  ch4|idx 2| Unsteady Flows: Filling and Emptying
+  ch4|idx 3| Compressors and Intercooling
+  ch5|idx 0| Kelvin-Planck and Clausius, Equivalent
+  ch5|idx 1| Reversibility and Its Honest Census
+  ch5|idx 2| The Carnot Ceiling
+  ch6|idx 0| Entropy Earned from the Inequality
+  ch6|idx 1| The TdS Relations
+  ch6|idx 2| Isentropic Processes and Efficiency
+  ch6|idx 3| Entropy Generation Priced
+  ch7|idx 0| Exergy: the Work Potential
+  ch7|idx 1| Exergy Destroyed and Entropy Generated
+  ch7|idx 2| Second-Law Efficiency
+  ch8|idx 0| Air-Standard Craft: Otto, Diesel, Dual
+  ch8|idx 1| The Brayton Cycle
+  ch8|idx 4| VII: ac-input optocouplers
+  ch9|idx 0| The Rankine Cycle and Its Craft
+  ch9|idx 3| Heat Pumps and Gas Refrigeration
+  ch10|idx 0| Gas Mixtures Bookkept
+  ch11|idx 0| The Maxwell Relations
+  ch11|idx 2| The Synthesis: States to Cycles
+  ch11|idx 3| The Doorstep: Rates and Flows
+### fluid-mechanics
+  ch1|idx 0| The No-Shape Answer and the Continuum
+  ch1|idx 3| Vapour Pressure and Cavitation Named
+  ch1|idx 7| Surface-mount technology: the joy and the pain
+  ch2|idx 0| Manometers: the Measurement Craft
+  ch2|idx 1| Hydrostatic Forces on Plane Surfaces
+  ch2|idx 2| Curved Surfaces and Buoyancy
+  ch2|idx 3| Stability and the Metacentre
+  ch3|idx 0| Descriptions and Lines of Flow
+  ch3|idx 1| The Material Derivative: Local + Convective
+  ch3|idx 2| Stream Function and Velocity Potential
+  ch3|idx 3| The Reynolds Transport Theorem
+  ch4|idx 0| Continuity for Control Volumes
+  ch4|idx 1| The Momentum Engine: Bends, Vanes, Nozzles
+  ch4|idx 2| Bernoulli and Its Honest Limits
+  ch4|idx 3| The Grade Lines Drawn
+  ch5|idx 0| Differential Continuity
+  ch5|idx 1| Navier-Stokes Read Term-by-Term
+  ch5|idx 2| Couette and Poiseuille Earned
+  ch5|idx 3| The Honest Verdict on Differential Routes
+  ch5|idx 4| Electrostatic terms
+  ch6|idx 0| The Buckingham Pi Theorem Worked
+  ch6|idx 1| The Group Census
+  ch6|idx 2| Similitude and Model Testing
+  ch7|idx 0| Hagen-Poiseuille Earned
+  ch7|idx 1| The Moody Chart and Friction Factor
+  ch7|idx 2| Minor Losses in Fittings
+  ch7|idx 3| Pipe Systems and the System Curve
+  ch8|idx 0| Prandtl’s Boundary Layer
+  ch8|idx 1| Growth, Transition, Separation
+  ch8|idx 2| The Drag Census
+  ch8|idx 3| Lift and the Aerofoil Glimpse
+  ch9|idx 0| The Mach Number and Flow Regimes
+  ch9|idx 1| Isentropic Relations
+  ch9|idx 3| The Normal Shock Introduced
+  ch10|idx 1| The Euler Equation Earned
+  ch10|idx 4| VCO implementation: through-hole versus surface-mount
+### heat-transfer
+  ch1|idx 0| Rate Equations and Their Origins
+  ch1|idx 1| The Conductivity Census
+  ch1|idx 2| Thermal Circuits: the Modes Conspire
+  ch2|idx 0| The Wall and the Resistance Network
+  ch2|idx 1| Cylinders, Spheres, Logarithmic Means
+  ch2|idx 2| The Critical Radius Priced
+  ch2|idx 3| Hysteresis loss
+  ch3|idx 0| The Fin Equation Derived
+  ch3|idx 1| Effectiveness and Efficiency
+  ch3|idx 2| The Fin Census in Practice
+  ch4|idx 0| Lumped Capacitance and the Biot Verdict
+  ch4|idx 2| Semi-Infinite Solids Glanced
+  ch4|idx 3| When operating current is not your choice
+  ch5|idx 0| The Thermal Boundary Layer
+  ch5|idx 1| The Dimensionless Census Earned
+  ch5|idx 2| Forced Convection: Plates and Pipes
+  ch5|idx 3| Free Convection and Its Regimes
+  ch6|idx 0| The Boiling Curve Read
+  ch6|idx 1| Nucleate Boiling Priced
+  ch6|idx 2| Nusselt’s Film Condensation Craft
+  ch7|idx 0| The Exchanger Census
+  ch7|idx 1| LMTD with Correction Factors
+  ch7|idx 2| NTU and Effectiveness
+  ch7|idx 3| Design versus Rating
+  ch8|idx 0| Blackbody Behaviour and Its Laws
+  ch8|idx 1| Grey Surfaces and Radiosity
+  ch8|idx 2| The View-Factor Craft
+  ch8|idx 3| Radiation Networks and Shields
+  ch8|idx 4| Combined-Mode Problems Priced
+  ch9|idx 0| The Map: Fourier to Networks
+  ch9|idx 1| Three Designs Priced End-to-End
+  ch9|idx10| Current magnification
+### manufacturing-processes
+  ch1|idx 0| The Alloy Census for Making
+  ch1|idx 1| Hot versus Cold: the Recrystallisation Line
+  ch1|idx 2| Castability, Formability, Machinability
+  ch2|idx 0| Patterns, Moulds and Cores
+  ch2|idx 1| Solidification and Chvorinov’s Rule
+  ch2|idx 2| Riser and Gating Arithmetic
+  ch2|idx 3| The Casting Census and Its Defects
+  ch3|idx 0| Deformation Mechanics and Yield Criteria
+  ch3|idx 1| Forging and Its Loads
+  ch3|idx 2| Rolling: Mechanics and Geometry
+  ch3|idx 3| Extrusion and Drawing
+  ch4|idx 0| Shearing and Blanking
+  ch4|idx 1| Bending and Springback
+  ch4|idx 2| Deep Drawing
+  ch4|idx 3| Powder Metallurgy’s Honest Niche
+  ch5|idx 0| Merchant’s Orthogonal Craft
+  ch5|idx 2| Taylor’s Tool Life
+  ch5|idx 3| The Economics of Machining
+  ch6|idx 0| Turning and the Lathe
+  ch6|idx 1| Drilling and Milling
+  ch6|idx 2| Grinding and the Wheel Census
+  ch6|idx 3| The Finishing Census
+  ch6|idx 7| Switchers: basic operation
+  ch7|idx 0| The Spark Engine: EDM
+  ch7|idx 1| ECM and USM
+  ch7|idx 3| The Selection Census
+  ch8|idx 0| The Arc, the Pool, the HAZ
+  ch8|idx 1| The Arc-Welding Census
+  ch8|idx 2| Brazing, Soldering, Adhesives
+  ch8|idx 3| Defects, Distortion and Their Control
+  ch9|idx 0| The 3-2-1 Principle
+  ch9|idx 1| Jigs versus Fixtures
+  ch9|idx 2| Design Elements of the Jig
+  ch9|idx 3| Test fixture for compensation and calibration
+  ch10|idx 0| Limits, Fits and Tolerances
+  ch10|idx 1| The Comparator Census
+  ch10|idx 2| Interferometry: the Wavelength Ruler
+  ch10|idx 3| Form, Finish and Alignment
+  ch10|idx 4| The Coordinate Measuring Machine
+  ch10|idx 5| The lessons: error budget, unspecified parameters
+  ch11|idx 0| The Process-Selection Map
+  ch11|idx 1| The CNC Doorway
+  ch11|idx 2| The Doorstep: Production Systems
+### industrial-engineering
+  ch1|idx 0| The Production Census
+  ch1|idx 1| Layout Families by Volume-Variety
+  ch1|idx10| A monostable application: limiting pulse width and duty cycle
+  ch1|idx13| Generating plant
+  ch2|idx 0| Method Study: the SREDACT Craft
+  ch2|idx 1| Motion Study and Motion Economy
+  ch2|idx 2| Time Study: Standard Time Earned
+  ch3|idx 0| The Forecasting Census
+  ch3|idx 1| Forecast Error Measured
+  ch3|idx 2| Aggregate Strategies Priced
+  ch4|idx 0| Sequencing: Johnson and the Rules
+  ch4|idx 1| The MRP Engine
+  ch5|idx 0| EOQ Earned and Extended
+  ch5|idx 1| Safety Stock and Service Level
+  ch5|idx 2| ABC and the Census
+  ch5|idx 3| Inventory as the Mirror
+  ch6|idx 0| LP Formulated from the Floor
+  ch6|idx 1| Transportation and Assignment
+  ch6|idx 2| Network Flows at Production Speed
+  ch7|idx 0| The Control-Chart Family
+  ch7|idx 1| Process Capability
+  ch7|idx 2| Acceptance Sampling and OC Curves
+  ch7|idx 4| FETs as variable resistors
+  ch7|idx 5| Six DACs
+  ch8|idx 0| The Map: Layout to Delivery
+  ch8|idx 1| Line Balancing Priced
+  ch8|idx 2| The Doorsteps: Projects, CIM, Markets
+### robotics-and-automation
+  ch1|idx 1| The Configuration Census
+  ch1|idx 2| Workspaces and Safety Stated Early
+  ch1|idx 3| Mechatronics and Robotics
+  ch2|idx 2| The Homogeneous Transform
+  ch2|idx 3| The DH Convention Earned
+  ch3|idx 0| DH Frames Through the Chain
+  ch3|idx 1| The Chain Product Worked
+  ch3|idx 2| Workspace Mapped from Kinematics
+  ch4|idx 0| Multiple Solutions Priced
+  ch4|idx 1| Closed Form: the Planar Arm
+  ch4|idx 2| Wrist Partitioning for Real Arms
+  ch4|idx 3| Numerical Routes Glanced
+  ch5|idx 0| The Jacobian Derived and Read
+  ch5|idx 1| Singularities Priced on Real Postures
+  ch5|idx 2| Static Forces: the Transpose Duality
+  ch6|idx 1| Cubic and Quintic Trajectories
+  ch6|idx 3| Butterworth Polynomials up to the Eighth
+  ch7|idx 0| Joint Servos: PD and PID
+  ch7|idx 1| The Sensor Census
+  ch7|idx 2| Grippers and Programming
+  ch8|idx 0| Flow Lines and Transfer Machines
+  ch8|idx 1| Cells, AGVs and the Control Hierarchy
+  ch8|idx 2| The IIoT Doorstep
+  ch8|idx 3| The Honest Economics of Automation
+### cad-cam
+  ch1|idx 0| CAD, CAM, CIM Located
+  ch1|idx 1| The Integration-Tools Census
+  ch1|idx 2| The Data Ladder
+  ch1|idx 5| On-board interconnections
+  ch2|idx 0| Wireframe, Surface, Solid
+  ch2|idx 1| CSG and B-rep
+  ch2|idx 3| Feature-Based Parametric Practice
+  ch3|idx 0| Bezier: Bernstein Blends
+  ch3|idx 1| B-splines and Local Control
+  ch3|idx 2| NURBS: the Industry’s One Curve
+  ch3|idx 3| Surfaces and Their Continuity
+  ch4|idx 0| IGES and STEP Priced
+  ch4|idx 1| Model-Based Definition Glanced
+  ch4|idx 2| PDM and Change Control
+  ch4|idx 3| Step 3: getting to e_n
+  ch4|idx 4| A.1 Preliminary Steps
+  ch5|idx 0| The G/M Vocabulary as a Language
+  ch5|idx 1| A Turning Program Written
+  ch5|idx 2| A Milling Program Written
+  ch5|idx 3| CAM-Generated and Adaptive
+  ch6|idx 0| The Layer-Wise Idea
+  ch6|idx 1| The Seven Process Families
+  ch6|idx 2| Design for Additive
+  ch7|idx 0| CIM: the Honest Integration
+  ch7|idx 1| CAPP: Variant and Generative
+  ch7|idx 2| FMS and Cell Control
+  ch7|idx 3| Machine Data and OEE
+  ch7|idx 4| Stand-alone versus integrated
+  ch8|idx 0| The Digital Thread Drawn
+  ch8|idx 3| The Mechanical Branch’s Map
+### materials-science
+  ch1|idx 0| The One Triangle
+  ch1|idx 1| The Family Census by Bonding
+  ch1|idx 2| Selection Vocabulary Promised
+  ch1|idx 6| Structure of Actual Transistors
+  ch2|idx 1| Bond Curves: the Modulus Earned
+  ch3|idx 0| The Structure Census and Packing
+  ch3|idx 1| Anisotropy and Allotropy
+  ch3|idx 2| Bragg’s Law at Engineering Depth
+  ch4|idx 0| Point Defects and Solid Solutions
+  ch4|idx 1| Dislocations: the Ductility Engine
+  ch4|idx 2| Grain Boundaries and Faces
+  ch5|idx 0| Fick’s Two Laws
+  ch5|idx 2| Carburising Priced
+  ch6|idx 0| True versus Engineering
+  ch6|idx 2| Impact and the Ductile-Brittle Transition
+  ch7|idx 0| Grain Refinement and Hall-Petch
+  ch7|idx 1| Work Hardening and Recrystallisation
+  ch7|idx 2| Fatigue and Creep Named and Routed
+  ch7|idx 3| Brittleness and the NDT Glance
+  ch8|idx 0| Lever Rules and Tie Lines
+  ch8|idx 1| The Fe-C Map Read Fluently
+  ch8|idx 2| TTT Curves and Heat Treatment
+  ch8|idx 3| Hardenability: the Jominy Craft
+  ch9|idx 1| The Non-Ferrous Niches
+  ch9|idx 2| Polymers and Ceramics Honestly
+  ch9|idx 3| Composites and Rule of Mixtures
+  ch9|idx 4| Some representative JFETs: a brief tour
+  ch10|idx 0| The Galvanic Couple Priced
+  ch10|idx 2| Degradation Beyond Metals
+  ch10|idx 3| The Selection Doorstep: Ashby Named
+### circuit-theory-and-network-analysis
+  ch1|idx 2| R, L, C: One Dissipator, Two Storers
+  ch1|idx 3| The Lumped Approximation and Its Doorstep
+  ch2|idx 0| KCL and KVL as Conservation
+  ch2|idx 1| The Node-Voltage Engine
+  ch2|idx 3| Supernodes, Supermeshes, Choice
+  ch2|idx 4| Stuck-node tracer
+  ch2|idx 5| Choosing a battery
+  ch2|idx 6| Choosing a DAC
+  ch3|idx 0| Superposition Earned
+  ch3|idx 1| Thevenin and Norton Priced
+  ch3|idx 2| Maximum Power and Its Match
+  ch3|idx 3| Reciprocity and Tellegen’s Audit
+  ch4|idx 0| Phasors: the Coordinate Change
+  ch4|idx 2| Complex Power and Power Factor
+  ch4|idx 3| The AC Wattmeter Census
+  ch4|idx 8| Applying a Delta-to-Wye Transform
+  ch5|idx 0| Resonance and Q Priced
+  ch5|idx 1| Selectivity and Tuned Circuits
+  ch5|idx 2| Mutual Inductance and the Dot Convention
+  ch5|idx 7| Magnetically Coupled Circuits and Ideal Transformers
+  ch6|idx 0| Why Three Phase Won
+  ch6|idx 1| Line-versus-Phase Arithmetic
+  ch6|idx 2| The Two-Wattmeter Method
+  ch6|idx 3| Unbalanced Glances Routed
+  ch6|idx 4| Darlington connection
+  ch6|idx 6| Interboard connections
+  ch7|idx 0| First-Order: the Time Constant
+  ch7|idx 1| Second-Order: the Three Regimes
+  ch7|idx 2| The Initial- and Final-Value Craft
+  ch7|idx 3| The Laplace Route Named
+  ch8|idx 1| The Frequency Response Read
+  ch8|idx 2| Bode’s Craft Introduced
+  ch8|idx 3| Resonance Re-Read from the Poles
+  ch9|idx 0| The Parameter Families Defined
+  ch9|idx 2| Cascades by ABCD
+  ch10|idx 0| The Graph Beneath the Circuit
+  ch10|idx 1| Cut Sets and Loop Systematics
+  ch10|idx 2| State Variables as Description
+  ch10|idx 3| The Doorsteps: Energised, Feedback, Switched
+  ch10|idx 4| Driving Cables
+### electrical-machines
+  ch1|idx 0| Force from Field Energy
+  ch1|idx 1| Co-Energy and Torque
+  ch1|idx 2| The Conversion Cycle Drawn
+  ch1|idx 3| The Machine Census Located
+  ch2|idx 1| OC and SC Tests as Identification
+  ch2|idx 3| The Autotransformer’s Honest Note
+  ch3|idx 0| The Connection Census
+  ch3|idx 2| Parallel Operation’s Conditions
+  ch3|idx 3| Tap Changers and Cooling Glanced
+  ch3|idx 4| "Poles" and decibels per octave
+  ch4|idx 0| EMF, Armature Reaction, Commutation
+  ch4|idx 1| The Family Characteristics
+  ch4|idx 2| Speed Control and Ward-Leonard
+  ch4|idx 3| Starters, Losses, the Honest Decline
+  ch4|idx 4| DC Generators: Construction, Commutation and Characteristics
+  ch4|idx 5| DC Motors: Speed Control and Starting
+  ch4|idx 8| Single-Phase Motors: Split Phase, Capacitor and Universal
+  ch4|idx11| Stator windings
+  ch4|idx12| Expression for the e.m.f. of a stator winding
+  ch4|idx16| Selecting a motor
+  ch5|idx 0| The Rotating Field Earned
+  ch5|idx 1| Slip and Torque Arithmetic
+  ch5|idx 3| Power Flow and Losses
+  ch5|idx 4| Starting and Speed Control
+  ch6|idx 0| The Double-Revolving-Field Honesty
+  ch6|idx 1| The Starting Fixes
+  ch6|idx 2| BLDC, Stepper, Servo Glanced
+  ch7|idx 0| EMF and Winding Factors
+  ch7|idx 1| Regulation by Two Methods
+  ch7|idx 3| Salient-Pole: the Two-Reaction Note
+  ch7|idx 4| Synchronous Motors and V-Curves
+  ch8|idx 0| The Loss Census Across Families
+### power-systems
+  ch1|idx 0| The Grid as One Machine
+  ch1|idx 1| The Generation Census
+  ch1|idx 2| AC, DC and the HVDC Honest Note
+  ch1|idx 3| The One-Line Diagram as Language
+  ch1|idx18| Making Power Calculations Involving Household
+  ch2|idx 0| The Idea and Its Bases
+  ch2|idx 2| The Per-Unit Network Built
+  ch3|idx 0| Inductance from Geometry
+  ch3|idx 1| Capacitance and Bundling
+  ch3|idx 2| The Nominal Models and Classes
+  ch4|idx 1| Ferranti and SIL
+  ch4|idx 3| The Reactive Bookkeeping
+  ch5|idx 0| The Field Around a Conductor
+  ch5|idx 1| String Efficiency and Grading
+  ch5|idx 2| Corona Priced Honestly
+  ch5|idx 3| Cables and Their Thermal Limits
+  ch5|idx 4| Coaxial cable
+  ch5|idx 5| Resistor-string DACs
+  ch6|idx 0| The Y-Bus Built
+  ch6|idx 1| Gauss-Seidel, Honestly Slow
+  ch6|idx 3| Fast-Decoupled and Distribution Glances
+  ch7|idx 0| Fault MVA by Thevenin
+  ch7|idx 1| The Breaker’s Duty Priced
+  ch7|idx 2| Arc Physics Glanced Honestly
+  ch7|idx 3| The Duration Discipline
+  ch8|idx 0| Fortescue’s Components Earned
+  ch8|idx 1| Sequence Impedances Assembled
+  ch8|idx 2| The LG Fault Priced
+  ch8|idx 3| The LL and LLG Faults Priced
+  ch9|idx 0| The Relay Idea and Its Curves
+  ch9|idx 1| Directional and Differential Craft
+  ch9|idx 3| CTs, PTs and Their Honest Burden
+  ch9|idx 4| Gain-setting resistors
+  ch9|idx 5| Optocouplers and relays
+  ch10|idx 0| The Swing Equation Earned
+  ch10|idx 1| Equal-Area Worked
+  ch10|idx 2| Voltage and Frequency Control
+  ch10|idx 3| Economic Dispatch with Losses
+  ch10|idx 5| Higher stability: TCXO, OCXO, and beyond
+### control-systems
+  ch1|idx 0| Open versus Closed, Priced
+  ch1|idx 1| Two Historical Engines
+  ch1|idx 4| Gain Desensitivity
+  ch1|idx 6| Gain nonlinearity
+  ch2|idx 0| The Analogous Structures
+  ch2|idx 1| Linearisation and Its Limits
+  ch2|idx 2| Transfer Functions Earned
+  ch3|idx 0| Block-Diagram Algebra
+  ch3|idx 1| Signal-Flow Graphs Drawn
+  ch3|idx 2| Mason’s Gain Rule Earned
+  ch4|idx 0| Second-Order Specs Priced
+  ch4|idx 1| The Dominant-Pole Honesty
+  ch4|idx 2| System Types and Error Constants
+  ch4|idx 3| Disturbance Rejection Priced
+  ch5|idx 1| Routh-Hurwitz Worked
+  ch5|idx 2| The Special Cases Solved
+  ch6|idx 0| The Rules Earned One by One
+  ch6|idx 1| Design by Locus
+  ch6|idx 3| The jomega Crossings
+  ch7|idx 0| Bode Drawn Fluently
+  ch7|idx 1| Margins Read Honestly
+  ch7|idx 2| Nyquist’s Criterion Earned
+  ch7|idx 3| Mr and Bandwidth Priced
+  ch8|idx 0| Lag: the Steady-State Engine
+  ch8|idx 1| Lead: the Phase-Margin Engine
+  ch8|idx 2| Lag-Lead and the Trade-Off Census
+  ch9|idx 0| The Controller Census Priced
+  ch9|idx 1| Ziegler-Nichols Tuning
+  ch9|idx 2| Anti-Windup and the Honest Limits
+  ch10|idx 0| The Model and Its Solutions
+  ch10|idx 1| Controllability and Observability
+  ch10|idx 2| The Digital Glance
+  ch10|idx 3| The Doorsteps: Drives, Servos, Processes
+  ch10|idx 6| Federico Faggin: A Pioneer in Microprocessor

@@ -43,8 +43,7 @@ const chapters: Chapter[] = [
       'The Dotted-Beat Honesty Held',
       'The Grouping Receipt Priced Straight',
       'The Famous Receipts Named',
-    
-      'Exhibition — a curated selection of resolved artworks with a curatorial rationale explaining choices and connections'
+      'Exhibition \u2014 A Curated Selection Of Resolved Artworks With A Curatorial',
     ],
   },
   {
@@ -60,8 +59,7 @@ const chapters: Chapter[] = [
       'The Anticipated Honesty Priced Straight',
       'The Notation-Limit Honesty Held',
       'The Pocket Preview Named',
-    
-      'Component 3 Extended Performance — 15-20 minute performance plus 1000-1500-word research report'
+      'Component 3 Extended Performance \u2014 15-20 Minute Performance Plus',
     ],
   },
   {

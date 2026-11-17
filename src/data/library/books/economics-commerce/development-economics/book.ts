@@ -29,9 +29,8 @@ const chapters: Chapter[] = [
       'The HDI Computed and Criticised',
       'The Capability Frame',
       'Indian Economy on the Eve of Independence',
-    
       'Indian Economic Development: Current Challenges facing the Indian Economy',
-      'Indian Economic Development: Current Challenges facing Indian Economy'
+      'Comparative Development Experiences: India and Its Neighbours',
     ],
   },
   {
@@ -48,8 +47,6 @@ const chapters: Chapter[] = [
       'Multiple Equilibria',
       'The Take-Off History',
       'Liberalisation, Privatisation and Globalisation: The 1991 Appraisal',
-      'Employment: Growth, Informalisation and Issues',
-      'Demanded 71 CASE STUDY: Lines at the Gas Pump'
     ],
   },
   {
@@ -65,7 +62,6 @@ const chapters: Chapter[] = [
       'The Index Arithmetic',
       'Lorenz and Gini',
       'The Triangle Read',
-      'Income Inequality and Poverty 401 PART XIII Final Thoughts'
     ],
   },
   {
@@ -81,6 +77,7 @@ const chapters: Chapter[] = [
       'The Malthus Honesty',
       'The Todaro Model',
       'The Urbanisation Register',
+      'Employment: Growth, Informalisation and Issues',
     ],
   },
   {
@@ -97,7 +94,6 @@ const chapters: Chapter[] = [
       'The Mission Registers',
       'The Learning Honesty',
       'Human Capital Formation in India',
-      'Comparative Development Experiences: India and Its Neighbours',
     ],
   },
   {

@@ -43,10 +43,8 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Renewable-Exhaustible Census',
       'The Forest and the Water Ledgers',
-      'The Energy and the Food Registers',
       'The Sustainable Frame',
-    
-      'Social Justice - government policies and interventions for development; development processes and the role of NGOs, SHGs, donors and other stakeholders; welfare schemes for vulnerable sections; social sector services relating to health, education and human resources; poverty and hunger'
+      'Gs-ii: Social Justice - Government Policies And Interventions For',
     ],
   },
   {
@@ -62,6 +60,7 @@ const chapters: Chapter[] = [
       'The Energy\u2019s Flow and the Pyramids',
       'The Biogeochemical Cycles',
       'The Ecosystem Census and the Succession',
+      'The Energy and the Food Registers',
     ],
   },
   {
@@ -107,8 +106,6 @@ const chapters: Chapter[] = [
       'The Equity\u2019s Question',
       'The Ethics and the Legislation',
       'The Environmental Justice\u2019s Register',
-    
-      'Population Issues - Gender and Special Groups'
     ],
   },
   {
@@ -122,7 +119,6 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Growth Curves and the Capacity',
       'The India\u2019s Population Register',
-      'The Health and the Disease Ladder',
       'The Rights\u2019 Environment',
     ],
   },

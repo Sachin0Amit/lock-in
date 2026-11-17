@@ -28,10 +28,6 @@ const chapters: Chapter[] = [
       'The Mora\u2019s Rhythm and the Pitch',
       'The Romanisation\u2019s Crutch',
       'The First Weeks\u2019 Plan',
-      'I: Ger bitten, Engl beat u: Ger Kuh, Fr trou',
-      'Note: The scans are of GENKI I (An Integrated Course in Elementary Japanese, 2nd ed.) — not a JEE mathematics book — so the JEE-style exercise entries do not appear. Below is the complete printed table of contents (もくじ, pp. 6–11), one entry per line',
-      '第10課 冬休みの予定 Winter Vacation Plans',
-      'Comparison among Three or More Items'
     ],
   },
   {
@@ -62,13 +58,12 @@ const chapters: Chapter[] = [
       'The Loanword\u2019s Adaptation Rules',
       'The Onomatopoeia\u2019s Music',
       'The Real Signs\u2019 Reading',
-      'Andrew started evening classes recently. (He / learn) Japanese',
-      'I think it’s going to rain',
-      'CultureNote にほんのおかね Japanese Currency',
-      'CultureNote 日本の家 Japanese Houses',
-      'CultureNote 日本の祭り Japanese Festivals',
-      'Useful Expressions 駅で At the Station',
-      'CultureNote 日本の気候 The Japanese Climate'
+      'CultureNote \u306b\u307b\u3093\u306e\u304a\u304b\u306d Japanese Currency',
+      'CultureNote \u65e5\u672c\u306e\u5bb6 Japanese Houses',
+      'CultureNote \u65e5\u672c\u306e\u796d\u308a Japanese Festivals',
+      'Useful Expressions \u99c5\u3067 At the Station',
+      'CultureNote \u65e5\u672c\u306e\u6c17\u5019 The Japanese Climate',
+      'CultureNote \u65e5\u672c\u306e\u795d\u65e5 Japanese National Holidays',
     ],
   },
   {
@@ -84,7 +79,8 @@ const chapters: Chapter[] = [
       'The Copula and the X wa Y desu',
       'The Adjective\u2019s Two Classes',
       'The Ko-So-A-Do Map',
-      'The 4 (the giraffe / the telephone / the old etc.)'
+      'Comparison among Three or More Items',
+      'Noun1\u306enoun2',
     ],
   },
   {
@@ -100,6 +96,7 @@ const chapters: Chapter[] = [
       'The Te-Form\u2019s Gateway',
       'The Plain Forms\u2019 Census',
       'The Giving and the Counters',
+      '\u6d3b\u7528\u8868 Conjugation Chart',
     ],
   },
   {
@@ -115,7 +112,6 @@ const chapters: Chapter[] = [
       'The On and Kun\u2019s Two Voices',
       'The N5\u2019s Hundred',
       'The IME\u2019s Craft',
-      'The sentences on the right follow those on the left. Which sentence goes with which?'
     ],
   },
   {
@@ -131,12 +127,28 @@ const chapters: Chapter[] = [
       'The Campus and the Family',
       'The Shopping and the Directions',
       'The Invitations and the Aisatsu',
-      'CultureNote あいさつとおじぎ Greetings and Bowing',
-      'CultureNote 家族の呼び方 Kinship Terms',
-      'CultureNote 日本の食べ物 Foods in Japan',
-      'CultureNote 日本の伝統文化 Japenese Traditional Culture',
-      'CultureNote 日本の交通機関 Public Transportation in Japan',
-      '第6課 私のすきなレストラン My Favorite Restaurant'
+      'CultureNote \u3042\u3044\u3055\u3064\u3068\u304a\u3058\u304e Greetings and Bowing',
+      'CultureNote \u5bb6\u65cf\u306e\u547c\u3073\u65b9 Kinship Terms',
+      'CultureNote \u65e5\u672c\u306e\u98df\u3079\u7269 Foods in Japan',
+      'CultureNote \u65e5\u672c\u306e\u4f1d\u7d71\u6587\u5316 Japanese Traditional Culture',
+      'CultureNote \u65e5\u672c\u306e\u4ea4\u901a\u6a5f\u95a2 Public Transportation in Japan',
+      '\u7b2c6\u8ab2 \u79c1\u306e\u3059\u304d\u306a\u30ec\u30b9\u30c8\u30e9\u30f3 My Favorite Restaurant',
+      'Useful Expressions \u3058\u304b\u3093\u30fb\u3068\u3057 Time/Age',
+      'Useful Expressions \u90f5\u4fbf\u5c40\u3067 At the Post Office',
+      'Useful Expressions \u304d\u3087\u3046\u3057\u3064 In the Classroom',
+      'Useful Expressions \u4f53\u306e\u90e8\u5206 Parts of the Body',
+      'Useful Expressions \u8272 Colors',
+      'Useful Expressions \u5065\u5eb7\u3068\u75c5\u6c17 Health and Illness',
+      'CultureNote \u65e5\u672c\u306e\u6559\u80b2\u5236\u5ea6(1) Japan\'s Educational System (1)',
+      '\u7b2c3\u8ab2 \u30c7\u30fc\u30c8\u306e\u7d04\u675f Making a Date',
+      '\u7b2c8\u8ab2 \u30d0\u30fc\u30d9\u30ad\u30e5\u30fc Barbecue',
+      '\u7b2c9\u8ab2 \u304b\u3076\u304d Kabuki',
+      '\u7b2c3\u8ab2 \u307e\u3044\u306b\u3061\u306e\u305b\u3044\u304b\u3064 Daily Life',
+      '\u7b2c10\u8ab2 \u51ac\u4f11\u307f\u306e\u4e88\u5b9a Winter Vacation Plans',
+      '\u7b2c11\u8ab2 \u53cb\u3060\u3061\u52df\u96c6 Looking for Friends',
+      '\u7b2c12\u8ab2 \u75c5\u6c17 Feeling Ill',
+      '\u7b2c11\u8ab2 \u4f11\u307f\u306e\u3042\u3068 After the Vacation',
+      '\u7b2c4\u8ab2 \u30e1\u30a2\u30ea\u30fc\u3055\u3093\u306e\u3057\u3085\u3046\u307e\u3064 Mary\'s Weekend',
     ],
   },
   {
@@ -152,7 +164,12 @@ const chapters: Chapter[] = [
       'The Three-Genre Writing Drill',
       'The Fluency Method',
       'The First Real Texts',
-      '第9課 スーさんの日記 Sue\'s Diary'
+      '\u7b2c9\u8ab2 \u30b9\u30fc\u3055\u3093\u306e\u65e5\u8a18 Sue\'s Diary',
+      '\u7b2c5\u8ab2 \u6c96\u7e04\u65c5\u884c A Trip to Okinawa',
+      '\u7b2c12\u8ab2 \u4e03\u5915 Tanabata Festival',
+      '\u65e5\u672c\u5730\u56f3 Map of Japan',
+      '\u7b2c6\u8ab2 \u30ed\u30d0\u30fc\u30c8\u3055\u3093\u306e\u4e00\u65e5 A Day in Robert\'s Life',
+      '\u7b2c10\u8ab2 \u304b\u3055\u3058\u305e\u3046 The Folktale Kasajizo',
     ],
   },
   {
@@ -183,7 +200,6 @@ const chapters: Chapter[] = [
       'The N5 and N4 Censuses',
       'The Test\u2019s Craft',
       'The Doorstep: No Subtitles',
-      'P Ger passen, Engl pass ʃ Ger schließen, Engl sheet'
     ],
   },
 ]

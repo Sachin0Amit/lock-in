@@ -28,9 +28,6 @@ const chapters: Chapter[] = [
       'States and Superposition',
       'The Postulates Plain',
       'Two-Slit Arithmetic',
-      'Sine and Cosine Rule for Triangles',
-      'Quotient Rule',
-      'Rule of Substitution'
     ],
   },
   {
@@ -47,13 +44,6 @@ const chapters: Chapter[] = [
       'Dirac Notation',
       'Uncertainty Re-derived',
       'The Time-Dependent Schrodinger Equation and Wave Packets',
-      'Finite Potential Wells and Barrier Tunnelling Depths',
-      'The Linear Harmonic Oscillator by Ladder Operators',
-      'Scattering in One Dimension and the Reflection Coefficient',
-      'Identical Particles and Exchange Symmetry',
-      'Shifted Symmetry',
-      '37-1 SIMULTANEITY AND TIME DILATION 1116 38-9 TUNNELING THROUGH A POTENTIAL BARRIER',
-      'D.1 Scientific Notation'
     ],
   },
   {
@@ -69,6 +59,7 @@ const chapters: Chapter[] = [
       'Wells and Levels',
       'The Oscillator Solved',
       'Tunnelling',
+      'Scattering in One Dimension and the Reflection Coefficient',
     ],
   },
   {
@@ -84,6 +75,7 @@ const chapters: Chapter[] = [
       'Commutator Grammar',
       'Spherical Harmonics',
       'Addition Previewed',
+      'The Linear Harmonic Oscillator by Ladder Operators',
     ],
   },
   {
@@ -99,7 +91,6 @@ const chapters: Chapter[] = [
       'Radial Solutions',
       'The Degeneracy Ledger',
       'The Level Diagram',
-      'Decimal and Binary Number System'
     ],
   },
   {
@@ -115,10 +106,7 @@ const chapters: Chapter[] = [
       'Stern-Gerlach Inherited',
       'Symmetrisation Discipline',
       'Pauli as Constitution',
-      'Page 1: [table of contents page 1]',
-      'Page 2: [table of contents page 2]',
-      'Activities and Half-Lives 1459 D Periodic Table of the Elements A-5',
-      'Table 22 The Greek Alphabet'
+      'Identical Particles and Exchange Symmetry',
     ],
   },
   {
@@ -134,7 +122,7 @@ const chapters: Chapter[] = [
       'The Degenerate Rescue',
       'Fine Structure Previewed',
       'The Variational Bound',
-      'Perturbations and the Kolmogorov–Arnold–Moser Theorem'
+      'Approximate methods of quantum mechanics',
     ],
   },
   {

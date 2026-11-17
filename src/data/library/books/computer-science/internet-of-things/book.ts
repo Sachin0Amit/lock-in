@@ -76,7 +76,6 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'The Latency Question on a Control Loop',
-      'The Digital Twin, Named Honestly',
       'Tiny ML at the Edge',
     ],
   },

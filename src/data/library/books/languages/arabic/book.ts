@@ -28,8 +28,6 @@ const chapters: Chapter[] = [
       'The Four Positional Forms',
       'The Dots\u2019 Discipline and the Right-to-Left Craft',
       'The Hamza and the Lam-Alif',
-      'Iv IF YOU ARE NOT SURE WHICH UNITS YOU NEED TO STUDY, USE THE STUDY GUIDE ON PAGE',
-      'Vi IF YOU ARE NOT SURE WHICH UNITS YOU NEED TO STUDY, USE THE STUDY GUIDE ON PAGE'
     ],
   },
   {
@@ -75,8 +73,6 @@ const chapters: Chapter[] = [
       'The Perfect\u2019s Engine',
       'The Imperfect and the Derived Forms\u2019 Ladder',
       'The Agreement and the Negation',
-      'He a shoelace. 5 behind a tree',
-      'Indic. Indicative'
     ],
   },
   {

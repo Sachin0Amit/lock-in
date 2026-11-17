@@ -73,8 +73,7 @@ const chapters: Chapter[] = [
       'The Four Hypersensitivity Mechanisms Fixed Once',
       'The Tolerance-Loss Preview Named',
       'The Transplant Registers Named',
-    
-      'Semester III: Pathology'
+      'Semester I: Microbiology',
     ],
   },
   {

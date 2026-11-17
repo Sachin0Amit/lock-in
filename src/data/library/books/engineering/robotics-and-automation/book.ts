@@ -31,13 +31,9 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Anatomy and Degrees of Freedom',
       'The Configuration Census',
       'Workspaces and Safety Stated Early',
-    
       'Mechatronics and Robotics',
-      'Loop Biquad 1041 15.4.7 Generating Triangular',
-      'A brief history'
     ],
   },
   {
@@ -50,11 +46,8 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Rotation Matrices Composed',
-      'Euler Angles and Their Singularity',
       'The Homogeneous Transform',
       'The DH Convention Earned',
-      'A Closer Look at Mutual Inductance 203 9.7 Source Transformations and Thévenin–Norton',
-      'Using Special Source Transformation'
     ],
   },
   {
@@ -84,7 +77,6 @@ const chapters: Chapter[] = [
       'Closed Form: the Planar Arm',
       'Wrist Partitioning for Real Arms',
       'Numerical Routes Glanced',
-      'Problems 765 Loop Response'
     ],
   },
   {
@@ -99,7 +91,6 @@ const chapters: Chapter[] = [
       'The Jacobian Derived and Read',
       'Singularities Priced on Real Postures',
       'Static Forces: the Transpose Duality',
-      'An Alternative Approach for 13.1.3 DC VoltageGain'
     ],
   },
   {
@@ -114,7 +105,6 @@ const chapters: Chapter[] = [
       'The Lagrangian Route for Arms',
       'Cubic and Quintic Trajectories',
       'Blends and the Time-Scaling Craft',
-      'Butterworth Polynomials up to the Eighth'
     ],
   },
   {
@@ -129,7 +119,6 @@ const chapters: Chapter[] = [
       'Joint Servos: PD and PID',
       'The Sensor Census',
       'Grippers and Programming',
-      'Modified flash encoders'
     ],
   },
   {
@@ -145,7 +134,6 @@ const chapters: Chapter[] = [
       'Cells, AGVs and the Control Hierarchy',
       'The IIoT Doorstep',
       'The Honest Economics of Automation',
-      'Logic family chronology – a brief history'
     ],
   },
 ]

@@ -29,14 +29,7 @@ const chapters: Chapter[] = [
       'Coulomb in Vector Form',
       'Superposition Arithmetic',
       'Charging a Capacitor Having Some Initial Charge',
-      'Magnetic Induction Due to a Large and Thick',
-      'The Laplace–Runge–Lenz Vector',
-      'Magnetism as a Relativistic Phenomenon',
-      '25-2 CALCULATING THE CAPACITANCE',
-      'BIO Charge Distribution Inside a Nerve Cell ',
-      'Touch Screens and Capacitance ',
-      '*12–5 Vapor Pressure and Humidity 309 19 Electric Current',
-      'Magnetism 550 28 Quantum Concepts'
+      'Sharing of Charge',
     ],
   },
   {
@@ -52,7 +45,9 @@ const chapters: Chapter[] = [
       'Gauss Chosen Symmetrically',
       'The Shell Theorems',
       'Dipole Arithmetic',
-      'BIO A Fish with an Electric Dipole Moment  704 Localization in Human Hearing'
+      'A Ring of Charge',
+      'Selection of Gaussian Surface',
+      'Graphical Variation of E on x-Axis Due to a Point Charge',
     ],
   },
   {
@@ -70,11 +65,9 @@ const chapters: Chapter[] = [
       'Lightning and Corona',
       'Earthing of a Conductor',
       'Isolated Conductor',
-      'Induced EMF in a Stationary Conductor',
-      'Equipotential Surfaces 690 26-2 CURRENT DENSITY',
-      'In a Tire 218 BIO Potential Gradient Across a Cell CHAPTER',
-      'Calculating Electric Potential 760 Summary',
-      'In Perspective: Michael Faraday'
+      'Introduction to Potential',
+      'The Work Done to Move a Charge',
+      'Comments on Potential',
     ],
   },
   {
@@ -90,10 +83,14 @@ const chapters: Chapter[] = [
       'Networks of Capacitors',
       'Stored Energy',
       'Dielectrics Introduced',
-    
-      'Geometry and stereometry',
-      'Accumulation of a Radioactive Element in Radioactive Series',
-      '25–2 The Magniﬁer 710 A–5 Geometry'
+      'Capacitance of a multi-plate capacitor',
+      'Touch Screens and Capacitance \u0008',
+      'Energy Dissipated While Charging',
+      'Energy Dissipated While Discharging',
+      'Finding Potential Difference Across the Capacitors Connected in Series',
+      'Finding Potential Difference Across the Capacitors Connected in Parallel',
+      'Finding Equivalent Capacitance',
+      'Effect of Dielectric on Different Parameters',
     ],
   },
   {
@@ -110,14 +107,10 @@ const chapters: Chapter[] = [
       'Wheatstone\u2019s Bridge',
       'The Everyday Register',
       'Colour Coding and Tolerances for Resistances',
-      'Current Carrying Sheet',
-      'Work Done in Changing Orientation of a Current',
-      'Growth and Decay of Current',
-      'Current Gains in a Transistor',
-      'Pulse Code Modulation',
-      'Physical Interpretation of Bound Currents',
-      'Blood Pressure 379 Currents and Planetary Magnetism 922 Cancer Radiotherapy',
-      'Summary 802 27.8 The Direct-Current Motor'
+      'Superconductors',
+      'Post Office Box',
+      'Finding Coefficient of Resistance',
+      'Validity and Failure of Ohm\'s Law',
     ],
   },
   {
@@ -134,17 +127,10 @@ const chapters: Chapter[] = [
       'Maximum Power Transfer',
       'The Potentiometer',
       'Joule Heating and the Power Ledger',
-      'Nodal Analysis of Capacitive Circuits',
-      'Mixed Grouping',
       'Construction of Potentiometer',
       'Combination of Inductors',
-      'AC Circuits Containing Resistor Only',
-      'AC Circuits Containing Inductor Only',
-      'Digital Electronics: Analog and Digital Circuits',
-      'Power in Electric Circuits 760 REVIEW & SUMMARY 827 QUESTIONS 827 PROBLEMS',
-      'TRAPS 1197 The p-n­Junction',
-      'The R-L Circuit 998 34.7 The Magnifier',
-      'The L-C Circuit 1002 34.8 Microscopes and Telescopes'
+      'Voltage Divider',
+      'Electrical Symmetry',
     ],
   },
   {
@@ -160,12 +146,12 @@ const chapters: Chapter[] = [
       'Charged Particles in Fields',
       'Biot-Savart Geometries',
       'Ampere\u2019s Choices',
-      'Product Rule',
-      'Charged Disk',
       'Magnetic Field Due to a Straight Current Carrying Wire of Infinite Length',
-      'Triple Products',
       'Product Rules',
-      '23-3 A CHARGED ISOLATED CONDUCTOR 668 Calculating the Capacitance'
+      'Current Carrying Sheet',
+      'Magnetic Induction Due to a Large Current Carrying Sheet',
+      'Work Done in Changing Orientation of a Current',
+      'Magnetism as a Relativistic Phenomenon',
     ],
   },
   {
@@ -177,17 +163,15 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Dipole Moments',
       'The Three Behaviours',
-      'The Earth\u2019s Elements',
       'Hysteresis Named',
-      'Magnetic Induction Due to a Large Current Carrying Sheet',
       'Neutral Point and to Find Magnetic Moment of a Bar',
       'Diamagnetic Substances',
       'Paramagnetic Substances',
       'Ferromagnetic Substances',
       'Salient Features of Hysteresis Loop',
-      '21–4 Magnetic Fields Produced by Electric Currents 563 In Perspective: Stephen Hawking'
+      'Magnetic Permeability (\u03bc)',
+      'Intensity of Magnetization',
     ],
   },
   {
@@ -206,11 +190,8 @@ const chapters: Chapter[] = [
       'Flux Linkage',
       'Finding Direction of Induced EMF',
       'Motional EMF as an Equivalent Battery',
-      '30-4 INDUCTORS AND INDUCTANCE',
       'Inductors and Inductance',
-      'BIO Wing Frequencies 430 Eddy Currents Help Power Io’s Volcanoes 970 BIO Swallow This Semiconductor Device',
-      'Motional emf 965 33.5 Polarization',
-      'Self-Inductance and Inductors 992 34.5 Cameras'
+      'Induced EMF in a Stationary Conductor',
     ],
   },
   {
@@ -226,11 +207,8 @@ const chapters: Chapter[] = [
       'LCR Resonance',
       'Power Factor',
       'Transformers and Transmission',
-      'Root Mean Square (RMS) Value of Current',
-      'Inductors, Power Transmission, and Lightning Using Isotopes to Measure Ancient Climate',
-      'Guided Practice 739 26 DIRECT-CURRENT CIRCUITS',
-      'ALTERNATING CURRENT 1018 35.1 Interference and Coherent Sources',
-      '*22–3 Alternating Current Circuits 603 A Closer Look: Semiconductors'
+      'AC Circuits Containing Resistor Only',
+      'AC Circuits Containing Inductor Only',
     ],
   },
   {
@@ -246,10 +224,8 @@ const chapters: Chapter[] = [
       'Shunt and Multiplier',
       'Two Arrangements, Two Errors',
       'The Boards\u2019 Register',
-      'Electrical Symmetry',
       'Tangent Galvanometer',
       'Choke Coil',
-      'Polymers Coil in Solution  668 BIO Focusing in the Animal Kingdom'
     ],
   },
 ]

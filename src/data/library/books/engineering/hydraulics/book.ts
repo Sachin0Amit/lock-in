@@ -39,12 +39,7 @@ const chapters: Chapter[] = [
       'The Applied Census Named',
       'The Contract Stated Plainly',
       'The Water-Cycle Map',
-    
-      'Hydraulic Machines and Hydro Power — various pumps, air vessels, hydraulic turbines: types, classifications and performance parameters; power house: classification and layout, storage, pondage, control of supply',
-      'The Ideal Diode 175 5.1.6 Operation for vDS > Channel Pinch',
-      'The Rectifier 177 5.1.7 The p-Channel MOSFET',
-      'Unregulated split supply – on the bench!',
-      'Summary of important formulae 27 5.2 Hydraulic analogy'
+      'Hydraulic Machines And Hydro Power \u2014 Various Pumps, Air Vessels, Hydraulic',
     ],
   },
   {
@@ -105,7 +100,6 @@ const chapters: Chapter[] = [
       'The Most-Economical Craft',
       'Normal Depth Computed',
       'The Geometry Honest Notes',
-      'Fn 704 11.1.4 The Ideal Case of Infinite Open'
     ],
   },
   {
@@ -147,9 +141,6 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Impulse versus Reaction Cashed',
-      'Pelton, Francis, Kaplan Worked',
-      'The Specific-Speed Compass',
       'Cavitation Priced Honestly',
     ],
   },

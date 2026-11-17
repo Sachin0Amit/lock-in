@@ -28,9 +28,6 @@ const chapters: Chapter[] = [
       'The Mean Statistics',
       'The Significance Craft',
       'The Calibration Ledger',
-      'Calculation of Degree of Dissociation from Vapour Density Measurement',
-      'Chemistry 813 A1.5 Uncertainties in Measurements A10',
-      'Comprise the region outside the system. Measurements are'
     ],
   },
   {
@@ -62,16 +59,9 @@ const chapters: Chapter[] = [
       'The Redox Registers',
       'EDTA Craft',
       'The Back-Titration Honesty',
-    
-      'Acidimetry and alkalimetry, acidimetric titration curves, choice and color of indicators for acidimetry',
       'Redox titrations (permanganometric and iodometric); iodometry (reaction of thiosulfate and iodine)',
-      'Lothar Meyer\'s Atomic Volume Curve (1869)',
-      'Potassium Dichromate (K2Cr2O7)',
-      'Titration of Mixture of Compounds with Acid/Base or Oxidising/Reducing Agent',
       'End Point and Equivalence Point of a Titration',
-      'Polyprotic Acid Titrations 632 For Review 699 | Key Terms 699 | Questions and Exercises',
-      'Looking back 852 The Favorskii rearrangement',
-      'Iodine heptafluoride IF7'
+      'Acidimetry And Alkalimetry, Acidimetric Titration Curves, Choice And Color',
     ],
   },
   {
@@ -87,6 +77,7 @@ const chapters: Chapter[] = [
       'The IR Fingerprint',
       'The AAS Census',
       'The Fluorescence Register',
+      'Spectroscopy for Biochemists: UV-Visible, Fluorescence and Mass Spectrometry',
     ],
   },
   {
@@ -102,8 +93,6 @@ const chapters: Chapter[] = [
       'The Voltammetric Register',
       'Coulometry Named',
       'The Conductance Taster',
-      'Further reading 851 The pinacol rearrangement',
-      'Further reading 876 showcase'
     ],
   },
   {
@@ -149,8 +138,7 @@ const chapters: Chapter[] = [
       'The NMR Preview',
       'The Solid Characterisation',
       'The Chemometrics Name',
-    
-      'Laboratory skills expected to be known by all participants (heating and reflux, mass and volume measurement, preparation and dilution of solutions, titrations, pH measurement, filtration, drying of precipitates, instrument operation, graphing and analysis of experimental data)'
+      'Laboratory Skills Expected To Be Known By All Participants (heating And',
     ],
   },
 ]

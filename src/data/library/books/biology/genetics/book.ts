@@ -45,8 +45,6 @@ const chapters: Chapter[] = [
       'The ABO Craft',
       'Epistasis\u2019s Modified Ratios',
       'Polygenic Curves and the Norm of Reaction',
-      'Meiosis and Genetic Diversity',
-      'Genetic Continuity Is Vested in Single 2.3 Buffering against pH Changes'
     ],
   },
   {
@@ -93,8 +91,6 @@ const chapters: Chapter[] = [
       'The Mitochondrial Pedigrees',
       'The Endosymbiotic Receipt',
       'The Applications Named',
-    
-      'Monoclonal antibodies and their applications'
     ],
   },
   {
@@ -125,9 +121,7 @@ const chapters: Chapter[] = [
       'The Five Forces Named',
       'Drift\u2019s Sampling Honesty',
       'Selection\u2019s Three Modes',
-    
       'D11 Selection',
-      'In Vino, Veritas 17 Nonpolar Compounds Force Energetically'
     ],
   },
   {
@@ -143,7 +137,6 @@ const chapters: Chapter[] = [
       'The Twin Studies\u2019 Logic and Limits',
       'The Epigenetic Switches',
       'The Modern Synthesis Frame',
-      'In Vitro Studies May Overlook Important Genomic Comparisons Have Increasing'
     ],
   },
   {

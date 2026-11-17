@@ -28,8 +28,6 @@ const chapters: Chapter[] = [
       'The Size Honesty Named',
       'The Zorn Receipt Named',
       'The Safety Register Named',
-    
-      'Graphics practical Class XI: Relief Printing through Linocut/Woodcut/Paper-cardboard (printing methods and materials, registration, simple colour printing); Portfolio Assessment'
     ],
   },
   {
@@ -45,10 +43,7 @@ const chapters: Chapter[] = [
       'The Temperature\u2019s-Shift Craft Named',
       'The Grisaille Craft Held',
       'The Local-Observed Division Held Straight',
-    
-      'Class XII theory (common to all four subjects) Unit 1: Miniature Paintings — The Rajasthani, Pahari, Mughal and Deccan schools of miniature painting',
-      'Painting practical Class XI: Nature and object study; exercises in pencil with light and shade and in full colour from a fixed point of view; portfolio assessment',
-      'Painting practical Class XII: Nature and Object Study; Painting Composition (imaginative painting from life and nature in water and poster colours); Portfolio Assessment'
+      'Painting practical Class XII: Nature and Object Study; Painting Composition (imaginative painting from life and nature in water and poster colours); Portfolio Assessment',
     ],
   },
   {

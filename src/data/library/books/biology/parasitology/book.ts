@@ -44,7 +44,6 @@ const chapters: Chapter[] = [
       'The Cyst Crafts by Their Receipts',
       'The Antigenic Variation as the Evasion Craft',
       'The Flagellate Registers Named',
-      'The Protozoan and Helminthic Parasites',
     ],
   },
   {

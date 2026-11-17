@@ -27,7 +27,6 @@ const chapters: Chapter[] = [
       'The Swan-Neck Logic',
       'Koch\u2019s Postulates Earned',
       'The Pure-Culture Craft',
-      'The Golden-Age Arc',
       'The Microscopy Register: Light to Electron',
     ],
   },
@@ -44,9 +43,6 @@ const chapters: Chapter[] = [
       'The Morphological Census',
       'The Biofilm Community',
       'The Spore and the Size Honesty',
-      'The Prokaryotic Cell: Structure and Function',
-      'The Morphology of Bacteria',
-      'Living Organisms Exist in a Dynamic Steady Macromolecular Structure and Function'
     ],
   },
   {
@@ -67,8 +63,7 @@ const chapters: Chapter[] = [
       'Redox Reactions, Electron Transport and Oxidative Phosphorylation',
       'Photosynthesis and the Calvin Cycle in Microbes',
       'Growth and Death Kinetics with Serial Dilution',
-      'We lack the space here to acknowledge all the other 12 Biochemical Signaling',
-      'Of Wisconsin-Madison, who helped us with advice and 19 Oxidative Phosphorylation'
+      'Microbial Metabolism',
     ],
   },
   {
@@ -146,7 +141,7 @@ const chapters: Chapter[] = [
       'The Antibiotic Arc and the Classes\u2019 Targets',
       'The Resistance Era Honestly Told',
       'The Management Honesty',
-      'Disinfection and Sterilization',
+      'Antibiotics',
     ],
   },
   {
@@ -168,8 +163,6 @@ const chapters: Chapter[] = [
       'Household and Industrial Microbial Products with Biogas',
       'The Role of Microorganisms in Organic Matter and Disease',
       'Antigen and Antibody Detection in Microbial Diagnosis',
-      'Aerobic and Anaerobic Respiration with Chemolithotrophy',
-      'The competing demands on our time; to our colleagues 18 Amino Acid Oxidation and the'
     ],
   },
 ]

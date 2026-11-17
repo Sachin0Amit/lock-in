@@ -29,10 +29,8 @@ const chapters: Chapter[] = [
       'The Two embryology Receipts',
       'The Ladder Myth Held Apart',
       'The Salient Features of the Animal Phyla: Non-Chordates to Chordate Classes',
-      'Distribution, Systematics and the Classification of Animals',
-      'Phylogenetic Relationships: Classical and Molecular Tools',
-      'The Diversity of Organisms: Classification and Cladistics',
       'Structure, Function and Evolutionary Relationships',
+      'An Introduction to Invertebrates',
     ],
   },
   {
@@ -63,7 +61,6 @@ const chapters: Chapter[] = [
       'The Tapewody\u2019s Absorptive Arithmetic',
       'The Nematode Register Held',
       'The Parasite\u2019s Loss-and-Gain Census',
-      'M•tfl• On Being One\'s Own Rabbit'
     ],
   },
   {
@@ -94,7 +91,6 @@ const chapters: Chapter[] = [
       'The Metamorphosis Division Priced',
       'The Subphyla Census Held',
       'The Dominance Receipts Priced Straight',
-      'Comments and suggestions . If something in the book 15 The Metabolism of Glycogen in Animals'
     ],
   },
   {

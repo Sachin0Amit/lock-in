@@ -80,7 +80,8 @@ const chapters: Chapter[] = [
       'Ratios of Acute Angles and the Standard Table',
       'The Unit Circle: Functions of Any Angle',
       'Graphs, Periodicity and Behaviour',
-      'Allied Angles: the n × 90° ± θ Machine',
+      'Allied Angles: the n \u00d7 90\u00b0 \u00b1 \u03b8 Machine',
+      'Graphs of Sine and Cosine Functions',
     ],
   },
   {
@@ -92,7 +93,6 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Compound Angles: the Sum and Difference Formulas',
       'a cos x + b sin x: the Shifted Wave',
       'Product\u2013Sum Transformations',
       'Multiple Angles and Typical Values',
@@ -126,7 +126,7 @@ const chapters: Chapter[] = [
       'Why the inverses need principal values',
       'The Principal-Value Discipline: f\u207b\u00b9(f(x)) and f(f\u207b\u00b9(x))',
       'Relating the Inverses',
-      'Sums, Differences and Multiple Angles as One Inverse',
+      'Inverse Trigonometric Functions',
     ],
   },
   {
@@ -146,6 +146,7 @@ const chapters: Chapter[] = [
       'The Orthocentre, Centroid and the Pedal Triangle',
       'The Excircles: Excentres, Exradii and Their Distances',
       'Quadrilaterals and Regular Polygons',
+      'A.6 Law of Sines and Law of Cosines',
     ],
   },
   {

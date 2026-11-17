@@ -28,8 +28,6 @@ const chapters: Chapter[] = [
       'The Contraction Division Held Straight',
       'The Coin Receipt Named',
       'The Judson Named',
-    
-      'Unit IV (common): Research Methodology and Pedagogy, Avenues, Interdisciplinary aspects and Modern Technology'
     ],
   },
   {

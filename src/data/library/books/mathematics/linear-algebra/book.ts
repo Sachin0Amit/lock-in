@@ -107,7 +107,7 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'R\u207f and Subspaces — the scalar field F and the digression on fields (Abstract Algebra\u2019s ground, cross-referenced), sums and direct sums of subspaces',
+      'R\u207f and Subspaces',
       'Span and Linear Independence',
       'Basis and Dimension',
     ],
@@ -122,10 +122,11 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Machines that Respect the Structure',
-      'Kernel, Range and Rank-Nullity — the null space and injectivity, the range and surjectivity — with invertibility and isomorphisms (Axler\u2019s isomorphic reading of a space)',
+      'Kernel, Range and Rank-Nullity',
       'The Matrix of a Transformation',
       'Composition and Change of Basis',
       'The Dual Space and the Dual Map',
+      'Formal Properties of the Transformation Matrix',
     ],
   },
   {
@@ -138,12 +139,13 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'The Characteristic Polynomial',
-      'Diagonalization and Cayley\u2013Hamilton — diagonalizable operators, the conditions for diagonalizability, commuting operators, and the Gershgorin disk theorem',
+      'Diagonalization and Cayley\u2013Hamilton',
       'Invariant Subspaces and the Minimal Polynomial',
       'Generalized Eigenvectors, Nilpotent Operators and Jordan Form',
-      'The Symmetric Promise — Axler\u2019s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues',
+      'The Symmetric Promise: Self-Adjoint, Normal and Unitary Operators',
       'Powers, Markov Chains and the SVD Named',
       'The Singular Value Decomposition: Image Processing and PCA',
+      'Positive Definite Matrices: the Energy Test',
     ],
   },
   {
@@ -159,7 +161,6 @@ const chapters: Chapter[] = [
       'Projections and Orthogonality',
       'Gram\u2013Schmidt and Orthogonal Bases',
       'Least Squares: the Overdetermined Verdict',
-      'Positive Definite Matrices: the Energy Test',
     ],
   },
   {
@@ -172,7 +173,7 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'The Four Fundamental Subspaces',
-      'Quadratic Forms and the Conics Re-read — Axler\u2019s closing arc: bilinear forms and symmetric bilinear forms, alternating multilinear forms, defining the determinant as the signed volume of an operator — with operators applied to ellipsoids and parallelepipeds (the image-body reading), and the tensor product',
+      'Quadratic Forms and the Conics Re-read',
       'The Doorstep: the Axioms Become the Subject',
     ],
   },

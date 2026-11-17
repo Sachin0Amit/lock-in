@@ -58,7 +58,6 @@ const chapters: Chapter[] = [
       'The Life-Cycle Arithmetic',
       'The Brand Ledger',
       'The Indian Cases Named',
-      '16-3c Brand Names 331 of Labor Markets'
     ],
   },
   {

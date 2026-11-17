@@ -47,6 +47,7 @@ const chapters: Chapter[] = [
       'The Arrhenius Honesty Named',
       'The BSC Division Priced Straight',
       'Dosage Forms, Unit Operations and Drug Delivery',
+      'Pharmaceutical Engineering',
     ],
   },
   {
@@ -63,9 +64,7 @@ const chapters: Chapter[] = [
       'The Prodrug Honesty Held',
       'The In-Silico Craft Named',
       'Pharmacognosy and Phytochemistry',
-      'Pharmaceutical Management, Jurisprudence and Drug Regulatory Affairs',
-    
-      'Pharmaceutical Engineering'
+      'Medicinal chemistry',
     ],
   },
   {
@@ -98,6 +97,7 @@ const chapters: Chapter[] = [
       'The Phase Honesty Cross-Referenced',
       'The Schedule-M Honesty Named',
       'Pharmacy Microbiology and Sterility',
+      'Pharmaceutical Management, Jurisprudence and Drug Regulatory Affairs',
     ],
   },
 ]

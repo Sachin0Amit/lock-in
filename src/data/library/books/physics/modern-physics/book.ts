@@ -28,8 +28,6 @@ const chapters: Chapter[] = [
       'Planck\u2019s Postulate',
       'The Radiation Laws',
       'The Curves Read',
-      'Blackbody Radiation: Kirchhoff, Wien and Stefan',
-      'BIO Combined Translation and Rotation 309 BIO Electromyography  855 BIO Blackbody Eyes'
     ],
   },
   {
@@ -45,9 +43,9 @@ const chapters: Chapter[] = [
       'Stopping Potential',
       'Work Functions',
       'Compton Named',
-      'Schrödinger’s Equation and the Hydrogen Atom 1205 42-1 DISCOVERING THE NUCLEUS',
-      'Albert Einstein',
-      'In Perspective: Albert Einstein'
+      'Dual Behaviour of Matter',
+      'Photons Have Momentum',
+      'Photon Counts Emitted by a Source per Second',
     ],
   },
   {
@@ -78,6 +76,8 @@ const chapters: Chapter[] = [
       'The Continuous Limit',
       'Characteristic Lines',
       'Compton Kinematics',
+      'Production of X-Rays (Coolidge\'s Tube)',
+      'X Rays and the Ordering of the Elements',
     ],
   },
   {
@@ -89,14 +89,10 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'de Broglie\u2019s Wavelength',
       'Davisson-Germer',
       'The Uncertainty Pair',
       'Thought Experiments',
-    
-      'Theme B: The particulate nature of matter',
-      'Pages 5–12 of this scan are chapter body text, not additional contents pages; the complete printed contents (pages 1–4, with pages 2 and 4 being duplicates of 1 and 3) is',
-      'Butterfly Hunting with Heisenberg'
+      'Butterfly Hunting with Heisenberg\u0008',
     ],
   },
   {
@@ -112,6 +108,7 @@ const chapters: Chapter[] = [
       'The Mass Defect',
       'Radioactivity\u2019s Law',
       'Fission and Fusion Previewed',
+      'Size of Nuclei',
     ],
   },
   {
@@ -127,9 +124,9 @@ const chapters: Chapter[] = [
       'The p-n Junction',
       'Rectifiers and Transistors',
       'Logic Gates Previewed',
-      'Logic Gates and Truth Table',
-      'Logic Gates Using \'NAND\' Gate',
-      'Semiconductor Devices 1428 44.7 The Beginning of Time'
+      'Three Configurations of a Transistor',
+      'Current Gains in a Transistor',
+      'Special Purpose Diodes',
     ],
   },
   {

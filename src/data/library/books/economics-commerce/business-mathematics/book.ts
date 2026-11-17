@@ -43,7 +43,6 @@ const chapters: Chapter[] = [
       'The Simultaneous Cases',
       'The Inequality Reading',
       'The LP Preview',
-      'CASE STUDY: Can Congress Distribute the Burden Problems and Applications'
     ],
   },
   {
@@ -74,7 +73,6 @@ const chapters: Chapter[] = [
       'The GP and Growth Ladder',
       'The Function Craft',
       'The Growth Engine',
-      'Appendix Graphing: A Brief Review'
     ],
   },
   {

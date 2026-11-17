@@ -42,8 +42,7 @@ const chapters: Chapter[] = [
       'The Four-Way Census',
       'Impulses and Steps, Honestly',
       'Energy versus Power',
-      'Shift, Scale, Reverse — Order Matters',
-      'Discharge of a capacitor through a resistor 116 per ampere'
+      'Shift, Scale, Reverse \u2014 Order Matters',
     ],
   },
   {
@@ -58,7 +57,6 @@ const chapters: Chapter[] = [
       'The Census Tested Honestly',
       'BIBO Stated and Priced',
       'LTI as the Tractable Intersection',
-      'List of Examples xii Practical Perspective: Resistive Touch'
     ],
   },
   {
@@ -74,7 +72,6 @@ const chapters: Chapter[] = [
       'The Graphical Craft Practised',
       'Properties of the Convolution',
       'Causality and Stability Read',
-      'Binary numbers 517 24.5 Convolution integral for continuous-time'
     ],
   },
   {
@@ -90,8 +87,6 @@ const chapters: Chapter[] = [
       'The Standard Census Computed',
       'Parseval and the Gibbs Note',
       'The Discrete Sibling Learned',
-      'Low-Pass Filters 539 17.2 The Convergence of the Fourier Integral',
-      'Source on a Series RLC Bandpass Filter 557 16.7 Finding the Exponential Form of the Fourier'
     ],
   },
   {
@@ -107,9 +102,6 @@ const chapters: Chapter[] = [
       'The Pair Table Built',
       'Convolution-as-Multiplication Priced',
       'DTFT and the DFT Named',
-      'Some Preliminaries 538 17.1 The Derivation of the Fourier Transform',
-      'High-Pass Filters 545 17.3 Using Laplace Transforms to Find Fourier',
-      'Scaling a Prototype Low-Pass Op Amp 17.2 Finding the Fourier Transform from the Laplace'
     ],
   },
   {
@@ -122,12 +114,8 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'The ROC, Honestly',
-      'Poles and Zeros as Character',
       'Stability from the ROC',
       'Inversion Practised',
-      'Definition of the Laplace Transform 446 15.1 First-Order Low-Pass',
-      'Applying the Laplace Transform 458 15.5 Narrowband Bandpass',
-      'Domain 349 12.5 Finding the Inverse Laplace Transform When'
     ],
   },
   {
@@ -158,6 +146,7 @@ const chapters: Chapter[] = [
       'Aliasing and the Fold',
       'The Standard Chain Drawn',
       'The Practical Census',
+      'Harry Nyquist: A Diverse Electronics',
     ],
   },
   {

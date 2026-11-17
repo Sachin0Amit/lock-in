@@ -142,7 +142,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Creation Idioms',
       'The Immutability Playbook',
-      'The Pitfalls Census and the Ecosystem (the applet and servlet eras named)',
+      'The Pitfalls Census and the Ecosystem',
     ],
   },
   {

@@ -28,8 +28,7 @@ const chapters: Chapter[] = [
       'The Three Failure Kinds as the Map',
       'The Maternal-IgG Window Named',
       'The Serology Preview Held',
-    
-      'CARS: Reading Comprehension (humanities and social sciences passages)'
+      'Cars: Reading Comprehension (humanities And Social Sciences Passages)',
     ],
   },
   {

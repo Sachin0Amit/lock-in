@@ -43,8 +43,7 @@ const chapters: Chapter[] = [
       'The Bodoni Receipt Priced Straight',
       'The Helvetica Honesty Priced Straight',
       'The Screen\u2019s Arc Named',
-    
-      'Part-A: Observation and design sensitivity — capacity to detect concealed properties in daily life and think critically about them; attention to detail, classification, analysis, inference and prediction'
+      'Observation And Design Sensitivity \u2014 Capacity To Detect Concealed',
     ],
   },
   {

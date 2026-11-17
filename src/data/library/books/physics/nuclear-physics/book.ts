@@ -28,13 +28,6 @@ const chapters: Chapter[] = [
       'The Mass Ledger',
       'Spin and Moments',
       'The Stability Valley',
-      'Stability and Neutron–Proton Ratio (n/p)',
-      'Pages 3–12: chapter content pages (Nuclear Physics text, illustrations 7.1–7.7), not part of the table of contents',
-      '40-1 PROPERTIES OF ATOMS 1219 42-2 SOME NUCLEAR PROPERTIES',
-      'How Lasers Work 1242 Nuclear Fission: The Basic Process',
-      'Nuclear Stability and Radioactivity 1452 C The Greek Alphabet A-4',
-      'Nuclear Reactions 1465 F Numerical Constants A-7',
-      'Nuclear Fusion 1472 Answers to Odd-Numbered Problems A-9'
     ],
   },
   {
@@ -50,10 +43,6 @@ const chapters: Chapter[] = [
       'The Liquid Drop',
       'Magic Numbers Rescued',
       'The Collective Complement',
-      'Horizontal Range of the Escaping Liquid',
-      'Building the Periodic Table 1234 42-8 NUCLEAR MODELS',
-      'REVIEW & SUMMARY 1245 QUESTIONS 1246 PROBLEMS 1247 A Model for Nuclear Fission',
-      'A Closer Look: Magic in the Sky 754 Appendix E Answers to Odd'
     ],
   },
   {
@@ -69,6 +58,7 @@ const chapters: Chapter[] = [
       'The Weizsacker Terms',
       'Stability Worked',
       'The Formula\u2019s Limits',
+      'Variation of Binding Energy per Nucleon with Mass Number',
     ],
   },
   {
@@ -84,11 +74,11 @@ const chapters: Chapter[] = [
       'Beta and the Neutrino',
       'Gamma Registers',
       'The Dating Craft',
-    
-      'E.3 Radioactive decay',
       'Natural Radioactivity: Radioactive Decay Series',
       'Simultaneous Decay Modes of Radioactive Element',
-      'BIO Rolling for Reproduction 314 BIO Pacemakers and Capacitors  860 Star Colors and the Planck Radiation Law'
+      'Radioactive Equilibrium',
+      'Accumulation of a Radioactive Element in Radioactive Series',
+      'Average Life',
     ],
   },
   {
@@ -104,8 +94,6 @@ const chapters: Chapter[] = [
       'Thresholds and Conservation',
       'Cross-Sections Introduced',
       'Compound Nucleus',
-      'Representing Normal Reaction in Different Situations',
-      'Toppling and Shifting of Normal Reaction'
     ],
   },
   {
@@ -121,6 +109,9 @@ const chapters: Chapter[] = [
       'The Chain and Its Factor',
       'Moderators and Control',
       'Breeding and Waste',
+      'Regulating Neutron Energies',
+      'Neutron Leakage',
+      'Neutron Capture',
     ],
   },
   {
@@ -136,8 +127,7 @@ const chapters: Chapter[] = [
       'pp and CNO Named',
       'Confinement Registers',
       'DT Arithmetic',
-    
-      'E.5 Fusion and stars'
+      'E.5 Fusion And Stars',
     ],
   },
   {
@@ -170,7 +160,6 @@ const chapters: Chapter[] = [
       'The ALARA Ethics',
       'Radiation from an Arbitrary Source',
       'Measuring Radiation Dosage',
-      '23–4 Reﬂection and Refraction 644 30–4 Biological Effects of Radiation'
     ],
   },
 ]

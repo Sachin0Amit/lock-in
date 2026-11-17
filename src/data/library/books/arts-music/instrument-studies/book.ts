@@ -43,8 +43,6 @@ const chapters: Chapter[] = [
       'The Family Census by Its Ranges',
       'The Pickup Honesty Cross-Referenced',
       'The Setup Craft Named',
-    
-      'Music Instruments of India (classification, structure and playing techniques; veena, violin, flute, nadaswaram, mridangam etc.)'
     ],
   },
   {
@@ -90,8 +88,8 @@ const chapters: Chapter[] = [
       'The Bol Cross-Reference Held',
       'The Two-String Craft Held',
       'The Migration Register Named',
-    
-      'Musical Instruments and their Classification'
+      'Music Instruments of India (classification, structure and playing techniques; veena, violin, flute, nadaswaram, mridangam etc.)',
+      'Percussion (Tabla/Pakhawaj) Units V-X: Applied Theory \u2014 Taal & Avanaddha Vadya; history of music and treatises; compositional forms of avanaddha vadyas; classification and description of musical instruments; performers and composers; detailed study of gharanas and institutional system',
     ],
   },
 ]

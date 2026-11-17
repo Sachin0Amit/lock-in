@@ -43,11 +43,9 @@ const chapters: Chapter[] = [
       'The Chaconne Receipt Named',
       'The ABACA Craft Fixed by Drill',
       'The Confusable Receipts Held Straight',
-    
       'Compositional forms and their evolution (prabandh, dhrupad, dhamaar, kheyaal, tarana, thumri, tappa etc.)',
       'Compositional forms and their evolution (prabandha, gitam, svarajati, varnam, padavarnam, kriti, ragamalika etc.)',
-      'Applied Theory (ragas, talas, kirtana, baul); historical perspective of music (Tagore and eminent personalities); composition forms and their evolution (Geetanjali and song offerings); music instruments of India; contribution of scholars/performers and their textual traditions; gharana and',
-      'Component 2 Practical Music — composing (two contrasting compositions, 1-2 minutes each)'
+      'Rabindra Sangeet Units V-x: Applied Theory (ragas, Talas, Kirtana, Baul);',
     ],
   },
   {
@@ -78,9 +76,7 @@ const chapters: Chapter[] = [
       'The Transposition Receipts Fixed by Drill',
       'The Register-Spacing Honesty Held',
       'The Mockup Cross-Reference Named',
-    
-      'Percussion (Tabla/Pakhawaj) Units V-X: Applied Theory — Taal & Avanaddha Vadya; history of music and treatises; compositional forms of avanaddha vadyas; classification and description of musical instruments; performers and composers; detailed study of gharanas and institutional system',
-      'Part A — composition and colour application; sketching of scenes and environments'
+      'Composition And Colour Application; Sketching Of Scenes And Environments',
     ],
   },
   {
@@ -96,9 +92,8 @@ const chapters: Chapter[] = [
       'The Word-Painting Register Named',
       'The Time-Away Receipt Held Straight',
       'The Parts\u2019-and-Score Honesty Named',
-    
-      'Component 4 Extended Composition — 6-8 minute composition plus 1000-1500-word research report',
-      'Component 5 Investigating Music — 2500-3000-word essay plus up to 500-word reflective statement'
+      'Component 4 Extended Composition \u2014 6-8 Minute Composition Plus',
+      'Component 5 Investigating Music \u2014 2500-3000-word Essay Plus Up To 500-word',
     ],
   },
 ]

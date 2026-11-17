@@ -89,6 +89,7 @@ const chapters: Chapter[] = [
       'The Vascular Receipt',
       'The Generations\u2019 Arithmetic',
       'The Water\u2019s Constraint Held',
+      'Growth, Development and Reproduction in Ferns and Mosses',
     ],
   },
   {
@@ -120,7 +121,6 @@ const chapters: Chapter[] = [
       'The Economic Cross-References',
       'The Keying Drill\u2019s Ten Specimens',
       'The Five Exam Families: Malvaceae, Cruciferae, Leguminoceae, Compositae and Graminae',
-      'Partners (Brook, Beth, and Tim) and our families, who Nucleotides, and Related Molecules'
     ],
   },
   {

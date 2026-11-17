@@ -38,7 +38,7 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'The Pipeline: Phases and Their Contracts',
-      'The Processor Census: Compile versus Interpret (the language-translator family — assembler, compiler, interpreter)',
+      'The Processor Census: Compile versus Interpret',
       'The Science of Building One',
     ],
   },

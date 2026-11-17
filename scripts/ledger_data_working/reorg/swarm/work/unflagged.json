@@ -1,0 +1,3260 @@
+[
+[
+"engineering-mechanics",
+1,
+1,
+"Force Vectors and Their Resultants"
+],
+[
+"engineering-mechanics",
+1,
+2,
+"Equilibrium of a Particle: 2D and 3D"
+],
+[
+"engineering-mechanics",
+1,
+3,
+"Appendices A-L"
+],
+[
+"engineering-mechanics",
+1,
+11,
+"Appendices"
+],
+[
+"engineering-mechanics",
+1,
+13,
+"* Available online at www.oup.com/he/sedra-smith8e"
+],
+[
+"engineering-mechanics",
+1,
+16,
+"Fundamentalist"
+],
+[
+"engineering-mechanics",
+1,
+17,
+"The Creator of the pA741: David Fullagar"
+],
+[
+"engineering-mechanics",
+1,
+25,
+"Connectors"
+],
+[
+"engineering-mechanics",
+1,
+26,
+"Transconductance"
+],
+[
+"engineering-mechanics",
+1,
+32,
+"The 34420A 7.5-digit frontend"
+],
+[
+"engineering-mechanics",
+1,
+34,
+"Switchers: looking more closely"
+],
+[
+"engineering-mechanics",
+1,
+36,
+"Synchronizer"
+],
+[
+"engineering-mechanics",
+1,
+40,
+"Photomultipliers"
+],
+[
+"engineering-mechanics",
+1,
+44,
+"Wrapup"
+],
+[
+"engineering-mechanics",
+1,
+47,
+"AD7873 touchscreen digitizer"
+],
+[
+"engineering-mechanics",
+1,
+48,
+"More on Deriving the Th\u00e9venin"
+],
+[
+"engineering-mechanics",
+1,
+49,
+"Radiators"
+],
+[
+"engineering-mechanics",
+1,
+53,
+"Identities"
+],
+[
+"engineering-mechanics",
+1,
+55,
+"Flashlight"
+],
+[
+"engineering-mechanics",
+1,
+56,
+"Fig. 1.5"
+],
+[
+"engineering-mechanics",
+1,
+57,
+"Fig. 1.7"
+],
+[
+"engineering-mechanics",
+1,
+59,
+"Fibreoptics"
+],
+[
+"engineering-mechanics",
+1,
+66,
+"Introductory"
+],
+[
+"engineering-mechanics",
+1,
+69,
+"Www.pearsoned.co.uk/hughes"
+],
+[
+"engineering-mechanics",
+2,
+0,
+"Moments, Couples and Their Algebra"
+],
+[
+"engineering-mechanics",
+2,
+2,
+"Distributed Loads and Their Resultants"
+],
+[
+"engineering-mechanics",
+3,
+0,
+"Trusses: the Method of Joints"
+],
+[
+"engineering-mechanics",
+3,
+1,
+"Trusses: the Method of Sections"
+],
+[
+"engineering-mechanics",
+3,
+2,
+"Frames and Machines: Multi-force Members"
+],
+[
+"engineering-mechanics",
+3,
+3,
+"Engineering Aptitude covering Logical reasoning and Analytical ability"
+],
+[
+"engineering-mechanics",
+4,
+0,
+"Dry Friction: Tipping versus Sliding"
+],
+[
+"engineering-mechanics",
+4,
+1,
+"Wedges and the Screw Jack"
+],
+[
+"engineering-mechanics",
+4,
+3,
+"Rolling Resistance Priced"
+],
+[
+"engineering-mechanics",
+4,
+7,
+"Effect of the Output Resistance of the 9.4 DC Offset"
+],
+[
+"engineering-mechanics",
+4,
+12,
+"Gate standardization"
+],
+[
+"engineering-mechanics",
+4,
+13,
+"Of rotor resistance"
+],
+[
+"engineering-mechanics",
+5,
+0,
+"Centroids by Composite Parts"
+],
+[
+"engineering-mechanics",
+5,
+1,
+"Theorems of Pappus-Guldinus"
+],
+[
+"engineering-mechanics",
+5,
+3,
+"Products of Inertia and Principal Axes"
+],
+[
+"engineering-mechanics",
+5,
+7,
+"Th\u00e9venin\u2019s theorem"
+],
+[
+"engineering-mechanics",
+6,
+0,
+"The Principle Stated and First Applied"
+],
+[
+"engineering-mechanics",
+6,
+1,
+"Machines and Linked Bodies by Virtual Work"
+],
+[
+"engineering-mechanics",
+6,
+2,
+"The Potential-Energy Reading"
+],
+[
+"engineering-mechanics",
+7,
+0,
+"Curvilinear Motion and Its Components"
+],
+[
+"engineering-mechanics",
+7,
+2,
+"General Plane Motion: the Velocity Construction"
+],
+[
+"engineering-mechanics",
+7,
+3,
+"PLL components"
+],
+[
+"engineering-mechanics",
+7,
+4,
+"Relative permittivity"
+],
+[
+"engineering-mechanics",
+9,
+0,
+"The Work-Energy Engine"
+],
+[
+"engineering-mechanics",
+10,
+1,
+"Lagrange\u2019s Equations, Derived and Worked"
+],
+[
+"engineering-mechanics",
+10,
+2,
+"The Synthesis: Four Formulations, One Mechanics"
+],
+[
+"engineering-mechanics",
+10,
+3,
+"The Doorstep: from Rigid to Deformable"
+],
+[
+"strength-of-materials",
+1,
+0,
+"Sectioning a Body: the Method of Internal Forces"
+],
+[
+"strength-of-materials",
+1,
+1,
+"Normal, Shear and Bearing Stress"
+],
+[
+"strength-of-materials",
+1,
+2,
+"Stress on the Oblique Plane"
+],
+[
+"strength-of-materials",
+2,
+1,
+"Hooke, Poisson and the Shear Relation"
+],
+[
+"strength-of-materials",
+2,
+2,
+"The Testing Laboratory: UTM, Hardness, Impact"
+],
+[
+"strength-of-materials",
+3,
+0,
+"Indeterminate Assemblies by Compatibility"
+],
+[
+"strength-of-materials",
+3,
+1,
+"Thermal Stresses and Their Bookkeeping"
+],
+[
+"strength-of-materials",
+4,
+0,
+"The Torsion Formula Earned"
+],
+[
+"strength-of-materials",
+4,
+1,
+"Angle of Twist and Power Transmission"
+],
+[
+"strength-of-materials",
+4,
+2,
+"Indeterminate Shafts and Design"
+],
+[
+"strength-of-materials",
+4,
+3,
+"The Honest Limits: Noncircular and Thin-Walled"
+],
+[
+"strength-of-materials",
+5,
+0,
+"The Diagrams as a Fluent Craft"
+],
+[
+"strength-of-materials",
+5,
+1,
+"Load, Shear and Moment: the Differential Relations"
+],
+[
+"strength-of-materials",
+5,
+2,
+"Singularity Functions for Beam Bookkeeping"
+],
+[
+"strength-of-materials",
+5,
+9,
+"The NAND function"
+],
+[
+"strength-of-materials",
+5,
+10,
+"Support the use of this textbook in teaching, please visit"
+],
+[
+"strength-of-materials",
+6,
+0,
+"The Flexure Formula Earned"
+],
+[
+"strength-of-materials",
+6,
+1,
+"Section Modulus and Beam Design"
+],
+[
+"strength-of-materials",
+6,
+2,
+"Shearing Stresses and Shear Flow"
+],
+[
+"strength-of-materials",
+6,
+3,
+"The Shear Centre"
+],
+[
+"strength-of-materials",
+7,
+1,
+"Mohr\u2019s Circle for Plane Strain"
+],
+[
+"strength-of-materials",
+7,
+2,
+"Strain Gauges and Rosettes"
+],
+[
+"strength-of-materials",
+7,
+3,
+"Thin Cylinders Under Pressure"
+],
+[
+"strength-of-materials",
+8,
+0,
+"The Elastic Curve and Double Integration"
+],
+[
+"strength-of-materials",
+8,
+1,
+"Macaulay\u2019s Method"
+],
+[
+"strength-of-materials",
+8,
+3,
+"Indeterminate Beams by Superposition"
+],
+[
+"strength-of-materials",
+9,
+0,
+"Euler\u2019s Column and the End-Condition Census"
+],
+[
+"strength-of-materials",
+9,
+1,
+"Slenderness: Buckling versus Crushing"
+],
+[
+"strength-of-materials",
+9,
+2,
+"Castigliano\u2019s Theorem"
+],
+[
+"strength-of-materials",
+9,
+3,
+"Strain Energy and Impact Loading"
+],
+[
+"strength-of-materials",
+9,
+5,
+"The MOSFET Case"
+],
+[
+"strength-of-materials",
+9,
+6,
+"The BJT Case"
+],
+[
+"theory-of-machines",
+1,
+0,
+"Kinematic Pairs and Chains"
+],
+[
+"theory-of-machines",
+1,
+1,
+"The Four-Bar Family and Grashof\u2019s Law"
+],
+[
+"theory-of-machines",
+1,
+2,
+"The Slider-Crank and Its Inversions"
+],
+[
+"theory-of-machines",
+2,
+0,
+"The Instantaneous-Centre Method"
+],
+[
+"theory-of-machines",
+2,
+2,
+"Velocity Images and Worked Mechanisms"
+],
+[
+"theory-of-machines",
+2,
+5,
+"Step-triggered pulses"
+],
+[
+"theory-of-machines",
+3,
+0,
+"Acceleration Polygons"
+],
+[
+"theory-of-machines",
+3,
+1,
+"The Coriolis Engine"
+],
+[
+"theory-of-machines",
+3,
+2,
+"Klein\u2019s Construction"
+],
+[
+"theory-of-machines",
+3,
+3,
+"Inertia Forces in Linkages: D\u2019Alembert"
+],
+[
+"theory-of-machines",
+4,
+0,
+"Displacement Diagrams and Their Prices"
+],
+[
+"theory-of-machines",
+4,
+1,
+"Constructing the Cam Profile"
+],
+[
+"theory-of-machines",
+4,
+2,
+"Pressure Angle and Undercutting"
+],
+[
+"theory-of-machines",
+5,
+0,
+"The Law of Gearing and the Involute"
+],
+[
+"theory-of-machines",
+5,
+1,
+"Tooth Terminology and Interference"
+],
+[
+"theory-of-machines",
+5,
+2,
+"Velocity Ratio Bookkeeping"
+],
+[
+"theory-of-machines",
+6,
+1,
+"The Epicyclic Craft"
+],
+[
+"theory-of-machines",
+6,
+2,
+"Torque in Planetary Drives"
+],
+[
+"theory-of-machines",
+7,
+0,
+"Turning-Moment Diagrams and the Flywheel"
+],
+[
+"theory-of-machines",
+7,
+1,
+"The Governor Family"
+],
+[
+"theory-of-machines",
+7,
+2,
+"Sensitiveness, Stability, Hunting"
+],
+[
+"theory-of-machines",
+8,
+0,
+"Two-Plane Correction of Rotating Masses"
+],
+[
+"theory-of-machines",
+8,
+1,
+"Reciprocating Engines: Primary and Secondary"
+],
+[
+"theory-of-machines",
+8,
+2,
+"Partial Balancing and the Honest Residue"
+],
+[
+"theory-of-machines",
+9,
+0,
+"The Couple Derived"
+],
+[
+"theory-of-machines",
+9,
+1,
+"Ships, Aircraft and Turning Vehicles"
+],
+[
+"theory-of-machines",
+9,
+2,
+"Gyroscopic Stability Priced"
+],
+[
+"theory-of-machines",
+10,
+0,
+"Natural Frequency by Three Engines"
+],
+[
+"theory-of-machines",
+10,
+1,
+"Damping: the Three Regimes"
+],
+[
+"theory-of-machines",
+10,
+3,
+"Isolation and Transmissibility"
+],
+[
+"theory-of-machines",
+10,
+4,
+"Critical Speed and Whirling of Shafts"
+],
+[
+"theory-of-machines",
+10,
+5,
+"Determining the 3-dB Frequency"
+],
+[
+"machine-design",
+1,
+0,
+"The Design Process and Its Codes"
+],
+[
+"machine-design",
+1,
+1,
+"Factor of Safety Priced Honestly"
+],
+[
+"machine-design",
+1,
+5,
+"Designs by the masters: Agilent's accurate DMMs"
+],
+[
+"machine-design",
+1,
+7,
+"Memory wrapup"
+],
+[
+"machine-design",
+2,
+0,
+"Ductile versus Brittle Failure"
+],
+[
+"machine-design",
+2,
+1,
+"Tresca and von Mises Priced"
+],
+[
+"machine-design",
+3,
+0,
+"The Endurance Limit and Its Modifiers"
+],
+[
+"machine-design",
+3,
+1,
+"Goodman, Soderberg, Gerber"
+],
+[
+"machine-design",
+3,
+2,
+"Cumulative Damage by Miner\u2019s Rule"
+],
+[
+"machine-design",
+4,
+0,
+"The Bolt as a Preloaded Spring"
+],
+[
+"machine-design",
+4,
+1,
+"Riveted Joints and Their Efficiency"
+],
+[
+"machine-design",
+4,
+2,
+"Fillet and Butt Welds Priced"
+],
+[
+"machine-design",
+4,
+3,
+"Eccentric Loads on Weld Groups"
+],
+[
+"machine-design",
+5,
+0,
+"The Shaft Design Equation"
+],
+[
+"machine-design",
+5,
+1,
+"Keys and Splines Priced"
+],
+[
+"machine-design",
+5,
+2,
+"Couplings and Their Honest Flexibility"
+],
+[
+"machine-design",
+6,
+0,
+"Journal Bearings: Petroff and Beyond"
+],
+[
+"machine-design",
+6,
+1,
+"Rolling Bearings: the L10 Arithmetic"
+],
+[
+"machine-design",
+6,
+2,
+"Selection, Mounting, Preload"
+],
+[
+"machine-design",
+7,
+0,
+"The Lewis Form Factor"
+],
+[
+"machine-design",
+7,
+1,
+"Wear and Dynamic Loads"
+],
+[
+"machine-design",
+7,
+2,
+"Helical, Bevel and Worm Forces"
+],
+[
+"machine-design",
+7,
+3,
+"Gear Materials and Lubrication"
+],
+[
+"machine-design",
+8,
+0,
+"Helical Springs: Wahl\u2019s Correction"
+],
+[
+"machine-design",
+8,
+1,
+"Plate Clutches: Wear versus Pressure"
+],
+[
+"machine-design",
+8,
+2,
+"Brakes and Self-Energising Geometry"
+],
+[
+"machine-design",
+9,
+0,
+"The Map: Specification to Element"
+],
+[
+"machine-design",
+9,
+1,
+"A Gearbox Priced End-to-End"
+],
+[
+"machine-design",
+9,
+3,
+"The Doorstep: Makeable and Modelled"
+],
+[
+"machine-design",
+9,
+7,
+"Example: sensitive millivoltmeter"
+],
+[
+"machine-design",
+9,
+11,
+"A design example: 40\u03b5 \"lightning detector\" preamp"
+],
+[
+"thermodynamics",
+1,
+0,
+"Systems, Boundaries, Properties"
+],
+[
+"thermodynamics",
+1,
+1,
+"The Zeroth Law and Temperature"
+],
+[
+"thermodynamics",
+2,
+0,
+"Work and Heat as Path Functions"
+],
+[
+"thermodynamics",
+2,
+1,
+"The Closed-System Energy Balance"
+],
+[
+"thermodynamics",
+3,
+0,
+"The Saturation Dome Read Honestly"
+],
+[
+"thermodynamics",
+3,
+1,
+"Quality and the Steam Tables"
+],
+[
+"thermodynamics",
+3,
+3,
+"Tables xiv"
+],
+[
+"thermodynamics",
+4,
+0,
+"The Steady-Flow Device Census"
+],
+[
+"thermodynamics",
+4,
+1,
+"Throttles and Mixing Chambers"
+],
+[
+"thermodynamics",
+4,
+2,
+"Unsteady Flows: Filling and Emptying"
+],
+[
+"thermodynamics",
+4,
+3,
+"Compressors and Intercooling"
+],
+[
+"thermodynamics",
+5,
+0,
+"Kelvin-Planck and Clausius, Equivalent"
+],
+[
+"thermodynamics",
+5,
+1,
+"Reversibility and Its Honest Census"
+],
+[
+"thermodynamics",
+5,
+2,
+"The Carnot Ceiling"
+],
+[
+"thermodynamics",
+6,
+0,
+"Entropy Earned from the Inequality"
+],
+[
+"thermodynamics",
+6,
+1,
+"The TdS Relations"
+],
+[
+"thermodynamics",
+6,
+2,
+"Isentropic Processes and Efficiency"
+],
+[
+"thermodynamics",
+6,
+3,
+"Entropy Generation Priced"
+],
+[
+"thermodynamics",
+7,
+0,
+"Exergy: the Work Potential"
+],
+[
+"thermodynamics",
+7,
+1,
+"Exergy Destroyed and Entropy Generated"
+],
+[
+"thermodynamics",
+7,
+2,
+"Second-Law Efficiency"
+],
+[
+"thermodynamics",
+8,
+0,
+"Air-Standard Craft: Otto, Diesel, Dual"
+],
+[
+"thermodynamics",
+8,
+1,
+"The Brayton Cycle"
+],
+[
+"thermodynamics",
+8,
+4,
+"VII: ac-input optocouplers"
+],
+[
+"thermodynamics",
+9,
+0,
+"The Rankine Cycle and Its Craft"
+],
+[
+"thermodynamics",
+9,
+3,
+"Heat Pumps and Gas Refrigeration"
+],
+[
+"thermodynamics",
+10,
+0,
+"Gas Mixtures Bookkept"
+],
+[
+"thermodynamics",
+11,
+0,
+"The Maxwell Relations"
+],
+[
+"thermodynamics",
+11,
+2,
+"The Synthesis: States to Cycles"
+],
+[
+"thermodynamics",
+11,
+3,
+"The Doorstep: Rates and Flows"
+],
+[
+"fluid-mechanics",
+1,
+0,
+"The No-Shape Answer and the Continuum"
+],
+[
+"fluid-mechanics",
+1,
+3,
+"Vapour Pressure and Cavitation Named"
+],
+[
+"fluid-mechanics",
+1,
+7,
+"Surface-mount technology: the joy and the pain"
+],
+[
+"fluid-mechanics",
+2,
+0,
+"Manometers: the Measurement Craft"
+],
+[
+"fluid-mechanics",
+2,
+1,
+"Hydrostatic Forces on Plane Surfaces"
+],
+[
+"fluid-mechanics",
+2,
+2,
+"Curved Surfaces and Buoyancy"
+],
+[
+"fluid-mechanics",
+2,
+3,
+"Stability and the Metacentre"
+],
+[
+"fluid-mechanics",
+3,
+0,
+"Descriptions and Lines of Flow"
+],
+[
+"fluid-mechanics",
+3,
+1,
+"The Material Derivative: Local + Convective"
+],
+[
+"fluid-mechanics",
+3,
+2,
+"Stream Function and Velocity Potential"
+],
+[
+"fluid-mechanics",
+3,
+3,
+"The Reynolds Transport Theorem"
+],
+[
+"fluid-mechanics",
+4,
+0,
+"Continuity for Control Volumes"
+],
+[
+"fluid-mechanics",
+4,
+1,
+"The Momentum Engine: Bends, Vanes, Nozzles"
+],
+[
+"fluid-mechanics",
+4,
+2,
+"Bernoulli and Its Honest Limits"
+],
+[
+"fluid-mechanics",
+4,
+3,
+"The Grade Lines Drawn"
+],
+[
+"fluid-mechanics",
+5,
+0,
+"Differential Continuity"
+],
+[
+"fluid-mechanics",
+5,
+1,
+"Navier-Stokes Read Term-by-Term"
+],
+[
+"fluid-mechanics",
+5,
+2,
+"Couette and Poiseuille Earned"
+],
+[
+"fluid-mechanics",
+5,
+3,
+"The Honest Verdict on Differential Routes"
+],
+[
+"fluid-mechanics",
+5,
+4,
+"Electrostatic terms"
+],
+[
+"fluid-mechanics",
+6,
+0,
+"The Buckingham Pi Theorem Worked"
+],
+[
+"fluid-mechanics",
+6,
+1,
+"The Group Census"
+],
+[
+"fluid-mechanics",
+6,
+2,
+"Similitude and Model Testing"
+],
+[
+"fluid-mechanics",
+7,
+0,
+"Hagen-Poiseuille Earned"
+],
+[
+"fluid-mechanics",
+7,
+1,
+"The Moody Chart and Friction Factor"
+],
+[
+"fluid-mechanics",
+7,
+2,
+"Minor Losses in Fittings"
+],
+[
+"fluid-mechanics",
+7,
+3,
+"Pipe Systems and the System Curve"
+],
+[
+"fluid-mechanics",
+8,
+0,
+"Prandtl\u2019s Boundary Layer"
+],
+[
+"fluid-mechanics",
+8,
+1,
+"Growth, Transition, Separation"
+],
+[
+"fluid-mechanics",
+8,
+2,
+"The Drag Census"
+],
+[
+"fluid-mechanics",
+8,
+3,
+"Lift and the Aerofoil Glimpse"
+],
+[
+"fluid-mechanics",
+9,
+0,
+"The Mach Number and Flow Regimes"
+],
+[
+"fluid-mechanics",
+9,
+1,
+"Isentropic Relations"
+],
+[
+"fluid-mechanics",
+9,
+3,
+"The Normal Shock Introduced"
+],
+[
+"fluid-mechanics",
+10,
+1,
+"The Euler Equation Earned"
+],
+[
+"fluid-mechanics",
+10,
+4,
+"VCO implementation: through-hole versus surface-mount"
+],
+[
+"heat-transfer",
+1,
+0,
+"Rate Equations and Their Origins"
+],
+[
+"heat-transfer",
+1,
+1,
+"The Conductivity Census"
+],
+[
+"heat-transfer",
+1,
+2,
+"Thermal Circuits: the Modes Conspire"
+],
+[
+"heat-transfer",
+2,
+0,
+"The Wall and the Resistance Network"
+],
+[
+"heat-transfer",
+2,
+1,
+"Cylinders, Spheres, Logarithmic Means"
+],
+[
+"heat-transfer",
+2,
+2,
+"The Critical Radius Priced"
+],
+[
+"heat-transfer",
+2,
+3,
+"Hysteresis loss"
+],
+[
+"heat-transfer",
+3,
+0,
+"The Fin Equation Derived"
+],
+[
+"heat-transfer",
+3,
+1,
+"Effectiveness and Efficiency"
+],
+[
+"heat-transfer",
+3,
+2,
+"The Fin Census in Practice"
+],
+[
+"heat-transfer",
+4,
+0,
+"Lumped Capacitance and the Biot Verdict"
+],
+[
+"heat-transfer",
+4,
+2,
+"Semi-Infinite Solids Glanced"
+],
+[
+"heat-transfer",
+4,
+3,
+"When operating current is not your choice"
+],
+[
+"heat-transfer",
+5,
+0,
+"The Thermal Boundary Layer"
+],
+[
+"heat-transfer",
+5,
+1,
+"The Dimensionless Census Earned"
+],
+[
+"heat-transfer",
+5,
+2,
+"Forced Convection: Plates and Pipes"
+],
+[
+"heat-transfer",
+5,
+3,
+"Free Convection and Its Regimes"
+],
+[
+"heat-transfer",
+6,
+0,
+"The Boiling Curve Read"
+],
+[
+"heat-transfer",
+6,
+1,
+"Nucleate Boiling Priced"
+],
+[
+"heat-transfer",
+6,
+2,
+"Nusselt\u2019s Film Condensation Craft"
+],
+[
+"heat-transfer",
+7,
+0,
+"The Exchanger Census"
+],
+[
+"heat-transfer",
+7,
+1,
+"LMTD with Correction Factors"
+],
+[
+"heat-transfer",
+7,
+2,
+"NTU and Effectiveness"
+],
+[
+"heat-transfer",
+7,
+3,
+"Design versus Rating"
+],
+[
+"heat-transfer",
+8,
+0,
+"Blackbody Behaviour and Its Laws"
+],
+[
+"heat-transfer",
+8,
+1,
+"Grey Surfaces and Radiosity"
+],
+[
+"heat-transfer",
+8,
+2,
+"The View-Factor Craft"
+],
+[
+"heat-transfer",
+8,
+3,
+"Radiation Networks and Shields"
+],
+[
+"heat-transfer",
+8,
+4,
+"Combined-Mode Problems Priced"
+],
+[
+"heat-transfer",
+9,
+0,
+"The Map: Fourier to Networks"
+],
+[
+"heat-transfer",
+9,
+1,
+"Three Designs Priced End-to-End"
+],
+[
+"heat-transfer",
+9,
+10,
+"Current magnification"
+],
+[
+"manufacturing-processes",
+1,
+0,
+"The Alloy Census for Making"
+],
+[
+"manufacturing-processes",
+1,
+1,
+"Hot versus Cold: the Recrystallisation Line"
+],
+[
+"manufacturing-processes",
+1,
+2,
+"Castability, Formability, Machinability"
+],
+[
+"manufacturing-processes",
+2,
+0,
+"Patterns, Moulds and Cores"
+],
+[
+"manufacturing-processes",
+2,
+1,
+"Solidification and Chvorinov\u2019s Rule"
+],
+[
+"manufacturing-processes",
+2,
+2,
+"Riser and Gating Arithmetic"
+],
+[
+"manufacturing-processes",
+2,
+3,
+"The Casting Census and Its Defects"
+],
+[
+"manufacturing-processes",
+3,
+0,
+"Deformation Mechanics and Yield Criteria"
+],
+[
+"manufacturing-processes",
+3,
+1,
+"Forging and Its Loads"
+],
+[
+"manufacturing-processes",
+3,
+2,
+"Rolling: Mechanics and Geometry"
+],
+[
+"manufacturing-processes",
+3,
+3,
+"Extrusion and Drawing"
+],
+[
+"manufacturing-processes",
+4,
+0,
+"Shearing and Blanking"
+],
+[
+"manufacturing-processes",
+4,
+1,
+"Bending and Springback"
+],
+[
+"manufacturing-processes",
+4,
+2,
+"Deep Drawing"
+],
+[
+"manufacturing-processes",
+4,
+3,
+"Powder Metallurgy\u2019s Honest Niche"
+],
+[
+"manufacturing-processes",
+5,
+0,
+"Merchant\u2019s Orthogonal Craft"
+],
+[
+"manufacturing-processes",
+5,
+2,
+"Taylor\u2019s Tool Life"
+],
+[
+"manufacturing-processes",
+5,
+3,
+"The Economics of Machining"
+],
+[
+"manufacturing-processes",
+6,
+0,
+"Turning and the Lathe"
+],
+[
+"manufacturing-processes",
+6,
+1,
+"Drilling and Milling"
+],
+[
+"manufacturing-processes",
+6,
+2,
+"Grinding and the Wheel Census"
+],
+[
+"manufacturing-processes",
+6,
+3,
+"The Finishing Census"
+],
+[
+"manufacturing-processes",
+6,
+7,
+"Switchers: basic operation"
+],
+[
+"manufacturing-processes",
+7,
+0,
+"The Spark Engine: EDM"
+],
+[
+"manufacturing-processes",
+7,
+1,
+"ECM and USM"
+],
+[
+"manufacturing-processes",
+7,
+3,
+"The Selection Census"
+],
+[
+"manufacturing-processes",
+8,
+0,
+"The Arc, the Pool, the HAZ"
+],
+[
+"manufacturing-processes",
+8,
+1,
+"The Arc-Welding Census"
+],
+[
+"manufacturing-processes",
+8,
+2,
+"Brazing, Soldering, Adhesives"
+],
+[
+"manufacturing-processes",
+8,
+3,
+"Defects, Distortion and Their Control"
+],
+[
+"manufacturing-processes",
+9,
+0,
+"The 3-2-1 Principle"
+],
+[
+"manufacturing-processes",
+9,
+1,
+"Jigs versus Fixtures"
+],
+[
+"manufacturing-processes",
+9,
+2,
+"Design Elements of the Jig"
+],
+[
+"manufacturing-processes",
+9,
+3,
+"Test fixture for compensation and calibration"
+],
+[
+"manufacturing-processes",
+10,
+0,
+"Limits, Fits and Tolerances"
+],
+[
+"manufacturing-processes",
+10,
+1,
+"The Comparator Census"
+],
+[
+"manufacturing-processes",
+10,
+2,
+"Interferometry: the Wavelength Ruler"
+],
+[
+"manufacturing-processes",
+10,
+3,
+"Form, Finish and Alignment"
+],
+[
+"manufacturing-processes",
+10,
+4,
+"The Coordinate Measuring Machine"
+],
+[
+"manufacturing-processes",
+10,
+5,
+"The lessons: error budget, unspecified parameters"
+],
+[
+"manufacturing-processes",
+11,
+0,
+"The Process-Selection Map"
+],
+[
+"manufacturing-processes",
+11,
+1,
+"The CNC Doorway"
+],
+[
+"manufacturing-processes",
+11,
+2,
+"The Doorstep: Production Systems"
+],
+[
+"industrial-engineering",
+1,
+0,
+"The Production Census"
+],
+[
+"industrial-engineering",
+1,
+1,
+"Layout Families by Volume-Variety"
+],
+[
+"industrial-engineering",
+1,
+10,
+"A monostable application: limiting pulse width and duty cycle"
+],
+[
+"industrial-engineering",
+1,
+13,
+"Generating plant"
+],
+[
+"industrial-engineering",
+2,
+0,
+"Method Study: the SREDACT Craft"
+],
+[
+"industrial-engineering",
+2,
+1,
+"Motion Study and Motion Economy"
+],
+[
+"industrial-engineering",
+2,
+2,
+"Time Study: Standard Time Earned"
+],
+[
+"industrial-engineering",
+3,
+0,
+"The Forecasting Census"
+],
+[
+"industrial-engineering",
+3,
+1,
+"Forecast Error Measured"
+],
+[
+"industrial-engineering",
+3,
+2,
+"Aggregate Strategies Priced"
+],
+[
+"industrial-engineering",
+4,
+0,
+"Sequencing: Johnson and the Rules"
+],
+[
+"industrial-engineering",
+4,
+1,
+"The MRP Engine"
+],
+[
+"industrial-engineering",
+5,
+0,
+"EOQ Earned and Extended"
+],
+[
+"industrial-engineering",
+5,
+1,
+"Safety Stock and Service Level"
+],
+[
+"industrial-engineering",
+5,
+2,
+"ABC and the Census"
+],
+[
+"industrial-engineering",
+5,
+3,
+"Inventory as the Mirror"
+],
+[
+"industrial-engineering",
+6,
+0,
+"LP Formulated from the Floor"
+],
+[
+"industrial-engineering",
+6,
+1,
+"Transportation and Assignment"
+],
+[
+"industrial-engineering",
+6,
+2,
+"Network Flows at Production Speed"
+],
+[
+"industrial-engineering",
+7,
+0,
+"The Control-Chart Family"
+],
+[
+"industrial-engineering",
+7,
+1,
+"Process Capability"
+],
+[
+"industrial-engineering",
+7,
+2,
+"Acceptance Sampling and OC Curves"
+],
+[
+"industrial-engineering",
+7,
+4,
+"FETs as variable resistors"
+],
+[
+"industrial-engineering",
+7,
+5,
+"Six DACs"
+],
+[
+"industrial-engineering",
+8,
+0,
+"The Map: Layout to Delivery"
+],
+[
+"industrial-engineering",
+8,
+1,
+"Line Balancing Priced"
+],
+[
+"industrial-engineering",
+8,
+2,
+"The Doorsteps: Projects, CIM, Markets"
+],
+[
+"robotics-and-automation",
+1,
+1,
+"The Configuration Census"
+],
+[
+"robotics-and-automation",
+1,
+2,
+"Workspaces and Safety Stated Early"
+],
+[
+"robotics-and-automation",
+1,
+3,
+"Mechatronics and Robotics"
+],
+[
+"robotics-and-automation",
+2,
+2,
+"The Homogeneous Transform"
+],
+[
+"robotics-and-automation",
+2,
+3,
+"The DH Convention Earned"
+],
+[
+"robotics-and-automation",
+3,
+0,
+"DH Frames Through the Chain"
+],
+[
+"robotics-and-automation",
+3,
+1,
+"The Chain Product Worked"
+],
+[
+"robotics-and-automation",
+3,
+2,
+"Workspace Mapped from Kinematics"
+],
+[
+"robotics-and-automation",
+4,
+0,
+"Multiple Solutions Priced"
+],
+[
+"robotics-and-automation",
+4,
+1,
+"Closed Form: the Planar Arm"
+],
+[
+"robotics-and-automation",
+4,
+2,
+"Wrist Partitioning for Real Arms"
+],
+[
+"robotics-and-automation",
+4,
+3,
+"Numerical Routes Glanced"
+],
+[
+"robotics-and-automation",
+5,
+0,
+"The Jacobian Derived and Read"
+],
+[
+"robotics-and-automation",
+5,
+1,
+"Singularities Priced on Real Postures"
+],
+[
+"robotics-and-automation",
+5,
+2,
+"Static Forces: the Transpose Duality"
+],
+[
+"robotics-and-automation",
+6,
+1,
+"Cubic and Quintic Trajectories"
+],
+[
+"robotics-and-automation",
+6,
+3,
+"Butterworth Polynomials up to the Eighth"
+],
+[
+"robotics-and-automation",
+7,
+0,
+"Joint Servos: PD and PID"
+],
+[
+"robotics-and-automation",
+7,
+1,
+"The Sensor Census"
+],
+[
+"robotics-and-automation",
+7,
+2,
+"Grippers and Programming"
+],
+[
+"robotics-and-automation",
+8,
+0,
+"Flow Lines and Transfer Machines"
+],
+[
+"robotics-and-automation",
+8,
+1,
+"Cells, AGVs and the Control Hierarchy"
+],
+[
+"robotics-and-automation",
+8,
+2,
+"The IIoT Doorstep"
+],
+[
+"robotics-and-automation",
+8,
+3,
+"The Honest Economics of Automation"
+],
+[
+"cad-cam",
+1,
+0,
+"CAD, CAM, CIM Located"
+],
+[
+"cad-cam",
+1,
+1,
+"The Integration-Tools Census"
+],
+[
+"cad-cam",
+1,
+2,
+"The Data Ladder"
+],
+[
+"cad-cam",
+1,
+5,
+"On-board interconnections"
+],
+[
+"cad-cam",
+2,
+0,
+"Wireframe, Surface, Solid"
+],
+[
+"cad-cam",
+2,
+1,
+"CSG and B-rep"
+],
+[
+"cad-cam",
+2,
+3,
+"Feature-Based Parametric Practice"
+],
+[
+"cad-cam",
+3,
+0,
+"Bezier: Bernstein Blends"
+],
+[
+"cad-cam",
+3,
+1,
+"B-splines and Local Control"
+],
+[
+"cad-cam",
+3,
+2,
+"NURBS: the Industry\u2019s One Curve"
+],
+[
+"cad-cam",
+3,
+3,
+"Surfaces and Their Continuity"
+],
+[
+"cad-cam",
+4,
+0,
+"IGES and STEP Priced"
+],
+[
+"cad-cam",
+4,
+1,
+"Model-Based Definition Glanced"
+],
+[
+"cad-cam",
+4,
+2,
+"PDM and Change Control"
+],
+[
+"cad-cam",
+4,
+3,
+"Step 3: getting to e_n"
+],
+[
+"cad-cam",
+4,
+4,
+"A.1 Preliminary Steps"
+],
+[
+"cad-cam",
+5,
+0,
+"The G/M Vocabulary as a Language"
+],
+[
+"cad-cam",
+5,
+1,
+"A Turning Program Written"
+],
+[
+"cad-cam",
+5,
+2,
+"A Milling Program Written"
+],
+[
+"cad-cam",
+5,
+3,
+"CAM-Generated and Adaptive"
+],
+[
+"cad-cam",
+6,
+0,
+"The Layer-Wise Idea"
+],
+[
+"cad-cam",
+6,
+1,
+"The Seven Process Families"
+],
+[
+"cad-cam",
+6,
+2,
+"Design for Additive"
+],
+[
+"cad-cam",
+7,
+0,
+"CIM: the Honest Integration"
+],
+[
+"cad-cam",
+7,
+1,
+"CAPP: Variant and Generative"
+],
+[
+"cad-cam",
+7,
+2,
+"FMS and Cell Control"
+],
+[
+"cad-cam",
+7,
+3,
+"Machine Data and OEE"
+],
+[
+"cad-cam",
+7,
+4,
+"Stand-alone versus integrated"
+],
+[
+"cad-cam",
+8,
+0,
+"The Digital Thread Drawn"
+],
+[
+"cad-cam",
+8,
+3,
+"The Mechanical Branch\u2019s Map"
+],
+[
+"materials-science",
+1,
+0,
+"The One Triangle"
+],
+[
+"materials-science",
+1,
+1,
+"The Family Census by Bonding"
+],
+[
+"materials-science",
+1,
+2,
+"Selection Vocabulary Promised"
+],
+[
+"materials-science",
+1,
+6,
+"Structure of Actual Transistors"
+],
+[
+"materials-science",
+2,
+1,
+"Bond Curves: the Modulus Earned"
+],
+[
+"materials-science",
+3,
+0,
+"The Structure Census and Packing"
+],
+[
+"materials-science",
+3,
+1,
+"Anisotropy and Allotropy"
+],
+[
+"materials-science",
+3,
+2,
+"Bragg\u2019s Law at Engineering Depth"
+],
+[
+"materials-science",
+4,
+0,
+"Point Defects and Solid Solutions"
+],
+[
+"materials-science",
+4,
+1,
+"Dislocations: the Ductility Engine"
+],
+[
+"materials-science",
+4,
+2,
+"Grain Boundaries and Faces"
+],
+[
+"materials-science",
+5,
+0,
+"Fick\u2019s Two Laws"
+],
+[
+"materials-science",
+5,
+2,
+"Carburising Priced"
+],
+[
+"materials-science",
+6,
+0,
+"True versus Engineering"
+],
+[
+"materials-science",
+6,
+2,
+"Impact and the Ductile-Brittle Transition"
+],
+[
+"materials-science",
+7,
+0,
+"Grain Refinement and Hall-Petch"
+],
+[
+"materials-science",
+7,
+1,
+"Work Hardening and Recrystallisation"
+],
+[
+"materials-science",
+7,
+2,
+"Fatigue and Creep Named and Routed"
+],
+[
+"materials-science",
+7,
+3,
+"Brittleness and the NDT Glance"
+],
+[
+"materials-science",
+8,
+0,
+"Lever Rules and Tie Lines"
+],
+[
+"materials-science",
+8,
+1,
+"The Fe-C Map Read Fluently"
+],
+[
+"materials-science",
+8,
+2,
+"TTT Curves and Heat Treatment"
+],
+[
+"materials-science",
+8,
+3,
+"Hardenability: the Jominy Craft"
+],
+[
+"materials-science",
+9,
+1,
+"The Non-Ferrous Niches"
+],
+[
+"materials-science",
+9,
+2,
+"Polymers and Ceramics Honestly"
+],
+[
+"materials-science",
+9,
+3,
+"Composites and Rule of Mixtures"
+],
+[
+"materials-science",
+9,
+4,
+"Some representative JFETs: a brief tour"
+],
+[
+"materials-science",
+10,
+0,
+"The Galvanic Couple Priced"
+],
+[
+"materials-science",
+10,
+2,
+"Degradation Beyond Metals"
+],
+[
+"materials-science",
+10,
+3,
+"The Selection Doorstep: Ashby Named"
+],
+[
+"circuit-theory-and-network-analysis",
+1,
+2,
+"R, L, C: One Dissipator, Two Storers"
+],
+[
+"circuit-theory-and-network-analysis",
+1,
+3,
+"The Lumped Approximation and Its Doorstep"
+],
+[
+"circuit-theory-and-network-analysis",
+2,
+0,
+"KCL and KVL as Conservation"
+],
+[
+"circuit-theory-and-network-analysis",
+2,
+1,
+"The Node-Voltage Engine"
+],
+[
+"circuit-theory-and-network-analysis",
+2,
+3,
+"Supernodes, Supermeshes, Choice"
+],
+[
+"circuit-theory-and-network-analysis",
+2,
+4,
+"Stuck-node tracer"
+],
+[
+"circuit-theory-and-network-analysis",
+2,
+5,
+"Choosing a battery"
+],
+[
+"circuit-theory-and-network-analysis",
+2,
+6,
+"Choosing a DAC"
+],
+[
+"circuit-theory-and-network-analysis",
+3,
+0,
+"Superposition Earned"
+],
+[
+"circuit-theory-and-network-analysis",
+3,
+1,
+"Thevenin and Norton Priced"
+],
+[
+"circuit-theory-and-network-analysis",
+3,
+2,
+"Maximum Power and Its Match"
+],
+[
+"circuit-theory-and-network-analysis",
+3,
+3,
+"Reciprocity and Tellegen\u2019s Audit"
+],
+[
+"circuit-theory-and-network-analysis",
+4,
+0,
+"Phasors: the Coordinate Change"
+],
+[
+"circuit-theory-and-network-analysis",
+4,
+2,
+"Complex Power and Power Factor"
+],
+[
+"circuit-theory-and-network-analysis",
+4,
+3,
+"The AC Wattmeter Census"
+],
+[
+"circuit-theory-and-network-analysis",
+4,
+8,
+"Applying a Delta-to-Wye Transform"
+],
+[
+"circuit-theory-and-network-analysis",
+5,
+0,
+"Resonance and Q Priced"
+],
+[
+"circuit-theory-and-network-analysis",
+5,
+1,
+"Selectivity and Tuned Circuits"
+],
+[
+"circuit-theory-and-network-analysis",
+5,
+2,
+"Mutual Inductance and the Dot Convention"
+],
+[
+"circuit-theory-and-network-analysis",
+5,
+7,
+"Magnetically Coupled Circuits and Ideal Transformers"
+],
+[
+"circuit-theory-and-network-analysis",
+6,
+0,
+"Why Three Phase Won"
+],
+[
+"circuit-theory-and-network-analysis",
+6,
+1,
+"Line-versus-Phase Arithmetic"
+],
+[
+"circuit-theory-and-network-analysis",
+6,
+2,
+"The Two-Wattmeter Method"
+],
+[
+"circuit-theory-and-network-analysis",
+6,
+3,
+"Unbalanced Glances Routed"
+],
+[
+"circuit-theory-and-network-analysis",
+6,
+4,
+"Darlington connection"
+],
+[
+"circuit-theory-and-network-analysis",
+6,
+6,
+"Interboard connections"
+],
+[
+"circuit-theory-and-network-analysis",
+7,
+0,
+"First-Order: the Time Constant"
+],
+[
+"circuit-theory-and-network-analysis",
+7,
+1,
+"Second-Order: the Three Regimes"
+],
+[
+"circuit-theory-and-network-analysis",
+7,
+2,
+"The Initial- and Final-Value Craft"
+],
+[
+"circuit-theory-and-network-analysis",
+7,
+3,
+"The Laplace Route Named"
+],
+[
+"circuit-theory-and-network-analysis",
+8,
+1,
+"The Frequency Response Read"
+],
+[
+"circuit-theory-and-network-analysis",
+8,
+2,
+"Bode\u2019s Craft Introduced"
+],
+[
+"circuit-theory-and-network-analysis",
+8,
+3,
+"Resonance Re-Read from the Poles"
+],
+[
+"circuit-theory-and-network-analysis",
+9,
+0,
+"The Parameter Families Defined"
+],
+[
+"circuit-theory-and-network-analysis",
+9,
+2,
+"Cascades by ABCD"
+],
+[
+"circuit-theory-and-network-analysis",
+10,
+0,
+"The Graph Beneath the Circuit"
+],
+[
+"circuit-theory-and-network-analysis",
+10,
+1,
+"Cut Sets and Loop Systematics"
+],
+[
+"circuit-theory-and-network-analysis",
+10,
+2,
+"State Variables as Description"
+],
+[
+"circuit-theory-and-network-analysis",
+10,
+3,
+"The Doorsteps: Energised, Feedback, Switched"
+],
+[
+"circuit-theory-and-network-analysis",
+10,
+4,
+"Driving Cables"
+],
+[
+"electrical-machines",
+1,
+0,
+"Force from Field Energy"
+],
+[
+"electrical-machines",
+1,
+1,
+"Co-Energy and Torque"
+],
+[
+"electrical-machines",
+1,
+2,
+"The Conversion Cycle Drawn"
+],
+[
+"electrical-machines",
+1,
+3,
+"The Machine Census Located"
+],
+[
+"electrical-machines",
+2,
+1,
+"OC and SC Tests as Identification"
+],
+[
+"electrical-machines",
+2,
+3,
+"The Autotransformer\u2019s Honest Note"
+],
+[
+"electrical-machines",
+3,
+0,
+"The Connection Census"
+],
+[
+"electrical-machines",
+3,
+2,
+"Parallel Operation\u2019s Conditions"
+],
+[
+"electrical-machines",
+3,
+3,
+"Tap Changers and Cooling Glanced"
+],
+[
+"electrical-machines",
+3,
+4,
+"\"Poles\" and decibels per octave"
+],
+[
+"electrical-machines",
+4,
+0,
+"EMF, Armature Reaction, Commutation"
+],
+[
+"electrical-machines",
+4,
+1,
+"The Family Characteristics"
+],
+[
+"electrical-machines",
+4,
+2,
+"Speed Control and Ward-Leonard"
+],
+[
+"electrical-machines",
+4,
+3,
+"Starters, Losses, the Honest Decline"
+],
+[
+"electrical-machines",
+4,
+4,
+"DC Generators: Construction, Commutation and Characteristics"
+],
+[
+"electrical-machines",
+4,
+5,
+"DC Motors: Speed Control and Starting"
+],
+[
+"electrical-machines",
+4,
+8,
+"Single-Phase Motors: Split Phase, Capacitor and Universal"
+],
+[
+"electrical-machines",
+4,
+11,
+"Stator windings"
+],
+[
+"electrical-machines",
+4,
+12,
+"Expression for the e.m.f. of a stator winding"
+],
+[
+"electrical-machines",
+4,
+16,
+"Selecting a motor"
+],
+[
+"electrical-machines",
+5,
+0,
+"The Rotating Field Earned"
+],
+[
+"electrical-machines",
+5,
+1,
+"Slip and Torque Arithmetic"
+],
+[
+"electrical-machines",
+5,
+3,
+"Power Flow and Losses"
+],
+[
+"electrical-machines",
+5,
+4,
+"Starting and Speed Control"
+],
+[
+"electrical-machines",
+6,
+0,
+"The Double-Revolving-Field Honesty"
+],
+[
+"electrical-machines",
+6,
+1,
+"The Starting Fixes"
+],
+[
+"electrical-machines",
+6,
+2,
+"BLDC, Stepper, Servo Glanced"
+],
+[
+"electrical-machines",
+7,
+0,
+"EMF and Winding Factors"
+],
+[
+"electrical-machines",
+7,
+1,
+"Regulation by Two Methods"
+],
+[
+"electrical-machines",
+7,
+3,
+"Salient-Pole: the Two-Reaction Note"
+],
+[
+"electrical-machines",
+7,
+4,
+"Synchronous Motors and V-Curves"
+],
+[
+"electrical-machines",
+8,
+0,
+"The Loss Census Across Families"
+],
+[
+"power-systems",
+1,
+0,
+"The Grid as One Machine"
+],
+[
+"power-systems",
+1,
+1,
+"The Generation Census"
+],
+[
+"power-systems",
+1,
+2,
+"AC, DC and the HVDC Honest Note"
+],
+[
+"power-systems",
+1,
+3,
+"The One-Line Diagram as Language"
+],
+[
+"power-systems",
+1,
+18,
+"Making Power Calculations Involving Household"
+],
+[
+"power-systems",
+2,
+0,
+"The Idea and Its Bases"
+],
+[
+"power-systems",
+2,
+2,
+"The Per-Unit Network Built"
+],
+[
+"power-systems",
+3,
+0,
+"Inductance from Geometry"
+],
+[
+"power-systems",
+3,
+1,
+"Capacitance and Bundling"
+],
+[
+"power-systems",
+3,
+2,
+"The Nominal Models and Classes"
+],
+[
+"power-systems",
+4,
+1,
+"Ferranti and SIL"
+],
+[
+"power-systems",
+4,
+3,
+"The Reactive Bookkeeping"
+],
+[
+"power-systems",
+5,
+0,
+"The Field Around a Conductor"
+],
+[
+"power-systems",
+5,
+1,
+"String Efficiency and Grading"
+],
+[
+"power-systems",
+5,
+2,
+"Corona Priced Honestly"
+],
+[
+"power-systems",
+5,
+3,
+"Cables and Their Thermal Limits"
+],
+[
+"power-systems",
+5,
+4,
+"Coaxial cable"
+],
+[
+"power-systems",
+5,
+5,
+"Resistor-string DACs"
+],
+[
+"power-systems",
+6,
+0,
+"The Y-Bus Built"
+],
+[
+"power-systems",
+6,
+1,
+"Gauss-Seidel, Honestly Slow"
+],
+[
+"power-systems",
+6,
+3,
+"Fast-Decoupled and Distribution Glances"
+],
+[
+"power-systems",
+7,
+0,
+"Fault MVA by Thevenin"
+],
+[
+"power-systems",
+7,
+1,
+"The Breaker\u2019s Duty Priced"
+],
+[
+"power-systems",
+7,
+2,
+"Arc Physics Glanced Honestly"
+],
+[
+"power-systems",
+7,
+3,
+"The Duration Discipline"
+],
+[
+"power-systems",
+8,
+0,
+"Fortescue\u2019s Components Earned"
+],
+[
+"power-systems",
+8,
+1,
+"Sequence Impedances Assembled"
+],
+[
+"power-systems",
+8,
+2,
+"The LG Fault Priced"
+],
+[
+"power-systems",
+8,
+3,
+"The LL and LLG Faults Priced"
+],
+[
+"power-systems",
+9,
+0,
+"The Relay Idea and Its Curves"
+],
+[
+"power-systems",
+9,
+1,
+"Directional and Differential Craft"
+],
+[
+"power-systems",
+9,
+3,
+"CTs, PTs and Their Honest Burden"
+],
+[
+"power-systems",
+9,
+4,
+"Gain-setting resistors"
+],
+[
+"power-systems",
+9,
+5,
+"Optocouplers and relays"
+],
+[
+"power-systems",
+10,
+0,
+"The Swing Equation Earned"
+],
+[
+"power-systems",
+10,
+1,
+"Equal-Area Worked"
+],
+[
+"power-systems",
+10,
+2,
+"Voltage and Frequency Control"
+],
+[
+"power-systems",
+10,
+3,
+"Economic Dispatch with Losses"
+],
+[
+"power-systems",
+10,
+5,
+"Higher stability: TCXO, OCXO, and beyond"
+],
+[
+"control-systems",
+1,
+0,
+"Open versus Closed, Priced"
+],
+[
+"control-systems",
+1,
+1,
+"Two Historical Engines"
+],
+[
+"control-systems",
+1,
+4,
+"Gain Desensitivity"
+],
+[
+"control-systems",
+1,
+6,
+"Gain nonlinearity"
+],
+[
+"control-systems",
+2,
+0,
+"The Analogous Structures"
+],
+[
+"control-systems",
+2,
+1,
+"Linearisation and Its Limits"
+],
+[
+"control-systems",
+2,
+2,
+"Transfer Functions Earned"
+],
+[
+"control-systems",
+3,
+0,
+"Block-Diagram Algebra"
+],
+[
+"control-systems",
+3,
+1,
+"Signal-Flow Graphs Drawn"
+],
+[
+"control-systems",
+3,
+2,
+"Mason\u2019s Gain Rule Earned"
+],
+[
+"control-systems",
+4,
+0,
+"Second-Order Specs Priced"
+],
+[
+"control-systems",
+4,
+1,
+"The Dominant-Pole Honesty"
+],
+[
+"control-systems",
+4,
+2,
+"System Types and Error Constants"
+],
+[
+"control-systems",
+4,
+3,
+"Disturbance Rejection Priced"
+],
+[
+"control-systems",
+5,
+1,
+"Routh-Hurwitz Worked"
+],
+[
+"control-systems",
+5,
+2,
+"The Special Cases Solved"
+],
+[
+"control-systems",
+6,
+0,
+"The Rules Earned One by One"
+],
+[
+"control-systems",
+6,
+1,
+"Design by Locus"
+],
+[
+"control-systems",
+6,
+3,
+"The jomega Crossings"
+],
+[
+"control-systems",
+7,
+0,
+"Bode Drawn Fluently"
+],
+[
+"control-systems",
+7,
+1,
+"Margins Read Honestly"
+],
+[
+"control-systems",
+7,
+2,
+"Nyquist\u2019s Criterion Earned"
+],
+[
+"control-systems",
+7,
+3,
+"Mr and Bandwidth Priced"
+],
+[
+"control-systems",
+8,
+0,
+"Lag: the Steady-State Engine"
+],
+[
+"control-systems",
+8,
+1,
+"Lead: the Phase-Margin Engine"
+],
+[
+"control-systems",
+8,
+2,
+"Lag-Lead and the Trade-Off Census"
+],
+[
+"control-systems",
+9,
+0,
+"The Controller Census Priced"
+],
+[
+"control-systems",
+9,
+1,
+"Ziegler-Nichols Tuning"
+],
+[
+"control-systems",
+9,
+2,
+"Anti-Windup and the Honest Limits"
+],
+[
+"control-systems",
+10,
+0,
+"The Model and Its Solutions"
+],
+[
+"control-systems",
+10,
+1,
+"Controllability and Observability"
+],
+[
+"control-systems",
+10,
+2,
+"The Digital Glance"
+],
+[
+"control-systems",
+10,
+3,
+"The Doorsteps: Drives, Servos, Processes"
+],
+[
+"control-systems",
+10,
+6,
+"Federico Faggin: A Pioneer in Microprocessor"
+]
+]

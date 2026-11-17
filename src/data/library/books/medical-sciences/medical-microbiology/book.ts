@@ -29,10 +29,7 @@ const chapters: Chapter[] = [
       'The Medium Census by Its Kinds',
       'The MIC Craft Named',
       'Normal Microbiota, Reservoirs, Nosocomial and Opportunistic Infections',
-      'Chemotherapy and the Antibiotic Classes',
       'Human Diseases Caused by Viruses, Bacteria and Fungi',
-    
-      'Semester I: Microbiology'
     ],
   },
   {

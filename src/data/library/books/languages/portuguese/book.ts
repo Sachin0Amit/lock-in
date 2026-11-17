@@ -58,7 +58,6 @@ const chapters: Chapter[] = [
       'The Two Pasts Introduced',
       'The Two Worlds\u2019 Grammar Map',
       'The Reflexive and the Impersonal',
-      'It is said that … he is said to … he is supposed to …'
     ],
   },
   {
@@ -71,10 +70,9 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'The Greetings and the Two-World Social Map',
-      'The Café and the Market',
+      'The Caf\u00e9 and the Market',
       'The Directions and the Metros',
       'The Lusophone World\u2019s Map',
-      'Ben is a student, but he’s not very happy. (He / enjoy) his course'
     ],
   },
   {

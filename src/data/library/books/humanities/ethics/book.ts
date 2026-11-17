@@ -59,9 +59,8 @@ const chapters: Chapter[] = [
       'The Kantian Register',
       'The Virtue Register',
       'The Thinkers from India and the World',
-    
-      'Paper-I 11. Relevance of Menarche, Menopause and Other Bio-events to Fertility; Demographic Theories; Factors Influencing Fecundity, Fertility, Natality and Mortality',
-      'Chapter XXIII. Aristotle\'s Physics'
+      'Chapter XXIII. Aristotle\'s Physics',
+      'I 11. Relevance Of Menarche, Menopause And Other Bio-events To Fertility;',
     ],
   },
   {
@@ -107,7 +106,6 @@ const chapters: Chapter[] = [
       'The Integrity and Objectivity Craft',
       'The Empathy-Tolerance-Compassion Register',
       'The Emotional Intelligence\u2019s Application',
-      'Dedicated to My Wife Mamadgi Vidya and My Daughters Mamadgi Anjali Mamadgi Aishwarya and My Native Place Dhanasiri (Zaheerabad – Telangana) [dedication page]'
     ],
   },
   {
@@ -134,7 +132,6 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'The Concept and Basis of Public Service',
       'The RTI and the Codes',
       'The Charters and the Service Quality',
       'The Corruption\u2019s Challenges',

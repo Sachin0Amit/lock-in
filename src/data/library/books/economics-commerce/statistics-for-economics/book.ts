@@ -91,7 +91,6 @@ const chapters: Chapter[] = [
       'The Distribution Census',
       'The Sampling Craft',
       'The NSSO Register',
-      '2-2c Why Economists’ Advice Is Not Always Followed'
     ],
   },
   {

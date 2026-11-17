@@ -1,0 +1,1969 @@
+{
+ "discipline": "computer-science",
+ "autoActions": [
+  {
+   "op": "remove",
+   "book": "computer-organization-architecture",
+   "chapter": 4,
+   "idx": 4,
+   "title": "Floating-Point Arithmetic: IEEE 754 Priced",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "assembly-and-microprocessors",
+   "chapter": 2,
+   "idx": 0,
+   "title": "The 8085 Architecture",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "assembly-and-microprocessors",
+   "chapter": 2,
+   "idx": 0,
+   "title": "The 8085 Instruction Set by Family",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "assembly-and-microprocessors",
+   "chapter": 3,
+   "idx": 0,
+   "title": "The 8086 Architecture",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "assembly-and-microprocessors",
+   "chapter": 7,
+   "idx": 1,
+   "title": "Interrupt Controllers and the 8259",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "assembly-and-microprocessors",
+   "chapter": 7,
+   "idx": 1,
+   "title": "The 8255 and the Peripheral Family",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "software-engineering",
+   "chapter": 4,
+   "idx": 1,
+   "title": "The Quality-Model Census: McCall and ISO 9126",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "deep-learning",
+   "chapter": 1,
+   "idx": 2,
+   "title": "The Trio That Made 2012",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "data-structures",
+   "chapter": 6,
+   "idx": 2,
+   "title": "The Priority Queue in Practice",
+   "why": "dup within book: kept the ch4 copy"
+  },
+  {
+   "op": "move",
+   "book": "set-theory",
+   "chapter": 3,
+   "idx": 2,
+   "title": "Functions, Defined Exactly",
+   "targetBook": "theory-of-computation",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.67 -> theory-of-computation 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "computer-fundamentals",
+   "chapter": 1,
+   "idx": 0,
+   "title": "The Basic Structure and Operation of the Computer (the information processing cycle; the program development tools)",
+   "targetBook": "foundation-chemistry",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.44 -> foundation-chemistry 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "electromagnetic-theory",
+   "chapter": 8,
+   "idx": 4,
+   "title": "Optical Communication",
+   "targetBook": "computer-organization-architecture",
+   "targetChapter": 8,
+   "why": "misplaced, grounded (own 0.5 -> computer-organization-architecture 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-economics",
+   "chapter": 4,
+   "idx": 0,
+   "title": "Computing Elasticity",
+   "targetBook": "cloud-computing",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> cloud-computing 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "statistics-for-economics",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Collection of Data",
+   "targetBook": "object-oriented-programming",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.5 -> object-oriented-programming 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "idx": 227,
+   "title": "Vision",
+   "targetBook": "computer-vision",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> computer-vision 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "nursing",
+   "chapter": 4,
+   "idx": 4,
+   "title": "Safety and Infection Prevention and Control",
+   "targetBook": "cybersecurity",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.5 -> cybersecurity 0.75)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "python-programming",
+   "chapter": 7,
+   "idx": 1,
+   "title": "Typing’s Honest Contract",
+   "targetChapter": 5,
+   "why": "fits ch5 \"Objects the Python Way\" (1.0 vs 0.33)"
+  }
+ ],
+ "dupAdjudicate": [
+  {
+   "title": "The Craft Census",
+   "members": [
+    {
+     "book": "abstract-algebra",
+     "discipline": "mathematics",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "artificial-intelligence",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "assembly-and-microprocessors",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "backend-engineering",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "big-data-engineering",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "blockchain",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "c-programming",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "cloud-computing",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "compiler-design",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "computer-graphics",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "computer-networks",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "computer-organization-architecture",
+     "discipline": "computer-science",
+     "chapter": 11,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "computer-vision",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "cpp-programming",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "cryptography",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "cybersecurity",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "data-mining",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "data-science",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "data-structures",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "database-management-systems",
+     "discipline": "computer-science",
+     "chapter": 10,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "deep-learning",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "digital-logic-design",
+     "discipline": "computer-science",
+     "chapter": 10,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 10,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "distributed-systems",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "frontend-engineering",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "generative-ai-and-llms",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Frontier",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "human-computer-interaction",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "information-retrieval",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "internet-of-things",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "java-programming",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "javascript-and-web-technologies",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "machine-learning",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "mathematical-logic",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "natural-language-processing",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "object-oriented-programming",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "operating-systems",
+     "discipline": "computer-science",
+     "chapter": 10,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "parallel-computing",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "programming-languages-paradigms",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "python-programming",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "reinforcement-learning",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "set-theory",
+     "discipline": "mathematics",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "software-engineering",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "theory-of-computation",
+     "discipline": "computer-science",
+     "chapter": 10,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    },
+    {
+     "book": "topology",
+     "discipline": "mathematics",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 1,
+     "title": "The Craft Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Salient Features of the Animal Phyla: Non-Chordates to Chordate Classes",
+   "members": [
+    {
+     "book": "animal-diversity",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Body-Plan Craft",
+     "idx": 4,
+     "title": "The Salient Features of the Animal Phyla: Non-Chordates to Chordate Classes"
+    },
+    {
+     "book": "electrical-measurements",
+     "discipline": "engineering",
+     "chapter": 6,
+     "chapterTitle": "Potentiometers and Magnetic Measurements",
+     "idx": 2,
+     "title": "Hysteresis Loops Traced"
+    },
+    {
+     "book": "electricity-and-magnetism",
+     "discipline": "physics",
+     "chapter": 8,
+     "chapterTitle": "Magnetic Materials and the Earth",
+     "idx": 9,
+     "title": "Salient Features of Hysteresis Loop"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 6,
+     "chapterTitle": "Unity and Diversity",
+     "idx": 4,
+     "title": "The Monera, Protista and Fungi: Salient Features and Classification"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Matter and Its Purity",
+     "idx": 169,
+     "title": "Salient Features"
+    },
+    {
+     "book": "javascript-and-web-technologies",
+     "discipline": "computer-science",
+     "chapter": 5,
+     "chapterTitle": "Asynchronous JavaScript",
+     "idx": 0,
+     "title": "The Event Loop Traced"
+    },
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Structure and Nomenclature",
+     "idx": 16,
+     "title": "Salient Features of Hybridisation"
+    },
+    {
+     "book": "plant-taxonomy",
+     "discipline": "biology",
+     "chapter": 4,
+     "chapterTitle": "The Algal Line",
+     "idx": 4,
+     "title": "The Salient-Features Register: Algae, Bryophytes, Pteridophytes and Gymnosperms"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 6,
+     "chapterTitle": "The Indian Constitution",
+     "idx": 0,
+     "title": "The Making and the Salient Features"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Least-Squares Fit",
+   "members": [
+    {
+     "book": "econometrics",
+     "discipline": "economics-commerce",
+     "chapter": 2,
+     "chapterTitle": "Simple Regression and OLS",
+     "idx": 0,
+     "title": "The Least-Squares Fit"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "Measurement and Uncertainty",
+     "idx": 3,
+     "title": "Least Squares Introduced"
+    },
+    {
+     "book": "linear-algebra",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "Orthogonality and Least Squares",
+     "idx": 3,
+     "title": "Least Squares: the Overdetermined Verdict"
+    },
+    {
+     "book": "machine-learning",
+     "discipline": "computer-science",
+     "chapter": 2,
+     "chapterTitle": "Linear Models: Regression",
+     "idx": 0,
+     "title": "Least Squares Derived"
+    },
+    {
+     "book": "numerical-analysis",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "Interpolation and Approximation",
+     "idx": 3,
+     "title": "Splines and Least Squares"
+    },
+    {
+     "book": "statistics",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "Bivariate Data: Correlation and Regression",
+     "idx": 3,
+     "title": "Least Squares: the Two Regression Lines"
+    },
+    {
+     "book": "statistics",
+     "discipline": "mathematics",
+     "chapter": 5,
+     "chapterTitle": "Probability Meets Data: Sampling Distributions",
+     "idx": 3,
+     "title": "Chi-Square and F Introduced"
+    },
+    {
+     "book": "statistics",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "Hypothesis Testing",
+     "idx": 2,
+     "title": "The Chi-Square Family"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Binary Trees and Their Properties",
+   "members": [
+    {
+     "book": "data-structures",
+     "discipline": "computer-science",
+     "chapter": 5,
+     "chapterTitle": "Trees",
+     "idx": 1,
+     "title": "Binary Trees and Their Properties"
+    },
+    {
+     "book": "data-structures",
+     "discipline": "computer-science",
+     "chapter": 5,
+     "chapterTitle": "Trees",
+     "idx": 4,
+     "title": "The Threaded Binary Tree, Named"
+    },
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "Trees",
+     "idx": 0,
+     "title": "Rooted and Binary Trees"
+    },
+    {
+     "book": "inorganic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 3,
+     "chapterTitle": "Hydrogen and the s-Block",
+     "idx": 9,
+     "title": "Stoichiometry, reactions and properties of binary non-metal hydrides"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Flip-Flops and Their Triggering",
+   "members": [
+    {
+     "book": "digital-logic-design",
+     "discipline": "computer-science",
+     "chapter": 6,
+     "chapterTitle": "Sequential Logic",
+     "idx": 0,
+     "title": "Flip-Flops and Their Triggering"
+    },
+    {
+     "book": "power-systems",
+     "discipline": "engineering",
+     "chapter": 1,
+     "chapterTitle": "The Power System Worldview",
+     "idx": 8,
+     "title": "Single-pulse generation with flip-flops and counters"
+    },
+    {
+     "book": "vlsi-design",
+     "discipline": "engineering",
+     "chapter": 8,
+     "chapterTitle": "Sequential Circuit Design",
+     "idx": 0,
+     "title": "Latches and Flip-Flops in Silicon"
+    },
+    {
+     "book": "vlsi-design",
+     "discipline": "engineering",
+     "chapter": 8,
+     "chapterTitle": "Sequential Circuit Design",
+     "idx": 4,
+     "title": "The Situation When QN and QP Are 18.2.2 The SR Flip-Flop"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Textures and the Aliasing Disease",
+   "members": [
+    {
+     "book": "computer-graphics",
+     "discipline": "computer-science",
+     "chapter": 5,
+     "chapterTitle": "Light and Material",
+     "idx": 2,
+     "title": "Textures and the Aliasing Disease"
+    },
+    {
+     "book": "cryptography",
+     "discipline": "computer-science",
+     "chapter": 4,
+     "chapterTitle": "Modes and Integrity",
+     "idx": 0,
+     "title": "ECB’s Pattern Disease Demonstrated"
+    },
+    {
+     "book": "data-science",
+     "discipline": "computer-science",
+     "chapter": 3,
+     "chapterTitle": "The Visualization Craft",
+     "idx": 3,
+     "title": "The Distortion Diseases Demonstrated"
+    },
+    {
+     "book": "python-programming",
+     "discipline": "computer-science",
+     "chapter": 3,
+     "chapterTitle": "The Data Structures Census",
+     "idx": 3,
+     "title": "The Aliasing Disease Demonstrated"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Chemical Coordination and Integration",
+   "members": [
+    {
+     "book": "animal-physiology",
+     "discipline": "biology",
+     "chapter": 3,
+     "chapterTitle": "The Endocrine Register",
+     "idx": 5,
+     "title": "Chemical Coordination and Integration"
+    },
+    {
+     "book": "backend-engineering",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 2,
+     "title": "The Doorsteps: Coordination, Platform, Integration"
+    },
+    {
+     "book": "full-stack-web-development",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Capstone Build",
+     "idx": 2,
+     "title": "The Doorsteps: Platform and Coordination"
+    },
+    {
+     "book": "physical-chemistry",
+     "discipline": "chemistry",
+     "chapter": 12,
+     "chapterTitle": "The Physical Doorway",
+     "idx": 9,
+     "title": "Of physical and chemical data, and a set of character tables. 1.1 Integration"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Field on One Page",
+   "members": [
+    {
+     "book": "artificial-intelligence",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Field on One Page"
+    },
+    {
+     "book": "cryptography",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Field on One Page"
+    },
+    {
+     "book": "machine-learning",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Field on One Page"
+    },
+    {
+     "book": "reinforcement-learning",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Field on One Page"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Strong Induction, Well-Ordering and the Proof Census (Implication, Converse, Contrapositive, Contradiction)",
+   "members": [
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "Recursion and Induction at Work",
+     "idx": 1,
+     "title": "Strong Induction, Well-Ordering and the Proof Census (Implication, Converse, Contrapositive, Contradiction)"
+    },
+    {
+     "book": "set-theory",
+     "discipline": "mathematics",
+     "chapter": 5,
+     "chapterTitle": "Well-Ordering and the Ordinals",
+     "idx": 1,
+     "title": "Well-Ordering and Transfinite Induction"
+    },
+    {
+     "book": "theory-of-computation",
+     "discipline": "computer-science",
+     "chapter": 1,
+     "chapterTitle": "The Three Questions",
+     "idx": 2,
+     "title": "The Proof Census: Construction, Contradiction, Induction"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Context-Free Grammars and Parse Trees",
+   "members": [
+    {
+     "book": "compiler-design",
+     "discipline": "computer-science",
+     "chapter": 3,
+     "chapterTitle": "Syntax Analysis",
+     "idx": 0,
+     "title": "Context-Free Grammars and Parse Trees"
+    },
+    {
+     "book": "theory-of-computation",
+     "discipline": "computer-science",
+     "chapter": 5,
+     "chapterTitle": "Context-Free Languages",
+     "idx": 0,
+     "title": "Context-Free Grammars: Definition and Craft"
+    },
+    {
+     "book": "topology",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "Continuity Redefined",
+     "idx": 0,
+     "title": "Preimages: the Definition that Frees"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Dynamic Allocation’s Diseases",
+   "members": [
+    {
+     "book": "c-programming",
+     "discipline": "computer-science",
+     "chapter": 4,
+     "chapterTitle": "Pointers and Arrays",
+     "idx": 2,
+     "title": "Dynamic Allocation’s Diseases"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "What Life Is",
+     "idx": 30,
+     "title": "Cytoskeleton and Is Highly Dynamic 6 Functional Genomics Shows the Allocations"
+    },
+    {
+     "book": "operating-systems",
+     "discipline": "computer-science",
+     "chapter": 6,
+     "chapterTitle": "Memory Management",
+     "idx": 0,
+     "title": "Contiguous Allocation and Its Disease"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Computer organization — basic architecture, CPU, I/O organisation, memory organisation, peripheral devices, trends; hardware/software issues; data representation and programming; operating systems: basics, processes, characteristics, applications; memory management, virtual memory, file systems,",
+   "members": [
+    {
+     "book": "industrial-engineering",
+     "discipline": "engineering",
+     "chapter": 6,
+     "chapterTitle": "The Operations-Research Application Layer",
+     "idx": 4,
+     "title": "Computer organization — basic architecture, CPU, I/O organisation, memory organisation, peripheral devices, trends; hardware/software issues; data representation and programming; operating systems: basics, processes, characteristics, applications; memory management, virtual memory, file systems,"
+    },
+    {
+     "book": "operating-systems",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Linux Practice Pole",
+     "idx": 1,
+     "title": "Devices as Files"
+    },
+    {
+     "book": "power-electronics",
+     "discipline": "engineering",
+     "chapter": 8,
+     "chapterTitle": "Device Protection, Gate Drives and the Synthesis",
+     "idx": 4,
+     "title": "Computer Fundamentals — number systems, Boolean algebra, arithmetic functions; basic architecture, central processing unit, I/O and memory organisation; peripheral devices; data representation and programming; basics of operating system and networking; virtual memory, file systems; elements of"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Language on One Page",
+   "members": [
+    {
+     "book": "c-programming",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Language on One Page"
+    },
+    {
+     "book": "cpp-programming",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Language on One Page"
+    },
+    {
+     "book": "python-programming",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Language on One Page"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Discipline on One Page",
+   "members": [
+    {
+     "book": "cybersecurity",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Discipline on One Page"
+    },
+    {
+     "book": "human-computer-interaction",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Discipline on One Page"
+    },
+    {
+     "book": "parallel-computing",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Discipline on One Page"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Transducer Census",
+   "members": [
+    {
+     "book": "electrical-measurements",
+     "discipline": "engineering",
+     "chapter": 9,
+     "chapterTitle": "Transducers, Telemetry and the Doorstep",
+     "idx": 0,
+     "title": "The Transducer Census"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 7,
+     "chapterTitle": "Signal and Data Analysis",
+     "idx": 1,
+     "title": "The Transducer Census"
+    },
+    {
+     "book": "internet-of-things",
+     "discipline": "computer-science",
+     "chapter": 2,
+     "chapterTitle": "The Sensing Layer",
+     "idx": 0,
+     "title": "The Transducer Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Shortest Paths: Dijkstra Derived",
+   "members": [
+    {
+     "book": "algorithms",
+     "discipline": "computer-science",
+     "chapter": 6,
+     "chapterTitle": "Graph Algorithms",
+     "idx": 2,
+     "title": "Shortest Paths: Dijkstra Derived"
+    },
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 6,
+     "chapterTitle": "Graphs: the Mathematics of Connections",
+     "idx": 5,
+     "title": "Shortest Paths: Dijkstra Met"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Minimum Spanning Trees: Prim and Kruskal",
+   "members": [
+    {
+     "book": "algorithms",
+     "discipline": "computer-science",
+     "chapter": 6,
+     "chapterTitle": "Graph Algorithms",
+     "idx": 1,
+     "title": "Minimum Spanning Trees: Prim and Kruskal"
+    },
+    {
+     "book": "discrete-mathematics",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "Trees",
+     "idx": 2,
+     "title": "Spanning Trees: Prim and Kruskal"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Diffie-Hellman Traced",
+   "members": [
+    {
+     "book": "cryptography",
+     "discipline": "computer-science",
+     "chapter": 6,
+     "chapterTitle": "The Public-Key Revolution",
+     "idx": 1,
+     "title": "Diffie-Hellman Traced"
+    },
+    {
+     "book": "number-theory",
+     "discipline": "mathematics",
+     "chapter": 9,
+     "chapterTitle": "Cryptography: the Modern Payoff",
+     "idx": 1,
+     "title": "Diffie–Hellman"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Cantor’s Diagonal Argument",
+   "members": [
+    {
+     "book": "set-theory",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "Counting the Infinite: Cardinality",
+     "idx": 1,
+     "title": "Cantor’s Diagonal Argument"
+    },
+    {
+     "book": "theory-of-computation",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "Advanced Computability",
+     "idx": 0,
+     "title": "The Diagonal Argument: Cantor’s Cage and Russell’s Wound"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Number Base Conversions: the Honest Craft",
+   "members": [
+    {
+     "book": "digital-logic-design",
+     "discipline": "computer-science",
+     "chapter": 1,
+     "chapterTitle": "Binary Systems",
+     "idx": 1,
+     "title": "Number Base Conversions: the Honest Craft"
+    },
+    {
+     "book": "power-systems",
+     "discipline": "engineering",
+     "chapter": 2,
+     "chapterTitle": "Per-Unit Quantities",
+     "idx": 1,
+     "title": "Base Conversion Worked"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Evaluation Orders and the Dependency Graph",
+   "members": [
+    {
+     "book": "compiler-design",
+     "discipline": "computer-science",
+     "chapter": 4,
+     "chapterTitle": "Syntax-Directed Translation",
+     "idx": 1,
+     "title": "Evaluation Orders and the Dependency Graph"
+    },
+    {
+     "book": "parallel-computing",
+     "discipline": "computer-science",
+     "chapter": 2,
+     "chapterTitle": "Parallel Algorithm Design",
+     "idx": 2,
+     "title": "The Dependency Graph as Drawing"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Anomaly Census",
+   "members": [
+    {
+     "book": "database-management-systems",
+     "discipline": "computer-science",
+     "chapter": 5,
+     "chapterTitle": "Normalization",
+     "idx": 0,
+     "title": "The Anomaly Census"
+    },
+    {
+     "book": "financial-economics",
+     "discipline": "economics-commerce",
+     "chapter": 5,
+     "chapterTitle": "Market Efficiency",
+     "idx": 1,
+     "title": "The Anomaly Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Static versus Dynamic: the Honest Trade",
+   "members": [
+    {
+     "book": "object-oriented-programming",
+     "discipline": "computer-science",
+     "chapter": 5,
+     "chapterTitle": "The Static and Runtime Shapes",
+     "idx": 0,
+     "title": "Static versus Dynamic: the Honest Trade"
+    },
+    {
+     "book": "programming-languages-paradigms",
+     "discipline": "computer-science",
+     "chapter": 2,
+     "chapterTitle": "Names, Bindings and Scopes",
+     "idx": 1,
+     "title": "Static versus Dynamic Scope"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Queues and Pub-Sub",
+   "members": [
+    {
+     "book": "backend-engineering",
+     "discipline": "computer-science",
+     "chapter": 6,
+     "chapterTitle": "Caching and Scale Discipline",
+     "idx": 2,
+     "title": "Queues and Pub-Sub"
+    },
+    {
+     "book": "object-oriented-programming",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "Behavioral Patterns",
+     "idx": 0,
+     "title": "Observer: the Pub-Sub Discipline"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Separate Compilation and the Preprocessor",
+   "members": [
+    {
+     "book": "c-programming",
+     "discipline": "computer-science",
+     "chapter": 3,
+     "chapterTitle": "Control Flow and Functions",
+     "idx": 2,
+     "title": "Separate Compilation and the Preprocessor"
+    },
+    {
+     "book": "cpp-programming",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "Error Handling and Modularity",
+     "idx": 1,
+     "title": "The ODR and Separate Compilation"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Slicing Trap, Priced on a Bug",
+   "members": [
+    {
+     "book": "cpp-programming",
+     "discipline": "computer-science",
+     "chapter": 4,
+     "chapterTitle": "Inheritance and Polymorphism",
+     "idx": 1,
+     "title": "The Slicing Trap, Priced on a Bug"
+    },
+    {
+     "book": "python-programming",
+     "discipline": "computer-science",
+     "chapter": 4,
+     "chapterTitle": "Functions and Modules",
+     "idx": 1,
+     "title": "The Mutable-Default Trap, Priced on a Bug"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Platform on One Page",
+   "members": [
+    {
+     "book": "java-programming",
+     "discipline": "computer-science",
+     "chapter": 9,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Platform on One Page"
+    },
+    {
+     "book": "javascript-and-web-technologies",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Platform on One Page"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Toolchain Census",
+   "members": [
+    {
+     "book": "computational-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "The Idea and the Toolchain",
+     "idx": 1,
+     "title": "The Toolchain Census"
+    },
+    {
+     "book": "python-programming",
+     "discipline": "computer-science",
+     "chapter": 1,
+     "chapterTitle": "The Python Idea",
+     "idx": 2,
+     "title": "The Toolchain Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Testing Census",
+   "members": [
+    {
+     "book": "building-materials",
+     "discipline": "engineering",
+     "chapter": 3,
+     "chapterTitle": "Cement",
+     "idx": 2,
+     "title": "The Testing Census"
+    },
+    {
+     "book": "python-programming",
+     "discipline": "computer-science",
+     "chapter": 6,
+     "chapterTitle": "Errors, Files and Testing",
+     "idx": 5,
+     "title": "The Testing Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Test Census",
+   "members": [
+    {
+     "book": "frontend-engineering",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "Testing and Tooling",
+     "idx": 0,
+     "title": "The Test Census"
+    },
+    {
+     "book": "high-voltage-engineering",
+     "discipline": "engineering",
+     "chapter": 7,
+     "chapterTitle": "High-Voltage Testing and Standards",
+     "idx": 0,
+     "title": "The Test Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Vector Clocks, Named",
+   "members": [
+    {
+     "book": "distributed-systems",
+     "discipline": "computer-science",
+     "chapter": 3,
+     "chapterTitle": "Time, Ordering and Elections",
+     "idx": 1,
+     "title": "Vector Clocks, Named"
+    },
+    {
+     "book": "electrical-machines",
+     "discipline": "engineering",
+     "chapter": 3,
+     "chapterTitle": "Three-Phase Transformers",
+     "idx": 1,
+     "title": "Vector Groups by the Clock"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Commitment Census",
+   "members": [
+    {
+     "book": "behavioural-economics",
+     "discipline": "economics-commerce",
+     "chapter": 4,
+     "chapterTitle": "Time and Self-Control",
+     "idx": 1,
+     "title": "The Commitment Census"
+    },
+    {
+     "book": "cloud-computing",
+     "discipline": "computer-science",
+     "chapter": 6,
+     "chapterTitle": "Reliability and Cost Engineering",
+     "idx": 2,
+     "title": "The Commitment Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Incident Lifecycle Traced",
+   "members": [
+    {
+     "book": "cybersecurity",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "Assurance and Incident Response",
+     "idx": 1,
+     "title": "The Incident Lifecycle Traced"
+    },
+    {
+     "book": "mobile-app-development",
+     "discipline": "computer-science",
+     "chapter": 3,
+     "chapterTitle": "The Activity Lifecycle",
+     "idx": 0,
+     "title": "The Lifecycle Traced"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Engine on One Page",
+   "members": [
+    {
+     "book": "deep-learning",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Engine on One Page"
+    },
+    {
+     "book": "information-retrieval",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Engine on One Page"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Field on One Page with Its Strata",
+   "members": [
+    {
+     "book": "computer-vision",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Field on One Page with Its Strata"
+    },
+    {
+     "book": "natural-language-processing",
+     "discipline": "computer-science",
+     "chapter": 8,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 0,
+     "title": "The Field on One Page with Its Strata"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Retrieval-Augmentation Contract",
+   "members": [
+    {
+     "book": "generative-ai-and-llms",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Application Era",
+     "idx": 1,
+     "title": "The Retrieval-Augmentation Contract"
+    },
+    {
+     "book": "information-retrieval",
+     "discipline": "computer-science",
+     "chapter": 7,
+     "chapterTitle": "The Synthesis and the Doorstep",
+     "idx": 2,
+     "title": "The Doorsteps: Retrieval-Augmentation"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Heuristic Evaluation Traced",
+   "members": [
+    {
+     "book": "human-computer-interaction",
+     "discipline": "computer-science",
+     "chapter": 4,
+     "chapterTitle": "The Evaluation Discipline",
+     "idx": 0,
+     "title": "Heuristic Evaluation Traced"
+    },
+    {
+     "book": "information-retrieval",
+     "discipline": "computer-science",
+     "chapter": 1,
+     "chapterTitle": "Boolean Retrieval and the Inverted Index",
+     "idx": 1,
+     "title": "Boolean Evaluation Traced"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Capacity Arithmetic",
+   "members": [
+    {
+     "book": "information-retrieval",
+     "discipline": "computer-science",
+     "chapter": 5,
+     "chapterTitle": "Index Construction and Compression",
+     "idx": 2,
+     "title": "The Capacity Arithmetic"
+    },
+    {
+     "book": "operations-management",
+     "discipline": "economics-commerce",
+     "chapter": 2,
+     "chapterTitle": "Process and Capacity",
+     "idx": 1,
+     "title": "The Capacity Arithmetic"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Application Census",
+   "members": [
+    {
+     "book": "digital-signal-processing",
+     "discipline": "engineering",
+     "chapter": 1,
+     "chapterTitle": "The DSP Worldview",
+     "idx": 3,
+     "title": "The Application Census"
+    },
+    {
+     "book": "internet-of-things",
+     "discipline": "computer-science",
+     "chapter": 1,
+     "chapterTitle": "The Physical-Digital Bridge",
+     "idx": 2,
+     "title": "The Application Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Digital Twin Named Honestly",
+   "members": [
+    {
+     "book": "cad-cam",
+     "discipline": "engineering",
+     "chapter": 8,
+     "chapterTitle": "Industry 4.0 and the Synthesis",
+     "idx": 1,
+     "title": "The Digital Twin Named Honestly"
+    },
+    {
+     "book": "internet-of-things",
+     "discipline": "computer-science",
+     "chapter": 4,
+     "chapterTitle": "The Edge and Cloud Partnership",
+     "idx": 1,
+     "title": "The Digital Twin, Named Honestly"
+    }
+   ],
+   "exact": true
+  }
+ ],
+ "misAdjudicate": [
+  {
+   "book": "digital-logic-design",
+   "discipline": "computer-science",
+   "chapter": 3,
+   "chapterTitle": "Simplification of Boolean Functions",
+   "idx": 1,
+   "title": "Four-Variable Maps and Beyond",
+   "ownScore": 0.5,
+   "bestBook": "advanced-algebra",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "advanced-algebra",
+     "score": 1.0
+    },
+    {
+     "book": "genetics",
+     "score": 1.0
+    },
+    {
+     "book": "foundation-mathematics",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "algorithms",
+   "discipline": "computer-science",
+   "chapter": 9,
+   "chapterTitle": "The Limits and the Frontier",
+   "idx": 4,
+   "title": "Geometric Algorithms: Convex Hull, Sweep Line, Cross Products",
+   "ownScore": 0.38,
+   "bestBook": "elementary-algebra",
+   "bestScore": 0.62,
+   "top3": [
+    {
+     "book": "elementary-algebra",
+     "score": 0.62
+    },
+    {
+     "book": "arithmetic-and-number-systems",
+     "score": 0.62
+    },
+    {
+     "book": "computer-organization-architecture",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "theory-of-computation",
+   "discipline": "computer-science",
+   "chapter": 9,
+   "chapterTitle": "Complexity Classes",
+   "idx": 0,
+   "title": "P: Measuring Time on Machines",
+   "ownScore": 0.67,
+   "bestBook": "geometry",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "geometry",
+     "score": 1.0
+    },
+    {
+     "book": "big-data-engineering",
+     "score": 0.67
+    },
+    {
+     "book": "microbiology",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "theory-of-computation",
+   "discipline": "computer-science",
+   "chapter": 9,
+   "chapterTitle": "Complexity Classes",
+   "idx": 1,
+   "title": "NP: the Two Definitions and Their Equality",
+   "ownScore": 0.67,
+   "bestBook": "elementary-algebra",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "elementary-algebra",
+     "score": 1.0
+    },
+    {
+     "book": "political-science",
+     "score": 1.0
+    },
+    {
+     "book": "philosophy",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "compiler-design",
+   "discipline": "computer-science",
+   "chapter": 9,
+   "chapterTitle": "The Synthesis and the Doorstep",
+   "idx": 2,
+   "title": "The Doorsteps: Languages and Runtimes",
+   "ownScore": 0.67,
+   "bestBook": "javascript-and-web-technologies",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "javascript-and-web-technologies",
+     "score": 1.0
+    },
+    {
+     "book": "java-programming",
+     "score": 1.0
+    },
+    {
+     "book": "object-oriented-programming",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "python-programming",
+   "discipline": "computer-science",
+   "chapter": 8,
+   "chapterTitle": "The Synthesis and the Doorstep",
+   "idx": 2,
+   "title": "The Doorsteps: the Stack Above",
+   "ownScore": 0.67,
+   "bestBook": "analog-and-digital-communication",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "analog-and-digital-communication",
+     "score": 1.0
+    },
+    {
+     "book": "computer-networks",
+     "score": 1.0
+    },
+    {
+     "book": "assembly-and-microprocessors",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "artificial-intelligence",
+   "discipline": "computer-science",
+   "chapter": 8,
+   "chapterTitle": "Perception and Communication, Named",
+   "idx": 2,
+   "title": "The Philosophical Questions",
+   "ownScore": 0.5,
+   "bestBook": "ethics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "ethics",
+     "score": 1.0
+    },
+    {
+     "book": "theory-of-computation",
+     "score": 1.0
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "machine-learning",
+   "discipline": "computer-science",
+   "chapter": 9,
+   "chapterTitle": "The Synthesis and the Doorstep",
+   "idx": 2,
+   "title": "The Doorsteps: Depth, Craft, Generation",
+   "ownScore": 0.75,
+   "bestBook": "environmental-studies",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "environmental-studies",
+     "score": 1.0
+    },
+    {
+     "book": "thermodynamics",
+     "score": 1.0
+    },
+    {
+     "book": "deep-learning",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "deep-learning",
+   "discipline": "computer-science",
+   "chapter": 8,
+   "chapterTitle": "The Synthesis and the Doorstep",
+   "idx": 2,
+   "title": "The Doorsteps: the Application Worlds",
+   "ownScore": 0.67,
+   "bestBook": "digital-signal-processing",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "digital-signal-processing",
+     "score": 1.0
+    },
+    {
+     "book": "discrete-mathematics",
+     "score": 1.0
+    },
+    {
+     "book": "computer-networks",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "computer-vision",
+   "discipline": "computer-science",
+   "chapter": 8,
+   "chapterTitle": "The Synthesis and the Doorstep",
+   "idx": 2,
+   "title": "The Doorsteps: the Forward Problem and Generation",
+   "ownScore": 0.75,
+   "bestBook": "robotics-and-automation",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "robotics-and-automation",
+     "score": 1.0
+    },
+    {
+     "book": "multivariable-calculus",
+     "score": 0.75
+    },
+    {
+     "book": "power-systems",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "reinforcement-learning",
+   "discipline": "computer-science",
+   "chapter": 1,
+   "chapterTitle": "The Learning Agent, Recalled",
+   "idx": 2,
+   "title": "The Vocabulary: Policy, Return and Discount",
+   "ownScore": 0.25,
+   "bestBook": "theory-of-machines",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "theory-of-machines",
+     "score": 0.5
+    },
+    {
+     "book": "public-administration",
+     "score": 0.5
+    },
+    {
+     "book": "english",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  }
+ ],
+ "thinChapters": [
+  {
+   "book": "computer-fundamentals",
+   "chapter": 1,
+   "chapterTitle": "The Computing Machine",
+   "plannedLeft": 2
+  },
+  {
+   "book": "assembly-and-microprocessors",
+   "chapter": 2,
+   "chapterTitle": "The 8085 Generation",
+   "plannedLeft": 1
+  },
+  {
+   "book": "assembly-and-microprocessors",
+   "chapter": 3,
+   "chapterTitle": "The 8086 Family",
+   "plannedLeft": 2
+  },
+  {
+   "book": "assembly-and-microprocessors",
+   "chapter": 7,
+   "chapterTitle": "Interfacing",
+   "plannedLeft": 2
+  },
+  {
+   "book": "data-structures",
+   "chapter": 6,
+   "chapterTitle": "Heaps and Priority Queues",
+   "plannedLeft": 2
+  },
+  {
+   "book": "python-programming",
+   "chapter": 7,
+   "chapterTitle": "The Modern Idiom Census",
+   "plannedLeft": 2
+  },
+  {
+   "book": "deep-learning",
+   "chapter": 1,
+   "chapterTitle": "The Depth Idea",
+   "plannedLeft": 2
+  }
+ ],
+ "note": "review auto-actions; adjudicate the pending lists; free-scan the books"
+}

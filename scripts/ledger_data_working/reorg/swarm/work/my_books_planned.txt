@@ -1,0 +1,1247 @@
+==========================================================================================
+BOOK engineering-mechanics — Engineering Mechanics
+--- ch1 The Statics Frame
+   [ 0] The Free-Body Diagram: the Engineer’s First Instrument
+   [ 1] Force Vectors and Their Resultants
+   [ 2] Equilibrium of a Particle: 2D and 3D
+   [ 3] Appendices A-L
+   [ 4] Viii Contents
+   [ 5] X Contents
+   [ 6] Reduction in Nonlinear
+   [ 7] Splitting 860 (PSRR)
+   [ 8] Summary 927 Realization
+   [ 9] Xii Contents
+   [10] (VTC) 1136 18.2.1 The Latch
+   [11] Appendices
+   [12] Summary 1183 Prefixes J-1
+   [13] * Available online at www.oup.com/he/sedra-smith8e
+   [14] From Indication to Illumination
+   [15] (ISSCC)
+   [16] Fundamentalist
+   [17] The Creator of the pA741: David Fullagar
+   [18] CAMBRIDGE
+   [19] Avenue of the Americas, New York, NY 10013-2473, USA
+   [20] Www.cambridge.org
+   [21] Third edition
+   [22] A catalog record for this publication is available from the British Library
+   [23] ISBN 978-0-521-80926-9 Hardback
+   [24] Preface to the Third Edition — xxix
+   [25] Connectors
+   [26] Transconductance
+   [27] Bootstrapping
+   [28] The challenge: 10 mV, 1%, 10 MΩ, 1.8 V single supply
+   [29] It's impossible!
+   [30] Wrong – it is possible!
+   [31] The 34401A 6.5-digit front end
+   [32] The 34420A 7.5-digit frontend
+   [33] In defense of the beleaguered
+   [34] Switchers: looking more closely
+   [35] Three-terminal precision references
+   [36] Synchronizer
+   [37] The basic PAL
+   [38] The FPGA
+   [39] Advice
+   [40] Photomultipliers
+   [41] TOSLINK
+   [42] Versatile Link
+   [43] RS-232
+   [44] Wrapup
+   [45] Some preliminaries
+   [46] Idle tones
+   [47] AD7873 touchscreen digitizer
+   [48] More on Deriving the Thévenin
+   [49] Radiators
+   [50] Summary 49 Resistors
+   [51] Summary 435 Summary
+   [52] Simultaneous Appendix F An Abbreviated
+   [53] Identities
+   [54] B.4 Useful Identities
+   [55] Flashlight
+   [56] Fig. 1.5
+   [57] Fig. 1.7
+   [58] Frequencies
+   [59] Fibreoptics
+   [60] Contents ix
+   [61] Summary of important formulae 361 19.7 Construction and static characteristics of
+   [62] Logarithmic units 404 20.22 JUGFET
+   [63] Contents xi
+   [64] Contents xiii
+   [65] Xiv Contents
+   [66] Introductory
+   [67] Contents xv
+   [68] WEBSITE
+   [69] Www.pearsoned.co.uk/hughes
+--- ch2 Moments and Rigid-Body Equilibrium
+   [ 0] Moments, Couples and Their Algebra
+   [ 1] Equilibrium of the Rigid Body
+   [ 2] Distributed Loads and Their Resultants
+   [ 3] What about MOSFETs?
+--- ch3 Structural Analysis
+   [ 0] Trusses: the Method of Joints
+   [ 1] Trusses: the Method of Sections
+   [ 2] Frames and Machines: Multi-force Members
+   [ 3] Engineering Aptitude covering Logical reasoning and Analytical ability
+   [ 4] Degeneration 741 Method
+   [ 5] Effects of Fan-In and Fan-Out on Problems
+   [ 6] Cambridge University Press has no responsibility for the persistence or accuracy of URLs for external or third-party Internet websites referred to in this publication and does not guarantee that any content on such websites is, or will remain, accurate or appropriate
+   [ 7] Not quite perfect
+   [ 8] Additional Exercises for Chapter
+   [ 9] Review of Chapter
+   [10] Electrical Engineering: An Overview 4 Realistic Resistors
+   [11] Appliances 382 Chapter
+--- ch4 Friction and Its Applications
+   [ 0] Dry Friction: Tipping versus Sliding
+   [ 1] Wedges and the Screw Jack
+   [ 2] Belt-Pulley Systems and Brake/Clutch Friction
+   [ 3] Rolling Resistance Priced
+   [ 4] (Emitter) Resistance
+   [ 5] The Common-Gate (CG) and the
+   [ 6] An Emitter Resistance Re
+   [ 7] Effect of the Output Resistance of the 9.4 DC Offset
+   [ 8] Gates 1167 Summary
+   [ 9] Catalog of common gates
+   [10] Shift registers
+   [11] Simplification 63 4.18 Finding the Thévenin Equivalent Resistance
+   [12] Gate standardization
+   [13] Of rotor resistance
+--- ch5 Centroids, Centre of Gravity and Moments of Inertia
+   [ 0] Centroids by Composite Parts
+   [ 1] Theorems of Pappus-Guldinus
+   [ 2] Moments of Inertia and the Parallel-Axis Theorem
+   [ 3] Products of Inertia and Principal Axes
+   [ 4] Area 1149 Cells
+   [ 5] Thévenin's theorem generalized
+   [ 6] Parallel buses and data links
+   [ 7] Thévenin’s theorem
+--- ch6 Virtual Work
+   [ 0] The Principle Stated and First Applied
+   [ 1] Machines and Linked Bodies by Virtual Work
+   [ 2] The Potential-Energy Reading
+--- ch7 Kinematics of Particles and Rigid Bodies
+   [ 0] Curvilinear Motion and Its Components
+   [ 1] Rotation About a Fixed Axis
+   [ 2] General Plane Motion: the Velocity Construction
+   [ 3] PLL components
+   [ 4] Relative permittivity
+   [ 5] Transformers 646 30.9 Rotary motion
+--- ch8 Kinetics: Force and Acceleration
+   [ 0] The Kinetic Diagram Beside the Free-Body
+   [ 1] Plane Motion of Rigid Bodies
+   [ 2] Angular Momentum and the Gyroscopic Glimpse
+   [ 3] Second edition
+   [ 4] Preface to the Second Edition — xxvii
+   [ 5] The Effect of Resistor Tolerance on the 4.20 Using a Thévenin Equivalent to Analyze the
+--- ch9 Work, Energy and Impulse-Momentum
+   [ 0] The Work-Energy Engine
+   [ 1] Conservative Forces and Energy Bookkeeping
+   [ 2] Linear and Angular Impulse-Momentum
+   [ 3] Impact of Rigid Bodies
+--- ch10 Lagrange’s Equations and the Doorstep
+   [ 0] Generalised Coordinates and Constraints
+   [ 1] Lagrange’s Equations, Derived and Worked
+   [ 2] The Synthesis: Four Formulations, One Mechanics
+   [ 3] The Doorstep: from Rigid to Deformable
+   [ 4] Minimization and Karnaugh maps
+   [ 5] A simple SAR example
+   [ 6] To Write Simultaneous Equations
+   [ 7] Karnaugh maps for simplifying
+==========================================================================================
+BOOK strength-of-materials — Strength of Materials
+--- ch1 Stress: the Concept
+   [ 0] Sectioning a Body: the Method of Internal Forces
+   [ 1] Normal, Shear and Bearing Stress
+   [ 2] Stress on the Oblique Plane
+   [ 3] When and How to Include the Output
+   [ 4] How to make pseudorandom bytes
+   [ 5] Appendix H Common Standard Component Values
+   [ 6] B.1 Notation 729 Component Values
+--- ch2 Strain and the Elastic Constants
+   [ 0] The Stress-Strain Diagram, Read Honestly
+   [ 1] Hooke, Poisson and the Shear Relation
+   [ 2] The Testing Laboratory: UTM, Hardness, Impact
+   [ 3] Resistors in Parallel 61 Practical Perspective: Strain Gages
+   [ 4] Practical Perspective: Strain Gages 171 Chapter 9 Sinusoidal Steady-State
+   [ 5] Semiconductor Materials 419 20.34 Common-mode rejection ratio
+--- ch3 Axial Members
+   [ 0] Indeterminate Assemblies by Compatibility
+   [ 1] Thermal Stresses and Their Bookkeeping
+   [ 2] Saint-Venant, Stress Concentrations, Multiaxial Loading
+   [ 3] Problems 355 Problems
+   [ 4] Problems 562 Introduction
+   [ 5] Final Remarks 1046 Problems
+   [ 6] Problems 50 Summary
+   [ 7] Problems 436 Problems
+   [ 8] Summary 476 Problems
+   [ 9] Introduction to Problems
+--- ch4 Torsion of Circular Shafts
+   [ 0] The Torsion Formula Earned
+   [ 1] Angle of Twist and Power Transmission
+   [ 2] Indeterminate Shafts and Design
+   [ 3] The Honest Limits: Noncircular and Thin-Walled
+--- ch5 Shear Force and Bending Moment Diagrams
+   [ 0] The Diagrams as a Fluent Craft
+   [ 1] Load, Shear and Moment: the Differential Relations
+   [ 2] Singularity Functions for Beam Bookkeeping
+   [ 3] The Depletion-Type MOSFET 291 7.2.1 The MOSFET Case
+   [ 4] Current-Source Loads 518 9.3.1 The MOS Case
+   [ 5] Input Common-Mode Range and Functions
+   [ 6] FET types
+   [ 7] Generating a differential output
+   [ 8] Complex Notation
+   [ 9] The NAND function
+   [10] Support the use of this textbook in teaching, please visit
+--- ch6 Bending Stresses in Beams
+   [ 0] The Flexure Formula Earned
+   [ 1] Section Modulus and Beam Design
+   [ 2] Shearing Stresses and Shear Flow
+   [ 3] The Shear Centre
+   [ 4] (BJTs) 304 7.3.3 The Common-Source (CS) and
+   [ 5] The Common-Source (Common
+   [ 6] A Common-Source (CS)
+   [ 7] A Common-Base (CB)
+   [ 8] Wiring: The Interconnect 1181 H. Filter Design Material
+   [ 9] Common-mode rejection
+   [10] With Symmetry 630 and Symmetric
+--- ch7 Transformation of Stress and Strain
+   [ 0] Mohr’s Circle for Plane Stress
+   [ 1] Mohr’s Circle for Plane Strain
+   [ 2] Strain Gauges and Rosettes
+   [ 3] Thin Cylinders Under Pressure
+--- ch8 Deflection of Beams
+   [ 0] The Elastic Curve and Double Integration
+   [ 1] Macaulay’s Method
+   [ 2] The Moment-Area Theorems
+   [ 3] Indeterminate Beams by Superposition
+--- ch9 Columns, Buckling and Energy Methods
+   [ 0] Euler’s Column and the End-Condition Census
+   [ 1] Slenderness: Buckling versus Crushing
+   [ 2] Castigliano’s Theorem
+   [ 3] Strain Energy and Impact Loading
+   [ 4] Summary 292 7.2.2 The BJT Case
+   [ 5] The MOSFET Case
+   [ 6] The BJT Case
+==========================================================================================
+BOOK theory-of-machines — Theory of Machines
+--- ch1 Mechanisms and Inversion
+   [ 0] Kinematic Pairs and Chains
+   [ 1] The Four-Bar Family and Grashof’s Law
+   [ 2] The Slider-Crank and Its Inversions
+   [ 3] Degrees of Freedom by Gruebler
+   [ 4] Maintenance — failure concepts and characteristics, reliability, failure analysis; machine vibration, data acquisition, fault detection, vibration monitoring; field balancing of rotors; noise monitoring; wear and debris analysis; signature analysis; NDT techniques in condition monitoring
+   [ 5] Emitter Characteristics
+   [ 6] Lock-in detection
+   [ 7] Battery characteristics
+   [ 8] Other buses and data links: overview
+   [ 9] Terms and concepts 131 8.12 Coupling coefficient
+   [10] Direction of induced e.m.f. 144 speed and number of pole pairs
+   [11] Relative permeability 155 Terms and concepts
+   [12] Determination of the B/H characteristic
+   [13] Simple comparator 509 Terms and concepts
+   [14] Machines 703 Summary of important formulae
+--- ch2 Velocity Analysis
+   [ 0] The Instantaneous-Centre Method
+   [ 1] The Relative-Velocity Method
+   [ 2] Velocity Images and Worked Mechanisms
+   [ 3] Turbo Machinery — reciprocating and rotary pumps; Pelton wheel, Kaplan and Francis turbines, velocity diagrams, impulse and reaction principles; steam and gas turbines; theory of jet propulsion — pulse jet and ram jet engines; reciprocating and rotary compressors: theory and applications
+   [ 4] Programmable pulse-width generator
+   [ 5] Step-triggered pulses
+   [ 6] An n-pulse generator
+   [ 7] Using the General Solution Method to Find an 9.3 Translating a Sine Expression to a Cosine
+--- ch3 Acceleration Analysis
+   [ 0] Acceleration Polygons
+   [ 1] The Coriolis Engine
+   [ 2] Klein’s Construction
+   [ 3] Inertia Forces in Linkages: D’Alembert
+--- ch4 Cams and Followers
+   [ 0] Displacement Diagrams and Their Prices
+   [ 1] Constructing the Cam Profile
+   [ 2] Pressure Angle and Undercutting
+   [ 3] The Source and Emitter Followers
+   [ 4] An Emitter Follower
+   [ 5] Emitter Followers 723 11.3.4 A Final Remark
+   [ 6] The Source Follower 916 Introduction
+   [ 7] Emitter follower
+   [ 8] Emitter follower biasing
+   [ 9] The emitter follower revisited
+   [10] Source followers
+--- ch5 Toothed Gearing
+   [ 0] The Law of Gearing and the Involute
+   [ 1] Tooth Terminology and Interference
+   [ 2] Velocity Ratio Bookkeeping
+   [ 3] ST/SC glass-fiber modules
+   [ 4] Calculation of efficiency from the
+   [ 5] Determination of efficiency
+--- ch6 Gear Trains
+   [ 0] Simple and Compound Trains
+   [ 1] The Epicyclic Craft
+   [ 2] Torque in Planetary Drives
+   [ 3] Inverter Implementation 1125 18.1.2 Restoring the Value of VOH to VDD
+--- ch7 Flywheels, Turning Moments and Governors
+   [ 0] Turning-Moment Diagrams and the Flywheel
+   [ 1] The Governor Family
+   [ 2] Sensitiveness, Stability, Hunting
+   [ 3] The Wilson MOS Mirror
+--- ch8 Balancing of Rotating and Reciprocating Masses
+   [ 0] Two-Plane Correction of Rotating Masses
+   [ 1] Reciprocating Engines: Primary and Secondary
+   [ 2] Partial Balancing and the Honest Residue
+--- ch9 The Gyroscopic Couple
+   [ 0] The Couple Derived
+   [ 1] Ships, Aircraft and Turning Vehicles
+   [ 2] Gyroscopic Stability Priced
+--- ch10 Vibrations
+   [ 0] Natural Frequency by Three Engines
+   [ 1] Damping: the Three Regimes
+   [ 2] Forced Vibration and the Magnifier
+   [ 3] Isolation and Transmissibility
+   [ 4] Critical Speed and Whirling of Shafts
+   [ 5] Determining the 3-dB Frequency
+   [ 6] Finding the 1/f corner frequency
+   [ 7] Frequency-Selective
+   [ 8] Cathode-ray oscilloscope 948 Answers to Exercises
+==========================================================================================
+BOOK machine-design — Machine Design
+--- ch1 The Design Discipline
+   [ 0] The Design Process and Its Codes
+   [ 1] Factor of Safety Priced Honestly
+   [ 2] From Stress to Dimension
+   [ 3] (VTC) 369 8.1 IC Design Philosophy
+   [ 4] Inverter Sizing 1165 18.4.3 The Row-Address Decoder
+   [ 5] Designs by the masters: Agilent's accurate DMMs
+   [ 6] Nonvolatile memory
+   [ 7] Memory wrapup
+   [ 8] Appendix B Complex Numbers 729 Appendix H Common Standard
+   [ 9] Core factors 647 Summary of important formulae
+--- ch2 Static Loading and the Failure Theories
+   [ 0] Ductile versus Brittle Failure
+   [ 1] Tresca and von Mises Priced
+   [ 2] Stress Concentration in Design
+   [ 3] Hans Camenzind: The Inventor of the Class D
+   [ 4] Printed in the United States of America
+   [ 5] Designs by the masters: Agilent's world-class "multislope" converters
+   [ 6] ADCs: choices and tradeoffs
+--- ch3 Fatigue and the S-N Diagram
+   [ 0] The Endurance Limit and Its Modifiers
+   [ 1] Goodman, Soderberg, Gerber
+   [ 2] Cumulative Damage by Miner’s Rule
+   [ 3] The golden rules
+--- ch4 Joints: Bolted, Riveted and Welded
+   [ 0] The Bolt as a Preloaded Spring
+   [ 1] Riveted Joints and Their Efficiency
+   [ 2] Fillet and Butt Welds Priced
+   [ 3] Eccentric Loads on Weld Groups
+--- ch5 Shafts, Keys and Couplings
+   [ 0] The Shaft Design Equation
+   [ 1] Keys and Splines Priced
+   [ 2] Couplings and Their Honest Flexibility
+--- ch6 Bearings
+   [ 0] Journal Bearings: Petroff and Beyond
+   [ 1] Rolling Bearings: the L10 Arithmetic
+   [ 2] Selection, Mounting, Preload
+   [ 3] Number per package
+   [ 4] Appendix B Complex Numbers
+   [ 5] B.6 The Roots of a Complex Number
+   [ 6] Finding a Thévenin Equivalent
+   [ 7] Hexadecimal numbers
+--- ch7 Gears in Design
+   [ 0] The Lewis Form Factor
+   [ 1] Wear and Dynamic Loads
+   [ 2] Helical, Bevel and Worm Forces
+   [ 3] Gear Materials and Lubrication
+--- ch8 Springs, Brakes and Clutches
+   [ 0] Helical Springs: Wahl’s Correction
+   [ 1] Plate Clutches: Wear versus Pressure
+   [ 2] Brakes and Self-Energising Geometry
+--- ch9 The Design Synthesis and the Doorstep
+   [ 0] The Map: Specification to Element
+   [ 1] A Gearbox Priced End-to-End
+   [ 2] The Standards Census
+   [ 3] The Doorstep: Makeable and Modelled
+   [ 4] Databases and languages — data bases: different types, characteristics and design; transactions and concurrency control; elements of programming languages, typical examples
+   [ 5] Realization of the Various Filter Element
+   [ 6] An example: "It's too hot!"
+   [ 7] Example: sensitive millivoltmeter
+   [ 8] An example: the millivoltmeter, revisited
+   [ 9] Contents (page xiii)
+   [10] A simple design example: loudspeaker as microphone
+   [11] A design example: 40ε "lightning detector" preamp
+   [12] An example: pseudorandom byte generator
+   [13] Contents (page xvii)
+   [14] Contents (page xviii)
+   [15] List of Examples xii
+   [16] List of Examples
+   [17] List of Examples xiii
+   [18] Xiv List of Examples
+   [19] List of Examples xv
+==========================================================================================
+BOOK thermodynamics — Thermodynamics
+--- ch1 The Energy Worldview
+   [ 0] Systems, Boundaries, Properties
+   [ 1] The Zeroth Law and Temperature
+   [ 2] Processes and Cycles
+   [ 3] Filter 597 17.9 Calculating Energy Contained in a Rectangular
+   [ 4] Standardized Prefixes to Signify 10.1 Annual Energy Requirements of Electric
+   [ 5] Energy stored in a charged capacitor 123 8.5 Ferromagnetic-cored inductor in a
+   [ 6] Types of capacitor and capacitance 127 8.10 Energy stored in an inductor
+--- ch2 The First Law for Closed Systems
+   [ 0] Work and Heat as Path Functions
+   [ 1] The Closed-System Energy Balance
+   [ 2] Specific Heats and Enthalpy
+--- ch3 Properties of Pure Substances
+   [ 0] The Saturation Dome Read Honestly
+   [ 1] Quality and the Steam Tables
+   [ 2] The Ideal Gas and Its Honest Limits
+   [ 3] Tables xiv
+   [ 4] List of Tables — xxii
+   [ 5] List of Tables xvi
+   [ 6] Appendix G An Abbreviated Table of Integrals
+   [ 7] List of Tables xvi Summary
+   [ 8] Equations 720 Table of Trigonometric
+   [ 9] A.3 Paper-and-Pencil Methods 723 Appendix G An Abbreviated Table of
+   [10] Xvi List of Tables
+   [11] List of Tables
+--- ch4 Control Volumes
+   [ 0] The Steady-Flow Device Census
+   [ 1] Throttles and Mixing Chambers
+   [ 2] Unsteady Flows: Filling and Emptying
+   [ 3] Compressors and Intercooling
+   [ 4] Simplified "x86" instruction set
+--- ch5 The Second Law
+   [ 0] Kelvin-Planck and Clausius, Equivalent
+   [ 1] Reversibility and Its Honest Census
+   [ 2] The Carnot Ceiling
+--- ch6 Entropy
+   [ 0] Entropy Earned from the Inequality
+   [ 1] The TdS Relations
+   [ 2] Isentropic Processes and Efficiency
+   [ 3] Entropy Generation Priced
+--- ch7 Exergy and Irreversibility
+   [ 0] Exergy: the Work Potential
+   [ 1] Exergy Destroyed and Entropy Generated
+   [ 2] Second-Law Efficiency
+--- ch8 Gas Power Cycles
+   [ 0] Air-Standard Craft: Otto, Diesel, Dual
+   [ 1] The Brayton Cycle
+   [ 2] Regeneration, Reheat, Intercooling
+   [ 3] The Cycle Comparison Census
+   [ 4] VII: ac-input optocouplers
+   [ 5] Finding the a Parameters from
+   [ 6] Hybrid parameters
+--- ch9 Vapour Power and Refrigeration Cycles
+   [ 0] The Rankine Cycle and Its Craft
+   [ 1] Reheat and Regeneration
+   [ 2] Vapour-Compression Refrigeration
+   [ 3] Heat Pumps and Gas Refrigeration
+   [ 4] Practical Perspective: Heating with Electric
+--- ch10 Mixtures and Psychrometry
+   [ 0] Gas Mixtures Bookkept
+   [ 1] The Psychrometric Chart, Read Fluently
+   [ 2] The Process Census
+   [ 3] Air-Conditioning Priced
+--- ch11 Property Relations, Compressible Flow and the Doorstep
+   [ 0] The Maxwell Relations
+   [ 1] Nozzles, Diffusers, Choking
+   [ 2] The Synthesis: States to Cycles
+   [ 3] The Doorstep: Rates and Flows
+==========================================================================================
+BOOK fluid-mechanics — Fluid Mechanics
+--- ch1 The Fluid Idea
+   [ 0] The No-Shape Answer and the Continuum
+   [ 1] Viscosity: Newton’s Law and Its Census
+   [ 2] Surface Tension and Capillarity
+   [ 3] Vapour Pressure and Cavitation Named
+   [ 4] Introduction 175 5.1.5 Operation as vDS Is Increased
+   [ 5] Introduction 1067 16.1.7 Obtaining the PUN from the PDN
+   [ 6] Introduction 1192 Index IN-1
+   [ 7] Surface-mount technology: the joy and the pain
+   [ 8] Cathode-ray tube 947 Appendix: Symbols, Abbreviations, Deﬁnitions
+--- ch2 Fluid Statics
+   [ 0] Manometers: the Measurement Craft
+   [ 1] Hydrostatic Forces on Plane Surfaces
+   [ 2] Curved Surfaces and Buoyancy
+   [ 3] Stability and the Metacentre
+   [ 4] Force determination 142 9.3 Waveform terms and definitions
+--- ch3 Fluid Kinematics
+   [ 0] Descriptions and Lines of Flow
+   [ 1] The Material Derivative: Local + Convective
+   [ 2] Stream Function and Velocity Potential
+   [ 3] The Reynolds Transport Theorem
+   [ 4] Summary of important formulae 281 15.5 Thévenin’s theorem
+--- ch4 Control-Volume Analysis
+   [ 0] Continuity for Control Volumes
+   [ 1] The Momentum Engine: Bends, Vanes, Nozzles
+   [ 2] Bernoulli and Its Honest Limits
+   [ 3] The Grade Lines Drawn
+--- ch5 Differential Analysis
+   [ 0] Differential Continuity
+   [ 1] Navier-Stokes Read Term-by-Term
+   [ 2] Couette and Poiseuille Earned
+   [ 3] The Honest Verdict on Differential Routes
+   [ 4] Electrostatic terms
+   [ 5] Terms and concepts 261 14.11 Selectivity
+   [ 6] The j operator 264 Terms and concepts
+   [ 7] Signed binary subtraction 525 Terms and concepts
+--- ch6 Dimensional Analysis and Similitude
+   [ 0] The Buckingham Pi Theorem Worked
+   [ 1] The Group Census
+   [ 2] Similitude and Model Testing
+--- ch7 Viscous Internal Flow
+   [ 0] Hagen-Poiseuille Earned
+   [ 1] The Moody Chart and Friction Factor
+   [ 2] Minor Losses in Fittings
+   [ 3] Pipe Systems and the System Curve
+   [ 4] Summary 117 Region
+   [ 5] Summary of important formulae
+   [ 6] Summary of important formulae 261 14.10 Bandwidth
+   [ 7] Signed binary addition 524 Summary of important formulae
+   [ 8] Summary of important formulae 713 34.4 Demand for electricity and the
+--- ch8 Boundary Layers and External Flow
+   [ 0] Prandtl’s Boundary Layer
+   [ 1] Growth, Transition, Separation
+   [ 2] The Drag Census
+   [ 3] Lift and the Aerofoil Glimpse
+   [ 4] Terminals 151 4.7.3 Varactors
+--- ch9 Compressible Flow Basics
+   [ 0] The Mach Number and Flow Regimes
+   [ 1] Isentropic Relations
+   [ 2] Nozzles and Choking
+   [ 3] The Normal Shock Introduced
+--- ch10 The Turbomachinery Principle and the Doorstep
+   [ 0] Impulse versus Reaction
+   [ 1] The Euler Equation Earned
+   [ 2] Specific Speed: the Compass
+   [ 3] The Doorsteps: Machines Elsewhere, Rates Above
+   [ 4] VCO implementation: through-hole versus surface-mount
+==========================================================================================
+BOOK heat-transfer — Heat Transfer
+--- ch1 The Three Modes
+   [ 0] Rate Equations and Their Origins
+   [ 1] The Conductivity Census
+   [ 2] Thermal Circuits: the Modes Conspire
+   [ 3] Slew Rate 113 4.3.7 Operation in the Reverse Breakdown
+   [ 4] Active Mode
+   [ 5] Implementation 859 13.1.6 Slew Rate
+   [ 6] Input Common-Mode Range and
+   [ 7] Classification of Output Stages 888 13.2.5 Slew Rate
+   [ 8] Transfer Characteristic 890 Mode Range: Rail-to-Rail Input
+   [ 9] Magnitude of the generated or induced e.m.f. 145 9.5 Average and r.m.s. values of an alternating
+--- ch2 One-Dimensional Steady Conduction
+   [ 0] The Wall and the Resistance Network
+   [ 1] Cylinders, Spheres, Logarithmic Means
+   [ 2] The Critical Radius Priced
+   [ 3] Hysteresis loss
+--- ch3 Extended Surfaces: Fins
+   [ 0] The Fin Equation Derived
+   [ 1] Effectiveness and Efficiency
+   [ 2] The Fin Census in Practice
+--- ch4 Unsteady Conduction
+   [ 0] Lumped Capacitance and the Biot Verdict
+   [ 1] The Heisler Charts Read Fluently
+   [ 2] Semi-Infinite Solids Glanced
+   [ 3] When operating current is not your choice
+   [ 4] Practical Perspective: Transient Effects 474 Summary
+   [ 5] Capacitance of a multi-plate capacitor
+   [ 6] Fibreoptics 613 29.9 Methods of reducing leakage flux
+--- ch5 Convection Fundamentals
+   [ 0] The Thermal Boundary Layer
+   [ 1] The Dimensionless Census Earned
+   [ 2] Forced Convection: Plates and Pipes
+   [ 3] Free Convection and Its Regimes
+   [ 4] Transconductance versus drain current
+--- ch6 Boiling and Condensation
+   [ 0] The Boiling Curve Read
+   [ 1] Nucleate Boiling Priced
+   [ 2] Nusselt’s Film Condensation Craft
+   [ 3] Impedance Angle Restrictions 396 13.12 Using the Transfer Function to Find the
+   [ 4] Calculating Butterworth Transfer Functions 592 17.7 Applying Parseval’s Theorem to an Ideal
+--- ch7 Heat Exchangers
+   [ 0] The Exchanger Census
+   [ 1] LMTD with Correction Factors
+   [ 2] NTU and Effectiveness
+   [ 3] Design versus Rating
+--- ch8 Radiation
+   [ 0] Blackbody Behaviour and Its Laws
+   [ 1] Grey Surfaces and Radiosity
+   [ 2] The View-Factor Craft
+   [ 3] Radiation Networks and Shields
+   [ 4] Combined-Mode Problems Priced
+   [ 5] Switchers: top-level view
+   [ 6] Practical Perspective: Resistive Touch
+   [ 7] Practical Perspective: A Household Distribution
+   [ 8] Practical Perspective: Clock for Computer Problems
+   [ 9] Practical Perspective: Characterizing an
+--- ch9 The Synthesis and the Doorstep
+   [ 0] The Map: Fourier to Networks
+   [ 1] Three Designs Priced End-to-End
+   [ 2] The Doorsteps: Solar, Grids, Silicon
+   [ 3] Diffusion Current 147 Superdiode
+   [ 4] Leakage Currents 288 7.1.6 Determining the VTC by Graphical
+   [ 5] Dependence of ic on the Collector
+   [ 6] Packages and Heat Sinks 924 14.1.4 Obtaining the Filter Transfer
+   [ 7] The Transfer Function 500 16.4 An Alternative Trigonometric Form of the Fourier
+   [ 8] Find an Unknown Current
+   [ 9] Leakage and conduction currents in capacitors 126 8.8 Analysis of decay
+   [10] Current magnification
+==========================================================================================
+BOOK manufacturing-processes — Manufacturing Processes
+--- ch1 Materials for Manufacturing
+   [ 0] The Alloy Census for Making
+   [ 1] Hot versus Cold: the Recrystallisation Line
+   [ 2] Castability, Formability, Machinability
+   [ 3] Fabricated in CMOS and Bipolar Processes K-1
+   [ 4] Manufacturing spread of FET characteristics
+   [ 5] Logic identities
+   [ 6] Logic pathology
+   [ 7] II: Logic-output optocouplers
+--- ch2 Casting
+   [ 0] Patterns, Moulds and Cores
+   [ 1] Solidification and Chvorinov’s Rule
+   [ 2] Riser and Gating Arithmetic
+   [ 3] The Casting Census and Its Defects
+--- ch3 Bulk Forming
+   [ 0] Deformation Mechanics and Yield Criteria
+   [ 1] Forging and Its Loads
+   [ 2] Rolling: Mechanics and Geometry
+   [ 3] Extrusion and Drawing
+--- ch4 Sheet Forming and Powder Metallurgy
+   [ 0] Shearing and Blanking
+   [ 1] Bending and Springback
+   [ 2] Deep Drawing
+   [ 3] Powder Metallurgy’s Honest Niche
+   [ 4] Limiting the bandwidth
+--- ch5 Machining Mechanics
+   [ 0] Merchant’s Orthogonal Craft
+   [ 1] Tool Geometry by Two Systems
+   [ 2] Taylor’s Tool Life
+   [ 3] The Economics of Machining
+--- ch6 Machine Tools and Operations
+   [ 0] Turning and the Lathe
+   [ 1] Drilling and Milling
+   [ 2] Grinding and the Wheel Census
+   [ 3] The Finishing Census
+   [ 4] UNIVERSITY PRESS
+   [ 5] Cambridge University Press is part of the University of Cambridge
+   [ 6] © Cambridge University Press, 1980, 1989
+   [ 7] Switchers: basic operation
+--- ch7 Non-Traditional Machining
+   [ 0] The Spark Engine: EDM
+   [ 1] ECM and USM
+   [ 2] Beam and Jet Processes
+   [ 3] The Selection Census
+   [ 4] B.2 The Graphical Representation of a Complex
+--- ch8 Joining
+   [ 0] The Arc, the Pool, the HAZ
+   [ 1] The Arc-Welding Census
+   [ 2] Brazing, Soldering, Adhesives
+   [ 3] Defects, Distortion and Their Control
+--- ch9 Work Holding, Jigs and Fixtures
+   [ 0] The 3-2-1 Principle
+   [ 1] Jigs versus Fixtures
+   [ 2] Design Elements of the Jig
+   [ 3] Test fixture for compensation and calibration
+--- ch10 Metrology and Inspection
+   [ 0] Limits, Fits and Tolerances
+   [ 1] The Comparator Census
+   [ 2] Interferometry: the Wavelength Ruler
+   [ 3] Form, Finish and Alignment
+   [ 4] The Coordinate Measuring Machine
+   [ 5] The lessons: error budget, unspecified parameters
+--- ch11 The Synthesis and the Doorstep
+   [ 0] The Process-Selection Map
+   [ 1] The CNC Doorway
+   [ 2] The Doorstep: Production Systems
+==========================================================================================
+BOOK industrial-engineering — Industrial Engineering
+--- ch1 The Production System
+   [ 0] The Production Census
+   [ 1] Layout Families by Volume-Variety
+   [ 2] Productivity Measured Honestly
+   [ 3] Refrigeration and Air conditioning — vapour compression refrigeration, refrigerants and working cycles, compressors, condensers, evaporators and expansion devices; other refrigeration systems (vapour absorption, vapour jet, thermo-electric, vortex tube); psychrometric properties and processes,
+   [ 4] Current issues of national and international importance relating to social, economic and industrial development
+   [ 5] Output Current Limits 112 4.3.6 The Ideal-Diode Model
+   [ 6] Output Resistance of the Emitter- 9.5.2 The Current-Mirror-Loaded MOS
+   [ 7] Class A Output Stage 890 13.2.6 Increasing the Input Common
+   [ 8] Class AB Output Stage 902 of the Input Stage
+   [ 9] It furthers the University's mission by disseminating knowledge in the pursuit of education, learning, and research at the highest international levels of excellence
+   [10] A monostable application: limiting pulse width and duty cycle
+   [11] I: Phototransistor output optocouplers
+   [12] Production of rotating magnetic flux by
+   [13] Generating plant
+   [14] RPC system requirements 873 Sensing and Actuation
+   [15] Deflecting systems of a cathode-ray tube 948 and Diagrammatic Symbols
+--- ch2 Work Study
+   [ 0] Method Study: the SREDACT Craft
+   [ 1] Motion Study and Motion Economy
+   [ 2] Time Study: Standard Time Earned
+--- ch3 Forecasting and Aggregate Planning
+   [ 0] The Forecasting Census
+   [ 1] Forecast Error Measured
+   [ 2] Aggregate Strategies Priced
+   [ 3] A simple delta-sigma for our suntan monitor
+   [ 4] The decibel (dB) 369 20.5 Smoothing
+--- ch4 Scheduling, MRP and Lean
+   [ 0] Sequencing: Johnson and the Rules
+   [ 1] The MRP Engine
+   [ 2] Lean: the Pull Discipline
+   [ 3] The Waste Census
+--- ch5 Inventory Control
+   [ 0] EOQ Earned and Extended
+   [ 1] Safety Stock and Service Level
+   [ 2] ABC and the Census
+   [ 3] Inventory as the Mirror
+   [ 4] The Wilson BJT Current Mirror 553 Problems
+--- ch6 The Operations-Research Application Layer
+   [ 0] LP Formulated from the Floor
+   [ 1] Transportation and Assignment
+   [ 2] Network Flows at Production Speed
+   [ 3] Queues Priced on Service Systems
+   [ 4] Computer organization — basic architecture, CPU, I/O organisation, memory organisation, peripheral devices, trends; hardware/software issues; data representation and programming; operating systems: basics, processes, characteristics, applications; memory management, virtual memory, file systems,
+   [ 5] Relationship between D and // 150 4.7 Other Diode Applications
+   [ 6] Graphical Representation of
+   [ 7] 317-style regulator: application hints
+   [ 8] Some DAC application examples
+   [ 9] Parallel multichannel delta-sigma data-acquisition system
+   [10] A.4 Applications 725 Integrals
+--- ch7 Quality Control
+   [ 0] The Control-Chart Family
+   [ 1] Process Capability
+   [ 2] Acceptance Sampling and OC Curves
+   [ 3] Six Sigma Named Honestly
+   [ 4] FETs as variable resistors
+   [ 5] Six DACs
+   [ 6] Light acceptance 617 29.13 Simplification of the approximate
+--- ch8 The Synthesis and the Doorstep
+   [ 0] The Map: Layout to Delivery
+   [ 1] Line Balancing Priced
+   [ 2] The Doorsteps: Projects, CIM, Markets
+==========================================================================================
+BOOK robotics-and-automation — Robotics and Automation
+--- ch1 The Robot Idea
+   [ 0] Anatomy and Degrees of Freedom
+   [ 1] The Configuration Census
+   [ 2] Workspaces and Safety Stated Early
+   [ 3] Mechatronics and Robotics
+   [ 4] Loop Biquad 1041 15.4.7 Generating Triangular
+   [ 5] A brief history
+--- ch2 Spatial Descriptions and Transformations
+   [ 0] Rotation Matrices Composed
+   [ 1] Euler Angles and Their Singularity
+   [ 2] The Homogeneous Transform
+   [ 3] The DH Convention Earned
+   [ 4] A Closer Look at Mutual Inductance 203 9.7 Source Transformations and Thévenin–Norton
+   [ 5] Using Special Source Transformation
+--- ch3 Forward Kinematics
+   [ 0] DH Frames Through the Chain
+   [ 1] The Chain Product Worked
+   [ 2] Workspace Mapped from Kinematics
+--- ch4 Inverse Kinematics
+   [ 0] Multiple Solutions Priced
+   [ 1] Closed Form: the Planar Arm
+   [ 2] Wrist Partitioning for Real Arms
+   [ 3] Numerical Routes Glanced
+   [ 4] Problems 765 Loop Response
+--- ch5 Velocities, Static Forces and Jacobians
+   [ 0] The Jacobian Derived and Read
+   [ 1] Singularities Priced on Real Postures
+   [ 2] Static Forces: the Transpose Duality
+   [ 3] An Alternative Approach for 13.1.3 DC VoltageGain
+--- ch6 Dynamics and Trajectory Generation
+   [ 0] The Lagrangian Route for Arms
+   [ 1] Cubic and Quintic Trajectories
+   [ 2] Blends and the Time-Scaling Craft
+   [ 3] Butterworth Polynomials up to the Eighth
+--- ch7 Motion Control, Sensors and End Effectors
+   [ 0] Joint Servos: PD and PID
+   [ 1] The Sensor Census
+   [ 2] Grippers and Programming
+   [ 3] Modified flash encoders
+--- ch8 Industrial Automation and the Doorstep
+   [ 0] Flow Lines and Transfer Machines
+   [ 1] Cells, AGVs and the Control Hierarchy
+   [ 2] The IIoT Doorstep
+   [ 3] The Honest Economics of Automation
+   [ 4] Logic family chronology – a brief history
+==========================================================================================
+BOOK cad-cam — CAD/CAM
+--- ch1 The Digital Product Chain
+   [ 0] CAD, CAM, CIM Located
+   [ 1] The Integration-Tools Census
+   [ 2] The Data Ladder
+   [ 3] The Oscillation Criterion 1068 16.2 Digital Logic Inverters
+   [ 4] Multiplexed LED digital display
+   [ 5] On-board interconnections
+   [ 6] R–2R ladder DACs
+   [ 7] The AND function 533 25.9 Digital or analogue?
+   [ 8] Digital oscilloscope 950 Index
+--- ch2 Geometric Modelling
+   [ 0] Wireframe, Surface, Solid
+   [ 1] CSG and B-rep
+   [ 2] Transformations by Matrices
+   [ 3] Feature-Based Parametric Practice
+--- ch3 Curves and Surfaces for Design
+   [ 0] Bezier: Bernstein Blends
+   [ 1] B-splines and Local Control
+   [ 2] NURBS: the Industry’s One Curve
+   [ 3] Surfaces and Their Continuity
+--- ch4 CAD Data, Standards and PDM
+   [ 0] IGES and STEP Priced
+   [ 1] Model-Based Definition Glanced
+   [ 2] PDM and Change Control
+   [ 3] Step 3: getting to e_n
+   [ 4] A.1 Preliminary Steps
+--- ch5 NC, CNC and Part Programming
+   [ 0] The G/M Vocabulary as a Language
+   [ 1] A Turning Program Written
+   [ 2] A Milling Program Written
+   [ 3] CAM-Generated and Adaptive
+--- ch6 Additive Manufacturing
+   [ 0] The Layer-Wise Idea
+   [ 1] The Seven Process Families
+   [ 2] Design for Additive
+   [ 3] The Applications Census
+--- ch7 CIM and the Factory Ladder
+   [ 0] CIM: the Honest Integration
+   [ 1] CAPP: Variant and Generative
+   [ 2] FMS and Cell Control
+   [ 3] Machine Data and OEE
+   [ 4] Stand-alone versus integrated
+--- ch8 Industry 4.0 and the Synthesis
+   [ 0] The Digital Thread Drawn
+   [ 1] The Digital Twin Named Honestly
+   [ 2] OT Security Named
+   [ 3] The Mechanical Branch’s Map
+==========================================================================================
+BOOK materials-science — Materials Science
+--- ch1 The Materials Worldview
+   [ 0] The One Triangle
+   [ 1] The Family Census by Bonding
+   [ 2] Selection Vocabulary Promised
+   [ 3] Materials Science — electrical engineering materials; crystal structure and defects; ceramic materials: structures, composites, processing and uses; insulating laminates for electronics; magnetic materials: basics, classification, ferrites, ferro/para-magnetic materials and components; nano
+   [ 4] Physical Structure 150 Bootstrapping
+   [ 5] Summary 169 5.1.1 Device Structure
+   [ 6] Structure of Actual Transistors
+   [ 7] Summary 1057 16.1.3 General Structure of CMOS
+   [ 8] Using Phasor Diagrams to Analyze a F(s) Has Repeated Complex Roots
+   [ 9] Using Phasor Diagrams to Analyze Capacitive Improper Rational Function
+   [10] Source coding 609 29.6 Phasor diagram for an ideal loaded
+--- ch2 Atomic Structure and Interatomic Bonding
+   [ 0] The Four Bond Families Priced
+   [ 1] Bond Curves: the Modulus Earned
+   [ 2] Density Arithmetic
+   [ 3] Short contents
+--- ch3 Crystal Structures
+   [ 0] The Structure Census and Packing
+   [ 1] Anisotropy and Allotropy
+   [ 2] Bragg’s Law at Engineering Depth
+   [ 3] Electrical Materials — electrical engineering materials, crystal structures and defects, ceramic materials, insulating materials; magnetic materials: basics, properties and applications; ferrites, ferro-magnetic materials and components; basics of solid state physics, conductors;
+   [ 4] Some Mathematical Properties 673 Appendix C More on Magnetically
+--- ch4 Imperfections in Solids
+   [ 0] Point Defects and Solid Solutions
+   [ 1] Dislocations: the Ductility Engine
+   [ 2] Grain Boundaries and Faces
+--- ch5 Diffusion
+   [ 0] Fick’s Two Laws
+   [ 1] Arrhenius and Activation Energy
+   [ 2] Carburising Priced
+--- ch6 Mechanical Properties and Testing
+   [ 0] True versus Engineering
+   [ 1] The Hardness Census
+   [ 2] Impact and the Ductile-Brittle Transition
+--- ch7 Strengthening Mechanisms and Fracture
+   [ 0] Grain Refinement and Hall-Petch
+   [ 1] Work Hardening and Recrystallisation
+   [ 2] Fatigue and Creep Named and Routed
+   [ 3] Brittleness and the NDT Glance
+--- ch8 Phase Diagrams and Phase Transformations
+   [ 0] Lever Rules and Tie Lines
+   [ 1] The Fe-C Map Read Fluently
+   [ 2] TTT Curves and Heat Treatment
+   [ 3] Hardenability: the Jominy Craft
+   [ 4] Unity-gain phase splitter
+   [ 5] Practical Perspective: Surge Suppressors 520 16.9 Amplitude and Phase Spectra
+   [ 6] Plotting the Amplitude and Phase Spectra for a
+   [ 7] Binary addition 519 24.6 Deconvolution
+   [ 8] Signed binary multiplication
+   [ 9] Signed binary division
+--- ch9 The Materials Families
+   [ 0] Steels and Cast Irons
+   [ 1] The Non-Ferrous Niches
+   [ 2] Polymers and Ceramics Honestly
+   [ 3] Composites and Rule of Mixtures
+   [ 4] Some representative JFETs: a brief tour
+--- ch10 Corrosion, Degradation and Selection
+   [ 0] The Galvanic Couple Priced
+   [ 1] Corrosion Forms and Prevention
+   [ 2] Degradation Beyond Metals
+   [ 3] The Selection Doorstep: Ashby Named
+==========================================================================================
+BOOK circuit-theory-and-network-analysis — Circuit Theory and Network Analysis
+--- ch1 The Circuit Idea
+   [ 0] The Passive Sign Convention as Law
+   [ 1] Sources, Ideal and Dependent
+   [ 2] R, L, C: One Dissipator, Two Storers
+   [ 3] The Lumped Approximation and Its Doorstep
+   [ 4] Obtaining Linear Amplification by 8.2 IC Biasing: Current Sources and Current
+   [ 5] Simulation Circuit 1034 15.4.3 Triggering the Bistable Circuit
+   [ 6] Two-Integrator Loop 1040 15.4.6 Generating Square Waveforms
+   [ 7] Circuit Implementation 1042 Waveforms
+   [ 8] An Alternative Two-Integrator-Loop 15.4.8 Generation of Sine Waves
+   [ 9] Biquad Circuit 1044 Summary
+   [10] The Two-Input NOR Gate
+   [11] The Two-Input NAND Gate
+   [12] Two important details
+   [13] And RC Circuits 220 Practical Perspective: A Household Distribution
+   [14] Practical Perspective: Artificial Pacemaker 221 Circuit
+   [15] Timing 308 Circuits
+   [16] Adding a Resistive Load to a Voltage 4.19 Finding the Thévenin Equivalent of a Circuit
+   [17] Divider 65 with Dependent Sources and Resistors
+   [18] Using a d’Arsonval Voltmeter 72 Dependent Sources
+   [19] Determining Average Power Delivered to a 13.1 Transforming a Circuit into the s Domain
+   [20] 13.14 A Circuit with Both Internally Generated
+   [21] Analyzing a Wye-Wye Circuit 420 and Externally Applied Impulses
+   [22] Circuit 276 15.1 Normalized (so that ω c = 1 rad s)
+   [23] Charging and discharging currents 110 8.1 Inductive and non-inductive circuits
+   [24] Summary of important formulae 163 10.1 Basic a.c. circuits
+   [25] Terms and concepts 163 10.2 Alternating current in a resistive circuit
+   [26] Networks 400 20.19 Stabilizing voltages supplies
+   [27] Distortion 415 20.28 Integrated circuits
+--- ch2 Kirchhoff’s Laws and the Systematic Methods
+   [ 0] KCL and KVL as Conservation
+   [ 1] The Node-Voltage Engine
+   [ 2] The Mesh-Current Engine
+   [ 3] Supernodes, Supermeshes, Choice
+   [ 4] Stuck-node tracer
+   [ 5] Choosing a battery
+   [ 6] Choosing a DAC
+   [ 7] Summary 19 4.5 Introduction to the Mesh-Current
+   [ 8] Using Essential Nodes and Essential Branches
+   [ 9] A Special Case in the Mesh-Current
+   [10] Mesh-Current Method 135 12.3 Four Useful Transform Pairs
+   [11] Permeability of free space or magnetic 9.11 Alternating system frequencies in practice
+--- ch3 The Theorem Census
+   [ 0] Superposition Earned
+   [ 1] Thevenin and Norton Priced
+   [ 2] Maximum Power and Its Match
+   [ 3] Reciprocity and Tellegen’s Audit
+   [ 4] Finding a Thévenin Equivalent in the Frequency of Finite Duration
+   [ 5] Inductor and Capacitor Duality 198 13.1 Summary of the s-Domain Equivalent
+   [ 6] Admittance, conductance and susceptance 269 15 Network Theorems Applied to
+   [ 7] Log scales 368 20.4 Bridge rectifier network
+--- ch4 Sinusoidal Steady State
+   [ 0] Phasors: the Coordinate Change
+   [ 1] Impedance Arithmetic
+   [ 2] Complex Power and Power Factor
+   [ 3] The AC Wattmeter Census
+   [ 4] Determining R. and R 30 General Impedances
+   [ 5] Practical Perspective: Capacitive Touch 9.3 The Phasor
+   [ 6] And Capacitance 194 9.6 Series, Parallel, and Delta-to-Wye
+   [ 7] Problems 715 Complex Poles
+   [ 8] Applying a Delta-to-Wye Transform
+   [ 9] Applying Series-Parallel Simplification 62 4.17 Finding the Thévenin Equivalent Resistance
+   [10] Determining the Step Response of a Circuit with 9.5 Adding Cosines Using Phasors
+   [11] Designing a Fourth-Order Low-Pass Active Sinusoidal Steady-State Response
+   [12] Summary of important formulae 149 9.6 Average and r.m.s. values of sinusoidal
+   [13] Addition and subtraction of sinusoidal
+   [14] Polar admittances 259 14.9 Series resonance using complex notation
+   [15] Addition and subtraction of phasors
+   [16] Parallel admittance 271 15.1 One stage further
+--- ch5 Resonance and Coupled Circuits
+   [ 0] Resonance and Q Priced
+   [ 1] Selectivity and Tuned Circuits
+   [ 2] Mutual Inductance and the Dot Convention
+   [ 3] The Ideal Transformer at Circuit Level
+   [ 4] RLC Circuits and Natural, Forced and Complete Responses
+   [ 5] Damped Oscillation and the Quality Factor
+   [ 6] Series and Parallel Resonance
+   [ 7] Magnetically Coupled Circuits and Ideal Transformers
+   [ 8] Basic Electrical Engineering — DC circuits: Ohm's and Kirchhoff's laws, mesh and nodal analysis, circuit theorems; electromagnetism, Faraday's and Lenz's laws, induced EMF and its uses; single-phase AC circuits; transformers, efficiency; basics of DC machines, induction machines and synchronous
+   [ 9] Graphical Analysis Using the MOSFET
+   [10] Iterative Analysis Using the 5.4 Technology Scaling (Moore’s Law) and
+   [11] The Need for Rapid Analysis 193 5.4.1 Technology Scaling
+   [12] The Role of the Substrate—The Body Analysis
+   [13] Bandwidth Extension
+   [14] Mutual Inductance 199 Simplifications
+   [15] Finding the Unbounded Response in an RC
+   [16] Finding Finding v, p, and w Induced by a 8.6 Finding the Overdamped Step Response of a
+   [17] Finding the Equivalent Inductance 196 8.7 Finding the Underdamped Step Response of a
+   [18] Calculating the Coupling Coefficient and Stored 8.9 Comparing the Three-Step Response
+   [19] PSpice Sensitivity Analysis Results 133 12.2 An Abbreviated List of Operational
+   [20] Network Theorems Applied to AC Networks 325 39 Motor Selection and Efficiency
+   [21] Analysis of growth and decay 113 8.3 Inductance in terms of flux-linkages
+   [22] Summary of important formulae 130 8.11 Mutual inductance
+   [23] Summary of important formulae 244 14 Resonance in AC Circuits
+   [24] Analysis of the resultant flux due to
+--- ch6 Balanced Three-Phase Circuits
+   [ 0] Why Three Phase Won
+   [ 1] Line-versus-Phase Arithmetic
+   [ 2] The Two-Wattmeter Method
+   [ 3] Unbalanced Glances Routed
+   [ 4] Darlington connection
+   [ 5] "Two out of three isn't bad": creating a perfect op-amp
+   [ 6] Interboard connections
+   [ 7] Using the General Solution Method to Find an 9.2 Finding the Characteristics of a Sinusoidal
+--- ch7 Transients
+   [ 0] First-Order: the Time Constant
+   [ 1] Second-Order: the Three Regimes
+   [ 2] The Initial- and Final-Value Craft
+   [ 3] The Laplace Route Named
+   [ 4] Engineering Mathematics — matrix theory, eigen values and eigen vectors; numerical methods for solution of non-linear algebraic equations and differential equations; Fourier series; linear, non-linear and partial differential equations; complex variables; probability and statistics fundamentals,
+   [ 5] The Resonator Poles 1029 15.2.5 A Final Remark
+   [ 6] A final remark
+   [ 7] Sequential Switching
+   [ 8] Practical Perspective: Transmission and Practical Perspective: Pushbutton Telephone
+   [ 9] Transform 444 Practical Perspective: Bass Volume
+   [10] Practical Perspective: Surge Suppressors 483 16.1 Fourier Series Analysis: An Overview
+   [11] Using the General Solution Method to Find an 9.4 Calculating the rms Value of a Triangular
+--- ch8 Network Functions and Frequency Response
+   [ 0] Poles and Zeros as Character
+   [ 1] The Frequency Response Read
+   [ 2] Bode’s Craft Introduced
+   [ 3] Resonance Re-Read from the Poles
+   [ 4] Summary 561 10 Frequency Response
+   [ 5] Increasing /^ by Eliminating the Miller Poles
+   [ 6] Introduction 888 13.2.4 Frequency Response
+   [ 7] Issues in Deep-Submicron Design 1179 D. Some Useful Network Theorems
+   [ 8] The Inductor 184 Domain
+   [ 9] Poles and Zeros of F(s) 470 Practical Perspective: Bass Volume
+   [10] Load Restrictions 395 13.9 Deriving the Transfer Function of a Circuit
+   [11] Logarithms 365 20.3 Full-wave rectifier network
+   [12] Frequency response 407 20.23 IGFET
+--- ch9 Two-Port Networks
+   [ 0] The Parameter Families Defined
+   [ 1] Conversions and Equivalent Circuits
+   [ 2] Cascades by ABCD
+   [ 3] The Applications Census
+   [ 4] Communication networks — principles/practices/technologies/uses; OSI model/security; basic packet multiplexed streams/scheduling; cellular networks: types, analysis; protocols (TCP/TCPIP)
+   [ 5] Types 1037 15.4.5 A Bistable Circuit with Noninverting
+   [ 6] ADC Technologies
+   [ 7] Delta-to-Wye (Pi-to-Tee) Equivalent 5.7 A More Realistic Model for the Operational
+   [ 8] Analyzing Two Cascaded Integrating Amplifiers
+   [ 9] Designing a High-Q Bandpass Filter 602 18.1 Finding the z Parameters of a Two-Port
+   [10] Stopband (or bandstop) filters 382 20.9 Common-base and common-emitter circuits
+   [11] 2-port Networks 388 20.11 Static characteristics for a common-emitter circuit
+   [12] The need for conversion 499 sequential circuits
+--- ch10 Topology, State Variables and the Doorstep
+   [ 0] The Graph Beneath the Circuit
+   [ 1] Cut Sets and Loop Systematics
+   [ 2] State Variables as Description
+   [ 3] The Doorsteps: Energised, Feedback, Switched
+   [ 4] Driving Cables
+==========================================================================================
+BOOK electrical-machines — Electrical Machines
+--- ch1 Electromechanical Energy Conversion
+   [ 0] Force from Field Energy
+   [ 1] Co-Energy and Torque
+   [ 2] The Conversion Cycle Drawn
+   [ 3] The Machine Census Located
+--- ch2 The Single-Phase Transformer
+   [ 0] The Equivalent Circuit Earned
+   [ 1] OC and SC Tests as Identification
+   [ 2] Regulation and All-Day Efficiency
+   [ 3] The Autotransformer’s Honest Note
+   [ 4] RFID: Identification at a Distance
+   [ 5] Parseval’s Theorem 681 Transformers
+   [ 6] Summary 688 C.2 The Need for Ideal Transformers
+   [ 7] Analyzing a Linear Transformer in the Frequency F(s) Has Distinct Complex Roots
+   [ 8] Growth and decay 111 8.2 Unit of inductance
+   [ 9] Summary of important formulae 611 transformer
+   [10] Terms and concepts 611 29.7 Useful and leakage fluxes in a transformer
+   [11] Summary of important formulae 621 transformer
+   [12] Principle of action of a transformer 648 Terms and concepts
+--- ch3 Three-Phase Transformers
+   [ 0] The Connection Census
+   [ 1] Vector Groups by the Clock
+   [ 2] Parallel Operation’s Conditions
+   [ 3] Tap Changers and Cooling Glanced
+   [ 4] "Poles" and decibels per octave
+--- ch4 DC Machines
+   [ 0] EMF, Armature Reaction, Commutation
+   [ 1] The Family Characteristics
+   [ 2] Speed Control and Ward-Leonard
+   [ 3] Starters, Losses, the Honest Decline
+   [ 4] DC Generators: Construction, Commutation and Characteristics
+   [ 5] DC Motors: Speed Control and Starting
+   [ 6] Three-Phase Induction Motors: Construction and Slip
+   [ 7] Alternators and Synchronous Machines
+   [ 8] Single-Phase Motors: Split Phase, Capacitor and Universal
+   [ 9] Obtaining Wideband (Shunt-Series)
+   [10] Reluctance motor
+   [11] Stator windings
+   [12] Expression for the e.m.f. of a stator winding
+   [13] Experimental tests to obtain motor 36 Direct-current Machines
+   [14] Braking 748 36.4 Armature reaction
+   [15] Summary of important formulae 868 40.12 Soft-starting induction motors
+   [16] Selecting a motor
+--- ch5 Three-Phase Induction Machines
+   [ 0] The Rotating Field Earned
+   [ 1] Slip and Torque Arithmetic
+   [ 2] The Equivalent Circuit Identified
+   [ 3] Power Flow and Losses
+   [ 4] Starting and Speed Control
+   [ 5] Motor fitted with a cage rotor 747 36.3 Calculation of e.m.f. generated in an
+--- ch6 Single-Phase Induction and Special Machines
+   [ 0] The Double-Revolving-Field Honesty
+   [ 1] The Starting Fixes
+   [ 2] BLDC, Stepper, Servo Glanced
+--- ch7 Synchronous Machines
+   [ 0] EMF and Winding Factors
+   [ 1] Regulation by Two Methods
+   [ 2] Power-Angle and Parallel Operation
+   [ 3] Salient-Pole: the Two-Reaction Note
+   [ 4] Synchronous Motors and V-Curves
+   [ 5] Parallel chip "bus" interface – an example
+--- ch8 Losses, Efficiency and the Doorstep
+   [ 0] The Loss Census Across Families
+   [ 1] Efficiency Tested Indirectly
+   [ 2] The Doorsteps: Grid, Drive, Renewables
+==========================================================================================
+BOOK power-systems — Power Systems
+--- ch1 The Power System Worldview
+   [ 0] The Grid as One Machine
+   [ 1] The Generation Census
+   [ 2] AC, DC and the HVDC Honest Note
+   [ 3] The One-Line Diagram as Language
+   [ 4] Frequency Compensation 858 (CMRR)
+   [ 5] Power Dissipation 894 13.2.7 Increasing the Output Voltage Range
+   [ 6] Unity-gain power buffers
+   [ 7] Commercial power-supply modules
+   [ 8] Single-pulse generation with flip-flops and counters
+   [ 9] ADE7753 multifunction ac power metering IC
+   [10] Pseudorandom bit sequences and noise generation
+   [11] Practical Perspective: Balancing Power 18 Cases
+   [12] Unbounded Response 250 Practical Perspective: Vampire Power
+   [13] Summary 256 10.3 The RMS Value and Power Calculations
+   [14] Practical Perspective: Vampire Power
+   [15] The Step Response of a Parallel RLC and Distribution of Electric Power
+   [16] Practical Perspective: Characterizing E.6 Straight-Line Amplitude Plots
+   [17] Summary 714 E.7 Correcting Straight-Line Amplitude Plots for
+   [18] Making Power Calculations Involving Household
+   [19] Powers of 10 10 Household Appliances
+   [20] Average Power Consumption of Common
+   [21] Force on a current-carrying conductor 140 9.2 Generation of an alternating e.m.f
+   [22] Distributed/Embedded generation
+--- ch2 Per-Unit Quantities
+   [ 0] The Idea and Its Bases
+   [ 1] Base Conversion Worked
+   [ 2] The Per-Unit Network Built
+   [ 3] Load Impedance Restriction 396 13.11 Using the Convolution Integral to Find an
+--- ch3 Transmission Line Modelling
+   [ 0] Inductance from Geometry
+   [ 1] Capacitance and Bundling
+   [ 2] The Nominal Models and Classes
+   [ 3] Breakdown and Input Protection 290 7.2 Small-Signal Operation and Models
+--- ch4 Line Performance and Compensation
+   [ 0] Regulation and Efficiency
+   [ 1] Ferranti and SIL
+   [ 2] Series and Shunt Compensation
+   [ 3] The Reactive Bookkeeping
+   [ 4] Practical Perspective: Artificial Pacemaker 255 10.2 Average and Reactive Power
+   [ 5] Calculating Average and Reactive Power 380 Theorems
+   [ 6] Calculating Average and Reactive Power 389 13.5 Analyzing a Circuit with Multiple Meshes
+--- ch5 Insulators, Cables and Fields
+   [ 0] The Field Around a Conductor
+   [ 1] String Efficiency and Grading
+   [ 2] Corona Priced Honestly
+   [ 3] Cables and Their Thermal Limits
+   [ 4] Coaxial cable
+   [ 5] Resistor-string DACs
+--- ch6 The Bus Model and Load Flow
+   [ 0] The Y-Bus Built
+   [ 1] Gauss-Seidel, Honestly Slow
+   [ 2] Newton-Raphson and the Jacobian
+   [ 3] Fast-Decoupled and Distribution Glances
+--- ch7 Symmetrical Faults and Circuit Breakers
+   [ 0] Fault MVA by Thevenin
+   [ 1] The Breaker’s Duty Priced
+   [ 2] Arc Physics Glanced Honestly
+   [ 3] The Duration Discipline
+   [ 4] A riff on robust input protection
+   [ 5] Summary 309 11.6 Measuring Average Power in Three-Phase
+--- ch8 Symmetrical Components and Unsymmetrical Faults
+   [ 0] Fortescue’s Components Earned
+   [ 1] Sequence Impedances Assembled
+   [ 2] The LG Fault Priced
+   [ 3] The LL and LLG Faults Priced
+--- ch9 Protection
+   [ 0] The Relay Idea and Its Curves
+   [ 1] Directional and Differential Craft
+   [ 2] Distance Protection in the R-X Plane
+   [ 3] CTs, PTs and Their Honest Burden
+   [ 4] Gain-setting resistors
+   [ 5] Optocouplers and relays
+--- ch10 Stability, Control and Economic Operation
+   [ 0] The Swing Equation Earned
+   [ 1] Equal-Area Worked
+   [ 2] Voltage and Frequency Control
+   [ 3] Economic Dispatch with Losses
+   [ 4] The Synthesis and Doorsteps
+   [ 5] Higher stability: TCXO, OCXO, and beyond
+   [ 6] Calculating Power in Parallel Loads 390 13.6 Creating a Thévenin Equivalent in the
+==========================================================================================
+BOOK control-systems — Control Systems
+--- ch1 The Feedback Idea
+   [ 0] Open versus Closed, Priced
+   [ 1] Two Historical Engines
+   [ 2] The Component Census
+   [ 3] Miller’s Theorem 699 11 Feedback
+   [ 4] Gain Desensitivity
+   [ 5] Basic Principles of Sinusoidal and Vice Versa
+   [ 6] Gain nonlinearity
+   [ 7] Feedback shift register sequences
+--- ch2 Mathematical Modelling
+   [ 0] The Analogous Structures
+   [ 1] Linearisation and Its Limits
+   [ 2] Transfer Functions Earned
+--- ch3 Block Diagrams and Signal Flow Graphs
+   [ 0] Block-Diagram Algebra
+   [ 1] Signal-Flow Graphs Drawn
+   [ 2] Mason’s Gain Rule Earned
+   [ 3] Basic Principles 366 8 Building Blocks of Integrated
+   [ 4] ADCs I: Parallel ("flash") encoder
+--- ch4 Transient and Steady-State Analysis
+   [ 0] Second-Order Specs Priced
+   [ 1] The Dominant-Pole Honesty
+   [ 2] System Types and Error Constants
+   [ 3] Disturbance Rejection Priced
+   [ 4] Microwave and satellite communication — terrestrial/space type LOS systems, block schematics, link calculations, system design
+   [ 5] Evaluating the Frequency Response 2.6.3 Effect of Vos and IOs on the Operation
+   [ 6] Investigating Stability 855 13.1.4 Common-Mode Rejection Ratio
+   [ 7] Active peak detector
+   [ 8] Frequency Domain 341 12.1 Using Step Functions to Represent a Function
+--- ch5 Stability and Routh-Hurwitz
+   [ 0] Stability Stated Honestly
+   [ 1] Routh-Hurwitz Worked
+   [ 2] The Special Cases Solved
+   [ 3] Increasing fH by Buffering the Input 11.7 The Stability Problem
+   [ 4] Some comments about logic inputs
+--- ch6 The Root Locus
+   [ 0] The Rules Earned One by One
+   [ 1] Design by Locus
+   [ 2] Poles and Zeros Added
+   [ 3] The jomega Crossings
+   [ 4] Loading Effects 358 12.8 Finding and Plotting the Poles and Zeros of an
+--- ch7 Frequency Response and Nyquist
+   [ 0] Bode Drawn Fluently
+   [ 1] Margins Read Honestly
+   [ 2] Nyquist’s Criterion Earned
+   [ 3] Mr and Bandwidth Priced
+--- ch8 Compensators and the Design Craft
+   [ 0] Lag: the Steady-State Engine
+   [ 1] Lead: the Phase-Margin Engine
+   [ 2] Lag-Lead and the Trade-Off Census
+--- ch9 P, PI and PID Controllers
+   [ 0] The Controller Census Priced
+   [ 1] Ziegler-Nichols Tuning
+   [ 2] Anti-Windup and the Honest Limits
+--- ch10 State Space, Digital Glimpse and the Doorstep
+   [ 0] The Model and Its Solutions
+   [ 1] Controllability and Observability
+   [ 2] The Digital Glance
+   [ 3] The Doorsteps: Drives, Servos, Processes
+   [ 4] Mechatronics — microprocessors and microcontrollers: architecture, programming, I/O, computer interfacing; programmable logic controller; sensors and actuators (piezoelectric accelerometer, Hall effect sensor, optical encoder, resolver, inductosyn, pneumatic and hydraulic actuators, stepper motor);
+   [ 5] Nonlinear Amplitude Control 1073 (VTC)
+   [ 6] Federico Faggin: A Pioneer in Microprocessor
+   [ 7] Programmable logic – HDL entry
+   [ 8] Implementation with a microcontroller
+   [ 9] NMOS LSI interfacing
+   [10] The hybrid stepping motor 876 and Actuators

@@ -28,7 +28,7 @@ const chapters: Chapter[] = [
       'The Hormonal Modulation Named',
       'The Learning Census with the Lorenz Receipt',
       'The Dance Receipt Priced Straight',
-      'That they helped guide to completion. We, of course, II BIOENERGETICS AND METABOLISM'
+      'Ethology',
     ],
   },
   {

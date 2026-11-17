@@ -28,7 +28,6 @@ const chapters: Chapter[] = [
       'The False Friends\u2019 Traps',
       'The Hard and Soft Signs\u2019 Pair',
       'The Cursive\u2019s Craft',
-      'I haven’t seen you for ages. (what / you / do / these days?)'
     ],
   },
   {
@@ -59,7 +58,6 @@ const chapters: Chapter[] = [
       'The Declension\u2019s Classes',
       'The Adjective\u2019s Agreement',
       'The Numbers\u2019 Case-Government',
-      'Preposition (in/for/about etc.) + -ing'
     ],
   },
   {
@@ -90,8 +88,6 @@ const chapters: Chapter[] = [
       'The Family and the University',
       'The Shopping and the Metro',
       'The Time and the Restaurant',
-      'Please don’t make so much noise. a I’m getting hungry. 1 f',
-      'Please don’t make so much noise. I’m trying (I / try) to work'
     ],
   },
   {

@@ -73,8 +73,6 @@ const chapters: Chapter[] = [
       'The Pulse\u2019s-Revolution Craft Held',
       'The Fieldwork Receipt Named',
       'The Everything-at-Once Honesty Held Straight',
-    
-      'Unit VI: Chronological periods from prehistory to post-modern art and artists of the West, with a focus on the movements that transformed its history'
     ],
   },
   {
@@ -90,8 +88,6 @@ const chapters: Chapter[] = [
       'The Revolution Receipts Priced Straight',
       'The Studio-as-Instrument Honesty Cross-Referenced',
       'The Loop Craft Named',
-    
-      'Unit II (common): Folk Music (origin, evolution and classification of Indian folk music; folk instruments and performers of various regions; ragas and talas used in folk music; folk fairs and festivals)'
     ],
   },
   {
@@ -107,11 +103,11 @@ const chapters: Chapter[] = [
       'The Gyil Named',
       'The Moog Receipt Named',
       'The Bedroom Honesty Priced Straight',
-    
       'History of Indian Music, contribution of Musicologists and their textual tradition',
       'Contribution of composers/performers to Indian music (Tansen, Sadarang etc.)',
       'Gharana and Institutional System and conferences of Hindustani music',
-      'Paper 1 Listening — Section C: Connecting Music (wider knowledge of musical genres and styles beyond the set works)'
+      'Unit II (common): Folk Music (origin, evolution and classification of Indian folk music; folk instruments and performers of various regions; ragas and talas used in folk music; folk fairs and festivals)',
+      'Paper 1 Listening \u2014 Section C: Connecting Music (wider Knowledge Of',
     ],
   },
 ]

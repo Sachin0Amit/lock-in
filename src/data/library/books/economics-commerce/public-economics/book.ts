@@ -24,15 +24,9 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'The Boundary Conditions',
       'The Musgrave Frame',
       'The Government-Failure Honesty',
       'The Schedule Register',
-      'CASE STUDY: Why the Cow Is Not Extinct',
-      '10-1b Negative Externalities 192 12-1a Taxes Collected by the Federal Government',
-      'CASE STUDY: Why Is Gasoline Taxed So Heavily? 197 12-3 Taxes and Equity',
-      '15-1 Why Monopolies Arise',
-      '15-5c Public Ownership 310 17-4 Conclusion'
     ],
   },
   {
@@ -48,6 +42,7 @@ const chapters: Chapter[] = [
       'The Samuelson Condition',
       'The Lindahl Honesty',
       'The Ostrom Commons',
+      'CASE STUDY: Why the Cow Is Not Extinct',
     ],
   },
   {
@@ -63,10 +58,6 @@ const chapters: Chapter[] = [
       'The Coase Honesty',
       'The Cap-and-Trade Register',
       'The Carbon Case',
-      'CASE STUDY: Who Pays the Luxury Tax? 126 CHAPTER',
-      '6-3 Conclusion 127 Application: The Costs of Taxation',
-      '10-2 Public Policies toward Externalities 195 CASE STUDY: Should Income or Consumption',
-      'ASK THE EXPERTS: Carbon Taxes 200 IN THE NEWS: Tax Expenditures'
     ],
   },
   {
@@ -82,6 +73,7 @@ const chapters: Chapter[] = [
       'The Merit Register',
       'The Shadow-Price Craft',
       'The Subsidy Register',
+      'CASE STUDY: How Much Is a Life Worth?',
     ],
   },
   {
@@ -97,7 +89,6 @@ const chapters: Chapter[] = [
       'The Ramsey and Mirrlees Names',
       'Incidence Geometry',
       'The Tax-Mix Honesty',
-      'Key Concepts 128 8-1 The Deadweight Loss of Taxation'
     ],
   },
   {
@@ -141,10 +132,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Assignment Problem',
       'The Imbalance Census',
-      'The Finance Commission Case',
       'The Local Register',
-      'Is What You Give Up to Get It',
-      '5-3c Does Drug Interdiction Increase or Decrease'
     ],
   },
   {

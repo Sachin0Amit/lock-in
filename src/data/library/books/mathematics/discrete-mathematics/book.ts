@@ -60,7 +60,10 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Continuous versus Discrete',
       'The Logic Toolkit, Assembled',
-      'Sets (Complements, Cartesian Products, Power Sets), Functions (Injections, Surjections, Inverses, Composition) and Sequences at Work',
+      'Sets, Functions and Sequences at Work',
+      'Implication, Contrapositive and Contradiction',
+      'Surjections, Injections, Inverses and Composition',
+      'Cartesian Products and Power Sets',
     ],
   },
   {
@@ -87,7 +90,7 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Recursive Definitions',
-      'Strong Induction, Well-Ordering and the Proof Census (Implication, Converse, Contrapositive, Contradiction)',
+      'Strong Induction, Well-Ordering and the Proof Census',
       'Recursive Algorithms and Their Correctness',
     ],
   },
@@ -101,7 +104,6 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'The Pigeonhole Principle at Depth',
-      'Permutations and Combinations with Repetition',
       'Inclusion\u2013Exclusion and Derangements',
       'Linear Recurrence Relations',
     ],
@@ -163,7 +165,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Boolean Expressions and Their Algebra',
       'Gates and Combinational Circuits',
-      'Minimization: Karnaugh Maps',
+      'Boolean Algebra',
     ],
   },
   {

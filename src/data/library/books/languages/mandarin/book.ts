@@ -29,7 +29,6 @@ const chapters: Chapter[] = [
       'The Four Tones\u2019 Music and the First Riddle',
       'The Tone Sandhi\u2019s Craft',
       'The First Week\u2019s Ear-Training Plan',
-      'I heard you started a new job. (you / enjoy / it?)'
     ],
   },
   {
@@ -58,9 +57,8 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The SVO Luck and the Verb\u2019s Invariance',
       'The Measure Words\u2019 Census',
-      'The Particles\u2019 Engine — the Le\u2019s Craft',
+      'The Particles\u2019 Engine \u2014 the Le\u2019s Craft',
       'The Negation and the Stative Adjectives',
-      'Dan has been in the same job for a long time. (He / start) to get bored'
     ],
   },
   {
@@ -106,7 +104,6 @@ const chapters: Chapter[] = [
       'The Writing Muscle and the IME Craft',
       'The Short Composition\u2019s Craft',
       'The First Real Texts',
-      'Appendix 5 Short forms (I’m / you’ve / didn’t etc.)'
     ],
   },
   {
@@ -137,9 +134,6 @@ const chapters: Chapter[] = [
       'The Bei Passive and Its Honest Register',
       'The Resultative and Directional Complements',
       'The Topic\u2019s Prominence and the Modals',
-      'We’re not in a hurry. (why / you / walk / so fast?)',
-      '(I / look) for Sophie. Do you know where she is?',
-      '(They / build) a new hospital. It will be finished next year'
     ],
   },
   {

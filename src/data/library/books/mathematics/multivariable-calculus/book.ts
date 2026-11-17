@@ -100,7 +100,6 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Double Integral and Iteration',
       'Polar, Cylindrical and Spherical',
-      'Mass, Centres and Moments',
       'Jacobians and the Change of Variables',
     ],
   },
@@ -116,7 +115,6 @@ const chapters: Chapter[] = [
       'Motion in Space: Velocity, Acceleration and Curvature',
       'Vector Fields and Line Integrals',
       'Surfaces, Area and Flux: the Surface Integral',
-      'Conservative Fields and Path Independence',
       'Green\u2019s, Stokes\u2019s and Gauss\u2019s Theorems',
     ],
   },

@@ -26,7 +26,6 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Restriction Pair\u2019s Defence Origin',
       'The Palindrome and the Sticky Ends',
-      'The Heat-Proof Polymerase Earned',
       'The Toolbox Catalogued',
       'The Principles and Processes of Biotechnology',
       'The Tools of rDNA Technology',
@@ -45,7 +44,6 @@ const chapters: Chapter[] = [
       'The Selection Screens',
       'The Ti Plasmid\u2019s Craft',
       'A Clone Walked Slowly',
-      'The Processes of rDNA Technology',
     ],
   },
   {
@@ -61,7 +59,6 @@ const chapters: Chapter[] = [
       'The Primer Design Craft',
       'The Variants\u2019 Register',
       'The Contamination Honesty',
-      'Drive serves exactly those bytes both times and rejects range resumes'
     ],
   },
   {
@@ -77,7 +74,6 @@ const chapters: Chapter[] = [
       'The Probe Craft',
       'The Expression Screen',
       'The Clone Verified',
-      'Archive OCR dropped — restored by that cross-check)'
     ],
   },
   {
@@ -108,7 +104,6 @@ const chapters: Chapter[] = [
       'CRISPR Earned from the Bacteria',
       'The Two Repair Doors',
       'The Off-Target Honesty',
-      'Offer instead our sincere thanks- and the finished book'
     ],
   },
   {
@@ -139,7 +134,6 @@ const chapters: Chapter[] = [
       'The Vaccines and the Therapy Arc',
       'The Agricultural Registers Told Straight',
       'The Environmental Register',
-      'The Health and Agriculture Applications: Insulin, Vaccines and Bt Crops',
       'Transgenic Animals, Biosafety, Biopiracy and Patents',
     ],
   },
@@ -156,10 +150,6 @@ const chapters: Chapter[] = [
       'The Biosafety Craft',
       'The Asilomar Arc',
       'The Doorway Held Honestly',
-      'We want especially to thank our students at the 14 Glycolysis, Gluconeogenesis, and',
-      'It. We are grateful to the students and staff of our past',
-      'Showed extraordinary patience with, and support for, our 23 Hormonal Regulation and Integration of',
-      'Abbreviated Solutions to Problems AS-1'
     ],
   },
 ]

@@ -28,8 +28,7 @@ const chapters: Chapter[] = [
       'The Map of the Four Fields',
       'The Holism\u2019s Method',
       'The Discipline\u2019s History and Its Reckoning',
-    
-      'Paper-I 12. Applications of Anthropology (anthropology of sports, nutritional anthropology, design of defence and other equipment, forensic anthropology, applied human genetics - paternity diagnosis, genetic counselling, eugenics, DNA technology, serogenetics and cytogenetics)'
+      'I 12. Applications Of Anthropology (anthropology Of Sports, Nutritional',
     ],
   },
   {
@@ -45,9 +44,6 @@ const chapters: Chapter[] = [
       'The Interview Census and the Ethics',
       'The Writing Culture Debate',
       'The Multi-Sited Present',
-    
-      'Unit 3: Learner and Learning Process',
-      'English Language (comprehension of passages; grammar; word meanings; idioms; analogies; synonyms and antonyms; sentence correction; jumbled sentences; summary-based questions)'
     ],
   },
   {
@@ -63,9 +59,7 @@ const chapters: Chapter[] = [
       'The Fossil Record\u2019s Walk',
       'The Variation and the Race Question',
       'The Upper Paleolithic Revolution',
-    
-      'Paper-I 9. Human Genetics (methods and applications; Mendelian genetics in man; genetic polymorphism and selection; chromosomal aberrations; race and racism; ecological anthropology - bio-cultural adaptations; epidemiological anthropology)',
-      'Unit 1: Biological Bases of Behavior'
+      'I 9. Human Genetics (methods And Applications; Mendelian Genetics In Man;',
     ],
   },
   {
@@ -81,8 +75,6 @@ const chapters: Chapter[] = [
       'The Relativism Debate and Its Limits',
       'The Culture Change Engines',
       'The Language Arc',
-    
-      'Statutory Institutions and Commissions - Election Commission, CAG, Finance Commission, UPSC and the national commissions (SC, ST, Women, Human Rights, Minorities, Backward Classes)'
     ],
   },
   {
@@ -128,10 +120,9 @@ const chapters: Chapter[] = [
       'The Religion and Magic Register',
       'The Ritual Craft',
       'The Arts\u2019 Anthropology',
-    
-      'State in Comparative Perspective - changing nature of the State in capitalist and socialist, advanced industrial and developing societies',
-      'Paper-I 5. Religion (anthropological approaches; monotheism and polytheism; sacred and profane; myths and rituals; animism, animatism, fetishism, naturism and totemism; religion, magic and science; magico-religious functionaries)',
-      'Paper-II 8. Impact of Hinduism, Buddhism, Christianity, Islam and Other Religions on Tribal Societies; Tribe and Nation State (comparative study of tribal communities in India and other countries)'
+      'Paper-II 8. Impact of Hinduism, Buddhism, Christianity, Islam and Other Religions on Tribal Societies; Tribe and Nation State (comparative study of tribal communities in India and other countries)',
+      'State In Comparative Perspective - Changing Nature Of The State In',
+      'I 5. Religion (anthropological Approaches; Monotheism And Polytheism;',
     ],
   },
   {
@@ -160,7 +151,6 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Linguistic-Ethnic Stock',
       'The Caste\u2019s Ethnographic Reading',
-      'The Tribes of India',
       'The Village India\u2019s Tradition',
     ],
   },
@@ -177,6 +167,7 @@ const chapters: Chapter[] = [
       'Particularism and Functionalism',
       'The Structural and the Interpretive',
       'The Doorstep: One Species',
+      'Paper-I 6. Anthropological Theories (classical evolutionism, diffusionism, functionalism, structural-functionalism, structuralism, culture and personality, neo-evolutionism, cultural materialism, symbolic and interpretive, cognitive theories, post-modernism)',
     ],
   },
 ]

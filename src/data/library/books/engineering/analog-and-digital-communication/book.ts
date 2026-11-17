@@ -41,20 +41,8 @@ const chapters: Chapter[] = [
       'The Chain and Its Taxes',
       'Analog versus Digital, Priced',
       'The Frequency Domain as Language',
-    
-      'Advanced Communication Topics',
-      'Information and Communication Technologies (ICT) based tools and their applications in Engineering such as networking, e-governance and technology based education',
-      'Information on this title: www.cambridge.org/9780521809269',
-      'EIGHT: Low-Noise Techniques',
-      'Shot noise in current sources and emitter followers',
-      'Finding e_n from noise-figure specifications',
-      'Charting comparative noise',
-      'Selecting low-noise JFETs',
-      'Calculating the integrated noise',
-      'Practical Perspective: Pushbutton Telephone Practical Perspective: Filtering Digital',
-      'Digital-to-analogue conversion 499 23.17 Basic storage elements',
-      'Analogue-to-digital conversion 507 Summary of important formulae',
-      'The NOR function 535 26 Communications'
+      'Basic Communication System',
+      'Information And Communication Technologies (ict) Based Tools And Their',
     ],
   },
   {
@@ -85,6 +73,10 @@ const chapters: Chapter[] = [
       'The DSB Family Priced',
       'SSB and VSB\u2019s Honest Trades',
       'Detection Crafts',
+      'Modulation',
+      'Need for Modulation',
+      'Percent Modulation',
+      'Amplitude Modulation',
     ],
   },
   {
@@ -100,7 +92,8 @@ const chapters: Chapter[] = [
       'Bessel and Carson Priced',
       'Generation and Detection',
       'The Noise-Immunity Note',
-      'Wrapup: noise and jitter rejection in PLLs'
+      'Wrapup: noise and jitter rejection in PLLs',
+      'Frequency Modulation',
     ],
   },
   {
@@ -116,6 +109,7 @@ const chapters: Chapter[] = [
       'The Image Note and Its Fix',
       'Sensitivity and Selectivity',
       'The SDR Doorway',
+      'Demodulation',
     ],
   },
   {
@@ -131,7 +125,6 @@ const chapters: Chapter[] = [
       'Prefix Codes and Huffman',
       'The Capacity Theorem Earned',
       'Shannon as Compass',
-      'Resistor coding'
     ],
   },
   {
@@ -146,6 +139,8 @@ const chapters: Chapter[] = [
       'Quantisation and Companding',
       'PCM\u2019s Arithmetic Priced',
       'DPCM and DM\u2019s Honest Trades',
+      'Pulse Code Modulation',
+      'Pulse Modulation',
     ],
   },
   {
@@ -161,9 +156,6 @@ const chapters: Chapter[] = [
       'The Scheme Census',
       'ISI and Raised-Cosine',
       'BER Arithmetic Worked',
-    
-      'Digital communication basics — sampling, quantizing, coding; PCM, DPCM, multiplexing (audio/video); digital modulation: ASK, FSK, PSK; multiple access: TDMA, FDMA, CDMA; optical communication: fibre optics, theory, practice/standards',
-      'Digital Numbers 516 Appendix: Symbols, Abbreviations, Deﬁnitions'
     ],
   },
   {

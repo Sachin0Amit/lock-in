@@ -28,10 +28,7 @@ const chapters: Chapter[] = [
       'The Signs on the Surface Named',
       'The Common-First Honesty with the Tiered Craft',
       'The Breaking-Bad-News Register Named',
-    
-      'Semester IV: Communication and Educational Technology',
-      'Critical Analysis and Reasoning Skills (CARS)',
-      'Scientific Inquiry and Reasoning Skills: Scientific Reasoning and Problem Solving'
+      'Semester Iv: Communication And Educational Technology',
     ],
   },
   {
@@ -47,6 +44,7 @@ const chapters: Chapter[] = [
       'The Four-Pillar Register Held',
       'The CHA2DS2 Arithmetic Named',
       'The Murmur Timing Craft Fixed by Drill',
+      'The Circulatory Disorders Register: Hypertension to Heart Failure',
     ],
   },
   {
@@ -92,6 +90,7 @@ const chapters: Chapter[] = [
       'The Three-AKI Division Fixed Once',
       'The Syndrome Division by the Urine\u2019s Reading',
       'The TSH Reading Honesty Held',
+      'Renal Disorders: Uraemia, Calculi, Nephritis and Dialysis',
     ],
   },
   {

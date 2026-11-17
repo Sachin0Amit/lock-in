@@ -1,0 +1,4798 @@
+{
+ "discipline": "economics-commerce",
+ "autoActions": [
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 1,
+   "idx": 4,
+   "title": "1-4 Conclusion",
+   "why": "junk-certain: section-number prefix"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 1,
+   "idx": 8,
+   "title": "5-4 Conclusion",
+   "why": "junk-certain: section-number prefix"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 1,
+   "idx": 8,
+   "title": "8-4 Conclusion",
+   "why": "junk-certain: section-number prefix"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 1,
+   "idx": 8,
+   "title": "9-4 Conclusion 182 Problems and Applications",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 1,
+   "idx": 9,
+   "title": "10-4 Conclusion 206 Problems and Applications",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 1,
+   "idx": 12,
+   "title": "Key Concepts 313 Problems and Applications",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 1,
+   "idx": 13,
+   "title": "16-4 Conclusion",
+   "why": "junk-certain: section-number prefix"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 1,
+   "idx": 13,
+   "title": "Key Concepts 334 The Markets for the Factors",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 3,
+   "idx": 11,
+   "title": "6-1b How Price Floors Affect Market Outcomes 116 7-3b Evaluating the Market Equilibrium",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 3,
+   "idx": 11,
+   "title": "6-2a How Taxes on Sellers Affect Market Outcomes 121 Key Concepts",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 3,
+   "idx": 12,
+   "title": "Surplus 135 9-3a The Jobs Argument",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 3,
+   "idx": 12,
+   "title": "11-1 The Different Kinds of Goods",
+   "why": "junk-certain: section-number prefix"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 3,
+   "idx": 14,
+   "title": "18-1 The Demand for Labor",
+   "why": "junk-certain: section-number prefix"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 3,
+   "idx": 14,
+   "title": "Oligopoly 337 Labor",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 3,
+   "idx": 14,
+   "title": "17-1 Markets with Only a Few Sellers 338 Labor",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 3,
+   "idx": 14,
+   "title": "17-1a A Duopoly Example 338 18-1d What Causes the Labor-Demand Curve to Shift?",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 4,
+   "idx": 5,
+   "title": "Run 115 7-3a The Benevolent Social Planner",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 4,
+   "idx": 5,
+   "title": "13-4a The Relationship between Short-Run and Long-Run 15-1b Government-Created Monopolies",
+   "why": "junk-certain: two numeric runs (concatenated TOC lines)"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 5,
+   "idx": 5,
+   "title": "ASK THE EXPERTS: Rent Control 116 IN THE NEWS: The Invisible Hand Can Park Your Car",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 5,
+   "idx": 6,
+   "title": "Questions for Review 128 8-1a How a Tax Affects Market Participants",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 5,
+   "idx": 6,
+   "title": "8-2 The Determinants of the Deadweight Loss",
+   "why": "junk-certain: section-number prefix"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 6,
+   "idx": 6,
+   "title": "Summary 263 15-2b A Monopoly’s Revenue",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 7,
+   "idx": 5,
+   "title": "3-4 Conclusion 58 Questions for Review",
+   "why": "junk-certain: section-number prefix"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 7,
+   "idx": 5,
+   "title": "Summary 313 Questions for Review",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "salvage",
+   "book": "foundation-economics",
+   "chapter": 9,
+   "idx": 4,
+   "title": "6-2 Taxes 120 Summary",
+   "newTitle": "Taxes"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 9,
+   "idx": 5,
+   "title": "6-2b How Taxes on Buyers Affect Market Outcomes 122 Questions for Review",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 9,
+   "idx": 5,
+   "title": "10-2b Market-Based Policy 1: Corrective Taxes and 12-2b Administrative Burden",
+   "why": "junk-certain: two numeric runs (concatenated TOC lines)"
+  },
+  {
+   "op": "remove",
+   "book": "foundation-economics",
+   "chapter": 9,
+   "idx": 5,
+   "title": "ASK THE EXPERTS: Vaccines 196 12-2d Lump-Sum Taxes",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "microeconomics",
+   "chapter": 1,
+   "idx": 7,
+   "title": "Copyright 2018 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. WCN 02-200-203",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "microeconomics",
+   "chapter": 1,
+   "idx": 8,
+   "title": "10-3c Why Private Solutions Do Not Always Work 204 Key Concepts",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "microeconomics",
+   "chapter": 3,
+   "idx": 5,
+   "title": "7-1d What Does Consumer Surplus Measure? 137 Compensate the Losers?",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "microeconomics",
+   "chapter": 3,
+   "idx": 5,
+   "title": "7-2 Producer Surplus 139 9-3b The National-Security Argument",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "microeconomics",
+   "chapter": 3,
+   "idx": 5,
+   "title": "7-2c How a Higher Price Raises Producer Surplus 141 9-3e The Protection-as-a-Bargaining-Chip Argument",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "microeconomics",
+   "chapter": 9,
+   "idx": 4,
+   "title": "10-3b The Coase Theorem 203 Summary",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "microeconomics",
+   "chapter": 11,
+   "idx": 4,
+   "title": "CASE STUDY: The Minimum Wage 118 CASE STUDY: Should There Be a Market for Organs?",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "microeconomics",
+   "chapter": 11,
+   "idx": 4,
+   "title": "ASK THE EXPERTS: The Minimum Wage 119 ASK THE EXPERTS: Supplying Kidneys",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "macroeconomics",
+   "chapter": 2,
+   "idx": 6,
+   "title": "The Design of the Tax System 227 PART XI The Macroeconomics of Open Economies",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "macroeconomics",
+   "chapter": 2,
+   "idx": 6,
+   "title": "1-3 How the Economy as a Whole Works",
+   "why": "junk-certain: section-number prefix"
+  },
+  {
+   "op": "remove",
+   "book": "international-economics",
+   "chapter": 1,
+   "idx": 6,
+   "title": "3-3 Applications of Comparative Advantage 55 4-4b Three Steps to Analyzing Changes in Equilibrium",
+   "why": "junk-certain: section-number prefix"
+  },
+  {
+   "op": "remove",
+   "book": "international-economics",
+   "chapter": 1,
+   "idx": 8,
+   "title": "ASK THE EXPERTS: Trade Deals 182 Questions for Review",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "international-economics",
+   "chapter": 1,
+   "idx": 8,
+   "title": "10-3 Private Solutions to Externalities 202 12-4 Conclusion: The Trade-off between Equity and",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "international-economics",
+   "chapter": 1,
+   "idx": 8,
+   "title": "Education 308 17-3a Restraint of Trade and the Antitrust Laws",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "international-economics",
+   "chapter": 1,
+   "idx": 8,
+   "title": "ASK THE EXPERTS: Nash Equilibrium 341 18-2a The Trade-off between Work and Leisure",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "international-economics",
+   "chapter": 2,
+   "idx": 4,
+   "title": "IN THE NEWS: The Coase Theorem in Action 205 Questions for Review",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "international-economics",
+   "chapter": 3,
+   "idx": 6,
+   "title": "7-1a Willingness to Pay 134 IN THE NEWS: Trade as a Tool for Economic Development",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "international-economics",
+   "chapter": 3,
+   "idx": 6,
+   "title": "7-1c How a Lower Price Raises Consumer Surplus 136 IN THE NEWS: Should the Winners from Free Trade",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "international-economics",
+   "chapter": 4,
+   "idx": 4,
+   "title": "Welfare 131 9-2 The Winners and Losers from Trade",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "international-economics",
+   "chapter": 4,
+   "idx": 4,
+   "title": "And Patent Protection 194 12-2a Deadweight Losses",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "international-economics",
+   "chapter": 5,
+   "idx": 4,
+   "title": "Preface: To the Student vi 1-3c Principle 10: Society Faces a Short-Run Trade-off",
+   "why": "junk-certain: front/back-matter furniture"
+  },
+  {
+   "op": "remove",
+   "book": "development-economics",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Liberalisation, Privatisation and Globalisation: The 1991 Appraisal",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "development-economics",
+   "chapter": 3,
+   "idx": 4,
+   "title": "Income Inequality and Poverty 401 PART XIII Final Thoughts",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "public-economics",
+   "chapter": 1,
+   "idx": 5,
+   "title": "10-1b Negative Externalities 192 12-1a Taxes Collected by the Federal Government",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "public-economics",
+   "chapter": 1,
+   "idx": 5,
+   "title": "CASE STUDY: Why Is Gasoline Taxed So Heavily? 197 12-3 Taxes and Equity",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "public-economics",
+   "chapter": 1,
+   "idx": 5,
+   "title": "15-1 Why Monopolies Arise",
+   "why": "junk-certain: section-number prefix"
+  },
+  {
+   "op": "remove",
+   "book": "public-economics",
+   "chapter": 1,
+   "idx": 5,
+   "title": "15-5c Public Ownership 310 17-4 Conclusion",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "public-economics",
+   "chapter": 3,
+   "idx": 4,
+   "title": "CASE STUDY: Who Pays the Luxury Tax? 126 CHAPTER",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "public-economics",
+   "chapter": 3,
+   "idx": 4,
+   "title": "6-3 Conclusion 127 Application: The Costs of Taxation",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "public-economics",
+   "chapter": 3,
+   "idx": 4,
+   "title": "10-2 Public Policies toward Externalities 195 CASE STUDY: Should Income or Consumption",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "public-economics",
+   "chapter": 3,
+   "idx": 4,
+   "title": "ASK THE EXPERTS: Carbon Taxes 200 IN THE NEWS: Tax Expenditures",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "public-economics",
+   "chapter": 5,
+   "idx": 4,
+   "title": "Key Concepts 128 8-1 The Deadweight Loss of Taxation",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "monetary-economics",
+   "chapter": 7,
+   "idx": 2,
+   "title": "The 2008 Chain",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "financial-economics",
+   "chapter": 5,
+   "idx": 4,
+   "title": "10-3a The Types of Private Solutions 202 Efficiency",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "business-studies",
+   "chapter": 4,
+   "idx": 7,
+   "title": "Key Concepts 184 CHAPTER",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "business-studies",
+   "chapter": 8,
+   "idx": 4,
+   "title": "11-4 Conclusion: The Importance of Property Rights",
+   "why": "junk-certain: section-number prefix"
+  },
+  {
+   "op": "remove",
+   "book": "accounting",
+   "chapter": 1,
+   "idx": 7,
+   "title": "Organization 181 Key Concepts",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "accounting",
+   "chapter": 1,
+   "idx": 7,
+   "title": "Key Concepts 264 15-2c Profit Maximization",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "accounting",
+   "chapter": 1,
+   "idx": 7,
+   "title": "15-6 Conclusion: The Prevalence of Monopolies 311 Key Concepts",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "cost-accounting",
+   "chapter": 1,
+   "idx": 4,
+   "title": "7-2a Cost and the Willingness to Sell 139 9-3c The Infant-Industry Argument",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "cost-accounting",
+   "chapter": 1,
+   "idx": 5,
+   "title": "13-1c The Cost of Capital as an Opportunity Cost 249 Upward",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "cost-accounting",
+   "chapter": 1,
+   "idx": 5,
+   "title": "15-3b The Monopoly’s Profit: A Social Cost? 303 17-2b Oligopolies as a Prisoners’ Dilemma",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "cost-accounting",
+   "chapter": 5,
+   "idx": 4,
+   "title": "The Costs of Production 247 If They Make Zero Profit?",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "banking",
+   "chapter": 7,
+   "idx": 4,
+   "title": "10-2a Command-and-Control Policies: Regulation 195 Be Taxed?",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "business-mathematics",
+   "chapter": 4,
+   "idx": 4,
+   "title": "Appendix Graphing: A Brief Review",
+   "why": "junk-certain: front/back-matter furniture"
+  },
+  {
+   "op": "remove",
+   "book": "entrepreneurship",
+   "chapter": 3,
+   "idx": 4,
+   "title": "15-5d Doing Nothing 311 Summary",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "marketing",
+   "chapter": 3,
+   "idx": 4,
+   "title": "16-3c Brand Names 331 of Labor Markets",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "human-resource-management",
+   "chapter": 5,
+   "idx": 2,
+   "title": "The 360 Register",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "human-resource-management",
+   "chapter": 8,
+   "idx": 4,
+   "title": "1-2 How People Interact 8 Key Concepts",
+   "why": "junk-certain: section-number prefix"
+  },
+  {
+   "op": "remove",
+   "book": "operations-management",
+   "chapter": 1,
+   "idx": 4,
+   "title": "FYI: Lessons from a Pin Factory 261 15-2 How Monopolies Make Production and Pricing",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "operations-management",
+   "chapter": 7,
+   "idx": 4,
+   "title": "Problems and Applications 264 FYI: Why a Monopoly Does Not Have a Supply Curve",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "operations-management",
+   "chapter": 7,
+   "idx": 4,
+   "title": "Outcome 341 18-2 The Supply of Labor",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "english",
+   "chapter": 9,
+   "idx": 3,
+   "title": "The Digital Register",
+   "why": "dup: consolidated to marketing (specialist)",
+   "targetBook": "marketing"
+  },
+  {
+   "op": "remove",
+   "book": "behavioural-economics",
+   "chapter": 6,
+   "idx": 3,
+   "title": "The Ethics Register",
+   "why": "dup: consolidated to international-business (specialist)",
+   "targetBook": "international-business"
+  },
+  {
+   "op": "move",
+   "book": "engineering-mechanics",
+   "chapter": 1,
+   "idx": 52,
+   "title": "Introductory",
+   "targetBook": "microeconomics",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> microeconomics 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "political-science",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Unit 2: Research Methodology and Methods",
+   "targetBook": "econometrics",
+   "targetChapter": 7,
+   "why": "misplaced, grounded (own 0.5 -> econometrics 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "political-science",
+   "chapter": 10,
+   "idx": 7,
+   "title": "Current Affairs, including General Knowledge (national and international current affairs; political events; global environment; sports; awards and personalities; technology and science; cultural events; Indian business environment)",
+   "targetBook": "international-economics",
+   "targetChapter": 9,
+   "why": "misplaced, grounded (own 0.33 -> international-economics 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-economics",
+   "chapter": 1,
+   "idx": 6,
+   "title": "Farmers?",
+   "targetBook": "world-history",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> world-history 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-economics",
+   "chapter": 1,
+   "idx": 7,
+   "title": "PART IV The Economics of the Key Concepts",
+   "targetBook": "power-systems",
+   "targetChapter": 10,
+   "why": "misplaced, grounded (own 0.33 -> power-systems 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-economics",
+   "chapter": 1,
+   "idx": 10,
+   "title": "Society",
+   "targetBook": "graphic-design",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> graphic-design 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-economics",
+   "chapter": 3,
+   "idx": 9,
+   "title": "Demand 65 Key Concepts",
+   "targetBook": "international-relations",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.33 -> international-relations 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-economics",
+   "chapter": 4,
+   "idx": 0,
+   "title": "Computing Elasticity",
+   "targetBook": "cloud-computing",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> cloud-computing 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "microeconomics",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Introductory Microeconomics: Introduction",
+   "targetBook": "foundation-economics",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.33 -> foundation-economics 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "international-economics",
+   "chapter": 1,
+   "idx": 5,
+   "title": "FYI: The Legacy of Adam Smith and David Ricardo 55 4-4a Equilibrium",
+   "targetBook": "physical-chemistry",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.14 -> physical-chemistry 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "development-economics",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Employment: Growth, Informalisation and Issues",
+   "targetBook": "geography",
+   "targetChapter": 7,
+   "why": "misplaced, grounded (own 0.25 -> geography 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "financial-economics",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Financial Statements of Sole Proprietorship: Financial Statements",
+   "targetBook": "public-economics",
+   "targetChapter": 9,
+   "why": "misplaced, grounded (own 0.25 -> public-economics 0.5)"
+  },
+  {
+   "op": "remove",
+   "book": "business-studies",
+   "chapter": 1,
+   "idx": 0,
+   "title": "The Classification",
+   "why": "misplaced; already covered in music-history"
+  },
+  {
+   "op": "move",
+   "book": "business-studies",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Internal Trade: Wholesale and Retail",
+   "targetBook": "international-economics",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.25 -> international-economics 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "business-studies",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Nature and Purpose of Business (Evolution and Fundamentals of Business)",
+   "targetBook": "foundation-biology",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.4 -> foundation-biology 0.6)"
+  },
+  {
+   "op": "move",
+   "book": "accounting",
+   "chapter": 1,
+   "idx": 4,
+   "title": "The Theory Base of Accounting: Concepts and Standards",
+   "targetBook": "foundation-physics",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.4 -> foundation-physics 0.6)"
+  },
+  {
+   "op": "move",
+   "book": "accounting",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Key Concept",
+   "targetBook": "plant-pathology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> plant-pathology 1.0)"
+  },
+  {
+   "op": "remove",
+   "book": "accounting",
+   "chapter": 3,
+   "idx": 4,
+   "title": "Financial Statements of Sole Proprietorship: Accounts from Incomplete Records",
+   "why": "misplaced; already covered in public-economics"
+  },
+  {
+   "op": "move",
+   "book": "financial-management-and-corporate-finance",
+   "chapter": 10,
+   "idx": 4,
+   "title": "Reconstitution of a Partnership Firm",
+   "targetBook": "accounting",
+   "targetChapter": 6,
+   "why": "misplaced, grounded (own 0.33 -> accounting 0.5)"
+  },
+  {
+   "op": "remove",
+   "book": "financial-management-and-corporate-finance",
+   "chapter": 10,
+   "idx": 4,
+   "title": "Reconstitution and Dissolution of Partnership Firms",
+   "why": "misplaced; already covered in accounting"
+  },
+  {
+   "op": "move",
+   "book": "banking",
+   "chapter": 1,
+   "idx": 4,
+   "title": "The Financial Markets Register",
+   "targetBook": "investment-analysis",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.67 -> investment-analysis 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "statistics-for-economics",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Collection of Data",
+   "targetBook": "object-oriented-programming",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.5 -> object-oriented-programming 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "statistics-for-economics",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Organisation and Presentation of Data",
+   "targetBook": "sociology",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.67 -> sociology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "statistics-for-economics",
+   "chapter": 6,
+   "idx": 2,
+   "title": "The Labour Registers",
+   "targetBook": "obstetrics-gynaecology",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.5 -> obstetrics-gynaecology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "business-mathematics",
+   "chapter": 7,
+   "idx": 3,
+   "title": "The Theory Cross-Reference",
+   "targetBook": "trigonometry",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.67 -> trigonometry 1.0)"
+  },
+  {
+   "op": "remove",
+   "book": "human-resource-management",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Nature and Significance of Management",
+   "why": "misplaced; already covered in business-studies"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "idx": 63,
+   "title": "General Introduction",
+   "targetBook": "microeconomics",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> microeconomics 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-chemistry",
+   "chapter": 1,
+   "idx": 234,
+   "title": "An Introduction",
+   "targetBook": "microeconomics",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> microeconomics 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "physical-chemistry",
+   "chapter": 1,
+   "idx": 27,
+   "title": "A1.3 Graphing Functions A6",
+   "targetBook": "business-mathematics",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.5 -> business-mathematics 1.0)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "foundation-economics",
+   "chapter": 3,
+   "idx": 4,
+   "title": "Elasticity and Its Applications",
+   "targetChapter": 4,
+   "why": "fits ch4 \"Elasticities at First Pass\" (0.5 vs 0.0)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "foundation-economics",
+   "chapter": 3,
+   "idx": 5,
+   "title": "Monopoly, Oligopoly and Price Discrimination First Pass",
+   "targetChapter": 6,
+   "why": "fits ch6 \"The Firm and Market Structures: First Pass\" (0.67 vs 0.33)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "foundation-economics",
+   "chapter": 3,
+   "idx": 5,
+   "title": "Externalities, Public Goods and Common Resources",
+   "targetChapter": 5,
+   "why": "fits ch5 \"Welfare and Market Failure: First Pass\" (0.6 vs 0.0)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "financial-economics",
+   "chapter": 4,
+   "idx": 0,
+   "title": "The Two Lines",
+   "targetChapter": 3,
+   "why": "fits ch3 \"Portfolio Theory\" (1.0 vs 0.5)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "financial-economics",
+   "chapter": 4,
+   "idx": 2,
+   "title": "The Anomaly Debate",
+   "targetChapter": 5,
+   "why": "fits ch5 \"Market Efficiency\" (0.5 vs 0.0)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "financial-economics",
+   "chapter": 6,
+   "idx": 3,
+   "title": "The Two Uses Census",
+   "targetChapter": 2,
+   "why": "fits ch2 \"Risk and Return Foundations\" (0.67 vs 0.33)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "accounting",
+   "chapter": 2,
+   "idx": 3,
+   "title": "The Errors Census",
+   "targetChapter": 5,
+   "why": "fits ch5 \"Bills of Exchange and Rectification\" (1.0 vs 0.5)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "cost-accounting",
+   "chapter": 4,
+   "idx": 0,
+   "title": "The Overhead Census",
+   "targetChapter": 1,
+   "why": "fits ch1 \"Cost Concepts and the Cost Sheet\" (1.0 vs 0.5)"
+  }
+ ],
+ "dupAdjudicate": [
+  {
+   "title": "Summary 1208 of the Atom",
+   "members": [
+    {
+     "book": "atomic-physics",
+     "discipline": "physics",
+     "chapter": 2,
+     "chapterTitle": "The Many-Electron Atom",
+     "idx": 14,
+     "title": "Summary 1208 of the Atom"
+    },
+    {
+     "book": "atomic-physics",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Alkali Spectra and Helium’s Two-Electron Problem",
+     "idx": 5,
+     "title": "39-5 THE HYDROGEN ATOM 1201 REVIEW & SUMMARY 1271 QUESTIONS 1272 PROBLEMS"
+    },
+    {
+     "book": "electricity-and-magnetism",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "Electric Charge and Coulomb’s Law",
+     "idx": 8,
+     "title": "25-2 CALCULATING THE CAPACITANCE"
+    },
+    {
+     "book": "electricity-and-magnetism",
+     "discipline": "physics",
+     "chapter": 3,
+     "chapterTitle": "Electric Potential and Conductors",
+     "idx": 5,
+     "title": "Isolated Conductor"
+    },
+    {
+     "book": "electricity-and-magnetism",
+     "discipline": "physics",
+     "chapter": 3,
+     "chapterTitle": "Electric Potential and Conductors",
+     "idx": 9,
+     "title": "Calculating Electric Potential 760 Summary"
+    },
+    {
+     "book": "electricity-and-magnetism",
+     "discipline": "physics",
+     "chapter": 6,
+     "chapterTitle": "DC Circuit Craft",
+     "idx": 12,
+     "title": "Power in Electric Circuits 760 REVIEW & SUMMARY 827 QUESTIONS 827 PROBLEMS"
+    },
+    {
+     "book": "electricity-and-magnetism",
+     "discipline": "physics",
+     "chapter": 7,
+     "chapterTitle": "Magnetic Force and the Field",
+     "idx": 5,
+     "title": "Charged Disk"
+    },
+    {
+     "book": "electricity-and-magnetism",
+     "discipline": "physics",
+     "chapter": 7,
+     "chapterTitle": "Magnetic Force and the Field",
+     "idx": 9,
+     "title": "23-3 A CHARGED ISOLATED CONDUCTOR 668 Calculating the Capacitance"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 10,
+     "title": "Field of Uniformly Charged Disk"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 17,
+     "title": "Changing Units 3 REVIEW & SUMMARY 55 QUESTIONS 56 PROBLEMS"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 18,
+     "title": "REVIEW & SUMMARY 8 PROBLEMS"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 19,
+     "title": "Constant Acceleration: A Special Case 23 REVIEW & SUMMARY 81 QUESTIONS 82 PROBLEMS"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 20,
+     "title": "Unit Vectors 46 REVIEW & SUMMARY 114 QUESTIONS 114 PROBLEMS"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 21,
+     "title": "REVIEW & SUMMARY 199 QUESTIONS 200 PROBLEMS"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 22,
+     "title": "REVIEW & SUMMARY 138 QUESTIONS 139 PROBLEMS 140 The Center of Mass"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 23,
+     "title": "Energy 177 REVIEW & SUMMARY 243 QUESTIONS 245 PROBLEMS"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 24,
+     "title": "Gauss’ Law 659 REVIEW & SUMMARY 707 QUESTIONS 708 PROBLEMS"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 25,
+     "title": "REVIEW & SUMMARY 677 QUESTIONS 677 PROBLEMS 679 Dielectrics and Gauss’ Law"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 26,
+     "title": "REVIEW & SUMMARY 763 QUESTIONS 764 PROBLEMS"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 27,
+     "title": "27-3 THE AMMETER AND THE VOLTMETER 788 REVIEW & SUMMARY 854 QUESTIONS 855 PROBLEMS"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 28,
+     "title": "Torque on a Current Loop 822 REVIEW & SUMMARY 893 QUESTIONS 893 PROBLEMS"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 29,
+     "title": "REVIEW & SUMMARY 1072 QUESTIONS 1072 PROBLEMS 1074 A New Look at Energy"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 30,
+     "title": "REVIEW & SUMMARY 1143 QUESTIONS 1144 PROBLEMS"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 31,
+     "title": "REVIEW & SUMMARY 1107 QUESTIONS 1107 PROBLEMS"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 32,
+     "title": "The Postulates 1117 REVIEW & SUMMARY 1179 QUESTIONS 1180 PROBLEMS"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "The Vector Grammar of Fields",
+     "idx": 33,
+     "title": "ELEMENTS 1236 REVIEW & SUMMARY 1300 QUESTIONS 1301 PROBLEMS"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 4,
+     "chapterTitle": "Magnetostatics",
+     "idx": 7,
+     "title": "The Electric Field Due to a Charged Disk 643 24-6 CALCULATING THE FIELD FROM THE POTENTIAL"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 10,
+     "chapterTitle": "Potentials, Gauge and the Door",
+     "idx": 5,
+     "title": "REVIEW & SUMMARY 168 QUESTIONS 169 PROBLEMS 170 Collisions in Two Dimensions"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 10,
+     "chapterTitle": "Potentials, Gauge and the Door",
+     "idx": 6,
+     "title": "REVIEW & SUMMARY 650 QUESTIONS 651 PROBLEMS 652 24-8 POTENTIAL OF A CHARGED ISOLATED CONDUCTOR"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 10,
+     "chapterTitle": "Potentials, Gauge and the Door",
+     "idx": 7,
+     "title": "Electric Potential 685 REVIEW & SUMMARY 738 QUESTIONS 738 PROBLEMS"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 191,
+     "title": "Introduced a new opening section, Energy: A first look, which"
+    },
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 7,
+     "chapterTitle": "GDP and the Macro Economy: First Pass",
+     "idx": 6,
+     "title": "Summary 313 Questions for Review"
+    },
+    {
+     "book": "foundation-physics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "What Physics Measures",
+     "idx": 63,
+     "title": "REVIEW & SUMMARY 793 QUESTIONS 793 PROBLEMS 795 What Is Physics?"
+    },
+    {
+     "book": "foundation-physics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "What Physics Measures",
+     "idx": 64,
+     "title": "REVIEW & SUMMARY 1213 QUESTIONS 1213 PROBLEMS 1214 What Is Physics?"
+    },
+    {
+     "book": "foundation-physics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "What Physics Measures",
+     "idx": 74,
+     "title": "Center of Mass 253 Summary"
+    },
+    {
+     "book": "mechanics",
+     "discipline": "physics",
+     "chapter": 6,
+     "chapterTitle": "Momentum and Collisions",
+     "idx": 11,
+     "title": "A New Look at Momentum"
+    },
+    {
+     "book": "nuclear-physics",
+     "discipline": "physics",
+     "chapter": 2,
+     "chapterTitle": "The Nuclear Force and the Shell Model",
+     "idx": 6,
+     "title": "REVIEW & SUMMARY 1245 QUESTIONS 1246 PROBLEMS 1247 A Model for Nuclear Fission"
+    },
+    {
+     "book": "statistical-mechanics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "Counting and Entropy",
+     "idx": 15,
+     "title": "Gauss’s Law 725 Summary"
+    },
+    {
+     "book": "vlsi-design",
+     "discipline": "engineering",
+     "chapter": 8,
+     "chapterTitle": "Sequential Circuit Design",
+     "idx": 5,
+     "title": "Summary 1144 Flops"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Media’s Political Economy",
+   "members": [
+    {
+     "book": "cultural-studies",
+     "discipline": "humanities",
+     "chapter": 3,
+     "chapterTitle": "Ideology and Power",
+     "idx": 3,
+     "title": "The Media’s Political Economy"
+    },
+    {
+     "book": "development-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Meaning and the Measure",
+     "idx": 5,
+     "title": "Indian Economic Development: Current Challenges facing the Indian Economy"
+    },
+    {
+     "book": "development-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Meaning and the Measure",
+     "idx": 6,
+     "title": "Indian Economic Development: Current Challenges facing Indian Economy"
+    },
+    {
+     "book": "development-economics",
+     "discipline": "economics-commerce",
+     "chapter": 2,
+     "chapterTitle": "Growth Theory and Poverty Traps",
+     "idx": 5,
+     "title": "Employment: Growth, Informalisation and Issues"
+    },
+    {
+     "book": "environmental-studies",
+     "discipline": "humanities",
+     "chapter": 2,
+     "chapterTitle": "The Natural Resources",
+     "idx": 4,
+     "title": "Social Justice - government policies and interventions for development; development processes and the role of NGOs, SHGs, donors and other stakeholders; welfare schemes for vulnerable sections; social sector services relating to health, education and human resources; poverty and hunger"
+    },
+    {
+     "book": "environmental-studies",
+     "discipline": "humanities",
+     "chapter": 7,
+     "chapterTitle": "Human Population and the Environment",
+     "idx": 2,
+     "title": "The Health and the Disease Ladder"
+    },
+    {
+     "book": "geography",
+     "discipline": "humanities",
+     "chapter": 9,
+     "chapterTitle": "The Economic Geography",
+     "idx": 3,
+     "title": "The Resources and the Development Question"
+    },
+    {
+     "book": "geography",
+     "discipline": "humanities",
+     "chapter": 11,
+     "chapterTitle": "India: The Human and Economic Register",
+     "idx": 4,
+     "title": "Indian Economy and Economic Development - issues relating to planning, mobilisation of resources, growth, development and employment; inclusive growth; government budgeting; effects of liberalisation on the economy; infrastructure (energy, ports, roads, airports, railways); investment models"
+    },
+    {
+     "book": "immunology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Innate Register",
+     "idx": 5,
+     "title": "Human Health and Disease"
+    },
+    {
+     "book": "international-relations",
+     "discipline": "humanities",
+     "chapter": 6,
+     "chapterTitle": "The Global Political Economy",
+     "idx": 2,
+     "title": "Development’s Political Economy"
+    },
+    {
+     "book": "international-relations",
+     "discipline": "humanities",
+     "chapter": 7,
+     "chapterTitle": "The Environment and Human Security",
+     "idx": 2,
+     "title": "Health and Human Security"
+    },
+    {
+     "book": "medical-microbiology",
+     "discipline": "medical-sciences",
+     "chapter": 1,
+     "chapterTitle": "The Host-Pathogen-and-Laboratory Craft",
+     "idx": 6,
+     "title": "Human Diseases Caused by Viruses, Bacteria and Fungi"
+    },
+    {
+     "book": "medical-microbiology",
+     "discipline": "medical-sciences",
+     "chapter": 7,
+     "chapterTitle": "The Infection-Control-and-Public Register",
+     "idx": 4,
+     "title": "The Human Disease Census: Malaria to Chikungunya"
+    },
+    {
+     "book": "philosophy",
+     "discipline": "humanities",
+     "chapter": 9,
+     "chapterTitle": "The Socio-Political Philosophy",
+     "idx": 0,
+     "title": "Equality and Justice"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 1,
+     "chapterTitle": "What Is Politics?",
+     "idx": 4,
+     "title": "Paper-I 4. Political Organization and Social Control (band, tribe, chiefdom, kingdom and state; power, authority and legitimacy; law and justice in simple societies)"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 2,
+     "chapterTitle": "The Concepts of Political Theory",
+     "idx": 1,
+     "title": "Equality and Social Justice"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 3,
+     "chapterTitle": "Ideologies and the Political Economy",
+     "idx": 3,
+     "title": "The Political Economy and Globalisation"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 8,
+     "chapterTitle": "Identity Politics in India",
+     "idx": 4,
+     "title": "Paper-II 9. History of Administration of Tribal Areas, Tribal Policies and Programmes of Tribal Development (concept of PTGs; role of NGOs; role of anthropology in tribal and rural development; contributions to the understanding of regionalism, communalism and ethnic and political movements)"
+    },
+    {
+     "book": "public-administration",
+     "discipline": "humanities",
+     "chapter": 8,
+     "chapterTitle": "Policy and Implementation",
+     "idx": 4,
+     "title": "Government Policies, Interventions and the Development Industry"
+    },
+    {
+     "book": "public-administration",
+     "discipline": "humanities",
+     "chapter": 8,
+     "chapterTitle": "Policy and Implementation",
+     "idx": 5,
+     "title": "Welfare Schemes for Vulnerable Sections: Poverty and Hunger"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Key Concept",
+   "members": [
+    {
+     "book": "accounting",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Foundations and the Equation",
+     "idx": 6,
+     "title": "Key Concept"
+    },
+    {
+     "book": "accounting",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Foundations and the Equation",
+     "idx": 7,
+     "title": "Organization 181 Key Concepts"
+    },
+    {
+     "book": "accounting",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Foundations and the Equation",
+     "idx": 8,
+     "title": "Key Concepts 264 15-2c Profit Maximization"
+    },
+    {
+     "book": "accounting",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Foundations and the Equation",
+     "idx": 9,
+     "title": "15-6 Conclusion: The Prevalence of Monopolies 311 Key Concepts"
+    },
+    {
+     "book": "business-studies",
+     "discipline": "economics-commerce",
+     "chapter": 4,
+     "chapterTitle": "Management Principles",
+     "idx": 7,
+     "title": "Key Concepts 184 CHAPTER"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Matter and Its Purity",
+     "idx": 332,
+     "title": "Summarizes some key concepts that are used throughout the"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 194,
+     "title": "Important?, what should you look out for as a key idea?, and are the concepts introduced by the First Law"
+    },
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Economic Problem",
+     "idx": 12,
+     "title": "PART IV The Economics of the Key Concepts"
+    },
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Economic Problem",
+     "idx": 17,
+     "title": "Key Concepts 313 Problems and Applications"
+    },
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Economic Problem",
+     "idx": 20,
+     "title": "Key Concepts 334 The Markets for the Factors"
+    },
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 3,
+     "chapterTitle": "Demand and Supply: First Equilibrium",
+     "idx": 9,
+     "title": "Demand 65 Key Concepts"
+    },
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 3,
+     "chapterTitle": "Demand and Supply: First Equilibrium",
+     "idx": 12,
+     "title": "6-2a How Taxes on Sellers Affect Market Outcomes 121 Key Concepts"
+    },
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 5,
+     "chapterTitle": "Welfare and Market Failure: First Pass",
+     "idx": 8,
+     "title": "8-2 The Determinants of the Deadweight Loss"
+    },
+    {
+     "book": "human-resource-management",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "Contemporary HR and the Doorway",
+     "idx": 4,
+     "title": "1-2 How People Interact 8 Key Concepts"
+    },
+    {
+     "book": "microeconomics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "Preferences and Utility",
+     "idx": 9,
+     "title": "10-3c Why Private Solutions Do Not Always Work 204 Key Concepts"
+    },
+    {
+     "book": "public-economics",
+     "discipline": "economics-commerce",
+     "chapter": 5,
+     "chapterTitle": "Taxation Theory",
+     "idx": 4,
+     "title": "Key Concepts 128 8-1 The Deadweight Loss of Taxation"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Research Doorway",
+   "members": [
+    {
+     "book": "behavioural-economics",
+     "discipline": "economics-commerce",
+     "chapter": 7,
+     "chapterTitle": "The Experimental Doorway",
+     "idx": 3,
+     "title": "The Research Doorway"
+    },
+    {
+     "book": "biochemistry",
+     "discipline": "chemistry",
+     "chapter": 10,
+     "chapterTitle": "The Bioenergetics Doorway",
+     "idx": 3,
+     "title": "The Research Doorway"
+    },
+    {
+     "book": "development-economics",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "The Sustainable Doorway",
+     "idx": 3,
+     "title": "The Research Doorway"
+    },
+    {
+     "book": "econometrics",
+     "discipline": "economics-commerce",
+     "chapter": 9,
+     "chapterTitle": "Applied Projects and the Doorway",
+     "idx": 3,
+     "title": "The Research Doorway"
+    },
+    {
+     "book": "environmental-chemistry",
+     "discipline": "chemistry",
+     "chapter": 7,
+     "chapterTitle": "The Monitoring and Doorway Crafts",
+     "idx": 3,
+     "title": "The Research Doorway"
+    },
+    {
+     "book": "financial-economics",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "The No-Arbitrage Doorway",
+     "idx": 3,
+     "title": "The Research Doorway"
+    },
+    {
+     "book": "international-economics",
+     "discipline": "economics-commerce",
+     "chapter": 9,
+     "chapterTitle": "Globalisation and the Doorway",
+     "idx": 3,
+     "title": "The Research Doorway"
+    },
+    {
+     "book": "monetary-economics",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "Modern Money and the Doorway",
+     "idx": 3,
+     "title": "The Research Doorway"
+    },
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 11,
+     "chapterTitle": "The Synthetic and Practical Doorway",
+     "idx": 3,
+     "title": "The Research Doorway"
+    },
+    {
+     "book": "physical-chemistry",
+     "discipline": "chemistry",
+     "chapter": 12,
+     "chapterTitle": "The Physical Doorway",
+     "idx": 2,
+     "title": "The Research Doorway"
+    },
+    {
+     "book": "public-economics",
+     "discipline": "economics-commerce",
+     "chapter": 9,
+     "chapterTitle": "The Budget Craft and the Doorway",
+     "idx": 3,
+     "title": "The Research Doorway"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Least-Squares Fit",
+   "members": [
+    {
+     "book": "econometrics",
+     "discipline": "economics-commerce",
+     "chapter": 2,
+     "chapterTitle": "Simple Regression and OLS",
+     "idx": 0,
+     "title": "The Least-Squares Fit"
+    },
+    {
+     "book": "experimental-physics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "Measurement and Uncertainty",
+     "idx": 3,
+     "title": "Least Squares Introduced"
+    },
+    {
+     "book": "linear-algebra",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "Orthogonality and Least Squares",
+     "idx": 3,
+     "title": "Least Squares: the Overdetermined Verdict"
+    },
+    {
+     "book": "machine-learning",
+     "discipline": "computer-science",
+     "chapter": 2,
+     "chapterTitle": "Linear Models: Regression",
+     "idx": 0,
+     "title": "Least Squares Derived"
+    },
+    {
+     "book": "numerical-analysis",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "Interpolation and Approximation",
+     "idx": 3,
+     "title": "Splines and Least Squares"
+    },
+    {
+     "book": "statistics",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "Bivariate Data: Correlation and Regression",
+     "idx": 3,
+     "title": "Least Squares: the Two Regression Lines"
+    },
+    {
+     "book": "statistics",
+     "discipline": "mathematics",
+     "chapter": 5,
+     "chapterTitle": "Probability Meets Data: Sampling Distributions",
+     "idx": 3,
+     "title": "Chi-Square and F Introduced"
+    },
+    {
+     "book": "statistics",
+     "discipline": "mathematics",
+     "chapter": 7,
+     "chapterTitle": "Hypothesis Testing",
+     "idx": 2,
+     "title": "The Chi-Square Family"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Dielectrics and Boundary Conditions",
+   "members": [
+    {
+     "book": "electromagnetic-fields-and-waves",
+     "discipline": "engineering",
+     "chapter": 3,
+     "chapterTitle": "Electrostatics II: Potential, Capacitance, Dielectrics",
+     "idx": 2,
+     "title": "Dielectrics and Boundary Conditions"
+    },
+    {
+     "book": "electromagnetic-fields-and-waves",
+     "discipline": "engineering",
+     "chapter": 4,
+     "chapterTitle": "Magnetostatics",
+     "idx": 3,
+     "title": "Materials and Boundary Conditions"
+    },
+    {
+     "book": "electromagnetic-fields-and-waves",
+     "discipline": "engineering",
+     "chapter": 6,
+     "chapterTitle": "Time-Varying Fields and Maxwell’s Equations",
+     "idx": 3,
+     "title": "Boundary Conditions Derived"
+    },
+    {
+     "book": "electromagnetic-theory",
+     "discipline": "physics",
+     "chapter": 3,
+     "chapterTitle": "Multipoles and Dielectric Matter",
+     "idx": 9,
+     "title": "6Wave Interference, Boundary Conditions, 19.2Work Done During Volume Changes"
+    },
+    {
+     "book": "public-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "Why Government",
+     "idx": 0,
+     "title": "The Boundary Conditions"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "A simple SAR example",
+   "members": [
+    {
+     "book": "engineering-mechanics",
+     "discipline": "engineering",
+     "chapter": 10,
+     "chapterTitle": "Lagrange’s Equations and the Doorstep",
+     "idx": 5,
+     "title": "A simple SAR example"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 2,
+     "chapterTitle": "The Measurement Craft and the Mole",
+     "idx": 196,
+     "title": "World of interest. It may be a reaction vessel, an engine, an elec- posing force (Energy: A first look 2a). A simple example is the"
+    },
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 6,
+     "chapterTitle": "The Firm and Market Structures: First Pass",
+     "idx": 5,
+     "title": "14-2a A Simple Example of Profit Maximization"
+    },
+    {
+     "book": "machine-design",
+     "discipline": "engineering",
+     "chapter": 9,
+     "chapterTitle": "The Design Synthesis and the Doorstep",
+     "idx": 10,
+     "title": "A simple design example: loudspeaker as microphone"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Green Revolution Ledger",
+   "members": [
+    {
+     "book": "development-economics",
+     "discipline": "economics-commerce",
+     "chapter": 6,
+     "chapterTitle": "Agriculture and Rural Transformation",
+     "idx": 1,
+     "title": "The Green Revolution Ledger"
+    },
+    {
+     "book": "geography",
+     "discipline": "humanities",
+     "chapter": 11,
+     "chapterTitle": "India: The Human and Economic Register",
+     "idx": 5,
+     "title": "Planning and Economic Development - Nehruvian and Gandhian perspectives; role of planning and the public sector; Green Revolution, land reforms and agrarian relations; liberalisation and economic reforms"
+    },
+    {
+     "book": "indian-history",
+     "discipline": "humanities",
+     "chapter": 11,
+     "chapterTitle": "Post-Independence India",
+     "idx": 1,
+     "title": "The Planned Economy and the Green Revolution"
+    },
+    {
+     "book": "plant-genetics",
+     "discipline": "biology",
+     "chapter": 5,
+     "chapterTitle": "The Breeding Register — the Self-and-Cross Crafts",
+     "idx": 3,
+     "title": "The Objective Dial and the Green Revolution’s Honesty"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Statutory Institutions and Commissions - Election Commission, CAG, Finance Commission, UPSC and the national commissions (SC, ST, Women, Human Rights, Minorities, Backward Classes)",
+   "members": [
+    {
+     "book": "anthropology",
+     "discipline": "humanities",
+     "chapter": 4,
+     "chapterTitle": "Culture and the Individual",
+     "idx": 4,
+     "title": "Statutory Institutions and Commissions - Election Commission, CAG, Finance Commission, UPSC and the national commissions (SC, ST, Women, Human Rights, Minorities, Backward Classes)"
+    },
+    {
+     "book": "law-and-legal-studies",
+     "discipline": "humanities",
+     "chapter": 7,
+     "chapterTitle": "International Law",
+     "idx": 3,
+     "title": "The Human Rights Register"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 7,
+     "chapterTitle": "The Indian State at Work",
+     "idx": 9,
+     "title": "Constitutional and Statutory Bodies: CAG to UPSC"
+    },
+    {
+     "book": "public-economics",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "Fiscal Federalism",
+     "idx": 2,
+     "title": "The Finance Commission Case"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Short and Long Vowels",
+   "members": [
+    {
+     "book": "arabic",
+     "discipline": "languages",
+     "chapter": 2,
+     "chapterTitle": "The Sounds",
+     "idx": 2,
+     "title": "The Short and Long Vowels"
+    },
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 4,
+     "chapterTitle": "Elasticities at First Pass",
+     "idx": 6,
+     "title": "13-4a The Relationship between Short-Run and Long-Run 15-1b Government-Created Monopolies"
+    },
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 7,
+     "chapterTitle": "GDP and the Macro Economy: First Pass",
+     "idx": 3,
+     "title": "The Long-Run Question"
+    },
+    {
+     "book": "japanese",
+     "discipline": "languages",
+     "chapter": 2,
+     "chapterTitle": "The Hiragana Craft",
+     "idx": 2,
+     "title": "The Sokuon and the Long Vowels"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Professional Doorway",
+   "members": [
+    {
+     "book": "banking",
+     "discipline": "economics-commerce",
+     "chapter": 7,
+     "chapterTitle": "Regulation and the Banking Ethics",
+     "idx": 3,
+     "title": "The Professional Doorway"
+    },
+    {
+     "book": "financial-management-and-corporate-finance",
+     "discipline": "economics-commerce",
+     "chapter": 11,
+     "chapterTitle": "The Integrated Capstone",
+     "idx": 3,
+     "title": "The Professional Doorway"
+    },
+    {
+     "book": "human-resource-management",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "Contemporary HR and the Doorway",
+     "idx": 3,
+     "title": "The Professional Doorway"
+    },
+    {
+     "book": "investment-analysis",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "Performance and the Ethics Doorway",
+     "idx": 3,
+     "title": "The Professional Doorway"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Everyday Registers",
+   "members": [
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 6,
+     "chapterTitle": "Acids, Bases and Salts",
+     "idx": 3,
+     "title": "Everyday Registers"
+    },
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 3,
+     "chapterTitle": "Demand and Supply: First Equilibrium",
+     "idx": 3,
+     "title": "Everyday Registers"
+    },
+    {
+     "book": "properties-of-matter",
+     "discipline": "physics",
+     "chapter": 5,
+     "chapterTitle": "Surface Tension and Surface Energy",
+     "idx": 3,
+     "title": "Everyday Registers"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Appendix Graphing: A Brief Review",
+   "members": [
+    {
+     "book": "business-mathematics",
+     "discipline": "economics-commerce",
+     "chapter": 4,
+     "chapterTitle": "Progressions and Functions for Finance",
+     "idx": 4,
+     "title": "Appendix Graphing: A Brief Review"
+    },
+    {
+     "book": "optics",
+     "discipline": "physics",
+     "chapter": 1,
+     "chapterTitle": "Ray Optics: Foundations",
+     "idx": 16,
+     "title": "24–2 Spherical Mirrors 665 Appendix A Review of Mathematics"
+    },
+    {
+     "book": "waves-and-oscillations",
+     "discipline": "physics",
+     "chapter": 2,
+     "chapterTitle": "Simple Harmonic Motion: Mathematics",
+     "idx": 7,
+     "title": "Appendix A Mathematics Review"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Classification",
+   "members": [
+    {
+     "book": "business-studies",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Nature and Forms of Business",
+     "idx": 0,
+     "title": "The Classification"
+    },
+    {
+     "book": "foundation-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Matter and Its Purity",
+     "idx": 0,
+     "title": "The Classification"
+    },
+    {
+     "book": "solid-state-physics",
+     "discipline": "physics",
+     "chapter": 5,
+     "chapterTitle": "The Band Theory of Solids",
+     "idx": 2,
+     "title": "The Classification"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Indian Register",
+   "members": [
+    {
+     "book": "business-studies",
+     "discipline": "economics-commerce",
+     "chapter": 7,
+     "chapterTitle": "Controlling and the Business Environment",
+     "idx": 2,
+     "title": "The Indian Register"
+    },
+    {
+     "book": "international-economics",
+     "discipline": "economics-commerce",
+     "chapter": 6,
+     "chapterTitle": "The Balance of Payments",
+     "idx": 2,
+     "title": "The Indian Register"
+    },
+    {
+     "book": "macroeconomics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "National Income Accounting",
+     "idx": 3,
+     "title": "The Indian Register"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Channel Census",
+   "members": [
+    {
+     "book": "entrepreneurship",
+     "discipline": "economics-commerce",
+     "chapter": 7,
+     "chapterTitle": "Marketing for the Startup",
+     "idx": 0,
+     "title": "The Channel Census"
+    },
+    {
+     "book": "marketing",
+     "discipline": "economics-commerce",
+     "chapter": 5,
+     "chapterTitle": "Distribution and Channels",
+     "idx": 0,
+     "title": "The Channel Census"
+    },
+    {
+     "book": "monetary-economics",
+     "discipline": "economics-commerce",
+     "chapter": 5,
+     "chapterTitle": "Monetary Transmission",
+     "idx": 0,
+     "title": "The Channel Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Doorway Map",
+   "members": [
+    {
+     "book": "business-mathematics",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "Integration and the Doorway",
+     "idx": 3,
+     "title": "The Doorway Map"
+    },
+    {
+     "book": "business-studies",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "Consumer Protection and the Projects Doorway",
+     "idx": 3,
+     "title": "The Doorway Map"
+    },
+    {
+     "book": "inorganic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 10,
+     "chapterTitle": "The Qualitative and Nuclear Crafts",
+     "idx": 3,
+     "title": "The Doorway Map"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Career Map",
+   "members": [
+    {
+     "book": "banking",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "The Banking Doorway",
+     "idx": 3,
+     "title": "The Career Map"
+    },
+    {
+     "book": "foundation-biology",
+     "discipline": "biology",
+     "chapter": 8,
+     "chapterTitle": "The Biologist’s Craft",
+     "idx": 3,
+     "title": "The Career Map"
+    },
+    {
+     "book": "operations-management",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "The Operations Doorway",
+     "idx": 3,
+     "title": "The Career Map"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Census Read",
+   "members": [
+    {
+     "book": "human-resource-management",
+     "discipline": "economics-commerce",
+     "chapter": 5,
+     "chapterTitle": "Performance Management",
+     "idx": 0,
+     "title": "The Census Read"
+    },
+    {
+     "book": "international-business",
+     "discipline": "economics-commerce",
+     "chapter": 3,
+     "chapterTitle": "The Market-Entry Ladder",
+     "idx": 0,
+     "title": "The Census Read"
+    },
+    {
+     "book": "marketing",
+     "discipline": "economics-commerce",
+     "chapter": 2,
+     "chapterTitle": "Segmentation, Targeting and Positioning",
+     "idx": 0,
+     "title": "The Census Read"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Research Map",
+   "members": [
+    {
+     "book": "computational-chemistry",
+     "discipline": "chemistry",
+     "chapter": 7,
+     "chapterTitle": "The Computational Doorway",
+     "idx": 3,
+     "title": "The Research Map"
+    },
+    {
+     "book": "international-business",
+     "discipline": "economics-commerce",
+     "chapter": 7,
+     "chapterTitle": "Ethics, Regions and the Doorway",
+     "idx": 3,
+     "title": "The Research Map"
+    },
+    {
+     "book": "quantum-chemistry",
+     "discipline": "chemistry",
+     "chapter": 8,
+     "chapterTitle": "The Spectroscopy-and-DFT Doorway",
+     "idx": 3,
+     "title": "The Research Map"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Base-Rate Neglect",
+   "members": [
+    {
+     "book": "behavioural-economics",
+     "discipline": "economics-commerce",
+     "chapter": 2,
+     "chapterTitle": "Heuristics and Biases",
+     "idx": 2,
+     "title": "The Base-Rate Neglect"
+    },
+    {
+     "book": "probability-theory",
+     "discipline": "mathematics",
+     "chapter": 3,
+     "chapterTitle": "Total Probability and Bayes",
+     "idx": 2,
+     "title": "The Base-Rate Cascade"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Decision Tree",
+   "members": [
+    {
+     "book": "business-mathematics",
+     "discipline": "economics-commerce",
+     "chapter": 7,
+     "chapterTitle": "Probability and Expected Value",
+     "idx": 2,
+     "title": "The Decision Tree"
+    },
+    {
+     "book": "optimization-and-operations-research",
+     "discipline": "mathematics",
+     "chapter": 1,
+     "chapterTitle": "The Modeling Discipline",
+     "idx": 3,
+     "title": "Decision Analysis: Trees, Payoffs and the Value of Information"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "PERT-CPM Worked",
+   "members": [
+    {
+     "book": "operations-management",
+     "discipline": "economics-commerce",
+     "chapter": 5,
+     "chapterTitle": "Scheduling and the Project Craft",
+     "idx": 2,
+     "title": "PERT-CPM Worked"
+    },
+    {
+     "book": "optimization-and-operations-research",
+     "discipline": "mathematics",
+     "chapter": 4,
+     "chapterTitle": "Network Optimization",
+     "idx": 2,
+     "title": "CPM and PERT: the Critical Path"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Anomaly Census",
+   "members": [
+    {
+     "book": "database-management-systems",
+     "discipline": "computer-science",
+     "chapter": 5,
+     "chapterTitle": "Normalization",
+     "idx": 0,
+     "title": "The Anomaly Census"
+    },
+    {
+     "book": "financial-economics",
+     "discipline": "economics-commerce",
+     "chapter": 5,
+     "chapterTitle": "Market Efficiency",
+     "idx": 1,
+     "title": "The Anomaly Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Commitment Census",
+   "members": [
+    {
+     "book": "behavioural-economics",
+     "discipline": "economics-commerce",
+     "chapter": 4,
+     "chapterTitle": "Time and Self-Control",
+     "idx": 1,
+     "title": "The Commitment Census"
+    },
+    {
+     "book": "cloud-computing",
+     "discipline": "computer-science",
+     "chapter": 6,
+     "chapterTitle": "Reliability and Cost Engineering",
+     "idx": 2,
+     "title": "The Commitment Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Capacity Arithmetic",
+   "members": [
+    {
+     "book": "information-retrieval",
+     "discipline": "computer-science",
+     "chapter": 5,
+     "chapterTitle": "Index Construction and Compression",
+     "idx": 2,
+     "title": "The Capacity Arithmetic"
+    },
+    {
+     "book": "operations-management",
+     "discipline": "economics-commerce",
+     "chapter": 2,
+     "chapterTitle": "Process and Capacity",
+     "idx": 1,
+     "title": "The Capacity Arithmetic"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Xviii CONTENTS",
+   "members": [
+    {
+     "book": "entrepreneurship",
+     "discipline": "economics-commerce",
+     "chapter": 7,
+     "chapterTitle": "Marketing for the Startup",
+     "idx": 4,
+     "title": "Xviii CONTENTS"
+    },
+    {
+     "book": "machine-design",
+     "discipline": "engineering",
+     "chapter": 9,
+     "chapterTitle": "The Design Synthesis and the Doorstep",
+     "idx": 14,
+     "title": "Contents (page xviii)"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Process Census",
+   "members": [
+    {
+     "book": "operations-management",
+     "discipline": "economics-commerce",
+     "chapter": 2,
+     "chapterTitle": "Process and Capacity",
+     "idx": 0,
+     "title": "The Process Census"
+    },
+    {
+     "book": "thermodynamics",
+     "discipline": "engineering",
+     "chapter": 10,
+     "chapterTitle": "Mixtures and Psychrometry",
+     "idx": 2,
+     "title": "The Process Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Waste Census",
+   "members": [
+    {
+     "book": "industrial-engineering",
+     "discipline": "engineering",
+     "chapter": 4,
+     "chapterTitle": "Scheduling, MRP and Lean",
+     "idx": 3,
+     "title": "The Waste Census"
+    },
+    {
+     "book": "operations-management",
+     "discipline": "economics-commerce",
+     "chapter": 7,
+     "chapterTitle": "Lean and the Supply Chain",
+     "idx": 0,
+     "title": "The Waste Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Six Sigma Named Honestly",
+   "members": [
+    {
+     "book": "industrial-engineering",
+     "discipline": "engineering",
+     "chapter": 7,
+     "chapterTitle": "Quality Control",
+     "idx": 3,
+     "title": "Six Sigma Named Honestly"
+    },
+    {
+     "book": "operations-management",
+     "discipline": "economics-commerce",
+     "chapter": 6,
+     "chapterTitle": "Quality Management",
+     "idx": 3,
+     "title": "The Six-Sigma Register"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Component Census",
+   "members": [
+    {
+     "book": "control-systems",
+     "discipline": "engineering",
+     "chapter": 1,
+     "chapterTitle": "The Feedback Idea",
+     "idx": 2,
+     "title": "The Component Census"
+    },
+    {
+     "book": "statistics-for-economics",
+     "discipline": "economics-commerce",
+     "chapter": 4,
+     "chapterTitle": "The Time-Series Craft",
+     "idx": 0,
+     "title": "The Component Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Short-Term Register",
+   "members": [
+    {
+     "book": "financial-management-and-corporate-finance",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "The Sources of Finance",
+     "idx": 0,
+     "title": "The Short-Term Register"
+    },
+    {
+     "book": "vlsi-design",
+     "discipline": "engineering",
+     "chapter": 1,
+     "chapterTitle": "The VLSI Worldview",
+     "idx": 14,
+     "title": "Terms and concepts 622 29.17 Open-circuit and short-circuit tests on a"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "1-1c Principle 3: Rational People Think at the Margin 6 2-4 Let’s Get Going",
+   "members": [
+    {
+     "book": "behavioural-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Rational Baseline and Its Critique",
+     "idx": 4,
+     "title": "1-1c Principle 3: Rational People Think at the Margin 6 2-4 Let’s Get Going"
+    },
+    {
+     "book": "japanese",
+     "discipline": "languages",
+     "chapter": 3,
+     "chapterTitle": "The Katakana Craft",
+     "idx": 5,
+     "title": "I think it’s going to rain"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Model’s Limits",
+   "members": [
+    {
+     "book": "international-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Ricardian Logic",
+     "idx": 3,
+     "title": "The Model’s Limits"
+    },
+    {
+     "book": "modern-physics",
+     "discipline": "physics",
+     "chapter": 3,
+     "chapterTitle": "Atomic Models and Hydrogen’s Spectra",
+     "idx": 3,
+     "title": "The Model’s Limits"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "FYI: Adam Smith and the Invisible Hand",
+   "members": [
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Economic Problem",
+     "idx": 6,
+     "title": "FYI: Adam Smith and the Invisible Hand"
+    },
+    {
+     "book": "international-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Ricardian Logic",
+     "idx": 5,
+     "title": "FYI: The Legacy of Adam Smith and David Ricardo 55 4-4a Equilibrium"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Model Craft",
+   "members": [
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 2,
+     "chapterTitle": "Thinking Like an Economist",
+     "idx": 0,
+     "title": "The Model Craft"
+    },
+    {
+     "book": "marketing",
+     "discipline": "economics-commerce",
+     "chapter": 6,
+     "chapterTitle": "Promotion and the IMC Register",
+     "idx": 1,
+     "title": "The Model Craft"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Frontier Geometry",
+   "members": [
+    {
+     "book": "financial-economics",
+     "discipline": "economics-commerce",
+     "chapter": 3,
+     "chapterTitle": "Portfolio Theory",
+     "idx": 2,
+     "title": "The Frontier Geometry"
+    },
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 2,
+     "chapterTitle": "Thinking Like an Economist",
+     "idx": 1,
+     "title": "The Frontier Geometry"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Externalities, Public Goods and Common Resources",
+   "members": [
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 3,
+     "chapterTitle": "Demand and Supply: First Equilibrium",
+     "idx": 7,
+     "title": "Externalities, Public Goods and Common Resources"
+    },
+    {
+     "book": "microeconomics",
+     "discipline": "economics-commerce",
+     "chapter": 10,
+     "chapterTitle": "Market Failure and Information",
+     "idx": 1,
+     "title": "Public Goods and Riders"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Time Honesty",
+   "members": [
+    {
+     "book": "computational-chemistry",
+     "discipline": "chemistry",
+     "chapter": 4,
+     "chapterTitle": "The Molecular-Dynamics Craft",
+     "idx": 2,
+     "title": "The Time Honesty"
+    },
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 4,
+     "chapterTitle": "Elasticities at First Pass",
+     "idx": 3,
+     "title": "The Time Honesty"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Remedy Register",
+   "members": [
+    {
+     "book": "foundation-economics",
+     "discipline": "economics-commerce",
+     "chapter": 5,
+     "chapterTitle": "Welfare and Market Failure: First Pass",
+     "idx": 3,
+     "title": "The Remedy Register"
+    },
+    {
+     "book": "microeconomics",
+     "discipline": "economics-commerce",
+     "chapter": 10,
+     "chapterTitle": "Market Failure and Information",
+     "idx": 3,
+     "title": "The Remedy Register"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Copyright 2024 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s)",
+   "members": [
+    {
+     "book": "computational-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "The Idea and the Toolchain",
+     "idx": 9,
+     "title": "Copyright 2024 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s)"
+    },
+    {
+     "book": "microeconomics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "Preferences and Utility",
+     "idx": 7,
+     "title": "Copyright 2018 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. WCN 02-200-203"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Human Capital Formation in India",
+   "members": [
+    {
+     "book": "development-economics",
+     "discipline": "economics-commerce",
+     "chapter": 5,
+     "chapterTitle": "Human Capital",
+     "idx": 4,
+     "title": "Human Capital Formation in India"
+    },
+    {
+     "book": "macroeconomics",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "Growth Theory",
+     "idx": 2,
+     "title": "Human Capital Extended"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Mundell-Fleming Solved",
+   "members": [
+    {
+     "book": "international-economics",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "The Open Macro Register",
+     "idx": 0,
+     "title": "Mundell-Fleming Solved"
+    },
+    {
+     "book": "macroeconomics",
+     "discipline": "economics-commerce",
+     "chapter": 10,
+     "chapterTitle": "The Open Economy and the Doorway",
+     "idx": 0,
+     "title": "Mundell-Fleming Previewed"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "10-3a The Types of Private Solutions 202 Efficiency",
+   "members": [
+    {
+     "book": "financial-economics",
+     "discipline": "economics-commerce",
+     "chapter": 5,
+     "chapterTitle": "Market Efficiency",
+     "idx": 4,
+     "title": "10-3a The Types of Private Solutions 202 Efficiency"
+    },
+    {
+     "book": "international-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Ricardian Logic",
+     "idx": 10,
+     "title": "10-3 Private Solutions to Externalities 202 12-4 Conclusion: The Trade-off between Equity and"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Gender Register",
+   "members": [
+    {
+     "book": "development-economics",
+     "discipline": "economics-commerce",
+     "chapter": 5,
+     "chapterTitle": "Human Capital",
+     "idx": 1,
+     "title": "The Gender Register"
+    },
+    {
+     "book": "public-economics",
+     "discipline": "economics-commerce",
+     "chapter": 9,
+     "chapterTitle": "The Budget Craft and the Doorway",
+     "idx": 1,
+     "title": "The Gender Register"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The UPI Case",
+   "members": [
+    {
+     "book": "banking",
+     "discipline": "economics-commerce",
+     "chapter": 4,
+     "chapterTitle": "Payments and Technology",
+     "idx": 1,
+     "title": "The UPI Case"
+    },
+    {
+     "book": "monetary-economics",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "Modern Money and the Doorway",
+     "idx": 0,
+     "title": "The UPI Case"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Data Census",
+   "members": [
+    {
+     "book": "econometrics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Idea of Econometrics",
+     "idx": 2,
+     "title": "The Data Census"
+    },
+    {
+     "book": "statistics-for-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "Data and the Descriptive Craft",
+     "idx": 0,
+     "title": "The Data Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Error Census",
+   "members": [
+    {
+     "book": "analytical-chemistry",
+     "discipline": "chemistry",
+     "chapter": 1,
+     "chapterTitle": "Accuracy and Precision",
+     "idx": 0,
+     "title": "The Error Census"
+    },
+    {
+     "book": "econometrics",
+     "discipline": "economics-commerce",
+     "chapter": 4,
+     "chapterTitle": "Specification Craft",
+     "idx": 3,
+     "title": "The Error Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Cash-Flow Ledger",
+   "members": [
+    {
+     "book": "accounting",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "The Analysis and Cash-Flow Doorway",
+     "idx": 3,
+     "title": "The Cash-Flow Ledger"
+    },
+    {
+     "book": "financial-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Time-Value Engine",
+     "idx": 1,
+     "title": "The Cash-Flow Ledger"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Financial Statements of Sole Proprietorship: Accounts from Incomplete Records",
+   "members": [
+    {
+     "book": "accounting",
+     "discipline": "economics-commerce",
+     "chapter": 3,
+     "chapterTitle": "Final Accounts",
+     "idx": 4,
+     "title": "Financial Statements of Sole Proprietorship: Accounts from Incomplete Records"
+    },
+    {
+     "book": "financial-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Time-Value Engine",
+     "idx": 4,
+     "title": "Financial Statements of Sole Proprietorship: Financial Statements"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Nature and Significance",
+   "members": [
+    {
+     "book": "business-studies",
+     "discipline": "economics-commerce",
+     "chapter": 4,
+     "chapterTitle": "Management Principles",
+     "idx": 0,
+     "title": "The Nature and Significance"
+    },
+    {
+     "book": "human-resource-management",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "HRM Foundations",
+     "idx": 4,
+     "title": "Nature and Significance of Management"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Method Census",
+   "members": [
+    {
+     "book": "human-resource-management",
+     "discipline": "economics-commerce",
+     "chapter": 4,
+     "chapterTitle": "Training and Development",
+     "idx": 1,
+     "title": "The Method Census"
+    },
+    {
+     "book": "marketing",
+     "discipline": "economics-commerce",
+     "chapter": 4,
+     "chapterTitle": "Pricing Strategy",
+     "idx": 1,
+     "title": "The Method Census"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Trade Told",
+   "members": [
+    {
+     "book": "international-business",
+     "discipline": "economics-commerce",
+     "chapter": 4,
+     "chapterTitle": "Global Production and the World Chain",
+     "idx": 0,
+     "title": "The Trade Told"
+    },
+    {
+     "book": "operations-management",
+     "discipline": "economics-commerce",
+     "chapter": 4,
+     "chapterTitle": "Inventory Management",
+     "idx": 0,
+     "title": "The Trade Told"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "The Career Doorway",
+   "members": [
+    {
+     "book": "industrial-chemistry",
+     "discipline": "chemistry",
+     "chapter": 8,
+     "chapterTitle": "The Process Doorway",
+     "idx": 3,
+     "title": "The Career Doorway"
+    },
+    {
+     "book": "international-business",
+     "discipline": "economics-commerce",
+     "chapter": 8,
+     "chapterTitle": "The India Case and the Doorway",
+     "idx": 3,
+     "title": "The Career Doorway"
+    }
+   ],
+   "exact": true
+  }
+ ],
+ "misAdjudicate": [
+  {
+   "book": "foundation-economics",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "The Economic Problem",
+   "idx": 5,
+   "title": "Organize Economic Activity",
+   "ownScore": 0.33,
+   "bestBook": "vlsi-design",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "vlsi-design",
+     "score": 0.67
+    },
+    {
+     "book": "construction-management",
+     "score": 0.67
+    },
+    {
+     "book": "software-engineering",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "foundation-economics",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "The Economic Problem",
+   "idx": 14,
+   "title": "Miniature Golf",
+   "ownScore": 0.0,
+   "bestBook": "animation",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "animation",
+     "score": 0.5
+    },
+    {
+     "book": "art-history",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 7
+  },
+  {
+   "book": "foundation-economics",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "The Economic Problem",
+   "idx": 16,
+   "title": "IN THE NEWS: Europe versus Google",
+   "ownScore": 0.0,
+   "bestBook": "mobile-app-development",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "mobile-app-development",
+     "score": 0.5
+    },
+    {
+     "book": "world-history",
+     "score": 0.5
+    },
+    {
+     "book": "advanced-mathematical-foundations",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 9
+  },
+  {
+   "book": "foundation-economics",
+   "discipline": "economics-commerce",
+   "chapter": 3,
+   "chapterTitle": "Demand and Supply: First Equilibrium",
+   "idx": 2,
+   "title": "The Clearing Price",
+   "ownScore": 0.5,
+   "bestBook": "power-systems",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "power-systems",
+     "score": 1.0
+    },
+    {
+     "book": "animal-anatomy",
+     "score": 0.5
+    },
+    {
+     "book": "banking",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "foundation-economics",
+   "discipline": "economics-commerce",
+   "chapter": 3,
+   "chapterTitle": "Demand and Supply: First Equilibrium",
+   "idx": 4,
+   "title": "Elasticity and Its Applications",
+   "ownScore": 0.5,
+   "bestBook": "properties-of-matter",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "properties-of-matter",
+     "score": 1.0
+    },
+    {
+     "book": "microeconomics",
+     "score": 1.0
+    },
+    {
+     "book": "public-economics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "foundation-economics",
+   "discipline": "economics-commerce",
+   "chapter": 3,
+   "chapterTitle": "Demand and Supply: First Equilibrium",
+   "idx": 8,
+   "title": "Earnings and Discrimination",
+   "ownScore": 0.0,
+   "bestBook": "japanese",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "japanese",
+     "score": 0.5
+    },
+    {
+     "book": "microeconomics",
+     "score": 0.5
+    },
+    {
+     "book": "russian",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 8
+  },
+  {
+   "book": "foundation-economics",
+   "discipline": "economics-commerce",
+   "chapter": 3,
+   "chapterTitle": "Demand and Supply: First Equilibrium",
+   "idx": 13,
+   "title": "ASK THE EXPERTS: The Laffer Curve",
+   "ownScore": 0.25,
+   "bestBook": "multivariable-calculus",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "multivariable-calculus",
+     "score": 0.5
+    },
+    {
+     "book": "integral-calculus",
+     "score": 0.5
+    },
+    {
+     "book": "artificial-intelligence",
+     "score": 0.25
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 10
+  },
+  {
+   "book": "foundation-economics",
+   "discipline": "economics-commerce",
+   "chapter": 3,
+   "chapterTitle": "Demand and Supply: First Equilibrium",
+   "idx": 16,
+   "title": "11-3a The Tragedy of the Commons",
+   "ownScore": 0.0,
+   "bestBook": "physical-chemistry",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "physical-chemistry",
+     "score": 0.5
+    },
+    {
+     "book": "elementary-algebra",
+     "score": 0.5
+    },
+    {
+     "book": "anatomy",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 11
+  },
+  {
+   "book": "foundation-economics",
+   "discipline": "economics-commerce",
+   "chapter": 4,
+   "chapterTitle": "Elasticities at First Pass",
+   "idx": 3,
+   "title": "The Time Honesty",
+   "ownScore": 0.5,
+   "bestBook": "plant-pathology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "plant-pathology",
+     "score": 1.0
+    },
+    {
+     "book": "photography",
+     "score": 1.0
+    },
+    {
+     "book": "big-data-engineering",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "foundation-economics",
+   "discipline": "economics-commerce",
+   "chapter": 4,
+   "chapterTitle": "Elasticities at First Pass",
+   "idx": 4,
+   "title": "Percentage Changes and Elasticities",
+   "ownScore": 0.33,
+   "bestBook": "foundation-mathematics",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "foundation-mathematics",
+     "score": 0.67
+    },
+    {
+     "book": "power-systems",
+     "score": 0.67
+    },
+    {
+     "book": "business-mathematics",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "foundation-economics",
+   "discipline": "economics-commerce",
+   "chapter": 5,
+   "chapterTitle": "Welfare and Market Failure: First Pass",
+   "idx": 3,
+   "title": "The Remedy Register",
+   "ownScore": 0.5,
+   "bestBook": "econometrics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "econometrics",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.5
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "foundation-economics",
+   "discipline": "economics-commerce",
+   "chapter": 6,
+   "chapterTitle": "The Firm and Market Structures: First Pass",
+   "idx": 4,
+   "title": "4-1b What Is Competition?",
+   "ownScore": 0.5,
+   "bestBook": "elementary-algebra",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "elementary-algebra",
+     "score": 1.0
+    },
+    {
+     "book": "advanced-mathematical-foundations",
+     "score": 1.0
+    },
+    {
+     "book": "differential-equations",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "foundation-economics",
+   "discipline": "economics-commerce",
+   "chapter": 7,
+   "chapterTitle": "GDP and the Macro Economy: First Pass",
+   "idx": 4,
+   "title": "Questions for Review",
+   "ownScore": 0.5,
+   "bestBook": "law-and-legal-studies",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "law-and-legal-studies",
+     "score": 1.0
+    },
+    {
+     "book": "machine-design",
+     "score": 1.0
+    },
+    {
+     "book": "public-administration",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "microeconomics",
+   "discipline": "economics-commerce",
+   "chapter": 6,
+   "chapterTitle": "Monopoly",
+   "idx": 0,
+   "title": "The Mark-Up Arithmetic",
+   "ownScore": 0.5,
+   "bestBook": "ecology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "ecology",
+     "score": 1.0
+    },
+    {
+     "book": "archaeology-and-heritage-studies",
+     "score": 1.0
+    },
+    {
+     "book": "music-theory-notation",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "microeconomics",
+   "discipline": "economics-commerce",
+   "chapter": 8,
+   "chapterTitle": "Factor Markets and Factor Pricing",
+   "idx": 4,
+   "title": "ASK THE EXPERTS: Congesting Pricing",
+   "ownScore": 0.25,
+   "bestBook": "digital-logic-design",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "digital-logic-design",
+     "score": 0.5
+    },
+    {
+     "book": "portuguese",
+     "score": 0.25
+    },
+    {
+     "book": "heat-transfer",
+     "score": 0.25
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "microeconomics",
+   "discipline": "economics-commerce",
+   "chapter": 10,
+   "chapterTitle": "Market Failure and Information",
+   "idx": 3,
+   "title": "The Remedy Register",
+   "ownScore": 0.5,
+   "bestBook": "econometrics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "econometrics",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.5
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "macroeconomics",
+   "discipline": "economics-commerce",
+   "chapter": 7,
+   "chapterTitle": "Fiscal Policy and Debt",
+   "idx": 4,
+   "title": "PART I Introduction 1 2-2 The Economist as Policy Adviser",
+   "ownScore": 0.25,
+   "bestBook": "investment-analysis",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "investment-analysis",
+     "score": 0.5
+    },
+    {
+     "book": "foundation-economics",
+     "score": 0.5
+    },
+    {
+     "book": "advanced-computer-science",
+     "score": 0.25
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "macroeconomics",
+   "discipline": "economics-commerce",
+   "chapter": 7,
+   "chapterTitle": "Fiscal Policy and Debt",
+   "idx": 5,
+   "title": "17-3b Controversies over Antitrust Policy",
+   "ownScore": 0.33,
+   "bestBook": "plant-ecology",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "plant-ecology",
+     "score": 0.67
+    },
+    {
+     "book": "advanced-computer-science",
+     "score": 0.33
+    },
+    {
+     "book": "monetary-economics",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "macroeconomics",
+   "discipline": "economics-commerce",
+   "chapter": 9,
+   "chapterTitle": "Business Cycles and Expectations",
+   "idx": 3,
+   "title": "The Friction Story",
+   "ownScore": 0.5,
+   "bestBook": "geotechnical-engineering",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "geotechnical-engineering",
+     "score": 1.0
+    },
+    {
+     "book": "electricity-and-magnetism",
+     "score": 1.0
+    },
+    {
+     "book": "monetary-economics",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "international-economics",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "The Ricardian Logic",
+   "idx": 7,
+   "title": "ASK THE EXPERTS: Trade between China and",
+   "ownScore": 0.25,
+   "bestBook": "international-relations",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "international-relations",
+     "score": 0.5
+    },
+    {
+     "book": "indian-history",
+     "score": 0.5
+    },
+    {
+     "book": "world-history",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "international-economics",
+   "discipline": "economics-commerce",
+   "chapter": 4,
+   "chapterTitle": "Trade Policy Arithmetic",
+   "idx": 3,
+   "title": "Protection’s Politics",
+   "ownScore": 0.5,
+   "bestBook": "law-and-legal-studies",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "law-and-legal-studies",
+     "score": 1.0
+    },
+    {
+     "book": "power-electronics",
+     "score": 0.5
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "international-economics",
+   "discipline": "economics-commerce",
+   "chapter": 5,
+   "chapterTitle": "The WTO and Regionalism",
+   "idx": 5,
+   "title": "1-1a Principle 1: People Face Trade-offs 4 2-3c Perception versus Reality",
+   "ownScore": 0.38,
+   "bestBook": "backend-engineering",
+   "bestScore": 0.62,
+   "top3": [
+    {
+     "book": "backend-engineering",
+     "score": 0.62
+    },
+    {
+     "book": "construction-management",
+     "score": 0.5
+    },
+    {
+     "book": "frontend-engineering",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "international-economics",
+   "discipline": "economics-commerce",
+   "chapter": 9,
+   "chapterTitle": "Globalisation and the Doorway",
+   "idx": 2,
+   "title": "The GVC Preview",
+   "ownScore": 0.0,
+   "bestBook": "physical-chemistry",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "physical-chemistry",
+     "score": 0.5
+    },
+    {
+     "book": "optics",
+     "score": 0.5
+    },
+    {
+     "book": "music-theory-notation",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "development-economics",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "The Meaning and the Measure",
+   "idx": 4,
+   "title": "Indian Economy on the Eve of Independence",
+   "ownScore": 0.5,
+   "bestBook": "indian-history",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "indian-history",
+     "score": 0.75
+    },
+    {
+     "book": "world-history",
+     "score": 0.75
+    },
+    {
+     "book": "archaeology-and-heritage-studies",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "development-economics",
+   "discipline": "economics-commerce",
+   "chapter": 3,
+   "chapterTitle": "Poverty and Inequality",
+   "idx": 1,
+   "title": "The Index Arithmetic",
+   "ownScore": 0.5,
+   "bestBook": "elementary-algebra",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "elementary-algebra",
+     "score": 1.0
+    },
+    {
+     "book": "optics",
+     "score": 1.0
+    },
+    {
+     "book": "mandarin",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "development-economics",
+   "discipline": "economics-commerce",
+   "chapter": 5,
+   "chapterTitle": "Human Capital",
+   "idx": 4,
+   "title": "Human Capital Formation in India",
+   "ownScore": 0.5,
+   "bestBook": "sociology",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "sociology",
+     "score": 0.75
+    },
+    {
+     "book": "ethics",
+     "score": 0.75
+    },
+    {
+     "book": "international-business",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "development-economics",
+   "discipline": "economics-commerce",
+   "chapter": 5,
+   "chapterTitle": "Human Capital",
+   "idx": 5,
+   "title": "Comparative Development Experiences: India and Its Neighbours",
+   "ownScore": 0.2,
+   "bestBook": "geography",
+   "bestScore": 0.8,
+   "top3": [
+    {
+     "book": "geography",
+     "score": 0.8
+    },
+    {
+     "book": "sociology",
+     "score": 0.6
+    },
+    {
+     "book": "anthropology",
+     "score": 0.6
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "public-economics",
+   "discipline": "economics-commerce",
+   "chapter": 8,
+   "chapterTitle": "Fiscal Federalism",
+   "idx": 4,
+   "title": "Is What You Give Up to Get It",
+   "ownScore": 0.25,
+   "bestBook": "arithmetic-and-number-systems",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "arithmetic-and-number-systems",
+     "score": 0.75
+    },
+    {
+     "book": "cloud-computing",
+     "score": 0.75
+    },
+    {
+     "book": "quantitative-aptitude",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "monetary-economics",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "Money’s Nature and Its Measures",
+   "idx": 3,
+   "title": "The Three-Way Distinction",
+   "ownScore": 0.33,
+   "bestBook": "statistics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "statistics",
+     "score": 1.0
+    },
+    {
+     "book": "philosophy",
+     "score": 1.0
+    },
+    {
+     "book": "anatomy",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "econometrics",
+   "discipline": "economics-commerce",
+   "chapter": 2,
+   "chapterTitle": "Simple Regression and OLS",
+   "idx": 3,
+   "title": "The First Inference Registers",
+   "ownScore": 0.67,
+   "bestBook": "philosophy",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "philosophy",
+     "score": 1.0
+    },
+    {
+     "book": "geography",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "econometrics",
+   "discipline": "economics-commerce",
+   "chapter": 5,
+   "chapterTitle": "Heteroskedasticity and Autocorrelation",
+   "idx": 0,
+   "title": "The Two Diagnoses",
+   "ownScore": 0.5,
+   "bestBook": "nursing",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "nursing",
+     "score": 1.0
+    },
+    {
+     "book": "geometry",
+     "score": 0.5
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "econometrics",
+   "discipline": "economics-commerce",
+   "chapter": 6,
+   "chapterTitle": "Endogeneity and Instruments",
+   "idx": 4,
+   "title": "2-3a Differences in Scientific Judgments",
+   "ownScore": 0.33,
+   "bestBook": "elementary-algebra",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "elementary-algebra",
+     "score": 0.67
+    },
+    {
+     "book": "numerical-analysis",
+     "score": 0.67
+    },
+    {
+     "book": "structural-engineering",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "econometrics",
+   "discipline": "economics-commerce",
+   "chapter": 9,
+   "chapterTitle": "Applied Projects and the Doorway",
+   "idx": 4,
+   "title": "Project Work",
+   "ownScore": 0.5,
+   "bestBook": "software-engineering",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "software-engineering",
+     "score": 1.0
+    },
+    {
+     "book": "environmental-studies",
+     "score": 1.0
+    },
+    {
+     "book": "industrial-engineering",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "econometrics",
+   "discipline": "economics-commerce",
+   "chapter": 9,
+   "chapterTitle": "Applied Projects and the Doorway",
+   "idx": 5,
+   "title": "Project Work / Practical Work",
+   "ownScore": 0.33,
+   "bestBook": "software-engineering",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "software-engineering",
+     "score": 0.67
+    },
+    {
+     "book": "environmental-studies",
+     "score": 0.67
+    },
+    {
+     "book": "industrial-engineering",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "behavioural-economics",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "The Rational Baseline and Its Critique",
+   "idx": 3,
+   "title": "The Two Engines",
+   "ownScore": 0.5,
+   "bestBook": "animal-diversity",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "animal-diversity",
+     "score": 1.0
+    },
+    {
+     "book": "korean",
+     "score": 1.0
+    },
+    {
+     "book": "frontend-engineering",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "behavioural-economics",
+   "discipline": "economics-commerce",
+   "chapter": 7,
+   "chapterTitle": "The Experimental Doorway",
+   "idx": 2,
+   "title": "The Finance Preview",
+   "ownScore": 0.5,
+   "bestBook": "business-mathematics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "business-mathematics",
+     "score": 1.0
+    },
+    {
+     "book": "public-economics",
+     "score": 0.5
+    },
+    {
+     "book": "development-economics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "financial-economics",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "The Time-Value Engine",
+   "idx": 3,
+   "title": "The NPV Grammar",
+   "ownScore": 0.5,
+   "bestBook": "financial-management-and-corporate-finance",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "financial-management-and-corporate-finance",
+     "score": 1.0
+    },
+    {
+     "book": "community-medicine",
+     "score": 0.5
+    },
+    {
+     "book": "solid-state-physics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "financial-economics",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "The Time-Value Engine",
+   "idx": 5,
+   "title": "1-3b Principle 9: Prices Rise When the Government 3-1a Production Possibilities",
+   "ownScore": 0.29,
+   "bestBook": "foundation-economics",
+   "bestScore": 0.57,
+   "top3": [
+    {
+     "book": "foundation-economics",
+     "score": 0.57
+    },
+    {
+     "book": "thermodynamics",
+     "score": 0.43
+    },
+    {
+     "book": "manufacturing-processes",
+     "score": 0.43
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "financial-economics",
+   "discipline": "economics-commerce",
+   "chapter": 6,
+   "chapterTitle": "Derivatives Foundations",
+   "idx": 3,
+   "title": "The Two Uses Census",
+   "ownScore": 0.67,
+   "bestBook": "molecular-biology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "molecular-biology",
+     "score": 1.0
+    },
+    {
+     "book": "russian",
+     "score": 1.0
+    },
+    {
+     "book": "trigonometry",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "financial-economics",
+   "discipline": "economics-commerce",
+   "chapter": 8,
+   "chapterTitle": "The No-Arbitrage Doorway",
+   "idx": 0,
+   "title": "The YTM Craft",
+   "ownScore": 0.5,
+   "bestBook": "investment-analysis",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "investment-analysis",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.5
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "business-studies",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "The Nature and Forms of Business",
+   "idx": 4,
+   "title": "Private, Public and Global Enterprises",
+   "ownScore": 0.0,
+   "bestBook": "public-administration",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "public-administration",
+     "score": 0.5
+    },
+    {
+     "book": "biotechnology",
+     "score": 0.5
+    },
+    {
+     "book": "cultural-studies",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "business-studies",
+   "discipline": "economics-commerce",
+   "chapter": 4,
+   "chapterTitle": "Management Principles",
+   "idx": 8,
+   "title": "IN THE NEWS: What Should We Do about Climate 12-3a The Benefits Principle",
+   "ownScore": 0.14,
+   "bestBook": "advanced-algebra",
+   "bestScore": 0.57,
+   "top3": [
+    {
+     "book": "advanced-algebra",
+     "score": 0.57
+    },
+    {
+     "book": "world-history",
+     "score": 0.57
+    },
+    {
+     "book": "elementary-algebra",
+     "score": 0.43
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 7
+  },
+  {
+   "book": "business-studies",
+   "discipline": "economics-commerce",
+   "chapter": 7,
+   "chapterTitle": "Controlling and the Business Environment",
+   "idx": 0,
+   "title": "The Control Cycle",
+   "ownScore": 0.5,
+   "bestBook": "thermodynamics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "thermodynamics",
+     "score": 1.0
+    },
+    {
+     "book": "transportation-engineering",
+     "score": 1.0
+    },
+    {
+     "book": "molecular-biology",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "accounting",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "The Foundations and the Equation",
+   "idx": 3,
+   "title": "The Standards Register",
+   "ownScore": 0.5,
+   "bestBook": "business-studies",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "business-studies",
+     "score": 1.0
+    },
+    {
+     "book": "experimental-physics",
+     "score": 1.0
+    },
+    {
+     "book": "analytical-chemistry",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "accounting",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "The Foundations and the Equation",
+   "idx": 5,
+   "title": "Theoretical Framework: Introduction to Accounting",
+   "ownScore": 0.25,
+   "bestBook": "public-administration",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "public-administration",
+     "score": 0.5
+    },
+    {
+     "book": "portuguese",
+     "score": 0.25
+    },
+    {
+     "book": "japanese",
+     "score": 0.25
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "accounting",
+   "discipline": "economics-commerce",
+   "chapter": 5,
+   "chapterTitle": "Bills of Exchange and Rectification",
+   "idx": 4,
+   "title": "The Bank Reconciliation Statement",
+   "ownScore": 0.33,
+   "bestBook": "foundation-economics",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "foundation-economics",
+     "score": 0.67
+    },
+    {
+     "book": "banking",
+     "score": 0.33
+    },
+    {
+     "book": "abstract-algebra",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "accounting",
+   "discipline": "economics-commerce",
+   "chapter": 8,
+   "chapterTitle": "The Analysis and Cash-Flow Doorway",
+   "idx": 5,
+   "title": "Computerised Accounting (optional alternative Part B)",
+   "ownScore": 0.25,
+   "bestBook": "generative-ai-and-llms",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "generative-ai-and-llms",
+     "score": 0.5
+    },
+    {
+     "book": "investment-analysis",
+     "score": 0.5
+    },
+    {
+     "book": "computer-organization-architecture",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "cost-accounting",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "Cost Concepts and the Cost Sheet",
+   "idx": 3,
+   "title": "Centre versus Unit",
+   "ownScore": 0.67,
+   "bestBook": "strength-of-materials",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "strength-of-materials",
+     "score": 1.0
+    },
+    {
+     "book": "engineering-mechanics",
+     "score": 1.0
+    },
+    {
+     "book": "deep-learning",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "cost-accounting",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "Cost Concepts and the Cost Sheet",
+   "idx": 5,
+   "title": "14-2d Spilt Milk and Other Sunk Costs",
+   "ownScore": 0.25,
+   "bestBook": "financial-management-and-corporate-finance",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "financial-management-and-corporate-finance",
+     "score": 0.5
+    },
+    {
+     "book": "veterinary-medicine",
+     "score": 0.25
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.25
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "cost-accounting",
+   "discipline": "economics-commerce",
+   "chapter": 8,
+   "chapterTitle": "Budgets and the Doorway",
+   "idx": 3,
+   "title": "The ABC Doorway",
+   "ownScore": 0.5,
+   "bestBook": "operations-management",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "operations-management",
+     "score": 1.0
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.5
+    },
+    {
+     "book": "modern-physics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "banking",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "The Origins and the Landscape",
+   "idx": 2,
+   "title": "The New Registers",
+   "ownScore": 0.5,
+   "bestBook": "plant-pathology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "plant-pathology",
+     "score": 1.0
+    },
+    {
+     "book": "korean",
+     "score": 1.0
+    },
+    {
+     "book": "advanced-mathematical-foundations",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "banking",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "The Origins and the Landscape",
+   "idx": 5,
+   "title": "Introductory Macroeconomics: Balance of Payments",
+   "ownScore": 0.5,
+   "bestBook": "international-economics",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "international-economics",
+     "score": 0.75
+    },
+    {
+     "book": "macroeconomics",
+     "score": 0.5
+    },
+    {
+     "book": "monetary-economics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "investment-analysis",
+   "discipline": "economics-commerce",
+   "chapter": 6,
+   "chapterTitle": "Derivatives Practice",
+   "idx": 3,
+   "title": "The Use Honesty",
+   "ownScore": 0.5,
+   "bestBook": "plant-genetics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "plant-genetics",
+     "score": 1.0
+    },
+    {
+     "book": "instrument-studies",
+     "score": 1.0
+    },
+    {
+     "book": "graphic-design",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "statistics-for-economics",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "Data and the Descriptive Craft",
+   "idx": 6,
+   "title": "The Statistical Tools in Use",
+   "ownScore": 0.33,
+   "bestBook": "sociology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "sociology",
+     "score": 1.0
+    },
+    {
+     "book": "plant-ecology",
+     "score": 1.0
+    },
+    {
+     "book": "molecular-biology",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "statistics-for-economics",
+   "discipline": "economics-commerce",
+   "chapter": 5,
+   "chapterTitle": "Probability and Sampling for Economists",
+   "idx": 4,
+   "title": "2-2c Why Economists’ Advice Is Not Always Followed",
+   "ownScore": 0.17,
+   "bestBook": "world-history",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "world-history",
+     "score": 0.5
+    },
+    {
+     "book": "ecology",
+     "score": 0.5
+    },
+    {
+     "book": "immunology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "business-mathematics",
+   "discipline": "economics-commerce",
+   "chapter": 2,
+   "chapterTitle": "Equations and Inequalities",
+   "idx": 2,
+   "title": "The Inequality Reading",
+   "ownScore": 0.0,
+   "bestBook": "thermodynamics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "thermodynamics",
+     "score": 1.0
+    },
+    {
+     "book": "geometry",
+     "score": 1.0
+    },
+    {
+     "book": "sociology",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "entrepreneurship",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "The Entrepreneurial Mindset",
+   "idx": 0,
+   "title": "The Definition Honesty",
+   "ownScore": 0.5,
+   "bestBook": "digital-signal-processing",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "digital-signal-processing",
+     "score": 1.0
+    },
+    {
+     "book": "theory-of-computation",
+     "score": 1.0
+    },
+    {
+     "book": "data-mining",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "marketing",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "Foundations: The Value Craft",
+   "idx": 0,
+   "title": "The Definition Craft",
+   "ownScore": 0.5,
+   "bestBook": "elementary-algebra",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "elementary-algebra",
+     "score": 1.0
+    },
+    {
+     "book": "trigonometry",
+     "score": 1.0
+    },
+    {
+     "book": "software-engineering",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "marketing",
+   "discipline": "economics-commerce",
+   "chapter": 7,
+   "chapterTitle": "Services and Relationship Marketing",
+   "idx": 0,
+   "title": "The Four Honesty Terms",
+   "ownScore": 0.67,
+   "bestBook": "atomic-physics",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "atomic-physics",
+     "score": 1.0
+    },
+    {
+     "book": "arabic",
+     "score": 1.0
+    },
+    {
+     "book": "advanced-algebra",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "human-resource-management",
+   "discipline": "economics-commerce",
+   "chapter": 1,
+   "chapterTitle": "HRM Foundations",
+   "idx": 5,
+   "title": "11-3b Some Important Common Resources",
+   "ownScore": 0.25,
+   "bestBook": "environmental-studies",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "environmental-studies",
+     "score": 0.5
+    },
+    {
+     "book": "java-programming",
+     "score": 0.5
+    },
+    {
+     "book": "physical-chemistry",
+     "score": 0.25
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "human-resource-management",
+   "discipline": "economics-commerce",
+   "chapter": 8,
+   "chapterTitle": "Contemporary HR and the Doorway",
+   "idx": 5,
+   "title": "17-2e Why People Sometimes Cooperate",
+   "ownScore": 0.25,
+   "bestBook": "geography",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "geography",
+     "score": 0.5
+    },
+    {
+     "book": "world-history",
+     "score": 0.5
+    },
+    {
+     "book": "genetics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "international-business",
+   "discipline": "economics-commerce",
+   "chapter": 2,
+   "chapterTitle": "Country Differences: The Craft",
+   "idx": 4,
+   "title": "9-2b The Gains and Losses of an Importing Country",
+   "ownScore": 0.25,
+   "bestBook": "parasitology",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "parasitology",
+     "score": 0.5
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.5
+    },
+    {
+     "book": "cultural-studies",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  }
+ ],
+ "thinChapters": [
+  {
+   "book": "financial-economics",
+   "chapter": 4,
+   "chapterTitle": "The CAPM and Its Register",
+   "plannedLeft": 2
+  }
+ ],
+ "note": "review auto-actions; adjudicate the pending lists; free-scan the books"
+}

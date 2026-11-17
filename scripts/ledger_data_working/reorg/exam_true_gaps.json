@@ -1,0 +1,1194 @@
+[
+ {
+  "ledger": "arts_music_exams",
+  "exam": "ugc-net-visual-arts",
+  "topic": "Unit III: Traditional medium, materials and techniques and their application in all disciplines of visual expression (carving and casting processes; impasto, glazing; intaglio/relief print; fresco; preparation of ground for murals, wasli for miniatures)",
+  "oldBook": "sculpture",
+  "oldScore": 0.17,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "ugc-net-visual-arts",
+  "topic": "Elective IV: Printmaking (Graphic Art)",
+  "oldBook": "graphic-design",
+  "oldScore": 0.5,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "ugc-net-visual-arts",
+  "topic": "Elective V: Sculpture",
+  "oldBook": "sculpture",
+  "oldScore": 0.5,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "ugc-net-music",
+  "topic": "Karnataka Music Unit VI: Historical perspective of music — contributions of scholars, musicologists, musical concepts in treatises",
+  "oldBook": "music-theory-notation",
+  "oldScore": 0.45,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "ugc-net-music",
+  "topic": "Karnataka Music Unit IX: Contribution of composers/performers to music, Indian and western (Tevaram, Alwars, Purandara Dasa, the music trinity etc.)",
+  "oldBook": "classical-dance",
+  "oldScore": 0.29,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "ugc-net-music",
+  "topic": "Karnataka Music Unit X: Prominent Banis, music training, education and propagation (gurukula sampradaya, institutional training)",
+  "oldBook": "music-theory-notation",
+  "oldScore": 0.27,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "ugc-net-music",
+  "topic": "Rabindra Sangeet Units V-X: Applied Theory (ragas, talas, kirtana, baul); historical perspective of music (Tagore and eminent personalities); composition forms and their evolution (Geetanjali and song offerings); music instruments of India; contribution of scholars/performers and their textual traditions; gharana and institutionalised system of music",
+  "oldBook": "music-composition",
+  "oldScore": 0.19,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "nata",
+  "topic": "Part A — Drawing & Composition Test (80 marks, offline): creativity and imagination; visual composition; perspective drawing; proportion and scale",
+  "oldBook": "drawing",
+  "oldScore": 0.36,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "nata",
+  "topic": "Part A — composition and colour application; sketching of scenes and environments",
+  "oldBook": "music-composition",
+  "oldScore": 0.33,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "nata",
+  "topic": "Part A — 3D visualisation and object structuring; perspective drawing (1-point and 2-point); memory drawing and creative composition",
+  "oldBook": "drawing",
+  "oldScore": 0.56,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "nata",
+  "topic": "Part B — Aptitude & Mathematics (120 marks, CBT, MCQ and NCQ): logical reasoning, visual reasoning, design sensitivity, numerical ability",
+  "oldBook": "illustration",
+  "oldScore": 0.14,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "nata",
+  "topic": "Part B — aptitude core areas: logical reasoning (series, coding-decoding), visual reasoning (2D-3D transformation), architectural awareness, general awareness (environment, culture), design sensitivity, language interpretation",
+  "oldBook": "illustration",
+  "oldScore": 0.17,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "uceed",
+  "topic": "Part-A: Visualization and spatial reasoning — ability to visualise and transform 2D shapes and 3D objects and their spatial relationships",
+  "oldBook": "colour-theory",
+  "oldScore": 0.11,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "uceed",
+  "topic": "Part-A: Practical and scientific knowledge — know-how of scientific principles and everyday objects",
+  "oldBook": "colour-theory",
+  "oldScore": 0.12,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "uceed",
+  "topic": "Part-A: Observation and design sensitivity — capacity to detect concealed properties in daily life and think critically about them; attention to detail, classification, analysis, inference and prediction",
+  "oldBook": "typography",
+  "oldScore": 0.16,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "uceed",
+  "topic": "Part-A: Analytical and logical reasoning — ability to analyse qualitative and quantitative information",
+  "oldBook": "music-theory-notation",
+  "oldScore": 0.0,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "uceed",
+  "topic": "Part-A: Creativity — grasp of verbal and non-verbal analogies, metaphors, signs and symbols",
+  "oldBook": "illustration",
+  "oldScore": 0.12,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "uceed",
+  "topic": "Part-B: Drawing — ability to draw products, people or scenes in proportion with good line quality, composition, perspective and shading",
+  "oldBook": "drawing",
+  "oldScore": 0.31,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "uceed",
+  "topic": "Part-B: Design aptitude — capability to practically and appropriately respond to problems/situations with ingenuity and empathy",
+  "oldBook": "graphic-design",
+  "oldScore": 0.2,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "nid-dat",
+  "topic": "Stage 1 — DAT Prelims: paper-and-pencil/pen test; questions may involve text and visuals; question paper in English only (official handbook statement)",
+  "oldBook": "illustration",
+  "oldScore": 0.13,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "nid-dat",
+  "topic": "Stage 2 — DAT Mains, part 1: Studio Sensitivity Test",
+  "oldBook": "music-production",
+  "oldScore": 0.17,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "nid-dat",
+  "topic": "Prelims typical areas (from recent papers, mirror): general and design awareness — current affairs, Indian art and culture, materials, famous products, logos and designers",
+  "oldBook": "interior-design",
+  "oldScore": 0.12,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "nid-dat",
+  "topic": "Prelims typical areas (mirror): reasoning and visual ability — cube folding, mirror images, pattern series, counting figures, coding-decoding, directions",
+  "oldBook": "illustration",
+  "oldScore": 0.12,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "nid-dat",
+  "topic": "Prelims typical areas (mirror): basic arithmetic — seating arrangement, Venn diagrams and simple number questions",
+  "oldBook": "music-theory-notation",
+  "oldScore": 0.25,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "nid-dat",
+  "topic": "Prelims typical areas (mirror): drawing and design — drawing a scene from a given viewpoint, storyboards, posters, product ideas and redesign for specific users",
+  "oldBook": "architecture",
+  "oldScore": 0.12,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "cbse-fine-arts",
+  "topic": "Sculpture practical Class XI-XII: Modeling in Relief (clay or plaster of Paris); Modeling in Round; Portfolio Assessment (folk-art sculpture pieces included)",
+  "oldBook": "sculpture",
+  "oldScore": 0.25,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "cbse-fine-arts",
+  "topic": "Applied Art (Commercial Art) practical Class XI: Drawing (still-life and nature); Lettering (Roman and Devanagari scripts, typefaces and sizes) and Layout; Portfolio Assessment",
+  "oldBook": "digital-art",
+  "oldScore": 0.22,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "cbse-fine-arts",
+  "topic": "Applied Art (Commercial Art) practical Class XII: Illustration (techniques of illustration supported by drawing from life and outdoor sketching); Poster (poster with specified data and slogan in two or three colours); Portfolio Assessment",
+  "oldBook": "digital-art",
+  "oldScore": 0.32,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "a-levels-music",
+  "topic": "Paper 1 Listening — Section A: Compositional Techniques and Performance Practice (aural perception, music literacy and applied contextual understanding in relation to the set works)",
+  "oldBook": "vocal-music",
+  "oldScore": 0.27,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "a-levels-music",
+  "topic": "Paper 1 Listening — Section B: Understanding Music (musical understanding, including compositional techniques and their effects, in the set works)",
+  "oldBook": "vocal-music",
+  "oldScore": 0.3,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "a-levels-music",
+  "topic": "Paper 1 Listening — Section C: Connecting Music (wider knowledge of musical genres and styles beyond the set works)",
+  "oldBook": "music-history",
+  "oldScore": 0.36,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "a-levels-music",
+  "topic": "Component 2 Practical Music — performing (6-10 minute performance)",
+  "oldBook": "music-theory-notation",
+  "oldScore": 0.33,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "a-levels-music",
+  "topic": "Component 3 Extended Performance — 15-20 minute performance plus 1000-1500-word research report",
+  "oldBook": "rhythm-meter",
+  "oldScore": 0.2,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "a-levels-music",
+  "topic": "Component 4 Extended Composition — 6-8 minute composition plus 1000-1500-word research report",
+  "oldBook": "music-composition",
+  "oldScore": 0.2,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "a-levels-music",
+  "topic": "Component 5 Investigating Music — 2500-3000-word essay plus up to 500-word reflective statement",
+  "oldBook": "music-composition",
+  "oldScore": 0.18,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "a-levels-music",
+  "topic": "Core musical activities across components: listening, composing and performing, working with Western notation and connecting a wide variety of music",
+  "oldBook": "music-theory-notation",
+  "oldScore": 0.33,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "ib-visual-arts",
+  "topic": "Comparative Study (CS) — analytical comparison of artworks by different artists from different cultural contexts, examining formal qualities, function, meaning and cultural significance; at HL also a connection to the student's own work",
+  "oldBook": "film-studies",
+  "oldScore": 0.17,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "ib-visual-arts",
+  "topic": "Process Portfolio (PP) — documentation of experimentation, skill-building, critical reflection and range of media across the course",
+  "oldBook": "illustration",
+  "oldScore": 0.25,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "ib-visual-arts",
+  "topic": "Exhibition — a curated selection of resolved artworks with a curatorial rationale explaining choices and connections",
+  "oldBook": "rhythm-meter",
+  "oldScore": 0.1,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "arts_music_exams",
+  "exam": "ib-visual-arts",
+  "topic": "SL (150 hours) and HL (240 hours) follow the same three assessed components, with HL requiring a larger Comparative Study with explicit link to own practice, more Process Portfolio screens covering more media, and a larger Exhibition with fuller rationale",
+  "oldBook": "digital-art",
+  "oldScore": 0.12,
+  "discipline": "arts-music"
+ },
+ {
+  "ledger": "biology_exams",
+  "exam": "gate-xl-q",
+  "topic": "Organization of life",
+  "oldBook": "foundation-biology",
+  "oldScore": 0.5,
+  "discipline": "biology"
+ },
+ {
+  "ledger": "biology_exams",
+  "exam": "gate-xl-q",
+  "topic": "Major histocompatibility complex",
+  "oldBook": "immunology",
+  "oldScore": 0.33,
+  "discipline": "biology"
+ },
+ {
+  "ledger": "biology_exams",
+  "exam": "gate-xl-s",
+  "topic": "Historical Perspective",
+  "oldBook": "foundation-biology",
+  "oldScore": 0.5,
+  "discipline": "biology"
+ },
+ {
+  "ledger": "biology_exams",
+  "exam": "ap-biology",
+  "topic": "Unit 3: Cellular Energetics",
+  "oldBook": "cell-biology",
+  "oldScore": 0.33,
+  "discipline": "biology"
+ },
+ {
+  "ledger": "biology_exams",
+  "exam": "ib-biology",
+  "topic": "B4 Organelles and compartmentalisation",
+  "oldBook": "foundation-biology",
+  "oldScore": 0.5,
+  "discipline": "biology"
+ },
+ {
+  "ledger": "biology_exams",
+  "exam": "ib-biology",
+  "topic": "C4 Chemical signalling",
+  "oldBook": "animal-physiology",
+  "oldScore": 0.5,
+  "discipline": "biology"
+ },
+ {
+  "ledger": "biology_exams",
+  "exam": "ib-biology",
+  "topic": "D10 Homeostasis",
+  "oldBook": "foundation-biology",
+  "oldScore": 0.5,
+  "discipline": "biology"
+ },
+ {
+  "ledger": "biology_exams",
+  "exam": "ib-biology",
+  "topic": "D11 Selection",
+  "oldBook": "genetics",
+  "oldScore": 0.5,
+  "discipline": "biology"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "jee-advanced",
+  "topic": "Isolation of Metals",
+  "oldBook": "foundation-chemistry",
+  "oldScore": 0.0,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "csir-net-chemical",
+  "topic": "Structure and bonding in homo- and heteronuclear molecules, including shapes of molecules (VSEPR theory)",
+  "oldBook": "computational-chemistry",
+  "oldScore": 0.22,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "csir-net-chemical",
+  "topic": "Cages and metal clusters",
+  "oldBook": "organic-chemistry",
+  "oldScore": 0.33,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "csir-net-chemical",
+  "topic": "Principles of stereochemistry",
+  "oldBook": "foundation-chemistry",
+  "oldScore": 0.5,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "csir-net-chemical",
+  "topic": "Aromaticity",
+  "oldBook": "foundation-chemistry",
+  "oldScore": 0.0,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "ib-chemistry",
+  "topic": "Reactivity 1.1 Measuring enthalpy change",
+  "oldBook": "physical-chemistry",
+  "oldScore": 0.5,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "ib-chemistry",
+  "topic": "Reactivity 2.1 How much? The amount of chemical change",
+  "oldBook": "foundation-chemistry",
+  "oldScore": 0.5,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "ib-chemistry",
+  "topic": "Reactivity 2.3 How far? The extent of chemical change",
+  "oldBook": "foundation-chemistry",
+  "oldScore": 0.33,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "a-levels-chemistry",
+  "topic": "Chemical energetics",
+  "oldBook": "foundation-chemistry",
+  "oldScore": 0.5,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "a-levels-chemistry",
+  "topic": "Hydroxy compounds",
+  "oldBook": "organic-chemistry",
+  "oldScore": 0.5,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "a-levels-chemistry",
+  "topic": "Chemical energetics (A Level)",
+  "oldBook": "foundation-chemistry",
+  "oldScore": 0.5,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "a-levels-chemistry",
+  "topic": "Hydroxy compounds (A Level)",
+  "oldBook": "organic-chemistry",
+  "oldScore": 0.5,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Periodic table and trends (electronegativity, electron affinity, ionization energy, atomic and ionic size, melting points, metallic character, reactivity)",
+  "oldBook": "inorganic-chemistry",
+  "oldScore": 0.56,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Use of simple first-order and zeroth-order kinetic rate laws, exponential decay, half-lives",
+  "oldBook": "physical-chemistry",
+  "oldScore": 0.5,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Acidimetry and alkalimetry, acidimetric titration curves, choice and color of indicators for acidimetry",
+  "oldBook": "analytical-chemistry",
+  "oldScore": 0.38,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Basic concepts of light and color, wavelength, frequency, wave numbers, photon energies, Lambert-Beer law",
+  "oldBook": "physical-chemistry",
+  "oldScore": 0.33,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Common reactions of carbon, nitrogen and sulfur oxides (CO, CO2, NO, NO2, N2O4, SO2, SO3)",
+  "oldBook": "inorganic-chemistry",
+  "oldScore": 0.45,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Organic structure-reactivity relations (polarity, electrophilicity, nucleophilicity, inductive effects, relative stability), structure-property relations (boiling point, acidity, basicity); common electrophiles and nucleophiles",
+  "oldBook": "organic-chemistry",
+  "oldScore": 0.58,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Hybridization and geometry at carbon and other centers",
+  "oldBook": "inorganic-chemistry",
+  "oldScore": 0.5,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Isomerism (constitutional, configuration, conformation, tautomerism)",
+  "oldBook": "organic-chemistry",
+  "oldScore": 0.4,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Stereochemistry (E/Z, cis/trans isomers, chirality, optical activity, Cahn-Ingold-Prelog system, Fischer projections, D/L); cyclohexane conformations",
+  "oldBook": "organic-chemistry",
+  "oldScore": 0.27,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Electrophilic substitution: substitution on aromatic rings, influence of substituents on the reactivity and regioselectivity, electrophilic species",
+  "oldBook": "organic-chemistry",
+  "oldScore": 0.56,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Elimination: E1 and E2 reactions at sp3 carbon centers, stereochemistry, acid-base catalysis, common leaving groups",
+  "oldBook": "organic-chemistry",
+  "oldScore": 0.5,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Oxidations and reductions: switching between the different oxidation levels of common functional groups",
+  "oldBook": "organic-chemistry",
+  "oldScore": 0.57,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Simple polymers and their preparation (polystyrene, polyethylene, polyamides, polyesters); polymers and monomers, chain polymerizations, polyaddition and polycondensation",
+  "oldBook": "industrial-chemistry",
+  "oldScore": 0.17,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Carbohydrates: open chain and cyclic forms; structures of glucose and fructose",
+  "oldBook": "organic-chemistry",
+  "oldScore": 0.38,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Hydrophilic and hydrophobic groups, micelle and bilayer formation",
+  "oldBook": "foundation-chemistry",
+  "oldScore": 0.17,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Laboratory skills expected to be known by all participants (heating and reflux, mass and volume measurement, preparation and dilution of solutions, titrations, pH measurement, filtration, drying of precipitates, instrument operation, graphing and analysis of experimental data)",
+  "oldBook": "analytical-chemistry",
+  "oldScore": 0.26,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "chemistry_exams",
+  "exam": "icho",
+  "topic": "Fields of advanced difficulty releasable only via the annual preparatory problems (inorganic stereochemistry, solid state structures and Bragg's law, crystal field theory, thermodynamic cycles, Latimer/Frost/Pourbaix diagrams, advanced kinetics and kinetic theory, phase diagrams, advanced stereochemistry and stereoselective synthesis, pericyclic reactions, advanced polymers, saccharides, protein structure and enzymes, complex solubility, quantum mechanics, spectroscopy MS/IR/NMR; practical: TLC, column chromatography, extraction, recrystallization, distillation, viscometry)",
+  "oldBook": "physical-chemistry",
+  "oldScore": 0.4,
+  "discipline": "chemistry"
+ },
+ {
+  "ledger": "ecf_exams",
+  "exam": "cuet-ug-301",
+  "topic": "Reconstitution of a Partnership Firm",
+  "oldBook": "financial-management-and-corporate-finance",
+  "oldScore": 0.33,
+  "discipline": "economics-commerce"
+ },
+ {
+  "ledger": "ecf_exams",
+  "exam": "ncert-accountancy-12",
+  "topic": "Reconstitution and Dissolution of Partnership Firms",
+  "oldBook": "financial-management-and-corporate-finance",
+  "oldScore": 0.25,
+  "discipline": "economics-commerce"
+ },
+ {
+  "ledger": "ecf_exams",
+  "exam": "ncert-accountancy-12",
+  "topic": "Computerised Accounting (optional alternative Part B)",
+  "oldBook": "accounting",
+  "oldScore": 0.5,
+  "discipline": "economics-commerce"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-civil",
+  "topic": "Paper-I: Structural Analysis — free and forced vibrations of single- and multi-degree-freedom systems; suspended cables; concepts and use of computer aided design",
+  "oldBook": "structural-engineering",
+  "oldScore": 0.41,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-civil",
+  "topic": "Paper-I: Design of Concrete and Masonry Structures — principles of prestressed concrete design including materials and methods; earthquake resistant design of structures; design of masonry structure",
+  "oldBook": "structural-engineering",
+  "oldScore": 0.55,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-civil",
+  "topic": "Paper-II: Hydraulic Machines and Hydro Power — various pumps, air vessels, hydraulic turbines: types, classifications and performance parameters; power house: classification and layout, storage, pondage, control of supply",
+  "oldBook": "hydraulics",
+  "oldScore": 0.37,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-civil",
+  "topic": "Paper-II: Hydrology — hydrological cycle, ground water hydrology, well hydrology and related data analysis; streams and their gauging; river morphology; flood, drought and their management; capacity of reservoirs",
+  "oldBook": "water-resources-engineering",
+  "oldScore": 0.56,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-civil",
+  "topic": "Paper-II: Geo-technical Engineering and Foundation Engineering",
+  "oldBook": "geotechnical-engineering",
+  "oldScore": 0.5,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-civil",
+  "topic": "Paper-II: Geo-technical Engineering — soil exploration: planning and methods; properties of soil, classification, various tests and inter-relationships; permeability and seepage; compressibility, consolidation and shearing resistance; earth pressure theories and stress distribution in soil; properties and uses of geo-synthetics",
+  "oldBook": "geotechnical-engineering",
+  "oldScore": 0.58,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-civil",
+  "topic": "Paper-II: Surveying — classification of surveys, various methodologies, instruments and analysis of measurement of distances, elevation and directions; field astronomy, global positioning system; map preparation; photogrammetry; remote sensing concepts; survey layout for culverts, canals, bridges, road/railway alignment and buildings; setting out of curves",
+  "oldBook": "surveying-and-geomatics",
+  "oldScore": 0.42,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-civil",
+  "topic": "Paper-II: Transportation — tunneling: alignment, methods of construction, disposal of muck, drainage, lighting and ventilation",
+  "oldBook": "transportation-engineering",
+  "oldScore": 0.4,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-mechanical",
+  "topic": "Paper-I: Refrigeration and Air conditioning — vapour compression refrigeration, refrigerants and working cycles, compressors, condensers, evaporators and expansion devices; other refrigeration systems (vapour absorption, vapour jet, thermo-electric, vortex tube); psychrometric properties and processes, comfort chart, comfort and industrial air conditioning, load calculations and heat pumps",
+  "oldBook": "industrial-engineering",
+  "oldScore": 0.13,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-mechanical",
+  "topic": "Paper-I: Turbo Machinery — reciprocating and rotary pumps; Pelton wheel, Kaplan and Francis turbines, velocity diagrams, impulse and reaction principles; steam and gas turbines; theory of jet propulsion — pulse jet and ram jet engines; reciprocating and rotary compressors: theory and applications",
+  "oldBook": "theory-of-machines",
+  "oldScore": 0.32,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-mechanical",
+  "topic": "Paper-I: Power Plant Engineering — Rankine and Brayton cycles with regeneration and reheat; fuels and their properties, flue gas analysis; boilers; steam turbines; condensers, air ejectors, electrostatic precipitators and cooling towers: theory, design, types and applications",
+  "oldBook": "structural-engineering",
+  "oldScore": 0.15,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-mechanical",
+  "topic": "Paper-II: Maintenance — failure concepts and characteristics, reliability, failure analysis; machine vibration, data acquisition, fault detection, vibration monitoring; field balancing of rotors; noise monitoring; wear and debris analysis; signature analysis; NDT techniques in condition monitoring",
+  "oldBook": "theory-of-machines",
+  "oldScore": 0.17,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-mechanical",
+  "topic": "Paper-II: Mechatronics — microprocessors and microcontrollers: architecture, programming, I/O, computer interfacing; programmable logic controller; sensors and actuators (piezoelectric accelerometer, Hall effect sensor, optical encoder, resolver, inductosyn, pneumatic and hydraulic actuators, stepper motor); control systems: mathematical modelling of physical systems, control signals, controllability and observability",
+  "oldBook": "control-systems",
+  "oldScore": 0.34,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-electrical",
+  "topic": "Paper-I: Electrical Materials — electrical engineering materials, crystal structures and defects, ceramic materials, insulating materials; magnetic materials: basics, properties and applications; ferrites, ferro-magnetic materials and components; basics of solid state physics, conductors; photo-conductivity; basics of nano materials and superconductors",
+  "oldBook": "materials-science",
+  "oldScore": 0.5,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-electronics",
+  "topic": "Paper-I: Basic Electrical Engineering — DC circuits: Ohm's and Kirchhoff's laws, mesh and nodal analysis, circuit theorems; electromagnetism, Faraday's and Lenz's laws, induced EMF and its uses; single-phase AC circuits; transformers, efficiency; basics of DC machines, induction machines and synchronous machines; electrical power sources: hydroelectric, thermal, nuclear, wind, solar; basics of batteries and their uses",
+  "oldBook": "circuit-theory-and-network-analysis",
+  "oldScore": 0.42,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-electronics",
+  "topic": "Paper-I: Materials Science — electrical engineering materials; crystal structure and defects; ceramic materials: structures, composites, processing and uses; insulating laminates for electronics; magnetic materials: basics, classification, ferrites, ferro/para-magnetic materials and components; nano materials: basics, preparation, purification, sintering, nano particles and uses; nano-optical/magnetic/electronic materials; superconductivity and uses",
+  "oldBook": "materials-science",
+  "oldScore": 0.52,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-electronics",
+  "topic": "Paper-I: Electronic Measurements and Instrumentation — principles of measurement, accuracy, precision and standards; analog and digital systems for measurement; static/dynamic characteristics of measurement systems, errors, statistical analysis and curve fitting; measurement systems for non-electrical quantities; basics of telemetry; different types of transducers and displays; data acquisition system basics",
+  "oldBook": "electrical-measurements",
+  "oldScore": 0.5,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-electronics",
+  "topic": "Paper-II: Digital communication basics — sampling, quantizing, coding; PCM, DPCM, multiplexing (audio/video); digital modulation: ASK, FSK, PSK; multiple access: TDMA, FDMA, CDMA; optical communication: fibre optics, theory, practice/standards",
+  "oldBook": "analog-and-digital-communication",
+  "oldScore": 0.48,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-electronics",
+  "topic": "Paper-II: Databases and languages — data bases: different types, characteristics and design; transactions and concurrency control; elements of programming languages, typical examples",
+  "oldBook": "machine-design",
+  "oldScore": 0.2,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-electronics",
+  "topic": "Paper-II: VLSI design — principles, MUX/ROM/PLA-based design, Moore and Mealy circuit design; pipeline concepts and functions; design for testability, examples",
+  "oldBook": "vlsi-design",
+  "oldScore": 0.53,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-electronics",
+  "topic": "Paper-II: Communication networks — principles/practices/technologies/uses; OSI model/security; basic packet multiplexed streams/scheduling; cellular networks: types, analysis; protocols (TCP/TCPIP)",
+  "oldBook": "circuit-theory-and-network-analysis",
+  "oldScore": 0.16,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-electronics",
+  "topic": "Paper-II: Microwave and satellite communication — terrestrial/space type LOS systems, block schematics, link calculations, system design",
+  "oldBook": "control-systems",
+  "oldScore": 0.38,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-electronics",
+  "topic": "Paper-II: Communication satellites — orbits, characteristics, systems, uses; fibre-optic communication systems: block schematics, link calculations, system design",
+  "oldBook": "embedded-systems",
+  "oldScore": 0.38,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-general-studies-engineering-aptitude",
+  "topic": "Engineering Aptitude covering Logical reasoning and Analytical ability",
+  "oldBook": "engineering-mechanics",
+  "oldScore": 0.29,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "ese_exams",
+  "exam": "ese-general-studies-engineering-aptitude",
+  "topic": "Information and Communication Technologies (ICT) based tools and their applications in Engineering such as networking, e-governance and technology based education",
+  "oldBook": "analog-and-digital-communication",
+  "oldScore": 0.25,
+  "discipline": "engineering"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-cse-gs",
+  "topic": "GS-II: Social Justice - government policies and interventions for development; development processes and the role of NGOs, SHGs, donors and other stakeholders; welfare schemes for vulnerable sections; social sector services relating to health, education and human resources; poverty and hunger",
+  "oldBook": "environmental-studies",
+  "oldScore": 0.33,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-cse-gs",
+  "topic": "GS-III: Agriculture - major crops and cropping patterns, irrigation systems, storage, transport and marketing of agricultural produce, e-technology in the aid of farmers; direct and indirect farm subsidies and minimum support prices; Public Distribution System and food security; food processing and related industries; land reforms; economics of animal-rearing",
+  "oldBook": "world-history",
+  "oldScore": 0.32,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-cse-gs",
+  "topic": "GS-III: Science and Technology - developments and their applications and effects in everyday life; achievements of Indians in science and technology; indigenisation of technology; awareness in the fields of IT, space, computers, robotics, nanotechnology, biotechnology and intellectual property rights",
+  "oldBook": "cultural-studies",
+  "oldScore": 0.45,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-polity",
+  "topic": "Paper-I: Western Political Thought - Plato, Aristotle, Machiavelli, Hobbes, Locke, J. S. Mill, Marx, Gramsci, Hannah Arendt",
+  "oldBook": "philosophy",
+  "oldScore": 0.54,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-polity",
+  "topic": "Paper-I: Federalism - constitutional provisions; changing nature of centre-state relations; integrationist tendencies and regional aspirations; inter-state disputes",
+  "oldBook": "international-relations",
+  "oldScore": 0.43,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-polity",
+  "topic": "Paper-I: Planning and Economic Development - Nehruvian and Gandhian perspectives; role of planning and the public sector; Green Revolution, land reforms and agrarian relations; liberalisation and economic reforms",
+  "oldBook": "geography",
+  "oldScore": 0.56,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-polity",
+  "topic": "Paper-II: State in Comparative Perspective - changing nature of the State in capitalist and socialist, advanced industrial and developing societies",
+  "oldBook": "anthropology",
+  "oldScore": 0.27,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-polity",
+  "topic": "Paper-II: Indian Foreign Policy - determinants and institutions of policy-making; continuity and change",
+  "oldBook": "sociology",
+  "oldScore": 0.5,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-polity",
+  "topic": "Paper-II: India and South Asia - SAARC and regional co-operation; India's 'Look East' policy; impediments to regional co-operation",
+  "oldBook": "art-history",
+  "oldScore": 0.4,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-anthropology",
+  "topic": "Paper-I 3. Economic Organization (formalist-substantivist debate; principles of production, distribution and exchange in hunting-gathering, fishing, pastoral, horticultural and agricultural communities; globalisation and indigenous economic systems)",
+  "oldBook": "geography",
+  "oldScore": 0.26,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-anthropology",
+  "topic": "Paper-I 4. Political Organization and Social Control (band, tribe, chiefdom, kingdom and state; power, authority and legitimacy; law and justice in simple societies)",
+  "oldBook": "political-science",
+  "oldScore": 0.5,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-anthropology",
+  "topic": "Paper-I 5. Religion (anthropological approaches; monotheism and polytheism; sacred and profane; myths and rituals; animism, animatism, fetishism, naturism and totemism; religion, magic and science; magico-religious functionaries)",
+  "oldBook": "anthropology",
+  "oldScore": 0.37,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-anthropology",
+  "topic": "Paper-I 9. Human Genetics (methods and applications; Mendelian genetics in man; genetic polymorphism and selection; chromosomal aberrations; race and racism; ecological anthropology - bio-cultural adaptations; epidemiological anthropology)",
+  "oldBook": "anthropology",
+  "oldScore": 0.56,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-anthropology",
+  "topic": "Paper-I 10. Concept of Human Growth and Development (stages of growth; factors affecting growth; ageing and senescence; somatotypes; methodologies for growth studies)",
+  "oldBook": "law-and-legal-studies",
+  "oldScore": 0.5,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-anthropology",
+  "topic": "Paper-I 11. Relevance of Menarche, Menopause and Other Bio-events to Fertility; Demographic Theories; Factors Influencing Fecundity, Fertility, Natality and Mortality",
+  "oldBook": "ethics",
+  "oldScore": 0.08,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-anthropology",
+  "topic": "Paper-I 12. Applications of Anthropology (anthropology of sports, nutritional anthropology, design of defence and other equipment, forensic anthropology, applied human genetics - paternity diagnosis, genetic counselling, eugenics, DNA technology, serogenetics and cytogenetics)",
+  "oldBook": "anthropology",
+  "oldScore": 0.21,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-anthropology",
+  "topic": "Paper-II 1. Evolution of the Indian Culture and Civilization (prehistoric and protohistoric cultures; pre-Harappan, Harappan and post-Harappan; palaeo-anthropological evidences from India; ethno-archaeology in India)",
+  "oldBook": "indian-history",
+  "oldScore": 0.53,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-anthropology",
+  "topic": "Paper-II 3. Traditional Indian Social System and Caste (Varnashram, Purushartha, Karma, Rina and Rebirth; theories of the origin of the caste system; dominant caste and caste mobility; jajmani system; tribe-caste continuum; sacred complex; impact of Buddhism, Jainism, Islam and Christianity)",
+  "oldBook": "sociology",
+  "oldScore": 0.33,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-anthropology",
+  "topic": "Paper-II 4. Emergence, Growth and Development of Anthropology in India (contributions of 18th-20th century scholar-administrators and of Indian anthropologists to tribal and caste studies)",
+  "oldBook": "law-and-legal-studies",
+  "oldScore": 0.25,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-anthropology",
+  "topic": "Paper-II 5. Indian Village, Minorities and Socio-Cultural Change (Indian village as a social system; agrarian relations; impact of globalisation on villages; linguistic and religious minorities; Sanskritization, Westernization, Modernization; inter-play of little and great traditions; Panchayati Raj and social change; media and social change)",
+  "oldBook": "sociology",
+  "oldScore": 0.48,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-anthropology",
+  "topic": "Paper-II 6. Tribal Situation in India (bio-genetic variability and socio-economic characteristics; problems of tribal communities - land alienation, poverty, indebtedness, literacy, employment, health and nutrition; impact of developmental projects, forest policy, urbanisation and industrialisation on tribals)",
+  "oldBook": "geography",
+  "oldScore": 0.31,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-anthropology",
+  "topic": "Paper-II 7. Exploitation and Deprivation of Scheduled Castes, Scheduled Tribes and Other Backward Classes; constitutional safeguards; ethnicity and ethnic conflicts; regionalism and demand for autonomy; social change among tribes during colonial and post-independent India",
+  "oldBook": "sociology",
+  "oldScore": 0.39,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "upsc-optional-anthropology",
+  "topic": "Paper-II 9. History of Administration of Tribal Areas, Tribal Policies and Programmes of Tribal Development (concept of PTGs; role of NGOs; role of anthropology in tribal and rural development; contributions to the understanding of regionalism, communalism and ethnic and political movements)",
+  "oldBook": "political-science",
+  "oldScore": 0.35,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "ugc-net-history",
+  "topic": "Unit VIII: Colonial Economy and Indian Society in Transition (changing composition and direction of trade; commercialisation of agriculture; decline of industries; economic drain; famines and epidemics; the new education; Indian Renaissance; women's question; printing press and public opinion)",
+  "oldBook": "sociology",
+  "oldScore": 0.39,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "ugc-net-history",
+  "topic": "Unit X: Historical Method, Research, Methodology and Historiography (scope and importance of history; objectivity and bias; causation; research methodology and hypothesis; trends in historical research; Indian and western historiography; thesis writing and plagiarism)",
+  "oldBook": "philosophy",
+  "oldScore": 0.26,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "ap-world-history",
+  "topic": "Unit 8: Cold War and Decolonization",
+  "oldBook": "world-history",
+  "oldScore": 0.5,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "clat",
+  "topic": "Logical Reasoning (analytical and logical ability; analogy; blood relations; calendars; clocks; coding and decoding; seating and linear/matrix arrangements; logical sequence; premises, assumptions and conclusions; puzzles; binary logic; diagrams; data interpretation - pie charts)",
+  "oldBook": "law-and-legal-studies",
+  "oldScore": 0.33,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "humanities_exams",
+  "exam": "clat",
+  "topic": "Quantitative Techniques (Class 10 elementary mathematics, tested through sets of facts, graphs or other diagrammatic representations of numerical information)",
+  "oldBook": "sociology",
+  "oldScore": 0.36,
+  "discipline": "humanities"
+ },
+ {
+  "ledger": "medical_exams",
+  "exam": "fmge",
+  "topic": "Anesthesia",
+  "oldBook": "anatomy",
+  "oldScore": 0.0,
+  "discipline": "medical-sciences"
+ },
+ {
+  "ledger": "medical_exams",
+  "exam": "fmge",
+  "topic": "Dermatology and Sexually Transmitted Diseases",
+  "oldBook": "medical-physiology",
+  "oldScore": 0.25,
+  "discipline": "medical-sciences"
+ },
+ {
+  "ledger": "medical_exams",
+  "exam": "nclex-rn",
+  "topic": "Physiological Integrity",
+  "oldBook": "medical-physiology",
+  "oldScore": 0.5,
+  "discipline": "medical-sciences"
+ },
+ {
+  "ledger": "medical_exams",
+  "exam": "inc-bsc",
+  "topic": "Semester I: Biochemistry",
+  "oldBook": "medical-biochemistry",
+  "oldScore": 0.5,
+  "discipline": "medical-sciences"
+ },
+ {
+  "ledger": "medical_exams",
+  "exam": "inc-bsc",
+  "topic": "Semester I: Microbiology",
+  "oldBook": "pathology",
+  "oldScore": 0.5,
+  "discipline": "medical-sciences"
+ },
+ {
+  "ledger": "medical_exams",
+  "exam": "inc-bsc",
+  "topic": "Semester III: Pathology",
+  "oldBook": "medical-physiology",
+  "oldScore": 0.5,
+  "discipline": "medical-sciences"
+ },
+ {
+  "ledger": "medical_exams",
+  "exam": "inc-bsc",
+  "topic": "Semester IV: Pharmacology",
+  "oldBook": "medical-physiology",
+  "oldScore": 0.5,
+  "discipline": "medical-sciences"
+ },
+ {
+  "ledger": "medical_exams",
+  "exam": "inc-bsc",
+  "topic": "Semester IV: Genetics",
+  "oldBook": "medical-biochemistry",
+  "oldScore": 0.5,
+  "discipline": "medical-sciences"
+ },
+ {
+  "ledger": "medical_exams",
+  "exam": "inc-bsc",
+  "topic": "Semester IV: Communication and Educational Technology",
+  "oldBook": "internal-medicine",
+  "oldScore": 0.25,
+  "discipline": "medical-sciences"
+ },
+ {
+  "ledger": "medical_exams",
+  "exam": "vci-bvsc",
+  "topic": "Veterinary Anatomy (Gross Anatomy, Histology and Embryology, Splanchnology)",
+  "oldBook": "anatomy",
+  "oldScore": 0.33,
+  "discipline": "medical-sciences"
+ },
+ {
+  "ledger": "medical_exams",
+  "exam": "vci-bvsc",
+  "topic": "Veterinary Public Health and Epidemiology (Milk and Meat Hygiene, Food Safety, Zoonoses, Abattoir Practice)",
+  "oldBook": "veterinary-medicine",
+  "oldScore": 0.58,
+  "discipline": "medical-sciences"
+ },
+ {
+  "ledger": "medical_exams",
+  "exam": "vci-bvsc",
+  "topic": "Veterinary Clinical Medicine (including Clinical Biochemistry and Laboratory Diagnosis)",
+  "oldBook": "medical-biochemistry",
+  "oldScore": 0.57,
+  "discipline": "medical-sciences"
+ },
+ {
+  "ledger": "medical_exams",
+  "exam": "mcat",
+  "topic": "CARS: Reading Comprehension (humanities and social sciences passages)",
+  "oldBook": "clinical-immunology",
+  "oldScore": 0.29,
+  "discipline": "medical-sciences"
+ },
+ {
+  "ledger": "medical_exams",
+  "exam": "mcat",
+  "topic": "Scientific Inquiry and Reasoning Skills: Knowledge of Scientific Concepts and Principles",
+  "oldBook": "pharmacology",
+  "oldScore": 0.14,
+  "discipline": "medical-sciences"
+ },
+ {
+  "ledger": "medical_exams",
+  "exam": "mcat",
+  "topic": "Scientific Inquiry and Reasoning Skills: Reasoning about the Design and Execution of Research",
+  "oldBook": "forensic-medicine",
+  "oldScore": 0.12,
+  "discipline": "medical-sciences"
+ },
+ {
+  "ledger": "physics_exams",
+  "exam": "ib-physics",
+  "topic": "E.5 Fusion and stars",
+  "oldBook": "nuclear-physics",
+  "oldScore": 0.5,
+  "discipline": "physics"
+ }
+]

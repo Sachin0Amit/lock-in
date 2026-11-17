@@ -38,19 +38,7 @@ const chapters: Chapter[] = [
       'Kinematic Pairs and Chains',
       'The Four-Bar Family and Grashof\u2019s Law',
       'The Slider-Crank and Its Inversions',
-      'Degrees of Freedom by Gruebler',
-    
-      'Maintenance — failure concepts and characteristics, reliability, failure analysis; machine vibration, data acquisition, fault detection, vibration monitoring; field balancing of rotors; noise monitoring; wear and debris analysis; signature analysis; NDT techniques in condition monitoring',
-      'Emitter Characteristics',
-      'Lock-in detection',
-      'Battery characteristics',
-      'Other buses and data links: overview',
-      'Terms and concepts 131 8.12 Coupling coefficient',
-      'Direction of induced e.m.f. 144 speed and number of pole pairs',
-      'Relative permeability 155 Terms and concepts',
-      'Determination of the B/H characteristic',
-      'Simple comparator 509 Terms and concepts',
-      'Machines 703 Summary of important formulae'
+      'Maintenance \u2014 Failure Concepts And Characteristics, Reliability, Failure',
     ],
   },
   {
@@ -63,14 +51,8 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'The Instantaneous-Centre Method',
-      'The Relative-Velocity Method',
       'Velocity Images and Worked Mechanisms',
-    
-      'Turbo Machinery — reciprocating and rotary pumps; Pelton wheel, Kaplan and Francis turbines, velocity diagrams, impulse and reaction principles; steam and gas turbines; theory of jet propulsion — pulse jet and ram jet engines; reciprocating and rotary compressors: theory and applications',
-      'Programmable pulse-width generator',
-      'Step-triggered pulses',
-      'An n-pulse generator',
-      'Using the General Solution Method to Find an 9.3 Translating a Sine Expression to a Cosine'
+      'Turbo Machinery \u2014 Reciprocating And Rotary Pumps; Pelton Wheel, Kaplan And',
     ],
   },
   {
@@ -100,14 +82,6 @@ const chapters: Chapter[] = [
       'Displacement Diagrams and Their Prices',
       'Constructing the Cam Profile',
       'Pressure Angle and Undercutting',
-      'The Source and Emitter Followers',
-      'An Emitter Follower',
-      'Emitter Followers 723 11.3.4 A Final Remark',
-      'The Source Follower 916 Introduction',
-      'Emitter follower',
-      'Emitter follower biasing',
-      'The emitter follower revisited',
-      'Source followers'
     ],
   },
   {
@@ -122,9 +96,6 @@ const chapters: Chapter[] = [
       'The Law of Gearing and the Involute',
       'Tooth Terminology and Interference',
       'Velocity Ratio Bookkeeping',
-      'ST/SC glass-fiber modules',
-      'Calculation of efficiency from the',
-      'Determination of efficiency'
     ],
   },
   {
@@ -136,10 +107,8 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'Simple and Compound Trains',
       'The Epicyclic Craft',
       'Torque in Planetary Drives',
-      'Inverter Implementation 1125 18.1.2 Restoring the Value of VOH to VDD'
     ],
   },
   {
@@ -154,7 +123,6 @@ const chapters: Chapter[] = [
       'Turning-Moment Diagrams and the Flywheel',
       'The Governor Family',
       'Sensitiveness, Stability, Hunting',
-      'The Wilson MOS Mirror'
     ],
   },
   {
@@ -196,13 +164,8 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Natural Frequency by Three Engines',
       'Damping: the Three Regimes',
-      'Forced Vibration and the Magnifier',
       'Isolation and Transmissibility',
       'Critical Speed and Whirling of Shafts',
-      'Determining the 3-dB Frequency',
-      'Finding the 1/f corner frequency',
-      'Frequency-Selective',
-      'Cathode-ray oscilloscope 948 Answers to Exercises'
     ],
   },
 ]

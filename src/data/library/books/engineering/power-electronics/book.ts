@@ -37,26 +37,12 @@ const chapters: Chapter[] = [
       'Switching Priced Against Linear',
       'The Converter Census on One Map',
       'The Frequency Trade-Off',
-    
-      'Drives — basic concepts of adjustable speed DC and AC drives; DC-DC switched mode converters; DC-AC switched mode converters; resonant converters; high frequency inductors and transformers; power supplies',
-      'Advanced Electronics Topics',
-      'The Ideal VTC 1124 as Switches',
-      'Lee De Forest—A Father of the Electronics Age',
-      'Harry Nyquist: A Diverse Electronics',
       'Interlude: inductors as friends',
       'Limitations of FET switches',
       'The 723 regulator',
       'Taxonomy of linear regulator ICs',
       'Lower-dropout regulators',
-      'Converter linearity – a closer look',
-      'Undersampling flash-converter example',
-      'Pros and Cons of ΔΣ oversampling converters',
-      'Some unusual A/D and D/A converters',
-      'D/A converters in practice 504 23.19 Programmable logic and hardware',
-      'R/2R ladder D/A converter 506 description languages',
-      'Summary of important formulae 852 40 Power Electronics',
-      'Regulators and servomechanisms',
-      'Introduction to analogue and electronic'
+      'Dropout voltages compared',
     ],
   },
   {
@@ -72,7 +58,8 @@ const chapters: Chapter[] = [
       'MOSFET and IGBT Niches Priced',
       'Ratings and the Wide-Bandgap Future',
       'Paralleling MOSFETs',
-      'ELEVEN: Programmable Logic Devices'
+      'Current sharing in paralleled BJTs',
+      'The Thyristar Family Named',
     ],
   },
   {
@@ -88,7 +75,6 @@ const chapters: Chapter[] = [
       'The Six-Pulse Arithmetic',
       'Performance Parameters',
       'Filters and the Harmonic Note',
-      'Practical Perspective: Clock for Computer 11.5 Power Calculations in Balanced Three-Phase'
     ],
   },
   {
@@ -102,9 +88,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Firing-Angle Control and Inversion',
       'Three-Phase Controlled Bridges',
-      'Voltage and Current Commutation',
       'Harmonics, Power Factor, Distortion Factor',
-      'D/A converter hardware 502 23.18 Integrated circuit logic gates'
     ],
   },
   {
@@ -135,7 +119,6 @@ const chapters: Chapter[] = [
       'Three-Phase Modes',
       'Sinusoidal PWM Earned',
       'CSI and Applications',
-      'Nanoamp wide-compliance bipolarity current source'
     ],
   },
   {
@@ -151,6 +134,7 @@ const chapters: Chapter[] = [
       'Four-Quadrant DC Drives',
       'V/f and the Flux Honesty',
       'UPS Topologies Priced',
+      'VI: Solid-state relays (triac/SCR output)',
     ],
   },
   {
@@ -166,8 +150,7 @@ const chapters: Chapter[] = [
       'Gate Drives and Isolation',
       'The Thermal Arithmetic',
       'The Doorsteps: Solar, Grid, Drives',
-    
-      'Computer Fundamentals — number systems, Boolean algebra, arithmetic functions; basic architecture, central processing unit, I/O and memory organisation; peripheral devices; data representation and programming; basics of operating system and networking; virtual memory, file systems; elements of'
+      'Operation of the npn Transistor in the',
     ],
   },
 ]

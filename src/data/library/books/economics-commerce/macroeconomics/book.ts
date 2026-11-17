@@ -43,11 +43,7 @@ const chapters: Chapter[] = [
       'The Money-Demand Trio',
       'The LM Groundwork',
       'The Rate Ladder Previewed',
-    
       'Introductory Macroeconomics: Money and Banking',
-      'PART VIII The Data of Macroeconomics',
-      'The Design of the Tax System 227 PART XI The Macroeconomics of Open Economies',
-      '1-3 How the Economy as a Whole Works'
     ],
   },
   {
@@ -64,7 +60,6 @@ const chapters: Chapter[] = [
       'The Thrift Paradox',
       'S and I Balance',
       'The Determination of Income and Employment',
-      '16-3a The Debate over Advertising'
     ],
   },
   {
@@ -110,11 +105,6 @@ const chapters: Chapter[] = [
       'The Welfare Cost',
       'Unemployment\u2019s Census',
       'The Okun Preview',
-      'CASE STUDY: Adam Smith Would Have Loved Uber',
-      'IN THE NEWS: The Case for Toll Roads',
-      'CASE STUDY: Technology Spillovers, Industrial Policy, 12-2 Taxes and Efficiency',
-      'CASE STUDY: Near-Empty Restaurants and Off-Season',
-      'CASE STUDY: The Microsoft Case'
     ],
   },
   {
@@ -130,8 +120,6 @@ const chapters: Chapter[] = [
       'The Sustainability Honesty',
       'Stabilisers Classified',
       'The Deep Doorway Marked',
-      'PART I Introduction 1 2-2 The Economist as Policy Adviser',
-      '17-3b Controversies over Antitrust Policy'
     ],
   },
   {
@@ -177,7 +165,6 @@ const chapters: Chapter[] = [
       'The Pass-Through',
       'The Capital Register',
       'The DSGE Doorway',
-      'On Its Ability to Produce Goods and Services 13 3-1 A Parable for the Modern Economy'
     ],
   },
 ]

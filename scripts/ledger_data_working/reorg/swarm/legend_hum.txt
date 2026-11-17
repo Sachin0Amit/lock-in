@@ -1,0 +1,173 @@
+== world-history
+   1: The Historian’s Craft
+   2: The World Before 1200
+   3: Land-Based Empires
+   4: Networks of Exchange
+   5: Transoceanic Interconnections
+   6: The Atlantic Revolutions
+   7: Industry and Capital
+   8: Nationalism and Imperialism
+   9: The World Wars
+   10: The Cold War and Decolonisation
+   11: Globalisation and the Doorstep
+== indian-history
+   1: The Sources and the Periodisation
+   2: Prehistoric and Harappan India
+   3: The Vedic World and the Second Urbanisation
+   4: From the Mauryas to the Guptas
+   5: The Early Medieval South
+   6: The Delhi Sultanate
+   7: The Mughal Empire
+   8: The Eighteenth Century
+   9: Colonial Rule and the Response
+   10: The Freedom Struggle
+   11: Post-Independence India
+   12: The Culture Thread and the Doorstep
+== political-science
+   1: What Is Politics?
+   2: The Concepts of Political Theory
+   3: Ideologies and the Political Economy
+   4: Democracy and Representation
+   5: Constitutions and Institutions
+   6: The Indian Constitution
+   7: The Indian State at Work
+   8: Identity Politics in India
+   9: Indian Political Thought
+   10: The World Order and the Doorstep
+== international-relations
+   1: The Discipline of IR
+   2: The Theories of IR
+   3: War and Security
+   4: The International History Register
+   5: International Law and Organisation
+   6: The Global Political Economy
+   7: The Environment and Human Security
+   8: India and the World
+   9: The World Order and the Doorstep
+== public-administration
+   1: The Discipline of Public Administration
+   2: The Administrative Thought
+   3: Administrative Behaviour
+   4: The Organisation Theories
+   5: Accountability and Control
+   6: The Indian Administration
+   7: Planning and Financial Administration
+   8: Policy and Implementation
+   9: The Personnel, the Ethics Handshake and the Doorstep
+== law-and-legal-studies
+   1: The Legal Map
+   2: Jurisprudence
+   3: Constitutional Law
+   4: Administrative Law
+   5: The Private-Law Census
+   6: Criminal Law
+   7: International Law
+   8: Legal Reasoning
+   9: The Profession and the ADR
+   10: The Contemporary and the Doorstep
+== sociology
+   1: The Sociological Eye
+   2: The Methods
+   3: The Theorists
+   4: Culture and Socialisation
+   5: Groups, Networks and Organisations
+   6: Stratification
+   7: The Institutional Census
+   8: Change, Movements and Globalisation
+   9: The Indian Social Structure
+   10: Social Change in India and the Doorstep
+== anthropology
+   1: The Four Fields
+   2: The Fieldwork Craft
+   3: The Biological Frame
+   4: Culture and the Individual
+   5: Subsistence and Exchange
+   6: Kinship and Marriage
+   7: Politics, Religion and the Arts
+   8: Stratification, Identity and the Applied Register
+   9: The Indian Anthropology
+   10: The Theory Census and the Doorstep
+== cultural-studies
+   1: The Project of Cultural Studies
+   2: The Linguistic Turn
+   3: Ideology and Power
+   4: The Subject of Culture
+   5: Difference and Representation
+   6: The Media Culture
+   7: Globalisation and Culture
+   8: The Indian Register and the Doorstep
+== psychology
+   1: The Science of Mind
+   2: The Biological Bases
+   3: Sensation and Perception
+   4: Learning
+   5: Memory and Cognition
+   6: Motivation and Emotion
+   7: The Self and Personality
+   8: Development and the Social Register
+   9: Disorders and Wellelling
+   10: The Applications and the Doorstep
+== philosophy
+   1: What Is Philosophy?
+   2: The Logic Base
+   3: Epistemology
+   4: Metaphysics
+   5: The Indian Systems
+   6: The Western Canon: Ancient and Medieval
+   7: The Western Canon: Modern
+   8: The Western Canon: Contemporary
+   9: The Socio-Political Philosophy
+   10: The Applied Close and the Doorstep
+== ethics
+   1: The Ethics and Human Interface
+   2: The Meta Walk
+   3: The Normative Census
+   4: The Applied Census
+   5: Attitude and Values
+   6: Aptitude and Emotional Intelligence
+   7: Ethics in Public Administration
+   8: Probity in Governance
+   9: The Case-Study Craft and the Doorstep
+== geography
+   1: The Geographic Eye
+   2: The Earth and Its Structure
+   3: The Landforms
+   4: The Climate
+   5: The Oceans
+   6: The Soils and the Biomes
+   7: Population and Migration
+   8: Settlements and the Landscapes
+   9: The Economic Geography
+   10: India: The Physical Environment
+   11: India: The Human and Economic Register
+   12: The Synthesis and the Doorstep
+== environmental-studies
+   1: The Multidisciplinary Nature
+   2: The Natural Resources
+   3: Ecosystems
+   4: Biodiversity
+   5: The Pollution Census
+   6: Social Issues and the Environment
+   7: Human Population and the Environment
+   8: The Field Work and the Doorstep
+== archaeology-and-heritage-studies
+   1: The Searches
+   2: The Evidence
+   3: Survey and Excavation
+   4: When? The Dating Engine
+   5: Reading the Record
+   6: The Theory Register
+   7: The Indian Record
+   8: The Heritage Keeping
+   9: The Ethics, the Public and the Doorstep
+== art-history
+   1: The Art Historian’s Eye
+   2: The Ancient World
+   3: The Classical World
+   4: The Medieval and Renaissance Europe
+   5: The Asian Arts
+   6: India: The Ancient Register
+   7: India: The Medieval Register
+   8: India: The Modern Register
+   9: The Americas, Africa and Oceania
+   10: The Modern, the Contemporary and the Doorstep

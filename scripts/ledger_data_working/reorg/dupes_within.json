@@ -1,0 +1,819 @@
+[
+ {
+  "title": "Rolling of an Object Without Net External Force",
+  "members": [
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Force and Newton’s Laws",
+    "idx": 11,
+    "title": "Rolling of an Object Without Net External Force"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Force and Newton’s Laws",
+    "idx": 12,
+    "title": "Rolling of an Object Under Net External Force"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 5,
+    "chapterTitle": "Gravitation at First Pass",
+    "idx": 7,
+    "title": "Of Rolling Object"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Work, Energy and Power",
+    "idx": 9,
+    "title": "Application of Conservation of Mechanical Energy for Finding the Acceleration of Rolling Object"
+   }
+  ]
+ },
+ {
+  "title": "17-1d How the Size of an Oligopoly Affects the Market",
+  "members": [
+   {
+    "book": "foundation-economics",
+    "discipline": "economics-commerce",
+    "chapter": 3,
+    "chapterTitle": "Demand and Supply: First Equilibrium",
+    "idx": 22,
+    "title": "17-1d How the Size of an Oligopoly Affects the Market"
+   },
+   {
+    "book": "foundation-economics",
+    "discipline": "economics-commerce",
+    "chapter": 5,
+    "chapterTitle": "Welfare and Market Failure: First Pass",
+    "idx": 7,
+    "title": "Questions for Review 128 8-1a How a Tax Affects Market Participants"
+   },
+   {
+    "book": "foundation-economics",
+    "discipline": "economics-commerce",
+    "chapter": 9,
+    "chapterTitle": "Government and Policy: First Pass",
+    "idx": 5,
+    "title": "6-2b How Taxes on Buyers Affect Market Outcomes 122 Questions for Review"
+   }
+  ]
+ },
+ {
+  "title": "Stability of Conjugated Diene",
+  "members": [
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Structure and Nomenclature",
+    "idx": 52,
+    "title": "Stability of Conjugated Diene"
+   },
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 3,
+    "chapterTitle": "The Alkenes and Alkynes",
+    "idx": 29,
+    "title": "Stabilities of Conjugated Dienes, Alkynes and Alkenes"
+   },
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 3,
+    "chapterTitle": "The Alkenes and Alkynes",
+    "idx": 34,
+    "title": "Conjugated Diene Polymerisation"
+   }
+  ]
+ },
+ {
+  "title": "Fourth Year: Periodontology",
+  "members": [
+   {
+    "book": "dentistry",
+    "discipline": "medical-sciences",
+    "chapter": 3,
+    "chapterTitle": "The Periodontology Register",
+    "idx": 7,
+    "title": "Fourth Year: Periodontology"
+   },
+   {
+    "book": "dentistry",
+    "discipline": "medical-sciences",
+    "chapter": 5,
+    "chapterTitle": "The Orthodontic, Prosthodontic-and-Oral-Surgery Registers",
+    "idx": 6,
+    "title": "Third/Fourth Year: Oral and Maxillofacial Surgery"
+   },
+   {
+    "book": "dentistry",
+    "discipline": "medical-sciences",
+    "chapter": 6,
+    "chapterTitle": "The Oral-Medicine-and-Public Register",
+    "idx": 4,
+    "title": "Third/Fourth Year: Oral Medicine and Radiology"
+   }
+  ]
+ },
+ {
+  "title": "The Congruence Criteria: SAS, ASA, AAS, SSS, RHS",
+  "members": [
+   {
+    "book": "geometry",
+    "discipline": "mathematics",
+    "chapter": 3,
+    "chapterTitle": "Triangles: Congruence and the Craft of Proof",
+    "idx": 1,
+    "title": "The Congruence Criteria: SAS, ASA, AAS, SSS, RHS"
+   },
+   {
+    "book": "geometry",
+    "discipline": "mathematics",
+    "chapter": 4,
+    "chapterTitle": "Similarity: the Geometry of Proportion",
+    "idx": 2,
+    "title": "The Similarity Criteria: AA, SAS, SSS"
+   }
+  ]
+ },
+ {
+  "title": "Focal Chords and the Parametric Form",
+  "members": [
+   {
+    "book": "coordinate-geometry",
+    "discipline": "mathematics",
+    "chapter": 5,
+    "chapterTitle": "The Parabola",
+    "idx": 1,
+    "title": "Focal Chords and the Parametric Form"
+   },
+   {
+    "book": "coordinate-geometry",
+    "discipline": "mathematics",
+    "chapter": 6,
+    "chapterTitle": "The Ellipse",
+    "idx": 1,
+    "title": "Parametric Form, Chords and Position"
+   }
+  ]
+ },
+ {
+  "title": "Ideals and Quotient Rings",
+  "members": [
+   {
+    "book": "abstract-algebra",
+    "discipline": "mathematics",
+    "chapter": 5,
+    "chapterTitle": "Rings and Ideals",
+    "idx": 2,
+    "title": "Ideals and Quotient Rings"
+   },
+   {
+    "book": "abstract-algebra",
+    "discipline": "mathematics",
+    "chapter": 6,
+    "chapterTitle": "Polynomial Rings and Factorization",
+    "idx": 3,
+    "title": "Quotient Rings and Root Fields"
+   }
+  ]
+ },
+ {
+  "title": "The Queue Family: FIFO, the Deque, the Priority Queue",
+  "members": [
+   {
+    "book": "data-structures",
+    "discipline": "computer-science",
+    "chapter": 4,
+    "chapterTitle": "Stacks and Queues",
+    "idx": 1,
+    "title": "The Queue Family: FIFO, the Deque, the Priority Queue"
+   },
+   {
+    "book": "data-structures",
+    "discipline": "computer-science",
+    "chapter": 6,
+    "chapterTitle": "Heaps and Priority Queues",
+    "idx": 2,
+    "title": "The Priority Queue in Practice"
+   }
+  ]
+ },
+ {
+  "title": "Stress on the Oblique Plane",
+  "members": [
+   {
+    "book": "strength-of-materials",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "Stress: the Concept",
+    "idx": 2,
+    "title": "Stress on the Oblique Plane"
+   },
+   {
+    "book": "strength-of-materials",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Transformation of Stress and Strain",
+    "idx": 0,
+    "title": "Mohr’s Circle for Plane Stress"
+   }
+  ]
+ },
+ {
+  "title": "Designs by the masters: Agilent's accurate DMMs",
+  "members": [
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Design Discipline",
+    "idx": 5,
+    "title": "Designs by the masters: Agilent's accurate DMMs"
+   },
+   {
+    "book": "machine-design",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Static Loading and the Failure Theories",
+    "idx": 5,
+    "title": "Designs by the masters: Agilent's world-class \"multislope\" converters"
+   }
+  ]
+ },
+ {
+  "title": "Materials Science — electrical engineering materials; crystal structure and defects; ceramic materials: structures, composites, processing and uses; insulating laminates for electronics; magnetic materials: basics, classification, ferrites, ferro/para-magnetic materials and components; nano",
+  "members": [
+   {
+    "book": "materials-science",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Materials Worldview",
+    "idx": 3,
+    "title": "Materials Science — electrical engineering materials; crystal structure and defects; ceramic materials: structures, composites, processing and uses; insulating laminates for electronics; magnetic materials: basics, classification, ferrites, ferro/para-magnetic materials and components; nano"
+   },
+   {
+    "book": "materials-science",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Crystal Structures",
+    "idx": 3,
+    "title": "Electrical Materials — electrical engineering materials, crystal structures and defects, ceramic materials, insulating materials; magnetic materials: basics, properties and applications; ferrites, ferro-magnetic materials and components; basics of solid state physics, conductors;"
+   }
+  ]
+ },
+ {
+  "title": "Inductor and Capacitor Duality 198 13.1 Summary of the s-Domain Equivalent",
+  "members": [
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "The Theorem Census",
+    "idx": 5,
+    "title": "Inductor and Capacitor Duality 198 13.1 Summary of the s-Domain Equivalent"
+   },
+   {
+    "book": "circuit-theory-and-network-analysis",
+    "discipline": "engineering",
+    "chapter": 8,
+    "chapterTitle": "Network Functions and Frequency Response",
+    "idx": 8,
+    "title": "The Inductor 184 Domain"
+   }
+  ]
+ },
+ {
+  "title": "Parallel Operation’s Conditions",
+  "members": [
+   {
+    "book": "electrical-machines",
+    "discipline": "engineering",
+    "chapter": 3,
+    "chapterTitle": "Three-Phase Transformers",
+    "idx": 2,
+    "title": "Parallel Operation’s Conditions"
+   },
+   {
+    "book": "electrical-machines",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "Synchronous Machines",
+    "idx": 2,
+    "title": "Power-Angle and Parallel Operation"
+   }
+  ]
+ },
+ {
+  "title": "Functional Transforms 452 15.3 Op Amp Bandpass and Bandreject Filters",
+  "members": [
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 2,
+    "chapterTitle": "Differential and Multistage Amplifiers",
+    "idx": 36,
+    "title": "Functional Transforms 452 15.3 Op Amp Bandpass and Bandreject Filters"
+   },
+   {
+    "book": "analog-electronics",
+    "discipline": "engineering",
+    "chapter": 5,
+    "chapterTitle": "Active Filters",
+    "idx": 7,
+    "title": "Inverse Transforms 460 and Bandreject Filters"
+   }
+  ]
+ },
+ {
+  "title": "The Discrete Sibling Learned",
+  "members": [
+   {
+    "book": "signals-and-systems",
+    "discipline": "engineering",
+    "chapter": 4,
+    "chapterTitle": "The Fourier Series",
+    "idx": 3,
+    "title": "The Discrete Sibling Learned"
+   },
+   {
+    "book": "signals-and-systems",
+    "discipline": "engineering",
+    "chapter": 7,
+    "chapterTitle": "The z-Transform",
+    "idx": 0,
+    "title": "The Discrete Sibling’s ROC"
+   }
+  ]
+ },
+ {
+  "title": "Geo-technical Engineering — soil exploration: planning and methods; properties of soil, classification, various tests and inter-relationships; permeability and seepage; compressibility, consolidation and shearing resistance; earth pressure theories and stress distribution in soil; properties and",
+  "members": [
+   {
+    "book": "geotechnical-engineering",
+    "discipline": "engineering",
+    "chapter": 1,
+    "chapterTitle": "The Soil Idea",
+    "idx": 3,
+    "title": "Geo-technical Engineering — soil exploration: planning and methods; properties of soil, classification, various tests and inter-relationships; permeability and seepage; compressibility, consolidation and shearing resistance; earth pressure theories and stress distribution in soil; properties and"
+   },
+   {
+    "book": "geotechnical-engineering",
+    "discipline": "engineering",
+    "chapter": 10,
+    "chapterTitle": "Deep Foundations and the Synthesis",
+    "idx": 4,
+    "title": "Geo-technical Engineering and Foundation Engineering"
+   }
+  ]
+ },
+ {
+  "title": "The Rise of Indian Nationalism and the Moderates",
+  "members": [
+   {
+    "book": "indian-history",
+    "discipline": "humanities",
+    "chapter": 9,
+    "chapterTitle": "Colonial Rule and the Response",
+    "idx": 3,
+    "title": "The Rise of Indian Nationalism and the Moderates"
+   },
+   {
+    "book": "indian-history",
+    "discipline": "humanities",
+    "chapter": 10,
+    "chapterTitle": "The Freedom Struggle",
+    "idx": 0,
+    "title": "Nationalism’s Engines and the Moderates"
+   }
+  ]
+ },
+ {
+  "title": "Nietzsche, Existentialism and the Analytic Turn",
+  "members": [
+   {
+    "book": "philosophy",
+    "discipline": "humanities",
+    "chapter": 6,
+    "chapterTitle": "The Western Canon: Ancient and Medieval",
+    "idx": 11,
+    "title": "Nietzsche, Existentialism and the Analytic Turn"
+   },
+   {
+    "book": "philosophy",
+    "discipline": "humanities",
+    "chapter": 8,
+    "chapterTitle": "The Western Canon: Contemporary",
+    "idx": 0,
+    "title": "The Analytic Turn"
+   }
+  ]
+ },
+ {
+  "title": "Gerunds, Infinitives and Phrasal Verbs",
+  "members": [
+   {
+    "book": "english",
+    "discipline": "languages",
+    "chapter": 2,
+    "chapterTitle": "The Grammar Core I",
+    "idx": 10,
+    "title": "Gerunds, Infinitives and Phrasal Verbs"
+   },
+   {
+    "book": "english",
+    "discipline": "languages",
+    "chapter": 4,
+    "chapterTitle": "The Vocabulary Craft",
+    "idx": 1,
+    "title": "The Phrasal Verbs and the Collocations"
+   }
+  ]
+ },
+ {
+  "title": "Rocket Propulsion",
+  "members": [
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "What Physics Measures",
+    "idx": 15,
+    "title": "Rocket Propulsion"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Work, Energy and Power",
+    "idx": 30,
+    "title": "Rocket Propulsion 256 Guided Practice"
+   }
+  ]
+ },
+ {
+  "title": "Variation of Binding Energy per Nucleon with Mass Number",
+  "members": [
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 5,
+    "chapterTitle": "Gravitation at First Pass",
+    "idx": 15,
+    "title": "Variation of Binding Energy per Nucleon with Mass Number"
+   },
+   {
+    "book": "foundation-physics",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Work, Energy and Power",
+    "idx": 15,
+    "title": "Binding Energy per Nucleon"
+   }
+  ]
+ },
+ {
+  "title": "1Types of Mechanical Waves",
+  "members": [
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 1,
+    "chapterTitle": "The Molecular Picture",
+    "idx": 12,
+    "title": "1Types of Mechanical Waves"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 3,
+    "chapterTitle": "The Moduli and Elastic Energy",
+    "idx": 15,
+    "title": "Rotation 214 16 Mechanical Waves; Sound"
+   }
+  ]
+ },
+ {
+  "title": "Poiseuille's Formula for Flow of Liquid Through a Capillary Tube",
+  "members": [
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Viscosity and Streamline Flow",
+    "idx": 7,
+    "title": "Poiseuille's Formula for Flow of Liquid Through a Capillary Tube"
+   },
+   {
+    "book": "properties-of-matter",
+    "discipline": "physics",
+    "chapter": 6,
+    "chapterTitle": "Capillarity and Excess Pressure",
+    "idx": 5,
+    "title": "Rise of a Liquid in a Capillary Tube (Ascent Formula)"
+   }
+  ]
+ },
+ {
+  "title": "Boundaries in Matter",
+  "members": [
+   {
+    "book": "electromagnetic-theory",
+    "discipline": "physics",
+    "chapter": 3,
+    "chapterTitle": "Multipoles and Dielectric Matter",
+    "idx": 3,
+    "title": "Boundaries in Matter"
+   },
+   {
+    "book": "electromagnetic-theory",
+    "discipline": "physics",
+    "chapter": 4,
+    "chapterTitle": "Magnetostatics",
+    "idx": 3,
+    "title": "Boundaries in Magnetic Matter"
+   }
+  ]
+ },
+ {
+  "title": "Some Examples of Intermolecular H-Bonding",
+  "members": [
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Matter and Its Purity",
+    "idx": 34,
+    "title": "Some Examples of Intermolecular H-Bonding"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 5,
+    "chapterTitle": "Chemical Bonding at First Pass",
+    "idx": 12,
+    "title": "Consequences of Intermolecular H-Bonding"
+   }
+  ]
+ },
+ {
+  "title": "Help your study and assess how well you have understood the Go to this location in the accompanying e-book to view a",
+  "members": [
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "The Measurement Craft and the Mole",
+    "idx": 192,
+    "title": "Help your study and assess how well you have understood the Go to this location in the accompanying e-book to view a"
+   },
+   {
+    "book": "foundation-chemistry",
+    "discipline": "chemistry",
+    "chapter": 4,
+    "chapterTitle": "The Periodic Table at First Pass",
+    "idx": 19,
+    "title": "Go to this location in the accompanying e-book to view a"
+   }
+  ]
+ },
+ {
+  "title": "The Decreasing Order of Stabilities of Free Radicals",
+  "members": [
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 1,
+    "chapterTitle": "Chemical Thermodynamics",
+    "idx": 16,
+    "title": "The Decreasing Order of Stabilities of Free Radicals"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 6,
+    "chapterTitle": "Chemical Kinetics (the fold)",
+    "idx": 32,
+    "title": "The Decreasing Order of Stabilities of Carbanion"
+   }
+  ]
+ },
+ {
+  "title": "Catalysis: Homogeneous, Heterogeneous and Enzymatic",
+  "members": [
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 6,
+    "chapterTitle": "Chemical Kinetics (the fold)",
+    "idx": 4,
+    "title": "Catalysis: Homogeneous, Heterogeneous and Enzymatic"
+   },
+   {
+    "book": "physical-chemistry",
+    "discipline": "chemistry",
+    "chapter": 9,
+    "chapterTitle": "The Gaseous and Surface Registers",
+    "idx": 3,
+    "title": "Heterogeneous Catalysis"
+   }
+  ]
+ },
+ {
+  "title": "Syn and Anti",
+  "members": [
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 3,
+    "chapterTitle": "The Alkenes and Alkynes",
+    "idx": 20,
+    "title": "Syn and Anti"
+   },
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 9,
+    "chapterTitle": "The Amines and the Nitrogen Register",
+    "idx": 19,
+    "title": "Syn and Anti in Hydrazone, Phenylhydrazone, and Azo Compounds"
+   }
+  ]
+ },
+ {
+  "title": "Reaction of Phenol with HNO2 or (NaNO2 + HCl at 0–5°C)",
+  "members": [
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 6,
+    "chapterTitle": "Alcohols, Phenols and Ethers",
+    "idx": 22,
+    "title": "Reaction of Phenol with HNO2 or (NaNO2 + HCl at 0–5°C)"
+   },
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 7,
+    "chapterTitle": "The Carbonyl Register",
+    "idx": 32,
+    "title": "Reaction of Carbonyl Compound with HNO2 (O=N—OH) or (NaNO2 + HCl)"
+   }
+  ]
+ },
+ {
+  "title": "Reduction with LAH",
+  "members": [
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 7,
+    "chapterTitle": "The Carbonyl Register",
+    "idx": 42,
+    "title": "Reduction with LAH"
+   },
+   {
+    "book": "organic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 8,
+    "chapterTitle": "The Acids and Their Derivatives",
+    "idx": 7,
+    "title": "Reduction of Amides, Oximes, and Azides with LAH: All of Them with LAH give Amines"
+   }
+  ]
+ },
+ {
+  "title": "Main Postulates of VSEPR Theory",
+  "members": [
+   {
+    "book": "inorganic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 2,
+    "chapterTitle": "Bonding’s Inorganic Dress",
+    "idx": 17,
+    "title": "Main Postulates of VSEPR Theory"
+   },
+   {
+    "book": "inorganic-chemistry",
+    "discipline": "chemistry",
+    "chapter": 4,
+    "chapterTitle": "The p-Block: First Families",
+    "idx": 24,
+    "title": "Main Postulates of Werner's Theory"
+   }
+  ]
+ },
+ {
+  "title": "Oxides of phosphorous, arsenic and bismuth",
+  "members": [
+   {
+    "book": "environmental-chemistry",
+    "discipline": "chemistry",
+    "chapter": 3,
+    "chapterTitle": "The Greenhouse and Climate Chemistry",
+    "idx": 10,
+    "title": "Oxides of phosphorous, arsenic and bismuth"
+   },
+   {
+    "book": "environmental-chemistry",
+    "discipline": "chemistry",
+    "chapter": 4,
+    "chapterTitle": "The Water-Pollution Chemistry",
+    "idx": 8,
+    "title": "Arsenic, antimony and bismuth"
+   }
+  ]
+ },
+ {
+  "title": "An Introduction to Metabolism",
+  "members": [
+   {
+    "book": "foundation-biology",
+    "discipline": "biology",
+    "chapter": 1,
+    "chapterTitle": "What Life Is",
+    "idx": 38,
+    "title": "An Introduction to Metabolism"
+   },
+   {
+    "book": "foundation-biology",
+    "discipline": "biology",
+    "chapter": 5,
+    "chapterTitle": "The Two Engines Previewed",
+    "idx": 4,
+    "title": "Assume full responsibility for errors of fact or emphasis. 13 Introduction to Metabolism"
+   }
+  ]
+ },
+ {
+  "title": "The Tools of rDNA Technology",
+  "members": [
+   {
+    "book": "biotechnology",
+    "discipline": "biology",
+    "chapter": 1,
+    "chapterTitle": "The Natural Toolbox",
+    "idx": 5,
+    "title": "The Tools of rDNA Technology"
+   },
+   {
+    "book": "biotechnology",
+    "discipline": "biology",
+    "chapter": 2,
+    "chapterTitle": "Vectors and Cloning",
+    "idx": 4,
+    "title": "The Processes of rDNA Technology"
+   }
+  ]
+ },
+ {
+  "title": "The Barrier Held with Its Cells",
+  "members": [
+   {
+    "book": "histology",
+    "discipline": "medical-sciences",
+    "chapter": 3,
+    "chapterTitle": "The Cardiovascular-and-Respiratory Histology",
+    "idx": 2,
+    "title": "The Barrier Held with Its Cells"
+   },
+   {
+    "book": "histology",
+    "discipline": "medical-sciences",
+    "chapter": 5,
+    "chapterTitle": "The Renal-and-Endocrine Histology",
+    "idx": 0,
+    "title": "The Filtration Barrier Held with Its Cells"
+   }
+  ]
+ },
+ {
+  "title": "Safe and Effective Care Environment",
+  "members": [
+   {
+    "book": "nursing",
+    "discipline": "medical-sciences",
+    "chapter": 1,
+    "chapterTitle": "The Foundation Register",
+    "idx": 4,
+    "title": "Safe and Effective Care Environment"
+   },
+   {
+    "book": "nursing",
+    "discipline": "medical-sciences",
+    "chapter": 4,
+    "chapterTitle": "The Clinical-Nursing Arc",
+    "idx": 12,
+    "title": "Safe and Effective Care Environment: Management of Care"
+   }
+  ]
+ }
+]

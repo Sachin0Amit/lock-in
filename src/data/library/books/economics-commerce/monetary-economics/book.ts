@@ -43,8 +43,6 @@ const chapters: Chapter[] = [
       'Direct versus Intermediated',
       'The Bank\u2019s Ledger Read',
       'The NBFC Register',
-      '10-2c Market-Based Policy 2: Tradable Pollution CASE STUDY: How the Tax Burden Is Distributed',
-      'CASE STUDY: An Illegal Phone Call'
     ],
   },
   {
@@ -131,7 +129,6 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'The UPI Case',
       'The CBDC Register',
       'The Crypto Debate',
       'The Research Doorway',

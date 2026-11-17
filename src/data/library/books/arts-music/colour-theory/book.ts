@@ -43,8 +43,7 @@ const chapters: Chapter[] = [
       'The K-Why Named',
       'The Wheel\u2019s-Limit Priced Straight',
       'The Cylinder Honesty Named',
-    
-      'Part-A: Practical and scientific knowledge — know-how of scientific principles and everyday objects'
+      'Practical And Scientific Knowledge \u2014 Know-how Of Scientific Principles And',
     ],
   },
   {
@@ -60,8 +59,7 @@ const chapters: Chapter[] = [
       'The One-Colour Receipt Priced Straight',
       'The Bias Honesty Cross-Referenced',
       'The More-and-Less Receipt Named',
-    
-      'Part-A: Visualization and spatial reasoning — ability to visualise and transform 2D shapes and 3D objects and their spatial relationships'
+      'Visualization And Spatial Reasoning \u2014 Ability To Visualise And Transform',
     ],
   },
   {
@@ -92,9 +90,6 @@ const chapters: Chapter[] = [
       'The White-and-Black Consequence Priced Straight',
       'The Gamut Register Named',
       'The Corporate Preview Named',
-    
-      'Class XI theory (common to Painting, Graphics, Sculpture and Applied Art) Unit 1: Pre-Historic rock paintings and art of Indus/Sindhu Saraswati Civilization; Buddhist, Jain and Hindu Art',
-      'Indian National Flag; The Bengal School of Painting; The Modern Trends in Indian Art (paintings, graphic prints, sculptures)'
     ],
   },
 ]

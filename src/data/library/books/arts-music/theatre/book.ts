@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Chorus Named',
       'The Catharsis Receipt Named',
       'The Natyashastra Cross-Reference Named',
+      'Unit 2 (common): Folk and Traditional Theatre Forms of India',
     ],
   },
   {
@@ -43,9 +44,6 @@ const chapters: Chapter[] = [
       'The Two Named',
       'The Alone Receipt Named',
       'The Braid Register Named',
-    
-      'Theatre Design and techniques (theatre architecture, stagecraft, theatre management and organisation)',
-      'Theatre Education, Pedagogy and Research'
     ],
   },
   {
@@ -61,8 +59,6 @@ const chapters: Chapter[] = [
       'The Three Named',
       'The Show\u2019s-Keeper Receipt Held',
       'The Tech-Dress Division Fixed by Drill',
-    
-      'Stage 2 — DAT Mains, part 2: In-Person Sensitivity Test'
     ],
   },
   {
@@ -78,6 +74,7 @@ const chapters: Chapter[] = [
       'The Alienation Named',
       'The Oppressed Honesty Named',
       'The See Named',
+      'Drama and its theories \u2014 Indian and Western',
     ],
   },
 ]

@@ -67,7 +67,6 @@ const chapters: Chapter[] = [
       'Curvature and Refraction Priced',
       'Profiles and Cross-Sections',
       'Contours Read Honestly',
-      'Appendix F An Abbreviated Table of Trigonometric Identities'
     ],
   },
   {
@@ -97,8 +96,7 @@ const chapters: Chapter[] = [
       'Simple Curves Set Out',
       'Transitions and the Shift',
       'Vertical Curves Crafted',
-    
-      'Surveying — classification of surveys, various methodologies, instruments and analysis of measurement of distances, elevation and directions; field astronomy, global positioning system; map preparation; photogrammetry; remote sensing concepts; survey layout for culverts, canals, bridges,'
+      'Surveying \u2014 Classification Of Surveys, Various Methodologies, Instruments',
     ],
   },
   {

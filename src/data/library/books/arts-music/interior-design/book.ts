@@ -28,8 +28,7 @@ const chapters: Chapter[] = [
       'The Fit Named',
       'The Universal Named',
       'The Fit-for-All Honesty Held',
-    
-      'Prelims typical areas (from recent papers, mirror): general and design awareness — current affairs, Indian art and culture, materials, famous products, logos and designers'
+      'Prelims Typical Areas (from Recent Papers, Mirror): General And Design',
     ],
   },
   {

@@ -28,19 +28,7 @@ const chapters: Chapter[] = [
       'The Toolchain Census',
       'The Format Discipline',
       'The Precision Honesty',
-    
-      'Structure and bonding in homo- and heteronuclear molecules, including shapes of molecules (VSEPR theory)',
-      'MnF_4 and Mn_2O_7 Exist but MnF_7 Does Not',
-      'MnF4 and Mn2O7 Exists but MnF7 does Not',
-      'Moseley\'s Experiment',
-      'What Does the Negative Electron Energy (En) Mean?',
-      'Copyright 2024 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s)',
-      'Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require it',
-      'Molecular Structure: The VSEPR Model 327 10.9 Vapor Pressure and Changes of State',
-      'Including living graphs, where you can explore the conse',
-      '➤ What do you need to know already?',
-      'Some examples using the VSEPR theory',
-      'Extension of the crystal field theory to allow for some covalency'
+      'Structure And Bonding In Homo- And Heteronuclear Molecules, Including',
     ],
   },
   {
@@ -56,22 +44,6 @@ const chapters: Chapter[] = [
       'The Parameter Honesty',
       'The Minimisation Craft',
       'The Field Families',
-      'Types of Intermolecular Forces and their Characteristics',
-      'Factors Affecting the Magnitude of Crystal Field Splitting Energy',
-      'Comparison Between the Energy Level Diagram, Electronic Configuration and μ_spin Values of Some Complexes by VBT and CFT',
-      'And Z-Average Molecular Masses',
-      'Determination of Molecular Mass of Polymers',
-      'Dispersion Forces or London Forces',
-      'Dipole–Induced Dipole Forces',
-      'Different Types of Molecular Speeds',
-      'For Review 285 | Key Terms 285 | Questions and Exercises 288 9.5 Combining the Localized Electron and Molecular',
-      'Electronegativity 295 10.2 Intermolecular Forces',
-      'Force? 672 19.1 Nuclear Stability and Radioactive Decay',
-      'Malleability and cohesive force',
-      'Determination of Atomic Weights and Molecular Formulas',
-      'Molecular Interpretation of Entrop',
-      'About the Adapting Authors xv 2.13 Summary of Attractive Electric Forces',
-      'Intermolecular Forces 43 Deuterium- and Tritium-Labeled Compounds'
     ],
   },
   {
@@ -87,9 +59,6 @@ const chapters: Chapter[] = [
       'The Hartree-Fock Craft',
       'The Post-HF Register',
       'The DFT Families',
-      'Exceptional Electronic Configuration in 3d Series',
-      'General Electronic Configuration 5f1–14 6d0–1 7s2',
-      'CFSE and Electronic Configuration in Octahedral Complex'
     ],
   },
   {
@@ -105,7 +74,6 @@ const chapters: Chapter[] = [
       'The Thermostat Registers',
       'The Time Honesty',
       'The Trajectory Census',
-      'FOCUS 18 Reaction dynamics'
     ],
   },
   {

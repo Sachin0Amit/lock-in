@@ -28,13 +28,8 @@ const chapters: Chapter[] = [
       'Scales and Fixed Points',
       'Gas Thermometers',
       'Absolute Zero Idea',
-      'More About Coefficient of Thermal Conductivity',
-      'Temperature of the Sun and Solar Constant',
-      'Power of Thin Lens in Case the Medium are Different on Both Sides',
-      'The Heavy Symmetrical Top with One Point Fixed',
-      'Gas Cloud',
-      '12–6 Thermal Expansion 311 19–1 Electric Current',
-      'Thermodynamics 338 20–1 Description of Circuits'
+      'Gas Cloud\u0008',
+      'Reducing input capacitance: bootstrapping the transimpedance amplifier',
     ],
   },
   {
@@ -50,11 +45,8 @@ const chapters: Chapter[] = [
       'Latent Heat Read',
       'The Cooling Curve',
       'Corrections Craft',
-      'Power of a Water-Drawing Pump',
       'Initial Rate of Fall in Temperature (Rate of Cooling)',
-      'Finding Equivalent Capacitance',
-      'BIO Entropy Changes in a Living Organism  664 Inverting an Inverted Image',
-      'BIO Sharks and the “Sixth Sense”  690 BIO Phase Difference, Path Difference, and'
+      'Dependence of Rate of Cooling',
     ],
   },
   {
@@ -70,12 +62,9 @@ const chapters: Chapter[] = [
       'rms Interpretation',
       'Equipartition and DOF',
       'Mean Free Path',
-      'Graphical Interpretation of Integration',
-      'Graphical Interpretation of Work Done',
-      'Quantitative Discussion',
-      'Path Symmetry',
       'Geometrical and Optical Paths',
-      'Free Vibrations of a Linear Triatomic Molecule'
+      'Average Translational Kinetic Energy Per Molecule of Gas',
+      'Avogadro\'s Number',
     ],
   },
   {
@@ -95,24 +84,6 @@ const chapters: Chapter[] = [
   },
   {
     number: 5,
-    slug: 'specific-heats',
-    title: 'Specific Heats of Gases',
-    summary:
-      'The two heat capacities of a gas and the cp-cv = R relation derived; the ratio gamma and its degrees-of-freedom reading; Mayer\u2019s and Clausius\u2019s names tied to the arithmetic; and the adiabatic equation built from gamma.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'cp and cv Defined',
-      'The Relation Derived',
-      'Gamma and DOF',
-      'The Adiabatic Equation',
-      'Reading a Vernier Callipers',
-      'Adiabatic Process',
-      'Adiabatic Invariants'
-    ],
-  },
-  {
-    number: 6,
     slug: 'first-law-and-processes',
     title: 'The First Law and Its Processes',
     summary:
@@ -124,14 +95,30 @@ const chapters: Chapter[] = [
       'Processes on the P-V Plane',
       'Work Integrals',
       'Cycles as Area',
-      'Geometrical Significance of a Definite Integral',
       'Isochoric Process',
       'Isobaric Process',
       'Isothermal Process',
       'Isochoric or Isometric Process',
       'Reversible and Irreversible Processes',
-      'Summary 491 19.5 Kinds of Thermodynamic Processes',
-      'Summary 568 Processes'
+      'Polytropic Process',
+      'Quasi-Static Process',
+      'Adiabatic Process',
+    ],
+  },
+  {
+    number: 6,
+    slug: 'specific-heats',
+    title: 'Specific Heats of Gases',
+    summary:
+      'The two heat capacities of a gas and the cp-cv = R relation derived; the ratio gamma and its degrees-of-freedom reading; Mayer\u2019s and Clausius\u2019s names tied to the arithmetic; and the adiabatic equation built from gamma.',
+    status: 'planned',
+    lessons: [],
+    plannedLessons: [
+      'cp and cv Defined',
+      'The Relation Derived',
+      'Gamma and DOF',
+      'The Adiabatic Equation',
+      'Adiabatic Invariants',
     ],
   },
   {
@@ -147,7 +134,6 @@ const chapters: Chapter[] = [
       'Carnot Derived',
       'Refrigerators and COP',
       'Entropy Introduced',
-      'And Superposition 481 19.3Paths Between Thermodynamic States'
     ],
   },
   {
@@ -160,7 +146,6 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Ideal Failures',
-      'van der Waals Read',
       'The Critical Point',
       'Liquefaction Routes',
     ],
@@ -179,9 +164,11 @@ const chapters: Chapter[] = [
       'Convection Named',
       'The Radiation Register',
       'The Greenhouse Effect and the Radiation Budget',
-      'Kirchhoff’s Rules',
-      '13–4 Convection 329 the Microscopic Level',
-      'Conduction in Metals'
+      'Kirchhoff\'s Law of Radiation',
+      'Temperature of the Sun and Solar Constant',
+      'Emissive Power, Absorptive Power and Emissivity',
+      'More About Coefficient of Thermal Conductivity',
+      'Growth of Ice on Lake',
     ],
   },
   {
@@ -197,8 +184,6 @@ const chapters: Chapter[] = [
       'Maxwell\u2019s Relations',
       'The Third Law',
       'The Doorway',
-      'Regulating Neutron Energies',
-      'Preface to the Third Edition'
     ],
   },
 ]

@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Adaptation Census',
       'The Biome Map',
       'The Climate Engine as Maker',
+      'Ecology and the Environment',
     ],
   },
   {
@@ -59,9 +60,7 @@ const chapters: Chapter[] = [
       'The Predation Defences',
       'The Mutualism Census',
       'The Interaction Arithmetic',
-    
       'Interaction and Interdependence',
-      'Are Stereospecific 18 van der Waals Interactions Are Weak Interatomic'
     ],
   },
   {

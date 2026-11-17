@@ -1,0 +1,1923 @@
+{
+ "discipline": "medical-sciences",
+ "autoActions": [
+  {
+   "op": "remove",
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "idx": 1,
+   "title": "The 305-Day Register Named",
+   "why": "junk-certain: page-number/section-code run"
+  },
+  {
+   "op": "remove",
+   "book": "dentistry",
+   "chapter": 5,
+   "idx": 6,
+   "title": "Third/Fourth Year: Oral and Maxillofacial Surgery",
+   "why": "dup within book: kept the ch3 copy"
+  },
+  {
+   "op": "remove",
+   "book": "dentistry",
+   "chapter": 6,
+   "idx": 4,
+   "title": "Third/Fourth Year: Oral Medicine and Radiology",
+   "why": "dup within book: kept the ch3 copy"
+  },
+  {
+   "op": "remove",
+   "book": "histology",
+   "chapter": 5,
+   "idx": 0,
+   "title": "The Filtration Barrier Held with Its Cells",
+   "why": "dup within book: kept the ch3 copy"
+  },
+  {
+   "op": "remove",
+   "book": "nursing",
+   "chapter": 4,
+   "idx": 12,
+   "title": "Safe and Effective Care Environment: Management of Care",
+   "why": "dup within book: kept the ch1 copy"
+  },
+  {
+   "op": "move",
+   "book": "strength-of-materials",
+   "chapter": 5,
+   "idx": 6,
+   "title": "The NAND function",
+   "targetBook": "nursing",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.5 -> nursing 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "electromagnetic-theory",
+   "chapter": 1,
+   "idx": 13,
+   "title": "BIO Surface Waves and the Swimming Medicine\b",
+   "targetBook": "medical-biochemistry",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.2 -> medical-biochemistry 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "atomic-physics",
+   "chapter": 2,
+   "idx": 6,
+   "title": "BIO Electron Volts and Cancer Radiotherapy \b",
+   "targetBook": "general-surgery",
+   "targetChapter": 6,
+   "why": "misplaced, grounded (own 0.2 -> general-surgery 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "statistics-for-economics",
+   "chapter": 6,
+   "idx": 2,
+   "title": "The Labour Registers",
+   "targetBook": "obstetrics-gynaecology",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.5 -> obstetrics-gynaecology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "foundation-biology",
+   "chapter": 3,
+   "idx": 5,
+   "title": "In the Department of Biochemistry at the University Production of Urea",
+   "targetBook": "medical-biochemistry",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.2 -> medical-biochemistry 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "molecular-biology",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Nucleic Acids: DNA and RNA",
+   "targetBook": "medical-microbiology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> medical-microbiology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "molecular-biology",
+   "chapter": 1,
+   "idx": 5,
+   "title": "The Cytoplasm Is Organized by the Molecular Anatomy Reveals Evolutionary Relationships",
+   "targetBook": "anatomy",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.29 -> anatomy 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "economic-botany",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Interactions among Molecules 9 Importance in Medicine",
+   "targetBook": "medical-biochemistry",
+   "targetChapter": 2,
+   "why": "misplaced, grounded (own 0.2 -> medical-biochemistry 0.6)"
+  },
+  {
+   "op": "move",
+   "book": "animal-physiology",
+   "chapter": 7,
+   "idx": 4,
+   "title": "Homeostasis and Its Mechanisms",
+   "targetBook": "medical-physiology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> medical-physiology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "anatomy",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Anesthesia",
+   "targetBook": "general-surgery",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> general-surgery 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "anatomy",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Orthopedics",
+   "targetBook": "general-surgery",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> general-surgery 0.5)"
+  },
+  {
+   "op": "remove",
+   "book": "pharmacology",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Scientific Inquiry and Reasoning Skills: Knowledge of Scientific Concepts and Principles",
+   "why": "misplaced; already covered in internal-medicine"
+  },
+  {
+   "op": "remove",
+   "book": "medical-microbiology",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Chemotherapy and the Antibiotic Classes",
+   "why": "misplaced; already covered in evolution"
+  },
+  {
+   "op": "move",
+   "book": "medical-microbiology",
+   "chapter": 1,
+   "idx": 5,
+   "title": "Human Diseases Caused by Viruses, Bacteria and Fungi",
+   "targetBook": "immunology",
+   "targetChapter": 8,
+   "why": "misplaced, grounded (own 0.17 -> immunology 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "medical-microbiology",
+   "chapter": 7,
+   "idx": 5,
+   "title": "Emerging Infectious Diseases and the Pathogenicity Mechanisms",
+   "targetBook": "microbiology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.4 -> microbiology 0.6)"
+  },
+  {
+   "op": "remove",
+   "book": "forensic-medicine",
+   "chapter": 7,
+   "idx": 4,
+   "title": "Scientific Inquiry and Reasoning Skills: Reasoning about the Design and Execution of Research",
+   "why": "misplaced; already covered in internal-medicine"
+  },
+  {
+   "op": "remove",
+   "book": "community-medicine",
+   "chapter": 3,
+   "idx": 4,
+   "title": "Biostatistics and Computer Applications",
+   "why": "misplaced; already covered in digital-art"
+  },
+  {
+   "op": "remove",
+   "book": "community-medicine",
+   "chapter": 3,
+   "idx": 4,
+   "title": "Scientific Inquiry and Reasoning Skills: Data-based and Statistical Reasoning",
+   "why": "misplaced; already covered in internal-medicine"
+  },
+  {
+   "op": "move",
+   "book": "community-medicine",
+   "chapter": 6,
+   "idx": 6,
+   "title": "Social and Preventive Medicine (Community Medicine)",
+   "targetBook": "economic-botany",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.5 -> economic-botany 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "internal-medicine",
+   "chapter": 1,
+   "idx": 6,
+   "title": "Scientific Inquiry and Reasoning Skills: Scientific Reasoning and Problem Solving",
+   "targetBook": "pharmacology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.17 -> pharmacology 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "internal-medicine",
+   "chapter": 7,
+   "idx": 4,
+   "title": "Physiological Adaptation and Clinical Instability",
+   "targetBook": "medical-physiology",
+   "targetChapter": 3,
+   "why": "misplaced, grounded (own 0.25 -> medical-physiology 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "general-surgery",
+   "chapter": 3,
+   "idx": 4,
+   "title": "General Surgery (including Orthopedics, Anesthesia and Radiodiagnosis)",
+   "targetBook": "anatomy",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.2 -> anatomy 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "general-surgery",
+   "chapter": 7,
+   "idx": 6,
+   "title": "Orthopaedics",
+   "targetBook": "dentistry",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> dentistry 0.5)"
+  },
+  {
+   "op": "remove",
+   "book": "dentistry",
+   "chapter": 2,
+   "idx": 5,
+   "title": "General Human Anatomy with Embryology and Histology",
+   "why": "misplaced; already covered in anatomy"
+  },
+  {
+   "op": "move",
+   "book": "dentistry",
+   "chapter": 2,
+   "idx": 5,
+   "title": "General Human Physiology, Biochemistry, Nutrition and Dietetics",
+   "targetBook": "plant-pathology",
+   "targetChapter": 1,
+   "why": "misplaced, grounded (own 0.0 -> plant-pathology 0.6)"
+  },
+  {
+   "op": "move",
+   "book": "dentistry",
+   "chapter": 3,
+   "idx": 4,
+   "title": "General Pathology and Microbiology",
+   "targetBook": "foundation-biology",
+   "targetChapter": 9,
+   "why": "misplaced, grounded (own 0.0 -> foundation-biology 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "dentistry",
+   "chapter": 3,
+   "idx": 4,
+   "title": "General and Dental Pharmacology and Therapeutics",
+   "targetBook": "medical-physiology",
+   "targetChapter": 8,
+   "why": "misplaced, grounded (own 0.33 -> medical-physiology 0.67)"
+  },
+  {
+   "op": "remove",
+   "book": "dentistry",
+   "chapter": 3,
+   "idx": 4,
+   "title": "Oral Pathology and Oral Microbiology",
+   "why": "misplaced; already covered in foundation-biology"
+  },
+  {
+   "op": "move",
+   "book": "nursing",
+   "chapter": 4,
+   "idx": 4,
+   "title": "Safety and Infection Prevention and Control",
+   "targetBook": "cybersecurity",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.5 -> cybersecurity 0.75)"
+  },
+  {
+   "op": "remove",
+   "book": "nursing",
+   "chapter": 4,
+   "idx": 5,
+   "title": "Health Promotion and Maintenance",
+   "why": "misplaced; already covered in community-medicine"
+  },
+  {
+   "op": "move",
+   "book": "nursing",
+   "chapter": 4,
+   "idx": 8,
+   "title": "Applied Anatomy and Applied Physiology for Nurses",
+   "targetBook": "plant-anatomy",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.25 -> plant-anatomy 0.75)"
+  },
+  {
+   "op": "move",
+   "book": "pharmacy",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Anatomy, Physiology and Pathophysiology for Pharmacists",
+   "targetBook": "plant-anatomy",
+   "targetChapter": 5,
+   "why": "misplaced, grounded (own 0.25 -> plant-anatomy 0.5)"
+  },
+  {
+   "op": "move",
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Animal Genetics and Breeding",
+   "targetBook": "genetics",
+   "targetChapter": 4,
+   "why": "misplaced, grounded (own 0.33 -> genetics 1.0)"
+  },
+  {
+   "op": "move",
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "idx": 4,
+   "title": "Livestock Products Technology",
+   "targetBook": "biotechnology",
+   "targetChapter": 7,
+   "why": "misplaced, grounded (own 0.0 -> biotechnology 0.67)"
+  },
+  {
+   "op": "move",
+   "book": "veterinary-medicine",
+   "chapter": 3,
+   "idx": 4,
+   "title": "Veterinary Pharmacology and Toxicology",
+   "targetBook": "medical-physiology",
+   "targetChapter": 8,
+   "why": "misplaced, grounded (own 0.33 -> medical-physiology 0.67)"
+  },
+  {
+   "op": "remove",
+   "book": "veterinary-medicine",
+   "chapter": 3,
+   "idx": 4,
+   "title": "Veterinary Microbiology and Pathology",
+   "why": "misplaced; already covered in foundation-biology"
+  },
+  {
+   "op": "remove",
+   "book": "veterinary-medicine",
+   "chapter": 4,
+   "idx": 7,
+   "title": "Veterinary Surgery, Anaesthesiology and Diagnostic Imaging (including Orthopedics)",
+   "why": "misplaced; already covered in anatomy"
+  },
+  {
+   "op": "remove",
+   "book": "veterinary-medicine",
+   "chapter": 4,
+   "idx": 7,
+   "title": "Veterinary Gynecology, Obstetrics and Andrology",
+   "why": "misplaced; already covered in obstetrics-gynaecology"
+  },
+  {
+   "op": "move-chapter",
+   "book": "anatomy",
+   "chapter": 8,
+   "idx": 4,
+   "title": "Applied Anatomy: The Clinical Surface Register",
+   "targetChapter": 3,
+   "why": "fits ch3 \"The Thorax\" (0.8 vs 0.4)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "histology",
+   "chapter": 1,
+   "idx": 0,
+   "title": "The Preparation Arc Held",
+   "targetChapter": 7,
+   "why": "fits ch7 \"The Pathology Doorway\" (1.0 vs 0.67)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "histology",
+   "chapter": 2,
+   "idx": 2,
+   "title": "The Three Muscles by Their Slides",
+   "targetChapter": 3,
+   "why": "fits ch3 \"The Cardiovascular-and-Respiratory Histology\" (0.67 vs 0.33)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "histology",
+   "chapter": 3,
+   "idx": 2,
+   "title": "The Barrier Held with Its Cells",
+   "targetChapter": 5,
+   "why": "fits ch5 \"The Renal-and-Endocrine Histology\" (1.0 vs 0.33)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "medical-microbiology",
+   "chapter": 7,
+   "idx": 4,
+   "title": "The Human Disease Census: Malaria to Chikungunya",
+   "targetChapter": 5,
+   "why": "fits ch5 \"The Clinical Virology Register\" (0.6 vs 0.2)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "medical-microbiology",
+   "chapter": 7,
+   "idx": 4,
+   "title": "Food Spoilage and Microbial Toxins",
+   "targetChapter": 2,
+   "why": "fits ch2 \"The Gram-Positive Register\" (0.5 vs 0.0)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "general-surgery",
+   "chapter": 4,
+   "idx": 2,
+   "title": "The Parkland Receipt Priced Straight",
+   "targetChapter": 3,
+   "why": "fits ch3 \"The Surgical-Infection Register\" (0.75 vs 0.25)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "nursing",
+   "chapter": 4,
+   "idx": 6,
+   "title": "Management of Care and Coordination",
+   "targetChapter": 5,
+   "why": "fits ch5 \"The Community, Leadership-and-Process Registers\" (0.67 vs 0.33)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "veterinary-medicine",
+   "chapter": 1,
+   "idx": 4,
+   "title": "Veterinary Anatomy and Physiology: The Comparative Frame",
+   "targetChapter": 5,
+   "why": "fits ch5 \"The Veterinary-Public-Health-and-Doorway Register\" (0.6 vs 0.2)"
+  },
+  {
+   "op": "move-chapter",
+   "book": "veterinary-medicine",
+   "chapter": 2,
+   "idx": 5,
+   "title": "Veterinary Biochemistry",
+   "targetChapter": 5,
+   "why": "fits ch5 \"The Veterinary-Public-Health-and-Doorway Register\" (0.5 vs 0.0)"
+  }
+ ],
+ "dupAdjudicate": [
+  {
+   "title": "The Media’s Political Economy",
+   "members": [
+    {
+     "book": "cultural-studies",
+     "discipline": "humanities",
+     "chapter": 3,
+     "chapterTitle": "Ideology and Power",
+     "idx": 3,
+     "title": "The Media’s Political Economy"
+    },
+    {
+     "book": "development-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Meaning and the Measure",
+     "idx": 5,
+     "title": "Indian Economic Development: Current Challenges facing the Indian Economy"
+    },
+    {
+     "book": "development-economics",
+     "discipline": "economics-commerce",
+     "chapter": 1,
+     "chapterTitle": "The Meaning and the Measure",
+     "idx": 6,
+     "title": "Indian Economic Development: Current Challenges facing Indian Economy"
+    },
+    {
+     "book": "development-economics",
+     "discipline": "economics-commerce",
+     "chapter": 2,
+     "chapterTitle": "Growth Theory and Poverty Traps",
+     "idx": 5,
+     "title": "Employment: Growth, Informalisation and Issues"
+    },
+    {
+     "book": "environmental-studies",
+     "discipline": "humanities",
+     "chapter": 2,
+     "chapterTitle": "The Natural Resources",
+     "idx": 4,
+     "title": "Social Justice - government policies and interventions for development; development processes and the role of NGOs, SHGs, donors and other stakeholders; welfare schemes for vulnerable sections; social sector services relating to health, education and human resources; poverty and hunger"
+    },
+    {
+     "book": "environmental-studies",
+     "discipline": "humanities",
+     "chapter": 7,
+     "chapterTitle": "Human Population and the Environment",
+     "idx": 2,
+     "title": "The Health and the Disease Ladder"
+    },
+    {
+     "book": "geography",
+     "discipline": "humanities",
+     "chapter": 9,
+     "chapterTitle": "The Economic Geography",
+     "idx": 3,
+     "title": "The Resources and the Development Question"
+    },
+    {
+     "book": "geography",
+     "discipline": "humanities",
+     "chapter": 11,
+     "chapterTitle": "India: The Human and Economic Register",
+     "idx": 4,
+     "title": "Indian Economy and Economic Development - issues relating to planning, mobilisation of resources, growth, development and employment; inclusive growth; government budgeting; effects of liberalisation on the economy; infrastructure (energy, ports, roads, airports, railways); investment models"
+    },
+    {
+     "book": "immunology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Innate Register",
+     "idx": 5,
+     "title": "Human Health and Disease"
+    },
+    {
+     "book": "international-relations",
+     "discipline": "humanities",
+     "chapter": 6,
+     "chapterTitle": "The Global Political Economy",
+     "idx": 2,
+     "title": "Development’s Political Economy"
+    },
+    {
+     "book": "international-relations",
+     "discipline": "humanities",
+     "chapter": 7,
+     "chapterTitle": "The Environment and Human Security",
+     "idx": 2,
+     "title": "Health and Human Security"
+    },
+    {
+     "book": "medical-microbiology",
+     "discipline": "medical-sciences",
+     "chapter": 1,
+     "chapterTitle": "The Host-Pathogen-and-Laboratory Craft",
+     "idx": 6,
+     "title": "Human Diseases Caused by Viruses, Bacteria and Fungi"
+    },
+    {
+     "book": "medical-microbiology",
+     "discipline": "medical-sciences",
+     "chapter": 7,
+     "chapterTitle": "The Infection-Control-and-Public Register",
+     "idx": 4,
+     "title": "The Human Disease Census: Malaria to Chikungunya"
+    },
+    {
+     "book": "philosophy",
+     "discipline": "humanities",
+     "chapter": 9,
+     "chapterTitle": "The Socio-Political Philosophy",
+     "idx": 0,
+     "title": "Equality and Justice"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 1,
+     "chapterTitle": "What Is Politics?",
+     "idx": 4,
+     "title": "Paper-I 4. Political Organization and Social Control (band, tribe, chiefdom, kingdom and state; power, authority and legitimacy; law and justice in simple societies)"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 2,
+     "chapterTitle": "The Concepts of Political Theory",
+     "idx": 1,
+     "title": "Equality and Social Justice"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 3,
+     "chapterTitle": "Ideologies and the Political Economy",
+     "idx": 3,
+     "title": "The Political Economy and Globalisation"
+    },
+    {
+     "book": "political-science",
+     "discipline": "humanities",
+     "chapter": 8,
+     "chapterTitle": "Identity Politics in India",
+     "idx": 4,
+     "title": "Paper-II 9. History of Administration of Tribal Areas, Tribal Policies and Programmes of Tribal Development (concept of PTGs; role of NGOs; role of anthropology in tribal and rural development; contributions to the understanding of regionalism, communalism and ethnic and political movements)"
+    },
+    {
+     "book": "public-administration",
+     "discipline": "humanities",
+     "chapter": 8,
+     "chapterTitle": "Policy and Implementation",
+     "idx": 4,
+     "title": "Government Policies, Interventions and the Development Industry"
+    },
+    {
+     "book": "public-administration",
+     "discipline": "humanities",
+     "chapter": 8,
+     "chapterTitle": "Policy and Implementation",
+     "idx": 5,
+     "title": "Welfare Schemes for Vulnerable Sections: Poverty and Hunger"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Community Health Nursing and Epidemiology",
+   "members": [
+    {
+     "book": "community-medicine",
+     "discipline": "medical-sciences",
+     "chapter": 6,
+     "chapterTitle": "The MCH-and-Health-System Registers",
+     "idx": 5,
+     "title": "Community Health Nursing and Epidemiology"
+    },
+    {
+     "book": "nursing",
+     "discipline": "medical-sciences",
+     "chapter": 4,
+     "chapterTitle": "The Clinical-Nursing Arc",
+     "idx": 7,
+     "title": "Psychosocial Integrity and Mental Health Nursing"
+    },
+    {
+     "book": "nursing",
+     "discipline": "medical-sciences",
+     "chapter": 4,
+     "chapterTitle": "The Clinical-Nursing Arc",
+     "idx": 11,
+     "title": "Adult Health Nursing: Geriatric and Palliative Care"
+    },
+    {
+     "book": "nursing",
+     "discipline": "medical-sciences",
+     "chapter": 5,
+     "chapterTitle": "The Community, Leadership-and-Process Registers",
+     "idx": 4,
+     "title": "Community Health Nursing"
+    },
+    {
+     "book": "nursing",
+     "discipline": "medical-sciences",
+     "chapter": 5,
+     "chapterTitle": "The Community, Leadership-and-Process Registers",
+     "idx": 5,
+     "title": "Child Health Nursing"
+    },
+    {
+     "book": "pediatrics",
+     "discipline": "medical-sciences",
+     "chapter": 5,
+     "chapterTitle": "The Systemic Pediatrics Registers",
+     "idx": 4,
+     "title": "Child Health Nursing for the Paediatrician"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Calcium Trigger Walked Slowly",
+   "members": [
+    {
+     "book": "animal-physiology",
+     "discipline": "biology",
+     "chapter": 2,
+     "chapterTitle": "The Muscle’s Contraction Craft",
+     "idx": 1,
+     "title": "The Calcium Trigger Walked Slowly"
+    },
+    {
+     "book": "biotechnology",
+     "discipline": "biology",
+     "chapter": 2,
+     "chapterTitle": "Vectors and Cloning",
+     "idx": 3,
+     "title": "A Clone Walked Slowly"
+    },
+    {
+     "book": "medical-physiology",
+     "discipline": "medical-sciences",
+     "chapter": 2,
+     "chapterTitle": "The Excitable Tissues",
+     "idx": 2,
+     "title": "The Coupling Cycle Walked Slowly"
+    },
+    {
+     "book": "molecular-biology",
+     "discipline": "biology",
+     "chapter": 4,
+     "chapterTitle": "Translation — the Code Read",
+     "idx": 3,
+     "title": "The Three Sites Walked Slowly"
+    },
+    {
+     "book": "rhythm-meter",
+     "discipline": "arts-music",
+     "chapter": 4,
+     "chapterTitle": "The Tuplets and the Polyrhythm",
+     "idx": 1,
+     "title": "The 3-against-4 Walked Slowly"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Chemotherapy/Antibiotics",
+   "members": [
+    {
+     "book": "evolution",
+     "discipline": "biology",
+     "chapter": 2,
+     "chapterTitle": "Variation and Selection",
+     "idx": 6,
+     "title": "Chemotherapy/Antibiotics"
+    },
+    {
+     "book": "medical-microbiology",
+     "discipline": "medical-sciences",
+     "chapter": 1,
+     "chapterTitle": "The Host-Pathogen-and-Laboratory Craft",
+     "idx": 5,
+     "title": "Chemotherapy and the Antibiotic Classes"
+    },
+    {
+     "book": "microbiology",
+     "discipline": "biology",
+     "chapter": 8,
+     "chapterTitle": "The Control Craft and the Resistance Era",
+     "idx": 1,
+     "title": "The Antibiotic Arc and the Classes’ Targets"
+    },
+    {
+     "book": "pharmacology",
+     "discipline": "medical-sciences",
+     "chapter": 5,
+     "chapterTitle": "The Endocrine, Metabolic-and-Chemotherapy Registers",
+     "idx": 2,
+     "title": "The Target Census by Its Classes"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Plexus Walked Once",
+   "members": [
+    {
+     "book": "anatomy",
+     "discipline": "medical-sciences",
+     "chapter": 2,
+     "chapterTitle": "The Upper Limb",
+     "idx": 0,
+     "title": "The Plexus Walked Once"
+    },
+    {
+     "book": "animal-anatomy",
+     "discipline": "biology",
+     "chapter": 7,
+     "chapterTitle": "The Comparative Register and the Doorway",
+     "idx": 1,
+     "title": "The Systems’ Arc Walked Once"
+    },
+    {
+     "book": "nursing",
+     "discipline": "medical-sciences",
+     "chapter": 5,
+     "chapterTitle": "The Community, Leadership-and-Process Registers",
+     "idx": 3,
+     "title": "The ADPIE Arc Walked Once"
+    },
+    {
+     "book": "obstetrics-gynaecology",
+     "discipline": "medical-sciences",
+     "chapter": 2,
+     "chapterTitle": "The Labour-and-Delivery Register",
+     "idx": 1,
+     "title": "The Movements Walked Once"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Scientific Inquiry and Reasoning Skills: Data-based and Statistical Reasoning",
+   "members": [
+    {
+     "book": "community-medicine",
+     "discipline": "medical-sciences",
+     "chapter": 3,
+     "chapterTitle": "The Screening-and-Biostatistics Register",
+     "idx": 5,
+     "title": "Scientific Inquiry and Reasoning Skills: Data-based and Statistical Reasoning"
+    },
+    {
+     "book": "forensic-medicine",
+     "discipline": "medical-sciences",
+     "chapter": 7,
+     "chapterTitle": "The Courtroom Craft",
+     "idx": 4,
+     "title": "Scientific Inquiry and Reasoning Skills: Reasoning about the Design and Execution of Research"
+    },
+    {
+     "book": "internal-medicine",
+     "discipline": "medical-sciences",
+     "chapter": 1,
+     "chapterTitle": "The Approach to the Patient",
+     "idx": 6,
+     "title": "Scientific Inquiry and Reasoning Skills: Scientific Reasoning and Problem Solving"
+    },
+    {
+     "book": "pharmacology",
+     "discipline": "medical-sciences",
+     "chapter": 1,
+     "chapterTitle": "The General Principles — Pharmacokinetics",
+     "idx": 5,
+     "title": "Scientific Inquiry and Reasoning Skills: Knowledge of Scientific Concepts and Principles"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Veterinary Anatomy (Gross Anatomy, Histology and Embryology, Splanchnology)",
+   "members": [
+    {
+     "book": "anatomy",
+     "discipline": "medical-sciences",
+     "chapter": 3,
+     "chapterTitle": "The Thorax",
+     "idx": 5,
+     "title": "Veterinary Anatomy (Gross Anatomy, Histology and Embryology, Splanchnology)"
+    },
+    {
+     "book": "anatomy",
+     "discipline": "medical-sciences",
+     "chapter": 7,
+     "chapterTitle": "The Embryology for the Clinic",
+     "idx": 4,
+     "title": "First Year: General Human Anatomy including Embryology and Histology"
+    },
+    {
+     "book": "dentistry",
+     "discipline": "medical-sciences",
+     "chapter": 2,
+     "chapterTitle": "The Cariology-and-Prevention Register",
+     "idx": 5,
+     "title": "General Human Anatomy with Embryology and Histology"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Veterinary Clinical Medicine (including Clinical Biochemistry and Laboratory Diagnosis)",
+   "members": [
+    {
+     "book": "medical-biochemistry",
+     "discipline": "medical-sciences",
+     "chapter": 8,
+     "chapterTitle": "The Integration Craft and the Doorway",
+     "idx": 7,
+     "title": "Veterinary Clinical Medicine (including Clinical Biochemistry and Laboratory Diagnosis)"
+    },
+    {
+     "book": "veterinary-medicine",
+     "discipline": "medical-sciences",
+     "chapter": 2,
+     "chapterTitle": "The Husbandry-and-Nutrition Register",
+     "idx": 8,
+     "title": "Veterinary Biochemistry"
+    },
+    {
+     "book": "veterinary-medicine",
+     "discipline": "medical-sciences",
+     "chapter": 4,
+     "chapterTitle": "The Small-and-Large-Animal Registers",
+     "idx": 4,
+     "title": "Veterinary Medicine: The Clinical Register"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "General Pathology and Microbiology",
+   "members": [
+    {
+     "book": "dentistry",
+     "discipline": "medical-sciences",
+     "chapter": 3,
+     "chapterTitle": "The Periodontology Register",
+     "idx": 4,
+     "title": "General Pathology and Microbiology"
+    },
+    {
+     "book": "dentistry",
+     "discipline": "medical-sciences",
+     "chapter": 3,
+     "chapterTitle": "The Periodontology Register",
+     "idx": 6,
+     "title": "Oral Pathology and Oral Microbiology"
+    },
+    {
+     "book": "veterinary-medicine",
+     "discipline": "medical-sciences",
+     "chapter": 3,
+     "chapterTitle": "The Parasitic-and-Infectious Registers",
+     "idx": 5,
+     "title": "Veterinary Microbiology and Pathology"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Multi-Step Register",
+   "members": [
+    {
+     "book": "organic-chemistry",
+     "discipline": "chemistry",
+     "chapter": 11,
+     "chapterTitle": "The Synthetic and Practical Doorway",
+     "idx": 0,
+     "title": "The Multi-Step Register"
+    },
+    {
+     "book": "pathology",
+     "discipline": "medical-sciences",
+     "chapter": 5,
+     "chapterTitle": "The Neoplasia Register",
+     "idx": 1,
+     "title": "The Multi-Step Clonal Honesty Held"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Food-Products Technology Register",
+   "members": [
+    {
+     "book": "industrial-chemistry",
+     "discipline": "chemistry",
+     "chapter": 6,
+     "chapterTitle": "The Fine-Chemicals Register",
+     "idx": 4,
+     "title": "The Food-Products Technology Register"
+    },
+    {
+     "book": "veterinary-medicine",
+     "discipline": "medical-sciences",
+     "chapter": 2,
+     "chapterTitle": "The Husbandry-and-Nutrition Register",
+     "idx": 6,
+     "title": "Livestock Products Technology"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Glucose Dial Held as One Arithmetic",
+   "members": [
+    {
+     "book": "animal-physiology",
+     "discipline": "biology",
+     "chapter": 3,
+     "chapterTitle": "The Endocrine Register",
+     "idx": 3,
+     "title": "The Glucose Dial Held as One Arithmetic"
+    },
+    {
+     "book": "medical-physiology",
+     "discipline": "medical-sciences",
+     "chapter": 7,
+     "chapterTitle": "The GI-and-Endocrine Systems",
+     "idx": 2,
+     "title": "The Glucose Dial with the Preview"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Internal Milieu Held as the Founding Gift",
+   "members": [
+    {
+     "book": "animal-physiology",
+     "discipline": "biology",
+     "chapter": 8,
+     "chapterTitle": "The Sensory Register and the Doorway",
+     "idx": 3,
+     "title": "The Internal Milieu Held as the Founding Gift"
+    },
+    {
+     "book": "medical-physiology",
+     "discipline": "medical-sciences",
+     "chapter": 1,
+     "chapterTitle": "The Cell and Transport Basis",
+     "idx": 0,
+     "title": "The Internal Milieu Held as the Frame"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Sexually Transmitted Diseases and Their Prevention",
+   "members": [
+    {
+     "book": "developmental-biology",
+     "discipline": "biology",
+     "chapter": 1,
+     "chapterTitle": "The Fertilisation and the Cleavage",
+     "idx": 14,
+     "title": "Sexually Transmitted Diseases and Their Prevention"
+    },
+    {
+     "book": "medical-physiology",
+     "discipline": "medical-sciences",
+     "chapter": 3,
+     "chapterTitle": "The Blood and Haemostasis",
+     "idx": 4,
+     "title": "Dermatology and Sexually Transmitted Diseases"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Starling-and-Oedema Mechanisms Named",
+   "members": [
+    {
+     "book": "medical-physiology",
+     "discipline": "medical-sciences",
+     "chapter": 4,
+     "chapterTitle": "The Cardiovascular System",
+     "idx": 2,
+     "title": "The Starling-and-Oedema Mechanisms Named"
+    },
+    {
+     "book": "pathology",
+     "discipline": "medical-sciences",
+     "chapter": 3,
+     "chapterTitle": "The Haemodynamic Disorders",
+     "idx": 0,
+     "title": "The Starling Mechanism Held"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "General Human Physiology, Biochemistry, Nutrition and Dietetics",
+   "members": [
+    {
+     "book": "dentistry",
+     "discipline": "medical-sciences",
+     "chapter": 2,
+     "chapterTitle": "The Cariology-and-Prevention Register",
+     "idx": 6,
+     "title": "General Human Physiology, Biochemistry, Nutrition and Dietetics"
+    },
+    {
+     "book": "medical-biochemistry",
+     "discipline": "medical-sciences",
+     "chapter": 8,
+     "chapterTitle": "The Integration Craft and the Doorway",
+     "idx": 4,
+     "title": "Applied Nutrition and Dietetics"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Veterinary Pharmacology (including Chemotherapy)",
+   "members": [
+    {
+     "book": "pharmacology",
+     "discipline": "medical-sciences",
+     "chapter": 3,
+     "chapterTitle": "The Autonomic-and-CNS Pharmacology",
+     "idx": 5,
+     "title": "Veterinary Pharmacology (including Chemotherapy)"
+    },
+    {
+     "book": "veterinary-medicine",
+     "discipline": "medical-sciences",
+     "chapter": 3,
+     "chapterTitle": "The Parasitic-and-Infectious Registers",
+     "idx": 4,
+     "title": "Veterinary Pharmacology and Toxicology"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Coverage Arithmetic Cross-Referenced",
+   "members": [
+    {
+     "book": "medical-microbiology",
+     "discipline": "medical-sciences",
+     "chapter": 7,
+     "chapterTitle": "The Infection-Control-and-Public Register",
+     "idx": 3,
+     "title": "The Coverage Arithmetic Cross-Referenced"
+    },
+    {
+     "book": "obstetrics-gynaecology",
+     "discipline": "medical-sciences",
+     "chapter": 6,
+     "chapterTitle": "The Oncology-and-Screening Register",
+     "idx": 0,
+     "title": "The Coverage Arithmetic Cross-Referenced"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "Health Promotion and Maintenance",
+   "members": [
+    {
+     "book": "community-medicine",
+     "discipline": "medical-sciences",
+     "chapter": 6,
+     "chapterTitle": "The MCH-and-Health-System Registers",
+     "idx": 4,
+     "title": "Health Promotion and Maintenance"
+    },
+    {
+     "book": "nursing",
+     "discipline": "medical-sciences",
+     "chapter": 4,
+     "chapterTitle": "The Clinical-Nursing Arc",
+     "idx": 6,
+     "title": "Health Promotion and Maintenance"
+    }
+   ],
+   "exact": true
+  },
+  {
+   "title": "General Surgery (including Orthopedics, Anesthesia and Radiodiagnosis)",
+   "members": [
+    {
+     "book": "general-surgery",
+     "discipline": "medical-sciences",
+     "chapter": 3,
+     "chapterTitle": "The Surgical-Infection Register",
+     "idx": 4,
+     "title": "General Surgery (including Orthopedics, Anesthesia and Radiodiagnosis)"
+    },
+    {
+     "book": "veterinary-medicine",
+     "discipline": "medical-sciences",
+     "chapter": 4,
+     "chapterTitle": "The Small-and-Large-Animal Registers",
+     "idx": 7,
+     "title": "Veterinary Surgery, Anaesthesiology and Diagnostic Imaging (including Orthopedics)"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "Obstetrics and Gynecology",
+   "members": [
+    {
+     "book": "obstetrics-gynaecology",
+     "discipline": "medical-sciences",
+     "chapter": 3,
+     "chapterTitle": "The Obstetric Complications",
+     "idx": 4,
+     "title": "Obstetrics and Gynecology"
+    },
+    {
+     "book": "veterinary-medicine",
+     "discipline": "medical-sciences",
+     "chapter": 4,
+     "chapterTitle": "The Small-and-Large-Animal Registers",
+     "idx": 8,
+     "title": "Veterinary Gynecology, Obstetrics and Andrology"
+    }
+   ],
+   "exact": false
+  },
+  {
+   "title": "The Red-Flag Honesty Priced Straight",
+   "members": [
+    {
+     "book": "dentistry",
+     "discipline": "medical-sciences",
+     "chapter": 6,
+     "chapterTitle": "The Oral-Medicine-and-Public Register",
+     "idx": 0,
+     "title": "The Red-Flag Honesty Priced Straight"
+    },
+    {
+     "book": "pediatrics",
+     "discipline": "medical-sciences",
+     "chapter": 1,
+     "chapterTitle": "The Growth-and-Development Register",
+     "idx": 2,
+     "title": "The Red-Flag Honesty Priced Straight"
+    }
+   ],
+   "exact": true
+  }
+ ],
+ "misAdjudicate": [
+  {
+   "book": "anatomy",
+   "discipline": "medical-sciences",
+   "chapter": 7,
+   "chapterTitle": "The Embryology for the Clinic",
+   "idx": 2,
+   "title": "The Arch-and-Pouch Craft",
+   "ownScore": 0.33,
+   "bestBook": "animal-diversity",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "animal-diversity",
+     "score": 0.67
+    },
+    {
+     "book": "architecture",
+     "score": 0.67
+    },
+    {
+     "book": "indian-history",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "medical-physiology",
+   "discipline": "medical-sciences",
+   "chapter": 1,
+   "chapterTitle": "The Cell and Transport Basis",
+   "idx": 0,
+   "title": "The Internal Milieu Held as the Frame",
+   "ownScore": 0.75,
+   "bestBook": "animal-physiology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "animal-physiology",
+     "score": 1.0
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.75
+    },
+    {
+     "book": "animal-anatomy",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "medical-physiology",
+   "discipline": "medical-sciences",
+   "chapter": 2,
+   "chapterTitle": "The Excitable Tissues",
+   "idx": 2,
+   "title": "The Coupling Cycle Walked Slowly",
+   "ownScore": 0.5,
+   "bestBook": "molecular-biology",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "molecular-biology",
+     "score": 0.75
+    },
+    {
+     "book": "animal-physiology",
+     "score": 0.75
+    },
+    {
+     "book": "rhythm-meter",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "medical-physiology",
+   "discipline": "medical-sciences",
+   "chapter": 5,
+   "chapterTitle": "The Respiratory System",
+   "idx": 3,
+   "title": "The CO2 Honesty Held Straight",
+   "ownScore": 0.75,
+   "bestBook": "animal-physiology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "animal-physiology",
+     "score": 1.0
+    },
+    {
+     "book": "plant-ecology",
+     "score": 1.0
+    },
+    {
+     "book": "internal-medicine",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "medical-physiology",
+   "discipline": "medical-sciences",
+   "chapter": 7,
+   "chapterTitle": "The GI-and-Endocrine Systems",
+   "idx": 3,
+   "title": "The Calcium Register Held",
+   "ownScore": 0.67,
+   "bestBook": "biotechnology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "biotechnology",
+     "score": 1.0
+    },
+    {
+     "book": "community-medicine",
+     "score": 1.0
+    },
+    {
+     "book": "medical-biochemistry",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "medical-biochemistry",
+   "discipline": "medical-sciences",
+   "chapter": 8,
+   "chapterTitle": "The Integration Craft and the Doorway",
+   "idx": 4,
+   "title": "Applied Nutrition and Dietetics",
+   "ownScore": 0.0,
+   "bestBook": "biochemistry",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "biochemistry",
+     "score": 0.67
+    },
+    {
+     "book": "community-medicine",
+     "score": 0.33
+    },
+    {
+     "book": "pediatrics",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "medical-biochemistry",
+   "discipline": "medical-sciences",
+   "chapter": 8,
+   "chapterTitle": "The Integration Craft and the Doorway",
+   "idx": 5,
+   "title": "The Chemical Processes of Life",
+   "ownScore": 0.0,
+   "bestBook": "psychology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "psychology",
+     "score": 1.0
+    },
+    {
+     "book": "physical-chemistry",
+     "score": 0.67
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "histology",
+   "discipline": "medical-sciences",
+   "chapter": 4,
+   "chapterTitle": "The GI-and-Glandular Histology",
+   "idx": 0,
+   "title": "The Stomach’s Cells by Their Secretions",
+   "ownScore": 0.67,
+   "bestBook": "cell-biology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "cell-biology",
+     "score": 1.0
+    },
+    {
+     "book": "animal-physiology",
+     "score": 0.67
+    },
+    {
+     "book": "immunology",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "medical-microbiology",
+   "discipline": "medical-sciences",
+   "chapter": 1,
+   "chapterTitle": "The Host-Pathogen-and-Laboratory Craft",
+   "idx": 1,
+   "title": "The AB-Toxin Craft Held",
+   "ownScore": 0.67,
+   "bestBook": "biotechnology",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "biotechnology",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.67
+    },
+    {
+     "book": "plant-pathology",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "medical-microbiology",
+   "discipline": "medical-sciences",
+   "chapter": 5,
+   "chapterTitle": "The Clinical Virology Register",
+   "idx": 1,
+   "title": "The A-E Route Map Held",
+   "ownScore": 0.67,
+   "bestBook": "nursing",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "nursing",
+     "score": 1.0
+    },
+    {
+     "book": "clinical-immunology",
+     "score": 1.0
+    },
+    {
+     "book": "obstetrics-gynaecology",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "medical-microbiology",
+   "discipline": "medical-sciences",
+   "chapter": 6,
+   "chapterTitle": "The Mycology and the Parasitology Preview",
+   "idx": 3,
+   "title": "The Sibling Cross-Reference Held Straight",
+   "ownScore": 0.4,
+   "bestBook": "photography",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "photography",
+     "score": 1.0
+    },
+    {
+     "book": "classical-dance",
+     "score": 1.0
+    },
+    {
+     "book": "animal-physiology",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 3
+  },
+  {
+   "book": "clinical-immunology",
+   "discipline": "medical-sciences",
+   "chapter": 1,
+   "chapterTitle": "The Bridge-and-Review Register",
+   "idx": 4,
+   "title": "CARS: Reading Comprehension (humanities and social sciences passages)",
+   "ownScore": 0.29,
+   "bestBook": "korean",
+   "bestScore": 0.57,
+   "top3": [
+    {
+     "book": "korean",
+     "score": 0.57
+    },
+    {
+     "book": "political-science",
+     "score": 0.57
+    },
+    {
+     "book": "anthropology",
+     "score": 0.57
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "forensic-medicine",
+   "discipline": "medical-sciences",
+   "chapter": 2,
+   "chapterTitle": "The Death Register",
+   "idx": 1,
+   "title": "The Four Signs by Their Clocks",
+   "ownScore": 0.67,
+   "bestBook": "mandarin",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "mandarin",
+     "score": 1.0
+    },
+    {
+     "book": "japanese",
+     "score": 1.0
+    },
+    {
+     "book": "arithmetic-and-number-systems",
+     "score": 1.0
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 1
+  },
+  {
+   "book": "forensic-medicine",
+   "discipline": "medical-sciences",
+   "chapter": 3,
+   "chapterTitle": "The Asphyxia-and-Violent-Death Register",
+   "idx": 2,
+   "title": "The Rule-of-Nines Fixed by Drill",
+   "ownScore": 0.75,
+   "bestBook": "general-surgery",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "general-surgery",
+     "score": 1.0
+    },
+    {
+     "book": "photography",
+     "score": 0.75
+    },
+    {
+     "book": "instrument-studies",
+     "score": 0.75
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 2
+  },
+  {
+   "book": "community-medicine",
+   "discipline": "medical-sciences",
+   "chapter": 6,
+   "chapterTitle": "The MCH-and-Health-System Registers",
+   "idx": 4,
+   "title": "Health Promotion and Maintenance",
+   "ownScore": 0.33,
+   "bestBook": "dentistry",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "dentistry",
+     "score": 0.67
+    },
+    {
+     "book": "instrument-studies",
+     "score": 0.33
+    },
+    {
+     "book": "construction-management",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "internal-medicine",
+   "discipline": "medical-sciences",
+   "chapter": 4,
+   "chapterTitle": "The Gastroenterology-and-Hepatology",
+   "idx": 0,
+   "title": "The Three-Jaundice Division Fixed Once",
+   "ownScore": 0.6,
+   "bestBook": "medical-biochemistry",
+   "bestScore": 1.0,
+   "top3": [
+    {
+     "book": "medical-biochemistry",
+     "score": 1.0
+    },
+    {
+     "book": "animal-diversity",
+     "score": 0.8
+    },
+    {
+     "book": "molecular-biology",
+     "score": 0.8
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 0
+  },
+  {
+   "book": "internal-medicine",
+   "discipline": "medical-sciences",
+   "chapter": 6,
+   "chapterTitle": "The Haematology-and-Neurology Registers",
+   "idx": 5,
+   "title": "Dermatology and STD",
+   "ownScore": 0.0,
+   "bestBook": "forensic-medicine",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "forensic-medicine",
+     "score": 0.5
+    },
+    {
+     "book": "obstetrics-gynaecology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  },
+  {
+   "book": "pediatrics",
+   "discipline": "medical-sciences",
+   "chapter": 5,
+   "chapterTitle": "The Systemic Pediatrics Registers",
+   "idx": 4,
+   "title": "Child Health Nursing for the Paediatrician",
+   "ownScore": 0.25,
+   "bestBook": "nursing",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "nursing",
+     "score": 0.5
+    },
+    {
+     "book": "development-economics",
+     "score": 0.5
+    },
+    {
+     "book": "community-medicine",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "dentistry",
+   "discipline": "medical-sciences",
+   "chapter": 2,
+   "chapterTitle": "The Cariology-and-Prevention Register",
+   "idx": 4,
+   "title": "Pre-clinical Conservative Dentistry",
+   "ownScore": 0.25,
+   "bestBook": "law-and-legal-studies",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "law-and-legal-studies",
+     "score": 0.5
+    },
+    {
+     "book": "internal-medicine",
+     "score": 0.5
+    },
+    {
+     "book": "molecular-biology",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "dentistry",
+   "discipline": "medical-sciences",
+   "chapter": 3,
+   "chapterTitle": "The Periodontology Register",
+   "idx": 7,
+   "title": "Fourth Year: Periodontology",
+   "ownScore": 0.33,
+   "bestBook": "mandarin",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "mandarin",
+     "score": 0.67
+    },
+    {
+     "book": "sanskrit",
+     "score": 0.67
+    },
+    {
+     "book": "quantitative-aptitude",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "nursing",
+   "discipline": "medical-sciences",
+   "chapter": 1,
+   "chapterTitle": "The Foundation Register",
+   "idx": 4,
+   "title": "Safe and Effective Care Environment",
+   "ownScore": 0.25,
+   "bestBook": "psychology",
+   "bestScore": 0.5,
+   "top3": [
+    {
+     "book": "psychology",
+     "score": 0.5
+    },
+    {
+     "book": "forensic-medicine",
+     "score": 0.5
+    },
+    {
+     "book": "international-economics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "nursing",
+   "discipline": "medical-sciences",
+   "chapter": 4,
+   "chapterTitle": "The Clinical-Nursing Arc",
+   "idx": 5,
+   "title": "The Reduction of Risk Potential",
+   "ownScore": 0.0,
+   "bestBook": "acting",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "acting",
+     "score": 0.67
+    },
+    {
+     "book": "database-management-systems",
+     "score": 0.67
+    },
+    {
+     "book": "mechanics",
+     "score": 0.67
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 4
+  },
+  {
+   "book": "veterinary-medicine",
+   "discipline": "medical-sciences",
+   "chapter": 2,
+   "chapterTitle": "The Husbandry-and-Nutrition Register",
+   "idx": 11,
+   "title": "Animal Welfare, Ethics and Jurisprudence",
+   "ownScore": 0.5,
+   "bestBook": "animal-behaviour",
+   "bestScore": 0.75,
+   "top3": [
+    {
+     "book": "animal-behaviour",
+     "score": 0.75
+    },
+    {
+     "book": "political-science",
+     "score": 0.75
+    },
+    {
+     "book": "behavioural-economics",
+     "score": 0.5
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 8
+  },
+  {
+   "book": "veterinary-medicine",
+   "discipline": "medical-sciences",
+   "chapter": 4,
+   "chapterTitle": "The Small-and-Large-Animal Registers",
+   "idx": 5,
+   "title": "Veterinary Gynaecology and Obstetrics",
+   "ownScore": 0.33,
+   "bestBook": "obstetrics-gynaecology",
+   "bestScore": 0.67,
+   "top3": [
+    {
+     "book": "obstetrics-gynaecology",
+     "score": 0.67
+    },
+    {
+     "book": "entomology",
+     "score": 0.33
+    },
+    {
+     "book": "anatomy",
+     "score": 0.33
+    }
+   ],
+   "ledgerTruth": null,
+   "isSpecialist": false,
+   "liveIdx": 5
+  }
+ ],
+ "thinChapters": [],
+ "note": "review auto-actions; adjudicate the pending lists; free-scan the books"
+}

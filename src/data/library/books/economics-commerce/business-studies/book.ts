@@ -78,11 +78,6 @@ const chapters: Chapter[] = [
       'The Level Census',
       'Fayol\u2019s Fourteen',
       'Taylor\u2019s Register',
-      'Fayol\'s and Taylor\'s Principles of Management',
-      '1-1b Principle 2: The Cost of Something ASK THE EXPERTS: Ticket Resale',
-      '1-2c Principle 7: Governments Can Sometimes CHAPTER',
-      'Key Concepts 184 CHAPTER',
-      'IN THE NEWS: What Should We Do about Climate 12-3a The Benefits Principle'
     ],
   },
   {
@@ -143,7 +138,6 @@ const chapters: Chapter[] = [
       'The Three-Tier Craft',
       'The Project Registers',
       'The Doorway Map',
-      '11-4 Conclusion: The Importance of Property Rights'
     ],
   },
 ]

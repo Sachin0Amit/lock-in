@@ -28,8 +28,6 @@ const chapters: Chapter[] = [
       'The Anchoring Craft Held',
       'The Fixed-by-Drill Receipts',
       'The Awkward Honesty Named',
-    
-      'Part B — Mathematics (class 11-12 level): algebra (equations, AP/GP, series), trigonometry (identities, heights and distances), coordinate geometry, 3D geometry, matrices and determinants, logarithms, mensuration, basic calculus (limits, differentiation), probability and statistics, permutation and'
     ],
   },
   {

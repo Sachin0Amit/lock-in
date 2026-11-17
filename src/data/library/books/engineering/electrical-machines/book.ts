@@ -55,15 +55,6 @@ const chapters: Chapter[] = [
       'OC and SC Tests as Identification',
       'Regulation and All-Day Efficiency',
       'The Autotransformer\u2019s Honest Note',
-      'RFID: Identification at a Distance',
-      'Parseval’s Theorem 681 Transformers',
-      'Summary 688 C.2 The Need for Ideal Transformers',
-      'Analyzing a Linear Transformer in the Frequency F(s) Has Distinct Complex Roots',
-      'Growth and decay 111 8.2 Unit of inductance',
-      'Summary of important formulae 611 transformer',
-      'Terms and concepts 611 29.7 Useful and leakage fluxes in a transformer',
-      'Summary of important formulae 621 transformer',
-      'Principle of action of a transformer 648 Terms and concepts'
     ],
   },
   {
@@ -79,7 +70,6 @@ const chapters: Chapter[] = [
       'Vector Groups by the Clock',
       'Parallel Operation\u2019s Conditions',
       'Tap Changers and Cooling Glanced',
-      '"Poles" and decibels per octave'
     ],
   },
   {
@@ -97,17 +87,6 @@ const chapters: Chapter[] = [
       'Starters, Losses, the Honest Decline',
       'DC Generators: Construction, Commutation and Characteristics',
       'DC Motors: Speed Control and Starting',
-      'Three-Phase Induction Motors: Construction and Slip',
-      'Alternators and Synchronous Machines',
-      'Single-Phase Motors: Split Phase, Capacitor and Universal',
-      'Obtaining Wideband (Shunt-Series)',
-      'Reluctance motor',
-      'Stator windings',
-      'Expression for the e.m.f. of a stator winding',
-      'Experimental tests to obtain motor 36 Direct-current Machines',
-      'Braking 748 36.4 Armature reaction',
-      'Summary of important formulae 868 40.12 Soft-starting induction motors',
-      'Selecting a motor'
     ],
   },
   {
@@ -124,7 +103,7 @@ const chapters: Chapter[] = [
       'The Equivalent Circuit Identified',
       'Power Flow and Losses',
       'Starting and Speed Control',
-      'Motor fitted with a cage rotor 747 36.3 Calculation of e.m.f. generated in an'
+      'Three-Phase Induction Motors: Construction and Slip',
     ],
   },
   {
@@ -139,6 +118,9 @@ const chapters: Chapter[] = [
       'The Double-Revolving-Field Honesty',
       'The Starting Fixes',
       'BLDC, Stepper, Servo Glanced',
+      'Single-Phase Motors: Split Phase, Capacitor and Universal',
+      'Reluctance motor',
+      'Selecting a motor',
     ],
   },
   {
@@ -155,7 +137,7 @@ const chapters: Chapter[] = [
       'Power-Angle and Parallel Operation',
       'Salient-Pole: the Two-Reaction Note',
       'Synchronous Motors and V-Curves',
-      'Parallel chip "bus" interface – an example'
+      'Alternators and Synchronous Machines',
     ],
   },
   {
@@ -170,6 +152,7 @@ const chapters: Chapter[] = [
       'The Loss Census Across Families',
       'Efficiency Tested Indirectly',
       'The Doorsteps: Grid, Drive, Renewables',
+      'Commercial Generator Power Output',
     ],
   },
 ]
