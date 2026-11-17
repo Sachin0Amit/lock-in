@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Renewable Energy — the twentieth book of the Engineering shelf (Electrical branch, shared by every branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 7 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `ren-` prefix
+ * 29 planned lessons, zero written. Lesson ids will use the `ren-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Renewable Energy owns the sustainable-generation engineering. Power Systems owns the grid and stability; Power Electronics owns the converter/inverter machinery; Electrical Machines owns the generator families; Hydraulics and Water Resources own the hydraulic and irrigation works; Environmental Engineering owns the environmental and waste side; the resource-climate science routes to the future Physics shelf (cross-reference when planned).
@@ -64,6 +64,7 @@ const chapters: Chapter[] = [
       'Module Arithmetic and Mismatch',
       'MPPT and the Matching Engine',
       'Systems Sized Honestly',
+      'Diodes 174 5.1.4 Applying a Small vDS'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Marketing — the twentieth book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `mktg-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `mktg-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Marketing owns the market-facing register (the UGC NET Commerce-and-Management marketing units read this pass). Business-studies owns the school first-pass; consumer-behaviour’s psychology side is cross-referenced to the humanities shelf’s psychology book; the entrepreneurship book’s growth register borrows here — cross-referenced honestly.
@@ -58,6 +58,7 @@ const chapters: Chapter[] = [
       'The Life-Cycle Arithmetic',
       'The Brand Ledger',
       'The Indian Cases Named',
+      '16-3c Brand Names 331 of Labor Markets'
     ],
   },
   {

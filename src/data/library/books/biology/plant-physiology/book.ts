@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Plant Physiology — the eleventh book of the Biology shelf (the botany register).
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 37 planned lessons, zero written. Lesson ids will use the `pphys-` prefix
+ * 43 planned lessons, zero written. Lesson ids will use the `pphys-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Plant Physiology owns the functional register of plants. The biochemical machinery of respiration-and-photosynthesis’s dark reactions is owned here at the organism register with the chemistry shelf’s biochemistry book owning the underlying chemical arc (cross-referenced, the sibling views); the anatomy of the conducting-and-photosynthetic tissues belongs to plant-anatomy; the ecological consequences (the productivity registers) belong to plant-ecology; the hormone exploits in agriculture are cross-referenced to economic-botany; the NEET photosynthesis-and-plant-growth units are priced here.
@@ -28,6 +28,10 @@ const chapters: Chapter[] = [
       'The Two Highways and the Gate',
       'The Cohesion-Tension Craft',
       'The Stomatal and Ratio Honesty',
+      'Hydrogen Bonding Gives Water Its Unusual',
+      'Configuration and Conformation 14 Solutes',
+      '•=Mlf) Louis Pasteur and Optical Activity: Nonpolar Gases Are Poorly Soluble in Water',
+      'The Ionization of Water Is Expressed by'
     ],
   },
   {
@@ -59,6 +63,7 @@ const chapters: Chapter[] = [
       'The Chemiosmotic Rotary Engine',
       'The Spectra\u2019s Diagnostic Craft',
       'The Photochemical and Biosynthetic Phases: Cyclic and Non-Cyclic Photophosphorylation',
+      'Criticism; and to the many students and teachers who 20 Photosynthesis and Carbohydrate'
     ],
   },
   {
@@ -108,7 +113,8 @@ const chapters: Chapter[] = [
       'The ABA-and-Ethylene Honesty',
       'The Network Held Together',
     
-      'Hormones and neurotransmitters'
+      'Hormones and neurotransmitters',
+      'Does not work, they are never shy about letting us know'
     ],
   },
   {

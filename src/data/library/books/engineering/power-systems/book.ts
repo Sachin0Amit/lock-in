@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Power Systems — the fifteenth book of the Engineering shelf (Electrical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 39 planned lessons, zero written. Lesson ids will use the `ps-` prefix
+ * 71 planned lessons, zero written. Lesson ids will use the `ps-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Power Systems owns the grid as a system. Electrical Machines owns the generator and transformer depth; High Voltage Engineering owns insulation and testing depth; Power Electronics owns the converter stations (HVDC/FACTS); Renewable Energy owns the variable-source integration problem; Protection’s relay theory is shared honestly with Measurements’ instrument-transformer census.
@@ -44,6 +44,25 @@ const chapters: Chapter[] = [
       'The Generation Census',
       'AC, DC and the HVDC Honest Note',
       'The One-Line Diagram as Language',
+      'Frequency Compensation 858 (CMRR)',
+      'Power Dissipation 894 13.2.7 Increasing the Output Voltage Range',
+      'Unity-gain power buffers',
+      'Commercial power-supply modules',
+      'Single-pulse generation with flip-flops and counters',
+      'ADE7753 multifunction ac power metering IC',
+      'Pseudorandom bit sequences and noise generation',
+      'Practical Perspective: Balancing Power 18 Cases',
+      'Unbounded Response 250 Practical Perspective: Vampire Power',
+      'Summary 256 10.3 The RMS Value and Power Calculations',
+      'Practical Perspective: Vampire Power',
+      'The Step Response of a Parallel RLC and Distribution of Electric Power',
+      'Practical Perspective: Characterizing E.6 Straight-Line Amplitude Plots',
+      'Summary 714 E.7 Correcting Straight-Line Amplitude Plots for',
+      'Making Power Calculations Involving Household',
+      'Powers of 10 10 Household Appliances',
+      'Average Power Consumption of Common',
+      'Force on a current-carrying conductor 140 9.2 Generation of an alternating e.m.f',
+      'Distributed/Embedded generation'
     ],
   },
   {
@@ -58,6 +77,7 @@ const chapters: Chapter[] = [
       'The Idea and Its Bases',
       'Base Conversion Worked',
       'The Per-Unit Network Built',
+      'Load Impedance Restriction 396 13.11 Using the Convolution Integral to Find an'
     ],
   },
   {
@@ -72,6 +92,7 @@ const chapters: Chapter[] = [
       'Inductance from Geometry',
       'Capacitance and Bundling',
       'The Nominal Models and Classes',
+      'Breakdown and Input Protection 290 7.2 Small-Signal Operation and Models'
     ],
   },
   {
@@ -87,6 +108,9 @@ const chapters: Chapter[] = [
       'Ferranti and SIL',
       'Series and Shunt Compensation',
       'The Reactive Bookkeeping',
+      'Practical Perspective: Artificial Pacemaker 255 10.2 Average and Reactive Power',
+      'Calculating Average and Reactive Power 380 Theorems',
+      'Calculating Average and Reactive Power 389 13.5 Analyzing a Circuit with Multiple Meshes'
     ],
   },
   {
@@ -102,6 +126,8 @@ const chapters: Chapter[] = [
       'String Efficiency and Grading',
       'Corona Priced Honestly',
       'Cables and Their Thermal Limits',
+      'Coaxial cable',
+      'Resistor-string DACs'
     ],
   },
   {
@@ -132,6 +158,8 @@ const chapters: Chapter[] = [
       'The Breaker\u2019s Duty Priced',
       'Arc Physics Glanced Honestly',
       'The Duration Discipline',
+      'A riff on robust input protection',
+      'Summary 309 11.6 Measuring Average Power in Three-Phase'
     ],
   },
   {
@@ -162,6 +190,8 @@ const chapters: Chapter[] = [
       'Directional and Differential Craft',
       'Distance Protection in the R-X Plane',
       'CTs, PTs and Their Honest Burden',
+      'Gain-setting resistors',
+      'Optocouplers and relays'
     ],
   },
   {
@@ -178,6 +208,8 @@ const chapters: Chapter[] = [
       'Voltage and Frequency Control',
       'Economic Dispatch with Losses',
       'The Synthesis and Doorsteps',
+      'Higher stability: TCXO, OCXO, and beyond',
+      'Calculating Power in Parallel Loads 390 13.6 Creating a Thévenin Equivalent in the'
     ],
   },
 ]

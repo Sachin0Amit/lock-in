@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * German — the fifth book of the Languages shelf.
  *
  * STATUS: PLANNED (Languages full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `ger-` prefix
+ * 52 planned lessons, zero written. Lesson ids will use the `ger-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): German owns the German register (the standard Hochdeutsch line). The english book owns the Germanic sibling’s shared craft (the cognate’s bridge and the word order’s contrast cross-referenced); the Goethe-Zertifikat A1-C2 register is this book’s exam spine; the Dutch and the Scandinavian registers are named honestly as the family’s future books; the Hammer grammar is this book’s depth pole named at the doorstep.
@@ -49,6 +49,9 @@ const chapters: Chapter[] = [
       'Word Order and the Verbal Bracket',
       'The Subjunctive and Konjunktiv Register',
       'Prepositions with Fixed Cases',
+      '(The weather / change). Look at those clouds',
+      'Ausklammerung: placing elements after the end of the verbal bracket',
+      'Where required, the plural of a noun is indicated within brackets after the noun, e.g. das Lager (-), i.e. die Lager; der Hut (\'e), i.e. die Hüte, etc. (-en, -en) or (-n, -n) indicate a weak masculine noun, e.g der Mensch, des Menschen, die Menschen (see 1.3.2)'
     ],
   },
   {
@@ -64,6 +67,10 @@ const chapters: Chapter[] = [
       'The Modals\u2019 Bracket',
       'The Separable Prefixes',
       'The Reflexive and the Imperative',
+      'Regular formation of the comparative and superlative',
+      'Regular formation of comparative and superlative',
+      'Sentences used for illustration which are ungrammatical in German are indicated by an asterisk, e.g. *Jedoch dann ist er nicht gekommen',
+      'Sg., sing. singular'
     ],
   },
   {
@@ -79,6 +86,8 @@ const chapters: Chapter[] = [
       'The Verb-Final Tail-Park',
       'The Three Brackets',
       'The Conjunctions\u2019 Census',
+      'A great time and doesn’t want to come back',
+      'K Ger kommen, Engl come m Ger mich, Engl mine'
     ],
   },
   {
@@ -109,6 +118,7 @@ const chapters: Chapter[] = [
       'The Shopping and the Time',
       'The Directions and the Case Trap',
       'The Restaurant and the Phone',
+      '第3課 デートの約束 Making a Date'
     ],
   },
   {
@@ -124,6 +134,8 @@ const chapters: Chapter[] = [
       'The Compounds\u2019 Delight',
       'The False Friends\u2019 Census',
       'The Dictionary\u2019s Craft',
+      'Schließlich',
+      '第11課 友だち募集 Looking for Friends'
     ],
   },
   {

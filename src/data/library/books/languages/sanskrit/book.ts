@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Sanskrit — the third book of the Languages shelf.
  *
  * STATUS: PLANNED (Languages full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `sansk-` prefix
+ * 54 planned lessons, zero written. Lesson ids will use the `sansk-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Sanskrit owns the classical register (the deva-vani’s whole literature). Hindi owns the child register (the script’s lessons cross-referenced — one script, two routes; the tatsama etymons’ treasury shared); the Philosophy book’s Indian darshanas (the Nyaya to the Vedanta) are read in this language — the cross-reference priced in both books; the Indian History book’s sources’ craft (the Vedas to the Upanishads as the historical evidence) cross-references; the Archaeology book’s inscription census names the Brahmi’s evolution; the future Classics-of-other-lands line (the Greek-Latin family) is named as the world’s parallel.
@@ -29,6 +29,9 @@ const chapters: Chapter[] = [
       'The Consonant Matrix',
       'The Sh-List\u2019s Precision',
       'The Mastery Drill',
+      'Declension of the indefinite article ein and negative kein',
+      'Declension of derjenige and derselbe',
+      'Declension of jemand, niemand'
     ],
   },
   {
@@ -44,6 +47,13 @@ const chapters: Chapter[] = [
       'The -a Stem Mountain',
       'The Other Stems and the Genders',
       'The Pronouns\u2019 Treasuries',
+      'A., acc. Accusative',
+      'D., dat. dative',
+      'Fem. feminine',
+      'Masc. masculine',
+      'N., nom. nominative',
+      'Neut. neuter',
+      '[body text of acknowledgements, ending:] Martin Durrell / Manchester'
     ],
   },
   {
@@ -59,6 +69,7 @@ const chapters: Chapter[] = [
       'The La-Series Census',
       'The Passive and the Causative',
       'The Participle Families',
+      'I don’t have anywhere to live right now. c It’s starting to rain'
     ],
   },
   {
@@ -74,6 +85,7 @@ const chapters: Chapter[] = [
       'The Consonant and Visarga Sandhi',
       'The Samasa\u2019s Types',
       'The Compound\u2019s Reading Craft',
+      'Techn. technical'
     ],
   },
   {
@@ -164,6 +176,8 @@ const chapters: Chapter[] = [
       'The University Registers',
       'The Modern Life',
       'The Doorstep: The Treasury Open',
+      'The 2 (school / the school etc.)',
+      '第3課 まいにちのせいかつ Daily Life'
     ],
   },
 ]

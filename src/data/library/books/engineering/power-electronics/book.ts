@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Power Electronics — the seventeenth book of the Engineering shelf (Electrical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 33 planned lessons, zero written. Lesson ids will use the `pe-` prefix
+ * 55 planned lessons, zero written. Lesson ids will use the `pe-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Power Electronics owns the switched-processing of power. Electrical Machines owns the machines the drives feed; Renewable Energy owns the generation-integration problem (its inverters route here); Power Systems owns the grid the converters connect to (HVDC/FACTS cross-referenced); Electronic Devices and Circuits owns the device physics; the CS shelf owns nothing here — the boundary is clean.
@@ -39,7 +39,24 @@ const chapters: Chapter[] = [
       'The Frequency Trade-Off',
     
       'Drives — basic concepts of adjustable speed DC and AC drives; DC-DC switched mode converters; DC-AC switched mode converters; resonant converters; high frequency inductors and transformers; power supplies',
-      'Advanced Electronics Topics'
+      'Advanced Electronics Topics',
+      'The Ideal VTC 1124 as Switches',
+      'Lee De Forest—A Father of the Electronics Age',
+      'Harry Nyquist: A Diverse Electronics',
+      'Interlude: inductors as friends',
+      'Limitations of FET switches',
+      'The 723 regulator',
+      'Taxonomy of linear regulator ICs',
+      'Lower-dropout regulators',
+      'Converter linearity – a closer look',
+      'Undersampling flash-converter example',
+      'Pros and Cons of ΔΣ oversampling converters',
+      'Some unusual A/D and D/A converters',
+      'D/A converters in practice 504 23.19 Programmable logic and hardware',
+      'R/2R ladder D/A converter 506 description languages',
+      'Summary of important formulae 852 40 Power Electronics',
+      'Regulators and servomechanisms',
+      'Introduction to analogue and electronic'
     ],
   },
   {
@@ -54,6 +71,8 @@ const chapters: Chapter[] = [
       'The Thyristor: Latching and Firing',
       'MOSFET and IGBT Niches Priced',
       'Ratings and the Wide-Bandgap Future',
+      'Paralleling MOSFETs',
+      'ELEVEN: Programmable Logic Devices'
     ],
   },
   {
@@ -69,6 +88,7 @@ const chapters: Chapter[] = [
       'The Six-Pulse Arithmetic',
       'Performance Parameters',
       'Filters and the Harmonic Note',
+      'Practical Perspective: Clock for Computer 11.5 Power Calculations in Balanced Three-Phase'
     ],
   },
   {
@@ -84,6 +104,7 @@ const chapters: Chapter[] = [
       'Three-Phase Controlled Bridges',
       'Voltage and Current Commutation',
       'Harmonics, Power Factor, Distortion Factor',
+      'D/A converter hardware 502 23.18 Integrated circuit logic gates'
     ],
   },
   {
@@ -114,6 +135,7 @@ const chapters: Chapter[] = [
       'Three-Phase Modes',
       'Sinusoidal PWM Earned',
       'CSI and Applications',
+      'Nanoamp wide-compliance bipolarity current source'
     ],
   },
   {

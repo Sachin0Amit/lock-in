@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Electronic Devices and Circuits — the twenty-second book of the Engineering shelf (Electronics & Communication branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 34 planned lessons, zero written. Lesson ids will use the `edc-` prefix
+ * 57 planned lessons, zero written. Lesson ids will use the `edc-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Electronic Devices and Circuits owns the device physics and first circuits. Analog Electronics owns the amplifier/op-amp systems story; VLSI Design owns the transistor-level digital craft; Power Electronics owns the high-power device applications; Renewable Energy owns the solar-cell system story; the band-theory physics depth belongs to the future Physics shelf (cross-reference when planned).
@@ -39,6 +39,11 @@ const chapters: Chapter[] = [
       'Doping and Mass Action',
       'Direct versus Indirect: the LED Note',
       'Fermi Levels Under Doping',
+      'Preface to the First Edition — xxv',
+      'A first (but naive) guess',
+      'Optoelectronics: emitters',
+      'Indicators and LEDs',
+      'Basic attenuators 360 19.4 An n-type semiconductor'
     ],
   },
   {
@@ -54,6 +59,9 @@ const chapters: Chapter[] = [
       'Diffusion and the Total Current',
       'Generation, Recombination, Lifetime',
       'Continuity and Poisson, Earned',
+      'Qualitative Description of Junction Summary',
+      'Diffusion Capacitance 167 5.1 Device Structure and Physical Operation',
+      'Current sharing in paralleled BJTs'
     ],
   },
   {
@@ -69,6 +77,9 @@ const chapters: Chapter[] = [
       'The Diode Equation from Carriers',
       'Zener versus Avalanche',
       'Capacitance and the Storage Note',
+      'Modeling the Diode 191 Saturation',
+      'Biasing Using Diodes 907 Summary',
+      'John Milton Miller: Capacitance Multiplication'
     ],
   },
   {
@@ -85,6 +96,8 @@ const chapters: Chapter[] = [
       'The Zener Regulator Priced',
       'Zener Diodes and Applications',
       'Rectifiers with Filters and Regulation',
+      '317-style regulator: circuit examples',
+      'The low-pass or lag circuit 372 20.6 Zener diode'
     ],
   },
   {
@@ -100,6 +113,12 @@ const chapters: Chapter[] = [
       'Characteristics and Configurations',
       'Biasing and the Q-Point',
       'The Stability Craft',
+      'Operation of the npn Transistor in the',
+      'Biasing the Class AB Circuit 907 to-Rail Output Swing',
+      'The Invention of the BJT',
+      'An aside: the perfect transistor',
+      'V: Solid-state relays (transistor output)',
+      'Bode plots 382 20.10 Static characteristics for a common-base circuit'
     ],
   },
   {
@@ -114,6 +133,7 @@ const chapters: Chapter[] = [
       'Small-Signal Models Earned',
       'The Three Configurations Priced',
       'Frequency Response and Miller',
+      'Analyzing a Noninverting-Amplifier Circuit Using'
     ],
   },
   {
@@ -129,6 +149,8 @@ const chapters: Chapter[] = [
       'The MOS Capacitor Earned',
       'MOSFET I-V: Three Regions',
       'The CMOS Doorway Named',
+      'Variations 1181 G. Comparison of the MOSFET and the BJT * G-1',
+      'A closer look at JFETs'
     ],
   },
   {
@@ -144,6 +166,7 @@ const chapters: Chapter[] = [
       'Photodiodes and Solar Cells',
       'Tunnel and Varactor Notes',
       'The Thyristar Family Named',
+      'Graphical display devices 939 42.12 Use of the oscilloscope in waveform'
     ],
   },
   {

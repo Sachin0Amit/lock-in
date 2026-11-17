@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Law and Legal Studies — the fourth book of the Polity & Governance branch.
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 43 planned lessons, zero written. Lesson ids will use the `law-` prefix
+ * 48 planned lessons, zero written. Lesson ids will use the `law-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Law and Legal Studies owns the legal register. Political Science owns the Constitution’s political reading (the two books share the constitutional text — the political chapters there, the jurisprudential and remedial chapters here — cross-referenced both ways); Public Administration owns the administrative machinery (this book’s administrative law is the leash’s legal theory, that book the leash’s practice); International Relations owns the inter-state order with this book’s international law chapter cross-referenced there; the CLAT English comprehension is cross-referenced to the Languages shelf’s english book.
@@ -31,7 +31,12 @@ const chapters: Chapter[] = [
       'The Indian System\u2019s Mixed Parentage',
       'The Courts\u2019 Hierarchy and the Profession',
     
-      'Paper-II 4. Emergence, Growth and Development of Anthropology in India (contributions of 18th-20th century scholar-administrators and of Indian anthropologists to tribal and caste studies)'
+      'Paper-II 4. Emergence, Growth and Development of Anthropology in India (contributions of 18th-20th century scholar-administrators and of Indian anthropologists to tribal and caste studies)',
+      'Year-Wise Break-up of the UPSC Questions on Indian Polity (General Studies—Prelims) — table of 20 years (2000–2019), with Note I and Note II',
+      'Year-Wise Break-up of the UPSC Questions on Indian Polity (General Studies—Prelims) — duplicate',
+      'Year-Wise Break-up of the UPSC Marks on Indian Polity (General Studies—Mains) — table of 20 years (2000–2019), with Note I and Note II',
+      'Year-Wise Break-up of the UPSC Marks on Indian Polity (General Studies—Mains) — duplicate',
+      'The scanned pages do not match the described book. They are not a JEE mathematics reference (Cengage-style) and contain no table of contents to transcribe. What was actually provided'
     ],
   },
   {

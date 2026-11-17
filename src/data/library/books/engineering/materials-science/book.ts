@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Materials Science — the twelfth book of the Engineering shelf (Mechanical branch, shared by every branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `mats-` prefix
+ * 52 planned lessons, zero written. Lesson ids will use the `mats-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Materials Science owns the structure-property story for engineering materials. Strength of Materials owns the stress machinery (testing shared, honestly); Machine Design consumes its fatigue and heat-treatment census; Building Materials (civil) owns the construction-materials census (stone, brick, cement, timber) with the contract stated there; the future Chemistry shelf’s Materials line will route here (cross-reference when planned); the future Physics shelf’s Solid-State line owns the physics depth.
@@ -37,7 +37,14 @@ const chapters: Chapter[] = [
       'The Family Census by Bonding',
       'Selection Vocabulary Promised',
     
-      'Materials Science — electrical engineering materials; crystal structure and defects; ceramic materials: structures, composites, processing and uses; insulating laminates for electronics; magnetic materials: basics, classification, ferrites, ferro/para-magnetic materials and components; nano'
+      'Materials Science — electrical engineering materials; crystal structure and defects; ceramic materials: structures, composites, processing and uses; insulating laminates for electronics; magnetic materials: basics, classification, ferrites, ferro/para-magnetic materials and components; nano',
+      'Physical Structure 150 Bootstrapping',
+      'Summary 169 5.1.1 Device Structure',
+      'Structure of Actual Transistors',
+      'Summary 1057 16.1.3 General Structure of CMOS',
+      'Using Phasor Diagrams to Analyze a F(s) Has Repeated Complex Roots',
+      'Using Phasor Diagrams to Analyze Capacitive Improper Rational Function',
+      'Source coding 609 29.6 Phasor diagram for an ideal loaded'
     ],
   },
   {
@@ -52,6 +59,7 @@ const chapters: Chapter[] = [
       'The Four Bond Families Priced',
       'Bond Curves: the Modulus Earned',
       'Density Arithmetic',
+      'Short contents'
     ],
   },
   {
@@ -67,7 +75,8 @@ const chapters: Chapter[] = [
       'Anisotropy and Allotropy',
       'Bragg\u2019s Law at Engineering Depth',
     
-      'Electrical Materials — electrical engineering materials, crystal structures and defects, ceramic materials, insulating materials; magnetic materials: basics, properties and applications; ferrites, ferro-magnetic materials and components; basics of solid state physics, conductors;'
+      'Electrical Materials — electrical engineering materials, crystal structures and defects, ceramic materials, insulating materials; magnetic materials: basics, properties and applications; ferrites, ferro-magnetic materials and components; basics of solid state physics, conductors;',
+      'Some Mathematical Properties 673 Appendix C More on Magnetically'
     ],
   },
   {
@@ -140,6 +149,12 @@ const chapters: Chapter[] = [
       'The Fe-C Map Read Fluently',
       'TTT Curves and Heat Treatment',
       'Hardenability: the Jominy Craft',
+      'Unity-gain phase splitter',
+      'Practical Perspective: Surge Suppressors 520 16.9 Amplitude and Phase Spectra',
+      'Plotting the Amplitude and Phase Spectra for a',
+      'Binary addition 519 24.6 Deconvolution',
+      'Signed binary multiplication',
+      'Signed binary division'
     ],
   },
   {
@@ -155,6 +170,7 @@ const chapters: Chapter[] = [
       'The Non-Ferrous Niches',
       'Polymers and Ceramics Honestly',
       'Composites and Rule of Mixtures',
+      'Some representative JFETs: a brief tour'
     ],
   },
   {

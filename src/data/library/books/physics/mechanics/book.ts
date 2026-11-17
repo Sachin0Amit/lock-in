@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Mechanics — the second book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 12 chapters /
- * 49 planned lessons, zero written. Lesson ids will use the `pmech-` prefix
+ * 127 planned lessons, zero written. Lesson ids will use the `pmech-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Mechanics owns the calculus-based classical register (the JEE units Kinematics, Laws of Motion, Work Power Energy, Rotational Motion, Gravitation; the GATE PH Classical Mechanics section incl. the Lagrangian/Hamiltonian formulations read this pass). The fluid-mechanics backlog line is FOLDED here (fluid statics + dynamics chapters) with the engineering shelf’s fluid-mechanics book cross-referenced for the thermo-fluids applied side; properties-of-matter owns the matter-side (viscosity and surface tension deep).
@@ -28,6 +28,22 @@ const chapters: Chapter[] = [
       'Graphs by Slope and Area',
       'Deriving the Equations',
       'Variable-Acceleration Problems',
+      'Position of a Point',
+      'Tangential and Radial Acceleration',
+      'Total Acceleration',
+      'Combined Rotation and Translation',
+      'Acceleration Due to Gravity',
+      'Liquid in a Vessel Rotating with Constant Angular Velocity',
+      'Some Definitions',
+      'Some Techniques of the Calculus of Variations',
+      'Finite Rotations',
+      'Infinitesimal Rotations',
+      'The Eigenvalue Equation and the Principal Axis Transformation',
+      '"Ordinary" Derivatives',
+      'Another Look at Constant Acceleration',
+      'Angular Velocity and Acceleration 272 13.6 Spherical Mass Distributions',
+      'Rotation with Constant Angular Acceleration 277 13.7 Apparent Weight and the Earth’s Rotation',
+      'Relating Linear and Angular Kinematics 279 13.8 Black Holes'
     ],
   },
   {
@@ -43,6 +59,10 @@ const chapters: Chapter[] = [
       'The Trajectory Equation',
       'Relative Velocity Craft',
       'River-Boat and Rain-Man Registers',
+      'Horizontal Projectile',
+      'Vibrations of Composite Strings',
+      'Relative intensity and Dynamic Range',
+      'Acrobats in Equilibrium 223 Relative Velocity and Reference Frames'
     ],
   },
   {
@@ -58,6 +78,16 @@ const chapters: Chapter[] = [
       'Pulleys and Wedges',
       'Friction\u2019s Full Dress',
       'Banking and Turning',
+      'Trigonometrical Ratios of General Angles (Reduction Formulae)',
+      '[cover/title page] (duplicate — Chapter opener / contents page, same as page 1)',
+      '[cover/title page] (duplicate of chapter contents page)',
+      'Constraints Due to Ropes and Pulleys',
+      'Pages 3–12 are body content (chapter text, illustrations, sections), not table of contents',
+      'Appendix A ■ Euler Angles in Alternate Conventions and Cayley–Klein Parameters',
+      'The Moons of Jupiter 82 CHAPTER 19 Circular Polarization and 3-D Movies',
+      'Walking and Running on the Moon 400 for Cancer Therapy 941 CHAPTER',
+      'VOLUME 1: Chapters 1–20 • VOLUME 2: Chapters 21–37 • VOLUME 3: Chapters 37–44',
+      'Pulleys Connected with a Belt'
     ],
   },
   {
@@ -73,6 +103,7 @@ const chapters: Chapter[] = [
       'Vertical Circles',
       'Rotating Frames',
       'Coriolis in the Large',
+      'Condition of Completing Vertical Circle'
     ],
   },
   {
@@ -89,6 +120,14 @@ const chapters: Chapter[] = [
       'Conservative Forces',
       'The Energy Shortcut',
       'Power: The Rate of Doing Work',
+      'Binomial Expression and Theorem',
+      'Lami\'s Theorem',
+      'Dependence of Rate of Cooling',
+      'Carnot Theorem',
+      'Alternative Method',
+      'Conditions for Closed Orbits (Bertrand\'s Theorem)',
+      'The Helmholtz Theorem',
+      'B The Helmholtz Theorem'
     ],
   },
   {
@@ -104,6 +143,16 @@ const chapters: Chapter[] = [
       'Collision Taxonomy',
       'Two-Dimensional Collisions',
       'Centre of Mass Craft',
+      'Methods to Find Dimensions of Physical Constant or Coefficients',
+      'Centre of Mass of a Semicircular Disc',
+      'Collision or Impact',
+      'Oblique Collision of Two Discs',
+      'Elastic Hysteresis',
+      'Second Approach',
+      'Center of Mass and Linear Momentum',
+      'A New Look at Momentum',
+      'Momentum and Impulse 235 11.2 Center of Gravity',
+      'Momentum Conservation and Collisions 245 11.4 Stress, Strain, and Elastic Moduli'
     ],
   },
   {
@@ -121,6 +170,19 @@ const chapters: Chapter[] = [
       'Angular Momentum',
       'Rigid-Body Equilibrium and the Torque Balance',
       'Rolling without Slipping: Rings, Cylinders and Spheres',
+      'Finding Instantaneous Axis of Rotation in Different Situations',
+      'Rolling as Pure Rotation About Point of Contact',
+      'Calculation of Torque',
+      'Dynamics of Combination of Translation and Rotation',
+      'Growth of Ice on Lake',
+      'Charged Conducting Sphere',
+      'Outside the Sphere',
+      'Radioactive Equilibrium',
+      'Conditions for Equilibrium',
+      'Parallel-Axis Theorem 287 Guided Practice',
+      'Angular Momentum 316 Guided Practice',
+      '9–3 Dynamics of Rotation about a Fixed Axis 221 16–3 Moving Sources and Observers',
+      '9–5 Angular Momentum 226 16–4 Power and Intensity; the Decibel Scale'
     ],
   },
   {
@@ -136,6 +198,14 @@ const chapters: Chapter[] = [
       'Kepler Derived',
       'Escape and Orbit',
       'Satellite Registers',
+      'Integration as Inverse of Differentiation',
+      'MI of a Square Lamina About Its Diagonal',
+      'Expression for Gravitational Potential at a Point',
+      'Artificial Satellite',
+      'Precession of the Equinoxes and of Satellite Orbits',
+      'Alignment of Polar Molecules',
+      'BIO Converting Gravitational Potential Why Lightning Bolts Are Vertical  736 CHAPTER',
+      'D.2 Squares and Square Roots'
     ],
   },
   {
@@ -151,6 +221,9 @@ const chapters: Chapter[] = [
       'Pascal\u2019s Machines',
       'Buoyancy Craft',
       'Barometers and Manometers',
+      'BIO Pollen and Fluid Resistance 147 BIO The Telephoto Eyes of Chameleons',
+      'Compound Machines',
+      'Fluids 257 17–1 Electric Charge'
     ],
   },
   {
@@ -166,6 +239,7 @@ const chapters: Chapter[] = [
       'Bernoulli Derived and Applied',
       'Torricelli and Venturi',
       'Terminal Velocity Taster',
+      'Visualization of Flow'
     ],
   },
   {
@@ -182,7 +256,9 @@ const chapters: Chapter[] = [
       'Pendulum Re-derived',
       'Atwood Again',
     
-      'Lagrangian Formulation'
+      'Lagrangian Formulation',
+      'Simple Applications of the Lagrangian Formulation',
+      'Cartesian Coordinates'
     ],
   },
   {
@@ -202,6 +278,8 @@ const chapters: Chapter[] = [
       'Central Force Motion and Kepler\'s Problem',
       'Scattering Cross-Sections and Rutherford',
       'Oscillations about Equilibrium and Normal Coordinates',
+      'MI of a Triangular Lamina About Its Base',
+      'The Cayley–Klein Parameters and Related Quantities'
     ],
   },
 ]

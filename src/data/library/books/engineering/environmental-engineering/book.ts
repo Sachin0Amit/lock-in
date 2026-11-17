@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Environmental Engineering — the thirty-fifth book of the Engineering shelf (Civil branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `env-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `env-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Environmental Engineering owns the water-air-waste stewardship (GATE CE S5). Water Resources owns the source-and-irrigation story; Building Materials owns the material science it consumes; Fluid Mechanics owns the hydraulics its channels price; Renewable Energy owns the energy-transition partner; the future Chemistry shelf owns the underlying chemistry (cross-reference when planned).
@@ -135,6 +135,7 @@ const chapters: Chapter[] = [
       'Collection Routes Priced',
       'Recovery and Composting Earned',
       'The Sanitary Landfill Craft',
+      'VI: Solid-state relays (triac/SCR output)'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * World History — the first book of the Humanities & Social Sciences shelf (History branch).
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 11 chapters /
- * 47 planned lessons, zero written. Lesson ids will use the `wh-` prefix
+ * 80 planned lessons, zero written. Lesson ids will use the `wh-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): World History owns the world register — every region, every era, at survey depth. Indian History owns the national register (the two cross-reference at the colonial bridge); International Relations owns the post-1945 order’s political science; the Anthropology book owns the deep human past below writing. The political philosophies (communism, capitalism, socialism) are priced here as history’s engines and cross-referenced to Political Science and Philosophy for their theory.
@@ -29,6 +29,10 @@ const chapters: Chapter[] = [
       'How History Is Written',
       'Sources: Literary and Archaeological',
       'Time, Periodisation and the Calendar',
+      'Acknowledgements (duplicate)',
+      'Chapter XIII. The Sources of Plato\'s Opinions',
+      'Part I. The Fathers',
+      'Part II. The Schoolmen'
     ],
   },
   {
@@ -46,7 +50,9 @@ const chapters: Chapter[] = [
       'The World in 1200: the Starting Line',
     
       'Agriculture - major crops and cropping patterns, irrigation systems, storage, transport and marketing of agricultural produce, e-technology in the aid of farmers; direct and indirect farm subsidies and minimum support prices; Public Distribution System and food security; food processing and related',
-      'Unit 6: Consequences of Industrialization'
+      'Unit 6: Consequences of Industrialization',
+      'Preface to the First Edition (signed M. Laxmikanth)',
+      'Preface to the First Edition (duplicate)'
     ],
   },
   {
@@ -62,6 +68,7 @@ const chapters: Chapter[] = [
       'Ming-Qing China and the Tribute World',
       'The Aztec and Inca States',
       'Empire\u2019s Legitimation Craft',
+      'About the Civil Services Examination — A. Preliminary Examination / B. Main Examination (Qualifying Papers: Paper A, Paper B)'
     ],
   },
   {
@@ -77,6 +84,8 @@ const chapters: Chapter[] = [
       'The Trans-Saharan Caravans',
       'Goods, Technologies, Religions in Motion',
       'The Land and Sea Route Comparison',
+      'ABOUT THE AUTHOR',
+      'Part I. The Pre-Socratics'
     ],
   },
   {
@@ -124,6 +133,7 @@ const chapters: Chapter[] = [
       'The Factory World and Its Cities',
       'Capitalism, Socialism and the Century\u2019s Debate',
       'The Industrial-Military Engine',
+      'Chapter XII. The Thirteenth Century'
     ],
   },
   {
@@ -156,6 +166,29 @@ const chapters: Chapter[] = [
       'The Russian Revolution',
       'Fascism, Nazism and the Interwar World',
       'The Second World War: Theatres and the Holocaust',
+      'Chapter III. Pythagoras',
+      'Chapter IV. Heraclitus',
+      'Chapter V. Parmenides',
+      'Chapter VI. Empedocles',
+      'Chapter IX. The Atomists',
+      'Chapter X. Protagoras',
+      'Chapter XXVI. Cynics and Sceptics',
+      'Chapter XXVII. The Epicureans',
+      'Chapter XXIX. Stoicism',
+      'Chapter XXX. Plotinus',
+      'Chapter VI. Saint Benedict and Gregory the Great',
+      'Chapter XIII. Saint Thomas Aquinas',
+      'Chapter XIV. Franciscan Schoolmen',
+      'Chapter XV. The Eclipse of the Papacy',
+      'Chapter IV. Erasmus and More',
+      'Chapter VII. Francis Bacon',
+      'Chapter IX. Descartes',
+      'Chapter X. Spinoza',
+      'Chapter XI. Leibniz',
+      'Chapter XXIV. Schopenhauer',
+      'Chapter XXV. Nietzsche',
+      'Chapter XXVIII. Bergson',
+      'Chapter XXX. John Dewey'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Quantum Mechanics — the tenth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `qm-` prefix
+ * 49 planned lessons, zero written. Lesson ids will use the `qm-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Quantum Mechanics owns the formalism register (GATE PH Quantum Mechanics section read this pass: Schrodinger equation, operators, eigenvalue problems, angular momentum, perturbation theory). Modern-physics owns the historical survey; atomic-physics owns the atomic application side; the mathematics shelf’s differential-equations and linear-algebra books are cross-referenced as the pure side.
@@ -28,6 +28,9 @@ const chapters: Chapter[] = [
       'States and Superposition',
       'The Postulates Plain',
       'Two-Slit Arithmetic',
+      'Sine and Cosine Rule for Triangles',
+      'Quotient Rule',
+      'Rule of Substitution'
     ],
   },
   {
@@ -48,6 +51,9 @@ const chapters: Chapter[] = [
       'The Linear Harmonic Oscillator by Ladder Operators',
       'Scattering in One Dimension and the Reflection Coefficient',
       'Identical Particles and Exchange Symmetry',
+      'Shifted Symmetry',
+      '37-1 SIMULTANEITY AND TIME DILATION 1116 38-9 TUNNELING THROUGH A POTENTIAL BARRIER',
+      'D.1 Scientific Notation'
     ],
   },
   {
@@ -93,6 +99,7 @@ const chapters: Chapter[] = [
       'Radial Solutions',
       'The Degeneracy Ledger',
       'The Level Diagram',
+      'Decimal and Binary Number System'
     ],
   },
   {
@@ -108,6 +115,10 @@ const chapters: Chapter[] = [
       'Stern-Gerlach Inherited',
       'Symmetrisation Discipline',
       'Pauli as Constitution',
+      'Page 1: [table of contents page 1]',
+      'Page 2: [table of contents page 2]',
+      'Activities and Half-Lives 1459 D Periodic Table of the Elements A-5',
+      'Table 22 The Greek Alphabet'
     ],
   },
   {
@@ -123,6 +134,7 @@ const chapters: Chapter[] = [
       'The Degenerate Rescue',
       'Fine Structure Previewed',
       'The Variational Bound',
+      'Perturbations and the Kolmogorov–Arnold–Moser Theorem'
     ],
   },
   {
@@ -138,6 +150,7 @@ const chapters: Chapter[] = [
       'Rabi Oscillations',
       'The Golden Rule',
       'Spontaneous Emission Named',
+      'The Transition from a Discrete to a Continuous System'
     ],
   },
   {

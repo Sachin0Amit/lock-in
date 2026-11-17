@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Korean — the ninth book of the Languages shelf.
  *
  * STATUS: PLANNED (Languages full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `kor-` prefix
+ * 40 planned lessons, zero written. Lesson ids will use the `kor-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Korean owns the Korean register (the standard Seoul line). The japanese and mandarin books own the neighbouring registers (the shared East Asian craft — the honorific registers’ comparison and the Sino-vocabulary’s shared world named honestly, no duplication of the teaching); the Cultural Studies book’s media register cross-references for the K-pop and K-drama immersion craft (the Hallyu named); the TOPIK register is this book’s exam spine; the hangul’s 1446 science is this book’s own celebrated door.
@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Consonants\u2019 Shape-as-Articulation',
       'The Vowels\u2019 Strokes and Philosophy',
       'The Fifteen Minutes\u2019 Honest Promise',
+      '第4課 メアリーさんのしゅうまつ Mary\'s Weekend'
     ],
   },
   {
@@ -73,6 +74,7 @@ const chapters: Chapter[] = [
       'The Questions and the Enders\u2019 Census',
       'The Conjunctions\u2019 First Set',
       'The Reported Speech\u2019s Korean Way',
+      'Adverbs of direction: hin and her'
     ],
   },
   {
@@ -118,6 +120,8 @@ const chapters: Chapter[] = [
       'The Journal, Message and Email Suits',
       'The 2-Set Keyboard\u2019s Map',
       'The First Real Texts',
+      'Abbrev. abbreviated',
+      'Coll. colloquial'
     ],
   },
   {

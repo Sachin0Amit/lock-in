@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Particle Physics — the seventeenth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `part-` prefix
+ * 39 planned lessons, zero written. Lesson ids will use the `part-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Particle Physics owns the subnuclear register. Nuclear-physics owns the nuclear scale; quantum-mechanics owns the formalism; relativity owns the kinematics — the cross-references told honestly. The mathematics shelf’s abstract-algebra book is cross-referenced for the group-theory grammar.
@@ -28,6 +28,12 @@ const chapters: Chapter[] = [
       'The Neutrino Register',
       'The Carrier Census',
       'The Model\u2019s Honesty',
+      'Four Quadrants and Sign Conventions',
+      'Displacement of a Particle in nth Second of its',
+      'Note: The remaining pages supplied are chapter body pages (p. 1.1 System of Particles and Centre of Mass; p. 1.2 Illustrations 1.1–1.2; p. 1.3 Centre of Mass of a Uniform Rod / Semicircular Ring / Semicircular Disc; p. 1.4 Illustrations 1.3–1.4; p. 1.5 Illustrations 1.5–1.6 and Concept Application',
+      'Structural Model For Electrical Conductor',
+      'De-Broglie Wavelength Associated with Different Charged Particles',
+      'BIO Young’s Modulus of a Tendon 346 BIO Spiny Lobsters and Magnetic Particles in a Polymer “Box” '
     ],
   },
   {
@@ -118,6 +124,7 @@ const chapters: Chapter[] = [
       'The Shared Debts',
       'The Named Anomalies',
       'The Candidate Doorways',
+      '(Note: this is a physics text, not a mathematics reference. Only the first four scanned pages contain the table of contents; the remaining pages are chapter content, not TOC entries.)'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Antennas and Wave Propagation — the twenty-eighth book of the Engineering shelf (Electronics & Communication branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 31 planned lessons, zero written. Lesson ids will use the `ant-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `ant-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Antennas and Wave Propagation owns the radiation and propagation census (GATE EC S8’s antenna lines: ’dipole and monopole antennas, linear antenna arrays’ — the wave-propagation phrases of the register served honestly). Electromagnetic Fields and Waves owns the field-and-wave theory beneath (its radiation doorway cross-referenced); Analog and Digital Communication owns the link budget and system story; the CS shelf’s wireless future books route here.
@@ -36,6 +36,7 @@ const chapters: Chapter[] = [
       'The Radiation Mechanism, Honestly',
       'The Family Census',
       'The Parameter Vocabulary Earned',
+      'This publication is in copyright. Subject to statutory exception and to the provisions of relevant collective licensing agreements, no reproduction of any part may take place without the written permission of Cambridge University Press'
     ],
   },
   {
@@ -111,6 +112,7 @@ const chapters: Chapter[] = [
       'The Ground Wave\u2019s Niche',
       'LOS, Radio Horizon, Fading Named',
       'The Link Arithmetic Practised',
+      'Propagation Delay 1150 18.3.3 Flash Memory'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Astrophysics — the sixteenth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 34 planned lessons, zero written. Lesson ids will use the `astro-` prefix
+ * 38 planned lessons, zero written. Lesson ids will use the `astro-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Astrophysics owns the astronomical register. The mechanics book owns gravitation-theory; relativity owns the cosmological-metric side; nuclear-physics owns the fusion microphysics; statistical-mechanics owns the degeneracy arithmetic — the cross-references are told honestly at each borrowing.
@@ -29,7 +29,9 @@ const chapters: Chapter[] = [
       'Telescope Arithmetic',
       'The Window Register',
     
-      'Inquiry 2: Collecting and processing data'
+      'Inquiry 2: Collecting and processing data',
+      'Fractional Change in the Radius of Sphere',
+      'BIO Exhaling Adiabatically  630 the Sky'
     ],
   },
   {
@@ -45,6 +47,8 @@ const chapters: Chapter[] = [
       'The L-R-T Tie',
       'The OBAFGKM Census',
       'The Master Map',
+      'Radius of Curvature',
+      'Radius of Gyration'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Political Science — the first book of the Polity & Governance branch.
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 50 planned lessons, zero written. Lesson ids will use the `pol-` prefix
+ * 53 planned lessons, zero written. Lesson ids will use the `pol-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Political Science owns the theory-and-polity register. International Relations owns the inter-state order (Heywood’s world-order chapters are named here, priced there); Public Administration owns the administrative machinery (the Wilson-to-New-Public-Management arc); Law and Legal Studies owns the constitutional-law depth (this book’s constitutional chapters are the political reading of the same text — cross-referenced both ways); Ethics owns the public-values register; the Mathematics shelf’s statistics book owns the psephology’s statistical craft (cross-referenced).
@@ -64,6 +64,8 @@ const chapters: Chapter[] = [
       'Socialism and Its Variants',
       'Feminism, Ecologism, the Newer Currents',
       'The Political Economy and Globalisation',
+      'Chapter XII. Philosophical Liberalism',
+      'Chapter XXVII. Karl Marx'
     ],
   },
   {
@@ -112,7 +114,8 @@ const chapters: Chapter[] = [
       'The Basic Structure Earned',
       'The Amendments\u2019 Census',
     
-      'Unit 7: Pedagogy, Andragogy and Assessment'
+      'Unit 7: Pedagogy, Andragogy and Assessment',
+      'Acknowledgements (signed M. Laxmikanth)'
     ],
   },
   {

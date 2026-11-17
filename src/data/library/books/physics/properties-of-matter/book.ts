@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Properties of Matter — the third book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 34 planned lessons, zero written. Lesson ids will use the `prop-` prefix
+ * 105 planned lessons, zero written. Lesson ids will use the `prop-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Properties of Matter owns the matter-side register (elasticity, viscosity, surface tension, thermal expansion — the NCERT class 11 mechanical-properties units and the JEE register). The mechanics book owns the fluid kinematics side (flow, Bernoulli); the engineering fluid-mechanics book owns the thermo-fluids applied side; heat-and-thermodynamics owns temperature’s deep theory.
@@ -28,6 +28,19 @@ const chapters: Chapter[] = [
       'The Potential Curve',
       'States Mapped',
       'Why Matter Has Properties',
+      'Some Important Properties of Integration',
+      'Properties of Definite Integral',
+      'Some Properties of Vector Addition',
+      'Properties of Bar Magnet',
+      'Formal Properties of the Transformation Matrix',
+      'String Waves and Matter Waves 1187 The Electrical Properties of Solids',
+      'Some Properties of Atoms',
+      'BIO Molecular Zipper',
+      '1Types of Mechanical Waves',
+      'Molecular Properties of Matter 585 20.8 Microscopic Interpretation of Entropy',
+      'Molecular Speeds 597 Questions/Exercises/Problems',
+      'Types of Molecular Bonds 1408 44.1 Fundamental Particles—A History',
+      'Properties of Nuclei 1442 A The International System of Units A-1'
     ],
   },
   {
@@ -44,6 +57,8 @@ const chapters: Chapter[] = [
       'The Stress-Strain Curve',
       'Factors of Safety',
       'Deformation of Solids: Elastic and Plastic',
+      'Dependence of Resistance on Various Factors',
+      '*25–5 Factors Limiting Visual Acuity'
     ],
   },
   {
@@ -61,7 +76,17 @@ const chapters: Chapter[] = [
       'Torsion of a Cylinder',
       'Young\'s Modulus: The Stiffness of a Wire',
     
-      'Experimental Skills: Young\'s modulus of elasticity of the material of a metallic wire'
+      'Experimental Skills: Young\'s modulus of elasticity of the material of a metallic wire',
+      'Important Facts About Elasticity',
+      'Reynolds Number',
+      'Avogadro\'s Number',
+      'Case 1: Spring–Mass System Oscillating on a Smooth Horizontal Surface',
+      'Vibration in Rods',
+      'Poisson Brackets and Other Canonical Invariants',
+      'Equilibrium and Elasticity 337 36 Diffraction',
+      'Elastic Collisions 249 11.5 Elasticity and Plasticity',
+      'A.1 Signed Numbers',
+      'Rotation 214 16 Mechanical Waves; Sound'
     ],
   },
   {
@@ -78,7 +103,16 @@ const chapters: Chapter[] = [
       'Stokes\u2019 Law',
       'Terminal Velocity Worked',
     
-      'Experimental Skills: Co-efficient of viscosity of a given viscous liquid by measuring the terminal velocity of a given spherical body'
+      'Experimental Skills: Co-efficient of viscosity of a given viscous liquid by measuring the terminal velocity of a given spherical body',
+      'Polynomial, Linear, and Quadratic Equations',
+      'Similarities and Differences Between Viscosity and Sliding Friction',
+      'Poiseuille\'s Formula for Flow of Liquid Through a Capillary Tube',
+      'Opposite Phase SHMs',
+      'Refraction at a Spherical Surface Convex Towards the Rarer Medium',
+      'Lateral Magnification for Refracting Spherical Surface',
+      'Measuring Things',
+      'Interference 1047 Measuring an Event',
+      'BIO Measuring Body Fat by Bioelectric'
     ],
   },
   {
@@ -94,6 +128,13 @@ const chapters: Chapter[] = [
       'The Contact Angle Treaty',
       'Temperature Effects',
       'Everyday Registers',
+      'Friction Acting on Multiple Surfaces',
+      'Condition for Leaving the Circle: Tension Becomes Zero Before Speed',
+      'Some Observed Phenomena Based on Surface Tension',
+      'Selection of Gaussian Surface',
+      'Solid Angle of a Surface Not Normal to Axis of Cone',
+      'BIO Muscle Power 187 BIO Seeing Below the Surface with',
+      'Equipotential Surfaces 764 Guided Practice'
     ],
   },
   {
@@ -109,6 +150,9 @@ const chapters: Chapter[] = [
       'Excess Pressure Census',
       'Drops and Bubbles',
       'Coalescence Problems',
+      'Chain Rule or "Outside Inside" Rule',
+      'Rise of a Liquid in a Capillary Tube (Ascent Formula)',
+      'Melde\'s Experiment'
     ],
   },
   {
@@ -124,6 +168,33 @@ const chapters: Chapter[] = [
       'Water\u2019s Anomaly',
       'Applications Register',
       'Numerical Practice',
+      'Concept Application Exercise 2.4',
+      'Concept Application Exercise 2.5',
+      'Concept Application Exercise 2.6',
+      'Concept Application Exercise 2.7',
+      'Concept Application Exercise 5.4',
+      'Concept Application Exercise 5.5',
+      'Concept Application Exercise 6.6',
+      'Concept Application Exercise 6.7',
+      'Concept Application Exercise 9.4',
+      'Concept Application Exercise 4.5',
+      'Concept Application Exercise 4.6',
+      'Concept Application Exercise 4.7',
+      'Concept Application Execise 5.1',
+      'Concept Application Exercise 7.3',
+      'Concept Application Exercise 7.4',
+      'Concept Application Exercise 7.5',
+      'Concept Application Exercise 8.3',
+      'Concept Application Exercise 8.4',
+      'Concept Application Exercise 8.5',
+      'Concept Application Exercise 1.4',
+      'Concept Application Exercise 1.5',
+      'Concept Application Exercise 1.6',
+      'Some Applications',
+      'Linear and Nonlinear Media',
+      'Propagation in Linear Media',
+      'Strikes992 BIO Deuterium and Heavy Water Toxicity',
+      'Table 17 Coefficient of Volume Expansion'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Plant Genetics — the fourteenth book of the Biology shelf (the botany register).
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `pgen-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `pgen-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Plant Genetics owns the plant-side genetic exploitation register. The transmission-and-population machinery belongs to genetics (the general register, cross-referenced — the sibling views); the molecular toolbox belongs to biotechnology; the plant-breeding-for-products economics belongs to economic-botany (the varieties-and-products register); the transgenic regulation belongs to the ethics chapter of biotechnology; the NCERT-and-NEET lines are priced at the general level with the breeding depth owned here.
@@ -88,6 +88,7 @@ const chapters: Chapter[] = [
       'The Heterosis\u2019s Hypotheses and Economics',
       'The Wide-Cross Craft',
       'The Objective Dial and the Green Revolution\u2019s Honesty',
+      'With a Variety of Functional Groups'
     ],
   },
   {

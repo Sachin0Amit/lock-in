@@ -91,11 +91,16 @@ function chapterScore(tt: string[], ch: any): number {
 const gaps: Gap[] = JSON.parse(readFileSync('scripts/ledger_data/gap_report.json', 'utf8'))
 const skippedMeta = gaps.filter((g) => tokens(g.topic).length === 0)
 const real = gaps.filter((g) => tokens(g.topic).length > 0)
+// defensive: a gap whose bestHome id does not resolve is recorded and
+// skipped (never crashes the loop — the 2026-11-17 drive-toc layer fed it
+// zero-hit lines whose home defaults exist, but robustness stays cheap)
+const skippedOrphan = real.filter((g) => !bookById[g.bestHome])
+const usable = real.filter((g) => bookById[g.bestHome])
 
 // dedupe by (ledger, normalized topic) — same topic across exams = one lesson
 type Fix = { ledger: string; topic: string; title: string; book: string; chapter: number; exams: string[] }
 const byKey: Record<string, Fix> = {}
-for (const g of real) {
+for (const g of usable) {
   const key = `${g.ledger}::${g.topic.toLowerCase().replace(/[^a-z0-9]+/g, '')}`
   if (byKey[key]) { byKey[key].exams.push(g.exam); continue }
   const tt = tokens(g.topic)
@@ -157,8 +162,13 @@ for (const [bookId, byCh] of Object.entries(perBook)) {
     const existing = new Set(bookById[bookId].chapters[chNum - 1].plannedLessons ?? [])
     const fresh = titles.filter((t) => !existing.has(t))
     if (fresh.length === 0) continue
-    // find the Nth plannedLessons block
-    const blocks = [...src.matchAll(/plannedLessons:\s*\[(.*?)\]/gs)]
+    // find the Nth plannedLessons block — BRACKET-AWARE: the array's close
+    // is the ']'-at-line-4-spaces (`\n    ]`), never a ']' inside a title
+    // (Drive TOC titles carry '[(CuO) ...]'-style brackets; the old lazy
+    // `(.*?)\]` matched them early and corrupted arrays — caught and
+    // re-derived 2026-11-17). Empty-inline arrays `plannedLessons: []`
+    // are handled by the same anchor (their inner is '').
+    const blocks = [...src.matchAll(/plannedLessons:\s*\[([\s\S]*?)\n    \]/g)]
     if (blocks.length < chNum) { report.push({ book: bookId, error: `ch${chNum} block missing` }); continue }
     const m = blocks[chNum - 1]
     const inner = m[1]
@@ -185,9 +195,10 @@ for (const [bookId, byCh] of Object.entries(perBook)) {
 writeFileSync('scripts/ledger_data/fix_report.json', JSON.stringify({
   applied: '2026-11-17', files, added,
   skippedMeta: skippedMeta.map((g) => `${g.ledger}/${g.exam}: ${g.topic}`),
+  skippedOrphanHome: skippedOrphan.map((g) => `${g.ledger}/${g.exam}: ${g.topic} (bestHome ${g.bestHome})`),
   details: report,
 }, null, 1))
 console.log(`applied: ${files} book files touched, ${added} planned lessons added`)
 console.log(`skipped ${skippedMeta.length} degenerate meta-lines (builder marks them 'meta')`)
-console.log(`deduped ${real.length} gap lines -> ${fixes.length} planned lessons (${fixes.length - finalFixes.length} title collisions skipped)`)
+console.log(`deduped ${usable.length} gap lines -> ${fixes.length} planned lessons (${fixes.length - finalFixes.length} title collisions skipped)`)
 export {}

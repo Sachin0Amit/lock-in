@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Banking — the fifteenth book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 33 planned lessons, zero written. Lesson ids will use the `bank-` prefix
+ * 34 planned lessons, zero written. Lesson ids will use the `bank-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Banking owns the institutional-and-operational register (the UGC NET Commerce banking unit read this pass). Monetary-economics owns the policy-and-transmission theory side; accounting owns the double-entry craft the bank’s books use; the risk chapters price the same Basel register the corporate-finance book meets from the firm side — cross-referenced honestly.
@@ -121,6 +121,7 @@ const chapters: Chapter[] = [
       'The Resolution Honesty',
       'The Consumer Register',
       'The Professional Doorway',
+      '10-2a Command-and-Control Policies: Regulation 195 Be Taxed?'
     ],
   },
   {

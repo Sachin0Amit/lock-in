@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Signals and Systems — the twenty-fourth book of the Engineering shelf (Electronics & Communication branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 35 planned lessons, zero written. Lesson ids will use the `sig-` prefix
+ * 46 planned lessons, zero written. Lesson ids will use the `sig-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Signals and Systems owns the signal-and-LTI discipline for the shelf (GATE EE S4 + EC S2’s signal half — one book, both papers). Circuit Theory owns their circuit applications; Control Systems owns the design craft they feed; Analog and Digital Communication owns the modulation story; Digital Signal Processing owns the discrete filtering craft; the Mathematics shelf’s real/complex analysis books own the pure convergence depth.
@@ -43,6 +43,7 @@ const chapters: Chapter[] = [
       'Impulses and Steps, Honestly',
       'Energy versus Power',
       'Shift, Scale, Reverse — Order Matters',
+      'Discharge of a capacitor through a resistor 116 per ampere'
     ],
   },
   {
@@ -57,6 +58,7 @@ const chapters: Chapter[] = [
       'The Census Tested Honestly',
       'BIBO Stated and Priced',
       'LTI as the Tractable Intersection',
+      'List of Examples xii Practical Perspective: Resistive Touch'
     ],
   },
   {
@@ -72,6 +74,7 @@ const chapters: Chapter[] = [
       'The Graphical Craft Practised',
       'Properties of the Convolution',
       'Causality and Stability Read',
+      'Binary numbers 517 24.5 Convolution integral for continuous-time'
     ],
   },
   {
@@ -87,6 +90,8 @@ const chapters: Chapter[] = [
       'The Standard Census Computed',
       'Parseval and the Gibbs Note',
       'The Discrete Sibling Learned',
+      'Low-Pass Filters 539 17.2 The Convergence of the Fourier Integral',
+      'Source on a Series RLC Bandpass Filter 557 16.7 Finding the Exponential Form of the Fourier'
     ],
   },
   {
@@ -102,6 +107,9 @@ const chapters: Chapter[] = [
       'The Pair Table Built',
       'Convolution-as-Multiplication Priced',
       'DTFT and the DFT Named',
+      'Some Preliminaries 538 17.1 The Derivation of the Fourier Transform',
+      'High-Pass Filters 545 17.3 Using Laplace Transforms to Find Fourier',
+      'Scaling a Prototype Low-Pass Op Amp 17.2 Finding the Fourier Transform from the Laplace'
     ],
   },
   {
@@ -117,6 +125,9 @@ const chapters: Chapter[] = [
       'Poles and Zeros as Character',
       'Stability from the ROC',
       'Inversion Practised',
+      'Definition of the Laplace Transform 446 15.1 First-Order Low-Pass',
+      'Applying the Laplace Transform 458 15.5 Narrowband Bandpass',
+      'Domain 349 12.5 Finding the Inverse Laplace Transform When'
     ],
   },
   {

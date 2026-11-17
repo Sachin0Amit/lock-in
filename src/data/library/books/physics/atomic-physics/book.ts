@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Atomic Physics — the eleventh book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 33 planned lessons, zero written. Lesson ids will use the `atom-` prefix
+ * 56 planned lessons, zero written. Lesson ids will use the `atom-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Atomic Physics owns the atomic-and-molecular register (GATE PH Atomic and Molecular Physics section read this pass: spectra of one- and many-electron atoms, LS coupling, Zeeman, X-ray spectra, diatomic molecules’ rotational-vibrational spectra). Quantum-mechanics owns the formalism; modern-physics owns the first pass; optics owns the light-side.
@@ -28,6 +28,9 @@ const chapters: Chapter[] = [
       'The Fine-Structure Formula',
       'The Lamb Shift Told',
       'Hyperfine and 21 cm',
+      'BIO Exercise Machines and the Hall Effect 905 BIO Electron Spins and Dating Human',
+      'BIO Exploring the Brain with Induced emfs 954 Structure',
+      'A Closer Look: Structure of the'
     ],
   },
   {
@@ -45,7 +48,18 @@ const chapters: Chapter[] = [
       'The Periodic Table Read',
       'The Structure of Matter: From Atoms to Solids',
     
-      'Atoms and Nuclei'
+      'Atoms and Nuclei',
+      'Collision of a Neutron with an Atom',
+      'Velocity Addition and Thomas Precession',
+      '39-1 ENERGIES OF A TRAPPED ELECTRON 1186 41-1 THE ELECTRICAL PROPERTIES OF METALS',
+      'Multiple Electrons in Rectangular Traps 1231 42-7 MEASURING RADIATION DOSAGE',
+      'BIO Testing Humans at High Accelerations 46 CHAPTER 18 BIO Laser Surgery',
+      'BIO Electron Volts and Cancer Radiotherapy ',
+      'BIO Bulk Stress on an Anglerfish 348 Compasses  880 BIO Electron Tunneling in Enzymes',
+      'BIO Why Healthy Giraffes Have High CHAPTER 28 BIO Electron Configurations and Bone',
+      'Summary 1208 of the Atom',
+      'Magnets 569 29 The Atom',
+      'A Closer Look: Biomagnetism 574 Model of the Atom'
     ],
   },
   {
@@ -61,6 +75,7 @@ const chapters: Chapter[] = [
       'Anomalous Resolved by g',
       'Paschen-Back',
       'Stark Named',
+      'Condition for Looping the Loop in Some Other Cases'
     ],
   },
   {
@@ -76,6 +91,8 @@ const chapters: Chapter[] = [
       'Singlet and Triplet',
       'The Exchange Interaction',
       'Helium\u2019s Ledger',
+      'Two- and Three-Dimensional Electron Traps 1200 The Light-Emitting Diode (LED)',
+      '39-5 THE HYDROGEN ATOM 1201 REVIEW & SUMMARY 1271 QUESTIONS 1272 PROBLEMS'
     ],
   },
   {
@@ -91,6 +108,9 @@ const chapters: Chapter[] = [
       'Moseley\u2019s Ledger',
       'Screening Told',
       'Absorption Edges',
+      '23-6 APPLYING GAUSS’ LAW: SPHERICAL SYMMETRY 675 Dielectrics: An Atomic View',
+      'BIO Moment of Inertia of a Bird’s Wing 283 BIO Danger: Electric Ray!  824 Using Spectra to Analyze an Interstellar',
+      '1Light Absorbed as Photons: ATOMIC STRUCTURE'
     ],
   },
   {
@@ -121,6 +141,9 @@ const chapters: Chapter[] = [
       'NMR and ESR Named',
       'The Cesium Second',
       'Trapped Ions Previewed',
+      'BIO Magnetic Resonance Imaging 898 CHAPTER',
+      'Guided Practice 1208 39.4 The Laser',
+      '22–2 Inductance 597 A Closer Look: Lasers'
     ],
   },
   {

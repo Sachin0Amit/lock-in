@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Robotics and Automation — the tenth book of the Engineering shelf (Mechanical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `robot-` prefix
+ * 37 planned lessons, zero written. Lesson ids will use the `robot-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Robotics owns the manipulator machinery (kinematics, Jacobians, dynamics, control) and the automation-system frame. Theory of Machines owns mechanism kinematics generally; Control Systems owns the servo theory; the CS shelf’s Internet of Things owns the sensor-network and connectivity layers; CAD/CAM owns the CIM integration; Assembly and Microprocessors owns the compute beneath.
@@ -35,7 +35,9 @@ const chapters: Chapter[] = [
       'The Configuration Census',
       'Workspaces and Safety Stated Early',
     
-      'Mechatronics and Robotics'
+      'Mechatronics and Robotics',
+      'Loop Biquad 1041 15.4.7 Generating Triangular',
+      'A brief history'
     ],
   },
   {
@@ -51,6 +53,8 @@ const chapters: Chapter[] = [
       'Euler Angles and Their Singularity',
       'The Homogeneous Transform',
       'The DH Convention Earned',
+      'A Closer Look at Mutual Inductance 203 9.7 Source Transformations and Thévenin–Norton',
+      'Using Special Source Transformation'
     ],
   },
   {
@@ -80,6 +84,7 @@ const chapters: Chapter[] = [
       'Closed Form: the Planar Arm',
       'Wrist Partitioning for Real Arms',
       'Numerical Routes Glanced',
+      'Problems 765 Loop Response'
     ],
   },
   {
@@ -94,6 +99,7 @@ const chapters: Chapter[] = [
       'The Jacobian Derived and Read',
       'Singularities Priced on Real Postures',
       'Static Forces: the Transpose Duality',
+      'An Alternative Approach for 13.1.3 DC VoltageGain'
     ],
   },
   {
@@ -108,6 +114,7 @@ const chapters: Chapter[] = [
       'The Lagrangian Route for Arms',
       'Cubic and Quintic Trajectories',
       'Blends and the Time-Scaling Craft',
+      'Butterworth Polynomials up to the Eighth'
     ],
   },
   {
@@ -122,6 +129,7 @@ const chapters: Chapter[] = [
       'Joint Servos: PD and PID',
       'The Sensor Census',
       'Grippers and Programming',
+      'Modified flash encoders'
     ],
   },
   {
@@ -137,6 +145,7 @@ const chapters: Chapter[] = [
       'Cells, AGVs and the Control Hierarchy',
       'The IIoT Doorstep',
       'The Honest Economics of Automation',
+      'Logic family chronology – a brief history'
     ],
   },
 ]

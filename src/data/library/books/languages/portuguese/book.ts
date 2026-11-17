@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Portuguese — the twelfth book of the Languages shelf.
  *
  * STATUS: PLANNED (Languages full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `port-` prefix
+ * 38 planned lessons, zero written. Lesson ids will use the `port-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Portuguese owns the Portuguese register (the European and the Brazilian lines priced honestly — one book, one engine, the varieties’ awareness named at the survey depth). The spanish book owns the sibling bridge’s other side (the two languages’ shared Romance craft and the false-friend traps’ census cross-referenced in both books); the french and italian books own the family’s other siblings; the english book owns the Norman-loan bridge’s other end; the Cultural Studies book’s media register cross-references the Brazilian music and cinema’s immersion craft.
@@ -58,6 +58,7 @@ const chapters: Chapter[] = [
       'The Two Pasts Introduced',
       'The Two Worlds\u2019 Grammar Map',
       'The Reflexive and the Impersonal',
+      'It is said that … he is said to … he is supposed to …'
     ],
   },
   {
@@ -73,6 +74,7 @@ const chapters: Chapter[] = [
       'The Café and the Market',
       'The Directions and the Metros',
       'The Lusophone World\u2019s Map',
+      'Ben is a student, but he’s not very happy. (He / enjoy) his course'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Water Resources Engineering — the thirty-seventh book of the Engineering shelf (Civil branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `wr-` prefix
+ * 37 planned lessons, zero written. Lesson ids will use the `wr-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Water Resources Engineering owns the hydrology-and-irrigation story (GATE CE S4’s Hydrology + Irrigation lines). Hydraulics owns the channel flow and machinery craft; Environmental Engineering owns the quality side; Geotechnical owns the soil-and-seepage machinery; Surveying owns the catchment truth; Renewable Energy owns the small-hydro generation view; the river-engineering depth is a future book (honestly named).
@@ -161,6 +161,7 @@ const chapters: Chapter[] = [
       'The Waterlogging Note',
       'The Synthesis Page',
       'The Doorsteps Named',
+      'For password-protected online resources tailored to'
     ],
   },
 ]

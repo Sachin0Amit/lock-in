@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Analog and Digital Communication — the twenty-fifth book of the Engineering shelf (Electronics & Communication branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `comm-` prefix
+ * 54 planned lessons, zero written. Lesson ids will use the `comm-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Analog and Digital Communication owns the physical-layer story (GATE EC S7). Signals and Systems owns the transform machinery; Antennas and Wave Propagation owns the radiated channel; the CS shelf’s Computer Networks owns the higher layers; the Mathematics shelf’s Probability Theory owns the random-variable foundations; Cryptography owns the security layer (a different problem, honestly noted).
@@ -43,7 +43,18 @@ const chapters: Chapter[] = [
       'The Frequency Domain as Language',
     
       'Advanced Communication Topics',
-      'Information and Communication Technologies (ICT) based tools and their applications in Engineering such as networking, e-governance and technology based education'
+      'Information and Communication Technologies (ICT) based tools and their applications in Engineering such as networking, e-governance and technology based education',
+      'Information on this title: www.cambridge.org/9780521809269',
+      'EIGHT: Low-Noise Techniques',
+      'Shot noise in current sources and emitter followers',
+      'Finding e_n from noise-figure specifications',
+      'Charting comparative noise',
+      'Selecting low-noise JFETs',
+      'Calculating the integrated noise',
+      'Practical Perspective: Pushbutton Telephone Practical Perspective: Filtering Digital',
+      'Digital-to-analogue conversion 499 23.17 Basic storage elements',
+      'Analogue-to-digital conversion 507 Summary of important formulae',
+      'The NOR function 535 26 Communications'
     ],
   },
   {
@@ -89,6 +100,7 @@ const chapters: Chapter[] = [
       'Bessel and Carson Priced',
       'Generation and Detection',
       'The Noise-Immunity Note',
+      'Wrapup: noise and jitter rejection in PLLs'
     ],
   },
   {
@@ -119,6 +131,7 @@ const chapters: Chapter[] = [
       'Prefix Codes and Huffman',
       'The Capacity Theorem Earned',
       'Shannon as Compass',
+      'Resistor coding'
     ],
   },
   {
@@ -149,7 +162,8 @@ const chapters: Chapter[] = [
       'ISI and Raised-Cosine',
       'BER Arithmetic Worked',
     
-      'Digital communication basics — sampling, quantizing, coding; PCM, DPCM, multiplexing (audio/video); digital modulation: ASK, FSK, PSK; multiple access: TDMA, FDMA, CDMA; optical communication: fibre optics, theory, practice/standards'
+      'Digital communication basics — sampling, quantizing, coding; PCM, DPCM, multiplexing (audio/video); digital modulation: ASK, FSK, PSK; multiple access: TDMA, FDMA, CDMA; optical communication: fibre optics, theory, practice/standards',
+      'Digital Numbers 516 Appendix: Symbols, Abbreviations, Deﬁnitions'
     ],
   },
   {

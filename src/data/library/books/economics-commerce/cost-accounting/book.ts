@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Cost Accounting — the thirteenth book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `cost-` prefix
+ * 37 planned lessons, zero written. Lesson ids will use the `cost-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Cost Accounting owns the cost-and-management register (the CA-CMA costing arc named). Financial-management-and-corporate-finance owns the financing-and-investment side; accounting owns the financial-statement side; the mathematics shelf’s optimization book owns the pure OR side — cross-referenced at the inventory-and-decision lessons.
@@ -28,6 +28,10 @@ const chapters: Chapter[] = [
       'The Behaviour Register',
       'The Cost Sheet Assembled',
       'Centre versus Unit',
+      '7-2a Cost and the Willingness to Sell 139 9-3c The Infant-Industry Argument',
+      '14-2d Spilt Milk and Other Sunk Costs',
+      '13-1c The Cost of Capital as an Opportunity Cost 249 Upward',
+      '15-3b The Monopoly’s Profit: A Social Cost? 303 17-2b Oligopolies as a Prisoners’ Dilemma'
     ],
   },
   {
@@ -88,6 +92,7 @@ const chapters: Chapter[] = [
       'The Batch Arithmetic',
       'The Contract Registers',
       'The Process-and-Joint Ledger',
+      'The Costs of Production 247 If They Make Zero Profit?'
     ],
   },
   {

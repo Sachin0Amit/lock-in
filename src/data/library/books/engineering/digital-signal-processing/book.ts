@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Digital Signal Processing — the twenty-ninth book of the Engineering shelf (Electronics & Communication branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 31 planned lessons, zero written. Lesson ids will use the `dsp-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `dsp-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Digital Signal Processing owns the computed-signal craft (GATE EC S2’s DFT line: ’DTFT, DFT, z-transform, discrete-time processing of continuous-time signals’ — the DFT’s algorithmic and design depth lives here). Signals and Systems owns the transform foundations; Analog Electronics owns the converters; the CS shelf’s NLP and Computer Vision own the application domains above.
@@ -34,6 +34,7 @@ const chapters: Chapter[] = [
       'The Chain and Its Honest Taxes',
       'Quantisation Noise Priced',
       'The Application Census',
+      'Summary of PC104/ISA 8-bit bus signals'
     ],
   },
   {
@@ -109,6 +110,7 @@ const chapters: Chapter[] = [
       'Poles Under Quantisation',
       'Overflow and Scaling',
       'The Roundoff Census',
+      'Designing a Parallel RLC Bandpass Filter 555 16.6 Estimating the rms Value of a Periodic'
     ],
   },
   {

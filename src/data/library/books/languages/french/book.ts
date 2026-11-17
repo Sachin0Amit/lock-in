@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * French — the sixth book of the Languages shelf.
  *
  * STATUS: PLANNED (Languages full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `fr-` prefix
+ * 49 planned lessons, zero written. Lesson ids will use the `fr-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): French owns the French register (the standard Metropolitan line with the francophone world’s reach priced). The english book owns the Norman-loan bridge (the post-1066 vocabulary’s shared treasury — the cognate’s bridge cross-referenced); the spanish, portuguese and italian books own the sibling bridges (the Romance family’s shared craft — each book’s contrastive notes cross-referenced); the DELF-DALF register is this book’s exam spine; the Art History book’s register names the French academy’s vocabulary (the genre terms cross-referenced).
@@ -44,6 +44,8 @@ const chapters: Chapter[] = [
       'The Partitive\u2019s Demanded \u2019Some\u2019',
       'The Adjective\u2019s Position Circus',
       'The Numbers\u2019 Arithmetic and the Comparison',
+      'もくじ divider page',
+      'Useful Expressions じかん・とし Time/Age'
     ],
   },
   {
@@ -59,6 +61,16 @@ const chapters: Chapter[] = [
       'The Passé Composé\u2019s Machine',
       'The Imparfait and the Two Pasts\u2019 Division',
       'The Reflexive Routine',
+      'Auxiliary verbs (have/do/can etc.) I think so / I hope so etc',
+      'Verb + -ing (enjoy doing / stop doing etc.)',
+      'Verb + to … (decide to … / forget to … etc.)',
+      'Verb + -ing or to … 1 (remember, regret etc.)',
+      'Verb + -ing or to … 2 (try, need, help)',
+      'Verb + -ing or to … 3 (like / would like etc.)',
+      'Verb + preposition + -ing (succeed in -ing / insist on -ing etc.)',
+      'What’s happening in the pictures? Choose from these verbs',
+      'She’s taking a picture. 4 his head',
+      'Put the verb into the correct form, positive (I’m doing etc.) or negative (I’m not doing etc.)'
     ],
   },
   {
@@ -74,6 +86,7 @@ const chapters: Chapter[] = [
       'The Question\u2019s Three Registers',
       'The Object Pronouns\u2019 Placement',
       'The Y and En Twins',
+      'Were implemented in 2006. Naturally, these revisions have been implemented throughout the rest of the book. The other most thoroughgoing revision is in the account of valency in Chapter 18, where it had become apparent that the account of verb complements was overly complex and gave too much'
     ],
   },
   {

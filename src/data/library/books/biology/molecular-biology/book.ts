@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Molecular Biology — the third book of the Biology shelf.
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 38 planned lessons, zero written. Lesson ids will use the `molb-` prefix
+ * 49 planned lessons, zero written. Lesson ids will use the `molb-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Molecular Biology owns the central-dogma machinery. The applied tools (restriction enzymes, PCR, CRISPR) belong to biotechnology; the heredity patterns above the molecule belong to genetics; the chemical detail of nucleotides belongs to the chemistry shelf’s biochemistry book (cross-referenced); the clinical exploitation (diagnostics, gene therapy) is cross-referenced to medical-biochemistry; NEET’s molecular-basis-of-inheritance unit is priced here.
@@ -30,6 +30,12 @@ const chapters: Chapter[] = [
       'The Packing Ladder',
       'Nucleic Acids: DNA and RNA',
       'The Molecular Basis of Inheritance',
+      'Vishwa D. Trivedi, Bethune Cookman University 3 Amino Acids, Peptides, and Proteins',
+      'Todd M. Weaver, University of Wisconsin La Crosse 8 Nucleotides and Nucleic Acids',
+      'University of Wisconsin-Madison for their numerous the Pentose Phosphate Pathway',
+      'The Cytoplasm Is Organized by the Molecular Anatomy Reveals Evolutionary Relationships',
+      'From Their Surroundings 20 and Weak Bases',
+      '•=M:jf1 Entropy: Things Fall Apart 22 an Equilibrium Constant'
     ],
   },
   {
@@ -60,6 +66,7 @@ const chapters: Chapter[] = [
       'The Three RNA Products',
       'The Eukaryotic Processing',
       'The Two-Kingdom Contrast',
+      'Https://www.poly-ed.com/text-book-resources/campbell-biology-11th-edition'
     ],
   },
   {
@@ -76,6 +83,8 @@ const chapters: Chapter[] = [
       'The Charging Enzyme\u2019s Knowledge',
       'The Three Sites Walked Slowly',
       'Protein Synthesis: Transcription to Translation',
+      'Lori Wallrath, University of Iowa-Iowa City of Proteins',
+      'Chris Wang, Ambrose University 5 Protein Function'
     ],
   },
   {
@@ -108,6 +117,8 @@ const chapters: Chapter[] = [
       'The Enhancer\u2019s Reach',
       'The RNA-Level Register',
       'Differential Expression\u2019s Honesty',
+      'Koni Stone, California State University Stanislaus',
+      'Neurons, Synapses, and Signaling'
     ],
   },
   {

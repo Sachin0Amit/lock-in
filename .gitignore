@@ -566,6 +566,8 @@ server.log
 !/scripts/gen_medical_shelf.py
 !/scripts/gen_arts_music_shelf.py
 !/scripts/gen_economics_finance_shelf.py
+!/scripts/build_shelf_generators.py
+!/scripts/gen_full_drive_manifest.py
 !/scripts/verify-bio-med-arts-shelf-planning.ts
 !/scripts/verify-chemistry-shelf-planning.ts
 !/scripts/verify-physics-shelf-planning.ts

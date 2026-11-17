@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Analytical Chemistry — the fifth book of the Chemistry shelf.
  *
  * STATUS: PLANNED (Chemistry full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 35 planned lessons, zero written. Lesson ids will use the `anal-` prefix
+ * 48 planned lessons, zero written. Lesson ids will use the `anal-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Analytical Chemistry owns the measurement register. The physics shelf’s experimental book owns the instrument-side physics; the mathematics shelf’s statistics book owns the pure inference side; the environmental book’s monitoring chapters borrow here; the CSIR-and-GATE registers price the research side — all cross-referenced honestly.
@@ -28,6 +28,9 @@ const chapters: Chapter[] = [
       'The Mean Statistics',
       'The Significance Craft',
       'The Calibration Ledger',
+      'Calculation of Degree of Dissociation from Vapour Density Measurement',
+      'Chemistry 813 A1.5 Uncertainties in Measurements A10',
+      'Comprise the region outside the system. Measurements are'
     ],
   },
   {
@@ -43,6 +46,7 @@ const chapters: Chapter[] = [
       'The Volumetric Architecture',
       'The Standard Honesty',
       'The Glassware Craft',
+      'Quantitative Estimation of O_3'
     ],
   },
   {
@@ -60,7 +64,14 @@ const chapters: Chapter[] = [
       'The Back-Titration Honesty',
     
       'Acidimetry and alkalimetry, acidimetric titration curves, choice and color of indicators for acidimetry',
-      'Redox titrations (permanganometric and iodometric); iodometry (reaction of thiosulfate and iodine)'
+      'Redox titrations (permanganometric and iodometric); iodometry (reaction of thiosulfate and iodine)',
+      'Lothar Meyer\'s Atomic Volume Curve (1869)',
+      'Potassium Dichromate (K2Cr2O7)',
+      'Titration of Mixture of Compounds with Acid/Base or Oxidising/Reducing Agent',
+      'End Point and Equivalence Point of a Titration',
+      'Polyprotic Acid Titrations 632 For Review 699 | Key Terms 699 | Questions and Exercises',
+      'Looking back 852 The Favorskii rearrangement',
+      'Iodine heptafluoride IF7'
     ],
   },
   {
@@ -91,6 +102,8 @@ const chapters: Chapter[] = [
       'The Voltammetric Register',
       'Coulometry Named',
       'The Conductance Taster',
+      'Further reading 851 The pinacol rearrangement',
+      'Further reading 876 showcase'
     ],
   },
   {

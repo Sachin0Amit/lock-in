@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Electrical Measurements — the eighteenth book of the Engineering shelf (Electrical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 35 planned lessons, zero written. Lesson ids will use the `meas-` prefix
+ * 44 planned lessons, zero written. Lesson ids will use the `meas-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Electrical Measurements owns electrical quantification. Power Systems’ protection chapters consume the CT/PT census; Electrical Machines’ testing chapters consume the wattmeter and energy-meter craft; the error statistics route to the Mathematics shelf’s Statistics book; transducers and DAQ hand their deeper systems story to Embedded Systems and the CS shelf’s Internet of Things.
@@ -37,7 +37,12 @@ const chapters: Chapter[] = [
       'Errors Priced and Stated',
       'Calibration as Conscience',
     
-      'Electronic Measurements and Instrumentation — principles of measurement, accuracy, precision and standards; analog and digital systems for measurement; static/dynamic characteristics of measurement systems, errors, statistical analysis and curve fitting; measurement systems for non-electrical'
+      'Electronic Measurements and Instrumentation — principles of measurement, accuracy, precision and standards; analog and digital systems for measurement; static/dynamic characteristics of measurement systems, errors, statistical analysis and curve fitting; measurement systems for non-electrical',
+      'Technologies 1182 J. Standard Resistance Values and Unit',
+      'Another way: roll-your-own fA/√Hz instrument',
+      'Optoelectronics: detectors',
+      'Motors for regulators 872 Section 4 Measurements',
+      'The vacuum diode 940 measurement'
     ],
   },
   {
@@ -68,6 +73,7 @@ const chapters: Chapter[] = [
       'Two-Wattmeter Worked',
       'The Energy Meter\u2019s Craft',
       'Maximum-Demand Glanced',
+      'The vacuum triode 941 42.13 Oscilloscope connection'
     ],
   },
   {
@@ -98,6 +104,7 @@ const chapters: Chapter[] = [
       'Wheatstone and Kelvin Double',
       'The AC Family Worked',
       'Detectors and Guards',
+      'Nulling switch'
     ],
   },
   {
@@ -127,6 +134,7 @@ const chapters: Chapter[] = [
       'Counters and the Time Base',
       'Phase Measured',
       'Specification Sheets Read',
+      'Integrating suntan monitor'
     ],
   },
   {
@@ -157,6 +165,7 @@ const chapters: Chapter[] = [
       'Signal Conditioning Revisited',
       'Telemetry and DAQ Routed',
       'The Synthesis Census',
+      'Leakage flux responsible for the inductive'
     ],
   },
 ]

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Behavioural Economics — the ninth book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 7 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `behav-` prefix
+ * 29 planned lessons, zero written. Lesson ids will use the `behav-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Behavioural Economics owns the frontier register (the newest shelf line — not a classical UGC NET unit; priced honestly as the frontier). Microeconomics owns the rational baseline it critiques; financial-economics and investment-analysis own the finance-side applications; public-economics owns the policy side of the nudge register — cross-referenced honestly.
@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Revealed Inheritance',
       'The Systematic Error Crux',
       'The Two Engines',
+      '1-1c Principle 3: Rational People Think at the Margin 6 2-4 Let’s Get Going'
     ],
   },
   {

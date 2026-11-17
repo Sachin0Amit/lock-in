@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Relativity — the fifteenth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 33 planned lessons, zero written. Lesson ids will use the `rel-` prefix
+ * 41 planned lessons, zero written. Lesson ids will use the `rel-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Relativity owns the relativity register (GATE PH’s relativity pricing; the CSIR NET register). Modern-physics owns the school-level mention; astrophysics owns the compact-object application side; electromagnetism-theory owns the field-tensor preview — cross-referenced honestly both ways.
@@ -28,6 +28,11 @@ const chapters: Chapter[] = [
       'The Null Result',
       'The Ad-Hoc Rescue',
       'The Two Postulates',
+      'Special Purpose Diodes',
+      '35-5 MICHELSON’S INTERFEROMETER',
+      'Michelson’s Interferometer',
+      'The Michelson Interferometer',
+      'A Closer Look: General Relativity'
     ],
   },
   {
@@ -43,6 +48,9 @@ const chapters: Chapter[] = [
       'Simultaneity Lost',
       'Dilation and Contraction',
       'The Paradox Craft',
+      'Orthogonal Transformations',
+      'The Lorentz Transformations 1231 Schrödinger Equation',
+      'Table 19 Relationships of Metric SI Base and Derived Units'
     ],
   },
   {

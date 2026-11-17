@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Mathematical Physics — the eighteenth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `mph-` prefix
+ * 47 planned lessons, zero written. Lesson ids will use the `mph-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Mathematical Physics owns the physicist’s mathematics register (GATE PH Mathematical Physics section read this pass: vector calculus, linear algebra incl. eigenvalue problems, complex analysis, special functions, ODE-PDE, Fourier-Laplace, tensors, group theory, probability). The mathematics shelf owns the pure side — real analysis, complex analysis, linear algebra, ODE, PDE books cross-referenced; this book owns the physics-side craft.
@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'Euler-Lagrange Derived',
       'The Brachistochrone Worked',
       'The Main Customers',
+      'The Hamilton–Jacobi Equation for Hamilton\'s Principal Function'
     ],
   },
   {
@@ -43,6 +44,14 @@ const chapters: Chapter[] = [
       'The Residue Craft',
       'Branch Honesty',
       'Dispersion Dividends',
+      'Graphs of Sine and Cosine Functions',
+      'Inverse Trigonometric Functions',
+      'Graphical Representation of Derivative of a Function',
+      'Derivative of Function sin x',
+      'Derivative of Function cos x',
+      'Differentiation of Commonly Used Functions',
+      'Elementary Integration',
+      'Analysis of Angular SHM'
     ],
   },
   {
@@ -103,6 +112,7 @@ const chapters: Chapter[] = [
       'Convolution Worked',
       'The Initial-Value Solver',
       'The Green Hand Prepared',
+      'BIO Woodpecker Impulse 237 Capacitors in the Toolbox  795 CHAPTER'
     ],
   },
   {
@@ -133,6 +143,7 @@ const chapters: Chapter[] = [
       'The Group Grammar',
       'Tensors and the Metric',
       'The Tensor Customers',
+      'The Eigenvalues of the Inertia Tensor and the Principal Axis Transformation'
     ],
   },
   {

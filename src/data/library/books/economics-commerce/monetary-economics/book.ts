@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Monetary Economics — the seventh book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `moneco-` prefix
+ * 34 planned lessons, zero written. Lesson ids will use the `moneco-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Monetary Economics owns the money register (the UGC NET Economics monetary unit read this pass). Banking (commerce side) owns the institutional-and-operational banking register; macroeconomics owns the IS-LM machinery; the RBI case is priced here at the policy depth, with the banking book carrying the operations side.
@@ -43,6 +43,8 @@ const chapters: Chapter[] = [
       'Direct versus Intermediated',
       'The Bank\u2019s Ledger Read',
       'The NBFC Register',
+      '10-2c Market-Based Policy 2: Tradable Pollution CASE STUDY: How the Tax Burden Is Distributed',
+      'CASE STUDY: An Illegal Phone Call'
     ],
   },
   {

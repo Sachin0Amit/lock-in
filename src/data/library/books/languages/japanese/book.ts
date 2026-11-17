@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Japanese — the fourth book of the Languages shelf.
  *
  * STATUS: PLANNED (Languages full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `jpn-` prefix
+ * 61 planned lessons, zero written. Lesson ids will use the `jpn-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Japanese owns the Japanese register (the standard Tokyo line and its registers). Mandarin owns the kanji’s parent world (the shared han world priced honestly at both doorsteps — the readings’ divergence named, no duplication of the teaching); the Cultural Studies book’s media register cross-references for the anime and manga immersion craft; the Languages shelf’s english book owns the loanword’s English side (the katakana’s English loans cross-referenced); the JLPT register is this book’s exam spine.
@@ -28,6 +28,10 @@ const chapters: Chapter[] = [
       'The Mora\u2019s Rhythm and the Pitch',
       'The Romanisation\u2019s Crutch',
       'The First Weeks\u2019 Plan',
+      'I: Ger bitten, Engl beat u: Ger Kuh, Fr trou',
+      'Note: The scans are of GENKI I (An Integrated Course in Elementary Japanese, 2nd ed.) — not a JEE mathematics book — so the JEE-style exercise entries do not appear. Below is the complete printed table of contents (もくじ, pp. 6–11), one entry per line',
+      '第10課 冬休みの予定 Winter Vacation Plans',
+      'Comparison among Three or More Items'
     ],
   },
   {
@@ -58,6 +62,13 @@ const chapters: Chapter[] = [
       'The Loanword\u2019s Adaptation Rules',
       'The Onomatopoeia\u2019s Music',
       'The Real Signs\u2019 Reading',
+      'Andrew started evening classes recently. (He / learn) Japanese',
+      'I think it’s going to rain',
+      'CultureNote にほんのおかね Japanese Currency',
+      'CultureNote 日本の家 Japanese Houses',
+      'CultureNote 日本の祭り Japanese Festivals',
+      'Useful Expressions 駅で At the Station',
+      'CultureNote 日本の気候 The Japanese Climate'
     ],
   },
   {
@@ -73,6 +84,7 @@ const chapters: Chapter[] = [
       'The Copula and the X wa Y desu',
       'The Adjective\u2019s Two Classes',
       'The Ko-So-A-Do Map',
+      'The 4 (the giraffe / the telephone / the old etc.)'
     ],
   },
   {
@@ -103,6 +115,7 @@ const chapters: Chapter[] = [
       'The On and Kun\u2019s Two Voices',
       'The N5\u2019s Hundred',
       'The IME\u2019s Craft',
+      'The sentences on the right follow those on the left. Which sentence goes with which?'
     ],
   },
   {
@@ -118,6 +131,12 @@ const chapters: Chapter[] = [
       'The Campus and the Family',
       'The Shopping and the Directions',
       'The Invitations and the Aisatsu',
+      'CultureNote あいさつとおじぎ Greetings and Bowing',
+      'CultureNote 家族の呼び方 Kinship Terms',
+      'CultureNote 日本の食べ物 Foods in Japan',
+      'CultureNote 日本の伝統文化 Japenese Traditional Culture',
+      'CultureNote 日本の交通機関 Public Transportation in Japan',
+      '第6課 私のすきなレストラン My Favorite Restaurant'
     ],
   },
   {
@@ -133,6 +152,7 @@ const chapters: Chapter[] = [
       'The Three-Genre Writing Drill',
       'The Fluency Method',
       'The First Real Texts',
+      '第9課 スーさんの日記 Sue\'s Diary'
     ],
   },
   {
@@ -163,6 +183,7 @@ const chapters: Chapter[] = [
       'The N5 and N4 Censuses',
       'The Test\u2019s Craft',
       'The Doorstep: No Subtitles',
+      'P Ger passen, Engl pass ʃ Ger schließen, Engl sheet'
     ],
   },
 ]

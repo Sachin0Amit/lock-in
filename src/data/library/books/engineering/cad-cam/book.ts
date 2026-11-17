@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * CAD/CAM — the eleventh book of the Engineering shelf (Mechanical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 30 planned lessons, zero written. Lesson ids will use the `cad-` prefix
+ * 39 planned lessons, zero written. Lesson ids will use the `cad-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): CAD/CAM owns the digital product chain and additive manufacturing. Manufacturing Processes owns the subtractive/joining process physics (CNC machines appear there; part programs live here); Robotics and Automation owns the robot cell; Industrial Engineering owns the production planning; the mathematical machinery of geometric transformations and spline mathematics routes to the Mathematics shelf’s coordinate geometry and linear-algebra books (cross-referenced).
@@ -32,6 +32,12 @@ const chapters: Chapter[] = [
       'CAD, CAM, CIM Located',
       'The Integration-Tools Census',
       'The Data Ladder',
+      'The Oscillation Criterion 1068 16.2 Digital Logic Inverters',
+      'Multiplexed LED digital display',
+      'On-board interconnections',
+      'R–2R ladder DACs',
+      'The AND function 533 25.9 Digital or analogue?',
+      'Digital oscilloscope 950 Index'
     ],
   },
   {
@@ -76,6 +82,8 @@ const chapters: Chapter[] = [
       'IGES and STEP Priced',
       'Model-Based Definition Glanced',
       'PDM and Change Control',
+      'Step 3: getting to e_n',
+      'A.1 Preliminary Steps'
     ],
   },
   {
@@ -121,6 +129,7 @@ const chapters: Chapter[] = [
       'CAPP: Variant and Generative',
       'FMS and Cell Control',
       'Machine Data and OEE',
+      'Stand-alone versus integrated'
     ],
   },
   {

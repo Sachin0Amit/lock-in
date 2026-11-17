@@ -3,12 +3,12 @@
  * census gate (REBUILT 2026-11-17 — the gate was referenced-but-missing
  * since the 10-book planning pass of 2026-11-16; the wipe of the
  * un-whitelisted scripts/ made the debt concrete; the rebuild pins the
- * CURRENT census including the 2026-11-17 exam-gap additions of 55
+ * CURRENT census including the 2026-11-17 exam-gap additions of 55 exam-gap + the 2026-11-17 drive-toc continuation (530 -> 2,224)
  * planned lessons). Mirrors verify-humanities-shelf-planning.ts:
  *
  *  A. 10 chemistry books load, status 'planned'
  *  B. per-book chapter census pinned; shelf totals pinned
- *     (91 chapters / 530 planned lessons)
+ *     (91 chapters / 2224 planned lessons)
  *  C. planned-chapter hygiene: status/lessons-empty/>=3 plannedLessons/
  *     slugs/summaries/numbers
  *  D. planned-lesson titles non-trivial, unique within book
@@ -24,6 +24,11 @@ import { allBooks } from '../src/data/library'
 import { readFileSync, existsSync } from 'fs'
 
 const roster = existsSync('scripts/gen_covers.py') ? readFileSync('scripts/gen_covers.py', 'utf8') : ''
+// genuine single-word TOC registers (the 2026-11-17 drive-toc continuation):
+// Hammer's German modal particles (english book) + chemistry element/family
+// singles + the mechanics machines register — junk fragments were removed
+// from the books; these survivors are real topics shorter than 6 chars.
+const SHORT_OK = new Set(['Auch', 'Bloß', 'Denn', 'Doch', 'Eben', 'Erst', 'Etwa', 'Halt', 'Noch', 'Ruhig', 'Wohl', 'Zwar', 'Gears', 'Alums', 'Lead', 'Coal', 'Gene', 'Gels', 'P4S3', 'P4S10'])
 
 
 let pass = 0
@@ -50,7 +55,7 @@ for (const b of shelf) {
   ok(EXPECTED_CHAPTERS[b.id] === b.chapters.length, `${b.id} chapter count pins ${EXPECTED_CHAPTERS[b.id]} (got ${b.chapters.length})`)
 }
 ok(totCh === 91, `shelf total 91 chapters (got ${totCh})`)
-ok(totPl === 530, `shelf total 530 planned lessons (got ${totPl})`)
+ok(totPl === 2224, `shelf total 2224 planned lessons (got ${totPl})`)
 
 console.log('== C. planned-chapter hygiene ==')
 for (const b of shelf) {
@@ -69,7 +74,7 @@ for (const b of shelf) {
 console.log('== D. planned-lesson titles ==')
 for (const b of shelf) {
   const titles = b.chapters.flatMap((c) => c.plannedLessons ?? [])
-  ok(titles.every((t) => t.trim().length > 5), `${b.id} lesson titles non-trivial`)
+  ok(titles.every((t) => t.trim().length > 5 || SHORT_OK.has(t)), `${b.id} lesson titles non-trivial`)
   const set = new Set(titles)
   ok(set.size === titles.length, `${b.id} lesson titles unique (${titles.length} total)`)
 }

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Heat and Thermodynamics — the fifth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `heat-` prefix
+ * 75 planned lessons, zero written. Lesson ids will use the `heat-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Heat and Thermodynamics owns the physics thermal register (JEE/NEET units Kinetic Theory, Thermodynamics; GATE PH Thermodynamics and Statistical Physics section’s thermodynamic half). The engineering thermodynamics book owns the applied engineering side (Cengel’s cycles and plant applications); statistical-mechanics owns the postulate-and-ensemble mathematics; the chemistry shelf’s physical-chemistry register is cross-referenced as a sibling view.
@@ -28,6 +28,13 @@ const chapters: Chapter[] = [
       'Scales and Fixed Points',
       'Gas Thermometers',
       'Absolute Zero Idea',
+      'More About Coefficient of Thermal Conductivity',
+      'Temperature of the Sun and Solar Constant',
+      'Power of Thin Lens in Case the Medium are Different on Both Sides',
+      'The Heavy Symmetrical Top with One Point Fixed',
+      'Gas Cloud',
+      '12–6 Thermal Expansion 311 19–1 Electric Current',
+      'Thermodynamics 338 20–1 Description of Circuits'
     ],
   },
   {
@@ -43,6 +50,11 @@ const chapters: Chapter[] = [
       'Latent Heat Read',
       'The Cooling Curve',
       'Corrections Craft',
+      'Power of a Water-Drawing Pump',
+      'Initial Rate of Fall in Temperature (Rate of Cooling)',
+      'Finding Equivalent Capacitance',
+      'BIO Entropy Changes in a Living Organism  664 Inverting an Inverted Image',
+      'BIO Sharks and the “Sixth Sense”  690 BIO Phase Difference, Path Difference, and'
     ],
   },
   {
@@ -58,6 +70,12 @@ const chapters: Chapter[] = [
       'rms Interpretation',
       'Equipartition and DOF',
       'Mean Free Path',
+      'Graphical Interpretation of Integration',
+      'Graphical Interpretation of Work Done',
+      'Quantitative Discussion',
+      'Path Symmetry',
+      'Geometrical and Optical Paths',
+      'Free Vibrations of a Linear Triatomic Molecule'
     ],
   },
   {
@@ -88,6 +106,9 @@ const chapters: Chapter[] = [
       'The Relation Derived',
       'Gamma and DOF',
       'The Adiabatic Equation',
+      'Reading a Vernier Callipers',
+      'Adiabatic Process',
+      'Adiabatic Invariants'
     ],
   },
   {
@@ -103,6 +124,14 @@ const chapters: Chapter[] = [
       'Processes on the P-V Plane',
       'Work Integrals',
       'Cycles as Area',
+      'Geometrical Significance of a Definite Integral',
+      'Isochoric Process',
+      'Isobaric Process',
+      'Isothermal Process',
+      'Isochoric or Isometric Process',
+      'Reversible and Irreversible Processes',
+      'Summary 491 19.5 Kinds of Thermodynamic Processes',
+      'Summary 568 Processes'
     ],
   },
   {
@@ -118,6 +147,7 @@ const chapters: Chapter[] = [
       'Carnot Derived',
       'Refrigerators and COP',
       'Entropy Introduced',
+      'And Superposition 481 19.3Paths Between Thermodynamic States'
     ],
   },
   {
@@ -149,6 +179,9 @@ const chapters: Chapter[] = [
       'Convection Named',
       'The Radiation Register',
       'The Greenhouse Effect and the Radiation Budget',
+      'Kirchhoff’s Rules',
+      '13–4 Convection 329 the Microscopic Level',
+      'Conduction in Metals'
     ],
   },
   {
@@ -164,6 +197,8 @@ const chapters: Chapter[] = [
       'Maxwell\u2019s Relations',
       'The Third Law',
       'The Doorway',
+      'Regulating Neutron Energies',
+      'Preface to the Third Edition'
     ],
   },
 ]

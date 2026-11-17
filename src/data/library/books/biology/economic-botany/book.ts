@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Economic Botany — the sixteenth book of the Biology shelf (the botany register).
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 7 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `ebot-` prefix
+ * 29 planned lessons, zero written. Lesson ids will use the `ebot-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Economic Botany owns the plant-products register. The breeding machinery belongs to plant-genetics; the cultivation-and-protection to plant-pathology and entomology (cross-referenced); the pharmacognosy-and-clinical exploitation to the medical shelf’s pharmacy book (the sibling views); the fermentation crafts to microbiology; the policy-and-sustainability registers to the environmental-studies book; the NCERT-and-agricultural lines are priced here.
@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Domestication Syndrome Priced',
       'The Vavilov Centres Mapped',
       'The Narrowing Honesty Named',
+      'Interactions among Molecules 9 Importance in Medicine'
     ],
   },
   {

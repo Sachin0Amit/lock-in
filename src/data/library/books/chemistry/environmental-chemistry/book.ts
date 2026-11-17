@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Environmental Chemistry — the sixth book of the Chemistry shelf.
  *
  * STATUS: PLANNED (Chemistry full-shelf planning pass, 2026-11-16) — 7 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `envchem-` prefix
+ * 53 planned lessons, zero written. Lesson ids will use the `envchem-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Environmental Chemistry owns the chemistry-side register (the NCERT environmental-chemistry chapter deepened; the JEE/NEET environmental units). The humanities shelf’s environmental-studies book owns the school AEERS register; the engineering shelf’s environmental-engineering book owns the applied treatment engineering — cross-referenced both ways honestly.
@@ -28,6 +28,11 @@ const chapters: Chapter[] = [
       'The O-C Ledgers',
       'The Nitrogen Fixation',
       'The Radiation Honesty',
+      'Percentage Composition',
+      'Black Body Radiation',
+      'Exposure of Radiations',
+      'Chemical Connections Nitrogen Under Chemical Connections Graphene—Miracle',
+      'Hybridization and the Localized Electron Model 345 Chemistry in Your Career Educator and Environmental'
     ],
   },
   {
@@ -43,6 +48,10 @@ const chapters: Chapter[] = [
       'The Smog Chemistry',
       'The Ozone Story',
       'The Acid-Rain Register',
+      'Detergent Molecules Associated with Branched Hydrocarbon Tail Which Is a Source of Pollution',
+      'How can Photochemical Smog be Controlled?',
+      'Effects of Depletion of the Ozone Layer',
+      'Some Suggestions for Reducing Pollution'
     ],
   },
   {
@@ -58,6 +67,13 @@ const chapters: Chapter[] = [
       'The IR Honesty',
       'The Carbon Ledger',
       'The Capture Preview',
+      'Doug Martin/Science Source',
+      'Committee on the Climate Crisis',
+      'Science Source Image',
+      '/ Science Source',
+      'LAGUNA DESIGN / Science Source',
+      'Chemical Connections Nitrous Oxide: Laughing Gas',
+      'Oxides of phosphorous, arsenic and bismuth'
     ],
   },
   {
@@ -73,6 +89,11 @@ const chapters: Chapter[] = [
       'The DO-BOD-COD Ledger',
       'The Eutrophication Story',
       'The Groundwater Honesty',
+      'Fluoride (F–) and Oxalate (C2O4^2–)',
+      'Phosphate (PO4^3–) and Arsenate (AsO4^3–)',
+      'Determination of Alkalinity in a Given Water Sample',
+      'Down sea water process',
+      'Arsenic, antimony and bismuth'
     ],
   },
   {
@@ -103,6 +124,10 @@ const chapters: Chapter[] = [
       'The Wastewater Ledger',
       'The Solid Register',
       'The Green Chemistry Register',
+      'Ferrous Sulphate [FeSO4.7H2O] (Green Vitriol)',
+      'Nobel Laureates in Green Chemistry and Metathesis',
+      'Internal Treatment of Hardness by Calgon Process (Sequestration)',
+      'Exact Treatment of Ionization Equilibri'
     ],
   },
   {

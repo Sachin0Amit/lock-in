@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Animal Behaviour — the twenty-first book of the Biology shelf (the zoology register).
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 5 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `etho-` prefix
+ * 21 planned lessons, zero written. Lesson ids will use the `etho-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Animal Behaviour owns the behaviour register for the whole library. The human psychological register belongs to the humanities shelf’s psychology (cross-referenced at the shared learning level — the sibling views); the insect’s depth to entomology; the neural machinery to animal-physiology; the evolutionary logic to evolution; the NCERT-and-NEET lines are priced here.
@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Hormonal Modulation Named',
       'The Learning Census with the Lorenz Receipt',
       'The Dance Receipt Priced Straight',
+      'That they helped guide to completion. We, of course, II BIOENERGETICS AND METABOLISM'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Human Resource Management — the twenty-first book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `hrm-` prefix
+ * 35 planned lessons, zero written. Lesson ids will use the `hrm-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Human Resource Management owns the people register (the UGC NET Management-and-code-55 HRM units read this pass). Business-studies owns the school first-pass of directing-and-staffing; the labour-law register is cross-referenced to the humanities shelf’s law-and-legal-studies book; organisational-behaviour’s psychology side to the psychology book — honestly told.
@@ -29,6 +29,7 @@ const chapters: Chapter[] = [
       'The Strategic Register',
       'The Metrics Census',
       'Nature and Significance of Management',
+      '11-3b Some Important Common Resources'
     ],
   },
   {
@@ -134,6 +135,8 @@ const chapters: Chapter[] = [
       'The Analytics Census',
       'The Gig Honesty',
       'The Professional Doorway',
+      '1-2 How People Interact 8 Key Concepts',
+      '17-2e Why People Sometimes Cooperate'
     ],
   },
 ]

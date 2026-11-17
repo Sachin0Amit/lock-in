@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Modern Physics — the ninth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 33 planned lessons, zero written. Lesson ids will use the `mod-` prefix
+ * 42 planned lessons, zero written. Lesson ids will use the `mod-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Modern Physics owns the modern survey register (JEE/NEET Dual Nature, Atoms and Nuclei, Electronic Devices units). The quantum-mechanics book owns the formalism; atomic-physics owns the spectra craft deep; nuclear-physics owns the nucleus deep; solid-state-physics owns the band theory — each cross-referenced as the next rung the survey names.
@@ -29,6 +29,7 @@ const chapters: Chapter[] = [
       'The Radiation Laws',
       'The Curves Read',
       'Blackbody Radiation: Kirchhoff, Wien and Stefan',
+      'BIO Combined Translation and Rotation 309 BIO Electromyography  855 BIO Blackbody Eyes'
     ],
   },
   {
@@ -44,6 +45,9 @@ const chapters: Chapter[] = [
       'Stopping Potential',
       'Work Functions',
       'Compton Named',
+      'Schrödinger’s Equation and the Hydrogen Atom 1205 42-1 DISCOVERING THE NUCLEUS',
+      'Albert Einstein',
+      'In Perspective: Albert Einstein'
     ],
   },
   {
@@ -90,7 +94,9 @@ const chapters: Chapter[] = [
       'The Uncertainty Pair',
       'Thought Experiments',
     
-      'Theme B: The particulate nature of matter'
+      'Theme B: The particulate nature of matter',
+      'Pages 5–12 of this scan are chapter body text, not additional contents pages; the complete printed contents (pages 1–4, with pages 2 and 4 being duplicates of 1 and 3) is',
+      'Butterfly Hunting with Heisenberg'
     ],
   },
   {
@@ -121,6 +127,9 @@ const chapters: Chapter[] = [
       'The p-n Junction',
       'Rectifiers and Transistors',
       'Logic Gates Previewed',
+      'Logic Gates and Truth Table',
+      'Logic Gates Using \'NAND\' Gate',
+      'Semiconductor Devices 1428 44.7 The Beginning of Time'
     ],
   },
   {

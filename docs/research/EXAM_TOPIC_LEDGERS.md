@@ -103,19 +103,23 @@ humanities 1,121 · languages 923 · toc-as-lessons 3,883 · topic 667 · exam
 lessons) · tsc 0 errors project-wide · lint 0 errors (5 pre-existing
 warnings) · routes 200.
 
-## Queued continuation (recorded honestly)
+## Queued continuation — CLEARED 2026-11-17 (the "continue queued" run)
 
-1. The **six shelf generators** (gen_physics/chemistry/economics_finance/
-   biology/medical/arts_music_shelf.py + their scripts/shelf_data modules)
-   were lost with the wipe; their plan data is fully recoverable from the
-   committed book.ts files (extraction is mechanical). The gates' census
-   guarantees stand; the generators remain the idempotent-plan-source debt.
-2. The 78 biology/medical/arts-music cover PNGs (the gen_covers.py roster
-   carries all 269 books; generation runs in bounded chunks —
-   `python3 scripts/gen_covers.py gen`).
-3. The Drive TOC subtopic continuation (~440 lines, the 2026-11-16 queue):
-   `scripts/rebuild_drive_survey.ts` + the re-download pipeline; the
-   DRIVE_TOC_SURVEY.md transcriptions (committed, 86KB) remain the durable
-   evidence base.
-4. The Campbell 11e download retry (the one unresolved Drive source).
-5. The WORK_INVENTORY regeneration (blocked on the Drive survey rebuild).
+1. The six shelf generators — DONE, recovered as RECOVERY SNAPSHOT
+   GENERATORS (build_shelf_generators.py re-embeds the shipped book.ts
+   content; verify/restore semantics; 0-drift + byte-exact scratch-restore
+   proven; re-snapshotted after the drive continuation).
+2. The 78 cover PNGs — DONE: 269/269 covers generated.
+3. The Drive TOC subtopic continuation — DONE AT FULL SCALE: 123/123
+   sources re-extracted (see SOURCE_LOG), the matcher rebuilt, 3,759
+   planned lessons added across 127 books — the drive ledger FINAL
+   10,298 lines / 10,298 matched / 0 GAPS (scripts/ledger_data_working/
+   drive_tocs.json the durable ledger).
+4. Campbell 11e — CLOSED: the Drive copy is corrupt at source (deterministic
+   truncation, proven); the 56-chapter TOC came from the sanctioned web
+   fallback with full provenance in the TOC file.
+5. WORK_INVENTORY — regenerated (post the Drive survey rebuild).
+
+Standing after this run: the push (no PAT — rides the next PAT-bearing run);
+the authored engineering/humanities/languages generators trail their
+book.ts files (owner-promotion regeneration only).

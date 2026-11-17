@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Arabic — the tenth book of the Languages shelf.
  *
  * STATUS: PLANNED (Languages full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `arab-` prefix
+ * 44 planned lessons, zero written. Lesson ids will use the `arab-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Arabic owns the Arabic register (the MSA as the book’s engine with the dialect map priced honestly — the Egyptian and Levantine colloquial registers named, not taught here: one book, one engine, the diglossia’s awareness). The sanskrit book owns the parallel classical-register craft (the Quranic and the Vedic’s shared ’frozen classical’ register named at both doorsteps); the Persian and Urdu futures named honestly; the History shelf’s Indian History book’s Sultanate register cross-references the Arabic-Persian vocabulary’s Indian career.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The Four Positional Forms',
       'The Dots\u2019 Discipline and the Right-to-Left Craft',
       'The Hamza and the Lam-Alif',
+      'Iv IF YOU ARE NOT SURE WHICH UNITS YOU NEED TO STUDY, USE THE STUDY GUIDE ON PAGE',
+      'Vi IF YOU ARE NOT SURE WHICH UNITS YOU NEED TO STUDY, USE THE STUDY GUIDE ON PAGE'
     ],
   },
   {
@@ -73,6 +75,8 @@ const chapters: Chapter[] = [
       'The Perfect\u2019s Engine',
       'The Imperfect and the Derived Forms\u2019 Ladder',
       'The Agreement and the Negation',
+      'He a shoelace. 5 behind a tree',
+      'Indic. Indicative'
     ],
   },
   {

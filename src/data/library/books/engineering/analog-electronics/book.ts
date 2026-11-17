@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Analog Electronics — the twenty-third book of the Engineering shelf (Electronics & Communication branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 34 planned lessons, zero written. Lesson ids will use the `ae-` prefix
+ * 109 planned lessons, zero written. Lesson ids will use the `ae-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Analog Electronics owns the analog signal chain. Electronic Devices and Circuits owns the device physics and single-stage fundamentals; Digital Signal Processing owns the sampled-domain filtering; Digital Logic Design owns the combinational/sequential census; the GATE EE S9 ’Analog and Digital Electronics’ and EC S4 ’Analog Circuits’ registers route here for the analog lines.
@@ -40,6 +40,17 @@ const chapters: Chapter[] = [
       'The Chain Drawn on One Page',
       'The Decibel Family',
       'Distortion and Noise Priced',
+      'Large-Signal Operation of Op Amps 111 4.3.5 The Constant-Voltage-Drop',
+      'Mirrors 516 9.2.3 Large-Signal Operation',
+      'Large-Signal Operation 583 Amplifier When Rsig Is Low',
+      'Small-Signal Operation 587 10.2.4 The Common-Emitter Amplifier',
+      'Note: The scanned pages are not a JEE mathematics book — they are the front matter and Contents of *The Art of Electronics, Third Edition* (Horowitz & Hill, Cambridge University Press). Transcribing them exactly as printed',
+      'Crossover distortion and output impedance',
+      'Wrapup: choosing a low-noise op-amp',
+      'IV: Analog-oriented optocouplers',
+      'Appendix D The Decibel',
+      'Signals 569 Answers to Exercises',
+      'Terms and concepts 513 24 Signals'
     ],
   },
   {
@@ -55,6 +66,43 @@ const chapters: Chapter[] = [
       'Current Mirrors as Bias',
       'Cascade, Cascode, Bookkeeping',
       'The Op-Amp\u2019s Input Stage Named',
+      'Classification of Amplifiers Based on 2.7.1 Frequency Dependence of the',
+      'Common-Emitter (CE) Amplifiers',
+      'Emitter) Amplifier with a Source',
+      'Common-Base (CB) Amplifiers',
+      'A Common-Emitter Amplifier',
+      'A Common-Emitter Amplifier with',
+      'Small-Signal Operation of Current 9.2.2 Input Common-Mode Range',
+      'The CS and CE Amplifiers with 9.3 Common-Mode Rejection',
+      'Output Resistance of a CS Amplifier 9.4.4 A Concluding Remark',
+      'Amplifier 535 9.5.1 Differential-to-Single-Ended',
+      'The BJT Cascode 547 9.5.5 Common-Mode Gain and CMRR',
+      'The Cascode MOS Mirror 552 Summary',
+      'Introduction 576 Amplifiers',
+      'Amplifiers 731 11.4.2 The Practical Case',
+      'Other Wideband Amplifier Amplifier (Shunt-Shunt)',
+      'The CS Amplifier 752 11.8.5 Amplifiers with Three or More',
+      'Amplifiers 887 13.2.3 VoltageGain',
+      'Class B Output Stage 897 13.3 BJT Op-Amp Techniques',
+      'Use of Input Emitter Followers',
+      'Class D Power Amplifiers 921 14.1.2 Filter Types',
+      'The Two-Stage CMOS Op Amp 938 14.2.5 Factoring T(s) into the Product',
+      'Determining the Equivalent Load 18.4.1 Ring Oscillators and Other Pulse',
+      'The common-emitter amplifier revisited',
+      'Biasing the common-emitter amplifier',
+      'Introduction to op-amps – the "perfect component"',
+      'Active clamp',
+      'RRIO op-amps: the good, the bad, and the ugly',
+      'CMRR and PSRR',
+      'Composite transimpedance amplifiers',
+      'Reducing input capacitance: bootstrapping the transimpedance amplifier',
+      'Isolating input capacitance: cascoding the transimpedance amplifier',
+      'The Integrating Amplifier 252 10.1 Instantaneous Power',
+      'Functional Transforms 452 15.3 Op Amp Bandpass and Bandreject Filters',
+      'Designing a Summing Amplifier',
+      'Designing a Noninverting Amplifier',
+      'Calculating the CMRR',
+      'Designing a Broadband Bandreject Op Amp Transient Response'
     ],
   },
   {
@@ -70,6 +118,12 @@ const chapters: Chapter[] = [
       'The Honest Notes Priced',
       'Stability and the Phase Margin',
       'The Edge Oscillators Live On',
+      'The Chebyshev Filter 1026 15.2.3 The Quadrature Oscillator',
+      'The LCR Resonator 1029 Oscillator',
+      'Realization of the Bandpass Oscillator',
+      'Oscillators 1066 16.1.6 A Complex Gate',
+      'Determining the Propagation Delay 18.4 Ring Oscillators and Special-Purpose',
+      'Output bandwidth limiting in the transimpedance amplifier'
     ],
   },
   {
@@ -95,6 +149,11 @@ const chapters: Chapter[] = [
       'The Bipolar-FET Shootout and Active Loads',
       'Ebers-Moll Applied to Basic Transistor Circuits',
       'Putting It Together: The AM Radio',
+      'The Emitter-Follower Case 730 Amplifiers',
+      'A "roll-your-own" instrumentation amplifier',
+      'Designing a Series RLC Bandreject Filter 562 Series',
+      'Designing a Broadband Bandpass Op Amp 17.3 Deriving an Operational Fourier Transform',
+      'Summary of important formulae 416 20.29 Operational amplifiers'
     ],
   },
   {
@@ -110,6 +169,12 @@ const chapters: Chapter[] = [
       'The Butterworth Craft',
       'Notches and Band-Pass',
       'The Sampled Sibling Named',
+      'CMOS Output Stages 915 14 Filters',
+      'Early Filter Pioneers: Cauer and Darlington',
+      'VCVS filter design using our simplified table',
+      'Inverse Transforms 460 and Bandreject Filters',
+      'Designing a Fourth-Order Low-Pass Bandpass Filter',
+      'Butterworth Filter 594 17.8 Applying Parseval’s Theorem to a Low-Pass'
     ],
   },
   {
@@ -125,6 +190,8 @@ const chapters: Chapter[] = [
       'Hysteresis Earned',
       'The Threshold Arithmetic',
       'The ADC Doorstep',
+      'Zeros 1031 15.3.1 The Colpitts and Hartely',
+      'AD7927 ADC with sequencer'
     ],
   },
   {
@@ -154,6 +221,9 @@ const chapters: Chapter[] = [
       'The 555 Census',
       'VCOs and the PLL',
       'Sample-and-Hold Earned',
+      'Monostable multivibrators',
+      'Monostable multivibrator',
+      'Designing a Bandpass Filter 555 Periodic Voltage Source'
     ],
   },
   {
@@ -169,6 +239,11 @@ const chapters: Chapter[] = [
       'The ADC Census Mapped',
       'Sampling Notes Cross-Referenced',
       'The Doorsteps Named',
+      'Blinding Flash',
+      'Multiplying DACs',
+      'Driving flash, folding, and RF ADCs',
+      'Fundamental bus signals: data, address, strobe',
+      'Prefaces xvii 25 Data Transmission and Signals'
     ],
   },
 ]

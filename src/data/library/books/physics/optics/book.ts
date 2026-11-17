@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Optics — the eighth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 41 planned lessons, zero written. Lesson ids will use the `opt-` prefix
+ * 70 planned lessons, zero written. Lesson ids will use the `opt-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Optics owns the light register (JEE/NEET Ray and Wave Optics units; GATE PH wave optics register). The electromagnetic-theory book owns the Maxwell-wave mathematics (Fresnel coefficients derived field-side); modern-physics owns the photon’s particle-side; the atomic-physics book owns laser physics at population-depth; this book prices each honestly with cross-references.
@@ -29,7 +29,19 @@ const chapters: Chapter[] = [
       'Snell and the Critical Angle',
       'TIR Applications',
     
-      'Geometric Optics'
+      'Geometric Optics',
+      'Image Formation from Plain Mirror',
+      'Photon Counts Emitted by a Source per Second',
+      'Production of X-Rays (Coolidge\'s Tube)',
+      'Photons Have Momentum',
+      'X Rays and the Ordering of the Elements',
+      'BIO Horses on a Curved Path 70 BIO Transparency and Index of Refraction',
+      'BIO Jet Propulsion in Squids 257 Smartphones, Capacitors, and Dielectrics 800 BIO X-Ray Absorption and Medical Imaging',
+      'Rotation of Rigid Bodies 272 34 Geometric Optics',
+      'Summary 942 OPTICS',
+      'Light Emitted as Photons: X-Ray Production 1259 Dimensions',
+      'Geometrical Optics 662 In Perspective: Marie Curie',
+      '24–2 Spherical Mirrors 665 Appendix A Review of Mathematics'
     ],
   },
   {
@@ -45,6 +57,10 @@ const chapters: Chapter[] = [
       'Combination Arithmetic',
       'Principal Planes',
       'Two-Lens Systems',
+      'Linear Magnification Produced by a Lens',
+      'Lenses with Different Media on Either Side',
+      'Mutual Inductance 988 34.4 Thin Lenses',
+      '24–3 Lenses 676 A–1 Basic Operations'
     ],
   },
   {
@@ -76,6 +92,11 @@ const chapters: Chapter[] = [
       'Resolving Previewed',
       'Camera and Spectrometer',
       'Photometry: The Luminous Intensity Ledger',
+      'Fresnel and Fraunhofer Diffractions',
+      'DIFFRACTION 1185 DNA',
+      'Fresnel and Fraunhofer Diffraction',
+      '25–3 The Microscope 713 A–6 Trigonometry',
+      '26–3 Diffraction 741 Appendix D Selected Isotopes'
     ],
   },
   {
@@ -91,6 +112,7 @@ const chapters: Chapter[] = [
       'Wavefronts Read',
       'Coherence Introduced',
       'The Wave\u2019s Honesty',
+      '38-3 PHOTONS, MOMENTUM, COMPTON SCATTERING, LIGHT'
     ],
   },
   {
@@ -106,6 +128,11 @@ const chapters: Chapter[] = [
       'The Intensity Ledger',
       'Thin Films and Newton\u2019s Rings',
       'Lloyd\u2019s Mirror',
+      'Double Differentiation',
+      'Maximum Order of Interference Fringes',
+      'Shape of Interference Fringes in YDSE',
+      '35-3 INTERFERENCE AND DOUBLE-SLIT INTENSITY 1059 Some Consequences of the Lorentz Equations',
+      'Multiple Slits'
     ],
   },
   {
@@ -167,6 +194,8 @@ const chapters: Chapter[] = [
       'Refractive-Index Craft',
       'The Grating Measurement',
       'Error Arithmetic',
+      'Graphical Method for Determining Focal Length of a Convex Lens',
+      'Author Index'
     ],
   },
 ]

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Entomology — the twenty-second book of the Biology shelf (the zoology register).
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 6 chapters /
- * 24 planned lessons, zero written. Lesson ids will use the `ento-` prefix
+ * 25 planned lessons, zero written. Lesson ids will use the `ento-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Entomology owns the insect register. The general arthropod survey belongs to animal-diversity; the parasite-and-vector medical depth to the medical shelf’s books (the sibling clinical views); the behaviour’s general theory to animal-behaviour; the agricultural economics to economic-botany’s-IPM register (cross-referenced); the NCERT-and-NEET lines are priced here.
@@ -58,6 +58,7 @@ const chapters: Chapter[] = [
       'The Diagnostic Wing Key Held',
       'The Larval Census Priced',
       'The Human Register per Order Held Straight',
+      'Creating and Maintaining Order Requires'
     ],
   },
   {

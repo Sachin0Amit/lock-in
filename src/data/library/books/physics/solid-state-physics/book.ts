@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Solid-State Physics — the thirteenth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 37 planned lessons, zero written. Lesson ids will use the `ssp-` prefix
+ * 50 planned lessons, zero written. Lesson ids will use the `ssp-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Solid-State Physics owns the condensed-matter register (GATE PH Condensed Matter Physics section read this pass). Modern-physics owns the device first-pass; the engineering shelf’s materials-science and vlsi books own the applied materials and device-engineering registers; the chemistry shelf’s physical-chemistry register is cross-referenced as the sibling view.
@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Bravais Census',
       'Miller\u2019s Address',
       'Symmetry Named',
+      'BIO Using Crystals to Determine Protein'
     ],
   },
   {
@@ -44,7 +45,11 @@ const chapters: Chapter[] = [
       'Structure Factors',
       'Determination Craft',
     
-      'Experimental Skills: Specific heat capacity of a given solid and liquid by method of mixtures'
+      'Experimental Skills: Specific heat capacity of a given solid and liquid by method of mixtures',
+      'Gaseous Mixture',
+      'Relation in Half Angle of Cone and Solid Angle at Vertex',
+      'Non-Conducting Solid Sphere',
+      'Watch Out: Tight Curves Ahead! 84 BIO The First Law of Exercise Birefringence and Liquid Crystal Displays'
     ],
   },
   {
@@ -60,6 +65,7 @@ const chapters: Chapter[] = [
       'Branches Census',
       'Einstein and Debye',
       'Phonon Transport',
+      'Vibration Magnetometer'
     ],
   },
   {
@@ -75,6 +81,9 @@ const chapters: Chapter[] = [
       'Sommerfeld\u2019s Correction',
       'Fermi Arithmetic',
       'The Hall Census',
+      'Effect of Dielectric on Different Parameters',
+      'More Electron Traps 1197 The Junction Rectifier',
+      'Energy Bands 1418 44.4 Quarks and Gluons'
     ],
   },
   {
@@ -135,6 +144,10 @@ const chapters: Chapter[] = [
       'Domains and Curie-Weiss',
       'Meissner and BCS Named',
       'Josephson Registers',
+      'BIO Ferro Magnetic Nanoparticles',
+      'Superconductivity 975 Guided Practice',
+      'Superconductivity 1433 Summary',
+      '13–2 Calorimetry 321 A Closer Look: Superconductivity'
     ],
   },
   {

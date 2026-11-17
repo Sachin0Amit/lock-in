@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * High Voltage Engineering — the nineteenth book of the Engineering shelf (Electrical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 30 planned lessons, zero written. Lesson ids will use the `hv-` prefix
+ * 51 planned lessons, zero written. Lesson ids will use the `hv-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): High Voltage Engineering owns insulation, breakdown and testing depth. Power Systems owns the grid context (corona, insulation coordination appear there at system level, cross-referenced); Electromagnetic Fields and Waves owns the field theory beneath breakdown; the future Physics shelf may grow a plasma/ionisation line (cross-reference when planned).
@@ -35,6 +35,20 @@ const chapters: Chapter[] = [
       'Why Voltage Climbs',
       'The Insulation Problem Stated',
       'The Lab and Its Safety Law',
+      'Voltage 157 4.7.5 Light-Emitting Diodes (LEDs)',
+      'Biasing Using the VBE Multiplier 909 Problems',
+      'BJT voltage noise, revisited',
+      'Dropout voltages compared',
+      'Fully integrated high-speed fiber-transceiver modules',
+      'Practical Perspective: Active High-Q',
+      'Summary 521 Practical Perspective: Active High-Q',
+      'Testing Interconnections of Ideal Sources',
+      'Testing Interconnections of Ideal Independent',
+      'Find an Unknown Voltage',
+      'An Alternate Approach to Determining the Order Voltage Pulse',
+      'Multiples of τ 226 14.1 Input and Output Voltage Magnitudes for Three',
+      'Terms and concepts 713 National Grid',
+      'Terms and concepts 724 35.3 Voltage-drop calculations'
     ],
   },
   {
@@ -50,6 +64,7 @@ const chapters: Chapter[] = [
       'Paschen\u2019s Law and Its Minimum',
       'Streamers Beyond Townsend',
       'Corona Priced',
+      'The Breakdown Region 190 5.2.4 Finite Output Resistance in'
     ],
   },
   {
@@ -94,6 +109,10 @@ const chapters: Chapter[] = [
       'Cockcroft-Walton Analysed',
       'The Marx Circuit Earned',
       'Standard Waves Shaped',
+      'Drain current versus drain-source voltage: output conductance',
+      'Determining the Voltage, Given the Current, 8.2 Finding the Overdamped Natural Response of a',
+      'Determining the Current, Given the Voltage, 8.3 Calculating Branch Currents in the Natural',
+      'Voltages and currents in a star-connected Summary of important formulae'
     ],
   },
   {
@@ -109,6 +128,7 @@ const chapters: Chapter[] = [
       'Peak Voltmeters and Dividers',
       'The Mixed-Damped Craft',
       'Impulse Measured, PD Named',
+      'Designing a Simple Voltage Divider 65 Using a Test Source'
     ],
   },
   {
@@ -139,6 +159,7 @@ const chapters: Chapter[] = [
       'Switching Surges',
       'Arresters and Their Margins',
       'Coordination Drawn',
+      'Overvoltage crowbars'
     ],
   },
 ]

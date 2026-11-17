@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Operations Management — the twenty-second book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `ops-` prefix
+ * 35 planned lessons, zero written. Lesson ids will use the `ops-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Operations Management owns the operations register (the UGC NET Management unit read this pass). The engineering shelf’s industrial-engineering book owns the engineering-and-OR side of production; the mathematics shelf’s OR book owns the pure optimisation side; construction-management owns the project side’s engineering register — all cross-referenced honestly.
@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Productivity Arithmetic',
       'The Strategy Register',
       'The History Told',
+      'FYI: Lessons from a Pin Factory 261 15-2 How Monopolies Make Production and Pricing'
     ],
   },
   {
@@ -118,6 +119,8 @@ const chapters: Chapter[] = [
       'The JIT Register',
       'The Bullwhip Honesty',
       'The Global Doorway',
+      'Problems and Applications 264 FYI: Why a Monopoly Does Not Have a Supply Curve',
+      'Outcome 341 18-2 The Supply of Labor'
     ],
   },
   {

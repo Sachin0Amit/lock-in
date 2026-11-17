@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Structural Engineering — the thirtieth book of the Engineering shelf (Civil branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 37 planned lessons, zero written. Lesson ids will use the `str-` prefix
+ * 38 planned lessons, zero written. Lesson ids will use the `str-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Structural Engineering owns structural analysis and the IS-code design craft (GATE CE S2’s Structural Engineering register). Strength of Materials (mechanical) owns the underlying mechanics of simple members; Building Materials owns the material science of concrete and steel; Geotechnical Engineering owns the soil the structure stands on (the interface chapter cross-referenced); Machine Design owns the machine idiom of joints and fatigue; the seismic and bridge depth are future books (honestly named).
@@ -65,6 +65,7 @@ const chapters: Chapter[] = [
       'Diagrams Drawn Fluently',
       'Cables and Three-Hinged Arches',
       'The Determinate Census Solved',
+      'Summary of important formulae 642 30.5 Simple analysis of force of alignment'
     ],
   },
   {

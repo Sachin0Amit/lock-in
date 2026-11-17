@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Quantum Chemistry — the eighth book of the Chemistry shelf.
  *
  * STATUS: PLANNED (Chemistry full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 34 planned lessons, zero written. Lesson ids will use the `qchem-` prefix
+ * 66 planned lessons, zero written. Lesson ids will use the `qchem-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Quantum Chemistry owns the chemist’s quantum register (the GATE CY Physical Chemistry section’s structure-and-quantum half, read this pass — postulates, operators, the Schrodinger equations). The physics shelf’s quantum-mechanics book owns the formalism deep side; the computational book owns the applied machinery — cross-referenced honestly both ways.
@@ -29,7 +29,13 @@ const chapters: Chapter[] = [
       'The Wave Honesty',
       'The Dual Register',
     
-      'Electrophilic addition: addition to double and triple bonds, regioselectivity (Markovnikoff/Kharasch rule), stereochemistry'
+      'Electrophilic addition: addition to double and triple bonds, regioselectivity (Markovnikoff/Kharasch rule), stereochemistry',
+      'RLi Compounds Add to the Olefinic Double Bond (C=C), whereas G.R. Do Not',
+      'Degree of Unsaturation (D.U.) or Index of Hydrogen Deficiency (I.H.D.) or Double Bond Equivalent (D.B.E.)',
+      'Experimental Facts in Favour of Bohr\'s Theory',
+      'Accessible by using the access code included in the book. The chemist’s toolkits are reminders of the key mathematical',
+      'Further reading 78 Molecules with more than one C=C double bond',
+      'Diastereoselective even without rings 858 Polarization of C–C bonds helps fragmentation'
     ],
   },
   {
@@ -46,6 +52,7 @@ const chapters: Chapter[] = [
       'The Uncertainty Applied',
       'The Commutator Pair',
       'Wave-Particle Duality and the Uncertainty Principle',
+      'Particle Nature of Electromagnetic Radiations: Planck\'s Quantum Theory'
     ],
   },
   {
@@ -61,6 +68,11 @@ const chapters: Chapter[] = [
       'The Conjugation Application',
       'The Oscillator-and-Rotor',
       'The Tunnelling Craft',
+      'Emission and Absorption Spectra',
+      'FOCUS 8 Atomic structure and spectra 305 1 Mathematical resources',
+      'Delocalization and conjugation',
+      'A guided tour of the 13C NMR spectra of some hydrate formation',
+      'Mass spectra, NMR, and IR combined make quick'
     ],
   },
   {
@@ -76,6 +88,17 @@ const chapters: Chapter[] = [
       'The Orbital Census',
       'The Node Arithmetic',
       'The Spin Added',
+      'Examples of Formation of Compounds by Orbital Overlap Concepts and the Failure of Orbital Overlap Concept',
+      'Summary of the Component Atomic Orbitals Involved in Hybrid Orbital Formation',
+      'Summary of Possible Shapes of Molecules/Ions and f-Orbitals',
+      'Conditions for the Combination of Atomic Orbitals',
+      'Gerade and Ungerade s, p and d Orbitals',
+      'Some Examples of Inner Orbital Complexes',
+      'CFSE of d-Orbitals in Tetrahedral Complexes',
+      'Pages 3–12: These are chapter content pages (chapter opener, Overview, and body text of Sections 3.1–3.4), not table-of-contents pages — no further contents entries are printed on them',
+      'Plots of Total Probability Density: Shapes of Atomic Orbitals',
+      'Orbital descriptions of [3,3]-sigmatropic',
+      'The frontier orbital description of cycloadditions 886 Radicals contain unpaired electrons'
     ],
   },
   {
@@ -93,7 +116,9 @@ const chapters: Chapter[] = [
       'The Selection Preview',
       'Electronic Structure Methods: The Approximation Ladder',
     
-      'Approximate methods of quantum mechanics'
+      'Approximate methods of quantum mechanics',
+      'Hund\'s Rule of Maximum Multiplicity',
+      'Build-up of the elements, Hund\'s rule'
     ],
   },
   {
@@ -109,6 +134,9 @@ const chapters: Chapter[] = [
       'The Diatomic Census',
       'The Delocalised Register',
       'MO against VB',
+      '| Covalent Bonding: Orbitals 344 11.1 Solution Composition',
+      'What do chemists really call compounds? 36 Molecular orbitals explain the reactivity of the',
+      'Examples of molecular orbital treatment involving delocalized π bonding'
     ],
   },
   {
@@ -124,6 +152,10 @@ const chapters: Chapter[] = [
       'The Character Craft',
       'The Activity Registers',
       'The GATE Demand',
+      'Plane of Symmetry or Mirror Plane or σ-plane',
+      'Centre of Symmetry (or Centre of Inversion)',
+      'Alternating Axis of Symmetry',
+      'Quences of changing parameters, video interviews with prac- ‘Impact on…’ sections Group theory tables'
     ],
   },
   {

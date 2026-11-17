@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Accounting — the twelfth book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 35 planned lessons, zero written. Lesson ids will use the `acct-` prefix
+ * 40 planned lessons, zero written. Lesson ids will use the `acct-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Accounting owns the financial-accounting register (the NCERT class 11-12 accountancy arc and the CA Foundation first-pass). Cost-accounting owns the cost-and-management side; financial-management-and-corporate-finance owns the ratio-and-decision side; financial-economics owns the valuation theory — cross-referenced honestly.
@@ -30,7 +30,11 @@ const chapters: Chapter[] = [
       'The Standards Register',
       'The Theory Base of Accounting: Concepts and Standards',
     
-      'Theoretical Framework: Introduction to Accounting'
+      'Theoretical Framework: Introduction to Accounting',
+      'Key Concept',
+      'Organization 181 Key Concepts',
+      'Key Concepts 264 15-2c Profit Maximization',
+      '15-6 Conclusion: The Prevalence of Monopolies 311 Key Concepts'
     ],
   },
   {
@@ -95,6 +99,7 @@ const chapters: Chapter[] = [
       'The Rectification Craft',
       'The Suspense Role',
       'The Bank Reconciliation Statement',
+      'CASE STUDY: How Much Is a Life Worth?'
     ],
   },
   {

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Plant Taxonomy — the twelfth book of the Biology shelf (the botany register).
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `ptax-` prefix
+ * 33 planned lessons, zero written. Lesson ids will use the `ptax-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Plant Taxonomy owns the naming-and-ordering register for the whole library. The evolutionary logic of the trees belongs to evolution (cross-referenced); the genetics-and-molecular methods belong to plant-genetics and biotechnology; the economic census of the families is shared with economic-botany (this book owns the diagnostic value, that one the products); the NCERT-and-NEET diversity register is priced here (the plant-kingdom-and-living-world units).
@@ -120,6 +120,7 @@ const chapters: Chapter[] = [
       'The Economic Cross-References',
       'The Keying Drill\u2019s Ten Specimens',
       'The Five Exam Families: Malvaceae, Cruciferae, Leguminoceae, Compositae and Graminae',
+      'Partners (Brook, Beth, and Tim) and our families, who Nucleotides, and Related Molecules'
     ],
   },
   {

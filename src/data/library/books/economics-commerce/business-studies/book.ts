@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Business Studies — the eleventh book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 33 planned lessons, zero written. Lesson ids will use the `bus-` prefix
+ * 38 planned lessons, zero written. Lesson ids will use the `bus-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Business Studies owns the school commerce register (the NCERT class 11-12 business-studies arc). Marketing and human-resource-management own the deep functional registers; financial-management-and-corporate-finance owns the finance deep side; law-and-legal-studies (humanities shelf) owns the company-law register — all cross-referenced as the deep homes.
@@ -79,6 +79,10 @@ const chapters: Chapter[] = [
       'Fayol\u2019s Fourteen',
       'Taylor\u2019s Register',
       'Fayol\'s and Taylor\'s Principles of Management',
+      '1-1b Principle 2: The Cost of Something ASK THE EXPERTS: Ticket Resale',
+      '1-2c Principle 7: Governments Can Sometimes CHAPTER',
+      'Key Concepts 184 CHAPTER',
+      'IN THE NEWS: What Should We Do about Climate 12-3a The Benefits Principle'
     ],
   },
   {
@@ -139,6 +143,7 @@ const chapters: Chapter[] = [
       'The Three-Tier Craft',
       'The Project Registers',
       'The Doorway Map',
+      '11-4 Conclusion: The Importance of Property Rights'
     ],
   },
 ]

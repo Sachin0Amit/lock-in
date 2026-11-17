@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Italian — the thirteenth book of the Languages shelf.
  *
  * STATUS: PLANNED (Languages full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `ita-` prefix
+ * 38 planned lessons, zero written. Lesson ids will use the `ita-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Italian owns the Italian register (the standard line with the dialects’ honest map named — the Tuscan’s standard, the Neapolitan’s and the Venet’s named as the living heritage). The spanish and french books own the sibling bridges (the Romance family’s shared craft cross-referenced — the article’s contractions’ and the past’s divisions’ family resemblance named in each); the english book owns the Renaissance-loan bridge’s other end (the balcony’s and opera’s treasury priced at both doorsteps); the Art History book’s Italian register cross-references the Renaissance’s vocabulary’s home.
@@ -58,6 +58,7 @@ const chapters: Chapter[] = [
       'The Passato Prossimo\u2019s Machine',
       'The Imperfetto and the Two Pasts\u2019 Division',
       'The Reflexive and the Piacere\u2019s Inversion',
+      'The washing machine has been repaired. (It / work) now'
     ],
   },
   {
@@ -148,6 +149,7 @@ const chapters: Chapter[] = [
       'The A2\u2019s Target',
       'The B1\u2019s Horizon Named',
       'The Doorstep: The Florence Barista',
+      'Paul and Sarah have had an argument and now (they / speak)'
     ],
   },
 ]

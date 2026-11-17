@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Business Mathematics — the eighteenth book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `busmath-` prefix
+ * 34 planned lessons, zero written. Lesson ids will use the `busmath-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Business Mathematics owns the commercial register (the CA Foundation’s quantitative register and the BCom mathematics arc). The mathematics shelf owns the pure side — quantitative-aptitude owns the speed arithmetic, differential-and-integral-calculus own the pure calculus, linear-algebra owns the matrix theory; the cross-references are told at each borrowing.
@@ -43,6 +43,7 @@ const chapters: Chapter[] = [
       'The Simultaneous Cases',
       'The Inequality Reading',
       'The LP Preview',
+      'CASE STUDY: Can Congress Distribute the Burden Problems and Applications'
     ],
   },
   {
@@ -73,6 +74,7 @@ const chapters: Chapter[] = [
       'The GP and Growth Ladder',
       'The Function Craft',
       'The Growth Engine',
+      'Appendix Graphing: A Brief Review'
     ],
   },
   {

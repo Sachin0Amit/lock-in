@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Mandarin — the eighth book of the Languages shelf.
  *
  * STATUS: PLANNED (Languages full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `mand-` prefix
+ * 42 planned lessons, zero written. Lesson ids will use the `mand-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Mandarin owns the Mandarin register (the standard Putonghua line). The japanese book owns the kanji’s divergent cousin (the shared han world priced honestly at both doorsteps — the character’s same shapes and the readings’ different worlds named, no duplication of the teaching); the CS shelf’s natural-language-processing book owns the computational side of the language’s processing (cross-referenced); the HSK register is this book’s exam spine; the chinese classical register (the wenyanwen) is named honestly as the future classics’ door.
@@ -29,6 +29,7 @@ const chapters: Chapter[] = [
       'The Four Tones\u2019 Music and the First Riddle',
       'The Tone Sandhi\u2019s Craft',
       'The First Week\u2019s Ear-Training Plan',
+      'I heard you started a new job. (you / enjoy / it?)'
     ],
   },
   {
@@ -59,6 +60,7 @@ const chapters: Chapter[] = [
       'The Measure Words\u2019 Census',
       'The Particles\u2019 Engine — the Le\u2019s Craft',
       'The Negation and the Stative Adjectives',
+      'Dan has been in the same job for a long time. (He / start) to get bored'
     ],
   },
   {
@@ -104,6 +106,7 @@ const chapters: Chapter[] = [
       'The Writing Muscle and the IME Craft',
       'The Short Composition\u2019s Craft',
       'The First Real Texts',
+      'Appendix 5 Short forms (I’m / you’ve / didn’t etc.)'
     ],
   },
   {
@@ -134,6 +137,9 @@ const chapters: Chapter[] = [
       'The Bei Passive and Its Honest Register',
       'The Resultative and Directional Complements',
       'The Topic\u2019s Prominence and the Modals',
+      'We’re not in a hurry. (why / you / walk / so fast?)',
+      '(I / look) for Sophie. Do you know where she is?',
+      '(They / build) a new hospital. It will be finished next year'
     ],
   },
   {

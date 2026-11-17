@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Animal Diversity — the seventeenth book of the Biology shelf (the zoology register).
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `zdiv-` prefix
+ * 34 planned lessons, zero written. Lesson ids will use the `zdiv-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Animal Diversity owns the kingdom-survey register. The phylogenetics logic belongs to evolution (cross-referenced); the embryological machinery to developmental-biology; the arthropod depth to entomology; the parasite depth to parasitology; the physiology to animal-physiology; the NCERT-and-NEET diversity lines are priced here.
@@ -63,6 +63,7 @@ const chapters: Chapter[] = [
       'The Tapewody\u2019s Absorptive Arithmetic',
       'The Nematode Register Held',
       'The Parasite\u2019s Loss-and-Gain Census',
+      'M•tfl• On Being One\'s Own Rabbit'
     ],
   },
   {
@@ -93,6 +94,7 @@ const chapters: Chapter[] = [
       'The Metamorphosis Division Priced',
       'The Subphyla Census Held',
       'The Dominance Receipts Priced Straight',
+      'Comments and suggestions . If something in the book 15 The Metabolism of Glycogen in Animals'
     ],
   },
   {

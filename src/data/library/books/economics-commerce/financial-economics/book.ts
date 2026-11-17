@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Financial Economics — the tenth book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 33 planned lessons, zero written. Lesson ids will use the `fineco-` prefix
+ * 38 planned lessons, zero written. Lesson ids will use the `fineco-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Financial Economics owns the theory register of asset pricing (the economics-side discipline). Investment-analysis (commerce side) owns the practitioner’s security-analysis register; corporate-finance owns the firm-side financing-and-budgeting register; the mathematics shelf’s probability book owns the pure-theory side — cross-referenced honestly.
@@ -29,7 +29,11 @@ const chapters: Chapter[] = [
       'Annuities Solved',
       'The NPV Grammar',
     
-      'Financial Statements of Sole Proprietorship: Financial Statements'
+      'Financial Statements of Sole Proprietorship: Financial Statements',
+      '1-3b Principle 9: Prices Rise When the Government 3-1a Production Possibilities',
+      '3-3a Should Serena Williams Mow Her Own Lawn? 55 4-5 Conclusion: How Prices Allocate Resources',
+      'IN THE NEWS: Economics within a Marriage 56 ASK THE EXPERTS: Price Gouging',
+      'Work 63 5-3b Why Did OPEC Fail to Keep the Price of Oil High?'
     ],
   },
   {
@@ -90,6 +94,7 @@ const chapters: Chapter[] = [
       'The Anomaly Census',
       'The Joint-Hypothesis Trap',
       'The Event-Study Craft',
+      '10-3a The Types of Private Solutions 202 Efficiency'
     ],
   },
   {

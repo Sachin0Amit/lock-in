@@ -28,9 +28,9 @@ import { allBooks } from '../src/data/library'
 
 const DATA = 'scripts/ledger_data'
 const LEDGERS = [
-  { name: 'physics_exams', discipline: 'physics', lines: 250, cross: 13 },
+  { name: 'physics_exams', discipline: 'physics', lines: 250, cross: 7 }, // 13->7 2026-11-17: the drive-toc continuation's 3,759 new planned lessons pushed six physics cross-lines home (cross only rides home<0.60)
   { name: 'chemistry_exams', discipline: 'chemistry', lines: 310, cross: 0 },
-  { name: 'biology_exams', discipline: 'biology', lines: 276, cross: 9 },
+  { name: 'biology_exams', discipline: 'biology', lines: 276, cross: 7 }, // 9->7 2026-11-17: same widening — two bio cross-lines came home
   { name: 'medical_exams', discipline: 'medical-sciences', lines: 140, cross: 3 },
   { name: 'ecf_exams', discipline: 'economics-commerce', lines: 89, cross: 0 },
   { name: 'humanities_exams', discipline: 'humanities', lines: 188, cross: 0 },
@@ -144,7 +144,7 @@ for (const L of LEDGERS) {
   console.log(`  ${L.name}: ${nLines} lines (${nCross} cross, ${nMeta} meta) — routing verified live`)
 }
 ok(totLines === 1473, `the eight-ledger census pins 1,473 syllabus lines (got ${totLines})`)
-ok(totCross === 27, `the honest cross-shelf census pins 27 (got ${totCross})`)
+ok(totCross === 19, `the honest cross-shelf census pins 19 (got ${totCross})`) // 27->19 2026-11-17: the drive-toc continuation widened home coverage; cross-shelf routing stays the sub-0.60-only fallback it always was
 ok(totMeta <= 6, `degenerate meta-lines stay rare (${totMeta} seen)`)
 
 console.log(`\nverify-shelf-exam-topics: ${pass} checks passed, ${fail} failed`)

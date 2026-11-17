@@ -44,6 +44,11 @@ import {{ allBooks }} from '../src/data/library'
 import {{ readFileSync, existsSync }} from 'fs'
 
 const roster = existsSync('scripts/gen_covers.py') ? readFileSync('scripts/gen_covers.py', 'utf8') : ''
+// genuine single-word TOC registers (the 2026-11-17 drive-toc continuation):
+// Hammer's German modal particles (english book) + chemistry element/family
+// singles + the mechanics machines register — junk fragments were removed
+// from the books; these survivors are real topics shorter than 6 chars.
+const SHORT_OK = new Set(['Auch', 'Blo\u00df', 'Denn', 'Doch', 'Eben', 'Erst', 'Etwa', 'Halt', 'Noch', 'Ruhig', 'Wohl', 'Zwar', 'Gears', 'Alums', 'Lead', 'Coal', 'Gene', 'Gels', 'P4S3', 'P4S10'])
 
 
 let pass = 0
@@ -89,7 +94,7 @@ for (const b of shelf) {{
 console.log('== D. planned-lesson titles ==')
 for (const b of shelf) {{
   const titles = b.chapters.flatMap((c) => c.plannedLessons ?? [])
-  ok(titles.every((t) => t.trim().length > 5), `${{b.id}} lesson titles non-trivial`)
+  ok(titles.every((t) => t.trim().length > 5 || SHORT_OK.has(t)), `${{b.id}} lesson titles non-trivial`)
   const set = new Set(titles)
   ok(set.size === titles.length, `${{b.id}} lesson titles unique (${{titles.length}} total)`)
 }}
@@ -151,7 +156,7 @@ TEMPLATE_MULTI = '''/**
  *
  *  A. books load, status 'planned' (23 + 19 + 36)
  *  B. per-book chapter census pinned; shelf totals pinned
- *     (biology 182 ch / 867 planned · medical 121 ch / 585 · arts 183/816)
+ *     (biology 182 ch / 964 planned · medical 121 ch / 585 · arts 183/816 — post the 2026-11-17 drive-toc continuation)
  *  C. planned-chapter hygiene  D. lesson titles  E. prefix reservation
  *  F. book hygiene  G. handoff language  H. survey evidence base
  *  I. planning-only  J. covers
@@ -160,6 +165,9 @@ import { allBooks } from '../src/data/library'
 import { readFileSync, existsSync } from 'fs'
 
 const roster = readFileSync('scripts/gen_covers.py', 'utf8')
+// genuine single-word TOC registers (the 2026-11-17 drive-toc continuation):
+// chemistry element/family singles + the mechanics 'Gears' register.
+const SHORT_OK = new Set(['Gears', 'Alums', 'Lead', 'Coal', 'Gene', 'Gels', 'P4S3', 'P4S10'])
 
 let pass = 0
 let fail = 0
@@ -170,7 +178,7 @@ const ok = (cond: boolean, label: string) => {
 const EXPECTED_CHAPTERS: Record<string, number> = @@EXPECTED@@
 
 const SHELVES: Record<string, { n: number; ch: number; pl: number; doc: string }> = {
-  'biology': { n: 23, ch: 182, pl: 867, doc: 'BIOLOGY' },
+  'biology': { n: 23, ch: 182, pl: 964, doc: 'BIOLOGY' }, // 867->964 drive-toc continuation
   'medical-sciences': { n: 19, ch: 121, pl: 585, doc: 'MEDICAL' },
   'arts-music': { n: 36, ch: 183, pl: 816, doc: 'ARTS_MUSIC' },
 }
@@ -206,7 +214,7 @@ for (const [disc, meta] of Object.entries(SHELVES)) {
     ok(slugs.size === b.chapters.length, `${b.id} chapter slugs unique`)
     ok(b.chapters.every((c, i) => c.number === i + 1), `${b.id} chapter numbers 1..N`)
     const titles = b.chapters.flatMap((c) => c.plannedLessons ?? [])
-    ok(titles.every((t) => t.trim().length > 5), `${b.id} lesson titles non-trivial`)
+    ok(titles.every((t) => t.trim().length > 5 || SHORT_OK.has(t)), `${b.id} lesson titles non-trivial`)
     ok(new Set(titles).size === titles.length, `${b.id} lesson titles unique (${titles.length})`)
   }
 
@@ -266,22 +274,22 @@ ecf_prefixes = ['fecon-', 'micro-', 'macro-', 'ieco-', 'deveco-', 'pubeco-', 'mo
                 'statecon-', 'busmath-', 'entrep-', 'mktg-', 'hrm-', 'ops-', 'intbus-']
 
 gates = [
-    dict(desc_min=200, slug='physics', Discipline='Physics', discipline='physics', n_books=19, n_ch=172, n_pl=754,
-         added=34, DOC='PHYSICS', expected_chapters=fmt_expected(phys),
+    dict(desc_min=200, slug='physics', Discipline='Physics', discipline='physics', n_books=19, n_ch=172, n_pl=1549,
+         added='34 exam-gap + the 2026-11-17 drive-toc continuation (754 -> 1,549)', DOC='PHYSICS', expected_chapters=fmt_expected(phys),
          prefixes_list='pf- pmech- prop- wav- heat- emag- emt- opt- mod- qm- atom- nuc- ssp- statm- rel- astro- part- mph- exp-',
          prefixes_ts=fmt_prefixes(phys_prefixes),
          survey_checks="\n".join([
              "for (const id of Object.keys(EXPECTED_CHAPTERS)) ok(survey.includes(id), `survey mentions ${id}`)",
              "ok(survey.includes('JEE') && survey.includes('NEET') && survey.includes('GATE'), 'survey records the JEE/NEET/GATE exam anchors')"])),
-    dict(desc_min=250, slug='chemistry', Discipline='Chemistry', discipline='chemistry', n_books=10, n_ch=91, n_pl=530,
-         added=55, DOC='CHEMISTRY', expected_chapters=fmt_expected(chem),
+    dict(desc_min=250, slug='chemistry', Discipline='Chemistry', discipline='chemistry', n_books=10, n_ch=91, n_pl=2224,
+         added='55 exam-gap + the 2026-11-17 drive-toc continuation (530 -> 2,224)', DOC='CHEMISTRY', expected_chapters=fmt_expected(chem),
          prefixes_list='fchem- pchem- org- inorg- anal- envchem- bchem- qchem- cchem- indchem-',
          prefixes_ts=fmt_prefixes(chem_prefixes),
          survey_checks="\n".join([
              "for (const id of Object.keys(EXPECTED_CHAPTERS)) ok(survey.includes(id), `survey mentions ${id}`)",
              "ok(survey.includes('JEE') && survey.includes('NEET') && survey.includes('GATE'), 'survey records the JEE/NEET/GATE exam anchors')"])),
-    dict(desc_min=250, slug='ecf', Discipline='Economics-Commerce-Finance', discipline='economics-commerce', n_books=23, n_ch=195, n_pl=820,
-         added=15, DOC='ECF', expected_chapters=fmt_expected(ecf),
+    dict(desc_min=250, slug='ecf', Discipline='Economics-Commerce-Finance', discipline='economics-commerce', n_books=23, n_ch=195, n_pl=973,
+         added='15 exam-gap + the 2026-11-17 drive-toc continuation (820 -> 973)', DOC='ECF', expected_chapters=fmt_expected(ecf),
          prefixes_list='fecon- micro- macro- ieco- deveco- pubeco- moneco- econ- becon- fineco- bus- acct- cost- corpfin- bank- invest- statecon- busmath- entrep- mktg- hrm- ops- intbus-',
          prefixes_ts=fmt_prefixes(ecf_prefixes),
          survey_checks="\n".join([

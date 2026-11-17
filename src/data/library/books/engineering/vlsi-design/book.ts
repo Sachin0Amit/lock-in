@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * VLSI Design — the twenty-sixth book of the Engineering shelf (Electronics & Communication branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 42 planned lessons, zero written. Lesson ids will use the `vlsi-` prefix
+ * 58 planned lessons, zero written. Lesson ids will use the `vlsi-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): VLSI Design owns transistor-level digital IC design. Digital Logic Design (CS shelf) owns the gate-level and HDL abstraction below; Electronic Devices and Circuits owns the device physics; the CS shelf’s Computer Organization owns the architecture above; Heat Transfer owns the thermal-removal physics; the GATE EC S5 digital-circuits lines route to Digital Logic Design with this book growing the silicon depth.
@@ -37,7 +37,17 @@ const chapters: Chapter[] = [
       'The Design-Flow Census',
       'The Industry Map',
     
-      'VLSI design — principles, MUX/ROM/PLA-based design, Moore and Mealy circuit design; pipeline concepts and functions; design for testability, examples'
+      'VLSI design — principles, MUX/ROM/PLA-based design, Moore and Mealy circuit design; pipeline concepts and functions; design for testability, examples',
+      'Limiting and Protection Circuits 180 5.1.8 Complementary MOS or CMOS',
+      'Problems 865 13.2 The Folded-Cascode CMOS OpAmp',
+      'Final Remarks 1057 16.1.2 The CMOS Inverter',
+      'Not Matched 1139 18.2.3 CMOS Implementation of SR Flip',
+      'Problems 1145 18.2.4 A Simpler CMOS Implementation',
+      'Frank Marion Wanless: The Inventor of CMOS',
+      'Combinational functions available as ICs',
+      'Modulo-n counter: a timing example',
+      'Congenital weaknesses of TTL and CMOS',
+      'Terms and concepts 622 29.17 Open-circuit and short-circuit tests on a'
     ],
   },
   {
@@ -83,6 +93,7 @@ const chapters: Chapter[] = [
       'Logical Effort as Compass',
       'Gate Sizing Practised',
       'The Wire Honest Note',
+      'Determining the Step Response of an RC 9.1 Finding the Characteristics of a Sinusoidal'
     ],
   },
   {
@@ -98,6 +109,7 @@ const chapters: Chapter[] = [
       'The Clock Tree and Gating',
       'Voltage Scaling\u2019s Trade',
       'The Low-Power Census',
+      'Shockley and Silicon Valley'
     ],
   },
   {
@@ -113,6 +125,7 @@ const chapters: Chapter[] = [
       'Crosstalk Bookkept',
       'Design Corners and Matching',
       'The Reliability Census',
+      'Output Resistance 904 13.3.5 Output-Stage Design for Near Rail'
     ],
   },
   {
@@ -129,7 +142,8 @@ const chapters: Chapter[] = [
       'Dynamic Logic\u2019s Honest Risks',
       'The Family Census Table',
     
-      'Digital circuits — Boolean algebra and uses; logic gates, digital IC families; combinational and sequential circuits; basics of multiplexers, counters/registers/memories/microprocessors: design and applications'
+      'Digital circuits — Boolean algebra and uses; logic gates, digital IC families; combinational and sequential circuits; basics of multiplexers, counters/registers/memories/microprocessors: design and applications',
+      'Analyzing an RL Circuit That Has Sequential Techniques'
     ],
   },
   {
@@ -145,6 +159,8 @@ const chapters: Chapter[] = [
       'The Clocking Discipline',
       'Metastability and MTBF',
       'Skew Priced',
+      'The Situation When QN and QP Are 18.2.2 The SR Flip-Flop',
+      'Summary 1144 Flops'
     ],
   },
   {

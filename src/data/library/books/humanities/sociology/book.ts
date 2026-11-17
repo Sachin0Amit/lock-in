@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Sociology — the first book of the Society branch.
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 46 planned lessons, zero written. Lesson ids will use the `soc-` prefix
+ * 51 planned lessons, zero written. Lesson ids will use the `soc-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Sociology owns the social register — the theory and the Indian social structure. Anthropology owns the comparative-human and the small-scale register (the kinship and marriage depth lives in both — cross-referenced, the sociological reading here, the ethnographic there); Cultural Studies owns the meaning-and-media register (this book’s media chapter is the social reading, that book’s the cultural-theory reading); the Psychology book owns the individual mind (this book’s socialisation chapter is the group side); the GS1 society lines are this book’s applied register.
@@ -45,7 +45,11 @@ const chapters: Chapter[] = [
       'The Ethics of Research',
       'The Statistics Handshake',
     
-      'Psychological Testing'
+      'Psychological Testing',
+      'Note: These 32 pages are the front matter of M. Laxmikanth\'s "Indian Polity" (Sixth Edition), not a JEE mathematics book, and no table of contents (chapter list with page numbers) appears within these pages. No contents entries exist to transcribe beyond the front-matter items listed above',
+      'There are no numbered topic entries (2.1, 2.2, 1.01), no exercises (JEE Main/JEE Advanced), no Concept Application Exercises, no Answers/Hints/Chapter Summary sections, and no printed page-numbered contents list anywhere in these 32 pages. A contents page appears not to have been included in the',
+      'Chapter VIII. John the Scot',
+      'Chapter VIII. Hobbes\'s Leviathan'
     ],
   },
   {
@@ -159,7 +163,8 @@ const chapters: Chapter[] = [
     
       'Paper-II 3. Traditional Indian Social System and Caste (Varnashram, Purushartha, Karma, Rina and Rebirth; theories of the origin of the caste system; dominant caste and caste mobility; jajmani system; tribe-caste continuum; sacred complex; impact of Buddhism, Jainism, Islam and Christianity)',
       'Paper-II 5. Indian Village, Minorities and Socio-Cultural Change (Indian village as a social system; agrarian relations; impact of globalisation on villages; linguistic and religious minorities; Sanskritization, Westernization, Modernization; inter-play of little and great traditions; Panchayati',
-      'Paper-II 7. Exploitation and Deprivation of Scheduled Castes, Scheduled Tribes and Other Backward Classes; constitutional safeguards; ethnicity and ethnic conflicts; regionalism and demand for autonomy; social change among tribes during colonial and post-independent India'
+      'Paper-II 7. Exploitation and Deprivation of Scheduled Castes, Scheduled Tribes and Other Backward Classes; constitutional safeguards; ethnicity and ethnic conflicts; regionalism and demand for autonomy; social change among tribes during colonial and post-independent India',
+      'Preface to the Sixth Edition (with "Changes in this Edition" and "New Chapters": 1. Goods and Services Tax Council, 2. National Commission for Backward Classes, 3. National Investigation Agency, 4. National Disaster Management Authority, 5. Role of Regional Parties, 6. Coalition Government)'
     ],
   },
   {

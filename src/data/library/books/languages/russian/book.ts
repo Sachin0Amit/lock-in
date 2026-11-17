@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Russian — the eleventh book of the Languages shelf.
  *
  * STATUS: PLANNED (Languages full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `rus-` prefix
+ * 40 planned lessons, zero written. Lesson ids will use the `rus-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Russian owns the Russian register (the standard Moscow line). The german book owns the case engine’s European cousin (the four cases against the six — the contrastive craft cross-referenced without the duplication); the future Slavic siblings’ books named honestly; the sanskrit book’s case-and-verb-nominal craft cross-referenced as the classical cousin’s parallel; the TORFL register is this book’s named exam spine; the Indian History and International Relations books’ register names the Russian vocabulary of the era’s diplomacy (the cross-reference priced).
@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The False Friends\u2019 Traps',
       'The Hard and Soft Signs\u2019 Pair',
       'The Cursive\u2019s Craft',
+      'I haven’t seen you for ages. (what / you / do / these days?)'
     ],
   },
   {
@@ -58,6 +59,7 @@ const chapters: Chapter[] = [
       'The Declension\u2019s Classes',
       'The Adjective\u2019s Agreement',
       'The Numbers\u2019 Case-Government',
+      'Preposition (in/for/about etc.) + -ing'
     ],
   },
   {
@@ -88,6 +90,8 @@ const chapters: Chapter[] = [
       'The Family and the University',
       'The Shopping and the Metro',
       'The Time and the Restaurant',
+      'Please don’t make so much noise. a I’m getting hungry. 1 f',
+      'Please don’t make so much noise. I’m trying (I / try) to work'
     ],
   },
   {

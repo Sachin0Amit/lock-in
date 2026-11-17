@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Indian History — the second book of the History branch (absorbs the backlog’s Ancient, Medieval and Modern lines — three period names, one national arc).
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 12 chapters /
- * 47 planned lessons, zero written. Lesson ids will use the `ih-` prefix
+ * 53 planned lessons, zero written. Lesson ids will use the `ih-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Indian History owns the national register — ancient, medieval and modern as ONE arc (the three folded backlog lines). World History owns the world register (the colonial/imperial bridge cross-referenced both ways); Art History owns the artistic object register and Archaeology the material record; the Constitution’s own history belongs to Political Science with the 1858-1947 acts cross-referenced there; post-independence polity is Political Science’s ch 7 register with this book carrying the narrative.
@@ -30,6 +30,8 @@ const chapters: Chapter[] = [
       'The Three Registers of Evidence',
       'The Foreign Accounts',
       'The Periodisation Debate',
+      'Chapter III. Three Doctors of the Church',
+      'Chapter V. The Fifth and Sixth Centuries'
     ],
   },
   {
@@ -61,6 +63,8 @@ const chapters: Chapter[] = [
       'The Vedic Corpus as Evidence',
       'Buddhism and Jainism',
       'The Mahajanapadas and the Nandas',
+      'Sixth Edition',
+      'Preface to the Sixth Edition (continued — signed M. Laxmikanth)'
     ],
   },
   {
@@ -153,6 +157,7 @@ const chapters: Chapter[] = [
       'The Rise of Indian Nationalism and the Moderates',
       'The Gandhian Phase and Mass Movements',
       'The Constitution, Partition and Integration of States',
+      'Pages 3–32: body text of that same history book (Chapter 1: The Revolt of 1857 — Economic Causes, Political Causes, Administrative Causes, Socio-Religious Causes, Influence of Outside Events, Discontent Among Sepoys, Beginning and Spread, Storm Centres and Leaders of the Revolt, Suppression of'
     ],
   },
   {
@@ -201,6 +206,7 @@ const chapters: Chapter[] = [
       'The Long Culture Thread',
       'The Synthesis: One Chronicle',
       'The Doorstep: the Republic and Beyond',
+      'Part I. From the Renaissance to Hume'
     ],
   },
 ]

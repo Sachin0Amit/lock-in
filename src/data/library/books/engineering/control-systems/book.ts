@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Control Systems — the sixteenth book of the Engineering shelf (Electrical branch, shared by every branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `ctrl-` prefix
+ * 56 planned lessons, zero written. Lesson ids will use the `ctrl-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Control Systems owns feedback theory for the whole shelf (GATE EE S7 and EC S6 name identical registers — one book, both papers). Signals and Systems owns the signal-transform machinery; the Mathematics shelf owns the pure Laplace/z theory; Power Electronics and Robotics consume the servo designs; the CS shelf’s Operating Systems owns scheduler feedback (a different beast, honestly noted).
@@ -39,6 +39,11 @@ const chapters: Chapter[] = [
       'Open versus Closed, Priced',
       'Two Historical Engines',
       'The Component Census',
+      'Miller’s Theorem 699 11 Feedback',
+      'Gain Desensitivity',
+      'Basic Principles of Sinusoidal and Vice Versa',
+      'Gain nonlinearity',
+      'Feedback shift register sequences'
     ],
   },
   {
@@ -67,6 +72,8 @@ const chapters: Chapter[] = [
       'Block-Diagram Algebra',
       'Signal-Flow Graphs Drawn',
       'Mason\u2019s Gain Rule Earned',
+      'Basic Principles 366 8 Building Blocks of Integrated',
+      'ADCs I: Parallel ("flash") encoder'
     ],
   },
   {
@@ -83,7 +90,11 @@ const chapters: Chapter[] = [
       'System Types and Error Constants',
       'Disturbance Rejection Priced',
     
-      'Microwave and satellite communication — terrestrial/space type LOS systems, block schematics, link calculations, system design'
+      'Microwave and satellite communication — terrestrial/space type LOS systems, block schematics, link calculations, system design',
+      'Evaluating the Frequency Response 2.6.3 Effect of Vos and IOs on the Operation',
+      'Investigating Stability 855 13.1.4 Common-Mode Rejection Ratio',
+      'Active peak detector',
+      'Frequency Domain 341 12.1 Using Step Functions to Represent a Function'
     ],
   },
   {
@@ -98,6 +109,8 @@ const chapters: Chapter[] = [
       'Stability Stated Honestly',
       'Routh-Hurwitz Worked',
       'The Special Cases Solved',
+      'Increasing fH by Buffering the Input 11.7 The Stability Problem',
+      'Some comments about logic inputs'
     ],
   },
   {
@@ -113,6 +126,7 @@ const chapters: Chapter[] = [
       'Design by Locus',
       'Poles and Zeros Added',
       'The jomega Crossings',
+      'Loading Effects 358 12.8 Finding and Plotting the Poles and Zeros of an'
     ],
   },
   {
@@ -172,7 +186,13 @@ const chapters: Chapter[] = [
       'The Digital Glance',
       'The Doorsteps: Drives, Servos, Processes',
     
-      'Mechatronics — microprocessors and microcontrollers: architecture, programming, I/O, computer interfacing; programmable logic controller; sensors and actuators (piezoelectric accelerometer, Hall effect sensor, optical encoder, resolver, inductosyn, pneumatic and hydraulic actuators, stepper motor);'
+      'Mechatronics — microprocessors and microcontrollers: architecture, programming, I/O, computer interfacing; programmable logic controller; sensors and actuators (piezoelectric accelerometer, Hall effect sensor, optical encoder, resolver, inductosyn, pneumatic and hydraulic actuators, stepper motor);',
+      'Nonlinear Amplitude Control 1073 (VTC)',
+      'Federico Faggin: A Pioneer in Microprocessor',
+      'Programmable logic – HDL entry',
+      'Implementation with a microcontroller',
+      'NMOS LSI interfacing',
+      'The hybrid stepping motor 876 and Actuators'
     ],
   },
 ]

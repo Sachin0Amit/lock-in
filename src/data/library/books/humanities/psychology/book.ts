@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Psychology — the first book of the Mind branch.
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 40 planned lessons, zero written. Lesson ids will use the `psy-` prefix
+ * 41 planned lessons, zero written. Lesson ids will use the `psy-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Psychology owns the individual-mind register. Sociology owns the social structure (the two cross-reference — the social psychology chapter here meets the socialisation chapter there; the attitude chapters exist in both, the psychological mechanism here, the sociological measurement there); Ethics owns the GS4 emotional-intelligence register’s APPLICATION (this book teaches the EI science, that book its civil-service use); the Biology shelf’s future neuroscience book will own the neural depth this book’s chapter 2 surveys; the UPSC Psychology optional register is the applied spine.
@@ -135,6 +135,7 @@ const chapters: Chapter[] = [
       'The Attribution\u2019s Errors',
       'The Attitudes and the Persuasion',
       'The Influence and the Groups',
+      'Chapter XII. The Influence of Sparta'
     ],
   },
   {

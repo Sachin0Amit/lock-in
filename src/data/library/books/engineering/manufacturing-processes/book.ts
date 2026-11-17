@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Manufacturing Processes — the eighth book of the Engineering shelf (Mechanical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 11 chapters /
- * 42 planned lessons, zero written. Lesson ids will use the `mfg-` prefix
+ * 55 planned lessons, zero written. Lesson ids will use the `mfg-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Manufacturing Processes owns the making science. CAD/CAM owns the digital chain — CNC programming at part-program level and additive manufacturing live there, cross-referenced from here; Materials Science owns microstructure and heat treatment; Machine Design consumes this book’s process constraints as design-for-manufacture; Metrology is hosted here as the GATE register routes it, with the quality-system census handed to Industrial Engineering.
@@ -41,6 +41,11 @@ const chapters: Chapter[] = [
       'The Alloy Census for Making',
       'Hot versus Cold: the Recrystallisation Line',
       'Castability, Formability, Machinability',
+      'Fabricated in CMOS and Bipolar Processes K-1',
+      'Manufacturing spread of FET characteristics',
+      'Logic identities',
+      'Logic pathology',
+      'II: Logic-output optocouplers'
     ],
   },
   {
@@ -86,6 +91,7 @@ const chapters: Chapter[] = [
       'Bending and Springback',
       'Deep Drawing',
       'Powder Metallurgy\u2019s Honest Niche',
+      'Limiting the bandwidth'
     ],
   },
   {
@@ -116,6 +122,10 @@ const chapters: Chapter[] = [
       'Drilling and Milling',
       'Grinding and the Wheel Census',
       'The Finishing Census',
+      'UNIVERSITY PRESS',
+      'Cambridge University Press is part of the University of Cambridge',
+      '© Cambridge University Press, 1980, 1989',
+      'Switchers: basic operation'
     ],
   },
   {
@@ -131,6 +141,7 @@ const chapters: Chapter[] = [
       'ECM and USM',
       'Beam and Jet Processes',
       'The Selection Census',
+      'B.2 The Graphical Representation of a Complex'
     ],
   },
   {
@@ -160,6 +171,7 @@ const chapters: Chapter[] = [
       'The 3-2-1 Principle',
       'Jigs versus Fixtures',
       'Design Elements of the Jig',
+      'Test fixture for compensation and calibration'
     ],
   },
   {
@@ -176,6 +188,7 @@ const chapters: Chapter[] = [
       'Interferometry: the Wavelength Ruler',
       'Form, Finish and Alignment',
       'The Coordinate Measuring Machine',
+      'The lessons: error budget, unspecified parameters'
     ],
   },
   {

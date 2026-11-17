@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Microeconomics — the second book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 11 chapters /
- * 46 planned lessons, zero written. Lesson ids will use the `micro-` prefix
+ * 61 planned lessons, zero written. Lesson ids will use the `micro-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Microeconomics owns the intermediate theory register (UGC NET Economics unit 1 read this pass: consumer and producer behaviour, demand analysis, elasticity, market structures, general equilibrium, factor pricing, market failure). Foundation-economics owns the first pass; behavioural-economics owns the bounded-rationality critique; business-economics belongs to the commerce shelf’s business-studies register — cross-referenced honestly.
@@ -30,7 +30,11 @@ const chapters: Chapter[] = [
       'The Budget Line',
     
       'Introductory Microeconomics: Introduction, Theory of Consumer Behaviour',
-      'Introductory Microeconomics: Introduction'
+      'Introductory Microeconomics: Introduction',
+      'PART I Introduction 1 PART VII Topics for Further Study',
+      'Copyright 2018 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. WCN 02-200-203',
+      'Consumers, Producers, and the Efficiency FYI: Import Quotas: Another Way to Restrict Trade',
+      '10-3c Why Private Solutions Do Not Always Work 204 Key Concepts'
     ],
   },
   {
@@ -46,6 +50,7 @@ const chapters: Chapter[] = [
       'Demand Extracted',
       'Corner Honesty',
       'The Engel Classification',
+      '7-1b Using the Demand Curve to Measure Consumer 9-3 The Arguments for Restricting Trade'
     ],
   },
   {
@@ -61,6 +66,10 @@ const chapters: Chapter[] = [
       'The Giffen Honesty',
       'Elasticity Registers',
       'Surplus Measured Again',
+      '9-2c Effects of a Tariff',
+      '7-1d What Does Consumer Surplus Measure? 137 Compensate the Losers?',
+      '7-2 Producer Surplus 139 9-3b The National-Security Argument',
+      '7-2c How a Higher Price Raises Producer Surplus 141 9-3e The Protection-as-a-Bargaining-Chip Argument'
     ],
   },
   {
@@ -121,6 +130,7 @@ const chapters: Chapter[] = [
       'Cournot and Bertrand',
       'The Stackelberg Leader',
       'Nash Introduced',
+      'CASE STUDY: The Prisoners’ Dilemma Tournament'
     ],
   },
   {
@@ -136,6 +146,8 @@ const chapters: Chapter[] = [
       'VMP and MRP',
       'The Labour-Supply Honesty',
       'The Monopsony Named',
+      'ASK THE EXPERTS: Congesting Pricing',
+      '15-4a A Parable about Pricing'
     ],
   },
   {
@@ -151,6 +163,7 @@ const chapters: Chapter[] = [
       'The Contract Curve',
       'The Welfare Theorems',
       'Efficiency versus Equity',
+      '10-3b The Coase Theorem 203 Summary'
     ],
   },
   {
@@ -181,6 +194,8 @@ const chapters: Chapter[] = [
       'Price Supports',
       'The Auction Registers',
       'The Behavioural Doorway',
+      'CASE STUDY: The Minimum Wage 118 CASE STUDY: Should There Be a Market for Organs?',
+      'ASK THE EXPERTS: The Minimum Wage 119 ASK THE EXPERTS: Supplying Kidneys'
     ],
   },
 ]

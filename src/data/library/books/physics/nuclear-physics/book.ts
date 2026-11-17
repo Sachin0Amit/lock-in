@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Nuclear Physics — the twelfth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 38 planned lessons, zero written. Lesson ids will use the `nuc-` prefix
+ * 57 planned lessons, zero written. Lesson ids will use the `nuc-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Nuclear Physics owns the nuclear register (GATE PH Nuclear Physics section read this pass; the JEE/NEET nuclei unit’s deepening). Modern-physics owns the first pass; particle-physics owns the sub-nuclear story; astrophysics owns the stellar-burning register — cross-referenced honestly.
@@ -28,6 +28,13 @@ const chapters: Chapter[] = [
       'The Mass Ledger',
       'Spin and Moments',
       'The Stability Valley',
+      'Stability and Neutron–Proton Ratio (n/p)',
+      'Pages 3–12: chapter content pages (Nuclear Physics text, illustrations 7.1–7.7), not part of the table of contents',
+      '40-1 PROPERTIES OF ATOMS 1219 42-2 SOME NUCLEAR PROPERTIES',
+      'How Lasers Work 1242 Nuclear Fission: The Basic Process',
+      'Nuclear Stability and Radioactivity 1452 C The Greek Alphabet A-4',
+      'Nuclear Reactions 1465 F Numerical Constants A-7',
+      'Nuclear Fusion 1472 Answers to Odd-Numbered Problems A-9'
     ],
   },
   {
@@ -43,6 +50,10 @@ const chapters: Chapter[] = [
       'The Liquid Drop',
       'Magic Numbers Rescued',
       'The Collective Complement',
+      'Horizontal Range of the Escaping Liquid',
+      'Building the Periodic Table 1234 42-8 NUCLEAR MODELS',
+      'REVIEW & SUMMARY 1245 QUESTIONS 1246 PROBLEMS 1247 A Model for Nuclear Fission',
+      'A Closer Look: Magic in the Sky 754 Appendix E Answers to Odd'
     ],
   },
   {
@@ -74,7 +85,10 @@ const chapters: Chapter[] = [
       'Gamma Registers',
       'The Dating Craft',
     
-      'E.3 Radioactive decay'
+      'E.3 Radioactive decay',
+      'Natural Radioactivity: Radioactive Decay Series',
+      'Simultaneous Decay Modes of Radioactive Element',
+      'BIO Rolling for Reproduction 314 BIO Pacemakers and Capacitors  860 Star Colors and the Planck Radiation Law'
     ],
   },
   {
@@ -90,6 +104,8 @@ const chapters: Chapter[] = [
       'Thresholds and Conservation',
       'Cross-Sections Introduced',
       'Compound Nucleus',
+      'Representing Normal Reaction in Different Situations',
+      'Toppling and Shifting of Normal Reaction'
     ],
   },
   {
@@ -152,6 +168,9 @@ const chapters: Chapter[] = [
       'The Three Units',
       'Shielding Arithmetic',
       'The ALARA Ethics',
+      'Radiation from an Arbitrary Source',
+      'Measuring Radiation Dosage',
+      '23–4 Reﬂection and Refraction 644 30–4 Biological Effects of Radiation'
     ],
   },
 ]

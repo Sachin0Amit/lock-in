@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Cell Biology — the second book of the Biology shelf.
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 38 planned lessons, zero written. Lesson ids will use the `cell-` prefix
+ * 45 planned lessons, zero written. Lesson ids will use the `cell-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Cell Biology owns the general register of cell structure and division. The metabolism itself (glycolysis through oxidative phosphorylation) belongs to the chemistry shelf’s biochemistry book; the central dogma machinery (replication, transcription, translation) belongs to molecular-biology; the bacterial cell’s deep physiology belongs to microbiology; cytokinesis specifics of plants are cross-referenced from plant-anatomy; NEET’s cell-division unit is priced here.
@@ -31,7 +31,12 @@ const chapters: Chapter[] = [
       'Cellular Energetics: Enzymes, Energy and Respiration',
     
       'Atomic Structure and Periodicity',
-      'Structure and Bonding'
+      'Structure and Bonding',
+      'Jamie Towle-Weicksel, Rhode Island College I STRUCTURE AND CATALYSIS',
+      'Xuemin Wang, University of Missouri-St. Louis 6 Enzymes',
+      'Eukaryotic Cells Have a Variety of Membranous Eukaryotic Cells Evolved from Simpler',
+      'Organelles, Which Can Be Isolated for Study 6 Precursors in Several Stages',
+      'Three-Dimensional Structure Is Described by Water Interacts Electrostatically with Charged'
     ],
   },
   {
@@ -93,6 +98,7 @@ const chapters: Chapter[] = [
       'The Endosymbiotic Evidence',
       'The Plastid Family',
       'The Maternal Lineage',
+      'Brief Contents (units and chapters, printed order)'
     ],
   },
   {
@@ -109,6 +115,7 @@ const chapters: Chapter[] = [
       'The Matrix as Information',
       'The Three Junctions',
       'Cilia, Flagella, Centrioles and the Nucleus Register',
+      'Bacterial and Archaeal Cells Share Common Three and a Half Billion Years Ago'
     ],
   },
   {

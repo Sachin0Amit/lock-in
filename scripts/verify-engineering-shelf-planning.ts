@@ -7,7 +7,7 @@
  *
  *  A. all 38 engineering books load, status 'planned' (planning pass only)
  *  B. per-book chapter + planned-lesson census printed; shelf totals pinned
- *     (342 chapters / 1,326 planned lessons after the 2026-11-17 ESE exam-gap additions — mismatches FAIL below)
+ *     (342 chapters / 2,044 planned lessons after the 2026-11-17 ESE exam-gap + drive-toc continuation (1,326 -> 2,044) — mismatches FAIL below)
  *  C. every planned chapter: status 'planned', empty lessons array,
  *     plannedLessons >= 3, slugs unique within book, numbers 1..N,
  *     summaries > 200 chars
@@ -92,7 +92,7 @@ for (const b of eng) {
   ok(EXPECTED_CHAPTERS[b.id] === b.chapters.length, `${b.id} chapter count pins ${EXPECTED_CHAPTERS[b.id]} (got ${b.chapters.length})`)
 }
 ok(totCh === 342, `shelf total 342 chapters (got ${totCh})`)
-ok(totPl === 1326, `shelf total 1,326 planned lessons (post the 2026-11-17 ESE exam-gap pass; got ${totPl})`)
+ok(totPl === 2044, `shelf total 2,044 planned lessons (post the 2026-11-17 ESE exam-gap + drive-toc continuation; got ${totPl})`)
 
 console.log('== C. planned-chapter hygiene ==')
 for (const b of eng) {

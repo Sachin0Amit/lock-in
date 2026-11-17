@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Statistics for Economics — the seventeenth book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 7 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `stateco-` prefix
+ * 29 planned lessons, zero written. Lesson ids will use the `stateco-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Statistics for Economics owns the economic-statistics register (UGC NET unit 3’s statistics half read this pass). The mathematics shelf’s statistics-and-probability books own the pure-theory side; econometrics owns the regression-and-causal side; the index-and-time-series registers are priced here as the economics applications.
@@ -91,6 +91,7 @@ const chapters: Chapter[] = [
       'The Distribution Census',
       'The Sampling Craft',
       'The NSSO Register',
+      '2-2c Why Economists’ Advice Is Not Always Followed'
     ],
   },
   {

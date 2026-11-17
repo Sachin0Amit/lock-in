@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Entrepreneurship — the nineteenth book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `entrep-` prefix
+ * 34 planned lessons, zero written. Lesson ids will use the `entrep-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Entrepreneurship owns the venture register (the NCERT class 11-12 entrepreneurship arc named). Business-studies owns the school first-pass of forms; financial-management-and-corporate-finance owns the valuation-and-deal machinery; marketing owns the growth craft’s deep side — cross-referenced honestly.
@@ -58,6 +58,7 @@ const chapters: Chapter[] = [
       'The Canvas Worked',
       'The Pivot Honesty',
       'The Pitch Craft',
+      '15-5d Doing Nothing 311 Summary'
     ],
   },
   {
@@ -118,6 +119,7 @@ const chapters: Chapter[] = [
       'The Budget Brand Craft',
       'The Pricing First Pass',
       'The Customer Honesty',
+      'Xviii CONTENTS'
     ],
   },
   {

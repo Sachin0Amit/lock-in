@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Spanish — the seventh book of the Languages shelf.
  *
  * STATUS: PLANNED (Languages full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `spa-` prefix
+ * 47 planned lessons, zero written. Lesson ids will use the `spa-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Spanish owns the Spanish register (the standard Castilian line with the Latin American family’s breadth priced honestly — the vosotros and the seseo registers named, not duplicated: one book, one engine, the varieties’ awareness). The portuguese book owns the sibling bridge (the two languages’ shared Romance craft cross-referenced — the false-friend traps’ census shared); the french and italian books own the family’s other siblings; the english book owns the Norman-loan bridge’s other side; the DELE and CLEP registers are this book’s exam spines.
@@ -29,6 +29,8 @@ const chapters: Chapter[] = [
       'The Consonant Census',
       'The R\u2019s Two Engines',
       'The Stress\u2019s Law and the Accent\u2019s Guard',
+      'Kate phoned last night. She’s on holiday with friends. (She / have)',
+      'If necessary, a stressed syllable in a word is indicated by the mark placed before the stressed syllable, and/or by the use of bold type, e.g. die Dok\'toren, unter\'schreiben. Where it is required, a stressed word in context is shown by underlining, e.g. Wie bist du denn gekommen?'
     ],
   },
   {
@@ -59,6 +61,8 @@ const chapters: Chapter[] = [
       'The Irregular Canon and the Stem-Changers\u2019 Boot',
       'The Progressive and the Reflexive Routine',
       'The Gustar\u2019s Inversion',
+      'Lists of words are in general alphabetical, unless it appeared more helpful to the user to present them in a different order',
+      'O: Ger Boot, Fr eau ə Ger bitte, Engl china'
     ],
   },
   {
@@ -74,6 +78,8 @@ const chapters: Chapter[] = [
       'The Suffix\u2019s Engine',
       'The False Friends\u2019 Census',
       'The Word-a-Day\u2019s Arithmetic',
+      'Key to Additional exercises',
+      '第12課 病気 Feeling Ill'
     ],
   },
   {
@@ -134,6 +140,7 @@ const chapters: Chapter[] = [
       'The Two Pasts\u2019 Division at Depth',
       'The Future and Conditional\u2019s Craft',
       'The Subjunctive\u2019s First Steps',
+      '第11課 休みのあと After the Vacation'
     ],
   },
   {
@@ -149,6 +156,10 @@ const chapters: Chapter[] = [
       'The B1\u2019s Format Read',
       'The CLEP\u2019s Register Named',
       'The Doorstep: The Madrid Mercado',
+      'Useful Expressions きょうしつ In the Classroom',
+      'Useful Expressions 体の部分 Parts of the Body',
+      'Useful Expressions 色 Colors',
+      'Useful Expressions 健康と病気 Health and Illness'
     ],
   },
 ]

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Industrial Chemistry — the tenth book of the Chemistry shelf.
  *
  * STATUS: PLANNED (Chemistry full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 34 planned lessons, zero written. Lesson ids will use the `indchem-` prefix
+ * 92 planned lessons, zero written. Lesson ids will use the `indchem-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Industrial Chemistry owns the chemical plant register. The engineering shelf’s core books own the unit-operations side (the process engineering register — honestly cross-referenced: chemical engineering is on the engineering pass’s investigate-later list); the organic book owns the reaction chemistry; the environmental book owns the effluent side.
@@ -28,6 +28,13 @@ const chapters: Chapter[] = [
       'The Boiler Honesty',
       'The Utilities Register',
       'The Effluent First Look',
+      'Industrial Method for the Preparation of (i) formaldehyde, (ii) acetaldehyde, and (iii) benzal-dehyde',
+      'Chemistry in Your Career Senior Scientist',
+      'The Composition of Solutions 123 Chemical Connections Nature Has Hot Plants',
+      'Chemistry in Your Career Associate Professor of Ethnic',
+      'Chemistry in Your Career Ceramics Glazer',
+      'Chemistry in Your Career NASA Researcher',
+      'List of Deeper Looks'
     ],
   },
   {
@@ -44,7 +51,50 @@ const chapters: Chapter[] = [
       'The Solvay Craft',
       'The Chlor-Alkali Register',
     
-      'Inquiry process (Inquiry 1 exploring and designing, Inquiry 2 collecting and processing data, Inquiry 3 concluding and evaluating)'
+      'Inquiry process (Inquiry 1 exploring and designing, Inquiry 2 collecting and processing data, Inquiry 3 concluding and evaluating)',
+      'Bronsted–Lowry Acids and Bases',
+      'Strength of Binary Acids and Oxyacids',
+      'Manufacture of H_2SO_4 by Contact Process',
+      'Hypofluorous Acid, HOF',
+      'Relative Strengths of Trihalides of Boron as Lewis Acids',
+      'Orthoboric Acid (H3BO3) or B(OH)3',
+      'Carbonic Acid (H2CO3)',
+      'Barbituric Acid Derivatives as Tranquillizers',
+      'Harmful Effects of Acid Rains',
+      'Taj Mahal and Acid Rain',
+      'How to Reduce Acid Rain',
+      'Oxidation with CrO₃ in Glacial Acetic Acid',
+      'Highly Branched Acids',
+      'Exo-2-norborane Carboxylic Acid (I)',
+      'Reason for the Acidic Character of the Monoanion of the Following Dibasic Acid',
+      'Dry Distillation of Calcium or Barium Salts of Fatty Acids',
+      'By Passing the Vapours of Fatty Acids Over Manganous Oxide (MnO) at 573 K',
+      'Order of Inter-conversion of Acid Derivative (Trans-acylation)',
+      'Benzil–Benzilic Acid Rearrangement',
+      'Decarboxylation of Trichloroacetic Acid (Cl3C—COOH) (I)',
+      'Reaction of α-, β-, γ-, and δ-Halo Acids with Aqueous NaOH',
+      'Hydroxamic Acids (R—C(=O)—NHOH)',
+      'Acid Hydrazides (R—C(=O)—NHNH2)',
+      'Reaction of Aldehydes and Ketones with N3H (Hydrazoic Acid) in Acidic Conditions (Claisen–Schmidt Rearrangement Type Reaction)',
+      'Mixing of Strong Acids and Strong Bases',
+      'The Brönsted–Lowry Acids and Bases',
+      'Factors Affecting the Strength of Lewis Acids',
+      'Calculation of pH of Extremely Dilute (<10⁻⁶ M) Solution of Strong Acids and Strong Bases',
+      'DI- and Polybasic Acids and DI- and Polyacidic Bases',
+      'Change in pH of an Acidic Buffer (When an Acid or a Base is Added)',
+      'Calculation of Degree of Hydrolysis (h), Hydrolysis Constant (Kh), and pH of a Salt (ZnCl₂) of Weak Diacidic Base (Zn(OH)₂ and Monobasic Acid (HCl)',
+      'The Properties of a Group: The Alkali Metals 282 Chemical Connections What’s Hot?',
+      'Calculating the pH of Strong Acid Solutions',
+      'Rate Laws: An Introduction 466 14.7 Polyprotic Acids',
+      'Catalysis 494 14.12 Strategy for Solving Acid–Base Problems: A Summary',
+      'Diastereoselectivity 852 The benzilic acid rearrangement',
+      'Nitrous acid HNO2',
+      'Hypophosphoric acid H4P2O6',
+      'Orthophosphorous acid H3PO3',
+      'Metaphosphorous acid (HPO2)n',
+      'Hypophosphorous acid H3PO2',
+      'Sp3 Hybridization 25 3.6 The Strength of Brønsted–Lowry Acids and Bases',
+      'Hybridization 26 3.7 HOW TO Predict the Outcome of Acid–Base'
     ],
   },
   {
@@ -75,6 +125,9 @@ const chapters: Chapter[] = [
       'The Conversion Processes',
       'The Octane Honesty',
       'The Starter Families',
+      'Commercial Electrolytic Processes',
+      'Weldon and Deacon processes',
+      'Electrolytic processes'
     ],
   },
   {
@@ -91,7 +144,9 @@ const chapters: Chapter[] = [
       'Vulcanisation\u2019s Craft',
       'The Environment Honesty',
     
-      'Simple polymers and their preparation (polystyrene, polyethylene, polyamides, polyesters); polymers and monomers, chain polymerizations, polyaddition and polycondensation'
+      'Simple polymers and their preparation (polystyrene, polyethylene, polyamides, polyesters); polymers and monomers, chain polymerizations, polyaddition and polycondensation',
+      'Silicones or Silicon Polymers',
+      'Some Commercially Important Polymers'
     ],
   },
   {
@@ -110,6 +165,9 @@ const chapters: Chapter[] = [
       'The Food-Products Technology Register',
       'The Cereal, Oil and Fruit Processing Register',
       'Food Packaging, Storage and the Standards',
+      'Dry Cleaning of Clothes',
+      'Electrolytes 119 Chemistry in Your Career Vice President of Food and',
+      'Chemistry in Your Career Executive Publisher 165 Chemical Connections 0.046 Femtometer Is a'
     ],
   },
   {

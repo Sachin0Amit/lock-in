@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Heat Transfer — the seventh book of the Engineering shelf (Mechanical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 31 planned lessons, zero written. Lesson ids will use the `ht-` prefix
+ * 59 planned lessons, zero written. Lesson ids will use the `ht-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Heat Transfer owns the thermal-rate science. Thermodynamics owns the state and cycle science; Fluid Mechanics owns the flow machinery its convection chapters lean on; Renewable Energy’s solar-thermal chapter routes its collector physics through here; Power Systems’ thermal-current and insulation design cross-references the conduction and radiation chapters; diffusion mass transfer is named and handed to future chemical-engineering homes.
@@ -38,6 +38,13 @@ const chapters: Chapter[] = [
       'Rate Equations and Their Origins',
       'The Conductivity Census',
       'Thermal Circuits: the Modes Conspire',
+      'Slew Rate 113 4.3.7 Operation in the Reverse Breakdown',
+      'Active Mode',
+      'Implementation 859 13.1.6 Slew Rate',
+      'Input Common-Mode Range and',
+      'Classification of Output Stages 888 13.2.5 Slew Rate',
+      'Transfer Characteristic 890 Mode Range: Rail-to-Rail Input',
+      'Magnitude of the generated or induced e.m.f. 145 9.5 Average and r.m.s. values of an alternating'
     ],
   },
   {
@@ -52,6 +59,7 @@ const chapters: Chapter[] = [
       'The Wall and the Resistance Network',
       'Cylinders, Spheres, Logarithmic Means',
       'The Critical Radius Priced',
+      'Hysteresis loss'
     ],
   },
   {
@@ -80,6 +88,10 @@ const chapters: Chapter[] = [
       'Lumped Capacitance and the Biot Verdict',
       'The Heisler Charts Read Fluently',
       'Semi-Infinite Solids Glanced',
+      'When operating current is not your choice',
+      'Practical Perspective: Transient Effects 474 Summary',
+      'Capacitance of a multi-plate capacitor',
+      'Fibreoptics 613 29.9 Methods of reducing leakage flux'
     ],
   },
   {
@@ -95,6 +107,7 @@ const chapters: Chapter[] = [
       'The Dimensionless Census Earned',
       'Forced Convection: Plates and Pipes',
       'Free Convection and Its Regimes',
+      'Transconductance versus drain current'
     ],
   },
   {
@@ -109,6 +122,8 @@ const chapters: Chapter[] = [
       'The Boiling Curve Read',
       'Nucleate Boiling Priced',
       'Nusselt\u2019s Film Condensation Craft',
+      'Impedance Angle Restrictions 396 13.12 Using the Transfer Function to Find the',
+      'Calculating Butterworth Transfer Functions 592 17.7 Applying Parseval’s Theorem to an Ideal'
     ],
   },
   {
@@ -140,6 +155,11 @@ const chapters: Chapter[] = [
       'The View-Factor Craft',
       'Radiation Networks and Shields',
       'Combined-Mode Problems Priced',
+      'Switchers: top-level view',
+      'Practical Perspective: Resistive Touch',
+      'Practical Perspective: A Household Distribution',
+      'Practical Perspective: Clock for Computer Problems',
+      'Practical Perspective: Characterizing an'
     ],
   },
   {
@@ -154,6 +174,14 @@ const chapters: Chapter[] = [
       'The Map: Fourier to Networks',
       'Three Designs Priced End-to-End',
       'The Doorsteps: Solar, Grids, Silicon',
+      'Diffusion Current 147 Superdiode',
+      'Leakage Currents 288 7.1.6 Determining the VTC by Graphical',
+      'Dependence of ic on the Collector',
+      'Packages and Heat Sinks 924 14.1.4 Obtaining the Filter Transfer',
+      'The Transfer Function 500 16.4 An Alternative Trigonometric Form of the Fourier',
+      'Find an Unknown Current',
+      'Leakage and conduction currents in capacitors 126 8.8 Analysis of decay',
+      'Current magnification'
     ],
   },
 ]

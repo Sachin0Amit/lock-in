@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Cultural Studies — the third book of the Society branch.
  *
  * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 33 planned lessons, zero written. Lesson ids will use the `cult-` prefix
+ * 34 planned lessons, zero written. Lesson ids will use the `cult-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Cultural Studies owns the meaning-and-media register — culture as a contested field of power. Sociology owns the social-structure register (the two cross-reference: this book reads the media as meaning-making, the sociology book reads the media as an institution); Art History owns the art object’s history (this book reads the contemporary’s visual culture, that book the object’s arc); the Anthropology book owns culture’s comparative-whole-human register (this book’s ’culture’ is the modern-media field, not the ethnographic whole); the languages shelf owns the linguistic competence this book’s semiotics presupposes.
@@ -27,6 +27,7 @@ const chapters: Chapter[] = [
       'The Birmingham Founding',
       'The Interdisciplinarity\u2019s Claim',
       'Culture\u2019s Three Registers',
+      'Chapter XXIX. William James'
     ],
   },
   {

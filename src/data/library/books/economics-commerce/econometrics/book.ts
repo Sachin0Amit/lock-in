@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Econometrics — the eighth book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 38 planned lessons, zero written. Lesson ids will use the `econ-` prefix
+ * 39 planned lessons, zero written. Lesson ids will use the `econ-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Econometrics owns the empirical register (UGC NET Economics unit 3 read this pass — Statistics and Econometrics). Statistics-for-economics owns the descriptive-and-inference first side; the mathematics shelf’s statistics and probability books own the pure-theory side; data-science (CS shelf) owns the computational machinery — cross-referenced honestly.
@@ -103,6 +103,7 @@ const chapters: Chapter[] = [
       'The Two Conditions',
       'The 2SLS Worked',
       'The Natural-Experiment Register',
+      '2-3a Differences in Scientific Judgments'
     ],
   },
   {

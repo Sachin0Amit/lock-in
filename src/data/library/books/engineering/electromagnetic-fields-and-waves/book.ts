@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Electromagnetic Fields and Waves — the twenty-first book of the Engineering shelf (Electronics & Communication branch — ADDED by the 2026-11-16 GATE syllabus audit: the EE Section 3 and EC Section 8 registers had no home on the backlog’s ECE list; the QA-creation precedent honoured).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 38 planned lessons, zero written. Lesson ids will use the `emf-` prefix
+ * 45 planned lessons, zero written. Lesson ids will use the `emf-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Electromagnetic Fields and Waves owns the field-and-wave truth for the whole shelf (GATE EE S3 ’Electromagnetic Fields’ + EC S8 ’Electromagnetics’ — one book, both papers). Circuit Theory owns the lumped approximation it explains; Electrical Machines and Power Systems consume its magnetic-circuit and field machinery; Antennas and Wave Propagation owns the radiation and propagation census; the Mathematics shelf owns the pure vector calculus.
@@ -43,6 +43,7 @@ const chapters: Chapter[] = [
       'Three Coordinate Systems, Honestly',
       'Gradient, Divergence, Curl — Read Physically',
       'The Integral Theorems as Engine',
+      'Armature and field connections 855 40.5 The thyristor in practice'
     ],
   },
   {
@@ -57,6 +58,7 @@ const chapters: Chapter[] = [
       'The Charge Census Worked',
       'Flux Density and Gauss\u2019s Craft',
       'The Point Form of Gauss\u2019s Law',
+      'Practical Perspective: Heating with Electric Cases'
     ],
   },
   {
@@ -72,6 +74,7 @@ const chapters: Chapter[] = [
       'Poisson, Laplace and Uniqueness',
       'Dielectrics and Boundary Conditions',
       'Capacitance Census and Energy',
+      'Charged plates 124 8.6 Growth in an inductive circuit'
     ],
   },
   {
@@ -102,6 +105,10 @@ const chapters: Chapter[] = [
       'Air-Gap Craft Worked',
       'Inductance of Simple Configurations',
       'The Machinery Machines Presuppose',
+      'True low-dropout regulators',
+      'Simple Magnetic Circuits 151 9.8 Representation of an alternating quantity',
+      'Mechanical analogy of an inductive circuit 232 13.10 Parallel loads',
+      'Polar impedances 256 14.8 Mechanical analogy of a resonant circuit'
     ],
   },
   {

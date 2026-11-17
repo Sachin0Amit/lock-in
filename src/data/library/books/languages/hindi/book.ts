@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Hindi — the second book of the Languages shelf.
  *
  * STATUS: PLANNED (Languages full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `hin-` prefix
+ * 44 planned lessons, zero written. Lesson ids will use the `hin-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Hindi owns the Hindi register (the standard Khari Boli line and its registers). Sanskrit owns the classical parent (the two share Devanagari — the script’s lessons cross-referenced; the tatsama vocabulary’s deep etymons live in the Sanskrit book); the Urdu register’s shared Khari Boli base is named honestly (the future Urdu book, if promoted, will cross-reference — the Hindustani’s one-spoken-two-written register priced); the Cultural Studies book’s Indian popular register cross-references for the media’s Hindi; the Indian History book’s culture thread names the Bhakti literature’s Hindi antecedents.
@@ -29,6 +29,7 @@ const chapters: Chapter[] = [
       'The Consonant Vargas',
       'The Conjuncts and the Nasals',
       'The First Reading Weeks',
+      'CultureNote 日本の祝日 Japanese National Holidays'
     ],
   },
   {
@@ -44,6 +45,9 @@ const chapters: Chapter[] = [
       'The Postpositional Vibhakti Census',
       'The Pronouns\u2019 Register',
       'The Adjective\u2019s Agreement',
+      'Measurement phrases: genitive, von or apposition?',
+      'Cardinal numbers',
+      'CultureNote 日本の教育制度(1) Japan\'s Educational System (1)'
     ],
   },
   {
@@ -59,6 +63,7 @@ const chapters: Chapter[] = [
       'The Transitive-ne Rule',
       'The Participles and the Compounds',
       'The Conjunctive Participle\u2019s Craft',
+      'Have something done'
     ],
   },
   {
@@ -74,6 +79,7 @@ const chapters: Chapter[] = [
       'The Negation and the Interrogation',
       'The Relative-Correlative Engine',
       'The Complex Sentence\u2019s Craft',
+      'The position of nicht and other negative elements'
     ],
   },
   {
@@ -89,6 +95,7 @@ const chapters: Chapter[] = [
       'The Modern Floor\u2019s Citizenship Line',
       'The Idioms and Proverbs Census',
       'The Gender Memory Method',
+      'Lit. literary'
     ],
   },
   {
@@ -119,6 +126,7 @@ const chapters: Chapter[] = [
       'The Honorifics\u2019 Ladder',
       'The Regional Accents\u2019 Census',
       'The Fluency Craft',
+      'Useful Expressions 郵便局で At the Post Office'
     ],
   },
   {

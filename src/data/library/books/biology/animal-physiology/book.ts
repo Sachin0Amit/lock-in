@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Animal Physiology — the nineteenth book of the Biology shelf (the zoology register).
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 33 planned lessons, zero written. Lesson ids will use the `zphys-` prefix
+ * 34 planned lessons, zero written. Lesson ids will use the `zphys-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Animal Physiology owns the general-and-comparative machinery register. The human clinical depth belongs to the medical shelf’s medical-physiology (the sibling clinical view — mechanisms shared, disease owned there); the biochemical engine (glycolysis-and-ETC) belongs to the chemistry shelf’s biochemistry; the plant’s machinery to plant-physiology; the NCERT-and-NEET human-physiology lines are priced here at the general level.
@@ -65,6 +65,7 @@ const chapters: Chapter[] = [
       'The Glucose Dial Held as One Arithmetic',
       'Hormone Action and Its Disorders: Hypo- to Hyper-Activity',
       'Chemical Coordination and Integration',
+      'An Introduction to Invertebrates'
     ],
   },
   {

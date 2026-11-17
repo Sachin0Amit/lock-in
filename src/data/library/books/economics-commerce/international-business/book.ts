@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * International Business — the twenty-third book of the Economics, Commerce & Finance shelf.
  *
  * STATUS: PLANNED (Economics, Commerce & Finance full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `intbus-` prefix
+ * 34 planned lessons, zero written. Lesson ids will use the `intbus-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): International Business owns the firm-side global register (UGC NET Commerce unit 1’s international register read this pass). International-economics owns the trade-and-payments theory side; marketing-and-HRM own the functional deep sides; the anthropology book (humanities shelf) owns the culture-science deep side — cross-referenced honestly.
@@ -28,6 +28,7 @@ const chapters: Chapter[] = [
       'The Skeptics\u2019 Honesty',
       'The Institution Map',
       'The Emerging Story',
+      '14-3c Why Do Competitive Firms Stay in Business'
     ],
   },
   {
@@ -43,6 +44,7 @@ const chapters: Chapter[] = [
       'The Risk Registers',
       'Hofstede Worked',
       'The Ethics Register',
+      '9-2b The Gains and Losses of an Importing Country'
     ],
   },
   {

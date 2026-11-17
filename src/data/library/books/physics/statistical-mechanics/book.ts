@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Statistical Mechanics — the fourteenth book of the Physics shelf.
  *
  * STATUS: PLANNED (Physics full-shelf planning pass, 2026-11-16) — 8 chapters /
- * 32 planned lessons, zero written. Lesson ids will use the `statm-` prefix
+ * 56 planned lessons, zero written. Lesson ids will use the `statm-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Statistical Mechanics owns the ensemble register (GATE PH Thermodynamics and Statistical Physics section’s statistical half, read this pass; CSIR NET’s statistical mechanics). Heat-and-thermodynamics owns the macroscopic laws; solid-state-physics owns the electron-application side; astrophysics owns the degenerate-matter application.
@@ -28,6 +28,20 @@ const chapters: Chapter[] = [
       'S = k ln W',
       'Temperature from Exchange',
       'The Overwhelming Arithmetic',
+      'Kepler\'s Third Law: The Law of Periods',
+      'Gay-Lussac\'s Law or Pressure Law',
+      'Dalton\'s Law of Partial Pressure',
+      'Validity and Failure of Ohm\'s Law',
+      'Guidelines for Applying Kirchhoff\'s Law',
+      'Guidelines for Applying Ampere\'s Law',
+      '3-2 UNIT VECTORS, ADDING VECTORS BY COMPONENTS 46 Applying Newton’s Laws',
+      '23-5 APPLYING GAUSS’ LAW: PLANAR SYMMETRY',
+      'Applying Gauss’ Law: Planar Symmetry',
+      'Blame Newton’s Second Law 116 BIO Biological Efficiency  645 Satellite Television Dishes',
+      'Average and Instantaneous Acceleration 40 5.2 Using Newton’s Second Law',
+      'Gauss’s Law 725 Summary',
+      'Lenz’s Law 962 33.4 Dispersion',
+      'A.6 Law of Sines and Law of Cosines'
     ],
   },
   {
@@ -43,6 +57,9 @@ const chapters: Chapter[] = [
       'The Partition Solver',
       'Connection Formulas',
       'Equipartition Honesty',
+      '■ Canonical Transformations',
+      'Examples of Canonical Transformations',
+      'The Symplectic Approach to Canonical Transformations'
     ],
   },
   {
@@ -88,6 +105,8 @@ const chapters: Chapter[] = [
       'The Specific Heat Proof',
       'Degeneracy in Stars',
       'Pauli Paramagnetism',
+      'Neutron Leakage',
+      'Neutron Capture'
     ],
   },
   {
@@ -103,6 +122,9 @@ const chapters: Chapter[] = [
       'Debye Re-read',
       'The Condensation Arithmetic',
       'Superfluid Named',
+      'Kinetic-Molecular Model of an Ideal Gas 588 Summary',
+      'Applications of Gauss’s Law 729 Guided Practice',
+      'Molecular Model of Induced Charge 799 Conductor'
     ],
   },
   {
@@ -118,6 +140,8 @@ const chapters: Chapter[] = [
       'Ising in Mean Field',
       'Exponents and Universality',
       'Landau and RG Named',
+      'Impact Parameter',
+      'Chaotic Trajectories and Liapunov Exponents'
     ],
   },
   {

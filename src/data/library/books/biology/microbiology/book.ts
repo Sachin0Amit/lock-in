@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Microbiology — the eighth book of the Biology shelf.
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `bact-` prefix
+ * 40 planned lessons, zero written. Lesson ids will use the `bact-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Microbiology owns the general register of microbes. The pathogenesis and disease registers belong to the medical shelf’s medical-microbiology (the clinical view, cross-referenced as the sibling view); the immune response to microbes belongs to immunology; the recombinant tools (E. coli as the workhorse) belong to biotechnology; the molecular machinery inside viruses (the lytic craft) is shared with molecular-biology at intro depth only; the NEET micro-disease unit is priced here at the general level with the clinical detail owned downstream.
@@ -46,6 +46,7 @@ const chapters: Chapter[] = [
       'The Spore and the Size Honesty',
       'The Prokaryotic Cell: Structure and Function',
       'The Morphology of Bacteria',
+      'Living Organisms Exist in a Dynamic Steady Macromolecular Structure and Function'
     ],
   },
   {
@@ -66,6 +67,8 @@ const chapters: Chapter[] = [
       'Redox Reactions, Electron Transport and Oxidative Phosphorylation',
       'Photosynthesis and the Calvin Cycle in Microbes',
       'Growth and Death Kinetics with Serial Dilution',
+      'We lack the space here to acknowledge all the other 12 Biochemical Signaling',
+      'Of Wisconsin-Madison, who helped us with advice and 19 Oxidative Phosphorylation'
     ],
   },
   {
@@ -166,6 +169,7 @@ const chapters: Chapter[] = [
       'The Role of Microorganisms in Organic Matter and Disease',
       'Antigen and Antibody Detection in Microbial Diagnosis',
       'Aerobic and Anaerobic Respiration with Chemolithotrophy',
+      'The competing demands on our time; to our colleagues 18 Amino Acid Oxidation and the'
     ],
   },
 ]

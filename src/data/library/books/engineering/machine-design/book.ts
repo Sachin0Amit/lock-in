@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Machine Design — the fourth book of the Engineering shelf (Mechanical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 31 planned lessons, zero written. Lesson ids will use the `md-` prefix
+ * 63 planned lessons, zero written. Lesson ids will use the `md-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Machine Design owns the sizing of machine elements under static and fatigue loading. Strength of Materials owns the underlying stress machinery; Materials Science owns microstructure and heat treatment; Theory of Machines owns the kinematic catalogue; the bolted/riveted/welded joint craft is shared honestly with Structural Engineering (civil), which routes its steel-connection design through IS codes while this book prices the machine idiom.
@@ -36,6 +36,13 @@ const chapters: Chapter[] = [
       'The Design Process and Its Codes',
       'Factor of Safety Priced Honestly',
       'From Stress to Dimension',
+      '(VTC) 369 8.1 IC Design Philosophy',
+      'Inverter Sizing 1165 18.4.3 The Row-Address Decoder',
+      'Designs by the masters: Agilent\'s accurate DMMs',
+      'Nonvolatile memory',
+      'Memory wrapup',
+      'Appendix B Complex Numbers 729 Appendix H Common Standard',
+      'Core factors 647 Summary of important formulae'
     ],
   },
   {
@@ -50,6 +57,10 @@ const chapters: Chapter[] = [
       'Ductile versus Brittle Failure',
       'Tresca and von Mises Priced',
       'Stress Concentration in Design',
+      'Hans Camenzind: The Inventor of the Class D',
+      'Printed in the United States of America',
+      'Designs by the masters: Agilent\'s world-class "multislope" converters',
+      'ADCs: choices and tradeoffs'
     ],
   },
   {
@@ -64,6 +75,7 @@ const chapters: Chapter[] = [
       'The Endurance Limit and Its Modifiers',
       'Goodman, Soderberg, Gerber',
       'Cumulative Damage by Miner\u2019s Rule',
+      'The golden rules'
     ],
   },
   {
@@ -107,6 +119,11 @@ const chapters: Chapter[] = [
       'Journal Bearings: Petroff and Beyond',
       'Rolling Bearings: the L10 Arithmetic',
       'Selection, Mounting, Preload',
+      'Number per package',
+      'Appendix B Complex Numbers',
+      'B.6 The Roots of a Complex Number',
+      'Finding a Thévenin Equivalent',
+      'Hexadecimal numbers'
     ],
   },
   {
@@ -152,7 +169,22 @@ const chapters: Chapter[] = [
       'The Standards Census',
       'The Doorstep: Makeable and Modelled',
     
-      'Databases and languages — data bases: different types, characteristics and design; transactions and concurrency control; elements of programming languages, typical examples'
+      'Databases and languages — data bases: different types, characteristics and design; transactions and concurrency control; elements of programming languages, typical examples',
+      'Realization of the Various Filter Element',
+      'An example: "It\'s too hot!"',
+      'Example: sensitive millivoltmeter',
+      'An example: the millivoltmeter, revisited',
+      'Contents (page xiii)',
+      'A simple design example: loudspeaker as microphone',
+      'A design example: 40ε "lightning detector" preamp',
+      'An example: pseudorandom byte generator',
+      'Contents (page xvii)',
+      'Contents (page xviii)',
+      'List of Examples xii',
+      'List of Examples',
+      'List of Examples xiii',
+      'Xiv List of Examples',
+      'List of Examples xv'
     ],
   },
 ]

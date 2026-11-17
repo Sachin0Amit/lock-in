@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Thermodynamics — the fifth book of the Engineering shelf (Mechanical branch).
  *
  * STATUS: PLANNED (Engineering full-shelf planning pass, 2026-11-16) — 11 chapters /
- * 39 planned lessons, zero written. Lesson ids will use the `therm-` prefix
+ * 57 planned lessons, zero written. Lesson ids will use the `therm-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Thermodynamics owns the state-and-cycle science. Heat Transfer owns the rate science (its conduction/convection/radiation engines presuppose this book’s property census); Fluid Mechanics owns the flow science (compressible-flow basics live here for the nozzle arcs, cross-referenced both ways); Renewable Energy prices its cycles here; the Mathematics shelf’s Mathematical Methods for Engineering owns the partial-derivative machinery of property relations.
@@ -39,6 +39,10 @@ const chapters: Chapter[] = [
       'Systems, Boundaries, Properties',
       'The Zeroth Law and Temperature',
       'Processes and Cycles',
+      'Filter 597 17.9 Calculating Energy Contained in a Rectangular',
+      'Standardized Prefixes to Signify 10.1 Annual Energy Requirements of Electric',
+      'Energy stored in a charged capacitor 123 8.5 Ferromagnetic-cored inductor in a',
+      'Types of capacitor and capacitance 127 8.10 Energy stored in an inductor'
     ],
   },
   {
@@ -67,6 +71,15 @@ const chapters: Chapter[] = [
       'The Saturation Dome Read Honestly',
       'Quality and the Steam Tables',
       'The Ideal Gas and Its Honest Limits',
+      'Tables xiv',
+      'List of Tables — xxii',
+      'List of Tables xvi',
+      'Appendix G An Abbreviated Table of Integrals',
+      'List of Tables xvi Summary',
+      'Equations 720 Table of Trigonometric',
+      'A.3 Paper-and-Pencil Methods 723 Appendix G An Abbreviated Table of',
+      'Xvi List of Tables',
+      'List of Tables'
     ],
   },
   {
@@ -82,6 +95,7 @@ const chapters: Chapter[] = [
       'Throttles and Mixing Chambers',
       'Unsteady Flows: Filling and Emptying',
       'Compressors and Intercooling',
+      'Simplified "x86" instruction set'
     ],
   },
   {
@@ -140,6 +154,9 @@ const chapters: Chapter[] = [
       'The Brayton Cycle',
       'Regeneration, Reheat, Intercooling',
       'The Cycle Comparison Census',
+      'VII: ac-input optocouplers',
+      'Finding the a Parameters from',
+      'Hybrid parameters'
     ],
   },
   {
@@ -155,6 +172,7 @@ const chapters: Chapter[] = [
       'Reheat and Regeneration',
       'Vapour-Compression Refrigeration',
       'Heat Pumps and Gas Refrigeration',
+      'Practical Perspective: Heating with Electric'
     ],
   },
   {

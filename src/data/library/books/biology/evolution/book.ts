@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Evolution — the fifth book of the Biology shelf (the honest fold: the core line Evolutionary and the zoology line Evolution share this one register).
  *
  * STATUS: PLANNED (Biology full-shelf planning pass, 2026-11-16) — 9 chapters /
- * 37 planned lessons, zero written. Lesson ids will use the `evo-` prefix
+ * 43 planned lessons, zero written. Lesson ids will use the `evo-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Evolution owns the full evolutionary register for the whole library — the single honest fold of the core line and the zoology line into one book (the animal-side examples live in its chapters, the plant-side cross-references plant-genetics). Population-genetics arithmetic is shared with genetics (the Hardy-Weinberg engine owned there, its evolutionary consequences owned here); the NEET evolution unit is priced here; the origins-of-life register is cross-referenced from the chemistry shelf’s foundation book.
@@ -28,6 +28,8 @@ const chapters: Chapter[] = [
       'The Homology Census',
       'The Island Logic',
       'Evolution Watched Live',
+      'Cellular Dimensions Are Limited by Diffusion 3 Allow Evolution',
+      'Of Energy and Biosynthetic Precursors 3 Biological Evolution Began More Than'
     ],
   },
   {
@@ -46,7 +48,10 @@ const chapters: Chapter[] = [
       'Natural Selection and Its Types',
       'Darwin\'s Contribution and the Modern Synthetic Theory',
     
-      'Chemotherapy/Antibiotics'
+      'Chemotherapy/Antibiotics',
+      'And present research groups, who helped us balance',
+      'Titration Curves Reveal the pKa of Weak Acids',
+      'CORRUPT at source — deterministic truncation proven twice at byte'
     ],
   },
   {
@@ -122,6 +127,7 @@ const chapters: Chapter[] = [
       'The RNA World\u2019s Logic',
       'The Protocell Idea',
       'The Timeline Fixed',
+      'Domains of Life 3 RNA or Related Precursors May Have Been'
     ],
   },
   {

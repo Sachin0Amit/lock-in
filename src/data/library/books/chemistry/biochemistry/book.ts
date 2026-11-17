@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Biochemistry — the seventh book of the Chemistry shelf.
  *
  * STATUS: PLANNED (Chemistry full-shelf planning pass, 2026-11-16) — 10 chapters /
- * 41 planned lessons, zero written. Lesson ids will use the `biochem-` prefix
+ * 73 planned lessons, zero written. Lesson ids will use the `biochem-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Biochemistry owns the chemistry-side register (the biomolecules-chemistry view). The organic book owns the biomolecules school register; the future Medical-and-Biology shelves’ biochemistry registers are cross-referenced as sibling views (the chemistry-side: structure-and-mechanism first); NEET’s biomolecules unit is priced here.
@@ -28,6 +28,15 @@ const chapters: Chapter[] = [
       'The Cellular pH',
       'The Buffer Systems',
       'The Transport Registers',
+      'Significance of H-Bonding in Biological Systems',
+      'Potassium Carbonate (K2CO3)',
+      'Magnesium Carbonate (MgCO3)',
+      'Basic Lead Carbonate, 2PbCO3·Pb(OH)2',
+      'Carbonate (CO3^2–) and Oxalate (C2O4^2–)',
+      'To life in each Focus, and a suite of self-check questions. These try as an evolving subject',
+      'Review of two mathematical tools that are used throughout the trochemical cell, a biological cell, and so on. The surroundings',
+      'Made in the surroundings. The type of system depends on the',
+      'Oxosalts – carbonates, bicarbonates, nitrates and nitrites'
     ],
   },
   {
@@ -65,7 +74,9 @@ const chapters: Chapter[] = [
       'The Biochemical Separation Techniques: Chromatography, Centrifugation and Electrophoresis',
       'The Separation Crafts: Chromatography, Centrifugation and Electrophoresis',
     
-      'Tools (Tool 1 experimental techniques, Tool 2 technology, Tool 3 mathematics)'
+      'Tools (Tool 1 experimental techniques, Tool 2 technology, Tool 3 mathematics)',
+      'Rent that can drive a motor and be used to raise a weight',
+      'Silicates in technology'
     ],
   },
   {
@@ -83,6 +94,11 @@ const chapters: Chapter[] = [
       'The Allosteric Craft',
       'Enzyme Types, Nomenclature and Properties',
       'Vitamins, Coenzymes and Minerals',
+      'Enzymes as Drug Targets',
+      'Catalytic Action of Enzymes',
+      'Drug–Enzyme Interaction',
+      'Competitive Inhibitors',
+      'Chemical Connections Enzymes: Nature’s Catalysts'
     ],
   },
   {
@@ -104,6 +120,18 @@ const chapters: Chapter[] = [
       'Food Carbohydrates: Starch, Pectin and Dietary Fibre',
       'Food Lipids: Rancidity and Polymorphism',
       'The Balanced Diet and Nutrients',
+      'Sucrose/Cane sugar (C12H22O11)',
+      'Maltose (Malt sugar, C12H22O11)',
+      'Starch/Amylum (C6H10O5)n',
+      'Polymorphism and Allotropy',
+      'Inversion of Cane Sugar (C₁₂H₂₂O₁₁)',
+      'He2 molecule',
+      'Li2 molecule',
+      'Be2 molecule',
+      'Biological importance',
+      'Amphoteric behaviour – aluminates',
+      'Triatomic Molecule',
+      'Polar and Nonpolar Molecules'
     ],
   },
   {
@@ -135,6 +163,7 @@ const chapters: Chapter[] = [
       'The RNA Census',
       'The Technology Preview',
       'Molecular Biology and the Biomolecules',
+      'DNA Fingerprinting'
     ],
   },
   {
@@ -153,6 +182,7 @@ const chapters: Chapter[] = [
       'The Metabolic Pathways and Their Regulation: Pentose Phosphate to Gluconeogenesis',
       'The Pentose Phosphate Pathway and Gluconeogenesis',
       'Nitrogen Metabolism: Fixation, Amino Acids and Nucleotides',
+      'Oxidative Cleavage'
     ],
   },
   {
@@ -185,6 +215,8 @@ const chapters: Chapter[] = [
       'The Research Doorway',
       'Spectroscopy for Biochemists: UV-Visible, Fluorescence and Mass Spectrometry',
       'Enzymatic and Non-Enzymatic Browning',
+      'Mass spectrometry detects isotopes',
+      'By high-resolution mass spectrometry'
     ],
   },
 ]
