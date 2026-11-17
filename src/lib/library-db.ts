@@ -12,6 +12,7 @@
  * pack version, so a `bun run lib:pack` while the server is live is
  * picked up on the very next request — no restart needed.
  */
+import { spawn } from 'node:child_process'
 import { db } from '@/lib/db'
 import { disciplines as disciplineList } from '@/data/library/disciplines'
 import type {
@@ -52,9 +53,59 @@ interface PackCache {
 
 let memory: PackCache | null = null
 
+/* ------------------------------------------------------------------ */
+/* Self-heal: a wiped content cache repacks itself on demand          */
+/* ------------------------------------------------------------------ */
+
+let healing: Promise<void> | null = null
+let healFailedAt = 0
+
+/** Read the pack singleton; an unreadable database reads as "absent". */
+async function readPackRow() {
+  try {
+    return await db.contentPack.findUnique({ where: { id: 'singleton' } })
+  } catch {
+    return null
+  }
+}
+
+/**
+ * The content tables are DERIVED data (see scripts/pack-library.ts): the
+ * authoring source of truth is the git-tracked TS registry. When the
+ * sandbox recycles it sometimes drops those derived rows — every route
+ * would then serve an empty library ("0 Books / 0 Lessons / 0 Words").
+ * Instead of showing that, the first request after a wipe re-runs the
+ * packer exactly once: concurrent requests share the same in-flight
+ * run, and a failed run backs off for a minute instead of spawning a
+ * packer per request. The pack takes ~0.6 s.
+ */
+async function repackOnDemand(): Promise<void> {
+  if (healing) return healing
+  healing = new Promise<void>((resolve) => {
+    const child = spawn('bun', ['scripts/pack-library.ts'], {
+      cwd: process.cwd(),
+      stdio: 'ignore',
+    })
+    // no bun on PATH → 'error'; packer done (any exit code) → 'exit'
+    child.on('error', () => resolve())
+    child.on('exit', () => resolve())
+  })
+  try {
+    await healing
+  } catch {
+    healFailedAt = Date.now()
+  } finally {
+    healing = null
+  }
+}
+
 async function loadPack(): Promise<PackCache | null> {
-  const pack = await db.contentPack.findUnique({ where: { id: 'singleton' } })
-  if (!pack) return null
+  let pack = await readPackRow()
+  if (!pack) {
+    if (Date.now() - healFailedAt > 60_000) await repackOnDemand()
+    pack = await readPackRow()
+    if (!pack) return null
+  }
   if (memory && memory.version === pack.version) return memory
 
   const bookRows = await db.libraryBook.findMany({ orderBy: { position: 'asc' } })
