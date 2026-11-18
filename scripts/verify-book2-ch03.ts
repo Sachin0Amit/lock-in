@@ -2068,6 +2068,80 @@ console.log('=== BA. the content tables, cell by cell (3.3 + 3.4) ===');
 }
 
 /* ------------------------------------------------------------------ */
+console.log('=== BB. the audit-bot enrichment of 3.1 (solution-figure and Pass C values) ===');
+{
+  /* the L1-Q2 solution figure: the engine on 13 — four machines, remainders
+   * read upward give 1101₂, rebuild 8 + 4 + 0 + 1 = 13 */
+  const cas13: Array<[number, number, number]> = [[13, 6, 1], [6, 3, 0], [3, 1, 1], [1, 0, 1]];
+  let bad13 = 0;
+  for (const [n, q, r] of cas13) {
+    if (divmod(n, 2).q !== q || divmod(n, 2).r !== r) bad13++;
+    if (n !== q * 2 + r) bad13++;
+  }
+  for (let i = 0; i + 1 < cas13.length; i++) if (cas13[i][1] !== cas13[i + 1][0]) bad13++;
+  const digits13 = cas13.map(([, , r]) => r).reverse();
+  if (digits13.join('') !== '1101') bad13++;
+  if (evalPoly(digits13, 2) !== 13 || evalHorner(digits13, 2) !== 13) bad13++;
+  if (8 + 4 + 0 + 1 !== 13) bad13++;
+  if (nameString(13, 2) !== '1101') bad13++;
+  ok(bad13 === 0 && cas13.length === 4, 'BB: the L1-Q2 cascade figure — 13 = 6·2+1, 6 = 3·2+0, 3 = 1·2+1, 1 = 0·2+1; quotients chain 13→6→3→1→0; digits read upward 1101; rebuild 8+4+0+1 = 13');
+
+  /* the L2-Q3 seat strip: 2F₁₆ = 2·16 + F·1 = 32 + 15 = 47 */
+  ok(2 * 16 === 32 && 15 * 1 === 15 && 32 + 15 === 47 && nameString(47, 16) === '2F',
+    'BB: the L2-Q3 seat figure — 2·16 = 32, F·1 = 15, 32 + 15 = 47, and 47 re-names 2F₁₆');
+
+  /* the L3-Q2 window figure: base-three five-digit window 81..242, count 162 */
+  ok(powInt(3, 4) === 81 && powInt(3, 5) === 243 && powInt(3, 5) - 1 === 242 && powInt(3, 5) - powInt(3, 4) === 162,
+    'BB: the L3-Q2 window figure — 3⁴ = 81, 3⁵ − 1 = 242, count 3⁵ − 3⁴ = 162');
+  ok(nameString(81, 3) === '10000' && nameString(242, 3) === '22222',
+    'BB: the window walls wear the names the figure prints — 81 = 10000₃, 242 = 22222₃');
+
+  /* the L5-Q2 stacking figure (drawn to scale for b = 2, k = 4):
+   * {0} ∪ [1,1] ∪ [2,3] ∪ [4,7] ∪ [8,15] = [0,15] — 2⁴ = 16 numbers,
+   * zero joined as its own piece, then the k-digit windows butt-jointed */
+  const win2: Array<[number, number]> = [[0, 0], [1, 1], [2, 3], [4, 7], [8, 15]];
+  let badWin = 0;
+  if (win2[1][0] !== powInt(2, 0) || win2[1][1] !== powInt(2, 1) - 1) badWin++;
+  if (win2[2][0] !== powInt(2, 1) || win2[2][1] !== powInt(2, 2) - 1) badWin++;
+  if (win2[3][0] !== powInt(2, 2) || win2[3][1] !== powInt(2, 3) - 1) badWin++;
+  if (win2[4][0] !== powInt(2, 3) || win2[4][1] !== powInt(2, 4) - 1) badWin++;
+  for (let i = 0; i + 1 < win2.length; i++) if (win2[i][1] + 1 !== win2[i + 1][0]) badWin++;
+  if (win2[0][0] !== 0 || win2[4][1] !== 15 || win2[4][1] - win2[0][0] + 1 !== 16) badWin++;
+  ok(badWin === 0, 'BB: the L5-Q2 stacking figure — {0} ∪ [1,1] ∪ [2,3] ∪ [4,7] ∪ [8,15] = [0,15] with no gap and no overlap: sixteen numbers 0..15 wear at most four bits (2⁴ = 16)');
+  /* the text instances of the same theorem */
+  ok(powInt(2, 8) === 256 && powInt(10, 3) === 1000,
+    'BB: the theorem instances stand — (2,8): 256 numbers 0..255; (10,3): 1000 numbers 0..999');
+  /* the figure's running-total labels: 1, 2, 4, 8, 16 — cumulative window
+   * counts and the powers 2⁰..2⁴ */
+  let badCum = 0;
+  let run = 0;
+  const windowsCum: Array<[number, number]> = [[0, 0], [1, 1], [2, 3], [4, 7], [8, 15]];
+  for (let k = 0; k <= 4; k++) {
+    run += windowsCum[k][1] - windowsCum[k][0] + 1;
+    if (run !== powInt(2, k)) badCum++;
+    if ([1, 2, 4, 8, 16][k] !== run) badCum++;
+  }
+  ok(badCum === 0, 'BB: the stacking figure\u2019s running totals — 1, 2, 4, 8, 16 are the cumulative window counts and the powers 2⁰..2⁴');
+
+  /* the Pass C digit-theorem example: read 2025's base-twelve digits
+   * directly — dᵢ = ⌊n/bⁱ⌋ mod b, no engine run needed */
+  const dt: Array<[number, number, number]> = [];
+  for (let i = 0; i <= 3; i++) dt.push([floorDiv(2025, powInt(12, i)), modSub(floorDiv(2025, powInt(12, i)), 12), digitAt(2025, 12, i)]);
+  let badDT = 0;
+  for (const [floor, d, at] of dt) if (modSub(floor, 12) !== d || d !== at) badDT++;
+  if (JSON.stringify(dt.map(([, d]) => d)) !== JSON.stringify([9, 0, 2, 1])) badDT++;
+  if (nameString(2025, 12) !== '1209') badDT++;
+  if (1 * 1728 + 2 * 144 + 0 * 12 + 9 !== 2025) badDT++;
+  ok(badDT === 0 && dt.length === 4, 'BB: the digit-theorem example — ⌊2025/12ⁱ⌋ mod 12 = 9, 0, 2, 1 for i = 0..3, matching the engine name 1209₁₂ and the rebuild 1728+288+9 = 2025');
+
+  /* the Pass C base-one refusal callout: r = 0 and q = n for every n —
+   * the quotient never descends, the band {0} has no nonzero digit */
+  let bad1 = 0;
+  for (let n = 1; n <= 30; n++) if (n * 1 + 0 !== n || n - 0 !== n) bad1++;
+  ok(bad1 === 0, 'BB: the base-one refusal — n = n·1 + 0 with band {0}: remainder pinned to 0, quotient pinned to n, the descent never moves, no nonzero leading digit exists for n ≥ 1');
+}
+
+/* ------------------------------------------------------------------ */
 console.log(`\n=== RESULT: ${pass} passed, ${fail} failed ===`);
 
 

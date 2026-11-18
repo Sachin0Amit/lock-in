@@ -3433,3 +3433,21 @@ The owner directed the comprehensive double-layer pass. Layer 1 (drive TOC): the
 - No AI images; SOURCE_LOG untouched; RESUME_POINTER/PROGRESS/WORK_INVENTORY/TOC_FOLD_LEDGER/ENHANCEMENT_POINTER untouched (main-AI-owned); audit-state.json bumped (lastAuditedLessonId → ans-linear-diophantine-equations).
 
 - Staging fix (this entry supersedes the queue line above): FIGURE_AUDIT_QUEUE.json was re-based on HEAD's fresh queue (cursor 54, 131 items, stats 60/131/246) with the item-54 done-mark applied as a +5/−1 diff; the earlier stale-queue rewrite (−1,049/+1,049) was restored away pre-commit and never staged again. A stray untracked binary `full` in the repo root predates this fire and was left untouched.
+
+## 2026-11-18 — audit-bot fire (job 530242, 14:30 IST): ans-representation-theorem-unique-name (ANS 3.1) — §10 passes
+
+- Files touched: src/data/library/books/mathematics/arithmetic-number-systems/ch-03.ts (the only content file), scripts/verify-book2-ch03.ts (verifier section BB), docs (this log, WORKLOG, ENHANCEMENT_LOG, FIGURE_AUDIT_LOG, FIGURE_AUDIT_QUEUE.json).
+- Pass A (fig 1, body): naming-engine cascade 2025 → 7E9₁₆ audited untouched — DOM 0, VLM strict PASS (browser render; the cairosvg all-black sheet re-classified as currentColor render artifact), every machine row re-derived before trusting the picture.
+- Pass B — 4 solution figures attached via `figures: [ { caption, svg } ]` on the question objects (schema SolutionFigure[] pre-existing; renderer SolutionFigures in blocks.tsx pre-existing):
+  1. L1-Q2 'Name 13 in base two' — four-machine cascade, amber remainder cells tagged r = d₀ … r = d₃, quotient arrows, read-upward arrow, green rebuild footer; viewBox 760×324; two fix rounds (digit tags; floating-caption removal after DOM TEXT/RECT).
+  2. L2-Q3 'Rebuild 2F₁₆' — two-seat strip, amber F cell, teal charter tag, product stems, green sum line; viewBox 760×230; PASS first time.
+  3. L3-Q2 'base-three five-digit window' — number line, orange band 81..242 between green walls 10000₃ / 22222₃, side annotations, green 162-count bracket; viewBox 760×250; one fix round (superscripts 10 → 11 px).
+  4. L5-Q2 'exactly b^k numbers' — window stacking, one cell per value at true positions, running totals so far: 1/2/4/8/16, green union bar 0–15 = 2⁴ numbers, ticks 0/1/2/4/8/16, half-open cell legend; viewBox 760×322; three fix rounds (segment→cell convention, 0..255 → 0–255, legend).
+  All coordinates from in-template constants (x = 90 + 2.2v / x = 100 + 34v / tops arrays); unique marker ids; no $…$ in svg text; unicode subscripts only in captions, tspans inside svg text.
+- Pass C — 2 enrichments at their natural positions:
+  1. callout (warn) 'Why the charter starts at two: there is no base one' — after the digit-charter roman list, before 'The string is not the number'.
+  2. example 'Read any digit directly: the digit theorem on 2025 in base twelve' — after the digits-are-remainders insight callout, before the exam callout; five Cengage steps (Split / Now / So / Take / Hence).
+  Illustration numbering unaffected (the new example is an `example` block, not an Illustration-position insert; lesson arc, ids, answers untouched).
+- Verifier: section BB added to scripts/verify-book2-ch03.ts BEFORE the prose (verify-first): the L1-Q2 cascade rows + chain + rebuild; the 2F₁₆ seats; the base-three window walls/count/names; the honest five-piece window union {0} ∪ [1,1] ∪ [2,3] ∪ [4,7] ∪ [8,15] (the BB pins caught the fire's own [0,1]-first draft — a real pre-writing catch); the running totals 1, 2, 4, 8, 16 = 2⁰..2⁴; the digit-theorem reads (9, 0, 2, 1 matching 1209₁₂); the base-one refusal sweep. 511 checks, 0 failed.
+- Gates: DOM 0/5 svgs solutions-expanded (after each fix round) · VLM strict PASS ×5 · dark-mode pinned paper re-confirmed · lib:pack verify PASS ×4 (after each content edit) · route 200 · tsc --noEmit exit 0 project-wide.
+- No AI images; SOURCE_LOG untouched; RESUME_POINTER/PROGRESS/WORK_INVENTORY/TOC_FOLD_LEDGER/ENHANCEMENT_POINTER untouched (main-AI-owned); audit-state.json bumped (lastAuditedLessonId → ans-representation-theorem-unique-name, history appended).

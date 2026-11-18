@@ -138,6 +138,12 @@ export const chapter03: Chapter = {
         {
           kind: 'callout',
           tone: 'warn',
+          title: 'Why the charter starts at two: there is no base one',
+          text: 'The theorem\u2019s $b \\ge 2$ is not caution \u2014 it is necessity, and the engine shows exactly where base one dies. To name $n$ in "base one" the band would hold the single digit $0$, and the division $n = q \\cdot 1 + 0$ pins the remainder to $0$ and the quotient to $n$ itself: the machine never shrinks, the descent that halts every real base stalls forever, and no finite name is ever emitted. A usable base needs two things \u2014 at least two digits, so a nonzero leading digit can exist, and a divisor that strictly eats the quotient \u2014 and $b \\ge 2$ delivers both where $b = 1$ delivers neither. Unary tallies (one stroke per item, the tally sheet\u2019s way) record without positions: no seats, no place values, nothing for this theorem \u2014 or this chapter \u2014 to say.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
           title: 'The string is not the number',
           text: 'The single most expensive confusion of this chapter: a name is a *string*, the number is its *value*. The string “10” names one distinct value in every base — two in base two, five in base five, twelve in base twelve — and never the value ten except in base ten. Likewise “100” is four, twenty-five, one hundred forty-four, according to the seat arithmetic of the base. Read the subscript first, then the string; the value follows from the seats, not from your base-ten reflexes.',
         },
@@ -399,6 +405,17 @@ export const chapter03: Chapter = {
           text: 'If you keep one sentence from this lesson: a number’s base-$b$ digits are precisely the remainders of its divisions by $b$, its $b$, its $b^3$-adjusted quotients — in symbols $d_i = \\lfloor n / b^i \\rfloor \\bmod b$. The units digit is $n \\bmod b$; the next digit is what survives one division and gets remaindered again. Everything else in this chapter — conversion, the machine tables, even the exam shortcuts — is this sentence operated carefully. And it plants the flag for Chapter 5: “what does $n$ leave as a remainder on division by $b$?” is the question congruence arithmetic will promote into a world of its own.',
         },
         {
+          kind: 'example',
+          title: 'Read any digit directly: the digit theorem on 2025 in base twelve',
+          steps: [
+            'Split: the slogan\u2019s formula $d_i = \\lfloor n / b^i \\rfloor \\bmod b$ reads seat $i$ off directly \u2014 one floor, one mod, no engine cascade.',
+            'Now, the seats, one by one: seat zero \u2014 $\\lfloor 2025/1 \\rfloor \\bmod 12 = 2025 \\bmod 12 = 9$; seat one \u2014 $\\lfloor 2025/12 \\rfloor = 168$ and $168 \\bmod 12 = 0$; seat two \u2014 $\\lfloor 2025/144 \\rfloor = 14$ and $14 \\bmod 12 = 2$; seat three \u2014 $\\lfloor 2025/1728 \\rfloor = 1$.',
+            'So, the digits $1, 2, 0, 9$ assemble to $1209_{12}$ \u2014 exactly the engine\u2019s answer in Illustration 2, read without running a single machine.',
+            'Take the rebuild as the check: $1 \\cdot 1728 + 2 \\cdot 144 + 0 \\cdot 12 + 9 = 2025$ \u2713.',
+            'Hence the exam request \u201cwhat is the last digit of $n$ in base $b$?\u201d is one division away \u2014 $n \\bmod b$ \u2014 and any seat is two operations away; the engine remains the existence proof and the full-name builder, the theorem the direct reader.',
+          ],
+        },
+        {
           kind: 'callout',
           tone: 'exam',
           title: 'Where examinations use this',
@@ -483,6 +500,43 @@ export const chapter03: Chapter = {
                     'Hence $13 = 1101_2$ — four machines, four bits.',
                   ],
                   answer: '13 = 1101₂ (8 + 4 + 1)',
+                  figures: [
+                    {
+                      caption:
+                        'The engine on 13 as four chained division machines — quotients 13 → 6 → 3 → 1 → 0 — with each remainder tagged by its digit index (r = d₀ … r = d₃: the digits ARE the remainders); read upward the column spells 1101₂, rebuilt as 8 + 4 + 0 + 1 = 13.',
+                      svg: `<svg viewBox="0 0 760 324" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four stacked division machines naming 13 in base two: quotients 13, 6, 3, 1 chain down to 0, the remainders 1, 0, 1, 1 land in the amber column and read upward give 1101, rebuilt as 8 plus 4 plus 0 plus 1 equals 13">
+  <defs>
+    <marker id="casc13-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle" opacity="0.85">the engine on 13 — divide by 2, keep the remainder, feed the quotient down</text>
+  ${(() => {
+    const rows = [[13, 6, 1], [6, 3, 0], [3, 1, 1], [1, 0, 1]];
+    const tops = [44, 100, 156, 212], bh = 40;
+    const mx = 150, mw = 170, rx = 505, rw = 140;
+    let out = '';
+    rows.forEach(([n, q, r], i) => {
+      const cy = tops[i] + bh / 2 + 5;
+      out += `<rect x="${mx}" y="${tops[i]}" width="${mw}" height="${bh}" fill="none" stroke="currentColor" stroke-width="1.4"/>`;
+      out += `<rect x="${rx}" y="${tops[i]}" width="${rw}" height="${bh}" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.4"/>`;
+      out += `<text x="${mx + mw / 2}" y="${cy}" font-size="16" fill="currentColor" text-anchor="middle">${n} ÷ 2</text>`;
+      out += `<text x="${rx + rw / 2}" y="${cy}" font-size="15" fill="currentColor" text-anchor="middle">r = ${r} = d${['\u2080', '\u2081', '\u2082', '\u2083'][i]}</text>`;
+      out += `<text x="430" y="${cy}" font-size="13.5" fill="currentColor" text-anchor="middle">${n} = ${q} × 2 + ${r}</text>`;
+      out += `<line x1="${rx + rw + 4}" y1="${tops[i] + bh / 2}" x2="708" y2="${tops[i] + bh / 2}" stroke="currentColor" stroke-width="0.9" stroke-dasharray="4 4" opacity="0.7"/>`;
+      if (i < rows.length - 1) {
+        out += `<line x1="${mx + mw / 2}" y1="${tops[i] + bh + 2}" x2="${mx + mw / 2}" y2="${tops[i + 1] - 3}" stroke="currentColor" stroke-width="1.3" marker-end="url(#casc13-arrow)"/>`;
+        out += `<text x="${mx + mw / 2 + 8}" y="${Math.round((tops[i] + bh + tops[i + 1]) / 2) + 4}" font-size="11" fill="currentColor" opacity="0.8">quotient</text>`;
+      }
+    });
+    return out;
+  })()}
+  <line x1="712" y1="240" x2="712" y2="70" stroke="currentColor" stroke-width="1.4" marker-end="url(#casc13-arrow)"/>
+  <text x="712" y="30" font-size="12.5" fill="currentColor" text-anchor="middle">read upward</text>
+  <text x="380" y="300" font-size="15" fill="#16a34a" text-anchor="middle">13 = 1101<tspan dy="4" font-size="11">2</tspan><tspan dy="-4"> — four machines, four bits; rebuild: 8 + 4 + 0 + 1 = 13 ✓</tspan></text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Name 23 in base five — the Lesson 2.1 instance, read as a name this time.',
@@ -528,6 +582,28 @@ export const chapter03: Chapter = {
                     'Hence the reading: two sixteens and fifteen ones — the letter is a digit, not an unknown.',
                   ],
                   answer: '2F₁₆ = 47',
+                  figures: [
+                    {
+                      caption:
+                        '2F₁₆ rebuilt seat by seat: the digit 2 in the sixteens seat worth 32, the letter-digit F (the charter\u2019s fifteen) in the ones seat worth 15 — 32 + 15 = 47, the letter read as a value, not an unknown.',
+                      svg: `<svg viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two seat cells rebuilding 2F in base sixteen: the digit 2 in the sixteens seat contributes 2 times 16 equals 32, and the letter F carrying fifteen in the ones seat contributes 15 times 1 equals 15, the sum 47">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle" opacity="0.85">rebuilding 2F<tspan dy="4" font-size="11">16</tspan><tspan dy="-4"> — two seats, one letter-digit</tspan></text>
+  <rect x="210" y="56" width="130" height="84" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <rect x="420" y="56" width="130" height="84" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.4"/>
+  <text x="275" y="104" font-size="30" fill="currentColor" text-anchor="middle">2</text>
+  <text x="485" y="104" font-size="30" fill="currentColor" text-anchor="middle">F</text>
+  <text x="275" y="128" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.8">the sixteens seat</text>
+  <text x="485" y="128" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.8">the ones seat</text>
+  <text x="380" y="104" font-size="22" fill="currentColor" text-anchor="middle">+</text>
+  <text x="560" y="100" font-size="12.5" font-weight="700" fill="#0f766e" text-anchor="start">the charter: F carries 15</text>
+  <line x1="275" y1="146" x2="275" y2="170" stroke="currentColor" stroke-width="1.2"/>
+  <line x1="485" y1="146" x2="485" y2="170" stroke="currentColor" stroke-width="1.2"/>
+  <text x="275" y="192" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">2 × 16 = 32</text>
+  <text x="485" y="192" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">15 × 1 = 15</text>
+  <text x="380" y="218" font-size="15" fill="#16a34a" text-anchor="middle">32 + 15 = 47 — the letter is a digit, not an unknown</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -555,6 +631,39 @@ export const chapter03: Chapter = {
                     'Hence the window $81 \\le n \\le 242$ holds exactly $162$ numbers, each wearing five base-three digits.',
                   ],
                   answer: 'smallest 10000₃ = 81; largest 22222₃ = 242; count 162',
+                  figures: [
+                    {
+                      caption:
+                        'The five-digit window drawn on the number line: the green walls 81 = 10000₃ (smallest) and 242 = 22222₃ = 3⁵ − 1 (largest) enclose exactly 162 numbers (3⁵ − 3⁴); four digits reach at most 80, and 243 opens the six-digit window.',
+                      svg: `<svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A number line for base three: the five-digit window runs from 81, named 10000 in base three, to 242, named 22222 in base three, enclosing exactly 162 numbers; below 81 at most four digits fit, and from 243 up six digits are needed">
+  <defs>
+    <marker id="win3-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle" opacity="0.85">the five-digit window in base three: 3<tspan dy="-5" font-size="11">4</tspan><tspan dy="5"> ≤ n ≤ 3</tspan><tspan dy="-5" font-size="11">5</tspan><tspan dy="5"> − 1</tspan></text>
+  ${(() => {
+    const x = (v) => 90 + 2.2 * v;
+    let out = '';
+    out += `<rect x="${x(81)}" y="138" width="${x(242) - x(81)}" height="24" fill="#ffedd5"/>`;
+    out += `<line x1="${x(81)}" y1="128" x2="${x(81)}" y2="166" stroke="#16a34a" stroke-width="2.5"/>`;
+    out += `<line x1="${x(242)}" y1="128" x2="${x(242)}" y2="166" stroke="#16a34a" stroke-width="2.5"/>`;
+    out += `<line x1="${x(0)}" y1="146" x2="${x(0)}" y2="154" stroke="currentColor" stroke-width="1" opacity="0.7"/>`;
+    out += `<text x="${x(0)}" y="172" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.8">0</text>`;
+    return out;
+  })()}
+  <line x1="60" y1="150" x2="700" y2="150" stroke="currentColor" stroke-width="1.3" marker-end="url(#win3-arrow)"/>
+  <text x="262" y="112" font-size="13" fill="#166534" text-anchor="start">81 = 10000<tspan dy="4" font-size="11">3</tspan><tspan dy="-4"> — smallest</tspan></text>
+  <text x="628" y="112" font-size="13" fill="#166534" text-anchor="end">242 = 22222<tspan dy="4" font-size="11">3</tspan><tspan dy="-4"> — largest</tspan></text>
+  <text x="170" y="112" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">0 … 80: four digits at most</text>
+  <text x="688" y="112" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">243 …: six digits</text>
+  ${(() => {
+    const x = (v) => 90 + 2.2 * v;
+    return `<path d="M ${x(81)} 196 L ${x(81)} 202 L ${x(242)} 202 L ${x(242)} 196" fill="none" stroke="#166534" stroke-width="1.3"/>\n  <text x="${(x(81) + x(242)) / 2}" y="222" font-size="13.5" fill="#166534" text-anchor="middle">162 numbers — 3<tspan dy="-5" font-size="11">5</tspan><tspan dy="5"> − 3</tspan><tspan dy="-5" font-size="11">4</tspan><tspan dy="5"> = 243 − 81</tspan></text>`;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -609,6 +718,42 @@ export const chapter03: Chapter = {
                     'Hence $b^k$ names of at most $k$ digits — the counting form of the window theorem, and the reason a $k$-bit register holds exactly $2^k$ values.',
                   ],
                   answer: 'exactly b^k numbers (0 through b^k − 1); 256 and 1000 on the instances',
+                  figures: [
+                    {
+                      caption:
+                        'The counting argument for b = 2, k = 4 drawn to scale, each window one cell per value: {0}, [1, 1], [2, 3], [4, 7], [8, 15] sit at their true positions and butt-joint into [0, 15], and the running totals climb 1, 2, 4, 8, 16 — ending at 2⁴ = 16, the count of at-most-four-bit values.',
+                      svg: `<svg viewBox="0 0 760 322" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stacked windows drawn one cell per value for base two and four bits: the windows hold 1, 1, 2, 4 and 8 values, tile the sixteen cells holding values 0 through 15 exactly with no gap and no overlap, and the running totals climb the powers of two 1, 2, 4, 8, 16">
+  <text x="380" y="18" font-size="13" fill="currentColor" text-anchor="middle" opacity="0.85">at most four bits: the windows stack into one interval — the totals climb the powers of two (b = 2, k = 4)</text>
+  <text x="380" y="34" font-size="11" fill="currentColor" text-anchor="middle" opacity="0.8">one cell = one value · the ticks 0, 1, 2, 4, 8 name each window\u2019s first value · the last tick, 16 = 2<tspan dy="-4" font-size="9">4</tspan><tspan dy="4">, is one past the last value — the count itself</tspan></text>
+  ${(() => {
+    const x = (v) => 100 + 34 * v;
+    const rows = [
+      { label: '0 itself', a: 0, b: 0, count: 'so far: 1' },
+      { label: 'one digit', a: 1, b: 1, count: 'so far: 2' },
+      { label: 'two digits', a: 2, b: 3, count: 'so far: 4' },
+      { label: 'three digits', a: 4, b: 7, count: 'so far: 8' },
+      { label: 'four digits', a: 8, b: 15, count: 'so far: 16' },
+    ];
+    const tops = [50, 80, 110, 140, 170], h = 20;
+    let out = '';
+    rows.forEach((r, i) => {
+      const y = tops[i];
+      out += `<text x="88" y="${y + 14}" font-size="12.5" fill="currentColor" text-anchor="end" opacity="0.85">${r.label}</text>`;
+      out += `<rect x="${x(r.a)}" y="${y}" width="${x(r.b + 1) - x(r.a)}" height="${h}" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>`;
+      out += `<text x="${x(r.b + 1) + 10}" y="${y + 14}" font-size="12" fill="#166534" text-anchor="start">${r.count}</text>`;
+    });
+    out += `<rect x="${x(0)}" y="224" width="${x(16) - x(0)}" height="22" fill="none" stroke="#16a34a" stroke-width="2"/>`;
+    out += `<text x="${(x(0) + x(16)) / 2}" y="239" font-size="13.5" fill="#166534" text-anchor="middle">at most four bits: exactly 0 through 15 — 2<tspan dy="-5" font-size="11">4</tspan><tspan dy="5"> = 16 numbers</tspan></text>`;
+    [0, 1, 2, 4, 8, 16].forEach((v) => {
+      out += `<line x1="${x(v)}" y1="246" x2="${x(v)}" y2="256" stroke="currentColor" stroke-width="1" opacity="0.7"/>`;
+      out += `<text x="${x(v)}" y="274" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.8">${v}</text>`;
+    });
+    return out;
+  })()}
+  <text x="380" y="304" font-size="12.5" fill="currentColor" text-anchor="middle" opacity="0.85">no gap, no overlap — the same stacking gives (2, 8): 256 values 0–255, and (10, 3): 1000 values 0–999</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
