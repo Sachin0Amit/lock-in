@@ -2,18 +2,24 @@ import type { Book, Chapter } from '../../../types'
 import { chapter01 } from './ch-01'
 import { chapter02 } from './ch-02'
 import { chapter03 } from './ch-03'
+import { chapter04 } from './ch-04'
 
 /**
  * Advanced Algebra — the fourth book of the Mathematics shelf.
  *
- * STATUS: IN-PROGRESS — three chapters COMPLETE, chapters 4-10 planned.
+ * STATUS: IN-PROGRESS — four chapters COMPLETE, chapters 5-10 planned.
  * Chapters 1 (Relations and Functions: 8 lessons + 1.R review, 9 written
- * total), 2 (The Quadratic at Depth: 4 + 2.R) and 3 (Complex Numbers:
- * the New Rung: 5 + 3.R) are fully written and gated — 20 written lessons
- * in all; the remaining 40 planned lessons (chapters 4-10) author on the
- * one-unit-at-a-time cadence (run 110 closed chapter 3 with the 3.R
- * completion review). Lesson ids use the `aa-` prefix (verified unused
- * across the library at promotion time; globally unique, stable forever).
+ * total), 2 (The Quadratic at Depth: 4 + 2.R), 3 (Complex Numbers: the
+ * New Rung: 5 + 3.R) and 4 (Inequalities: the Classical Engine: 6 + 4.R)
+ * are fully written and gated — 27 written lessons in all; the remaining
+ * 34 planned lessons (chapters 5-10) author on the one-unit-at-a-time
+ * cadence (run 110 closed chapter 3; the 2026-11-18 PARALLEL-SWARM RUN —
+ * owner chat directive "launch multiple agents for authoring lessons" —
+ * closed chapter 4 whole-unit in one pass: six parallel lesson agents + a
+ * review agent + orchestrator assembly/gates, recorded in WORKLOG and
+ * docs/research/AA_CH04_MASTER_PLAN.md). Lesson ids use the `aa-` prefix
+ * (verified unused across the library at promotion time; globally unique,
+ * stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Elementary
  * Algebra ended at the function doorstep — the input-output machine, its
@@ -106,23 +112,7 @@ const chapters: Chapter[] = [
   chapter01,
   chapter02,
   chapter03,
-  {
-    number: 4,
-    slug: 'classical-inequalities',
-    title: 'Inequalities: the Classical Engine',
-    summary:
-      'AL chapter 7 settled order on the line for linear expressions; this chapter builds the classical machinery that competitive exams actually test — maxima and minima without calculus. The arithmetic–geometric mean inequality is proved for two numbers from the square that is never negative, stated honestly beyond, and worked under constraints (the fixed-sum, fixed-product discipline). Cauchy–Schwarz arrives with its Engel (Titu) form, the speed tool for fraction sums. And the absolute value FM priced as distance becomes a bound machine: |f| < g and |f| > g verdicts, the triangle inequality proved, and the |x| + |y| ≥ |x + y| reads that finish the engine. Every result is derived before it is used — the AM–GM equality condition is a theorem about when two numbers coincide, not a memorized footnote.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'The Arithmetic-Geometric Mean Inequality',
-      'The Weighted AM-GM and Its Consequences',
-      'Cauchy-Schwarz and Engel’s Form',
-      'The Rearrangement and Chebyshev Inequalities',
-      'Jensen\u2019s Inequality and Convexity',
-      'Absolute Value at Depth: the Triangle Inequality',
-    ],
-  },
+  chapter04,
   {
     number: 5,
     slug: 'sequences-and-series',

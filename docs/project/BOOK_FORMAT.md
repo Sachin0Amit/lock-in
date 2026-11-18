@@ -41,6 +41,25 @@ review is authored in a single run — same or higher per-lesson depth;
 lessons stay sequential and are never batch-drafted or thinned to fit
 the run.
 
+**The parallel-swarm variant (owner chat directive 2026-11-18: "launch
+multiple agents for authoring lessons"):** a chapter unit may be authored by
+parallel agents in one pass — each agent owns ONE lesson as a part file plus
+its verify-first engine sections plus its per-lesson e2e pair in a gitignored
+work dir; the orchestrator does research, the master plan, then assembles the
+ONE self-contained `ch-NN.ts` (the file layout is unchanged — the
+content-completeness audit reads `ch-\d+\.ts` files only) and the chapter
+verifier from the agents' green engine sections, runs every gate, updates the
+ledgers and commits. The one-unit-at-a-time rule still binds: one chapter per
+swarm, never two chapters in flight.
+
+**Result-box convention (corrected by the 2026-11-18 raw-TeX repair — now
+the rule):** derivation `result` fields render through the reader's
+RichText — write their math inside `$...$` (clause-wise; keep each clause
+short and leave prose tails bare), never as bare LaTeX; derivation `title`s
+and step `label`s render PLAIN — words only, no `$...$`. A long single
+`$...$` span cannot line-break on mobile: split clauses at `\qquad`/em-dash
+joins so prose breaks carry the line.
+
 ## Authoring a chapter
 
 1. **Copy the shape** of an existing chapter file (see

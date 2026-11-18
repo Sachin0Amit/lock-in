@@ -613,3 +613,26 @@ server.log
 !/scripts/finalize_exam_ledgers.py
 !/scripts/finalize2_exam_ledgers.py
 !/scripts/ship_swarm_reorg.py
+
+# 2026-11-18 owner chat directive: the PARALLEL-SWARM RUN — AA ch. 4
+# "Inequalities: the Classical Engine" authored whole-unit (six lesson agents +
+# review agent + orchestrator assembly): the chapter verifier, the two m2-06
+# transcription drivers, the per-lesson e2e pairs
+!/scripts/verify-book4-ch04.ts
+!/scripts/transcribe-m2-06.sh
+!/scripts/transcribe-m2-06b.sh
+!/scripts/e2e-aa-41.sh
+!/scripts/e2e-aa-41.page.js
+!/scripts/e2e-aa-42.sh
+!/scripts/e2e-aa-42.page.js
+!/scripts/e2e-aa-43.sh
+!/scripts/e2e-aa-43.page.js
+!/scripts/e2e-aa-44.sh
+!/scripts/e2e-aa-44.page.js
+!/scripts/e2e-aa-45.sh
+!/scripts/e2e-aa-45.page.js
+!/scripts/e2e-aa-46.sh
+!/scripts/e2e-aa-46.page.js
+!/scripts/e2e-aa-4R.sh
+!/scripts/e2e-aa-4R.page.js
+

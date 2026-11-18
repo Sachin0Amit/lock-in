@@ -786,9 +786,9 @@ const quad = (a: number, b: number, c: number, x: number): number => (a * x + b)
   const wordCount = countLessonWords(L as never)
   ok(wordCount >= 4500, `F30 honest word count >= 4500 (got ${wordCount})`)
   // repo-wide id uniqueness
-  const hits = execSync(`grep -rl "aa-vertex-form-at-work-maxima-and-minima" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
+  const hits = execSync(`grep -rl "id: 'aa-vertex-form-at-work-maxima-and-minima'" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
   const dataHits = hits.filter((h) => h.includes('/books/'))
-  ok(dataHits.length === 1, `F31 lesson id unique in book data (got files: ${dataHits.join(' ')})`)
+  ok(dataHits.length === 1, `F31 lesson id unique in book data (declarations only — prerequisite cross-references by later chapters are the designed platform feature, not duplicates; got files: ${dataHits.join(' ')})`)
   // cross-reference pins in prose
   ok(allText.includes('al-completing-the-square-derived') || allText.includes('AL 9.2'), 'F32 prose names the banked square')
   ok(allText.includes('AM–GM') || allText.includes('arithmetic–geometric mean'), 'F33 the chapter-4 forward pointer named')
@@ -2562,8 +2562,8 @@ function sortedRoots(a: number, b: number, c: number): number[] {
     ok(served.length === 4, `N8.1 all four m2-02 folds hosted by written chapter-2 lessons (got ${served.length})`)
     ok(served.some((e) => e.topic === 'Graphical Interpretation of Zero of an Expression') && served.some((e) => e.topic === 'Domain of Equation'), 'N8.2 2.2 hosts the Graphical-Zero and Domain folds (run 101)')
     ok(served.some((e) => e.topic === 'Repeated Roots') && served.some((e) => e.topic === 'Condition for Both Common Roots'), 'N8.3 2.3 hosts the Repeated-Roots and Both-Common folds (run 102)')
-    const bookSrc = (await import('fs')).readFileSync('src/data/library/books/mathematics/advanced-algebra/book.ts', 'utf8')
-    ok(bookSrc.includes("slug: 'complex-numbers'"), 'N8.4 the closing pointer: book.ts chapter 3 is Complex Numbers — the D < 0 doors get theirs on the new rung')
+    const ch3Src = (await import('fs')).readFileSync('src/data/library/books/mathematics/advanced-algebra/ch-03.ts', 'utf8')
+    ok(ch3Src.includes("slug: 'complex-numbers'"), 'N8.4 the closing pointer: the book\'s chapter 3 is Complex Numbers — the D < 0 doors get theirs on the new rung (the slug moved from book.ts\'s planned inline object to the shipped ch-03.ts at run 105; repaired 2026-11-18 by the swarm run)')
   }
 }
 
@@ -2655,9 +2655,9 @@ function sortedRoots(a: number, b: number, c: number): number[] {
   ok(wordCountR >= 4800, `O11 honest word count >= 4800 (got ${wordCountR})`)
 
   // O12 repo-wide id uniqueness
-  const hitsR = execSync(`grep -rl "aa-unit-review-the-quadratic-at-depth" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
+  const hitsR = execSync(`grep -rl "id: 'aa-unit-review-the-quadratic-at-depth'" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
   const dataHitsR = hitsR.filter((hh) => hh.includes('/books/'))
-  ok(dataHitsR.length === 1, `O12 lesson id unique in book data (got files: ${dataHitsR.join(' ')})`)
+  ok(dataHitsR.length === 1, `O12 lesson id unique in book data (declarations only — 3.1's prerequisite chip cites 2.R by design; got files: ${dataHitsR.join(' ')})`)
 
   // O13 cross-reference pins in prose — the recap coverage census
   ok(allText4.includes('2.1') && allText4.includes('2.2') && allText4.includes('2.3') && allText4.includes('2.4'), 'O13.1 the prose names all four lessons')
