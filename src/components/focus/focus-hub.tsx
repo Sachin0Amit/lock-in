@@ -18,6 +18,7 @@ import { fetchFocusOverview } from '@/lib/focus/client-api'
 import { buildInsights, buildStats } from '@/lib/focus/focus-engine'
 import type { FocusOverviewResponse } from '@/lib/focus/types'
 import { useFocusTimer } from './focus-store'
+import { setHubPresent, useTimerNotes } from './timer-runtime'
 import { PomodoroTimer } from './pomodoro-timer'
 import { TaskList } from './task-list'
 import { StatsTab } from './stats-tab'
@@ -46,11 +47,28 @@ export function FocusHub() {
   }, [])
 
   useEffect(() => {
-    /* post-mount rehydrate (skipHydration) — no SSR mismatch, and a timer
-     * that expired while away completes on the timer's mount effect */
+    /* post-mount rehydrate (skipHydration) — no SSR mismatch; expiry and
+     * the bell are owned by the root-layout timer-runtime from here on */
     void useFocusTimer.persist.rehydrate()
     void reload()
   }, [reload])
+
+  /* the hub is present — the runtime suppresses its off-hub toast while
+   * this page shows the same news inline */
+  useEffect(() => {
+    setHubPresent(true)
+    return () => setHubPresent(false)
+  }, [])
+
+  /* the runtime rang a bell and logged a study pass somewhere: refresh the
+   * census (and the revision badge when the ledger actually wrote) */
+  const noteSeq = useTimerNotes((s) => s.seq)
+  const noteLedger = useTimerNotes((s) => s.ledger)
+  useEffect(() => {
+    if (noteSeq === 0) return
+    void reload()
+    if (noteLedger?.logged) void refreshBadge()
+  }, [noteSeq, noteLedger, reload, refreshBadge])
 
   const stats = useMemo(
     () => buildStats(overview?.sessions ?? [], overview?.tasks ?? [], Date.now()),
@@ -68,14 +86,6 @@ export function FocusHub() {
       startTimer(id)
     },
     [startTimer],
-  )
-
-  const onSessionLogged = useCallback(
-    (ledger: { logged: boolean; label: string | null }) => {
-      void reload()
-      if (ledger.logged) void refreshBadge()
-    },
-    [reload, refreshBadge],
   )
 
   if (loading && !overview) {
@@ -147,7 +157,7 @@ export function FocusHub() {
         </div>
 
         <aside className="order-1 space-y-4 lg:order-2 lg:sticky lg:top-20" aria-label="Pomodoro timer">
-          <PomodoroTimer tasks={overview.tasks} onSessionLogged={onSessionLogged} />
+          <PomodoroTimer tasks={overview.tasks} />
 
           <section aria-label="What the engine suggests" className="rounded-xl border bg-card p-4">
             <p className="mb-2 flex items-center gap-1.5 text-sm font-semibold">

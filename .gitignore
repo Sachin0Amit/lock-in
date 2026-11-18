@@ -317,6 +317,8 @@ server.log
 # Focus Hub feature (2026-11-18, owner chat directive): engine verifier + full-journey E2E
 !/scripts/verify-focus-planner.ts
 !/scripts/e2e-focus-planner.sh
+# Floating pomodoro icon feature (2026-11-18, directive later): the widget's own E2E
+!/scripts/e2e-floating-pomodoro.sh
 
 # Symbol navbar feature (2026-11-08): CDP regression check across viewports and routes
 !/scripts/verify-nav-cdp.ts

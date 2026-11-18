@@ -5,18 +5,19 @@
  *
  * WALL-CLOCK honest (the exam-sitting pattern): while running, the phase
  * ends at a fixed epoch — reload the page, close the tab, the remaining
- * time recomputes from the real clock and the time away counts. A phase
- * that expired while you were away completes on mount, exactly as if the
- * tab had been open.
+ * time recomputes from the real clock and the time away counts.
  *
- * The cycle: focus → short break → focus … every Nth bell earns the long
- * break which resets the cadence. A completed focus bell on a task linked
- * to a chapter/lesson logs a study pass into the same revision ledger
- * (server bridge, /api/focus/session) — the Revision Hub sees the time.
+ * The phase machine itself (bell, notifications, session logging, the
+ * advance to the next phase) lives in timer-runtime.tsx — mounted once in
+ * the root layout so a phase that expires while you browse the library
+ * completes EVERYWHERE, not just here. This card keeps the controls and
+ * the dial; a completed focus bell on a task linked to a chapter/lesson
+ * still logs a study pass into the same revision ledger the Revision Hub
+ * sees (the runtime's notes bus drives the inline note below).
  *
  * Keyboard: Space start/pause · S skip · R reset (ignored while typing).
  */
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import {
   Bell,
@@ -38,50 +39,14 @@ import { Label } from '@/components/ui/label'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Switch } from '@/components/ui/switch'
 import { useFocusTimer } from './focus-store'
-import {
-  formatClock,
-  nextPhase,
-  phaseLengthSecs,
-  phaseWorthLogging,
-} from '@/lib/focus/focus-engine'
-import { logFocusSession } from '@/lib/focus/client-api'
+import { completePhase, useTimerNotes } from './timer-runtime'
+import { formatClock, phaseLengthSecs } from '@/lib/focus/focus-engine'
 import type { TaskView } from '@/lib/focus/types'
 import { cn } from '@/lib/utils'
 
 const PHASE_LABEL = { focus: 'Focus', short: 'Short break', long: 'Long break' } as const
 
-function bell(): void {
-  try {
-    const Ctor = window.AudioContext ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext
-    if (!Ctor) return
-    const ctx = new Ctor()
-    for (const at of [0, 0.35]) {
-      const o = ctx.createOscillator()
-      const g = ctx.createGain()
-      o.connect(g)
-      g.connect(ctx.destination)
-      o.type = 'sine'
-      o.frequency.value = 880
-      const t = ctx.currentTime + at
-      g.gain.setValueAtTime(0.0001, t)
-      g.gain.exponentialRampToValueAtTime(0.35, t + 0.04)
-      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.3)
-      o.start(t)
-      o.stop(t + 0.32)
-    }
-    setTimeout(() => void ctx.close().catch(() => undefined), 1500)
-  } catch {
-    /* silence is honest — never crash a study session over a beep */
-  }
-}
-
-export function PomodoroTimer({
-  tasks,
-  onSessionLogged,
-}: {
-  tasks: TaskView[]
-  onSessionLogged: (ledger: { logged: boolean; label: string | null }) => void
-}) {
+export function PomodoroTimer({ tasks }: { tasks: TaskView[] }) {
   const phase = useFocusTimer((s) => s.phase)
   const running = useFocusTimer((s) => s.running)
   const endsAt = useFocusTimer((s) => s.endsAt)
@@ -93,13 +58,10 @@ export function PomodoroTimer({
   const pause = useFocusTimer((s) => s.pause)
   const resume = useFocusTimer((s) => s.resume)
   const resetPhase = useFocusTimer((s) => s.resetPhase)
-  const enterPhase = useFocusTimer((s) => s.enterPhase)
   const updateSettings = useFocusTimer((s) => s.updateSettings)
 
   const [now, setNow] = useState(() => Date.now())
-  const [ledgerNote, setLedgerNote] = useState<string | null>(null)
-  const completingRef = useRef(false)
-  const completeRef = useRef<(naturally: boolean) => void>(() => undefined)
+  const ledgerNote = useTimerNotes((s) => s.note)
 
   const activeTask = tasks.find((t) => t.id === taskId) ?? null
   const plannedMs = phaseLengthSecs(phase, settings) * 1000
@@ -107,89 +69,12 @@ export function PomodoroTimer({
   const leftMs = running && endsAt !== null ? Math.max(0, endsAt - now) : (remainingMs ?? plannedMs)
   const elapsedSecs = Math.max(0, Math.round((plannedMs - leftMs) / 1000))
 
-  /* the tick — only while running */
+  /* the tick — display only; completion lives in the runtime */
   useEffect(() => {
     if (!running) return
     const id = setInterval(() => setNow(Date.now()), 250)
     return () => clearInterval(id)
   }, [running])
-
-  /* completion path (natural end, skip, reset-with-work) */
-  const completePhase = useCallback(
-    (endedNaturally: boolean) => {
-      if (completingRef.current) return
-      completingRef.current = true
-      try {
-        const s = useFocusTimer.getState()
-        const planned = phaseLengthSecs(s.phase, s.settings)
-        const left = s.running && s.endsAt !== null
-          ? Math.max(0, s.endsAt - Date.now())
-          : (s.remainingMs ?? 0)
-        const actual = Math.max(0, Math.round(planned - Math.round(left / 1000)))
-        const endedStamp = endedNaturally && s.endsAt !== null ? s.endsAt : Date.now()
-
-        if (phaseWorthLogging(s.phase, actual)) {
-          void logFocusSession({
-            taskId: s.taskId,
-            kind: s.phase,
-            plannedSecs: planned,
-            actualSecs: actual,
-            outcome: endedNaturally ? 'complete' : 'stopped',
-            startedAt: s.phaseStartedAt ?? endedStamp - actual * 1000,
-            endedAt: endedStamp,
-          }).then((res) => {
-            if (res) {
-              onSessionLogged(res.ledger)
-              setLedgerNote(
-                res.ledger.logged
-                  ? `Study pass logged — ${res.ledger.label ?? 'your ledger'} now sees this focus.`
-                  : null,
-              )
-            }
-          })
-        }
-
-        if (endedNaturally && s.settings.sound) bell()
-        if (endedNaturally && s.settings.notify && typeof Notification !== 'undefined' && Notification.permission === 'granted') {
-          try {
-            new Notification(s.phase === 'focus' ? 'Focus bell — take a break' : 'Break over — lock back in', {
-              body: s.phase === 'focus' ? 'The pomodoro ran to its end. Stretch, water, breathe.' : 'Ready for the next focus block?',
-            })
-          } catch {
-            /* notifications are best-effort */
-          }
-        }
-
-        const nxt = endedNaturally
-          ? nextPhase(s.phase, s.cycleFocus, s.settings)
-          : s.phase === 'focus'
-            ? { phase: 'short' as const, cycleFocus: s.cycleFocus }
-            : { phase: 'focus' as const, cycleFocus: s.cycleFocus }
-        const autoStart = nxt.phase === 'focus' ? s.settings.autoStartFocus : s.settings.autoStartBreaks
-        enterPhase(nxt.phase, nxt.cycleFocus, autoStart)
-        setNow(Date.now())
-      } finally {
-        completingRef.current = false
-      }
-    },
-    [enterPhase, onSessionLogged],
-  )
-  completeRef.current = completePhase
-
-  /* a phase that expired while the tab was away completes on mount */
-  useEffect(() => {
-    const s = useFocusTimer.getState()
-    if (s.running && s.endsAt !== null && s.endsAt <= Date.now()) {
-      completeRef.current(true)
-    }
-  }, [])
-
-  /* natural completion when the clock reaches zero */
-  useEffect(() => {
-    if (running && endsAt !== null && now >= endsAt) {
-      completeRef.current(true)
-    }
-  }, [running, endsAt, now])
 
   /* the countdown rides the tab title */
   useEffect(() => {
@@ -213,7 +98,7 @@ export function PomodoroTimer({
         else if (s.remainingMs !== null) s.resume()
         else s.start(s.taskId)
       } else if (e.key === 's' || e.key === 'S') {
-        completeRef.current(false)
+        completePhase(false)
       } else if (e.key === 'r' || e.key === 'R') {
         resetPhase()
       }
@@ -332,7 +217,7 @@ export function PomodoroTimer({
             {running ? <Pause className="h-4 w-4" aria-hidden /> : <Play className="h-4 w-4" aria-hidden />}
             {running ? 'Pause' : remainingMs !== null ? 'Resume' : 'Start'}
           </Button>
-          <Button variant="outline" size="icon" onClick={() => completeRef.current(false)} aria-label="Skip to the next phase" disabled={!running && remainingMs === null}>
+          <Button variant="outline" size="icon" onClick={() => completePhase(false)} aria-label="Skip to the next phase" disabled={!running && remainingMs === null}>
             <SkipForward className="h-4 w-4" aria-hidden />
           </Button>
           <Button variant="outline" size="icon" onClick={resetPhase} aria-label="Restart this phase" disabled={!running && remainingMs === null}>

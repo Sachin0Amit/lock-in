@@ -4,6 +4,8 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { SiteFooter, SiteHeader } from "@/components/library/site-chrome";
+import { TimerRuntime } from "@/components/focus/timer-runtime";
+import { FloatingPomodoro } from "@/components/focus/floating-pomodoro";
 import { getFirstBookId } from "@/lib/library-db";
 
 const geistSans = Geist({
@@ -56,6 +58,10 @@ export default async function RootLayout({
             <main className="flex-1">{children}</main>
             <SiteFooter firstBookId={firstBookId} />
           </div>
+          {/* the pomodoro runtime (the bell rings on every page) before the
+           * floating icon that reads it — one runtime, one view, one bus */}
+          <TimerRuntime />
+          <FloatingPomodoro />
           <Toaster />
         </ThemeProvider>
       </body>

@@ -290,6 +290,67 @@ const focusKind: EventKind = 'focus'
 eq('the revision ledger accepts the focus event kind', focusKind, 'focus')
 
 /* ------------------------------------------------------------------ */
+/* G. The floating pomodoro icon — hover = how much time is left        */
+/*    (owner chat directive 2026-11-18; pinned before any UI)           */
+/* ------------------------------------------------------------------ */
+import {
+  floatingKind,
+  floatingLeftMs,
+  floatingPlannedMs,
+  ringFraction,
+  clockOfDayLabel,
+  floatingAriaLabel,
+  clampDrag,
+  type FloatingTimerLike,
+} from '../src/lib/focus/floating-view'
+
+const G_NOW = 1_763_000_000_000
+const base = (patch: Partial<FloatingTimerLike>): FloatingTimerLike => ({
+  phase: 'focus',
+  running: false,
+  endsAt: null,
+  remainingMs: null,
+  phaseStartedAt: null,
+  ...patch,
+})
+
+eq('float: kind running while the wall clock runs', floatingKind(base({ running: true, endsAt: G_NOW + 90_000, phaseStartedAt: G_NOW })), 'running')
+eq('float: kind paused carries the stored remainder', floatingKind(base({ running: false, remainingMs: 63_000, phaseStartedAt: G_NOW })), 'paused')
+eq('float: kind armed never started (phaseStartedAt null)', floatingKind(base({ running: false, remainingMs: 300_000 })), 'armed')
+eq('float: kind idle fresh store', floatingKind(base({})), 'idle')
+eq('float: corrupt running-without-endsAt degrades to idle', floatingKind(base({ running: true, endsAt: null })), 'idle')
+
+eq('float: leftMs running reads the wall clock', floatingLeftMs(base({ running: true, endsAt: G_NOW + 90_000 }), DEFAULT_SETTINGS, G_NOW), 90_000)
+eq('float: leftMs running expired clamps at zero', floatingLeftMs(base({ running: true, endsAt: G_NOW - 5_000 }), DEFAULT_SETTINGS, G_NOW), 0)
+eq('float: leftMs paused shows the stored remainder', floatingLeftMs(base({ running: false, remainingMs: 63_000 }), DEFAULT_SETTINGS, G_NOW), 63_000)
+eq('float: leftMs idle shows the full phase', floatingLeftMs(base({}), DEFAULT_SETTINGS, G_NOW), 1_500_000)
+eq('float: plannedMs focus/short', [floatingPlannedMs(base({}), DEFAULT_SETTINGS), floatingPlannedMs(base({ phase: 'short' }), DEFAULT_SETTINGS)], [1_500_000, 300_000])
+
+eq('float: ring half', ringFraction(750_000, 1_500_000), 0.5)
+eq('float: ring clamps at full', ringFraction(2_000_000, 1_500_000), 1)
+eq('float: ring zero-planned never NaN', [ringFraction(0, 0), ringFraction(Number.NaN, 1_500_000)], [0, 0])
+
+/* clockOfDayLabel: both sides derive from the same local Date — any timezone agrees */
+const D930 = new Date(2026, 10, 18, 9, 30, 0, 0).getTime()
+const D2359 = new Date(2026, 10, 18, 23, 59, 0, 0).getTime()
+eq('float: clockOfDayLabel 09:30', clockOfDayLabel(D930), '09:30')
+eq('float: clockOfDayLabel 23:59', clockOfDayLabel(D2359), '23:59')
+
+eq('float: aria running floors to whole minutes', floatingAriaLabel('running', 'focus', 720_000), 'Pomodoro: 12 minutes left in Focus')
+eq('float: aria running under a minute is honest', floatingAriaLabel('running', 'focus', 45_000), 'Pomodoro: under a minute left in Focus')
+eq('float: aria running time is up', floatingAriaLabel('running', 'focus', 0), 'Pomodoro: time is up in Focus')
+eq('float: aria paused names the phase', floatingAriaLabel('paused', 'short', 63_000), 'Pomodoro paused — a minute left in Short break')
+eq('float: aria armed states readiness', floatingAriaLabel('armed', 'long', 300_000), 'Pomodoro armed — 5 minutes of Long break ready')
+eq('float: aria idle invites the hub', floatingAriaLabel('idle', 'focus', 0), 'Pomodoro idle — open the Focus Hub')
+
+eq('float: drag clamp keeps the origin margin', clampDrag(-100, -100, 390, 844, 48), { x: 8, y: 8 })
+eq('float: drag clamp keeps inside the viewport', clampDrag(500, 900, 390, 844, 48), { x: 334, y: 788 })
+eq('float: drag clamp rounds to whole pixels', clampDrag(100.6, 200.4, 390, 844, 48), { x: 101, y: 200 })
+eq('float: drag clamp on a tiny viewport still keeps it on screen', clampDrag(-50, -50, 60, 60, 48), { x: 8, y: 8 })
+eq('float: header-safe clamp never parks on the header', clampDrag(-100, -100, 390, 844, 48, 80), { x: 8, y: 80 })
+eq('float: header-safe clamp keeps the bottom edge honest', clampDrag(500, 900, 390, 844, 48, 80), { x: 334, y: 788 })
+
+/* ------------------------------------------------------------------ */
 console.log(`\nverify-focus-planner: ${pass} pass / ${fail} fail`)
 if (fail > 0) {
   console.error(failures.join('\n'))
