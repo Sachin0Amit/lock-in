@@ -351,6 +351,92 @@ eq('float: header-safe clamp never parks on the header', clampDrag(-100, -100, 3
 eq('float: header-safe clamp keeps the bottom edge honest', clampDrag(500, 900, 390, 844, 48, 80), { x: 334, y: 788 })
 
 /* ------------------------------------------------------------------ */
+/* H. Quick adjust — the ±minute buttons on the hover panel            */
+/*    (owner chat directive 2026-11-18, later: "the icon should show  */
+/*     more features like add more time, adjust time or play pause";  */
+/*     pinned BEFORE any UI ships)                                    */
+/* ------------------------------------------------------------------ */
+import {
+  quickAdjust,
+  playPauseAriaLabel,
+  adjustAriaLabel,
+  stepLabel,
+  QUICK_ADJUST_STEPS_MS,
+  QUICK_ADJUST_MAX_MS,
+  type QuickAdjustPatch,
+} from '../src/lib/focus/floating-view'
+
+eq('adjust: the steps the panel offers', [...QUICK_ADJUST_STEPS_MS], [-60_000, 60_000, 300_000])
+eq('adjust: the tailored-length cap (4 h)', QUICK_ADJUST_MAX_MS, 240 * 60_000)
+
+/* Fixture A — RUNNING, 10 min focused of a legacy 25-min phase (left 15 min) */
+const rPlus = quickAdjust(
+  base({ running: true, endsAt: G_NOW + 900_000, phaseStartedAt: G_NOW - 600_000 }),
+  DEFAULT_SETTINGS, 300_000, G_NOW)
+eq('adjust: running +5 pushes the end epoch and tailors the length', rPlus,
+  { endsAt: G_NOW + 1_200_000, phasePlannedMs: 1_800_000 })
+const rMinusDeep = quickAdjust(
+  base({ running: true, endsAt: G_NOW + 900_000, phaseStartedAt: G_NOW - 600_000 }),
+  DEFAULT_SETTINGS, -26 * 60_000, G_NOW)
+eq('adjust: running −26 (beyond the left) clamps to end-now', rMinusDeep,
+  { endsAt: G_NOW, phasePlannedMs: 600_000 })
+
+/* THE honesty invariant: planned − left = truly focused time, every state */
+const focusedOf = (p: QuickAdjustPatch): number =>
+  p.phasePlannedMs - (p.endsAt !== undefined ? p.endsAt - G_NOW : (p.remainingMs ?? 0))
+eq('adjust: +5 keeps planned − left = 10 min truly focused', focusedOf(rPlus!), 600_000)
+eq('adjust: the deep −26 clamp also keeps exactly the 10 min focused', focusedOf(rMinusDeep!), 600_000)
+
+/* Fixture B — PAUSED with 63 s stored (phaseStartedAt carries the past) */
+const pPlus = quickAdjust(
+  base({ running: false, remainingMs: 63_000, phaseStartedAt: G_NOW - 300_000 }),
+  DEFAULT_SETTINGS, 60_000, G_NOW)
+eq('adjust: paused +1 grows the stored remainder', pPlus,
+  { remainingMs: 123_000, phasePlannedMs: 1_560_000 })
+const pMinusDeep = quickAdjust(
+  base({ running: false, remainingMs: 63_000, phaseStartedAt: G_NOW - 300_000 }),
+  DEFAULT_SETTINGS, -300_000, G_NOW)
+eq('adjust: paused −5 clamps the remainder at zero (planned keeps elapsed)', pMinusDeep,
+  { remainingMs: 0, phasePlannedMs: 1_437_000 })
+
+/* Fixture C — ARMED short break, never started */
+const aPlus = quickAdjust(
+  base({ phase: 'short', remainingMs: 300_000, phasePlannedMs: 300_000 }),
+  DEFAULT_SETTINGS, 60_000, G_NOW)
+eq('adjust: armed +1 grows the armed remainder and its tailored length', aPlus,
+  { remainingMs: 360_000, phasePlannedMs: 360_000 })
+
+/* Fixture D/E — idle and corrupt rows: nothing to adjust */
+eq('adjust: idle offers nothing', quickAdjust(base({}), DEFAULT_SETTINGS, 60_000, G_NOW), null)
+eq('adjust: corrupt running-without-endsAt degrades to nothing',
+  quickAdjust(base({ running: true, endsAt: null }), DEFAULT_SETTINGS, 60_000, G_NOW), null)
+
+/* Fixture F — the 4 h cap: +5 on a maxed phase is an honest no-op */
+const capped = quickAdjust(
+  base({ running: true, endsAt: G_NOW + 14_400_000, phasePlannedMs: 14_400_000 }),
+  DEFAULT_SETTINGS, 300_000, G_NOW)
+eq('adjust: the cap pins the patch (a no-op at 4 h)', capped,
+  { endsAt: G_NOW + 14_400_000, phasePlannedMs: 14_400_000 })
+
+/* the ring rides the tailored length — a +5 refills toward full, a clamp empties */
+eq('adjust: planned reads the tailored length',
+  floatingPlannedMs(base({ phasePlannedMs: 1_800_000 }), DEFAULT_SETTINGS), 1_800_000)
+eq('adjust: the ring after +5 (20 left of a 30-min phase)', ringFraction(1_200_000, 1_800_000), 1_200_000 / 1_800_000)
+eq('adjust: the ring after the end-now clamp', ringFraction(0, 600_000), 0)
+
+/* the control labels */
+eq('adjust: play/pause label per state', [
+  playPauseAriaLabel('running'), playPauseAriaLabel('paused'),
+  playPauseAriaLabel('armed'), playPauseAriaLabel('idle')], [
+  'Pause the pomodoro', 'Resume the pomodoro',
+  'Start the armed phase', 'Start a focus block'])
+eq('adjust: step faces (a true minus, never a hyphen)', [
+  stepLabel(-60_000), stepLabel(60_000), stepLabel(300_000)], ['\u22121', '+1', '+5'])
+eq('adjust: step aria labels', [
+  adjustAriaLabel(-60_000), adjustAriaLabel(60_000), adjustAriaLabel(300_000)], [
+  'Subtract one minute from the phase', 'Add one minute to the phase', 'Add five minutes to the phase'])
+
+/* ------------------------------------------------------------------ */
 console.log(`\nverify-focus-planner: ${pass} pass / ${fail} fail`)
 if (fail > 0) {
   console.error(failures.join('\n'))

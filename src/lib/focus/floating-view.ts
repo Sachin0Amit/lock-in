@@ -1,6 +1,8 @@
 /**
  * floating-view.ts — the pure arithmetic of the floating pomodoro icon
- * (owner chat directive 2026-11-18, "hover and see how much time is left").
+ * (owner chat directive 2026-11-18, "hover and see how much time is left";
+ * extended later the same day: "the icon should show more features like
+ * add more time, adjust time or play/pause").
  *
  * The floating widget is a VIEW over the same wall-clock timer store the
  * Focus Hub renders: nothing here owns time — every number is recomputed
@@ -8,8 +10,14 @@
  * armed → stored remainder; idle → the full phase) so a reload, a lost tab
  * or a backgrounded tab all agree with the hub's dial to the second.
  *
- * VERIFY-FIRST: every branch, label and clamp below is pinned in section G
- * of scripts/verify-focus-planner.ts before any UI ships.
+ * The quick-adjust arithmetic lives here too: the ±minute buttons the
+ * hover panel exposes write a wall-clock patch computed by quickAdjust() —
+ * a subtraction can never cut below "end now", and the tailored phase
+ * length keeps the one honesty invariant the session log relies on:
+ * planned − left = truly-focused time.
+ *
+ * VERIFY-FIRST: every branch, label and clamp below is pinned in sections
+ * G and H of scripts/verify-focus-planner.ts before any UI ships.
  */
 import { phaseLengthSecs } from './focus-engine'
 import type { FocusSettings, Phase } from './types'
@@ -24,6 +32,12 @@ export interface FloatingTimerLike {
   endsAt: number | null
   remainingMs: number | null
   phaseStartedAt: number | null
+  /**
+   * The length THIS phase instance was tailored to (quick-adjust grows or
+   * shrinks it). null = a legacy row / fresh phase → the settings-derived
+   * length, exactly what the hub dial always showed.
+   */
+  phasePlannedMs?: number | null
 }
 
 /** The same phase words the hub dial shows — one vocabulary everywhere. */
@@ -54,7 +68,7 @@ export function floatingLeftMs(t: FloatingTimerLike, s: FocusSettings, now: numb
 
 /** Planned length of the current phase in ms (the ring's denominator). */
 export function floatingPlannedMs(t: FloatingTimerLike, s: FocusSettings): number {
-  return phaseLengthSecs(t.phase, s) * 1000
+  return t.phasePlannedMs ?? phaseLengthSecs(t.phase, s) * 1000
 }
 
 /** Ring fraction remaining — never NaN, never outside [0, 1]. */
@@ -118,4 +132,87 @@ export function clampDrag(
     x: Math.min(maxX, Math.max(lo, Math.round(x))),
     y: Math.min(maxY, Math.max(minY, Math.round(y))),
   }
+}
+
+/* ------------------------------------------------------------------ */
+/* Quick adjust — the ±minute buttons on the hover panel               */
+/* (owner chat directive 2026-11-18, later: "the icon should show      */
+/*  more features like add more time, adjust time or play pause")      */
+/* ------------------------------------------------------------------ */
+
+/** The steps the panel offers: −1 min, +1 min, +5 min. */
+export const QUICK_ADJUST_STEPS_MS: readonly number[] = [-60_000, 60_000, 300_000]
+
+/** A tailored phase never grows past 4 h — the + buttons stop there. */
+export const QUICK_ADJUST_MAX_MS = 240 * 60_000
+
+/** The wall-clock patch one ±minute press writes. */
+export interface QuickAdjustPatch {
+  /** the new end epoch (a running phase) */
+  endsAt?: number
+  /** the new stored remainder (a paused/armed phase) */
+  remainingMs?: number
+  /** the phase's new tailored length */
+  phasePlannedMs: number
+}
+
+/**
+ * The arithmetic of one quick adjust, pure like everything else here.
+ *
+ * Honesty rules, both pinned in verifier section H:
+ *  - a subtraction can never cut below "end now": the effective delta is
+ *    clamped to −left, so a running phase pulled to the present completes
+ *    naturally on the next tick and logs exactly the time truly focused;
+ *  - planned − left stays the true focused time in every state (running,
+ *    paused, armed) — the same invariant completePhase's session row uses.
+ *
+ * null = there is nothing to adjust (idle or a corrupt row).
+ */
+export function quickAdjust(
+  t: FloatingTimerLike,
+  s: FocusSettings,
+  deltaMs: number,
+  now: number,
+): QuickAdjustPatch | null {
+  const planned = t.phasePlannedMs ?? phaseLengthSecs(t.phase, s) * 1000
+  if (t.running && t.endsAt !== null) {
+    const left = Math.max(0, t.endsAt - now)
+    /* clamp: never below −left (can't un-run time), never past the 4 h cap */
+    const eff = Math.min(Math.max(deltaMs, -left), Math.max(0, QUICK_ADJUST_MAX_MS - planned))
+    return { endsAt: Math.max(now, t.endsAt + eff), phasePlannedMs: planned + eff }
+  }
+  if (!t.running && t.remainingMs !== null) {
+    const left = Math.max(0, t.remainingMs)
+    const eff = Math.min(Math.max(deltaMs, -left), Math.max(0, QUICK_ADJUST_MAX_MS - planned))
+    return { remainingMs: left + eff, phasePlannedMs: planned + eff }
+  }
+  return null
+}
+
+/** The play/pause control's honest label for each widget state. */
+export function playPauseAriaLabel(kind: FloatingKind): string {
+  switch (kind) {
+    case 'running':
+      return 'Pause the pomodoro'
+    case 'paused':
+      return 'Resume the pomodoro'
+    case 'armed':
+      return 'Start the armed phase'
+    default:
+      return 'Start a focus block'
+  }
+}
+
+/** '−1' / '+1' / '+5' — the compact button face (a true minus, never a hyphen). */
+export function stepLabel(deltaMs: number): string {
+  const mins = Math.round(Math.abs(deltaMs) / 60_000)
+  const n = mins === 1 ? '1' : String(mins)
+  return deltaMs < 0 ? `\u2212${n}` : `+${n}`
+}
+
+/** 'Add one minute' / 'Subtract five minutes' — the full control label. */
+export function adjustAriaLabel(deltaMs: number): string {
+  const mins = Math.round(Math.abs(deltaMs) / 60_000)
+  const word = mins === 1 ? 'one minute' : mins === 5 ? 'five minutes' : `${mins} minutes`
+  return deltaMs < 0 ? `Subtract ${word} from the phase` : `Add ${word} to the phase`
 }

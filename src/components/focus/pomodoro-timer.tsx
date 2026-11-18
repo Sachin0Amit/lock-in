@@ -39,8 +39,9 @@ import { Label } from '@/components/ui/label'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Switch } from '@/components/ui/switch'
 import { useFocusTimer } from './focus-store'
-import { completePhase, useTimerNotes } from './timer-runtime'
+import { completePhase, ensureNotifyPermission, useTimerNotes } from './timer-runtime'
 import { formatClock, phaseLengthSecs } from '@/lib/focus/focus-engine'
+import { QUICK_ADJUST_STEPS_MS, adjustAriaLabel, stepLabel } from '@/lib/focus/floating-view'
 import type { TaskView } from '@/lib/focus/types'
 import { cn } from '@/lib/utils'
 
@@ -51,6 +52,7 @@ export function PomodoroTimer({ tasks }: { tasks: TaskView[] }) {
   const running = useFocusTimer((s) => s.running)
   const endsAt = useFocusTimer((s) => s.endsAt)
   const remainingMs = useFocusTimer((s) => s.remainingMs)
+  const phasePlannedMs = useFocusTimer((s) => s.phasePlannedMs)
   const cycleFocus = useFocusTimer((s) => s.cycleFocus)
   const taskId = useFocusTimer((s) => s.taskId)
   const settings = useFocusTimer((s) => s.settings)
@@ -59,12 +61,17 @@ export function PomodoroTimer({ tasks }: { tasks: TaskView[] }) {
   const resume = useFocusTimer((s) => s.resume)
   const resetPhase = useFocusTimer((s) => s.resetPhase)
   const updateSettings = useFocusTimer((s) => s.updateSettings)
+  const adjustPhase = useFocusTimer((s) => s.adjustPhase)
 
   const [now, setNow] = useState(() => Date.now())
   const ledgerNote = useTimerNotes((s) => s.note)
 
   const activeTask = tasks.find((t) => t.id === taskId) ?? null
-  const plannedMs = phaseLengthSecs(phase, settings) * 1000
+  /* the length THIS phase was tailored to — quick-adjust grows or shrinks
+   * it live (the floating panel and this dial read the same number); a
+   * never-tailored phase shows the settings-derived length */
+  const plannedMs = phasePlannedMs ?? phaseLengthSecs(phase, settings) * 1000
+
   /* idle-never-started shows the full phase; armed shows the stored remainder */
   const leftMs = running && endsAt !== null ? Math.max(0, endsAt - now) : (remainingMs ?? plannedMs)
   const elapsedSecs = Math.max(0, Math.round((plannedMs - leftMs) / 1000))
@@ -111,9 +118,7 @@ export function PomodoroTimer({ tasks }: { tasks: TaskView[] }) {
     if (running) pause()
     else if (remainingMs !== null) resume()
     else {
-      if (settings.notify && typeof Notification !== 'undefined' && Notification.permission === 'default') {
-        void Notification.requestPermission().catch(() => undefined)
-      }
+      ensureNotifyPermission(settings)
       startTimer(taskId)
     }
   }
@@ -223,6 +228,26 @@ export function PomodoroTimer({ tasks }: { tasks: TaskView[] }) {
           <Button variant="outline" size="icon" onClick={resetPhase} aria-label="Restart this phase" disabled={!running && remainingMs === null}>
             <RotateCcw className="h-4 w-4" aria-hidden />
           </Button>
+        </div>
+
+        {/* tailor this phase — the same quick-adjust the floating panel offers */}
+        <div className="mt-2 flex items-center justify-center gap-1.5">
+          <span className="text-[11px] text-muted-foreground">tailor this phase</span>
+          {QUICK_ADJUST_STEPS_MS.map((stepMs) => (
+            <Button
+              key={stepMs}
+              variant="outline"
+              size="sm"
+              data-pomodoro-adjust={stepMs}
+              aria-label={adjustAriaLabel(stepMs)}
+              disabled={!running && remainingMs === null}
+              onClick={() => adjustPhase(stepMs)}
+              className="h-7 w-9 px-0 text-xs font-semibold tabular-nums"
+            >
+              {stepLabel(stepMs)}
+            </Button>
+          ))}
+          <span className="text-[11px] text-muted-foreground">min</span>
         </div>
 
         {ledgerNote ? (

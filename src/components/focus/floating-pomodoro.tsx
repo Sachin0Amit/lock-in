@@ -2,15 +2,20 @@
 
 /**
  * FloatingPomodoro — the small floating pomodoro icon (owner chat
- * directive 2026-11-18: "hover the mouse and see how much time is left").
+ * directives 2026-11-18: "hover the mouse and see how much time is left",
+ * then later: "the icon should show more features like add more time,
+ * adjust time or play pause such").
  *
  * A quiet 48 px circle pinned to the bottom-right corner of EVERY page of
  * the library (hidden on /focus, where the full dial already lives). The
  * ring depletes with the phase; hovering (or focusing with the keyboard)
- * opens a live tooltip — phase, the wall-clock remainder, when it ends,
- * the cadence and the task under focus. Click opens the Focus Hub; drag
- * moves the icon anywhere (persisted per device, always clamped inside
- * the viewport).
+ * opens a live CONTROL PANEL — not just a readout: the phase word, the
+ * wall-clock remainder, when it ends, the cadence and the task under
+ * focus, plus the quick controls: play/pause/resume, −1/+1/+5 minute
+ * quick-adjust (the phase tailors live and honestly — the arithmetic is
+ * pinned in verifier section H), and skip. Click opens the Focus Hub;
+ * drag moves the icon anywhere (persisted per device, always clamped
+ * inside the viewport).
  *
  * It is a pure VIEW over the same timer store the hub renders — the
  * phase machine and the bell live in timer-runtime.tsx. The timer is
@@ -19,21 +24,27 @@
  */
 import { useEffect, useRef, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
-import { Coffee, Pause, Timer as TimerIcon } from 'lucide-react'
+import { Coffee, Pause, Play, SkipForward, Timer as TimerIcon } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import { useFocusTimer } from './focus-store'
+import { completePhase, ensureNotifyPermission } from './timer-runtime'
 import { useFloatingPos } from './floating-pos-store'
 import { fetchFocusOverview } from '@/lib/focus/client-api'
 import { formatClock } from '@/lib/focus/focus-engine'
 import { useToast } from '@/hooks/use-toast'
 import {
   PHASE_WORD,
+  QUICK_ADJUST_STEPS_MS,
+  adjustAriaLabel,
   clampDrag,
   clockOfDayLabel,
   floatingAriaLabel,
   floatingKind,
   floatingLeftMs,
   floatingPlannedMs,
+  playPauseAriaLabel,
   ringFraction,
+  stepLabel,
 } from '@/lib/focus/floating-view'
 import { cn } from '@/lib/utils'
 
@@ -50,6 +61,7 @@ export function FloatingPomodoro() {
   const endsAt = useFocusTimer((s) => s.endsAt)
   const remainingMs = useFocusTimer((s) => s.remainingMs)
   const phaseStartedAt = useFocusTimer((s) => s.phaseStartedAt)
+  const phasePlannedMs = useFocusTimer((s) => s.phasePlannedMs)
   const cycleFocus = useFocusTimer((s) => s.cycleFocus)
   const taskId = useFocusTimer((s) => s.taskId)
   const settings = useFocusTimer((s) => s.settings)
@@ -125,13 +137,31 @@ export function FloatingPomodoro() {
   const dragRef = useRef<{ startX: number; startY: number; origin: { x: number; y: number }; moved: boolean } | null>(null)
   const suppressClick = useRef(false)
 
-  const timer = { phase, running, endsAt, remainingMs, phaseStartedAt }
+  const timer = { phase, running, endsAt, remainingMs, phaseStartedAt, phasePlannedMs }
   const kind = floatingKind(timer)
   const leftMs = floatingLeftMs(timer, settings, now)
   const plannedMs = floatingPlannedMs(timer, settings)
   const fraction = ringFraction(leftMs, plannedMs)
   const aria = floatingAriaLabel(kind, phase, leftMs)
   const taskTitle = taskId !== null ? (titles[taskId] ?? null) : null
+
+  /* the quick controls — the same store actions the hub's buttons write;
+   * nothing here owns time, the runtime stays the only phase-writer */
+  const onToggle = () => {
+    const s = useFocusTimer.getState()
+    if (s.running) s.pause()
+    else if (s.remainingMs !== null) s.resume()
+    else {
+      ensureNotifyPermission(s.settings)
+      s.start(s.taskId)
+    }
+  }
+  const onAdjust = (deltaMs: number) => {
+    useFocusTimer.getState().adjustPhase(deltaMs)
+  }
+  const onSkip = () => {
+    completePhase(false)
+  }
 
   const onPointerDown = (e: React.PointerEvent<HTMLButtonElement>) => {
     if (e.pointerType === 'mouse' && e.button !== 0) return
@@ -260,43 +290,100 @@ export function FloatingPomodoro() {
         </span>
       </button>
 
-      {/* the hover tooltip — a live view of the same store the hub renders */}
+      {/* the hover control panel — a live view of the same store the hub
+       * renders, plus the quick controls the owner asked for: play/pause,
+       * add more time, adjust time, skip. The 8 px gap to the icon is real
+       * pixels INSIDE this container, so the pointer never crosses dead
+       * space — the panel stays open from the icon onto the buttons, and
+       * keyboard focus keeps it open the same way (focusin/focusout ride
+       * the wrapper, which contains the buttons). */}
       <div
         data-pomodoro-tooltip
-        role="timer"
         aria-hidden={!tipOpen}
         className={cn(
-          'pointer-events-none absolute z-50 w-60 rounded-xl border bg-popover p-3 text-popover-foreground shadow-xl',
-          'transition-opacity duration-150',
-          tipOpen ? 'visible opacity-100' : 'invisible opacity-0',
-          highUp ? 'top-full mt-2' : 'bottom-full mb-2',
+          'absolute z-50 w-72 transition-opacity duration-150',
+          tipOpen ? 'visible pointer-events-auto opacity-100' : 'invisible pointer-events-none opacity-0',
+          highUp ? 'top-full' : 'bottom-full',
           onLeft ? 'left-0' : 'right-0',
         )}
       >
-        <p className="flex items-baseline justify-between gap-2">
-          <span className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
-            {PHASE_WORD[phase]}
-          </span>
-          <span className="text-[11px] text-muted-foreground">
-            {kind === 'running' && endsAt !== null
-              ? `ends ${clockOfDayLabel(endsAt)}`
-              : kind === 'paused'
-                ? 'paused'
-                : kind === 'armed'
-                  ? 'ready'
-                  : 'idle'}
-          </span>
-        </p>
-        <p className="font-reading text-3xl font-bold tabular-nums leading-tight">
-          {formatClock(leftMs / 1000)}
-        </p>
-        <p className="text-[11px] text-muted-foreground">
-          of {Math.round(plannedMs / 60000)} min · {cycleFocus}/{settings.longEvery} pomodoros
-        </p>
-        <p className="mt-1.5 border-t pt-1.5 text-xs font-medium leading-5 break-words">{taskLine}</p>
-        <p className="mt-1 text-[10px] leading-4 text-muted-foreground">
-          Click opens the Focus Hub · drag to move — wall-clock honest.
-        </p>
+        {highUp ? <div className="h-2 w-full" aria-hidden /> : null}
+        <div className="w-full rounded-xl border bg-popover p-3 text-popover-foreground shadow-xl">
+          <p className="flex items-baseline justify-between gap-2">
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
+              {PHASE_WORD[phase]}
+            </span>
+            <span className="text-[11px] text-muted-foreground">
+              {kind === 'running' && endsAt !== null
+                ? `ends ${clockOfDayLabel(endsAt)}`
+                : kind === 'paused'
+                  ? 'paused'
+                  : kind === 'armed'
+                    ? 'ready'
+                    : 'idle'}
+            </span>
+          </p>
+          <p role="timer" className="font-reading text-3xl font-bold tabular-nums leading-tight">
+            {formatClock(leftMs / 1000)}
+          </p>
+          <p className="text-[11px] text-muted-foreground">
+            of {Math.round(plannedMs / 60000)} min · {cycleFocus}/{settings.longEvery} pomodoros
+          </p>
+
+          {/* the quick controls — the same store actions the hub's buttons write */}
+          <div data-pomodoro-controls className="mt-2 flex items-center gap-1.5">
+            <Button
+              type="button"
+              size="sm"
+              data-pomodoro-toggle
+              aria-label={playPauseAriaLabel(kind)}
+              onClick={onToggle}
+              className="h-8 min-w-0 flex-1 gap-1 px-2 text-xs"
+            >
+              {kind === 'running' ? (
+                <Pause className="h-3.5 w-3.5" aria-hidden />
+              ) : (
+                <Play className="h-3.5 w-3.5" aria-hidden />
+              )}
+              <span className="whitespace-nowrap">
+                {kind === 'running' ? 'Pause' : kind === 'paused' ? 'Resume' : 'Start'}
+              </span>
+            </Button>
+            {QUICK_ADJUST_STEPS_MS.map((stepMs) => (
+              <Button
+                key={stepMs}
+                type="button"
+                variant="outline"
+                size="sm"
+                data-pomodoro-adjust={stepMs}
+                aria-label={adjustAriaLabel(stepMs)}
+                disabled={kind === 'idle'}
+                onClick={() => onAdjust(stepMs)}
+                className="h-8 w-9 shrink-0 px-0 text-xs font-semibold tabular-nums"
+              >
+                {stepLabel(stepMs)}
+              </Button>
+            ))}
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              data-pomodoro-skip
+              aria-label="Skip to the next phase"
+              disabled={kind === 'idle'}
+              onClick={onSkip}
+              className="h-8 w-8 shrink-0 px-0"
+            >
+              <SkipForward className="h-3.5 w-3.5" aria-hidden />
+            </Button>
+          </div>
+
+          <p className="mt-1.5 border-t pt-1.5 text-xs font-medium leading-5 break-words">{taskLine}</p>
+          <p className="mt-1 text-[10px] leading-4 text-muted-foreground">
+            Click opens the Focus Hub · drag to move · −/+ tailors this phase.
+          </p>
+        </div>
+        {!highUp ? <div className="h-2 w-full" aria-hidden /> : null}
       </div>
     </div>
   )

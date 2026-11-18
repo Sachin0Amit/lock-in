@@ -14,6 +14,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { clampSettings, DEFAULT_SETTINGS } from '@/lib/focus/focus-engine'
+import { quickAdjust } from '@/lib/focus/floating-view'
 import type { FocusSettings, Phase } from '@/lib/focus/types'
 
 export interface TimerState {
@@ -31,6 +32,13 @@ export interface TimerState {
   phaseStartedAt: number | null
   /** last phase-advance bookkeeping id, guards duplicate completions */
   lastSeq: number
+  /**
+   * The length THIS phase instance was tailored to — quick-adjust grows or
+   * shrinks it (null = legacy row / fresh phase → the settings-derived
+   * length). The session log and both dials read it so the ring, the
+   * 'of N min' line and the logged plannedSecs all stay one number.
+   */
+  phasePlannedMs: number | null
 }
 
 interface FocusStore extends TimerState {
@@ -44,6 +52,8 @@ interface FocusStore extends TimerState {
   markCompleted: () => void
   setTask: (taskId: string | null) => void
   updateSettings: (patch: Partial<FocusSettings>) => void
+  /** quick-adjust the live phase by deltaMs (the floating panel's ±buttons) */
+  adjustPhase: (deltaMs: number) => void
 }
 
 export const FOCUS_TIMER_KEY = 'lockin:focus-timer:v1'
@@ -57,6 +67,7 @@ const initialTimer: TimerState = {
   taskId: null,
   phaseStartedAt: null,
   lastSeq: 0,
+  phasePlannedMs: null,
 }
 
 function phaseMs(phase: Phase, s: FocusSettings): number {
@@ -85,6 +96,7 @@ export const useFocusTimer = create<FocusStore>()(
             cycleFocus: 0,
             taskId,
             phaseStartedAt: Date.now(),
+            phasePlannedMs: ms,
           }
         }),
 
@@ -102,9 +114,11 @@ export const useFocusTimer = create<FocusStore>()(
 
       resetPhase: () =>
         set((s) => {
+          /* a reset re-plans the phase at the settings-derived length — any
+           * tailored length from quick-adjust is discarded, honestly */
           const ms = phaseMs(s.phase, s.settings)
-          if (s.running) return { endsAt: Date.now() + ms, remainingMs: null }
-          return { remainingMs: ms, endsAt: null }
+          if (s.running) return { endsAt: Date.now() + ms, remainingMs: null, phasePlannedMs: ms }
+          return { remainingMs: ms, endsAt: null, phasePlannedMs: ms }
         }),
 
       armPhase: (phase) =>
@@ -118,6 +132,7 @@ export const useFocusTimer = create<FocusStore>()(
             remainingMs: ms,
             cycleFocus: s.cycleFocus,
             taskId: s.taskId,
+            phasePlannedMs: ms,
           }
         }),
 
@@ -134,6 +149,7 @@ export const useFocusTimer = create<FocusStore>()(
             endsAt: autoStart ? Date.now() + ms : null,
             remainingMs: autoStart ? null : ms,
             phaseStartedAt: autoStart ? Date.now() : null,
+            phasePlannedMs: ms,
           }
         }),
 
@@ -148,7 +164,17 @@ export const useFocusTimer = create<FocusStore>()(
           const untouched = !s.running && s.remainingMs !== null && s.phaseStartedAt === null
           if (!untouched) return { settings }
           const ms = phaseMs(s.phase, settings)
-          return { settings, remainingMs: ms, endsAt: null }
+          return { settings, remainingMs: ms, endsAt: null, phasePlannedMs: ms }
+        }),
+
+      adjustPhase: (deltaMs) =>
+        set((s) => {
+          /* the pure quickAdjust arithmetic is pinned in verifier section H —
+           * a subtraction can never cut below 'end now', and the tailored
+           * length keeps planned − left = truly-focused time (the invariant
+           * the session log's actualSecs rides) */
+          const patch = quickAdjust(s, s.settings, deltaMs, Date.now())
+          return patch ?? {}
         }),
     }),
     {
@@ -165,6 +191,7 @@ export const useFocusTimer = create<FocusStore>()(
         taskId: s.taskId,
         phaseStartedAt: s.phaseStartedAt,
         lastSeq: s.lastSeq,
+        phasePlannedMs: s.phasePlannedMs,
         settings: s.settings,
       }),
       merge: (persisted, current) => {

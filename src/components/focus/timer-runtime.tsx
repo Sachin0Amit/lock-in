@@ -31,6 +31,18 @@ import {
 } from '@/lib/focus/focus-engine'
 import { logFocusSession } from '@/lib/focus/client-api'
 import { useToast } from '@/hooks/use-toast'
+import type { FocusSettings } from '@/lib/focus/types'
+
+/* ------------------------------------------------------------------ */
+/* Shared control helpers — used by the hub dial AND the floating panel */
+/* ------------------------------------------------------------------ */
+
+/** Ask for notification permission once, best-effort, never blocking. */
+export function ensureNotifyPermission(s: FocusSettings): void {
+  if (s.notify && typeof Notification !== 'undefined' && Notification.permission === 'default') {
+    void Notification.requestPermission().catch(() => undefined)
+  }
+}
 
 /* ------------------------------------------------------------------ */
 /* The notes bus — the runtime publishes, whoever is mounted listens    */
@@ -111,7 +123,11 @@ export function completePhase(endedNaturally: boolean): void {
   completing = true
   try {
     const s = useFocusTimer.getState()
-    const planned = phaseLengthSecs(s.phase, s.settings)
+    /* the planned length THIS phase was tailored to — quick-adjust grows or
+     * shrinks it; the legacy/settings-derived value when never tailored.
+     * planned − left stays the truly-focused time under any adjustment
+     * (pinned in verifier section H), so actualSecs stays honest */
+    const planned = Math.round((s.phasePlannedMs ?? phaseLengthSecs(s.phase, s.settings) * 1000) / 1000)
     const left =
       s.running && s.endsAt !== null
         ? Math.max(0, s.endsAt - Date.now())
