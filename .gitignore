@@ -513,6 +513,8 @@ server.log
 # exception: the run-109 e2e pair + the rebase-union and m2-03 transcription drivers (run 109 ship)
 !/scripts/e2e-aa-35.page.js
 !/scripts/e2e-aa-35.sh
+!/scripts/e2e-aa-3R.page.js
+!/scripts/e2e-aa-3R.sh
 !/scripts/resolve-rebase-logs.py
 !/scripts/transcribe-m2-03-35.sh
 

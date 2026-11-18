@@ -2,8 +2,8 @@
 /* ANALYSIS AGENT "mathematics" (SWARM-MATH) — verdict builder.
    Pulls exact titles from legend.json / mathematics.json / mathematics-plan.json,
    attaches my adjudications, validates every reference, writes verdicts/mathematics.json. */
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs'); // eslint-disable-line @typescript-eslint/no-require-imports
+const path = require('path'); // eslint-disable-line @typescript-eslint/no-require-imports
 const DIR = '/home/z/my-project/scripts/ledger_data_working/reorg/swarm';
 const brief = JSON.parse(fs.readFileSync(path.join(DIR, 'mathematics.json'), 'utf8'));
 const plan = JSON.parse(fs.readFileSync(path.join(DIR, 'mathematics-plan.json'), 'utf8'));

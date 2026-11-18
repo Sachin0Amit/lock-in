@@ -6,16 +6,14 @@ import { chapter03 } from './ch-03'
 /**
  * Advanced Algebra — the fourth book of the Mathematics shelf.
  *
- * STATUS: IN-PROGRESS (first lessons written run 90, 2026-11-11) —
- * 10 chapters / 57 planned lessons, of which chapter 1 now carries its first
- * two written lessons (1.1 Relations: the Set-of-Pairs View + 1.2 One-One
- * and Onto: Classifying the Machines, ids aa-relations-the-set-of-pairs-
- * view and aa-one-one-and-onto-classifying-the-machines); the remaining
- * 55 lessons (6 of chapter 1 + chapters 2–10) stay planned. The book
- * flips to 'complete' only when all 10 chapters and their unit reviews are
- * fully gated. Lesson ids use the `aa-` prefix (verified unused across
- * all 120 existing lesson ids at promotion time; globally unique, stable
- * forever).
+ * STATUS: IN-PROGRESS — three chapters COMPLETE, chapters 4-10 planned.
+ * Chapters 1 (Relations and Functions: 8 lessons + 1.R review, 9 written
+ * total), 2 (The Quadratic at Depth: 4 + 2.R) and 3 (Complex Numbers:
+ * the New Rung: 5 + 3.R) are fully written and gated — 20 written lessons
+ * in all; the remaining 40 planned lessons (chapters 4-10) author on the
+ * one-unit-at-a-time cadence (run 110 closed chapter 3 with the 3.R
+ * completion review). Lesson ids use the `aa-` prefix (verified unused
+ * across the library at promotion time; globally unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Elementary
  * Algebra ended at the function doorstep — the input-output machine, its

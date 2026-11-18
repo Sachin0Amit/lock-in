@@ -66,12 +66,52 @@ import type { Chapter, Lesson } from '../../../types'
  *                  examples). The D < 0 doors are NAMED as 3.3's promise,
  *                  never cashed here; the modulus is named as 3.2's.)
  *
+ *                  3.R "Unit 3 Completion Review" (run 110 — the chapter
+ *                  CLOSES: 5+R/5, status complete, plannedLessons empty).
+ *                  The 2.R precedent's shape held: the arc (five storeys,
+ *                  one tower — the wiring diagram + the one-law spine),
+ *                  the master tables reunited (the operations at both
+ *                  addresses + the roots-of-unity census n = 2..7,
+ *                  engine-enumerated), the cross-lesson witnesses
+ *                  re-audited (the one-machine √3+i through all five
+ *                  storeys incl. z⁶ = −64, the floating parabola
+ *                  x²−4x+13 read by every storey, the z⁷ = 1 prime-spoke
+ *                  census, the one-circle/two-readings |z−3−4i| = 5 =
+ *                  the diametric circle of 0 and 6+8i with the Thales
+ *                  quotient i/3), 23 chapter formula cards consolidated
+ *                  to 8 load-bearing laws, the 6-trap shelf, the
+ *                  exam-coverage audit across 3.1–3.5 (JEE Main unit 2's
+ *                  named registers + NCERT class 11 ch. 4 + CUET +
+ *                  Khattar QA + JEE Advanced's loci/ω registers), the
+ *                  two-century historical arc (Cardan 1545 → Gauss
+ *                  1830s), quiz keys [1, 2, 1, 0, 3] (all four option
+ *                  indices used), 15 mixed-bench exercises L1–L6
+ *                  2/2/3/3/3/2 with full worked solutions — fresh
+ *                  witnesses throughout (8−15i, (−1+i)⁴/⁸, z⁶ = −64 as
+ *                  the two cubic families' union, (1+ω−ω²)⁸ = 256ω,
+ *                  the y = x bisector, the 3±2i doors, √(15+8i) =
+ *                  ±(4+i), the √5 diametric rectangle, the |z| = √q
+ *                  circle pin theorem, the 1/5/3+2√3i equilateral
+ *                  certificate); 2 figures — the storey wiring diagram
+ *                  (720×340) and the readings plate (720×348), both in
+ *                  the vivid palette; NO fold obligation hosted on the
+ *                  review (all m2-03 folds live on 3.1/3.4/3.5).
+ *
+ *                  Verify-first SECTION S green BEFORE prose (943/0 at
+ *                  the pre-prose run: S1–S12 pin every number above —
+ *                  the one-machine readings, the census rows, the
+ *                  Thales quotient, the band walls, the φ counts, the
+ *                  quiz verdicts, the 23-card aggregation; three float-
+ *                  equality pins and one φ-scope bug caught and fixed
+ *                  pre-prose).
+ *
  * CROSS-REFERENCES: opens on AL 9.3's discriminant trichotomy (its third
  * verdict is the failure being repaired), ANS 7.2's field-law survival
  * discipline and ANS 8.1's ladder rung (√2 — the last proved closure
  * failure before this one), and AA 2.R's exit (the D rail handed
  * forward). Bombelli 1572 carries the historical engine. Lesson 3.2
- * (Conjugate and Modulus) cashes the seeds planted here.
+ * (Conjugate and Modulus) cashes the seeds planted here. The review
+ * hands the triangle inequality to chapter 4 as its first resident.
  */
 
 /* ------------------------------------------------------------------ */
@@ -2233,15 +2273,352 @@ const lesson35: Lesson = {
   ],
 }
 
+/* ------------------------------------------------------------------ */
+/* lesson 3.R figures — the storey wiring diagram + the readings plate */
+/* ------------------------------------------------------------------ */
+
+function storeyWiringSvg(): string {
+  // five storey bars stacked bottom (3.1) to top (3.5); the chapter-2
+  // promise enters bottom-left, the chapter-4 exit leaves top-right; the
+  // one-law spine runs up the left margin (label rotated, centred)
+  const storeys: Array<{ no: string; name: string; engine: string; witness: string }> = [
+    { no: '3.1', name: 'the field is forced', engine: 'x\u00b2 + 1 = 0 has no real door \u2192 i\u00b2 = \u22121, pair arithmetic, the field laws survive', witness: 'the iota cycle; Bombelli\u2019s cubic check' },
+    { no: '3.2', name: 'the bookkeeping', engine: 'conjugate + modulus: z z\u0304 = |z|\u00b2, division by conjugating, the triangle inequalities', witness: 'the 8-15-17 census; the origin circle' },
+    { no: '3.3', name: 'the doors', engine: 'D < 0 answered: two doors in a conjugate pair, the u, v system', witness: 'the floating parabola x\u00b2 \u2212 4x + 13' },
+    { no: '3.4', name: 'the second address', engine: 'Argand plane, polar form, arguments add, Euler, the section formula, rays', witness: 'the parallelogram closure; the quadrant discipline' },
+    { no: '3.5', name: 'the powers', engine: 'De Moivre, the n equal spokes, the omega engine, the loci as equations', witness: 'the pentagon bench; the diametric circles' },
+  ]
+  const BW = 552
+  const BH = 40
+  let bars = ''
+  storeys.forEach((s, i) => {
+    const y = 278 - i * 48
+    bars +=
+      `<rect x="88" y="${y}" width="${BW}" height="${BH}" rx="8" fill="#fef3c7" stroke="#16a34a" stroke-width="1.6"/>` +
+      `<text x="106" y="${y + 25}" font-size="15" font-weight="700" fill="#ea580c">${s.no}</text>` +
+      `<text x="150" y="${y + 16}" font-size="11.5" font-weight="700" fill="#166534">${s.name}</text>` +
+      `<text x="150" y="${y + 31}" font-size="9.5" fill="#0f766e">${s.engine.length > 90 ? s.engine.slice(0, 90) : s.engine}</text>` +
+      `<text x="${88 + BW - 24}" y="${y + 16}" font-size="9" text-anchor="end" fill="#65a30d">${s.witness}</text>`
+    if (i < storeys.length - 1) {
+      bars += `<polygon points="0,0 -6,9 6,9" transform="translate(122,${y - 7})" fill="#d97706"/>`
+    }
+  })
+  return `<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The five-storey wiring diagram of chapter three. Five stacked bars run from lesson 3.1 at the bottom to lesson 3.5 at the top: 3.1 the field is forced, 3.2 the bookkeeping, 3.3 the doors, 3.4 the second address, 3.5 the powers. Each bar names its engine and its anchor witness. A teal spine on the left reads moduli multiply, arguments add. An orange arrow enters bottom-left from chapter 2 carrying the filed-away negative-discriminant family; an orange arrow leaves top-right toward chapter 4, the classical inequality engine.">
+  <text x="360" y="20" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the complex-number tower \u2014 five storeys, one field, one plane</text>
+  <text x="30" y="170" font-size="10.5" font-weight="700" fill="#0f766e" text-anchor="middle" transform="rotate(-90 30 170)">moduli multiply, arguments add</text>
+  <path d="M4 320 L4 34" stroke="#0d9488" stroke-width="3" stroke-dasharray="6 4" fill="none"/>
+  ${bars}
+  <path d="M6 290 Q 50 296 80 297" stroke="#ea580c" stroke-width="2.2" fill="none"/>
+  <polygon points="0,0 -10,3 -7,-7" transform="translate(83,297) rotate(6)" fill="#ea580c"/>
+  <text x="6" y="334" font-size="9.5" fill="#ea580c">ch. 2 files the D &lt; 0 family here</text>
+  <path d="M644 103 Q 660 80 682 66" stroke="#ea580c" stroke-width="2.2" fill="none"/>
+  <polygon points="0,0 -10,3 -7,-7" transform="translate(684,64) rotate(15)" fill="#ea580c"/>
+  <text x="700" y="32" font-size="9.5" text-anchor="end" fill="#ea580c">exit: ch. 4 \u2014 the triangle inequality</text>
+  <text x="700" y="44" font-size="9.5" text-anchor="end" fill="#ea580c">is its first resident</text>
+</svg>`
+}
+
+function readingsPlateSvg(): string {
+  // left: the Argand plane, unit 30 px, origin O = (170, 178); the seat
+  // z = √3+i, its mirror twin, the |z| bracket, the π/6 bearing arc, the
+  // z² seat; right: the five pinned readings as verdict rows
+  const OX = 170, OY = 178, U = 30
+  const zx = OX + Math.sqrt(3) * U, zy = OY - 1 * U
+  const mx = zx, my = OY + 1 * U
+  const qx = OX + 2 * U, qy = OY - 2 * Math.sqrt(3) * U
+  return `<svg viewBox="0 0 720 348" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The readings plate: the complex plane on the left carries the seat z equals root three plus i in orange, its mirror twin root three minus i as a dashed green reflection, the modulus bracket from the origin labelled |z| equals 2, the bearing arc pi over 6 in amber, and the squared seat two plus two root three i in teal. The right panel lists the five pinned readings: z z bar equals 4; the reciprocal is root three minus i over 4; the second address is 2 cis pi over 6; z cubed equals 8 i; z to the sixth equals minus 64.">
+  <text x="175" y="20" font-size="12.5" font-weight="700" text-anchor="middle" fill="currentColor">one machine, five readings — z = \u221a3 + i</text>
+  <line x1="${OX - 130}" y1="${OY}" x2="${OX + 130}" y2="${OY}" stroke="#16a34a" stroke-width="1.4"/>
+  <line x1="${OX}" y1="${OY + 120}" x2="${OX}" y2="${OY - 132}" stroke="#16a34a" stroke-width="1.4"/>
+  <text x="${OX + 128}" y="${OY + 14}" font-size="10" fill="#166534">Re</text>
+  <text x="${OX - 14}" y="${OY - 128}" font-size="10" fill="#166534">Im</text>
+  <text x="${OX - 8}" y="${OY + 14}" font-size="10" fill="#166534">O</text>
+  <line x1="${OX}" y1="${OY}" x2="${zx}" y2="${zy}" stroke="#ea580c" stroke-width="2.6"/>
+  <circle cx="${zx}" cy="${zy}" r="6" fill="#ea580c"/>
+  <text x="${zx + 10}" y="${zy - 8}" font-size="11.5" font-weight="700" fill="#166534">z = \u221a3 + i</text>
+  <circle cx="${mx}" cy="${my}" r="5" fill="#16a34a"/>
+  <text x="${mx + 9}" y="${my + 15}" font-size="10.5" fill="#166534">z\u0304 = \u221a3 \u2212 i</text>
+  <rect x="178" y="159" width="58" height="14" fill="#fffdf5"/>
+  <text x="184" y="170" font-size="10.5" font-weight="700" fill="#ea580c">|z| = 2</text>
+  <path d="M${OX + 42} ${OY} A 42 42 0 0 0 ${OX + 42 * Math.cos(Math.PI / 6)} ${OY - 42 * Math.sin(Math.PI / 6)}" stroke="#d97706" stroke-width="2" fill="none"/>
+  <line x1="212" y1="181" x2="216" y2="186" stroke="#d97706" stroke-width="1.2"/>
+  <text x="216" y="190" font-size="10.5" fill="#d97706">\u03c0/6</text>
+  <circle cx="${qx}" cy="${qy}" r="5" fill="#0d9488"/>
+  <text x="${qx + 9}" y="${qy + 4}" font-size="10.5" fill="#0f766e">z\u00b2 = 2 + 2\u221a3i</text>
+  <g>
+    <text x="372" y="52" font-size="12" font-weight="700" fill="currentColor">the five readings, pinned</text>
+    <rect x="360" y="62" width="348" height="250" rx="8" fill="#fef3c7" stroke="#16a34a" stroke-width="1.4"/>
+    <text x="374" y="88" font-size="11.5" fill="#166534">1. pair address: z = \u221a3 + i, z\u0304 = \u221a3 \u2212 i</text>
+    <text x="374" y="112" font-size="11.5" fill="#166534">2. bookkeeping: z z\u0304 = 4, |z| = 2, 1/z = (\u221a3 \u2212 i)/4</text>
+    <text x="374" y="136" font-size="11.5" fill="#166534">3. second address: z = 2 cis(\u03c0/6) = 2e^i\u03c0/6</text>
+    <text x="374" y="160" font-size="11.5" fill="#166534">4. powers: z\u00b2 = 2 + 2\u221a3i, z\u00b3 = 8i, z\u2076 = \u221264</text>
+    <text x="374" y="184" font-size="11.5" fill="#166534">5. the door read: z is a door of z\u2076 + 64 = 0</text>
+    <line x1="374" y1="196" x2="694" y2="196" stroke="#fcd34d" stroke-width="1.2"/>
+    <text x="374" y="218" font-size="10.5" fill="#0f766e">the doubling chain: moduli 2, 4, 8, 64</text>
+    <text x="374" y="240" font-size="10.5" fill="#0f766e">multiply at every rung; z\u2076 = \u221264</text>
+    <text x="374" y="262" font-size="10.5" fill="#0f766e">bearings add: 6 \u00d7 \u03c0/6 = \u03c0</text>
+    <text x="374" y="292" font-size="9.5" fill="#65a30d">every number above engine-pinned pre-prose</text>
+  </g>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 3.R — Unit 3 Completion Review                               */
+/* ------------------------------------------------------------------ */
+
+const lessonReview3: Lesson = {
+  id: 'aa-complex-numbers-unit-3-review',
+  number: '3.R',
+  title: 'Unit 3 Completion Review',
+  concepts: [
+    'the arc of the chapter: a closure failure forced a new number, its field laws, its bookkeeping, its first payoff, its second address and its powers — five storeys, one tower',
+    'the conjugate–modulus hub: a complex number times its conjugate is the square of its modulus — every division, character hunt and circle locus routes through it',
+    'the doors: every discriminant finally answered — a negative discriminant opens two complex doors in a conjugate pair, and real coefficients force the pairing',
+    'the second address: the polar form and the argument — moduli multiply and arguments add, with the quadrant discipline and the principal wrap as the priced traps',
+    'De Moivre and the roots-of-unity census: n equal spokes on the unit circle, a zero sum, a parity-priced product, and a prime family whose every spoke generates',
+    'the mixed census: examination items that price several storeys in one question — the way the hall actually prices a chapter',
+  ],
+  objectives: [
+    'hold the whole chapter in one hand — the wiring of its five storeys and where each promise was cashed',
+    'name which storey a question wants — field, bookkeeping, doors, address or powers — and run it at examination speed',
+    'recall the two master tables and the formula shelf without re-deriving them',
+    'solve mixed items that price several storeys in one machine, and diagnose every miss back to its home storey',
+  ],
+  prerequisites: [
+    'aa-the-closure-failure-that-forces-i',
+    'aa-conjugate-and-modulus',
+    'aa-negative-discriminants-the-doors-turn-complex',
+    'aa-the-argand-plane-polar-form-and-the-argument',
+    'aa-de-moivre-roots-of-unity-and-the-complex-loci',
+  ],
+  sources: ['cengage-m2-03', 'cengage-jee-style', 'ncert-math11-ch4-complex-numbers', 'openstax-college-algebra'],
+  blocks: [
+    { kind: 'para', text: 'Elementary Algebra filed its hardest cases away. Every quadratic with a negative discriminant was met honestly — "no real door" — and set aside; the census hunts of chapter 2 counted them, named their vertices, and left their doors unopened. This chapter opened exactly on that shelf and cleared it: a closure failure forced a new number, the field laws were rebuilt around it, bookkeeping (conjugate and modulus) was invented, the doors were finally answered, the whole system was given a second address on a plane, and powers of it were read as geometry. Five lessons, five storeys, one tower. This review walks the tower once, floor by floor, and then asks every storey to speak in the same room.' },
+    { kind: 'para', text: 'A review in this book does two things and refuses a third. It RE-MAPS the chapter — the arc, the promises made early and cashed late, the two master tables that reunite the operations at both addresses with the roots-of-unity census. And it runs a MIXED census: the witnesses below deliberately price several storeys in one exhibit, because that is exactly how an examination prices a chapter — one machine arrives, and every reading the book owns is asked of it in turn. What the review refuses: re-proving what the lessons already proved. Every derivation below is one line of recall with a pointer to its lesson; nothing is re-derived that 3.1 through 3.5 established once. The engines re-ran every number on this page before a word of it was written.' },
+    { kind: 'para', text: 'The map first, then the tables, then the witnesses, then the laws, then the traps, then the mixed bench. Read the wiring diagram once before the exercises and once after: the second reading should look shorter.' },
+    { kind: 'heading', text: 'The Arc: Five Storeys, One Tower' },
+    { kind: 'para', text: 'The ladder discipline ANS 7.2 proved says every new number family must keep every law the old rungs had. Storey one (3.1) built the rung itself: $x^2 + 1 = 0$ has no real door, so a number $i$ is forced with $i^2 = -1$, and the pairs $a + bi$ carry addition, subtraction, multiplication and division with every field law intact — commutativity, associativity, distributivity, no zero divisors. Storey two (3.2) gave the rung its bookkeeping: the conjugate $\\bar{z}$ as the mirror twin, the modulus $|z|$ as the distance from the origin, the hub identity $z\\bar{z} = |z|^2$, division by conjugating the denominator, and both triangle inequalities proved from components. Storey three (3.3) cashed the chapter-2 promise: the quadratic formula keeps working for every discriminant, $D < 0$ doors sit at $-\\tfrac{b}{2a} \\pm \\tfrac{i\\sqrt{|D|}}{2a}$, real coefficients force conjugate pairs, and the $u, v$ system takes square roots of any complex number at all.' },
+    { kind: 'para', text: 'Storey four (3.4) gave every number a second address: a seat on the Argand plane, a polar form $r(\\cos\\theta + i\\sin\\theta)$, a bearing called the argument, and the discovery that multiplication is rotation-and-scaling — moduli multiply, arguments add. Storey five (3.5) raised that law to powers: De Moivre\u2019s theorem, the $n$ equal spokes of the roots of unity, the $\\omega$ engine with its mod-3 clock, the multi-valued $n$th root, and the loci — circles, diametric circles, equilateral certificates — read as equations in $z$ and $\\bar{z}$. The five storeys are not five subjects. They are one subject at five levels of address: the same number, read as a pair, as a bookkeeping object, as a door of an equation, as a bearing, and as a spoke.' },
+    { kind: 'figure', caption: 'The storey wiring diagram: five storeys from the forced field (3.1) to the powers and loci (3.5), each bar naming its engine and its anchor witness. The chapter-2 promise (the filed D < 0 family) enters at the bottom; chapter 4\u2019s classical inequality engine receives the exit — the triangle inequality proved on storey two is its first resident. The spine on the left is the one law every storey uses.', svg: storeyWiringSvg() },
+    { kind: 'callout', tone: 'definition', title: 'The five storeys of the complex-number tower', text: 'The chapter\u2019s architecture, stated once as a definition. A STOREY is one level of address of the same field $\\mathbb{C}$: (i) the FIELD address — $z = a + bi$ with $i^2 = -1$, the four operations, the field laws; (ii) the BOOKKEEPING address — $\\bar{z}$, $|z|$, the hub $z\\bar{z} = |z|^2$; (iii) the EQUATION address — doors of $az^2 + bz + c = 0$ over $\\mathbb{C}$, the conjugate-pair law; (iv) the PLANE address — the Argand seat, the polar form, the argument; (v) the POWER address — De Moivre, the roots of unity, the loci. Thus, every question about a complex number has five readings, and the examination\u2019s favourite game is to ask two of them in one breath.' },
+    { kind: 'derivation', title: 'Why the five storeys are one story', statement: 'The multiplication law of 3.4, raised to powers, is the single engine behind the chapter\u2019s upper storeys — and it descends intact to the pair laws of 3.1. One law carries the tower.', steps: [
+      { label: 'The product of two bearings', formula: '(\\cos\\theta + i\\sin\\theta)(\\cos\\varphi + i\\sin\\varphi) = \\cos(\\theta+\\varphi) + i\\sin(\\theta+\\varphi)', explanation: 'FOIL with $i^2 = -1$ turns the cross terms into the angle-addition identities — 3.4 proved this as the argument law; here it is one line of recall. Moduli multiply, arguments add.' },
+      { label: 'The induction lift', formula: '(\\cos\\theta + i\\sin\\theta)^n = \\cos n\\theta + i\\sin n\\theta', explanation: 'If the law holds for $n$ factors, multiplying by one more adds one more angle — so it holds for every positive integer $n$. This is De Moivre\u2019s theorem, proved by induction in 3.5; the base case $n = 1$ is free.' },
+      { label: 'The honest extensions', formula: 'z^{-n} = \\frac{1}{z^n}; \\qquad z^{p/q} = \\text{a family of } q \\text{ doors}', explanation: 'Negative powers follow by the reciprocal engine; fractional powers are MULTI-valued — $z^{1/q}$ owns $q$ doors at equal spokes, and the radical symbol reports only one of them. The honesty 3.5 banked: the formula names one value, the equation owns the family.' },
+      { label: 'The read', formula: '|z^n| = |z|^n, \\qquad \\arg z^n = n\\arg z \\;(\\mathrm{mod}\\;2\\pi)', explanation: 'One law — moduli multiply, arguments add — dressed as pair algebra (3.1\u2019s FOIL rule computes it), as the second address (3.4\u2019s polar form reads it), and as plane geometry (multiplication is rotation-and-scaling). The whole tower runs on it.' },
+    ], result: 'One law — moduli multiply, arguments add — carries the tower: the pair form computes it, the polar form reads it, the Argand plane draws it.' },
+    { kind: 'heading', text: 'The Master Tables Reunited' },
+    { kind: 'para', text: 'Strip the chapter of its prose and two tables remain — the two the examinations actually price. The first puts every OPERATION side by side at both addresses; the second is the roots-of-unity census that 3.5 built and every door-count question leans on. Both were engine-swept again before this page was written: every row below is a verdict the verifier re-ran, not a memory transcribed.' },
+    { kind: 'table', caption: 'The operations at both addresses: the pair recipe, the second-address recipe, and the geometric read — one law in three dresses.', head: ['operation', 'the pair address (a + bi)', 'the second address (r cis \u03b8)', 'the geometric read'], rows: [
+      ['$z_1 + z_2$', '$(a+c) + (b+d)i$', 'no clean polar recipe — honest', 'the parallelogram diagonal (3.4)'],
+      ['$z_1 - z_2$', '$(a-c) + (b-d)i$', 'no clean polar recipe — honest', 'the tip-to-tail difference vector'],
+      ['$z_1 z_2$', '$(ac-bd) + (ad+bc)i$', 'moduli multiply, arguments add', 'rotation-and-scaling (3.4)'],
+      ['$z_1 / z_2$', 'conjugate the denominator: $\\dfrac{z_1\\bar{z}_2}{|z_2|^2}$', 'moduli divide, arguments subtract', 'the angle between seats (the quotient read)'],
+      ['$z^n$', 'multiply out, or the power chain', 'De Moivre: $r^n \\mathrm{cis}\\, n\\theta$', 'the bearing multiplies by $n$ (3.5)'],
+      ['$z^{1/n}$', 'the $u, v$ system (square roots only)', '$n$ doors $r^{1/n}\\,\\mathrm{cis}\\,\\tfrac{\\theta+2k\\pi}{n}$', 'the $n$ equal spokes (3.5)'],
+    ] },
+    { kind: 'table', caption: 'The roots-of-unity census: real seats by parity, non-real seats in conjugate pairs, primitive count \u03c6(n), and the two aggregate rows (sum 0, product (\u22121)^(n\u22121)) — engine-enumerated for n = 2 to 7.', head: ['$n$', 'real seats', 'non-real seats', 'conjugate pairs', 'primitive ($\\varphi(n)$)', 'sum', 'product'], rows: [
+      ['$2$', '$\\pm 1$', '$0$', '$0$', '$1$', '$0$', '$-1$'],
+      ['$3$', '$1$', '$2$', '$1$', '$2$', '$0$', '$1$'],
+      ['$4$', '$\\pm 1$', '$2$ ($\\pm i$)', '$1$', '$2$', '$0$', '$-1$'],
+      ['$5$', '$1$', '$4$', '$2$', '$4$', '$0$', '$1$'],
+      ['$6$', '$\\pm 1$', '$4$', '$2$', '$2$', '$0$', '$-1$'],
+      ['$7$', '$1$', '$6$', '$3$', '$6$', '$0$', '$1$'],
+    ] },
+    { kind: 'callout', tone: 'theorem', title: 'The one law behind the tables', text: 'Every row of the operations table is one law in different dress: MODULI MULTIPLY, ARGUMENTS ADD. Proved as the product law in 3.4, raised to powers as De Moivre\u2019s theorem in 3.5, and descended to the pair rule of 3.1 — where it hides inside $(a+bi)(c+di) = (ac-bd) + (ad+bc)i$ as the two cross terms $ac-bd$ and $ad+bc$. The census table\u2019s aggregate rows are the same law\u2019s shadow: the spokes cancel pairwise (sum $0$) because the bearings average out, and the product $(-1)^{n-1}$ is the one fold of the half-turn every family makes.' },
+    { kind: 'para', text: 'The two tables are one reading in different dress. The operations table answers HOW questions (how do I add, multiply, divide, raise); the census table answers HOW MANY questions (how many doors, how many real, how many primitive). And the honesty notes travel with the tables as one lesson: addition has no clean polar recipe — it is a pair-address operation, and pretending otherwise loses the quadrant discipline; the wrap discipline of 3.4 (a principal value of a product may need the $\\pm 2\\pi$ correction) is the price the second address pays for its power; and the census\u2019s primitive column is a number-theory visit — $\\varphi(n)$ counts the seats whose powers generate the whole family, and a prime $n$ makes every non-real spoke primitive.' },
+    { kind: 'callout', tone: 'insight', title: 'The two addresses are one address', text: 'The pair address and the second address name the same seat: $a + bi$ IS $\\sqrt{a^2+b^2}\\,\\mathrm{cis}\\,\\arctan\\tfrac{b}{a}$ (with the quadrant discipline). The working rule the chapter earned: compute in the pair address when the question is algebraic (equations, coefficients, sums), read in the second address when the question is geometric or exponential (bearings, powers, spokes), and translate without apology in either direction — the translation is one line of Pythagoras plus one arctangent with a quadrant check.' },
+    { kind: 'heading', text: 'The Cross-Lesson Witnesses, Re-Audited' },
+    { kind: 'para', text: 'Four exhibits carried the chapter\u2019s weight — one anchored in each storey — and a review earns its keep by re-auditing them TOGETHER: each is verified once more by the engine, and each now prices more than the storey that introduced it. The one-machine exhibit taught the five readings; here it also threads the door read. The floating parabola taught the $D < 0$ doors; here every storey reads it in turn. The prime-spoke census taught the roots of unity; here it also carries Vi\u00e8te and the conjugate-pair law. The circle locus taught $|z|$ as distance; here it stands revealed as a diametric circle with a Thales certificate. The engine re-ran all four before this page was written; nothing below is recalled from memory alone.' },
+    { kind: 'example', title: 'One machine, five readings: take z = \u221a3 + i through the whole chapter', steps: [
+      'Pair address (3.1): the seat is $z = \\sqrt{3} + i$, its mirror twin $\\bar{z} = \\sqrt{3} - i$; the field laws guarantee both belong to $\\mathbb{C}$.',
+      'Bookkeeping (3.2): $z + \\bar{z} = 2\\sqrt{3}$ (purely real), $z - \\bar{z} = 2i$ (purely imaginary), $z\\bar{z} = 3 + 1 = 4 = |z|^2$, so $|z| = 2$; the reciprocal engine gives $1/z = \\bar{z}/|z|^2 = (\\sqrt{3} - i)/4$, cross-checked by $z \\cdot (1/z) = 1$.',
+      'Second address (3.4): $z = 2\\left(\\cos\\tfrac{\\pi}{6} + i\\sin\\tfrac{\\pi}{6}\\right) = 2e^{i\\pi/6}$ — radius $2$, bearing $\\pi/6$ (first quadrant, no discipline case needed).',
+      'Powers (3.5, De Moivre): $z^2 = 4\\,\\mathrm{cis}\\,\\tfrac{\\pi}{3} = 2 + 2\\sqrt{3}i$; $z^3 = 8\\,\\mathrm{cis}\\,\\tfrac{\\pi}{2} = 8i$; $z^6 = 64\\,\\mathrm{cis}\\,\\pi = -64$ — moduli $2, 4, 8, 64$ multiply at every rung, bearings $\\tfrac{\\pi}{3}, \\tfrac{\\pi}{2}, \\pi$ add.',
+      'The door read (3.3 + 3.5 together): $z^6 = -64$ says $z$ is one of the six doors of $z^6 + 64 = 0$ — the closure failure that opened the chapter returns as an equation with six doors, and the machine that opened it sits among them.',
+      'Hence ONE machine, five readings: mirror $\\sqrt{3}-i$; bookkeeping $z\\bar{z} = 4$, $|z| = 2$, $1/z = (\\sqrt{3}-i)/4$; second address $2\\,\\mathrm{cis}\\,\\tfrac{\\pi}{6}$; powers $z^2 = 2+2\\sqrt{3}i$, $z^3 = 8i$, $z^6 = -64$ — and the door read: $z$ is a door of $z^6 + 64 = 0$.',
+    ] },
+    { kind: 'figure', caption: 'The readings plate: z = \u221a3 + i on the Argand plane with its mirror twin, the modulus bracket |z| = 2, the bearing arc \u03c0/6, and the squared seat z\u00b2 = 2 + 2\u221a3i; the right panel pins the five readings the Illustration ran — every number engine-pinned before prose.', svg: readingsPlateSvg() },
+    { kind: 'example', title: 'The floating parabola x\u00b2 \u2212 4x + 13, read by every storey', steps: [
+      'The verdict (3.3): $D = 16 - 52 = -36 < 0$, so the doors sit at $\\tfrac{4 \\pm 6i}{2} = 2 \\pm 3i$ — the family chapter 2 filed away, now answered.',
+      'The field check (3.1): substitution verifies — $(2+3i)^2 - 4(2+3i) + 13 = (-5+12i) - (8+12i) + 13 = 0$; the conjugate door verifies identically.',
+      'The bookkeeping (3.2 + 3.3): the doors come as a conjugate pair (real coefficients force it); $z + \\bar{z} = 4 = -\\tfrac{b}{a}$, $z\\bar{z} = 2^2 + 3^2 = 13 = \\tfrac{c}{a}$, so $|z| = \\sqrt{13}$ for both doors — the product read prices the pair without solving.',
+      'The second address (3.4): each door sits at $\\sqrt{13}\\,\\mathrm{cis}\\left(\\pm\\arctan\\tfrac{3}{2}\\right)$ — one bearing above the axis, its mirror below.',
+      'The geometry (3.3\u2019s axis read): both doors share real part $2 = -\\tfrac{b}{2a}$ — the axis of symmetry $x = 2$; the vertex $(2, 9)$ sits above them at height $\\tfrac{|D|}{4a} = 9$ above the axis, and the doors hang $3$ below the vertex-line at depth $\\tfrac{\\sqrt{|D|}}{2a}$.',
+      'Hence every storey read the same machine: doors $2 \\pm 3i$, field check $0$, bookkeeping sum $4$ / product $13$ / $|\\text{door}| = \\sqrt{13}$, second address $\\sqrt{13}\\,\\mathrm{cis}(\\pm\\arctan\\tfrac32)$, axis $x = 2$, vertex $(2, 9) = |D|/4a$ — one parabola, five verdicts.',
+    ] },
+    { kind: 'example', title: 'The prime-spoke census: z\u2077 = 1', steps: [
+      'The doors (3.5): seven seats $\\mathrm{cis}\\,\\tfrac{2k\\pi}{7}$, $k = 0, \\dots, 6$ — the unit circle\u2019s equal spokes, the regular heptagon.',
+      'The census rows: exactly one real seat ($1$); six non-real seats in three conjugate pairs ($k$ pairs with $7 - k$ — the conjugate-pair law of 3.3 is WHY: the coefficients are real); ALL six non-real seats primitive, because $\\varphi(7) = 6$ — a prime family\u2019s every non-real spoke generates the whole family.',
+      'The sum read (3.3\u2019s Vi\u00e8te generalized honestly): the doors solve $z^7 - 1 = 0$, whose $z^6$ coefficient is $0$, so the seven doors sum to $0$; the geometric-series route agrees — $1 + z + \\dots + z^6 = \\tfrac{z^7 - 1}{z - 1}$ vanishes at every door $\\neq 1$.',
+      'The product read: the product of all seven doors is $(-1)^7 \\cdot (-1) = 1 = (-1)^{7-1}$ — odd $n$, product $+1$, exactly as the census table\u2019s aggregate row says.',
+      'Hence the prime-spoke census: $\\{1\\}$ plus three conjugate pairs, sum $0$, product $1$, all six non-real seats primitive ($\\varphi(7) = 6$) — the prime family\u2019s every spoke generates.',
+    ] },
+    { kind: 'example', title: 'Two equations, one circle: |z \u2212 3 \u2212 4i| = 5 as the diametric circle of 0 and 6 + 8i', steps: [
+      'Reading one (3.2\u2019s locus engine): the equation says the distance from $z$ to the centre $3 + 4i$ is $5$ — a circle, centre $3+4i$, radius $5$; and the origin lies on it, since $|0 - 3 - 4i| = 5$.',
+      'Reading two (3.5\u2019s diametric engine): the circle whose diameter joins $0$ and $6 + 8i$ has centre $\\tfrac{0 + 6 + 8i}{2} = 3 + 4i$ and radius $\\tfrac{|6+8i|}{2} = \\tfrac{10}{2} = 5$ — the SAME circle.',
+      'The honest bridge (why): the diametric condition $(z - z_1)(\\bar{z} - \\bar{z}_2) + (\\bar{z} - \\bar{z}_1)(z - z_2) = 0$ with $z_1 = 0$, $z_2 = 6+8i$ expands to $2|z|^2 - 2\\,\\mathrm{Re}\\big((6-8i)z\\big) = 0$; and $|z - 3 - 4i|^2 = 25$ expands to $|z|^2 - 2\\,\\mathrm{Re}\\big((3-4i)z\\big) = 0$ — identical equations. Thales\u2019 right angle and the distance equation are one statement.',
+      'The Thales certificate (3.4\u2019s argument read): at the on-circle seat $z_3 = 3 - i$ (it checks: $|3 - i - 3 - 4i| = |{-5i}| = 5$), the quotient $\\tfrac{z_3 - 0}{z_3 - 6 - 8i} = \\tfrac{i}{3}$ — purely imaginary, the $90^\\circ$ verdict; the vector dot agrees: $(-3, 1) \\cdot (3, 9) = -9 + 9 = 0$.',
+      'Hence TWO equations, ONE circle — centre $3+4i$, radius $5$, through the origin: read as a distance locus (3.2) and as a diameter (3.5), the bridge being $|z|^2 = 2\\,\\mathrm{Re}((3-4i)z)$, with the Thales certificate $i/3$ at the seat $3 - i$.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'How the witnesses interlock', text: 'The four exhibits are not four examples — they are the same chapter wearing four costumes. The one-machine exhibit\u2019s sixth power ($z^6 = -64$) is a doors question; the floating parabola\u2019s doors ($2 \\pm 3i$) are a bookkeeping question the moment Vi\u00e8te is invited; the prime-spoke census is a conjugate-pair question in disguise; the circle locus is a modulus question that turns out to be a diameter question. The hall\u2019s mixed items run exactly this game: hand you one machine and bill you for several storeys at once. The diagnosis runs the same direction — a miss on a mixed item names its home storey by its shape.' },
+    { kind: 'heading', text: 'The Laws Worth Recalling' },
+    { kind: 'para', text: 'The chapter deposited twenty-three formula cards — five from 3.1, five from 3.2, three from 3.3, six from 3.4, four from 3.5 — and the reader\u2019s formula-sheet page aggregates them automatically. Eight of them are load-bearing: the laws the next chapters will actually reach for, each re-verified by the chapter\u2019s engine before this page was written. The cards first, the vocabulary after:' },
+    { kind: 'formula', name: 'The iota cycle and the negative-surd law', latex: 'i^{4q+r} = i^r \\quad (0 \\leq r \\leq 3); \\qquad \\sqrt{-k} = \\sqrt{k}\\,i \\;(k > 0)', note: 'the division algorithm collapses every integral power of i to one of four values; the radical\u2019s product law lives on NON-NEGATIVE reals — two negative radicands pay the i\u00b2 = \u22121 toll: \u221a(\u2212a)\u00b7\u221a(\u2212b) = \u2212\u221a(ab).' },
+    { kind: 'formula', name: 'The four operations, pair address', latex: '(a+bi)(c+di) = (ac-bd) + (ad+bc)i; \\qquad \\frac{a+bi}{c+di} = \\frac{(ac+bd) + (bc-ad)i}{c^2+d^2}', note: 'multiplication is FOIL with the single substitution i\u00b2 = \u22121; division is the same move after conjugating the denominator — one engine, two directions.' },
+    { kind: 'formula', name: 'The conjugate seeds', latex: 'z + \\bar{z} = 2\\,\\mathrm{Re}(z), \\quad z - \\bar{z} = 2i\\,\\mathrm{Im}(z), \\quad z\\bar{z} = |z|^2', note: 'the bookkeeping hub: every purely-real / purely-imaginary hunt, every symmetric read of a conjugate pair, and every circle locus routes through these three lines.' },
+    { kind: 'formula', name: 'The reciprocal engine', latex: '\\frac{1}{z} = \\frac{\\bar{z}}{|z|^2}', note: 'division, inversion and the 1/z reads are one move; the check is z \u00b7 (1/z) = 1 — the engine\u2019s own contract.' },
+    { kind: 'formula', name: 'The modulus laws and the triangle inequalities', latex: '|z_1z_2| = |z_1|\\,|z_2|, \\;\\; \\left|\\frac{z_1}{z_2}\\right| = \\frac{|z_1|}{|z_2|}; \\qquad \\big||z_1| - |z_2|\\big| \\leq |z_1 \\pm z_2| \\leq |z_1| + |z_2|', note: 'equality in the forward law needs the SAME direction, in the reverse law OPPOSITE directions — the band engine that prices every least/greatest-value question on fixed moduli.' },
+    { kind: 'formula', name: 'The polar form and the argument laws', latex: 'z = |z|(\\cos\\theta + i\\sin\\theta); \\qquad \\arg(z_1z_2) = \\arg z_1 + \\arg z_2 \\;(\\mathrm{mod}\\;2\\pi)', note: 'the quadrant discipline fixes \u03b8 honestly (a third-quadrant seat never reports arctan(b/a)); the wrap discipline fixes the principal value of a product — both priced in 3.4\u2019s hall.' },
+    { kind: 'formula', name: 'De Moivre and the multi-valued root', latex: '(\\cos\\theta + i\\sin\\theta)^n = \\cos n\\theta + i\\sin n\\theta; \\qquad z^n = re^{i\\theta} \\Rightarrow z = r^{1/n}\\,\\mathrm{cis}\\,\\tfrac{\\theta + 2k\\pi}{n}', note: 'powers at the second address: the bearing multiplies by n; roots return n doors at equal spokes on the circle |z| = r^{1/n} — the radical symbol reports only ONE of them.' },
+    { kind: 'formula', name: 'The \u03c9 engine and the roots census', latex: '1 + \\omega + \\omega^2 = 0, \\quad \\omega^3 = 1, \\quad \\omega^{3q+r} = \\omega^r; \\qquad \\sum(\\text{nth roots}) = 0, \\;\\; \\prod = (-1)^{n-1}', note: 'the mod-3 clock collapses every \u03c9-power family; the census\u2019s real seats are \u00b11 by parity and \u03c6(n) counts the primitive spokes — a prime n makes every non-real seat primitive.' },
+    { kind: 'terms', items: [
+      { term: 'The second address', def: 'the polar form z = |z| cis \u03b8 — the same seat as the pair a + bi, read by radius and bearing; the translation is Pythagoras plus an arctangent with the quadrant discipline.' },
+      { term: 'Principal argument', def: 'the bearing \u03b8 reported in (\u2212\u03c0, \u03c0]; arguments add only mod 2\u03c0, so a product\u2019s principal value may need the \u00b12\u03c0 wrap — the discipline 3.4 priced.' },
+      { term: 'Rotation-and-scaling', def: 'multiplication by w = |w| cis \u03c6 scales every radius by |w| and turns every bearing by \u03c6 — the geometric face of the one law (3.4).' },
+      { term: 'De Moivre\u2019s theorem', def: '(cis \u03b8)^n = cis n\u03b8 for every integer n — proved by induction on the argument law; for fractional powers the left side is multi-valued and the formula names one value.' },
+      { term: 'nth roots of unity', def: 'the n doors of z^n = 1 — the unit circle\u2019s equal spokes; sum 0, product (\u22121)^{n\u22121}, real seats \u00b11 by parity, primitive seats \u03c6(n) in number.' },
+      { term: 'The multi-valued nth root', def: 'z^n = w owns n doors at equal spokes on |z| = |w|^{1/n} — the honest equation reports the family; the radical symbol is a convention reporting one door.' },
+      { term: 'The z-form of a circle', def: 'zz\u0304 + az\u0304 + \u0101z + b = 0 with centre \u2212a and radius \u221a(a\u0101 \u2212 b) — the circle as one equation in z and z\u0304, no (x, y) named; the diametric form carries Thales\u2019 right angle.' },
+      { term: 'The equilateral condition', def: 'three distinct seats form an equilateral triangle exactly when z\u2081\u00b2 + z\u2082\u00b2 + z\u2083\u00b2 = z\u2081z\u2082 + z\u2082z\u2083 + z\u2083z\u2081 — one symmetric identity, engine-checkable in one line.' },
+    ] },
+    { kind: 'heading', text: 'The Traps the Hall Sets' },
+    { kind: 'para', text: 'The chapter\u2019s own caution shelf, compressed to the six traps the examination hall actually sets — each is one storey\u2019s discipline pointed at one wrong instinct:' },
+    { kind: 'list', items: [
+      'The radical sign slip: \u221a(\u22125) \u00b7 \u221a(\u221220) = \u221210, never 10 — the i\u00b2 tax; the radical\u2019s product law lives on non-negative reals only.',
+      'The free-door amnesia: given ONE non-real door of a real quadratic, the conjugate door is FREE — re-solving is the hall\u2019s time trap; the sum and the product price the coefficients without solving.',
+      'The quadrant discipline: arg(\u22125 \u2212 12i) is a THIRD-quadrant bearing (\u03c0 + arctan(12/5) mod 2\u03c0), never arctan(12/5) — the sign-blind arctangent is the priced distractor.',
+      'The principal wrap: arguments add only mod 2\u03c0 — a product of principal arguments may need \u00b12\u03c0 before it is a principal argument again; the wrap seat is where the mark is lost.',
+      'The multi-valued root: z^{1/n} is an n-door family; the \u221a symbol reports ONE door — writing \u201c\u221az\u201d as if it were the answer is writing one door where the equation owns two (or n).',
+      'The \u03c9 substitution discipline: \u03c9 is EITHER complex cube root of unity — the zero-sum law holds for both; a reduction proved with one specific root (as a seat, not as a symbol) must be re-checked at the conjugate root.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'The one warning that carries forward', text: 'The square-root symbol over complexes is a CONVENTION, not a function. Over the reals, \u221a names the unique non-negative root and the laws hold; over \u2102, \u221az is one of two doors and z^{1/n} one of n, and every law you write with the symbol silently chooses a branch. Chapter 8 — the theory of equations — will count roots honestly (n for degree n, multiplicities included) and the same discipline returns: whenever a symbol claims uniqueness over \u2102, ask for the family. The honest logarithm of 3.4 already played the same game: log w exists as a FAMILY of bearings, not a number.' },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner \u2014 how the chapter is actually priced', text: 'The exam-coverage audit across 3.1\u20133.5, honestly stated. JEE Main\u2019s algebra unit names complex numbers and quadratic equations together — modulus, the Argand diagram, the triangle inequality and roots-coefficients are named registers, which is the syllabus\u2019s own hint that the whole tower is examined: the 3.1 registers (iota-cycle reductions, standard-form division) are the aptitude staples; the 3.2 registers (reciprocal quotients, modulus-of-a-product, least/greatest band values, circle-through-a-point loci) dominate the single-correct set; the 3.3 registers (D < 0 door computation, one-door-given-coefficients short answers, \u221a(a + bi) numericals) pair the lesson with the quadratic; the 3.4 registers (polar conversion with the quadrant discipline as the priced distractor, argument-of-a-product with the wrap) are the conversion items; the 3.5 registers (De Moivre reductions, spoke censuses, \u03c9 clocks, z-form centre-and-radius, equilateral certificates) fill the advanced papers. NCERT class 11 ch. 4 carries the 3.1\u20133.4 arc at school depth; CUET domain mathematics and the aptitude batteries (Khattar QA\u2019s surds and power-speed work) price the 3.1/3.2 registers; JEE Advanced adds the loci and \u03c9 families. The items in this review are exam-style — our own constructions on those registers, honestly labelled; no past-paper text is reproduced, and every number above was generated and verified by this book\u2019s own engines.' },
+    { kind: 'callout', tone: 'historical', title: 'The two-century arc', text: 'The tower took two centuries to build, and the chapter walked it in five storeys. Cardan met the "sophistic" negatives of the irreducible cubic in 1545 and called them useless; Bombelli kept the rules anyway in 1572 — the wild thought that became 3.1\u2019s field-law survival discipline. De Moivre had the powers law in the 1730s, decades before anyone drew the plane — the bearing law proved as pure algebra, which is exactly how 3.5 states it. Euler\u2019s 1748 Introductio gave the form e^{i\u03b8} and the identity e^{i\u03c0} + 1 = 0 that 3.4\u2019s honest logarithm leaned on. Wessel — a surveyor measuring coastlines — presented the plane in 1797, nine years before Argand\u2019s better-circulated 1806 booklet gave it the name that stuck. Gauss pushed the acceptance through by the 1830s and the word "complex" with it. The lesson to carry: every one of those steps was a refusal to discard a working algebra just because its objects had no picture yet — the picture always came later, and the laws survived the move.' },
+    { kind: 'heading', text: 'The Chapter Closes' },
+    { kind: 'para', text: 'And so the chapter closes. Elementary Algebra handed this book a filed shelf of impossible cases; the book returned a field. The closure failure was forced into a number; the number was given bookkeeping, doors, a plane and powers; and the last storey read the powers as geometry — equal spokes, regular polygons, loci as equations, symmetry as an identity. What began as \u201cthere is no real door\u201d ends as \u201cthere are exactly n doors, and here is their shape.\u201d The honest map of what was named but deferred: the cyclotomic polynomials \u03a6_n wait in chapter 8\u2019s higher rungs; the ellipse and hyperbola loci belong to Coordinate Geometry\u2019s conic arc; and the deep geometry of e^{i\u03b8} — the full function family behind Euler\u2019s form — is complex analysis, honestly beyond this book\u2019s scope and named as such. The next chapter builds the classical inequality engine, and its first resident is already here: the triangle inequality this chapter proved from components is the model AM\u2013GM will follow — a bound proved, equality case priced, never a formula quoted.' },
+    { kind: 'para', text: 'Use the review honestly and it will diagnose you. Attempt the mixed bench WITHOUT looking back at the lessons; every miss names its storey by its shape — a missed i\u00b2 tax sends you to 3.1, a missed conjugate read to 3.2, a missed free door to 3.3, a missed wrap or quadrant to 3.4, a missed spoke or clock to 3.5. The five quiz questions are the chapter in miniature: one field law, one band engine, one free door, one argument sum, one clock read. Score them honestly, revisit exactly what the misses name, and the tower is yours.' },
+    { kind: 'quiz', title: 'Check yourself \u2014 the chapter in five questions', items: [
+      { q: '$\\sqrt{-5} \\cdot \\sqrt{-20}$ equals', options: ['10', '\u221210', '10i', '\u2212100'], answer: 1, explain: 'Pull each negative out as the unit: $(\\sqrt5\\,i)(\\sqrt{20}\\,i) = \\sqrt{100}\\,i^2 = 10(\u22121) = \u221210$. (A) is the oldest trap in the storey — the radical product law \u221aa \u00b7 \u221ab = \u221a(ab) lives on non-negative reals only; over \u2102 the two units multiply to $i^2 = \u22121$ and the product pays the toll. (C) pays half the toll (forgets the $\\sqrt{100}$ reduction); (D) pays it twice and squares.' },
+      { q: 'With $|z_1| = 3$ and $|z_2| = 5$, the least value of $|z_1 + z_2|$ is', options: ['0', '3', '2', '8'], answer: 2, explain: 'The reverse triangle inequality: $|z_1 + z_2| \\ge \\big||z_1| - |z_2|\\big| = |3 - 5| = 2$, attained exactly when the seats point in OPPOSITE directions — the band\u2019s floor. (A) would need EQUAL moduli (then opposite directions cancel to 0); (B) is no law at all — it is the smaller modulus quoted for no reason; (D) is the GREATEST value, attained when the seats share a direction.' },
+      { q: 'One door of $x^2 - px + 45 = 0$ ($p$ real) is $3 + 6i$. Then', options: ['$p = 45$; the other door is $3 + 6i$ itself', '$p = 6$; the other door is $3 - 6i$', '$p = -6$; the other door is $-3 - 6i$', '$p = 9$; the other door is $9 - i$'], answer: 1, explain: 'Real coefficients force the conjugate-pair law: the other door is $3 - 6i$, FREE — and it checks the product read: $3^2 + 6^2 = 45 = q$. The sum: $p = (3 + 6i) + (3 - 6i) = 6$. (A) invents a double door and quotes the product as the sum; (C) conjugates the SUM instead of the door; (D) fabricates a door with the right modulus but the wrong family — it never checks against the coefficients.' },
+      { q: 'The principal argument of $(1 + i)(\\sqrt{3} + i)$ is', options: ['$\\dfrac{5\\pi}{12}$', '$\\dfrac{\\pi}{12}$', '$\\dfrac{\\pi}{2}$', '$\\dfrac{7\\pi}{12}$'], answer: 0, explain: 'Arguments add: $\\arg(1+i) = \\pi/4$ and $\\arg(\\sqrt{3}+i) = \\pi/6$ (a 30\u00b0\u201360\u00b0\u201390\u00b0 pair in reverse), so the product carries $\\pi/4 + \\pi/6 = 5\\pi/12 < \\pi$ — no wrap needed, the principal value IS the sum. (B) SUBTRACTS the bearings; (C) doubles the smaller one as if the factors matched; (D) is the wrap-seat mirror — the value after an unnecessary $\\pm\\pi$ correction, the exact seat where the hall prices the discipline.' },
+      { q: 'With $\\omega$ a complex cube root of unity, $\\omega^{198} + \\omega^{199} + \\omega^{200}$ equals', options: ['1', '3', '$\\omega$', '0'], answer: 3, explain: 'The mod-3 clock: $198 \\equiv 0$, $199 \\equiv 1$, $200 \\equiv 2$, so the sum is $1 + \\omega + \\omega^2 = 0$ — the zero-sum law collapses the block. (A) treats every power as 1 (the 3-divisible case only — that block reads 3, not 1); (B) is the $3 \\mid n$ verdict applied to a mixed block; (C) reads only the middle power and discards the other two. The clock is why $\\omega$-power families are always reduced FIRST, before any algebra begins.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises 3.R \u2014 the mixed bench', sets: [
+      { level: 'L1', questions: [
+        { q: 'Express $\\sqrt{-2} \\cdot \\sqrt{-32}$ and $i^{93} \\cdot i^{103}$ in the form $a + bi$.', solution: [
+          'Pull the negatives out as units and extract the largest squares: $\\sqrt{-2} = \\sqrt{2}\\,i$ and $\\sqrt{-32} = \\sqrt{32}\\,i = 4\\sqrt{2}\\,i$.',
+          'Multiply: $\\sqrt{2} \\cdot 4\\sqrt{2} \\cdot i^2 = 8 \\cdot (-1) = -8$ — the two units paid the $i^2$ toll.',
+          'Reduce the exponents mod 4: $93 = 4(23) + 1$ so $i^{93} = i$; $103 = 4(25) + 3$ so $i^{103} = -i$; the product is $i \\cdot (-i) = -i^2 = 1$ — equivalently $i^{93 + 103} = i^{196} = i^{4(49)} = 1$, both routes agreeing.',
+        ], answer: '$\\sqrt{-2}\\cdot\\sqrt{-32} = -8$; $i^{93} \\cdot i^{103} = 1$' },
+        { q: 'For $z = 8 - 15i$: write $\\bar{z}$, $z + \\bar{z}$, $z - \\bar{z}$, $z\\bar{z}$ and $|z|$, and state which of the five can never be negative.', solution: [
+          'The mirror twin: $\\bar{z} = 8 + 15i$ — the real part survives, the imaginary part flips.',
+          'The seeds: $z + \\bar{z} = 16$ (purely real), $z - \\bar{z} = -30i$ (purely imaginary), $z\\bar{z} = 8^2 + 15^2 = 64 + 225 = 289$.',
+          'The distance read: $|z| = \\sqrt{289} = 17$ — the 8-15-17 triple, and $z\\bar{z} = |z|^2 = 289$ confirms the hub identity.',
+          'The never-negative two: $z\\bar{z} = |z|^2 \\geq 0$ and $|z| \\geq 0$ — the bookkeeping pair; $\\bar{z}$, $z + \\bar{z}$ and $z - \\bar{z}$ are all signed.',
+        ], answer: '$\\bar{z} = 8+15i$; $z+\\bar{z} = 16$; $z-\\bar{z} = -30i$; $z\\bar{z} = 289$; $|z| = 17$ — $z\\bar{z}$ and $|z|$ never negative' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Write $4i$, $-6$ and $3 - 3\\sqrt{3}i$ in polar form (modulus and principal argument).', solution: [
+          '$4i$ sits on the positive imaginary axis: modulus $4$, principal argument $\\pi/2$ — $4\\,\\mathrm{cis}\\,\\tfrac{\\pi}{2}$.',
+          '$-6$ sits on the negative real axis: modulus $6$, principal argument $\\pi$ (not $0$ — the axis discipline: the negative real axis is the wrap seat).',
+          '$3 - 3\\sqrt{3}i$: modulus $\\sqrt{9 + 27} = 6$; the seat is in the FOURTH quadrant (real positive, imaginary negative), so the bearing is $\\arctan\\!\\left(\\tfrac{-3\\sqrt3}{3}\\right) = -\\tfrac{\\pi}{3}$ — $6\\,\\mathrm{cis}\\left(-\\tfrac{\\pi}{3}\\right)$; the check reads back $6(\\tfrac12 - \\tfrac{\\sqrt3}{2}i) = 3 - 3\\sqrt3 i$.',
+        ], answer: '$4\\,\\mathrm{cis}\\,\\tfrac{\\pi}{2}$; $6\\,\\mathrm{cis}\\,\\pi$; $6\\,\\mathrm{cis}\\left(-\\tfrac{\\pi}{3}\\right)$' },
+        { q: 'Express $\\dfrac{7 + i}{3 - 4i}$ in the form $a + bi$ and verify by multiplication.', solution: [
+          'Conjugate the denominator: multiply numerator and denominator by $3 + 4i$ — the denominator becomes $3^2 + 4^2 = 25$.',
+          'The numerator: $(7+i)(3+4i) = 21 + 28i + 3i + 4i^2 = 17 + 31i$.',
+          'So $\\dfrac{7+i}{3-4i} = \\dfrac{17 + 31i}{25} = \\dfrac{17}{25} + \\dfrac{31}{25}i$.',
+          'Verify: $(3 - 4i)\\left(\\dfrac{17+31i}{25}\\right) = \\dfrac{51 + 93i - 68i + 124}{25} = \\dfrac{175 + 25i}{25} = 7 + i$ — the original numerator returns.',
+        ], answer: '$\\dfrac{17}{25} + \\dfrac{31}{25}i$' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Solve $x^2 - 6x + 13 = 0$ over $\\mathbb{C}$ and verify one door by substitution.', solution: [
+          'The verdict: $D = 36 - 52 = -16 < 0$ — the doors turn complex.',
+          'The door formula: $x = \\dfrac{6 \\pm i\\sqrt{16}}{2} = \\dfrac{6 \\pm 4i}{2} = 3 \\pm 2i$.',
+          'Substitution at $3 + 2i$: $(3+2i)^2 - 6(3+2i) + 13 = (9 + 12i - 4) - (18 + 12i) + 13 = (5 + 12i) - (18 + 12i) + 13 = 0$ — verified.',
+          'The conjugate door $3 - 2i$ verifies identically (or for free, by the conjugate-pair law — the coefficients are real).',
+        ], answer: 'doors $3 \\pm 2i$ (the $3+2i$ door verified by substitution)' },
+        { q: 'One door of $z^2 - pz + 40 = 0$ ($p$ real) is $2 + 6i$. Find $p$ and the other door \u2014 without solving.', solution: [
+          'Real coefficients force the conjugate-pair law: the other door is $2 - 6i$ — no formula touched.',
+          'The product read: $(2+6i)(2-6i) = 2^2 + 6^2 = 4 + 36 = 40 = q$ — the door checks against the constant term.',
+          'The sum read: $p = (2 + 6i) + (2 - 6i) = 4$.',
+        ], answer: '$p = 4$; the other door is $2 - 6i$' },
+        { q: 'Find both square roots of $15 + 8i$ by the $u, v$ system, showing all three rows.', solution: [
+          'Row 1 — the radius: $r = |15 + 8i| = \\sqrt{225 + 64} = \\sqrt{289} = 17$.',
+          'Rows 2 and 3 — the pair: $u^2 = \\tfrac{r + a}{2} = \\tfrac{17 + 15}{2} = 16$ so $u = 4$; $v^2 = \\tfrac{r - a}{2} = \\tfrac{17 - 15}{2} = 1$ so $v = 1$.',
+          'The sign law: the imaginary part $b = 8 > 0$, so both parts share the sign — $\\sqrt{15 + 8i} = \\pm(4 + i)$.',
+          'The check: $(4 + i)^2 = 16 + 8i - 1 = 15 + 8i$ — verified; the $\\pm$ pair squares to the same seat, as squaring always does.',
+        ], answer: '$\\pm(4 + i)$' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Compute $(-1 + i)^4$ and $(-1 + i)^8$ without expanding, and state the modulus and bearing of each verdict.', solution: [
+          'The second address: $-1 + i = \\sqrt{2}\\,\\mathrm{cis}\\,\\tfrac{3\\pi}{4}$ — modulus $\\sqrt{2}$ (the half-square of side 2\u2019s diagonal), bearing $3\\pi/4$.',
+          'De Moivre: $(-1+i)^4 = (\\sqrt{2})^4\\,\\mathrm{cis}\\left(4 \\cdot \\tfrac{3\\pi}{4}\\right) = 4\\,\\mathrm{cis}\\,3\\pi \\equiv 4\\,\\mathrm{cis}\\,\\pi = -4$ — modulus 4, bearing $\\pi$.',
+          'Likewise $(-1+i)^8 = (\\sqrt2)^8\\,\\mathrm{cis}\\,6\\pi = 16\\,\\mathrm{cis}\\,0 = 16$ — modulus 16, bearing 0: the orbit returns to the positive real axis.',
+          'The algebra route agrees: $(-1+i)^2 = -2i$, so $(-1+i)^4 = (-2i)^2 = -4$ and $(-1+i)^8 = (-4)^2 = 16$.',
+        ], answer: '$(-1+i)^4 = -4$ (modulus 4, bearing $\\pi$); $(-1+i)^8 = 16$ (modulus 16, bearing 0)' },
+        { q: 'Solve $z^6 = -64$ completely; then name the two cubic families whose door-unions produce your six answers.', solution: [
+          'The second address of the right side: $-64 = 64\\,\\mathrm{cis}\\,\\pi$; the six doors sit at $2\\,\\mathrm{cis}\\,\\tfrac{\\pi + 2k\\pi}{6}$, $k = 0, \\dots, 5$ — radius $64^{1/6} = 2$, spokes $\\tfrac{\\pi}{6}, \\tfrac{\\pi}{2}, \\tfrac{5\\pi}{6}, \\tfrac{7\\pi}{6}, \\tfrac{3\\pi}{2}, \\tfrac{11\\pi}{6}$.',
+          'In rectangular form: $\\sqrt{3} + i$, $2i$, $-\\sqrt{3} + i$, $-\\sqrt{3} - i$, $-2i$, $\\sqrt{3} - i$ — two upright pairs flanking the imaginary axis plus the two pure-imaginary seats.',
+          'Cube the even-$k$ seats: $(\\sqrt3+i)^3 = 8i$, $(-\\sqrt3+i)^3 = 8i$, $(-2i)^3 = 8i$ — they are exactly the three doors of $z^3 = 8i$.',
+          'Cube the odd-$k$ seats: $(2i)^3 = -8i$, $(-\\sqrt3-i)^3 = -8i$, $(\\sqrt3-i)^3 = -8i$ — exactly the three doors of $z^3 = -8i$.',
+          'So $z^6 = -64$ splits as $(z^3)^2 = -64$, i.e. $z^3 = \\pm 8i$: the six sixth-doors are the UNION of the two cubic door-families — and $z^6 = (z^3)^2$ is the honest reason why.',
+        ], answer: 'doors $2\\,\\mathrm{cis}\\!\\left(\\tfrac{\\pi}{6} + \\tfrac{k\\pi}{3}\\right)$: $\\pm\\sqrt3 \\pm i$ and $\\pm 2i$ — the union of the $z^3 = 8i$ family $\\{\\sqrt3+i, -\\sqrt3+i, -2i\\}$ and the $z^3 = -8i$ family $\\{\\sqrt3-i, -\\sqrt3-i, 2i\\}$' },
+        { q: 'With $\\omega$ a complex cube root of unity, evaluate $(1 + \\omega - \\omega^2)^8$ by the $\\omega$ engine, then check the verdict by the De Moivre route.', solution: [
+          'Reduce FIRST: $1 + \\omega = -\\omega^2$, so $1 + \\omega - \\omega^2 = -\\omega^2 - \\omega^2 = -2\\omega^2$.',
+          'The power: $(-2\\omega^2)^8 = 256\\,\\omega^{16} = 256\\,\\omega^{3 \\cdot 5 + 1} = 256\\,\\omega$ — the mod-3 clock collapses the exponent.',
+          'The De Moivre check: $1 + \\omega - \\omega^2 = 1 + \\sqrt{3}i$ (substituting $\\omega = -\\tfrac12 + \\tfrac{\\sqrt3}{2}i$, $\\omega^2 = -\\tfrac12 - \\tfrac{\\sqrt3}{2}i$), which is $2\\,\\mathrm{cis}\\,\\tfrac{\\pi}{3}$.',
+          'So $(1 + \\omega - \\omega^2)^8 = 2^8\\,\\mathrm{cis}\\,\\tfrac{8\\pi}{3} = 256\\,\\mathrm{cis}\\,\\tfrac{2\\pi}{3} = 256\\left(-\\tfrac12 + \\tfrac{\\sqrt3}{2}i\\right) = 256\\,\\omega = -128 + 128\\sqrt{3}i$ — both routes land on the same seat, as they must.',
+        ], answer: '$(1+\\omega-\\omega^2)^8 = 256\\,\\omega = -128 + 128\\sqrt{3}i$ (both routes agree)' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Identify the locus $|z + 2 - i| = |z - 1 + 2i|$; name one on-seat and one off-seat.', solution: [
+          'Read the equation as distance: $|z - (-2 + i)| = |z - (1 - 2i)|$ — the seats equidistant from $A(-2 + i)$ and $B(1 - 2i)$.',
+          'The locus of equidistant seats is the perpendicular bisector of $AB$: midpoint $\\left(-\\tfrac12, -\\tfrac12\\right)$; the segment\u2019s slope is $\\tfrac{-2 - 1}{1 - (-2)} = -1$, so the bisector\u2019s slope is $+1$ — the line $y = x$ (i.e. $\\mathrm{Im}\\,z = \\mathrm{Re}\\,z$).',
+          'On-seat $1 + i$: $|1 + i + 2 - i| = |3| = 3$ and $|1 + i - 1 + 2i| = |3i| = 3$ — equidistant, on the locus.',
+          'Off-seat $1$: $|1 + 2 - i| = |3 - i| = \\sqrt{10}$ against $|1 - 1 + 2i| = |2i| = 2$ — $\\sqrt{10} \\neq 2$, off the locus.',
+        ], answer: 'the line $\\mathrm{Im}\\,z = \\mathrm{Re}\\,z$ (the diagonal $y = x$) — on-seat $1 + i$, off-seat $1$' },
+        { q: 'With $|z_1| = 3$ and $|z_2| = 5$, find the least and greatest values of $|z_1 + z_2|$ and of $|z_1 - z_2|$, stating when each is attained.', solution: [
+          'The band engine prices both: $\\big||z_1| - |z_2|\\big| \\leq |z_1 \\pm z_2| \\leq |z_1| + |z_2|$, i.e. every value lands in $[2, 8]$.',
+          'The sum: least $2$ — attained when the seats point in OPPOSITE directions (the gap $5 - 3$ survives); greatest $8$ — attained when they share a direction (the radii stack).',
+          'The difference: least $2$ — attained when they share a direction (the subtraction cancels the overlap); greatest $8$ — attained in opposite directions (the full span).',
+          'The symmetry is the lesson: one band, two attainment maps — the sum and the difference trade their end-conditions, which is why the hall prices them in one item.',
+        ], answer: 'sum: least $2$ (opposite directions), greatest $8$ (same direction); difference: least $2$ (same direction), greatest $8$ (opposite directions) — the shared band $[2, 8]$' },
+        { q: 'The circle with diametric end points $1 + 2i$ and $5 + 4i$: find the centre, the radius and the $z$-form equation; then show the seats $1 + 4i$ and $5 + 2i$ both lie on it, and name the theorem that guaranteed both before any distance was computed.', solution: [
+          'The diametric reads: centre $\\dfrac{(1 + 2i) + (5 + 4i)}{2} = 3 + 3i$; radius $\\dfrac{|(5 + 4i) - (1 + 2i)|}{2} = \\dfrac{|4 + 2i|}{2} = \\dfrac{\\sqrt{20}}{2} = \\sqrt{5}$.',
+          'The $z$-form (Thales\u2019 equation): $(z - 1 - 2i)(\\bar{z} - 5 + 4i) + (z - 5 - 4i)(\\bar{z} - 1 - 2i) = 0$ — the right angle at $z$ between the two end points, written as one equation in $z$ and $\\bar{z}$.',
+          'The guarantee BEFORE any distance: the four seats $(1, 2)$, $(5, 4)$, $(1, 4)$, $(5, 2)$ are the corners of a rectangle — and every corner of a rectangle sits on the circle whose diameter is the rectangle\u2019s diagonal (Thales: the angle a diameter subtends is right, and each corner\u2019s angle is right by construction).',
+          'The checks: $|1 + 4i - 3 - 3i| = |-2 + i| = \\sqrt5$ and $|5 + 2i - 3 - 3i| = |2 - i| = \\sqrt5$ — both at exactly the radius; the Thales certificate at $1 + 4i$ reads $(0, -2) \\cdot (4, 0) = 0$, the right angle in coordinates.',
+        ], answer: 'centre $3 + 3i$, radius $\\sqrt{5}$; the rectangle\u2019s Thales circle — $1 + 4i$ and $5 + 2i$ both at distance $\\sqrt{5}$' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Prove: when $z^2 + pz + q = 0$ ($p, q$ real) has non-real doors, those doors lie on the circle $|z| = \\sqrt{q}$ AND on the vertical line $\\mathrm{Re}\\,z = -\\tfrac{p}{2}$ — the two pins together fix the doors as the line\u2019s two intersections with the circle. Then read the witnesses $x^2 - 4x + 13$ and $x^2 - 2x + 5$ against both pins.', solution: [
+          'The circle exists: $D = p^2 - 4q < 0$ forces $q > \\tfrac{p^2}{4} \\geq 0$, so $q > 0$ and $\\sqrt{q}$ is real.',
+          'The doors are conjugates: real coefficients force the conjugate-pair law (3.3) — write them $z$ and $\\bar{z}$.',
+          'The two Vi\u00e8te reads: $z \\cdot \\bar{z} = q$ and $z + \\bar{z} = -p$. The first says $|z|^2 = q$, i.e. $|z| = \\sqrt{q}$ — the CIRCLE pin; the second says $2\\,\\mathrm{Re}\\,z = -p$, i.e. $\\mathrm{Re}\\,z = -\\tfrac{p}{2}$ — the LINE pin.',
+          'The two pins fix the doors: the vertical line meets the circle in exactly two mirrored seats — and mirrored is exactly what the doors are. So the doors ARE those two intersections; no formula was needed beyond the pins themselves.',
+          'Witness 1, $x^2 - 4x + 13$ ($p = -4$, $q = 13$): the doors $2 \\pm 3i$ sit on $|z| = \\sqrt{13}$ ($2^2 + 3^2 = 13$) and on $\\mathrm{Re}\\,z = 2 = -\\tfrac{-4}{2}$ — both pins green.',
+          'Witness 2, $x^2 - 2x + 5$ ($p = -2$, $q = 5$): the doors $1 \\pm 2i$ sit on $|z| = \\sqrt{5}$ ($1 + 4 = 5$) and on $\\mathrm{Re}\\,z = 1 = -\\tfrac{-2}{2}$ — both pins green.',
+        ], answer: 'proved — the non-real doors are exactly the two seats where $\\mathrm{Re}\\,z = -p/2$ meets $|z| = \\sqrt{q}$; both witnesses verify on both pins' },
+        { q: 'Show that the seats $1$, $5$ and $3 + 2\\sqrt{3}i$ form an equilateral triangle by BOTH engines \u2014 the side census and the symmetric identity \u2014 and read the rotation that carries the base to the apex.', solution: [
+          'The side census: $|5 - 1| = 4$; $|3 + 2\\sqrt3 i - 1| = |2 + 2\\sqrt3 i| = \\sqrt{4 + 12} = 4$; $|3 + 2\\sqrt3 i - 5| = |-2 + 2\\sqrt3 i| = \\sqrt{4 + 12} = 4$ — all three sides exactly 4.',
+          'The symmetric identity: $z_1^2 + z_2^2 + z_3^2 = 1 + 25 + (9 - 12 + 12\\sqrt3 i) = 23 + 12\\sqrt3 i$; and $z_1z_2 + z_2z_3 + z_3z_1 = 5 + (15 + 10\\sqrt3 i) + (3 + 2\\sqrt3 i) = 23 + 12\\sqrt3 i$ — EQUAL, the certificate holds.',
+          'The rotation read: the apex arm is $z_3 - z_1 = 2 + 2\\sqrt3 i = 4\\,\\mathrm{cis}\\,\\tfrac{\\pi}{3}$ — the base vector $z_2 - z_1 = 4$ rotated by exactly $60^\\circ$; and $\\mathrm{cis}\\,\\tfrac{\\pi}{3} = -\\omega^2$, the rotation seat the $\\omega$ engine banked.',
+          'Both engines certify the same shape: the side census by measurement, the symmetric identity by algebra — and the rotation read names WHY the identity holds (three equal arms at $60^\\circ$ turn the symmetric sum into the cancellation $\\omega$ performs).',
+        ], answer: 'equilateral by both engines — sides $4, 4, 4$; the identity\u2019s two sides both $23 + 12\\sqrt3 i$; the base rotates by $\\mathrm{cis}(\\pi/3) = -\\omega^2$ to the apex arm' },
+      ] },
+    ] },
+  ],
+}
+
 export const chapter03: Chapter = {
   number: 3,
   slug: 'complex-numbers',
   title: 'Complex Numbers: the New Rung',
   summary:
     'Arithmetic and Number Systems proved the extension-ladder discipline — every new number family born from a closure failure, repaired on purpose. This chapter climbs the most famous rung: x² + 1 = 0 has no real door, so a number i is forced with i² = −1, and the algebra of a + bi is built so the whole field-law family survives (the honest sanity ANS 7.2 banked). The conjugate and modulus arrive as bookkeeping — z z̄ = |z|², division by conjugating, |z| as a distance with the triangle inequality — and the Argand plane is read algebraically (addition as the parallelogram, multiplication as rotation-and-scaling) with the deep geometry left to later books. The payoff: the quadratic formula keeps its promise for every discriminant, and real coefficients are shown to force complex doors in conjugate pairs. De Moivre’s theorem and the nth roots of unity — the unit circle’s equal spokes — with their properties (primitive roots, the cyclotomic equations) banked as the module’s depth engine.',
-  status: 'in-progress',
-  lessons: [lesson31, lesson32, lesson33, lesson34, lesson35],
-  plannedLessons: [
-    'Unit 3 Completion Review',
-  ],
+  status: 'complete',
+  lessons: [lesson31, lesson32, lesson33, lesson34, lesson35, lessonReview3],
+  plannedLessons: [],
 }

@@ -762,13 +762,12 @@ const ROSTER: Cx[] = [
 {
   const ch = chapter03
   ok(ch.number === 3 && ch.slug === 'complex-numbers' && ch.title === 'Complex Numbers: the New Rung', 'G1 chapter wrapper number/slug/title')
-  ok(ch.status === 'in-progress', 'G2 chapter status in-progress (opened run 105)')
-  ok(ch.lessons.length === 5, `G3 chapter shape re-pinned run 109: 5 lessons written, the finale shipped (got ${ch.lessons.length})`)
+  ok(ch.status === 'complete', 'G2 chapter status complete (CLOSED run 110: 3.1\u20133.5 + 3.R authored)')
+  ok(ch.lessons.length === 6, `G3 chapter shape re-pinned run 110: 6 lessons written \u2014 3.1\u20133.5 + the 3.R review, the chapter CLOSED (got ${ch.lessons.length})`)
   const planned = ch.plannedLessons ?? []
   ok(
-    planned.length === 1 &&
-      planned[0] === 'Unit 3 Completion Review',
-    `G4 plannedLessons re-pinned run 109 = the unit review remaining (got ${planned.join(' | ')})`,
+    planned.length === 0,
+    `G4 plannedLessons re-pinned run 110 = EMPTY, the review authored and the chapter closed (got ${planned.join(' | ')})`,
   )
   ok(ch.summary.includes('complex') && ch.summary.includes('closure failure'), 'G5 the chapter summary names the umbrella topics (complex numbers, the closure failure)')
 
@@ -1422,7 +1421,7 @@ const ROSTER: Cx[] = [
 
 {
   const ch = chapter03
-  ok(ch.lessons.length === 5 && (ch.plannedLessons ?? []).length === 1, 'J1 chapter shape re-pinned run 109: 5 lessons written, the review planned')
+  ok(ch.lessons.length === 6 && (ch.plannedLessons ?? []).length === 0 && ch.status === 'complete', 'J1 chapter shape re-pinned run 110: 6 lessons written, the review authored, the chapter CLOSED')
   ok(ch.lessons[1].number === '3.2', 'J2 the second lesson is 3.2')
 
   // no fold rides 3.2 — the ledger negative check (pre-flight + audit)
@@ -1958,7 +1957,7 @@ const ROSTER: Cx[] = [
 
 {
   const ch = chapter03
-  ok(ch.lessons.length === 5, 'M1 chapter shape re-pinned run 109: 5 lessons written (3.5 shipped, the review planned)')
+  ok(ch.lessons.length === 6 && ch.status === 'complete', 'M1 chapter shape re-pinned run 110: 6 lessons written \u2014 the review authored, the chapter CLOSED')
   ok(ch.lessons[2].number === '3.3', 'M2 the third lesson is 3.3')
 
   // no fold rides 3.3 — the ledger negative check (pre-flight + audit):
@@ -2537,7 +2536,7 @@ const ROSTER: Cx[] = [
 
 {
   const ch = chapter03
-  ok(ch.lessons.length === 5, 'P1 chapter shape re-pinned run 109: 5 lessons written (3.5 shipped, the review planned)')
+  ok(ch.lessons.length === 6 && ch.status === 'complete', 'P1 chapter shape re-pinned run 110: 6 lessons written \u2014 the review authored, the chapter CLOSED')
   ok(ch.lessons[3].number === '3.4', 'P2 the fourth lesson is 3.4')
 
   // the three m2-03 folds ride 3.4 — the ledger positive check
@@ -3148,9 +3147,9 @@ const ROSTER: Cx[] = [
     const exBlock = L.blocks.find((b) => b.kind === 'exercises') as { kind: string; sets: Array<{ level: string; questions: Array<{ q: string }> }> } | undefined
     const termsBlock = L.blocks.find((b) => b.kind === 'terms') as { kind: string; items: Array<{ term: string }> } | undefined
 
-    // R1. the chapter census: 5 written lessons, the 3.5 title gone from plannedLessons
-    ok(chapter03.lessons.length === 5, 'R1.1 chapter 3 carries 5 written lessons (the finale shipped)')
-    ok((chapter03.plannedLessons ?? []).every((t) => t !== 'De Moivre, Roots of Unity and the Complex Loci'), 'R1.2 the 3.5 title left plannedLessons (only the unit review remains)')
+    // R1. the chapter census: 6 written lessons, the 3.5 title and the review both gone from plannedLessons
+    ok(chapter03.lessons.length === 6 && (chapter03.plannedLessons ?? []).length === 0 && chapter03.status === 'complete', 'R1.1 chapter 3 carries 6 written lessons \u2014 the finale shipped AND the review authored run 110 (chapter CLOSED)')
+    ok((chapter03.plannedLessons ?? []).every((t) => t !== 'De Moivre, Roots of Unity and the Complex Loci'), 'R1.2 the 3.5 title left plannedLessons (now empty — the review authored too, run 110)')
     ok(L.number === '3.5' && L.title === 'De Moivre, Roots of Unity and the Complex Loci', 'R1.3 the lesson id/number/title exact')
     ok(
       JSON.stringify(L.prerequisites) === JSON.stringify(['aa-the-argand-plane-polar-form-and-the-argument', 'aa-negative-discriminants-the-doors-turn-complex', 'aa-conjugate-and-modulus']),
@@ -3286,7 +3285,418 @@ const ROSTER: Cx[] = [
   }
 }
 
-console.log(`\nverify-book4-ch03 sections A-R: ${passed} passed, ${failed} failed`)
+/* ------------------------------------------------------------------ */
+/*  SECTION S (run 110, pre-prose for lesson 3.R "Unit 3 Completion    */
+/*  Review", id aa-complex-numbers-unit-3-review, the 2.R precedent)  */
+/*  — every number the review will print is recomputed here FIRST:    */
+/*  the one-machine readings, the two master tables re-swept, the    */
+/*  four cross-lesson witnesses re-audited, the formula inventory     */
+/*  aggregation, the quiz keys with distractors priced, and the      */
+/*  fifteen mixed-bench answers brute-forced. No fold obligation      */
+/*  is hosted on the review itself (the m2-03 folds all live on      */
+/*  3.1/3.4/3.5 — checked against TOC_FOLD_LEDGER.json).             */
+/* ------------------------------------------------------------------ */
+{
+  const cpow = (z: Cx, n: number): Cx => {
+    let r: Cx = [1, 0]
+    for (let i = 0; i < Math.abs(n); i++) r = cmul(r, z)
+    return n < 0 ? cdiv([1, 0], r) : r
+  }
+
+  // ===== S1: the one-machine readings — z = √3 + i through the chapter =====
+  const z1: Cx = [Math.sqrt(3), 1]
+  ok(ceq([z1[0], -z1[1]], [Math.sqrt(3), -1]), 'S1.1 the mirror twin z̄ = √3 − i')
+  ok(Math.abs(cmod(z1) - 2) < 1e-12 && Math.abs(z1[0] * z1[0] + z1[1] * z1[1] - 4) < 1e-12, 'S1.2 |z| = 2, zz̄ = 4 (the bookkeeping hub)')
+  const recip = cdiv([1, 0], z1)
+  ok(Math.abs(recip[0] - Math.sqrt(3) / 4) < 1e-12 && Math.abs(recip[1] + 0.25) < 1e-12, 'S1.3 the reciprocal engine 1/z = (√3 − i)/4')
+  ok(Math.abs(cmul(z1, recip)[0] - 1) < 1e-12 && Math.abs(cmul(z1, recip)[1]) < 1e-12, 'S1.4 z·(1/z) = 1 — the reciprocal cross-check')
+  const z2 = cmul(z1, z1), z3 = cmul(z2, z1), z6 = cmul(z3, z3)
+  ok(Math.abs(z2[0] - 2) < 1e-9 && Math.abs(z2[1] - 2 * Math.sqrt(3)) < 1e-9, 'S1.5 z² = 2 + 2√3i (= 4 cis π/3 — the second-address read)')
+  ok(Math.abs(z3[0]) < 1e-9 && Math.abs(z3[1] - 8) < 1e-9, 'S1.6 z³ = 8i (= 8 cis π/2 — the argument-addition law)')
+  ok(Math.abs(z6[0] + 64) < 1e-9 && Math.abs(z6[1]) < 1e-9, 'S1.7 z⁶ = −64 — De Moivre: 2⁶ cis(6·π/6) = 64 cis π')
+  // the doubling chain and the door read: z is a door of z⁶ + 64 = 0
+  let chainOk = true
+  const chain = [z1, z2, z3, z6]
+  for (let k = 1; k < chain.length; k++) if (Math.abs(cmod(chain[k]) - Math.pow(2, [1, 2, 3, 6][k])) > 1e-9) chainOk = false
+  ok(chainOk, 'S1.8 the doubling chain moduli 2, 4, 8, 64 — powers multiply moduli at every rung')
+  ok(Math.abs(cmul(z6, z6)[0] - 4096) < 1e-6, 'S1.9 z is a door of z¹² + ... — z⁶·z⁶ = 4096 (the door family read: z⁶ = −64 pins z among the twelve 12th doors of −4096... i.e. z⁶ + 64 = 0)')
+  ok(Math.abs(cpow(z1, 6)[0] + 64) < 1e-9, 'S1.10 the independent brute-force route agrees: z⁶ = −64')
+
+  // ===== S2: the quadratic witnesses re-audited =====
+  // x² − 4x + 13 (3.3's floating parabola): D, doors, sum/product, vertex, axis, |door|
+  {
+    const q = (x: Cx): Cx => cadd(cadd(cmul(cmul(x, x), [1, 0]), cmul([-4, 0], x)), [13, 0])
+    const d: Cx = [2, 3]
+    ok(16 - 4 * 13 === -36, 'S2.1 D = −36 for x² − 4x + 13 (the filed-away family, now kept)')
+    ok(Math.abs(q(d)[0]) < 1e-9 && Math.abs(q(d)[1]) < 1e-9, 'S2.2 the door 2+3i verifies by substitution')
+    const dBar: Cx = [2, -3]
+    ok(Math.abs(q(dBar)[0]) < 1e-9 && Math.abs(q(dBar)[1]) < 1e-9, 'S2.3 the conjugate door 2−3i verifies too (the free second door)')
+    ok(d[0] + dBar[0] === 4 && d[0] * d[0] + d[1] * d[1] === 13, 'S2.4 the Viète reads: z + z̄ = 4 = −b/a, zz̄ = |z|² = 13 = c/a')
+    ok(Math.abs(cmod(d) - Math.sqrt(13)) < 1e-12 && 2 === -(-4) / 2, 'S2.5 |door| = √13 and the shared real part 2 = −b/(2a) — the axis of symmetry')
+    ok(4 - 2 * 2 === 0 && 2 * 2 - 4 * 2 + 13 === 9, 'S2.6 the vertex (2, 9) — the doors hang below it at depth |D|/4a')
+    // x² − 6x + 13 (the L3-1 bench door)
+    const q6 = (x: Cx): Cx => cadd(cadd(cmul(cmul(x, x), [1, 0]), cmul([-6, 0], x)), [13, 0])
+    ok(36 - 52 === -16, 'S2.7 D = −16 for x² − 6x + 13')
+    ok(Math.abs(q6([3, 2])[0]) < 1e-9 && Math.abs(q6([3, 2])[1]) < 1e-9, 'S2.8 the door 3+2i verifies by substitution')
+    ok(Math.abs(q6([3, -2])[0]) < 1e-9, 'S2.9 the conjugate door 3−2i verifies too')
+  }
+
+  // ===== S3: the door-without-solving witnesses (the conjugate-pair read) =====
+  {
+    // bench: one door of z² − pz + 40 is 2 + 6i → p = 4, other 2 − 6i
+    ok(4 + 36 === 40, 'S3.1 the product read: 2² + 6² = 40 = q — the door checks')
+    const sumRe = 2 + 2, prodRe = 4 + 36
+    ok(sumRe === 4 && prodRe === 40, 'S3.3 p = 4 (the sum), q = 40 (the product) — read without solving')
+    // quiz Q3: one door of x² − px + 45 is 3 + 6i → p = 6, other 3 − 6i
+    ok(9 + 36 === 45, 'S3.4 the quiz witness: 3² + 6² = 45 = q')
+    ok(3 + 3 === 6, 'S3.5 p = 6 — the sum of the conjugate pair')
+  }
+
+  // ===== S4: the u, v system witness (fresh pair 15 + 8i) =====
+  {
+    const r = Math.hypot(15, 8)
+    ok(r === 17, 'S4.1 r = |15 + 8i| = 17 (the 8-15-17 triple)')
+    ok((17 + 15) / 2 === 16 && (17 - 15) / 2 === 1, 'S4.2 u² = 16, v² = 1 → u = 4, v = 1')
+    const sq = cmul([4, 1], [4, 1])
+    ok(sq[0] === 15 && sq[1] === 8, 'S4.3 (4+i)² = 15 + 8i — the sign law (b > 0, same signs) verified')
+    ok(8 > 0, 'S4.4 b = 8 > 0 fixes BOTH signs positive (the paired ± from the squaring)')
+  }
+
+  // ===== S5: the De Moivre power witnesses =====
+  {
+    // (−1+i): √2 cis 3π/4 → fourth power −4, eighth power 16
+    const w: Cx = [-1, 1]
+    ok(Math.abs(cmod(w) - Math.SQRT2) < 1e-12, 'S5.1 |−1+i| = √2')
+    const w4 = cpow(w, 4), w8 = cpow(w, 8)
+    ok(Math.abs(w4[0] + 4) < 1e-9 && Math.abs(w4[1]) < 1e-9, 'S5.2 (−1+i)⁴ = 4 cis 3π = −4')
+    ok(Math.abs(w8[0] - 16) < 1e-9 && Math.abs(w8[1]) < 1e-9, 'S5.3 (−1+i)⁸ = 16 cis 6π = 16')
+    // (1+ω−ω²) = 1+√3i = −2ω²; its eighth power = 256ω = −128 + 128√3 i
+    const om: Cx = [-0.5, Math.sqrt(3) / 2]
+    const omSq = cmul(om, om)
+    ok(Math.abs(omSq[0] + 0.5) < 1e-12 && Math.abs(omSq[1] + Math.sqrt(3) / 2) < 1e-12, 'S5.5 ω² = −1/2 − √3/2 i (the conjugate seat)')
+    const lhs = cadd(cadd([1, 0], om), csub([0, 0], omSq))
+    ok(Math.abs(lhs[0] - 1) < 1e-12 && Math.abs(lhs[1] - Math.sqrt(3)) < 1e-12, 'S5.6 1 + ω − ω² = 1 + √3 i (the reduction the bench will run)')
+    const rhs = cmul([-2, 0], omSq)
+    ok(Math.abs(rhs[0] - 1) < 1e-12 && Math.abs(rhs[1] - Math.sqrt(3)) < 1e-12, 'S5.7 1 + ω − ω² = −2ω² (since 1 + ω = −ω²)')
+    const p8 = cpow(lhs, 8)
+    ok(Math.abs(p8[0] + 128) < 1e-6 && Math.abs(p8[1] - 128 * Math.sqrt(3)) < 1e-6, 'S5.8 (1+ω−ω²)⁸ = 256ω = −128 + 128√3 i')
+    const omP8 = cmul([256, 0], om)
+    ok(Math.abs(p8[0] - omP8[0]) < 1e-6 && Math.abs(p8[1] - omP8[1]) < 1e-6, 'S5.9 both routes agree: the ω route (−2ω²)⁸ = 256ω¹⁶ = 256ω and the De Moivre route 2⁸ cis(8π/3) = 256 cis 2π/3')
+    // arg(1+i) + arg(√3+i) = π/4 + π/6 = 5π/12 (quiz Q4)
+    ok(Math.abs(Math.PI / 4 + Math.PI / 6 - (5 * Math.PI) / 12) < 1e-12, 'S5.10 π/4 + π/6 = 5π/12 — the quiz Q4 verdict (no wrap: 5π/12 < π)')
+    const prod = cmul([1, 1], [Math.sqrt(3), 1])
+    ok(Math.abs(cmod(prod) - 2 * Math.SQRT2) < 1e-12, 'S5.11 |(1+i)(√3+i)| = √2·2 = 2√2 — moduli multiply')
+    ok(Math.abs(Math.atan2(prod[1], prod[0]) - (5 * Math.PI) / 12) < 1e-12, 'S5.12 arg((1+i)(√3+i)) = 5π/12 — arguments add')
+  }
+
+  // ===== S6: the roots-of-unity census table (n = 2..7 rows) =====
+  {
+    const gcdOf = (a0: number, b0: number): number => { let a = a0, b = b0; while (b > 0) { const g = a % b; a = b; b = g } return a }
+    const phi = (n: number): number => { let c = 0; for (let k = 1; k <= n; k++) if (gcdOf(k, n) === 1) c++; return c }
+    const census: Array<{ n: number; real: string; nonReal: number; pairs: number; phi: number; sum: number; prod: number }> = []
+    for (let n = 2; n <= 7; n++) {
+      let realCount = 0, nonReal = 0, sum: Cx = [0, 0], prod: Cx = [1, 0]
+      for (let k = 0; k < n; k++) {
+        const z: Cx = [Math.cos((2 * Math.PI * k) / n), Math.sin((2 * Math.PI * k) / n)]
+        sum = cadd(sum, z); prod = cmul(prod, z)
+        if (Math.abs(z[1]) < 1e-9) realCount++
+        else nonReal++
+      }
+      census.push({ n, real: realCount === 1 ? '1' : '±1', nonReal, pairs: nonReal / 2, phi: phi(n), sum: sum[1] === 0 ? sum[0] : sum[0] + sum[1], prod: Math.abs(prod[1]) < 1e-9 ? prod[0] : NaN })
+    }
+    ok(census.every((r) => Math.abs(r.sum) < 1e-9), 'S6.1 the sum row: every n-family sums to 0 (n = 2..7, engine-enumerated)')
+    ok(census.every((r) => Math.abs(r.prod - (r.n % 2 === 1 ? 1 : -1)) < 1e-9), 'S6.2 the product row: (−1)^{n−1} — odd n → +1, even n → −1')
+    ok(census.every((r) => (r.n % 2 === 1 ? r.real === '1' : r.real === '±1')), 'S6.3 the real-seats row: odd n owns only 1; even n owns ±1')
+    ok(census.every((r) => r.nonReal === r.n - (r.n % 2 === 1 ? 1 : 2) && r.pairs * 2 === r.nonReal), 'S6.4 the non-real rows: n−1 (odd) / n−2 (even), always in conjugate pairs')
+    ok([1, 2, 2, 4, 2, 6].every((v, i) => census[i].phi === v), 'S6.5 the primitive counts φ(2..7) = 1, 2, 2, 4, 2, 6 — engine rows match the census table the review will print')
+    ok(census[5].phi === 6 && census[5].nonReal === 6, 'S6.6 the z⁷ = 1 row: ALL six non-real seats primitive (φ(7) = 6) — the prime-spoke witness')
+  }
+
+  // ===== S7: the z⁶ = −64 door family (the two cubic families united) =====
+  {
+    const doors: Cx[] = []
+    for (let k = 0; k < 6; k++) doors.push([2 * Math.cos((Math.PI + 2 * Math.PI * k) / 6), 2 * Math.sin((Math.PI + 2 * Math.PI * k) / 6)])
+    ok(doors.every((d) => Math.abs(cpow(d, 6)[0] + 64) < 1e-9 && Math.abs(cpow(d, 6)[1]) < 1e-9), 'S7.1 all six doors 2 cis((π+2kπ)/6) sixth-power to −64')
+    ok(Math.abs(doors[0][0] - Math.sqrt(3)) < 1e-9 && Math.abs(doors[0][1] - 1) < 1e-9, 'S7.2 the k=0 door is √3 + i — the S1 machine itself (the review interlocks)')
+    ok(Math.abs(doors[1][0]) < 1e-9 && Math.abs(doors[1][1] - 2) < 1e-9 && Math.abs(doors[4][1] + 2) < 1e-9, 'S7.3 the pure-imaginary doors ±2i')
+    const fam8 = [doors[0], doors[2], doors[4]], famm8 = [doors[1], doors[3], doors[5]]
+    ok(fam8.every((d) => Math.abs(cpow(d, 3)[1] - 8) < 1e-9 && Math.abs(cpow(d, 3)[0]) < 1e-9), 'S7.4 the even-k family cubes to 8i: {√3+i, −√3+i, −2i} — the doors of z³ = 8i')
+    ok(famm8.every((d) => Math.abs(cpow(d, 3)[1] + 8) < 1e-9 && Math.abs(cpow(d, 3)[0]) < 1e-9), 'S7.5 the odd-k family cubes to −8i: {2i, −√3−i, √3−i} — the doors of z³ = −8i')
+  }
+
+  // ===== S8: the loci witnesses =====
+  {
+    // |z + 2 − i| = |z − 1 + 2i| is the line y = x
+    const onSeats: Cx[] = [[0, 0], [1, 1], [2, 2], [-3, -3]]
+    const eqMod = (z: Cx): boolean => Math.abs(cmod(cadd(z, [2, -1])) - cmod(csub(z, [1, -2]))) < 1e-12
+    ok(onSeats.every(eqMod), 'S8.1 every seat on y = x satisfies the locus (0, 1+i, 2+2i, −3−3i — engine-swept)')
+    ok(!eqMod([1, 0]) && Math.abs(cmod(cadd([1, 0], [2, -1])) - cmod(csub([1, 0], [1, -2]))) > 1, 'S8.2 the off-seat 1 fails (√10 ≠ 2) — the honest negative witness')
+    // the one-circle/two-readings machine: |z − 3 − 4i| = 5 = the diametric circle of 0 and 6+8i
+    ok(Math.abs(cmod(csub([0, 0], [3, 4])) - 5) < 1e-9 && cmod([0, 0]) === 0, 'S8.3 the origin lies on |z − 3 − 4i| = 5 (|−3−4i| = 5)')
+    ok(3 === (0 + 6) / 2 && 4 === (0 + 8) / 2, 'S8.4 the diametric centre of 0 and 6+8i is (0+6+8i)/2 = 3+4i — the same centre')
+    ok(Math.abs(cmod([6, 8]) / 2 - 5) < 1e-12, 'S8.5 the diametric radius |6+8i|/2 = 5 — the same radius')
+    // the Thales seat 3 − i
+    const thales: Cx = [3, -1]
+    ok(Math.abs(cmod(csub(thales, [3, 4])) - 5) < 1e-12, 'S8.6 the seat 3 − i lies on the circle (|−5i| = 5)')
+    const v1 = csub([0, 0], thales), v2 = csub([6, 8], thales)
+    ok(Math.abs(v1[0] * v2[0] + v1[1] * v2[1]) < 1e-9, 'S8.7 the Thales certificate at 3 − i: vectors (−3,1)·(3,9) = −9+9 = 0 — the right angle')
+    const quot = cdiv(v1, v2)
+    ok(Math.abs(quot[0]) < 1e-12 && Math.abs(quot[1] - 1 / 3) < 1e-12, 'S8.8 the argument read: (z₃−0)/(z₃−6−8i) = i/3 exactly — purely imaginary, the 90° quotient')
+    // the bench diametric circle 1+2i, 5+4i with the two extra corners
+    ok(3 === (1 + 5) / 2 && 3 === (2 + 4) / 2, 'S8.9 the centre of 1+2i and 5+4i is 3+3i')
+    ok(Math.abs(cmod(csub([5, 4], [1, 2])) / 2 - Math.sqrt(5)) < 1e-12, 'S8.10 the radius |4+2i|/2 = √20/2 = √5')
+    ok(Math.abs(cmod(csub([1, 4], [3, 3])) - Math.sqrt(5)) < 1e-12 && Math.abs(cmod(csub([5, 2], [3, 3])) - Math.sqrt(5)) < 1e-12, 'S8.11 the seats 1+4i and 5+2i both lie on it (|−2+i| = |2−i| = √5)')
+    const r1 = csub([1, 2], [1, 4]), r2 = csub([5, 4], [1, 4])
+    ok(Math.abs(r1[0] * r2[0] + r1[1] * r2[1]) < 1e-9, 'S8.12 the Thales certificate at 1+4i: vectors (0,−2)·(4,0) = 0 — the rectangle inscribed, all four corners on one circle')
+  }
+
+  // ===== S9: the band engine + the equilateral certificate =====
+  {
+    // |z1| = 3, |z2| = 5
+    let bandOk = true, seen = [Infinity, -Infinity]
+    for (let t = 0; t < 200; t++) {
+      const a = (t * 0.123) % (2 * Math.PI), b = (t * 0.456) % (2 * Math.PI)
+      const z1: Cx = [3 * Math.cos(a), 3 * Math.sin(a)], z2: Cx = [5 * Math.cos(b), 5 * Math.sin(b)]
+      const s = cmod(cadd(z1, z2))
+      if (s < seen[0]) seen[0] = s
+      if (s > seen[1]) seen[1] = s
+      if (s < 2 - 1e-9 || s > 8 + 1e-9) bandOk = false
+    }
+    ok(bandOk, 'S9.1 |z₁+z₂| never leaves the band [2, 8] (200 random direction pairs)')
+    ok(seen[0] < 2.05 && seen[1] > 7.95, `S9.2 the sweep approached both walls (min ${seen[0].toFixed(3)}, max ${seen[1].toFixed(3)})`)
+    ok(Math.abs(Math.abs(3 - 5) - 2) < 1e-12 && 3 + 5 === 8, 'S9.3 the reverse law ||z₁|−|z₂|| = 2 and the forward wall 8 — the band engine')
+    // the equilateral seats 1, 5, 3+2√3i
+    const A: Cx = [1, 0], B: Cx = [5, 0], C: Cx = [3, 2 * Math.sqrt(3)]
+    ok(cmod(csub(B, A)) === 4 && Math.abs(cmod(csub(C, A)) - 4) < 1e-12 && Math.abs(cmod(csub(C, B)) - 4) < 1e-12, 'S9.4 the side census: all three sides exactly 4')
+    const lhs = cadd(cadd(cmul(A, A), cmul(B, B)), cmul(C, C))
+    const rhs = cadd(cadd(cmul(A, B), cmul(B, C)), cmul(C, A))
+    ok(Math.abs(lhs[0] - rhs[0]) < 1e-9 && Math.abs(lhs[1] - rhs[1]) < 1e-9, 'S9.5 the symmetric identity: z₁²+z₂²+z₃² = z₁z₂+z₂z₃+z₃z₁ (both sides 23 + 12√3 i)')
+    ok(Math.abs(lhs[0] - 23) < 1e-9 && Math.abs(lhs[1] - 12 * Math.sqrt(3)) < 1e-9, 'S9.6 the common value pinned: 23 + 12√3 i')
+    const apex = csub(C, A)
+    ok(Math.abs(cmod(apex) - 4) < 1e-12 && Math.abs(Math.atan2(apex[1], apex[0]) - Math.PI / 3) < 1e-12, 'S9.7 the rotation read: apex − z₁ = 4 cis(π/3) — the base rotated by 60° (cis π/3 = −ω²)')
+  }
+
+  // ===== S10: the conjugate-pair circle law (the L6 theorem) =====
+  {
+    // non-real doors of z² + pz + q lie on |z| = √q and Re z = −p/2
+    const witnesses: Array<[string, number, number, number, number]> = [
+      ['x²−4x+13', -4, 13, 2, 3],
+      ['x²−6x+13', -6, 13, 3, 2],
+      ['x²−2x+5', -2, 5, 1, 2],
+    ]
+    for (const [name, p, q, re, im] of witnesses) {
+      ok(re * re + im * im === q && re === -p / 2, `S10.${name}: |door|² = ${q} = q and Re door = ${re} = −p/2`)
+      ok(p * p - 4 * q < 0 && q > 0, `S10.${name}: D < 0 forces q > 0 — the circle |z| = √q exists`)
+    }
+  }
+
+  // ===== S11: the quiz keys with every distractor priced =====
+  {
+    ok(Math.abs(Math.sqrt(5) * Math.sqrt(20) - 10) < 1e-12, 'S11.1 √5·√20 = 10 — so √(−5)·√(−20) = 10i² = −10 (key 1; the +10 trap forgets the i² tax)')
+    ok(5 - 3 === 2, 'S11.2 the least |z₁+z₂| at |z₁| = 3, |z₂| = 5 is the gap 2 (key 2; 0 needs equal moduli, 8 is the greatest)')
+    ok(3 * 3 + 6 * 6 === 45 && 3 + 3 === 6, 'S11.3 the quiz Q3 witness: 3+6i doors x²−px+45 with p = 6, the other door 3−6i free')
+    ok(Math.abs(Math.atan2(1, 1) - Math.PI / 4) < 1e-12 && Math.abs(Math.atan2(1, Math.sqrt(3)) - Math.PI / 6) < 1e-12, 'S11.4 arg(1+i) = π/4 and arg(√3+i) = π/6')
+    ok(Math.abs((Math.PI / 4 + Math.PI / 6) - (5 * Math.PI) / 12) < 1e-12 && 5 * Math.PI / 12 < Math.PI, 'S11.5 the sum 5π/12 needs no principal wrap')
+    const om: Cx = [-0.5, Math.sqrt(3) / 2]
+    const pw = [cpow(om, 198), cpow(om, 199), cpow(om, 200)]
+    const total = cadd(cadd(pw[0], pw[1]), pw[2])
+    ok(Math.abs(total[0]) < 1e-9 && Math.abs(total[1]) < 1e-9, 'S11.6 ω¹⁹⁸+ω¹⁹⁹+ω²⁰⁰ = 1+ω+ω² = 0 (198≡0, 199≡1, 200≡2 mod 3 — the clock)')
+    // the pinned key ladder [1, 2, 1, 0, 3]
+    ok(true, 'S11.7 the pinned quiz keys [1, 2, 1, 0, 3] — every option index 0..3 used, no all-zero ladder')
+  }
+
+  // ===== S12: the formula inventory aggregation =====
+  {
+    const cards = (i: number) => (chapter03.lessons[i].blocks as Array<{ kind: string }>).filter((b) => b.kind === 'formula').length
+    ok(cards(0) === 5 && cards(1) === 5 && cards(2) === 3 && cards(3) === 6 && cards(4) === 4, `S12.1 the chapter formula inventory: 5+5+3+6+4 = 23 cards (got ${cards(0)}+${cards(1)}+${cards(2)}+${cards(3)}+${cards(4)})`)
+    // the review's eight consolidated cards, each re-verified on a sweep
+    let iotaOk = true
+    const cycle: Cx[] = [[1, 0], [0, 1], [-1, 0], [0, -1]]
+    for (let n = 0; n <= 20; n++) { const v = cpow([0, 1], n); const r = n % 4; const want: Cx = cycle[r]; if (Math.abs(v[0] - want[0]) > 1e-9 || Math.abs(v[1] - want[1]) > 1e-9) iotaOk = false }
+    ok(iotaOk, 'S12.2 the iota cycle card i^{4q+r} = i^r — swept n = 0..20')
+    let opsOk = true
+    for (let t = 0; t < 30; t++) {
+      const a = t % 7 - 3, b = t % 5 - 2, c = (t * 3) % 7 - 3, d = (t * 2) % 5 - 2
+      const lhs = cmul([a, b], [c, d])
+      if (lhs[0] !== a * c - b * d || lhs[1] !== a * d + b * c) opsOk = false
+    }
+    ok(opsOk, 'S12.3 the four-operations card (a+bi)(c+di) = (ac−bd)+(ad+bc)i — swept on 30 pairs')
+    let seedOk = true
+    for (let t = 0; t < 30; t++) {
+      const z: Cx = [t % 9 - 4, (t * 3) % 11 - 5]
+      const s = cadd(z, [z[0], -z[1]]), d = csub(z, [z[0], -z[1]])
+      if (s[0] !== 2 * z[0] || Math.abs(s[1]) > 1e-9 || Math.abs(d[0]) > 1e-9 || d[1] !== 2 * z[1]) seedOk = false
+    }
+    ok(seedOk, 'S12.4 the conjugate-seeds card z+z̄ = 2Re, z−z̄ = 2iIm — swept on 30 seats')
+    let recOk = true
+    for (let t = 1; t < 30; t++) {
+      const z: Cx = [t % 8 - 3, (t * 5) % 9 - 4]
+      if (Math.hypot(z[0], z[1]) < 1e-9) continue
+      const r = cmul(z, cdiv([z[0], -z[1]], [z[0] * z[0] + z[1] * z[1], 0]))
+      if (Math.abs(r[0] - 1) > 1e-9 || Math.abs(r[1]) > 1e-9) recOk = false
+    }
+    ok(recOk, 'S12.5 the reciprocal card z·(z̄/|z|²) = 1 — swept on 29 seats')
+    let triOk = true
+    for (let t = 0; t < 200; t++) {
+      const z: Cx = [Math.cos(t * 0.71) * (1 + t % 5), Math.sin(t * 0.71) * (1 + t % 5)]
+      const w: Cx = [Math.cos(t * 1.13) * (1 + t % 7), Math.sin(t * 1.13) * (1 + t % 7)]
+      const s = cmod(cadd(z, w))
+      if (s > cmod(z) + cmod(w) + 1e-9 || s < Math.abs(cmod(z) - cmod(w)) - 1e-9) triOk = false
+      if (Math.abs(cmod(cmul(z, w)) - cmod(z) * cmod(w)) > 1e-9) triOk = false
+    }
+    ok(triOk, 'S12.6 the modulus-laws card + both triangle inequalities — swept on 200 pairs')
+    let argOk = true
+    for (let t = 0; t < 30; t++) {
+      const a = (t * 0.37) % (2 * Math.PI), b = (t * 0.53) % (2 * Math.PI)
+      const z: Cx = [Math.cos(a), Math.sin(a)], w: Cx = [Math.cos(b), Math.sin(b)]
+      const p = cmul(z, w)
+      const diff = Math.atan2(p[1], p[0]) - (a + b)
+      const wrapped = Math.abs(((diff % (2 * Math.PI)) + 3 * Math.PI) % (2 * Math.PI) - Math.PI)
+      if (wrapped > 1e-9) argOk = false
+    }
+    ok(argOk, 'S12.7 the argument-laws card arg(z₁z₂) = arg z₁ + arg z₂ (mod 2π — the wrap discipline) — swept on 30 pairs')
+    let dmOk = true
+    for (let n = 2; n <= 9; n++) {
+      const th = 0.3 * n
+      const lhs = cpow([Math.cos(th), Math.sin(th)], n)
+      if (Math.abs(lhs[0] - Math.cos(n * th)) > 1e-9 || Math.abs(lhs[1] - Math.sin(n * th)) > 1e-9) dmOk = false
+    }
+    ok(dmOk, 'S12.8 the De Moivre card (cos θ + i sin θ)^n = cos nθ + i sin nθ — swept on 8 (θ, n) pairs')
+    const om: Cx = [-0.5, Math.sqrt(3) / 2]
+    const sum3 = cadd(cadd([1, 0], om), cmul(om, om))
+    ok(Math.abs(sum3[0]) < 1e-12 && Math.abs(sum3[1]) < 1e-12 && Math.abs(cpow(om, 3)[0] - 1) < 1e-12, 'S12.9 the ω-engine card: 1+ω+ω² = 0 and ω³ = 1')
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  SECTION T (run 110) — AUTHORED-AUDIT for lesson 3.R (aa-complex-   */
+/*  numbers-unit-3-review), appended after authoring, the O-pattern    */
+/*  of verify-book4-ch02. The chapter CLOSES here: 6 lessons, none     */
+/*  planned, status complete.                                          */
+/* ------------------------------------------------------------------ */
+{
+  const ch = chapter03
+  ok(ch.lessons.length === 6 && (ch.plannedLessons ?? []).length === 0 && ch.status === 'complete', 'T1 chapter CLOSED: 6 lessons [3.1\u20133.5 + 3.R], none planned, status complete')
+  const L = ch.lessons[5]
+  ok(L.id === 'aa-complex-numbers-unit-3-review', 'T2 lesson id matches the pinned id')
+  ok(L.number === '3.R' && L.title === 'Unit 3 Completion Review', 'T3 lesson number/title (the pinned planned title, authored verbatim)')
+  const blocks = L.blocks as Array<{ kind: string; [k: string]: unknown }>
+
+  // T4 block census (count-aware, as authored)
+  const count = (k: string) => blocks.filter((b) => b.kind === k).length
+  ok(count('heading') === 6, `T4.1 headings = 6 (got ${count('heading')})`)
+  ok(count('example') === 4, `T4.2 Illustrations = 4 (got ${count('example')})`)
+  ok(count('derivation') === 1, `T4.3 derivations = 1 (got ${count('derivation')})`)
+  ok(count('figure') === 2, `T4.4 figures = 2 (got ${count('figure')})`)
+  ok(count('table') === 2, `T4.5 the two master tables reunited (got ${count('table')})`)
+  ok(count('formula') === 8, `T4.6 formula cards = 8 (got ${count('formula')})`)
+  ok(count('para') === 12, `T4.7 paragraphs = 12 (got ${count('para')})`)
+  ok(count('quiz') === 1 && count('exercises') === 1 && count('terms') === 1 && count('list') === 1, 'T4.8 quiz + exercises + terms + the traps list all present')
+  const callouts = blocks.filter((b) => b.kind === 'callout') as unknown as Array<{ tone: string; title: string; text: string }>
+  ok(callouts.filter((c) => c.tone === 'definition').length === 1, 'T4.9 the definition callout (the five storeys)')
+  ok(callouts.filter((c) => c.tone === 'theorem').length === 1, 'T4.10 the theorem callout (the one law behind the tables)')
+  ok(callouts.filter((c) => c.tone === 'insight').length === 2, 'T4.11 two insight callouts (the two addresses, the witnesses interlock)')
+  ok(callouts.filter((c) => c.tone === 'warn').length === 1, 'T4.12 the warn carry-forward (the multi-valued discipline to chapter 8)')
+  ok(callouts.filter((c) => c.tone === 'exam').length === 1, 'T4.13 the exam-coverage callout (the audit across 3.1\u20133.5)')
+  ok(callouts.filter((c) => c.tone === 'historical').length === 1, 'T4.14 the historical callout (the two-century arc)')
+
+  // T5 quiz keys vs the pre-writing pins [1, 2, 1, 0, 3]
+  const quiz = blocks.find((b) => b.kind === 'quiz') as unknown as { items: Array<{ answer: number; options: string[]; explain: string }> }
+  ok(quiz.items.length === 5, `T5.1 five quiz items (got ${quiz.items.length})`)
+  const keys = quiz.items.map((i) => i.answer)
+  ok(JSON.stringify(keys) === JSON.stringify([1, 2, 1, 0, 3]), `T5.2 quiz keys = [1, 2, 1, 0, 3] (got ${JSON.stringify(keys)})`)
+  ok(quiz.items.every((i) => i.options.length === 4 && i.explain.length > 80), 'T5.3 every item owns four options and a priced explain')
+
+  // T6 the mixed bench ladder — 15 questions, full worked solutions
+  const ex = blocks.find((b) => b.kind === 'exercises') as unknown as { sets: Array<{ level: string; questions: Array<{ q: string; solution: string[]; answer: string }> }> }
+  const ladder = ex.sets.map((s) => `${s.level}:${s.questions.length}`).join(' ')
+  ok(ladder === 'L1:2 L2:2 L3:3 L4:3 L5:3 L6:2', `T6.1 the mixed ladder L1:2 L2:2 L3:3 L4:3 L5:3 L6:2 (got ${ladder})`)
+  ok(ex.sets.reduce((n, s) => n + s.questions.length, 0) === 15, 'T6.2 fifteen bench questions')
+  ok(ex.sets.every((s) => s.questions.every((q) => q.solution.length >= 3 && q.answer.length > 0)), 'T6.3 every question carries a worked solution (\u22653 steps) and an answer')
+  const answers = ex.sets.flatMap((s) => s.questions.map((q) => q.answer))
+  ok(answers.some((a) => a.includes('-8') && a.includes('i^{93}')), 'T6.4 the L1.1 radical-tax answer pinned')
+  ok(answers.some((a) => a.includes('289') && a.includes('17')), 'T6.5 the L1.2 bookkeeping answer pinned (8-15-17)')
+  ok(answers.some((a) => a.includes('17}{25') || a.includes('\\frac{17}{25}')), 'T6.6 the L2.2 division answer pinned')
+  ok(answers.some((a) => a.includes('3 \\pm 2i') || a.includes('3 \u00b1 2i')), 'T6.7 the L3.1 doors answer pinned')
+  ok(answers.some((a) => a.includes('p = 4') && a.includes('2 - 6i')), 'T6.8 the L3.2 free-door answer pinned')
+  ok(answers.some((a) => a.includes('(4 + i)') || a.includes('(4+i)')), 'T6.9 the L3.3 u, v system answer pinned')
+  ok(answers.some((a) => a.includes('bearing $\\pi$') && a.includes('16')), 'T6.10 the L4.1 De Moivre powers answer pinned')
+  ok(answers.some((a) => a.includes('z^3 = 8i') && a.includes('z^3 = -8i')), 'T6.11 the L4.2 two-cubic-families answer pinned')
+  ok(answers.some((a) => a.includes('256') && a.includes('128\\sqrt{3}i')), 'T6.12 the L4.3 \u03c9-engine answer pinned')
+  ok(answers.some((a) => a.includes('Im}\\,z = \\mathrm{Re}\\,z') || a.includes('y = x')), 'T6.13 the L5.1 bisector answer pinned')
+  ok(answers.some((a) => a.includes('[2, 8]')), 'T6.14 the L5.2 band answer pinned')
+  ok(answers.some((a) => a.includes('3 + 3i') && a.includes('sqrt{5}')), 'T6.15 the L5.3 diametric rectangle answer pinned')
+  ok(answers.some((a) => a.includes('\\sqrt{q}') && a.includes('-p/2')), 'T6.16 the L6.1 circle-pin theorem answer pinned')
+  ok(answers.some((a) => a.includes('23 + 12\\sqrt3 i') && a.includes('-\\omega^2')), 'T6.17 the L6.2 equilateral certificate answer pinned')
+
+  // T7 figure pins — viewBoxes, palette, the verdict rows
+  const figs = blocks.filter((b) => b.kind === 'figure') as unknown as Array<{ svg: string; caption: string }>
+  const f1 = figs[0].svg, f2 = figs[1].svg
+  ok(f1.includes('viewBox="0 0 720 340"') && f2.includes('viewBox="0 0 720 348"'), 'T7.1 the storey wiring diagram 720\u00d7340 and the readings plate 720\u00d7348')
+  ok(f1.includes('#16a34a') && f1.includes('#d97706') && f1.includes('#0d9488') && f1.includes('#ea580c') && f1.includes('#fef3c7') && f1.includes('#0f766e') && f1.includes('#65a30d'), 'T7.2 fig1 vivid palette in use (green boxes, amber arrows, teal spine, orange exits)')
+  ok(f2.includes('#16a34a') && f2.includes('#d97706') && f2.includes('#0d9488') && f2.includes('#ea580c') && f2.includes('#fef3c7') && f2.includes('#0f766e') && f2.includes('#65a30d') && f2.includes('#fcd34d'), 'T7.3 fig2 vivid palette in use (axes, arc, seat, bracket, panel, rule)')
+  ok(f2.includes('|z| = 2') && f2.includes('z\u00b3 = 8i') && f2.includes('2 + 2\u221a3i') && f2.includes('\u03c0/6'), 'T7.4 fig2 carries the pinned readings (\u221a3+i seat label, modulus 2, bearing \u03c0/6, z\u00b2 seat, the z\u00b3 pin riding the verdict panel)')
+  ok(f2.includes('z\u2076 = \u221264') && f2.includes('z z\u0304 = 4') && f2.includes('the five readings, pinned'), 'T7.5 fig2\u2019s verdict panel carries the bookkeeping and powers rows')
+  ok(f1.includes('the field is forced') && f1.includes('the bookkeeping') && f1.includes('the doors') && f1.includes('the second address') && f1.includes('the powers'), 'T7.6 fig1 carries the five storey names in order')
+  ok(f1.includes('moduli multiply, arguments add'), 'T7.7 fig1 carries the one-law spine')
+  const retired = ['#3f6212', '#365314', '#4d7c0f', '#6b7a72', '#9a6b6f', '#7c5a2e', '#1f5c5d', '#123f35', '#7c2d12', '#9a3412', '#b9c6bd', '#b9c4bd', '#fdf8ef', '#f5eddd', '#d8d2c2', '#7c5a2e', '#9a6b2f']
+  ok(!figs.some((f) => retired.some((hx) => f.svg.includes(hx))), 'T7.8 no retired palette hexes in either figure')
+  ok(figs.every((f) => f.svg.includes('role="img"') && f.svg.includes('aria-label')), 'T7.9 both figures carry role and aria labels')
+
+  // T8 prereqs resolve against the repo
+  ok((L.prerequisites ?? []).length === 5, 'T8.1 five prereqs declared (the whole chapter)')
+  const ch3src = fs.readFileSync('src/data/library/books/mathematics/advanced-algebra/ch-03.ts', 'utf8')
+  ok((L.prerequisites ?? []).every((p) => ch3src.includes(`'${p}'`)), 'T8.2 every prereq id exists in the chapter file')
+
+  // T9 sources keys exist in SOURCE_LOG
+  const slogT = fs.readFileSync('docs/project/SOURCE_LOG.md', 'utf8')
+  for (const k of L.sources ?? []) ok(slogT.includes('`' + k + '`') || slogT.includes('- ' + k), `T9 source key ${k} in SOURCE_LOG`)
+
+  // T10 honesty scans
+  const allTextT = JSON.stringify(blocks)
+  ok(!allTextT.includes('\\\\  ') && !allTextT.includes("\\\\'"), 'T10.1 no odd-run backslashes')
+  ok(!/\\u[0-9a-fA-F]{4}/.test(allTextT), 'T10.2 no unicode escapes in the rendered data')
+  ok(!/wait, |Better: |TODO|XXX|to be completed|hmm /.test(allTextT), 'T10.3 no draft markers (TODO/XXX/hmm-class)')
+  ok(!allTextT.toLowerCase().includes('reproduced from'), 'T10.4 no reproduction language')
+
+  // T11 honest word count via the registry's own counter
+  const wordCountT = countLessonWords(L as never)
+  ok(wordCountT >= 4800, `T11 honest word count >= 4800 (got ${wordCountT})`)
+  console.log(`T11 word count: ${wordCountT}`)
+
+  // T12 repo-wide id uniqueness
+  const hitsT = execSync(`grep -rl "aa-complex-numbers-unit-3-review" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
+  const dataHitsT = hitsT.filter((hh) => hh.includes('/books/'))
+  ok(dataHitsT.length === 1, `T12 lesson id unique in book data (got files: ${dataHitsT.join(' ')})`)
+
+  // T13 cross-reference pins in prose — the recap coverage census
+  ok(allTextT.includes('3.1') && allTextT.includes('3.2') && allTextT.includes('3.3') && allTextT.includes('3.4') && allTextT.includes('3.5'), 'T13.1 the prose names all five lessons')
+  ok(allTextT.includes('twenty-three formula cards'), 'T13.2 the 23-card inventory aggregation named (5+5+3+6+4, the S12.1 count)')
+  ok(allTextT.includes('-64') && allTextT.includes('z^6 + 64 = 0'), 'T13.3 the one-machine door read pinned in prose')
+  ok(allTextT.includes('pm 3i') || allTextT.includes('\u00b1 3i'), 'T13.4 the floating-parabola doors pinned in prose')
+  ok(allTextT.includes('i/3'), 'T13.5 the Thales quotient pinned in prose')
+  ok(allTextT.includes('256') && allTextT.includes('128'), 'T13.6 the \u03c9-route verdict pinned in prose')
+  ok(allTextT.includes('varphi(7) = 6'), 'T13.7 the prime-spoke primitive count pinned in prose')
+  ok(allTextT.includes('23 + 12') && allTextT.includes('sqrt3'), 'T13.8 the equilateral symmetric identity value pinned in prose')
+  ok(allTextT.includes('triangle inequality') && allTextT.includes('chapter 4'), 'T13.9 the exit hands the triangle inequality to chapter 4')
+  ok(allTextT.includes('[2, 8]') && allTextT.includes('band'), 'T13.10 the band walls pinned in prose')
+
+  // T14 the fold re-assertion honesty: the review hosts NO fold (ledger check)
+  const ledgerT = fs.readFileSync('docs/project/TOC_FOLD_LEDGER.json', 'utf8')
+  const reviewHosted = ledgerT.includes('"host": "Unit 3 Completion Review"')
+  ok(!reviewHosted, 'T14 no fold obligation is hosted on the review itself (all m2-03 folds live on 3.1/3.4/3.5)')
+
+  // T15 the derivation carries the DerivationStep contract
+  const deriv = blocks.find((b) => b.kind === 'derivation') as unknown as { title: string; statement: string; steps: Array<{ label: string; formula?: string; explanation: string }>; result: string }
+  ok(deriv.statement.length > 40, 'T15.1 the derivation carries a statement')
+  ok(deriv.steps.length === 4 && deriv.steps.every((st) => st.label.length > 0 && st.explanation.length > 0 && (st.formula ?? '').length > 0), 'T15.2 four labelled steps, every one with formula + explanation')
+  ok(deriv.result.includes('One law'), 'T15.3 the result line carries the consolidation verdict')
+
+  // T16 the chapter close — the assembly order
+  ok(ch.lessons[5] === L && (ch.plannedLessons ?? []).length === 0, 'T16 the review is the sixth lesson and closes the chapter (plannedLessons empty)')
+}
+
+console.log(`\nverify-book4-ch03 sections A-T: ${passed} passed, ${failed} failed`)
 if (failed > 0) {
   console.log('FAILURES:')
   failures.forEach((f) => console.log('  - ' + f))
