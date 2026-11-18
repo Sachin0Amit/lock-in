@@ -2484,6 +2484,12 @@ export const chapter02: Chapter = {
             'Hence the criterion’s veto agrees with the divisibility structure: the target must be a multiple of the gcd because every combination is.',
           ],
         },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The gatekeeper is the gcd — not the coefficients',
+          text: 'Read the criterion precisely: it asks whether $\\gcd(a, b)$ divides $c$ — it never asks whether $a$ or $b$ does. The instance to pin: $6x + 10y = 4$ passes ($\\gcd = 2$ divides 4, and $(-1, 1)$ solves it as $10 - 6 = 4$) even though neither coefficient divides the target — $6 \\nmid 4$ and $10 \\nmid 4$. The traffic runs one way only: a coefficient that divided $c$ would carry the gcd along ($d \\mid a$ and $a \\mid c$ force $d \\mid c$), so the gcd alone is the gate — testing $a \\mid c$ is neither necessary nor the right instrument. Examination traps live exactly here: the veto on $6x + 10y = 7$ is the gcd’s ($2 \\nmid 7$), not any coefficient’s.',
+        },
         { kind: 'heading', text: 'The full solution family' },
         {
           kind: 'para',
@@ -2616,11 +2622,77 @@ export const chapter02: Chapter = {
             'Take the three members: $t = -2$: $(6, 10)$ — $30 + 70 = 100$ ✓; $t = -1$: $(13, 5)$ — $65 + 35 = 100$ ✓; $t = 0$: $(20, 0)$ — $100 + 0 = 100$ ✓.',
             'Hence exactly three ways — and if both denominations must appear at least once, the window tightens to $t \\in \\{-2, -1\\}$: two ways.',
           ],
+          figures: [
+            {
+              caption:
+                'The three makeable ways to pay ₹100 with ₹5 and ₹7 notes, on the lattice line 5x + 7y = 100: (6, 10), (13, 5) and (20, 0) sit one stride (+7, −5) apart, seeded from the inspection particular (20, 0). The nonnegative window brackets all three; the strictly positive window drops the x-axis point (20, 0) and keeps two.',
+              svg: `<svg viewBox="0 0 780 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lattice line 5x + 7y = 100 with the three makeable payment pairs (6, 10), (13, 5), (20, 0) spaced one step (+7, −5) apart; the nonnegative window brackets all three">
+  <defs>
+    <marker id="pay-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  ${(() => {
+    const OX = 90, OY = 340, PX = 30, PY = 20; // origin px, px per unit (x, y)
+    let out = '';
+    // light grid: x = 0..20, y = 1..14 (horizontals stop one unit short of
+    // the x-intercept so no gridline endpoint reaches the "(20, 0)" label)
+    for (let i = 0; i <= 20; i++) out += `<line x1="${OX + i * PX}" y1="${OY - 14 * PY}" x2="${OX + i * PX}" y2="${OY}"/>`;
+    for (let j = 1; j <= 14; j++) out += `<line x1="${OX}" y1="${OY - j * PY}" x2="${OX + 19 * PX}" y2="${OY - j * PY}"/>`;
+    out = `<g stroke="currentColor" stroke-width="0.75" opacity="0.25">${out}</g>`;
+    // axes
+    out += `<line x1="${OX}" y1="${OY}" x2="${OX + 21.6 * PX}" y2="${OY}" stroke="currentColor" stroke-width="1.5" marker-end="url(#pay-arrow)"/>`;
+    out += `<line x1="${OX}" y1="${OY}" x2="${OX}" y2="${OY - 14.5 * PY}" stroke="currentColor" stroke-width="1.5" marker-end="url(#pay-arrow)"/>`;
+    out += `<text x="${OX + 21.3 * PX}" y="${OY - 10}" font-size="13" font-style="italic" fill="currentColor" text-anchor="middle">x</text>`;
+    out += `<text x="${OX + 14}" y="${OY - 13.7 * PY}" font-size="13" font-style="italic" fill="currentColor">y</text>`;
+    // ticks
+    const xt = [0, 4, 8, 12, 16, 20], yt = [0, 4, 8, 12];
+    xt.forEach(v => { out += `<text x="${OX + v * PX}" y="${OY + 22}" font-size="12" fill="currentColor" text-anchor="middle">${v}</text>`; });
+    yt.forEach(v => { out += `<text x="${OX - 12}" y="${OY - v * PY + 4}" font-size="12" fill="currentColor" text-anchor="end">${v}</text>`; });
+    // the line 5x + 7y = 100, from its y-intercept (0, 100/7) to its x-intercept (20, 0)
+    const yTop = OY - (100 / 7) * PY;
+    out += `<line x1="${OX}" y1="${yTop.toFixed(1)}" x2="${OX + 20 * PX}" y2="${OY}" stroke="currentColor" stroke-width="1.6"/>`;
+    // the three window points, computed from the family x = 20 + 7t, y = −5t
+    const pts = [[6, 10], [13, 5], [20, 0]];
+    pts.forEach(p => { out += `<circle cx="${OX + p[0] * PX}" cy="${OY - p[1] * PY}" r="5" fill="#16a34a"/>`; });
+    out += `<text x="${OX + 6 * PX}" y="${OY - 10 * PY - 20}" font-size="12.5" fill="currentColor" text-anchor="middle">(6, 10)</text>`;
+    out += `<text x="${OX + 13 * PX}" y="${OY - 5 * PY - 18}" font-size="12.5" fill="currentColor" text-anchor="middle">(13, 5)</text>`;
+    out += `<text x="${OX + 20 * PX}" y="${OY - 20}" font-size="12.5" fill="currentColor" text-anchor="middle">(20, 0)</text>`;
+    // one stride, parallel below the line — offset purely downward so the
+    // arrow reads dot-to-dot: (6, 10) → (13, 5)
+    out += `<line x1="${OX + 6 * PX}" y1="${OY - 10 * PY + 25}" x2="${OX + 13 * PX}" y2="${OY - 5 * PY + 25}" stroke="currentColor" stroke-width="1.3" marker-end="url(#pay-arrow)"/>`;
+    out += `<text x="${OX + 7 * PX}" y="${OY - 10 * PY + 68}" font-size="12.5" fill="currentColor" text-anchor="middle">+7, −5</text>`;
+    // the window bracket
+    out += `<path d="M${OX + 6 * PX},${OY + 32} v8 h${14 * PX} v-8" fill="none" stroke="#16a34a" stroke-width="1.3"/>`;
+    out += `<text x="${OX + 13 * PX}" y="${OY + 56}" font-size="12.5" fill="#166534" text-anchor="middle">the nonnegative window: t = −2, −1, 0 — three makeable ways</text>`;
+    return out;
+  })()}
+</svg>`,
+            },
+          ],
         },
         { kind: 'heading', text: 'The nonnegative window: counting the makeable answers' },
         {
           kind: 'para',
           text: 'The window arithmetic of those Illustrations is a reusable instrument. From the family $x = x_0 + \\frac{b}{d} t$, $y = y_0 - \\frac{a}{d} t$, the nonnegative grips are $t \\ge -x_0 / (b/d)$ — rounded up to the next whole number — and $t \\le y_0 / (a/d)$ — rounded down. The two grips cut an interval of whole numbers out of the endless family: empty (the grips disagree), a single point (they meet exactly), or a run (room between them). Everything examination questions ask about “solutions in nonnegative integers” is this interval, counted. Instance grips worth memorising: $\\lceil 30/7 \\rceil = 5 = \\lfloor 10/2 \\rfloor$ gave the unique $(5, 0)$; $\\lceil 3/7 \\rceil = 1 > 0 = \\lfloor 1/2 \\rfloor$ gave the empty window on $12x + 42y = 6$.',
+        },
+        {
+          kind: 'example',
+          title: 'Run the whole pipeline on a fresh d > 1 equation: 14x + 21y = 77',
+          steps: [
+            'Split: the criterion first — the loop: $21 = 1 \\cdot 14 + 7$, then $14 = 2 \\cdot 7 + 0$: $d = \\gcd(14, 21) = 7$, and $7 \\mid 77$ ✓ ($77 = 11 \\cdot 7$): solutions exist.',
+            'Now, reduce first — the solution set will not notice: $2x + 3y = 11$.',
+            'So, Bézout for the coprime pair $(2, 3)$: the loop gives $3 = 1 \\cdot 2 + 1$, so $1 = 3 - 1 \\cdot 2$; scale by 11: $11 = 33 - 22 = 2 \\cdot (-11) + 3 \\cdot 11$ — a particular solution $(-11, 11)$, read as the natural difference $33 - 22 = 11$ ✓.',
+            'Take: the family — stride $(b/d, -a/d) = (+3, -2)$: $x = -11 + 3t$, $y = 11 - 2t$. The grips: $x \\ge 0$ wants $t \\ge 11/3$, so $t \\ge \\lceil 11/3 \\rceil = 4$; $y \\ge 0$ wants $t \\le 11/2$, so $t \\le \\lfloor 11/2 \\rfloor = 5$.',
+            'The window holds two members: $t = 4$: $(1, 3)$ — $2 + 9 = 11$ ✓; $t = 5$: $(4, 1)$ — $8 + 3 = 11$ ✓. Both are strictly positive — the positive window here is not empty.',
+            'Hence dress the answers back in the original coefficients: $14 \\cdot 1 + 21 \\cdot 3 = 14 + 63 = 77$ ✓ and $14 \\cdot 4 + 21 \\cdot 1 = 56 + 21 = 77$ ✓ — reduce to solve, dress back to answer.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'How many ways, at a glance',
+          text: 'Before sweeping the window, the count can be estimated with one division. On every nonnegative-counting instance of this lesson, the number of makeable solutions landed at $\\lfloor c/(ab) \\rfloor$ or one more: $5x + 7y = 100$ gives $\\lfloor 100/35 \\rfloor + 1 = 3$ ways; $3x + 5y = 16$ gives $\\lfloor 16/15 \\rfloor = 1$; the reduced $2x + 7y = 10$ gives $\\lfloor 10/14 \\rfloor + 1 = 1$; the fresh $2x + 3y = 11$ above gives $\\lfloor 11/6 \\rfloor + 1 = 2$; and the empty windows sit at the $\\lfloor \\cdot \\rfloor$ value itself ($2x + 7y = 6$: $\\lfloor 6/14 \\rfloor = 0$). The pattern is the stride at work — each makeable solution consumes roughly $ab$ of target — and the honest ledger matches Sylvester’s: instances verified, the general count formula deferred to chapter 4’s toolkit.',
         },
         {
           kind: 'callout',
@@ -2745,6 +2817,38 @@ export const chapter02: Chapter = {
                     'Hence 6 is solvable in whole numbers but makeable in no nonnegative way — the criterion is necessary and sufficient for whole numbers, and the quadrant asks for more.',
                   ],
                   answer: 'family (−3 + 7t, 1 − 2t); all four members verify; the nonnegative window is empty',
+                  figures: [
+                    {
+                      caption:
+                        'The empty nonnegative window of 12x + 42y = 6, read on the family parameter t: the y-grip keeps t ≤ ⌊1/2⌋ = 0 (green band above the axis) and the x-grip keeps t ≥ ⌈3/7⌉ = 1 (amber band below it) — no whole t satisfies both, so the family (−3 + 7t, 1 − 2t) holds members at every t but a makeable one at no t.',
+                      svg: `<svg viewBox="0 0 780 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The two grips on the family parameter t disagree: the y-grip keeps t at or below 0 (green band above the axis) and the x-grip keeps t at or above 1 (amber band below the axis), leaving the nonnegative window of 12x + 42y = 6 empty">
+  ${(() => {
+    const T0 = 290, PX = 100, AXY = 118; // t = 0 position, px per unit t, axis y
+    let out = '';
+    out += `<text x="${T0 + 50}" y="30" font-size="12.5" fill="currentColor" text-anchor="middle">family x = −3 + 7t,  y = 1 − 2t  (stride +7, −2)</text>`;
+    // y-grip band: t ≤ 0 — above the axis, continuing left
+    out += `<rect x="${T0 - 2 * PX}" y="55" width="${2 * PX}" height="30" fill="#dcfce7" stroke="#16a34a" stroke-width="1.3"/>`;
+    out += `<text x="${T0 - PX}" y="74" font-size="12" fill="#166534" text-anchor="middle">y ≥ 0 keeps t ≤ ⌊1/2⌋ = 0</text>`;
+    out += `<path d="M${T0 - 2 * PX},70 l-9,-4.5 l0,9 Z" fill="#16a34a"/>`;
+    // x-grip band: t ≥ 1 — below the axis, continuing right
+    out += `<rect x="${T0 + PX}" y="150" width="${2 * PX}" height="30" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>`;
+    out += `<text x="${T0 + 2 * PX}" y="169" font-size="12" fill="#b45309" text-anchor="middle">x ≥ 0 keeps t ≥ ⌈3/7⌉ = 1</text>`;
+    out += `<path d="M${T0 + 3 * PX},165 l9,-4.5 l0,9 Z" fill="#f59e0b"/>`;
+    // the t-axis and its ticks
+    out += `<line x1="${T0 - 2 * PX - 20}" y1="${AXY}" x2="${T0 + 3 * PX + 20}" y2="${AXY}" stroke="currentColor" stroke-width="1.4"/>`;
+    out += `<text x="${T0 + 3 * PX + 30}" y="${AXY + 4}" font-size="13" font-style="italic" fill="currentColor">t</text>`;
+    const ticks = [-2, -1, 0, 1, 2, 3];
+    ticks.forEach(v => {
+      out += `<line x1="${T0 + v * PX}" y1="${AXY - 5}" x2="${T0 + v * PX}" y2="${AXY + 5}" stroke="currentColor" stroke-width="1.2"/>`;
+      out += `<text x="${T0 + v * PX}" y="${AXY + 20}" font-size="12" fill="currentColor" text-anchor="middle">${v < 0 ? '−' + Math.abs(v) : v}</text>`;
+    });
+    // the verdict
+    out += `<text x="${T0 + 50}" y="212" font-size="13" font-weight="600" fill="currentColor" text-anchor="middle">every t ≤ 0 lands x = −3 + 7t &lt; 0;  every t ≥ 1 lands y = 1 − 2t &lt; 0 — the window is empty</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Solve $3x + 5y = 16$ completely from Bézout, and show that $(2, 2)$ is its only nonnegative solution.',
@@ -2792,6 +2896,45 @@ export const chapter02: Chapter = {
                     'Hence the connection: Lesson 1.3 ran the descent on 3-and-5 stamps and found the last unmakeable amount 7 — and $3 \\cdot 5 - 3 - 5 = 7$ ✓: the same formula, now standing on the criterion-and-window theory.',
                   ],
                   answer: 'gaps 1, 2, 3, 5, 6, 7, 10, 11, 14, 15, 19, 23; the last = ab − a − b = 23; 1.3’s 3-and-5 point 7 fits the same formula',
+                  figures: [
+                    {
+                      caption:
+                        'The 1-to-30 sweep for 4- and 9-rupee stamps: green cells are makeable, amber cells are the twelve gaps — (4 − 1)(9 − 1)/2 = 12 — with the last gap 23 = 4·9 − 4 − 9 ringed, and the run continuous from 24 (the witnesses 24..31 plus the +4 walk cover every amount above).',
+                      svg: `<svg viewBox="0 0 780 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stamp sweep from 0 to 30 for 4-rupee and 9-rupee stamps: makeable amounts in green cells, the twelve gaps in amber cells, the last gap 23 ringed in red, and the continuous run from 24 onwards marked by a green bracket">
+  ${(() => {
+    const X0 = 34, PITCH = 23, CELL = 20, CY = 50; // cell origin, pitch, size, top y
+    const GAPS = new Set([1, 2, 3, 5, 6, 7, 10, 11, 14, 15, 19, 23]);
+    const GAP_COUNT = ((4 - 1) * (9 - 1)) / 2; // 12 — Sylvester's count, swept below
+    let out = '';
+    // legend
+    out += `<rect x="300" y="14" width="14" height="14" rx="3" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"/>`;
+    out += `<text x="320" y="25" font-size="12" fill="#166534">makeable</text>`;
+    out += `<rect x="412" y="14" width="14" height="14" rx="3" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>`;
+    out += `<text x="432" y="25" font-size="12" fill="#b45309">gap</text>`;
+    // the 31 cells, 0..30
+    for (let i = 0; i <= 30; i++) {
+      const gap = GAPS.has(i);
+      const x = X0 + i * PITCH;
+      out += `<rect x="${x}" y="${CY}" width="${CELL}" height="${CELL}" rx="3" fill="${gap ? '#fef3c7' : '#dcfce7'}" stroke="${gap ? '#f59e0b' : '#16a34a'}" stroke-width="1.1"/>`;
+      out += `<text x="${x + CELL / 2}" y="${CY + 14}" font-size="10.5" fill="${gap ? '#b45309' : '#166534'}" text-anchor="middle">${i}</text>`;
+    }
+    // ring the last gap, 23
+    const lastX = X0 + 23 * PITCH;
+    out += `<rect x="${lastX - 3}" y="${CY - 3}" width="${CELL + 6}" height="${CELL + 6}" fill="none" stroke="#dc2626" stroke-width="2"/>`;
+    out += `<line x1="${lastX + 10}" y1="${CY + 24}" x2="${lastX - 7}" y2="102" stroke="#dc2626" stroke-width="1.2"/>`;
+    out += `<text x="${lastX - 7}" y="118" font-size="11.5" fill="#dc2626" text-anchor="end">23 = 4·9 − 4 − 9 — the last gap</text>`;
+    // bracket: the run is continuous from 24
+    const bL = X0 + 24 * PITCH, bR = X0 + 30 * PITCH + CELL;
+    out += `<path d="M${bL},92 v10 h${bR - bL} v-10" fill="none" stroke="#16a34a" stroke-width="1.3"/>`;
+    out += `<text x="${bL + (bR - bL) / 2}" y="120" font-size="11.5" fill="#166534" text-anchor="middle">the run is continuous from 24</text>`;
+    out += `<text x="${bL + (bR - bL) / 2}" y="138" font-size="11.5" fill="#166534" text-anchor="middle">witnesses 24..31, then the +4 walk</text>`;
+    // the Sylvester count line
+    out += `<text x="389" y="178" font-size="12.5" fill="currentColor" text-anchor="middle">twelve gaps — (4 − 1)(9 − 1)/2 = ${GAP_COUNT} — the largest is 23 = 4 · 9 − 4 − 9 (Sylvester’s formula)</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },

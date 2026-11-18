@@ -501,7 +501,11 @@
       "bookId": "arithmetic-and-number-systems",
       "chapter": 2,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-18",
+      "doneOn": "2026-11-18",
+      "doneBy": "audit-bot fire (job 530242, §10 passes A/B/C)",
+      "note": "fire 2026-11-18 08:30 IST: body lattice figure PASS untouched (DOM 0 + VLM strict + dark-mode crop PASS; 40 px/unit vertical and 30 px/unit horizontal schematic scales re-derived by the auditor); B: 3 sol figs added (t-axis empty-window grips on L2-Q1 first-pass PASS; the ₹100 pay lattice on example 3 FAIL→2 fixes→PASS — gridline endpoints vs the \"(20, 0)\" label box on the DOM gate, then the step arrow’s skewed offset on the strict VLM; C: 3 enrichments (full-pipeline example 14x+21y=77 as Illustration 4; gatekeeper-gcd insight callout; count-at-a-glance insight callout)"
     },
     {
       "lessonId": "ans-representation-theorem-unique-name",

@@ -3413,3 +3413,23 @@ The owner directed the comprehensive double-layer pass. Layer 1 (drive TOC): the
   2. example "Put the certificate to work: gcd(91, 104), the ladder of FM 4.2, and the scaled line" (after the scaled-reduction para, before the Lamé callout): 104 = 1·91 + 13, 91 = 7·13 + 0 → gcd 13; 91/104 = 7/8 (91 = 7·13, 104 = 8·13); Bézout 13 = 1·104 − 1·91 (104 − 91 = 13 ✓); scaled 1 = 1·8 − 1·7 ✓.
 - Gates: DOM 0/4 svgs solutions-expanded (re-run after each fix) · VLM strict PASS ×4 · lib:pack v2 (9.46 MB, verify PASS) after each content edit · KaTeX 2,403 spans on the lesson, no raw leaks · route 200 · tsc --noEmit exit 0 project-wide · core.filemode=false re-applied (recycled-checkout mode noise).
 - No AI images; SOURCE_LOG untouched; RESUME_POINTER/PROGRESS/WORK_INVENTORY untouched (main-AI-owned); audit-state.json bumped (lastAuditedLessonId → ans-euclidean-algorithm-proven-bezout-identity).
+
+
+## 2026-11-18 — audit-bot fire (job 530242, 08:30 IST): ans-linear-diophantine-equations (ANS 2.4, queue item 54) — §10 passes
+
+- Files touched: `src/data/library/books/mathematics/arithmetic-number-systems/ch-02.ts` (only chapter file), `docs/project/FIGURE_AUDIT_LOG.md`, `docs/project/ENHANCEMENT_LOG.md`, `docs/project/WORKLOG.md`, `docs/project/DETAILED_LOG.md` (this entry), `docs/project/FIGURE_AUDIT_QUEUE.json` (item 54 → done).
+- Pass A (1 body figure, untouched): fig 1 lattice 2x + 7y = 10 — DOM 0, VLM strict PASS, dark crop PASS; auditor re-derived scales and every drawn coordinate before trusting the picture.
+- Pass B (3 solution figures added):
+  1. `L2-Q1` figures[0]: t-axis empty-window grips (viewBox 780x240; constants T0=290, PX=100, AXY=118; green band rect (90,55,200,30) + label + left arrow; amber band (390,150,200,30) + label + right arrow; ticks −2..3 with U+2212 minus glyphs; verdict line). Caption states the grips and the empty window. VLM PASS first time; DOM 0.
+  2. `example` (Illustration 3) figures[0]: ₹100 pay lattice (viewBox 780x420; constants OX=90, OY=340, PX=30, PY=20; grid generated in-template; line (90, 54.3) → (690, 340) from yTop = OY − (100/7)·PY; dots from the family x = 20 + 7t, y = −5t at t = −2, −1, 0; dot-to-dot step arrow (270, 165) → (480, 265); window bracket M270,372 v8 h420 v-8). Fixes: gridline horizontals shortened to x = 660 (endpoint/label catch), arrow offset made purely vertical (parallel/dot-to-dot catch). VLM FAIL→PASS; DOM 1→0.
+  3. `L3-Q2` figures[0]: stamp-sweep strip (viewBox 780x200; constants X0=34, PITCH=23, CELL=20, CY=50; GAPS set = the twelve gaps; GAP_COUNT computed as (4−1)(9−1)/2; 31 cells + legend + red ring on 23 + leader + witness bracket + Sylvester count line). Witness labels centered on the bracket to keep the right edge clear of the viewBox. VLM PASS first time; DOM 0.
+- Pass C (3 enrichments INTO the lesson):
+  1. callout (insight) "The gatekeeper is the gcd — not the coefficients" — after Illustration 1: 6x + 10y = 4 passes though neither coefficient divides 4; one-way traffic (d | a, a | c ⇒ d | c); the exam trap named.
+  2. example "Run the whole pipeline on a fresh d > 1 equation: 14x + 21y = 77" (Illustration 4) — after the grips para, before the warn callout: criterion → reduce → Bézout → family → grips → window {4, 5} → (1, 3), (4, 1) → dress back. Six-step Cengage chain; every number verified before writing (77 = 11·7; 11 = 33 − 22; 2 + 9 = 11; 8 + 3 = 11; 14 + 63 = 77; 56 + 21 = 77).
+  3. callout (insight) "How many ways, at a glance" — after Illustration 4: the count at ⌊c/(ab)⌋ or one more, verified on five instances of the lesson (3, 1, 1, 2, 0); honest deferral to chapter 4.
+  All three in the natural pedagogical position (Illustration numbering auto-shifts only forward: 1–3 keep their numbers; the new example becomes 4).
+- Refused with reasons: L1-Q1, L1-Q2, L1-Q3, L2-Q2, L2-Q3, L3-Q1, L4-Q1, L4-Q2, L5-Q1, L5-Q2, L6-Q1; examples 1 and 2.
+- Gates: DOM 0/4 svgs solutions-expanded (re-run after each fix) · VLM strict PASS ×4 · lib:pack v4 (9.48 MB, verify PASS) after each content edit · KaTeX clean on the new prose · route 200 · tsc --noEmit exit 0 project-wide.
+- No AI images; SOURCE_LOG untouched; RESUME_POINTER/PROGRESS/WORK_INVENTORY/TOC_FOLD_LEDGER/ENHANCEMENT_POINTER untouched (main-AI-owned); audit-state.json bumped (lastAuditedLessonId → ans-linear-diophantine-equations).
+
+- Staging fix (this entry supersedes the queue line above): FIGURE_AUDIT_QUEUE.json was re-based on HEAD's fresh queue (cursor 54, 131 items, stats 60/131/246) with the item-54 done-mark applied as a +5/−1 diff; the earlier stale-queue rewrite (−1,049/+1,049) was restored away pre-commit and never staged again. A stray untracked binary `full` in the repo root predates this fire and was left untouched.
