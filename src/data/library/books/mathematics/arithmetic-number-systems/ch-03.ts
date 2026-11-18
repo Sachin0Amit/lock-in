@@ -853,6 +853,38 @@ export const chapter03: Chapter = {
             'Take them upward — last first: $11111101001_2$.',
             'Hence $2025 = 11111101001_2$, certified by rebuilding: $1024 + 512 + 256 + 128 + 64 + 32 + 8 + 1 = 2025$ ✓ — and the bit count 11 agrees with the digit-count window ($2^{10} \\le 2025 < 2^{11}$).',
           ],
+          figures: [
+            {
+              caption:
+                'The naming engine on 2025, drawn as the eleven machines it is: each row one division-algorithm instance, each remainder one bit, emitted top to bottom. The green arrow reads the chips upward — last first, because the first remainder sits in the units seat — into $11111101001_2$, rebuilt as $1024 + 512 + 256 + 128 + 64 + 32 + 8 + 1 = 2025$ ✓.',
+              svg: `<svg viewBox="0 0 560 376" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Eleven division machines for 2025 in base two: each row shows the quotient times two plus the remainder, the remainder bits stacked in chips on the right, and a green arrow reading them upward into 11111101001, rebuilt as 1024 plus 512 plus 256 plus 128 plus 64 plus 32 plus 8 plus 1 equals 2025.">
+  <text x="280" y="22" font-size="13" fill="currentColor" text-anchor="middle">the engine on 2025: eleven machines, one bit each</text>
+  ${(() => {
+    const rows: Array<[number, number, number]> = [
+      [2025, 1012, 1], [1012, 506, 0], [506, 253, 0], [253, 126, 1], [126, 63, 0],
+      [63, 31, 1], [31, 15, 1], [15, 7, 1], [7, 3, 1], [3, 1, 1], [1, 0, 1],
+    ];
+    const y0 = 44, rowH = 24;
+    let out = '';
+    rows.forEach(([n, q, r], i) => {
+      const y = y0 + i * rowH + 16;
+      out += `<text x="236" y="${y}" font-size="12.5" fill="currentColor" text-anchor="end">${n} = ${q} · 2 + ${r}</text>`;
+      out += `<rect x="252" y="${y - 14}" width="34" height="20" rx="6" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.2"/>`;
+      out += `<text x="269" y="${y + 1}" font-size="13" font-weight="600" fill="#166534" text-anchor="middle">${r}</text>`;
+    });
+    // read-upward arrow beside the chip column, spanning its vertical extent
+    out += `<line x1="316" y1="308" x2="316" y2="56" stroke="#166534" stroke-width="1.8"/>`;
+    out += `<polygon points="316,46 311,58 321,58" fill="#166534"/>`;
+    out += `<text x="330" y="40" font-size="12.5" font-weight="600" fill="#166534" text-anchor="start">read upward — last first</text>`;
+    out += `<text x="330" y="58" font-size="11.5" fill="currentColor" text-anchor="start" opacity="0.75">first emitted = the units digit</text>`;
+    return out;
+  })()}
+  <text x="280" y="330" font-size="12.5" fill="currentColor" text-anchor="middle">the name: 11111101001 — the bits read upward, last first</text>
+  <text x="280" y="348" font-size="12.5" fill="currentColor" text-anchor="middle">rebuilt: 1024 + 512 + 256 + 128 + 64 + 32 + 8 + 1 = 2025 ✓</text>
+  <text x="280" y="364" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.75">eleven machines, eleven bits — window check: 1024 ≤ 2025 &lt; 2048</text>
+</svg>`,
+            },
+          ],
         },
         {
           kind: 'example',
@@ -961,6 +993,21 @@ export const chapter03: Chapter = {
           text: 'The octal companion is the same idea two bits smaller: $000, 001, 010, 011, 100, 101, 110, 111$ carry the values zero through seven — eight triples for eight digits. A four-bit block has a name of its own: a **nibble** — half a byte, one hex digit\u2019s worth of bits. (The byte itself — eight bits, exactly two nibbles, the register that holds $2^8 = 256$ values — belongs to Lesson 3.4, where the machine finally takes the stage.)',
         },
         {
+          kind: 'table',
+          caption: 'The octal charter: eight values, their triples — the hex charter two bits smaller. Every entry is one line of binary counting; threes for the seats, not fours.',
+          head: ['value', 'triple'],
+          rows: [
+            ['0', '000'],
+            ['1', '001'],
+            ['2', '010'],
+            ['3', '011'],
+            ['4', '100'],
+            ['5', '101'],
+            ['6', '110'],
+            ['7', '111'],
+          ],
+        },
+        {
           kind: 'derivation',
           title: 'Why regrouping works: the power law behind the tables',
           statement:
@@ -1012,16 +1059,18 @@ export const chapter03: Chapter = {
   <g font-size="19" fill="currentColor" text-anchor="middle">
     <text x="80" y="117">0</text><text x="144" y="117">1</text><text x="208" y="117">1</text><text x="272" y="117">1</text><text x="336" y="117">1</text><text x="400" y="117">1</text><text x="464" y="117">1</text><text x="528" y="117">0</text><text x="592" y="117">1</text><text x="656" y="117">0</text><text x="720" y="117">0</text><text x="784" y="117">1</text>
   </g>
-  <!-- nibble braces: groups of 4 -->
+  <!-- nibble braces: groups of 4 — brace edges are the GROUP edges, derived from the box
+       constants (x0 = 54, pitch = 64, bw = 52; group g spans [x0 + g*(4*pitch), x0 + g*(4*pitch) + 3*pitch + bw]):
+       group 1 = 54..298, group 2 = 310..554, group 3 = 566..810 (prior 590/602 strokes cut into box 9's cell) -->
   <g fill="none" stroke="currentColor" stroke-width="1.2">
     <path d="M54,150 L54,160 L298,160 L298,150"/>
-    <path d="M310,150 L310,160 L590,160 L590,150"/>
-    <path d="M602,150 L602,160 L810,160 L810,150"/>
+    <path d="M310,150 L310,160 L554,160 L554,150"/>
+    <path d="M566,150 L566,160 L810,160 L810,150"/>
   </g>
   <g font-size="21" fill="currentColor" text-anchor="middle">
     <text x="176" y="196">7</text>
-    <text x="450" y="196">E</text>
-    <text x="706" y="196">9</text>
+    <text x="432" y="196">E</text>
+    <text x="688" y="196">9</text>
   </g>
   <text x="860" y="196" font-size="13" fill="currentColor" text-anchor="middle" opacity="0.85">in fours: 7E9</text>
   <!-- triple braces: groups of 3 -->
@@ -1068,10 +1117,64 @@ export const chapter03: Chapter = {
             'Take the shorter instance: $67_{12} = 6 \\cdot 12 + 7 = 79$; then $79$ into base three: $79 = 26 \\cdot 3 + 1$, $26 = 8 \\cdot 3 + 2$, $8 = 2 \\cdot 3 + 2$, $2 = 0 \\cdot 3 + 2$ — read upward $2221_3$; rebuild $54 + 18 + 6 + 1 = 79$ ✓.',
             'Hence $1209_{12} = 31100_5$ and $67_{12} = 2221_3$ — arbitrary pairs bridged through ten, every leg certified; Lesson 3.3 will remove the bridge by doing the divisions directly in the source base.',
           ],
+          figures: [
+            {
+              caption:
+                'The bridge, run twice: each crossing is one certified leg up — the rebuild into the green base-ten middleman — and one certified leg down — the engine in the target base. $1209_{12}$ lands on $31100_5$; $67_{12}$ lands on $2221_3$; every leg survives its own rebuild.',
+              svg: `<svg viewBox="0 0 620 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two bridge lanes through base ten. Lane one: 1209 in base twelve, up by rebuild to 2025, down by the engine on five to 31100 in base five. Lane two: 67 in base twelve, up to 79, down by the engine on three to 2221 in base three. Every leg certified by rebuilding.">
+  <text x="310" y="22" font-size="13" fill="currentColor" text-anchor="middle">the base-ten bridge: up by rebuild, down by the engine</text>
+  ${(() => {
+    const bw1 = 150, bw2 = 120, bw3 = 150, bh = 40;
+    const lanes = [
+      { y: 44, a: '1209 (twelve)', m: '2025 (ten)', c: '31100 (five)',
+        up: '1728 + 288 + 0 + 9', down: ['down: engine by 5', 'remainders 0 · 0 · 1 · 1 · 3'] },
+      { y: 136, a: '67 (twelve)', m: '79 (ten)', c: '2221 (three)',
+        up: '6 · 12 + 7', down: ['down: engine by 3', 'remainders 1 · 2 · 2 · 2'] },
+    ];
+    const xa = 16, xm = 250, xc = 460;
+    const box = (x: number, w: number, y: number, label: string, mid: boolean) => `
+      <rect x="${x}" y="${y}" width="${w}" height="${bh}" rx="9" fill="currentColor" fill-opacity="0.06" stroke="${mid ? '#166534' : 'currentColor'}" stroke-width="${mid ? 1.8 : 1.4}"/>
+      <text x="${x + w / 2}" y="${y + bh / 2 + 5}" font-size="13.5" fill="currentColor" text-anchor="middle">${label}</text>`;
+    const arrow = (xa2: number, xb: number, y: number, green: boolean) => {
+      const col = green ? '#166534' : 'currentColor';
+      return `<line x1="${xa2}" y1="${y}" x2="${xb - 8}" y2="${y}" stroke="${col}" stroke-width="1.6"/>
+      <polygon points="${xb - 1},${y} ${xb - 9},${y - 4.5} ${xb - 9},${y + 4.5}" fill="${col}"/>`;
+    };
+    let out = '';
+    lanes.forEach((L) => {
+      const ym = L.y + bh / 2;
+      out += box(xa, bw1, L.y, L.a, false);
+      out += box(xm, bw2, L.y, L.m, true);
+      out += box(xc, bw3, L.y, L.c, false);
+      out += arrow(xa + bw1, xm, ym, false);
+      out += arrow(xm + bw2, xc, ym, true);
+      const g1 = (xa + bw1 + xm) / 2, g2 = (xm + bw2 + xc) / 2;
+      out += `<text x="${g1}" y="${L.y + 62}" font-size="11.5" fill="currentColor" text-anchor="middle">up: rebuild</text>`;
+      out += `<text x="${g1}" y="${L.y + 76}" font-size="11.5" fill="currentColor" text-anchor="middle">${L.up}</text>`;
+      out += `<text x="${g2}" y="${L.y + 62}" font-size="11.5" font-weight="600" fill="#166534" text-anchor="middle">${L.down[0]}</text>`;
+      out += `<text x="${g2}" y="${L.y + 76}" font-size="11.5" fill="#166534" text-anchor="middle">${L.down[1]}</text>`;
+    });
+    return out;
+  })()}
+  <text x="310" y="240" font-size="12.5" fill="currentColor" text-anchor="middle">every leg certified: 3·625 + 125 + 25 = 2025 ✓ · 54 + 18 + 6 + 1 = 79 ✓</text>
+</svg>`,
+            },
+          ],
         },
         {
           kind: 'para',
           text: 'With all routes on the table, one number can wear its full wardrobe: $45 = 101101_2 = 1200_3 = 55_8 = 39_{12} = 2D_{16}$ — five dresses, one number, every conversion certified. And the year this chapter was written: $2025 = 11111101001_2 = 31100_5 = 5622_7 = 3751_8 = 1209_{12} = 7E9_{16}$ — six dresses. The subscript is not decoration; it is the only thing telling these strings apart.',
+        },
+        {
+          kind: 'example',
+          title: 'Sew the unwoven dresses: 45 into bases three and twelve; 2025 into bases seven and twelve',
+          steps: [
+            'Split, 45 into base three: $45 = 15 \\cdot 3 + 0$; $15 = 5 \\cdot 3 + 0$; $5 = 1 \\cdot 3 + 2$; $1 = 0 \\cdot 3 + 1$ — read upward: $1200_3$, rebuilt $27 + 18 = 45$ ✓.',
+            'Now, 45 into base twelve: $45 = 3 \\cdot 12 + 9$ — one machine: $39_{12}$, rebuilt $36 + 9 = 45$ ✓.',
+            'So, 2025 into base seven: $2025 = 289 \\cdot 7 + 2$; $289 = 41 \\cdot 7 + 2$; $41 = 5 \\cdot 7 + 6$; $5 = 0 \\cdot 7 + 5$ — read upward: $5622_7$, rebuilt $1715 + 294 + 14 + 2 = 2025$ ✓.',
+            'Take 2025 into base twelve: $2025 = 168 \\cdot 12 + 9$; $168 = 14 \\cdot 12 + 0$; $14 = 1 \\cdot 12 + 2$; $1 = 0 \\cdot 12 + 1$ — read upward: $1209_{12}$, rebuilt $1728 + 288 + 9 = 2025$ ✓.',
+            'Hence the wardrobe closes honest: every dress the paragraphs quoted — $101101_2$, $1200_3$, $55_8$, $39_{12}$, $2D_{16}$ on 45; $11111101001_2$, $31100_5$, $5622_7$, $3751_8$, $1209_{12}$, $7E9_{16}$ on 2025 — is now sewn and certified inside this lesson, none merely cited.',
+          ],
         },
         {
           kind: 'callout',
@@ -1235,6 +1338,40 @@ export const chapter03: Chapter = {
                     'So, the band veto and the algebra agree — and the root is unique because the equation is linear.',
                     'Take the check: $35_6 = 3 \\cdot 6 + 5 = 23$ ✓.',
                     'Hence $b = 6$ — the unknown-base shape is the representation theorem run in reverse: the string fixes the seats, the value fixes the base.',
+                  ],
+                  figures: [
+                    {
+                      caption:
+                        'The exam order, drawn: the digit band vetoes every base below 6 before algebra speaks — a name carrying the digit 5 has no seat for it in base 5 — then the rebuild turns $35_b$ into the straight line $3b + 5 = 23$: $b = 6$, and the check $3 \\cdot 6 + 5 = 23$ closes it.',
+                      svg: `<svg viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The unknown base 35 sub b equals 23. Left: the digit band of base five holds chips zero through four, and a dashed chip five has no seat — vetoed; the band of base six holds zero through five, so five finds its seat — admissible. Right: the rebuild turns the string into the line 3b plus 5 equals 23, giving b equals 6, checked by 3 times 6 plus 5 equals 23.">
+  <text x="340" y="22" font-size="13" fill="currentColor" text-anchor="middle">the unknown base: the band vetoes first, the line solves second</text>
+  ${(() => {
+    const chip = (v: number, x: number, y: number, tone: string) => {
+      const stroke = tone === 'amber' ? '#b45309' : tone === 'green' ? '#166534' : 'currentColor';
+      const dash = tone === 'amber' ? ' stroke-dasharray="3 2"' : '';
+      return `<rect x="${x}" y="${y}" width="28" height="22" rx="6" fill="currentColor" fill-opacity="0.06" stroke="${stroke}" stroke-width="1.3"${dash}/>
+      <text x="${x + 14}" y="${y + 15.5}" font-size="13" fill="currentColor" text-anchor="middle">${v}</text>`;
+    };
+    let out = '';
+    out += `<text x="148" y="52" font-size="12.5" fill="currentColor" text-anchor="middle">the digit band of base b: 0 … b − 1</text>`;
+    out += `<text x="16" y="76" font-size="12" fill="currentColor" text-anchor="start">b = 5:</text>`;
+    for (let i = 0; i < 5; i++) out += chip(i, 60 + i * 34, 60, 'ink');
+    out += chip(5, 230, 60, 'amber');
+    out += `<text x="16" y="102" font-size="11.5" fill="#b45309" text-anchor="start">5 has no seat in the band — vetoed</text>`;
+    out += `<text x="16" y="140" font-size="12" fill="currentColor" text-anchor="start">b = 6:</text>`;
+    for (let i = 0; i < 6; i++) out += chip(i, 60 + i * 34, 124, i === 5 ? 'green' : 'ink');
+    out += `<text x="16" y="166" font-size="11.5" fill="#166534" text-anchor="start">the digit 5 finds its seat — admissible</text>`;
+    out += `<line x1="292" y1="44" x2="292" y2="180" stroke="currentColor" stroke-width="1" opacity="0.25"/>`;
+    out += `<text x="482" y="52" font-size="12.5" fill="currentColor" text-anchor="middle">then the rebuild speaks</text>`;
+    out += `<text x="482" y="84" font-size="13" fill="currentColor" text-anchor="middle">35 (base b) = 3b + 5</text>`;
+    out += `<text x="482" y="114" font-size="13" fill="currentColor" text-anchor="middle">3b + 5 = 23, so 3b = 18</text>`;
+    out += `<text x="482" y="146" font-size="15" font-weight="700" fill="#166534" text-anchor="middle">b = 6</text>`;
+    out += `<text x="482" y="172" font-size="12.5" fill="currentColor" text-anchor="middle" opacity="0.8">check: 3·6 + 5 = 23 ✓</text>`;
+    return out;
+  })()}
+  <text x="340" y="212" font-size="12.5" fill="currentColor" text-anchor="middle">band veto and straight line agree — b = 6, unique because the line is straight</text>
+</svg>`,
+                    },
                   ],
                   answer: 'b = 6 (3b + 5 = 23; the digit 5 forced b ≥ 6 first)',
                 },
