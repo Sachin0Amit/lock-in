@@ -5,8 +5,8 @@
  *
  * The fourth primary surface of the app (Library · Builder · My Books ·
  * Revision Hub): open to everyone — no account needed, marks land in the
- * local study ledger — three tabs (Overview, Knowledge Graph, Insights)
- * and one guided revision session overlay.
+ * local study ledger — four tabs (Overview, Progress, Knowledge Graph,
+ * Insights) and one guided revision session overlay.
  */
 import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
@@ -16,13 +16,15 @@ import {
   Loader2,
   Network,
   RotateCcw,
+  TrendingUp,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useRevisionBadge } from './revision-store'
-import { fetchGraph, fetchOverview } from '@/lib/revision/client-api'
-import type { GraphResponse, OverviewResponse } from '@/lib/revision/types'
+import { fetchGraph, fetchOverview, fetchProgress } from '@/lib/revision/client-api'
+import type { GraphResponse, OverviewResponse, ProgressResponse } from '@/lib/revision/types'
 import { OverviewTab } from './overview-tab'
+import { ProgressTab } from './progress-tab'
 import { InsightsTab } from './insights-tab'
 import { KnowledgeGraph } from './knowledge-graph'
 import { RevisionSession } from './revision-session'
@@ -32,15 +34,17 @@ export function RevisionHub() {
 
   const [overview, setOverview] = useState<OverviewResponse | null>(null)
   const [graph, setGraph] = useState<GraphResponse | null>(null)
+  const [progress, setProgress] = useState<ProgressResponse | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [sessionOpen, setSessionOpen] = useState(false)
   const [sessionSeq, setSessionSeq] = useState(0)
 
   const reload = useCallback(async () => {
-    const [o, g] = await Promise.all([fetchOverview(), fetchGraph()])
+    const [o, g, p] = await Promise.all([fetchOverview(), fetchGraph(), fetchProgress()])
     setOverview(o)
     setGraph(g)
+    setProgress(p)
     setError(o && g ? null : 'Could not load your revision data. Check your connection and retry.')
     void refreshBadge()
   }, [refreshBadge])
@@ -48,10 +52,11 @@ export function RevisionHub() {
   useEffect(() => {
     let cancelled = false
     void (async () => {
-      const [o, g] = await Promise.all([fetchOverview(), fetchGraph()])
+      const [o, g, p] = await Promise.all([fetchOverview(), fetchGraph(), fetchProgress()])
       if (cancelled) return
       setOverview(o)
       setGraph(g)
+      setProgress(p)
       setError(o && g ? null : 'Could not load your revision data. Check your connection and retry.')
       setLoading(false)
       void refreshBadge()
@@ -117,9 +122,12 @@ export function RevisionHub() {
       </header>
 
       <Tabs defaultValue="overview">
-        <TabsList className="mb-6">
+        <TabsList className="mb-6 h-auto w-full flex-wrap justify-start gap-1 sm:h-9 sm:w-auto sm:justify-center">
           <TabsTrigger value="overview" className="gap-1.5">
             <RotateCcw className="h-4 w-4" aria-hidden /> Overview
+          </TabsTrigger>
+          <TabsTrigger value="progress" className="gap-1.5">
+            <TrendingUp className="h-4 w-4" aria-hidden /> Progress
           </TabsTrigger>
           <TabsTrigger value="graph" className="gap-1.5">
             <Network className="h-4 w-4" aria-hidden /> Knowledge graph
@@ -134,6 +142,15 @@ export function RevisionHub() {
             onChanged={() => void reload()}
             onOpenSession={openSession}
           />
+        </TabsContent>
+        <TabsContent value="progress">
+          {progress ? (
+            <ProgressTab progress={progress} onChanged={() => void reload()} />
+          ) : (
+            <p className="rounded-xl border border-dashed bg-card/40 p-6 text-sm text-muted-foreground">
+              Your progress data could not be loaded — retry above.
+            </p>
+          )}
         </TabsContent>
         <TabsContent value="graph">
           <KnowledgeGraph graph={graph} loading={loading} onChanged={() => void reload()} />

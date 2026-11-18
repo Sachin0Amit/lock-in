@@ -547,7 +547,16 @@ export async function submitAttempt(userId: string, req: SubmitRequest): Promise
     .filter(([id]) => lessons.has(id))
     .map(([id, agg]) => {
       const quality = Math.max(0, Math.min(5, Math.round((agg.correct / agg.answered) * 5)))
-      return { scope: 'lesson' as const, refId: id, quality, kind: 'quiz' as const }
+      return {
+        scope: 'lesson' as const,
+        refId: id,
+        quality,
+        kind: 'quiz' as const,
+        /* raw correct/answered ride along so the Progress tab counts
+         * questions understood exactly (capped by the mark contract) */
+        score: Math.min(500, agg.correct),
+        total: Math.min(500, agg.answered),
+      }
     })
   let ledgerSignals = 0
   for (const item of signalItems) {
@@ -557,6 +566,8 @@ export async function submitAttempt(userId: string, req: SubmitRequest): Promise
         action: 'quiz',
         quality: item.quality,
         kind: 'quiz',
+        score: item.score,
+        total: item.total,
       })
       ledgerSignals++
     } catch {

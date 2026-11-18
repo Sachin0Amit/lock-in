@@ -29,6 +29,8 @@ export interface LibraryLessonRecord {
   prerequisites: string[]
   words: number
   readMins: number
+  /** total quiz questions across the lesson's quiz blocks (0 when none) */
+  quizQuestions: number
   url: string
   /** sha256 of the lesson content — drift signals "library update available" */
   versionHash: string
@@ -66,6 +68,15 @@ function termsOf(lesson: Lesson): string[] {
     if (b.kind === 'terms') for (const t of b.items) out.push(t.term)
   }
   return out
+}
+
+/** Total quiz questions across the lesson's quiz blocks. */
+function quizQuestionsOf(lesson: Lesson): number {
+  let n = 0
+  for (const b of lesson.blocks) {
+    if (b.kind === 'quiz') n += b.items.length
+  }
+  return n
 }
 
 /** Deterministic content hash of a lesson (stable across restarts). */
@@ -131,6 +142,7 @@ function buildCatalog() {
           prerequisites: lesson.prerequisites ?? [],
           words,
           readMins: Math.max(1, Math.round(words / 200)),
+          quizQuestions: quizQuestionsOf(lesson),
           url: paths.lesson(book.id, lesson.id),
           versionHash: lessonVersionHash(lesson),
         }

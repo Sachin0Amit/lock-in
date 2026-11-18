@@ -2855,5 +2855,11 @@
   "gate": "scripts/verify-bio-med-arts-shelf-planning.ts — 3357/0; the five older shelf gates amended honestly to the 269-book census (math 1240/0 · CS 2348/0 · engineering 2257/0 · humanities 1121/0 · languages 923/0) and the full standing set green (topic 667 · toc-as-lessons 3883 · exam 2433 · cs-exam 696 · practice 274 · revision 88)",
   "knownGap": "the three new shelves' chapter summaries carry formulaic planning prose (a padding-degradation caught mid-pass and mechanically cleaned — the biology core books are the model register); a prose-polish fire is queued before their first lessons are written. The PRIOR pass's referenced-but-missing artifacts (scripts/gen_chemistry_shelf.py, gen_economics_finance_shelf.py, verify-ecf/chemistry/physics-shelf-planning.ts) were inherited that way from commit f8c869a — flagged here, not silently papered over.",
   "covers": "the gen_covers.py roster grown 191 -> 269 and COVER_ART registered for all 78 new books; generation runs as the idempotent rate-limit-resilient loop scripts/covers-run-loop.sh (the 429 era honestly recorded) — any book without art on disk falls back to the gradient cover."
+ },
+ "progressTabDirective20261118": {
+  "directive": "owner chat: Revision Hub — progress analysis of studied topics, completed books, questions understood; in-hub marking stored with revision counts; click-through to revise; recommendation engine",
+  "shipped": "Progress tab (hero census / engine recommendations / stored topic list / book standing with filters / in-hub marking picker), pure progress-engine.ts, GET /api/revision/progress, quizScore/quizTotal contract + catalog quizQuestions, /practice?book= deep link",
+  "gates": "verify-revision-progress 81/0 pre-UI; tsc/eslint clean; lib:pack v2 PASS; e2e-revision-progress 39/39; e2e-revision-hub regression 50/50; VLM light/dark/mobile PASS",
+  "cadence": "run 111 (AA 4.1 AM-GM) opens exactly as the run-110 pointer set it"
  }
 }

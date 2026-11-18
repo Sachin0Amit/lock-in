@@ -9,6 +9,7 @@ import type {
   MarkItemResult,
   MarkRequest,
   OverviewResponse,
+  ProgressResponse,
   RevisionSummaryCompact,
 } from './types'
 
@@ -32,6 +33,10 @@ export function fetchSummary(): Promise<RevisionSummaryCompact | null> {
 
 export function fetchGraph(): Promise<GraphResponse | null> {
   return jsonFetch<GraphResponse>('/api/revision/graph')
+}
+
+export function fetchProgress(): Promise<ProgressResponse | null> {
+  return jsonFetch<ProgressResponse>('/api/revision/progress')
 }
 
 export async function markStudy(req: MarkRequest): Promise<MarkItemResult[] | null> {

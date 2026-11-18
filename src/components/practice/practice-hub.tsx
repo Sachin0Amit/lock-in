@@ -14,6 +14,7 @@
 import Link from 'next/link'
 import { ClipboardList, Flame, GraduationCap, Loader2, Target } from 'lucide-react'
 import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ExamsTab } from './exams-tab'
 import { DrillTab } from './drill-tab'
@@ -21,7 +22,10 @@ import { MistakesTab } from './mistakes-tab'
 import { ReadinessTab } from './readiness-tab'
 
 export function PracticeHub() {
-  const [tab, setTab] = useState('exams')
+  /* Deep link (Progress-tab recommendations): /practice?book=<id> opens
+   * straight on the Adaptive Drill tab with that book pre-selected. */
+  const searchParams = useSearchParams()
+  const [tab, setTab] = useState(() => (searchParams.has('book') ? 'drill' : 'exams'))
   const [launchPreset, setLaunchPreset] = useState<string | null>(null)
 
   const startExam = (presetKey: string) => {

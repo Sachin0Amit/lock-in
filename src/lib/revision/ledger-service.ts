@@ -65,6 +65,8 @@ type EntryRow = {
   updatedAt: Date
 }
 
+export type { EntryRow }
+
 const MAX_ITEMS = 200
 const ACTION_SET: MarkAction[] = ['study', 'revise', 'unmark', 'quiz']
 const KIND_SET = ['first', 'revision', 'quiz', 'chapter-mark', 'lesson-mark', 'lesson-complete']
@@ -80,7 +82,8 @@ function chapterReadMins(key: string): number {
   return ch.lessonRecordIds.reduce((n, id) => n + (CATALOG.lessonById.get(id)?.readMins ?? 0), 0)
 }
 
-function toChapterView(e: EntryRow, lessonsStudied: number): EntryView {
+/** Exported for the progress service (same view contract as Overview). */
+export function toChapterView(e: EntryRow, lessonsStudied: number): EntryView {
   const ch = CATALOG.chapterByKey.get(e.refId)
   const book = ch ? CATALOG.bookById.get(ch.bookId) : undefined
   const now = Date.now()
@@ -113,7 +116,8 @@ function toChapterView(e: EntryRow, lessonsStudied: number): EntryView {
   }
 }
 
-function toLessonView(e: EntryRow): EntryView {
+/** Exported for the progress service (same view contract as Overview). */
+export function toLessonView(e: EntryRow): EntryView {
   const l = CATALOG.lessonById.get(e.refId)
   const book = l ? CATALOG.bookById.get(l.bookId) : undefined
   const now = Date.now()
@@ -164,6 +168,21 @@ function validateRequest(req: MarkRequest): string | null {
   if (req.kind !== undefined && !KIND_SET.includes(req.kind)) {
     return `kind must be one of ${KIND_SET.join(', ')}`
   }
+  if (req.score !== undefined || req.total !== undefined) {
+    if (req.action !== 'quiz') return 'score/total only accompany the quiz action'
+    if (
+      req.score === undefined ||
+      req.total === undefined ||
+      !Number.isInteger(req.score) ||
+      !Number.isInteger(req.total) ||
+      req.score < 0 ||
+      req.total < 1 ||
+      req.total > 500 ||
+      req.score > req.total
+    ) {
+      return 'quiz score/total must be integers with 0 <= score <= total <= 500'
+    }
+  }
   for (const it of req.items) {
     if (it.scope !== 'chapter' && it.scope !== 'lesson') return `invalid scope: ${it.scope}`
     if (typeof it.refId !== 'string' || it.refId.length === 0) return 'refId must be a non-empty string'
@@ -180,9 +199,11 @@ async function writeEvent(
   kind: string,
   quality: number | undefined,
   secs: number | undefined,
+  quizScore: number | undefined,
+  quizTotal: number | undefined,
 ): Promise<void> {
   await db.studyEvent.create({
-    data: { userId, entryId, kind, quality: quality ?? null, secs: secs ?? null },
+    data: { userId, entryId, kind, quality: quality ?? null, secs: secs ?? null, quizScore: quizScore ?? null, quizTotal: quizTotal ?? null },
   })
 }
 
@@ -247,7 +268,7 @@ export async function markStudy(userId: string, req: MarkRequest): Promise<MarkI
           },
         })
         const kind = req.action === 'quiz' ? 'quiz' : 'revision'
-        await writeEvent(userId, updated.id, kind, req.quality, req.secs)
+        await writeEvent(userId, updated.id, kind, req.quality, req.secs, req.score, req.total)
         const lessonsStudied = await countLessonsStudied(userId, item)
         const view =
           item.scope === 'chapter' ? toChapterView(updated, lessonsStudied) : toLessonView(updated)
@@ -272,7 +293,7 @@ export async function markStudy(userId: string, req: MarkRequest): Promise<MarkI
         })
         const kind =
           req.action === 'quiz' ? 'quiz' : (req.kind ?? (item.scope === 'chapter' ? 'chapter-mark' : 'lesson-complete'))
-        await writeEvent(userId, created.id, kind, req.quality, req.secs)
+        await writeEvent(userId, created.id, kind, req.quality, req.secs, req.score, req.total)
         const lessonsStudied = await countLessonsStudied(userId, item)
         const view =
           item.scope === 'chapter' ? toChapterView(created, lessonsStudied) : toLessonView(created)

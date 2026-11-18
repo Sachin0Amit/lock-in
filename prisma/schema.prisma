@@ -96,6 +96,12 @@ model StudyEvent {
   quality Int?
   /// optional engagement seconds
   secs    Int?
+  /// quiz events: raw correct answers, when the surface reported them
+  /// (reader quizzes and practice drills both do — legacy rows are null and
+  /// the progress engine falls back to the quality ratio, labelled honestly)
+  quizScore Int?
+  /// quiz events: total questions in that quiz
+  quizTotal Int?
   createdAt DateTime @default(now())
 
   @@index([userId, createdAt])

@@ -101,7 +101,10 @@ else
   FAIL=$((FAIL + 1)); echo "  FAIL guest chapter mark ledger landing"
 fi
 chk "guest marking: NO device-local fallback label" "document.body.textContent.indexOf('Studied · this device')===-1"
-chk "guest marking: NO sign-in sync hint" "document.body.textContent.indexOf('sign in to track')===-1 && document.body.textContent.indexOf('sync')===-1"
+# 2026-11-18 fix: the bare indexOf('sync') matched the word "async" inside
+# dev-mode RSC flight-payload serialization (script tag attrs), a flake —
+# tightened to the phrases the hint actually uses
+chk "guest marking: NO sign-in sync hint" "document.body.textContent.indexOf('sign in to track')===-1 && document.body.textContent.indexOf('to sync')===-1 && document.body.textContent.indexOf('sync your')===-1"
 agent-browser screenshot "$OUT/01-guest-book-mark.png" >/dev/null 2>&1 || true
 
 echo "== DESKTOP 1280 — registered journey =="

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import { PracticeHub } from '@/components/practice/practice-hub'
 
 export const metadata: Metadata = {
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 }
 
 export default function PracticePage() {
-  return <PracticeHub />
+  return (
+    <Suspense>
+      <PracticeHub />
+    </Suspense>
+  )
 }

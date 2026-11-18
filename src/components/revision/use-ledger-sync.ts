@@ -23,12 +23,14 @@ export interface LedgerSync {
   mark: (
     items: MarkItem | MarkItem[],
     action: MarkAction,
-    opts?: { quality?: number; secs?: number; kind?: string; silent?: boolean },
+    opts?: { quality?: number; secs?: number; kind?: string; score?: number; total?: number; silent?: boolean },
   ) => Promise<MarkItemResult[] | null>
   /** convenience: mark one lesson studied / unmark on toggle-off;
    * returns the mark results so callers can read the new schedule */
   syncLessonComplete: (lessonId: string, completed: boolean) => Promise<MarkItemResult[] | null>
-  /** convenience: record a finished quiz as a revision-quality signal */
+  /** convenience: record a finished quiz as a revision-quality signal
+   * (carries the raw score so the Progress tab can count questions
+   * understood exactly) */
   logQuiz: (lessonId: string, score: number, total: number) => void
 }
 
@@ -39,7 +41,7 @@ export function useLedgerSync(): LedgerSync {
     async (
       items: MarkItem | MarkItem[],
       action: MarkAction,
-      opts?: { quality?: number; secs?: number; kind?: string; silent?: boolean },
+      opts?: { quality?: number; secs?: number; kind?: string; score?: number; total?: number; silent?: boolean },
     ) => {
       const list = Array.isArray(items) ? items : [items]
       const results = await markStudy({
@@ -48,6 +50,8 @@ export function useLedgerSync(): LedgerSync {
         quality: opts?.quality,
         secs: opts?.secs,
         kind: opts?.kind as MarkRequest['kind'],
+        score: opts?.score,
+        total: opts?.total,
       })
       if (results === null && !opts?.silent) {
         toast.error('Could not reach the revision ledger — your change was not saved.')
@@ -76,7 +80,11 @@ export function useLedgerSync(): LedgerSync {
     (lessonId: string, score: number, total: number) => {
       if (total <= 0) return
       const quality = Math.max(0, Math.min(5, Math.round((score / total) * 5)))
-      void mark({ scope: 'lesson', refId: lessonId }, 'quiz', { quality, kind: 'quiz', silent: true })
+      void mark(
+        { scope: 'lesson', refId: lessonId },
+        'quiz',
+        { quality, kind: 'quiz', score, total, silent: true },
+      )
     },
     [mark],
   )

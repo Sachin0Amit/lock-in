@@ -310,6 +310,9 @@ server.log
 !/scripts/verify-revision.ts
 !/scripts/smoke-revision.ts
 !/scripts/e2e-revision-hub.sh
+!/scripts/verify-revision-progress.ts
+!/scripts/e2e-revision-progress.sh
+!/scripts/record-progress-tab-2026-11-18.py
 
 # Symbol navbar feature (2026-11-08): CDP regression check across viewports and routes
 !/scripts/verify-nav-cdp.ts

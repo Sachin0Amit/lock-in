@@ -11,6 +11,7 @@
  */
 import { useCallback, useEffect, useState } from 'react'
 import { Flame, Loader2, PlayCircle, Sparkles } from 'lucide-react'
+import { useSearchParams } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { DrillRunner } from './drill-runner'
 import { startDrillPaper } from '@/lib/practice/client-api'
@@ -20,9 +21,16 @@ import type { BookReadiness, PaperMeta, PracticeQuestion } from '@/lib/practice/
 const COUNTS = [5, 10, 20] as const
 
 export function DrillTab() {
+  /* Deep link (Progress-tab recommendations): ?book=<id> pre-selects the
+   * one-book scope so “practice a few questions on this book” is one click. */
+  const searchParams = useSearchParams()
+  const deepBook = searchParams.get('book')
+
   const [books, setBooks] = useState<BookReadiness[] | null>(null)
-  const [focus, setFocus] = useState<'auto' | 'book' | 'library'>('auto')
-  const [bookId, setBookId] = useState<string>('')
+  const [focus, setFocus] = useState<'auto' | 'book' | 'library'>(() =>
+    deepBook ? 'book' : 'auto',
+  )
+  const [bookId, setBookId] = useState<string>(() => deepBook ?? '')
   const [count, setCount] = useState<number>(10)
   const [running, setRunning] = useState<{
     paper: PracticeQuestion[]
@@ -35,7 +43,12 @@ export function DrillTab() {
     void (async () => {
       const r = await fetchReadiness()
       setBooks(r ? r.books : [])
-      if (r && r.books.length > 0) setBookId((b) => b || r.books[0]!.bookId)
+      if (r && r.books.length > 0) {
+        setBookId((b) => {
+          if (b && r.books.some((x) => x.bookId === b)) return b
+          return r.books[0]!.bookId
+        })
+      }
     })()
   }, [])
 

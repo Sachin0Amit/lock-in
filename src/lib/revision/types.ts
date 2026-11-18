@@ -37,6 +37,10 @@ export interface MarkRequest {
   secs?: number
   /** explicit event kind for the audit trail (e.g. 'chapter-mark') */
   kind?: EventKind
+  /** quiz events: raw correct answers in this quiz (≤ total) */
+  score?: number
+  /** quiz events: total questions in this quiz */
+  total?: number
 }
 
 export type EntryState = 'learning' | 'familiar' | 'strong' | 'mastered'
@@ -209,6 +213,110 @@ export interface GraphResponse {
     sequenceEdges: number
     bridgeEdges: number
   }
+}
+
+/* ------------------------------------------------------------------ */
+/* Study progress (the Progress tab — owner directive 2026-11-18)      */
+/* ------------------------------------------------------------------ */
+
+/** How far a book has travelled through its chapters. */
+export type BookProgressStatus = 'completed' | 'in-progress' | 'started' | 'untouched'
+
+/** One book's honest study standing (zeros included, nothing invented). */
+export interface BookProgress {
+  bookId: string
+  title: string
+  accent: [string, string]
+  disciplineId: string
+  disciplineTitle: string
+  status: BookProgressStatus
+  /** chapters fully covered: chapter entry OR all lessons in the ledger */
+  chaptersStudied: number
+  chaptersTotal: number
+  lessonsStudied: number
+  /** lessons covered counting chapter marks (never exceeds lessonsTotal) */
+  lessonsEffective: number
+  lessonsTotal: number
+  quizCorrect: number
+  quizAnswered: number
+  /** 0..100 · null before any question is answered */
+  quizAccuracy: number | null
+  avgMastery: number
+  passes: number
+  dueCount: number
+  wordsStudied: number
+  lastActivity: string | null
+  /** the lowest-numbered chapter not yet covered — the honest "continue here" */
+  nextChapterNumber: number | null
+  nextChapterTitle: string | null
+  url: string
+}
+
+/** "How many questions have I understood?" — the honest quiz census. */
+export interface QuizStats {
+  /** quiz events logged (reader quizzes + practice-drill signals) */
+  events: number
+  /** events carrying raw score/total */
+  exact: number
+  /** legacy events approximated from the quality ratio (labelled in UI) */
+  estimated: number
+  /** questions answered across all quizzes */
+  answered: number
+  /** questions answered correctly (exact + estimated parts) */
+  understood: number
+  /** 0..100 · null before any question is answered */
+  accuracy: number | null
+  /** distinct lessons that have logged at least one quiz */
+  quizLessons: number
+}
+
+/** Whole-library coverage: what has actually been studied, by volume. */
+export interface CoverageStats {
+  topicsStudied: number
+  chaptersStudied: number
+  lessonsStudied: number
+  chaptersTotal: number
+  lessonsTotal: number
+  booksCompleted: number
+  booksInProgress: number
+  booksStarted: number
+  booksTotal: number
+  wordsStudied: number
+  /** estimated first-read minutes of the studied material */
+  readMins: number
+  totalPasses: number
+}
+
+export type RecommendationKind = 'revise' | 'practice' | 'continue' | 'finish' | 'start'
+
+/** One engine verdict: what to do next, and honestly why. */
+export interface Recommendation {
+  /** stable: `${kind}:${scope}:${refId}` */
+  id: string
+  kind: RecommendationKind
+  priority: number
+  topic: string
+  bookTitle: string
+  reason: string
+  /** revise/start/finish → the study surface; practice → the book page */
+  url: string
+  practiceUrl: string | null
+  scope: StudyScope
+  refId: string
+  /** null for unstudied recommendations (finish/start/continue) */
+  passes: number | null
+  daysSince: number | null
+  mastery: number | null
+}
+
+export interface ProgressResponse {
+  coverage: CoverageStats
+  quiz: QuizStats
+  books: BookProgress[]
+  /** the stored study list — every chapter/lesson mark with its revision count */
+  topics: EntryView[]
+  recommendations: Recommendation[]
+  generatedAt: string
 }
 
 export interface RevisionSummaryCompact {
