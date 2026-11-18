@@ -314,6 +314,10 @@ server.log
 !/scripts/e2e-revision-progress.sh
 !/scripts/record-progress-tab-2026-11-18.py
 
+# Focus Hub feature (2026-11-18, owner chat directive): engine verifier + full-journey E2E
+!/scripts/verify-focus-planner.ts
+!/scripts/e2e-focus-planner.sh
+
 # Symbol navbar feature (2026-11-08): CDP regression check across viewports and routes
 !/scripts/verify-nav-cdp.ts
 

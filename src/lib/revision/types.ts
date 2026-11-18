@@ -21,6 +21,7 @@ export type EventKind =
   | 'chapter-mark'
   | 'lesson-mark'
   | 'lesson-complete'
+  | 'focus'
 
 export interface MarkItem {
   scope: StudyScope

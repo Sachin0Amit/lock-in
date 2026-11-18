@@ -37,6 +37,8 @@ model User {
   ledger   StudyEntry[]
   attempts PracticeAttempt[]
   mistakes Mistake[]
+  focusTasks    FocusTask[]
+  focusSessions FocusSession[]
 }
 
 /* ------------------------------------------------------------------ */
@@ -404,4 +406,82 @@ model CustomBookCoverage {
   matchConfidence        Float      @default(0)
 
   @@index([customBookId])
+}
+
+/* ------------------------------------------------------------------ */
+/* Focus — the study to-do × pomodoro engine (owner chat directive     */
+/* 2026-11-18)                                                          */
+/*                                                                       */
+/* The Focus Hub (/focus): a task list where every to-do can link to a  */
+/* canonical library topic (book · chapter · lesson, never content      */
+/* copies — only the catalog keys) and carries a pomodoro estimate. The  */
+/* pomodoro timer logs every finished focus session against its task,   */
+/* and a COMPLETED focus session on a linked topic also writes a study */
+/* pass into the SAME revision ledger above (kind 'focus', honest       */
+/* engagement seconds) — so the Revision Hub, Progress engine and       */
+/* spaced-repetition schedule all see the time actually spent.         */
+/* ------------------------------------------------------------------- */
+
+model FocusTask {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  title  String
+  /// optional longer note (plain text)
+  notes String?
+
+  /// the deep-link target: 'book' | 'chapter' | 'lesson' (null = unlinked)
+  linkKind String?
+  /// book → bookId · chapter → `${bookId}:${n}` (catalog key) · lesson → lesson id
+  linkRef  String?
+
+  /// 'low' | 'normal' | 'high'
+  priority String @default("normal")
+  /// planned pomodoros (estimate), 1..16
+  estimate Int    @default(1)
+
+  /// 'open' | 'done' | 'dropped'
+  status String   @default("open")
+  /// date-only semantics — the client strips the time part
+  dueDate DateTime?
+
+  /// completed focus sessions logged against this task
+  pomos      Int @default(0)
+  /// total honest focus seconds logged against this task
+  focusSecs  Int @default(0)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  completedAt DateTime?
+
+  sessions FocusSession[]
+
+  @@index([userId, status])
+  @@index([userId, createdAt])
+}
+
+model FocusSession {
+  id      String @id @default(cuid())
+  userId  String
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  /// the task this session focused (kept nullable: free focus without a task)
+  task    FocusTask? @relation(fields: [taskId], references: [id], onDelete: SetNull)
+  taskId  String?
+
+  /// 'focus' | 'short' | 'long'
+  kind        String
+  /// planned length (settings at fire time)
+  plannedSecs Int
+  /// how long it really ran
+  actualSecs  Int
+  /// 'complete' (ran to the bell) | 'stopped' (ended early after ≥60s)
+  outcome     String
+
+  startedAt DateTime @default(now())
+  endedAt   DateTime @default(now())
+
+  @@index([userId, startedAt])
+  @@index([taskId])
 }

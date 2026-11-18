@@ -69,7 +69,7 @@ export type { EntryRow }
 
 const MAX_ITEMS = 200
 const ACTION_SET: MarkAction[] = ['study', 'revise', 'unmark', 'quiz']
-const KIND_SET = ['first', 'revision', 'quiz', 'chapter-mark', 'lesson-mark', 'lesson-complete']
+const KIND_SET = ['first', 'revision', 'quiz', 'chapter-mark', 'lesson-mark', 'lesson-complete', 'focus']
 const ACTIVITY_WINDOW_DAYS = 84
 
 /* ------------------------------------------------------------------ */
@@ -267,7 +267,7 @@ export async function markStudy(userId: string, req: MarkRequest): Promise<MarkI
             mastery,
           },
         })
-        const kind = req.action === 'quiz' ? 'quiz' : 'revision'
+        const kind = req.action === 'quiz' ? 'quiz' : (req.kind ?? 'revision')
         await writeEvent(userId, updated.id, kind, req.quality, req.secs, req.score, req.total)
         const lessonsStudied = await countLessonsStudied(userId, item)
         const view =
