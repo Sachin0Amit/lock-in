@@ -6880,3 +6880,17 @@ The 2026-11-17 rebuild pass's five queued items ALL landed, plus the original ~4
 **Gates at close:** tsc --noEmit **0 errors project-wide** (node_modules rebuilt first — fresh sandbox; bun.lock restored after bunx touched it, `bun install` from the committed lock) · eslint **0 errors on all 11 touched files** · dev-server E2E: recall route 200 for lesson scope (4 honest cards: quiz/term/example/exercise order), chapter scope (4 cards spread across 3 lessons — the round-robin), 404 + deck:null on unknown ids; overview 200 (queue + reasons + summary); /revision page 200; the pre-existing dev-DB drift (StudyEvent.quizScore/quizTotal columns missing from the stale local custom.db) repaired with the repo's own `db:push` before verification could run. Two temp verification scripts deleted before staging; the mode-bit noise never staged.
 
 **Bookkeeping:** this WORKLOG entry + DETAILED_LOG entry; main-AI-owned files untouched (RESUME_POINTER/PROGRESS/WORK_INVENTORY/TOC_FOLD_LEDGER/ENHANCEMENT_POINTER); SOURCE_LOG untouched (no AI images); rotation state + audit-state.json unchanged (no lesson audited this run — product work, not the figure rotation).
+
+## 2026-11-20 (audit-bot fire, job 538572 — 30-min schedule's first run) — arithmetic-and-number-systems 4.1 `ans-primes-never-end-euclid-and-the-sieve`
+
+**Rotation:** next lesson after `ans-binary-hex-machine` — first lesson of chapter 4, written and substantial (1 figure, 3 examples, 13 exercises L1–L6, quiz, 8 callouts, 4 formula cards).
+
+**Pass A — 1 figure audited, 1 fixed → PASS:** the sieve-to-100 grid. Math flawless throughout (exactly 25 bold primes, zero false positives); two legend-correspondence defects caught by the strict VLM (legend claimed "crossed out" for dimmed-only composites; unit 1 claimed "apart in grey" while blending in) — fixed in-SVG over two rounds (legend reworded; unit 1 boxed in grey, dash strengthened; caption aligned to "boxed in grey"), final PASS light + dark. cairosvg black-sheet artifact re-classified audit-method again; browser render is the arbiter.
+
+**Pass B — 4 solution figures added, all VLM strict PASS:** primorial ladder (example), trial band 91 (L2-Q1), second-hundred number line (L4-Q1), mod-3 residue wheel (L5-Q2). Fix rounds: sol3 endpoint circles→ticks + 103 label deep-row (real crowding catch at scale 6.2); sol4 per-arrow labels→single origin label + center label removed (stroke collisions). 9 refusals recorded.
+
+**Pass C — 2 enrichments:** "the trials only need to be prime" (para + insight callout — closes the bound-vs-practice gap with the 18/8 and 999/168 cashed numbers) and "the rounds and the census are one function" (insight callout — rounds below N = π(⌊√N⌋), the sieve's cost tied to the counting function).
+
+**Gates:** tsc --noEmit 0 · verifier section AR added, 370/0 (was 356) · DOM gate 0 on all five figures in the expanded state · VLM strict PASS ×5 · dark PASS on the body figure · pack v18 re-run after edits (KEY OPERATIONAL FIX for this fire: the site serves the PACK, so browser audits are stale unless `bun run lib:pack` runs after source edits — cost the fire two re-capture cycles before diagnosis).
+
+**Docs:** FIGURE_AUDIT_LOG (4 lines), ENHANCEMENT_LOG (this run's section), DETAILED_LOG (change list), FIGURE_AUDIT_QUEUE (lesson → done, 65/131). Main-AI files untouched (RESUME_POINTER/PROGRESS/WORK_INVENTORY/TOC_FOLD_LEDGER/ENHANCEMENT_POINTER). SOURCE_LOG untouched (no AI images).

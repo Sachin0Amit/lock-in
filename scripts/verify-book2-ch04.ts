@@ -2381,6 +2381,65 @@ for (let n = 2; n <= 100; n++) if (isPrimeDef(n)) primes100List.push(n)
   ok(factorList(2047).join(',') === '23,89' && (1 + 23) * (1 + 89) === 2160, 'AQ: 2047 closes both halves — 4.2 factored it (23·89), 4.3 sums its divisors (24·90 = 2160)')
 }
 
+/* ------------------------------------------------------------------ */
+/* (AR) audit-bot run 2026-11-20 — 4.1 solution figures + enrichments   */
+/* ------------------------------------------------------------------ */
+{
+  const sieveTo = (n: number): boolean[] => {
+    const s: boolean[] = new Array(n + 1).fill(true)
+    s[0] = s[1] = false
+    for (let i = 2; i * i <= n; i++) if (s[i]) for (let j = i * i; j <= n; j += i) s[j] = false
+    return s
+  }
+  const sv2 = sieveTo(200)
+  const sv4 = sieveTo(10000)
+  const pi = (sv: boolean[], n: number): number => {
+    let c = 0
+    for (let i = 2; i <= n && i < sv.length; i++) if (sv[i]) c++
+    return c
+  }
+
+  // figure: the trial band for 91 (L2-Q1 solution figure)
+  ok(Math.floor(Math.sqrt(91)) === 9, 'AR: ⌊√91⌋ = 9 — the band drawn in the 91 trial-band figure')
+  ok(91 % 2 !== 0 && 91 % 3 !== 0 && 91 % 5 !== 0 && 91 % 7 === 0 && 7 * 13 === 91, 'AR: the four prime trials of 91 — 2, 3, 5 miss, 7 lands (91 = 7·13)')
+  ok(13 > 9, 'AR: the co-factor 13 lies outside the band, as the figure shows')
+
+  // figure: the primorial ladder (example solution figure)
+  const primorials: Array<[string, number, number]> = [
+    ['2', 2, 3], ['2·3', 6, 7], ['2·3·5', 30, 31], ['2·3·5·7', 210, 211], ['2·…·11', 2310, 2311], ['2·…·13', 30030, 30031],
+  ]
+  let pl = true
+  for (const [, P, N] of primorials) if (P + 1 !== N) pl = false
+  ok(pl, 'AR: the six primorial rungs — every N = P + 1 exactly')
+  ok([3, 7, 31, 211, 2311].every((n) => isPrimeDef(n)) && !isPrimeDef(30031), 'AR: five prime rungs then the honest break at 30031')
+  ok(59 * 509 === 30031 && isPrimeDef(59) && isPrimeDef(509) && ![2, 3, 5, 7, 11, 13].includes(59) && ![2, 3, 5, 7, 11, 13].includes(509), 'AR: 30031 = 59·509, both factors prime strangers to the list')
+
+  // figure: the second hundred (L4-Q1 solution figure)
+  const second100: number[] = []
+  for (let n = 101; n <= 199; n++) if (sv2[n]) second100.push(n)
+  ok(second100.length === 21 && second100.slice(0, 3).join(',') === '101,103,107' && second100[20] === 199, 'AR: exactly 21 primes in 101..199, first three 101/103/107, last 199')
+  ok(pi(sv2, 200) - pi(sv2, 100) === 21, 'AR: π(200) − π(100) = 46 − 25 = 21 — the bracket line')
+
+  // enrichment: the trials only need to be prime
+  const band19 = Array.from({ length: 18 }, (_, i) => i + 2)
+  const primeTrials19 = band19.filter((d) => sv2[d])
+  ok(band19.length === 18 && primeTrials19.join(',') === '2,3,5,7,11,13,17,19', 'AR: band 2..19 holds 18 candidates but only the 8 primes need dividing')
+  ok(Array.from({ length: 999 }, (_, i) => i + 2).length === 999 && pi(sv4, 1000) === 168, 'AR: band 2..1000 holds 999 candidates against π(1000) = 168 primes')
+
+  // enrichment: the rounds and the census are one function
+  ok(pi(sv2, 10) === 4 && pi(sv2, 100) === 25 && pi(sv4, 10000) === 1229, 'AR: rounds below 100/10⁴/10⁸ are π(10)=4, π(100)=25, π(10⁴)=1229')
+
+  // figure: the residue wheel (L5-Q2 solution figure)
+  let resOk = true
+  for (let p = 2; p <= 100; p++) {
+    const cls = new Set([p % 3, (p + 2) % 3, (p + 4) % 3])
+    if (cls.size !== 3) resOk = false
+  }
+  ok(resOk, 'AR: {p, p+2, p+4} covers all three residue classes mod 3 for every p')
+  ok([3, 5, 7].every((n) => isPrimeDef(n)), 'AR: the p = 3 survivor 3, 5, 7 is all-prime')
+  ok(9 % 3 === 0 && 9 > 3 && !isPrimeDef(9), 'AR: for p > 3 the ≡0 member is a composite multiple of 3 (witness p=5 → 9 = p+4)')
+}
+
 console.log(`\n=== RESULT: ${pass} passed, ${fail} failed ===`)
 
 if (fail > 0) {

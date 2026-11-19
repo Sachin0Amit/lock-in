@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-19T14:30+05:30 (audit-bot fire: ans-binary-hex-machine marked done)",
+  "updated": "2026-11-20T01:45+05:30 (audit-bot fire: ans-primes-never-end-euclid-and-the-sieve marked done)",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
   "cursor": 54,
   "stats": {
     "lessonsWithFigures": 131,
     "figureTotal": 246,
-    "done": 64,
-    "pending": 67
+    "done": 65,
+    "pending": 66
   },
   "items": [
     {
@@ -548,7 +548,9 @@
       "bookId": "arithmetic-and-number-systems",
       "chapter": 4,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-20",
+      "note": "VLM strict PASS (run 2026-11-20: body figure 1 fixed then PASS over two rounds — legend wording + unit-1 boxed-in-grey; DOM gate 0 expanded)"
     },
     {
       "lessonId": "ans-fundamental-theorem-of-arithmetic",

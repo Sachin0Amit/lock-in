@@ -3527,3 +3527,24 @@ The owner directed the comprehensive double-layer pass. Layer 1 (drive TOC): the
 - EDIT `src/components/revision/insights-tab.tsx` — the "How these numbers work" scheduling card documents weakest-card ratings + prereq boosts.
 - Verification: dev server E2E (recall lesson/chapter/404, overview queue + boost reason live-seeded, /revision 200), forecast + streak unit checks via temp scripts (deleted), tsc 0, eslint 0 on all 11 files. Dev DB drift (missing StudyEvent.quizScore) repaired via the repo's `db:push`.
 - Staging: exactly the 11 source files + WORKLOG.md + DETAILED_LOG.md — the ~570 mode-bit-only modifications never staged; two temp scripts deleted pre-staging; main-AI-owned files untouched.
+
+### 2026-11-20 audit-bot fire (job 538572) — ans-primes-never-end-euclid-and-the-sieve (4.1)
+
+**Files touched:**
+1. `src/data/library/books/mathematics/arithmetic-number-systems/ch-04.ts` — lesson 4.1 only:
+   - FIGURE (body, sieve-to-100 grid): legend line 2 "dimmed — the 74 composites crossed out" → "dimmed — the 74 composites, faded for the fall-through" (VLM: composites are dimmed, never struck through); unit-1 cell: plain 0.45-opacity text → italic grey text inside a dashed rounded rect (x=126 y=66 w=30 h=30 rx=5, stroke 1.1 dasharray 4/2.5, fill opacity 0.08); figure caption "the unit 1 sits apart in grey" → "the unit 1 boxed in grey" (caption now verifiable against the drawing).
+   - EXAMPLE (primorial ladder): + `figures` array — six-rung ladder SVG (700×366, marker id `pl-add`), coordinates computed from the `rows`/`top`/`rh`/`listX`/`pX`/`pW`/`nX`/`nW`/`vX` consts; data rows [2→3, 6→7, 30→31, 210→211, 2310→2311, 30030→30031] with the sixth rung's break styling.
+   - EXERCISES L2-Q1: + `figures` — trial-band line SVG (700×216, IIFE `X(d)` mapping 0..14 → 60..660): shaded band 2..9, teal miss circles at 2/3/5 (labels staggered up/down), amber hit at 7 ("91 = 7 × 13"), faded co-factor circle at 13, green verdict line.
+   - EXERCISES L4-Q1: + `figures` — second-hundred number line SVG (700×230, `X(p) = 70 + (p−100)·6.2`): 21 amber dots at true positions, endpoint ticks (not circles) at 100/200, labels 101/107/199 up + 103 deep-row down, bracket path + green count line "21 primes — π(200) − π(100) = 46 − 25".
+   - EXERCISES L5-Q2: + `figures` — residue-wheel SVG (700×330, marker id `res3-arrow`, `PT(deg)` polar helper, cx=190): wheel r=95, spokes at 90°/210°/330° with ≡0/≡1/≡2 dots, three arrows from origin (44,185) fanning to the spokes, origin labels "p, p + 2, p + 4 / start anywhere", three amber-barred case rows, green p=3 line, red p>3 line, closing note.
+   - After the least-divisor theorem callout: + para ("The least-divisor theorem pays an immediate dividend…composite trials are pure redundancy") + insight callout "Refinement: the trials only need to be prime" (band 2..19: 18 candidates vs 8 primes; band 2..1000: 999 vs π(1000) = 168).
+   - After the π(n) table: + insight callout "The rounds and the census are one function" (rounds below N = π(⌊√N⌋): 4 below 100, 25 below 10⁴, 1,229 below 10⁸).
+2. `scripts/verify-book2-ch04.ts` — + section AR (14 checks): ⌊√91⌋ = 9 band walk; the six primorial rungs N = P + 1 exactly; five prime rungs + 30031 = 59·509 both-prime-strangers; 21-prime second hundred with first-three/last pins; π(200) − π(100) = 21; band-vs-primes 18/8 and 999/168; rounds-as-census π(10) = 4, π(100) = 25, π(10⁴) = 1229; residue-class coverage sweep p = 2..100; 3,5,7 survivor; p > 3 composite witness (9 = p+4 at p = 5). 370 passed / 0 failed (was 356).
+3. `docs/project/FIGURE_AUDIT_LOG.md` — + 4 lines (Pass A body figure FIXED→PASS with both rounds; Pass B 4 figures with fix rounds; 9 refusals; gates INFO incl. the pack-v18 operational note).
+4. `docs/project/ENHANCEMENT_LOG.md` — + this run's section (4 Pass B figures, 2 Pass C enrichments, verification record).
+5. `docs/project/WORKLOG.md` — + this run's summary entry.
+6. `docs/project/FIGURE_AUDIT_QUEUE.json` — `ans-primes-never-end-euclid-and-the-sieve` pending → done (lastAudited 2026-11-20, note with verdict), stats 65 done / 66 pending, updated stamp.
+
+**Untouched (main AI owns):** RESUME_POINTER.json, PROGRESS.json, WORK_INVENTORY.json, TOC_FOLD_LEDGER.json, ENHANCEMENT_POINTER.json. SOURCE_LOG.md untouched (no AI-generated images this fire).
+
+**Verification chain:** python number-pinning before authoring (91 band walk, primorials to 30031 = 59·509, 21-prime census, residue sweep, π anchors) → chapter verifier section AR 370/0 → tsc --noEmit 0 project-wide → bun run lib:pack v18 verify PASS → DOM overlap gate 0 on all five svgs (expanded state) → VLM strict PASS ×5 (body: light + dark).

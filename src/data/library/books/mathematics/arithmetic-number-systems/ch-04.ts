@@ -223,6 +223,16 @@ export const chapter04: Chapter = {
           title: 'The least divisor is prime (Euclid, Elements VII.31)',
           text: 'Every number $n \\ge 2$ has a least divisor $d$ greater than $1$, and that $d$ is prime. Consequently **every number above 1 has a prime factor**: $d$ itself. This is the proposition Euclid states as "any composite number is measured by some prime number" — the first brick of the fundamental theorem, laid twenty-three centuries before the theorem had a name. No search is needed to *prove* it: the least-number principle of Lesson 1.3 guarantees $d$ exists, and the one-line contradiction above shows it is prime.',
         },
+        {
+          kind: 'para',
+          text: 'The least-divisor theorem pays an immediate dividend: it shortens the trial list itself. The bound says to try every $d$ up to $\\lfloor\\sqrt{n}\\rfloor$ — but a composite trial is never the first witness. If a composite $d$ divided $n$, then $d$’s own least prime factor $q$ (the theorem just proved) would divide $n$ too, and $q \\le d \\le \\sqrt{n}$ — so the prime $q$, tried earlier, would already have ended the search. The composite trials are pure redundancy:',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Refinement: the trials only need to be prime',
+          text: 'For $n \\ge 2$, $n$ is prime exactly when no **prime** $q \\le \\sqrt{n}$ divides it — every composite trial $d$ is shadowed by a smaller prime factor that has already been tried. The saving compounds fast: below $\\lfloor\\sqrt{397}\\rfloor = 19$ the full band holds eighteen candidates, but only the eight primes $2, 3, 5, 7, 11, 13, 17, 19$ need dividing (this lesson’s L4 exercise runs that exact eight-trial certificate); for $n = 10^6$ the band holds 999 candidates but only $\\pi(1000) = 168$ primes. The sieve of the next section is what hands the shortened trial list over for free.',
+        },
         { kind: 'heading', text: 'The sieve of Eratosthenes' },
         {
           kind: 'para',
@@ -268,7 +278,7 @@ export const chapter04: Chapter = {
         {
           kind: 'figure',
           caption:
-            'The sieve to 100: one hundred cells, four rounds of crossing, twenty-five survivors. Primes stand in full weight (2, 3, 5, 7, 11, …, 97); composites fade to show the fall-through; the unit 1 sits apart in grey — neither prime nor composite, the trichotomy’s third class. The last round to fire is 7 (crossing 49, 77, 91); the next survivor, 11, would start at 121 — past the bound. Reading the top row alone: of 1..10, four survive.',
+            'The sieve to 100: one hundred cells, four rounds of crossing, twenty-five survivors. Primes stand in full weight (2, 3, 5, 7, 11, …, 97); composites fade to show the fall-through; the unit 1 boxed in grey — neither prime nor composite, the trichotomy’s third class. The last round to fire is 7 (crossing 49, 77, 91); the next survivor, 11, would start at 121 — past the bound. Reading the top row alone: of 1..10, four survive.',
           svg: `<svg viewBox="0 0 620 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ten by ten grid of the numbers 1 to 100 with the 25 primes highlighted and composites dimmed">
   <text x="330" y="36" font-size="14" fill="currentColor" text-anchor="middle" opacity="0.85">the sieve to one hundred — four rounds, 25 survivors</text>
   <g fill="none" stroke="currentColor" stroke-width="0.7" opacity="0.5">
@@ -277,7 +287,8 @@ export const chapter04: Chapter = {
     <path d="M120,102 H540 M120,144 H540 M120,186 H540 M120,228 H540 M120,270 H540 M120,312 H540 M120,354 H540 M120,396 H540 M120,438 H540"/>
   </g>
   <g font-size="13" text-anchor="middle">
-    <text x="141" y="87" fill="currentColor" font-weight="normal" opacity="0.45">1</text>
+    <rect x="126" y="66" width="30" height="30" rx="5" fill="currentColor" opacity="0.08" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 2.5"/>
+    <text x="141" y="87" fill="currentColor" font-style="italic" opacity="0.6">1</text>
     <text x="183" y="87" fill="currentColor" font-weight="600" opacity="0.95">2</text>
     <text x="225" y="87" fill="currentColor" font-weight="600" opacity="0.95">3</text>
     <text x="267" y="87" fill="currentColor" font-weight="normal" opacity="0.35">4</text>
@@ -380,7 +391,7 @@ export const chapter04: Chapter = {
   </g>
   <g font-size="12.5" fill="currentColor">
     <text x="120" y="512" font-weight="600" opacity="0.9">full weight — the 25 primes the sieve leaves</text>
-    <text x="120" y="534" opacity="0.55">dimmed — the 74 composites crossed out</text>
+    <text x="120" y="534" opacity="0.55">dimmed — the 74 composites, faded for the fall-through</text>
     <text x="120" y="552" opacity="0.45">grey — the unit 1: neither prime nor composite</text>
   </g>
 </svg>`,
@@ -399,6 +410,12 @@ export const chapter04: Chapter = {
             ['500', '95', '49 new in 201..500'],
             ['1000', '168', '73 new in 501..1000'],
           ],
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The rounds and the census are one function',
+          text: 'The sieve’s round count and the prime count are the same instrument read twice: the rounds that fire below $N$ are exactly the primes up to $\\lfloor\\sqrt{N}\\rfloor$, so their number is $\\pi(\\lfloor\\sqrt{N}\\rfloor)$. Below $100$ the bound is $10$ and $\\pi(10) = 4$ — the four rounds $2, 3, 5, 7$ that just ran. Below $10\\,000$ the bound is $100$ and the sieve fires $\\pi(100) = 25$ rounds; below $10^8$ it fires $\\pi(10^4) = 1\\,229$. The work of sieving to $N$ is governed by the prime census of the square root — one more place the counting function $\\pi$ quietly runs the show.',
         },
         { kind: 'heading', text: 'Euclid’s proof: the primes never end' },
         {
@@ -464,6 +481,52 @@ export const chapter04: Chapter = {
             'So, the sixth rung breaks the pattern: $2 \\cdot 3 \\cdot 5 \\cdot 7 \\cdot 11 \\cdot 13 + 1 = 30031 = 59 \\cdot 509$ — **composite**, with both factors fresh.',
             'Take the proof’s real point: $59 \\nmid 30030$ and $509 \\nmid 30030$ — every prime factor of $30031$ lies outside the list $\\{2, 3, 5, 7, 11, 13\\}$. The list grows, prime value or not.',
             'Hence the ladder reads: 3, 7, 31, 211, 2311 prime; then 30031 = 59·509, 510511 = 19·97·277, 9699691 = 347·27953 — composite but *never degenerate*: always bearing strangers.',
+          ],
+          figures: [
+            {
+              caption:
+                'The primorial ladder rung by rung: five consecutive product-plus-one values prime (3, 7, 31, 211, 2311), then rung six breaks the pattern — 30031 = 59 · 509 — while both factors stay strangers to {2, 3, 5, 7, 11, 13}, exactly the guarantee Euclid’s argument makes.',
+              svg: `<svg viewBox="0 0 700 366" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Six rungs of the primorial ladder: products 2, 6, 30, 210, 2310, 30030 with product-plus-one values 3, 7, 31, 211, 2311 prime and 30031 composite as 59 times 509, both factors outside the list">
+  <defs>
+    <marker id="pl-add" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <text x="350" y="24" font-size="13.5" fill="currentColor" text-anchor="middle" opacity="0.85">the primorial ladder — product, plus one, verdict</text>
+  ${(() => {
+    const rows = [
+      { list: '2',             P: '2',     N: '3',     v: 'prime — new rung', ok: true },
+      { list: '2 · 3',         P: '6',     N: '7',     v: 'prime — new rung', ok: true },
+      { list: '2 · 3 · 5',     P: '30',    N: '31',    v: 'prime — new rung', ok: true },
+      { list: '2 · 3 · 5 · 7', P: '210',   N: '211',   v: 'prime — new rung', ok: true },
+      { list: '2 · … · 11',    P: '2310',  N: '2311',  v: 'prime — new rung', ok: true },
+      { list: '2 · … · 13',    P: '30030', N: '30031', v: '= 59 · 509 — composite', ok: false },
+    ];
+    const top = 44, rh = 46, listX = 148, pX = 162, pW = 88, nX = 292, nW = 92, vX = 402;
+    let out = '';
+    rows.forEach((r, i) => {
+      const y = top + i * rh, cy = y + rh / 2 - 4, by = y + 6, bh = rh - 16;
+      out += `<text x="${listX}" y="${cy + 4}" font-size="12" fill="currentColor" text-anchor="end" opacity="0.75">${r.list}</text>`;
+      out += `<rect x="${pX}" y="${by}" width="${pW}" height="${bh}" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.8"/>`;
+      out += `<text x="${pX + pW / 2}" y="${cy + 4}" font-size="13" fill="currentColor" text-anchor="middle">P = ${r.P}</text>`;
+      out += `<line x1="${pX + pW + 4}" y1="${cy}" x2="${nX - 6}" y2="${cy}" stroke="currentColor" stroke-width="1.2" marker-end="url(#pl-add)"/>`;
+      out += `<text x="${(pX + pW + nX) / 2}" y="${cy - 7}" font-size="10.5" fill="currentColor" text-anchor="middle" opacity="0.7">+ 1</text>`;
+      if (r.ok) {
+        out += `<rect x="${nX}" y="${by}" width="${nW}" height="${bh}" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>`;
+        out += `<text x="${nX + nW / 2}" y="${cy + 4}" font-size="13.5" fill="currentColor" text-anchor="middle">N = ${r.N}</text>`;
+        out += `<text x="${vX}" y="${cy + 4}" font-size="12.5" fill="#16a34a">${r.v}</text>`;
+      } else {
+        out += `<rect x="${nX}" y="${by}" width="${nW}" height="${bh}" fill="#ffedd5" stroke="#f59e0b" stroke-width="1.2"/>`;
+        out += `<text x="${nX + nW / 2}" y="${cy + 4}" font-size="13.5" fill="currentColor" text-anchor="middle">N = ${r.N}</text>`;
+        out += `<text x="${vX}" y="${cy + 4}" font-size="12.5" fill="#dc2626">${r.v}</text>`;
+        out += `<text x="${vX}" y="${cy + 20}" font-size="11.5" fill="#16a34a">both strangers — the list still grows</text>`;
+      }
+    });
+    return out;
+  })()}
+  <text x="20" y="348" font-size="12.5" fill="currentColor" opacity="0.8">five prime rungs, then the honest break — the guarantee was never “N is prime”, only “every factor is new”.</text>
+</svg>`,
+            },
           ],
         },
         {
@@ -603,6 +666,38 @@ export const chapter04: Chapter = {
                     'Hence $91 = 7 \\cdot 13$ is composite — the band found both atoms in four divisions.',
                   ],
                   answer: '91 = 7 × 13, composite',
+                  figures: [
+                    {
+                      caption:
+                        'The trial band for 91 on one line: the band 2 ≤ d ≤ ⌊√91⌋ = 9 shaded, the four prime trials marked — 2, 3, 5 miss, the fourth trial 7 lands (91 = 7 × 13) — and the co-factor 13 drawn outside the band, exactly where the bound promised it.',
+                      svg: `<svg viewBox="0 0 700 216" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trial band for 91: shaded band from 2 to 9 on a number line, prime trials 2, 3 and 5 miss, trial 7 lands since 91 equals 7 times 13, and the co-factor 13 sits outside the band">
+  ${(() => {
+    const x0 = 60, x1 = 660, ax = 140;
+    const sc = (x1 - x0) / 14;
+    const X = (d) => x0 + d * sc;
+    let out = '';
+    out += `<rect x="${X(2)}" y="${ax - 15}" width="${X(9) - X(2)}" height="30" fill="#fef3c7" opacity="0.55" rx="4"/>`;
+    out += `<text x="${(X(2) + X(9)) / 2}" y="66" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.8">trial band 2 ≤ d ≤ ⌊√91⌋ = 9</text>`;
+    out += `<text x="40" y="24" font-size="13" fill="currentColor" opacity="0.85">the trial band for 91 — four divisions, the fourth lands</text>`;
+    out += `<line x1="40" y1="${ax}" x2="680" y2="${ax}" stroke="currentColor" stroke-width="1.2"/>`;
+    for (let d = 0; d <= 14; d++) {
+      out += `<line x1="${X(d)}" y1="${ax - 4}" x2="${X(d)}" y2="${ax + 4}" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>`;
+    }
+    const misses: Array<[number, 'up' | 'down']> = [[2, 'up'], [3, 'down'], [5, 'down']];
+    misses.forEach(([d, pos]) => {
+      out += `<circle cx="${X(d)}" cy="${ax}" r="7" fill="none" stroke="#0f766e" stroke-width="1.6"/>`;
+      out += `<text x="${X(d)}" y="${pos === 'up' ? ax - 34 : ax + 40}" font-size="11.5" fill="#0f766e" text-anchor="middle">${d} — miss</text>`;
+    });
+    out += `<circle cx="${X(7)}" cy="${ax}" r="8" fill="#f59e0b" stroke="#b45309" stroke-width="1.4"/>`;
+    out += `<text x="${X(7)}" y="${ax - 34}" font-size="12" fill="#b45309" text-anchor="middle" font-weight="600">7 — lands: 91 = 7 × 13</text>`;
+    out += `<circle cx="${X(13)}" cy="${ax}" r="7" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.55"/>`;
+    out += `<text x="${X(13)}" y="${ax + 40}" font-size="11.5" fill="currentColor" opacity="0.7" text-anchor="middle">13 — co-factor (outside)</text>`;
+    out += `<text x="40" y="204" font-size="12" fill="#16a34a" font-weight="600">verdict: 91 = 7 · 13 composite — certified in four divisions, not ninety-five</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Show that 97 is prime, and name its rank among the primes.',
@@ -665,6 +760,37 @@ export const chapter04: Chapter = {
                     'Hence 21 primes: 101, 103, 107, …, 199 — the second hundred is thinner (21 against 25) but far from empty.',
                   ],
                   answer: '21 primes — 101, 103, 107, …, 199',
+                  figures: [
+                    {
+                      caption:
+                        'The second hundred on one line: the 21 primes of 101..199 plotted at their true positions between the endpoints 100 and 200 (neither prime, neither counted) — the count is the subtraction π(200) − π(100) = 46 − 25, the scatter is visibly thinner than the first hundred’s 25.',
+                      svg: `<svg viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line from 100 to 200 with the 21 primes 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199 plotted as dots, endpoints 100 and 200 hollow, bracket labelled 21 primes from the subtraction 46 minus 25">
+  ${(() => {
+    const x0 = 70, sc = 6.2, ax = 130;
+    const X = (p) => x0 + (p - 100) * sc;
+    const primes = [101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199];
+    let out = '';
+    out += `<text x="40" y="24" font-size="13" fill="currentColor" opacity="0.85">the second hundred — 21 primes, 101 through 199</text>`;
+    out += `<line x1="50" y1="${ax}" x2="700" y2="${ax}" stroke="currentColor" stroke-width="1.2"/>`;
+    out += `<line x1="${X(100)}" y1="${ax}" x2="${X(100)}" y2="${ax + 12}" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>`;
+    out += `<line x1="${X(200)}" y1="${ax}" x2="${X(200)}" y2="${ax + 12}" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>`;
+    out += `<text x="${X(100)}" y="${ax + 26}" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.7">100</text>`;
+    out += `<text x="${X(200) + 2}" y="${ax + 26}" font-size="11.5" fill="currentColor" text-anchor="end" opacity="0.7">200 — not prime, not counted</text>`;
+    primes.forEach((p) => {
+      out += `<circle cx="${X(p)}" cy="${ax}" r="3.5" fill="#f59e0b"/>`;
+    });
+    const labeled: Array<[number, string, number]> = [[101, 'up', 104], [107, 'up', 104], [103, 'down', ax + 46], [199, 'up', 104]];
+    labeled.forEach(([p, pos, ly]) => {
+      out += `<line x1="${X(p)}" y1="${ax - 8}" x2="${X(p)}" y2="${pos === 'up' ? ly + 6 : ly - 12}" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>`;
+      out += `<text x="${X(p)}" y="${ly}" font-size="11" fill="currentColor" text-anchor="middle" font-weight="600">${p}</text>`;
+    });
+    out += `<path d="M${X(101)},188 V196 H${X(199)} V188" fill="none" stroke="currentColor" stroke-width="1" opacity="0.7"/>`;
+    out += `<text x="${(X(101) + X(199)) / 2}" y="212" font-size="12.5" fill="#16a34a" font-weight="600" text-anchor="middle">21 primes — π(200) − π(100) = 46 − 25</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Prove that 397 is prime, naming every trial the bound demands.',
@@ -702,6 +828,57 @@ export const chapter04: Chapter = {
                     'Hence $\\{3, 5, 7\\}$ is the unique triplet of the shape — the only prime run of length three at stride two.',
                   ],
                   answer: 'Only 3, 5, 7 — for p > 3 one of p, p+2, p+4 is a composite multiple of 3',
+                  figures: [
+                    {
+                      caption:
+                        'The residue engine behind the triplet: a three-spoke wheel for the classes mod 3, with p, p+2, p+4 fanning onto all three spokes (each name lands on a different spoke — which one depends on p, per the case rows) — so one member is always ≡ 0 (mod 3); for p = 3 that member is 3 itself, for p > 3 it is a composite multiple of 3.',
+                      svg: `<svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three-spoke residue wheel mod 3 with arrows labelled p, p plus 2, p plus 4 fanning from one origin to all three spokes, and three case rows showing which member is the multiple of 3 for each class of p, ending with the verdict that only p equals 3 survives as the triplet 3, 5, 7">
+  <defs>
+    <marker id="res3-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <text x="350" y="24" font-size="13" fill="currentColor" text-anchor="middle" opacity="0.85">the residue engine: p, p+2, p+4 visit all three classes mod 3</text>
+  ${(() => {
+    const cx = 190, cy = 185, R = 95;
+    const PT = (deg) => {
+      const t = (deg * Math.PI) / 180;
+      return [cx + R * Math.cos(t), cy - R * Math.sin(t)];
+    };
+    let out = '';
+    out += `<circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.45"/>`;
+    const spokes: Array<[number, string]> = [[90, '≡ 0'], [210, '≡ 1'], [330, '≡ 2']];
+    spokes.forEach(([deg, lab]) => {
+      const [sx, sy] = PT(deg);
+      out += `<line x1="${cx}" y1="${cy}" x2="${sx}" y2="${sy}" stroke="currentColor" stroke-width="1" opacity="0.6"/>`;
+      out += `<circle cx="${sx}" cy="${sy}" r="5" fill="#f59e0b" stroke="#b45309" stroke-width="1"/>`;
+      out += `<text x="${sx + (deg === 90 ? 0 : deg === 210 ? -14 : 14)}" y="${deg === 90 ? sy - 14 : sy + 18}" font-size="12.5" fill="currentColor" text-anchor="middle" opacity="0.85">${lab}</text>`;
+    });
+    const arrows: Array<[number, number, number, string]> = [[44, 185, 90, 'p'], [44, 185, 210, 'p + 2'], [44, 185, 330, 'p + 4']];
+    arrows.forEach(([ox, oy, deg]) => {
+      const [tx, ty] = PT(deg);
+      out += `<line x1="${ox}" y1="${oy}" x2="${tx - (tx === cx ? 0 : 8)}" y2="${ty - (deg === 90 ? 8 : 0)}" stroke="currentColor" stroke-width="1.2" marker-end="url(#res3-arrow)" opacity="0.85"/>`;
+    });
+    out += `<text x="44" y="150" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.9">p, p + 2, p + 4</text>`;
+    out += `<text x="44" y="166" font-size="11" fill="currentColor" text-anchor="middle" opacity="0.75">start anywhere</text>`;
+    const cases = [
+      ['p ≡ 1 (mod 3):', 'p, p+2, p+4 ≡ 1, 0, 2 — p + 2 is the multiple of 3'],
+      ['p ≡ 2 (mod 3):', 'p, p+2, p+4 ≡ 2, 1, 0 — p + 4 is the multiple of 3'],
+      ['p ≡ 0 (mod 3):', 'p, p+2, p+4 ≡ 0, 2, 1 — p itself is the multiple of 3'],
+    ];
+    cases.forEach(([lead, rest], i) => {
+      const y = 96 + i * 40;
+      out += `<rect x="330" y="${y - 14}" width="6" height="26" fill="#f59e0b" opacity="0.8"/>`;
+      out += `<text x="346" y="${y}" font-size="12" fill="currentColor"><tspan font-weight="600">${lead}</tspan><tspan> ${rest}</tspan></text>`;
+    });
+    out += `<text x="330" y="248" font-size="12" fill="#16a34a" font-weight="600">p = 3: the ≡ 0 member is 3 itself — 3, 5, 7 prime</text>`;
+    out += `<text x="330" y="276" font-size="12" fill="#dc2626">p &gt; 3: the ≡ 0 member exceeds 3 — composite</text>`;
+    out += `<text x="330" y="312" font-size="11.5" fill="currentColor" opacity="0.75">three names, three classes, one guaranteed hit</text>`;
+    return out;
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
