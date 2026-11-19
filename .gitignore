@@ -667,3 +667,8 @@ server.log
 !/scripts/e2e-aa-54.sh
 !/scripts/e2e-aa-54.page.js
 !/scripts/author_lesson54.py
+
+# run-113 AA 5.5 pair (whitelisted)
+!/scripts/e2e-aa-55.sh
+!/scripts/e2e-aa-55.page.js
+!/scripts/author_lesson55.py

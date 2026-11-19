@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-19 23:56:48 (Asia/Kolkata)",
+  "generated": "2026-11-20 01:26:41 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -4173,8 +4173,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5233,
-                "readMins": 26,
+                "words": 5727,
+                "readMins": 29,
                 "concepts": [
                   "The prime/composite/unit trichotomy",
                   "Exactly two divisors",
@@ -4203,8 +4203,8 @@
                   "beck-geoghegan-art-of-proof"
                 ],
                 "blockCounts": {
-                  "para": 11,
-                  "callout": 8,
+                  "para": 12,
+                  "callout": 10,
                   "equation": 1,
                   "list": 1,
                   "table": 4,
@@ -4222,6 +4222,7 @@
                   "definition": 1,
                   "warn": 2,
                   "theorem": 2,
+                  "insight": 2,
                   "historical": 2,
                   "exam": 1
                 },
@@ -4448,7 +4449,7 @@
                 "termsDefined": 8
               }
             ],
-            "words": 20839
+            "words": 21333
           },
           {
             "number": 5,
@@ -11106,11 +11107,10 @@
             "number": 5,
             "slug": "sequences-and-series",
             "title": "Sequences and Series",
-            "summary": "Algebra’s ordered half: the sequence as an object with a position, then the two progressions every examination ecosystem prices. The arithmetic progression is the constant climb — equal steps, a general term linear in the position, the Gauss pairing that prices its sum, and arithmetic means inserted between numbers whose sum is always n copies of the single mean. The geometric progression is the constant ratio — multiplicative growth, the sum by the shift-and-subtract machine, geometric means whose product is always G to the power n, and the infinite tail: what happens to a sum when the ratio shrinks the terms to nothing. The harmonic, arithmetico-geometric and special-sum families, sigma notation, and the method of differences complete the chapter on later runs.",
+            "summary": "Algebra’s ordered half: the sequence as an object with a position, then the two progressions every examination ecosystem prices. The arithmetic progression is the constant climb — equal steps, a general term linear in the position, the Gauss pairing that prices its sum, and arithmetic means inserted between numbers whose sum is always n copies of the single mean. The geometric progression is the constant ratio — multiplicative growth, the sum by the shift-and-subtract machine, geometric means whose product is always G to the power n, and the infinite tail: what happens to a sum when the ratio shrinks the terms to nothing. The harmonic, arithmetico-geometric and special-sum families are banked; sigma notation and the classical power sums are banked this run (5.5); the recurring series close the chapter on the next run.",
             "status": "in-progress",
-            "lessonsWritten": 4,
+            "lessonsWritten": 5,
             "plannedLessons": [
-              "Sigma Notation and the Classical Power Sums",
               "Recurring Series and the Scale of Relation"
             ],
             "lessons": [
@@ -11388,9 +11388,78 @@
                 },
                 "exerciseQuestions": 15,
                 "termsDefined": 9
+              },
+              {
+                "id": "aa-sigma-notation-and-the-classical-power-sums",
+                "number": "5.5",
+                "title": "Sigma Notation and the Classical Power Sums",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4883,
+                "readMins": 24,
+                "concepts": [
+                  "sigma notation: the sum written as one machine",
+                  "the properties of sigma: what distributes and what refuses to",
+                  "the sum of squares of the first n natural numbers",
+                  "the sum of cubes of the first n natural numbers",
+                  "the Nicomachus identity: the square of the triangular sum",
+                  "double sums with independent variables factor into products",
+                  "double sums with dependent variables: the triangle census",
+                  "reading a general term back out of a partial sum"
+                ],
+                "objectives": [
+                  "Write any series whose general term is known in sigma notation, translate sigma sums back into terms, and shift the index without changing the value.",
+                  "Prove and use the linearity laws of sigma (constants out, sums in, ones counted) and state exactly which operations sigma refuses — multiplication and division of term pairs — with verified counterexamples.",
+                  "Derive the sum of squares $\\sum k^2 = \\tfrac{n(n+1)(2n+1)}{6}$ and the sum of cubes $\\sum k^3 = \\left[\\tfrac{n(n+1)}{2}\\right]^2$ by the telescoping-ladder method, and price every exam shape that consumes them.",
+                  "Prove the Nicomachus identity $\\left(\\sum k\\right)^2 = \\sum k^3$ numerically and structurally, and use the bridge $\\left(\\sum k\\right)^2 = \\sum k^2 + 2\\sum_{i<j} ij$ to split a square into its diagonal and its triangles.",
+                  "Evaluate double sums with independent variables by factorisation, and double sums with dependent variables by the triangle census, at examination speed.",
+                  "Recover a general term from a partial sum by the read-back law $T_r = S_r - S_{r-1}$ and route mixed series to the right power-sum engine by census."
+                ],
+                "prerequisites": [
+                  "aa-arithmetic-progressions-the-constant-climb",
+                  "aa-geometric-progressions-and-the-infinite-tail",
+                  "aa-special-series-and-the-method-of-differences"
+                ],
+                "sources": [
+                  "cengage-m2-05",
+                  "ncert-math11-ch8-sequences-series",
+                  "wiki-nicomachus-theorem"
+                ],
+                "blockCounts": {
+                  "para": 19,
+                  "heading": 7,
+                  "callout": 4,
+                  "list": 2,
+                  "example": 14,
+                  "derivation": 5,
+                  "figure": 3,
+                  "equation": 1,
+                  "terms": 1,
+                  "formula": 8,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 1,
+                  "exam": 1,
+                  "warn": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 11
               }
             ],
-            "words": 19667
+            "words": 24550
           },
           {
             "number": 6,
@@ -49982,13 +50051,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 510,
-      "totalLines": 171277,
+      "totalLines": 171705,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5860,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 132616,
+        "src/data/library (content model + books)": 133044,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -74611,57 +74680,6 @@
       ]
     },
     {
-      "sha": "acd1680bb7c68dbbb14fb5d22bf9b3d8dd36edc5",
-      "short": "acd1680",
-      "date": "2026-11-19 12:09",
-      "message": "enhance(fm-rounding-and-estimating): precise figures + visual upgrades",
-      "filesChanged": 8,
-      "insertions": 914,
-      "deletions": 12,
-      "files": [
-        {
-          "path": ".gitignore",
-          "add": 5,
-          "del": 0
-        },
-        {
-          "path": "docs/project/ENHANCEMENT_LOG.md",
-          "add": 95,
-          "del": 0
-        },
-        {
-          "path": "docs/project/ENHANCEMENT_POINTER.json",
-          "add": 6,
-          "del": 6
-        },
-        {
-          "path": "scripts/e2e-fm-13.page.js",
-          "add": 107,
-          "del": 0
-        },
-        {
-          "path": "scripts/e2e-fm-13.sh",
-          "add": 104,
-          "del": 0
-        },
-        {
-          "path": "scripts/enhance-fm-13-audit.ts",
-          "add": 289,
-          "del": 0
-        },
-        {
-          "path": "scripts/enhance-fm-13-gen.ts",
-          "add": 248,
-          "del": 0
-        },
-        {
-          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-01.ts",
-          "add": 60,
-          "del": 6
-        }
-      ]
-    },
-    {
       "sha": "e34cdc20f13c5c89e15fbd027edc10ea455fe0cd",
       "short": "e34cdc2",
       "date": "2026-11-19 14:22",
@@ -74738,8 +74756,105 @@
       ]
     },
     {
-      "sha": "a98f7f9e91d6384e0fb4531756309896bb3fe28c",
-      "short": "a98f7f9",
+      "sha": "c98b669bbc2f13d097ce78443dfa2f00e4bf19b4",
+      "short": "c98b669",
+      "date": "2026-11-19 17:27",
+      "message": "audit: ans-primes-never-end-euclid-and-the-sieve — A:1fig B:4sol C:2enrich",
+      "filesChanged": 7,
+      "insertions": 300,
+      "deletions": 8,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 21,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 15,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 7,
+          "del": 5
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 14,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch04.ts",
+          "add": 59,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-04.ts",
+          "add": 180,
+          "del": 3
+        }
+      ]
+    },
+    {
+      "sha": "0ae830c62ea2b137f0419fbfd4eb38c541b5a794",
+      "short": "0ae830c",
+      "date": "2026-11-19 12:09",
+      "message": "enhance(fm-rounding-and-estimating): precise figures + visual upgrades",
+      "filesChanged": 8,
+      "insertions": 914,
+      "deletions": 12,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 95,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_POINTER.json",
+          "add": 6,
+          "del": 6
+        },
+        {
+          "path": "scripts/e2e-fm-13.page.js",
+          "add": 107,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-fm-13.sh",
+          "add": 104,
+          "del": 0
+        },
+        {
+          "path": "scripts/enhance-fm-13-audit.ts",
+          "add": 289,
+          "del": 0
+        },
+        {
+          "path": "scripts/enhance-fm-13-gen.ts",
+          "add": 248,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-01.ts",
+          "add": 60,
+          "del": 6
+        }
+      ]
+    },
+    {
+      "sha": "68a4e94f05ca1c72b08f7a870d6b491df9a86218",
+      "short": "68a4e94",
       "date": "2026-11-19 14:25",
       "message": "enhance(fm-addition-carrying): precise figures + visual upgrades",
       "filesChanged": 8,
@@ -74789,18 +74904,8 @@
       ]
     },
     {
-      "sha": "14c2006aa88546e91b98f4d39eda08dd43977700",
-      "short": "14c2006",
-      "date": "2026-11-19 15:34",
-      "message": "merge: sync remote main (revision hub) into local visual-upgrade line",
-      "filesChanged": 0,
-      "insertions": 0,
-      "deletions": 0,
-      "files": []
-    },
-    {
-      "sha": "328b5fc196faa3b2c40f8c8ec37183186f5e3027",
-      "short": "328b5fc",
+      "sha": "3f40a3905d576896980b2cf8e19cde5d35a52454",
+      "short": "3f40a39",
       "date": "2026-11-19 16:12",
       "message": "enhance(fm-subtraction-borrowing): precise figures + visual upgrades",
       "filesChanged": 9,
@@ -74855,8 +74960,8 @@
       ]
     },
     {
-      "sha": "9f3f19ea06537531af7cdcda2e8dbef7c66c51e6",
-      "short": "9f3f19e",
+      "sha": "10f21979e50a3da03fca793045cf8948088e0428",
+      "short": "10f2197",
       "date": "2026-11-19 16:50",
       "message": "856e5943-d06f-4ff2-822c-07a609ff8bf7",
       "filesChanged": 2,
@@ -74874,6 +74979,108 @@
           "del": 2
         }
       ]
+    },
+    {
+      "sha": "d662351d88a44b926d5a1f172d6825f7eca71476",
+      "short": "d662351",
+      "date": "2026-11-19 18:28",
+      "message": "feat(aa-ch05): finish sibling 5.3 half-ship + author 5.4 special series & method of differences",
+      "filesChanged": 14,
+      "insertions": 75932,
+      "deletions": 70058,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 5,
+          "del": 3
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 5,
+          "del": 4
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 15,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 74899,
+          "del": 70036
+        },
+        {
+          "path": "scripts/author_lesson54.py",
+          "add": 335,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-53.page.js",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-53.sh",
+          "add": 102,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-54.page.js",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-54.sh",
+          "add": 102,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch05.ts",
+          "add": 114,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-05.ts",
+          "add": 221,
+          "del": 10
+        }
+      ]
+    },
+    {
+      "sha": "2edb0e533a42524d60ade3156db0ca93d0851f56",
+      "short": "2edb0e5",
+      "date": "2026-11-19 18:29",
+      "message": "chore(bookkeeping): run-112 push reconciliation record + lastPush pointer (HEAD d662351)",
+      "filesChanged": 2,
+      "insertions": 8,
+      "deletions": 7,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 6,
+          "del": 7
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -74882,25 +75089,25 @@
     "booksLive": 269,
     "chaptersWritten": 37,
     "chaptersInProgress": 1,
-    "lessonsWritten": 158,
-    "wordsAuthored": 817168,
-    "termsDefined": 1189,
-    "quizItems": 790,
-    "exerciseQuestions": 2095,
+    "lessonsWritten": 159,
+    "wordsAuthored": 822545,
+    "termsDefined": 1200,
+    "quizItems": 795,
+    "exerciseQuestions": 2110,
     "blockTotals": {
-      "para": 2207,
-      "callout": 1007,
-      "heading": 890,
-      "list": 186,
-      "terms": 154,
-      "equation": 259,
-      "figure": 310,
-      "derivation": 337,
+      "para": 2227,
+      "callout": 1013,
+      "heading": 897,
+      "list": 188,
+      "terms": 155,
+      "equation": 260,
+      "figure": 313,
+      "derivation": 342,
       "table": 197,
-      "example": 851,
-      "quiz": 158,
-      "exercises": 158,
-      "formula": 559,
+      "example": 865,
+      "quiz": 159,
+      "exercises": 159,
+      "formula": 567,
       "algorithm": 27
     }
   }
