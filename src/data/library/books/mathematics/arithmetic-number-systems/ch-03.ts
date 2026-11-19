@@ -2555,6 +2555,17 @@ export const chapter03: Chapter = {
           text: 'Applied row-wide (each seat operated independently), the operations become the machine\u2019s hand tools. A **mask** is a constant ANDed against a byte to keep some seats and zero the rest — AND with $00001111$ keeps the low nibble and discards the high one ($11010110$ AND $00001111 = 00000110$: the value $214$ keeps only its $\\bmod \\; 16$ part, $6$). OR sets seats on; XOR **toggles** them — XOR with a $1$ flips a bit, XOR with a $0$ leaves it. NOT flips every seat at once.',
         },
         {
+          kind: 'example',
+          title: 'The other two verbs at work: NOT, and OR setting a seat',
+          steps: [
+            'Split, the one-place verb: NOT flips every seat — within 4 bits, NOT $0110 = 1001$.',
+            'Now, the value law: within $k$ bits, NOT $n = 2^k - 1 - n$ — every seat flipped is the ceiling minus the number: $15 - 6 = 9$ ✓ ($1001_2 = 9$).',
+            'So, OR sets seats: $0110$ OR $0001 = 0111$ — the value $6$ with its 1s seat forced on ($6$ OR $1 = 7$): AND with a mask extracts, OR with a mask installs.',
+            'Take the disjoint check: $0110$ AND $1001 = 0000$ — a row and its NOT share no on-seat, so ANDing them proves the flip seat by seat: nothing survived both ways.',
+            'Hence the four verbs, complete: AND keeps, OR sets, XOR toggles, NOT reverses — every verb a table of at most four rows, the whole toolkit etched in gates.',
+          ],
+        },
+        {
           kind: 'derivation',
           title: 'The half-adder is the division algorithm',
           statement:
@@ -2584,6 +2595,57 @@ export const chapter03: Chapter = {
         },
         {
           kind: 'example',
+          title: 'An adder, run by hand: 1011 + 0110 through the gates',
+          steps: [
+            'Split, the operands and the charter question first: $1011$ ($11$) + $0110$ ($6$) — the true sum $17$, and $2^4 \le 17 < 2^5$, so a 4-bit register cannot hold it. The gates must overflow honestly; watch where.',
+            'Now, column zero (the 1s seat): $1 + 0$ with carry in $0$ — sum bit $1$ (XOR), carry out $0$ (AND): the half-adder pair itself, no ripple yet.',
+            'So, the ripple begins: column one takes $1 + 1$ → sum $0$, carry $1$; column two takes $0 + 1$ plus the arrived carry $1$ → sum $0$, carry $1$ (the majority vote $0, 1, 1$ says carry); column three takes $1 + 0$ with carry $1$ → sum $0$, carry $1$.',
+            'Take the honest exit: the kept row reads $0001$, and the column-three carry leaves the register — $10001_2 = 17 = 11 + 6$ ✓, five bits, exactly as the charter demanded.',
+            'Hence the overflow is not a malfunction: it is the digit-count window with the width nailed shut — the carry out of the top seat IS the proof that the true sum left the charter\u2019s range (the figure runs all four columns).',
+          ],
+          figures: [
+            {
+              caption:
+                'The ripple-carry adder, run by hand on 1011 + 0110: every column shows a, b, the arrived carry (orange where lit), the XOR-triple sum (green row: 0001) and the majority-vote carry out (amber where lit). The top carry leaves the 4-bit register — the walked-out carry IS the overflow witness — and the true sum 10001₂ = 17 = 11 + 6 sits in five bits, exactly as the charter demanded.',
+              svg: `<svg viewBox="0 0 780 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The ripple-carry adder run by hand on 1011 plus 0110: columns for bit weights 8 4 2 1, rows for a, b, carry-in, sum and carry-out; the sum row reads 0001, three carry-outs are lit, and the top carry leaves the register as the overflow witness; true sum 10001 in base two equals 17">
+  <text x="390" y="24" font-size="14" fill="currentColor" text-anchor="middle">the ripple-carry adder, run by hand on 1011 + 0110 (11 + 6)</text>
+  ${(() => {
+    const CW = 52, CH = 28, X0 = 150, ROWS = [66, 96, 126, 156, 186]
+    const labels = ['a', 'b', 'carry in', 'sum', 'carry out']
+    const vals = [
+      [1, 0, 1, 1],
+      [0, 1, 1, 0],
+      [1, 1, 0, 0],
+      [0, 0, 0, 1],
+      [1, 1, 1, 0],
+    ]
+    const weights = [8, 4, 2, 1]
+    let out = ''
+    weights.forEach((w, j) => {
+      out += `<text x="${X0 + j * CW + CW / 2}" y="54" font-size="12.5" fill="currentColor" text-anchor="middle" opacity="0.85">${w}</text>`
+    })
+    ROWS.forEach((ry, r) => {
+      out += `<text x="140" y="${ry + 19}" font-size="13" fill="currentColor" text-anchor="end">${labels[r]}</text>`
+      vals[r].forEach((v, j) => {
+        const fill = r === 3 ? '#dcfce7' : r === 4 && v === 1 ? '#fef3c7' : r === 2 && v === 1 ? '#ffedd5' : 'none'
+        const stroke = r === 3 ? '#16a34a' : r === 4 && v === 1 ? '#f59e0b' : r === 2 && v === 1 ? '#ea580c' : 'currentColor'
+        out += `<rect x="${X0 + j * CW}" y="${ry}" width="${CW}" height="${CH}" fill="${fill}" stroke="${stroke}" stroke-width="1.3"/>`
+        out += `<text x="${X0 + j * CW + CW / 2}" y="${ry + 19}" font-size="14" fill="currentColor" text-anchor="middle">${v}</text>`
+      })
+    })
+    return out
+  })()}
+  <path d="M 176 214 L 176 232" stroke="#f59e0b" stroke-width="1.5" fill="none"/>
+  <path d="M 176 236 L 171 228 L 181 228 Z" fill="#f59e0b"/>
+  <text x="110" y="252" font-size="12.5" fill="currentColor" text-anchor="start">carry walks out — the overflow</text>
+  <text x="390" y="272" font-size="13.5" fill="currentColor" text-anchor="middle">true sum 10001₂ = 17 = 11 + 6 ✓</text>
+  <text x="390" y="292" font-size="13" fill="currentColor" text-anchor="middle">the 4-bit register keeps 0001 — the walked-out carry IS the overflow witness</text>
+</svg>`,
+            },
+          ],
+        },
+        {
+          kind: 'example',
           title: 'Toggle a case: XOR flips “A” into “a” with one seat',
           steps: [
             'Split, the two codes: “A” sits at $65 = 01000001_2$ and “a” at $97 = 01100001_2$ (checked against the published ASCII table; the whole uppercase block runs $65$ through $90$, the lowercase $97$ through $122$).',
@@ -2591,6 +2653,38 @@ export const chapter03: Chapter = {
             'So, XOR with the mask $00100000$: the differing seats flip, the agreeing seats stay — $01000001$ XOR $00100000 = 01100001$: “A” becomes “a”. The same XOR flips it back.',
             'Take the general law: $\\text{code} \\;\\text{XOR}\\; 32$ toggles case for every ASCII letter (swept over the alphabet by the verify script) — one gate, one mask, twenty-six free flips.',
             'Hence the machine\u2019s habit: text is arithmetic, and a case change is one seat of it. (The digit characters sit nearby: “0” through “9” occupy $48$ to $57$ — $30_{16}$ to $39_{16}$.)',
+          ],
+          figures: [
+            {
+              caption:
+                'The case law in one picture: “A” = 65 and “a” = 97 differ in exactly one seat — the 32s seat (bit five, orange); XOR with the mask 00100000 flips that seat and nothing else, and the same gate runs both ways.',
+              svg: `<svg viewBox="0 0 780 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The bytes for A 01000001 worth 65 and a 01100001 worth 97 stacked with the XOR mask 00100000 worth 32 between them; the 32s seat is highlighted in orange in all three rows with a dashed guide running through it — one seat separates every lowercase letter from its uppercase twin">
+  <text x="390" y="30" font-size="14" fill="currentColor" text-anchor="middle">one seat — the 32s seat (bit five) — is the whole distance between “A” and “a”</text>
+  ${(() => {
+    const BW = 44, PITCH = 50, X0 = 250, BOXH = 40, ROWY = [70, 140, 210]
+    const rows = [
+      { label: '“A”', bits: [0, 1, 0, 0, 0, 0, 0, 1], dec: '65' },
+      { label: 'XOR', bits: [0, 0, 1, 0, 0, 0, 0, 0], dec: '32' },
+      { label: '= “a”', bits: [0, 1, 1, 0, 0, 0, 0, 1], dec: '97' },
+    ]
+    let out = ''
+    out += `<line x1="${X0 + 2 * PITCH + BW / 2}" y1="62" x2="${X0 + 2 * PITCH + BW / 2}" y2="252" stroke="#f59e0b" stroke-width="1.4" stroke-dasharray="4 3"/>`
+    rows.forEach((row, r) => {
+      out += `<text x="240" y="${ROWY[r] + 26}" font-size="14" fill="currentColor" text-anchor="end">${row.label}</text>`
+      row.bits.forEach((bit, s) => {
+        const hot = s === 2
+        const fill = r === 1 && hot ? '#fef3c7' : hot ? '#ffedd5' : 'none'
+        const stroke = hot ? '#f59e0b' : 'currentColor'
+        out += `<rect x="${X0 + s * PITCH}" y="${ROWY[r]}" width="${BW}" height="${BOXH}" fill="${fill}" stroke="${stroke}" stroke-width="1.4"/>`
+        out += `<text x="${X0 + s * PITCH + BW / 2}" y="${ROWY[r] + 26}" font-size="17" fill="currentColor" text-anchor="middle">${bit}</text>`
+      })
+      out += `<text x="690" y="${ROWY[r] + 26}" font-size="13" fill="currentColor" text-anchor="start">${row.dec}</text>`
+    })
+    return out
+  })()}
+  <text x="390" y="280" font-size="13" fill="currentColor" text-anchor="middle">97 − 65 = 32 = 00100000₂ — one seat, for every letter pair; XOR with it flips the case</text>
+</svg>`,
+            },
           ],
         },
         { kind: 'heading', text: 'Shifts: doubling and the peel' },
@@ -2732,6 +2826,41 @@ export const chapter03: Chapter = {
                     'Hence $11010110$ AND $00001111 = 00000110 = 6$ — masking is modular arithmetic you can see.',
                   ],
                   answer: '11010110 AND 00001111 = 00000110 = 6 (the low nibble; 214 mod 16)',
+                  figures: [
+                    {
+                      caption:
+                        'Seat-wise AND with the low-nibble mask: the mask\u2019s four open seats (amber) keep 0110 (green) and zero 1101 — 214 mod 16 = 6, made visible seat by seat. Masking is modular arithmetic you can see.',
+                      svg: `<svg viewBox="0 0 780 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Seat-wise AND of 11010110 with the mask 00001111 giving 00000110: the mask row shows its four open low seats in amber, the result row keeps the low nibble 0110 in green worth 6, and the high nibble is zeroed — 214 mod 16 made visible">
+  <text x="390" y="30" font-size="14" fill="currentColor" text-anchor="middle">seat-wise AND with the low-nibble mask 00001111</text>
+  ${(() => {
+    const BW = 44, PITCH = 50, X0 = 250, BOXH = 40, ROWY = [60, 130, 200]
+    const rows = [
+      { label: 'value', bits: [1, 1, 0, 1, 0, 1, 1, 0], dec: '(214)' },
+      { label: 'AND mask', bits: [0, 0, 0, 0, 1, 1, 1, 1], dec: '(15)' },
+      { label: 'result', bits: [0, 0, 0, 0, 0, 1, 1, 0], dec: '(6)' },
+    ]
+    let out = ''
+    rows.forEach((row, r) => {
+      out += `<text x="240" y="${ROWY[r] + 26}" font-size="14" fill="currentColor" text-anchor="end">${row.label}</text>`
+      row.bits.forEach((bit, s) => {
+        const open = s >= 4
+        const fill = r === 1 && open ? '#fef3c7' : r === 2 && open ? '#dcfce7' : 'none'
+        const stroke = r === 1 && open ? '#f59e0b' : r === 2 && open ? '#16a34a' : 'currentColor'
+        out += `<rect x="${X0 + s * PITCH}" y="${ROWY[r]}" width="${BW}" height="${BOXH}" fill="${fill}" stroke="${stroke}" stroke-width="1.4"/>`
+        out += `<text x="${X0 + s * PITCH + BW / 2}" y="${ROWY[r] + 26}" font-size="17" fill="currentColor" text-anchor="middle">${bit}</text>`
+      })
+      out += `<text x="690" y="${ROWY[r] + 26}" font-size="13" fill="currentColor" text-anchor="start">${row.dec}</text>`
+    })
+    return out
+  })()}
+  <path d="M 250 246 L 250 254 L 444 254 L 444 246" fill="none" stroke="currentColor" stroke-width="1.3"/>
+  <path d="M 450 246 L 450 254 L 644 254 L 644 246" fill="none" stroke="#16a34a" stroke-width="1.3"/>
+  <text x="347" y="272" font-size="12.5" fill="currentColor" text-anchor="middle">zeroed: 1101 (13) gone</text>
+  <text x="547" y="272" font-size="12.5" fill="#166534" text-anchor="middle">kept: 0110 = 6 = 214 mod 16</text>
+  <text x="390" y="298" font-size="13" fill="currentColor" text-anchor="middle">AND keeps where the mask is 1, zeroes where it is 0 — modular arithmetic, seat by seat</text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Compute $1100$ XOR $1010$, and check it against AND and OR on the same pair.',
@@ -2784,6 +2913,36 @@ export const chapter03: Chapter = {
                     'Hence AND $0010$, OR $1111$, XOR $1101$ — and the split $2 + 13 = 15$ certifies all three tables at once.',
                   ],
                   answer: 'AND 0010 (2), OR 1111 (15), XOR 1101 (13); AND + XOR = OR',
+                  figures: [
+                    {
+                      caption:
+                        'The three two-place tables run seat-wise on 0110 and 1011: AND in amber (2), OR in orange (15), XOR in green (13) — and the identity the exercise proves, OR = AND + XOR, reads straight off the rows: 2 + 13 = 15.',
+                      svg: `<svg viewBox="0 0 780 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Seat-wise bit operations on 0110 and 1011: rows for a, b, AND 0010 worth 2, OR 1111 worth 15 and XOR 1101 worth 13, the three result rows tinted amber, orange and green, with the identity OR equals AND plus XOR verified as 2 plus 13 equals 15">
+  <text x="390" y="30" font-size="14" fill="currentColor" text-anchor="middle">all three two-place operations on 0110 and 1011, seat by seat</text>
+  ${(() => {
+    const BW = 44, PITCH = 50, X0 = 290, BOXH = 40, ROWY = [52, 106, 172, 226, 280]
+    const rows = [
+      { label: 'a', bits: [0, 1, 1, 0], dec: '6', fill: 'none', stroke: 'currentColor' },
+      { label: 'b', bits: [1, 0, 1, 1], dec: '11', fill: 'none', stroke: 'currentColor' },
+      { label: 'AND', bits: [0, 0, 1, 0], dec: '2', fill: '#fef3c7', stroke: '#f59e0b' },
+      { label: 'OR', bits: [1, 1, 1, 1], dec: '15', fill: '#ffedd5', stroke: '#ea580c' },
+      { label: 'XOR', bits: [1, 1, 0, 1], dec: '13', fill: '#dcfce7', stroke: '#16a34a' },
+    ]
+    let out = ''
+    rows.forEach((row, r) => {
+      out += `<text x="280" y="${ROWY[r] + 26}" font-size="14" fill="currentColor" text-anchor="end">${row.label}</text>`
+      row.bits.forEach((bit, s) => {
+        out += `<rect x="${X0 + s * PITCH}" y="${ROWY[r]}" width="${BW}" height="${BOXH}" fill="${row.fill}" stroke="${row.stroke}" stroke-width="1.4"/>`
+        out += `<text x="${X0 + s * PITCH + BW / 2}" y="${ROWY[r] + 26}" font-size="17" fill="currentColor" text-anchor="middle">${bit}</text>`
+      })
+      out += `<text x="530" y="${ROWY[r] + 26}" font-size="13" fill="currentColor" text-anchor="start">${row.dec}</text>`
+    })
+    return out
+  })()}
+  <text x="390" y="344" font-size="13.5" fill="currentColor" text-anchor="middle">every seat: OR = AND + XOR — here 2 + 13 = 15 ✓</text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'The honest twins: show $2^{10} = 1024 \\ne 1000$, and name the standard that un-tangled kilo from kibi.',
@@ -2821,6 +2980,34 @@ export const chapter03: Chapter = {
                     'Hence $2025 \\gg 3$: quotient $253 = 11111101_2$, remainder $1 = 001$ — the peel lemma of Lesson 3.1, run by moving a boundary.',
                   ],
                   answer: '2025 >> 3 = 11111101₂ = 253, remainder 001 = 1 (253·8 + 1 = 2025)',
+                  figures: [
+                    {
+                      caption:
+                        'The peel at width three, visible in the register: 2025 = 11111101001₂ shifted right three seats — the kept eight bits (green) read 11111101₂ = 253 = ⌊2025/8⌋, the three dropped seats (amber) read 001 = 1 = 2025 mod 8, and 253 · 8 + 1 = 2025 certifies the split.',
+                      svg: `<svg viewBox="0 0 780 185" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The eleven-bit register 11111101001 for 2025 shifted right by three: the kept eight bits in green read 253 as the quotient, the three dropped seats in amber read 001 worth 1 as the remainder, with the certification 253 times 8 plus 1 equals 2025">
+  <text x="390" y="22" font-size="14" fill="currentColor" text-anchor="middle">2025 = 11111101001₂ — shift right three seats: the peel, visible</text>
+  ${(() => {
+    const BW = 44, PITCH = 50, X0 = 110, BOXH = 44, Y0 = 70
+    const bits = [1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1]
+    let out = ''
+    out += `<text x="307" y="40" font-size="12" fill="#166534" text-anchor="middle">kept: 11111101₂ = 253 = ⌊2025/8⌋</text>`
+    out += `<text x="582" y="40" font-size="12" fill="#b45309" text-anchor="middle">dropped: 001 = 1</text>`
+    out += `<path d="M 110 46 L 110 54 L 504 54 L 504 46" fill="none" stroke="#16a34a" stroke-width="1.3"/>`
+    out += `<path d="M 510 46 L 510 54 L 654 54 L 654 46" fill="none" stroke="#f59e0b" stroke-width="1.3"/>`
+    bits.forEach((bit, s) => {
+      const kept = s <= 7
+      out += `<rect x="${X0 + s * PITCH}" y="${Y0}" width="${BW}" height="${BOXH}" fill="${kept ? '#dcfce7' : '#fef3c7'}" stroke="${kept ? '#16a34a' : '#f59e0b'}" stroke-width="1.4"/>`
+      out += `<text x="${X0 + s * PITCH + BW / 2}" y="${Y0 + 27}" font-size="16" fill="currentColor" text-anchor="middle">${bit}</text>`
+    })
+    return out
+  })()}
+  <line x1="507" y1="62" x2="507" y2="128" stroke="#0f766e" stroke-width="1.6"/>
+  <text x="307" y="140" font-size="13" fill="#166534" text-anchor="middle">quotient ⌊2025/8⌋ = 253</text>
+  <text x="582" y="140" font-size="13" fill="#b45309" text-anchor="middle">remainder 2025 mod 8 = 1</text>
+  <text x="390" y="166" font-size="14" fill="currentColor" text-anchor="middle">253 · 8 + 1 = 2025 ✓ — the division algorithm, read off the register</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },

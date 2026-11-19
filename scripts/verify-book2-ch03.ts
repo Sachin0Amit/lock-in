@@ -2238,6 +2238,59 @@ console.log('=== AY. the 2026-11-19 audit-bot fire on 3.3 pinned (Pass A fix + P
     'AY: the letter-borrow seats — (3+12)−8 = 7, (A−1+12)−11 = 10 = A, and A7₁₂ = 127');
 }
 
+{
+  /* ---- section AZ — audit-bot fire 2026-11-19 (ANS 3.4 'Binary, Hexadecimal and the Machine') ---- */
+  const AND = (a: number, b: number) => a & b;
+  const XOR = (a: number, b: number) => a ^ b;
+
+  /* Pass C2 — the half-adder identity, swept */
+  let badAZ = 0;
+  for (let a = 0; a <= 1; a++) for (let b = 0; b <= 1; b++) {
+    if (a + b !== AND(a, b) * 2 + XOR(a, b)) badAZ++;
+    if (XOR(a, b) !== (a + b) % 2) badAZ++;
+    if (AND(a, b) !== Math.floor((a + b) / 2)) badAZ++;
+  }
+  ok(badAZ === 0, 'AZ: the half-adder identity a+b = (a AND b)·2 + (a XOR b) on all four pairs; XOR = (a+b) mod 2; AND = floor((a+b)/2)');
+
+  /* the adder walk 1011 + 0110 — every column of the new example/figure */
+  const sumBit = (a: number, b: number, c: number) => a ^ b ^ c;
+  const maj = (a: number, b: number, c: number) => (a & b) | (b & c) | (a & c);
+  const col = (a: number, b: number, cin: number) => ({ s: sumBit(a, b, cin), co: maj(a, b, cin) });
+  const c0 = col(1, 0, 0), c1 = col(1, 1, c0.co), c2 = col(0, 1, c1.co), c3 = col(1, 0, c2.co);
+  ok(c0.s === 1 && c0.co === 0 && c1.s === 0 && c1.co === 1 && c2.s === 0 && c2.co === 1 && c3.s === 0 && c3.co === 1,
+    'AZ: the adder walk — columns 0..3 give sum bits 1,0,0,0 and carry-outs 0,1,1,1 (the top carry walks out)');
+  ok(0b10001 === 17 && 11 + 6 === 17 && (0b1011 + 0b0110) === 17 && ((0b1011 + 0b0110) & 0b1111) === 1,
+    'AZ: the honest exit — true sum 10001₂ = 17 = 11 + 6; the 4-bit register keeps 0001 = 1');
+
+  /* Pass C1 — NOT, OR-set, disjoint */
+  let badNot = 0;
+  for (let k = 1; k <= 12; k++) {
+    const mask = (1 << k) - 1;
+    for (let n = 0; n <= mask; n++) if ((~n & mask) !== mask - n) badNot++;
+  }
+  ok(badNot === 0 && (~0b0110 & 15) === 0b1001 && 15 - 6 === 9,
+    'AZ: the NOT law — within k bits NOT n = 2^k − 1 − n (sweep k ≤ 12); NOT 0110 = 1001 = 9 = 15 − 6');
+  ok((0b0110 | 0b0001) === 0b0111 && (6 | 1) === 7,
+    'AZ: OR sets seats — 0110 OR 0001 = 0111: 6 OR 1 = 7');
+  ok((0b0110 & 0b1001) === 0,
+    'AZ: the disjoint check — 0110 AND 1001 = 0000: a row and its NOT share no on-seat');
+
+  /* Pass B — the case law, the mask, the three ops, the peel */
+  let badCase = 0;
+  for (let i = 0; i < 26; i++) {
+    if (((65 + i) ^ 32) !== 97 + i) badCase++;
+    if (((97 + i) ^ 32) !== 65 + i) badCase++;
+  }
+  ok(badCase === 0 && 65 === 0b01000001 && 97 === 0b01100001 && 32 === 0b00100000 && 97 - 65 === 32,
+    'AZ: the case law — 97 − 65 = 32 = 00100000₂; code XOR 32 toggles case across all 26 pairs, both ways');
+  ok(0b11010110 === 214 && (0b11010110 & 0b00001111) === 0b00000110 && 214 % 16 === 6 && 13 * 16 + 6 === 214,
+    'AZ: the mask — 11010110 AND 00001111 = 00000110 = 6 = 214 mod 16 = 13·16 + 6');
+  ok((0b0110 & 0b1011) === 2 && (0b0110 | 0b1011) === 15 && (0b0110 ^ 0b1011) === 13 && 2 + 13 === 15,
+    'AZ: the three ops — AND 0010 (2), OR 1111 (15), XOR 1101 (13); AND + XOR = OR');
+  ok(parseInt('11111101001', 2) === 2025 && (2025 >> 3) === 253 && (2025 & 7) === 1 && 253 * 8 + 1 === 2025 && 253 <= 255,
+    'AZ: the peel — 2025 = 11111101001₂; 2025 ≫ 3 keeps 11111101₂ = 253 and drops 001 = 1; 253·8 + 1 = 2025; the quotient fits a byte');
+}
+
 /* ------------------------------------------------------------------ */
 console.log(`\n=== RESULT: ${pass} passed, ${fail} failed ===`);
 

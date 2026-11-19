@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-19T00:53:44.984942Z",
+  "updated": "2026-11-19T14:30+05:30 (audit-bot fire: ans-binary-hex-machine marked done)",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
   "cursor": 54,
@@ -539,7 +539,9 @@
       "bookId": "arithmetic-and-number-systems",
       "chapter": 3,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "doneDate": "2026-11-19",
+      "verdict": "A: 1 body figure PASS untouched (VLM strict 9-point; offline static gate 0); B: 4 solution figures all first-pass PASS (adder walk, mask, case law, three ops, peel); C: 2 enrichments (NOT/OR-sets example; adder-run-by-hand example + figure); DOM gate server-blocked this fire — offline-svg-gate substitution logged, re-run next fire"
     },
     {
       "lessonId": "ans-primes-never-end-euclid-and-the-sieve",
