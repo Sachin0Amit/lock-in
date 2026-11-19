@@ -1631,7 +1631,7 @@ export const chapter03: Chapter = {
           kind: 'figure',
           caption:
             'The column machine in base five: 342₅ + 213₅ = 1110₅. Each column is one division-algorithm instance — the write is the remainder, the carry is the quotient (one seat up). The carry row reads 1, 1, 1 leftward; the final carry opens the new 125s seat. Rebuilding, 97 + 58 = 155 = 1·125 + 1·25 + 1·5 + 0.',
-          svg: `<svg viewBox="0 0 920 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Column addition of 342 and 213 in base five with carry row 111 and result 1110">
+          svg: `<svg viewBox="0 0 920 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Column addition of 342 and 213 in base five: carry row above the 125s, 25s and 5s seats, green arrows mark the two carries that feed existing columns, result 1110">
   <g font-size="13" fill="currentColor" opacity="0.85">
     <text x="240" y="42" text-anchor="middle">the machine: add each column,</text>
     <text x="240" y="60" text-anchor="middle">carry the quotient one seat left</text>
@@ -1643,56 +1643,65 @@ export const chapter03: Chapter = {
     <text x="240" y="336">the last carry opens the 125s seat</text>
   </g>
   <text x="240" y="390" font-size="15" fill="currentColor" text-anchor="middle">342₅ + 213₅ = 1110₅  (= 97 + 58 = 155)</text>
-  <!-- carry row -->
-  <text x="680" y="72" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">carries</text>
+  <!-- seat grid, most significant seat leftmost: 125s | 25s | 5s | 1s at x = 520 | 600 | 680 | 760 -->
+  <!-- carry row: boxes centered on the seats they feed (125s, 25s, 5s) -->
+  <text x="600" y="72" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">carries</text>
   <g fill="none" stroke="currentColor" stroke-width="1.4">
+    <rect x="492" y="78" width="56" height="40"/>
     <rect x="572" y="78" width="56" height="40"/>
     <rect x="652" y="78" width="56" height="40"/>
-    <rect x="732" y="78" width="56" height="40"/>
   </g>
   <g font-size="16" fill="currentColor" text-anchor="middle">
+    <text x="520" y="104">1</text>
     <text x="600" y="104">1</text>
     <text x="680" y="104">1</text>
-    <text x="760" y="104">1</text>
   </g>
-  <!-- addend rows -->
+  <!-- carry arrows: the 25s and 5s carries feed the addend columns directly below;
+       the 125s carry opens a brand-new seat, so nothing receives an arrow there -->
+  <g stroke="#16a34a" stroke-width="1.6" fill="#16a34a">
+    <line x1="600" y1="122" x2="600" y2="148"/>
+    <line x1="680" y1="122" x2="680" y2="148"/>
+    <polygon points="600,154 596,146 604,146" stroke="none"/>
+    <polygon points="680,154 676,146 684,146" stroke="none"/>
+  </g>
+  <!-- addend rows: 342 then 213, most significant seat leftmost; the 125s seat is empty -->
   <g fill="none" stroke="currentColor" stroke-width="1.4">
-    <rect x="652" y="158" width="56" height="48"/>
     <rect x="572" y="158" width="56" height="48"/>
-    <rect x="492" y="158" width="56" height="48"/>
-    <rect x="652" y="226" width="56" height="48"/>
+    <rect x="652" y="158" width="56" height="48"/>
+    <rect x="732" y="158" width="56" height="48"/>
     <rect x="572" y="226" width="56" height="48"/>
-    <rect x="492" y="226" width="56" height="48"/>
+    <rect x="652" y="226" width="56" height="48"/>
+    <rect x="732" y="226" width="56" height="48"/>
   </g>
   <g font-size="17" fill="currentColor" text-anchor="middle">
-    <text x="680" y="188">3</text>
-    <text x="600" y="188">4</text>
-    <text x="520" y="188">2</text>
-    <text x="680" y="256">2</text>
-    <text x="600" y="256">1</text>
-    <text x="520" y="256">3</text>
+    <text x="600" y="188">3</text>
+    <text x="680" y="188">4</text>
+    <text x="760" y="188">2</text>
+    <text x="600" y="256">2</text>
+    <text x="680" y="256">1</text>
+    <text x="760" y="256">3</text>
   </g>
   <!-- the rule -->
   <line x1="492" y1="292" x2="788" y2="292" stroke="currentColor" stroke-width="1.6"/>
   <!-- result row -->
   <g fill="none" stroke="currentColor" stroke-width="1.4">
-    <rect x="732" y="308" width="56" height="48"/>
-    <rect x="652" y="308" width="56" height="48"/>
-    <rect x="572" y="308" width="56" height="48"/>
     <rect x="492" y="308" width="56" height="48"/>
+    <rect x="572" y="308" width="56" height="48"/>
+    <rect x="652" y="308" width="56" height="48"/>
+    <rect x="732" y="308" width="56" height="48"/>
   </g>
   <g font-size="17" fill="currentColor" text-anchor="middle">
-    <text x="760" y="338">1</text>
-    <text x="680" y="338">1</text>
+    <text x="520" y="338">1</text>
     <text x="600" y="338">1</text>
-    <text x="520" y="338">0</text>
+    <text x="680" y="338">1</text>
+    <text x="760" y="338">0</text>
   </g>
   <!-- seat brackets -->
   <g font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">
-    <text x="760" y="390">125s</text>
-    <text x="680" y="390">25s</text>
-    <text x="600" y="390">5s</text>
-    <text x="520" y="390">1s</text>
+    <text x="520" y="390">125s</text>
+    <text x="600" y="390">25s</text>
+    <text x="680" y="390">5s</text>
+    <text x="760" y="390">1s</text>
   </g>
 </svg>`,
         },
@@ -1757,6 +1766,17 @@ export const chapter03: Chapter = {
           title: 'The roll-down: 100₁₂ − 1 = BB₁₂',
           text: 'Subtracting one from a power of the base shows the borrow\u2019s pure form: $1000_5 - 1 = 444_5$, $10000_2 - 1 = 1111_2$, $100_{12} - 1 = BB_{12}$. The single leading 1 decomposes all the way down — one unit of the top seat is worth $b - 1$ units in *every* seat below it. Machine arithmetic meets this shape as an odometer rolling backwards; Lesson 3.4 will meet it again as the largest value a register can hold.',
         },
+        {
+          kind: 'example',
+          title: 'Subtract 1A3₁₂ − B8₁₂ — letters borrow too',
+          steps: [
+            'Split, the units seat: $3 - 8$ is impossible ($3 < 8$), so borrow: $(3 + 12) - 8 = 7$, and the twelves seat pays $1$.',
+            'Now, the twelves seat: $A - 1$(paid) $- B = 9 - 11$, still impossible — borrow again: $(9 + 12) - 11 = 10 = A_{12}$, and the 144s seat pays $1$.',
+            'So, the 144s seat: $1 - 1$(paid) $- 0 = 0$ — the leading seat spends itself on the two loans.',
+            'Take the read: $A7_{12}$ — certified through ten: $1A3_{12} = 267$, $B8_{12} = 140$, and $267 - 140 = 127 = 10 \\cdot 12 + 7 = A7_{12}$ ✓.',
+            'Hence $1A3_{12} - B8_{12} = A7_{12}$ — the letters borrow and repay exactly as digits do: $B$ is just the digit eleven, and the written $A$ is ten wearing its base-twelve name.',
+          ],
+        },
         { kind: 'heading', text: 'The multiplication tables' },
         {
           kind: 'para',
@@ -1818,6 +1838,34 @@ export const chapter03: Chapter = {
           text: 'Multi-digit multiplication in base $b$ is the stack of partial products you already own, with one structural fact doing the work: **the shift**. Multiplying by the digit standing in seat $j$ contributes at seat $j$ — the partial product is written starting $j$ places from the right, which is the same as multiplying the whole partial by $b^j$. Appending one zero to a name shifts it one seat left and multiplies its value by $b$ (swept across five bases by the verify script); that is all the familiar staircase of long multiplication ever did, in base ten as here.',
         },
         {
+          kind: 'derivation',
+          title: 'The shift law: appending a zero multiplies by b',
+          statement:
+            'Claim: if $n$ wears the base-$b$ name $d_{k-1} \\ldots d_1 d_0$, then the name $d_{k-1} \\ldots d_1 d_0 0$ (one zero appended) has value $b \\cdot n$ — and multiplying by the digit in seat $j$ shifts the partial $j$ seats, value $b^j$ times.',
+          steps: [
+            {
+              label: 'The name is its seat sum',
+              formula: 'n = d_{k-1} \\cdot b^{k-1} + \\cdots + d_1 \\cdot b + d_0',
+              explanation:
+                'This is the representation theorem of Lesson 3.1 read right-to-left: each digit $d_i$ sits in seat $i$ and contributes $d_i \\cdot b^i$. Nothing about base ten is used — the seats are worth $b^i$ because that is what seats *are*.',
+            },
+            {
+              label: 'Append the zero: every digit moves up one seat',
+              formula: 'd_{k-1} \\cdot b^{k} + \\cdots + d_1 \\cdot b^{2} + d_0 \\cdot b + 0 = b \\cdot n',
+              explanation:
+                'The appended $0$ occupies seat $0$ and contributes nothing; every original digit $d_i$ now sits in seat $i + 1$, contributing $d_i \\cdot b^{i+1} = b \\cdot (d_i \\cdot b^i)$. Factoring out $b$ from every seat recovers $b \\cdot n$, exactly. Instance: $7 = 7_5$ becomes $70_5 = 35 = 5 \\cdot 7$.',
+            },
+            {
+              label: 'The staircase is iterated shifting',
+              formula: '(\\text{digit } c \\text{ in seat } j) \\Rightarrow \\text{partial at seat } j, \\; \\text{value } c \\cdot (\\text{row}) \\cdot b^{j}',
+              explanation:
+                'Multiplying the whole row by the digit $c$ gives one partial; writing that partial starting at seat $j$ shifts it $j$ seats, worth $b^j$ times its unshifted value. The staircase of long multiplication is therefore seat arithmetic — the $\\times b$ shift applied once per seat of the multiplier — and it needs no base-ten privilege.',
+            },
+          ],
+          result:
+            'The shift law is the representation theorem wearing working clothes: appending a zero re-seats every digit one place up, worth $b$ times more, and the long-multiplication staircase is that shift run once per multiplier digit. Nothing was swept under "trust the algorithm" — the shift is proved, in every base at once.',
+        },
+        {
           kind: 'example',
           title: 'Multiply 23₅ × 34₅ in base five — the staircase in another dress',
           steps: [
@@ -1844,6 +1892,34 @@ export const chapter03: Chapter = {
             'quotient-bearing division runs inside any base: $4231_5 \\div 3_5$ asks four in-base questions ("how many threes in $4$? in $12_5$? in $13_5$? in $21_5$?") and answers $1223_5$ remainder $2_5$ — the ladder certified digit by digit in the verify script ($566 = 188 \\cdot 3 + 2$);',
             'converting between two non-decimal bases needs no bridge: to write $1209_{12}$ in base five, divide $1209_{12}$ by $5$ *in base twelve*, repeatedly, and read the remainders upward — the base-ten middleman is simply gone.',
           ],
+        },
+        {
+          kind: 'derivation',
+          title: 'Why the remainders read upward: the naming engine, generalised',
+          statement:
+            'Claim: to name $n$ in base $b_2$, divide by $b_2$ (in whatever base the working is dressed in) and repeat on the quotient; the remainders, read upward, are the base-$b_2$ digits of $n$.',
+          steps: [
+            {
+              label: 'The first remainder is the last digit',
+              formula: 'n = q \\cdot b_2 + r_0, \\quad 0 \\le r_0 < b_2',
+              explanation:
+                'The division algorithm hands a quotient $q$ and a remainder $r_0$ that already lives in the base-$b_2$ digit band. And $r_0$ is not merely band-legal — it is forced: $r_0 = n \\bmod b_2$, the units digit of $n$\\u2019s base-$b_2$ name (Lesson 3.1\\u2019s digits-are-remainders theorem, true for every base at once).',
+            },
+            {
+              label: 'The peel: the rest of the name is q\u2019s name',
+              formula: '\\frac{n - r_0}{b_2} = q \\quad \\Longrightarrow \\quad n = q \\cdot b_2 + r_0',
+              explanation:
+                'Subtracting the units digit and dividing by $b_2$ strips exactly one seat — Lesson 3.1\\u2019s peel lemma. So everything above the units seat of $n$\\u2019s name is the base-$b_2$ name of $q$: the cascade\\u2019s next input.',
+            },
+            {
+              label: 'Iterate: the cascade walks the seats',
+              formula: 'q = q_1 \\cdot b_2 + r_1, \\quad \\ldots, \\quad \\text{until } q = 0',
+              explanation:
+                'Each rung peels one digit, and the quotients strictly descend — $q < n$ whenever $b_2 \\ge 2$ — so the cascade reaches $0$ in finitely many rungs. Reading the remainders upward prints the digits left to right: the last remainder is the most significant seat. Nothing in the argument mentions base ten; the working may wear any base\\u2019s alphabet, including the source base\\u2019s — which is precisely the direct conversion.',
+            },
+          ],
+          result:
+            'The direct conversion is the naming engine of Lesson 3.1 with the divisor changed: dividing by the target base peels one target-base digit per rung, the peel and the descent guarantee termination, and the upward reading assembles the name. The bridge of Lesson 3.2 was this same cascade wearing a base-ten middleman.',
         },
         {
           kind: 'example',
@@ -1976,11 +2052,71 @@ export const chapter03: Chapter = {
                   solution: [
                     'Split, the units seat: $2 - 4$ impossible — borrow: $(2 + 5) - 4 = 3$, and the fives seat pays $1$.',
                     'Now, the fives seat: $1 - 1$(paid) $- 4$ impossible — borrow again: $(1 - 1 + 5) - 4 = 1$, and the twenty-fives seat pays $1$.',
-                    'So, the twenty-fives seat: $3 - 1$(paid) $- 2 = 0$.',
+                    'So, the twenty-fives seat: $3 - 1$(paid) $- 1 = 1$.',
                     'Take the read: $113_5$ — rebuild: $82 - 49 = 33 = 25 + 5 + 3$ ✓; add back: $113_5 + 144_5 = 312_5$ ✓.',
                     'Hence $312_5 - 144_5 = 113_5$ — two borrows in a row, each a licensed loan.',
                   ],
                   answer: '312₅ − 144₅ = 113₅ (82 − 49 = 33)',
+                  figures: [
+                    {
+                      caption:
+                        'The two borrows of 312₅ − 144₅ drawn as the loan chain they are: each green arrow carries one next-seat unit into the seat that cannot pay, where it arrives worth 5 units of the lower seat (one 25 becomes 5 fives; one 5 becomes 5 units). Every seat\u2019s line pays its debts and writes what stands: 3 − 1 − 1 = 1, (1 − 1 + 5) − 4 = 1, (2 + 5) − 4 = 3 — the name 113₅, rebuilt as 1·25 + 1·5 + 3 = 33 = 82 − 49 ✓, and certified by adding back: 113₅ + 144₅ = 312₅ ✓.',
+                      svg: `<svg viewBox="0 0 920 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Borrow chain for 312 minus 144 in base five: two green loan arrows feed the seats that cannot pay, and the written digits 1, 1, 3 give 113">
+  <g font-size="13" fill="currentColor" opacity="0.85">
+    <text x="230" y="48" text-anchor="middle">a borrow is a licensed loan:</text>
+    <text x="230" y="66" text-anchor="middle">one next-seat unit is worth b units here</text>
+  </g>
+  <text x="230" y="340" font-size="15" fill="currentColor" text-anchor="middle">312₅ − 144₅ = 113₅</text>
+  <text x="230" y="366" font-size="13.5" fill="currentColor" text-anchor="middle">add back: 113₅ + 144₅ = 312₅ ✓</text>
+  <!-- loan chain: lender column -> borrower column, one seat right -->
+  <g stroke="#16a34a" stroke-width="1.6" fill="#16a34a">
+    <line x1="500" y1="90" x2="622" y2="90"/>
+    <polygon points="630,90 622,86 622,94" stroke="none"/>
+    <line x1="630" y1="90" x2="752" y2="90"/>
+    <polygon points="760,90 752,86 752,94" stroke="none"/>
+  </g>
+  <g font-size="12" fill="#16a34a" text-anchor="middle">
+    <text x="565" y="76">+5 fives</text>
+    <text x="695" y="76">+5 units</text>
+  </g>
+  <!-- minuend stock: 312 -->
+  <g fill="none" stroke="currentColor" stroke-width="1.4">
+    <rect x="472" y="100" width="56" height="44"/>
+    <rect x="602" y="100" width="56" height="44"/>
+    <rect x="732" y="100" width="56" height="44"/>
+  </g>
+  <g font-size="17" fill="currentColor" text-anchor="middle">
+    <text x="500" y="128">3</text>
+    <text x="630" y="128">1</text>
+    <text x="760" y="128">2</text>
+  </g>
+  <g font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">
+    <text x="500" y="172">25s</text>
+    <text x="630" y="172">5s</text>
+    <text x="760" y="172">1s</text>
+  </g>
+  <!-- each seat pays its debts and writes what stands -->
+  <g font-size="13.5" fill="currentColor" text-anchor="middle">
+    <text x="500" y="215">3 − 1 − 1 = 1</text>
+    <text x="630" y="215">(1−1+5) − 4 = 1</text>
+    <text x="760" y="215">(2+5) − 4 = 3</text>
+  </g>
+  <line x1="472" y1="248" x2="788" y2="248" stroke="currentColor" stroke-width="1.6"/>
+  <!-- written digits -->
+  <g fill="none" stroke="currentColor" stroke-width="1.4">
+    <rect x="472" y="268" width="56" height="44"/>
+    <rect x="602" y="268" width="56" height="44"/>
+    <rect x="732" y="268" width="56" height="44"/>
+  </g>
+  <g font-size="17" fill="currentColor" text-anchor="middle">
+    <text x="500" y="296">1</text>
+    <text x="630" y="296">1</text>
+    <text x="760" y="296">3</text>
+  </g>
+  <text x="630" y="372" font-size="13" fill="currentColor" text-anchor="middle" opacity="0.85">rebuild: 1 · 25 + 1 · 5 + 3 = 33 = 82 − 49</text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Multiply in base five: $12_5 \\times 3_5$.',
@@ -2060,6 +2196,73 @@ export const chapter03: Chapter = {
                     'Hence $4231_5 \u00f7 3_5 = 1223_5$ r $2_5$, certified: $566 = 188 \\cdot 3 + 2$ and $188 = 1223_5$ ✓ — long division, base five\u2019s alphabet, Lesson 2.1\u2019s theorem in every row.',
                   ],
                   answer: '4231₅ ÷ 3₅ = 1223₅ r 2₅ (566 = 188·3 + 2)',
+                  figures: [
+                    {
+                      caption:
+                        'The in-base division ladder for 4231₅ ÷ 3₅: four rungs, each one division-algorithm instance run in base five\u2019s own digits — divide what stands, write the quotient digit into the name, keep the remainder (always below 3), bring the next digit down. The quotient digits read 1, 2, 2, 3 left to right into 1223₅, and the last remainder, 2₅, stands outside the name; certified through ten: 566 = 188 · 3 + 2 with 188 = 1223₅ ✓.',
+                      svg: `<svg viewBox="0 0 920 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Division ladder of 4231 base five by 3: four rungs yield quotient digits 1, 2, 2, 3 and remainder 2; 1223 base five is 188, and 188 times 3 plus 2 equals 566">
+  <g font-size="13" fill="currentColor" opacity="0.85">
+    <text x="230" y="48" text-anchor="middle">each rung: divide what has been brought down,</text>
+    <text x="230" y="66" text-anchor="middle">write the quotient digit, keep the remainder in band</text>
+  </g>
+  <text x="230" y="340" font-size="15" fill="currentColor" text-anchor="middle">quotient 1223₅, remainder 2₅</text>
+  <text x="230" y="366" font-size="13.5" fill="currentColor" text-anchor="middle">566 = 188 · 3 + 2 ✓  and  188 = 1223₅ ✓</text>
+  <text x="230" y="390" font-size="13" fill="currentColor" text-anchor="middle" opacity="0.85">every rung: s = q · 3 + r, 0 ≤ r &lt; 3</text>
+  <!-- ladder header -->
+  <g font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">
+    <text x="500" y="110">rung</text>
+    <text x="650" y="110">the working</text>
+    <text x="800" y="110">q</text>
+    <text x="860" y="110">r</text>
+  </g>
+  <line x1="470" y1="122" x2="900" y2="122" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+  <!-- rung chips -->
+  <g fill="none" stroke="currentColor" stroke-width="1.4">
+    <circle cx="500" cy="145" r="14"/>
+    <circle cx="500" cy="195" r="14"/>
+    <circle cx="500" cy="245" r="14"/>
+    <circle cx="500" cy="295" r="14"/>
+  </g>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
+    <text x="500" y="150">1</text>
+    <text x="500" y="200">2</text>
+    <text x="500" y="250">3</text>
+    <text x="500" y="300">4</text>
+  </g>
+  <!-- working lines -->
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="648" y="150">4 ÷ 3:  4 = 1 · 3 + 1</text>
+    <text x="648" y="200">bring down 2 → 12₅ = 7;  7 = 2·3 + 1</text>
+    <text x="648" y="250">bring down 3 → 13₅ = 8;  8 = 2·3 + 2</text>
+    <text x="648" y="300">bring down 1 → 21₅ = 11;  11 = 3·3 + 2</text>
+  </g>
+  <!-- q and r chips -->
+  <g fill="none" stroke="currentColor" stroke-width="1.4">
+    <rect x="782" y="131" width="36" height="28"/>
+    <rect x="842" y="131" width="36" height="28"/>
+    <rect x="782" y="181" width="36" height="28"/>
+    <rect x="842" y="181" width="36" height="28"/>
+    <rect x="782" y="231" width="36" height="28"/>
+    <rect x="842" y="231" width="36" height="28"/>
+    <rect x="782" y="281" width="36" height="28"/>
+    <rect x="842" y="281" width="36" height="28"/>
+  </g>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
+    <text x="800" y="150">1</text><text x="860" y="150">1</text>
+    <text x="800" y="200">2</text><text x="860" y="200">1</text>
+    <text x="800" y="250">2</text><text x="860" y="250">2</text>
+    <text x="800" y="300">3</text><text x="860" y="300">2</text>
+  </g>
+  <!-- row dividers -->
+  <g stroke="currentColor" stroke-width="1" opacity="0.4">
+    <line x1="470" y1="172" x2="900" y2="172"/>
+    <line x1="470" y1="222" x2="900" y2="222"/>
+    <line x1="470" y1="272" x2="900" y2="272"/>
+  </g>
+  <text x="685" y="395" font-size="13" fill="currentColor" text-anchor="middle">quotient digits left to right: 1, 2, 2, 3 → 1223₅, remainder 2₅</text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'The direct route, in full: convert $1209_{12}$ to base five by dividing in base twelve, and certify the result two ways.',
@@ -2071,6 +2274,87 @@ export const chapter03: Chapter = {
                     'Hence $1209_{12} = 31100_5 = 2025$ — Lesson 3.2\u2019s promise, cashed in base twelve\u2019s own alphabet.',
                   ],
                   answer: '1209₁₂ = 31100₅ (cascade 299₁₂, 69₁₂, 14₁₂, 3; certified both ways)',
+                  figures: [
+                    {
+                      caption:
+                        'The direct conversion 1209₁₂ → 31100₅ as the machine cascade it is: five division-algorithm instances run entirely in base twelve\u2019s digits, each quotient feeding the next machine and each remainder emitted as one base-five digit into an amber chip. The green arrow reads the chips upward — last remainder first, because the first remainder sits in the units seat — into 3, 1, 1, 0, 0 → 31100₅, rebuilt as 3·625 + 1·125 + 1·25 = 2025 ✓.',
+                      svg: `<svg viewBox="0 0 920 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cascade of five division machines converting 1209 base twelve directly to 31100 base five; the amber remainder chips read upward give 3, 1, 1, 0, 0">
+  <g font-size="13" fill="currentColor" opacity="0.85">
+    <text x="230" y="48" text-anchor="middle">divide by the target base, in the source</text>
+    <text x="230" y="66" text-anchor="middle">base\u2019s own digits — ten never appears;</text>
+    <text x="230" y="84" text-anchor="middle">read the remainder chips upward, last first</text>
+  </g>
+  <text x="230" y="400" font-size="15" fill="currentColor" text-anchor="middle">1209₁₂ = 31100₅ = 2025</text>
+  <text x="230" y="426" font-size="13.5" fill="currentColor" text-anchor="middle">3 · 625 + 1 · 125 + 1 · 25 = 2025 ✓</text>
+  <!-- value boxes: each machine's input, chained by division -->
+  <g fill="none" stroke="currentColor" stroke-width="1.4">
+    <rect x="524" y="90" width="72" height="44"/>
+    <rect x="524" y="150" width="72" height="44"/>
+    <rect x="524" y="210" width="72" height="44"/>
+    <rect x="524" y="270" width="72" height="44"/>
+    <rect x="524" y="330" width="72" height="44"/>
+    <rect x="524" y="390" width="72" height="44"/>
+  </g>
+  <g font-size="16" fill="currentColor" text-anchor="middle">
+    <text x="560" y="118">1209₁₂</text>
+    <text x="560" y="178">299₁₂</text>
+    <text x="560" y="238">69₁₂</text>
+    <text x="560" y="298">14₁₂</text>
+    <text x="560" y="358">3</text>
+    <text x="560" y="418">0</text>
+  </g>
+  <!-- division arrows down, each labelled ÷ 5 -->
+  <g stroke="currentColor" stroke-width="1.4" fill="currentColor">
+    <line x1="560" y1="134" x2="560" y2="144"/>
+    <polygon points="560,150 556,143 564,143" stroke="none"/>
+    <line x1="560" y1="194" x2="560" y2="204"/>
+    <polygon points="560,210 556,203 564,203" stroke="none"/>
+    <line x1="560" y1="254" x2="560" y2="264"/>
+    <polygon points="560,270 556,263 564,263" stroke="none"/>
+    <line x1="560" y1="314" x2="560" y2="324"/>
+    <polygon points="560,330 556,323 564,323" stroke="none"/>
+    <line x1="560" y1="374" x2="560" y2="384"/>
+    <polygon points="560,390 556,383 564,383" stroke="none"/>
+  </g>
+  <g font-size="12" fill="currentColor" text-anchor="end" opacity="0.85">
+    <text x="516" y="147">÷ 5</text>
+    <text x="516" y="207">÷ 5</text>
+    <text x="516" y="267">÷ 5</text>
+    <text x="516" y="327">÷ 5</text>
+    <text x="516" y="387">÷ 5</text>
+  </g>
+  <!-- remainder chips: one base-five digit per machine -->
+  <g stroke="currentColor" stroke-width="1" opacity="0.5">
+    <line x1="596" y1="112" x2="685" y2="112"/>
+    <line x1="596" y1="172" x2="685" y2="172"/>
+    <line x1="596" y1="232" x2="685" y2="232"/>
+    <line x1="596" y1="292" x2="685" y2="292"/>
+    <line x1="596" y1="352" x2="685" y2="352"/>
+  </g>
+  <g fill="#fef3c7" stroke="#f59e0b" stroke-width="1.4">
+    <circle cx="700" cy="112" r="15"/>
+    <circle cx="700" cy="172" r="15"/>
+    <circle cx="700" cy="232" r="15"/>
+    <circle cx="700" cy="292" r="15"/>
+    <circle cx="700" cy="352" r="15"/>
+  </g>
+  <g font-size="15" fill="#92400e" text-anchor="middle">
+    <text x="700" y="117">0</text>
+    <text x="700" y="177">0</text>
+    <text x="700" y="237">1</text>
+    <text x="700" y="297">1</text>
+    <text x="700" y="357">3</text>
+  </g>
+  <!-- the upward reading -->
+  <g stroke="#16a34a" stroke-width="1.6" fill="#16a34a">
+    <line x1="770" y1="385" x2="770" y2="100"/>
+    <polygon points="770,94 766,102 774,102" stroke="none"/>
+  </g>
+  <text x="770" y="240" font-size="12.5" fill="#16a34a" text-anchor="middle" transform="rotate(-90 770 240)">read upward</text>
+  <text x="640" y="448" font-size="13.5" fill="currentColor" text-anchor="middle">chips upward: 3, 1, 1, 0, 0 → 31100₅</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },

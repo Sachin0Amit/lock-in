@@ -2142,6 +2142,103 @@ console.log('=== BB. the audit-bot enrichment of 3.1 (solution-figure and Pass C
 }
 
 /* ------------------------------------------------------------------ */
+console.log('=== AY. the 2026-11-19 audit-bot fire on 3.3 pinned (Pass A fix + Pass B figures + Pass C enrichments) ===');
+{
+  /* Pass A — the column machine redrawn in conventional seat order:
+   * 342₅ + 213₅, carries feeding 5s/25s/125s, result 1110₅ */
+  ok(3 * 25 + 4 * 5 + 2 === 97 && 2 * 25 + 1 * 5 + 3 === 58 && 97 + 58 === 155,
+    'AY: the column machine\u2019s operands — 342₅ = 97, 213₅ = 58, and 97 + 58 = 155');
+  ok(divmod(2 + 3, 5).q === 1 && divmod(2 + 3, 5).r === 0 && divmod(4 + 1 + 1, 5).r === 1 && divmod(3 + 2 + 1, 5).r === 1,
+    'AY: the three column instances — 2+3 = 1·5+0, 4+1+1 = 1·5+1, 3+2+1 = 1·5+1');
+  ok(1 * 125 + 1 * 25 + 1 * 5 + 0 === 155, 'AY: the result row rebuilds — 1110₅ = 125 + 25 + 5 = 155');
+
+  /* the ACCURACY CATCH fixed in L2-Q2 (312₅ − 144₅): the twenty-fives
+   * digit of the subtrahend is 1 (144₅ = 49), so the seat writes
+   * 3 − 1(paid) − 1 = 1 — the old "3 − 1 − 2 = 0" contradicted the
+   * correct final name 113₅ */
+  ok(1 * 25 + 4 * 5 + 4 === 49 && 82 - 49 === 33, 'AY: the accuracy catch — 144₅ = 49 (leading digit 1), 82 − 49 = 33');
+  ok(3 - 1 - 1 === 1 && (1 - 1 + 5) - 4 === 1 && (2 + 5) - 4 === 3 && 1 * 25 + 1 * 5 + 3 === 33,
+    'AY: the corrected seat lines — 3−1−1 = 1, (1−1+5)−4 = 1, (2+5)−4 = 3, and 113₅ = 33');
+  ok(33 + 49 === 82, 'AY: the add-back certificate — 113₅ + 144₅ = 82 = 312₅ ✓');
+
+  /* Pass B1 — the loan chain: each borrow converts one next-seat unit
+   * into five current-seat units (25 → 5 fives; 5 → 5 units) */
+  ok(1 * 25 === 5 * 5 && 1 * 5 === 5 * 1, 'AY: the loan chain\u2019s exchange rates — one 25 is 5 fives, one 5 is 5 units');
+
+  /* Pass B2 — the division ladder 4231₅ ÷ 3₅: four rungs, each
+   * s = q·3 + r in band, quotient digits 1,2,2,3, remainder 2 */
+  const rungs: Array<[number, number, number]> = [
+    [4, 1, 1],
+    [7, 2, 1],
+    [8, 2, 2],
+    [11, 3, 2],
+  ];
+  let badRung = 0;
+  for (const [s, q, r] of rungs) if (s !== q * 3 + r || r >= 3) badRung++;
+  if (nameString(188, 5) !== '1223' || nameString(566, 5) !== '4231') badRung++;
+  if (188 * 3 + 2 !== 566 || 4 * 125 + 2 * 25 + 3 * 5 + 1 !== 566) badRung++;
+  if (1 * 5 + 2 !== 7 || 1 * 5 + 3 !== 8 || 2 * 5 + 1 !== 11) badRung++;
+  ok(badRung === 0, 'AY: the division ladder — 4=1·3+1, 12₅=7=2·3+1, 13₅=8=2·3+2, 21₅=11=3·3+2; quotient 1223₅ = 188, remainder 2; 4231₅ = 566 = 188·3 + 2');
+
+  /* Pass B3 — the direct cascade 1209₁₂ ÷ 5 in base twelve: five
+   * machines, chips 0,0,1,1,3 read upward into 31100₅ */
+  const chain: Array<[number, number, number]> = [
+    [2025, 405, 0],
+    [405, 81, 0],
+    [81, 16, 1],
+    [16, 3, 1],
+    [3, 0, 3],
+  ];
+  let badChain = 0;
+  for (const [n, q, r] of chain) if (n !== q * 5 + r || r >= 5) badChain++;
+  for (let i = 0; i + 1 < chain.length; i++) if (chain[i][1] !== chain[i + 1][0]) badChain++;
+  if (nameString(2025, 5) !== '31100') badChain++;
+  if (3 * 625 + 1 * 125 + 1 * 25 !== 2025) badChain++;
+  if (JSON.stringify(chain.map(([, , r]) => r).reverse()) !== JSON.stringify([3, 1, 1, 0, 0])) badChain++;
+  ok(badChain === 0, 'AY: the direct cascade — 2025→405→81→16→3→0 by fives, chips 0,0,1,1,3 read upward = 3,1,1,0,0 → 31100₅ = 2025, every quotient feeding the next machine');
+
+  /* Pass C1 — the shift law: appending one zero to the name of n
+   * multiplies the value by b (sweep), instance 7₅ → 70₅ = 35 */
+  let badShift = 0;
+  for (let b = 2; b <= 12; b++) {
+    for (let n = 1; n <= 60; n++) {
+      const val = evalHorner([...nameDigits(n, b), 0], b);
+      if (val !== n * b) badShift++;
+    }
+  }
+  ok(badShift === 0, 'AY: the shift law swept — appending one zero to any name (b = 2..12, n ≤ 60) multiplies the value by exactly b; instance 7₅ → 70₅ = 35 = 5·7');
+  ok(evalHorner([7, 0], 5) === 35 && 7 * 5 === 35, 'AY: the shift instance — 70₅ = 35 = 5 · 7');
+
+  /* Pass C2 — the generalised engine: dividing by the target base b₂
+   * peels one digit per rung (remainder = next digit from the right),
+   * the quotient strictly descends, and the instance 79 ÷ 3 → 2221₃ */
+  let badPeel = 0;
+  for (let b2 = 2; b2 <= 12; b2++) {
+    for (let n = 1; n <= 200; n++) {
+      const { q, r } = divmod(n, b2);
+      const digs = nameDigits(n, b2);
+      if (r >= b2 || digs[digs.length - 1] !== r) badPeel++;
+      if (n >= b2 && q >= n) badPeel++;
+      const prefix = digs.slice(0, digs.length - 1);
+      if (JSON.stringify(nameDigits(q, b2)) !== JSON.stringify(prefix) && !(q === 0 && prefix.length === 0)) badPeel++;
+    }
+  }
+  ok(badPeel === 0, 'AY: the generalised engine swept — dividing n by b₂ leaves r₀ = the last digit, q strictly below n (b₂ ≥ 2), and q\u2019s name is the prefix of n\u2019s name');
+  const c79: Array<[number, number, number]> = [[79, 26, 1], [26, 8, 2], [8, 2, 2], [2, 0, 2]];
+  let bad79 = 0;
+  for (const [n, q, r] of c79) if (n !== q * 3 + r) bad79++;
+  for (let i = 0; i + 1 < c79.length; i++) if (c79[i][1] !== c79[i + 1][0]) bad79++;
+  if (nameString(79, 3) !== '2221') bad79++;
+  ok(bad79 === 0, 'AY: the C2 instance — 79 = 26·3+1 = 8·3+2 → 2·3+2 → 0·3+2; chips 1,2,2,2 read upward = 2,2,2,1 → 2221₃');
+
+  /* Pass C3 — the letter-borrow example 1A3₁₂ − B8₁₂ = A7₁₂ */
+  ok(1 * 144 + 10 * 12 + 3 === 267 && 11 * 12 + 8 === 140 && 267 - 140 === 127,
+    'AY: the letter-borrow operands — 1A3₁₂ = 267, B8₁₂ = 140, difference 127');
+  ok((3 + 12) - 8 === 7 && (9 + 12) - 11 === 10 && 10 * 12 + 7 === 127,
+    'AY: the letter-borrow seats — (3+12)−8 = 7, (A−1+12)−11 = 10 = A, and A7₁₂ = 127');
+}
+
+/* ------------------------------------------------------------------ */
 console.log(`\n=== RESULT: ${pass} passed, ${fail} failed ===`);
 
 

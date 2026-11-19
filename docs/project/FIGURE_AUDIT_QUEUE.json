@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-19T02:30:00+05:30",
+  "updated": "2026-11-19T00:53:44.984942Z",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
   "cursor": 54,
   "stats": {
     "lessonsWithFigures": 131,
     "figureTotal": 246,
-    "done": 61,
-    "pending": 70
+    "done": 64,
+    "pending": 67
   },
   "items": [
     {
@@ -530,7 +530,9 @@
       "bookId": "arithmetic-and-number-systems",
       "chapter": 3,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "doneDate": "2026-11-19",
+      "verdict": "A: 1 body figure FIXED->PASS (conventional seat-order redraw + carry arrows); B: 3 solution figures all VLM PASS; DOM 0/4 svgs solutions-expanded"
     },
     {
       "lessonId": "ans-binary-hex-machine",
