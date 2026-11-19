@@ -686,27 +686,50 @@ export const chapter02: Chapter = {
           caption:
             'Subtraction as leftward hops on the number line. Top: $7 - 3$ — start at 7, hop 3 left, land on 4 (tinted). Bottom: $3 - 7$ — start at 3, hop 7 left, and the walk crosses 0 (dashed stretch) before running out of whole numbers: the landing point would be −4, which is not a whole number at all. Where addition could never leave the line, subtraction leans against its left edge — the crack through which negative numbers (Chapter 7) eventually enter.',
           svg: `<svg viewBox="0 0 760 258" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line showing 7 minus 3 landing on 4, and 3 minus 7 falling off the left edge of the whole numbers">
-  <g font-size="13" fill="currentColor">
+  <defs><marker id="nl-hop" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#ea580c"/></marker></defs>
+  <g font-size="14" fill="currentColor">
     <text x="30" y="52" opacity="0.75" text-anchor="start">7 - 3: start at 7, hop 3 left</text>
-    <line x1="50" y1="88" x2="710" y2="88" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+    <line x1="50" y1="88" x2="700" y2="88" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
     <g text-anchor="middle">
-      ${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => `<line x1="${60 + n * 70}" y1="82" x2="${60 + n * 70}" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="${60 + n * 70}" y="114" text-anchor="middle" opacity="0.85">${n}</text>`).join('\n      ')}
+      <line x1="60" y1="82" x2="60" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="60" y="114" text-anchor="middle" opacity="0.85">0</text>
+      <line x1="130" y1="82" x2="130" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="130" y="114" text-anchor="middle" opacity="0.85">1</text>
+      <line x1="200" y1="82" x2="200" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="200" y="114" text-anchor="middle" opacity="0.85">2</text>
+      <line x1="270" y1="82" x2="270" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="270" y="114" text-anchor="middle" opacity="0.85">3</text>
+      <line x1="340" y1="82" x2="340" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="340" y="114" text-anchor="middle" opacity="0.85">4</text>
+      <line x1="410" y1="82" x2="410" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="410" y="114" text-anchor="middle" opacity="0.85">5</text>
+      <line x1="480" y1="82" x2="480" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="480" y="114" text-anchor="middle" opacity="0.85">6</text>
+      <line x1="550" y1="82" x2="550" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="550" y="114" text-anchor="middle" opacity="0.85">7</text>
+      <line x1="620" y1="82" x2="620" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="620" y="114" text-anchor="middle" opacity="0.85">8</text>
+      <line x1="690" y1="82" x2="690" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="690" y="114" text-anchor="middle" opacity="0.85">9</text>
     </g>
     <circle cx="550" cy="88" r="5" fill="currentColor" opacity="0.85"/>
     <circle cx="340" cy="88" r="7" fill="#ea580c"/>
-    <path d="M 542 66 Q 445 18 348 66" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+    <path d="M 550 82 Q 445 10 340 80" fill="none" stroke="#ea580c" stroke-width="2.5" marker-end="url(#nl-hop)"/>
     <text x="445" y="34" text-anchor="middle" font-weight="700" fill="#ea580c">-3</text>
     <text x="730" y="164" opacity="0.75" text-anchor="end">3 - 7: start at 3, hop 7 left</text>
-    <line x1="260" y1="200" x2="710" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
-    <line x1="60" y1="200" x2="260" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.45" stroke-dasharray="4 4"/>
+    <line x1="260" y1="200" x2="720" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+    <line x1="50" y1="200" x2="260" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.45" stroke-dasharray="4 4"/>
     <g text-anchor="middle">
-      ${[-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => `<line x1="${60 + (n + 4) * 50}" y1="194" x2="${60 + (n + 4) * 50}" y2="206" stroke="currentColor" stroke-width="1.5" opacity="${n < 0 ? 0.4 : 0.55}"/><text x="${60 + (n + 4) * 50}" y="226" text-anchor="middle" opacity="${n < 0 ? 0.55 : 0.85}">${n}</text>`).join('\n      ')}
+      <line x1="60" y1="194" x2="60" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><text x="60" y="226" text-anchor="middle" opacity="0.55">-4</text>
+      <line x1="110" y1="194" x2="110" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><text x="110" y="226" text-anchor="middle" opacity="0.55">-3</text>
+      <line x1="160" y1="194" x2="160" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><text x="160" y="226" text-anchor="middle" opacity="0.55">-2</text>
+      <line x1="210" y1="194" x2="210" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><text x="210" y="226" text-anchor="middle" opacity="0.55">-1</text>
+      <line x1="260" y1="194" x2="260" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="260" y="226" text-anchor="middle" opacity="0.85">0</text>
+      <line x1="310" y1="194" x2="310" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="310" y="226" text-anchor="middle" opacity="0.85">1</text>
+      <line x1="360" y1="194" x2="360" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="360" y="226" text-anchor="middle" opacity="0.85">2</text>
+      <line x1="410" y1="194" x2="410" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="410" y="226" text-anchor="middle" opacity="0.85">3</text>
+      <line x1="460" y1="194" x2="460" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="460" y="226" text-anchor="middle" opacity="0.85">4</text>
+      <line x1="510" y1="194" x2="510" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="510" y="226" text-anchor="middle" opacity="0.85">5</text>
+      <line x1="560" y1="194" x2="560" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="560" y="226" text-anchor="middle" opacity="0.85">6</text>
+      <line x1="610" y1="194" x2="610" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="610" y="226" text-anchor="middle" opacity="0.85">7</text>
+      <line x1="660" y1="194" x2="660" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="660" y="226" text-anchor="middle" opacity="0.85">8</text>
+      <line x1="710" y1="194" x2="710" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="710" y="226" text-anchor="middle" opacity="0.85">9</text>
     </g>
     <circle cx="410" cy="200" r="5" fill="currentColor" opacity="0.85"/>
-    <circle cx="60" cy="200" r="7" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="3 3"/>
-    <path d="M 402 178 Q 230 132 68 178" fill="none" stroke="#ea580c" stroke-width="2.5"/>
-    <text x="230" y="148" text-anchor="middle" font-weight="700" fill="#ea580c">-7</text>
-    <text x="380" y="250" text-anchor="middle" font-size="11.5" opacity="0.7">whole numbers end at 0 — the landing point -4 lies beyond the edge (Chapter 7: Integers)</text>
+    <circle cx="60" cy="200" r="7" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="4 3"/>
+    <path d="M 410 194 Q 235 122 60 192" fill="none" stroke="#ea580c" stroke-width="2.5" marker-end="url(#nl-hop)"/>
+    <text x="235" y="146" text-anchor="middle" font-weight="700" fill="#ea580c">-7</text>
+    <text x="380" y="250" text-anchor="middle" font-size="13" opacity="0.7">whole numbers end at 0 — the landing point -4 lies beyond the edge (Chapter 7: Integers)</text>
   </g>
 </svg>`,
         },
@@ -764,11 +787,11 @@ export const chapter02: Chapter = {
           caption:
             'The borrow as a seat exchange. The hundreds seat cannot pay ($5 < 7$), so the thousands seat lends one of its counters — worth ten hundreds — and drops from 4 to 3 (struck digits show the pencil bookkeeping; small digits the corrections: 4 → 3, 5 → 15). The receiving seat then computes $15 - 7 = 8$. The ones and tens columns pay outright ($9 - 4$ and $8 - 6$): only one borrow undoes the three carries of adding this same pair.',
           svg: `<svg viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Column subtraction of 4589 minus 2764 with one borrow: the thousands seat lends one to the hundreds seat">
-  <g font-size="13" fill="currentColor" text-anchor="middle">
-    <text x="30" y="37" opacity="0.75" text-anchor="start">the borrow</text>
-    <rect x="205" y="20" width="170" height="24" rx="12" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
-    <text x="290" y="37" font-weight="700" font-size="12" fill="#ea580c">1 thousand = 10 hundreds</text>
-    <path d="M 225 92 Q 290 60 345 92" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="5 4"/>
+  <defs><marker id="bo-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#ea580c"/></marker></defs>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
+    <text x="30" y="46" opacity="0.75" text-anchor="start">the borrow</text>
+    <rect x="185" y="24" width="210" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="290" y="46" font-weight="700" fill="#ea580c">1 thousand = 10 hundreds</text>
     <text x="80" y="120" opacity="0.75" text-anchor="start">4,589</text>
     <text x="80" y="182" opacity="0.75" text-anchor="start">2,764</text>
     <g stroke="currentColor" stroke-width="1.5" opacity="0.5" fill="none">
@@ -783,15 +806,18 @@ export const chapter02: Chapter = {
       <line x1="203" y1="121" x2="227" y2="107"/>
       <line x1="343" y1="121" x2="367" y2="107"/>
     </g>
-    <g font-size="13" font-weight="700" fill="#ea580c">
-      <text x="252" y="112">3</text>
+    <g font-size="14" font-weight="700" fill="#ea580c">
+      <text x="248" y="112">3</text>
       <text x="388" y="112">15</text>
     </g>
-    <line x1="130" y1="214" x2="710" y2="214" stroke="currentColor" stroke-width="2"/>
+    <g stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 3" fill="none" opacity="0.8">
+      <path d="M 215 94 Q 285 66 355 94" marker-end="url(#bo-arrow)"/>
+    </g>
+    <line x1="140" y1="214" x2="710" y2="214" stroke="currentColor" stroke-width="2"/>
     <g font-size="22" font-weight="700" fill="#ea580c">
       <text x="215" y="252">1</text><text x="355" y="252">8</text><text x="495" y="252">2</text><text x="635" y="252">5</text>
     </g>
-    <text x="80" y="282" font-size="12" opacity="0.8" text-anchor="start">hundreds: 5 &lt; 7 → borrow → 15 - 7 = 8 · lender 4 → 3, pays 3 - 2 · ones and tens pay outright: 9 - 4, 8 - 6</text>
+    <text x="80" y="282" font-size="12" opacity="0.8" text-anchor="start">hundreds: 5 < 7 → borrow → 15 - 7 = 8 · lender 4 → 3, pays 3 - 2 · ones and tens pay outright: 9 - 4, 8 - 6</text>
   </g>
 </svg>`,
         },
@@ -849,6 +875,51 @@ export const chapter02: Chapter = {
           ],
         },
         {
+          kind: 'figure',
+          caption:
+            'The dissolve, seat by seat — the mirror of Lesson 2.1\'s $999 + 1$ ripple, on the same seat grammar. The ones seat owes 1 and its left neighbours are broke, so the request travels to the thousands seat; the cash then flows back down the chain (dashed arrows, lender → receiver): each middle seat receives 10, lends 1 and keeps 9 — its small correction reads 9 — while the ones seat receives the full ten (its small correction reads 10) and pays $10 - 1 = 9$. The thousands seat ends empty — the dashed zone marks its empty answer slot, the leading zero that drops away — and the answer is $999$. Where $999 + 1$ minted a new seat, $1{,}000 - 1$ burns one: addition mints seats; subtraction dissolves them.',
+          svg: `<svg viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Column subtraction of 1000 minus 1: the borrow request travels across the two middle zeros to the thousands seat, the cash flows back as three lends, each middle seat receives 10, lends 1 and keeps 9, the ones pays 10 minus 1 = 9, and the thousands seat empties and its digit drops away, giving 999">
+  <defs><marker id="lend-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#ea580c"/></marker></defs>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
+    <text x="30" y="46" opacity="0.75" text-anchor="start">lends →</text>
+    <text x="80" y="120" opacity="0.75" text-anchor="start">1,000</text>
+    <text x="80" y="186" opacity="0.75" text-anchor="start">1</text>
+    <g stroke="currentColor" stroke-width="1.5" opacity="0.5" fill="none">
+      <rect x="150" y="94" width="130" height="46" rx="6"/><rect x="290" y="94" width="130" height="46" rx="6"/><rect x="430" y="94" width="130" height="46" rx="6"/><rect x="570" y="94" width="130" height="46" rx="6"/>
+      <rect x="150" y="156" width="130" height="46" rx="6"/><rect x="290" y="156" width="130" height="46" rx="6"/><rect x="430" y="156" width="130" height="46" rx="6"/><rect x="570" y="156" width="130" height="46" rx="6"/>
+    </g>
+    <g font-size="22" font-weight="700">
+      <text x="215" y="124">1</text><text x="355" y="124">0</text><text x="495" y="124">0</text><text x="635" y="124">0</text>
+      <text x="215" y="186" opacity="0.45">0</text><text x="355" y="186" opacity="0.45">0</text><text x="495" y="186" opacity="0.45">0</text><text x="635" y="186">1</text>
+    </g>
+    <g stroke="currentColor" stroke-width="1.5" opacity="0.8">
+      <line x1="203" y1="121" x2="227" y2="107"/>
+      <line x1="343" y1="121" x2="367" y2="107"/>
+      <line x1="483" y1="121" x2="507" y2="107"/>
+      <line x1="623" y1="121" x2="647" y2="107"/>
+    </g>
+    <g font-size="14" font-weight="700" fill="#ea580c">
+      <text x="248" y="112">0</text>
+      <text x="388" y="112">9</text>
+      <text x="528" y="112">9</text>
+      <text x="668" y="112">10</text>
+    </g>
+    <g stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 3" fill="none" opacity="0.8">
+      <path d="M 215 94 Q 285 66 355 94" marker-end="url(#lend-arrow)"/>
+      <path d="M 355 94 Q 425 66 495 94" marker-end="url(#lend-arrow)"/>
+      <path d="M 495 94 Q 565 66 635 94" marker-end="url(#lend-arrow)"/>
+    </g>
+    <line x1="140" y1="214" x2="710" y2="214" stroke="currentColor" stroke-width="2"/>
+    <rect x="150" y="218" width="130" height="40" rx="6" fill="none" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="215" y="243" font-size="13" fill="#0f766e">the dissolved seat</text>
+    <g font-size="22" font-weight="700" fill="#ea580c">
+      <text x="355" y="252">9</text><text x="495" y="252">9</text><text x="635" y="252">9</text>
+    </g>
+    <text x="150" y="282" font-size="13" opacity="0.8" text-anchor="start">zeros: receive 10, lend 1, keep 9 · ones: 10 - 1 = 9 · the seat dissolves · 999</text>
+  </g>
+</svg>`,
+        },
+        {
           kind: 'callout',
           tone: 'warn',
           title: 'Four classic borrowing traps',
@@ -883,6 +954,42 @@ export const chapter02: Chapter = {
         {
           kind: 'para',
           text: 'The second technique is older than examination halls. A shopkeeper making change from ₹100 against a bill of ₹63 rarely computes $100 - 63$; she counts *up*: hand over 2 (to ₹65), then 5 (to ₹70), then 30 (to ₹100) — change, 37. Subtraction performed as addition, because counting coins upward is harder to get wrong than borrowing across zeros. The same route handles our worked example: start at the subtrahend and climb to the minuend — $+36$ reaches $2{,}800$; $+200$ reaches $3{,}000$; $+1{,}500$ reaches $4{,}500$; $+89$ reaches $4{,}589$. The change totals $36 + 200 + 1{,}500 + 89 = 1{,}825$ — the same difference the column algorithm found, reached without a single borrow. The missing-addend definition, promoted from philosophy to working method.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The shopkeeper\'s route for $4{,}589 - 2{,}764$, drawn to true scale: the bar between the two numbers is the gap itself — $1{,}825$ wide — and the four hand-overs partition it exactly ($+36$ to $2{,}800$, $+200$ to $3{,}000$, $+1{,}500$ to $4{,}500$, $+89$ to $4{,}589$; the segment widths are exactly proportional to the hand-overs). The $+1{,}500$ hop does the heavy lifting — it alone spans $1{,}500$ of the $1{,}825$ — while $+36$ and $+89$ are the fine change, and every milestone is a round number chosen for an easy step. The hand-overs total exactly the difference, the same $1{,}825$ the column algorithm found — and not one borrow was made. Counting up is subtraction run as the missing-addend addition, which is why a shopkeeper making change never borrows.',
+          svg: `<svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A journey bar from 2,764 to 4,589 drawn to true scale, partitioned into four hand-overs of widths 36, 200, 1,500 and 89: the counting-up method reaches the difference 1,825 by adding up from the subtrahend to the minuend without a single borrow">
+  <g font-size="14" fill="currentColor">
+    <text x="30" y="34" opacity="0.75" text-anchor="start">the shopkeeper's climb:</text>
+    <line x1="60" y1="60" x2="60" y2="96" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    <text x="60" y="56" font-size="15" font-weight="700" text-anchor="middle">2,764</text>
+    <line x1="73.02" y1="82" x2="73.02" y2="96" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    <text x="73.02" y="78" font-size="13" text-anchor="start">2,800</text>
+    <line x1="145.35" y1="82" x2="145.35" y2="96" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    <text x="145.35" y="78" font-size="13" text-anchor="middle">3,000</text>
+    <line x1="687.81" y1="82" x2="687.81" y2="96" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    <text x="687.81" y="78" font-size="13" text-anchor="middle">4,500</text>
+    <line x1="720" y1="60" x2="720" y2="96" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    <text x="720" y="56" font-size="15" font-weight="700" text-anchor="middle">4,589</text>
+    <rect x="60" y="96" width="660" height="40" fill="#ea580c" opacity="0.13" stroke="#ea580c" stroke-width="1.5"/>
+    <g stroke="#ea580c" stroke-width="1.5" opacity="0.7">
+      <line x1="73.02" y1="96" x2="73.02" y2="136"/>
+      <line x1="145.35" y1="96" x2="145.35" y2="136"/>
+      <line x1="687.81" y1="96" x2="687.81" y2="136"/>
+    </g>
+    <line x1="66.51" y1="136" x2="66.51" y2="150" stroke="#ea580c" stroke-width="1.5" opacity="0.7"/>
+    <line x1="109.18" y1="136" x2="109.18" y2="150" stroke="#ea580c" stroke-width="1.5" opacity="0.7"/>
+    <line x1="416.58" y1="136" x2="416.58" y2="150" stroke="#ea580c" stroke-width="1.5" opacity="0.7"/>
+    <line x1="703.91" y1="136" x2="703.91" y2="150" stroke="#ea580c" stroke-width="1.5" opacity="0.7"/>
+    <text x="66.51" y="166" font-weight="700" fill="#ea580c">+36</text>
+    <text x="109.18" y="166" font-weight="700" fill="#ea580c">+200</text>
+    <text x="416.58" y="166" font-weight="700" fill="#ea580c">+1,500</text>
+    <text x="703.91" y="166" font-weight="700" fill="#ea580c">+89</text>
+    <polygon points="722,108 736,116 722,124" fill="#ea580c"/>
+    <text x="150" y="226" font-size="13" opacity="0.8" text-anchor="start">36 + 200 + 1,500 + 89 = 1,825 — the same difference, found with no borrow</text>
+  </g>
+</svg>`,
         },
         {
           kind: 'callout',

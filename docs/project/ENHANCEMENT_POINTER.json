@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19 (run 4)",
+ "updated": "2026-11-19 (run 5)",
  "purpose": "Visual-upgrade job queue (job 507527, hourly :15): every lesson of chapters already COMPLETE and verified, oldest first. The chapter job (job 507529, odd-hour :45) owns RESUME_POINTER.json/PROGRESS.json/WORK_INVENTORY.json/DETAILED_LOG.md — never write those from this job. One lesson hands-on per run; lessons audited and needing nothing are marked reviewed-no-op.",
  "queue": [
   {
@@ -40,7 +40,7 @@
    "chapter": 2,
    "number": "2.2",
    "title": "Subtraction and Borrowing",
-   "status": "pending-review"
+   "status": "done"
   },
   {
    "id": "fm-multiplication-repeated-addition",
@@ -540,9 +540,9 @@
   }
  ],
  "lastDone": {
-  "lessonId": "fm-addition-carrying",
+  "lessonId": "fm-subtraction-borrowing",
   "date": "2026-11-19",
-  "run": "visual-upgrade run 4 (job 507527, fired ~21:15 IST)",
-  "summary": "2 existing figures polished to computed precision (hop arcs re-anchored dot-column to dot-column — chords exactly 210/280px, ratio exactly 3/4, arrowheads added; carry arrows re-centred onto exact column centres and carry-cell bottoms; rails/sum lines symmetrised; fonts bumped 13→14/11→13 per mobile precedent) + 2 NEW figures (counting board with exactly ten counters and one mid-flight exchange; 999+1 ripple with the dashed new-seat zone) + one image attempt refused after 3 failed exact-count verifications; 131-check gen + 100-check independent audit CLEAN, overlap 0/4, lint/tsc 0, E2E ALL PASS 1280+390 (quiz 5/5, KaTeX 0 errors, no overflow, console 0), VLM audits PASS with two honest catches (VLM disc-miscount disproven by pixel-cluster analysis; mobile annotation bump applied and re-gated)"
+  "run": "visual-upgrade run 5 (job 507527, fired ~21:15 IST cadence; continued session, state rebuilt from log + pointer)",
+  "summary": "2 existing figures polished to computed precision (hop arcs re-anchored dot-column to dot-column — chords exactly 3 and 7 units, arrowheads added, rails symmetrised incl. the full negative dashed stretch; the borrow arrow re-centred exactly on lender→receiver column centres with the run-4 arrow grammar, the exchange pill restyled to carry-cell row metrics, sum line 140..710, fonts 13→14) + 2 NEW figures (the 1,000−1 dissolve: three chained lend arrows each exactly one seat, struck digits with corrections 0/9/9/10, three faint padded zeros, the dashed «the dissolved seat» zone over the empty answer slot — the exact mirror of 2.1's ripple; the shopkeeper's climb: a true-scale journey bar where the 660px bar IS the 1,825-unit gap, segment widths exactly proportional to 36/200/1,500/89) + no raster image by medium decision (all candidates structural/numeric — SVG computes them exactly) + 164-check gen + 102-check independent audit CLEAN, overlap 0/4, lint/tsc 0, pack v7 verify PASS, E2E ALL PASS 1280+390 (quiz 5/5, KaTeX 0 errors, no overflow, console 0), VLM 4/4 light + dark sheet + mobile sheet PASS with two honest catches (hop ticks shortened 158→150 after the overlap audit catch; dissolve caption clarified after the VLM ones-correction catch — both re-gated)"
  }
 }

@@ -215,6 +215,12 @@ server.log
 !/scripts/enhance-fm-21-audit.ts
 !/scripts/e2e-fm-21.sh
 !/scripts/e2e-fm-21.page.js
+# exception: visual-upgrade run 5 (job 507527) — FM 2.2 figure gen + patch + audit + E2E (reusable every run)
+!/scripts/enhance-fm-22-gen.ts
+!/scripts/patch-fm-22.py
+!/scripts/enhance-fm-22-audit.ts
+!/scripts/e2e-fm-22.sh
+!/scripts/e2e-fm-22.page.js
 # exception: run-60 ANS chapter-8 pre-write arithmetic verifier (irrationals; committed every ship)
 !/scripts/verify-book2-ch08.ts
 # exception: run-60 ANS chapter-8 lesson E2E blocks (quiz keys 8.1 + 8.2 + solutions + audits)

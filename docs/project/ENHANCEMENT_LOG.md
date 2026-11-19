@@ -741,3 +741,143 @@ e2e-fm-21.page.js), `docs/project/ENHANCEMENT_LOG.md`,
 raster assets shipped (the failed generation attempts were deleted;
 public/images left clean). RESUME_POINTER / PROGRESS / WORK_INVENTORY /
 DETAILED_LOG untouched (chapter-job owned).
+## Run 5 — 2026-11-19 (job 507527, fired ~21:15 IST cadence; continued session, state rebuilt from ENHANCEMENT_LOG + POINTER)
+
+- **Lesson:** `fm-subtraction-borrowing` (FM 2.2 — next `pending-review` in the queue; runs 1-4 covered 1.1/1.2/1.3/2.1).
+- **Pull-first (owner chat directive):** anonymous HTTPS fetch of `main` — remote 1 ahead (the chapter job's Revision Hub ship `e34cdc2`), local 2 ahead (runs 3-4's ships) → reconciled by a clean LOCAL merge commit (this job never pushes; the chapter job pushes the merged line).
+- **Collision guard:** tree clean at start, no `.figure_upgrade_lock`, no index.lock, in-flight chapter (AA 5.3) untouched → proceeded; lock created, refreshed per step, deleted at run end.
+- **Environment catches (logged for future runs):** (1) the dev server can serve STALE lesson content after a source edit — the reader serves the PACKED library DB, so `bun run lib:pack` must be re-run after every content edit (run-4 documented the rule; run 5 hit it for real and re-packed after each edit — final pack v7, 807,165 words). (2) the sandbox reaps background processes between tool calls — server + E2E must run inside single commands.
+
+### (a) Diagram/SVG precision — both existing figures audited & polished
+
+All geometry recomputed by script BEFORE touching anything
+(`scripts/enhance-fm-22-gen.ts`, 164 checks; `scripts/enhance-fm-22-audit.ts`
+re-derives everything independently from the EDITED file — 102 checks, CLEAN;
+the file edits applied by `scripts/patch-fm-22.py`, anchored and asserted).
+
+**Figure 1 (subtraction number line, 760×258):** top ticks x = 60 + 70n and
+bottom ticks x = 60 + (n+4)·50 verified exact (dots at x(7)/x(4)/x(3)/x(−4)
+all on their columns). Four precision defects found and fixed:
+1. Hop arcs floated with 8px insets both sides — chords 194px/334px instead of
+   the true hops 210px (3 units) and 350px (7 units). Fixed: arcs re-anchored
+   dot-column to dot-column — top `M 550 82 Q 445 10 340 80`, bottom
+   `M 410 194 Q 235 122 60 192` — chords exactly 3 and 7 units, endpoints 1px
+   above their dot tops (start r5 → 82/194; landing r7 → 80/192).
+2. No direction on the hops. Fixed: arrowhead markers (`nl-hop`) landing just
+   above the landing dot / the dashed ghost ring.
+3. Rails asymmetric and inconsistent with the sibling lesson: top 50..710,
+   bottom solid 260..710 with the dashed stretch starting at the −4 tick.
+   Fixed: top 50..700 (2.1's exact rail); bottom solid 260..720 and dashed
+   50..260 — the dashed stretch now covers the WHOLE negative territory
+   −4..0 including its edge margin, symmetric ±10 overhangs everywhere.
+4. Mobile legibility (run-1..4 precedent): group font 13→14 (titles, tick
+   labels, hop labels inherit), edge note 11.5→13; ghost ring dasharray
+   normalised 3 3 → 4 3 (run-4 ghost grammar). The nested `.map()` template
+   interpolation replaced by static expanded SVG (uniformly auditable —
+   run-4 precedent).
+
+**Figure 2 (4,589 − 2,764 borrow seat map, 760×290):** cells/columns verified
+at centres 215/355/495/635, digits re-walked by the independent audit's own
+decomposition walker (ONE borrow, at the hundreds seat — `0,1,0,0`). Four
+precision defects found and fixed:
+1. The borrow arc floated between the seats — start (225,92), end (345,92),
+   10px inward of both column centres, no direction, stroke 2 dasharray 5 4.
+   Fixed: re-anchored exactly on the lender→receiver column centres
+   `M 215 94 Q 285 66 355 94` (control at the exact chord midpoint), with the
+   run-4 seat-exchange arrow grammar (1.5 / 4 3 / 0.8) and an arrowhead
+   marker (`bo-arrow`) pointing into the receiver seat.
+2. The exchange-rate pill was a tag-style rect (205,20,170×24, rx12, text
+   12px) off the sibling grammar. Fixed to the run-4 carry-cell row metrics:
+   (185,24,210×34, rx17) with «1 thousand = 10 hundreds» bold 14 at (290,46),
+   label «the borrow» at (30,46).
+3. Sum line asymmetric (130..710). Fixed to 140..710 (±10 around the cell
+   block), matching 2.1's seat maps.
+4. Font bumps: group 13→14, corrections 13→14 with positions normalised to
+   the computed formula centre+33 («3» 252→248, «15» at 388, baseline 112);
+   the bottom note stays at 12px — 13 would overflow the viewBox width
+   (run-3/run-4 precedent applied with the gen script's width proof).
+
+### (b) Generated images — none shipped, by medium decision (owner directive v2)
+
+Every visual candidate in this lesson is structural/numeric: the edge-of-the-
+world number line, seat-exchange grids, the borrow chain, the true-scale
+climb. In each the exact counts and proportions ARE the mathematics, and
+run-4's three-attempt refusal proved image models cannot honour exact counts
+(ten counters → 12/9/14). A shopkeeper-scene raster beside the journey bar
+would be decoration — the bar already carries the concept. Chosen medium for
+every candidate: computed SVG. Rationale logged per owner directive v2
+("pick the medium that teaches that concept best").
+
+### (c) Other visual enhancements — two NEW figures
+
+**NEW Figure (the 1,000 − 1 dissolve, 760×290)** — inserted after the
+"1,000 − 1, seat by seat" example, before the borrowing-traps callout (the
+mirror position of run-4's ripple figure):
+- The exact mirror of 2.1's 999+1 ripple on the same seat grammar: three
+  CHAINED lend arrows travelling lender→receiver
+  `M 215 94 Q 285 66 355 94 | M 355 94 Q 425 66 495 94 | M 495 94 Q 565 66
+  635 94` — each exactly one seat (140px centre-to-centre), chained
+  head-to-tail so the cash visibly flows back down the chain rightward, the
+  direction mirror of the ripple's leftward carries («lends →» labels the
+  row, mirroring 2.1's «carries →»).
+- Pencil bookkeeping drawn seat by seat: all four top digits struck (1,0,0,0)
+  with small corrections 1→0 (lends everything), 0→9, 0→9 (receive 10, lend
+  1, keep 9 — the lesson's own sentence and the fastest visual diagnostic of
+  a zero-crossing borrow), 0→10 (the ones receives the full ten); subtrahend
+  padded 0,0,0,1 with THREE faint zeros (placeholders doing a real job,
+  Lesson 1.1 grammar); answer row 9,9,9 with NO digit in the thousands slot —
+  the dashed teal zone «the dissolved seat» over the empty answer slot (the
+  leading zero that drops away; "subtraction never grows the digit count").
+- Rationale: static sequenced grid again — the dissolve is a process but its
+  teaching value is the final state at each seat (run-4 ripple precedent);
+  the caption narrates the request's leftward travel while the arrows draw
+  the lends' rightward cash flow. Interactivity skipped (block framework
+  exposes no interactive block type — run-2 precedent, surgical constraint).
+
+**NEW Figure (the shopkeeper's climb, 760×250)** — inserted after the
+counting-up paragraph, before the equal-additions historical callout:
+- The lesson's spine made geometry: the bar between 2,764 and 4,589 IS the
+  difference itself — 660px for 1,825 units (scale 0.36164 px/unit) —
+  partitioned into four hand-over segments with widths EXACTLY proportional
+  to 36/200/1,500/89 (13.02 / 72.33 / 542.47 / 32.19 px; proportions
+  re-verified to 1e-9 by the independent audit from the drawn x's); the +1,500
+  dominance is a visible fact, the +36 sliver honestly thin.
+- Milestones at the boundaries: bold 15px ends (2,764 / 4,589) on row y=56,
+  milestones (2,800 / 3,000 / 4,500) on row y=78 — 2,800 start-anchored
+  exactly at its tick so the 13px-apart 2,764/2,800 pair cannot collide
+  (binding ticks proven to cross nothing by the gen script); hop labels
+  +36/+200/+1,500/+89 centred under their segment centres with connector
+  ticks; an arrival arrowhead at the right end (count-UP direction); note
+  «36 + 200 + 1,500 + 89 = 1,825 — the same difference, found with no borrow».
+- Rationale: true scale is the only honest encoding (a uniform-scale ladder
+  would lie about where the work is); the counting-up route is the lesson's
+  missing-addend definition promoted to working method — now drawn.
+
+### Gates (all green)
+
+| Gate | Result |
+| --- | --- |
+| `bun run scripts/enhance-fm-22-gen.ts` (recompute-before-write) | CLEAN — 164 checks |
+| `bun run scripts/enhance-fm-22-audit.ts` (independent, from the edited file; walks the digits parsed out of the SVGs with its own decomposition solver) | CLEAN — 102 passed, 0 failed |
+| `bash scripts/audit-svg-overlaps.sh fm-subtraction-borrowing` | 0 issues on all 4 svgs (texts 29/19/20/11) |
+| `bun run lint` | 0 errors (5 pre-existing warnings in other jobs' scripts) |
+| `bunx tsc --noEmit` | 0 errors |
+| `bun run lib:pack` + `lib:check` | verify PASS (269 books / 156 lessons / 807,165 words; pack v7) — re-run after every content edit |
+| Route 200 | `GET /book/foundation-mathematics/lesson/fm-subtraction-borrowing` → 200 |
+| Browser E2E (`scripts/e2e-fm-22.sh`) | ALL PASS at 1280 AND 390: exactly 4 figures with exact structure (nl: 27 lines / 29 texts / 4 dots incl. the dashed −4 ghost / arcs M 550 82 Q 445 10 340 80 + M 410 194 Q 235 122 60 192 with arrowheads; borrow map: 9 rects / pill rx17 / arrow M 215 94 Q 285 66 355 94 / digits 4589 − 2764 = 1825 / corrections 3,15 / sum line 140..710; dissolve: chained lend arrows / row 0001 with 3 faint zeros / answer 999 / dissolved-seat zone / corrections 0,9,9,10; climb: 660px bar / true-scale dividers 73.02,145.35,687.81 / hops +36,+200,+1,500,+89 / milestones 2,800,3,000,4,500 / ends 2,764,4,589), KaTeX 185 nodes 0 errors, no raw $ anywhere, quiz 5/5 ("You scored 5/5"), 8 exercise pills + 2 example Sol pills = 10, no horizontal overflow (1280 & 390), 0 console errors |
+| Screenshots + VLM strict audits | light 4/4 PASS (nl · borrow map · dissolve · climb) · dark-mode 4-tile sheet PASS (contrast on the paper plate, no bleed) · mobile-390 4-tile sheet PASS. **Two honest catches:** (1) the standing overlap audit caught the journey bar's hop ticks (y2=158) running into the hop-label band top (≈154) — fixed by shortening the ticks to y2=150, assertion added to the gen script, re-gated (overlap 0/4, E2E ALL PASS ×2 viewports). (2) the strict VLM flagged the dissolve's ones-seat correction «10» vs the answer 9 as a reader inconsistency — the bookkeeping is correct (the pencil method writes the received ten) but the caption was silent about it; bounded caption fix applied («the ones seat receives the full ten (its small correction reads 10) and pays 10 − 1 = 9»), re-packed, re-captured, re-audited PASS. Mobile cosmetic floor (12-13px notes) matches the run-3/4 shipped bound |
+
+### Commit
+
+`enhance(fm-subtraction-borrowing): precise figures + visual upgrades` — LOCAL
+ONLY (never pushed; the chapter job pushes all unpushed main commits).
+
+Files touched: `ch-02.ts` (figure 1 arc/anchor/rail/font fixes, now static;
+figure 2 arrow-centring/pill/sum-line/font fixes; NEW dissolve figure after
+the 1,000−1 example; NEW journey-bar figure after the counting-up para;
+dissolve caption clarification), `.gitignore` (whitelist: enhance-fm-22-gen.ts,
+patch-fm-22.py, enhance-fm-22-audit.ts, e2e-fm-22.sh, e2e-fm-22.page.js),
+`docs/project/ENHANCEMENT_LOG.md`, `docs/project/ENHANCEMENT_POINTER.json`,
+plus the whitelisted scripts. No raster assets shipped (public/images left
+clean). RESUME_POINTER / PROGRESS / WORK_INVENTORY / DETAILED_LOG untouched
+(chapter-job owned).
