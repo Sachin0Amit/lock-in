@@ -1053,7 +1053,7 @@ export const chapter01: Chapter = {
     <line x1="628" y1="89" x2="628" y2="101"/>
     <line x1="690" y1="87" x2="690" y2="103" stroke-width="2.5"/>
   </g>
-  <g font-size="13" fill="currentColor" text-anchor="middle">
+  <g font-size="14" fill="currentColor" text-anchor="middle">
     <text x="70" y="122" font-weight="700">40</text>
     <text x="132" y="122" opacity="0.7">41</text>
     <text x="194" y="122" opacity="0.7">42</text>
@@ -1069,11 +1069,11 @@ export const chapter01: Chapter = {
   <g>
     <circle cx="256" cy="95" r="5" fill="currentColor"/>
     <circle cx="504" cy="95" r="5" fill="currentColor"/>
-    <path d="M256,84 Q160,38 84,82" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#rl-arrow)"/>
-    <path d="M504,84 Q600,38 676,82" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#rl-arrow)"/>
-    <text x="180" y="40" font-size="13" fill="#ea580c" text-anchor="middle">43 rounds down</text>
-    <text x="580" y="40" font-size="13" fill="#ea580c" text-anchor="middle">47 rounds up</text>
-    <text x="380" y="152" font-size="12" fill="#ea580c" text-anchor="middle">midpoint 45 — ties round up</text>
+    <path d="M256,88 Q160,34 70,86" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#rl-arrow)"/>
+    <path d="M504,88 Q600,34 690,86" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#rl-arrow)"/>
+    <text x="180" y="40" font-size="14" fill="#ea580c" text-anchor="middle">43 rounds down</text>
+    <text x="580" y="40" font-size="14" fill="#ea580c" text-anchor="middle">47 rounds up</text>
+    <text x="380" y="152" font-size="13" fill="#ea580c" text-anchor="middle">midpoint 45 — ties round up</text>
   </g>
 </svg>`,
         },
@@ -1145,6 +1145,60 @@ export const chapter01: Chapter = {
           tone: 'warn',
           title: 'The close-numbers trap: rounding can erase the very gap you are measuring',
           text: 'Estimate $4{,}851 - 4{,}829$ to the nearest hundred: $4{,}900 - 4{,}800 = 100$. The exact answer is $22$ — the estimate is more than four times too large, and both inputs were rounded by less than 51 each! What happened: the two numbers are nearly equal, so their difference is *tiny compared to the rounding grain*. Coarse rounding moves each number by amounts comparable to (here, larger than) the gap between them, and the subtraction then measures the rounding noise instead of the real difference. The rule: when subtracting close numbers, do not round to a coarse common place — either compute exactly, keep a finer place, or round both numbers in the same direction so the gap survives. Remember this when decimals arrive: it is the same trap that makes beginners misjudge $0.51 - 0.49$.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The close-numbers trap, drawn to scale. Top rail: the true positions of 4,829 and 4,851 — twenty-two apart, on either side of the midpoint 4,850. Bottom rail: after rounding each to the nearest hundred they land on 4,800 and 4,900, and the subtraction measures a gap of 100. Each move (−29 and +49) is less than the 50 that rounding to the nearest hundred allows, yet together they inflate the gap from 22 to 100 = 22 + 29 + 49 — the estimate is more than four times the true difference.',
+          svg: `<svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two number lines at the same scale: 4,829 and 4,851 sit twenty-two apart, but rounding each to the nearest hundred moves them to 4,800 and 4,900, so the subtraction measures one hundred">
+  <defs>
+    <marker id="trap-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#d97706"/>
+    </marker>
+  </defs>
+  <line x1="80" y1="70" x2="680" y2="70" stroke="currentColor" stroke-width="2"/>
+  <g stroke="currentColor" stroke-width="2.5">
+    <line x1="80" y1="62" x2="80" y2="78"/>
+    <line x1="680" y1="62" x2="680" y2="78"/>
+  </g>
+  <line x1="380" y1="56" x2="380" y2="78" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="4 3"/>
+  <text x="380" y="50" font-size="14" fill="#ea580c" text-anchor="middle">the midpoint 4,850</text>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
+    <text x="80" y="94">4,800</text>
+    <text x="254" y="94">4,829</text>
+    <text x="386" y="94">4,851</text>
+    <text x="680" y="94">4,900</text>
+  </g>
+  <circle cx="254" cy="70" r="5" fill="#16a34a"/>
+  <circle cx="386" cy="70" r="5" fill="#16a34a"/>
+  <g stroke="#16a34a" stroke-width="2" fill="none">
+    <line x1="254" y1="104" x2="254" y2="124"/>
+    <line x1="386" y1="104" x2="386" y2="124"/>
+    <line x1="254" y1="124" x2="386" y2="124"/>
+  </g>
+  <text x="320" y="146" font-size="14" font-weight="700" fill="#166534" text-anchor="middle">true gap = 22</text>
+  <path d="M254,62 Q120,108 82,178" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#trap-arrow)"/>
+  <path d="M386,62 Q640,108 678,178" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#trap-arrow)"/>
+  <text x="120" y="38" font-size="14" fill="#d97706" text-anchor="middle">rounds down</text>
+  <text x="125" y="96" font-size="15" font-weight="700" fill="#d97706" text-anchor="middle">−29</text>
+  <text x="640" y="38" font-size="14" fill="#d97706" text-anchor="middle">rounds up</text>
+  <text x="635" y="96" font-size="15" font-weight="700" fill="#d97706" text-anchor="middle">+49</text>
+  <line x1="80" y1="190" x2="680" y2="190" stroke="currentColor" stroke-width="2"/>
+  <g stroke="currentColor" stroke-width="2.5">
+    <line x1="80" y1="182" x2="80" y2="198"/>
+    <line x1="680" y1="182" x2="680" y2="198"/>
+  </g>
+  <g font-size="15" font-weight="700" fill="currentColor" text-anchor="middle">
+    <text x="80" y="222">4,800</text>
+    <text x="680" y="222">4,900</text>
+  </g>
+  <g stroke="#ea580c" stroke-width="2.5" fill="none">
+    <line x1="80" y1="232" x2="80" y2="248"/>
+    <line x1="680" y1="232" x2="680" y2="248"/>
+    <line x1="80" y1="248" x2="680" y2="248"/>
+  </g>
+  <text x="380" y="270" font-size="14" font-weight="700" fill="#ea580c" text-anchor="middle">gap the subtraction now measures = 100</text>
+</svg>`,
         },
         { kind: 'heading', text: 'Overestimates, underestimates, and when to round up on purpose' },
         {

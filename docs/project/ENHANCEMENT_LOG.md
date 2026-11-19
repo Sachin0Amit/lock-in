@@ -524,3 +524,98 @@ verify-book2-ch01 273/0 (section AO grown green BEFORE the prose/figures per ver
 2. **"The rounds and the census are one function"** — new insight callout after the π(n) table: the number of sieve rounds below N is exactly π(⌊√N⌋) — π(10) = 4 rounds below 100 (the 2/3/5/7 that just ran), π(100) = 25 rounds below 10,000, π(10⁴) = 1,229 rounds below 10⁸ — tying the sieve's cost to the counting function the lesson just named, before Euclid's section takes over.
 
 **Verification:** every new number pinned in scripts/verify-book2-ch04.ts section AR (370 passed / 0 failed, was 356); tsc --noEmit 0 project-wide; content pack re-run (v18) so the site serves the new figures; all five lesson figures DOM-gate 0 + VLM strict PASS (light; body figure also dark PASS).
+
+## Run 3 — 2026-11-19 (job 507527, fired ~17:15 IST)
+
+- **Lesson:** `fm-rounding-and-estimating` (FM 1.3 — first `pending-review` in the queue after runs 1-2; the audit-bot's §10 fires touch lessons but never ENHANCEMENT_POINTER, so the queue order stands). MISSED-FIRE note honored: runs 3-13 never started; all state read fresh from this log + the pointer.
+- **Pull-first (owner directive, this fire's message):** anonymous HTTPS fetch (repo public) — local was strictly behind (0 local-only / 1 remote-only) → clean fast-forward `f98c5ee..b86a316` (the audit-bot's ANS 3.4 fire). No divergence, no conflicts, nothing to reconcile.
+- **Collision guard:** tree clean, no `.figure_upgrade_lock`, no index.lock → proceeded; lock created 17:13 IST, refreshed per completed step, deleted at run end.
+- **Server honesty note:** the long-lived dev server was serving a STALE content pack (the reader serves the packed database, not the source — the audit-bot's documented trap) AND the server died repeatedly mid-run. Fixed: `bun run lib:pack` re-run after every content edit (verify PASS each time), and the dev server + E2E launched in one shell call so the server had no idle window to die in. Every DOM gate below ran against the fresh pack.
+
+### (a) Diagram/SVG precision — figure 1 audited & polished
+
+All geometry recomputed by script BEFORE touching anything
+(`scripts/enhance-fm-13-gen.ts` derives + verifies, 68 checks;
+`scripts/enhance-fm-13-audit.ts` re-derives everything independently from
+the COMMITTED file — 82 checks, CLEAN).
+
+**Number line figure (existing, Figure 1):** tick mapping x = 70 + 62(n−40)
+(n = 40..50), tick heights 16/12/20, labels y=122, dots at 256/504 — all
+exact, kept. Two precision defects found and fixed:
+1. Both rounded-decision arrow tips landed ~14px short of and off-centre from
+   their target ticks ((84,82)/(676,82) vs the 40/50 tick tops at (70,87)/(690,87)).
+   Fixed: curves recomputed to `M256,88 Q160,34 70,86` / `M504,88 Q600,34 690,86`
+   — tips now land exactly on the tick tops (1px above, on the centreline).
+2. Mobile legibility (run-1/2 precedent): tick labels 13→14 (group font),
+   arrow labels 13→14, midpoint note 12→13 — width-checked (15.4px labels at
+   the 62px pitch leave 46.6px; the 176px midpoint note centred at 380 fits).
+
+### (b) Generated images
+
+None added — medium choice per owner directive v2 (runs 1-2 precedent): the
+lesson's content is quantitative and structural — the exact numbers ARE the
+teaching content, and the no-text rule for AI images would force every precise
+label into adjacent HTML anyway. Exact SVG carries the real values at
+publication precision; a raster illustration would duplicate the metaphor
+without adding clarity.
+
+### (c) Other visual enhancements — NEW Figure 2: "the close-numbers trap, drawn to scale"
+
+The lesson's most distinctive idea — the warn callout's 4,851 − 4,829 instance
+(true gap 22, rounded gap 100, moves −29/+49, 100 = 22 + 29 + 49, "more than
+four times too large") — existed only in prose and in a quiz option. Inserted
+immediately after the callout, drawing its own numbers:
+- Two rails at ONE shared scale (x(v) = 80 + 6(v−4800), both rails 80..680):
+  top rail = the true positions (green dots at 4,829/4,851 straddling the
+  dashed orange midpoint 4,850, dot-to-dot bracket tagged "true gap = 22");
+  bottom rail = after rounding (bold 4,800/4,900, full-span bracket tagged
+  "gap the subtraction now measures = 100"); two amber move-arrows from the
+  dot tops to the rail-B tick tops (computed tips (82,178)/(678,178), 4px
+  above the tick tops), tagged "rounds down −29" / "rounds up +49" — the
+  inflation 22 → 100 reads off the two brackets at a glance.
+- Static two-rail comparison by design: the concept is a comparison of two
+  states, not a process in time — animation would add motion, not meaning
+  (rationale per directive v2). Interactivity skipped: the block framework
+  exposes no interactive block type (run-2 precedent, surgical constraint).
+- Vivid palette only (structure #16a34a, green ink #166534, amber #d97706,
+  orange #ea580c, currentColor ink — dark-mode safe on the paper plate);
+  aria-label present; all coordinates in-source from constants, nothing
+  hand-placed; smallest text 14px.
+- Two REAL defects caught by the visual gates and fixed BEFORE shipping
+  (recompute-then-verify, the whole point of this job):
+  1. VLM strict audit (first render): the "rounds down/up" word tags
+     straddled the top rail stroke (baseline 76 put the text midline exactly
+     on y=70 — the pairwise text matrix had missed it because the rail is a
+     stroke, not a text). Fixed: words moved above the rail (baseline 38,
+     14px), values shifted outward to x=125/635; the defect class PINNED in
+     the audit script (rail-stroke clearance check + near-row collision
+     matrix ≤12px baseline distance).
+  2. In-browser overlap audit: the dashed midpoint tick (y 56..84) clipped the
+     «4,851» label bbox (top 82) by a 2px sliver. Fixed: tick shortened to
+     y2=78 (4px clear); pinned as an audit check.
+
+### Gates (all green)
+
+| Gate | Result |
+| --- | --- |
+| `bun run scripts/enhance-fm-13-gen.ts` (recompute-before-write) | CLEAN — 68 checks |
+| `bun run scripts/enhance-fm-13-audit.ts` (independent, from the committed file) | CLEAN — 82 passed, 0 failed |
+| `bash scripts/audit-svg-overlaps.sh fm-rounding-and-estimating` | svg0 0 issues, svg1 0 issues |
+| `bun run lint` | 0 errors (5 pre-existing warnings, all in other jobs' scripts; this run's four scripts add none) |
+| `bunx tsc --noEmit` | 0 errors |
+| `bun run lib:pack` + `lib:check` | verify PASS (269 books / 156 lessons / 806,748 words) — re-run after every content edit |
+| Route 200 | `GET /book/foundation-mathematics/lesson/fm-rounding-and-estimating` → 200 |
+| Browser E2E (`scripts/e2e-fm-13.sh`) | ALL PASS at 1280 AND 390: exactly 2 figures with exact structure (nl: 12 lines / 14 texts / 2 dots at 256,504 / arrows M256,88 Q160,34 70,86 + M504,88 Q600,34 690,86; trap: 13 lines / 13 texts / 2 green dots / amber move arrows M254,62 Q120,108 82,178 + M386,62 Q640,108 678,178 / brackets 3+3 strokes), KaTeX 138 nodes 0 errors, no raw $ anywhere, quiz 5/5 ("You scored 5/5"), 8 exercise pills + 3 example Sol pills = 11, no horizontal overflow (1280 & 390), 0 console errors |
+| Screenshots + VLM strict audits | trap-1280 PASS · trap-390 PASS · nl-1280 PASS · nl-390 PASS · trap-dark-1280 PASS · nl-dark-1280 PASS (paper-plate contrast verified) · final acceptance PASS |
+
+### Commit
+
+`enhance(fm-rounding-and-estimating): precise figures + visual upgrades` —
+LOCAL ONLY (never pushed; the chapter job pushes all unpushed main commits).
+
+Files touched: `ch-01.ts` (figure 1 arrow-tip + font fixes; NEW figure 2 block
+after the close-numbers-trap callout), `.gitignore` (whitelist:
+enhance-fm-13-gen.ts, enhance-fm-13-audit.ts, e2e-fm-13.sh, e2e-fm-13.page.js),
+`docs/project/ENHANCEMENT_LOG.md`, `docs/project/ENHANCEMENT_POINTER.json`,
+plus the whitelisted scripts themselves. RESUME_POINTER / PROGRESS /
+WORK_INVENTORY / DETAILED_LOG untouched (chapter-job owned).
