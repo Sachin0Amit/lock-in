@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19 (run 3)",
+ "updated": "2026-11-19 (run 4)",
  "purpose": "Visual-upgrade job queue (job 507527, hourly :15): every lesson of chapters already COMPLETE and verified, oldest first. The chapter job (job 507529, odd-hour :45) owns RESUME_POINTER.json/PROGRESS.json/WORK_INVENTORY.json/DETAILED_LOG.md — never write those from this job. One lesson hands-on per run; lessons audited and needing nothing are marked reviewed-no-op.",
  "queue": [
   {
@@ -32,7 +32,7 @@
    "chapter": 2,
    "number": "2.1",
    "title": "Addition and the Art of Carrying",
-   "status": "pending-review"
+   "status": "done"
   },
   {
    "id": "fm-subtraction-borrowing",
@@ -540,9 +540,9 @@
   }
  ],
  "lastDone": {
-  "lessonId": "fm-rounding-and-estimating",
+  "lessonId": "fm-addition-carrying",
   "date": "2026-11-19",
-  "run": "visual-upgrade run 3 (job 507527, fired ~17:15 IST)",
-  "summary": "figure 1 audited exact (tick mapping/dots recomputed) + arrow tips recomputed onto the 40/50 tick tops + mobile font bumps 13→14/12→13; NEW figure: the close-numbers trap drawn to scale — two rails at one 6px/unit scale, true-gap-22 bracket vs rounded-gap-100 full-span bracket, moves −29/+49 as amber arrows — all geometry computed in-source, 82-check independent audit CLEAN; gates: overlap 0/0, lint 0, tsc 0, E2E ALL PASS 1280+390 (quiz 5/5, KaTeX 0, no overflow, console 0), VLM strict PASS ×7 renders (two real defects — words straddling the rail stroke, midpoint tick clipping the 4,851 label — caught and fixed pre-ship, both pinned as audit checks)"
+  "run": "visual-upgrade run 4 (job 507527, fired ~21:15 IST)",
+  "summary": "2 existing figures polished to computed precision (hop arcs re-anchored dot-column to dot-column — chords exactly 210/280px, ratio exactly 3/4, arrowheads added; carry arrows re-centred onto exact column centres and carry-cell bottoms; rails/sum lines symmetrised; fonts bumped 13→14/11→13 per mobile precedent) + 2 NEW figures (counting board with exactly ten counters and one mid-flight exchange; 999+1 ripple with the dashed new-seat zone) + one image attempt refused after 3 failed exact-count verifications; 131-check gen + 100-check independent audit CLEAN, overlap 0/4, lint/tsc 0, E2E ALL PASS 1280+390 (quiz 5/5, KaTeX 0 errors, no overflow, console 0), VLM audits PASS with two honest catches (VLM disc-miscount disproven by pixel-cluster analysis; mobile annotation bump applied and re-gated)"
  }
 }

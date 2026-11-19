@@ -91,25 +91,44 @@ export const chapter02: Chapter = {
           kind: 'figure',
           caption:
             'Addition as jumps on the number line. Top: $4 + 3$ — start at 4, hop 3 right, land on 7. Bottom: $3 + 4$ — start at 3, hop 4 right, land on the same 7. The landing point (tinted) is the sum; the starting point and hop length may swap roles freely, which is the commutative property drawn as geometry.',
-          svg: `<svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line showing 4+3 and 3+4 landing on the same point 7">
-  <g font-size="13" fill="currentColor">
+          svg: `<svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two number lines: on the first, start at 4 and hop 3 to land on 7; on the second, start at 3 and hop 4 — the hops span exactly 3 and 4 units and land on the same 7, the commutative property as geometry">
+  <defs><marker id="nl-hop" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#ea580c"/></marker></defs>
+  <g font-size="14" fill="currentColor">
     <text x="30" y="52" opacity="0.75" text-anchor="start">4 + 3: start at 4, hop 3</text>
-    <line x1="50" y1="88" x2="710" y2="88" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+    <line x1="50" y1="88" x2="700" y2="88" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
     <g text-anchor="middle">
-      ${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => `<line x1="${60 + n * 70}" y1="82" x2="${60 + n * 70}" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="${60 + n * 70}" y="114" text-anchor="middle" opacity="0.85">${n}</text>`).join('\n      ')}
+      <line x1="60" y1="82" x2="60" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="60" y="114" text-anchor="middle" opacity="0.85">0</text>
+      <line x1="130" y1="82" x2="130" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="130" y="114" text-anchor="middle" opacity="0.85">1</text>
+      <line x1="200" y1="82" x2="200" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="200" y="114" text-anchor="middle" opacity="0.85">2</text>
+      <line x1="270" y1="82" x2="270" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="270" y="114" text-anchor="middle" opacity="0.85">3</text>
+      <line x1="340" y1="82" x2="340" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="340" y="114" text-anchor="middle" opacity="0.85">4</text>
+      <line x1="410" y1="82" x2="410" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="410" y="114" text-anchor="middle" opacity="0.85">5</text>
+      <line x1="480" y1="82" x2="480" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="480" y="114" text-anchor="middle" opacity="0.85">6</text>
+      <line x1="550" y1="82" x2="550" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="550" y="114" text-anchor="middle" opacity="0.85">7</text>
+      <line x1="620" y1="82" x2="620" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="620" y="114" text-anchor="middle" opacity="0.85">8</text>
+      <line x1="690" y1="82" x2="690" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="690" y="114" text-anchor="middle" opacity="0.85">9</text>
     </g>
     <circle cx="340" cy="88" r="5" fill="currentColor" opacity="0.85"/>
     <circle cx="550" cy="88" r="7" fill="#ea580c"/>
-    <path d="M 348 66 Q 445 18 542 66" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+    <path d="M 340 82 Q 445 10 550 80" fill="none" stroke="#ea580c" stroke-width="2.5" marker-end="url(#nl-hop)"/>
     <text x="445" y="34" text-anchor="middle" font-weight="700" fill="#ea580c">+3</text>
     <text x="30" y="164" opacity="0.75" text-anchor="start">3 + 4: start at 3, hop 4</text>
-    <line x1="50" y1="200" x2="710" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+    <line x1="50" y1="200" x2="700" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
     <g text-anchor="middle">
-      ${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => `<line x1="${60 + n * 70}" y1="194" x2="${60 + n * 70}" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="${60 + n * 70}" y="226" text-anchor="middle" opacity="0.85">${n}</text>`).join('\n      ')}
+      <line x1="60" y1="194" x2="60" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="60" y="226" text-anchor="middle" opacity="0.85">0</text>
+      <line x1="130" y1="194" x2="130" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="130" y="226" text-anchor="middle" opacity="0.85">1</text>
+      <line x1="200" y1="194" x2="200" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="200" y="226" text-anchor="middle" opacity="0.85">2</text>
+      <line x1="270" y1="194" x2="270" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="270" y="226" text-anchor="middle" opacity="0.85">3</text>
+      <line x1="340" y1="194" x2="340" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="340" y="226" text-anchor="middle" opacity="0.85">4</text>
+      <line x1="410" y1="194" x2="410" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="410" y="226" text-anchor="middle" opacity="0.85">5</text>
+      <line x1="480" y1="194" x2="480" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="480" y="226" text-anchor="middle" opacity="0.85">6</text>
+      <line x1="550" y1="194" x2="550" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="550" y="226" text-anchor="middle" opacity="0.85">7</text>
+      <line x1="620" y1="194" x2="620" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="620" y="226" text-anchor="middle" opacity="0.85">8</text>
+      <line x1="690" y1="194" x2="690" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="690" y="226" text-anchor="middle" opacity="0.85">9</text>
     </g>
     <circle cx="270" cy="200" r="5" fill="currentColor" opacity="0.85"/>
     <circle cx="550" cy="200" r="7" fill="#ea580c"/>
-    <path d="M 278 178 Q 410 130 542 178" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+    <path d="M 270 194 Q 410 122 550 192" fill="none" stroke="#ea580c" stroke-width="2.5" marker-end="url(#nl-hop)"/>
     <text x="410" y="146" text-anchor="middle" font-weight="700" fill="#ea580c">+4</text>
   </g>
 </svg>`,
@@ -140,6 +159,37 @@ export const chapter02: Chapter = {
           text: 'The layout comes straight from place value: write both numbers with their **ones digits aligned in one column** (Lesson 1.1\'s seats lining up seat-for-seat), add the rightmost column first, and march leftward. Right-alignment matters because the ones seat is the anchor: $342 + 158$ must never become $34{,}21{,}58$-style chaos — digits that drift out of their seats change their values. The name "carry" is ancient: on the counting boards that preceded written arithmetic, when a wire held ten counters you physically *carried* one counter over to the next wire. The modern pencil version keeps the gesture and drops the board.',
         },
         {
+          kind: 'figure',
+          caption:
+            'The counting board behind the word "carry". When a wire held ten counters — ten of one seat — you physically carried one counter over to the next wire, where it counted as one of the next seat: ten of one seat becoming one of the next is the overflow argument from Lesson 1.1, performed by hand. The small 1 written above each column in the next figure is exactly that carried counter.',
+          svg: `<svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A counting board with three wires: ten counters fill the bottom wire, one counter is carried up in mid-flight toward the next wire where a dashed landing spot waits — ten of one seat become one of the next">
+  <defs><marker id="board-rise" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#ea580c"/></marker></defs>
+  <rect x="90" y="36" width="580" height="188" rx="10" fill="none" stroke="#16a34a" stroke-width="2"/>
+  <g stroke="currentColor" stroke-width="1.5" opacity="0.55">
+    <line x1="110" y1="90" x2="650" y2="90"/>
+    <line x1="110" y1="150" x2="650" y2="150"/>
+    <line x1="110" y1="210" x2="650" y2="210"/>
+  </g>
+  <g fill="#d97706">
+    <circle cx="173" cy="201" r="9"/>
+    <circle cx="219" cy="201" r="9"/>
+    <circle cx="265" cy="201" r="9"/>
+    <circle cx="311" cy="201" r="9"/>
+    <circle cx="357" cy="201" r="9"/>
+    <circle cx="403" cy="201" r="9"/>
+    <circle cx="449" cy="201" r="9"/>
+    <circle cx="495" cy="201" r="9"/>
+    <circle cx="541" cy="201" r="9"/>
+    <circle cx="587" cy="201" r="9"/>
+  </g>
+  <line x1="380" y1="206" x2="380" y2="152" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#board-rise)"/>
+  <circle cx="380" cy="141" r="9" fill="none" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="380" cy="180" r="9" fill="#ea580c"/>
+  <text x="398" y="184" font-size="14" font-weight="700" fill="#ea580c" text-anchor="start">one of the next seat</text>
+  <text x="380" y="240" font-size="14" fill="currentColor" opacity="0.8" text-anchor="middle">ten of one seat — the wire is full</text>
+</svg>`,
+        },
+        {
           kind: 'algorithm',
           title: 'Column addition of two whole numbers',
           lines: [
@@ -167,17 +217,18 @@ export const chapter02: Chapter = {
           kind: 'figure',
           caption:
             'The same sum as a seat map. Each carry (tinted cell above the columns) is born in the column to its right when that column\'s total reaches ten or more, and is born as exactly 1. The ones column produced 13 (write 3, carry 1), and the final carry never came — the thousands column totalled 7 with nothing left over. Had the addends been larger, that final carry would have created a brand-new ten-thousands seat.',
-          svg: `<svg viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Column addition of 4589 and 2764 with carry cells above the tens, hundreds and thousands columns">
-  <g font-size="13" fill="currentColor" text-anchor="middle">
+          svg: `<svg viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Column addition of 4589 and 2764: each of the three carries is born as exactly 1 in the column to its right, the ones column totals 13, and the final carry never came">
+  <defs><marker id="ca-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#ea580c"/></marker></defs>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
     <text x="30" y="46" opacity="0.75" text-anchor="start">carries →</text>
     <rect x="185" y="24" width="60" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="215" y="46" font-size="15" font-weight="700" fill="#ea580c">1</text>
     <rect x="325" y="24" width="60" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="355" y="46" font-size="15" font-weight="700" fill="#ea580c">1</text>
     <rect x="465" y="24" width="60" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
-    <text x="215" y="46" font-weight="700" fill="#ea580c">1</text>
-    <text x="355" y="46" font-weight="700" fill="#ea580c">1</text>
-    <text x="495" y="46" font-weight="700" fill="#ea580c">1</text>
+    <text x="495" y="46" font-size="15" font-weight="700" fill="#ea580c">1</text>
     <line x1="535" y1="41" x2="640" y2="41" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.6"/>
-    <text x="645" y="30" font-size="11" opacity="0.75" text-anchor="start">each carry = 1</text>
+    <text x="645" y="45" font-size="13" opacity="0.75" text-anchor="start">each carry = 1</text>
     <text x="80" y="120" opacity="0.75" text-anchor="start">4,589</text>
     <text x="80" y="182" opacity="0.75" text-anchor="start">2,764</text>
     <g stroke="currentColor" stroke-width="1.5" opacity="0.5" fill="none">
@@ -188,16 +239,16 @@ export const chapter02: Chapter = {
       <text x="215" y="124">4</text><text x="355" y="124">5</text><text x="495" y="124">8</text><text x="635" y="124">9</text>
       <text x="215" y="186">2</text><text x="355" y="186">7</text><text x="495" y="186">6</text><text x="635" y="186">4</text>
     </g>
-    <line x1="130" y1="214" x2="710" y2="214" stroke="currentColor" stroke-width="2"/>
+    <line x1="140" y1="214" x2="710" y2="214" stroke="currentColor" stroke-width="2"/>
     <g font-size="22" font-weight="700" fill="#ea580c">
       <text x="215" y="252">7</text><text x="355" y="252">3</text><text x="495" y="252">5</text><text x="635" y="252">3</text>
     </g>
     <g stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 3" fill="none" opacity="0.8">
-      <path d="M 640 94 Q 560 76 497 60"/>
-      <path d="M 500 94 Q 420 76 357 60"/>
-      <path d="M 360 94 Q 280 76 217 60"/>
+      <path d="M 635 94 Q 565 76 495 58" marker-end="url(#ca-arrow)"/>
+      <path d="M 495 94 Q 425 76 355 58" marker-end="url(#ca-arrow)"/>
+      <path d="M 355 94 Q 285 76 215 58" marker-end="url(#ca-arrow)"/>
     </g>
-    <text x="150" y="282" font-size="12" opacity="0.8" text-anchor="start">column totals 13, 15, 13, 7 → write 3, 5, 3, 7 and carry 1, 1, 1</text>
+    <text x="150" y="282" font-size="13" opacity="0.8" text-anchor="start">column totals 13, 15, 13, 7 → write 3, 5, 3, 7 and carry 1, 1, 1</text>
   </g>
 </svg>`,
         },
@@ -254,6 +305,46 @@ export const chapter02: Chapter = {
             'Hundreds column: $9 + 0 + 1 = 10$. Write the 0; carry $1$.',
             'Thousands column: $0 + 0 + 1 = 1$. Write the 1. Sum: $1{,}000$ — a four-digit sum from two three-digit addends, created by exactly one final carry. A sum only ever grows a new leftmost seat by this door; it never grows one any other way.',
           ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The full house of nines, column by column. Each existing column totals exactly 10 — the boundary case — so each writes 0 (a placeholder doing a real job, Lesson 1.1) and carries 1. The third carry creates the thousands seat itself: dashed here because no addend digit ever sat in it, and its only content is the incoming carry — $0 + 0 + 1 = 1$. The faint zeros in the second row are the addend 1 padded into its seats, exactly as the alignment rule demands. Sum: $1{,}000$ — a four-digit answer from two three-digit addends, built by one final carry.',
+          svg: `<svg viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Column addition of 999 and 1: every existing column totals exactly 10 so each writes 0 and carries 1, and the third carry creates the new thousands seat whose only content is that carry, giving 1000">
+  <defs><marker id="rip-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#ea580c"/></marker></defs>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
+    <text x="30" y="46" opacity="0.75" text-anchor="start">carries →</text>
+    <rect x="185" y="24" width="60" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="215" y="46" font-size="15" font-weight="700" fill="#ea580c">1</text>
+    <rect x="325" y="24" width="60" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="355" y="46" font-size="15" font-weight="700" fill="#ea580c">1</text>
+    <rect x="465" y="24" width="60" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="495" y="46" font-size="15" font-weight="700" fill="#ea580c">1</text>
+    <rect x="150" y="94" width="130" height="108" rx="6" fill="none" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="215" y="152" font-size="14" fill="#0f766e">the new seat</text>
+    <text x="80" y="120" opacity="0.75" text-anchor="start">999</text>
+    <text x="80" y="186" opacity="0.75" text-anchor="start">1</text>
+    <g stroke="currentColor" stroke-width="1.5" opacity="0.5" fill="none">
+      <rect x="290" y="94" width="130" height="46" rx="6"/><rect x="430" y="94" width="130" height="46" rx="6"/><rect x="570" y="94" width="130" height="46" rx="6"/>
+      <rect x="290" y="156" width="130" height="46" rx="6"/><rect x="430" y="156" width="130" height="46" rx="6"/><rect x="570" y="156" width="130" height="46" rx="6"/>
+    </g>
+    <g font-size="22" font-weight="700">
+      <text x="355" y="124">9</text><text x="495" y="124">9</text><text x="635" y="124">9</text>
+      <text x="355" y="186" opacity="0.45">0</text><text x="495" y="186" opacity="0.45">0</text><text x="635" y="186">1</text>
+    </g>
+    <line x1="140" y1="214" x2="710" y2="214" stroke="currentColor" stroke-width="2"/>
+    <g font-size="22" font-weight="700">
+      <text x="215" y="252" fill="#ea580c">1</text>
+      <text x="355" y="252">0</text><text x="495" y="252">0</text><text x="635" y="252">0</text>
+    </g>
+    <g stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 3" fill="none" opacity="0.8">
+      <path d="M 635 94 Q 565 76 495 58" marker-end="url(#rip-arrow)"/>
+      <path d="M 495 94 Q 425 76 355 58" marker-end="url(#rip-arrow)"/>
+      <path d="M 355 94 Q 285 76 215 58" marker-end="url(#rip-arrow)"/>
+    </g>
+    <text x="150" y="282" font-size="13" opacity="0.8" text-anchor="start">column totals 10, 10, 10 — write 0, carry 1 · the new seat: 0 + 0 + 1 = 1 · sum 1,000</text>
+  </g>
+</svg>`,
         },
         {
           kind: 'callout',

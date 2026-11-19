@@ -619,3 +619,125 @@ enhance-fm-13-gen.ts, enhance-fm-13-audit.ts, e2e-fm-13.sh, e2e-fm-13.page.js),
 `docs/project/ENHANCEMENT_LOG.md`, `docs/project/ENHANCEMENT_POINTER.json`,
 plus the whitelisted scripts themselves. RESUME_POINTER / PROGRESS /
 WORK_INVENTORY / DETAILED_LOG untouched (chapter-job owned).
+
+## Run 4 — 2026-11-19 (job 507527, fired ~21:15 IST)
+
+- **Lesson:** `fm-addition-carrying` (FM 2.1 — next `pending-review` in the queue; runs 1-3 covered 1.1/1.2/1.3).
+- **Pull-first:** anonymous HTTPS fetch of `main` — remote had 0 new commits (local ahead 1: run 3's ship). No divergence, nothing to reconcile.
+- **Collision guard:** tree clean at start, no `.figure_upgrade_lock`, no index.lock → proceeded; lock created, refreshed per step, deleted at run end. Dev server already live (route 200); one pack timestamp staleness caught and fixed (re-packed after every content edit, `lib:pack` v3+).
+
+### (a) Diagram/SVG precision — both existing figures audited & polished
+
+All geometry recomputed by script BEFORE touching anything
+(`scripts/enhance-fm-21-gen.ts`, 131 checks; `scripts/enhance-fm-21-audit.ts`
+re-derives everything independently from the EDITED file — 100 checks, CLEAN).
+
+**Figure 1 (commutativity number line, 760×240):** tick mapping x = 60 + 70n
+(n = 0..9) verified exact; dots at x(3)/x(4)/x(7) verified. Four precision
+defects found and fixed:
+1. Hop arcs floated with 8px insets both sides — chords 194px/264px instead of
+   the true hops 210px/280px (ratio 0.735 vs the exact 3/4). Fixed: arcs
+   re-anchored on the dot columns — top `M 340 82 Q 445 10 550 80`, bottom
+   `M 270 194 Q 410 122 550 192` — chords exactly 3 and 4 units, drawn ratio
+   exactly 3/4, endpoints 1px above their dot tops.
+2. No direction on the hops (motion was only implied by labels). Fixed:
+   arrowhead markers (`nl-hop`) landing just above the landing dots.
+3. Rails asymmetric (50..710 = 10px/20px overhangs). Fixed to 50..700.
+4. Mobile legibility (run-1..3 precedent): group font 13→14 (titles, tick
+   labels, +3/+4 hop labels all inherit).
+Also: the tick `.map()` interpolation was replaced with the static expanded
+SVG (identical output, but the svg string is now uniformly auditable — the
+audit's backtick extraction had truncated at the nested template).
+
+**Figure 2 (4,589 + 2,764 seat map, 760×290):** cells/columns/carry cells all
+verified at centres 215/355/495/635. Three precision defects found and fixed:
+1. Carry-arrow starts sat +5px right of their column centres and tips landed
+   +2px off carry-cell centres (640→635, 500→495, 360→355; 497→495, 357→355,
+   217→215) with controls off-midpoint. Fixed: arrows now start exactly at
+   column-top centres and land exactly on carry-cell bottom centres
+   (`M 635 94 Q 565 76 495 58` etc., controls at exact chord midpoints), with
+   arrowhead markers (`ca-arrow`) — the +5/+2 offsets are gone.
+2. Sum line asymmetric (130..710). Fixed to 140..710 (±10 around the cell
+   block), same fix mirrored in figure 3.
+3. Font bumps: group 13→14, carry digits →15px bold, each-carry annotation
+   11→13 (run-3 precedent), totals note 12→13.
+
+### (b) Generated images — attempted, verified, refused (3 attempts)
+
+The counting-board history paragraph ("when a wire held ten counters you
+physically carried one counter over to the next wire") was chosen as the
+lesson's one genuine image candidate — hand-drawn style. Three generations,
+each inspected with the VLM skill under a strict protocol:
+1. Attempt 1 (with hand lifting from the bottom wire): bottom wire showed 12
+   counters; hand on the wrong wire; nothing in mid-air; fused anatomy →
+   discarded.
+2. Attempt 2 (simplified, counter in mid-flight): 9 counters on the base,
+   4 wires, no mid-air counter → discarded.
+3. Attempt 3 ("two groups of five", empty upper wires): 5 wires, 14 on the
+   bottom wire, floating bead above the frame → discarded.
+**Verdict:** image models cannot honour "exactly ten" — the count IS the
+mathematics of this figure, so a raster could only ship a wrong fact. No image
+shipped; the concept moved to a hand-authored SVG (below) where the count is
+exact by construction. Rationale logged per owner directive v2.
+
+### (c) Other visual enhancements — two NEW figures
+
+**NEW Figure (counting board, 760×250)** — inserted directly after the
+counting-board paragraph, before the algorithm block:
+- A three-wire board in structure green with EXACTLY ten amber counters
+  resting on the bottom wire (r=9, uniform 46px pitch, row centred on the
+  frame centre — count and positions are computed, not eyeballed), one orange
+  counter mid-flight exactly midway between the wires, a dashed rise guide
+  with arrowhead, and a dashed landing ghost on the next wire. Labels reuse
+  the lesson's own Carry-term phrasing verbatim: «ten of one seat — the wire
+  is full» / «one of the next seat». The caption ties it forward: "the small 1
+  written above each column in the next figure is exactly that carried
+  counter" — the etymology of *carry* made physical, pre-figuring figure 2's
+  carry cells. Static still-frame by design (the exchange is a state, not a
+  process; the pencil algorithm that follows supplies the motion).
+**NEW Figure (999 + 1 ripple, 760×290)** — inserted after the 999+1 example,
+  before the carrying-traps callout:
+- Same design grammar as figure 2 (cells, carry pills, identical arrow paths),
+  walking the example's own numbers: digits 9/9/9 over 0/0/1 (the padding
+  zeros drawn faint at opacity 0.45 — placeholders doing a real job, per
+  Lesson 1.1 and the example's own words); every existing column totals
+  exactly 10 (the boundary case) → write 0, carry 1, three chained arrows;
+  the third carry creates the NEW thousands seat, drawn as a dashed teal zone
+  over the empty column tagged «the new seat» — whose only content is the
+  incoming carry (0 + 0 + 1 = 1, the sum's orange leading 1). The figure the
+  lesson's formula block ("the extra digit, when present, is the final carry")
+  and quiz Q2 always pointed at, now drawn.
+- Rationale: the ripple is a PROCESS (leftward carry chain) but its teaching
+  value is the final STATE at each seat — a static sequenced grid with the
+  chain of arrows shows all four columns at once, which animation would hide;
+  interactivity skipped (block framework exposes no interactive block type —
+  run-2 precedent, surgical constraint).
+
+### Gates (all green)
+
+| Gate | Result |
+| --- | --- |
+| `bun run scripts/enhance-fm-21-gen.ts` (recompute-before-write) | CLEAN — 131 checks |
+| `bun run scripts/enhance-fm-21-audit.ts` (independent, from the edited file; walks the digits parsed out of the SVGs) | CLEAN — 100 passed, 0 failed |
+| `bash scripts/audit-svg-overlaps.sh fm-addition-carrying` | 0 issues on all 4 svgs (texts 24/2/20/18) |
+| `bun run lint` | 0 errors (5 pre-existing warnings in other jobs' scripts) |
+| `bunx tsc --noEmit` | 0 errors |
+| `bun run lib:pack` + `lib:check` | verify PASS (269 books / 156 lessons / 806,920 words) — re-run after every content edit |
+| Route 200 | `GET /book/foundation-mathematics/lesson/fm-addition-carrying` → 200 |
+| Browser E2E (`scripts/e2e-fm-21.sh`) | ALL PASS at 1280 AND 390: exactly 4 figures with exact structure (nl: 22 lines / 24 texts / arcs M 340 82 Q 445 10 550 80 + M 270 194 Q 410 122 550 192; board: 3 wires + guide / EXACTLY 10 counters at pitch 46 / aloft + ghost / rise guide 380,206→152; seat map: 11 rects / file digits 4589+2764 = sum 7353 / arrows M 635 94 Q 565 76 495 58 + …; ripple: new-seat zone / row 001 / two faint zeros / sum 1000 / same arrow grammar), KaTeX 120 nodes 0 errors, no raw $ anywhere, quiz 5/5 ("You scored 5/5"), 8 exercise pills + 3 example Sol pills = 11, no horizontal overflow (1280 & 390), 0 console errors |
+| Screenshots + VLM strict audits | nl-1280 PASS · seatmap-1280 PASS · ripple-1280 PASS · dark-mode triple PASS (contrast on the paper plate) · mobile-390 structural PASS. **Two honest catches:** (1) the full-figure VLM audits MIScounted the board's small amber discs as 9 (twice, "with a gap") — resolved by three independent ground truths (DOM element count, exact cx pins, and a pixel-cluster analysis of the renders themselves: 10 clusters at uniform pitch in BOTH the 390 and 1280 renders) plus a zoomed-crop VLM recount of 10; the miscount is a documented VLM weakness on tiny identical discs, not a figure defect. (2) mobile nit on the smallest annotations — bounded fix applied per run-1..3 precedent (board labels 13→14, new-seat tag 13→14, each-carry 12→13; totals notes stay at 13 as run 3 shipped, since 14px would overflow figure 3's note) — then re-gated: overlap 0/4, E2E ALL PASS ×2 viewports again |
+
+### Commit
+
+`enhance(fm-addition-carrying): precise figures + visual upgrades` — LOCAL
+ONLY (never pushed; the chapter job pushes all unpushed main commits).
+
+Files touched: `ch-02.ts` (figure 1 arc/anchor/font fixes, now static; figure
+2 arrow-centring/sum-line/font fixes; NEW board figure after the counting-board
+para; NEW ripple figure after the 999+1 example), `.gitignore` (whitelist:
+enhance-fm-21-gen.ts, enhance-fm-21-audit.ts, e2e-fm-21.sh,
+e2e-fm-21.page.js), `docs/project/ENHANCEMENT_LOG.md`,
+`docs/project/ENHANCEMENT_POINTER.json`, plus the whitelisted scripts. No
+raster assets shipped (the failed generation attempts were deleted;
+public/images left clean). RESUME_POINTER / PROGRESS / WORK_INVENTORY /
+DETAILED_LOG untouched (chapter-job owned).
