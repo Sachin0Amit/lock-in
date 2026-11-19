@@ -662,3 +662,8 @@ server.log
 !/scripts/e2e-aa-51.page.js
 !/scripts/e2e-aa-52.sh
 !/scripts/e2e-aa-52.page.js
+!/scripts/e2e-aa-53.sh
+!/scripts/e2e-aa-53.page.js
+!/scripts/e2e-aa-54.sh
+!/scripts/e2e-aa-54.page.js
+!/scripts/author_lesson54.py

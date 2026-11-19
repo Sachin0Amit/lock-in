@@ -78,6 +78,9 @@ const byNumber = new Map<string, Lesson>(chapter05.lessons.map((l) => [l.number,
 const lesson51 = byNumber.get('5.1')
 const lesson52 = byNumber.get('5.2')
 const lesson53 = byNumber.get('5.3')
+const lesson54 = byNumber.get('5.4') as Lesson | undefined
+const L54 = (b: unknown): b is Lesson => !!lesson54
+
 
 const EPS = 1e-9
 const near = (x: number, y: number): boolean => Math.abs(x - y) <= EPS * Math.max(1, Math.abs(x), Math.abs(y))
@@ -348,7 +351,7 @@ const E: SectionCheck[] = []
 {
   const HM = (a: number, b: number) => (2 * a * b) / (a + b)
   E.push(check('E3.1 H.M. of 4 and 16 = 2·64/20 = 32/5 = 6.4; and 2/H = 1/4 + 1/16 = 5/16', (() => { const H = HM(4, 16); return near(H, 6.4) && near(2 / H, 1 / 4 + 1 / 16) })()))
-  E.push(check('E3.2 quiz Q2: H.M. of 4 and 12 = 6; A.M. = 8 and G.M. = 4√3 ≈ 6.928 (the ladder A > G > H)', (() => { return HM(4, 12) === 6 && (4 + 12) / 2 === 8 && near(Math.sqrt(48), 6.928203230275509174, 1e-9) })()))
+  E.push(check('E3.2 quiz Q2: H.M. of 4 and 12 = 6; A.M. = 8 and G.M. = 4√3 ≈ 6.928 (the ladder A > G > H)', (() => { return HM(4, 12) === 6 && (4 + 12) / 2 === 8 && nearR(Math.sqrt(48), 6.928203230275509174, 1e-9) })()))
   E.push(check('E3.3 exercise E2: H.M. of 3 and 12 = 24/5 = 4.8', near(HM(3, 12), 4.8)))
   E.push(check('E3.4 the exhibit triple on (4, 16): A = 10, G = 8, H = 6.4 with G² = AH = 64 and A ≥ G ≥ H', (() => { const A = 10, G = 8, H = 6.4; return near(G * G, A * H) && A >= G && G >= H && near(HM(4, 16), H) && (4 + 16) / 2 === A && Math.sqrt(64) === 8 })()))
   E.push(check('E3.5 Illustration 7: A = 10, H = 6.4 → G = √(AH) = 8; the numbers are 4 and 16', (() => { const G = Math.sqrt(10 * 6.4); return G === 8 && (10 + Math.sqrt(100 - 64)) === 16 && (10 - Math.sqrt(100 - 64)) === 4 })()))
@@ -382,7 +385,7 @@ const E: SectionCheck[] = []
 // E6 · the speed law (equal distances)
 {
   E.push(check('E6.1 equal distances at 60 and 40 km/h → average speed 48 = the harmonic mean', (() => { const v = 2 / (1 / 60 + 1 / 40); return near(v, 48) && near((2 * 60 * 40) / 100, 48) })()))
-  E.push(check('E6.2 exercise E13: equal distances at 40, 60, 80 → 3/(1/40+1/60+1/80) = 720/13 ≈ 55.385 km/h', (() => { const v = 3 / (1 / 40 + 1 / 60 + 1 / 80); return near(v, 720 / 13) && near(v, 55.3846153846, 1e-6) })()))
+  E.push(check('E6.2 exercise E13: equal distances at 40, 60, 80 → 3/(1/40+1/60+1/80) = 720/13 ≈ 55.385 km/h', (() => { const v = 3 / (1 / 40 + 1 / 60 + 1 / 80); return near(v, 720 / 13) && nearR(v, 55.3846153846, 1e-6) })()))
 }
 
 // E7 · the A.G.P. term machinery
@@ -504,13 +507,119 @@ const F: SectionCheck[] = lesson53
     ]
   : [check('F pending — lesson 5.3 not yet shipped', false, 'pending')]
 
+
+/* ------------------------------------------------------------------ */
+/* SECTION G — 5.4 engines (grown green BEFORE prose)                  */
+/* ------------------------------------------------------------------ */
+
+const G: SectionCheck[] = [
+  (() => {
+    const out: SectionCheck[] = []
+    const push = (name: string, ok: boolean) => out.push(check(name, ok))
+    const near = (x: number, y: number): boolean => Math.abs(x - y) <= 1e-9 * Math.max(1, Math.abs(x), Math.abs(y))
+    const brute = (T: (n: number) => number, S: (n: number) => number, ns: number[]) =>
+      ns.every((n) => { let acc = 0; for (let k = 1; k <= n; k++) acc += T(k); return near(acc, S(n)) })
+    // G1 family 2, 8, 26, 80, 242 — T_n = 3^n − 1, diffs 6, 18, 54, 162 (G.P. r = 3)
+    const T1 = (n: number) => 3 ** n - 1
+    push('G1.1 2, 8, 26, 80, 242 = 3^n − 1', [1, 2, 3, 4, 5].every((n) => T1(n) === [2, 8, 26, 80, 242][n - 1]))
+    const d1 = [1, 2, 3, 4].map((i) => T1(i + 1) - T1(i))
+    push('G1.2 difference row 6, 18, 54, 162 is a G.P. with r = 3', d1.join(',') === '6,18,54,162' && d1.every((d, i) => i === 0 || d === d1[i - 1] * 3))
+    push('G1.3 S_n = (3^(n+1) − 2n − 3)/2 sweeps n = 1..6', brute(T1, (n) => (3 ** (n + 1) - 2 * n - 3) / 2, [1, 2, 3, 4, 5, 6]))
+    // G2 family 2, 6, 13, 23, 36 — T_n = 2 + 4(n−1) + 3(n−1)(n−2)/2, diffs 4, 7, 10, 13 (A.P. d = 3)
+    const T2 = (n: number) => 2 + 4 * (n - 1) + (3 * (n - 1) * (n - 2)) / 2
+    push('G2.1 2, 6, 13, 23, 36 from the triangular build', [1, 2, 3, 4, 5].every((n) => T2(n) === [2, 6, 13, 23, 36][n - 1]))
+    const d2 = [1, 2, 3, 4].map((i) => T2(i + 1) - T2(i))
+    push('G2.2 difference row 4, 7, 10, 13 is an A.P. with d = 3', d2.join(',') === '4,7,10,13' && d2.every((d, i) => i === 0 || d - d2[i - 1] === 3))
+    push('G2.3 S_n = 2n + 2n(n−1) + n(n−1)(n−2)/2 sweeps n = 1..6', brute(T2, (n) => 2 * n + 2 * n * (n - 1) + (n * (n - 1) * (n - 2)) / 2, [1, 2, 3, 4, 5, 6]))
+    // G3 telescoping 1/(k(k+1)) = 1 − 1/(n+1)
+    push('G3.1 Σ 1/(k(k+1)) = 1 − 1/(n+1) sweeps n = 1..6', [1, 2, 3, 4, 5, 6].every((n) => { let acc = 0; for (let k = 1; k <= n; k++) acc += 1 / (k * (k + 1)); return near(acc, 1 - 1 / (n + 1)) }))
+    push('G3.2 the n = 4 read: 1/2 + 1/6 + 1/12 + 1/20 = 4/5', near(1 / 2 + 1 / 6 + 1 / 12 + 1 / 20, 4 / 5))
+    // G4 telescoping 1/(k(k+1)(k+2)) = 1/2 (1/2 − 1/((n+1)(n+2))); the infinite tail = 1/4
+    push('G4.1 Σ 1/(k(k+1)(k+2)) = 1/2(1/2 − 1/((n+1)(n+2))) sweeps n = 1..5', [1, 2, 3, 4, 5].every((n) => { let acc = 0; for (let k = 1; k <= n; k++) acc += 1 / (k * (k + 1) * (k + 2)); return near(acc, 0.5 * (0.5 - 1 / ((n + 1) * (n + 2)))) }))
+    push('G4.2 the infinite triple telescope closes on 1/4 (200000-term sweep; the first two terms are 1/6 + 1/24 = 5/24)', (() => { let acc = 0; for (let k = 1; k <= 200000; k++) acc += 1 / (k * (k + 1) * (k + 2)); return near(acc, 0.25) && near(1 / (1 * 2 * 3) + 1 / (2 * 3 * 4), 5 / 24) })())
+    // G5 family 3, 9, 33, 129, 513 — T_n = 2·4^(n−1) + 1, diffs 6, 24, 96 (G.P. r = 4); the 5th term is 513, NOT 515 (the engine caught this pre-prose)
+    const T3 = (n: number) => 2 * 4 ** (n - 1) + 1
+    push('G5.1 3, 9, 33, 129, 513 = 2·4^(n−1) + 1 (5th term 513)', [1, 2, 3, 4, 5].every((n) => T3(n) === [3, 9, 33, 129, 513][n - 1]))
+    const d3 = [1, 2, 3, 4].map((i) => T3(i + 1) - T3(i))
+    push('G5.2 difference row 6, 24, 96, 384 is a G.P. with r = 4', d3.join(',') === '6,24,96,384' && d3.every((d, i) => i === 0 || d === d3[i - 1] * 4))
+    push('G5.3 S_n = 2(4^n − 1)/3 + n sweeps n = 1..5', brute(T3, (n) => (2 * (4 ** n - 1)) / 3 + n, [1, 2, 3, 4, 5]))
+    // G6 two-point fit family 4, 10, 22, 46, 94 — T_n = 3·2^n − 2, diffs 6, 12, 24, 48 (G.P. r = 2)
+    const T4 = (n: number) => 3 * 2 ** n - 2
+    push('G6.1 4, 10, 22, 46, 94 = 3·2^n − 2 with the two-point fit a = 3, b = −2', [1, 2, 3, 4, 5].every((n) => T4(n) === [4, 10, 22, 46, 94][n - 1]) && 2 * 3 + (-2) === 4 && 4 * 3 + (-2) === 10)
+    push('G6.2 S_n = 3(2^(n+1) − 2) − 2n sweeps n = 1..5', brute(T4, (n) => 3 * (2 ** (n + 1) - 2) - 2 * n, [1, 2, 3, 4, 5]))
+    // G7 the composite build 5, 9, 17, 33, 65 — T_n = 2^(n+1) + 1, diffs 4, 8, 16; S_n = 2^(n+2) − 4 + n
+    const T7 = (n: number) => 2 ** (n + 1) + 1
+    push('G7.1 5, 9, 17, 33, 65 = 2^(n+1) + 1', [1, 2, 3, 4, 5].every((n) => T7(n) === [5, 9, 17, 33, 65][n - 1]))
+    push('G7.2 S_n = 2^(n+2) − 4 + n sweeps n = 1..5', brute(T7, (n) => 2 ** (n + 2) - 4 + n, [1, 2, 3, 4, 5]))
+    // G8 odd-pair telescope 1/((2k−1)(2k+1)) = 1/2 (1 − 1/(2n+1))
+    push('G8.1 Σ 1/((2k−1)(2k+1)) = 1/2(1 − 1/(2n+1)) sweeps n = 1..5', [1, 2, 3, 4, 5].every((n) => { let acc = 0; for (let k = 1; k <= n; k++) acc += 1 / ((2 * k - 1) * (2 * k + 1)); return near(acc, 0.5 * (1 - 1 / (2 * n + 1))) }))
+    // G9 the cube telescope Σ(3k² − 3k + 1) = n³; series 1, 7, 19, 37, 61 (diffs 6, 12, 18, 24, A.P. d = 6)
+    const T9 = (k: number) => 3 * k * k - 3 * k + 1
+    push('G9.1 1, 7, 19, 37, 61 = 3k² − 3k + 1 with difference row 6, 12, 18, 24', [1, 2, 3, 4, 5].every((n) => T9(n) === [1, 7, 19, 37, 61][n - 1]) && [1, 2, 3, 4].every((i) => T9(i + 1) - T9(i) === 6 * i))
+    push('G9.2 the cube telescope Σ(3k² − 3k + 1) = n³ sweeps n = 1..8', [1, 2, 3, 4, 5, 6, 7, 8].every((n) => { let acc = 0; for (let k = 1; k <= n; k++) acc += T9(k); return acc === n ** 3 }))
+    // G10 hockey stick Σ(k−1)(k−2)/2 = n(n−1)(n−2)/6
+    push('G10.1 Σ (k−1)(k−2)/2 = n(n−1)(n−2)/6 sweeps n = 1..6', [1, 2, 3, 4, 5, 6].every((n) => { let acc = 0; for (let k = 1; k <= n; k++) acc += ((k - 1) * (k - 2)) / 2; return acc === (n * (n - 1) * (n - 2)) / 6 }))
+    // G11 the exercise families
+    const Te1 = (n: number) => 3 + 7 * (n - 1) + (6 * (n - 1) * (n - 2)) / 2
+    push('G11.1 E1: 3, 10, 23, 42, 67 with difference row 7, 13, 19, 25 (A.P. d = 6)', [1, 2, 3, 4, 5].every((n) => Te1(n) === [3, 10, 23, 42, 67][n - 1]) && [1, 2, 3, 4].every((i) => Te1(i + 1) - Te1(i) === 7 + 6 * (i - 1)))
+    const Te2 = (n: number) => (4 ** (n - 1) + 5) / 3
+    push('G11.2 E2: 2, 3, 7, 23, 87, 343 = (4^(n−1) + 5)/3', [1, 2, 3, 4, 5, 6].every((n) => Te2(n) === [2, 3, 7, 23, 87, 343][n - 1]))
+    const Te7 = (n: number) => (3 ** (n + 1) + 5) / 2
+    push('G11.3 E7: 7, 16, 43, 124, 367 = (3^(n+1) + 5)/2; S_n = (9·3^n − 9 + 10n)/4 sweeps n = 1..4', [1, 2, 3, 4, 5].every((n) => Te7(n) === [7, 16, 43, 124, 367][n - 1]) && brute(Te7, (n) => (9 * 3 ** n - 9 + 10 * n) / 4, [1, 2, 3, 4]))
+    const Te9 = (n: number) => 2 * n * n - n + 3
+    push('G11.4 E9: 4, 9, 18, 31, 48 = 2n² − n + 3 (diffs 5, 9, 13, 17, A.P. d = 4); S_n = 4n + (5/2)n(n−1) + (2/3)n(n−1)(n−2) sweeps n = 1..6', [1, 2, 3, 4, 5].every((n) => Te9(n) === [4, 9, 18, 31, 48][n - 1]) && brute(Te9, (n) => 4 * n + (5 / 2) * n * (n - 1) + (2 / 3) * n * (n - 1) * (n - 2), [1, 2, 3, 4, 5, 6]))
+    push('G11.5 E8/E13: the triple telescope at n = 6 is 27/112 and closes on 1/4', near(1 / 6 + 1 / 24 + 1 / 60 + 1 / 120 + 1 / 210 + 1 / 336, 27 / 112))
+    push('G11.6 E6: the cumulative squares 1, 5, 14, 30, 55', (() => { let acc = 0; const a: number[] = []; for (let k = 1; k <= 5; k++) { acc += k * k; a.push(acc) } return a.join(',') === '1,5,14,30,55' })())
+    push('G11.7 E14: the surd telescope Σ(√(k+1) − √k) = √(n+1) − 1 sweeps n = 1..5', [1, 2, 3, 4, 5].every((n) => { let acc = 0; for (let k = 1; k <= n; k++) acc += Math.sqrt(k + 1) - Math.sqrt(k); return near(acc, Math.sqrt(n + 1) - 1) }))
+    push('G11.8 E11: the two-point fit on 4, 10, 22, 46, 94 gives T_n = 3·2^n − 2 (swept in G6)', true)
+    // G11.9 the exam-pattern family 2, 11, 47, 191, 767 — T_n = 3·4^(n−1) − 1, gaps 9, 36, 144 (G.P. r = 4)
+    const Te12 = (n: number) => 3 * 4 ** (n - 1) - 1
+    const d12 = [1, 2, 3, 4].map((i) => Te12(i + 1) - Te12(i))
+    push('G11.9 the exam-pattern family 2, 11, 47, 191 = 3·4^(n−1) − 1 with G.P. gap row 9, 36, 144; S_n = 4^n − 1 − n sweeps n = 1..5', [1, 2, 3, 4].every((n) => Te12(n) === [2, 11, 47, 191][n - 1]) && d12.join(',') === '9,36,144,576' && d12.every((d, i) => i === 0 || d === d12[i - 1] * 4) && brute(Te12, (n) => 4 ** n - 1 - n, [1, 2, 3, 4, 5]))
+    // G11.10 the skipping telescope Σ 1/(k(k+2)) = 1/2(3/2 − 1/(n+1) − 1/(n+2)); n = 3 gives 21/40; the limit is 3/4
+    push('G11.10 the skipping telescope Σ 1/(k(k+2)) = 1/2(3/2 − 1/(n+1) − 1/(n+2)) sweeps n = 1..4; n = 3 is 21/40; the limit is 3/4 (200000-term check at 1e-5)', [1, 2, 3, 4].every((n) => { let acc = 0; for (let k = 1; k <= n; k++) acc += 1 / (k * (k + 2)); return near(acc, 0.5 * (1.5 - 1 / (n + 1) - 1 / (n + 2))) }) && near(1 / 3 + 1 / 8 + 1 / 15, 21 / 40) && (() => { let acc = 0; for (let k = 1; k <= 200000; k++) acc += 1 / (k * (k + 2)); return Math.abs(acc - 0.75) <= 1e-5 })())
+    // G11.11 the full-circle family 2, 9, 28, 65, 126 (T_n = n^3 + 1): gap row 7, 19, 37, 61 = 3k^2 + 3k + 1
+    // (the FORWARD cube gaps); sum of gaps n^3 - 1; the S_n preview [n(n+1)/2]^2 + n swept n = 1..6
+    const Te15 = (n: number) => n ** 3 + 1
+    const d15 = [1, 2, 3, 4].map((i) => Te15(i + 1) - Te15(i))
+    push('G11.11 the full-circle family 2, 9, 28, 65, 126 = n^3 + 1 with gap row 7, 19, 37, 61 = 3k^2 + 3k + 1; gap sum = n^3 - 1; S_n = [n(n+1)/2]^2 + n sweeps n = 1..6', [1, 2, 3, 4, 5].every((n) => Te15(n) === [2, 9, 28, 65, 126][n - 1]) && d15.join(',') === '7,19,37,61' && [1, 2, 3, 4].every((k) => d15[k - 1] === 3 * k * k + 3 * k + 1) && [1, 2, 3, 4, 5].every((n) => { let g = 0; for (let k = 1; k < n; k++) g += 3 * k * k + 3 * k + 1; return 2 + g === Te15(n) }) && (() => { const S = (n: number) => ((n * (n + 1)) / 2) ** 2 + n; return [1, 2, 3, 4, 5, 6].every((n) => { let acc = 0; for (let k = 1; k <= n; k++) acc += Te15(k); return acc === S(n) }) })())
+    return out
+  })(),
+].flat()
+
+
+/* ------------------------------------------------------------------ */
+/* SECTION H — 5.4 pins (guarded: `pending` until the lesson ships)    */
+/* ------------------------------------------------------------------ */
+
+const INTENDED_KEYS_54 = [1, 0, 0, 1, 2]
+
+const H: SectionCheck[] = lesson54
+  ? [
+      check('H1 quiz has exactly 5 items', countKind(lesson54, 'quiz') === 1 && (() => { const q = lesson54.blocks.find((b) => b.kind === 'quiz') as { items?: unknown[] }; return (q.items?.length ?? 0) === 5 })()),
+      check('H2 quiz options 4 each, answer indices = [1,0,0,1,2]', (() => { const q = lesson54.blocks.find((b) => b.kind === 'quiz') as { items: Array<{ options: string[]; answer: number }> }; return q.items.every((it) => it.options.length === 4) && q.items.map((it) => it.answer).join(',') === INTENDED_KEYS_54.join(',') })()),
+      check('H3 exercises exactly 15, levels 2/2/3/3/3/2', (() => { const ex = lesson54.blocks.find((b) => b.kind === 'exercises') as { sets: Array<{ level: string; questions: unknown[] }> }; const total = ex.sets.reduce((acc, st) => acc + st.questions.length, 0); const lv = (l: string) => (ex.sets.find((st) => st.level === l)?.questions.length ?? 0); return total === 15 && [lv('L1'), lv('L2'), lv('L3'), lv('L4'), lv('L5'), lv('L6')].join(',') === '2,2,3,3,3,2' })()),
+      check('H4 every exercise question carries a steps-array solution + answer', (() => { const ex = lesson54.blocks.find((b) => b.kind === 'exercises') as { sets: Array<{ questions: Array<{ solution: string[] | string; answer?: string }> }> }; return ex.sets.every((st) => st.questions.every((q) => Array.isArray(q.solution) && q.solution.length >= 2 && typeof q.answer === 'string' && q.answer.length > 0)) })()),
+      check('H5 ≥ 10 example blocks (Illustrations)', countKind(lesson54, 'example') >= 10),
+      check('H6 ≥ 3 figures, vivid-palette-only, no retired hex', (() => { const figs = lesson54.blocks.filter((b) => b.kind === 'figure') as Array<{ svg: string }>; const VIVID = ['#16a34a', '#166534', '#65a30d', '#0d9488', '#d97706', '#ea580c', '#0f766e', '#dc2626', '#fef3c7', '#ffedd5', '#fcd34d', '#5eead4', '#ffffff']; const RETIRED = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']; return figs.length >= 3 && figs.every((f) => { const hexes = (f.svg.match(/#[0-9a-fA-F]{6}/g) ?? []).map((h) => h.toLowerCase()); const bad = hexes.filter((h) => !VIVID.includes(h) || RETIRED.includes(h)); return bad.length === 0 }) })()),
+      check('H7 ≥ 4 derivations with $-delimited results and PLAIN titles/labels', (() => { const ds = lesson54.blocks.filter((b) => b.kind === 'derivation') as Array<{ title: string; steps: Array<{ label: string }>; result: string }>; return ds.length >= 4 && ds.every((d) => !/\$|\\[a-z]/.test(d.title) && d.steps.every((st) => !/\$/.test(st.label)) && /\$/.test(d.result)) })()),
+      check('H8 ≥ 7 formula cards', countKind(lesson54, 'formula') >= 7),
+      check('H9 ≥ 8 terms', (() => { const t = lesson54.blocks.find((b) => b.kind === 'terms') as { items?: unknown[] }; return (t.items?.length ?? 0) >= 8 })()),
+      check('H10 word count ≥ 4800 by countLessonWords', countLessonWords(lesson54) >= 4800),
+      check('H11 the difference-census table present (A.P. row + G.P. row)', (() => { const tabs = lesson54.blocks.filter((b) => b.kind === 'table'); return tabs.some((t) => /difference/i.test(JSON.stringify(t)) && /G\.P\.|geometric/i.test(JSON.stringify(t))) })()),
+      check('H12 prereq ids exactly as pinned (5.1 + 5.2 + 5.3)', (() => { const want = ['aa-arithmetic-progressions-the-constant-climb', 'aa-geometric-progressions-and-the-infinite-tail', 'aa-harmonic-and-arithmetico-geometric-progressions']; return (lesson54.prerequisites ?? []).join(',') === want.join(',') })()),
+      check('H13 sources within the whitelist', (() => { const ok = ['cengage-m2-05', 'wiki-brook-taylor-finite-differences', 'ncert-math11-ch8-sequences-series']; return (lesson54.sources ?? []).every((src) => ok.includes(src)) && (lesson54.sources ?? []).length >= 3 })()),
+      check('H14 no raw TeX outside $…$ in plain-rendered fields (concepts/objectives)', (() => { const texts = [...(lesson54.concepts ?? []), ...(lesson54.objectives ?? [])]; return texts.every((t) => !/\\dfrac|\\sqrt|\\qquad/.test(t)) })()),
+    ]
+  : [check('H pending — lesson 5.4 not yet shipped', false, 'pending')]
+
 /* ------------------------------------------------------------------ */
 /* SECTION Z — census at close (guarded)                               */
 /* ------------------------------------------------------------------ */
 
-const Z: SectionCheck[] = lesson51 && lesson52 && lesson53
+const Z: SectionCheck[] = lesson51 && lesson52 && lesson53 && lesson54
   ? [
-      check('Z1 chapter ships lessons 5.1 + 5.2 + 5.3', chapter05.lessons.length === 3),
+      check('Z1 chapter ships lessons 5.1 + 5.2 + 5.3 + 5.4', chapter05.lessons.length === 4),
       check('Z2 ids globally unique (grep the library)', true /* pinned at close by the id census run */),
     ]
   : [check('Z pending — census runs at close', false, 'pending')]
@@ -519,7 +628,7 @@ const Z: SectionCheck[] = lesson51 && lesson52 && lesson53
 /* runner                                                              */
 /* ------------------------------------------------------------------ */
 
-const results = [tally('A (5.1 engines)', A), tally('B (5.1 pins)', B), tally('C (5.2 engines)', C), tally('D (5.2 pins)', D), tally('E (5.3 engines)', E), tally('F (5.3 pins)', F), tally('Z (census)', Z)]
+const results = [tally('A (5.1 engines)', A), tally('B (5.1 pins)', B), tally('C (5.2 engines)', C), tally('D (5.2 pins)', D), tally('E (5.3 engines)', E), tally('F (5.3 pins)', F), tally('G (5.4 engines)', G), tally('H (5.4 pins)', H), tally('Z (census)', Z)]
 let pass = 0
 let total = 0
 for (const r of results) {
