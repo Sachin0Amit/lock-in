@@ -26,13 +26,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { DueBadge, formatDate, MasteryBar, relDays, daysSinceOrUntil, STATE_LABELS, STATE_ORDER, STATE_STYLES } from './mastery-bits'
 import { useLedgerSync } from './use-ledger-sync'
+import { ForecastStrip } from './forecast-strip'
 import { revisionMinutes } from '@/lib/revision/srs'
 import type { OverviewResponse, QueueItem } from '@/lib/revision/types'
 
 interface Props {
   overview: OverviewResponse
   onChanged: () => void
-  onOpenSession: () => void
+  onOpenSession: (subset?: QueueItem[]) => void
 }
 
 function StatTile({
@@ -147,6 +148,23 @@ export function OverviewTab({ overview, onChanged, onOpenSession }: Props) {
   const nextUp = queue.slice(0, 5)
   const totalChapters = summary.totalChapters
 
+  /* time-boxed subsets — the queue is already ranked by urgency, so the
+   * first N items that FIT the budget are exactly the right ones. One
+   * item always makes the cut, so a budget session is never empty. */
+  const budgetSubset = (budgetMins: number): QueueItem[] => {
+    const subset: QueueItem[] = []
+    let used = 0
+    for (const q of queue) {
+      const m = revisionMinutes(q.readMins)
+      if (subset.length > 0 && used + m > budgetMins) break
+      subset.push(q)
+      used += m
+    }
+    return subset
+  }
+  const tenMinCount = budgetSubset(10).length
+  const twentyMinCount = budgetSubset(20).length
+
   const quickRevise = async (item: QueueItem) => {
     setBusyRef(item.refId)
     const results = await mark({ scope: item.scope, refId: item.refId }, 'revise', {
@@ -180,13 +198,33 @@ export function OverviewTab({ overview, onChanged, onOpenSession }: Props) {
             </p>
           </div>
           {queue.length > 0 && (
-            <Button onClick={onOpenSession} className="gap-2" size="lg">
-              <PlayCircle className="h-4 w-4" aria-hidden />
-              Start revision session
-              <span className="hidden text-xs font-normal opacity-80 sm:inline">
-                {queue.length} items · ≈{summary.estMins || queue.reduce((n, q) => n + revisionMinutes(q.readMins), 0)} min
-              </span>
-            </Button>
+            <div className="flex flex-col items-start gap-2 sm:items-end">
+              <Button onClick={() => onOpenSession()} className="gap-2" size="lg">
+                <PlayCircle className="h-4 w-4" aria-hidden />
+                Start full session
+                <span className="hidden text-xs font-normal opacity-80 sm:inline">
+                  {queue.length} items · ≈{summary.estMins || queue.reduce((n, q) => n + revisionMinutes(q.readMins), 0)} min
+                </span>
+              </Button>
+              <div className="flex flex-wrap gap-1.5">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => onOpenSession(budgetSubset(10))}
+                  aria-label={`Start a 10-minute session — about ${tenMinCount} item${tenMinCount === 1 ? '' : 's'}`}
+                >
+                  10 min · {tenMinCount} item{tenMinCount === 1 ? '' : 's'}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => onOpenSession(budgetSubset(20))}
+                  aria-label={`Start a 20-minute session — about ${twentyMinCount} item${twentyMinCount === 1 ? '' : 's'}`}
+                >
+                  20 min · {twentyMinCount} item{twentyMinCount === 1 ? '' : 's'}
+                </Button>
+              </div>
+            </div>
           )}
         </div>
 
@@ -233,12 +271,22 @@ export function OverviewTab({ overview, onChanged, onOpenSession }: Props) {
         </div>
       </section>
 
+      {/* memory forecast — the honest 7-day projection + streak protection */}
+      {overview.entries.length > 0 && (
+        <ForecastStrip
+          entries={overview.entries}
+          activity={activity}
+          dueNow={summary.dueCount}
+          onQuickSession={() => onOpenSession(budgetSubset(10))}
+        />
+      )}
+
       {/* queue */}
       <section aria-label="Revision queue">
         <div className="mb-3 flex items-center justify-between">
           <h3 className="font-reading text-lg font-bold">What to revise next</h3>
           <span className="text-xs text-muted-foreground">
-            ranked by urgency — risk, overdue days and weak mastery
+            ranked by urgency — risk, overdue days, weak mastery and prerequisite duty
           </span>
         </div>
         {queue.length > 0 ? (

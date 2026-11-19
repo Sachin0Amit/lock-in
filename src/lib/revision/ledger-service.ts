@@ -330,6 +330,73 @@ function localDate(ts: number): string {
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`
 }
 
+/* ------------------------------------------------------------------ */
+/* Prereq-aware queue ranking                                          */
+/* ------------------------------------------------------------------ */
+
+/**
+ * The knowledge graph joins the scheduler: a lesson that OTHER urgent
+ * lessons declare as a prerequisite is boosted up the queue — revise the
+ * foundation before the dependent drifts further. Boost is explainable
+ * (the reason names the dependents) and capped, so it can reorder the
+ * queue but never dominate the overdue/risk signals.
+ */
+function applyPrereqBoosts(
+  queue: QueueItem[],
+  chapterEntries: Map<string, EntryRow>,
+  lessonEntries: Map<string, EntryRow>,
+  now: number,
+): QueueItem[] {
+  if (queue.length === 0) return queue
+
+  /* dependent lessonId → prereq lessonId (author-declared edges only) */
+  const dependentsOfPrereq = new Map<string, string[]>()
+  for (const l of CATALOG.lessons) {
+    for (const p of l.prerequisites ?? []) {
+      if (!CATALOG.lessonById.has(p)) continue
+      const list = dependentsOfPrereq.get(p) ?? []
+      list.push(l.recordId)
+      dependentsOfPrereq.set(p, list)
+    }
+  }
+
+  /* is a dependent lesson urgent? (its own entry, or its chapter's) */
+  const isUrgent = (lessonId: string): boolean => {
+    const l = lessonEntries.get(lessonId)
+    if (l) return l.dueAt.getTime() <= now || computeRisk(l.lastAt.getTime(), l.intervalDays, now) >= 40
+    const chKey = chapterKeyOfLesson(lessonId)
+    const ch = chKey ? chapterEntries.get(chKey) : undefined
+    if (ch) return ch.dueAt.getTime() <= now || computeRisk(ch.lastAt.getTime(), ch.intervalDays, now) >= 40
+    return false
+  }
+
+  const boosted = queue.map((item) => {
+    const lessonsOfItem =
+      item.scope === 'chapter'
+        ? (CATALOG.chapterByKey.get(item.refId)?.lessonRecordIds ?? [])
+        : [item.refId]
+    const labels: string[] = []
+    for (const lid of lessonsOfItem) {
+      for (const dep of dependentsOfPrereq.get(lid) ?? []) {
+        if (!isUrgent(dep)) continue
+        const rec = CATALOG.lessonById.get(dep)
+        const depLabel = rec ? `${rec.lessonNumber} · ${rec.lessonTitle}` : ''
+        if (rec && !labels.includes(depLabel)) labels.push(depLabel)
+      }
+    }
+    if (labels.length === 0) return item
+    const uniq = labels.slice(0, 2)
+    return {
+      ...item,
+      urgency: item.urgency + Math.min(16, 8 * uniq.length),
+      reason: `${item.reason} — also a prerequisite for ${uniq.join(' and ')} (revise the foundation first)`,
+    }
+  })
+
+  /* keep the queue's own ordering contract: urgency desc, then label */
+  return boosted.sort((a, b) => b.urgency - a.urgency || a.label.localeCompare(b.label))
+}
+
 export async function getOverview(userId: string): Promise<OverviewResponse> {
   const now = Date.now()
   const entries = await db.studyEntry.findMany({ where: { userId } })
@@ -376,10 +443,15 @@ export async function getOverview(userId: string): Promise<OverviewResponse> {
     readMins: v.readMins,
     label: `${v.bookTitle} — ${v.label}`,
   }))
-  const queue: QueueItem[] = buildQueue(candidates, now).map((c) => {
-    const view = [...chapterViews, ...orphanLessonViews].find((v) => v.refId === c.refId)!
-    return { ...view, reason: c.reason, urgency: c.urgency }
-  })
+  const queue: QueueItem[] = applyPrereqBoosts(
+    buildQueue(candidates, now).map((c) => {
+      const view = [...chapterViews, ...orphanLessonViews].find((v) => v.refId === c.refId)!
+      return { ...view, reason: c.reason, urgency: c.urgency }
+    }),
+    chapterEntries,
+    lessonEntries,
+    now,
+  )
 
   /* activity calendar — last 84 days, zero-filled */
   const activity: ActivityDay[] = []

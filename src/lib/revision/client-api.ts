@@ -10,6 +10,7 @@ import type {
   MarkRequest,
   OverviewResponse,
   ProgressResponse,
+  RecallDeck,
   RevisionSummaryCompact,
 } from './types'
 
@@ -33,6 +34,16 @@ export function fetchSummary(): Promise<RevisionSummaryCompact | null> {
 
 export function fetchGraph(): Promise<GraphResponse | null> {
   return jsonFetch<GraphResponse>('/api/revision/graph')
+}
+
+/** Retrieval-practice deck for one queue item (null → honest self-rating fallback). */
+export function fetchRecallDeck(
+  scope: 'chapter' | 'lesson',
+  refId: string,
+): Promise<RecallDeck | null> {
+  return jsonFetch<{ deck: RecallDeck | null }>(
+    `/api/revision/recall?scope=${scope}&refId=${encodeURIComponent(refId)}`,
+  ).then((r) => r?.deck ?? null)
 }
 
 export function fetchProgress(): Promise<ProgressResponse | null> {

@@ -336,6 +336,42 @@ export const QUALITY_LABELS: Record<number, string> = {
   5: 'Easy',
 }
 
+/* ------------------------------------------------------------------ */
+/* Recall cards (in-session retrieval practice)                        */
+/* ------------------------------------------------------------------ */
+
+export type RecallKind = 'term' | 'formula' | 'example' | 'quiz' | 'exercise'
+
+/**
+ * One retrieval-practice card, cut from the lesson's OWN authored content
+ * (terms, formulas, worked examples, quiz items, exercises). Nothing is
+ * paraphrased or generated — the reveal is exactly what the lesson says,
+ * so the card is honest by construction.
+ */
+export interface RecallCard {
+  kind: RecallKind
+  /** the lesson the card was cut from */
+  lessonId: string
+  sourceLabel: string
+  sourceUrl: string
+  /** the front: what the learner must retrieve */
+  prompt: string
+  /** the back: the lesson's own answer (inline $math$ allowed) */
+  reveal: string
+  /** longer backs (worked steps) render line-by-line */
+  revealLines?: string[]
+  /** quiz cards only — answerable, auto-rated from correctness */
+  options?: string[]
+  answer?: number
+  explain?: string
+}
+
+export interface RecallDeck {
+  scope: StudyScope
+  refId: string
+  cards: RecallCard[]
+}
+
 export const STATE_LABELS: Record<EntryState | 'new', string> = {
   new: 'Not started',
   learning: 'Learning',

@@ -273,7 +273,9 @@ export function InsightsTab({ overview, onChanged }: Props) {
             <p className="font-semibold text-foreground/80">Scheduling</p>
             <p className="mt-1">
               SM-2-style intervals: “Again” resets to 1 day, “Hard” grows ×1.3, “Good/Easy” walk
-              1 → 3 → 7 → interval × ease. Quiz scores map onto the same scale.
+              1 → 3 → 7 → interval × ease. Quiz scores map onto the same scale. In a session, an
+              item’s rating is its <em>weakest</em> recall card; prerequisite lessons of urgent
+              dependents are boosted up the queue.
             </p>
           </div>
         </div>

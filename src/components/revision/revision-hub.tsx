@@ -22,7 +22,7 @@ import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useRevisionBadge } from './revision-store'
 import { fetchGraph, fetchOverview, fetchProgress } from '@/lib/revision/client-api'
-import type { GraphResponse, OverviewResponse, ProgressResponse } from '@/lib/revision/types'
+import type { GraphResponse, OverviewResponse, ProgressResponse, QueueItem } from '@/lib/revision/types'
 import { OverviewTab } from './overview-tab'
 import { ProgressTab } from './progress-tab'
 import { InsightsTab } from './insights-tab'
@@ -39,6 +39,8 @@ export function RevisionHub() {
   const [error, setError] = useState<string | null>(null)
   const [sessionOpen, setSessionOpen] = useState(false)
   const [sessionSeq, setSessionSeq] = useState(0)
+  /* time-boxed sessions: the Overview tab may hand in a ranked subset */
+  const [sessionQueue, setSessionQueue] = useState<QueueItem[] | null>(null)
 
   const reload = useCallback(async () => {
     const [o, g, p] = await Promise.all([fetchOverview(), fetchGraph(), fetchProgress()])
@@ -66,7 +68,8 @@ export function RevisionHub() {
     }
   }, [refreshBadge])
 
-  const openSession = useCallback(() => {
+  const openSession = useCallback((subset?: QueueItem[]) => {
+    setSessionQueue(subset ?? null)
     setSessionSeq((s) => s + 1)
     setSessionOpen(true)
   }, [])
@@ -141,8 +144,7 @@ export function RevisionHub() {
             overview={overview}
             onChanged={() => void reload()}
             onOpenSession={openSession}
-          />
-        </TabsContent>
+          />        </TabsContent>
         <TabsContent value="progress">
           {progress ? (
             <ProgressTab progress={progress} onChanged={() => void reload()} />
@@ -162,7 +164,7 @@ export function RevisionHub() {
 
       <RevisionSession
         key={sessionSeq}
-        queue={overview.queue}
+        queue={sessionQueue ?? overview.queue}
         open={sessionOpen}
         onOpenChange={setSessionOpen}
         onSessionDone={() => void reload()}
