@@ -636,3 +636,13 @@ server.log
 !/scripts/e2e-aa-4R.sh
 !/scripts/e2e-aa-4R.page.js
 
+
+# run 111 — AA ch. 5 opens (2026-11-19): the chapter verifier (A/C engines
+# green pre-prose + guarded pins B/D + census Z), the m2-05 transcription
+# driver, and the per-lesson e2e pairs for 5.1 + 5.2
+!/scripts/verify-book4-ch05.ts
+!/scripts/transcribe-m2-05.sh
+!/scripts/e2e-aa-51.sh
+!/scripts/e2e-aa-51.page.js
+!/scripts/e2e-aa-52.sh
+!/scripts/e2e-aa-52.page.js

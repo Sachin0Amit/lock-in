@@ -3,6 +3,7 @@ import { chapter01 } from './ch-01'
 import { chapter02 } from './ch-02'
 import { chapter03 } from './ch-03'
 import { chapter04 } from './ch-04'
+import { chapter05 } from './ch-05'
 
 /**
  * Advanced Algebra — the fourth book of the Mathematics shelf.
@@ -113,23 +114,7 @@ const chapters: Chapter[] = [
   chapter02,
   chapter03,
   chapter04,
-  {
-    number: 5,
-    slug: 'sequences-and-series',
-    title: 'Sequences and Series',
-    summary:
-      'Lists with structure become algebra: the arithmetic progression as a constant climb (its nth term, its sum, the means inserted between numbers), the geometric progression as a constant ratio (its sum, and the infinite tail |r| < 1 — the book’s first honest limit, the doorstep Calculus will formalize), then the cousins: the harmonic progression read as reciprocals of a climb, and the arithmetico-geometric progression the JEE syllabus names explicitly. The chapter closes with the special sums Σk, Σk², Σk³ — proved the honest way first (the pairing trick FM 11.2 would recognize), with the method of differences and telescoping as the general craft for series whose terms surrender their middles. The induction certificate for these sums is deliberately deferred to chapter 7, exactly where the classics put it. Sigma notation for dependent and for independent index variables — the compression every later series argument writes with — named and priced here.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'Arithmetic Progressions: the Constant Climb',
-      'Geometric Progressions and the Infinite Tail',
-      'Harmonic and Arithmetico-Geometric Progressions',
-      'Special Series and the Method of Differences',
-      'Sigma Notation and the Classical Power Sums',
-      'Recurring Series and the Scale of Relation',
-    ],
-  },
+  chapter05,
   {
     number: 6,
     slug: 'counting-permutations-combinations',
