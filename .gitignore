@@ -672,3 +672,31 @@ server.log
 !/scripts/e2e-aa-55.sh
 !/scripts/e2e-aa-55.page.js
 !/scripts/author_lesson55.py
+
+# run 114 — THE PARALLEL-SWARM RUN II (2026-11-20): AA 5.6 + 5.R + ch. 6
+# whole-unit — the assembled ch.6 verifier, the m2-07 transcription drivers,
+# the swarm assembly script, and the nine per-lesson e2e pairs
+!/scripts/verify-book4-ch06.ts
+!/scripts/transcribe-m2-07.sh
+!/scripts/transcribe-m2-07b.sh
+!/scripts/transcribe-m2-07c.sh
+!/scripts/transcribe-m2-07d.sh
+!/scripts/assemble-aa-swarm.py
+!/scripts/e2e-aa-56.sh
+!/scripts/e2e-aa-56.page.js
+!/scripts/e2e-aa-5R.sh
+!/scripts/e2e-aa-5R.page.js
+!/scripts/e2e-aa-61.sh
+!/scripts/e2e-aa-61.page.js
+!/scripts/e2e-aa-62.sh
+!/scripts/e2e-aa-62.page.js
+!/scripts/e2e-aa-63.sh
+!/scripts/e2e-aa-63.page.js
+!/scripts/e2e-aa-64.sh
+!/scripts/e2e-aa-64.page.js
+!/scripts/e2e-aa-65.sh
+!/scripts/e2e-aa-65.page.js
+!/scripts/e2e-aa-66.sh
+!/scripts/e2e-aa-66.page.js
+!/scripts/e2e-aa-6R.sh
+!/scripts/e2e-aa-6R.page.js

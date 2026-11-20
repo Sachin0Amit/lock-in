@@ -4,21 +4,27 @@ import { chapter02 } from './ch-02'
 import { chapter03 } from './ch-03'
 import { chapter04 } from './ch-04'
 import { chapter05 } from './ch-05'
+import { chapter06 } from './ch-06'
 
 /**
  * Advanced Algebra — the fourth book of the Mathematics shelf.
  *
- * STATUS: IN-PROGRESS — four chapters COMPLETE, chapters 5-10 planned.
- * Chapters 1 (Relations and Functions: 8 lessons + 1.R review, 9 written
- * total), 2 (The Quadratic at Depth: 4 + 2.R), 3 (Complex Numbers: the
- * New Rung: 5 + 3.R) and 4 (Inequalities: the Classical Engine: 6 + 4.R)
- * are fully written and gated — 27 written lessons in all; the remaining
- * 34 planned lessons (chapters 5-10) author on the one-unit-at-a-time
- * cadence (run 110 closed chapter 3; the 2026-11-18 PARALLEL-SWARM RUN —
- * owner chat directive "launch multiple agents for authoring lessons" —
- * closed chapter 4 whole-unit in one pass: six parallel lesson agents + a
- * review agent + orchestrator assembly/gates, recorded in WORKLOG and
- * docs/research/AA_CH04_MASTER_PLAN.md). Lesson ids use the `aa-` prefix
+ * STATUS: IN-PROGRESS — SIX chapters COMPLETE (chapters 1–6, each with
+ * its unit review), chapters 7–10 planned. Chapters 1 (Relations and
+ * Functions: 8 lessons + 1.R review, 9 written total), 2 (The Quadratic
+ * at Depth: 4 + 2.R, 5 written), 3 (Complex Numbers: the New Rung: 5 +
+ * 3.R, 6 written), 4 (Inequalities: the Classical Engine: 6 + 4.R, 7
+ * written), 5 (Sequences and Series: 6 + 5.R, 7 written) and 6
+ * (Counting: Permutations and Combinations: 6 + 6.R, 7 written) are
+ * fully written and gated — 41 written lessons in all; the remaining 22
+ * planned lessons (chapters 7–10: 6 + 6 + 6 + 4) author on the
+ * one-unit-at-a-time cadence (run 110 closed chapter 3; the 2026-11-18
+ * PARALLEL-SWARM RUN — owner chat directive "launch multiple agents for
+ * authoring lessons" — closed chapter 4 whole-unit; THIS run's
+ * PARALLEL-SWARM RUN II — owner chat directive "launch multiple
+ * authoring agents swarm" — closed chapter 5's remainder (5.6 + 5.R)
+ * and chapter 6 whole-unit, recorded in WORKLOG and
+ * docs/research/AA_CH06_MASTER_PLAN.md). Lesson ids use the `aa-` prefix
  * (verified unused across the library at promotion time; globally unique,
  * stable forever).
  *
@@ -115,23 +121,7 @@ const chapters: Chapter[] = [
   chapter03,
   chapter04,
   chapter05,
-  {
-    number: 6,
-    slug: 'counting-permutations-combinations',
-    title: 'Counting: Permutations and Combinations',
-    summary:
-      'Algebra’s discrete half: counting as an exact science, the way both the JEE module and Hall & Knight teach it — the fundamental principle first (multiply along a chain of independent choices, add across mutually exclusive alternatives), then the two great counts derived rather than memorized: the permutation as an arrangement (nPr from the chain itself, factorials, arrangements of alike things, the circle), and the combination as a selection (nCr, its symmetry and complement reads, choosing from groups). The chapter closes with the distribution puzzles — words into boxes, people into rooms, at-least and at-most selections — where the two principles interlock and a wrong model is caught by the small-case census. Circular permutations — the round table and the necklace — with the clockwise and anticlockwise arrangements priced exactly; the distribution of identical objects and of distinct objects into groups, with and without empty groups allowed; and the properties of nCr (symmetry, absorption, Pascal’s identity) derived, not quoted. This is the ground Probability inherits, and it is built to be inherited honestly.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'Factorials and the Counting Toolkit',
-      'Circular and Restricted Permutations',
-      'The Fundamental Principle of Counting',
-      'Permutations: the Arrangement Count',
-      'Combinations: the Selection Count',
-      'Distributions and the Classic Counting Puzzles',
-    ],
-  },
+  chapter06,
   {
     number: 7,
     slug: 'induction-and-binomial-theorem',

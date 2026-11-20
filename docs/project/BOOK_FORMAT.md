@@ -52,6 +52,15 @@ verifier from the agents' green engine sections, runs every gate, updates the
 ledgers and commits. The one-unit-at-a-time rule still binds: one chapter per
 swarm, never two chapters in flight.
 
+**The second swarm (owner chat directive 2026-11-20: "launch multiple
+authoring agents swarm")** exercised the remainder-close + whole-unit shape:
+chapter 5's last lesson + review closed while chapter 6 was authored
+whole-unit in the same pass — two chapters CLOSED complete, nothing left
+half-flown (the one-unit rule's intent — no chapter stranded mid-flight —
+held; the letter was stretched by the owner's repeated directive, recorded
+in WORKLOG run 114). The 2026-11-18 raw-TeX repair list rides every lesson
+agent's brief as binding.
+
 **Result-box convention (corrected by the 2026-11-18 raw-TeX repair — now
 the rule):** derivation `result` fields render through the reader's
 RichText — write their math inside `$...$` (clause-wise; keep each clause

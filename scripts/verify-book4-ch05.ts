@@ -47,6 +47,16 @@ export {}
  *   (F) 5.3 pins   — quiz 5 items/keys [0,2,1,1,2]; exercises 15 in
  *       2/2/3/3/3/2; ≥10 examples; ≥3 figures vivid-palette-only; ≥4
  *       derivations; ≥7 formula cards; ≥8 terms; words ≥ 4800
+ *   (KX) 5.6 K-ext literals — the agent 5-a K-ext additions pinned at
+ *       the PARALLEL-SWARM RUN II assembly (family C's GF numerator and
+ *       six-term sum, the Fibonacci roster extensions, the Cassini
+ *       literals, the tribonacci next term, the family-A gap rosters,
+ *       the wrong-GF quiz distractors, the Pell values, the family-B
+ *       denominator ladder)
+ *   (M) 5.R engines — the task 5-b part engine v5-R.ts's ENGINE_5R
+ *       appended at the PARALLEL-SWARM RUN II assembly (every number in
+ *       the review recomputed; NEW numbers flagged M-, reconciliations
+ *       noted)
  *   (Z) census at close — chapter assembled, book.ts wiring, plannedLessons
  *       emptied, ids unique library-wide, pack integrity
  */
@@ -820,7 +830,7 @@ const K: SectionCheck[] = [
       const u = (n: number): number => 5 * 2 ** n - 2
       push('K7.1 family 3, 8, 18, 38, 78, 158 satisfies u_{n+2} = 3u_{n+1} − 2u_n swept n = 0..7', [3, 8, 18, 38, 78, 158, 318, 638].every((v, n) => u(n) === v))
       push('K7.2 the split u_n = 5·2ⁿ − 2: A = −2, B = 5 (A + B = 3, A + 2B = 8)', -2 + 5 === 3 && -2 + 2 * 5 === 8)
-      push('K7.3 generating function (3 + 2x)/(1 − 3x + 2x²) (u_1 − 3u_0 = −1 → numerator 3 − (−... check: 3 − (3·3 − 8)x', (() => { const us = [3, 8]; for (let n = 2; n <= 5; n++) us.push(3 * us[n - 1] - 2 * us[n - 2]); return us.join(',') === '3,8,18,38,78,158' })())
+      push('K7.3 generating function (3 − x)/(1 − 3x + 2x²) (u_1 − 3u_0 = −1 → numerator 3 − (−... check: 3 − (3·3 − 8)x', (() => { const us = [3, 8]; for (let n = 2; n <= 5; n++) us.push(3 * us[n - 1] - 2 * us[n - 2]); return us.join(',') === '3,8,18,38,78,158' })())
       push('K7.4 sum to n terms: Σ_{k=0}^{n} (5·2^k − 2) = 5·2^(n+1) − 2n − 7 sweeps n = 0..6', [0, 1, 2, 3, 4, 5, 6].every((n) => { let a = 0; for (let k = 0; k <= n; k++) a += u(k); return a === 5 * 2 ** (n + 1) - 2 * n - 7 }))
     }
     // K8 my own family C for exercises: 2, 5, 13, 35, 97, 275 (scale 1 − 5x + 6x²) → u_n = 3ⁿ + 2ⁿ
@@ -844,6 +854,37 @@ const K: SectionCheck[] = [
     return out
   })(),
 ].flat()
+
+
+/* ------------------------------------------------------------------ */
+/* SECTION KX — 5.6 K-ext literals (the agent 5-a K-ext additions,      */
+/* appended by the PARALLEL-SWARM RUN II assembly; each self-contained) */
+/* ------------------------------------------------------------------ */
+
+const KX: SectionCheck[] = []
+{
+  const push = (name: string, ok: boolean) => KX.push(check(name, ok))
+  const expand = (num: number[], den: number[], terms: number): number[] => {
+    if (den[0] !== 1) throw new Error('denominator must be monic in this helper')
+    const c: number[] = []
+    for (let n = 0; n < terms; n++) {
+      let acc = n < num.length ? num[n] : 0
+      for (let i = 1; i <= Math.min(den.length - 1, n); i++) acc -= den[i] * c[n - i]
+      c.push(acc)
+    }
+    return c
+  }
+  const F = (n: number): number => { let a = 0, b = 1; for (let i = 0; i < n; i++) { [a, b] = [b, a + b] } return a }
+  push('KX1 family C generating function numerator 2 − 5x: (2 − 5x)/(1 − 5x + 6x²) expands to 2, 5, 13, 35, 97, 275, 793', (() => { const c = expand([2, -5], [1, -5, 6], 7); return c.join(',') === '2,5,13,35,97,275,793' })())
+  push('KX2 family C sum of the first six terms = 427 ((3⁶ − 1)/2 + (2⁶ − 1) = 364 + 63)', (() => { let a = 0; for (let k = 0; k <= 5; k++) a += 3 ** k + 2 ** k; return a === 427 && (3 ** 6 - 1) / 2 === 364 && 2 ** 6 - 1 === 63 && 364 + 63 === 427 })())
+  push('KX3 Fibonacci roster extensions F₁₃ = 233, F₁₄ = 377, Σ_{k=0}^{12} F_k = F₁₄ − 1 = 376', F(13) === 233 && F(14) === 377 && (() => { let a = 0; for (let k = 0; k <= 12; k++) a += F(k); return a === 376 })())
+  push('KX4 Cassini literals: 34·13 − 21² = 442 − 441 = 1 (n = 8) and 55·21 − 34² = 1155 − 1156 = −1 (n = 9)', 34 * 13 === 442 && 21 ** 2 === 441 && 34 * 13 - 21 ** 2 === 1 && 55 * 21 === 1155 && 34 ** 2 === 1156 && 55 * 21 - 34 ** 2 === -1)
+  push('KX5 tribonacci next term 149 after the roster 1, 1, 2, 4, 7, 13, 24, 44, 81 (81 + 44 + 24 = 149)', 44 + 24 + 13 === 81 && 81 + 44 + 24 === 149)
+  push('KX6 family A opening-motivation gap rosters: gaps 3, 10, 32, 100 and second gaps 7, 22, 68 (no row constant)', (() => { const r = [1, 4, 14, 46, 146]; const g = r.slice(1).map((v, i) => v - r[i]); const gg = g.slice(1).map((v, i) => v - g[i]); return g.join(',') === '3,10,32,100' && gg.join(',') === '7,22,68' && gg[0] !== gg[1] && gg[1] !== gg[2] })())
+  push('KX7 the wrong-GF quiz distractors expand to 1, 5, 19 / 1, 6, 24 / 4, 19, 71 (the forgetful, the mis-signed, the u₁-seeded numerators)', (() => { const b = expand([1], [1, -5, 6], 3); const c = expand([1, 1], [1, -5, 6], 3); const d = expand([4, -1], [1, -5, 6], 3); return b.join(',') === '1,5,19' && c.join(',') === '1,6,24' && d.join(',') === '4,19,71' })())
+  push('KX8 the Pell family (scale 1 − 2x − x²): u(2) = 5 and u(3) = 12 on the roster 1, 2, 5, 12, 29, 70, 169', (() => { const u = [1, 2, 5, 12, 29, 70, 169]; return u[2] === 5 && u[3] === 12 && u.every((v, n) => (n < 2 ? true : 2 * u[n - 1] + u[n - 2] === v)) })())
+  push('KX9 family B denominator ladder 1, 3, 7, 15, 31 prices u_n = 3c_n − c_{n−1} (8, 18, 38, 78)', (() => { const c = [1, 3, 7, 15, 31]; return 3 * c[1] - c[0] === 8 && 3 * c[2] - c[1] === 18 && 3 * c[3] - c[2] === 38 && 3 * c[4] - c[3] === 78 })())
+}
 
 /* ------------------------------------------------------------------ */
 /* SECTION L — 5.6 pins (guarded: `pending` until the lesson ships)    */
@@ -871,6 +912,125 @@ const L: SectionCheck[] = lesson56
       check('L14 no raw TeX outside $…$ in plain-rendered fields (concepts/objectives)', (() => { const texts = [...(lesson56.concepts ?? []), ...(lesson56.objectives ?? [])]; return texts.every((t) => !/\\dfrac|\\sqrt|\\qquad/.test(t)) })()),
     ]
   : [check('L pending — lesson 5.6 not yet shipped', false, 'pending')]
+
+
+/* ------------------------------------------------------------------ */
+/* SECTION M — 5.R engines (the task 5-b part engine v5-R.ts's          */
+/* ENGINE_5R, appended by the PARALLEL-SWARM RUN II assembly: every    */
+/* number in the review recomputed — NEW numbers flagged M-, the rest  */
+/* reconciling sections A–KX)                                          */
+/* ------------------------------------------------------------------ */
+
+const M: SectionCheck[] = []
+{
+  const push = (name: string, ok: boolean) => M.push(check(name, ok))
+  const expand = (num: number[], den: number[], terms: number): number[] => {
+    if (den[0] !== 1) throw new Error('denominator must be monic in this helper')
+    const c: number[] = []
+    for (let n = 0; n < terms; n++) {
+      let acc = n < num.length ? num[n] : 0
+      for (let i = 1; i <= Math.min(den.length - 1, n); i++) acc -= den[i] * c[n - i]
+      c.push(acc)
+    }
+    return c
+  }
+  const F = (n: number): number => { let a = 0, b = 1; for (let i = 0; i < n; i++) { [a, b] = [b, a + b] } return a }
+
+  /* ---- the roman-list roster (the map in one roster, all nine rows) ---- */
+  push('M1.1 (i) the climb 7, 11, 15, 19: d = 4, a_23 = 95, a_n = 4n + 3 swept n = 1..30', (() => { const t = (n: number) => 7 + (n - 1) * 4; return t(23) === 95 && [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].every((n) => t(n) === 4 * n + 3) })())
+  push('M1.2 (ii) 3rd = 18, 6th = 486: r³ = 27 → r = 3, a = 2, 10th = 39,366 (reconciles C1.2)', (() => { const r = Math.cbrt(486 / 18); const a = 18 / r ** 2; return r === 3 && a === 2 && 2 * 3 ** 9 === 39366 })())
+  push('M1.3 (iii) the H.P. 1/3, 1/7, 1/11, 1/15: the 10th term is 1/39 (reciprocals 3, 7, 11, 15 climb by 4)', (() => { const den = (n: number) => 3 + 4 * (n - 1); return den(10) === 39 && [3, 7, 11, 15].every((v, i) => den(i + 1) === v) })())
+  push('M1.4 (iv) the A.G.P. 1 + 2/3 + 3/9 + ⋯ = 3/2 + 3/4 = 9/4 (a = 1, d = 1, r = 1/3; brute n = 60)', (() => { let b = 0; for (let k = 0; k < 60; k++) b += (1 + k) * (1 / 3) ** k; return near(b, 9 / 4) && near(1 / (1 - 1 / 3), 1.5) && near((1 * (1 / 3)) / (1 - 1 / 3) ** 2, 0.75) })())
+  push('M1.5 (v) the census family 2, 8, 26, 80: gap row 6, 18, 54 (G.P. r = 3), T_n = 3ⁿ − 1, S_4 = 116', (() => { const t = (n: number) => 3 ** n - 1; const gaps = [8 - 2, 26 - 8, 80 - 26]; return gaps.join(',') === '6,18,54' && gaps[1] / gaps[0] === 3 && t(4) === 80 && 2 + 8 + 26 + 80 === 116 && (3 ** 5 - 2 * 4 - 3) / 2 === 116 })())
+  push('M1.6 (vi) the telescopes: 1/(1·2) + ⋯ + 1/(4·5) = 4/5 and the infinite triple telescope = 1/4', (() => { let a = 0; for (let k = 1; k <= 4; k++) a += 1 / (k * (k + 1)); let b = 0; for (let k = 1; k <= 200000; k++) b += 1 / (k * (k + 1) * (k + 2)); return near(a, 4 / 5) && near(b, 0.25) })())
+  push('M1.7 (vii) Σ_{r=1}^{10} (3r² − 2r + 1) = 1055 (reconciles I15.4)', (() => { let a = 0; for (let r = 1; r <= 10; r++) a += 3 * r * r - 2 * r + 1; return a === 1055 })())
+  push('M1.8 (viii) the recurring family 1, 4, 14, 46: scale 1 − 5x + 6x², next term 454 = 730 − 276', (() => { const p = 5, q = -6; return p * 46 + q * 14 === 146 && p * 146 + q * 46 === 454 && 730 - 276 === 454 })())
+  push('M1.9 (ix) the honesty fork: 1, 2, 5 → 12, 29, 70 under (2,1) and 11, 26, 59 under (1,3)', (() => { const cont = (p: number, q: number) => { const u = [1, 2, 5]; for (let n = 3; n <= 5; n++) u.push(p * u[n - 1] + q * u[n - 2]); return u }; return cont(2, 1).join(',') === '1,2,5,12,29,70' && cont(1, 3).join(',') === '1,2,5,11,26,59' })())
+
+  /* ---- derivation 1 (the umbrella) ---- */
+  push('M2.1 the A.P. as order two: 2·11 − 7 = 15 and 2·15 − 11 = 19; scale (1 − x)² with p² + 4q = 4 − 4 = 0', 2 * 11 - 7 === 15 && 2 * 15 - 11 === 19 && 2 * 2 + 4 * -1 === 0)
+  push('M2.2 the digit streams: 9 = 10¹ − 1, 99 = 10² − 1, 999 = 10³ − 1 — the scales 1 − xᵏ at x = 1/10', 10 - 1 === 9 && 10 ** 2 - 1 === 99 && 10 ** 3 - 1 === 999)
+
+  /* ---- the two master tables' witnesses (reconciliation rows) ---- */
+  push('M3.1 table 2 row witnesses: 95 / 39,366 / 1/39 / 9/4 / 3ⁿ − 1 with S_4 = 116 / 4/5 / 1055 / 454 / the fork', (() => { const one = 7 + 22 * 4 === 95; const two = 2 * 3 ** 9 === 39366; const three = 3 + 4 * 9 === 39; const four = near(1 / (1 - 1 / 3) + (1 / 3) / (1 - 1 / 3) ** 2, 9 / 4); const five = 3 ** 4 - 1 === 80 && 2 + 8 + 26 + 80 === 116; const six = near(1 - 1 / 5, 4 / 5); const seven = (() => { let a = 0; for (let r = 1; r <= 10; r++) a += 3 * r * r - 2 * r + 1; return a === 1055 })(); const eight = 5 * 146 - 6 * 46 === 454; const nine = 2 * 2 + 1 * 1 === 5 && 1 * 2 + 3 * 1 === 5; return one && two && three && four && five && six && seven && eight && nine })())
+
+  /* ---- witness 1: the constant climb ---- */
+  push('M4.1 the climb: 11 − 7 = 15 − 11 = 19 − 15 = 4 and a_23 = 7 + 22×4 = 95', 11 - 7 === 4 && 15 - 11 === 4 && 19 - 15 === 4 && 7 + 22 * 4 === 95)
+  push('M4.2 the mirror pairing: a_4 + a_8 + a_13 + a_17 = 236 = 2(a_1 + a_20) → S_20 = 1180 (reconciles A2.3)', (() => { const t = (n: number) => 2 + 6 * (n - 1); return t(4) + t(8) + t(13) + t(17) === 236 && t(4) + t(17) === t(1) + t(20) && 20 / 2 * (t(1) + t(20)) === 1180 })())
+  push('M4.3 the means nest between 3 and 55: sum 348 → n = 12 means, d = 4, A_5 = 23 (reconciles A3.3)', (() => { const n = 348 / ((3 + 55) / 2); const d = (55 - 3) / (n + 1); return n === 12 && d === 4 && 3 + 5 * d === 23 })())
+  push('M4.4 the divisible census: three-digit multiples of 11 run 110..990, 81 terms, S = 44,550 (reconciles A2.2)', (() => { const first = 110, last = 990, n = (last - first) / 11 + 1; return n === 81 && (n / 2) * (first + last) === 44550 })())
+  push('M4.5 the quadratic read: S_n = 2n² + 3n → a = 5, d = 4, a_10 = 41 (reconciles A2.7)', (() => { const S = (n: number) => 2 * n * n + 3 * n; const a = (n: number) => S(n) - S(n - 1); return a(1) === 5 && a(2) - a(1) === 4 && a(10) === 41 })())
+
+  /* ---- witness 2: the ratio ---- */
+  push('M5.1 the recovery: 13 ± √(169 − 144) = 13 ± 5 → 8 and 18, both means checking (reconciles C5.1)', 169 - 144 === 25 && 13 + 5 === 18 && 13 - 5 === 8 && (8 + 18) / 2 === 13 && Math.sqrt(8 * 18) === 12)
+  push('M5.2 the infinite tail ladder 8, 6, 4.5, 3.375 (r = 3/4) closes on 32 (reconciles C6.4)', (() => { const terms = [8, 6, 4.5, 3.375]; let s = 0; for (let k = 0; k < 4; k++) { s += terms[k]; if (terms[k + 1] !== undefined && !near(terms[k + 1] / terms[k], 0.75)) return false } return near(s, 21.875) && near(8 / (1 - 0.75), 32) })())
+  push('M5.3 the alternating tail: 9 − 6 + 4 − ⋯ = 27/5 = 5.4 (brute n = 60; reconciles C6.2)', (() => { let b = 0; for (let k = 0; k < 60; k++) b += 9 * (-2 / 3) ** k; return near(b, 27 / 5) && nearR(27 / 5, 5.4, 1e-12) })())
+  push('M5.4 the decimal costumes: 0.7̄ = 7/9 and 0.16̄ = 1/6 (reconciles C7.2)', (() => { let a = 0; for (let k = 1; k <= 12; k++) a += 7 / 10 ** k; let b = 0.1; for (let k = 1; k <= 12; k++) b += 6 / 10 ** (k + 1); return near(a, 7 / 9) && near(b, 1 / 6) && near(1 / 10 + (6 / 100) / (1 - 1 / 10), 1 / 6) })())
+  push('M5.5 the rebound: 27 + 2 × 18/(1 − 2/3) = 27 + 108 = 135 m (reconciles C10.1)', (() => { const h = 27, k = 2 / 3; return near(h + 2 * ((h * k) / (1 - k)), 135) && near(18 / (1 - k), 54) })())
+
+  /* ---- witness 3: the flip ---- */
+  push('M6.1 the ladder on (4, 16): A = 10, G = 8, H = 2×64/20 = 6.4, G² = AH = 64 (reconciles E3.1/E3.4)', (() => { const A = (4 + 16) / 2, G = Math.sqrt(4 * 16), H = (2 * 4 * 16) / (4 + 16); return A === 10 && G === 8 && near(H, 6.4) && near(G * G, A * H) && A > G && G > H })())
+  push('M6.2 the recovery x = 10 ± 6 → 4 and 16; the car: 2×60×40/100 = 48 km/h (reconciles E3.5/E6.1)', 10 + 6 === 16 && 10 - 6 === 4 && (2 * 60 * 40) / 100 === 48)
+  push('M6.3 the hybrid: 1 + 2/3 + 3/9 + ⋯ = 3/2 + 3/4 = 9/4; Σ (3k+2)/5^k = 23/16 (brute n = 60; reconciles E9.1/E9.5)', (() => { let b1 = 0; for (let k = 0; k < 60; k++) b1 += (1 + k) * (1 / 3) ** k; let b2 = 0; for (let k = 1; k <= 60; k++) b2 += (3 * k + 2) / 5 ** k; return near(b1, 9 / 4) && near(b2, 23 / 16) })())
+  push('M6.4 NEW: the double-shift composite Σ (k² + k)/2^k = 6 + 2 = 8 (brute n = 60; the pieces reconcile E10.3/E9.3)', (() => { let b = 0; for (let k = 1; k <= 60; k++) b += (k * k + k) / 2 ** k; let sq = 0; for (let k = 1; k <= 60; k++) sq += k * k / 2 ** k; let ln = 0; for (let k = 1; k <= 60; k++) ln += k / 2 ** k; return near(b, 8) && near(sq, 6) && near(ln, 2) })())
+
+  /* ---- witness 4: the census ---- */
+  push('M7.1 the census family: gaps 6, 18, 54, 162; T_n = 3ⁿ − 1; S_4 = 116; the two-point fit 4, 10, 22, 46, 94 = 3·2ⁿ − 2 (reconciles G1/G6)', (() => { const t1 = (n: number) => 3 ** n - 1; const gaps = [6, 18, 54, 162]; const t2 = (n: number) => 3 * 2 ** n - 2; return t1(5) === 242 && gaps[3] / gaps[2] === 3 && 2 + 8 + 26 + 80 === 116 && [4, 10, 22, 46, 94].every((v, n) => t2(n + 1) === v) && 2 * 3 - 2 === 4 && 4 * 3 - 2 === 10 })())
+  push('M7.2 the telescopes: 1 − 1/5 = 4/5 and the infinite triple telescope 1/4; the cube telescope 1 + 7 + 19 + 37 + 61 = 125 = 5³ (reconciles G3/G4/G9)', (() => { let a = 0; for (let k = 1; k <= 4; k++) a += 1 / (k * (k + 1)); let c = 0; for (let k = 1; k <= 5; k++) c += 3 * k * k - 3 * k + 1; return near(a, 4 / 5) && c === 125 && c === 5 ** 3 })())
+
+  /* ---- witness 5: the sigma ---- */
+  push('M8.1 the tower at n = 10: Σk = 55, Σk² = 385, Σk³ = 55² = 3025; Nicomachus at n = 3: 1 + 8 + 27 = 36 = 6² (reconciles I15.8)', (() => { let a = 0, b = 0, c = 0; for (let k = 1; k <= 10; k++) { a += k; b += k * k; c += k ** 3 } return a === 55 && b === 385 && c === 3025 && c === 55 ** 2 && 1 + 8 + 27 === 36 && 36 === 6 ** 2 })())
+  push('M8.2 the bounded reads: Σ_{11}^{30} r³ = 465² − 55² = 213,200 and Σ_{11}^{30} r² = 9455 − 385 = 9070 (reconciles I11)', (() => { let c = 0, s = 0; for (let r = 11; r <= 30; r++) { c += r ** 3; s += r * r } return c === 213200 && 465 ** 2 - 55 ** 2 === 213200 && s === 9070 && 9455 - 385 === 9070 })())
+  push('M8.3 the refusals: Σ_{r=1}^{4} r(r+1) = 40 against (Σr)(Σ(r+1)) = 140; Σ(1/r) = 11/6 ≠ 3/7 at n = 3 (reconciles I3/I5)', (() => { let a = 0; for (let r = 1; r <= 4; r++) a += r * (r + 1); let s1 = 0, s2 = 0; for (let r = 1; r <= 4; r++) { s1 += r; s2 += r + 1 } let h = 0; for (let r = 1; r <= 3; r++) h += 1 / r; return a === 40 && s1 * s2 === 140 && nearR(h, 11 / 6, 1e-12) && !nearR(11 / 6, 3 / 7) })())
+  push('M8.4 the read-back: S_n = n(2n² + 21n + 73)/3 → T_r = 2(r+3)² and Σ√T_r at n = 4 = 22√2 (reconciles I6)', (() => { const S = (n: number) => (n * (2 * n * n + 21 * n + 73)) / 3; const T = (r: number) => S(r) - S(r - 1); let a = 0; for (let r = 1; r <= 4; r++) a += Math.sqrt(T(r)); return [1, 2, 3, 4, 5].every((r) => near(T(r), 2 * (r + 3) ** 2)) && near(a, 22 * Math.SQRT2) && near(Math.sqrt(32) + Math.sqrt(50) + Math.sqrt(72) + Math.sqrt(98), 22 * Math.SQRT2) })())
+
+  /* ---- witness 6: the scale ---- */
+  push('M9.1 family A census rejection: gaps 3, 10, 32, 100 hold no constant difference and no constant ratio (10/3 ≠ 32/10 ≠ 100/32)', (() => { const g = [3, 10, 32, 100]; return g[1] - g[0] !== g[2] - g[1] && g[1] / g[0] !== g[2] / g[1] && g[2] / g[1] !== g[3] / g[2] })())
+  push('M9.2 the scale solve 14 = 4p + q ∧ 46 = 14p + 4q ⇒ p = 5, q = −6; audit 5·46 − 6·14 = 146; next 454; the split u_n = 2·3ⁿ − 2ⁿ; the GF (1 − x)/(1 − 5x + 6x²) expands to the roster (reconciles K1)', (() => { const p = 5, q = -6; const u = (n: number) => 2 * 3 ** n - 2 ** n; const c = expand([1, -1], [1, -5, 6], 6); return 4 * p + q === 14 && 14 * p + 4 * q === 46 && p * 46 + q * 14 === 146 && p * 146 + q * 46 === 454 && c.join(',') === '1,4,14,46,146,454' && [0, 1, 2, 3, 4, 5].every((n) => (n <= 1 ? true : p * u(n - 1) + q * u(n - 2) === u(n))) })())
+  push('M9.3 NEW: the family-A sums: Σ_{k=0}^{n} u_k = 3^{n+1} − 2^{n+1} → 211 at five terms, 665 at six (brute)', (() => { const u = (n: number) => 2 * 3 ** n - 2 ** n; let a = 0, b = 0; for (let k = 0; k <= 4; k++) a += u(k); for (let k = 0; k <= 5; k++) b += u(k); return a === 211 && b === 665 && 1 + 4 + 14 + 46 + 146 === 211 && 1 + 4 + 14 + 46 + 146 + 454 === 665 && 3 ** 5 - 2 ** 5 === 211 && 3 ** 6 - 2 ** 6 === 665 })())
+  push('M9.4 one scale, two series: 2, 5, 13, 35, 97 = 3ⁿ + 2ⁿ; next 3⁵ + 2⁵ = 275 and the sixth 3⁶ + 2⁶ = 793 (reconciles K8)', (() => { const u = (n: number) => 3 ** n + 2 ** n; return [2, 5, 13, 35, 97].every((v, n) => u(n) === v) && u(5) === 275 && u(6) === 793 && 5 * 5 - 6 * 2 === 13 && 5 * 13 - 6 * 5 === 35 })())
+  push('M9.5 the double root: 1, 4, 12, 32, 80 = (n+1)2ⁿ with next 6·2⁵ = 192; the fork pair; Fibonacci F_12 = 144 with Σ_{k=0}^{12} F_k = 376; Cassini 34·13 − 21² = 1; 0.4848… = 16/33; the x = 1/10 sum 45/28 (reconciles K2/K4/K3/K5/K1.5)', (() => { const u = (n: number) => (n + 1) * 2 ** n; let sumF = 0; for (let k = 0; k <= 12; k++) sumF += F(k); let dec = 0; for (let k = 1; k <= 12; k++) dec += 48 / 100 ** k; let wt = 0; for (let n = 0; n <= 40; n++) wt += (2 * 3 ** n - 2 ** n) * (1 / 10) ** n; return u(5) === 192 && 6 * 32 === 192 && sumF === 376 && F(14) - 1 === 376 && F(12) === 144 && F(9) * F(7) - F(8) ** 2 === 1 && 34 * 13 - 21 ** 2 === 1 && near(dec, 16 / 33) && near(wt, 45 / 28) })())
+  push('M9.6 NEW: the Fibonacci roster extensions F_13 = 233, F_14 = 377 (needed by the sum identity; K3.1 pins only through F_12)', F(13) === 233 && F(14) === 377)
+
+  /* ---- the one-series / one-pair mixed exhibits ---- */
+  push('M10.1 the one-series exhibit: the gap ratios 10/3, 32/10, 100/32 are pairwise unequal, and 14/4 ≠ 46/14 — both census engines reject; the scale audit and the split then price it (reconciles K1 + M9.2)', (() => { const gr = [10 / 3, 32 / 10, 100 / 32]; return gr[0] !== gr[1] && gr[1] !== gr[2] && 14 / 4 !== 46 / 14 })())
+  push('M10.2 NEW: the one-pair exhibit: three A.M.s between 4 and 16 are 7, 10, 13 (step 3), sum 30 = 3 × 10 — the insertion law on fresh endpoints', (() => { const d = (16 - 4) / 4; const means = [4 + d, 4 + 2 * d, 4 + 3 * d]; return d === 3 && means.join(',') === '7,10,13' && 7 + 10 + 13 === 30 && 30 === 3 * ((4 + 16) / 2) })())
+  push('M10.3 the one-pair flip check: 2/6.4 = 5/16 = 1/4 + 1/16 (the harmonic mean certified by its own definition)', (() => { const H = (2 * 4 * 16) / 20; return near(2 / H, 1 / 4 + 1 / 16) && nearR(2 / 6.4, 0.3125, 1e-12) && nearR(1 / 4 + 1 / 16, 0.3125, 1e-12) })())
+
+  /* ---- the traps' witnesses ---- */
+  push('M11.1 the sum-versus-term trap: the twelve means carry 390, the whole series 455, the difference exactly 65 (reconciles A3.2; 455 is NEW as the means-series read)', (() => { const means = 12 * ((5 + 60) / 2); const full = (14 / 2) * (5 + 60); return means === 390 && full === 455 && full - means === 65 && 7 * 65 === 455 })())
+  push('M11.2 the forgetful-fraction trap: 1/(1 − 5x + 6x²) expands to 1, 5, 19 — wrong from the second term (reconciles K9.1e)', (() => { const c = expand([1], [1, -5, 6], 3); return c.join(',') === '1,5,19' })())
+  push('M11.3 the census trap: 26/8 ≠ 80/26 (the family 2, 8, 26, 80 is not a G.P.); the index-shift trap: Σ_{r=0}^{4} (r+1)² = Σ_{r=1}^{5} r² = 55', (() => { let a = 0, b = 0; for (let r = 0; r <= 4; r++) a += (r + 1) ** 2; for (let r = 1; r <= 5; r++) b += r * r; return 26 / 8 !== 80 / 26 && a === b && a === 55 })())
+
+  /* ---- the quiz: every key and every distractor's failure number ---- */
+  push('M12.1 quiz Q1 (key 1): the means of (4, 16) are A = 10, G = 8, H = 6.4; G − H = 1.6; distractors: raw sum 20, the G = H fraud, the inverted chain', (() => { const A = (4 + 16) / 2, G = Math.sqrt(64), H = (2 * 4 * 16) / 20; return A === 10 && G === 8 && near(H, 6.4) && near(G - H, 1.6) && 4 + 16 === 20 })())
+  push('M12.2 quiz Q2 (key 3): 9 − 6 + 4 − ⋯ = 27/5 = 5.4; distractors 27 (denominator 1 − 2/3), 9/5 (the first gap 3 through the machine), 18/5 (the tail magnitude |ar/(1−r)|)', (() => { const S = (r: number) => 9 / (1 - r); let b = 0; for (let k = 0; k < 60; k++) b += 9 * (-2 / 3) ** k; return near(b, 27 / 5) && nearR(27 / 5, 5.4, 1e-12) && near(S(2 / 3), 27) && near(3 / (1 + 2 / 3), 9 / 5) && near(Math.abs((9 * -2 / 3) / (1 + 2 / 3)), 18 / 5) })())
+  push('M12.3 quiz Q3 (key 0): Σ_{r=1}^{12} (2r² − r) = 1222; distractors 1300 = 2×650, 650 = Σr² alone, 1144 = 2×650 − 2×78 (reconciles I15.2)', (() => { let a = 0; for (let r = 1; r <= 12; r++) a += 2 * r * r - r; const S2 = (12 * 13 * 25) / 6, S1 = (12 * 13) / 2; return a === 1222 && S2 === 650 && S1 === 78 && 2 * S2 === 1300 && 2 * S2 - 2 * S1 === 1144 })())
+  push('M12.4 quiz Q4 (key 2): the double-root family continues 1, 4, 12, 32, 80 → 192 = 6·2⁵ = 4·80 − 4·32; distractors 128 = 80 + 48 (the gap row frozen), 160 = 2×80, 240 = 3×80; 80/32 = 2.5', (() => { const u = (n: number) => (n + 1) * 2 ** n; return u(5) === 192 && 6 * 32 === 192 && 4 * 80 - 4 * 32 === 192 && 80 + 48 === 128 && 2 * 80 === 160 && 3 * 80 === 240 && 80 / 32 === 2.5 && [1, 4, 12, 32, 80].every((v, n) => u(n) === v) })())
+  push('M12.5 quiz Q5 (key 1): the recovery 10 ± 6 → 4 and 16; distractors 2 & 18, 6 & 14, 8 & 12 all tie A = 10 and fail G with √36 = 6, √84 ≈ 9.2, √96 ≈ 9.8; A² − G² = 36', (() => { const x = 10 + Math.sqrt(100 - 64), y = 10 - Math.sqrt(100 - 64); return x === 16 && y === 4 && 100 - 64 === 36 && Math.sqrt(2 * 18) === 6 && nearR(Math.sqrt(6 * 14), 9.2, 0.05) && nearR(Math.sqrt(8 * 12), 9.8, 0.05) && (2 + 18) / 2 === 10 && (6 + 14) / 2 === 10 && (8 + 12) / 2 === 10 })())
+
+  /* ---- the mixed bench: every answer ---- */
+  push('M13.1 E1 answer: means 390, whole series 455 (M11.1)', true)
+  push('M13.2 E2 answer: r = 3, a = 2, 10th = 39,366, increasing (M1.2)', 2 * 3 ** 9 === 39366)
+  push('M13.3 E3 answer: NEW — the three G.M.s 6, 18, 54 (2r⁴ = 162 ⇒ r = 3) with product 5832 = 18³ = (√(2×162))³', (() => { const ms = [2 * 3, 2 * 9, 2 * 27]; const G = Math.sqrt(2 * 162); return 2 * 3 ** 4 === 162 && ms.join(',') === '6,18,54' && 6 * 18 * 54 === 5832 && G === 18 && 18 ** 3 === 5832 })())
+  push('M13.4 E4 answer: a = 5, r = 2/3 — 5/(1/3) = 15 and 25/(1 − 4/9) = 45 (reconciles the 5.2 illustration)', (() => { const a = 5, r = 2 / 3; return near(a / (1 - r), 15) && near(a * a / (1 - r * r), 45) && near((1 - r) / (1 + r), 1 / 5) })())
+  push('M13.5 E5 answer: scale 1 − 2x − x², next term 169 (reconciles K9.4)', (() => { const u = [5, 12, 29, 70, 169]; return 12 * 29 - 5 * 70 === -2 && 2 * 70 + 29 === 169 && u.every((v, n) => (n < 2 ? true : 2 * u[n - 1] + u[n - 2] === v)) })())
+  push('M13.6 E6 answer: HMs 1/3, 1/5, 1/7; reciprocal sum 15 = (3/2)(1 + 9) (reconciles the 5.3 illustration)', (() => { const step = (9 - 1) / 4; const rec = [1 + step, 1 + 2 * step, 1 + 3 * step]; return step === 2 && rec.join(',') === '3,5,7' && rec.reduce((s, v) => s + v, 0) === 15 && (3 / 2) * (1 + 9) === 15 })())
+  push('M13.7 E7 answer: NEW — Σ_{r=1}^{20} (3r² − 2r + 1) = 8210 = 3·2870 − 2·210 + 20 (brute; 2870 and 210 reconcile I15.7/I15.13)', (() => { let a = 0; for (let r = 1; r <= 20; r++) a += 3 * r * r - 2 * r + 1; const S2 = (20 * 21 * 41) / 6, S1 = (20 * 21) / 2; return a === 8210 && S2 === 2870 && S1 === 210 && 3 * 2870 - 2 * 210 + 20 === 8210 })())
+  push('M13.8 E8 answer: (A) u_n = 3ⁿ + 2ⁿ on 2, 5, 13, 35, 97; the distractor families (B) 1, 4, 14, 46, (C) 3, 8, 18, 38, (D) 1, 4, 12, 32 (reconciles K8/K1/K7/K2)', (() => { const uC = (n: number) => 3 ** n + 2 ** n; const uA = (n: number) => 2 * 3 ** n - 2 ** n; const uB = (n: number) => 5 * 2 ** n - 2; const uD = (n: number) => (n + 1) * 2 ** n; return [0, 1, 2, 3, 4].every((n) => uC(n) === [2, 5, 13, 35, 97][n]) && [0, 1, 2, 3, 4].every((n) => uA(n) === [1, 4, 14, 46, 146][n]) && [0, 1, 2, 3, 4].every((n) => uB(n) === [3, 8, 18, 38, 78][n]) && [0, 1, 2, 3, 4].every((n) => uD(n) === [1, 4, 12, 32, 80][n]) })())
+  push('M13.9 E9 answer: (B) and (C) true; the witnesses 40 ≠ 140, the Nicomachus read 36 = 6², the fork pair', (() => { const sigmaProd: number = 40, sigmaBoth: number = 140; return sigmaProd !== sigmaBoth && 1 + 8 + 27 === 36 && 36 === 6 ** 2 })())
+  push('M13.10 E10 answer: NEW (as a shipped-A–L matter) — Σ_{k=1}^{12} F_k = F_14 − 1 = 376; roster 1 + 1 + ⋯ + 144 = 376', (() => { let a = 0; for (let k = 1; k <= 12; k++) a += F(k); return a === 376 && F(14) - 1 === 376 })())
+  push('M13.11 E11 answer: the quadratic-through-origin read — S_p = S_q (p ≠ q) forces S_{p+q} = 0; a concrete A.P. with S_5 = S_11 has S_16 = 0 (engine search)', (() => { let found = false; for (let a = -40; a <= 40 && !found; a++) for (let d = -6; d <= 6; d++) { if (d === 0) continue; const S = (n: number) => (n / 2) * (2 * a + (n - 1) * d); if (S(5) === S(11)) { found = S(16) === 0; break } } return found })())
+  push('M13.12 E12 answer: T_r = 2(r+3)², the four-term radical sum 22√2 (M8.4)', true)
+  push('M13.13 E13 answer: the cumulative squares 1, 5, 14, 30, 55 with gaps 4, 9, 16, 25 and second gaps 5, 7, 9 (A.P.); Σ_{r=1}^{12} r² = 650 (reconciles I15.2)', (() => { const T = [1, 5, 14, 30, 55]; const gaps = T.slice(1).map((v, i) => v - T[i]); const second = gaps.slice(1).map((v, i) => v - gaps[i]); return gaps.join(',') === '4,9,16,25' && second.join(',') === '5,7,9' && second[1] - second[0] === 2 && (12 * 13 * 25) / 6 === 650 && T[4] === 55 && 1 + 4 + 9 + 16 + 25 === 55 })())
+  push('M13.14 E14 answer: the unification — the A.P. 7, 11, 15, 19 under u_{n+2} = 2u_{n+1} − u_n, scale (1 − x)², p² + 4q = 0; the double-root read A + B = 7, A + 2B = 11 ⇒ A = 3, B = 4, u_n = 4n + 3 (reconciles K-EXT + A1.2)', (() => { const u = [7, 11, 15, 19]; const rec = u.slice(2).every((v, n) => 2 * u[n + 1] - u[n] === v); const A = 3, B = 4; return rec && A + B === 7 && A + 2 * B === 11 && [1, 2, 3, 4].every((n) => A + B * n === 4 * n + 3) && 2 * 2 + 4 * -1 === 0 })())
+  push('M13.15 E15 answer: NEW — the bridge under Nicomachus: Σ_{i<j≤10} ij = (3025 − 385)/2 = 1320 = 10·11·9·32/24 (brute)', (() => { let a = 0; for (let i = 1; i <= 10; i++) for (let j = i + 1; j <= 10; j++) a += i * j; const S3 = 55 ** 2, S2 = 385; return a === 1320 && S3 === 3025 && (S3 - S2) / 2 === 1320 && (2640) / 2 === 1320 && (10 * 11 * 9 * 32) / 24 === 1320 })())
+
+  /* ---- the display equations ---- */
+  push('M14.1 equation (2): the insertion trio on the pair (4, 16): three A.M.s 7, 10, 13 sum to 30; G³ = 18³ = 5832; the reciprocal law (3/2)(1/4 + 1/16) = 15/32', (() => { const A = [7, 10, 13]; return A.reduce((s, v) => s + v, 0) === 30 && 18 ** 3 === 5832 && (3 / 2) * (1 / 4 + 1 / 16) === 15 / 32 })())
+  push('M14.2 equation (3): the telescopes sweep n = 1..6 (half-gap = n/(n+1); triple = 1/2(1/2 − 1/((n+1)(n+2))))', (() => { return [1, 2, 3, 4, 5, 6].every((n) => { let a = 0, b = 0; for (let k = 1; k <= n; k++) { a += 1 / (k * (k + 1)); b += 1 / (k * (k + 1) * (k + 2)) } return near(a, n / (n + 1)) && near(b, 0.5 * (0.5 - 1 / ((n + 1) * (n + 2)))) }) })())
+  push('M14.3 equation (5): the recurring closed forms — the GF of family A (1 − x)/(1 − 5x + 6x²) and the double-root GF 1/(1 − 2x)² expanding to 1, 4, 12, 32, 80', (() => { const c1 = expand([1, -1], [1, -5, 6], 5); const c2 = expand([1], [1, -4, 4], 5); return c1.join(',') === '1,4,14,46,146' && c2.join(',') === '1,4,12,32,80' })())
+}
 
 /* ------------------------------------------------------------------ */
 /* SECTION M/N — 5.R (unit review, guarded)                            */
@@ -921,7 +1081,7 @@ const Z: SectionCheck[] = ALL5
 /* runner                                                              */
 /* ------------------------------------------------------------------ */
 
-const results = [tally('A (5.1 engines)', A), tally('B (5.1 pins)', B), tally('C (5.2 engines)', C), tally('D (5.2 pins)', D), tally('E (5.3 engines)', E), tally('F (5.3 pins)', F), tally('G (5.4 engines)', G), tally('H (5.4 pins)', H), tally('I (5.5 engines)', I), tally('J (5.5 pins)', J), tally('K (5.6 engines)', K), tally('L (5.6 pins)', L), tally('N (5.R pins)', MN), tally('Z (census)', Z)]
+const results = [tally('A (5.1 engines)', A), tally('B (5.1 pins)', B), tally('C (5.2 engines)', C), tally('D (5.2 pins)', D), tally('E (5.3 engines)', E), tally('F (5.3 pins)', F), tally('G (5.4 engines)', G), tally('H (5.4 pins)', H), tally('I (5.5 engines)', I), tally('J (5.5 pins)', J), tally('K (5.6 engines)', K), tally('KX (5.6 K-ext literals)', KX), tally('L (5.6 pins)', L), tally('M (5.R engines)', M), tally('N (5.R pins)', MN), tally('Z (census)', Z)]
 let pass = 0
 let total = 0
 for (const r of results) {

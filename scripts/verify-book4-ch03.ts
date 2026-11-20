@@ -3664,8 +3664,10 @@ const ROSTER: Cx[] = [
   ok(wordCountT >= 4800, `T11 honest word count >= 4800 (got ${wordCountT})`)
   console.log(`T11 word count: ${wordCountT}`)
 
-  // T12 repo-wide id uniqueness
-  const hitsT = execSync(`grep -rl "aa-complex-numbers-unit-3-review" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
+  // T12 repo-wide id uniqueness (anchored to `id:` declarations — the 2026-11-18
+  // swarm's latent-bug fix class: unanchored id greps trip legitimate provenance
+  // comments that honestly cite the convention, e.g. ch-06.ts's 6.R header)
+  const hitsT = execSync(`grep -rl "id: 'aa-complex-numbers-unit-3-review'" src/ scripts/ 2>/dev/null || true`, { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
   const dataHitsT = hitsT.filter((hh) => hh.includes('/books/'))
   ok(dataHitsT.length === 1, `T12 lesson id unique in book data (got files: ${dataHitsT.join(' ')})`)
 

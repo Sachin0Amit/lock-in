@@ -185,7 +185,7 @@ export function LessonView({ ref_, prev = null, next = null, prereqs = [] }: Pro
                   <Badge
                     key={c}
                     variant="outline"
-                    className="h-auto whitespace-normal rounded-full border-[var(--book-sage-line)] bg-[var(--book-sage)]/60 font-normal text-[var(--book-green-ink)] text-left leading-relaxed"
+                    className="h-auto whitespace-normal rounded-lg border-[var(--book-sage-line)] bg-[var(--book-sage)]/60 font-normal text-[var(--book-green-ink)] text-left leading-relaxed"
                   >
                     {c}
                   </Badge>
