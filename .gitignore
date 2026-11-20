@@ -700,3 +700,8 @@ server.log
 !/scripts/e2e-aa-66.page.js
 !/scripts/e2e-aa-6R.sh
 !/scripts/e2e-aa-6R.page.js
+!/scripts/verify-book4-ch07.ts
+!/scripts/e2e-aa-71.sh
+!/scripts/e2e-aa-71.page.js
+!/scripts/e2e-aa-72.sh
+!/scripts/e2e-aa-72.page.js

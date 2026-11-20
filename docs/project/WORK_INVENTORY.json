@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-20 22:28:03 (Asia/Kolkata)",
+  "generated": "2026-11-21 00:21:57 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -14,7 +14,12 @@
     "Original content only — reference books inform and verify, never reproduce protected expression",
     "Download only the current unit's reference books into temporary-references/ (gitignored); delete working copies after the unit is verified; never touch Drive originals",
     "Accuracy over volume: no fabricated formulas, history, data, or exam questions; exam-style items labelled \"exam-style\"",
-    "Maintain WORK_INVENTORY.json + DETAILED_LOG.md at every unit ship (this file's own directive, 2026-11-03)"
+    "Maintain WORK_INVENTORY.json + DETAILED_LOG.md at every unit ship (this file's own directive, 2026-11-03)",
+    {
+      "unit": "AA ch. 7 opening (lessons 7.1 + 7.2)",
+      "date": "2026-11-21",
+      "gates": "VERIFY-FIRST two-wave: scripts/verify-book4-ch07.ts A (53 engines) green BEFORE 7.1 prose, C (41 engines) green BEFORE 7.2 prose, then B (42 pins) + D (51 pins) + Z (10 census) — 197/197 final; engines caught 7 real slips pre-prose. Gates: tsc 0; lint 0 errors; lib:pack/lib:check PASS (269 books / 170 written / 918,871 words); E2E e2e-aa-71 + e2e-aa-72 90/90 across desktop 1280 + mobile 390 + dark (quiz 5/5 live on keys [1,2,0,3,1] and [2,1,3,0,1]; KaTeX errors 0; no overflow at 390 or 1280; console 0); VLM strict audit caught 2 real figure defects (Pascal triangle circles never interpolated into the SVG string; gnomon equation overlapping the grid) — fixed in ch-07.ts and re-audited PASS. Ground: Drive m2-04 module (one vision band) + m2-08 head band (two vision bands, offset +2 proven) — SOURCE_LOG keys cengage-m2-04 + cengage-m2-08; study-never-reproduce honored (every family/witness/figure/exercise our own). Mobile-overflow hardening pattern documented (one move per formula; tbinom in pattern displays; short table headers)."
+    }
   ],
   "content": {
     "disciplinesPlanned": 11,
@@ -12141,18 +12146,162 @@
             "slug": "induction-and-binomial-theorem",
             "title": "Induction and the Binomial Theorem",
             "summary": "The book’s proof engine and its most-used consequence, in the order the classics teach them. Mathematical induction first — the domino principle: base case, inductive step, and the honest scope note (what induction proves and what it never can), applied to the sum formulas chapter 5 left uncertified, to divisibility statements, and to inequality statements the AM–GM engine guessed. Then the binomial theorem for a positive integral index — Pascal’s triangle read as a counting statement about chapter 6’s selections, the theorem PROVED by induction, the general and middle terms priced exactly. The coefficients become objects of study (their sum, their alternating sum, the term independent of x), and the chapter closes with the applications: (1 + x)ⁿ ≈ 1 + nx for small x, divisibility reads, and coefficient-hunting at exam speed. The frequently used expansions — (a ± b)², (a ± b)³ and the kin every exam expects by reflex — banked as the chapter’s opening toolkit.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "Mathematical Induction: the Domino Principle",
-              "The Binomial Theorem, Proved",
               "The Binomial Theorem for Any Index",
               "The Multinomial Theorem",
               "Binomial Coefficients at Work",
-              "Binomial Applications and Approximations"
+              "Binomial Applications and Approximations",
+              "Unit 7 Completion Review"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "aa-mathematical-induction-the-domino-principle",
+                "number": "7.1",
+                "title": "Mathematical Induction: the Domino Principle",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 6279,
+                "readMins": 31,
+                "concepts": [
+                  "the principle of mathematical induction",
+                  "base case and inductive step",
+                  "the induction hypothesis as the fallen domino",
+                  "why verification is never proof",
+                  "divisibility statements and the add-a-multiple move",
+                  "inequalities with a shifted base case",
+                  "what induction never proves: counterexamples",
+                  "strong induction for two-step recurrences"
+                ],
+                "objectives": [
+                  "State the principle of mathematical induction formally — base case plus inductive step — and explain why the two together force P(n) for every natural number n.",
+                  "Run the standard induction proof on sum formulas: verify the base, assume the induction hypothesis for k, and drive P(k+1) out of P(k) — certifying the sum formulas chapter 5 derived by ladders.",
+                  "Prove divisibility statements by the add-a-multiple move: rewrite the (k+1)-case so the induction hypothesis appears as a named factor.",
+                  "Prove inequalities by induction, including statements whose base case is shifted (2ⁿ ≥ n² first holds for every n ≥ 4) — and explain the fail-witness 8 < 9 honestly.",
+                  "State Bernoulli’s inequality and prove it by induction, the engine lesson 7.6’s approximations will reuse.",
+                  "Say precisely what induction never proves — verification is not proof, and a false statement with a plausible step is killed by naming its counterexample.",
+                  "Run the strong-induction variant when the step needs MORE than the previous case (two-term recurrences, the postage family)."
+                ],
+                "prerequisites": [
+                  "aa-arithmetic-progressions-the-constant-climb",
+                  "aa-sigma-notation-and-the-classical-power-sums",
+                  "aa-the-arithmetic-geometric-mean-inequality"
+                ],
+                "sources": [
+                  "cengage-m2-04",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "figure": 2,
+                  "callout": 6,
+                  "terms": 1,
+                  "heading": 7,
+                  "derivation": 2,
+                  "example": 7,
+                  "formula": 6,
+                  "list": 1,
+                  "table": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 2,
+                  "warn": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 8
+              },
+              {
+                "id": "aa-the-binomial-theorem-proved",
+                "number": "7.2",
+                "title": "The Binomial Theorem, Proved",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5875,
+                "readMins": 29,
+                "concepts": [
+                  "the binomial theorem for a positive integral index",
+                  "Pascal’s triangle and Pascal’s rule",
+                  "the counting proof: coefficients are selection counts",
+                  "the induction proof: the theorem lesson 7.1’s engine certifies",
+                  "the general term T_{r+1} = nCr a^{n−r} b^r",
+                  "the middle term(s) and the greatest coefficient",
+                  "terms from the end: the (n + 2 − p) reversal",
+                  "the reflex toolkit: (a ± b)², (a ± b)³ and kin"
+                ],
+                "objectives": [
+                  "State the binomial theorem for a positive integral index in both its summation and term forms, and say exactly how many terms the expansion has.",
+                  "Prove the theorem TWICE — once by the counting argument on chapter 6’s selections, once by induction on n using Pascal’s rule and lesson 7.1’s engine.",
+                  "Build Pascal’s triangle from Pascal’s rule and explain why each entry is simultaneously a sum of two parents and a selection count C(n, r).",
+                  "Price any specific term with the general term formula, including the (a − b)ⁿ sign discipline.",
+                  "Locate the middle term when n is even and the two middle terms when n is odd, and connect them to the greatest coefficient of the row.",
+                  "Convert between term positions from the start and from the end with the (n + 2 − p) rule, verified on explicit term lists.",
+                  "Reassemble a hidden power from its expansion — the reverse read examinations set as recognition items."
+                ],
+                "prerequisites": [
+                  "aa-factorials-and-the-counting-toolkit",
+                  "aa-combinations-the-selection-count",
+                  "aa-mathematical-induction-the-domino-principle"
+                ],
+                "sources": [
+                  "cengage-m2-08",
+                  "cengage-jee-style",
+                  "ncert-math11-ch7-binomial-theorem",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 18,
+                  "list": 1,
+                  "callout": 6,
+                  "heading": 9,
+                  "figure": 2,
+                  "derivation": 2,
+                  "table": 3,
+                  "equation": 4,
+                  "example": 7,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 6
+                },
+                "calloutTones": {
+                  "insight": 2,
+                  "historical": 1,
+                  "theorem": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 0
+              }
+            ],
+            "words": 12154
           },
           {
             "number": 8,
@@ -50708,13 +50857,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 511,
-      "totalLines": 176091,
+      "totalLines": 176076,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5860,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 137430,
+        "src/data/library (content model + books)": 137415,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -76011,6 +76160,63 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "7eba35711f157996a6bebdc51f36063f83696c52",
+      "short": "7eba357",
+      "date": "2026-11-20 17:00",
+      "message": "run 115: finish the run-114 swarm half-ship — AA 5.6 + 5.R + ch.6 whole-unit gated end-to-end (verifiers 430/430 + 715/715, E2E 27/27 viewport runs, VLM 50 figure crops), 4 figure defects fixed in ch-06 (caption colours, footer caret, Venn triple label, same-division label), ship + log; pointer -> run 116 opens ch.7",
+      "filesChanged": 6,
+      "insertions": 1022,
+      "deletions": 56,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 4,
+          "del": 1
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 27,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 974,
+          "del": 44
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-06.ts",
+          "add": 13,
+          "del": 7
+        }
+      ]
+    },
+    {
+      "sha": "4183e723e58406f1d3e600b9ed591f70ebd4011f",
+      "short": "4183e72",
+      "date": "2026-11-20 17:01",
+      "message": "chore(bookkeeping): run-115 push record (HEAD 7eba357, ls-remote verified)",
+      "filesChanged": 1,
+      "insertions": 2,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -76018,26 +76224,26 @@
     "booksPlannedBacklog": 277,
     "booksLive": 269,
     "chaptersWritten": 39,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 168,
-    "wordsAuthored": 906824,
-    "termsDefined": 1289,
-    "quizItems": 840,
-    "exerciseQuestions": 2245,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 170,
+    "wordsAuthored": 918978,
+    "termsDefined": 1297,
+    "quizItems": 850,
+    "exerciseQuestions": 2275,
     "blockTotals": {
-      "para": 2355,
-      "callout": 1094,
-      "heading": 955,
-      "list": 202,
-      "terms": 164,
-      "equation": 321,
-      "figure": 337,
-      "derivation": 383,
-      "table": 218,
-      "example": 969,
-      "quiz": 168,
-      "exercises": 168,
-      "formula": 622,
+      "para": 2388,
+      "callout": 1106,
+      "heading": 971,
+      "list": 204,
+      "terms": 165,
+      "equation": 325,
+      "figure": 341,
+      "derivation": 387,
+      "table": 222,
+      "example": 983,
+      "quiz": 170,
+      "exercises": 170,
+      "formula": 634,
       "algorithm": 27
     }
   }

@@ -5,6 +5,7 @@ import { chapter03 } from './ch-03'
 import { chapter04 } from './ch-04'
 import { chapter05 } from './ch-05'
 import { chapter06 } from './ch-06'
+import { chapter07 } from './ch-07'
 
 /**
  * Advanced Algebra — the fourth book of the Mathematics shelf.
@@ -122,23 +123,7 @@ const chapters: Chapter[] = [
   chapter04,
   chapter05,
   chapter06,
-  {
-    number: 7,
-    slug: 'induction-and-binomial-theorem',
-    title: 'Induction and the Binomial Theorem',
-    summary:
-      'The book’s proof engine and its most-used consequence, in the order the classics teach them. Mathematical induction first — the domino principle: base case, inductive step, and the honest scope note (what induction proves and what it never can), applied to the sum formulas chapter 5 left uncertified, to divisibility statements, and to inequality statements the AM–GM engine guessed. Then the binomial theorem for a positive integral index — Pascal’s triangle read as a counting statement about chapter 6’s selections, the theorem PROVED by induction, the general and middle terms priced exactly. The coefficients become objects of study (their sum, their alternating sum, the term independent of x), and the chapter closes with the applications: (1 + x)ⁿ ≈ 1 + nx for small x, divisibility reads, and coefficient-hunting at exam speed. The frequently used expansions — (a ± b)², (a ± b)³ and the kin every exam expects by reflex — banked as the chapter’s opening toolkit.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'Mathematical Induction: the Domino Principle',
-      'The Binomial Theorem, Proved',
-      'The Binomial Theorem for Any Index',
-      'The Multinomial Theorem',
-      'Binomial Coefficients at Work',
-      'Binomial Applications and Approximations',
-    ],
-  },
+  chapter07,
   {
     number: 8,
     slug: 'theory-of-equations',
