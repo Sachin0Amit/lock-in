@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-20 01:26:41 (Asia/Kolkata)",
+  "generated": "2026-11-20 22:28:03 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -9140,7 +9140,7 @@
         "description": "The book where algebra grows up a second time. Foundation Mathematics opened the doorstep and Arithmetic and Number Systems proved the ground; Elementary Algebra opened the door and ended at the function idea. This book walks through: functions become objects — relations as sets of pairs, machines classified one-one and onto, composed in series with their honest domains, and undone by inverses. The quadratic returns as a working object — optimized, settled as inequalities on the sign diagram, mined for symmetric reads, its roots located in intervals. The extension ladder climbs its most famous rung: complex numbers built from a closure failure, carried by the field laws, and handed back to the quadratic formula so every discriminant is kept. Inequalities become the classical engine (AM–GM, Cauchy–Schwarz, the triangle inequality — proved, not recited). Sequences and series run from the constant climb to the infinite tail; counting becomes the exact science of permutations and combinations; mathematical induction certifies statements for every n at once; the binomial theorem is proved for a positive integral index and worked to its approximation power; the theory of equations counts roots, prices symmetric functions and transforms old roots into new equations; and the exponential and logarithmic family is defined once and for all as inverse machines. Cross-references Foundation Mathematics, Arithmetic and Number Systems and Elementary Algebra throughout; hands off to Coordinate Geometry, Trigonometry, Calculus and Probability.",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 4,
+        "chaptersWritten": 6,
         "chapters": [
           {
             "number": 1,
@@ -11107,12 +11107,10 @@
             "number": 5,
             "slug": "sequences-and-series",
             "title": "Sequences and Series",
-            "summary": "Algebra’s ordered half: the sequence as an object with a position, then the two progressions every examination ecosystem prices. The arithmetic progression is the constant climb — equal steps, a general term linear in the position, the Gauss pairing that prices its sum, and arithmetic means inserted between numbers whose sum is always n copies of the single mean. The geometric progression is the constant ratio — multiplicative growth, the sum by the shift-and-subtract machine, geometric means whose product is always G to the power n, and the infinite tail: what happens to a sum when the ratio shrinks the terms to nothing. The harmonic, arithmetico-geometric and special-sum families are banked; sigma notation and the classical power sums are banked this run (5.5); the recurring series close the chapter on the next run.",
-            "status": "in-progress",
-            "lessonsWritten": 5,
-            "plannedLessons": [
-              "Recurring Series and the Scale of Relation"
-            ],
+            "summary": "Algebra’s ordered half: the sequence as an object with a position, then the two progressions every examination ecosystem prices. The arithmetic progression is the constant climb — equal steps, a general term linear in the position, the Gauss pairing that prices its sum, and arithmetic means inserted between numbers whose sum is always n copies of the single mean. The geometric progression is the constant ratio — multiplicative growth, the sum by the shift-and-subtract machine, geometric means whose product is always G to the power n, and the infinite tail: what happens to a sum when the ratio shrinks the terms to nothing. The harmonic, arithmetico-geometric and special-sum families are banked; sigma notation and the classical power sums are banked this run (5.5); the recurring series closed the chapter (5.6).",
+            "status": "complete",
+            "lessonsWritten": 7,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "aa-arithmetic-progressions-the-constant-climb",
@@ -11457,27 +11455,686 @@
                 },
                 "exerciseQuestions": 15,
                 "termsDefined": 11
+              },
+              {
+                "id": "aa-recurring-series-and-the-scale-of-relation",
+                "number": "5.6",
+                "title": "Recurring Series and the Scale of Relation",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8069,
+                "readMins": 40,
+                "concepts": [
+                  "recurring series: the series that rebuilds itself",
+                  "the scale of relation 1 − px − qx²",
+                  "the generating function: the whole series as one fraction",
+                  "the general term by partial fractions",
+                  "the double root and its hidden arithmetic climb",
+                  "Fibonacci, Binet and Cassini",
+                  "recurring decimals through the machine",
+                  "the honesty of finite prefixes and the sum-to-infinity licence"
+                ],
+                "objectives": [
+                  "Define a recurring series and its scale of relation, written in the classical form 1 − px − qx², and recover the scale from a roster of terms by solving two linear equations — then check it against every remaining term.",
+                  "Derive the generating function of a two-term recurring series and prove the rational-function closed form: the whole infinite series collapses to one fraction with a two-term numerator.",
+                  "Prove and use the general term by partial fractions — once for distinct bases ($u_n = A r_1^n + B r_2^n$) and once for a double base ($u_n = (A + Bn) r^n$) — and continue any such series without listing terms.",
+                  "Price the sum of the first n terms of a split family by the geometric machines of lesson 5.2, and the sum to infinity of a convergent recurring series with its honest licence on x.",
+                  "Run the Fibonacci case study: the generating function, Binet formula and the sum identity proved by telescoping, with Cassini identity stated honestly and its every-n certificate deferred to chapter 7.",
+                  "Run recurring decimals through the machine — the repeating block IS a recurring series, and the classic denominators 9, 99, 999 are the scale evaluated at x = 1/10 — and split a mixed decimal into head and tail.",
+                  "State the prefix honesty: a finite prefix never pins a scale — infinitely many continuations agree with any finite roster — and name what extra information does settle a series."
+                ],
+                "prerequisites": [
+                  "aa-arithmetic-progressions-the-constant-climb",
+                  "aa-geometric-progressions-and-the-infinite-tail",
+                  "aa-special-series-and-the-method-of-differences"
+                ],
+                "sources": [
+                  "hall-knight-higher-algebra",
+                  "wiki-fibonacci-number",
+                  "cengage-m2-05"
+                ],
+                "blockCounts": {
+                  "para": 23,
+                  "heading": 9,
+                  "callout": 14,
+                  "list": 1,
+                  "example": 14,
+                  "figure": 4,
+                  "derivation": 7,
+                  "table": 1,
+                  "terms": 1,
+                  "formula": 7,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 3,
+                  "historical": 2,
+                  "theorem": 4,
+                  "insight": 2,
+                  "warn": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 12
+              },
+              {
+                "id": "aa-sequences-and-series-unit-5-review",
+                "number": "5.R",
+                "title": "Unit 5 Completion Review",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9138,
+                "readMins": 46,
+                "concepts": [
+                  "the arc of the chapter: six engines, one room — the climb, the ratio, the flip, the census, the sigma and the scale",
+                  "the engine map: equal steps to the climb; a fixed multiple to the ratio engine; reciprocals to the flip; gap rows and disguised differences to the census; formulas in the position to sigma; terms built from predecessors to the scale",
+                  "the two master tables: the formula-family census (statement, validity case, when to reach) and the decision table that routes a shape to its engine",
+                  "the one discipline behind every sum machine: rewrite the sum against a shifted copy of itself and cancel the middle",
+                  "the recurring umbrella: every family the chapter priced is a recurring series — the geometric at order one, the arithmetic at the double root",
+                  "the mixed bench: examination items that price several engines in one exhibit — the way the hall actually prices a chapter",
+                  "the ground the engines stand on: the ratio licence before any infinite sum, the dying endpoint before any telescope, and the prefix honesty before any extension"
+                ],
+                "objectives": [
+                  "hold the whole chapter in one hand — the wiring of its six engines, the promises made early and cashed late, and where each master table row lives",
+                  "name which engine a question wants from its shape alone — equal steps, a fixed multiple, reciprocals, a gap row, a position formula, a recurrence — and run it at examination speed",
+                  "recall the consolidated laws and the two master tables without re-deriving them, validity cases and licences included",
+                  "solve mixed items that price several engines in one machine, and diagnose every miss back to its home lesson",
+                  "state the chapter's honest boundaries: what the school canon and the competitive canon share, what the recurring-series vocabulary honestly labels as the classical stretch, and which certificates are deferred to later chapters"
+                ],
+                "prerequisites": [
+                  "aa-arithmetic-progressions-the-constant-climb",
+                  "aa-geometric-progressions-and-the-infinite-tail",
+                  "aa-harmonic-and-arithmetico-geometric-progressions",
+                  "aa-special-series-and-the-method-of-differences",
+                  "aa-sigma-notation-and-the-classical-power-sums",
+                  "aa-recurring-series-and-the-scale-of-relation"
+                ],
+                "sources": [
+                  "cengage-m2-05",
+                  "ncert-math11-ch8-sequences-series",
+                  "cengage-jee-style",
+                  "jee-main-2026-syllabus",
+                  "hall-knight-higher-algebra",
+                  "wiki-fibonacci-number",
+                  "wiki-nicomachus-theorem"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "heading": 6,
+                  "list": 2,
+                  "figure": 2,
+                  "callout": 7,
+                  "derivation": 3,
+                  "equation": 5,
+                  "table": 2,
+                  "example": 8,
+                  "formula": 8,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 1,
+                  "insight": 2,
+                  "warn": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 9
               }
             ],
-            "words": 24550
+            "words": 41757
           },
           {
             "number": 6,
             "slug": "counting-permutations-combinations",
             "title": "Counting: Permutations and Combinations",
             "summary": "Algebra’s discrete half: counting as an exact science, the way both the JEE module and Hall & Knight teach it — the fundamental principle first (multiply along a chain of independent choices, add across mutually exclusive alternatives), then the two great counts derived rather than memorized: the permutation as an arrangement (nPr from the chain itself, factorials, arrangements of alike things, the circle), and the combination as a selection (nCr, its symmetry and complement reads, choosing from groups). The chapter closes with the distribution puzzles — words into boxes, people into rooms, at-least and at-most selections — where the two principles interlock and a wrong model is caught by the small-case census. Circular permutations — the round table and the necklace — with the clockwise and anticlockwise arrangements priced exactly; the distribution of identical objects and of distinct objects into groups, with and without empty groups allowed; and the properties of nCr (symmetry, absorption, Pascal’s identity) derived, not quoted. This is the ground Probability inherits, and it is built to be inherited honestly.",
-            "status": "planned",
-            "lessonsWritten": 0,
-            "plannedLessons": [
-              "Factorials and the Counting Toolkit",
-              "Circular and Restricted Permutations",
-              "The Fundamental Principle of Counting",
-              "Permutations: the Arrangement Count",
-              "Combinations: the Selection Count",
-              "Distributions and the Classic Counting Puzzles"
+            "status": "complete",
+            "lessonsWritten": 7,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "aa-the-fundamental-principle-of-counting",
+                "number": "6.1",
+                "title": "The Fundamental Principle of Counting",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8228,
+                "readMins": 41,
+                "concepts": [
+                  "the multiplication rule for AND-chains of choices",
+                  "the addition rule for disjoint OR-forks",
+                  "with repetition versus without repetition",
+                  "the outcome set: a count is the size of a set",
+                  "the small-case census before any formula",
+                  "the complement principle: total minus bad",
+                  "double counting and the honest divide, seeded forward"
+                ],
+                "objectives": [
+                  "Count journeys, menus and answer sheets with the multiplication rule — and prove it rather than recite it: n added to itself m times, block by block, on the outcome set itself.",
+                  "Split every question into stages (AND) or alternatives (OR) before touching numbers: multiply along chains, add across forks — and only across DISJOINT forks, with the overlap correction when forks share outcomes.",
+                  "Tell the two repetition models apart at a glance: the free chain with n to the k, the shrinking chain n(n−1)…(n−k+1) — each censused at small scale before it is trusted.",
+                  "Read any count as the cardinality of an outcome set — a chain is a cartesian product, a disjoint fork a union — standing on Chapter 1’s set-of-pairs view.",
+                  "Run the small-case census as the first move of every problem: list sizes 2 and 3 and compare against the formula, so a wrong model is caught before it is priced.",
+                  "Price at-least-one questions by the complement (total minus bad), and name the divide-by-two repair that the selection lesson owns when order stops mattering."
+                ],
+                "prerequisites": [
+                  "aa-relations-the-set-of-pairs-view"
+                ],
+                "sources": [
+                  "cengage-m2-07",
+                  "cengage-jee-style",
+                  "ncert-math11-ch6-permutations-combinations",
+                  "jee-main-2026-syllabus",
+                  "hall-knight-higher-algebra"
+                ],
+                "blockCounts": {
+                  "para": 13,
+                  "heading": 8,
+                  "figure": 2,
+                  "list": 1,
+                  "callout": 8,
+                  "equation": 8,
+                  "derivation": 4,
+                  "formula": 5,
+                  "example": 10,
+                  "table": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "theorem": 1,
+                  "warn": 2,
+                  "insight": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 10
+              },
+              {
+                "id": "aa-factorials-and-the-counting-toolkit",
+                "number": "6.2",
+                "title": "Factorials and the Counting Toolkit",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9004,
+                "readMins": 45,
+                "concepts": [
+                  "factorial notation and the shrinking chain",
+                  "the recursion law n·(n−1)!",
+                  "the two unwinding fractions n!/r! and n!/(n−r)!",
+                  "0! as the empty product",
+                  "three false factorial laws, refuted by witnesses",
+                  "the exponent of prime in n! (Legendre)",
+                  "the composite honesty min rule and trailing zeros",
+                  "properties of nCr: symmetry, Pascal, ratio law, the middle maximum"
+                ],
+                "objectives": [
+                  "Define the factorial as the bookkeeping of the shrinking chain of lesson 6.1, run the recursion n! = n·(n−1)! down any roster, and state 0! = 1 as the empty-product consistency it is — never as a decree.",
+                  "Prove and use the two unwinding fractions — n!/r! as the top n−r factors and n!/(n−r)! as the top r factors of the one chain — always counting factors before multiplying, and read each as a seat-count of the multiplication rule.",
+                  "Refute the three false laws (m+n)! ≠ m! + n!, (mn)! ≠ m!·n!, (kn)! ≠ k·n! with tiny hand-listed witnesses, and explain structurally why every such shortcut undersells the true value.",
+                  "Compute the exponent of a prime in n! by Legendre’s floor-counting census — each multiple of p donating one p, each multiple of p² a second — prove the census counts every donation exactly, and price composite powers honestly by the min rule, cross-referencing the trailing-zeros instance ANS 4.3 already banked (cited, never re-taught).",
+                  "Read the combination symbol nCr = n!/(r!(n−r)!) as factorial algebra and prove its property stack — symmetry, the equality discipline, Pascal’s identity, the ratio law, the middle maximum, k! divisibility of consecutive runs, p | pCr — by algebra here, as the groundwork lesson 6.5 re-reads as selection facts.",
+                  "Solve factorial equations and row equations at exam speed by unwinding: recursion hunts like (n+2)! = 42·n!, equality-discipline reads like nC12 = nC8, and ratio systems like the symmetric 56/70/56 triple.",
+                  "Name where every tool is cashed — 6.3’s arrangements, 6.5’s selections, 6.6’s distributions, chapter 7’s binomial coefficients — and the Probability ground this chapter’s counted universe hands forward."
+                ],
+                "prerequisites": [
+                  "aa-the-fundamental-principle-of-counting",
+                  "ans-fundamental-theorem-of-arithmetic"
+                ],
+                "sources": [
+                  "cengage-m2-07",
+                  "cengage-jee-style",
+                  "ncert-math11-ch6-permutations-combinations",
+                  "jee-main-2026-syllabus",
+                  "hall-knight-higher-algebra",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 16,
+                  "heading": 5,
+                  "callout": 12,
+                  "equation": 10,
+                  "list": 2,
+                  "figure": 3,
+                  "derivation": 5,
+                  "example": 11,
+                  "formula": 6,
+                  "table": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 3,
+                  "insight": 2,
+                  "historical": 2,
+                  "warn": 2,
+                  "theorem": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 10
+              },
+              {
+                "id": "aa-permutations-the-arrangement-count",
+                "number": "6.3",
+                "title": "Permutations: the Arrangement Count",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9128,
+                "readMins": 46,
+                "concepts": [
+                  "permutation: the arrangement where order is priced",
+                  "the r vacant places and the shrinking chain",
+                  "the formula nPr = n!/(n−r)! as the chain compressed",
+                  "nPn = n! and the 0! consistency",
+                  "repetition allowed: the n^r census told apart from nPr",
+                  "arrangements of alike things by the overcount division",
+                  "the dictionary rank: 1 plus the words-before count",
+                  "the small-case census as the wrong-model catcher"
+                ],
+                "objectives": [
+                  "Define a permutation of n distinct objects taken r at a time as an arrangement in which order is priced, and count small cases by hand before any formula is trusted — the census discipline this chapter installed at lesson 6.1.",
+                  "Derive the formula for permutation from the r vacant places themselves: the chain n, n−1, …, n−r+1 closed by the multiplication rule of lesson 6.1, then compressed by the factorial bookkeeping of lesson 6.2 into n!/(n−r)! — never memorized, always re-derivable.",
+                  "Price the endpoints nPn = n! and nP1 = n, read the 0! = 1 consistency cross-referenced from lesson 6.2, and solve nPr equations by matching chains of consecutive factors.",
+                  "Tell the with-repetition count n^r from nPr with the small-case census — each seat free versus each seat eating the pool — and price answer sheets, codes and signals of both kinds.",
+                  "Count arrangements of alike things n!/(p!q!…) through the overcount argument: stamp the twins distinct, overcount to n!, then divide by every stamping — with the 2-alike-of-3 case listed by hand as the honest exhibit.",
+                  "Compute the dictionary rank of a word among the arrangements of its letters: rank = 1 + the words-before count, priced seat by seat down the alphabetical ladder, with alike letters shrinking each rung.",
+                  "Use the complement read (total minus bad) on adjacency questions such as two alike letters never together — the seed lesson 6.1 planted and lesson 6.4 will cash at full strength."
+                ],
+                "prerequisites": [
+                  "aa-the-fundamental-principle-of-counting",
+                  "aa-factorials-and-the-counting-toolkit"
+                ],
+                "sources": [
+                  "cengage-m2-07",
+                  "cengage-jee-style",
+                  "ncert-math11-ch6-permutations-combinations",
+                  "jee-main-2026-syllabus",
+                  "hall-knight-higher-algebra",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 9,
+                  "heading": 6,
+                  "callout": 8,
+                  "list": 2,
+                  "figure": 3,
+                  "derivation": 4,
+                  "equation": 5,
+                  "formula": 4,
+                  "example": 10,
+                  "table": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 2,
+                  "warn": 3,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 10
+              },
+              {
+                "id": "aa-circular-and-restricted-permutations",
+                "number": "6.4",
+                "title": "Circular and Restricted Permutations",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9772,
+                "readMins": 49,
+                "concepts": [
+                  "restrictions: always together and never together",
+                  "the bundle method (bundle plus internal order)",
+                  "the gap method (gaps between the seated)",
+                  "circular permutations and the shift argument",
+                  "clockwise and anticlockwise arrangements",
+                  "the necklace, garland and keyring divide by two",
+                  "alternation and the subtraction read at round tables",
+                  "the small-case census as the wrong-model catcher"
+                ],
+                "objectives": [
+                  "Classify a restriction into its family — particular objects always together, or never together — and name the engine each family demands before any factorial is written down.",
+                  "Run the bundle method: bind the r particular objects into one object, arrange the shortened roster, then price the internal order r! — and verify the count by literal small-case enumeration.",
+                  "Run the gap method: seat the unrestricted objects first, count the gaps they create (n−r+1 in a row, n−r at a round table), and place the restricted objects into distinct gaps — knowing when the placement is an arrangement and when it is a selection.",
+                  "Prove the circle count (n−1)! by the shift argument — each circular arrangement unwraps into exactly n linear ones — and price alternation, together and never-together at round tables by gaps and by subtraction.",
+                  "Prove the necklace count (n−1)!/2 by the observation-side argument, know exactly which objects pay it (necklaces, garlands, keyrings, bracelets) and which do not (tables with an observable clockwise side), and respect the n ≥ 3 edge of the divide.",
+                  "Run the small-case census — list n = 3 and n = 4 literally before trusting any circular formula — so that a wrong model is caught before it is priced.",
+                  "Read both routes to one count: gap and subtraction must agree when the cases split cleanly, and the disagreement of two routes is a missing case, not a second answer."
+                ],
+                "prerequisites": [
+                  "aa-permutations-the-arrangement-count"
+                ],
+                "sources": [
+                  "cengage-m2-07",
+                  "cengage-jee-style",
+                  "ncert-math11-ch6-permutations-combinations",
+                  "jee-main-2026-syllabus",
+                  "hall-knight-higher-algebra",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 11,
+                  "heading": 6,
+                  "callout": 10,
+                  "equation": 7,
+                  "derivation": 4,
+                  "list": 2,
+                  "example": 9,
+                  "formula": 6,
+                  "figure": 3,
+                  "table": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "insight": 2,
+                  "theorem": 2,
+                  "warn": 2,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 10
+              },
+              {
+                "id": "aa-combinations-the-selection-count",
+                "number": "6.5",
+                "title": "Combinations: the Selection Count",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8251,
+                "readMins": 41,
+                "concepts": [
+                  "combination as selection, not arrangement",
+                  "the order divide: nCr = nPr / r!",
+                  "the complement law — choose is reject",
+                  "Pascal’s identity as the in/out split",
+                  "the ratio law and how a row grows",
+                  "the 2ⁿ census of all selections",
+                  "the 2ⁿ − 1 at-least-one census",
+                  "selection-then-arrangement words"
+                ],
+                "objectives": [
+                  "Derive ${}^nC_r$ from ${}^nP_r$ by the two-step split — every arrangement is a selection followed by an ordering of the cast — and never treat the fraction as a memorised formula: the select-then-arrange route rebuilds it in one line.",
+                  "Re-read lesson 6.2’s factorial-algebra properties as selection facts: prove the complement law by the choose-is-reject bijection, Pascal’s identity by the in/out split on one marked object, and the ratio law as the growth of a row — counting proofs beside 6.2’s algebraic ones, cited never re-taught.",
+                  "Run the equality discipline as a mirror hunt: ${}^nC_x = {}^nC_y$ forces $x = y$ or $x + y = n$, because a row strictly climbs to its middle — and solve equation-shaped census questions without listing a thing.",
+                  "Count the two censuses by the per-object decision: $2^n$ selections of zero or more from $n$ different objects, $2^n - 1$ of at least one — and run both engines on rosters of our own, splitting a census by any marked object into two equal halves.",
+                  "Price at-least-one-of-each product chains $(2^a - 1)(2^b - 1)$ and the at-most-k symmetry hunts on odd rosters, checking every number against a literal enumeration before it is reported.",
+                  "Recognise and price selection-then-arrangement words — ${}^nC_r \\cdot r!$, across single rosters and two-group casts — and know the one question that governs every counting word: does the order matter here?",
+                  "Name the Probability handoff honestly: a probability is favourable selections over total selections, and the counted universe this chapter builds is exactly the ground Probability inherits."
+                ],
+                "prerequisites": [
+                  "aa-factorials-and-the-counting-toolkit",
+                  "aa-permutations-the-arrangement-count"
+                ],
+                "sources": [
+                  "cengage-m2-07",
+                  "cengage-jee-style",
+                  "ncert-math11-ch6-permutations-combinations",
+                  "jee-main-2026-syllabus",
+                  "hall-knight-higher-algebra",
+                  "khattar-qa-4e",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 11,
+                  "heading": 5,
+                  "list": 2,
+                  "callout": 3,
+                  "derivation": 4,
+                  "equation": 8,
+                  "formula": 5,
+                  "example": 13,
+                  "table": 2,
+                  "figure": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 8
+              },
+              {
+                "id": "aa-distributions-and-the-classic-counting-puzzles",
+                "number": "6.6",
+                "title": "Distributions and the Classic Counting Puzzles",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 11432,
+                "readMins": 57,
+                "concepts": [
+                  "selection from identical objects and the (n + 1)-seat census",
+                  "division and distribution of distinct objects",
+                  "groups of equal size and the k-factorial honesty",
+                  "distribution of identical objects: bars in gaps",
+                  "integral solutions by the series method",
+                  "the principle of inclusion and exclusion",
+                  "derangements and the exactly-k-correct censuses"
+                ],
+                "objectives": [
+                  "Count selections from identical stocks — the $n + 1$ zero-or-more census, mixed identical-and-distinct censuses by the multiplication rule, and the divisor-count reread of Arithmetic and Number Systems 4.3, cited and never re-taught.",
+                  "Divide and distribute distinct objects — the $\\tbinom{m+n}{m}$ two-group split, the three-group and general $m!/(x_1!\\,x_2!\\cdots x_k!)$ engine, the equal-size division with its $k!$ correction proved on a four-object literal table, and the $\\times k!$ a person-count charges.",
+                  "Distribute identical objects — the bars-in-gaps count $\\tbinom{n+r-1}{r-1}$ and the gaps-in-bars count $\\tbinom{n-1}{r-1}$, both proved, both read as equations in non-negative and positive unknowns.",
+                  "Price integral solutions by the series method — coefficients of a product of geometric strings, the $(1-x)^{-n}$ coefficient law NAMED as chapter 7’s any-index binomial doorstep and never cashed here.",
+                  "Run the principle of inclusion and exclusion from the two-set Venn census to the onto count $r^n - \\tbinom{r}{1}(r-1)^n + \\cdots$, and price derangements $D(n) = n!\\sum(-1)^k/k!$ with $D(4) = 9$ exhibited by hand.",
+                  "Open every puzzle at $n = 2$ and $n = 3$ — the small-case census that catches a wrong model before it is priced, the discipline this chapter closes with."
+                ],
+                "prerequisites": [
+                  "aa-combinations-the-selection-count",
+                  "ans-divisors-from-dna-divisor-counts"
+                ],
+                "sources": [
+                  "cengage-m2-07",
+                  "cengage-jee-style",
+                  "ncert-math11-ch6-permutations-combinations",
+                  "jee-main-2026-syllabus",
+                  "hall-knight-higher-algebra",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 7,
+                  "callout": 12,
+                  "equation": 12,
+                  "example": 21,
+                  "formula": 5,
+                  "derivation": 7,
+                  "table": 4,
+                  "figure": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 3,
+                  "warn": 3,
+                  "insight": 3,
+                  "theorem": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 11
+              },
+              {
+                "id": "aa-counting-permutations-combinations-unit-6-review",
+                "number": "6.R",
+                "title": "Unit 6 Completion Review",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 11257,
+                "readMins": 56,
+                "concepts": [
+                  "the arc of the chapter: six engines, one room — the principle, the toolkit, the arrangement, the circle, the selection and the puzzle room",
+                  "the decision map: AND or OR, repetition or not, order or not, alike or distinct, line or circle, flip or no flip, groups or persons, empty allowed or not",
+                  "the master count table: one row per count — its question, its formula, its verified witness and its trap",
+                  "the one discipline behind every formula: the multiplication rule plus honest divides, each divide a count of stamps sharing one object",
+                  "the outcome-set ground of chapter 1: a count is the size of a set of outcomes, and every divide is a quotient of a set",
+                  "the mixed bench: examination items that price several engines in one exhibit — the way the hall prices a chapter",
+                  "the Probability handoff: favourable selections over total selections — the counted universe this chapter hands over"
+                ],
+                "objectives": [
+                  "hold the whole chapter in one hand — the wiring of its six engines, the promises made early and cashed late (the divide-by-two 6.1 seeded, 6.5 cashed; the complement 6.1 planted, 6.4 and 6.6 grew; the nCr algebra 6.2 built, 6.5 re-read as selection facts), and where each master count row lives.",
+                  "run the decision map’s questions in order — does a stage spend its option, does order matter, are the objects alike, is the seating round or flippable, groups or persons, empty allowed or not — and reach for the engine the answers point at, at examination speed.",
+                  "recall the consolidated laws and the master count table without re-deriving them — each formula, its validity seat and its trap — and rebuild any of them from the multiplication rule plus its divides when memory fails.",
+                  "solve mixed items that price several engines in one exhibit, and diagnose every miss back to its home lesson by the shape it wore.",
+                  "state the chapter’s honest boundaries — what the school canon (NCERT class 11 chapter 6) and the competitive canon (the JEE unit list, Hall & Knight, Khattar’s aptitude batteries) share, what is deferred to chapter 7’s binomial theorem and the Combinatorics shelf, and the Probability ground this chapter hands over as favourable selections over total selections."
+                ],
+                "prerequisites": [
+                  "aa-the-fundamental-principle-of-counting",
+                  "aa-factorials-and-the-counting-toolkit",
+                  "aa-permutations-the-arrangement-count",
+                  "aa-circular-and-restricted-permutations",
+                  "aa-combinations-the-selection-count",
+                  "aa-distributions-and-the-classic-counting-puzzles"
+                ],
+                "sources": [
+                  "cengage-m2-07",
+                  "cengage-jee-style",
+                  "ncert-math11-ch6-permutations-combinations",
+                  "jee-main-2026-syllabus",
+                  "hall-knight-higher-algebra",
+                  "khattar-qa-4e",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "heading": 6,
+                  "list": 2,
+                  "figure": 2,
+                  "callout": 7,
+                  "derivation": 3,
+                  "equation": 6,
+                  "table": 2,
+                  "example": 8,
+                  "formula": 9,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 1,
+                  "insight": 2,
+                  "warn": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 9
+              }
             ],
-            "lessons": [],
-            "words": 0
+            "words": 67072
           },
           {
             "number": 7,
@@ -50050,14 +50707,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 510,
-      "totalLines": 171705,
+      "srcFilesTracked": 511,
+      "totalLines": 176091,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5860,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 133044,
+        "src/data/library (content model + books)": 137430,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -50285,7 +50942,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-19",
+      "surveyed": "2026-11-20",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -75081,33 +75738,306 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "1ebf68fecdb127823e70579797f5b9ac4f304533",
+      "short": "1ebf68f",
+      "date": "2026-11-19 19:57",
+      "message": "feat(aa-ch05): author 5.5 sigma notation & classical power sums — all four hosted folds served",
+      "filesChanged": 12,
+      "insertions": 1343,
+      "deletions": 108,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 303,
+          "del": 96
+        },
+        {
+          "path": "scripts/author_lesson55.py",
+          "add": 289,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-55.page.js",
+          "add": 62,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-55.sh",
+          "add": 102,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch05.ts",
+          "add": 297,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-05.ts",
+          "add": 254,
+          "del": 3
+        }
+      ]
+    },
+    {
+      "sha": "e6bc299776cf5488863e9ff8b30f3d079de64b8a",
+      "short": "e6bc299",
+      "date": "2026-11-19 19:57",
+      "message": "chore(bookkeeping): run-113 push record (HEAD 1ebf68f, ls-remote verified)",
+      "filesChanged": 1,
+      "insertions": 2,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "278f33e5ca084c7081bf87035bed17f7ba018fd8",
+      "short": "278f33e",
+      "date": "2026-11-20 10:53",
+      "message": "90937dab-1993-4f78-bc89-0658a0086639",
+      "filesChanged": 35,
+      "insertions": 11353,
+      "deletions": 48,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 28,
+          "del": 0
+        },
+        {
+          "path": "docs/project/BOOK_FORMAT.md",
+          "add": 9,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/research/AA_CH06_MASTER_PLAN.md",
+          "add": 425,
+          "del": 0
+        },
+        {
+          "path": "scripts/assemble-aa-swarm.py",
+          "add": 836,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-56.page.js",
+          "add": 63,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-56.sh",
+          "add": 104,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-5R.page.js",
+          "add": 54,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-5R.sh",
+          "add": 107,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-61.page.js",
+          "add": 51,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-61.sh",
+          "add": 111,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-62.page.js",
+          "add": 51,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-62.sh",
+          "add": 107,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-63.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-63.sh",
+          "add": 107,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-64.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-64.sh",
+          "add": 105,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-65.page.js",
+          "add": 51,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-65.sh",
+          "add": 108,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-66.page.js",
+          "add": 52,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-66.sh",
+          "add": 106,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-6R.page.js",
+          "add": 52,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-6R.sh",
+          "add": 107,
+          "del": 0
+        },
+        {
+          "path": "scripts/transcribe-m2-07.sh",
+          "add": 85,
+          "del": 0
+        },
+        {
+          "path": "scripts/transcribe-m2-07b.sh",
+          "add": 53,
+          "del": 0
+        },
+        {
+          "path": "scripts/transcribe-m2-07c.sh",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/transcribe-m2-07d.sh",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch03.ts",
+          "add": 4,
+          "del": 2
+        },
+        {
+          "path": "scripts/verify-book4-ch05.ts",
+          "add": 162,
+          "del": 2
+        },
+        {
+          "path": "scripts/verify-book4-ch06.ts",
+          "add": 3793,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/lesson-view.tsx",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/book.ts",
+          "add": 18,
+          "del": 28
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-05.ts",
+          "add": 688,
+          "del": 13
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-06.ts",
+          "add": 3714,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 277,
     "booksLive": 269,
-    "chaptersWritten": 37,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 159,
-    "wordsAuthored": 822545,
-    "termsDefined": 1200,
-    "quizItems": 795,
-    "exerciseQuestions": 2110,
+    "chaptersWritten": 39,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 168,
+    "wordsAuthored": 906824,
+    "termsDefined": 1289,
+    "quizItems": 840,
+    "exerciseQuestions": 2245,
     "blockTotals": {
-      "para": 2227,
-      "callout": 1013,
-      "heading": 897,
-      "list": 188,
-      "terms": 155,
-      "equation": 260,
-      "figure": 313,
-      "derivation": 342,
-      "table": 197,
-      "example": 865,
-      "quiz": 159,
-      "exercises": 159,
-      "formula": 567,
+      "para": 2355,
+      "callout": 1094,
+      "heading": 955,
+      "list": 202,
+      "terms": 164,
+      "equation": 321,
+      "figure": 337,
+      "derivation": 383,
+      "table": 218,
+      "example": 969,
+      "quiz": 168,
+      "exercises": 168,
+      "formula": 622,
       "algorithm": 27
     }
   }

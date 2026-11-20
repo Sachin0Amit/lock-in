@@ -112,7 +112,7 @@ const lesson61: Lesson = {
 
     { kind: 'heading', text: 'Two Exhibits, Two Rules' },
     { kind: 'para', text: 'Take the journey first, and do the honest thing before any formula: list it. A two-leg journey is one trail AND one road — pick a trail from Ashvale to Beacon, then a road from Beacon to the harbour. The figure below draws the tree; the roster beneath it writes the census out in full.' },
-    { kind: 'figure', caption: 'The route tree of the journey exhibit: three amber curves (labelled trail 1 to trail 3) run from Ashvale to Beacon, four curves (labelled road 1 to road 4) run from Beacon to the Harbour, and the fan of twelve orange dots on the right marks the twelve two-leg journeys — one dot per trail-and-road pairing, 3 × 4 = 12. Every dot is reached from exactly one trail and one road: the dots ARE the census of all pairings, the cartesian product of the trail set with the road set in miniature.', svg: routeTreeSvg() },
+    { kind: 'figure', caption: 'The route tree of the journey exhibit: three green curves (labelled trail 1 to trail 3) run from Ashvale to Beacon, four amber curves (labelled road 1 to road 4) run from Beacon to the Harbour, and the fan of twelve orange dots on the right marks the twelve two-leg journeys — one dot per trail-and-road pairing, 3 × 4 = 12. Every dot is reached from exactly one trail and one road: the dots ARE the census of all pairings, the cartesian product of the trail set with the road set in miniature.', svg: routeTreeSvg() },
     { kind: 'list', marker: 'decimal', items: [
       'journey 1 — trail 1, then road 1',
       'journey 2 — trail 1, then road 2',
@@ -3151,9 +3151,11 @@ function equalSizePairingSvg(): string {
     <path d="M 100 189 C 70 189, 70 241, 100 241"/>
   </g>
   <g font-size="10.5" fill="#d97706" font-weight="700">
-    <text x="60" y="215">same</text>
-    <text x="60" y="228">division</text>
-    <text x="72" y="215"> </text>
+    <!-- run-115 QA: the label moved to the empty lower-left corner — it used
+         to sit at (60,215) where the two bracket arcs' leftmost reaches
+         (x ≈ 55–66) wove through the words -->
+    <text x="28" y="356">same</text>
+    <text x="28" y="368">division</text>
   </g>
   <g fill="#ffedd5" stroke="#ea580c" stroke-width="1.8"><rect x="470" y="150" width="200" height="34" rx="6"/><rect x="470" y="196" width="200" height="34" rx="6"/><rect x="470" y="242" width="200" height="34" rx="6"/></g>
   <g font-size="12" fill="#166534" font-weight="700" text-anchor="middle">
@@ -3163,7 +3165,7 @@ function equalSizePairingSvg(): string {
   </g>
   <text x="570" y="130" font-size="11.5" font-weight="700" fill="#ea580c" text-anchor="middle">the three true divisions</text>
   <text x="360" y="382" font-size="10.5" text-anchor="middle" fill="#0f766e">6 ordered splits ÷ 2! = 3 divisions — the two pair-slots are interchangeable when the sizes match</text>
-  <text x="360" y="398" font-size="10" text-anchor="middle" fill="#0f766e">with k equal groups the overcount is k! — the division count m! / ((x!)^k · k!)</text>
+  <text x="360" y="398" font-size="10" text-anchor="middle" fill="#0f766e">with k equal groups the overcount is k! — the division count m! / ((x!)ᵏ · k!)</text>
 </svg>`
 }
 
@@ -3198,8 +3200,12 @@ function pieVennLadderSvg(): string {
     <text x="554" y="201">B∩C: +2−1</text>
     <text x="470" y="190">A∩C: +2−1</text>
   </g>
-  <text x="548" y="172" font-size="9.5" font-weight="700" fill="#ea580c">A∩B∩C:</text>
-  <text x="548" y="183" font-size="9.5" font-weight="700" fill="#ea580c">+3−3+1 = +1</text>
+  <!-- Q3 QA run-115: the triple accounting re-seated to the free lower-left
+       canvas (it used to sit inside the triple region where the B-circle arc
+       cut through the −3 term) and bound to the region by a dashed leader -->
+  <text x="418" y="256" font-size="9.5" font-weight="700" fill="#ea580c">A∩B∩C:</text>
+  <text x="418" y="268" font-size="9.5" font-weight="700" fill="#ea580c">+3−3+1 = +1</text>
+  <line x1="492" y1="255" x2="543" y2="188" stroke="#ea580c" stroke-width="1.1" stroke-dasharray="3 3"/>
   <!-- Q3 QA: "C only: +1" re-seated fully inside the C-only region (below the
        B∩C lens, above the big C letter) so it no longer straddles B's arc -->
   <text x="545" y="238" font-size="9.5" font-weight="700" fill="#166534" text-anchor="middle">C only: +1</text>
