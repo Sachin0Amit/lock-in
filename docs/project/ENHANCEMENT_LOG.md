@@ -988,3 +988,23 @@ clean). RESUME_POINTER / PROGRESS / WORK_INVENTORY / DETAILED_LOG untouched
 3. **ACCURACY CATCH (inherited defect fixed):** the previous fire's 5.3 cube-census enrichment shipped a duplicate kind property (kind: 'para' + kind: 'example' in one object literal — TS error TS1117) plus a mis-indented following para; both fixed this run; tsc clean on ch-05.ts after the fix.
 
 **Verification:** every coordinate in the 3 new SVGs computed from named constants (ROW_H, ROW_GAP, TOP_Y, COL_*, BOX_W2, BOX_H2, GAP2, LINE_Y, X_START, X_END, TICK_W). Generator: /home/z/my-project/scripts/audit-figs-5-4.py. VLM strict PASS ×4 (all first-pass). Static XML DOM gate clean. tsc 0 errors in ch-05.ts (after the inherited-defect fix). Sanity: braces 790/790 full file; no duplicate kinds. 13 refusals recorded.
+
+
+---
+
+## 2026-11-21 — audit-bot run: ans-closure-failures-that-force-extension (ANS 6.1 The Closure Failures That Force Extension)
+
+**Pass A (figure audit):** 1 body figure audited (the wall and the repair) — VLM round 1 FAIL (bottom caption clipped left, top caption clipped right: both text extents escaped the 520-wide viewBox), FIXED in-SVG by widening viewBox 0 0 520 210 → -50 0 600 210 (element coordinates untouched; all verifier pins hold; re-pinned the verifier's viewBox comment), round 2 VLM PASS. Verifier baseline 233/233 after.
+
+**Pass B — four solution visual aids (all VLM PASS, 3 first time + 1 one-round fix):**
+1. **Example-1 two backward walks from 7** — row 1: 7−5, five steps down the chain landing on bold 2 (alive); row 2: 7−9, six steps consumed down to 1 then a dashed demand arrow into the wall glyph left of 1 (three steps still demanded; 1 is nobody's successor).
+2. **Example-2 the 0-less repair line** — the audited proposal drawn: dashed mirrors −3..−1 (far wall repaired, x+9=4 answers x=−5), empty dashed box between −1 and 1 where 0 was refused (the hole in the middle: x+5=5 still dead), solid naturals 1..7 (ℕ unchanged). One VLM fix round: the dashed overlay over a solid underlay did not read as dashed — the axis itself now switches style at the hole.
+3. **L2-Q3 the lift shaft** — two-column floor|signed table with the ground floor as chosen zero (1→+1, G→0, B1→−1, B2→−2 bold, B3→−3 bold) and the 'deeper = smaller' arrow from B2 to B3: more depth below zero = a smaller number, −3 < −2, B3 is lower.
+4. **L3-Q1 the census grid** — the x+b=a 6×6 square: shaded upper-right triangle (a ≤ b) = the 21 dead pairs with the diagonal wall cases emphasized, 15 unshaded live cells below; 'more than half the map is water.'
+
+**Pass C — two enrichments INTO existing lesson (+1 accuracy catch):**
+1. **New example: the rubber stamp audited** (declare 4−7=1 and watch a law die) — placed after the four-demands list; the inverse reading forces 1+7=4 while the chain gives 1+7=8: one question, two answers — demand (iii) is what the stamp breaks. The prose claim from 'Not every patch is a repair' now has its worked instance.
+2. **New L5 question: the zero-without-mirrors audit** (admit 0, refuse the mirrors) — fixes x+b=b via 0 but leaves x+9=4 dead; breaches demand (i); the mirror twin of the existing L6 0-less audit. L5 1→2 questions.
+3. **ACCURACY CATCH (verifier descriptor):** verify-book2-ch06.ts's P L6.1 line said the 0-less repair 'violates demand (iv)' while the lesson prose (both Example 2 and L6-Q1's solution) says the breach is demand (i) (demand (iv) is explicitly *not* broken — nothing that solved before stopped solving). Verifier descriptor aligned to demand (i).
+
+**Verification:** all SVG coordinates computed from named constants (generator /home/z/my-project/scripts/audit-figs-6-1.py with built-in text-extent margin asserts); VLM strict PASS ×5 this run (body round 2 + 4 solution figs); tsc --noEmit 0 errors PROJECT-WIDE (node_modules present this fire — no infra-error fallback needed); verify-book2-ch06.ts 235/235 (233 authored + 2 new pins: P L5.2 zero-without-mirrors, P Ex-RS rubber stamp); static XML DOM gate clean (pixel margins all ≥8px on every SVG); file-level re-extraction of all 4 solution figures re-rendered identical to the VLM-passed renders. 12 refusals recorded with reasons. No AI-generated images (nothing texture-class in this lesson — all four figures are number-line/table/grid class, SVG by law).

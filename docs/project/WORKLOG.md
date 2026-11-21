@@ -7164,3 +7164,8 @@ Gates: static DOM gate 0 issues (all margins ≥8px); VLM PASS ×4 (all first-pa
 ## 2026-11-21 — CS RUN 2 push record (no token)
 
 **Push:** first attempt rejected (remote advanced again: the sibling figure-audit job shipped `80b5b5c audit: ans-linear-congruences-glimpse-of-fermat` — ANS ch-05 enrichment; the job is evidently live again despite the earlier 'all sibling jobs disabled' note); reconciled per FIRST-SHIPPED-STANDS with a rebase (the one ledger-tail conflict in SOURCE_LOG.md resolved keep-both; the sibling's ch-05 additions merged cleanly with this run's duplicate-property gate repair — tsc re-verified 0 after the rebase). Rebased HEAD `c12108b` pushed via the one-time HTTPS PAT URL; anonymous ls-remote verified after push (refs/heads/main == `c12108b` == local HEAD). The PAT lived only inside the single fetch/push command URLs — never written to any file, config or log.
+
+
+## 2026-11-21 — audit-bot run (job 538572 fire): ans-closure-failures-that-force-extension
+
+audit-bot run — lesson ans-closure-failures-that-force-extension: A=1 figure audited, 1 fixed (viewBox widen, re-audit PASS), B=4 solution figures added (Ex1 walks, Ex2 0-less line, L2-Q3 lift shaft, L3-Q1 census grid — all VLM PASS, B2 after one fix round), C=2 enrichments (rubber-stamp example after the four-demands list; L5 zero-without-mirrors question, L5 1→2) + 1 verifier accuracy catch (L6.1 descriptor demand (iv)→(i)). Docs updated: FIGURE_AUDIT_LOG.md, ENHANCEMENT_LOG.md, this WORKLOG.md, DETAILED_LOG.md, FIGURE_AUDIT_QUEUE.json (lesson marked done). verify-book2-ch06.ts 235/235; tsc 0 errors project-wide; no AI images; no new lesson authored; RESUME_POINTER/PROGRESS/WORK_INVENTORY/TOC_FOLD_LEDGER/ENHANCEMENT_POINTER untouched.

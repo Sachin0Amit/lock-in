@@ -621,7 +621,9 @@
       "bookId": "arithmetic-and-number-systems",
       "chapter": 6,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "audited": "2026-11-21",
+      "verdict": "PASS (body fig FIXED via viewBox widen then PASS; +4 solution figures all VLM PASS)"
     },
     {
       "lessonId": "ans-constructing-the-integers-from-the-naturals",

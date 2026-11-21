@@ -82,7 +82,8 @@
  *       through the construction, the (−2)³ = −8 chain, ordering MCQs);
  *   (O–T) the three lessons' quiz keys re-derived (6.1: 2/1/0/0/0,
  *       6.2: 2/2/0/0/1, 6.3: 1/0/1/1/2) with every distractor evaluated;
- *       all 42 exercise keys re-derived; the 12 formula cards verified;
+ *       all 43 exercise keys re-derived (42 authored + the audit-bot’s
+ *       2026-11-21 L5 mirror-twin audit); the 12 formula cards verified;
  *   (V) all figure geometry (the 6.1 wall line, the 6.2 difference
  *       lattice — 81 dots on the x/y grids, three class diagonals, label
  *       positions, pairwise gaps ≥ 18 px; the 6.3 mirror line);
@@ -234,7 +235,7 @@ function clsLE(a: number, b: number, c: number, d: number): boolean {
 /* (C) 6.1 figure-1 geometry: the wall and the repair                  */
 /* ------------------------------------------------------------------ */
 {
-  // viewBox 0 0 520 210; the line runs −5..7, one tick per 32 px, x = 68 + 32(v + 5)
+  // viewBox -50 0 600 210 (widened 2026-11-21 audit-bot: the two caption texts measured escaping the 520-wide box — bottom label left edge ≈ −24, top label right edge ≈ 517; all element coordinates unchanged, only the viewBox grew by 40 left + 30 right); the line runs −5..7, one tick per 32 px, x = 68 + 32(v + 5)
   const X = (v: number) => 68 + 32 * (v + 5)
   ok(X(-5) === 68 && X(0) === 228 && X(1) === 260 && X(7) === 452, 'C: line x-coords — −5 → 68, 0 → 228, 1 → 260, 7 → 452 (spacing 32, 12 gaps × 32 = 384)')
   // the wall glyph sits between 0 and 1: at x = (228 + 260)/2 = 244
@@ -885,7 +886,8 @@ function clsLE(a: number, b: number, c: number, d: number): boolean {
 }
 
 /* ------------------------------------------------------------------ */
-/* (P) 6.1 exercise keys re-derived (14 exercises, L1–L6)              */
+/* (P) 6.1 exercise keys re-derived (15 exercises, L1–L6 — 14 authored  */
+/* + the 2026-11-21 audit-bot L5.2 zero-without-mirrors twin)          */
 /* ------------------------------------------------------------------ */
 {
   // L1.1: which of 7 − 4, 4 − 7, 5 − 5 exist in ℕ?
@@ -918,8 +920,18 @@ function clsLE(a: number, b: number, c: number, d: number): boolean {
   // L5.1: the repair criterion essay — the four demands enumerated
   ok(true, 'P L5.1: the four demands (new answers for dead questions; old numbers keep names; old laws survive; no new failures) — prose, no new numerals')
 
-  // L6.1: the 0-less repair audit — fixes x+b=a for a<b; still fails x+b=b; violates demand (iv)
-  ok(4 - 9 < 0, 'P L6.1: a 0-less repair answers 4 − 9 (it would be −5) but still cannot answer 5 − 5 — demand (iv) (no new failures for the additive story) breached')
+  // L5.2 (2026-11-21 audit-bot): the 0-only repair audit — answers x+b=b via 0;
+  // x+9=4 still dead (the witness −4 is refused); demand (i) breached again
+  ok(7 - 7 === 0 && 4 - 9 < 0, 'P L5.2: a 0-only repair answers 7 − 7 = 0 but not 4 − 9 (would be −5, refused) — demand (i) breached again, the mirror twin of the 0-less audit')
+
+  // Ex-RS (2026-11-21 audit-bot): the rubber-stamp example after the four-demands
+  // list — declaring 4 − 7 = 1 forces 1 + 7 = 4 (the inverse reading) while the
+  // recursion chain gives 1 + 7 = 8: one question, two answers, demand (iii) dead
+  const chainSum: number = 1 + 7 // the chain's answer (seven successor steps from 1)
+  ok(chainSum === 8, 'P Ex-RS: the chain computes 1 + 7 = 8 while the stamp 4 − 7 = 1 would force 1 + 7 = 4 — one question, two answers (8 ≠ 4): demand (iii) breached')
+
+  // L6.1: the 0-less repair audit — fixes x+b=a for a<b; still fails x+b=b; breaches demand (i)
+  ok(4 - 9 < 0, 'P L6.1: a 0-less repair answers 4 − 9 (it would be −5) but still cannot answer 5 − 5 — demand (i) (the dead questions x + b = b stay dead) breached')
 }
 
 /* ------------------------------------------------------------------ */

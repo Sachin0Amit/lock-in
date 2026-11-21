@@ -3732,3 +3732,25 @@ The owner directed the comprehensive double-layer pass. Layer 1 (drive TOC): the
 ### Gates: static DOM 0 issues; VLM PASS ×4 first-pass; tsc 0 errors in ch-05.ts (after fix); sanity 790/790 full-file braces, no duplicate kinds
 ### State: lastAuditedLessonId → ans-linear-congruences-glimpse-of-fermat; ANS chapter 5 fully audited 4/4 lessons; rotation advances to next written lesson per queue cursor
 | CS RUN 2 | 2026-11-21 | computer-fundamentals ch.1 CLOSED COMPLETE (the first CS chapter closed) | 1.3 'Software: the Invisible Half of the Machine' + 1.R 'Unit 1 Completion Review' | the cs job's second honored fire — a TWO-AGENT SWARM (both delivered; engines E 45 + G 53 green pre-prose; the swarm caught the orchestrator's master-plan typo 2,300×2^20=2,411,724,800 not 2,411,648,000 — resolved in favour of the engines); ground = `cs-cf-web-ground` extended (UNIX 1969, MS-DOS/86-DOS 1981, Windows 1.0 1985, Linux kernel August 1991 + ~40M lines, Android 1.0 2008-09-23, the license families); verifier 375/375; tsc 0 (after the cross-lane repair of the sibling's ANS ch-05 duplicate-property), lint 0 err; pack 186 lessons / 1,048,300 words; standing gates green incl. census pins grown 1222→1223 for the review; E2E ×2 ×3 viewports ALL GREEN (quiz 5/5 live); VLM 12-crop audit: 2 real defects fixed in the OS-manager figure (narrow box + label-crossing arrows) + re-audited PASS both themes; the CS_AUTHORING_RUNBOOK.md reconciled with the pointer chain | CS RUN 3: open ch.2 'Interacting with Your Computer' 2.1 + 2.2 (cs lane); run 120 opens AA ch.9 (maths lane) | verify-cs-book1-ch01 375/375 |
+
+
+## 2026-11-21 — audit-bot run: ans-closure-failures-that-force-extension (ANS ch-06 lesson 6.1) — detailed change list
+
+**Files touched:**
+1. `src/data/library/books/mathematics/arithmetic-number-systems/ch-06.ts`
+   - lesson 6.1 body figure (kind:'figure', 'The wall and the repair'): viewBox `0 0 520 210` → `-50 0 600 210` (ONE attribute; all element coordinates, ticks, labels, wall glyph untouched — VLM round 1 found both caption texts escaping the old box: bottom label left edge ≈ −24, top label right edge ≈ 517 of 520).
+   - Example 1 ('Count back from 7 by 5, and from 7 by 9'): + figures[0] — two-walk number-line SVG (caption 'Two backward walks from 7: …').
+   - Example 2 ('Audit a proposed repair: add −1,−2,−3… to ℕ — but refuse to add 0'): + figures[0] — the 0-less repair line SVG (caption 'The audited proposal drawn: …').
+   - NEW example block 'Audit the rubber stamp: declare 4 − 7 = 1 — and watch a law die' (5 steps in the Split/Now/So/Take/Hence chain) inserted between the four-demands roman list and the Peacock/Hankel historical callout.
+   - L2-Q3 ('A lift panel shows B2…'): + figures[0] — lift-shaft table SVG (caption 'The lift shaft against the signed numbers…').
+   - L3-Q1 ('On the square of pairs (a,b) with a,b ≤ 6…'): + figures[0] — census-grid SVG (caption 'The census grid of x + b = a…').
+   - NEW L5 question 'A second proposed repair admits 0 but refuses the mirrors…' (5-step solution + answer) appended to the L5 set (L5 1→2 questions; L1-L4/L6 untouched).
+2. `scripts/verify-book2-ch06.ts`
+   - section (C) comment re-pinned to the widened viewBox (checks unchanged — they pin element coords only, all still true).
+   - section (P): + P L5.2 pin (0-only repair answers 7−7=0, not 4−9) and + P Ex-RS pin (chain gives 1+7=8 vs the stamp's forced 1+7=4); comment counts updated 14→15 exercises / 42→43 keys (honestly grown).
+   - ACCURACY CATCH: P L6.1 descriptor 'violates demand (iv)' → 'breaches demand (i)' (lesson prose is authoritative: demand (iv) explicitly NOT broken in the L6-Q1 solution; the numeric assertion itself was always true).
+3. `docs/project/FIGURE_AUDIT_LOG.md`, `docs/project/ENHANCEMENT_LOG.md`, `docs/project/WORKLOG.md`, `docs/project/DETAILED_LOG.md` (this file), `docs/project/FIGURE_AUDIT_QUEUE.json` (lesson item marked done).
+
+**State:** /home/z/my-project/.state/audit-state.json lastAuditedLessonId → ans-closure-failures-that-force-extension (outside the repo, never committed).
+
+**Gates:** verify-book2-ch06.ts 235/235 PASS; npx tsc --noEmit 0 errors project-wide (node_modules present); static XML + pixel-margin DOM-gate substitution (audit-svg-overlaps.sh NAV FAIL — dev server not running, 7+ precedent); VLM strict: body figure PASS after 1 fix round, 4 solution figures PASS (3 first-time, 1 after 1 fix round); all 4 solution figures re-extracted FROM the chapter file and re-rendered identical to the audited renders.

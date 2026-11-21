@@ -144,6 +144,55 @@ export const chapter06: Chapter = {
             'So, the second: $7 - 9$ walks $6, 5, 4, 3, 2, 1$ — six steps consumed, three still demanded, and the chain has stopped: no successor of $1$ exists to step down to.',
             'Hence $7 - 5 = 2$ names a natural while $7 - 9$ names *nothing* — the wall, not the size of the numbers, decides.',
           ],
+          figures: [{
+            caption: 'Two backward walks from 7: subtracting 5 takes five steps down the chain and lands on 2 — alive; subtracting 9 consumes six steps down to 1 and then demands three more, and the dashed demand arrow hits the wall — 1 is nobody’s successor, so 7 − 9 names nothing in ℕ.',
+            svg: `<svg viewBox="-60 0 620 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two backward walks on the number line from 7: subtracting 5 gives five steps landing on 2 which is alive; subtracting 9 consumes six steps down to 1 then demands three more, and the dashed demand arrow hits the wall glyph left of 1, where the successor chain stops">
+  <line x1="60" y1="78" x2="396" y2="78" stroke="currentColor" stroke-width="1.2" opacity="0.85"/>
+  <line x1="60" y1="70" x2="60" y2="86" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <line x1="116" y1="70" x2="116" y2="86" stroke="currentColor" stroke-width="1.3" opacity="0.9"/>
+  <line x1="172" y1="70" x2="172" y2="86" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <line x1="228" y1="70" x2="228" y2="86" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <line x1="284" y1="70" x2="284" y2="86" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <line x1="340" y1="70" x2="340" y2="86" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <line x1="396" y1="70" x2="396" y2="86" stroke="currentColor" stroke-width="1.3" opacity="0.9"/>
+  <text x="60" y="100" font-size="13" text-anchor="middle" fill="currentColor">1</text>
+  <text x="116" y="100" font-size="13" text-anchor="middle" fill="currentColor" font-weight="bold">2</text>
+  <text x="172" y="100" font-size="13" text-anchor="middle" fill="currentColor">3</text>
+  <text x="228" y="100" font-size="13" text-anchor="middle" fill="currentColor">4</text>
+  <text x="284" y="100" font-size="13" text-anchor="middle" fill="currentColor">5</text>
+  <text x="340" y="100" font-size="13" text-anchor="middle" fill="currentColor">6</text>
+  <text x="396" y="100" font-size="13" text-anchor="middle" fill="currentColor">7</text>
+  <line x1="396" y1="52" x2="130" y2="52" stroke="currentColor" stroke-width="2" opacity="0.9"/>
+  <polygon points="122,52 134,47 134,57" fill="currentColor" opacity="0.9"/>
+  <text x="256.0" y="42" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.9">five backward steps</text>
+  <text x="256.0" y="122" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.9">7 &#8722; 5 = 2 &#8212; alive: the landing is a natural</text>
+  <line x1="60" y1="178" x2="396" y2="178" stroke="currentColor" stroke-width="1.2" opacity="0.85"/>
+  <line x1="60" y1="170" x2="60" y2="186" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <line x1="116" y1="170" x2="116" y2="186" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <line x1="172" y1="170" x2="172" y2="186" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <line x1="228" y1="170" x2="228" y2="186" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <line x1="284" y1="170" x2="284" y2="186" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <line x1="340" y1="170" x2="340" y2="186" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <line x1="396" y1="170" x2="396" y2="186" stroke="currentColor" stroke-width="1.3" opacity="0.9"/>
+  <text x="60" y="200" font-size="13" text-anchor="middle" fill="currentColor">1</text>
+  <text x="116" y="200" font-size="13" text-anchor="middle" fill="currentColor">2</text>
+  <text x="172" y="200" font-size="13" text-anchor="middle" fill="currentColor">3</text>
+  <text x="228" y="200" font-size="13" text-anchor="middle" fill="currentColor">4</text>
+  <text x="284" y="200" font-size="13" text-anchor="middle" fill="currentColor">5</text>
+  <text x="340" y="200" font-size="13" text-anchor="middle" fill="currentColor">6</text>
+  <text x="396" y="200" font-size="13" text-anchor="middle" fill="currentColor">7</text>
+  <line x1="396" y1="152" x2="82" y2="152" stroke="currentColor" stroke-width="2" opacity="0.9"/>
+  <polygon points="68,152 80,147 80,157" fill="currentColor" opacity="0.9"/>
+  <text x="228.0" y="144" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.9">six backward steps</text>
+  <rect x="26" y="150" width="12" height="10" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.9"/>
+  <rect x="26" y="160" width="12" height="10" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.9"/>
+  <rect x="26" y="170" width="12" height="10" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.9"/>
+  <text x="32.0" y="138" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.85">the wall</text>
+  <line x1="58" y1="178" x2="48" y2="178" stroke="currentColor" stroke-width="1.8" stroke-dasharray="4 3" opacity="0.9"/>
+  <polygon points="38,178 48,174 48,182" fill="currentColor" opacity="0.9"/>
+  <text x="228.0" y="222" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.9">7 &#8722; 9 &#8212; dead: three steps still demanded, and 1 has no predecessor</text>
+</svg>`,
+          }],
         },
         {
           kind: 'para',
@@ -172,7 +221,7 @@ export const chapter06: Chapter = {
           kind: 'figure',
           caption:
             'The wall and the repair. Left of $1$ the successor chain simply stops (axiom (i): $1$ is nobody’s successor), so the naturals carry no zero and no mirrors — counting backwards dies at the wall. The integers extend the line past it: $0$ first, then the mirrors $-1, -2, \\dots$ in which every backwards walk finds a landing. The dashed half is chapter 6.2’s construction; the wall glyph marks the boundary this chapter erases.',
-          svg: `<svg viewBox="0 0 520 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A number line from minus five to seven: the natural-number part from one to seven is solid, the extension from minus five to zero is dashed, and a wall glyph stands between zero and one">
+          svg: `<svg viewBox="-50 0 600 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A number line from minus five to seven: the natural-number part from one to seven is solid, the extension from minus five to zero is dashed, and a wall glyph stands between zero and one">
   <line x1="68" y1="130" x2="452" y2="130" stroke="currentColor" stroke-width="1.2" opacity="0.85"/>
   <line x1="68" y1="130" x2="244" y2="130" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.55"/>
   <g stroke="currentColor" stroke-width="1.4">
@@ -290,6 +339,18 @@ export const chapter06: Chapter = {
           ],
         },
         {
+          kind: 'example',
+          title: 'Audit the rubber stamp: declare 4 − 7 = 1 — and watch a law die',
+          steps: [
+            'Split the audit: what the stamp declares, and what the laws then force.',
+            'Now, the declaration: $4 - 7 = 1$ — total, instant, and silent about consequences.',
+            'So, force the inverse reading: subtraction must undo addition, so $x = a - b$ must satisfy $x + b = a$. The stamp therefore claims $1 + 7 = 4$.',
+            'Take the chain: Lesson 1.3’s recursion computes $1 + 7 = 8$ — seven successor steps from $1$ land on $8$, not $4$.',
+            'Hence one question, two answers — $8$ from the law, $4$ from the stamp — and reliable computation is gone: demand (iii), *the old laws survive*, is what the stamp breaks. Totality bought by corrupting the answers is not a repair.',
+          ],
+        },
+
+        {
           kind: 'callout',
           tone: 'historical',
           title: 'The permanence principle: Peacock 1833, Hankel 1867',
@@ -309,6 +370,40 @@ export const chapter06: Chapter = {
             'Take demand (iv) next: the additive story now has a permanent hole at its centre — $a - a$ is dead for every $a$, so subtraction is *still* partial. An extension built to make subtraction total that leaves it partial fails its own brief.',
             'Hence the verdict: negatives without zero repair the far side of the wall and leave a hole in the middle — the audit shows why the integers arrive as $\\dots, -2, -1, 0, 1, 2, \\dots$ in one piece, never half-built.',
           ],
+          figures: [{
+            caption: 'The audited proposal drawn: the mirrors −1, −2, −3 arrive dashed on the far side of the wall (x + 9 = 4 answers x = −5) while ℕ keeps its names and laws — but between −1 and 1 the empty dashed box marks the hole where 0 was refused, and the add-nothing family x + b = b stays dead: the repair is half-built.',
+            svg: `<svg viewBox="-10 0 500 218" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A number line for the audited proposal: the mirror numbers minus one to minus three are drawn dashed on the left, the naturals one to seven solid on the right, and between them an empty dashed box where zero was refused, leaving the equation x plus 5 equals 5 still dead">
+  <line x1="204" y1="120" x2="420" y2="120" stroke="currentColor" stroke-width="2.2" opacity="1"/>
+  <line x1="60" y1="120" x2="155" y2="120" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.75"/>
+  <line x1="60" y1="115" x2="60" y2="125" stroke="currentColor" stroke-width="1.2" opacity="0.55"/>
+  <line x1="96" y1="115" x2="96" y2="125" stroke="currentColor" stroke-width="1.2" opacity="0.55"/>
+  <line x1="132" y1="115" x2="132" y2="125" stroke="currentColor" stroke-width="1.2" opacity="0.55"/>
+  <line x1="204" y1="112" x2="204" y2="128" stroke="currentColor" stroke-width="1.5" opacity="0.9"/>
+  <line x1="240" y1="112" x2="240" y2="128" stroke="currentColor" stroke-width="1.5" opacity="0.9"/>
+  <line x1="276" y1="112" x2="276" y2="128" stroke="currentColor" stroke-width="1.5" opacity="0.9"/>
+  <line x1="312" y1="112" x2="312" y2="128" stroke="currentColor" stroke-width="1.5" opacity="0.9"/>
+  <line x1="348" y1="112" x2="348" y2="128" stroke="currentColor" stroke-width="1.5" opacity="0.9"/>
+  <line x1="384" y1="112" x2="384" y2="128" stroke="currentColor" stroke-width="1.5" opacity="0.9"/>
+  <line x1="420" y1="112" x2="420" y2="128" stroke="currentColor" stroke-width="1.5" opacity="0.9"/>
+  <text x="60" y="142" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.7">&#8722;3</text>
+  <text x="96" y="142" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.7">&#8722;2</text>
+  <text x="132" y="142" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.7">&#8722;1</text>
+  <text x="204" y="142" font-size="13" text-anchor="middle" fill="currentColor" font-weight="bold">1</text>
+  <text x="240" y="142" font-size="13" text-anchor="middle" fill="currentColor" font-weight="bold">2</text>
+  <text x="276" y="142" font-size="13" text-anchor="middle" fill="currentColor" font-weight="bold">3</text>
+  <text x="312" y="142" font-size="13" text-anchor="middle" fill="currentColor" font-weight="bold">4</text>
+  <text x="348" y="142" font-size="13" text-anchor="middle" fill="currentColor" font-weight="bold">5</text>
+  <text x="384" y="142" font-size="13" text-anchor="middle" fill="currentColor" font-weight="bold">6</text>
+  <text x="420" y="142" font-size="13" text-anchor="middle" fill="currentColor" font-weight="bold">7</text>
+  <rect x="161" y="113.0" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.9"/>
+  <text x="168" y="160" font-size="11.5" text-anchor="middle" fill="currentColor" opacity="0.9">0 &#8212; refused</text>
+  <text x="96.0" y="52" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.9">the far wall repaired:</text>
+  <text x="96.0" y="68" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.9">x + 9 = 4 answers x = &#8722;5</text>
+  <text x="312.0" y="60" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.9">&#8469; unchanged: 2 + 3 = 5 before and after</text>
+  <text x="168.0" y="184" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.9">the hole in the middle: x + 5 = 5 still dead</text>
+  <text x="168.0" y="202" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.9">the add-nothing family stays dead</text>
+</svg>`,
+          }],
         },
         { kind: 'heading', text: 'The scoping: what chapter 6 does not repair' },
         {
@@ -460,6 +555,38 @@ export const chapter06: Chapter = {
                     'Hence $B3$ is lower than $B2$: below zero, more of a good (depth) means less on the number line — the flip this chapter’s Lesson 6.3 proves from the construction.',
                   ],
                   answer: 'B2 = −2; B3 = −3 is lower',
+                  figures: [{
+                    caption: 'The lift shaft against the signed numbers, ground floor as the chosen zero: B2 is −2, B3 is −3 — and below zero more depth means a smaller number (−3 < −2), so B3 is the lower floor.',
+                    svg: `<svg viewBox="0 0 470 296" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A two-column table of lift floors against signed numbers with the ground floor as the chosen zero: floor 1 is plus 1, G is 0, B1 is minus 1, B2 is minus 2, B3 is minus 3; a downward arrow from B2 to B3 is labelled deeper equals smaller">
+  <text x="125.0" y="58" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.8">floor</text>
+  <text x="215.0" y="58" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.8">signed</text>
+  <rect x="70" y="70" width="110" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.9"/>
+  <rect x="180" y="70" width="70" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.9"/>
+  <text x="125.0" y="91" font-size="12.5" text-anchor="middle" fill="currentColor">1</text>
+  <text x="215.0" y="91" font-size="13" text-anchor="middle" fill="currentColor">+1</text>
+  <rect x="70" y="104" width="110" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.9"/>
+  <rect x="180" y="104" width="70" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.9"/>
+  <text x="125.0" y="125" font-size="12.5" text-anchor="middle" fill="currentColor">G (chosen zero)</text>
+  <text x="215.0" y="125" font-size="13" text-anchor="middle" fill="currentColor">0</text>
+  <rect x="70" y="138" width="110" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.9"/>
+  <rect x="180" y="138" width="70" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.9"/>
+  <text x="125.0" y="159" font-size="12.5" text-anchor="middle" fill="currentColor">B1</text>
+  <text x="215.0" y="159" font-size="13" text-anchor="middle" fill="currentColor">&#8722;1</text>
+  <rect x="70" y="172" width="110" height="34" fill="none" stroke="currentColor" stroke-width="1.8" opacity="0.9"/>
+  <rect x="180" y="172" width="70" height="34" fill="none" stroke="currentColor" stroke-width="1.8" opacity="0.9"/>
+  <text x="125.0" y="193" font-size="12.5" text-anchor="middle" fill="currentColor" font-weight="bold">B2</text>
+  <text x="215.0" y="193" font-size="13" text-anchor="middle" fill="currentColor" font-weight="bold">&#8722;2</text>
+  <rect x="70" y="206" width="110" height="34" fill="none" stroke="currentColor" stroke-width="1.8" opacity="0.9"/>
+  <rect x="180" y="206" width="70" height="34" fill="none" stroke="currentColor" stroke-width="1.8" opacity="0.9"/>
+  <text x="125.0" y="227" font-size="12.5" text-anchor="middle" fill="currentColor" font-weight="bold">B3</text>
+  <text x="215.0" y="227" font-size="13" text-anchor="middle" fill="currentColor" font-weight="bold">&#8722;3</text>
+  <line x1="280" y1="195.0" x2="280" y2="217.0" stroke="currentColor" stroke-width="2" opacity="0.9"/>
+  <polygon points="280,223.0 275,213.0 285,213.0" fill="currentColor" opacity="0.9"/>
+  <text x="292" y="210.0" font-size="11.5" text-anchor="start" fill="currentColor" opacity="0.9">deeper = smaller</text>
+  <text x="235.0" y="262" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.9">the ground floor is the chosen zero: B2 = &#8722;2 and B3 = &#8722;3</text>
+  <text x="235.0" y="278" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.9">more depth below zero = a smaller number: &#8722;3 &lt; &#8722;2, so B3 is lower</text>
+</svg>`,
+                  }],
                 },
               ],
             },
@@ -475,6 +602,65 @@ export const chapter06: Chapter = {
                     'Hence $21$ of the $36$ addition equations are unsolvable — more than half, the census count the verification script confirmed.',
                   ],
                   answer: '21 of 36 (dead ⟺ a ≤ b)',
+                  figures: [{
+                    caption: 'The census grid of x + b = a on the 6 × 6 square: the shaded upper-right triangle (a ≤ b, the diagonal wall cases emphasized) holds the 21 dead pairs, the 15 unshaded cells below the diagonal are live — more than half the map is water.',
+                    svg: `<svg viewBox="30 0 460 348" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A six by six census grid of the equation x plus b equals a for values one to six: the shaded upper-right triangle of twenty-one cells where a is at most b is dead with no natural witness, the diagonal of wall cases where a equals b is emphasized, and the fifteen unshaded cells below the diagonal where b is less than a are live">
+  <text x="192" y="44" font-size="11.5" text-anchor="middle" fill="currentColor" opacity="0.85">x + b = a on the 6 &#215; 6 square</text>
+  <text x="107.0" y="62" font-size="12" text-anchor="middle" fill="currentColor">1</text>
+  <text x="141.0" y="62" font-size="12" text-anchor="middle" fill="currentColor">2</text>
+  <text x="175.0" y="62" font-size="12" text-anchor="middle" fill="currentColor">3</text>
+  <text x="209.0" y="62" font-size="12" text-anchor="middle" fill="currentColor">4</text>
+  <text x="243.0" y="62" font-size="12" text-anchor="middle" fill="currentColor">5</text>
+  <text x="277.0" y="62" font-size="12" text-anchor="middle" fill="currentColor">6</text>
+  <text x="78" y="91.0" font-size="12" text-anchor="end" fill="currentColor">1</text>
+  <text x="78" y="125.0" font-size="12" text-anchor="end" fill="currentColor">2</text>
+  <text x="78" y="159.0" font-size="12" text-anchor="end" fill="currentColor">3</text>
+  <text x="78" y="193.0" font-size="12" text-anchor="end" fill="currentColor">4</text>
+  <text x="78" y="227.0" font-size="12" text-anchor="end" fill="currentColor">5</text>
+  <text x="78" y="261.0" font-size="12" text-anchor="end" fill="currentColor">6</text>
+  <rect x="90" y="70" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.8" opacity="0.95"/>
+  <rect x="124" y="70" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.0" opacity="0.95"/>
+  <rect x="158" y="70" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.0" opacity="0.95"/>
+  <rect x="192" y="70" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.0" opacity="0.95"/>
+  <rect x="226" y="70" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.0" opacity="0.95"/>
+  <rect x="260" y="70" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.0" opacity="0.95"/>
+  <rect x="90" y="104" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.0" opacity="0.8"/>
+  <rect x="124" y="104" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.8" opacity="0.95"/>
+  <rect x="158" y="104" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.0" opacity="0.95"/>
+  <rect x="192" y="104" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.0" opacity="0.95"/>
+  <rect x="226" y="104" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.0" opacity="0.95"/>
+  <rect x="260" y="104" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.0" opacity="0.95"/>
+  <rect x="90" y="138" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.0" opacity="0.8"/>
+  <rect x="124" y="138" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.0" opacity="0.8"/>
+  <rect x="158" y="138" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.8" opacity="0.95"/>
+  <rect x="192" y="138" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.0" opacity="0.95"/>
+  <rect x="226" y="138" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.0" opacity="0.95"/>
+  <rect x="260" y="138" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.0" opacity="0.95"/>
+  <rect x="90" y="172" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.0" opacity="0.8"/>
+  <rect x="124" y="172" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.0" opacity="0.8"/>
+  <rect x="158" y="172" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.0" opacity="0.8"/>
+  <rect x="192" y="172" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.8" opacity="0.95"/>
+  <rect x="226" y="172" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.0" opacity="0.95"/>
+  <rect x="260" y="172" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.0" opacity="0.95"/>
+  <rect x="90" y="206" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.0" opacity="0.8"/>
+  <rect x="124" y="206" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.0" opacity="0.8"/>
+  <rect x="158" y="206" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.0" opacity="0.8"/>
+  <rect x="192" y="206" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.0" opacity="0.8"/>
+  <rect x="226" y="206" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.8" opacity="0.95"/>
+  <rect x="260" y="206" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.0" opacity="0.95"/>
+  <rect x="90" y="240" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.0" opacity="0.8"/>
+  <rect x="124" y="240" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.0" opacity="0.8"/>
+  <rect x="158" y="240" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.0" opacity="0.8"/>
+  <rect x="192" y="240" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.0" opacity="0.8"/>
+  <rect x="226" y="240" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.0" opacity="0.8"/>
+  <rect x="260" y="240" width="34" height="34" fill="#fef3c7" stroke="currentColor" stroke-width="1.8" opacity="0.95"/>
+  <rect x="90" y="296" width="14" height="14" fill="#fef3c7" stroke="currentColor" stroke-width="1"/>
+  <text x="112" y="307" font-size="12" text-anchor="start" fill="currentColor">dead: a &#8804; b &#8212; 21 of 36</text>
+  <rect x="270" y="296" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1"/>
+  <text x="292" y="307" font-size="12" text-anchor="start" fill="currentColor">live: b &lt; a &#8212; 15 of 36</text>
+  <text x="260" y="331" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.9">21 of 36 dead &#8212; more than half the map is water</text>
+</svg>`,
+                  }],
                 },
                 {
                   q: 'On the same $\\le 6$ square, count the pairs $(c, d)$ for which $x \\cdot c = d$ is unsolvable, and name the $14$ pairs that survive.',
@@ -548,6 +734,17 @@ export const chapter06: Chapter = {
                     'Hence the audit’s value: it separates "the laws hold" (they do, everywhere in $\\mathbb{N}$) from "the questions answer" (they do not) — and the permanence principle is precisely the promise that a proper extension fixes the second without breaking the first.',
                   ],
                   answer: 'ℕ passes (iii) and trivially (ii)/(iv) as baseline; it fails demand (i) against the difference questions — the exact profile that forces chapter 6',
+                },
+                {
+                  q: 'A second proposed repair admits $0$ but refuses the mirrors: no $-1, -2, -3, \dots$ join $\mathbb{N}$. Audit it against the four demands — which dead questions does it now answer, which stay dead, and which demand does it breach?',
+                  solution: [
+                    'Split the audit into gains and residual failures, demand by demand.',
+                    'Now, the gains: $x + 5 = 5$ answers $x = 0$, and with it the whole add-nothing family $x + b = b$ — the borderline subtraction $a - a$ comes alive for every $a$.',
+                    'So, the residual: $x + 9 = 4$ is as dead as ever — the forced witness is $-4$, and the proposal refuses every mirror, so the far side of the wall stays empty.',
+                    'Take the breach: demand (i), *the dead questions get answers*, is only half-met — the mirror twin of the 0-less audit in the previous level, read from the other side.',
+                    'Hence zero-without-mirrors repairs the hole in the middle and leaves the far wall standing — which is why the integers are built as one line, $\dots, -2, -1, 0, 1, 2, \dots$, zero and mirrors arriving together in Lesson 6.2.',
+                  ],
+                  answer: 'fixes x + b = b via 0 but leaves x + b = a with a < b dead; breaches demand (i) — the mirror twin of the 0-less audit',
                 },
               ],
             },
