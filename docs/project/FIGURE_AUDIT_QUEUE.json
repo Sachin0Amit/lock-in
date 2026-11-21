@@ -6,8 +6,8 @@
   "stats": {
     "lessonsWithFigures": 131,
     "figureTotal": 246,
-    "done": 67,
-    "pending": 64,
+    "done": 68,
+    "pending": 63,
     "lastUpdated": "2026-11-21"
   },
   "items": [
@@ -603,7 +603,9 @@
       "bookId": "arithmetic-and-number-systems",
       "chapter": 5,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-21",
+      "note": "job 538572 fire (cron 0,30 * * * ? IST): 1 body fig PASS first time + 3 Pass B solution figs (2 first-pass + 1 FIXED labels) + 2 Pass C enrichments (cube census example + L5 7^7^7 power tower). VLM PASS x4."
     },
     {
       "lessonId": "ans-linear-congruences-glimpse-of-fermat",

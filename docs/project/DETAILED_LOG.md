@@ -3710,3 +3710,13 @@ The owner directed the comprehensive double-layer pass. Layer 1 (drive TOC): the
 ### Rotation
 - ANS ch.5 L2 done; rotation advances to ch.5 L3 (ans-unit-digit-cycles-of-powers).
 - No FAIL-OPENs, no registered whole-lesson gaps this run.
+
+
+## 2026-11-21 — job 538572 fire (cron 0,30 * * * ? IST) — lesson ans-unit-digit-cycles-of-powers detailed change list
+
+### Files touched: ch-05.ts + 5 docs
+### Pass A: 1 body fig (wheel diagram) VLM PASS first time, untouched
+### Pass B: 3 solution figures (Ex1 7-wheel FIXED labels→PASS; L1-Q2 two-cycle PASS first; L5-Q2 factorial wall PASS first)
+### Pass C: 2 enrichments (cube census example + L5 7^7^7 power tower question; L5 2→3 questions)
+### Gates: static DOM 0 issues; VLM PASS ×4; tsc 0 errors in ch-05.ts; sanity 213/213 braces, 4 SVGs clean
+### State: lastAuditedLessonId → ans-unit-digit-cycles-of-powers; rotation → ch.5 L4

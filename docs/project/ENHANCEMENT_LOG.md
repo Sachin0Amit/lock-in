@@ -961,3 +961,15 @@ clean). RESUME_POINTER / PROGRESS / WORK_INVENTORY / DETAILED_LOG untouched
 2. **New L4 exercise question: "Use the 1001 block engine to find the remainder when 1234567 is divided by 7, by 11, and by 13"** — L4 was thinnest (2 questions vs 3 in L1-L3), now 3 questions. Tests the block engine on a 3-block number (1|234|567), the existing examples only use 2-block numbers. Solution: alternating block sum 567−234+1=334; 334 mod 7=5, mod 11=4, mod 13=9. Verified by direct division: 1234567=7·176366+5, =11·112233+4, =13·94966+9.
 
 **Verification:** every coordinate in the 3 new SVGs computed from named constants (COL_W, COL_GAP, LEFT_MARGIN, BOX_W, BOX_H, BOX_GAP, etc.); generator script /home/z/my-project/scripts/audit-figs-5-2.py preserved. VLM strict PASS on all 3 new figures (2 first-pass + 1 after fix round). Static XML DOM gate clean (all margins ≥8px). tsc --noEmit unavailable project-wide (deps not installed); ZERO errors in edited file ch-05.ts. Sanity check: braces 142/142, all 14 kinds valid, 4 SVG blocks no stray backticks. 11 refusals with recorded reasons. No AI-generated images this run.
+
+
+## 2026-11-21 — job 538572 fire (cron 0,30 * * * ? IST) — ans-unit-digit-cycles-of-powers
+
+**Pass B — three solution visual aids (all inline SVG from named constants):**
+1. **Example-1 7-wheel with exponent reduction** (7^2025) — the 7-wheel (cycle 7,9,3,1 period 4) with the answer position (7, top) highlighted by a dashed circle; exponent reduction computation shown to the right (2025=4·506+1 → 2025≡1 mod 4 → position 1 → 7). VLM PASS after 1 fix round (labels moved outside circle).
+2. **L1-Q2 two-cycle 4↔6** — two boxes (4 and 6) with a double-arrow; labels "odd exponent" above 4, "even exponent" above 6; examples 4^19→4 and 4^18→6. VLM PASS first time.
+3. **L5-Q2 factorial wall** — 10 columns for 1! through 10! with unit digits 1,2,6,4,0,0,0,0,0,0; dashed vertical "wall" between 4! and 5! (5!=120); sum 1+2+6+4=13→3 highlighted; footer "1!+2!+⋯+100! ends in 3 (verified: Σ to 10 = 4,037,913)". VLM PASS first time.
+
+**Pass C — two enrichments INTO existing lesson:**
+1. **New example "The cube census — every digit appears"** — in the 'squares census' section. Lists all 10 cube unit digits (0³→0, 1³→1, 2³=8, 3³=27→7, 4³=64→4, 5³=125→5, 6³=216→6, 7³=343→3, 8³=512→2, 9³=729→9) showing the bijection is its own inverse on non-fixed points (2↔8, 3↔7). Explains via mod-2/mod-5 permutation.
+2. **New L5 question "Find the unit digit of 7^7^7"** — L5 2→3 questions. Power tower (right-associative): 7^7=823543, 823543 mod 4=3, position 3 on 7-wheel=3. Answer: 3.

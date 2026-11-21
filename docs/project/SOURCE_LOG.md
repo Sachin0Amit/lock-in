@@ -3208,3 +3208,7 @@ Drive sources extracted this pass: the 28 root classics + 96 Cengage chemistry/p
 
 ### 2026-11-21 (job 538572 fire (cron 0,30 * * * ? IST)) — no AI-generated images for lesson `ans-why-the-divisibility-tests-work`
 - All 4 figures touched this run (1 body figure-block audited in Pass A + 3 solution-figure SVGs authored in Pass B) are inline SVG authored from named constants (COL_W=90/110, COL_GAP=20/30, LEFT_MARGIN=60/70, BOX_W=340, BOX_H=50, BOX_GAP=55, etc.). The generator script is preserved at `/home/z/my-project/scripts/audit-figs-5-2.py`. No image-generation skill invoked; no raster assets created. STUDY-NEVER-REPRODUCE: every coordinate, label, and value in the 4 SVGs is OUR OWN, pinned by the generator script's named-constant pattern.
+
+
+### 2026-11-21 (job 538572 fire (cron 0,30 * * * ? IST)) — no AI-generated images for lesson `ans-unit-digit-cycles-of-powers`
+- All 4 figures (1 body audited + 3 solution authored) are inline SVG from named constants. Generator: /home/z/my-project/scripts/audit-figs-5-3.py. No raster assets created.

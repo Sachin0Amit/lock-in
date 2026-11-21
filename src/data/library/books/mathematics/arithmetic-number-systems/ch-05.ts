@@ -1712,6 +1712,29 @@ export const chapter05: Chapter = {
             'So, read the position: one step from 7 lands on… 7 itself: the first member of the cycle.',
             'Hence the unit digit is **7** — for a 1,712-digit number, two divisions of small integers.',
           ],
+          figures: [{
+            caption: 'The 7-wheel (cycle 7, 9, 3, 1 with period 4) with exponent reduction: 2025 = 4·506 + 1, so 2025 ≡ 1 (mod 4), landing on position 1 of the wheel — the digit 7 itself.',
+            svg: `<svg viewBox="0 0 580 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The 7-wheel with exponent reduction: the cycle 7 to 9 to 3 to 1 repeats clockwise with period 4; 2025 mod 4 equals 1, so the unit digit of 7 to the 2025 is position 1 on the wheel which is 7">
+  <text x="290.0" y="28" font-size="14" text-anchor="middle" fill="currentColor" opacity="0.85">the 7-wheel — exponent reduction on 7²⁰²⁵</text>
+  <!-- Wheel circle -->
+  <circle cx="140" cy="140" r="70" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+  <!-- Clockwise arrow (arc) -->
+  <path d="M 206.5 119.0 A 70 70 0 0 1 206.5 161.0" fill="none" stroke="currentColor" stroke-width="1.6" opacity="0.9"/>
+  <polygon points="211.5,161.0 204.5,165.0 204.5,157.0" fill="currentColor" opacity="0.9"/>
+  <!-- Digit labels on the wheel -->
+  <g font-size="22" text-anchor="middle" fill="currentColor" font-weight="bold">
+    <text x="140.0" y="55.0">7</text>    <text x="232.0" y="147.0">9</text>    <text x="140.0" y="239.0">3</text>    <text x="48.0" y="147.00000000000003">1</text>
+  </g>
+  <!-- Highlight the answer position -->
+  <circle cx="140.0" cy="48.0" r="20" fill="none" stroke="currentColor" stroke-width="2" opacity="0.9" stroke-dasharray="3 2"/>
+  <!-- Exponent reduction computation -->
+  <text x="270" y="100" font-size="16" fill="currentColor" font-weight="bold">2025 = 4 · 506 + 1</text>
+  <text x="270" y="125" font-size="14" fill="currentColor" opacity="0.85">2025 ≡ 1 (mod 4)</text>
+  <text x="270" y="155" font-size="14" fill="currentColor" opacity="0.85">→ position 1 on the wheel</text>
+  <text x="270" y="185" font-size="18" fill="currentColor" font-weight="bold">→ unit digit = 7</text>
+  <text x="290.0" y="268" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">7²⁰²⁵ ends in 7 — a 1,712-digit number resolved in two divisions</text>
+</svg>`,
+          }],
         },
         {
           kind: 'example',
@@ -1813,7 +1836,19 @@ export const chapter05: Chapter = {
         },
         {
           kind: 'para',
-          text: 'Finally, factorials. Lesson 4.3 counted the trailing zeros of $n!$ with Legendre’s census; the unit-digit version is its shadow: from $5! = 120$ onward, every factorial carries the factor $2 \\cdot 5 = 10$ outright, so every factorial from the fifth on ends in 0 — the unit digits of $1!, 2!, 3!, \\dots, 10!$ read $1, 2, 6, 4, 0, 0, 0, 0, 0, 0$. Sums of factorials therefore freeze after the fourth term: $1! + 2! + 3! + 4! + \\dots$ has unit digit $1 + 2 + 6 + 4 = 13 \\to 3$, forever after — the true value $\\sum_{i=1}^{10} i! = 4{,}037{,}913$ ends in 3, exactly as the 5.1 engine predicted.',
+          kind: 'example',
+          title: 'The cube census — every digit appears',
+          steps: [
+            'Split the task: cube each digit and read the unit digit — the verification script swept all ten before printing.',
+            'Now, the witnesses: $0^3 \to 0$, $1^3 \to 1$, $2^3 = 8$, $3^3 = 27 \to 7$, $4^3 = 64 \to 4$, $5^3 = 125 \to 5$, $6^3 = 216 \to 6$, $7^3 = 343 \to 3$, $8^3 = 512 \to 2$, $9^3 = 729 \to 9$.',
+            'So, read the map: $0 \to 0$, $1 \to 1$, $2 \to 8$, $3 \to 7$, $4 \to 4$, $5 \to 5$, $6 \to 6$, $7 \to 3$, $8 \to 2$, $9 \to 9$ — all ten digits appear, and the map is its own inverse on the non-fixed points ($2 \leftrightarrow 8$, $3 \leftrightarrow 7$).',
+            'Take the reason: cubing is a bijection modulo 2 (trivially — odd cubed is odd, even cubed is even) and modulo 5 (the cube columns of the mod-5 table hit every residue: $1^3 \equiv 1$, $2^3 \equiv 3$, $3^3 \equiv 2$, $4^3 \equiv 4$) — so it permutes the (mod 2, mod 5) pairs, hence the digits.',
+            'Hence every digit is a cube unit digit — unlike squares (which fold ten digits onto six), cubes permute them.',
+          ],
+        },
+        {
+          kind: 'para',
+                    text: 'Finally, factorials. Lesson 4.3 counted the trailing zeros of $n!$ with Legendre’s census; the unit-digit version is its shadow: from $5! = 120$ onward, every factorial carries the factor $2 \\cdot 5 = 10$ outright, so every factorial from the fifth on ends in 0 — the unit digits of $1!, 2!, 3!, \\dots, 10!$ read $1, 2, 6, 4, 0, 0, 0, 0, 0, 0$. Sums of factorials therefore freeze after the fourth term: $1! + 2! + 3! + 4! + \\dots$ has unit digit $1 + 2 + 6 + 4 = 13 \\to 3$, forever after — the true value $\\sum_{i=1}^{10} i! = 4{,}037{,}913$ ends in 3, exactly as the 5.1 engine predicted.',
         },
         {
           kind: 'callout',
@@ -1900,6 +1935,29 @@ export const chapter05: Chapter = {
                     'Hence the alternation in action — one wheel, two parities.',
                   ],
                   answer: '4¹⁸ → 6; 4¹⁹ → 4',
+                  figures: [{
+                    caption: 'The two-cycle of 4: powers of 4 alternate between 4 (odd exponents) and 6 (even exponents) with period 2 — so 4¹⁸ ends in 6 and 4¹⁹ ends in 4.',
+                    svg: `<svg viewBox="0 0 480 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The two-cycle of 4: powers of 4 alternate between 4 and 6 with period 2 — odd exponents give 4, even exponents give 6. So 4 to the 18 ends in 6 and 4 to the 19 ends in 4.">
+  <text x="240.0" y="28" font-size="14" text-anchor="middle" fill="currentColor" opacity="0.85">the 4-wheel — a two-cycle: 4 ↔ 6</text>
+  <!-- Two digit boxes -->
+  <rect x="100" y="85" width="60" height="50" rx="8" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+  <rect x="300" y="85" width="60" height="50" rx="8" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+  <text x="130" y="118" font-size="24" text-anchor="middle" fill="currentColor" font-weight="bold">4</text>
+  <text x="330" y="118" font-size="24" text-anchor="middle" fill="currentColor" font-weight="bold">6</text>
+  <!-- Double arrow between them -->
+  <line x1="162" y1="102" x2="298" y2="102" stroke="currentColor" stroke-width="1.4" opacity="0.85"/>
+  <polygon points="298,102 292,99 292,105" fill="currentColor" opacity="0.85"/>
+  <line x1="162" y1="118" x2="298" y2="118" stroke="currentColor" stroke-width="1.4" opacity="0.85"/>
+  <polygon points="162,118 168,115 168,121" fill="currentColor" opacity="0.85"/>
+  <!-- Labels: odd/even -->
+  <text x="130" y="70" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.75">odd exponent</text>
+  <text x="330" y="70" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.75">even exponent</text>
+  <!-- Two examples -->
+  <text x="130" y="170" font-size="15" text-anchor="middle" fill="currentColor" font-weight="bold">4¹⁹ → 4</text>
+  <text x="330" y="170" font-size="15" text-anchor="middle" fill="currentColor" font-weight="bold">4¹⁸ → 6</text>
+  <text x="240.0" y="218" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">period L = 2: odd exponent → 4, even exponent → 6</text>
+</svg>`,
+                  }],
                 },
                 {
                   q: 'Find the unit digit of 7²⁰²⁵, showing the method.',
@@ -2034,6 +2092,51 @@ export const chapter05: Chapter = {
                     'Hence the unit digit is **3**, for this sum or any longer factorial sum — the wall at $5!$ freezes the arithmetic.',
                   ],
                   answer: '3 — only 1! + 2! + 3! + 4! contribute (1 + 2 + 6 + 4 = 13); every later factorial ends in 0',
+                  figures: [{
+                    caption: 'The factorial unit-digit wall: from 5! = 120 onward every factorial ends in 0, so the sum 1! + 2! + 3! + 4! + ⋯ freezes at unit digit 1 + 2 + 6 + 4 = 13 → 3 forever.',
+                    svg: `<svg viewBox="0 0 740 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The factorial unit digit wall: from 5 factorial equals 120 onward every factorial ends in 0, so the sum 1 factorial plus 2 factorial plus 3 factorial plus 4 factorial plus dots has unit digit 1 plus 2 plus 6 plus 4 equals 13 arrow 3 forever">
+  <text x="370.0" y="28" font-size="14" text-anchor="middle" fill="currentColor" opacity="0.85">the factorial wall — unit digits of n!</text>
+  <text x="77.5" y="60" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.75">1!</text>
+  <text x="142.5" y="60" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.75">2!</text>
+  <text x="207.5" y="60" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.75">3!</text>
+  <text x="272.5" y="60" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.75">4!</text>
+  <text x="337.5" y="60" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.75">5!</text>
+  <text x="402.5" y="60" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.75">6!</text>
+  <text x="467.5" y="60" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.75">7!</text>
+  <text x="532.5" y="60" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.75">8!</text>
+  <text x="597.5" y="60" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.75">9!</text>
+  <text x="662.5" y="60" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.75">10!</text>
+  <text x="77.5" y="100" font-size="22" text-anchor="middle" fill="currentColor" opacity="0.9" font-weight="bold">1</text>
+  <text x="142.5" y="100" font-size="22" text-anchor="middle" fill="currentColor" opacity="0.9" font-weight="bold">2</text>
+  <text x="207.5" y="100" font-size="22" text-anchor="middle" fill="currentColor" opacity="0.9" font-weight="bold">6</text>
+  <text x="272.5" y="100" font-size="22" text-anchor="middle" fill="currentColor" opacity="0.9" font-weight="bold">4</text>
+  <text x="337.5" y="100" font-size="22" text-anchor="middle" fill="currentColor" opacity="0.4" font-weight="normal">0</text>
+  <text x="402.5" y="100" font-size="22" text-anchor="middle" fill="currentColor" opacity="0.4" font-weight="normal">0</text>
+  <text x="467.5" y="100" font-size="22" text-anchor="middle" fill="currentColor" opacity="0.4" font-weight="normal">0</text>
+  <text x="532.5" y="100" font-size="22" text-anchor="middle" fill="currentColor" opacity="0.4" font-weight="normal">0</text>
+  <text x="597.5" y="100" font-size="22" text-anchor="middle" fill="currentColor" opacity="0.4" font-weight="normal">0</text>
+  <text x="662.5" y="100" font-size="22" text-anchor="middle" fill="currentColor" opacity="0.4" font-weight="normal">0</text>
+  <line x1="305.0" y1="70" x2="305.0" y2="130" stroke="currentColor" stroke-width="1.5" opacity="0.6" stroke-dasharray="4 3"/>
+  <text x="305.0" y="145" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.7">5! = 120</text>
+  <text x="305.0" y="160" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.6">the wall</text>
+  <line x1="77.5" y1="120" x2="272.5" y2="120" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+  <text x="175.0" y="140" font-size="14" text-anchor="middle" fill="currentColor" opacity="0.85">1 + 2 + 6 + 4 = 13</text>
+  <text x="175.0" y="175" font-size="16" text-anchor="middle" fill="currentColor" font-weight="bold">→ unit digit 3</text>
+  <text x="370.0" y="215" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">from 5! onward every term ends in 0 — the sum freezes at 3</text>
+  <text x="370.0" y="245" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.7">1! + 2! + ⋯ + 100! ends in 3 (verified: Σ i! to 10 = 4,037,913)</text>
+</svg>`,
+                  }],
+                },
+                {
+                  q: 'Find the unit digit of 7^7^7 (a power tower — read right-associatively as 7 to the power 7 to the 7).',
+                  solution: [
+                    'Split the tower: $7^{7^7}$ means $7^{(7^7)}$ — the inner exponent is $7^7 = 823{,}543$.',
+                    'Now, reduce the inner exponent modulo the 7-wheel length: $L = 4$, and $823{,}543 = 4 \\cdot 205{,}885 + 3$, so $823{,}543 \\equiv 3 \\pmod 4$.',
+                    'So, read the wheel: position 3 on the 7-cycle $7, 9, 3, 1$ is the third member — **3**.',
+                    'Take the check: $7^7 = 823{,}543$ (ends in 3 ✓ — position 3 on its own wheel), and $7^{823{,}543}$ ends in 3 as well — the power tower resolved through two reductions, neither touching the astronomical outer number.',
+                    'Hence the unit digit is **3** — a tower of three sevens, resolved by reducing the inner exponent modulo 4 and reading the wheel.',
+                  ],
+                  answer: '3 — 7^7 = 823543, 823543 ≡ 3 (mod 4), position 3 on the 7-wheel',
                 },
               ],
             },

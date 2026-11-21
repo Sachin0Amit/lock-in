@@ -7103,3 +7103,14 @@ Pass C: 2 enrichments INTO the existing lesson — (1) insight callout "Why copr
 Gates: static XML DOM gate 0 issues on all 4 SVGs (pixel measurement confirmed all margins ≥8px). audit-svg-overlaps.sh dev-server-blocked (offline substitution). VLM strict PASS ×4 (body PASS first time; 3 Pass B: 2 PASS first time + 1 FIXED→PASS box-padding one round). tsc --noEmit unavailable project-wide (node_modules missing — 888 infra errors); ZERO errors in edited file ch-05.ts. Sanity: braces 142/142, all 14 kinds valid, 4 SVG blocks no stray backticks. No pack rebuild (deps unavailable). No AI-generated images this run.
 
 Sibling figure-upgrade lock check: docs/project/.figure_upgrade_lock NOT present (no sibling activity).
+
+
+**2026-11-21 — job 538572 fire (cron 0,30 * * * ? IST) — audit-bot run — lesson ans-unit-digit-cycles-of-powers (ANS ch.5 L3 'The Unit Digit and Cycles of Powers'): A=1 fig audited / 0 fixed (PASS first time), B=3 solution figures added (Ex1 7-wheel with exponent reduction, L1-Q2 two-cycle 4↔6, L5-Q2 factorial wall), C=2 enrichments (cube census example, L5 power tower question 7^7^7), 11 refusals with reasons. Docs updated. State bumped: lastAuditedLessonId → ans-unit-digit-cycles-of-powers. ANS ch.5 L3 done; rotation advances to ch.5 L4 (ans-linear-congruences-glimpse-of-fermat).**
+
+Pass A: body figure (unit-digit cycles as wheels — 4 circles for 4-cycles of 2,3,7,8 + double-arrows for 2-cycles + fixed points) VLM strict PASS first time. Margins L=55 R=28 T=22 B=17.
+
+Pass B: 3 solution figures. Ex1 7-wheel with exponent reduction (FAIL first — labels on circle stroke; FIXED — labels moved to R+22 outside circle, pos labels removed; PASS). L1-Q2 two-cycle 4↔6 (PASS first time). L5-Q2 factorial wall (PASS first time). 11 refusals.
+
+Pass C: 2 enrichments — (1) cube census example listing all 10 cube unit digits with bijection explanation; (2) L5 power tower question 7^7^7 (7^7=823543, mod 4=3, position 3→3). L5 2→3 questions.
+
+Gates: static DOM gate 0 issues (all margins ≥8px); VLM PASS ×4; tsc unavailable (deps missing) but 0 errors in ch-05.ts; sanity braces 213/213, all kinds valid, 4 SVGs no stray backticks. No AI images.
