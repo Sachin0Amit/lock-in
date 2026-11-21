@@ -2695,7 +2695,8 @@ export const chapter04: Chapter = {
     <path d="M502,116 Q510,102 518,116"/>
     <path d="M598,116 Q606,102 614,116"/>
   </g>
-  <text x="70" y="88" font-size="11" fill="currentColor" text-anchor="middle" opacity="0.85">3, 5, 7 — the only gap-2 triplet</text>
+  <text x="70" y="76" font-size="11" fill="currentColor" text-anchor="middle" opacity="0.85" font-weight="600">3, 5, 7</text>
+  <text x="70" y="90" font-size="11" fill="currentColor" text-anchor="middle" opacity="0.85">only gap-2 triplet</text>
   <g fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.75">
     <path d="M742,140 L742,146 L806,146 L806,140"/>
   </g>
@@ -2802,6 +2803,12 @@ export const chapter04: Chapter = {
           text: 'Read the table twice. Down the *share* column, primes thin out — 40% of the numbers to 10, under 8% to a million. Down the *ratio* column, $\\pi(n)$ tracks $n / \\ln n$ with errors that wander — above, below, above — and shrink *relatively*: 0.921, 1.151, 1.161, 1.132, 1.104, 1.084. The pattern is not luck, and proving it took the nineteenth century’s best analysis: the **prime number theorem** — $\\pi(n)$ is asymptotic to $n/\\ln n$ as $n$ grows — was conjectured by Gauss on the evidence of tables like this one and proved in 1896, independently, by Jacques Hadamard and Charles-Jean de la Vallée Poussin, riding the zeta-function ideas Bernhard Riemann had introduced in 1859. The proof is far beyond this book — stated, cited, believed on the table’s evidence, and *not claimed*.',
         },
         {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Why n/ln n is the right companion — the density heuristic',
+          text: 'The table’s companion column is not arbitrary. Near $n$, a typical integer is prime with probability *about* $1/\\ln n$ — the share column’s thinning (40% at 10, 7.85% at 10⁶) tracks $1/\\ln n$ loosely all the way down. Count $n$ candidates at that density and the expected prime count is $n \\cdot (1/\\ln n)$ — exactly the companion column. This is a plausibility argument, not a proof: it assumes primality behaves independently at different sizes, which is far deeper than it looks. What the heuristic buys is the right *form* of the companion — and the prime number theorem is the statement that the form is, in the end, exact.',
+        },
+        {
           kind: 'example',
           title: 'How many primes between a and b — the π-difference exam shape',
           steps: [
@@ -2810,6 +2817,29 @@ export const chapter04: Chapter = {
             'So, the drill values: between 100 and 200 — $46 - 25 = 21$ (Lesson 4.1’s table); between 100 and 1000 — $168 - 25 = 143$; between 201 and 300 — sixteen primes, $211$ through $293$.',
             'Take the economy: no listing needed at scale — the sieve computes $\\pi$ once, every interval question becomes a subtraction.',
             'Hence the exam answer shape: **π(b) − π(a)** — the counting function is the difference engine for interval censuses.',
+          ],
+          figures: [
+            {
+              caption: 'The two π bars to true proportion: 168 counts to 1000, 303 to 2000 — the bracket measures their difference, the 135 primes in 1001..2000.',
+              svg: `
+<svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two bars on a shared baseline drawn to true proportion: the count to 1000 stands 168 units tall, the count to 2000 stands 303 units tall, and a green bracket on the right measures their difference — the 135 primes between 1000 and 2000">
+<text x="280" y="22" font-size="13" fill="currentColor" text-anchor="middle" font-weight="600">interval counting is a subtraction: π(b) − π(a)</text>
+<rect x="110" y="123.5049504950495" width="130" height="86.4950495049505" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+<rect x="300" y="54.0" width="130" height="156.0" rx="6" fill="#ffedd5" stroke="#f59e0b" stroke-width="1.3"/>
+<text x="175.0" y="113.5049504950495" font-size="13" fill="currentColor" text-anchor="middle" font-weight="600">π(1000) = 168</text>
+<text x="365.0" y="44.0" font-size="13" fill="currentColor" text-anchor="middle" font-weight="600">π(2000) = 303</text>
+<line x1="90" y1="210" x2="460" y2="210" stroke="currentColor" stroke-width="1.0"/>
+<text x="175.0" y="228" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.8">the count to 1000</text>
+<text x="365.0" y="228" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.8">the count to 2000</text>
+<line x1="448" y1="54.0" x2="448" y2="123.5049504950495" stroke="#16a34a" stroke-width="1.3"/>
+<line x1="442" y1="54.0" x2="454" y2="54.0" stroke="#16a34a" stroke-width="1.3"/>
+<line x1="442" y1="123.5049504950495" x2="454" y2="123.5049504950495" stroke="#16a34a" stroke-width="1.3"/>
+<text x="456" y="84.0" font-size="14" fill="#166534" text-anchor="start" font-weight="700">135</text>
+<text x="456" y="100.0" font-size="11" fill="#166534" text-anchor="start" font-weight="normal">primes between</text>
+<text x="280" y="252" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">303 − 168 = 135 primes in 1001..2000 — one subtraction, no listing</text>
+</svg>
+`,
+            },
           ],
         },
         { kind: 'heading', text: 'The harmonic hiss: Σ 1/p diverges' },
@@ -2936,6 +2966,75 @@ export const chapter04: Chapter = {
                     'Hence seven twin pairs in 101..200 — with the eight below 100, fifteen pairs below 200.',
                   ],
                   answer: '(101,103), (107,109), (137,139), (149,151), (179,181), (191,193), (197,199) — seven',
+                  figures: [
+                    {
+                      caption: 'The second hundred: all 21 primes dotted (twins teal, partnerless primes dimmed) and the seven gap-2 pairs bracketed — seven here, fifteen below 200 with the eight below 100.',
+                      svg: `
+<svg viewBox="0 0 560 252" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A number line from 101 to 200: twenty-one prime dots, twins teal and non-twins dimmed, with amber arcs bracketing the seven gap-2 pairs — 101 with 103, 107 with 109, 137 with 139, 149 with 151, 179 with 181, 191 with 193, 197 with 199">
+<text x="280" y="22" font-size="13" fill="currentColor" text-anchor="middle" font-weight="600">the seven twin pairs of 101..200 — every gap-2 pair bracketed</text>
+<line x1="60" y1="150" x2="530" y2="150" stroke="currentColor" stroke-width="1.1"/>
+<line x1="60.0" y1="146" x2="60.0" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="60.0" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">101</text>
+<line x1="102.72727272727272" y1="146" x2="102.72727272727272" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="102.72727272727272" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">110</text>
+<line x1="150.2020202020202" y1="146" x2="150.2020202020202" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="150.2020202020202" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">120</text>
+<line x1="197.67676767676767" y1="146" x2="197.67676767676767" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="197.67676767676767" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">130</text>
+<line x1="245.15151515151516" y1="146" x2="245.15151515151516" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="245.15151515151516" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">140</text>
+<line x1="292.6262626262626" y1="146" x2="292.6262626262626" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="292.6262626262626" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">150</text>
+<line x1="340.1010101010101" y1="146" x2="340.1010101010101" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="340.1010101010101" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">160</text>
+<line x1="387.57575757575756" y1="146" x2="387.57575757575756" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="387.57575757575756" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">170</text>
+<line x1="435.050505050505" y1="146" x2="435.050505050505" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="435.050505050505" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">180</text>
+<line x1="482.52525252525254" y1="146" x2="482.52525252525254" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="482.52525252525254" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">190</text>
+<line x1="530.0" y1="146" x2="530.0" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="530.0" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">200</text>
+<circle cx="60.0" cy="150" r="3.5" fill="#0f766e"/>
+<circle cx="69.4949494949495" cy="150" r="3.5" fill="#0f766e"/>
+<circle cx="88.48484848484848" cy="150" r="3.5" fill="#0f766e"/>
+<circle cx="97.97979797979798" cy="150" r="3.5" fill="#0f766e"/>
+<circle cx="116.96969696969697" cy="150" r="3.5" fill="currentColor" opacity="0.45"/>
+<circle cx="183.43434343434342" cy="150" r="3.5" fill="currentColor" opacity="0.45"/>
+<circle cx="202.42424242424244" cy="150" r="3.5" fill="currentColor" opacity="0.45"/>
+<circle cx="230.9090909090909" cy="150" r="3.5" fill="#0f766e"/>
+<circle cx="240.40404040404042" cy="150" r="3.5" fill="#0f766e"/>
+<circle cx="287.8787878787879" cy="150" r="3.5" fill="#0f766e"/>
+<circle cx="297.3737373737374" cy="150" r="3.5" fill="#0f766e"/>
+<circle cx="325.85858585858585" cy="150" r="3.5" fill="currentColor" opacity="0.45"/>
+<circle cx="354.34343434343435" cy="150" r="3.5" fill="currentColor" opacity="0.45"/>
+<circle cx="373.3333333333333" cy="150" r="3.5" fill="currentColor" opacity="0.45"/>
+<circle cx="401.8181818181818" cy="150" r="3.5" fill="currentColor" opacity="0.45"/>
+<circle cx="430.3030303030303" cy="150" r="3.5" fill="#0f766e"/>
+<circle cx="439.7979797979798" cy="150" r="3.5" fill="#0f766e"/>
+<circle cx="487.27272727272725" cy="150" r="3.5" fill="#0f766e"/>
+<circle cx="496.7676767676768" cy="150" r="3.5" fill="#0f766e"/>
+<circle cx="515.7575757575758" cy="150" r="3.5" fill="#0f766e"/>
+<circle cx="525.2525252525252" cy="150" r="3.5" fill="#0f766e"/>
+<path d="M60.0,144 Q64.74747474747474,130 69.4949494949495,144" fill="none" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="64.74747474747474" y="112" font-size="9.5" fill="#92400e" text-anchor="middle" font-weight="600">101, 103</text>
+<path d="M88.48484848484848,144 Q93.23232323232324,130 97.97979797979798,144" fill="none" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="93.23232323232324" y="98" font-size="9.5" fill="#92400e" text-anchor="middle" font-weight="600">107, 109</text>
+<path d="M230.9090909090909,144 Q235.65656565656565,130 240.40404040404042,144" fill="none" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="235.65656565656565" y="112" font-size="9.5" fill="#92400e" text-anchor="middle" font-weight="600">137, 139</text>
+<path d="M287.8787878787879,144 Q292.62626262626264,130 297.3737373737374,144" fill="none" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="292.62626262626264" y="98" font-size="9.5" fill="#92400e" text-anchor="middle" font-weight="600">149, 151</text>
+<path d="M430.3030303030303,144 Q435.0505050505051,130 439.7979797979798,144" fill="none" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="435.0505050505051" y="112" font-size="9.5" fill="#92400e" text-anchor="middle" font-weight="600">179, 181</text>
+<path d="M487.27272727272725,144 Q492.020202020202,130 496.7676767676768,144" fill="none" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="492.020202020202" y="98" font-size="9.5" fill="#92400e" text-anchor="middle" font-weight="600">191, 193</text>
+<path d="M515.7575757575758,144 Q520.5050505050505,130 525.2525252525252,144" fill="none" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="520.5050505050505" y="112" font-size="9.5" fill="#92400e" text-anchor="middle" font-weight="600">197, 199</text>
+<text x="280" y="226" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">seven here + eight below 100 = fifteen below 200</text>
+</svg>
+`,
+                    },
+                  ],
                 },
               ],
             },
@@ -2973,6 +3072,47 @@ export const chapter04: Chapter = {
                     'Hence the chain $5 \\to 7 \\to 11 \\to 23 \\to 41 \\to 83$ — every doubling window tenanted, as the postulate promises.',
                   ],
                   answer: '7, 11, 23, 41, 83 — one prime per doubling window',
+                  figures: [
+                    {
+                      caption: 'Each doubling window drawn as its own strip: the tenants 7, 11, 23, 41, 83 sit at depths 40%, 10%, 15%, 2.5% and 3.75% of their windows — the worst case never arrives.',
+                      svg: `
+<svg viewBox="0 0 560 252" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five horizontal window strips, one per doubling: n = 5, 10, 20, 40, 80, each strip the window n to 2n with the tenant prime as a teal dot at its true relative depth — 7 at forty percent of its window, then 11 at ten percent, 23 at fifteen percent, 41 at 2.5 percent and 83 at 3.75 percent, every dot hugging the left edge">
+<text x="280" y="22" font-size="13" fill="currentColor" text-anchor="middle" font-weight="600">the Bertrand chain, window by window — each strip is (n, 2n]</text>
+<text x="64" y="66" font-size="11.5" fill="currentColor" text-anchor="end" font-weight="600">n = 5</text>
+<rect x="70" y="55" width="460" height="14" rx="7" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.0"/>
+<line x1="70" y1="62" x2="530" y2="62" stroke="currentColor" stroke-width="0.9"/>
+<circle cx="254.0" cy="62" r="5" fill="#0f766e"/>
+<text x="254.0" y="50" font-size="12" fill="#0f766e" text-anchor="middle" font-weight="700">7</text>
+<text x="530" y="50" font-size="11" fill="currentColor" text-anchor="end" font-weight="normal">2n = 10</text>
+<text x="64" y="100" font-size="11.5" fill="currentColor" text-anchor="end" font-weight="600">n = 10</text>
+<rect x="70" y="89" width="460" height="14" rx="7" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.0"/>
+<line x1="70" y1="96" x2="530" y2="96" stroke="currentColor" stroke-width="0.9"/>
+<circle cx="116.0" cy="96" r="5" fill="#0f766e"/>
+<text x="116.0" y="84" font-size="12" fill="#0f766e" text-anchor="middle" font-weight="700">11</text>
+<text x="530" y="84" font-size="11" fill="currentColor" text-anchor="end" font-weight="normal">2n = 20</text>
+<text x="64" y="134" font-size="11.5" fill="currentColor" text-anchor="end" font-weight="600">n = 20</text>
+<rect x="70" y="123" width="460" height="14" rx="7" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.0"/>
+<line x1="70" y1="130" x2="530" y2="130" stroke="currentColor" stroke-width="0.9"/>
+<circle cx="139.0" cy="130" r="5" fill="#0f766e"/>
+<text x="139.0" y="118" font-size="12" fill="#0f766e" text-anchor="middle" font-weight="700">23</text>
+<text x="530" y="118" font-size="11" fill="currentColor" text-anchor="end" font-weight="normal">2n = 40</text>
+<text x="64" y="168" font-size="11.5" fill="currentColor" text-anchor="end" font-weight="600">n = 40</text>
+<rect x="70" y="157" width="460" height="14" rx="7" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.0"/>
+<line x1="70" y1="164" x2="530" y2="164" stroke="currentColor" stroke-width="0.9"/>
+<circle cx="81.5" cy="164" r="5" fill="#0f766e"/>
+<text x="81.5" y="152" font-size="12" fill="#0f766e" text-anchor="middle" font-weight="700">41</text>
+<text x="530" y="152" font-size="11" fill="currentColor" text-anchor="end" font-weight="normal">2n = 80</text>
+<text x="64" y="202" font-size="11.5" fill="currentColor" text-anchor="end" font-weight="600">n = 80</text>
+<rect x="70" y="191" width="460" height="14" rx="7" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.0"/>
+<line x1="70" y1="198" x2="530" y2="198" stroke="currentColor" stroke-width="0.9"/>
+<circle cx="87.25" cy="198" r="5" fill="#0f766e"/>
+<text x="87.25" y="186" font-size="12" fill="#0f766e" text-anchor="middle" font-weight="700">83</text>
+<text x="530" y="186" font-size="11" fill="currentColor" text-anchor="end" font-weight="normal">2n = 160</text>
+<text x="280" y="232" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">the tenants hug the left edge — Bertrand’s guarantee is a worst case</text>
+</svg>
+`,
+                    },
+                  ],
                 },
               ],
             },
@@ -2989,6 +3129,48 @@ export const chapter04: Chapter = {
                     'Hence the first gap of 10 is $139 \\to 149$, and the first gap of 14 ($113 \\to 127$) arrives earlier still.',
                   ],
                   answer: 'first 10: 139 → 149; first 14: 113 → 127 (earlier!)',
+                  figures: [
+                    {
+                      caption: 'The two deserts on one line: after 113 the composites run 14 wide (the first gap of 14 anywhere), after 139 only 10 wide (the first gap of 10) — the wider gap lands first.',
+                      svg: `
+<svg viewBox="0 0 560 232" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A number line from 100 to 160 with the twelve primes as dots and the two composite deserts shaded amber: after 113 the band runs to 127 — a gap of 14, the first of that width — while after 139 the band runs to 149 — a gap of 10, the first of its width but arriving later">
+<text x="280" y="22" font-size="13" fill="currentColor" text-anchor="middle" font-weight="600">the first gap of 10 vs the earlier first gap of 14</text>
+<line x1="60" y1="150" x2="530" y2="150" stroke="currentColor" stroke-width="1.1"/>
+<line x1="60.0" y1="146" x2="60.0" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="60.0" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">100</text>
+<line x1="138.33333333333331" y1="146" x2="138.33333333333331" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="138.33333333333331" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">110</text>
+<line x1="216.66666666666666" y1="146" x2="216.66666666666666" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="216.66666666666666" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">120</text>
+<line x1="295.0" y1="146" x2="295.0" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="295.0" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">130</text>
+<line x1="373.3333333333333" y1="146" x2="373.3333333333333" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="373.3333333333333" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">140</text>
+<line x1="451.6666666666667" y1="146" x2="451.6666666666667" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="451.6666666666667" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">150</text>
+<line x1="530.0" y1="146" x2="530.0" y2="154" stroke="currentColor" stroke-width="0.9" opacity="0.7"/>
+<text x="530.0" y="170" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal" opacity="0.75">160</text>
+<circle cx="67.83333333333333" cy="150" r="4" fill="currentColor"/>
+<circle cx="83.5" cy="150" r="4" fill="currentColor"/>
+<circle cx="114.83333333333334" cy="150" r="4" fill="currentColor"/>
+<circle cx="130.5" cy="150" r="4" fill="currentColor"/>
+<circle cx="161.83333333333331" cy="150" r="4" fill="currentColor"/>
+<circle cx="271.5" cy="150" r="4" fill="currentColor"/>
+<circle cx="302.83333333333337" cy="150" r="4" fill="currentColor"/>
+<circle cx="349.8333333333333" cy="150" r="4" fill="currentColor"/>
+<circle cx="365.5" cy="150" r="4" fill="currentColor"/>
+<circle cx="443.8333333333333" cy="150" r="4" fill="currentColor"/>
+<circle cx="459.5" cy="150" r="4" fill="currentColor"/>
+<circle cx="506.5" cy="150" r="4" fill="currentColor"/>
+<rect x="161.83333333333331" y="142" width="109.66666666666669" height="16" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.0"/>
+<text x="216.66666666666666" y="118" font-size="11.5" fill="#92400e" text-anchor="middle" font-weight="600">gap 14 — the first, at 113</text>
+<rect x="365.5" y="142" width="78.33333333333331" height="16" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.0"/>
+<text x="404.66666666666663" y="134" font-size="11.5" fill="#92400e" text-anchor="middle" font-weight="600">gap 10 — later, at 139</text>
+<text x="280" y="212" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">first occurrences do not march in size order — 14 lands before 10</text>
+</svg>
+`,
+                    },
+                  ],
                 },
                 {
                   q: 'Use π-differences to count the primes strictly between 1000 and 2000.',
@@ -3079,6 +3261,17 @@ export const chapter04: Chapter = {
                     'Hence $0.6080$ against $6/\\pi^2 = 0.6079$: the unique-factorisation skeleton visible in a decimal — confirmed numerically, proved elsewhere, cited here.',
                   ],
                   answer: '∏(1 − 1/p²), p ≤ 1000 = 0.608004 vs 6/π² = 0.607927 — corroborated, not proved',
+                },
+                {
+                  q: 'Extend the π table one row: compute $\\pi(10^7)$ by sieving, compare with the companion $n/\\ln n$, and say what the ratio is doing.',
+                  solution: [
+                    'Split, the sieve: one run to $10^7$ — the count: $\\pi(10^7) = 664{,}579$ (engine-computed this run, not quoted).',
+                    'Now, the companion: $\\ln 10^7 = 7\\ln 10 \\approx 16.118$, so $10^7/\\ln 10^7 \\approx 620{,}421$.',
+                    'So, the ratio: $664{,}579 / 620{,}421 \\approx 1.071$ — the table’s drift continues: $1.084$ at $10^6$, $1.071$ at $10^7$, always above 1, always closer.',
+                    'Take the share: $664{,}579/10^7 = 6.65\\%$ — down from $7.85\\%$ at $10^6$: the thinning never stops.',
+                    'Hence the pattern holds one more decade — the PNT’s shadow lengthens honestly: the ratio inches toward 1 from above, and no table, however long, is a proof.',
+                  ],
+                  answer: 'π(10⁷) = 664,579 vs companion ≈ 620,421 — ratio 1.071, drift continues',
                 },
               ],
             },

@@ -2573,6 +2573,52 @@ for (let n = 2; n <= 100; n++) if (isPrimeDef(n)) primes100List.push(n)
   ok(first3 === 120, 'AT: the sweep — no n < 120 satisfies σ(n) = 3n; 120 is the smallest 3-perfect number')
 }
 
+/* ------------------------------------------------------------------ */
+/* (AU) audit-bot run 2026-11-21 (17:00 fire) — 4.4 solution figures    */
+/*      + enrichments — verify-first: pinned BEFORE any prose           */
+/* ------------------------------------------------------------------ */
+{
+  const isP = (n: number): boolean => isPrimeDef(n)
+  const nextP = (n: number): number => { let m = n + 1; while (!isP(m)) m++; return m }
+
+  // figure: the Bertrand doubling chain, window by window (L2-Q3 solution figure)
+  const chain: Array<[number, number]> = [[5, 7], [10, 11], [20, 23], [40, 41], [80, 83]]
+  ok(chain.every(([n, p]) => isP(p) && p === nextP(n) && n < p && p <= 2 * n), 'AU: the five chain tenants 7, 11, 23, 41, 83 are prime, are the FIRST prime after their n, and sit inside (n, 2n]')
+  ok(chain.map(([n, p]) => (p - n) / n).join(',') === '0.4,0.1,0.15,0.025,0.0375', 'AU: the window depths (p − n)/n = 0.4, 0.1, 0.15, 0.025, 0.0375 — every tenant hugs the left edge, the guarantee is a worst case')
+
+  // figure: the first gap of 10 vs the earlier first gap of 14 (L3-Q1 solution figure)
+  ok(nextP(113) === 127 && 127 - 113 === 14 && [115, 117, 119, 121, 123, 125].every((x) => !isP(x)), 'AU: the desert after 113 runs to 127 — gap 14, the six odd composites 115..125 all composite (115 = 5·23, 117 = 3·39, 119 = 7·17, 121 = 11², 123 = 3·41, 125 = 5³)')
+  ok(nextP(139) === 149 && 149 - 139 === 10 && [141, 143, 145, 147].every((x) => !isP(x)), 'AU: the desert after 139 runs to 149 — gap 10 (141 = 3·47, 143 = 11·13, 145 = 5·29, 147 = 3·49)')
+  let earlier10 = false
+  for (let p = 2; p < 139; p = nextP(p)) if (nextP(p) - p === 10) earlier10 = true
+  ok(!earlier10, 'AU: no gap of exactly 10 opens before 139 — 113’s gap of 14 genuinely arrives earlier')
+
+  // figure: the π-difference bars (4.4 example-2 solution figure)
+  const piCount = (n: number): number => { let c = 0; for (let m = 2; m <= n; m++) if (isP(m)) c++; return c }
+  ok(piCount(1000) === 168 && piCount(2000) === 303 && 303 - 168 === 135, 'AU: π(1000) = 168, π(2000) = 303, difference 135 — the bar heights and the bracket the figure draws')
+
+  // figure: the seven twin pairs of 101..200, bracket by bracket (L1-Q3 solution figure)
+  const twins101 = [[101, 103], [107, 109], [137, 139], [149, 151], [179, 181], [191, 193], [197, 199]]
+  ok(twins101.every(([p, q]) => isP(p) && isP(q) && q - p === 2), 'AU: all seven 101..200 pairs are gap-2 and both ends prime, exactly as the figure brackets them')
+  let twinCheck = true
+  for (let p = 101; p <= 198; p++) if (isP(p) && isP(p + 2) && p % 2 === 1 && !twins101.some(([a]) => a === p)) twinCheck = false
+  ok(twinCheck, 'AU: the sweep finds no eighth twin pair in 101..200 — the seven brackets are complete')
+
+  // enrichment (L6-Q2): the π table extended to 10⁷ — sieved, not quoted
+  const N7 = 10 ** 7
+  const sieve7 = new Uint8Array(N7 + 1)
+  sieve7.fill(1); sieve7[0] = 0; sieve7[1] = 0
+  for (let i = 2; i * i <= N7; i++) if (sieve7[i]) for (let j = i * i; j <= N7; j += i) sieve7[j] = 0
+  let pi7 = 0
+  for (let i = 2; i <= N7; i++) if (sieve7[i]) pi7++
+  ok(pi7 === 664579, 'AU: π(10⁷) = 664,579 — sieved fresh, engine-computed, not quoted')
+  const ln7 = Math.log(N7)
+  const companion7 = N7 / ln7
+  ok(Math.round(companion7) === 620421, 'AU: the companion 10⁷/ln 10⁷ ≈ 620,421 (ln 10⁷ ≈ 16.118) — the table’s next row')
+  ok(Math.abs(pi7 / companion7 - 1.0712) < 0.0005, 'AU: the ratio π(10⁷) ÷ companion ≈ 1.0712 — the drift toward 1 continues (1.084 at 10⁶ → 1.071 at 10⁷)')
+  ok(Math.abs(pi7 / N7 - 0.0665) < 0.0001, 'AU: the share 0.0665 — primes thin from 7.85% at 10⁶ to 6.65% at 10⁷')
+}
+
 console.log(`\n=== RESULT: ${pass} passed, ${fail} failed ===`)
 
 if (fail > 0) {

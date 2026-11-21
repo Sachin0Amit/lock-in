@@ -3605,3 +3605,20 @@ The owner directed the comprehensive double-layer pass. Layer 1 (drive TOC): the
 - Gates: expanded DOM gate 0 on all 6 svgs after each fix round · VLM strict PASS ×6 · tsc --noEmit exit 0 project-wide · lib:pack v28 verify PASS · lesson route 200 · raw-backslash leak 0.
 - Audit-method artifacts (logged, zero content changes made for them): (1) the 720px PNG render of a 560-unit viewBox scales measurements ×1.286 — b3's first "scale violation" was exactly this; re-rendered 1:1 before judging; (2) offline glyph-width estimates differ from browser fonts — two grazes (b3 label/baseline, b4 carries/rings) caught ONLY by the browser DOM gate.
 - State bumped outside the repo (lastAuditedLessonId → ans-divisors-from-dna-divisor-counts).
+
+## 2026-11-21 — audit-bot fire 17:00 IST (job 538572) — ANS 4.4 ans-how-the-primes-are-distributed
+
+- Files touched: src/data/library/books/mathematics/arithmetic-number-systems/ch-04.ts (lesson 4.4 only), scripts/verify-book2-ch04.ts (section AU), docs (this log, FIGURE_AUDIT_LOG, ENHANCEMENT_LOG, WORKLOG, FIGURE_AUDIT_QUEUE.json). No AI images (SOURCE_LOG unchanged); main-AI-owned files untouched.
+- Pass A (1 figure): body "prime line to 110" — VLM round 1: REAL clip (triplet label spans −30..170; rebuilt two-line "3, 5, 7" / "only gap-2 triplet"); pixel-evidence overrules: bracket verticals measured at 742/806 (exactly 89→97, VLM claimed 768→832), 101 dot present at x=838 (62 dark px, VLM counted 28 of 29 dots); re-audit PASS light; dark-sheet faint-arc flags re-classified audit-method (blocks.tsx figure cards pin bg-[#fffdf5] + ink #1c1917 in both modes, verified lines 166/821); DOM 0 (11 texts).
+- Pass B (4 solution figures; coordinates computed from constants in a generator script, never hand-placed):
+  1. L2-Q3 figures[0] "Bertrand doubling chain" (560×252) — five normalised window strips, tenant dots at true depths 0.4/0.1/0.15/0.025/0.0375; round 1: "2n = …" labels anchored start at x=532 escaped the frame → anchored end above the strip; PASS.
+  2. L3-Q1 figures[0] "first gaps" (560×232) — line 100..160, deserts as proportional amber bands (14 vs 10 units); PASS first time.
+  3. example-2 figures[0] "π-difference bars" (560×260) — 168/303 proportional, green 135-bracket; round 1: bar-label/title collision + bracket-caption clip → BASE 196→210, BR 452→448, caption shortened; PASS.
+  4. L1-Q3 figures[0] "seven twins of 101..200" (560×252) — 21 dots (14 teal twins, 7 dimmed), seven arcs, two-row staggered labels; PASS first time.
+- Pass C (2 enrichments INTO the existing lesson; no new lesson, no block renumbering):
+  1. insight callout "Why n/ln n is the right companion — the density heuristic" — after the read-the-table para; honest heuristic framing, no new numbers.
+  2. exercises L6 second question — π(10⁷) sieved fresh (664,579), companion 620,421, ratio 1.071, share 6.65%; the drift narrative continued one decade.
+- Verifier: section AU added BEFORE the prose (verify-first) — 12 ok() pins incl. the π(10⁷) sieve computed by the verifier itself (Uint8Array sieve to 10⁷): **435 passed / 0 failed** (was 423).
+- Gates: expanded DOM gate 0 on all 5 svgs · VLM strict PASS ×5 · tsc --noEmit exit 0 project-wide · lib:pack v30 verify PASS · lesson route 200 · raw-backslash leak 0.
+- Audit-method artifacts (logged, zero content changes made for them): dark-sheet faintness of 0.9px 0.75-opacity strokes (renderer pins light paper — N/A per blocks.tsx 166/821); a VLM dot miscount (28/29 — 101 present by pixel count); a bracket misread (±26px — pixel-verified 742/806).
+- State bumped outside the repo (lastAuditedLessonId → ans-how-the-primes-are-distributed). ANS chapter 4 is now fully audited 4/4; the rotation advances past ch-04 into the next book's written lessons.

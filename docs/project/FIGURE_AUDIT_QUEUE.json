@@ -575,7 +575,9 @@
       "bookId": "arithmetic-and-number-systems",
       "chapter": 4,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-21",
+      "note": "run 2026-11-21 17:00 IST: body figure VLM strict PASS after 1 fix round (triplet label clip; bracket + dot flags outvoted by pixel evidence; light+dark; DOM 0); 4 solution figures added (Bertrand windows on L2-Q3, first-gaps bands on L3-Q1, π-difference bars on example-2, seven-twins line on L1-Q3 — 2 first-pass, 2 after 1 round), expanded DOM gate 0 on all 5 svgs; verifier section AU 435/0 incl. fresh π(10⁷) sieve; pack v30; ANS ch-4 complete 4/4"
     },
     {
       "lessonId": "ans-remainders-become-numbers-congruence-defined",

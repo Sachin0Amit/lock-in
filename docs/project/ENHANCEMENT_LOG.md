@@ -916,3 +916,19 @@ clean). RESUME_POINTER / PROGRESS / WORK_INVENTORY / DETAILED_LOG untouched
 4. **L6-Q2** (new question in the thin L6 level, 1 → 2 questions) — σ(120) = 3·120 multiperfect verification: 2³·3·5 → 15·4·6 = 360, sweep-certified smallest of order 3, the σ = kn family named with 6/28/496 as the k = 2 charter members.
 
 **Verification:** every new number pinned in scripts/verify-book2-ch04.ts section AT BEFORE any prose (verify-first): 423 passed / 0 failed, was 392 (one pin self-corrected mid-flight — v₂(200!) = 197, not 196); tsc --noEmit 0; pack v28; all six svgs expanded-DOM-gate 0; VLM strict PASS ×6 (fix rounds in FIGURE_AUDIT_LOG.md).
+
+## 2026-11-21 — audit-bot fire 17:00 IST (job 537272 family, job 538572) — ANS 4.4 ans-how-the-primes-are-distributed: 4 solution figures + 2 enrichments
+
+**Pass B — solution visual aids (4 authored, all VLM strict PASS + DOM gate 0):**
+1. **L2-Q3 (Bertrand chain)** — the doubling windows, strip by strip: each (n, 2n] normalised to one row with the tenant at its TRUE relative depth (40%, 10%, 15%, 2.5%, 3.75%) — the figure the tightness claim deserves. 1 fix round (right-label clip).
+2. **L3-Q1 (first gap of 10 vs earlier first gap of 14)** — one line 100..160, both deserts shaded as proportionally-wide bands: 14 wide after 113 lands before 10 wide after 139. First-pass PASS.
+3. **example-2 (π-difference exam shape)** — the two π bars to true proportion (168, 303) with a green bracket measuring the 135 between. 1 fix round (title collision + caption clip).
+4. **L1-Q3 (twins of 101..200)** — the second hundred with 21 prime dots (twins teal, partnerless dimmed) and the seven gap-2 pairs bracketed, labels staggered two rows. First-pass PASS.
+
+13 judged and refused with recorded reasons (see FIGURE_AUDIT_LOG.md).
+
+**Pass C — subtopic enrichments (2, authored into the existing lesson):**
+1. **"Why n/ln n is the right companion — the density heuristic"** (insight callout, after the read-the-table para) — the table's companion column was asserted without a why; the callout gives the honest heuristic (primality probability ≈ 1/ln n near n → expected count n/ln n), labels it a plausibility argument whose independence assumption is deep, and hands off to the PNT as the theorem that makes the form exact. No new numbers — the table's own rows carry it.
+2. **L6-Q2** (thin L6 level 1 → 2 questions) — the π table extended one row: π(10⁷) = 664,579 **sieved fresh by the verifier** (not quoted), companion 10⁷/ln 10⁷ ≈ 620,421, ratio ≈ 1.071 (1.084 → 1.071, drift toward 1 continues), share 6.65% — the PNT's shadow lengthens one more decade.
+
+**Verification:** every new number pinned in scripts/verify-book2-ch04.ts section AU BEFORE any prose (verify-first): 435 passed / 0 failed, was 423 — including the π(10⁷) sieve computed by the verifier itself; tsc 0; pack v30; all five svgs expanded-DOM-gate 0; VLM strict PASS ×5 (fix rounds in FIGURE_AUDIT_LOG.md).
