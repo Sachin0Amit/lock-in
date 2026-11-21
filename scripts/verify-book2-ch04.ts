@@ -2440,6 +2440,68 @@ for (let n = 2; n <= 100; n++) if (isPrimeDef(n)) primes100List.push(n)
   ok(9 % 3 === 0 && 9 > 3 && !isPrimeDef(9), 'AR: for p > 3 the ≡0 member is a composite multiple of 3 (witness p=5 → 9 = p+4)')
 }
 
+/* ------------------------------------------------------------------ */
+/* (AS) audit-bot run 2026-11-21 — 4.2 solution figures + enrichments   */
+/* ------------------------------------------------------------------ */
+{
+  // figure: the 2025 division cascade (L2-Q1 solution figure)
+  ok(factorList(2025).join(',') === '3,3,3,3,5,5', 'AS: 2025 = 3·3·3·3·5·5 — the six leaves of the cascade')
+  const qs: Array<[number, number]> = [[2025, 675], [675, 225], [225, 75], [75, 25], [25, 5], [5, 1]]
+  let cascadeOk = true
+  for (const [n, q] of qs) if (n / leastDivisor(n) !== q || 3 * q !== n && 5 * q !== n) cascadeOk = false
+  ok(cascadeOk, 'AS: the cascade quotients 2025→675→225→75→25→5→1, each step divided by its least divisor (3 or 5)')
+  ok(81 * 25 === 2025, 'AS: 81 · 25 = 2025 — the rebuild 3⁴·5²')
+
+  // figure: the 3×3 exponent lattice of 100 (L2-Q2 solution figure)
+  const lattice: number[] = []
+  for (const e2 of [0, 1, 2]) for (const e5 of [0, 1, 2]) lattice.push(2 ** e2 * 5 ** e5)
+  const divs100 = divisors(100)
+  ok(lattice.length === 9 && new Set(lattice).size === 9, 'AS: the lattice is nine distinct values, one per (e₂, e₅) pair')
+  ok(lattice.every((v) => divs100.includes(v)) && divs100.every((v) => lattice.includes(v)), 'AS: the 3×3 lattice values ARE the nine divisors of 100 — nothing more, nothing fewer')
+  ok(divs100.join(',') === '1,2,4,5,10,20,25,50,100', 'AS: the nine divisors of 100 in order, cell by cell as drawn')
+
+  // figure: the trial band for 2047 (L3-Q1 solution figure)
+  ok(isqrt(2047) === 45, 'AS: ⌊√2047⌋ = 45 — the band drawn in the figure')
+  const band45: number[] = []
+  for (let p = 2; p <= 45; p++) if (isPrimeDef(p)) band45.push(p)
+  ok(band45.join(',') === '2,3,5,7,11,13,17,19,23,29,31,37,41,43', 'AS: fourteen primes inside the band — the trials 2..43')
+  ok([2, 3, 5, 7, 11, 13, 17, 19].every((p) => 2047 % p !== 0), 'AS: the eight trials before 23 all miss 2047')
+  ok(2047 % 23 === 0 && 23 * 89 === 2047, 'AS: the ninth trial 23 lands — 2047 = 23·89')
+  ok(89 > 45 && isPrimeDef(89), 'AS: the co-factor 89 is prime and lies outside the band')
+  ok(2 ** 11 - 1 === 2047, 'AS: 2¹¹ − 1 = 2047 — the Mersenne shape carried by the figure header')
+
+  // figure: the divisor-pairing mirror of 36 (L6-Q1 solution figure)
+  const divs36 = divisors(36)
+  ok(divs36.join(',') === '1,2,3,4,6,9,12,18,36' && divs36.length === 9, 'AS: 36 has the nine divisors 1, 2, 3, 4, 6, 9, 12, 18, 36')
+  const pairs36: Array<[number, number]> = [[1, 36], [2, 18], [3, 12], [4, 9]]
+  ok(pairs36.every(([d, e]) => d * e === 36 && d !== e) && isqrt(36) === 6, 'AS: the four mirror pairs multiply to 36 and √36 = 6 sits self-paired between them')
+
+  // enrichment: v₂ ≥ v₅ at every level — the census domination, swept n ≤ 500
+  let domOk = true
+  for (let n = 1; n <= 500; n++) {
+    for (let i = 1; 5 ** i <= n; i++) if (Math.floor(n / 2 ** i) < Math.floor(n / 5 ** i)) domOk = false
+    const vp = (p: number): number => { let s = 0; for (let i = 1; p ** i <= n; i++) s += Math.floor(n / p ** i); return s }
+    if (vp(2) < vp(5)) domOk = false
+  }
+  ok(domOk, 'AS: ⌊n/2ⁱ⌋ ≥ ⌊n/5ⁱ⌋ at every level, so v₂(n!) ≥ v₅(n!) for every n ≤ 500 — the termwise domination the callout proves')
+  ok(Math.floor(100 / 2) >= Math.floor(100 / 5) && Math.floor(100 / 4) >= Math.floor(100 / 25) && Math.floor(100 / 8) >= Math.floor(100 / 125), 'AS: the 100! row of the domination — 50 ≥ 20, 25 ≥ 4, 12 ≥ 0')
+
+  // enrichment: zeros of a plain product — 2¹⁰ · 5⁸ · 3⁵
+  const prod = 2 ** 10 * 5 ** 8 * 3 ** 5
+  ok(prod === 97200000000, 'AS: 2¹⁰·5⁸·3⁵ = 97,200,000,000 — the honest rebuild')
+  ok(prod % 10 ** 8 === 0 && prod % 10 ** 9 !== 0, 'AS: exactly eight trailing zeros — min(10, 8), the 3⁵ donating nothing')
+  ok(972 * 10 ** 8 === prod, 'AS: 972 · 10⁸ — the pairing of ten twos with eight fives leaves 2²·3⁵ = 972 unpaired')
+
+  // accuracy catch: the "12 divisors and a square" exam quote is a parity trap
+  let noSquare12 = true
+  for (let a = 0; a <= 40; a++) for (let b = 0; b <= 40; b++) if ((a + 1) * (b + 1) === 12 && a % 2 === 0 && b % 2 === 0) noSquare12 = false
+  ok(noSquare12, 'AS: NO pair (a, b) both even solves (a+1)(b+1) = 12 — an even τ can never belong to a square')
+  let squaresOdd = true
+  for (let m = 1; m * m <= 10000; m++) if (divisors(m * m).length % 2 === 0) squaresOdd = false
+  ok(squaresOdd, 'AS: every square m² ≤ 10⁴ has an odd divisor count — τ odd ⇔ square, the trap’s own defuser')
+  ok(36 === 2 ** 2 * 3 ** 2 && divisors(36).length === 9 && 2 + 2 === 4, 'AS: the solvable shape — (a+1)(b+1) = 9 gives a = b = 2, n = 36, a + b = 4')
+}
+
 console.log(`\n=== RESULT: ${pass} passed, ${fail} failed ===`)
 
 if (fail > 0) {

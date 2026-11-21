@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-20T01:45+05:30 (audit-bot fire: ans-primes-never-end-euclid-and-the-sieve marked done)",
+  "updated": "2026-11-21",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
   "cursor": 54,
@@ -350,7 +350,7 @@
       "figures": 2,
       "status": "done",
       "lastAudited": "2026-11-13",
-      "note": "job 527779 fire 1: both figs PASS (DOM 0 + domvalues CLEAN + VLM strict); one montage scale-claim DISMISSED on pixel+source evidence (rows all x=167..531 flush); pass B: no solution figures — the two body figs already carry the exercise patterns, decoration refused"
+      "note": "job 527779 fire 1: both figs PASS (DOM 0 + domvalues CLEAN + VLM strict); one montage scale-claim DISMISSED on pixel+source evidence (rows all x=167..531 flush); pass B: no solution figures \u2014 the two body figs already carry the exercise patterns, decoration refused"
     },
     {
       "lessonId": "fm-the-metric-system",
@@ -359,7 +359,7 @@
       "figures": 2,
       "status": "done",
       "lastAudited": "2026-11-13",
-      "note": "job 527779 fire 1: staircase FIXED (3 layer-1 TEXT/PATH overlaps — hops re-anchored to platform right-ends + takeoff dots) then VLM PASS; rails PASS; pass B added the courier-box solution figure (VLM PASS)"
+      "note": "job 527779 fire 1: staircase FIXED (3 layer-1 TEXT/PATH overlaps \u2014 hops re-anchored to platform right-ends + takeoff dots) then VLM PASS; rails PASS; pass B added the courier-box solution figure (VLM PASS)"
     },
     {
       "lessonId": "fm-converting-units-without-memorising-tables",
@@ -368,7 +368,7 @@
       "figures": 2,
       "status": "done",
       "lastAudited": "2026-11-13",
-      "note": "job 527779 fire 1: both figs PASS; pass B added the return-pipeline solution figure (caption escape-repair: quadruple backslashes halved) — VLM PASS"
+      "note": "job 527779 fire 1: both figs PASS; pass B added the return-pipeline solution figure (caption escape-repair: quadruple backslashes halved) \u2014 VLM PASS"
     },
     {
       "lessonId": "fm-precision-accuracy-and-rounding-in-measurement",
@@ -377,7 +377,7 @@
       "figures": 3,
       "status": "done",
       "lastAudited": "2026-11-13",
-      "note": "job 527779 fire 2 (v2): 2 body figs PASS + NEW sig-fig-rounding body fig (digit-strip, layer-1 clean); pass B added 3 solution figs (nested interval strips, walls number-line, double-round routes — 2 label collisions FIXED in audit); verify-unit-9 extended 534→542 (AP1-AP8 pins green BEFORE prose); 9.4 sig-fig-rounding subsection authored (2 paras + fig + Illustration)."
+      "note": "job 527779 fire 2 (v2): 2 body figs PASS + NEW sig-fig-rounding body fig (digit-strip, layer-1 clean); pass B added 3 solution figs (nested interval strips, walls number-line, double-round routes \u2014 2 label collisions FIXED in audit); verify-unit-9 extended 534\u2192542 (AP1-AP8 pins green BEFORE prose); 9.4 sig-fig-rounding subsection authored (2 paras + fig + Illustration)."
     },
     {
       "lessonId": "fm-collecting-and-tallying-data",
@@ -386,7 +386,7 @@
       "figures": 2,
       "status": "done",
       "lastAudited": "2026-11-13",
-      "note": "job 527779 fire 2 (v2): both figs PASS (DOM 0 + domvalues CLEAN + VLM light+dark); pass B added the live-regroup solution fig (footer collision FIXED + teal stroke-count corrected in audit: strokes 9/10/11 only); scope guards held (no grouped intervals — deliberate)."
+      "note": "job 527779 fire 2 (v2): both figs PASS (DOM 0 + domvalues CLEAN + VLM light+dark); pass B added the live-regroup solution fig (footer collision FIXED + teal stroke-count corrected in audit: strokes 9/10/11 only); scope guards held (no grouped intervals \u2014 deliberate)."
     },
     {
       "lessonId": "fm-bar-charts-line-graphs-and-pie-charts",
@@ -395,7 +395,7 @@
       "figures": 5,
       "status": "done",
       "lastAudited": "2026-11-13",
-      "note": "job 527779 fire 2 (v2): 4 body figs PASS + NEW pictograph body fig (absolute coords after layer-1 CLIP fix on translate-groups); pass B added 3 solution figs (sapling stair-steps, two-pies same-angle, cross-chart scale trap); verify-unit-10 extended 301→311 (AQ pictograph pins green BEFORE prose); 10.2 pictograph subsection authored (key law, half-symbol, unequal-symbol Caution, NCERT-6 fegp104 ground)."
+      "note": "job 527779 fire 2 (v2): 4 body figs PASS + NEW pictograph body fig (absolute coords after layer-1 CLIP fix on translate-groups); pass B added 3 solution figs (sapling stair-steps, two-pies same-angle, cross-chart scale trap); verify-unit-10 extended 301\u2192311 (AQ pictograph pins green BEFORE prose); 10.2 pictograph subsection authored (key law, half-symbol, unequal-symbol Caution, NCERT-6 fegp104 ground)."
     },
     {
       "lessonId": "fm-reading-graphs-critically",
@@ -413,7 +413,7 @@
       "figures": 2,
       "status": "done",
       "lastAudited": "2026-11-13",
-      "note": "job 527779 fire 2 (v2): both figs PASS (DOM 0 + VLM light+dark); pass B added 2 solution figs (outlier drag before/after — flag overlap FIXED; combined-mean seesaw — summary lines enlarged font 13 after a legibility-rooted misread); no enrichment warranted (rich vs sources)."
+      "note": "job 527779 fire 2 (v2): both figs PASS (DOM 0 + VLM light+dark); pass B added 2 solution figs (outlier drag before/after \u2014 flag overlap FIXED; combined-mean seesaw \u2014 summary lines enlarged font 13 after a legibility-rooted misread); no enrichment warranted (rich vs sources)."
     },
     {
       "lessonId": "fm-patterns-and-rules",
@@ -422,7 +422,7 @@
       "figures": 3,
       "status": "done",
       "doneOn": "2026-11-15",
-      "doneBy": "audit-bot fire (job 530242, §10 passes A/B/C)"
+      "doneBy": "audit-bot fire (job 530242, \u00a710 passes A/B/C)"
     },
     {
       "lessonId": "fm-patterns-to-formulas",
@@ -431,7 +431,7 @@
       "figures": 2,
       "status": "done",
       "doneOn": "2026-11-15",
-      "doneBy": "audit-bot fire (job 530242, §10 passes A/B/C)"
+      "doneBy": "audit-bot fire (job 530242, \u00a710 passes A/B/C)"
     },
     {
       "lessonId": "fm-letter-for-the-unknown",
@@ -440,7 +440,7 @@
       "figures": 2,
       "status": "done",
       "doneOn": "2026-11-15",
-      "doneBy": "audit-bot fire (job 530242, §10 passes A/B/C)"
+      "doneBy": "audit-bot fire (job 530242, \u00a710 passes A/B/C)"
     },
     {
       "lessonId": "ans-architecture-of-counting-successors-order",
@@ -449,7 +449,7 @@
       "figures": 1,
       "status": "done",
       "doneOn": "2026-11-16",
-      "doneBy": "audit-bot fire (job 530242, §10 passes A/B/C)"
+      "doneBy": "audit-bot fire (job 530242, \u00a710 passes A/B/C)"
     },
     {
       "lessonId": "ans-induction-proving-for-every-number",
@@ -458,7 +458,7 @@
       "figures": 1,
       "status": "done",
       "doneOn": "2026-11-16",
-      "doneBy": "audit-bot fire (job 530242, §10 passes A/B/C)"
+      "doneBy": "audit-bot fire (job 530242, \u00a710 passes A/B/C)"
     },
     {
       "lessonId": "ans-least-number-principle-recursion",
@@ -467,7 +467,7 @@
       "figures": 2,
       "status": "done",
       "doneOn": "2026-11-17",
-      "doneBy": "audit-bot fire (job 530242, §10 passes A/B/C)"
+      "doneBy": "audit-bot fire (job 530242, \u00a710 passes A/B/C)"
     },
     {
       "lessonId": "ans-division-with-rest-the-division-algorithm",
@@ -476,7 +476,7 @@
       "figures": 1,
       "status": "done",
       "lastAudited": "2026-11-17",
-      "note": "VLM strict PASS (08:30 fire 2026-11-17: body fig PASS untouched with one pixel-dismissed nit; B: 4 sol figs added, 1 real fix on the clock join + 1 pixel-evidence dismissal; accuracy catch: the clock walk’s four wrapped transitions corrected to the true 12-cycle; C: 3 enrichments)"
+      "note": "VLM strict PASS (08:30 fire 2026-11-17: body fig PASS untouched with one pixel-dismissed nit; B: 4 sol figs added, 1 real fix on the clock join + 1 pixel-evidence dismissal; accuracy catch: the clock walk\u2019s four wrapped transitions corrected to the true 12-cycle; C: 3 enrichments)"
     },
     {
       "lessonId": "ans-the-algebra-of-divisibility",
@@ -485,7 +485,7 @@
       "figures": 1,
       "status": "done",
       "doneOn": "2026-11-17",
-      "doneBy": "audit-bot fire (job 530242, §10 passes A/B/C)"
+      "doneBy": "audit-bot fire (job 530242, \u00a710 passes A/B/C)"
     },
     {
       "lessonId": "ans-euclidean-algorithm-proven-bezout-identity",
@@ -494,7 +494,7 @@
       "figures": 1,
       "status": "done",
       "doneOn": "2026-11-18",
-      "doneBy": "audit-bot fire (job 530242, §10 passes A/B/C)"
+      "doneBy": "audit-bot fire (job 530242, \u00a710 passes A/B/C)"
     },
     {
       "lessonId": "ans-linear-diophantine-equations",
@@ -504,8 +504,8 @@
       "status": "done",
       "lastAudited": "2026-11-18",
       "doneOn": "2026-11-18",
-      "doneBy": "audit-bot fire (job 530242, §10 passes A/B/C)",
-      "note": "fire 2026-11-18 08:30 IST: body lattice figure PASS untouched (DOM 0 + VLM strict + dark-mode crop PASS; 40 px/unit vertical and 30 px/unit horizontal schematic scales re-derived by the auditor); B: 3 sol figs added (t-axis empty-window grips on L2-Q1 first-pass PASS; the ₹100 pay lattice on example 3 FAIL→2 fixes→PASS — gridline endpoints vs the \"(20, 0)\" label box on the DOM gate, then the step arrow’s skewed offset on the strict VLM; C: 3 enrichments (full-pipeline example 14x+21y=77 as Illustration 4; gatekeeper-gcd insight callout; count-at-a-glance insight callout)"
+      "doneBy": "audit-bot fire (job 530242, \u00a710 passes A/B/C)",
+      "note": "fire 2026-11-18 08:30 IST: body lattice figure PASS untouched (DOM 0 + VLM strict + dark-mode crop PASS; 40 px/unit vertical and 30 px/unit horizontal schematic scales re-derived by the auditor); B: 3 sol figs added (t-axis empty-window grips on L2-Q1 first-pass PASS; the \u20b9100 pay lattice on example 3 FAIL\u21922 fixes\u2192PASS \u2014 gridline endpoints vs the \"(20, 0)\" label box on the DOM gate, then the step arrow\u2019s skewed offset on the strict VLM; C: 3 enrichments (full-pipeline example 14x+21y=77 as Illustration 4; gatekeeper-gcd insight callout; count-at-a-glance insight callout)"
     },
     {
       "lessonId": "ans-representation-theorem-unique-name",
@@ -541,7 +541,7 @@
       "figures": 1,
       "status": "done",
       "doneDate": "2026-11-19",
-      "verdict": "A: 1 body figure PASS untouched (VLM strict 9-point; offline static gate 0); B: 4 solution figures all first-pass PASS (adder walk, mask, case law, three ops, peel); C: 2 enrichments (NOT/OR-sets example; adder-run-by-hand example + figure); DOM gate server-blocked this fire — offline-svg-gate substitution logged, re-run next fire"
+      "verdict": "A: 1 body figure PASS untouched (VLM strict 9-point; offline static gate 0); B: 4 solution figures all first-pass PASS (adder walk, mask, case law, three ops, peel); C: 2 enrichments (NOT/OR-sets example; adder-run-by-hand example + figure); DOM gate server-blocked this fire \u2014 offline-svg-gate substitution logged, re-run next fire"
     },
     {
       "lessonId": "ans-primes-never-end-euclid-and-the-sieve",
@@ -550,14 +550,16 @@
       "figures": 1,
       "status": "done",
       "lastAudited": "2026-11-20",
-      "note": "VLM strict PASS (run 2026-11-20: body figure 1 fixed then PASS over two rounds — legend wording + unit-1 boxed-in-grey; DOM gate 0 expanded)"
+      "note": "VLM strict PASS (run 2026-11-20: body figure 1 fixed then PASS over two rounds \u2014 legend wording + unit-1 boxed-in-grey; DOM gate 0 expanded)"
     },
     {
       "lessonId": "ans-fundamental-theorem-of-arithmetic",
       "bookId": "arithmetic-and-number-systems",
       "chapter": 4,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-21",
+      "note": "run 2026-11-21: body figure VLM strict PASS first time (light+dark, DOM 0); 4 solution figures added (cascade 2025 \u2014 3 fix rounds; lattice 100 first-pass; trial band 2047 \u2014 1 fix round; pairing mirror 36 first-pass), expanded DOM gate 0; verifier section AS 392/0"
     },
     {
       "lessonId": "ans-divisors-from-dna-divisor-counts",

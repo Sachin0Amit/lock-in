@@ -881,3 +881,20 @@ patch-fm-22.py, enhance-fm-22-audit.ts, e2e-fm-22.sh, e2e-fm-22.page.js),
 plus the whitelisted scripts. No raster assets shipped (public/images left
 clean). RESUME_POINTER / PROGRESS / WORK_INVENTORY / DETAILED_LOG untouched
 (chapter-job owned).
+
+## 2026-11-21 — audit-bot fire: ans-fundamental-theorem-of-arithmetic (arithmetic-and-number-systems 4.2)
+
+**Pass B — solution visual aids (4 figures added, all VLM strict PASS, expanded DOM gate 0):**
+1. **L2-Q1** (factor 2025 by trial division showing every division) — the six-machine cascade: stacked "2025 ÷ 3 … 5 ÷ 5" boxes chained by quotient arrows, each row's equation beside it, the amber least-divisor column (VII.31's guarantee named), the prime list growing in the right margin 3 → 3·3·3·3·5·5, and the 25-resists-3 switch called out in the footer. The exercise's "showing every division" becomes a picture.
+2. **L2-Q2** (list the nine divisors of 100, confirm τ(100) = 9) — the 3 × 3 exponent lattice: e₂ rows × e₅ columns, nine cells = nine divisors with their 2^a·5^b makeups, corners 1 and 100 highlighted — the divisor-count formula seen AS a grid, counted by rows × columns.
+3. **L3-Q1** (canonical form of 2047, the trial that lands) — the trial band: band 2..45 shaded, eight teal misses bracketed, 23 lands amber with the leader line, the primes past 23 dim and never divided, the co-factor 89 drawn outside the band exactly where the bound promised.
+4. **L6-Q1** (τ odd ⟺ square, the divisor-pairing argument) — the pairing mirror: nine divisors at true positions, four nested arcs pairing d with 36/d, every arc straddling the dashed √36 = 6 mirror, the root 6 double-ringed as the self-pair — the parity theorem as a symmetry picture.
+
+10 exercise questions + 6 example blocks judged and refused with recorded reasons (see FIGURE_AUDIT_LOG.md) — the body figure already dresses 60's two routes, and pure census/comparison arithmetic gets no decoration.
+
+**Pass C — subtopic enrichments (2 + 1 accuracy catch, authored into the existing lesson):**
+1. **"Why the twos never bind — the domination, proved in one line"** (insight callout, after the factorial-zero table) — the lesson claimed v₂ ≥ v₅ "swept to 500" in three places without a reason; the callout proves it termwise: 2^i ≤ 5^i ⇒ ⌊n/2^i⌋ ≥ ⌊n/5^i⌋ at every level, so the census for 2 dominates the census for 5 column-wise — a theorem, not a sweep, strict from n = 2 on. Pinned by a fresh n ≤ 500 double sweep in verifier section AS.
+2. **"Zeros of a product, not a factorial: 2¹⁰ · 5⁸ · 3⁵"** (worked example, same section) — the trailing-zero census was taught factorial-only; the example runs min(v₂, v₅) on a plain product, rebuilds 97,200,000,000 = 972 · 10⁸ by hand, and names the 972 unpaired remainder — the census is a product law.
+3. **Accuracy catch (the exam callout)** — the quoted exam shape "n = 2^a 3^b has 12 divisors and n is a square, find a + b" was vacuous: τ = 12 is even, and this lesson's own L6 pairing theorem (τ odd ⟺ square) forbids it — no such n exists. The clause now teaches the trap (and the honest τ = 9 version: a = b = 2, n = 36, a + b = 4). Quiz keys and exercise answers untouched; the trap defuser is the lesson's own theorem.
+
+**Verification:** every new number pinned in scripts/verify-book2-ch04.ts section AS BEFORE any prose (verify-first): 392 passed / 0 failed, was 370; tsc --noEmit 0 project-wide; content pack re-run (v23) so the site serves the new figures; all five lesson figures DOM-gate 0 + VLM strict PASS (the fix rounds and their re-audits are logged in FIGURE_AUDIT_LOG.md).

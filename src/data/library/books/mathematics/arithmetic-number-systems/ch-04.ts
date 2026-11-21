@@ -1174,10 +1174,13 @@ export const chapter04: Chapter = {
     <line x1="578" y1="188" x2="620" y2="248"/>
   </g>
   <g stroke="currentColor" stroke-width="1" fill="none" stroke-dasharray="4 4" opacity="0.7">
-    <path d="M162,284 V316 H240 V340"/>
-    <path d="M292,284 V300 H240"/>
-    <path d="M376,284 V316 H480 V340"/>
-    <path d="M620,284 V300 H480"/>
+    <!-- leaf collectors: every leaf drops a stub to its tree's collector line, which hands the whole row into the summary box (leaf centres = rect x + 28; collector y = 308; drops at the row midpoints 174 / 498) -->
+    <path d="M56,284 V308 M140,284 V308 M224,284 V308 M292,284 V308"/>
+    <path d="M56,308 H292"/>
+    <path d="M174,308 V340"/>
+    <path d="M376,284 V308 M460,284 V308 M536,284 V308 M620,284 V308"/>
+    <path d="M376,308 H620"/>
+    <path d="M498,308 V340"/>
   </g>
   <g font-size="15" fill="currentColor" text-anchor="middle">
     <text x="178" y="79">60</text>
@@ -1322,6 +1325,23 @@ export const chapter04: Chapter = {
           ],
         },
         {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Why the twos never bind — the domination, proved in one line',
+          text: 'The examples swept $v_2 \\ge v_5$ to 500 and trusted it; here is the reason, and it needs no sweep. Compare the two censuses level by level. Since $2^i \\le 5^i$ for every $i \\ge 1$, dividing by the *smaller* number leaves the *larger* quotient: $n/2^i \\ge n/5^i$, and floors respect order, so $\\lfloor n/2^i \\rfloor \\ge \\lfloor n/5^i \\rfloor$ at *every* level — $\\lfloor 100/2 \\rfloor \\ge \\lfloor 100/5 \\rfloor$ (50 against 20), $\\lfloor 100/4 \\rfloor \\ge \\lfloor 100/25 \\rfloor$ (25 against 4), $\\lfloor 100/8 \\rfloor \\ge \\lfloor 100/125 \\rfloor$ (12 against 0), and so on down. Stack the dominating column and the result is a theorem: $v_2(n!) \\ge v_5(n!)$ for *every* $n$, not just the first five hundred. The inequality is strict from $n = 2$ onward (already $\\lfloor 2/2 \\rfloor = 1 > 0 = \\lfloor 2/5 \\rfloor$), and the gap only widens — which is why the fives are always the bottleneck and "count the fives" is the whole instruction for trailing zeros.',
+        },
+        {
+          kind: 'example',
+          title: 'Zeros of a product, not a factorial: 2¹⁰ · 5⁸ · 3⁵',
+          steps: [
+            'Split, what a zero needs: every trailing zero is a factor $10 = 2 \\cdot 5$, so the count is the number of complete $(2, 5)$ pairs — $\\min(v_2, v_5)$ — exactly as for factorials; the host expression does not matter, only the supplies do.',
+            'Now, read the supplies: $v_2 = 10$ (ten twos), $v_5 = 8$ (eight fives), $v_3 = 5$ — the fives run out first again, and the threes are worthless for zeros (odd, pairing with nothing).',
+            'So, the zeros: $\\min(10, 8) = 8$ — eight tens assembled, leaving two twos and all five threes unpaired: the remainder $2^2 \\cdot 3^5 = 972$ carries no zero.',
+            'Take the rebuild: $2^{10} \\cdot 5^8 \\cdot 3^5 = 972 \\cdot 10^8 = 97{,}200{,}000{,}000$ — count the zeros on the page: eight ✓.',
+            'Hence the census is a *product* law, not a factorial trick: the canonical form reads the supplies, the minimum picks the bottleneck — the same court of final appeal, now on a plain product.',
+          ],
+        },
+        {
           kind: 'example',
           title: '2047 — when the Mersenne shape lies',
           steps: [
@@ -1342,7 +1362,7 @@ export const chapter04: Chapter = {
           kind: 'callout',
           tone: 'exam',
           title: 'Where examinations use this',
-          text: 'Three canonical shapes dominate (Khattar QA’s ch. 1 factorial/divisor scope; CAT/IPMAT): *trailing zeros* — "how many zeros end $n!$?" is $v_5(n!)$, asked at $n = 100$ (24), $n = 25$ (6), and inverted ("smallest $n$ with 100 zeros" — solve $v_5(n!) ≥ 100$ by census); *divisor counts* — $\u03c4(n)$ from the exponents, sometimes inverted ("find $n$ with exactly 15 divisors" — shapes $p^4 q^2$ or $p^{14}$; the minimal instance is $2^4 \u22c5 3^2 = 144$, swept certified); and *unknown-exponent algebra* — "if $n = 2^a 3^b$ has 12 divisors and $n$ is a square, find $a + b$" ($(a+1)(b+1) = 12$ with $a, b$ even). The lemma’s dichotomy backs the classic "prove $p ≤ a$ implies $p ≤ b$ or coprime" one-liners. What exams never ask: to *prove* the fundamental theorem — but every divisor question they ask is the theorem running in costume.',
+          text: 'Three canonical shapes dominate (Khattar QA’s ch. 1 factorial/divisor scope; CAT/IPMAT): *trailing zeros* — "how many zeros end $n!$?" is $v_5(n!)$, asked at $n = 100$ (24), $n = 25$ (6), and inverted ("smallest $n$ with 100 zeros" — solve $v_5(n!) ≥ 100$ by census); *divisor counts* — $\u03c4(n)$ from the exponents, sometimes inverted ("find $n$ with exactly 15 divisors" — shapes $p^4 q^2$ or $p^{14}$; the minimal instance is $2^4 \u22c5 3^2 = 144$, swept certified); and *unknown-exponent algebra* — "if $n = 2^a 3^b$ has 12 divisors, list the exponent pairs" ($(a+1)(b+1) = 12$ gives $(1,5), (2,3), (3,2), (5,1)$, plus the boundary pairs $(0,11), (11,0)$ if one prime seat may be empty); and the square-conditioned version, "…and $n$ is a square, find $a + b$", is a *trap*, not a slip — $\\tau = 12$ is even, this lesson’s own pairing theorem says a square’s divisor count is odd, so no such $n$ exists; asked with $\\tau = 9$ instead the shape is honest: $(a+1)(b+1) = 9$ forces $a = b = 2$, so $n = 36$ and $a + b = 4$. The lemma’s dichotomy backs the classic "prove $p ≤ a$ implies $p ≤ b$ or coprime" one-liners. What exams never ask: to *prove* the fundamental theorem — but every divisor question they ask is the theorem running in costume.',
         },
         {
           kind: 'terms',
@@ -1443,6 +1463,53 @@ export const chapter04: Chapter = {
                     'Hence $2025 = 3^4 \u22c5 5^2$ — the year of the last great exposition of Vedic arithmetic, wearing four threes and two fives.',
                   ],
                   answer: '2025 = 3⁴ · 5²',
+                  figures: [
+                    {
+                      caption:
+                        'The trial-division cascade for 2025, every division shown: six stacked machines, each dividing by the least divisor standing — four threes carry 2025 → 675 → 225 → 75 → 25, then 25 resists 3 and two fives carry 25 → 5 → 1; the amber column names the least divisor pulled at each step (prime by VII.31), the right margin collects the prime list as it grows, and the rebuild 81 · 25 = 2025 certifies the canonical form 3⁴ · 5².',
+                      svg: `<svg viewBox="0 0 800 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Six stacked division machines factoring 2025: quotients 2025, 675, 225, 75, 25, 5 chain down to 1, divisor 3 pulled four times then divisor 5 twice, the collected prime list 3, 3, 3, 3, 5, 5 grows in the right margin, and the footer rebuilds 81 times 25 equals 2025">
+  <defs>
+    <marker id="casc25-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <text x="400" y="22" font-size="13" fill="currentColor" text-anchor="middle" opacity="0.85">the trial-division cascade for 2025 — divide by the least divisor standing, feed the quotient down</text>
+  ${(() => {
+    const rows = [
+      [2025, 675, 3],
+      [675, 225, 3],
+      [225, 75, 3],
+      [75, 25, 3],
+      [25, 5, 5],
+      [5, 1, 5],
+    ]
+    const tops = [44, 100, 156, 212, 268, 324], bh = 40
+    const mx = 110, mw = 200, rx = 470, rw = 150
+    const collected = ['3', '3 · 3', '3 · 3 · 3', '3 · 3 · 3 · 3', '3 · 3 · 3 · 3 · 5', '3 · 3 · 3 · 3 · 5 · 5']
+    let out = ''
+    rows.forEach(([n, q, p], i) => {
+      const cy = tops[i] + bh / 2 + 5
+      const five = p === 5
+      out += `<rect x="${mx}" y="${tops[i]}" width="${mw}" height="${bh}" fill="none" stroke="currentColor" stroke-width="1.4"/>`
+      out += `<text x="${mx + mw / 2}" y="${cy}" font-size="15.5" fill="currentColor" text-anchor="middle">${n} ÷ ${p}</text>`
+      out += `<text x="395" y="${cy}" font-size="13" fill="currentColor" text-anchor="middle">${n} = ${q} × ${p}</text>`
+      out += `<rect x="${rx}" y="${tops[i]}" width="${rw}" height="${bh + 8}" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.4"/>`
+      out += `<text x="${rx + rw / 2}" y="${cy - 4}" font-size="12.5" fill="currentColor" text-anchor="middle">least divisor ${p}</text>`
+      out += `<text x="${rx + rw / 2}" y="${cy + 14}" font-size="11" fill="${five ? '#0f766e' : '#b45309'}" text-anchor="middle">prime — collected</text>`
+      out += `<text x="788" y="${cy}" font-size="11.5" fill="currentColor" text-anchor="end" opacity="0.85">${collected[i]}</text>`
+      if (i < rows.length - 1) {
+        out += `<line x1="${mx + mw / 2}" y1="${tops[i] + bh + 2}" x2="${mx + mw / 2}" y2="${tops[i + 1] - 3}" stroke="currentColor" stroke-width="1.3" marker-end="url(#casc25-arrow)"/>`
+        out += `<text x="${mx + mw / 2 + 8}" y="${Math.round((tops[i] + bh + tops[i + 1]) / 2) + 4}" font-size="11" fill="currentColor" opacity="0.8">quotient ${q}</text>`
+      }
+    })
+    out += `<text x="788" y="40" font-size="11" fill="currentColor" text-anchor="end" opacity="0.7">the prime list grows</text>`
+    return out
+  })()}
+  <text x="400" y="412" font-size="14" fill="#16a34a" text-anchor="middle" font-weight="600">2025 = 3⁴ · 5² — four threes, then two fives; rebuild 81 · 25 = 2025 ✓</text>
+  <text x="400" y="440" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.75">each divisor pulled is the least divisor standing — prime by VII.31; 25 resists 3, so the engine switches to 5</text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'List all nine divisors of 100 and confirm $\u03c4(100) = 9$ by the formula.',
@@ -1453,6 +1520,48 @@ export const chapter04: Chapter = {
                     'Hence $\u03c4(100) = 9$ — the lattice $3 \u00d7 3$ of exponent pairs, counted by the theorem.',
                   ],
                   answer: 'τ(100) = 9 — 1, 2, 4, 5, 10, 20, 25, 50, 100',
+                  figures: [
+                    {
+                      caption:
+                        'The exponent lattice of 100 = 2² · 5²: the 2-exponent e₂ runs down the rows {0, 1, 2} and the 5-exponent e₅ across the columns {0, 1, 2} — each of the nine (e₂, e₅) seats builds exactly one divisor (its 2-power times its 5-power, shown small under each value), the seats are distinct so the divisors are, the corners read 1 and 100, and the count is 3 × 3 = 9 = τ(100) — the divisor-count formula is just the lattice, counted by rows × columns.',
+                      svg: `<svg viewBox="0 0 640 348" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A three by three exponent lattice for 100: rows e2 equals 0, 1, 2 against columns e5 equals 0, 1, 2; the nine cells carry the divisors 1, 2, 4, 5, 10, 20, 25, 50, 100 each with its 2-power times 5-power makeup beneath, corners 1 and 100 highlighted, and the footer reading tau of 100 equals three times three equals nine">
+  ${(() => {
+    const gx = 128, gy = 88, cw = 128, ch = 62
+    const e2s = [0, 1, 2], e5s = [0, 1, 2]
+    const makeup = (e2: number, e5: number): string => {
+      const p2 = e2 === 0 ? '' : e2 === 1 ? '2' : '2²'
+      const p5 = e5 === 0 ? '' : e5 === 1 ? '5' : '5²'
+      if (e2 === 0 && e5 === 0) return '2⁰·5⁰'
+      if (p2 && p5) return p2 + '·' + p5
+      return p2 || p5
+    }
+    let out = ''
+    out += `<text x="320" y="22" font-size="13" fill="currentColor" text-anchor="middle" opacity="0.85">the exponent lattice of 100 = 2² · 5² — nine seats, one divisor each</text>`
+    out += `<text x="320" y="54" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.75">the e₅ seat →</text>`
+    out += `<text x="114" y="54" font-size="12" fill="currentColor" text-anchor="end" opacity="0.75">the e₂ seat ↓</text>`
+    e5s.forEach((e5, c) => {
+      out += `<text x="${gx + c * cw + cw / 2}" y="76" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">e₅ = ${e5}</text>`
+    })
+    e2s.forEach((e2, r) => {
+      out += `<text x="114" y="${gy + r * ch + ch / 2 + 5}" font-size="12" fill="currentColor" text-anchor="end" opacity="0.85">e₂ = ${e2}</text>`
+    })
+    e2s.forEach((e2, r) => {
+      e5s.forEach((e5, c) => {
+        const x = gx + c * cw, y = gy + r * ch
+        const v = 2 ** e2 * 5 ** e5
+        const corner = (e2 === 0 && e5 === 0) || (e2 === 2 && e5 === 2)
+        out += `<rect x="${x}" y="${y}" width="${cw}" height="${ch}" fill="${corner ? '#fef3c7' : 'none'}" stroke="${corner ? '#f59e0b' : 'currentColor'}" stroke-width="${corner ? 1.8 : 1.1}" opacity="0.95"/>`
+        out += `<text x="${x + cw / 2}" y="${y + 28}" font-size="15.5" fill="currentColor" text-anchor="middle">${v}</text>`
+        out += `<text x="${x + cw / 2}" y="${y + 48}" font-size="10.5" fill="currentColor" text-anchor="middle" opacity="0.65">${makeup(e2, e5)}</text>`
+      })
+    })
+    out += `<text x="320" y="312" font-size="13.5" fill="#16a34a" text-anchor="middle" font-weight="600">each seat a distinct divisor — 3 × 3 = 9 = τ(100); corners 1 and 100</text>`
+    out += `<text x="320" y="336" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.75">the seats ARE the divisors — no two seats build one number, by uniqueness itself</text>`
+    return out
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'How many zeros end $12!$? (You may use $12! = 479001600$ to check.)',
@@ -1479,6 +1588,45 @@ export const chapter04: Chapter = {
                     'Hence $2047 = 23 \u22c5 89$, canonical and unique — the Mersenne shape $2^{11} - 1$ carries no immunity to factoring.',
                   ],
                   answer: '2047 = 23 · 89 (the trial p = 23 lands)',
+                  figures: [
+                    {
+                      caption:
+                        'The trial band for 2047 = 2¹¹ − 1 on one line: the band 2 ≤ d ≤ ⌊√2047⌋ = 45 shaded, the fourteen primes of the band drawn on the axis — the first eight (2, 3, 5, 7, 11, 13, 17, 19) miss, the ninth trial 23 lands with 2047 = 23 × 89, the primes beyond 23 are never divided, and the co-factor 89 sits outside the band exactly where the bound promised it, prime by its own band.',
+                      svg: `<svg viewBox="0 0 720 258" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trial band for 2047: shaded band from 2 to 45 on a number line to 100, the eight prime trials 2, 3, 5, 7, 11, 13, 17, 19 miss, the ninth trial 23 lands since 2047 equals 23 times 89, primes beyond 23 up to 43 are never divided, and the co-factor 89 sits outside the band">
+  ${(() => {
+    const x0 = 60, ax = 146, sc = 6.0
+    const X = (d: number) => x0 + d * sc
+    let out = ''
+    out += `<text x="40" y="20" font-size="13" fill="currentColor" opacity="0.85">the trial band for 2047 = 2¹¹ − 1 — fourteen primes stand inside 2 ≤ d ≤ ⌊√2047⌋ = 45</text>`
+    out += `<rect x="${X(2)}" y="${ax - 15}" width="${X(45) - X(2)}" height="30" fill="#fef3c7" opacity="0.55" rx="4"/>`
+    out += `<text x="${(X(2) + X(45)) / 2}" y="118" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.8">trial band 2 ≤ d ≤ 45</text>`
+    out += `<line x1="50" y1="${ax}" x2="690" y2="${ax}" stroke="currentColor" stroke-width="1.2"/>`
+    for (let d = 0; d <= 100; d += 5) {
+      out += `<line x1="${X(d)}" y1="${ax - 4}" x2="${X(d)}" y2="${ax + 4}" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>`
+    }
+    out += `<text x="${X(100)}" y="168" font-size="11.5" fill="currentColor" text-anchor="end" opacity="0.7">100</text>`
+    const misses = [2, 3, 5, 7, 11, 13, 17, 19]
+    misses.forEach((p) => {
+      out += `<circle cx="${X(p)}" cy="${ax}" r="6.5" fill="none" stroke="#0f766e" stroke-width="1.5"/>`
+    })
+    out += `<path d="M${X(2) - 4},${ax + 34} H${X(19) + 4}" fill="none" stroke="#0f766e" stroke-width="1" opacity="0.8"/>`
+    out += `<text x="${(X(2) + X(19)) / 2}" y="${ax + 52}" font-size="11" fill="#0f766e" text-anchor="middle">the first eight trials miss</text>`
+    out += `<circle cx="${X(23)}" cy="${ax}" r="8" fill="#f59e0b" stroke="#b45309" stroke-width="1.4"/>`
+    out += `<path d="M${X(23)},${ax + 12} L${X(23) + 48},${ax + 62} H${X(23) + 54}" fill="none" stroke="#b45309" stroke-width="1" opacity="0.8"/>`
+    out += `<text x="${X(23) + 58}" y="${ax + 66}" font-size="12" fill="#b45309" text-anchor="start" font-weight="600">23 — lands: 2047 = 23 × 89</text>`
+    const past = [29, 31, 37, 41, 43]
+    past.forEach((p) => {
+      out += `<circle cx="${X(p)}" cy="${ax}" r="5.5" fill="none" stroke="currentColor" stroke-width="1" opacity="0.45"/>`
+    })
+    out += `<text x="${X(29) + 2}" y="${ax + 32}" font-size="11" fill="currentColor" text-anchor="start" opacity="0.7">beyond 23 — never divided</text>`
+    out += `<circle cx="${X(89)}" cy="${ax}" r="7" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.55"/>`
+    out += `<text x="${X(89)}" y="${ax + 52}" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.7">89 — co-factor, prime (outside)</text>`
+    out += `<text x="360" y="244" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="600">verdict: composite — 2047 = 23 · 89; the Mersenne shape 2¹¹ − 1 buys no immunity, the band decides</text>`
+    return out
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Draw both factorisation routes of 60 (as $4 \u22c5 15$ and $6 \u22c5 10$), finish each tree, and confirm both land on the same canonical form.',
@@ -1570,6 +1718,35 @@ export const chapter04: Chapter = {
                     'Hence $\u03c4(n)$ odd $\u27fa$ $n$ is a perfect square — parity read off the pairing, no formula needed; the canonical form says the same thing ($\u03c4$ odd ⟺ all $a_i$ even).',
                   ],
                   answer: 'τ odd ⟺ n is a square (36: nine divisors — four pairs plus the self-paired 6)',
+                  figures: [
+                    {
+                      caption:
+                        'The pairing mirror of 36: the nine divisors sit on a line at their true positions, the four mirror pairs (1 · 36, 2 · 18, 3 · 12, 4 · 9) arch over the line — every arch straddling the dashed mirror at √36 = 6 — and the divisor 6 itself, wrapped in the amber ring, pairs with itself exactly at the mirror: four pairs plus the self-paired root make nine divisors, an odd count, a square. The pairing argument as a picture: parity is symmetry.',
+                      svg: `<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pairing mirror for the divisors of 36: divisors 1, 2, 3, 4, 6, 9, 12, 18, 36 on a line with arcs pairing 1 with 36, 2 with 18, 3 with 12 and 4 with 9, each arch crossing the dashed mirror line at the square root of 36 which is 6, the divisor 6 ringed as self-paired, and a footer reading four pairs plus the self-paired root equal nine divisors">
+  ${(() => {
+    const x0 = 50, rowY = 214, span = 620
+    const X = (d: number) => x0 + (d - 1) * (span / 35)
+    const divs = [1, 2, 3, 4, 6, 9, 12, 18, 36]
+    const pairs: Array<[number, number, number]> = [[1, 36, 128], [2, 18, 96], [3, 12, 64], [4, 9, 34]]
+    let out = ''
+    out += `<text x="350" y="20" font-size="13" fill="currentColor" text-anchor="middle" opacity="0.85">the pairing mirror of 36 — every divisor d pairs with 36/d across √36 = 6</text>`
+    out += `<line x1="${X(6)}" y1="54" x2="${X(6)}" y2="200" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="5 5" opacity="0.9"/>`
+    out += `<text x="${X(6)}" y="46" font-size="11.5" fill="#b45309" text-anchor="middle" font-weight="600">√36 = 6 — the mirror</text>`
+    pairs.forEach(([a, b, h]) => {
+      const ax = X(a), bx = X(b), mx = (ax + bx) / 2
+      out += `<path d="M${ax},${rowY} Q${mx},${rowY - 2 * h} ${bx},${rowY}" fill="none" stroke="#0f766e" stroke-width="1.5" opacity="0.9"/>`
+    })
+    divs.forEach((d) => {
+      out += `<circle cx="${X(d)}" cy="${rowY}" r="4" fill="#f59e0b"/>`
+      out += `<text x="${X(d)}" y="${rowY + 26}" font-size="12.5" fill="currentColor" text-anchor="middle">${d}</text>`
+    })
+    out += `<circle cx="${X(6)}" cy="${rowY}" r="9" fill="none" stroke="#b45309" stroke-width="1.4"/>`
+    out += `<text x="350" y="282" font-size="12.5" fill="#16a34a" text-anchor="middle" font-weight="600">four mirror pairs (1·36, 2·18, 3·12, 4·9) + the self-paired root 6 — nine divisors, odd count, square</text>`
+    return out
+  })()}
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
