@@ -1050,6 +1050,29 @@ export const chapter05: Chapter = {
             'Take the digit hunt: for which digit $x$ is $8x69$ divisible by 11? The alternating sum is $9 - 6 + x - 8 = x - 5$, so $11 \\mid 8x69$ ⟺ $x = 5$ — and $8569 = 11 \\cdot 779$ confirms it.',
             'Hence the engine: one sign pattern, every verdict.',
           ],
+          figures: [{
+            caption: 'The alternating-sum test on 918082: each digit from the units end receives a sign (+, −, +, −, +, −), the contributions −9 +1 −8 +0 −8 +2 sum to −22 = −2·11, so 11 divides 918082.',
+            svg: `<svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The alternating-sum test for 11 on the number 918082: each digit from the units end receives an alternating sign (plus minus plus minus plus minus), the contributions sum to minus 22 equals minus 2 times 11, proving divisibility by 11">
+  <text x="380.0" y="30" font-size="14" text-anchor="middle" fill="currentColor" opacity="0.85">the alternating test for 11 — 918082</text>
+  <g font-size="22" text-anchor="middle" fill="currentColor" font-weight="bold">
+    <text x="105.0" y="80">9</text>    <text x="215.0" y="80">1</text>    <text x="325.0" y="80">8</text>    <text x="435.0" y="80">0</text>    <text x="545.0" y="80">8</text>    <text x="655.0" y="80">2</text>
+  </g>
+  <g font-size="16" text-anchor="middle" fill="currentColor" opacity="0.8">
+    <text x="105.0" y="115">−</text>    <text x="215.0" y="115">+</text>    <text x="325.0" y="115">−</text>    <text x="435.0" y="115">+</text>    <text x="545.0" y="115">−</text>    <text x="655.0" y="115">+</text>
+  </g>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.5">
+    <line x1="75.0" y1="130" x2="135.0" y2="130"/>    <line x1="185.0" y1="130" x2="245.0" y2="130"/>    <line x1="295.0" y1="130" x2="355.0" y2="130"/>    <line x1="405.0" y1="130" x2="465.0" y2="130"/>    <line x1="515.0" y1="130" x2="575.0" y2="130"/>    <line x1="625.0" y1="130" x2="685.0" y2="130"/>
+  </g>
+  <g font-size="14" text-anchor="middle" fill="currentColor" opacity="0.75">
+    <text x="105.0" y="160">-9</text>    <text x="215.0" y="160">+1</text>    <text x="325.0" y="160">-8</text>    <text x="435.0" y="160">+0</text>    <text x="545.0" y="160">-8</text>    <text x="655.0" y="160">+2</text>
+  </g>
+  <g stroke="currentColor" stroke-width="1" opacity="0.6">
+    <line x1="105.0" y1="175" x2="655.0" y2="175"/>
+  </g>
+  <text x="380.0" y="210" font-size="16" text-anchor="middle" fill="currentColor" font-weight="bold">−9 + 1 − 8 + 0 − 8 + 2 = −22</text>
+  <text x="380.0" y="245" font-size="14" text-anchor="middle" fill="currentColor" opacity="0.9">−22 = −2 · 11 — so 11 | 918082 (= 11 · 83462)</text>
+</svg>`,
+          }],
         },
         {
           kind: 'callout',
@@ -1100,6 +1123,28 @@ export const chapter05: Chapter = {
             'Take the neighbour: $3583 \\to 358 - 6 = 352 \\to 35 - 4 = 31$ — not a multiple of 7; indeed $3583 = 7 \\cdot 511 + 6$, remainder 6.',
             'Hence both verdicts, one cut-and-subtract engine — no division at all.',
           ],
+          figures: [{
+            caption: 'The truncation test on 3584: cut the units digit 4, double it (2·4=8), subtract from the rest (358−8=350); iterate (350→35); 35 = 5·7 — divisible, so 7 | 3584 = 7·512.',
+            svg: `<svg viewBox="0 0 440 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The truncation test for 7 on the number 3584: cut the units digit, double it, subtract from the rest, iterate — 3584 becomes 350 becomes 35 equals 5 times 7">
+  <text x="220.0" y="22" font-size="14" text-anchor="middle" fill="currentColor" opacity="0.85">truncation test for 7 — 3584 → 350 → 35</text>
+  <rect x="80" y="40" width="280" height="50" rx="8" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+  <text x="135" y="72.0" font-size="22" text-anchor="middle" fill="currentColor" font-weight="bold">3584</text>
+  <text x="210" y="62.0" font-size="12" fill="currentColor" opacity="0.7">b = 358, c = 4</text>
+  <text x="210" y="79.0" font-size="13" fill="currentColor" opacity="0.85">358 − 2·4 = 350</text>
+  <line x1="220.0" y1="95" x2="220.0" y2="136" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+  <polygon points="220.0,140 215.0,134 225.0,134" fill="currentColor" opacity="0.6"/>
+  <rect x="80" y="145" width="280" height="50" rx="8" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+  <text x="135" y="177.0" font-size="22" text-anchor="middle" fill="currentColor" font-weight="bold">350</text>
+  <text x="210" y="167.0" font-size="12" fill="currentColor" opacity="0.7">b = 35, c = 0</text>
+  <text x="210" y="184.0" font-size="13" fill="currentColor" opacity="0.85">35 − 2·0 = 35</text>
+  <line x1="220.0" y1="200" x2="220.0" y2="241" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+  <polygon points="220.0,245 215.0,239 225.0,239" fill="currentColor" opacity="0.6"/>
+  <rect x="80" y="250" width="280" height="50" rx="8" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+  <text x="135" y="282.0" font-size="22" text-anchor="middle" fill="currentColor" font-weight="bold">35</text>
+  <text x="210" y="289.0" font-size="13" fill="currentColor" opacity="0.85">= 5 · 7  ✓</text>
+  <text x="220.0" y="318" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">3584 → 350 → 35 = 5·7 — divisible by 7 (= 7·512)</text>
+</svg>`,
+          }],
         },
         {
           kind: 'para',
@@ -1141,6 +1186,12 @@ export const chapter05: Chapter = {
           tone: 'warn',
           title: 'The parts must be coprime — the 18 trap',
           text: '18 is divisible by 2 and by 6, yet $18$ is **not** divisible by $12 = 2 \\cdot 6$ — because $\\gcd(2, 6) = 2 \\ne 1$. Divisibility by both parts licenses the product only when the parts share nothing: check $12$ through $3 \\wedge 4$, not $2 \\wedge 6$; check $24$ through $3 \\wedge 8$ (or $2^3$’s own test three times), never through $4 \\wedge 6$ (gcd 2). The trap is standard examination fare precisely because the licence’s hypothesis is so easy to skip.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Why coprime? — the disjoint-prime-factors reading',
+          text: 'The fundamental theorem (chapter 4) writes every number as a vector of prime exponents. Two parts $a, b$ are coprime exactly when their prime-factor sets are *disjoint* — no prime appears in both vectors. Divisibility by $a$ clears the exponent bar for every prime in $a$’s vector; divisibility by $b$ clears the bar for every prime in $b$’s vector. If the sets are disjoint, the two clearances combine to clear every prime in the product $ab$ — each prime demanded exactly once, each prime guaranteed exactly once. If the sets overlap (say both contain the prime $p$), the product $ab$ demands $p$ raised to the *sum* of the two exponents, while divisibility by each part only guarantees $p$ raised to the *maximum* of the two — and the sum exceeds the maximum whenever both exponents are positive. That gap is the 18-trap in one line: $\gcd(2, 6) = 2$ means the prime $2$ sits in both parts, $12 = 2 \cdot 6$ demands $2^2$, but divisibility by $2$ and by $6$ only guarantees $2^1$ each — clearing the bar once, not twice.',
         },
         {
           kind: 'example',
@@ -1369,6 +1420,17 @@ export const chapter05: Chapter = {
                   ],
                   answer: 'nines: roots 2 × 5 → 1 = 1 (passes, and so does 1054 — blind); mod 11: 8 expected, 1054 gives 9 — caught',
                 },
+                {
+                  q: 'Use the 1001 block engine to find the remainder when 1234567 is divided by 7, by 11, and by 13 — one pass, three remainders.',
+                  solution: [
+                    'Split the blocks from the right: $1234567 = 1 \mid 234 \mid 567$ — three three-digit blocks.',
+                    'Now, the alternating block sum: $567 - 234 + 1 = 334$ — the block value carries the residues for all three primes at once.',
+                    'So, read off each modulus: $334 = 7 \cdot 47 + 5$ — remainder $5$ mod $7$; $334 = 11 \cdot 30 + 4$ — remainder $4$ mod $11$; $334 = 13 \cdot 25 + 9$ — remainder $9$ mod $13$.',
+                    'Take the verification: $1234567 = 7 \cdot 176366 + 5$ ✓; $1234567 = 11 \cdot 112233 + 4$ ✓; $1234567 = 13 \cdot 94966 + 9$ ✓ — all three remainders match the block engine’s verdict.',
+                    'Hence $1234567 \equiv 5$ (mod $7$), $\equiv 4$ (mod $11$), $\equiv 9$ (mod $13$) — one block pass, three remainders, zero long divisions of the original seven-digit number.',
+                  ],
+                  answer: 'block sum 567 − 234 + 1 = 334; 334 mod 7 = 5, mod 11 = 4, mod 13 = 9',
+                },
               ],
             },
             {
@@ -1409,6 +1471,30 @@ export const chapter05: Chapter = {
                     'Hence the general law: every modulus induces a weighted digit test through the residues of its powers of ten — the digit-sum and alternating tests are just the two cases where the weights are all 1 (or all ±1); the period 6 here is Fermat’s little theorem peeking through, cashed in Lesson 5.4.',
                   ],
                   answer: 'weights 1, 3, 2, 6, 4, 5 (units up); 4·1 + 8·3 + 5·2 + 3·6 = 56 = 7·8 — divisible',
+                  figures: [{
+                    caption: 'The weighted digit test for 7 on 3584: powers of ten mod 7 cycle with period 6 (1, 3, 2, 6, 4, 5 from the units place); 3·6 + 5·2 + 8·3 + 4·1 = 18+10+24+4 = 56 = 7·8, so 7 | 3584.',
+                    svg: `<svg viewBox="0 0 670 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The weighted digit test for 7 on the number 3584: each digit from the units end is multiplied by its positional weight (the cycle 1, 3, 2, 6, 4, 5 from powers of ten mod 7), the weighted sum is 56 equals 7 times 8, proving divisibility by 7">
+  <text x="335.0" y="28" font-size="14" text-anchor="middle" fill="currentColor" opacity="0.85">weighted digit test for 7 — powers of ten mod 7 cycle (1, 3, 2, 6, 4, 5)</text>
+  <g font-size="24" text-anchor="middle" fill="currentColor" font-weight="bold">
+    <text x="125.0" y="80">3</text>    <text x="265.0" y="80">5</text>    <text x="405.0" y="80">8</text>    <text x="545.0" y="80">4</text>
+  </g>
+  <g font-size="13" text-anchor="middle" fill="currentColor" opacity="0.7">
+    <text x="125.0" y="108">× 6</text>    <text x="265.0" y="108">× 2</text>    <text x="405.0" y="108">× 3</text>    <text x="545.0" y="108">× 1</text>
+  </g>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.5">
+    <line x1="90.0" y1="120" x2="160.0" y2="120"/>    <line x1="230.0" y1="120" x2="300.0" y2="120"/>    <line x1="370.0" y1="120" x2="440.0" y2="120"/>    <line x1="510.0" y1="120" x2="580.0" y2="120"/>
+  </g>
+  <g font-size="15" text-anchor="middle" fill="currentColor" opacity="0.85">
+    <text x="125.0" y="150">18</text>    <text x="265.0" y="150">10</text>    <text x="405.0" y="150">24</text>    <text x="545.0" y="150">4</text>
+  </g>
+  <g stroke="currentColor" stroke-width="1" opacity="0.6">
+    <line x1="125.0" y1="165" x2="545.0" y2="165"/>
+  </g>
+  <text x="335.0" y="200" font-size="16" text-anchor="middle" fill="currentColor" font-weight="bold">18 + 10 + 24 + 4 = 56</text>
+  <text x="335.0" y="232" font-size="14" text-anchor="middle" fill="currentColor" opacity="0.9">56 = 7 · 8 — so 7 | 3584 (= 7 · 512)</text>
+  <text x="335.0" y="265" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.7">weights repeat every 6 digits (Fermat preview: 10⁶ ≡ 1 mod 7)</text>
+</svg>`,
+                  }],
                 },
               ],
             },

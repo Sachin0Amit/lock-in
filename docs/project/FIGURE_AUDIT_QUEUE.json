@@ -2,12 +2,12 @@
   "updated": "2026-11-21",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
-  "cursor": 64,
+  "cursor": 65,
   "stats": {
     "lessonsWithFigures": 131,
     "figureTotal": 246,
-    "done": 66,
-    "pending": 65,
+    "done": 67,
+    "pending": 64,
     "lastUpdated": "2026-11-21"
   },
   "items": [
@@ -594,7 +594,9 @@
       "bookId": "arithmetic-and-number-systems",
       "chapter": 5,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-21",
+      "note": "job 538572 fire (cron 0,30 * * * ? IST): 1 body fig audited (VLM PASS first time, untouched) + 3 Pass B solution figs added (Ex4 alternating-sum 918082, Ex5 truncation chain 3584, L6-Q1 mod-7 weights 3584 \u2014 2 first-pass PASS + 1 FIXED box-padding one round) + 2 Pass C enrichments (insight callout \"Why coprime? disjoint prime factors\", L4-Q3 block engine on 1234567). VLM strict PASS x4; static DOM gate 0; audit-svg-overlaps.sh dev-server-blocked (offline substitution)."
     },
     {
       "lessonId": "ans-unit-digit-cycles-of-powers",

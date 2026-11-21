@@ -3671,3 +3671,42 @@ The owner directed the comprehensive double-layer pass. Layer 1 (drive TOC): the
 - ANS chapter 5 lesson 1 done; rotation advances to lesson 5.2 (ans-why-the-divisibility-tests-work) for the next fire.
 - No FAIL-OPENs, no registered whole-lesson gaps this run.
 | run 119 | 2026-11-21 | AA ch.8 CLOSED WHOLE-UNIT (8/8) | 8.1 'How Many Roots: Degree n, n Roots' + 8.2 'Descartes' Rule of Signs' + 8.3 'Cubics and Quartics: the Symmetric Functions' + 8.4 'Cardan and Ferrari: the Cubic and Quartic, Solved' + 8.5 'Transformation of Equations' + 8.6 'Reciprocal Equations' + 8.R 'Unit 8 Completion Review' | the 'launch multiple authoring agents' WHOLE-UNIT SWARM: seven parallel agents (one lesson each + the review; two delivery channels timed out, files landed complete); engines 408 green pre-prose (6 real spec slips caught: the f(−1) arithmetic, the honest quadratic Descartes table, the Sophie Germain resolvent M=4, the shift-law constant −24, the Ferrari date, the ∛65 digit class); verifier 774/774 (14 sections); tsc 0, lint 0 err, pack 182 lessons / 1,014,673 words; standing gates 667+4023+1240; E2E ×7 ×3 viewports ALL GREEN (quiz 5/5 live; one plain-name-rule catch fixed); VLM 66-crop audit: 5 real defects fixed (8.4×3, 8.5×2) + re-audited PASS both themes; the m2-02 module banked + working copies deleted; the same directive created the CS LANE (cs cron job :20 IST + CS_AUTHORING_POINTER.json; maths job kept) | run 120 opens AA ch. 9 (maths) + the cs lane's first fire opens computer-fundamentals 1.1+1.2 | verify-book4-ch08 774/774 |
+
+
+## 2026-11-21 — job 538572 fire (cron 0,30 * * * ? IST) — lesson ans-why-the-divisibility-tests-work detailed change list
+
+### Files touched (1 chapter file + 5 docs)
+- `src/data/library/books/mathematics/arithmetic-number-systems/ch-05.ts` — Pass B (3 figures:[] arrays) + Pass C (1 callout + 1 L4 question)
+- `docs/project/FIGURE_AUDIT_LOG.md` — appended 5 verdict lines
+- `docs/project/ENHANCEMENT_LOG.md` — appended full Pass B/C entry
+- `docs/project/WORKLOG.md` — appended one summary entry
+- `docs/project/DETAILED_LOG.md` — appended this detailed change list
+- `docs/project/FIGURE_AUDIT_QUEUE.json` — marked item done
+- `docs/project/SOURCE_LOG.md` — appended no-AI-image note
+
+### Pass A — strict figure audit (1 body figure)
+- **fig 1: digit-sum engine on 57369** — VLM strict PASS first time, untouched. Five columns show digit→power-of-ten→≡1(mod 9) pill→digit, with footer "5+7+3+6+9=30 — so 57369≡3 (mod 9) and 57369≡0 (mod 3)". Pixel margins L=77 R=77 T=25 B=26.
+
+### Pass B — three solution visual aids (all inline SVG from named constants)
+1. **Example 4 (alternating sum on 918082)** — 6 columns: digits 9,1,8,0,8,2 with signs −,+,−,+,−,+ from units end; contributions −9,+1,−8,+0,−8,+2; sum −22=−2·11. viewBox 0 0 720 265. VLM PASS first time.
+2. **Example 5 (truncation chain on 3584)** — 3 boxes connected by downward arrows: 3584(b=358,c=4→358−2·4=350)→350(b=35,c=0→35−2·0=35)→35(=5·7✓). viewBox 0 0 520 280. FAIL first (numeral touched box border) → FIXED (BOX_W 280→340, number x BOX_X+30→BOX_X+55) → re-audit PASS.
+3. **L6-Q1 (mod-7 weighted digit test on 3584)** — 4 columns: digits 3,5,8,4 with weights 6,2,3,1 (units-end cycle); contributions 18,10,24,4; sum 56=7·8. viewBox 0 0 620 290. VLM PASS first time.
+
+### Pass C — two enrichments INTO the existing lesson
+1. **New insight callout "Why coprime? — the disjoint-prime-factors reading"** — in 'Composite divisors' section, after the 18-trap warn callout. Explains gcd=1 via fundamental theorem exponent vectors (sum vs max).
+2. **New L4 exercise question "1234567 block engine"** — L4 2→3 questions. Blocks 1|234|567, alt sum 567−234+1=334; 334 mod 7=5, mod 11=4, mod 13=9. Verified by direct division.
+
+### Gates summary
+- Static XML DOM gate: 0 issues on all 4 SVGs (pixel margins all ≥8px).
+- audit-svg-overlaps.sh: dev-server-blocked (offline substitution).
+- VLM strict: PASS ×4 (body first-pass; 3 Pass B: 2 first-pass + 1 fixed).
+- tsc --noEmit: unavailable project-wide (deps missing); ZERO errors in ch-05.ts.
+- Sanity: braces 142/142, all 14 kinds valid, 4 SVG blocks no stray backticks.
+- No AI-generated images this run.
+
+### State bump
+- /home/z/my-project/.state/audit-state.json — lastAuditedLessonId: ans-remainders-become-numbers-congruence-defined → ans-why-the-divisibility-tests-work.
+
+### Rotation
+- ANS ch.5 L2 done; rotation advances to ch.5 L3 (ans-unit-digit-cycles-of-powers).
+- No FAIL-OPENs, no registered whole-lesson gaps this run.
