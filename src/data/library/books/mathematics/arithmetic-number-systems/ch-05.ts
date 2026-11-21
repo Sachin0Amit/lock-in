@@ -124,12 +124,28 @@ export const chapter05: Chapter = {
             'So, add the remainders: the dial sits at $3$, and $3 + 4 = 7$ needs no wrap.',
             'Hence the clock shows **7 o’clock** — computed without a single sweep of the hand.',
           ],
+          figures: [{
+            caption: 'The 12-hour clock as a remainder engine: 1000 = 12·83 + 4, so 1000 ≡ 4 (mod 12); the dial advances 4 hours from 3 to 7 — computed without a single sweep of the hand.',
+            svg: `<svg viewBox="-50 0 600 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A twelve-hour clock face showing that 3 o'clock plus 1000 hours lands on 7, with an arc tracing the four added hours (since 1000 mod 12 = 4)">
+  <!-- Clock center (CX,CY)=(250,180); face r=95; tick r=118; label r~145 -->
+  <circle cx="250" cy="180" r="95" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.85"/>
+  <g fill="currentColor" opacity="0.55">
+    <circle cx="309.0" cy="77.8" r="2.5"/><circle cx="352.2" cy="121.0" r="2.5"/><circle cx="368.0" cy="180.0" r="3.5"/><circle cx="352.2" cy="239.0" r="2.5"/><circle cx="309.0" cy="282.2" r="2.5"/><circle cx="250.0" cy="298.0" r="2.5"/><circle cx="191.0" cy="282.2" r="3.5"/><circle cx="147.8" cy="239.0" r="2.5"/><circle cx="132.0" cy="180.0" r="2.5"/><circle cx="147.8" cy="121.0" r="2.5"/><circle cx="191.0" cy="77.8" r="2.5"/><circle cx="250.0" cy="62.0" r="2.5"/>
+  </g>
+  <g font-size="15" text-anchor="middle" fill="currentColor">
+    <text x="324.0" y="56.8">1</text><text x="378.2" y="111.0">2</text><text x="398.0" y="185.0" font-weight="bold" font-size="17">3</text><text x="378.2" y="259.0">4</text><text x="324.0" y="313.2">5</text><text x="250.0" y="333.0">6</text><text x="176.0" y="313.2" font-weight="bold" font-size="17">7</text><text x="121.8" y="259.0">8</text><text x="102.0" y="185.0">9</text><text x="121.8" y="111.0">10</text><text x="176.0" y="56.8">11</text><text x="250.0" y="37.0">12</text>
+  </g>
+  <path d="M 345.0 180.0 A 95 95 0 0 1 202.5 262.3" fill="none" stroke="currentColor" stroke-width="2.2" opacity="0.9"/><polygon points="198.2,259.8 211.4,262.8 207.4,269.7" fill="currentColor" opacity="0.9"/><circle cx="345.0" cy="180.0" r="3.5" fill="currentColor"/>
+  <text x="250" y="210" font-size="15" text-anchor="middle" fill="currentColor" font-weight="bold">+4</text>
+  <text x="250" y="362.0" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">1000 = 12·83 + 4, so 1000 ≡ 4 (mod 12) — the dial advances 4 hours from 3 to 7</text>
+</svg>`,
+          }],
         },
         {
           kind: 'figure',
           caption:
             'The 12-hour clock as a congruence machine: start at 8 and add 5 — the hand sweeps past 12 (one full turn discarded) and lands on 1, because $8 + 5 = 13 = 12 \\cdot 1 + 1$. The dial records only the remainder on division by 12; the arc is the five added hours.',
-          svg: `<svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A twelve-hour clock face showing that 8 plus 5 lands on 1, with an arc tracing the five added hours">
+          svg: `<svg viewBox="-50 0 600 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A twelve-hour clock face showing that 8 plus 5 lands on 1, with an arc tracing the five added hours">
   <circle cx="250" cy="180" r="95" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.85"/>
   <g fill="currentColor" opacity="0.55">
     <circle cx="309.0" cy="77.8" r="2.5"/><circle cx="352.2" cy="121.0" r="2.5"/><circle cx="368.0" cy="180" r="2.5"/><circle cx="352.2" cy="239.0" r="2.5"/><circle cx="309.0" cy="282.2" r="2.5"/><circle cx="250" cy="298.0" r="2.5"/><circle cx="191.0" cy="282.2" r="2.5"/><circle cx="147.8" cy="239.0" r="3.5"/><circle cx="132.0" cy="180" r="2.5"/><circle cx="147.8" cy="121.0" r="2.5"/><circle cx="191.0" cy="77.8" r="2.5"/><circle cx="250" cy="62.0" r="2.5"/>
@@ -152,8 +168,18 @@ export const chapter05: Chapter = {
   <polygon points="304.4,101.7 295.5,101.2 299.5,94.2" fill="currentColor" opacity="0.9"/>
   <circle cx="167.7" cy="227.5" r="3.5" fill="currentColor"/>
   <text x="250" y="210" font-size="15" text-anchor="middle" fill="currentColor" font-weight="bold">+5</text>
-  <text x="250" y="348" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">8 + 5 = 13 = 12·1 + 1 — the dial keeps the remainder: 8 + 5 ≡ 1 (mod 12)</text>
+  <text x="250" y="362" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">8 + 5 = 13 = 12·1 + 1 — the dial keeps the remainder: 8 + 5 ≡ 1 (mod 12)</text>
 </svg>`,
+        },
+        {
+          kind: 'example',
+          title: 'Today is Monday. What day of the week is it 1000 days from now?',
+          steps: [
+            'Split the problem: the week is a seven-hour clock — only the residue of $1000$ on division by $7$ matters.',
+            'Now, divide: $1000 = 7 \\cdot 142 + 6$, so $1000 \\equiv 6 \\pmod 7$ — six days of advance.',
+            'So, count forward: Monday $+ 1 =$ Tuesday, $+ 2 =$ Wednesday, $+ 3 =$ Thursday, $+ 4 =$ Friday, $+ 5 =$ Saturday, $+ 6 =$ Sunday.',
+            'Hence 1000 days from Monday is **Sunday** — the same engine as the 12-hour clock, dial set to $7$ instead of $12$.',
+          ],
         },
         {
           kind: 'callout',
@@ -241,10 +267,20 @@ export const chapter05: Chapter = {
           text: 'Congruence modulo $m$ sorts every integer into exactly one of $m$ pigeonholes. The numbers congruent to $r$ modulo $m$ form the **residue class** $[r]$: the class of numbers leaving remainder $r$. Modulo 5, the class $[2]$ contains $2, 7, 12, 17, 22, 27, \\dots$ — and also the non-negative-looking members running the other way: $-3 \\equiv 2 \\pmod 5$ since $-3 - 2 = -5$. A class is an infinite arithmetic staircase, one representative every $m$ steps, and the $m$ classes are mutually exclusive and exhaustive: every integer belongs to exactly one.',
         },
         {
+          kind: 'example',
+          title: 'Reduce −17 to its residue modulo 5',
+          steps: [
+            'Split the task: we want the unique $r$ with $0 \\le r < 5$ such that $-17 \\equiv r \\pmod 5$ — the division algorithm promises exactly one.',
+            'Now, run the division with a negative dividend: $-17 = 5 \\cdot (-4) + 3$ — quotient $-4$, remainder $3$ (still in the range $[0, 5)$, as the algorithm demands).',
+            'So, check the difference: $-17 - 3 = -20 = 5 \\cdot (-4)$ ✓ — a multiple of $5$, so $-17 \\equiv 3 \\pmod 5$.',
+            'Hence $-17$ lands in residue class $[3]$ modulo $5$ — the same column as $3, 8, 13, 18, \\dots$ and as $-2, -7, -12, \\dots$; every integer, positive or negative, has exactly one column.',
+          ],
+        },
+        {
           kind: 'figure',
           caption:
             'The five residue classes modulo 5, drawn over the numbers 0 to 24: each column is one class $[r] = \\{r, r+5, r+10, \\dots\\}$, and every integer lands in exactly one column — 17 (bold) sits in $[2]$ beside 2, 7, 12 and 22, five steps from each neighbour. The columns are the pigeonholes behind "same remainder".',
-          svg: `<svg viewBox="0 0 660 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five columns of numbers zero to twenty-four arranged by their remainder on division by five">
+          svg: `<svg viewBox="-50 0 760 445" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five columns of numbers zero to twenty-four arranged by their remainder on division by five">
   <g font-size="15" text-anchor="middle" fill="currentColor" font-weight="bold" opacity="0.9">
     <text x="110" y="50">[0]</text><text x="230" y="50">[1]</text><text x="350" y="50">[2]</text><text x="470" y="50">[3]</text><text x="590" y="50">[4]</text>
   </g>
@@ -262,7 +298,7 @@ export const chapter05: Chapter = {
     <text x="470" y="102">3</text><text x="470" y="166">8</text><text x="470" y="230">13</text><text x="470" y="294">18</text><text x="470" y="358">23</text>
     <text x="590" y="102">4</text><text x="590" y="166">9</text><text x="590" y="230">14</text><text x="590" y="294">19</text><text x="590" y="358">24</text>
   </g>
-  <text x="330" y="405" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">the five classes mod 5 — each column is [r] = {r, r+5, r+10, …}, one representative every five steps</text>
+  <text x="330" y="420" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">the five classes mod 5 — each column is [r] = {r, r+5, r+10, …}, one representative every five steps</text>
 </svg>`,
         },
         {
@@ -559,6 +595,22 @@ export const chapter05: Chapter = {
                     'Hence both land on 4 o’clock — different starts, one arithmetic.',
                   ],
                   answer: '4:00 in both cases (16 ≡ 4 (mod 12))',
+                  figures: [{
+                    caption: 'Two starts, one landing: 9 + 7 = 16 ≡ 4 and 10 + 6 = 16 ≡ 4 (mod 12) — both wrap to 4 o’clock, different arcs, same residue.',
+                    svg: `<svg viewBox="-50 0 600 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A twelve-hour clock face showing two arcs: one from 9 o'clock adding 7 hours, another from 10 o'clock adding 6 hours, both landing on 4 — illustrating that 16 wraps to 4 modulo 12">
+  <!-- Clock center (CX,CY)=(250,180); face r=95; tick r=118; label r~145 -->
+  <circle cx="250" cy="180" r="95" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.85"/>
+  <g fill="currentColor" opacity="0.55">
+    <circle cx="309.0" cy="77.8" r="2.5"/><circle cx="352.2" cy="121.0" r="2.5"/><circle cx="368.0" cy="180.0" r="2.5"/><circle cx="352.2" cy="239.0" r="3.5"/><circle cx="309.0" cy="282.2" r="2.5"/><circle cx="250.0" cy="298.0" r="2.5"/><circle cx="191.0" cy="282.2" r="2.5"/><circle cx="147.8" cy="239.0" r="2.5"/><circle cx="132.0" cy="180.0" r="3.5"/><circle cx="147.8" cy="121.0" r="3.5"/><circle cx="191.0" cy="77.8" r="2.5"/><circle cx="250.0" cy="62.0" r="2.5"/>
+  </g>
+  <g font-size="15" text-anchor="middle" fill="currentColor">
+    <text x="324.0" y="56.8">1</text><text x="378.2" y="111.0">2</text><text x="398.0" y="185.0">3</text><text x="378.2" y="259.0" font-weight="bold" font-size="17">4</text><text x="324.0" y="313.2">5</text><text x="250.0" y="333.0">6</text><text x="176.0" y="313.2">7</text><text x="121.8" y="259.0">8</text><text x="102.0" y="185.0" font-weight="bold" font-size="17">9</text><text x="121.8" y="111.0" font-weight="bold" font-size="17">10</text><text x="176.0" y="56.8">11</text><text x="250.0" y="37.0">12</text>
+  </g>
+  <path d="M 155.0 180.0 A 95 95 0 1 1 332.3 227.5" fill="none" stroke="currentColor" stroke-width="2.2" opacity="0.95"/><polygon points="329.8,231.8 332.8,218.6 339.7,222.6" fill="currentColor" opacity="0.95"/><path d="M 167.7 132.5 A 95 95 0 0 1 332.3 227.5" fill="none" stroke="currentColor" stroke-width="2.2" opacity="0.6"/><circle cx="155.0" cy="180.0" r="3.5" fill="currentColor"/><circle cx="167.7" cy="132.5" r="3.5" fill="currentColor"/>
+  <text x="250" y="210" font-size="15" text-anchor="middle" fill="currentColor" font-weight="bold">both → 4</text>
+  <text x="250" y="362.0" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">9 + 7 ≡ 4 (mod 12) and 10 + 6 ≡ 4 (mod 12) — both wrap to 4</text>
+</svg>`,
+                  }],
                 },
                 {
                   q: 'Is 34 ≡ 12 (mod 11)? Show the difference check and the remainder check.',
@@ -584,6 +636,21 @@ export const chapter05: Chapter = {
                     'Hence $[4] \\cap [0, 40] = \\{4, 13, 22, 31, 40\\}$ — five rungs of the staircase.',
                   ],
                   answer: '4, 13, 22, 31, 40',
+                  figures: [{
+                    caption: 'The residue class [4] mod 9 between 0 and 40 — five members {4, 13, 22, 31, 40}, each nine steps from the next.',
+                    svg: `<svg viewBox="-80 0 440 438" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A single column of five cells showing the members of residue class [4] modulo 9 between 0 and 40: the numbers 4, 13, 22, 31, 40, with downward arrows labeled plus nine between consecutive cells">
+  <!-- Column: x=110..210, center x=160.0; cell h=52, gap=12, stride=64 -->
+  <text x="160.0" y="50" font-size="15" text-anchor="middle" fill="currentColor" font-weight="bold" opacity="0.9">[4] mod 9</text>
+  <g fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.5">
+    <rect x="110" y="70" width="100" height="52" rx="8"/><rect x="110" y="134" width="100" height="52" rx="8"/><rect x="110" y="198" width="100" height="52" rx="8"/><rect x="110" y="262" width="100" height="52" rx="8"/><rect x="110" y="326" width="100" height="52" rx="8"/>
+  </g>
+  <g font-size="17" text-anchor="middle" fill="currentColor">
+    <text x="160.0" y="102.0" font-weight="bold" font-size="19">4</text><text x="160.0" y="166.0">13</text><text x="160.0" y="230.0">22</text><text x="160.0" y="294.0">31</text><text x="160.0" y="358.0">40</text>
+  </g>
+  <line x1="160.0" y1="123" x2="160.0" y2="130" stroke="currentColor" stroke-width="1.2" opacity="0.7"/><polygon points="160.0,133 156.0,129 164.0,129" fill="currentColor" opacity="0.7"/><text x="174.0" y="132" font-size="11" fill="currentColor" opacity="0.7">+9</text><line x1="160.0" y1="187" x2="160.0" y2="194" stroke="currentColor" stroke-width="1.2" opacity="0.7"/><polygon points="160.0,197 156.0,193 164.0,193" fill="currentColor" opacity="0.7"/><text x="174.0" y="196" font-size="11" fill="currentColor" opacity="0.7">+9</text><line x1="160.0" y1="251" x2="160.0" y2="258" stroke="currentColor" stroke-width="1.2" opacity="0.7"/><polygon points="160.0,261 156.0,257 164.0,257" fill="currentColor" opacity="0.7"/><text x="174.0" y="260" font-size="11" fill="currentColor" opacity="0.7">+9</text><line x1="160.0" y1="315" x2="160.0" y2="322" stroke="currentColor" stroke-width="1.2" opacity="0.7"/><polygon points="160.0,325 156.0,321 164.0,321" fill="currentColor" opacity="0.7"/><text x="174.0" y="324" font-size="11" fill="currentColor" opacity="0.7">+9</text>
+  <text x="160.0" y="406" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">[4] mod 9 between 0 and 40 — five members, +9 apart</text>
+</svg>`,
+                  }],
                 },
                 {
                   q: 'Show that 51 ≡ 6 (mod 9) by the difference test, and interpret it as a division statement.',
@@ -666,6 +733,17 @@ export const chapter05: Chapter = {
                     'Hence $m \\mid (ac - bd)$, i.e. $ac \\equiv bd \\pmod m$ — the one-line engine behind every power law and product reduction in this chapter.',
                   ],
                   answer: 'ac − bd = m(bv + ud + muv) — a multiple of m by inspection',
+                },
+                {
+                  q: 'Today is Wednesday. What day of the week is it 365 days from now? Use residues; verify by a direct count.',
+                  solution: [
+                    'Split the problem: the week wraps modulo $7$, so only the residue of $365$ on division by $7$ matters.',
+                    'Now, divide: $365 = 7 \\cdot 52 + 1$, so $365 \\equiv 1 \\pmod 7$ — one day of advance.',
+                    'So, count forward: Wednesday $+ 1 =$ Thursday.',
+                    'Take the verification: $52$ weeks $= 364$ days, and $364 + 1 = 365$ — so $365$ days is exactly $52$ weeks plus one day, landing on Thursday as the residue promised.',
+                    'Hence **Thursday** — the calendar engine cashed in one division; the same law that ran the 12-hour clock runs the 7-day week.',
+                  ],
+                  answer: 'Thursday — 365 = 7·52 + 1, so 365 ≡ 1 (mod 7); Wednesday + 1 = Thursday',
                 },
               ],
             },
