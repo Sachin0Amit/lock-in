@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-21 20:04:58 (Asia/Kolkata)",
+  "generated": "2026-11-21 22:42:32 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -4679,8 +4679,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 4914,
-                "readMins": 25,
+                "words": 5425,
+                "readMins": 27,
                 "concepts": [
                   "The linear congruence ax ≡ b (mod m)",
                   "Solvability: gcd(a, m) must divide b",
@@ -4734,14 +4734,14 @@
                   "L2": 3,
                   "L3": 3,
                   "L4": 3,
-                  "L5": 1,
+                  "L5": 3,
                   "L6": 1
                 },
-                "exerciseQuestions": 14,
+                "exerciseQuestions": 16,
                 "termsDefined": 8
               }
             ],
-            "words": 21931
+            "words": 22442
           },
           {
             "number": 6,
@@ -4759,8 +4759,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5618,
-                "readMins": 28,
+                "words": 6149,
+                "readMins": 31,
                 "concepts": [
                   "Closure under an operation",
                   "Partial operations: subtraction and division",
@@ -4794,7 +4794,7 @@
                   "callout": 6,
                   "equation": 2,
                   "list": 3,
-                  "example": 2,
+                  "example": 3,
                   "figure": 1,
                   "table": 1,
                   "derivation": 1,
@@ -4815,10 +4815,10 @@
                   "L2": 3,
                   "L3": 3,
                   "L4": 3,
-                  "L5": 1,
+                  "L5": 2,
                   "L6": 1
                 },
-                "exerciseQuestions": 14,
+                "exerciseQuestions": 15,
                 "termsDefined": 8
               },
               {
@@ -4961,7 +4961,7 @@
                 "termsDefined": 8
               }
             ],
-            "words": 15777
+            "words": 16308
           },
           {
             "number": 7,
@@ -51974,13 +51974,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 514,
-      "totalLines": 187205,
+      "totalLines": 187523,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5860,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 148544,
+        "src/data/library (content model + books)": 148862,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -78248,6 +78248,236 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "80b5b5c6832ef7b49af1338437af289aac59062a",
+      "short": "80b5b5c",
+      "date": "2026-11-21 14:00",
+      "message": "audit: ans-linear-congruences-glimpse-of-fermat — A:1fig B:3sol C:2enrich+1fix",
+      "filesChanged": 7,
+      "insertions": 174,
+      "deletions": 5,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 15,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 5,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-05.ts",
+          "add": 122,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "c12108b8bde2196decb541a470fb9756280ca721",
+      "short": "c12108b",
+      "date": "2026-11-21 14:35",
+      "message": "CS RUN 2 (the cs job's second honored fire): computer-fundamentals ch.1 CLOSED COMPLETE — 1.3 'Software: the Invisible Half of the Machine' + the 1.R unit review by the two-agent swarm (both delivered; engines green pre-prose; the swarm's engines caught the master-plan arithmetic typo — resolved in favour of the engines) — the FIRST CS chapter ever closed; verifier 375/375; tsc 0 (incl. a cross-lane gate repair: the sibling's ANS ch-05 duplicate-property removed), lint 0 err; pack 186 lessons / 1,048,300 words; standing gates green incl. the census pins honestly grown 1222->1223 for the review; E2E x2 lessons x3 viewports ALL GREEN (quiz 5/5 live); VLM 12-crop audit: 2 real defects fixed in the OS-manager figure (the narrow box + the label-crossing arrows) + re-audited PASS both themes; the CS_AUTHORING_RUNBOOK.md reconciled with the authoritative pointer chain; CS RUN 3 opens ch.2",
+      "filesChanged": 18,
+      "insertions": 2800,
+      "deletions": 103,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/CS_AUTHORING_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/CS_AUTHORING_RUNBOOK.md",
+          "add": 35,
+          "del": 19
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 17,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 399,
+          "del": 43
+        },
+        {
+          "path": "docs/research/CF_CH01_MASTER_PLAN.md",
+          "add": 32,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-13.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-13.sh",
+          "add": 105,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-1R.page.js",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-1R.sh",
+          "add": 106,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-book1-ch01.ts",
+          "add": 622,
+          "del": 16
+        },
+        {
+          "path": "scripts/verify-cs-exam-coverage.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/verify-cs-shelf-planning.ts",
+          "add": 7,
+          "del": 7
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/book.ts",
+          "add": 9,
+          "del": 9
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-01.ts",
+          "add": 1355,
+          "del": 3
+        }
+      ]
+    },
+    {
+      "sha": "609b1e04bcfa003619829e8f2f309d99761ed79e",
+      "short": "609b1e0",
+      "date": "2026-11-21 14:36",
+      "message": "chore(bookkeeping): CS RUN 2 push record (rebased onto the sibling line 80b5b5c, ls-remote verified c12108b)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "2cae8daa67e66adb87d3b1e5b25df80b14fa1470",
+      "short": "2cae8da",
+      "date": "2026-11-21 14:55",
+      "message": "audit: ans-closure-failures-that-force-extension — A:1fig B:4sol C:2enrich+1catch",
+      "filesChanged": 7,
+      "insertions": 271,
+      "deletions": 7,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 22,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 20,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch06.ts",
+          "add": 17,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-06.ts",
+          "add": 198,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "d77d992514f79ca3700b944daf90fa56173dca93",
+      "short": "d77d992",
+      "date": "2026-11-21 14:55",
+      "message": "chore: restore 0644 modes on ch-06.ts + verify-book2-ch06.ts",
+      "filesChanged": 2,
+      "insertions": 0,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "scripts/verify-book2-ch06.ts",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-06.ts",
+          "add": 0,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -78257,10 +78487,10 @@
     "chaptersWritten": 42,
     "chaptersInProgress": 0,
     "lessonsWritten": 186,
-    "wordsAuthored": 1048300,
+    "wordsAuthored": 1049342,
     "termsDefined": 1462,
     "quizItems": 930,
-    "exerciseQuestions": 2520,
+    "exerciseQuestions": 2523,
     "blockTotals": {
       "para": 2720,
       "callout": 1239,
@@ -78271,7 +78501,7 @@
       "figure": 383,
       "derivation": 425,
       "table": 250,
-      "example": 1113,
+      "example": 1114,
       "quiz": 186,
       "exercises": 186,
       "formula": 763,
