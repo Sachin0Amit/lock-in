@@ -2,8 +2,8 @@
   "$schema": "./PROGRESS.schema.json",
   "project": "LockIn Library",
   "updated": "2026-11-21",
-  "phase": "AA ch.7 in-progress (4/7: 7.1-7.4 shipped — run 116 authored 7.1+7.2, run 117 the first v9.0 SWARM run authored 7.3+7.4 via two parallel agents, verify-first, all gates green); chapters 1-6 COMPLETE; run 118 authors 7.5 + 7.6 and closes the chapter with the unit review",
-  "awaiting": "run 118: 7.5 'Binomial Coefficients at Work' + 7.6 'Binomial Applications and Approximations' + the unit review (the chapter-closing run; as a swarm per docs/project/RUN_PROTOCOL.md)",
+  "phase": "AA ch.7 'Induction and the Binomial Theorem' COMPLETE (7/7: 7.1-7.4 by runs 116-117, 7.5 'Binomial Coefficients at Work' + 7.6 'Binomial Applications and Approximations' + 7.R the unit completion review authored by the run-118 THREE-AGENT SWARM — the second v9.0 swarm run — verify-first engines I (42) + K (30) green BEFORE prose, pins J (44) + L (36) + M (38) + census Z grown after, all 512/512 green, chapter status 'complete'); chapters 1-7 COMPLETE (44 written lessons in AA); chapters 8-10 planned",
+  "awaiting": "run 119 opens AA chapter 8 'The Theory of Equations' (8.1 + 8.2, as a swarm per docs/project/RUN_PROTOCOL.md; ground: the Hall & Knight theory-of-equations arc + the Drive module for the unit — survey first; never open a second chapter in the same run)",
   "platform": {
     "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
     "stack": "Next.js 16 App Router (SSG library routes + dynamic builder routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk · Prisma/SQLite (Custom Book Builder user data) · pdfjs-dist + poppler/tesseract (syllabus PDF extraction)",

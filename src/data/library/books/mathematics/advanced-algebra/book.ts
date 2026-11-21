@@ -10,24 +10,20 @@ import { chapter07 } from './ch-07'
 /**
  * Advanced Algebra — the fourth book of the Mathematics shelf.
  *
- * STATUS: IN-PROGRESS — SIX chapters COMPLETE (chapters 1–6, each with
- * its unit review), chapters 7–10 planned. Chapters 1 (Relations and
- * Functions: 8 lessons + 1.R review, 9 written total), 2 (The Quadratic
- * at Depth: 4 + 2.R, 5 written), 3 (Complex Numbers: the New Rung: 5 +
- * 3.R, 6 written), 4 (Inequalities: the Classical Engine: 6 + 4.R, 7
- * written), 5 (Sequences and Series: 6 + 5.R, 7 written) and 6
- * (Counting: Permutations and Combinations: 6 + 6.R, 7 written) are
- * fully written and gated — 41 written lessons in all; the remaining 22
- * planned lessons (chapters 7–10: 6 + 6 + 6 + 4) author on the
- * one-unit-at-a-time cadence (run 110 closed chapter 3; the 2026-11-18
- * PARALLEL-SWARM RUN — owner chat directive "launch multiple agents for
- * authoring lessons" — closed chapter 4 whole-unit; THIS run's
- * PARALLEL-SWARM RUN II — owner chat directive "launch multiple
- * authoring agents swarm" — closed chapter 5's remainder (5.6 + 5.R)
- * and chapter 6 whole-unit, recorded in WORKLOG and
- * docs/research/AA_CH06_MASTER_PLAN.md). Lesson ids use the `aa-` prefix
- * (verified unused across the library at promotion time; globally unique,
- * stable forever).
+ * STATUS: IN-PROGRESS — SEVEN chapters COMPLETE (chapters 1–7, each with
+ * its unit review; chapter 7 'Induction and the Binomial Theorem' closed
+ * complete by the run-118 swarm: 7.1–7.6 + 7.R — 44 written lessons in
+ * all), chapters 8–10 planned (the remaining 16 planned lessons:
+ * chapters 8–10: 6 + 6 + 4) authoring on the one-unit-at-a-time cadence
+ * (run 110 closed chapter 3; the 2026-11-18 PARALLEL-SWARM RUN — owner
+ * chat directive "launch multiple agents for authoring lessons" — closed
+ * chapter 4 whole-unit; the 2026-11-20 swarm closed chapters 5's remainder
+ * + chapter 6 whole-unit; the 2026-11-21 v9.0 SWARM RUNS (runs 117-118,
+ * owner directive "use multiple agents or swarm of agents") authored
+ * chapter 7: run 117 shipped 7.3 + 7.4, run 118 shipped 7.5 + 7.6 + 7.R
+ * and closed the chapter, recorded in WORKLOG). Lesson ids use the `aa-`
+ * prefix (verified unused across the library at promotion time; globally
+ * unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Elementary
  * Algebra ended at the function doorstep — the input-output machine, its

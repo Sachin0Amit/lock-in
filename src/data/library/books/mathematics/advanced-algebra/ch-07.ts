@@ -1599,17 +1599,1716 @@ const lesson74: Lesson = {
     { kind: 'formula', name: 'The coefficient census', latex: '\\sum_{p+q+r=n} \\tfrac{n!}{p!\\,q!\\,r!} = 3^n; \\quad \\text{over } k \\text{ letters} = k^n', note: 'set every letter to 1: every word multiplies to 1, so the coefficient mass counts the word census exactly once.' },
   ],
 }
+// ------------------------------------------------------------------
+// lesson 75 — authored by the run-118 swarm (agent 4-a), integrated verbatim
+// ------------------------------------------------------------------
+
+/* ------------------------------------------------------------------ */
+/* figures — original SVG, vivid palette (owner directive 2026-11-08)  */
+/* ------------------------------------------------------------------ */
+
+function rowProfile75Svg(): string {
+  // row 12 of Pascal's triangle as a true-scale bar chart: 13 bars
+  // 1, 12, 66, 220, 495, 792, 924, 792, 495, 220, 66, 12, 1 — even seats
+  // (r = 0,2,...,12) green-stroked amber bars, odd seats amber-stroked
+  // orange bars; the split even = odd = 2048 = 2^11 annotated under the
+  // axis, the unique peak 924 = C(12,6) ringed and called out to the right.
+  const vals = [1, 12, 66, 220, 495, 792, 924, 792, 495, 220, 66, 12, 1]
+  const base = 350
+  const px = 280 / 924
+  const centers = vals.map((_, i) => 84 + i * 49)
+  let bars = ''
+  let labels = ''
+  vals.forEach((v, i) => {
+    const h = v * px
+    const x = centers[i] - 17
+    const even = i % 2 === 0
+    bars += `<rect x="${x}" y="${(base - h).toFixed(2)}" width="34" height="${h.toFixed(2)}" fill="${even ? '#fef3c7' : '#ffedd5'}" stroke="${even ? '#16a34a' : '#d97706'}" stroke-width="1.6"/>`
+    const ly = i === 6 ? 62 : base - h - 5
+    labels += `<text x="${centers[i]}" y="${ly.toFixed(1)}" font-size="10" font-weight="700" fill="#166534" text-anchor="middle">${v}</text>`
+    labels += `<text x="${centers[i]}" y="366" font-size="9" fill="#65a30d" text-anchor="middle">${i}</text>`
+  })
+  return `<svg viewBox="0 0 720 466" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A true-scale bar chart of row twelve of Pascal's triangle: thirteen bars with heights exactly proportional to the coefficients 1, 12, 66, 220, 495, 792, 924, 792, 495, 220, 66, 12, 1. Even seats r equals 0, 2, 4 up to 12 are drawn as green-stroked amber bars and odd seats as amber-stroked orange bars. The peak bar 924 at seat six is ringed in dashed orange and labelled the unique peak 924 equals C of 12 choose 6. Below the axis the split is annotated: the even seats 1 plus 66 plus 495 plus 924 plus 495 plus 66 plus 1 total 2048, which is two to the eleventh, and the odd seats 12 plus 220 plus 792 plus 792 plus 220 plus 12 also total 2048 — the two colour families weigh exactly the same, each half of the row total 4096.">
+  <text x="360" y="16" font-size="12.5" font-weight="700" text-anchor="middle" fill="currentColor">the row profile of Pascal's triangle at n = 12 — bars at true scale</text>
+  <rect x="56" y="32" width="14" height="14" rx="3" fill="#fef3c7" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="76" y="44" font-size="10.5" font-weight="700" fill="#166534">even seats r = 0, 2, 4, …, 12</text>
+  <rect x="300" y="32" width="14" height="14" rx="3" fill="#ffedd5" stroke="#d97706" stroke-width="1.6"/>
+  <text x="320" y="44" font-size="10.5" font-weight="700" fill="#166534">odd seats r = 1, 3, …, 11</text>
+  <text x="704" y="44" font-size="10.5" font-weight="700" fill="#0f766e" text-anchor="end">row total 4096 = 2¹²</text>
+  ${bars}
+  <rect x="353" y="66" width="50" height="290" rx="6" fill="none" stroke="#ea580c" stroke-width="2.4" stroke-dasharray="6 4"/>
+  ${labels}
+  <text x="470" y="86" font-size="11" font-weight="800" fill="#ea580c">the unique peak: 924 = C(12,6)</text>
+  <line x1="466" y1="92" x2="414" y2="78" stroke="#ea580c" stroke-width="2"/>
+  <path d="M 414 78 L 423.9 76 L 421.5 84.7 Z" fill="#ea580c"/>
+  <line x1="50" y1="350" x2="706" y2="350" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="360" y="386" font-size="9.5" fill="#0d9488" text-anchor="middle">seat r — the power of x in (1+x)¹²</text>
+  <line x1="56" y1="396" x2="704" y2="396" stroke="#fcd34d" stroke-width="1.4"/>
+  <text x="360" y="416" font-size="11" font-weight="700" fill="#0f766e" text-anchor="middle">even seats (green bars): 1 + 66 + 495 + 924 + 495 + 66 + 1 = 2048 = 2¹¹</text>
+  <text x="360" y="434" font-size="11" font-weight="700" fill="#0f766e" text-anchor="middle">odd seats (amber bars): 12 + 220 + 792 + 792 + 220 + 12 = 2048 = 2¹¹</text>
+  <text x="360" y="452" font-size="10.5" font-weight="700" fill="#166534" text-anchor="middle">the split is exact — each family is half the row: the conjugate machine's 2ⁿ⁻¹</text>
+</svg>`
+}
+
+function vandermonde75Svg(): string {
+  // the three ways to build the x^2 seat of (1+x)^4 (1+x)^4: the splits
+  // (0,2), (1,1), (2,0) — each row rings the chosen seat orange in each
+  // copy of Pascal row 4 (cells 1, 4, 6, 4, 1) and prices its
+  // contribution; the three contributions 6, 16, 6 sweep to 28 = C(8,2).
+  const row = [1, 4, 6, 4, 1]
+  const rows = [
+    { y: 64, a: 0, b: 2, c1: 'C(4,0) · C(4,2)', c2: '1 · 6 = 6', split: 'split 0 + 2' },
+    { y: 148, a: 1, b: 1, c1: 'C(4,1) · C(4,1)', c2: '4 · 4 = 16', split: 'split 1 + 1' },
+    { y: 232, a: 2, b: 0, c1: 'C(4,2) · C(4,0)', c2: '6 · 1 = 6', split: 'split 2 + 0' },
+  ]
+  const strip = (x0: number, y0: number, hot: number) =>
+    row
+      .map((v, k) => {
+        const x = x0 + k * 46
+        const isHot = k === hot
+        return `<rect x="${x}" y="${y0}" width="40" height="32" rx="5" fill="${isHot ? '#ffedd5' : '#fef3c7'}" stroke="${isHot ? '#ea580c' : '#16a34a'}" stroke-width="${isHot ? 2.4 : 1.2}"/><text x="${x + 20}" y="${y0 + 21}" font-size="12.5" font-weight="800" fill="${isHot ? '#ea580c' : '#166534'}" text-anchor="middle">${v}</text>`
+      })
+      .join('')
+  let body = ''
+  rows.forEach((r) => {
+    body += `<text x="30" y="${r.y + 22}" font-size="10" font-weight="700" fill="#65a30d">${r.split}</text>`
+    body += strip(100, r.y, r.a)
+    body += `<text x="338" y="${r.y + 22}" font-size="16" font-weight="800" fill="#d97706" text-anchor="middle">×</text>`
+    body += strip(352, r.y, r.b)
+    body += `<text x="590" y="${r.y + 18}" font-size="10" font-weight="700" fill="#65a30d">${r.c1}</text>`
+    body += `<text x="590" y="${r.y + 42}" font-size="13" font-weight="800" fill="#166534">${r.c2}</text>`
+  })
+  return `<svg viewBox="0 0 720 372" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The three ways to build the x-squared seat of the product of two copies of the expansion of 1 plus x to the fourth. Each of three rows shows a split of the two x-factors between the two expansions: split 0 plus 2 rings cell value 1 in the first copy of row 4 and cell value 6 in the second, contribution 1 times 6 equals 6; split 1 plus 1 rings cell 4 in each copy, contribution 4 times 4 equals 16; split 2 plus 0 rings cell 6 in the first copy and cell 1 in the second, contribution 6 times 1 equals 6. The three contributions sum to 6 plus 16 plus 6 equals 28, which equals C of 8 choose 2 — the same seat of the collapsed product 1 plus x to the eighth.">
+  <text x="360" y="20" font-size="12.5" font-weight="700" text-anchor="middle" fill="currentColor">building the x² seat of (1+x)⁴ · (1+x)⁴ — three ways, one total</text>
+  <text x="212" y="50" font-size="10.5" font-weight="700" fill="#166534" text-anchor="middle">first (1+x)⁴ row</text>
+  <text x="464" y="50" font-size="10.5" font-weight="700" fill="#166534" text-anchor="middle">second (1+x)⁴ row</text>
+  <text x="650" y="50" font-size="10.5" font-weight="700" fill="#166534" text-anchor="middle">contribution</text>
+  ${body}
+  <text x="360" y="336" font-size="12.5" font-weight="800" fill="#166534" text-anchor="middle">6 + 16 + 6 = 28 = C(8,2) — one seat of (1+x)⁸, read three ways</text>
+  <text x="360" y="356" font-size="10.5" font-weight="700" fill="#0f766e" text-anchor="middle">the sweep law at work: the product is (1+x)⁸, and the x² seat of (1+x)⁸ is C(8,2) = 28</text>
+</svg>`
+}
+
+function complexWalk75Svg(): string {
+  // the (1+i)^8 walk on the complex plane: the nine powers 1, 1+i, 2i,
+  // -2+2i, -4, -4-4i, -8i, 8-8i, 16 — each step multiplies by (1+i):
+  // length x sqrt(2), turn 45 degrees anticlockwise; eight turns make a
+  // full 360 degrees and the scale factor (sqrt 2)^8 = 16, so the walk
+  // closes on the positive real axis at 16.
+  const u = 24
+  const O = { x: 240, y: 210 }
+  const pts = [
+    { re: 1, im: 0 },
+    { re: 1, im: 1 },
+    { re: 0, im: 2 },
+    { re: -2, im: 2 },
+    { re: -4, im: 0 },
+    { re: -4, im: -4 },
+    { re: 0, im: -8 },
+    { re: 8, im: -8 },
+    { re: 16, im: 0 },
+  ].map((p) => ({ x: O.x + p.re * u, y: O.y - p.im * u }))
+  let segs = ''
+  for (let i = 0; i < pts.length - 1; i++) {
+    const a = pts[i]
+    const b = pts[i + 1]
+    const dx = b.x - a.x
+    const dy = b.y - a.y
+    const len = Math.sqrt(dx * dx + dy * dy)
+    const ux = dx / len
+    const uy = dy / len
+    const cs = Math.min(11, len * 0.22)
+    const ce = i === pts.length - 2 ? Math.min(16, len * 0.28) : Math.min(13, len * 0.28)
+    const x1 = a.x + ux * cs
+    const y1 = a.y + uy * cs
+    const x2 = b.x - ux * ce
+    const y2 = b.y - uy * ce
+    const bx = x2 - ux * 9
+    const by = y2 - uy * 9
+    const qx = -uy
+    const qy = ux
+    segs += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#d97706" stroke-width="2.2"/>`
+    segs += `<path d="M ${x2.toFixed(1)} ${y2.toFixed(1)} L ${(bx + qx * 4.5).toFixed(1)} ${(by + qy * 4.5).toFixed(1)} L ${(bx - qx * 4.5).toFixed(1)} ${(by - qy * 4.5).toFixed(1)} Z" fill="#d97706"/>`
+  }
+  let dots = ''
+  pts.forEach((p, i) => {
+    if (i === pts.length - 1) {
+      dots += `<circle cx="${p.x}" cy="${p.y}" r="9" fill="#ffedd5" stroke="#ea580c" stroke-width="2.6"/>`
+    } else {
+      dots += `<circle cx="${p.x}" cy="${p.y}" r="6.5" fill="#fef3c7" stroke="#16a34a" stroke-width="1.8"/>`
+    }
+  })
+  return `<svg viewBox="0 0 700 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The spiral walk of the powers of 1 plus i on the complex plane, axes drawn. Starting at the point 1 on the real axis, each multiplication by 1 plus i scales the length by root two and turns 45 degrees anticlockwise: the walk visits 1 plus i, then 2i on the imaginary axis, then minus 2 plus 2i, then minus 4 on the negative real axis, then minus 4 minus 4i, then minus 8i, then 8 minus 8i, and closes at 16 on the positive real axis — eight 45-degree turns make a full 360 degrees, and the accumulated scale root-two to the eighth power is 16, which is why the eighth power of 1 plus i is the real number 16.">
+  <text x="350" y="20" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor">the (1+i)⁸ walk — eight 45° turns close the spiral at 16</text>
+  <line x1="100" y1="210" x2="660" y2="210" stroke="#16a34a" stroke-width="1.6"/>
+  <path d="M 660 210 L 651 206 L 651 214 Z" fill="#16a34a"/>
+  <text x="150" y="228" font-size="9.5" font-weight="700" fill="#65a30d">real axis</text>
+  <line x1="240" y1="425" x2="240" y2="130" stroke="#16a34a" stroke-width="1.6"/>
+  <path d="M 240 130 L 236 139 L 244 139 Z" fill="#16a34a"/>
+  <text x="252" y="140" font-size="9.5" font-weight="700" fill="#65a30d">imaginary axis</text>
+  ${segs}
+  ${dots}
+  <text x="254" y="205" font-size="10" font-weight="700" fill="#166534" text-anchor="end">1</text>
+  <text x="274" y="181" font-size="10" font-weight="700" fill="#166534">1+i</text>
+  <text x="252" y="154" font-size="10" font-weight="700" fill="#166534">2i</text>
+  <text x="192" y="148" font-size="10" font-weight="700" fill="#166534" text-anchor="middle">−2+2i</text>
+  <text x="136" y="205" font-size="10" font-weight="700" fill="#166534" text-anchor="end">−4</text>
+  <text x="136" y="262" font-size="10" font-weight="700" fill="#166534" text-anchor="end">−4−4i</text>
+  <text x="252" y="422" font-size="10" font-weight="700" fill="#166534">−8i</text>
+  <text x="442" y="424" font-size="10" font-weight="700" fill="#166534">8−8i</text>
+  <text x="624" y="190" font-size="11" font-weight="800" fill="#ea580c" text-anchor="middle">16 = (1+i)⁸</text>
+  <text x="274" y="202" font-size="9" font-weight="700" fill="#65a30d">×(1+i)</text>
+  <text x="350" y="438" font-size="10" font-weight="700" fill="#0f766e" text-anchor="middle">each step multiplies by (1+i): length ×√2, anticlockwise turn 45°</text>
+  <text x="350" y="458" font-size="10" font-weight="800" fill="#166534" text-anchor="middle">eight steps: total turn 8 × 45° = 360°, total scale (√2)⁸ = 16 — the walk closes on the positive real axis at 16</text>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* solution figures — compact diagrams inside exercise solutions       */
+/* (FIGURE_VERIFICATION_PROTOCOL.md §10.1 discipline)                  */
+/* ------------------------------------------------------------------ */
+
+function mirrorSeats75Svg(): string {
+  // the eleven seats r = 0..10 of (x - 1/x)^{10}: seat r carries exponent
+  // 10 - 2r, so seats r and 10 - r mirror — equal coefficient magnitudes,
+  // exponents negated (amber arcs below); the middle seat r = 5 alone
+  // carries x^0 and is ringed as the constant seat, priced -252.
+  const exps = ['x¹⁰', 'x⁸', 'x⁶', 'x⁴', 'x²', 'x⁰', 'x⁻²', 'x⁻⁴', 'x⁻⁶', 'x⁻⁸', 'x⁻¹⁰']
+  const coefs = ['+1', '−10', '+45', '−120', '+210', '−252', '+210', '−120', '+45', '−10', '+1']
+  let boxes = ''
+  for (let i = 0; i <= 10; i++) {
+    const cx = 60 + i * 60
+    const x = 34 + i * 60
+    const neg = coefs[i].startsWith('−')
+    boxes += `<rect x="${x}" y="58" width="52" height="62" rx="6" fill="#fef3c7" stroke="#16a34a" stroke-width="1.6"/>`
+    boxes += `<text x="${cx}" y="74" font-size="8.5" font-weight="700" fill="#0d9488" text-anchor="middle">r = ${i}</text>`
+    boxes += `<text x="${cx}" y="92" font-size="12.5" font-weight="800" fill="#166534" text-anchor="middle">${exps[i]}</text>`
+    boxes += `<text x="${cx}" y="110" font-size="10.5" font-weight="800" fill="${neg ? '#dc2626' : '#65a30d'}" text-anchor="middle">${coefs[i]}</text>`
+  }
+  let arcs = ''
+  const sags = [68, 56, 44, 32, 20]
+  for (let i = 0; i <= 4; i++) {
+    const a = 60 + i * 60
+    const b = 60 + (10 - i) * 60
+    const mid = (a + b) / 2
+    arcs += `<path d="M ${a} 124 Q ${mid} ${124 + 2 * sags[i]} ${b} 124" fill="none" stroke="#d97706" stroke-width="2"/>`
+  }
+  return `<svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The eleven seats of the expansion of x minus 1 over x to the tenth, drawn as a row of boxes. Seat r carries the exponent 10 minus 2r, so the exponents read 10, 8, 6, 4, 2, 0, minus 2, minus 4, minus 6, minus 8, minus 10 across the row, and each box also shows its coefficient: plus 1, minus 10, plus 45, minus 120, plus 210, minus 252, plus 210, minus 120, plus 45, minus 10, plus 1. Amber arcs below the row connect each mirror pair r and 10 minus r — equal coefficient magnitudes with exponents negated. The middle seat r equals 5 is ringed in orange: it alone carries x to the zero, the constant term, priced minus C of 10 choose 5 equals minus 252.">
+  <text x="360" y="20" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor">the eleven seats of (x − 1/x)¹⁰ — seat r carries the exponent 10 − 2r</text>
+  ${boxes}
+  <rect x="326" y="48" width="68" height="82" rx="10" fill="none" stroke="#ea580c" stroke-width="2.6"/>
+  ${arcs}
+  <text x="360" y="214" font-size="10.5" font-weight="700" fill="#d97706" text-anchor="middle">amber arcs: mirror pairs r ↔ 10 − r — equal coefficient magnitudes, exponents negated</text>
+  <text x="360" y="240" font-size="11.5" font-weight="800" fill="#ea580c" text-anchor="middle">the middle seat r = 5 alone carries x⁰ — the constant term</text>
+  <text x="360" y="260" font-size="10.5" font-weight="700" fill="#166534" text-anchor="middle">its price: (−1)⁵ · C(10,5) = −252 — the mirror discipline finds the constant seat</text>
+</svg>`
+}
+
+function equalBars75Svg(): string {
+  // the coefficient magnitudes C(13,k)·2^{13-k}·5^k of (2+5x)^{13} at the
+  // seats k = 0..13, normalized to the equal pair (k = 9, 10): heights
+  // proportional to the magnitudes 8192, 266240, 3.99M, 36.6M, 229M,
+  // 1.03B, 3.43B, 8.58B, 16.09B, 22.34B, 22.34B, 15.23B, 6.35B, 1.22B —
+  // the two equal bars at k = 9 and k = 10 highlighted and tied with a
+  // dashed line at the top.
+  const mags = [8192, 266240, 3993600, 36608000, 228800000, 1029600000, 3432000000, 8580000000, 16087500000, 22343750000, 22343750000, 15234375000, 6347656250, 1220703125]
+  const H = 250 / mags[9]
+  const base = 340
+  let bars = ''
+  mags.forEach((m, k) => {
+    const h = m * H
+    const cx = 84 + k * 46
+    const hot = k === 9 || k === 10
+    bars += `<rect x="${cx - 16}" y="${(base - h).toFixed(2)}" width="32" height="${h.toFixed(2)}" fill="${hot ? '#ffedd5' : '#fef3c7'}" stroke="${hot ? '#ea580c' : '#16a34a'}" stroke-width="${hot ? 2.4 : 1.4}"/>`
+    bars += `<text x="${cx}" y="358" font-size="9" fill="#65a30d" text-anchor="middle">${k}</text>`
+  })
+  return `<svg viewBox="0 0 720 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The coefficient profile of the expansion of 2 plus 5x to the thirteenth: fourteen bars, one per seat k from 0 to 13, with heights proportional to the coefficient magnitudes C of 13 choose k times 2 to the 13 minus k times 5 to the k, normalized so the greatest pair reaches the full bar height. The magnitudes run 8192, 266240, about 4 million, 36.6 million, 229 million, 1.03 billion, 3.43 billion, 8.58 billion, 16.09 billion, 22.34 billion, 22.34 billion, 15.23 billion, 6.35 billion, 1.22 billion. The two equal bars at seats k equals 9 and k equals 10 are highlighted in orange and tied by a dashed line at their common top height; the early seats k from 0 to 3 are slivers at this scale. The seat law k equals b times n plus 1 over a plus b equals 5 times 14 over 7 equals 10 prices the equal pair.">
+  <text x="360" y="20" font-size="12.5" font-weight="700" text-anchor="middle" fill="currentColor">the coefficient profile of (2+5x)¹³ — heights normalized to the equal pair</text>
+  <text x="360" y="40" font-size="10" font-weight="700" fill="#0f766e" text-anchor="middle">the seat law k = b(n+1)/(a+b) = 5·14/7 = 10 prices the equal pair at seats k = 9 and k = 10</text>
+  ${bars}
+  <text x="268" y="332" font-size="9.5" font-weight="700" fill="#166534" text-anchor="middle">229M</text>
+  <text x="314" y="323" font-size="9.5" font-weight="700" fill="#166534" text-anchor="middle">1.03B</text>
+  <text x="360" y="296" font-size="9.5" font-weight="700" fill="#166534" text-anchor="middle">3.43B</text>
+  <text x="406" y="239" font-size="9.5" font-weight="700" fill="#166534" text-anchor="middle">8.58B</text>
+  <text x="452" y="155" font-size="9.5" font-weight="700" fill="#166534" text-anchor="middle">16.1B</text>
+  <text x="498" y="108" font-size="9" font-weight="800" fill="#166534" text-anchor="middle">22.3B</text>
+  <text x="544" y="108" font-size="9" font-weight="800" fill="#166534" text-anchor="middle">22.3B</text>
+  <text x="590" y="165" font-size="9.5" font-weight="700" fill="#166534" text-anchor="middle">15.2B</text>
+  <text x="636" y="264" font-size="9.5" font-weight="700" fill="#166534" text-anchor="middle">6.35B</text>
+  <text x="682" y="321" font-size="9.5" font-weight="700" fill="#166534" text-anchor="middle">1.22B</text>
+  <line x1="474" y1="84" x2="568" y2="84" stroke="#ea580c" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="521" y="66" font-size="10" font-weight="800" fill="#ea580c" text-anchor="middle">the equal pair — the tie at the top: C(13,9)·2⁴·5⁹ = C(13,10)·2³·5¹⁰</text>
+  <line x1="50" y1="340" x2="706" y2="340" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="360" y="376" font-size="9.5" fill="#0d9488" text-anchor="middle">seat k — the power of x in (2+5x)¹³</text>
+  <text x="360" y="398" font-size="9.5" font-weight="700" fill="#0f766e" text-anchor="middle">the seats k = 0..3 carry 8192, 266,240, 3.99M, 36.6M — slivers at this scale: the ×5-per-seat engine outruns the row-count engine</text>
+</svg>`
+}
+
+function signedBars75Svg(): string {
+  // the alternating squares of row 4 as signed bars: 1, -16, 36, -16, 1
+  // (up for positive, down for negative, true-to-scale heights), with the
+  // running partial sums 1, -15, 21, 5, 6 annotated in a teal strip below,
+  // closing on 6 = (-1)^2 C(4,2).
+  const vals = [1, -16, 36, -16, 1]
+  const scale = 76 / 36
+  const centers = [84, 164, 244, 324, 404]
+  let bars = ''
+  let labels = ''
+  vals.forEach((v, i) => {
+    const h = Math.abs(v) * scale
+    const x = centers[i] - 27
+    const pos = v > 0
+    const y = pos ? 140 - h : 140
+    bars += `<rect x="${x}" y="${y.toFixed(2)}" width="54" height="${h.toFixed(2)}" fill="#fef3c7" stroke="${pos ? '#16a34a' : '#dc2626'}" stroke-width="1.6"/>`
+    const ly = pos ? 140 - h - 6 : 140 + h + 14
+    labels += `<text x="${centers[i]}" y="${ly.toFixed(1)}" font-size="10" font-weight="700" fill="${pos ? '#166534' : '#dc2626'}" text-anchor="middle">r = ${i} · ${pos ? '' : '−'}${Math.abs(v)}</text>`
+  })
+  const sums = ['1', '−15', '21', '5', '6']
+  let strip = ''
+  centers.forEach((c, i) => {
+    strip += `<rect x="${c - 32}" y="232" width="64" height="26" rx="5" fill="#fef3c7" stroke="#0d9488" stroke-width="1.8"/>`
+    strip += `<text x="${c}" y="249" font-size="12" font-weight="800" fill="#0f766e" text-anchor="middle">${sums[i]}</text>`
+  })
+  return `<svg viewBox="0 0 480 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The alternating sum of squared row-4 coefficients as signed bars: values 1, minus 16, 36, minus 16, 1 drawn at true-to-scale heights, positive bars pointing up with green strokes and negative bars pointing down with red strokes, labelled r equals 0 dot 1, r equals 1 dot minus 16, r equals 2 dot 36, r equals 3 dot minus 16, r equals 4 dot 1. Below the bars a teal strip of boxes annotates the running partial sums: 1, then minus 15, then 21, then 5, then 6 — the total closes on 6, which is plus one squared times C of 4 choose 2, the even-n alternating-squares law witnessed.">
+  <text x="240" y="18" font-size="11.5" font-weight="700" text-anchor="middle" fill="currentColor">the alternating squares at n = 4: 1 − 16 + 36 − 16 + 1</text>
+  ${bars}
+  ${labels}
+  <line x1="44" y1="140" x2="436" y2="140" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="36" y="144" font-size="9" font-weight="700" fill="#65a30d">0</text>
+  <text x="240" y="222" font-size="10" font-weight="800" fill="#0f766e" text-anchor="middle">running totals after each seat:</text>
+  ${strip}
+  <text x="240" y="284" font-size="10.5" font-weight="700" fill="#166534" text-anchor="middle">the totals close on 6 = (−1)² · C(4,2) — the even-n law, witnessed</text>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 7.5                                                          */
+/* ------------------------------------------------------------------ */
+
+const lesson75: Lesson = {
+  id: 'aa-binomial-coefficients-at-work',
+  number: '7.5',
+  title: 'Binomial Coefficients at Work',
+  concepts: [
+    'the substitution engine: sums of coefficients in any expansion',
+    'conjugate reads: the even and odd machines',
+    'alternating squares via (1-x²)^n',
+    'Vandermonde’s identity and series from products of expansions',
+    'the ratio of consecutive coefficients and the A.P. condition',
+    'greatest coefficient, twin peaks and the greatest term',
+    'binomial expansions using complex numbers',
+    'the term independent of x',
+  ],
+  objectives: [
+    'Price the sum of the coefficients of ANY expansion by substitution at $x = 1$ — including the honest zeros ($(1+x-2x^2)^9 \\to 0$) and the $2^n$ trap for bases that are not $1+x$ — and split any row into its even-index and odd-index families, each $2^{n-1}$.',
+    'Read conjugate expansions: harvest the even seats by adding $(1+x)^n$ and $(1-x)^n$, the odd seats by subtracting them, and prove the alternating-squares law for $\\sum (-1)^r \\binom{n}{r}^2$ via the $(1-x^2)^n$ collapse, verifying it at $n = 4$ and $n = 5$.',
+    'Prove Vandermonde’s identity BOTH ways — by the coefficient read of $(1+x)^m(1+x)^n$ AND by the two-collection selection count — and harvest its corollaries: $\\sum \\binom{n}{r}^2 = \\binom{2n}{n}$, the cross-pairs total and the weighted squares sum.',
+    'Use the ratio law $\\binom{n}{r}/\\binom{n}{r-1} = (n-r+1)/r$ to decide arithmetic-progression conditions on three consecutive coefficients (the $n = 7$ or $n = 14$ law) and equal-consecutive-coefficient questions (the seat law $k = b(n+1)/(a+b)$).',
+    'Locate the greatest coefficient (unique peak at even $n$, twin peaks at odd $n$) and the greatest TERM of a numeric power by the ratio test with the $x$-weight priced in — and find the algebraically least coefficient of a signed base.',
+    'Expand binomials with complex letters: price $(1+i)^8$, extract the triple-angle laws from the literal cube $(\\cos\\theta + i\\sin\\theta)^3$, and run the real/negative sign census of $(1+ix)^{4n}$.',
+    'Match seats for the term independent of $x$ in negative- and fractional-power bases — $(x - 1/x)^{10}$, $(x^{2/3} + x^{-1/3})^9$, $(x^2 - 2/x)^9$ — by solving the seat equation, never by expanding.',
+  ],
+  prerequisites: ['aa-the-binomial-theorem-proved', 'aa-factorials-and-the-counting-toolkit', 'aa-binomial-theorem-any-index'],
+  sources: ['cengage-m2-08', 'cengage-jee-style', 'hall-knight-higher-algebra', 'jee-main-2026-syllabus'],
+  blocks: [
+    { kind: 'para', text: 'Lesson 7.2 proved the binomial theorem and priced its general term; 7.3 freed the index to every rational value; 7.4 grew the alphabet to $k$ letters — and every one of those lessons aimed the machine at ONE target at a time. This lesson turns the telescope around: the objects of study are the COEFFICIENTS as a family — their totals, their pairings, their ratios, their peaks. An examination hall barely ever asks for a full expansion; it asks for the sum of the coefficients of $(2-3x)^{12}$, the two consecutive powers of $x$ whose coefficients in $(2+5x)^{13}$ are equal, the greatest term of $(1.3)^{15}$, a proof that $\\sum \\binom{n}{r}^2 = \\binom{2n}{n}$ — each a question about the WHOLE row at once, answerable without expanding anything.' },
+    { kind: 'para', text: 'Two engines drive every result, and both are already built. ENGINE ONE — SUBSTITUTION: an expansion is a polynomial identity, true at every value of $x$, so pricing the whole row at a chosen value collapses it to one number. Set $x = 1$ and every power reads $1$: the value is the SUM of the coefficients. Set $x = -1$ and the value is the alternating sum — and the two reads together, added and subtracted, split any row into its even-index and odd-index families. ENGINE TWO — COEFFICIENT EXTRACTION: when a wanted sum is recognisable as the coefficient of a single power in a PRODUCT of expansions, the product collapses by the law of exponents and the sum prices itself — Vandermonde’s identity, the squares-sum law and the alternating-squares law all fall out of this one move. Between the engines sits the ratio of consecutive coefficients — the row’s local slope — which locates peaks, ties and arithmetic progressions.' },
+    { kind: 'para', text: 'The chapter’s arc makes this the natural fourth step: 7.2 proved the theorem, 7.3 extended the index, 7.4 generalised the letters — now the coefficients themselves become objects of algebra. Nothing new is proved from scratch; what is new is the READING. Every roster below was recomputed brute-force before any prose here was declared done; every law carries its pinned witness. The lesson closes with the multinomial bridge back to 7.4 and a graded exercise set in which three questions carry their own diagrams.' },
+    { kind: 'callout', tone: 'insight', title: 'One lesson, two engines', text: 'A question about the WHOLE row — a total, a family split, a signed sum — is SUBSTITUTION: price the expansion at a chosen value and let the powers collapse. A question that is a SUM OF PRODUCTS of coefficients with matched arguments — Vandermonde shapes, squares sums — is EXTRACTION: build a product of expansions, collapse it, read one coefficient. A question about the row’s SHAPE — which seat peaks, which neighbours tie, which triple is in arithmetic progression — is the RATIO law. Name the engine, run its three moves.' },
+
+    { kind: 'heading', text: 'The Substitution Engine — Sums of Coefficients' },
+    { kind: 'para', text: 'Begin with the question the engine answers. "Find the sum of the coefficients of $(2-3x)^{12}$" — naively, thirteen seats written and added; honestly, one substitution: the expansion is an identity between functions of $x$, and the coefficient sum is its value at $x = 1$.' },
+    { kind: 'callout', tone: 'definition', title: 'The sum of coefficients', text: 'Let $P(x) = a_0 + a_1x + \\cdots + a_nx^n$ be any polynomial — a binomial expansion among them. The sum of the coefficients of $P$ is the number $a_0 + a_1 + \\cdots + a_n$; since every power of $x$ reads $1$ at $x = 1$, this sum is exactly the value $P(1)$. Thus, the sum of the coefficients of any expansion is the whole expansion priced at $x = 1$ — never a seat-by-seat addition.' },
+    { kind: 'para', text: 'For example, the engine at work on the three base shapes it meets:' },
+    { kind: 'list', marker: 'roman', items: [
+      '(i) the plain base — the coefficients of $(1+x)^n$ sum to $(1+1)^n = 2^n$, the row total;',
+      '(ii) a shifted base — the coefficients of $(2-3x)^{12}$ sum to $(2-3)^{12} = 1$;',
+      '(iii) a three-letter base — the coefficients of $(1+x-2x^2)^9$ sum to $(1+1-2)^9 = 0$, the honest zero.',
+    ] },
+    { kind: 'para', text: 'Before the row-sum family, one reflex family the chapter has carried since its opening toolkit: the STANDARD EXPANSIONS read as algebra objects — not rows to memorise, but factorisations to recognise on sight. The cube hides an instant factorisation of its interior; the conjugate pair of squares hides the even-machine identity this lesson is about to meet at full scale on binomial rows.' },
+    { kind: 'example', title: 'The standard cube read as a factorization: $(a+b)^3 - a^3 - b^3 = 3ab(a+b)$, priced at $a = 5$, $b = 3$', steps: [
+      'Write the standard cube — the 7.2 reflex: $(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$.',
+      'So, subtract the pure cubes: $(a+b)^3 - a^3 - b^3 = 3a^2b + 3ab^2 = 3ab(a+b)$ — one product, at every $a$ and $b$.',
+      'Now, price it at $a = 5$, $b = 3$: the left side reads $(5+3)^3 - 125 - 27 = 512 - 125 - 27 = 360$.',
+      'So, the right side reads $3 \\cdot 5 \\cdot 3 \\cdot 8 = 360$ — an eight-term computation priced as a three-factor product.',
+      'Hence $(a+b)^3 - a^3 - b^3 = 3ab(a+b)$ — the reflex behind every "evaluate $(a+b)^3 - a^3 - b^3$ from $ab$ and $a+b$" question.',
+    ] },
+    { kind: 'example', title: 'The conjugate-sum reflex: $(a+b)^2 + (a-b)^2 = 2(a^2+b^2)$, shown on $9^2 + 5^2$', steps: [
+      'Recognize the shape: $9 = 7 + 2$ and $5 = 7 - 2$ are a conjugate pair, so $9^2 + 5^2$ is $(a+b)^2 + (a-b)^2$ at $a = 7$, $b = 2$.',
+      'So, expand the pair: $(a+b)^2 + (a-b)^2 = (a^2 + 2ab + b^2) + (a^2 - 2ab + b^2)$ — the cross terms cancel exactly.',
+      'Hence $(a+b)^2 + (a-b)^2 = 2(a^2 + b^2)$ — the conjugate sum keeps the even seats and kills the odd one, the machine this lesson runs on whole rows.',
+      'Now, price it: $9^2 + 5^2 = 2(49 + 4) = 106$ — and the direct squares agree, $81 + 25 = 106$, with no square of nine or five computed.',
+      'So, the twin reflex: $(a+b)^2 - (a-b)^2 = 4ab$ — the conjugate DIFFERENCE keeps only the cross term.',
+    ] },
+    { kind: 'para', text: 'Now the engine on the binomial row itself: the row of $(1+x)^n$ priced at $x = 1$ and at $x = -1$ gives the two total prices, and adding and subtracting them splits the row into its families. Four lines, all four deserved:' },
+    { kind: 'derivation', title: 'The row-sum family and the even-index split', statement: 'For every positive integer n, the row of (1+x)^n satisfies Σ C(n,r) = 2^n; Σ (−1)^r C(n,r) = 0; and the even-index family C(n,0) + C(n,2) + ⋯ equals the odd-index family C(n,1) + C(n,3) + ⋯, both being 2^(n−1).', steps: [
+      { label: 'Price the row at x = 1', formula: '(1+1)^n = \\sum_{r=0}^{n} \\binom{n}{r} = 2^n', explanation: 'At $x = 1$ every power reads $1$, so the value $2^n$ is exactly the sum of the $n+1$ coefficients.' },
+      { label: 'Price the row at x = −1', formula: '(1-1)^n = \\sum_{r=0}^{n} (-1)^r \\binom{n}{r} = 0 \\qquad (n \\geq 1)', explanation: 'At $x = -1$ each power reads $(-1)^r$, so the value $0$ is the alternating sum — the signed total cancels seat against seat.' },
+      { label: 'Add the two prices', formula: '2\\left[\\binom{n}{0} + \\binom{n}{2} + \\cdots\\right] = 2^n + 0', explanation: 'Adding seat by seat: the even seats appear twice, the odd seats cancel — the even-index family totals $2^{n-1}$.' },
+      { label: 'Subtract the two prices', formula: '2\\left[\\binom{n}{1} + \\binom{n}{3} + \\cdots\\right] = 2^n - 0', explanation: 'Subtracting kills the even seats and doubles the odd ones: the odd family also totals $2^{n-1}$ — the two families are EQUAL, each half the row.' },
+    ], result: '$\\binom{n}{0} + \\binom{n}{2} + \\cdots = \\binom{n}{1} + \\binom{n}{3} + \\cdots = 2^{n-1}$ for $n \\geq 1$ — the alternating sum is zero and every row splits into two equal halves' },
+    { kind: 'equation', latex: '\\sum_{r=0}^{n} \\binom{n}{r} = 2^n \\qquad \\text{and} \\qquad \\sum_{r=0}^{n} (-1)^r\\,\\binom{n}{r} = 0 \\quad (n \\geq 1) \\tag{1}', note: 'the two total prices of the row — substitutions at $x = 1$ and $x = -1$; every other row identity here is one of these reads, a combination of them, or a coefficient extraction.' },
+    { kind: 'equation', latex: '\\binom{n}{0} + \\binom{n}{2} + \\binom{n}{4} + \\cdots \\;=\\; \\binom{n}{1} + \\binom{n}{3} + \\cdots \\;=\\; 2^{n-1} \\tag{2}', note: 'the families are equal — row 12 witness: $1 + 66 + 495 + 924 + 495 + 66 + 1 = 2048 = 2^{11}$, matching the odd family $12 + 220 + 792 + 792 + 220 + 12 = 2048$.' },
+    { kind: 'para', text: 'The engine does not care what the base is — and that indifference is exactly where the traps live. Two Illustrations, three pinned totals:' },
+    { kind: 'example', title: 'The sum of the coefficients of $(2-3x)^{12}$', steps: [
+      'The engine: the sum of the coefficients is the value at $x = 1$ — the base is not $1+x$, and that is the whole point.',
+      'So, substitute: $(2 - 3 \\cdot 1)^{12} = (2-3)^{12} = (-1)^{12} = 1$.',
+      'Hence the sum is $1$ — and the trap answer $2^{12} = 4096$ prices the $(1+x)^{12}$ row (equivalently, $(2+3x)^{12}$ at $x = 1$): the sum is $2^n$ ONLY when the base reads exactly $1 + x$.',
+    ] },
+    { kind: 'example', title: 'Two more substitutions: the honest zero of $(1+x-2x^2)^9$ and the three-letter total of $(1+x+x^2)^6$', steps: [
+      'The base has three seats — no matter: the coefficient sum is still the value at $x = 1$.',
+      'So, the first: $(1 + 1 - 2)^9 = 0^9 = 0$ — the coefficients of $(1+x-2x^2)^9$ sum to ZERO. The zero is honest, not a trick: the base itself vanishes at $x = 1$.',
+      'Now, the second: $(1 + 1 + 1)^6 = 3^6 = 729$ — the coefficients of $(1+x+x^2)^6$ together total $729$, one power of three per seat of the base.',
+      'Hence the pattern: a base of $k$ unit seats totals $k^n$ at $x = 1$ — the read that will price the multinomial bridge — and the honest zero appears whenever the base sums to zero there.',
+    ] },
+    { kind: 'para', text: 'One honesty note before leaving the engine. Substitution needs the expansion to EXIST at the chosen value: the finite rows of 7.2 always do, but the never-ending rows of 7.3 are priced by their window $|x| < 1$, and $x = 1$ sits ON the boundary — the seats do not shrink, so the "sum of the coefficients" of an infinite row is not a number at all. The frequently-used rows below are used strictly seat by seat, never summed.' },
+
+    { kind: 'heading', text: 'Coefficients of Terms in a Binomial Expansion' },
+    { kind: 'para', text: 'The second question family prices ONE seat of a general base — always the same three moves. Lesson 7.2’s general term priced the seats of $(a+b)^n$; here the base may carry powers of its own, negative or fractional, so the job is to find WHICH seat lands on the requested degree before pricing it.' },
+    { kind: 'callout', tone: 'definition', title: 'The coefficient of a chosen power of x in an expansion', text: 'In the expansion of $(a + bx)^n$ (any positive integer $n$), the coefficient of $x^r$ is the number standing in front of $x^r$ when the expansion is written in collected form — by 7.2’s general term, $\\binom{n}{r} a^{n-r} b^r$, the seat with index $r$ (the $(r+1)$-th term). For a general base whose two letters are $A x^p$ and $B x^q$, the coefficient of $x^d$ is the sum over every seat $r$ whose collected degree $p(n-r) + qr$ equals $d$ of the price $\\binom{n}{r} A^{n-r} B^r$. Thus, pricing a coefficient is seat matching first — solve the degree equation — and factorial arithmetic second.' },
+    { kind: 'para', text: 'Thus, the seat-matching discipline — normalize, match the collected degree, price — the same three moves every time:' },
+    { kind: 'list', marker: 'roman', items: [
+      '(i) NORMALIZE the base — write each letter as a coefficient times a single power of $x$, negative and fractional powers included ($-2/x$ is $-2 \\cdot x^{-1}$);',
+      '(ii) MATCH the collected degree — write the exponent the seat $r$ carries, $p(n-r) + qr$, set it equal to the requested degree $d$, and solve for the seat $r$;',
+      '(iii) PRICE the seat — $\\binom{n}{r} A^{n-r} B^r$, with the sign carried by the letter $B$ honestly.',
+    ] },
+    { kind: 'equation', latex: 'p\\,(n-r) + q\\,r = d \\tag{3}', note: 'the seat equation of the coefficient of $x^d$ in $(Ax^p + Bx^q)^n$ — the seat exists only when the solution $r$ is an integer with $0 \\leq r \\leq n$; the term independent of $x$ is the case $d = 0$.' },
+    { kind: 'example', title: 'The $x^6$ hunt: find the coefficient of $x^6$ in $\\left(x^2 - \\tfrac{2}{x}\\right)^9$', steps: [
+      'Normalize: the letters are $x^2$ and $-2x^{-1}$, so the seat-$r$ term is $\\binom{9}{r} (x^2)^{9-r} \\left(-2x^{-1}\\right)^r = \\binom{9}{r} (-2)^r\\, x^{18-3r}$.',
+      'So, match the degree: $18 - 3r = 6$ gives $r = 4$ — a genuine seat (the fifth term), and the only one: the degrees step down by three.',
+      'Now, price it: $\\binom{9}{4} (-2)^4 = 126 \\cdot 16 = 2016$.',
+      'Hence the coefficient of $x^6$ is $2016$ — one seat equation solved; the ten-term expansion, with degrees $18, 15, 12, 9, 6, 3, 0, -3, -6, -9$, was never written.',
+    ] },
+    { kind: 'example', title: 'The constant seat at fractional powers: find the term independent of $x$ in $\\left(x^{2/3} + x^{-1/3}\\right)^9$', steps: [
+      'Normalize: the letters are $x^{2/3}$ and $x^{-1/3}$, so the seat-$p$ term is $\\binom{9}{p}\\, x^{\\frac{2p - (9-p)}{3}} = \\binom{9}{p}\\, x^{p-3}$.',
+      'So, match the degree: the term independent of $x$ carries degree $0$, so $p - 3 = 0$ and $p = 3$ — the fourth term, the only seat whose exponent dies.',
+      'Now, price it: $\\binom{9}{3} = 84$, both letters contributing coefficient $1$.',
+      'Hence the term independent of $x$ is $84$ — the seat equation did all the work, fractional powers included.',
+    ] },
+    { kind: 'para', text: 'The constant seat of a reciprocal-symmetric base deserves one more look, because its structure is a picture. In $\\left(x - \\tfrac{1}{x}\\right)^{10}$ the seat $r$ carries the exponent $10 - 2r$: the exponents step down by two and MIRROR — seat $r$ and seat $10 - r$ carry exponents that are negatives of each other, with equal coefficient magnitudes $\\binom{10}{r} = \\binom{10}{10-r}$ and alternating signs. The middle seat $r = 5$ alone carries $x^0$ — the constant term, priced $(-1)^5\\binom{10}{5} = -252$; exercise L2-1 draws exactly this mirror, eleven boxes with the middle one ringed. The picture explains the arithmetic: with exponents stepping by two, exactly ONE seat can land on the constant, and the mirror symmetry guarantees it is the row’s middle.' },
+
+    { kind: 'heading', text: 'The Frequently-Used Rows at Work' },
+    { kind: 'para', text: 'The seat-matching discipline also prices seats of the never-ending rows — and here the toolkit of lesson 7.3 returns BY NAME, cross-referenced, never re-derived. THE COUNTING ROW: the coefficient of $x^r$ in $(1-x)^{-n}$ is $\\binom{n+r-1}{r}$, every seat positive. THE ALTERNATING TWIN: the coefficient of $x^r$ in $(1+x)^{-n}$ is $(-1)^r \\binom{n+r-1}{r}$. THE HALF ROW: the coefficient of $x^r$ in $(1-x)^{-1/2}$ is $\\tfrac{\\binom{2r}{r}}{4^r}$, the central-binomial family. Each row is used seat by seat at a named power, with the window $|x| < 1$ travelling along — and never summed, for the boundary reason above.' },
+    { kind: 'example', title: 'Two seats from the 7.3 rows: $x^8$ in $(1-x)^{-4}$ and $x^5$ in $(1+x)^{-2}$', steps: [
+      'The counting row (lesson 7.3, by name): the coefficient of $x^r$ in $(1-x)^{-n}$ is $\\binom{n+r-1}{r}$, valid for $|x| < 1$.',
+      'So, the first seat: $r = 8$, $n = 4$ — the coefficient is $\\binom{11}{3} = 165$.',
+      'Now, the alternating twin: the coefficient of $x^r$ in $(1+x)^{-n}$ is $(-1)^r \\binom{n+r-1}{r}$ — the argument’s sign flip restores the alternation.',
+      'So, the second seat: $r = 5$, $n = 2$ — the coefficient is $(-1)^5 \\binom{6}{5} = -6$.',
+      'Hence the two prices, $165$ and $-6$ — two rows borrowed by name, one sign discipline, and 7.3’s table never re-derived.',
+    ] },
+    { kind: 'example', title: 'The half row at work: the coefficient of $x^6$ in $(1-x)^{-1/2}$', steps: [
+      'The half row (lesson 7.3, by name): the coefficient of $x^r$ in $(1-x)^{-1/2}$ is $\\tfrac{\\binom{2r}{r}}{4^r}$ — the central binomial coefficients, quartered by the row’s own scaling.',
+      'So, the seat: $r = 6$ — the coefficient is $\\tfrac{\\binom{12}{6}}{4^6} = \\tfrac{924}{4096}$.',
+      'Now, reduce honestly: $\\tfrac{924}{4096} = \\tfrac{231}{1024}$.',
+      'Hence the coefficient of $x^6$ in $(1-x)^{-1/2}$ is $\\tfrac{231}{1024}$ — with the window $|x| < 1$ riding along, as 7.3’s discipline demands.',
+    ] },
+
+    { kind: 'heading', text: 'Conjugate Reads — the Even and Odd Machines' },
+    { kind: 'para', text: 'Engine one prices a row at a value; the conjugate read prices a PAIR of rows at every value at once. The expansions $(1+x)^n$ and $(1-x)^n$ agree at the even seats and carry opposite signs at the odd seats — so ADDING the pair cancels the odd seats and doubles the even ones, while SUBTRACTING does the opposite. As functions, the sum is even and the difference is odd; as books of seats, one machine harvests each family:' },
+    { kind: 'equation', latex: '(1+x)^n + (1-x)^n = 2\\left[\\binom{n}{0} + \\binom{n}{2}x^2 + \\binom{n}{4}x^4 + \\cdots\\right], \\qquad (1+x)^n - (1-x)^n = 2\\left[\\binom{n}{1}x + \\binom{n}{3}x^3 + \\cdots\\right] \\tag{4}', note: 'the even machine and the odd machine — one identity pair, true at every $x$; priced at $x = 1$ it recovers the even/odd split of equations (2).' },
+    { kind: 'example', title: 'Run both machines: expand $(1+x)^6 + (1-x)^6$ as an even polynomial, and $(1+x)^5 - (1-x)^5$ as an odd one', steps: [
+      'The even machine on row 6: the even seats of row 6 are $\\binom{6}{0}, \\binom{6}{2}, \\binom{6}{4}, \\binom{6}{6} = 1, 15, 15, 1$.',
+      'So, $(1+x)^6 + (1-x)^6 = 2(1 + 15x^2 + 15x^4 + x^6)$ — the odd seats ($6x$, $20x^3$, $6x^5$) cancelled, every even seat doubled.',
+      'Now, the odd machine on row 5: the odd seats of row 5 are $\\binom{5}{1}, \\binom{5}{3}, \\binom{5}{5} = 5, 10, 1$.',
+      'So, $(1+x)^5 - (1-x)^5 = 2(5x + 10x^3 + x^5)$ — the even seats cancelled, every odd seat doubled.',
+      'Hence the pair read: additions harvest even seats, subtractions harvest odd seats — both machines exact at every $x$, and neither expansion written in full.',
+    ] },
+    { kind: 'para', text: 'Now the deepest use of the conjugate idea — the pair $(1+x)^n$ and $(1-x)^n$ MULTIPLIED. The product’s $x^n$ seat collects products of matched seats, and the matched pairing is exactly a sum of squares with alternating signs — engine two making its first appearance, through the conjugate collapse:' },
+    { kind: 'derivation', title: 'The alternating-squares law', statement: 'For every positive integer n, the alternating sum of squared row coefficients Σ (−1)^r C(n,r)² is 0 when n is odd and (−1)^(n/2) · C(n, n/2) when n is even.', steps: [
+      { label: 'Read the sum as a coefficient', formula: '\\sum_{r=0}^{n} (-1)^r \\binom{n}{r}^2 = (-1)^n \\cdot [x^n]\\left((1+x)^n (1-x)^n\\right)', explanation: 'The $x^n$ seat of the product collects $\\binom{n}{r} \\cdot \\binom{n}{n-r} (-1)^{n-r}$ over all $r$. Since $\\binom{n}{r}\\binom{n}{n-r} = \\binom{n}{r}^2$ and $(-1)^{n-r} = (-1)^n(-1)^r$, the wanted sum is the global sign $(-1)^n$ times that coefficient.' },
+      { label: 'Collapse the product', formula: '(1+x)^n (1-x)^n = (1 - x^2)^n', explanation: 'The conjugate collapse: the two bases multiply to $1 - x^2$, so the whole product is a single binomial power in the SQUARED variable.' },
+      { label: 'Price the x^n seat of (1−x²)^n', formula: 'T_{r+1} = \\binom{n}{r} (-1)^r\\, x^{2r}', explanation: 'The seats of $(1-x^2)^n$ carry only EVEN powers $x^{2r}$ — 7.2’s general term at the squared argument. An $x^n$ seat exists only when $n$ is even, and then only at $r = n/2$.' },
+      { label: 'Assemble the law', formula: 'n \\text{ odd}: \\; 0; \\qquad n \\text{ even}: \\; (-1)^{n/2} \\binom{n}{n/2}', explanation: 'Odd $n$: no $x^n$ seat exists, the coefficient is $0$, and no global sign rescues a zero. Even $n$: the seat is $(-1)^{n/2}\\binom{n}{n/2}$ and the global sign $(-1)^n = +1$ leaves it untouched.' },
+    ], result: '$\\sum_r (-1)^r \\binom{n}{r}^2 = 0$ at odd $n$; $\\; = (-1)^{n/2}\\binom{n}{n/2}$ at even $n$ — witnesses: $1 - 16 + 36 - 16 + 1 = 6$ at $n = 4$, and $1 - 25 + 100 - 100 + 25 - 1 = 0$ at $n = 5$' },
+    { kind: 'equation', latex: '\\sum_{r=0}^{n} (-1)^r \\binom{n}{r}^{2} = \\begin{cases} 0, & n \\text{ odd} \\\\[2pt] (-1)^{n/2} \\binom{n}{n/2}, & n \\text{ even} \\end{cases} \\tag{5}', note: 'proved by reading the sum as the $x^n$ coefficient of $(1+x)^n(1-x)^n = (1-x^2)^n$ — engine two, coefficient extraction, at its purest.' },
+    { kind: 'example', title: 'Witness the alternating-squares law at $n = 4$ and $n = 5$', steps: [
+      'At $n = 4$: the row is $1, 4, 6, 4, 1$, so the squares are $1, 16, 36, 16, 1$ — and the alternating sum is $1 - 16 + 36 - 16 + 1 = 6$.',
+      'So, the law predicts $(-1)^2 \\binom{4}{2} = 6$ — agreed, with the sign positive because the middle seat sits at even $r = 2$.',
+      'Now, at $n = 5$: the row is $1, 5, 10, 10, 5, 1$, the squares $1, 25, 100, 100, 25, 1$ — the alternating sum is $1 - 25 + 100 - 100 + 25 - 1 = 0$.',
+      'So, the law predicts $0$ (odd $n$: no $x^5$ seat exists in $(1-x^2)^5$) — agreed, and the cancellation is structural: the six squared seats pair off symmetrically.',
+    ] },
+    { kind: 'para', text: 'The conjugate machine runs on more than real signs. The theorem of 7.2 was proved for a power of a SUM — the letters were never required to be real, and the imaginary unit $i$ (with $i^2 = -1$ and the four-step cycle $i, -1, -i, 1$) is a perfectly legal letter. Complex binomials inherit everything: the general term, the seat discipline, the conjugate split — with one new twist, that "real part" and "imaginary part" become the new even/odd machines. The seat $r$ contributes to the REAL part exactly when $r$ is even (its $i^r$ cycling through $1, -1$), and to the imaginary part when $r$ is odd.' },
+    { kind: 'example', title: 'Evaluate $(1+i)^8$ by the conjugate read — and again by the geometry of the walk', steps: [
+      'The even seats are the real ones: the real part collects $\\binom{8}{0} i^0 + \\binom{8}{2} i^2 + \\binom{8}{4} i^4 + \\binom{8}{6} i^6 + \\binom{8}{8} i^8 = 1 - 28 + 70 - 28 + 1 = 16$.',
+      'So, the odd seats are the imaginary ones: the imaginary part collects $\\binom{8}{1} i + \\binom{8}{3} i^3 + \\binom{8}{5} i^5 + \\binom{8}{7} i^7 = 8 - 56 + 56 - 8 = 0$.',
+      'Hence $(1+i)^8 = 16$ exactly — a positive real number: the even seats total sixteen and the odd seats cancel perfectly.',
+      'Now, the geometric read: multiplying by $1+i$ scales a length by $\\sqrt{2}$ and turns it $45^\\circ$ anticlockwise — so the powers of $1+i$ walk a spiral, and eight steps turn $8 \\times 45^\\circ = 360^\\circ$ while scaling by $(\\sqrt{2})^8 = 16$: the walk closes on the positive real axis at $16$, exactly what the figure draws.',
+      'Hence both reads agree: the conjugate machine prices the row, the walk prices the geometry, and both land on $16$.',
+    ] },
+    { kind: 'figure', caption: 'The $(1+i)^8$ walk on the complex plane: the nine successive powers $1$, $1+i$, $2i$, $-2+2i$, $-4$, $-4-4i$, $-8i$, $8-8i$, $16$ — each step multiplies by $1+i$, a $45^\\circ$ anticlockwise turn with a $\\sqrt{2}$ stretch. Eight turns make a full $360^\\circ$, so the direction returns to the positive real axis, and the accumulated scale $(\\sqrt{2})^8 = 16$ sets the landing distance — which is why $(1+i)^8$ is the real number 16 before any seat is added.', svg: complexWalk75Svg() },
+    { kind: 'example', title: 'The triple-angle laws from the literal cube: expand $(\\cos\\theta + i\\sin\\theta)^3$', steps: [
+      'Expand by 7.2’s theorem — the letters are $\\cos\\theta$ and $i\\sin\\theta$: $(\\cos\\theta + i\\sin\\theta)^3 = \\cos^3\\theta + 3\\cos^2\\theta\\,(i\\sin\\theta) + 3\\cos\\theta\\,(i\\sin\\theta)^2 + (i\\sin\\theta)^3$.',
+      'So, collect by the cycle of $i$: the real seats are $\\cos^3\\theta - 3\\cos\\theta\\sin^2\\theta$; the imaginary seats are $3\\cos^2\\theta\\sin\\theta - \\sin^3\\theta$, times $i$.',
+      'Now, the geometric identity on the left: three copies of a unit-modulus number with argument $\\theta$ multiply to a unit-modulus number with argument $3\\theta$ — that is, $(\\cos\\theta + i\\sin\\theta)^3 = \\cos 3\\theta + i\\sin 3\\theta$.',
+      'So, match the real parts: $\\cos 3\\theta = \\cos^3\\theta - 3\\cos\\theta\\sin^2\\theta = 4\\cos^3\\theta - 3\\cos\\theta$, replacing $\\sin^2\\theta$ by $1 - \\cos^2\\theta$.',
+      'And the imaginary parts: $\\sin 3\\theta = 3\\cos^2\\theta\\sin\\theta - \\sin^3\\theta = 3\\sin\\theta - 4\\sin^3\\theta$.',
+      'Check at $\\theta = \\pi/6$: the laws read $4\\left(\\tfrac{\\sqrt3}{2}\\right)^3 - 3\\left(\\tfrac{\\sqrt3}{2}\\right) = 0 = \\cos\\tfrac{\\pi}{2}$, and $3 \\cdot \\tfrac12 - 4 \\cdot \\tfrac18 = 1 = \\sin\\tfrac{\\pi}{2}$ — both pinned.',
+      'Hence the triple-angle laws, extracted from one binomial cube.',
+    ] },
+    { kind: 'para', text: 'The same cycle prices the sign census of $(1+ix)^{4n}$ — a family examinations ask by the count. The seat $r$ carries the factor $i^r$: real when $r$ is even, imaginary when $r$ is odd. A row of $4n+1$ seats therefore holds exactly $2n+1$ even seats — real terms — and among them the seats with $r \\equiv 2 \\pmod{4}$ carry $i^r = -1$: exactly $n$ negative real terms. Witnessed at $(1+ix)^8$: five real terms, exactly two of them negative.' },
+
+    { kind: 'heading', text: 'Series from the Product of Two Expansions' },
+    { kind: 'para', text: 'Engine two deserves its own section because it is the least obvious and the most powerful. The pattern to recognise: a sum whose terms are PRODUCTS of binomial coefficients — one factor from a row with index $m$, the other from a row with index $n$, with the variable arguments summing to a CONSTANT $r$ across all the terms. That structure is the coefficient of the single power $x^r$ in the product $(1+x)^m (1+x)^n$; the product collapses by the law of exponents, and the sum prices itself. Throughout, $[x^r]\\,P$ means "the coefficient of $x^r$ in the polynomial $P$":' },
+    { kind: 'equation', latex: '[x^r]\\,(1+x)^m (1+x)^n = [x^r]\\,(1+x)^{m+n} = \\binom{m+n}{r} \\tag{6}', note: 'the sweep law — the $x^r$ seat of a product of expansions is the same seat of the expanded product; every matched-argument coefficient series is one sweep away from a closed form.' },
+    { kind: 'derivation', title: 'Vandermonde’s identity by the coefficient read', statement: 'For non-negative integers m, n, r with r ≤ m + n: Σ_{k=0}^{r} C(m,k) · C(n, r−k) = C(m+n, r).', steps: [
+      { label: 'Write the product’s x^r seat', formula: '[x^r]\\,(1+x)^m (1+x)^n = \\sum_{k=0}^{r} \\binom{m}{k} \\binom{n}{r-k}', explanation: 'Every term of the $x^r$ seat takes $x^k$ from the first factor (price $\\binom{m}{k}$) and $x^{r-k}$ from the second (price $\\binom{n}{r-k}$) — one contribution per split of the $r$ powers between the two factors.' },
+      { label: 'Collapse the product', formula: '(1+x)^m (1+x)^n = (1+x)^{m+n}', explanation: 'The law of exponents — the product of the two expansions IS one bigger expansion, before any seat is read.' },
+      { label: 'Read the same seat of the collapse', formula: '[x^r]\\,(1+x)^{m+n} = \\binom{m+n}{r}', explanation: 'The $x^r$ seat of the bigger row is its general term — one binomial coefficient, no summation left. The two readings of one seat must agree, and that agreement is the identity.' },
+    ], result: '$\\sum_{k=0}^{r} \\binom{m}{k}\\binom{n}{r-k} = \\binom{m+n}{r}$ — Vandermonde’s identity: one coefficient of a product, read two ways' },
+    { kind: 'example', title: 'The $x^2$ seat of $(1+x)^4(1+x)^4$: three ways, one total', steps: [
+      'The splits of degree $2$ between two four-row factors: $(0, 2)$, $(1, 1)$, $(2, 0)$ — three ways, and no more.',
+      'So, price each: $\\binom{4}{0}\\binom{4}{2} = 1 \\cdot 6 = 6$; $\\binom{4}{1}\\binom{4}{1} = 4 \\cdot 4 = 16$; $\\binom{4}{2}\\binom{4}{0} = 6 \\cdot 1 = 6$.',
+      'Now, the sweep law: the three contributions are the whole $x^2$ seat of $(1+x)^4(1+x)^4 = (1+x)^8$, whose price is $\\binom{8}{2} = 28$.',
+      'Check: $6 + 16 + 6 = 28$ — the three ways sum to the swept seat exactly, the contribution picture drawn in the figure.',
+    ] },
+    { kind: 'figure', caption: 'The Vandermonde contribution picture: the three ways to build the $x^2$ seat of $(1+x)^4\\,(1+x)^4$. Each row shows one split of the two $x$-factors between the two expansions — $(0,2)$, $(1,1)$, $(2,0)$ — with the chosen seat ringed in orange in each copy of Pascal row 4 (cells $1, 4, 6, 4, 1$) and the contribution priced on the right: $1 \\cdot 6 = 6$, $4 \\cdot 4 = 16$, $6 \\cdot 1 = 6$. The three contributions sweep to $6 + 16 + 6 = 28 = \\binom{8}{2}$ — one seat of $(1+x)^8$, read three ways; the same list-the-splits, price-each, sweep structure gives $\\binom{m+n}{r}$ at any size.', svg: vandermonde75Svg() },
+    { kind: 'para', text: 'The identity also has a counting meaning, and it is the meaning that makes the formula obvious rather than clever. OUR OWN story for it: a reading list. One shelf holds $m$ novels; a second shelf holds $n$ biographies; a weekend needs $r$ books. Any valid list takes some $k$ novels and $r - k$ biographies — $\\binom{m}{k}\\binom{n}{r-k}$ lists for each split $k$ — and summing over $k$ counts every list exactly once. But the same lists can be counted directly: draw $r$ books from the $m + n$ books on the two shelves together — $\\binom{m+n}{r}$ ways — because the shelf a book sits on is invisible to the choosing hand. Two counts of one collection must agree: that is Vandermonde’s identity, and the coefficient read above is the same argument wearing algebra.' },
+    { kind: 'callout', tone: 'historical', title: 'Vandermonde’s name on a much older fact', text: 'Alexandre-Théophile Vandermonde was an eighteenth-century French mathematician whose 1772 memoir on the binomial studied exactly these coefficient combinations — and the convolution identity that carries his name was known in special forms long before him and was rediscovered after him by workers who had never read him. Attribution in mathematics often trails discovery by centuries; the book’s standing honesty applies: the statement proved here is the same identity, whoever first wrote it down.' },
+    { kind: 'example', title: 'The squares sum: evaluate $\\sum_{r=0}^{4} \\binom{4}{r}^2$ — and state the general law', steps: [
+      'Recognize the squares as matched products: $\\binom{4}{r}^2 = \\binom{4}{r} \\cdot \\binom{4}{4-r}$ — the mirror of row 4.',
+      'So, the sum is the $x^4$ seat of $(1+x)^4(1+x)^4$: the split $(r, 4-r)$ runs over exactly the matched seats of two four-row factors.',
+      'Now, sweep: the product is $(1+x)^8$, and the $x^4$ seat is $\\binom{8}{4} = 70$.',
+      'Check by direct addition: $1 + 16 + 36 + 16 + 1 = 70$ — five squared seats, one swept total.',
+      'Hence the general law $\\sum_r \\binom{n}{r}^2 = \\binom{2n}{n}$ — the squares sum of any row is the middle seat of the doubled row.',
+    ] },
+    { kind: 'example', title: 'The cross pairs at $n = 3$: evaluate $\\sum\\sum_{0 \\leq i < j \\leq 3} \\binom{3}{i}\\binom{3}{j}$', steps: [
+      'Count every ordered pair first: $\\left(\\sum_i \\binom{3}{i}\\right)\\left(\\sum_j \\binom{3}{j}\\right) = 2^3 \\cdot 2^3 = 64$.',
+      'So, remove the diagonal: the pairs $i = j$ contribute $\\sum_i \\binom{3}{i}^2 = \\binom{6}{3} = 20$ — the squares-sum law at $n = 3$.',
+      'Now, halve what is left: the off-diagonal pairs split equally into $i < j$ and $i > j$, so the wanted total is $\\tfrac{64 - 20}{2} = 22$.',
+      'Hence the cross-pairs total is $22$ — the general law $\\tfrac{4^n - \\binom{2n}{n}}{2}$ witnessed at $n = 3$.',
+    ] },
+    { kind: 'para', text: 'The same engine prices WEIGHTED sums, with one extra move. The absorption identity $r\\binom{n}{r} = n\\binom{n-1}{r-1}$ — one line of factorial arithmetic — converts a weighted seat into an unweighted seat of a smaller row, after which the sweep runs as before: $\\sum_r r \\binom{n}{r}^2 = n \\sum_r \\binom{n-1}{r-1}\\binom{n}{r} = n\\binom{2n-1}{n-1}$, the last step a Vandermonde sweep at the indices $(n-1, n)$ and degree $n-1$. Witness at $n = 4$: $0 + 16 + 72 + 48 + 4 = 140 = 4 \\cdot 35$ — the full proof is exercise L5-3.' },
+
+    { kind: 'heading', text: 'Ratios of Consecutive Coefficients — the Row’s Shape' },
+    { kind: 'para', text: 'The engines so far price the row’s totals; the SHAPE of the row — where it climbs, where it ties, where it peaks — is governed by the ratio of consecutive coefficients, a one-line factorial quotient:' },
+    { kind: 'derivation', title: 'The ratio of consecutive coefficients', statement: 'For 1 ≤ r ≤ n: C(n,r) / C(n,r−1) = (n−r+1) / r.', steps: [
+      { label: 'Write the quotient', formula: '\\frac{\\binom{n}{r}}{\\binom{n}{r-1}} = \\frac{\\tfrac{n!}{r!\\,(n-r)!}}{\\tfrac{n!}{(r-1)!\\,(n-r+1)!}}', explanation: 'Both coefficients written as factorial quotients of the same row — the shared $n!$ upstairs is about to cancel.' },
+      { label: 'Cancel', formula: '= \\frac{(r-1)!\\,(n-r+1)!}{r!\\,(n-r)!} = \\frac{n-r+1}{r}', explanation: 'What survives is the NEW factor $(n - r + 1)$ entering the numerator over the new factor $r$ entering the denominator — one fresh factor per step along the row.' },
+    ], result: '$\\tfrac{\\binom{n}{r}}{\\binom{n}{r-1}} = \\tfrac{n-r+1}{r}$ — the row climbs while this ratio exceeds $1$ and falls once it dips below' },
+    { kind: 'equation', latex: '\\frac{\\binom{n}{r}}{\\binom{n}{r-1}} = \\frac{n-r+1}{r} \\tag{7}', note: 'the local slope of Pascal’s row — the instrument behind peak-hunting, equal pairs and arithmetic-progression conditions; for a weighted base $(a+bx)^n$ the slope carries the extra factor $\\tfrac{b}{a}$.' },
+    { kind: 'para', text: 'For the plain row $(1+x)^n$ the ratio $\\tfrac{n-r+1}{r}$ crosses $1$ at the middle: the row climbs to its middle seat and falls symmetrically after — the profile drawn in the next section’s figure. For a weighted base $(a+bx)^n$ the slope carries the extra factor $\\tfrac{b}{a}$, and the crossing point shifts to $k = \\tfrac{b(n+1)}{a+b}$ — the SEAT LAW, answering the equal-pair question and the peak question with the same number.' },
+    { kind: 'example', title: 'The A.P. condition: for which $n$ are the coefficients of the 5th, 6th and 7th terms of $(1+x)^n$ in arithmetic progression?', steps: [
+      'Index honestly first — the off-by-one that opens this family: the 5th term sits at $r = 4$, the 6th at $r = 5$, the 7th at $r = 6$.',
+      'So, the A.P. condition: the middle coefficient is the average of its neighbours — $2\\binom{n}{5} = \\binom{n}{4} + \\binom{n}{6}$.',
+      'Now, price the neighbours by the ratio law: $\\binom{n}{4} = \\binom{n}{5} \\cdot \\tfrac{5}{n-4}$ and $\\binom{n}{6} = \\binom{n}{5} \\cdot \\tfrac{n-5}{6}$, so dividing through by $\\binom{n}{5}$ reads $\\tfrac{5}{n-4} + \\tfrac{n-5}{6} = 2$.',
+      'So, clear denominators: $30 + (n-5)(n-4) = 12(n-4)$, which simplifies to $n^2 - 21n + 98 = 0$, that is $(n-7)(n-14) = 0$.',
+      'Hence $n = 7$ or $n = 14$ — both genuine: at $n = 7$ the coefficients are $35, 21, 7$ with $35 + 7 = 42 = 2 \\cdot 21$; at $n = 14$ they are $1001, 2002, 3003$ with $1001 + 3003 = 4004 = 2 \\cdot 2002$.',
+    ] },
+    { kind: 'example', title: 'The equal pair: which two consecutive coefficients of $(2+5x)^{13}$ are equal?', steps: [
+      'The seat price: the coefficient of $x^k$ is $c_k = \\binom{13}{k} 2^{13-k} 5^k$, so the slope is $\\tfrac{c_k}{c_{k-1}} = \\tfrac{14-k}{k} \\cdot \\tfrac{5}{2}$ — the ratio law with the weighted-base factor $\\tfrac{b}{a}$.',
+      'So, the equal-seat condition: $\\tfrac{c_k}{c_{k-1}} = 1$ reads $(14-k) \\cdot 5 = 2k$, that is $70 = 7k$, so $k = 10$.',
+      'Hence the coefficient of $x^{10}$ equals the coefficient of $x^9$ — the seat law $k = \\tfrac{b(n+1)}{a+b} = \\tfrac{5 \\cdot 14}{7} = 10$ in one line — and the equality is exact: $\\binom{13}{9} 2^4 5^9 = \\binom{13}{10} 2^3 5^{10}$, both equal to $22{,}343{,}750{,}000$.',
+      'So, the uniqueness: the slope strictly decreases along the row, so it crosses $1$ exactly once — the tie happens at exactly one consecutive pair, the profile drawn in exercise L4-1’s figure.',
+    ] },
+    { kind: 'para', text: 'Note the unification, because it halves the memorisation: the crossing point $k = \\tfrac{b(n+1)}{a+b}$ is the SAME number whether the question is "which consecutive coefficients are equal" or "where do the magnitudes peak". Equal neighbours are the boundary case of the peak hunt — the slope equals $1$ exactly there. When $k$ lands on an integer, the row has an exact TIE (the $(2+5x)^{13}$ pair); when it lands between integers, the peak is the seat just below the landing, located by the ratio test of the next section. One law, both answers, never an expansion.' },
+
+    { kind: 'heading', text: 'The Greatest Coefficient and the Greatest Term' },
+    { kind: 'para', text: 'Two different questions hide behind similar words, and the discipline is to separate them first. The GREATEST COEFFICIENT is a symbolic question — which seat of the row carries the largest coefficient, a property of the letters $a$ and $b$ alone. The GREATEST TERM is a numeric question — at a given value of $x$, which term is numerically largest — and its answer depends on that value, because the $x$-powers weight the seats. Both are answered by the same instrument, the ratio of consecutive seats, with the $x$-weight priced in for the term question.' },
+    { kind: 'para', text: 'For the plain row $(1+x)^n$ the coefficient profile is symmetric and unimodal: it climbs to the middle and falls. $n$ EVEN: a unique peak at the middle seat $r = n/2$ — row 12 peaks uniquely at $\\binom{12}{6} = 924$. $n$ ODD: there is no middle seat — the climb ends in a TIE, twin peaks at $r = \\tfrac{n-1}{2}$ and $r = \\tfrac{n+1}{2}$ — row 11 peaks twice at $\\binom{11}{5} = \\binom{11}{6} = 462$. The twin-peak fact is one of this lesson’s classic traps: at odd $n$ there is no single greatest coefficient, and an answer that names one is wrong by structure, not by arithmetic.' },
+    { kind: 'figure', caption: 'The row profile of Pascal’s triangle at $n = 12$, drawn at true scale: thirteen bars with heights exactly proportional to $1, 12, 66, 220, 495, 792, 924, 792, 495, 220, 66, 12, 1$ — the even seats ($r = 0, 2, \\ldots, 12$) in green, the odd seats in amber. Two readings live in the picture. The SHAPE: a single peak at the middle seat, $924 = \\binom{12}{6}$, ringed and called out — unimodal and symmetric, the even-$n$ law. The SPLIT: the even seats total $1 + 66 + 495 + 924 + 495 + 66 + 1 = 2048 = 2^{11}$, and the odd seats total $12 + 220 + 792 + 792 + 220 + 12 = 2048 = 2^{11}$ — the two colour families weigh exactly the same, the even/odd split of equations (2) made visible, each family half of the row total $4096 = 2^{12}$. One bar chart, two laws of this lesson.', svg: rowProfile75Svg() },
+    { kind: 'example', title: 'The reverse read: an expansion’s coefficients sum to $2048$ — find $n$ and the greatest coefficient of $(1+x)^n$', steps: [
+      'The sum of the coefficients of $(1+x)^n$ is the row total $2^n$ — the substitution engine at $x = 1$.',
+      'So, solve for the index: $2^n = 2048 = 2^{11}$ gives $n = 11$.',
+      'Now, the peak: $n = 11$ is ODD, so the row has no single greatest coefficient — it has the twin pair $\\binom{11}{5} = \\binom{11}{6} = 462$, the climb ending in an exact tie.',
+      'Hence the greatest coefficient of $(1+x)^{11}$ is $462$, attained TWICE — and the neighbouring row 12, for contrast, peaks uniquely at $\\binom{12}{6} = 924$, the profile drawn in the figure.',
+    ] },
+    { kind: 'example', title: 'The greatest TERM of $(1.3)^{15} = (1 + 0.3)^{15}$', steps: [
+      'Write the terms with seat index $k$: $t_k = \\binom{15}{k} (0.3)^k$, the $(k+1)$-th term — the numeric argument $x = 0.3$ weights every seat, so the coefficient peak and the term peak need not agree.',
+      'So, the term ratio: $\\tfrac{t_{k+1}}{t_k} = \\tfrac{15-k}{k+1} \\cdot 0.3$ — the ratio law of equation (7) with the $x$-weight priced in.',
+      'Now, the climb condition: $\\tfrac{15-k}{k+1} \\cdot 0.3 \\geq 1$ reads $4.5 - 0.3k \\geq k + 1$, that is $k \\leq \\tfrac{3.5}{1.3} \\approx 2.69$ — the terms climb through the boundary and first shrink after seat $k = 3$.',
+      'So, the peak sits at seat $k = 3$: the ratio at $k = 2$ is $1.3 \\geq 1$ (still climbing) and the ratio at $k = 3$ is $0.9 < 1$ (falling).',
+      'Hence the greatest term is the 4th term, $T_4 = \\binom{15}{3} (0.3)^3 = 455 \\cdot 0.027 = 12.285$ — with its neighbour $T_5 = 1365 \\cdot 0.0081 = 11.0565$ confirming the fall.',
+    ] },
+    { kind: 'example', title: 'The algebraically LEAST coefficient of $(2-3x)^{15}$', steps: [
+      'The coefficient of $x^k$ is $\\binom{15}{k} 2^{15-k} (-3)^k$: magnitude $\\binom{15}{k} 2^{15-k} 3^k$, sign $(-1)^k$ — the hunt is for the most NEGATIVE coefficient, so both matter.',
+      'So, the magnitude slope: $\\tfrac{|c_{k+1}|}{|c_k|} = \\tfrac{15-k}{k+1} \\cdot \\tfrac{3}{2}$ — the weighted-base ratio law with $\\tfrac{|b|}{|a|} = \\tfrac{3}{2}$.',
+      'Now, the climb condition: $\\tfrac{15-k}{k+1} \\cdot \\tfrac{3}{2} \\geq 1$ reads $45 - 3k \\geq 2k + 2$, that is $k \\leq 8.6$ — the magnitudes climb through seat $k = 8$ into $k = 9$ and first fall after $k = 9$.',
+      'So, the magnitude peak sits at seat $k = 9$ — the 10th term — and its sign is $(-3)^9 < 0$: the largest magnitude carries a minus, making the 10th term the algebraically LEAST coefficient.',
+      'Hence the least coefficient is $-\\binom{15}{9} 2^6 3^9 = -5005 \\cdot 64 \\cdot 19683 = -6{,}304{,}858{,}560$ — the seat law agrees, placing the magnitude peak at $k = \\tfrac{|b|(n+1)}{|a|+|b|} = \\tfrac{3 \\cdot 16}{5} = 9.6$, whose floor is seat $9$.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'Caution — the three classic traps of the coefficient questions', text: 'TRAP ONE, the off-by-one: "the 5th term" means seat $r = 4$ — the term count starts at 1 while the seat index starts at 0. The A.P. question above is unanswerable until the 5th/6th/7th terms are translated to seats 4, 5, 6; conditioning on the wrong seats chases a different — and wrong — quadratic. TRAP TWO, the phantom unique peak: at ODD $n$ the row has NO single greatest coefficient — the peak is the twin pair, and "the greatest coefficient of $(1+x)^{11}$ is 462" is only half an answer (it is attained twice, at $r = 5$ and $r = 6$). TRAP THREE, the universal $2^n$: the sum of the coefficients is $2^n$ ONLY for the base $1+x$; for $(2-3x)^{12}$ it is $(2-3)^{12} = 1$, and for $(1+x-2x^2)^9$ it is an honest $0$. Price the base at $x = 1$, always, whatever the base.' },
+
+    { kind: 'heading', text: 'The Multinomial Bridge' },
+    { kind: 'para', text: 'One short bridge closes the lesson. Every engine here ran on two letters — but lesson 7.4 already generalised the expansion to any number of letters, and the coefficient questions of this lesson transfer verbatim. The substitution engine first: the multinomial expansion $(a+b+c)^5$ priced at $a = b = c = 1$ collapses to $(1+1+1)^5 = 3^5 = 243$ — the sum of ALL its coefficients, exactly the word census 7.4 proved, every one of the $3^5 = 243$ length-five words landing in exactly one seat. The seat read second: the coefficient of $ab^2c^2$ is the multinomial price $\\tfrac{5!}{1!\\,2!\\,2!} = 30$ — a near-balanced seat priced by 7.4’s factorial quotient, no binomial row involved. The binomial row of this lesson is the $k = 2$ case of that theorem, and both engines — price the whole expansion at a value, read one coefficient of a product — are the same engines at every $k$.' },
+
+    { kind: 'terms', items: [
+      { term: 'Sum of coefficients', def: 'the value the whole expansion takes at $x = 1$: setting every power of $x$ to $1$ collapses each term to its bare coefficient.' },
+      { term: 'Substitution engine', def: 'pricing an entire expansion as ONE value by substituting a chosen value of the variable — $x = 1$ sums the coefficients, $x = -1$ alternates them, and the pair splits the row into its even and odd families.' },
+      { term: 'Conjugate expansions', def: 'the pair $(1+x)^n$ and $(1-x)^n$: adding them kills the odd seats and doubles the even ones, subtracting does the opposite — and multiplying them collapses to $(1-x^2)^n$, the alternating-squares engine.' },
+      { term: 'Even-index family', def: 'the sum $\\binom{n}{0} + \\binom{n}{2} + \\cdots$ of the even seats of a row — equal to $2^{n-1}$ for every $n \\geq 1$, and exactly equal to the odd-index family.' },
+      { term: 'Vandermonde’s identity', def: 'the sweep law $\\sum_k \\binom{m}{k}\\binom{n}{r-k} = \\binom{m+n}{r}$: choosing $r$ objects from two collections of $m$ and $n$ is choosing $r$ from their union.' },
+      { term: 'Ratio of consecutive coefficients', def: 'the row’s local slope $\\binom{n}{r}/\\binom{n}{r-1} = (n-r+1)/r$ — the instrument for peaks, equal pairs and A.P. conditions, carrying the extra factor $b/a$ on a weighted base.' },
+      { term: 'Greatest coefficient', def: 'the largest coefficient of a row: unique at the middle seat when $n$ is even, a twin pair when $n$ is odd — row 12 peaks uniquely at $924$, row 11 twins at $462$.' },
+      { term: 'Greatest term', def: 'the numerically largest TERM at a given numeric value of $x$ — located by the term ratio with the $x$-weight priced in, not by the coefficient alone: $(1.3)^{15}$ peaks at its 4th term.' },
+      { term: 'Term independent of x', def: 'the constant seat: the seat $r$ whose collected exponent $p(n-r) + qr$ reads zero — found by solving the seat equation, never by expanding.' },
+      { term: 'Multinomial expansion', def: 'the expansion of a power of a sum of more than two letters, $(a+b+c)^n$: every degree-$n$ monomial appears exactly once, priced $\\tfrac{n!}{p!\\,q!\\,r!}$ — lesson 7.4’s theorem, the binomial’s big sibling.' },
+      { term: 'Seat law', def: 'the equal-coefficient seat $k = \\tfrac{b(n+1)}{a+b}$ of $(a+bx)^n$: the coefficients of $x^k$ and $x^{k-1}$ are equal exactly when $k$ lands here — and the magnitudes peak at the same crossing.' },
+    ] },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner', text: 'Every topic of this lesson is JEE (Main) binomial-chapter currency, and the question shapes are stable year over year: coefficient sums by substitution (the $(2-3x)^{12}$ shape, where $2^n$ is the designed distractor); the term independent of $x$ (seat equations with negative and fractional powers); Vandermonde and the squares sum $\\sum \\binom{n}{r}^2 = \\binom{2n}{n}$ as prove-or-evaluate items; the greatest term of a numeric power (the $(1.3)^{15}$ class, ratio test with the $x$-weight); and the equal-coefficient and arithmetic-progression conditions on $(a+bx)^n$. State-board papers add the conjugate expansions $(1+x)^n \\pm (1-x)^n$ and the standard-expansion factorizations. The discipline that banks the marks: name the engine (substitution, extraction, or slope), run its three moves — with the off-by-one translation and the base-at-$x=1$ check done BEFORE any factorial is touched.' },
+    { kind: 'quiz', title: 'Check yourself: binomial coefficients at work', items: [
+      { q: 'The sum of the coefficients of $(2-3x)^{12}$ is', options: ['$4096$', '$1$', '$-1$', '$2^{12}$'], answer: 1, explain: 'Option 1 is the substitution read: at $x = 1$ the expansion collapses to $(2-3)^{12} = (-1)^{12} = 1$ — the honest sum. Option 0’s $4096 = 2^{12}$ is the designed trap: the row sum of $(1+x)^{12}$, equivalently the value of $(2+3x)^{12}$ at $x = 1$ — a different base, a different number. Option 2’s $-1$ would need an ODD exponent: $(2-3x)^{11}$ reads $(-1)^{11}$ at $x = 1$, but the exponent here is twelve. Option 3 is the same trap as option 0 as a power: the sum is $2^n$ ONLY for the base $1+x$.' },
+      { q: 'The sum $\\sum_{r=0}^{9} \\binom{9}{r}^{2}$ equals', options: ['$2^9$', '$\\binom{9}{4}$', '$\\binom{18}{9}$', '$2 \\cdot 2^9$'], answer: 2, explain: 'Option 2 is the squares-sum law: $\\binom{9}{r} = \\binom{9}{9-r}$, so the sum is $\\sum_r \\binom{9}{r}\\binom{9}{9-r}$ — the coefficient of $x^9$ in $(1+x)^9(1+x)^9 = (1+x)^{18}$, namely $\\binom{18}{9}$ (Vandermonde at $m = n = 9$). Option 0’s $2^9$ is the plain row sum $\\sum \\binom{9}{r}$, forgetting that each coefficient is SQUARED here. Option 1’s $\\binom{9}{4}$ mistakes the sum for its largest single summand — the middle seat is one term of the sum, not the total. Option 3’s $2 \\cdot 2^9$ doubles the wrong quantity: no constant multiple of the row sum produces the squares sum.' },
+      { q: 'In $(2+5x)^{13}$, the coefficients of $x^9$ and $x^{10}$ are', options: ['unequal, with the $x^9$ coefficient larger', 'unequal, with the $x^{10}$ coefficient larger', 'equal', 'impossible to decide without expanding'], answer: 2, explain: 'Option 2 is the seat law: the coefficients of $x^k$ and $x^{k-1}$ in $(a+bx)^n$ are equal exactly when $k = \\tfrac{b(n+1)}{a+b}$ — here $\\tfrac{5 \\cdot 14}{7} = 10$, so the coefficients of $x^{10}$ and $x^9$ are the same number, $\\binom{13}{9}2^4 5^9 = \\binom{13}{10}2^3 5^{10}$, and this is the unique equal pair. Options 0 and 1 assume the profile climbs or falls monotonically — but the $(2+5x)^{13}$ profile rises, levels into ONE exact tie, then falls: the tie is the whole point of the seat law. Option 3 is defeatist: the ratio $\\tfrac{c_k}{c_{k-1}} = \\tfrac{14-k}{k} \\cdot \\tfrac{5}{2}$ decides the question in one line, and no expansion is ever needed.' },
+      { q: 'The number of NEGATIVE real terms in the expansion of $(1+ix)^8$ is', options: ['0', '3', '2', '5'], answer: 2, explain: 'Option 2 is the sign census: the seat $r$ carries the factor $i^r$, which is real exactly when $r$ is even and NEGATIVE exactly when $r \\equiv 2 \\pmod{4}$ — the seats $r = 2$ and $r = 6$ — so two of the real terms are negative. Option 0 forgets that even seats can be negative: $i^2 = -1$ and $i^6 = -1$ are as real as $i^0 = i^4 = i^8 = 1$. Option 1’s 3 counts with the wrong cycle: the powers of $i$ repeat with period FOUR ($i, -1, -i, 1$), not three — an eighth-power row never has three negative real seats. Option 3’s 5 is the count of REAL terms ($r = 0, 2, 4, 6, 8$) — the question asks for the negative subset of those.' },
+      { q: 'The greatest coefficient in $(1+x)^{11}$ is', options: ['462, a unique peak', '924', '462, a twin peak', '252'], answer: 2, explain: 'Option 2 is the twin-peak law: $n = 11$ is odd, so the row has no middle seat and climbs into an exact TIE — $\\binom{11}{5} = \\binom{11}{6} = 462$, attained twice. Option 0 has the right number with the wrong shape: 462 is NOT a unique peak of row 11 — the profile reaches it at both $r = 5$ and $r = 6$, and "unique" is precisely the trap. Option 1’s 924 is $\\binom{12}{6}$, the unique peak of the NEXT row — at $n = 12$ the peak is unique because 12 is even; row 11 never reaches 924. Option 3’s 252 is $\\binom{10}{5}$, the peak of row 10 — a different row entirely.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises 7.5', sets: [
+      { level: 'L1', questions: [
+        { q: 'Without expanding, find the sum of the coefficients of $(3-2x)^7$.', solution: [
+          'The sum of the coefficients is the value of the whole expansion at $x = 1$ — the substitution engine’s first move.',
+          'So, substitute: $(3 - 2 \\cdot 1)^7 = (3-2)^7 = 1^7 = 1$.',
+          'Hence the sum is $1$ — no seat was ever written, and the trap answer $2^7 = 128$ prices the $(1+x)^7$ row, not this base.',
+        ], answer: '$1$' },
+        { q: 'Expand $(1+x)^6 + (1-x)^6$ as a polynomial in even powers of $x$.', solution: [
+          'The conjugate machine: adding $(1+x)^6$ and $(1-x)^6$ kills every odd seat and doubles every even one.',
+          'So, row 6 of Pascal’s triangle reads $1, 6, 15, 20, 15, 6, 1$ — the even seats are $1, 15, 15, 1$ at the powers $x^0, x^2, x^4, x^6$.',
+          'Hence $(1+x)^6 + (1-x)^6 = 2(1 + 15x^2 + 15x^4 + x^6)$ — an even polynomial: seven seats collapsed to four, the odd seats cancelled in the addition.',
+        ], answer: '$2(1 + 15x^2 + 15x^4 + x^6)$' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Find the term independent of $x$ in the expansion of $\\left(x - \\tfrac{1}{x}\\right)^{10}$.', solution: [
+          'Write the general seat: the term with index $r$ (the $(r+1)$-th term) is $\\binom{10}{r} x^{10-r} \\left(-\\tfrac{1}{x}\\right)^r = \\binom{10}{r} (-1)^r\\, x^{10-2r}$.',
+          'So, the exponent at seat $r$ is $10 - 2r$ — the seats step down by two, and the mirror discipline of the figure shows the pairing: seat $r$ and seat $10-r$ carry exponents that are negatives of each other, with equal coefficient magnitudes.',
+          'Now, the constant seat: $10 - 2r = 0$ gives $r = 5$ — the middle seat, the only seat whose exponent dies.',
+          'So, its coefficient is $\\binom{10}{5} (-1)^5 = -252$.',
+          'Hence the term independent of $x$ is $-252$.',
+        ], answer: '$-252$', figures: [
+          { caption: 'The mirror discipline: the eleven seats of $\\left(x - \\tfrac{1}{x}\\right)^{10}$, seat $r$ carrying the exponent $10 - 2r$ — mirror pairs $r \\leftrightarrow 10-r$ arc-connected with equal coefficient magnitudes, and the middle seat $r = 5$ ringed as the only seat carrying $x^0$, priced $(-1)^5 \\binom{10}{5} = -252$.', svg: mirrorSeats75Svg() },
+        ] },
+        { q: 'Find the coefficient of $x^6$ in the expansion of $\\left(x^2 - \\tfrac{2}{x}\\right)^9$.', solution: [
+          'Normalize the base: the letters are $x^2$ and $-2x^{-1}$, so the seat-$r$ term is $\\binom{9}{r} (-2)^r\\, x^{18-3r}$.',
+          'So, match the collected degree: $18 - 3r = 6$ gives $r = 4$ — a genuine seat, and the only one, since the degrees step by three.',
+          'Now, price it: $\\binom{9}{4} (-2)^4 = 126 \\cdot 16 = 2016$.',
+          'Hence the coefficient of $x^6$ is $2016$ — one seat equation solved, no expansion written.',
+        ], answer: '2016' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Evaluate $\\sum_{r=0}^{6} \\binom{6}{r}^{2}$.', solution: [
+          'Recognize the shape: a sum of squares of one row is the squares-sum law — $\\sum_r \\binom{n}{r}^2 = \\binom{2n}{n}$.',
+          'So, the reason: $\\binom{6}{r} = \\binom{6}{6-r}$, and the sum is the coefficient of $x^6$ in $(1+x)^6(1+x)^6$ — which is the coefficient of $x^6$ in $(1+x)^{12}$, namely $\\binom{12}{6}$.',
+          'Hence $\\sum_{r=0}^{6} \\binom{6}{r}^{2} = \\binom{12}{6} = 924$.',
+          'Check by direct addition: $1 + 36 + 225 + 400 + 225 + 36 + 1 = 924$ — the law and the arithmetic agree.',
+        ], answer: '$924 = \\binom{12}{6}$' },
+        { q: 'Evaluate $\\sum \\sum_{0 \\leq i < j \\leq 4} \\binom{4}{i}\\binom{4}{j}$ — the sum over all strictly ordered pairs of row-4 seats.', solution: [
+          'Count every ordered pair first: $\\left(\\sum_i \\binom{4}{i}\\right)\\left(\\sum_j \\binom{4}{j}\\right) = 2^4 \\cdot 2^4 = 256$.',
+          'So, remove the diagonal: the pairs $i = j$ contribute $\\sum_i \\binom{4}{i}^2 = \\binom{8}{4} = 70$ — the squares-sum law at $n = 4$.',
+          'Now, halve what is left: the off-diagonal pairs split equally into $i < j$ and $i > j$, so the wanted total is $\\tfrac{256 - 70}{2} = 93$.',
+          'Hence the cross-pairs total is $93$ — the general law $\\tfrac{4^n - \\binom{2n}{n}}{2}$ witnessed at $n = 4$.',
+        ], answer: '$93$' },
+        { q: 'Find both values of $n$ for which the coefficients of the 5th, 6th and 7th terms of $(1+x)^n$ are in arithmetic progression.', solution: [
+          'Index honestly: the 5th, 6th and 7th terms sit at $r = 4, 5, 6$ — the off-by-one translation that starts this family.',
+          'So, the A.P. condition: $2\\binom{n}{5} = \\binom{n}{4} + \\binom{n}{6}$.',
+          'Now, convert by the ratio law: $\\binom{n}{4} = \\binom{n}{5} \\cdot \\tfrac{5}{n-4}$ and $\\binom{n}{6} = \\binom{n}{5} \\cdot \\tfrac{n-5}{6}$, so dividing through by $\\binom{n}{5}$ reads $\\tfrac{5}{n-4} + \\tfrac{n-5}{6} = 2$.',
+          'So, clear denominators: $30 + (n-5)(n-4) = 12(n-4)$, which simplifies to $n^2 - 21n + 98 = 0$, that is $(n-7)(n-14) = 0$.',
+          'Hence $n = 7$ or $n = 14$ — both genuine, both printed.',
+        ], answer: '$n = 7$ or $n = 14$' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'In the expansion of $(2+5x)^{13}$, find the pair of consecutive powers of $x$ whose coefficients are equal.', solution: [
+          'Write the seat price: the coefficient of $x^k$ is $c_k = \\binom{13}{k} 2^{13-k} 5^k$.',
+          'So, the equal-seat condition: $c_k = c_{k-1}$ reads $\\tfrac{14-k}{k} \\cdot \\tfrac{5}{2} = 1$, that is $(14-k)5 = 2k$.',
+          'Now, solve: $70 - 5k = 2k$, so $k = 10$ — the coefficient of $x^{10}$ equals that of $x^9$, the same fact written as the seat law $k = \\tfrac{b(n+1)}{a+b} = \\tfrac{5 \\cdot 14}{7} = 10$.',
+          'Check the equality directly: $\\binom{13}{9} 2^4 5^9 = 715 \\cdot 16 \\cdot 5^9$ and $\\binom{13}{10} 2^3 5^{10} = 286 \\cdot 8 \\cdot 5^{10}$ — both products equal $22{,}343{,}750{,}000$, the tie drawn as the equal bars of the profile figure.',
+          'Hence the unique equal pair is the pair of coefficients of $x^9$ and $x^{10}$.',
+        ], answer: 'the coefficients of $x^9$ and $x^{10}$ (the seat law gives $k = 10$)', figures: [
+          { caption: 'The coefficient profile of $(2+5x)^{13}$: the magnitudes $\\binom{13}{k} 2^{13-k} 5^k$ at the seats $k = 0 \\ldots 13$, normalized to the equal pair — the two equal bars at $k = 9$ and $k = 10$ highlighted and tied with a dashed line at their common top, the seat law $k = \\tfrac{b(n+1)}{a+b} = 10$ visible as the exact levelling of the climb.', svg: equalBars75Svg() },
+        ] },
+        { q: 'Find the algebraically least coefficient in the expansion of $(2-3x)^{15}$.', solution: [
+          'The coefficient of $x^k$ is $\\binom{15}{k} 2^{15-k} (-3)^k$ — magnitude $\\binom{15}{k} 2^{15-k} 3^k$, sign $(-1)^k$.',
+          'So, run the ratio test on magnitudes: $\\tfrac{|c_{k+1}|}{|c_k|} = \\tfrac{15-k}{k+1} \\cdot \\tfrac{3}{2} \\geq 1$ reads $45 - 3k \\geq 2k + 2$, that is $k \\leq 8.6$ — the magnitudes climb through seat $k = 8$ into $k = 9$ and first fall after $k = 9$.',
+          'Hence the magnitude peak sits at seat $k = 9$ — the 10th term.',
+          'So, its sign: $(-3)^9$ is negative, and the largest magnitude carries a minus — the 10th term is the algebraically LEAST coefficient.',
+          'Now, price it: $\\binom{15}{9} 2^6 3^9 = 5005 \\cdot 64 \\cdot 19683 = 6{,}304{,}858{,}560$, so the least coefficient is $-6{,}304{,}858{,}560$.',
+        ], answer: 'the 10th term, $-6{,}304{,}858{,}560$' },
+        { q: 'Find the term independent of $x$ in the expansion of $\\left(x^{2/3} + x^{-1/3}\\right)^9$.', solution: [
+          'Normalize the seats: the term with index $p$ (the $(p+1)$-th term) is $\\binom{9}{p} \\left(x^{2/3}\\right)^p \\left(x^{-1/3}\\right)^{9-p} = \\binom{9}{p}\\, x^{p-3}$.',
+          'So, the constant seat: $p - 3 = 0$ gives $p = 3$ — the fourth term, the only seat whose exponent dies.',
+          'Now, price it: $\\binom{9}{3} = 84$, both letters contributing coefficient $1$.',
+          'Hence the term independent of $x$ is $84$.',
+        ], answer: '84' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'For the expansion of $(1+ix)^{12}$, count the REAL terms and state how many of them are NEGATIVE.', solution: [
+          'The seat $r$ carries the factor $i^r$, which is real exactly when $r$ is even and imaginary when $r$ is odd.',
+          'So, the real seats: $r = 0, 2, 4, 6, 8, 10, 12$ — seven real terms among the thirteen.',
+          'Now, the sign census on those: $i^r = (-1)^{r/2}$ on the even seats, so the real seat $r$ is NEGATIVE exactly when $\\tfrac{r}{2}$ is odd — that is $r \\equiv 2 \\pmod{4}$ — the seats $r = 2, 6, 10$.',
+          'Hence $(1+ix)^{12}$ has $7$ real terms, of which $3$ are negative — the $4n$ law at $n = 3$: $2n + 1$ real, exactly $n$ negative.',
+        ], answer: '7 real terms, 3 of them negative' },
+        { q: 'Prove the alternating-squares law — $\\sum_r (-1)^r \\binom{n}{r}^2 = 0$ for odd $n$ and $(-1)^{n/2}\\binom{n}{n/2}$ for even $n$ — by the conjugate read of $(1+x)^n(1-x)^n$, and verify the law at $n = 4$ and $n = 5$.', solution: [
+          'Read the sum as a coefficient: the $x^n$ seat of $(1+x)^n(1-x)^n$ collects $\\binom{n}{r}\\binom{n}{n-r}(-1)^{n-r}$ over all $r$ — and since $\\binom{n}{r}\\binom{n}{n-r} = \\binom{n}{r}^2$ and $(-1)^{n-r} = (-1)^n(-1)^r$, the wanted sum is the global sign $(-1)^n$ times that coefficient.',
+          'So, collapse the product by the conjugate read: $(1+x)^n(1-x)^n = (1-x^2)^n$ — two expansions become one, in the squared variable.',
+          'Now, price the $x^n$ seat of $(1-x^2)^n$: its seats carry only EVEN powers $x^{2r}$ with coefficient $(-1)^r\\binom{n}{r}$ — so an $x^n$ seat exists only when $n$ is even, and then only at $r = n/2$, priced $(-1)^{n/2}\\binom{n}{n/2}$.',
+          'Hence the law: for ODD $n$ there is no $x^n$ seat, the coefficient is $0$, and no global sign rescues a zero — the sum is $0$; for EVEN $n$ the sum is $(-1)^{n/2}\\binom{n}{n/2}$, the global sign $(-1)^n = +1$ leaving it untouched.',
+          'Check at $n = 4$: $1 - 16 + 36 - 16 + 1 = 6 = (-1)^2\\binom{4}{2}$ — the signed bars of the figure walk to the same closing total. Check at $n = 5$: $1 - 25 + 100 - 100 + 25 - 1 = 0$ — odd row, honest zero.',
+        ], answer: 'proved — $0$ at odd $n$, $(-1)^{n/2}\\binom{n}{n/2}$ at even $n$; witnesses $6$ and $0$', figures: [
+          { caption: 'The alternating squares at $n = 4$ as signed bars $1, -16, 36, -16, 1$ at true-to-scale heights (positive up, negative down), with the running partial sums $1, -15, 21, 5, 6$ annotated below — the total closes on $6 = (-1)^2\\binom{4}{2}$, the even-$n$ law witnessed.', svg: signedBars75Svg() },
+        ] },
+        { q: 'Prove the weighted-squares law $\\sum_r r\\,\\binom{n}{r}^2 = n\\binom{2n-1}{n-1}$, and verify it at $n = 4$.', solution: [
+          'Use the absorption identity: $r\\binom{n}{r} = n\\binom{n-1}{r-1}$ — one line of factorial arithmetic, converting a weighted seat into an unweighted seat of a smaller row.',
+          'So, $\\sum_r r\\binom{n}{r}^2 = \\sum_r \\left(r\\binom{n}{r}\\right)\\binom{n}{r} = n \\sum_r \\binom{n-1}{r-1}\\binom{n}{r}$.',
+          'Now, read the remaining sum as a coefficient: $\\binom{n}{r} = \\binom{n}{n-r}$, so $\\sum_r \\binom{n-1}{r-1}\\binom{n}{n-r}$ is the coefficient of $x^{n-1}$ in $(1+x)^{n-1}(1+x)^n$ — the split arguments $(r-1) + (n-r)$ summing to the constant $n-1$.',
+          'So, sweep: the product is $(1+x)^{2n-1}$, and the $x^{n-1}$ seat is $\\binom{2n-1}{n-1}$ — hence $\\sum_r r\\binom{n}{r}^2 = n\\binom{2n-1}{n-1}$.',
+          'Check at $n = 4$: $0 + 16 + 72 + 48 + 4 = 140$, and $4\\binom{7}{3} = 4 \\cdot 35 = 140$ — both routes land on $140$.',
+        ], answer: 'proved — $n\\binom{2n-1}{n-1}$; witness $140 = 4 \\cdot 35$ at $n = 4$' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Prove Vandermonde’s identity $\\sum_{k=0}^{r} \\binom{m}{k}\\binom{n}{r-k} = \\binom{m+n}{r}$ in TWO ways — by the coefficient read of $(1+x)^m(1+x)^n$, and by counting a selection from two collections — and verify both at $m = n = 4$, $r = 2$.', solution: [
+          'First proof, the coefficient read: the $x^r$ seat of $(1+x)^m(1+x)^n$ collects, over every split of the $r$ powers between the two factors, the product $\\binom{m}{k}\\binom{n}{r-k}$ — the $x^k$ seat of the first factor times the $x^{r-k}$ seat of the second.',
+          'So, that same seat is the $x^r$ seat of $(1+x)^{m+n}$, namely $\\binom{m+n}{r}$, because $(1+x)^m(1+x)^n = (1+x)^{m+n}$ is the law of exponents. Hence the identity.',
+          'Second proof, the two-collection count: a shelf holds $m$ novels and another holds $n$ biographies, and a weekend reading list takes $r$ books from the two shelves together. Any list takes $k$ novels and $r-k$ biographies — $\\binom{m}{k}\\binom{n}{r-k}$ lists for each split $k$ — and summing over $k$ counts every list once.',
+          'So, the same lists counted directly: choosing $r$ books from the union of the two shelves is $\\binom{m+n}{r}$ — the shelf boundary is invisible to the chooser. Two counts of one collection must agree: the identity again.',
+          'Check at $m = n = 4$, $r = 2$: $6 + 16 + 6 = 28 = \\binom{8}{2}$ — three ways, one total, both proofs agreeing.',
+        ], answer: 'proved both ways — $\\binom{m+n}{r}$; witness $28 = 6 + 16 + 6$' },
+        { q: 'Prove that the coefficients of the 5th, 6th and 7th terms of $(1+x)^n$ are in arithmetic progression exactly when $n^2 - 21n + 98 = 0$, and verify both roots.', solution: [
+          'Index the seats: the 5th, 6th and 7th terms sit at $r = 4, 5, 6$, with coefficients $\\binom{n}{4}, \\binom{n}{5}, \\binom{n}{6}$.',
+          'So, the A.P. condition: the middle coefficient is the average of its neighbours — $2\\binom{n}{5} = \\binom{n}{4} + \\binom{n}{6}$.',
+          'Now, price the neighbours by the ratio law: $\\binom{n}{4} = \\binom{n}{5} \\cdot \\tfrac{5}{n-4}$ and $\\binom{n}{6} = \\binom{n}{5} \\cdot \\tfrac{n-5}{6}$ — dividing through by $\\binom{n}{5}$ (never zero) gives $\\tfrac{5}{n-4} + \\tfrac{n-5}{6} = 2$.',
+          'So, clear denominators: $30 + (n-5)(n-4) = 12(n-4)$, which expands to $n^2 - 9n + 50 = 12n - 48$, that is $n^2 - 21n + 98 = 0$ — factoring as $(n-7)(n-14) = 0$.',
+          'Check both roots: at $n = 7$, $35 + 7 = 42 = 2 \\cdot 21 = 2\\binom{7}{5}$; at $n = 14$, $1001 + 3003 = 4004 = 2 \\cdot 2002 = 2\\binom{14}{5}$.',
+          'Hence the condition holds exactly at $n = 7$ and $n = 14$ — two genuine roots, both verified, both required.',
+        ], answer: '$2\\binom{n}{5} = \\binom{n}{4} + \\binom{n}{6} \\iff n^2 - 21n + 98 = 0 \\iff n = 7$ or $n = 14$' },
+      ] },
+    ] },
+    { kind: 'formula', name: 'The row-sum family', latex: '\\sum_{r=0}^{n} \\binom{n}{r} = 2^{n}, \\qquad \\sum_{r=0}^{n} (-1)^r \\binom{n}{r} = 0 \\;\\; (n \\geq 1)', note: 'the two total prices of the row — substitutions at $x = 1$ and $x = -1$; the alternating sum cancels for every $n \\geq 1$.' },
+    { kind: 'formula', name: 'The even/odd split', latex: '\\binom{n}{0} + \\binom{n}{2} + \\cdots = \\binom{n}{1} + \\binom{n}{3} + \\cdots = 2^{n-1}', note: 'the families are equal — row 12 witness: $1 + 66 + 495 + 924 + 495 + 66 + 1 = 2048 = 2^{11}$, matching the odd family $12 + 220 + 792 + 792 + 220 + 12 = 2048$.' },
+    { kind: 'formula', name: 'The sum of coefficients (any base)', latex: '\\text{sum of coefficients} = \\bigl[\\text{expansion priced at } x = 1\\bigr]', note: 'whatever the base: $(2-3x)^{12} \\to 1$, $(1+x-2x^2)^9 \\to 0$, $(1+x+x^2)^6 \\to 729$ — the law $2^n$ holds only for the base $1+x$.' },
+    { kind: 'formula', name: 'Vandermonde’s identity', latex: '\\sum_{k=0}^{r} \\binom{m}{k} \\binom{n}{r-k} = \\binom{m+n}{r}', note: 'the sweep law — the $x^r$ seat of $(1+x)^m(1+x)^n$; counting meaning: $r$ objects chosen from two collections of $m$ and $n$.' },
+    { kind: 'formula', name: 'The squares sum', latex: '\\sum_{r=0}^{n} \\binom{n}{r}^{2} = \\binom{2n}{n}', note: 'Vandermonde at $m = n$, read through the mirror $\\binom{n}{r} = \\binom{n}{n-r}$ — the middle seat of the doubled row; $n = 4$ witness: $70 = \\binom{8}{4}$.' },
+    { kind: 'formula', name: 'The alternating-squares law', latex: '\\sum_{r=0}^{n} (-1)^r \\binom{n}{r}^{2} = 0 \\;(n \\text{ odd}), \\qquad (-1)^{n/2}\\binom{n}{n/2} \\;(n \\text{ even})', note: 'the $x^n$ seat of $(1+x)^n(1-x)^n = (1-x^2)^n$ — witnesses: $6$ at $n = 4$, $0$ at $n = 5$.' },
+    { kind: 'formula', name: 'The ratio of consecutive coefficients', latex: '\\frac{\\binom{n}{r}}{\\binom{n}{r-1}} = \\frac{n-r+1}{r}', note: 'the row’s local slope — the instrument for peaks, ties and A.P. conditions; on a weighted base $(a+bx)^n$ carry the extra factor $\\tfrac{b}{a}$.' },
+    { kind: 'formula', name: 'The greatest-coefficient seat', latex: '\\text{peak: } \\binom{n}{n/2} \\;(n \\text{ even}), \\qquad \\binom{n}{(n-1)/2} = \\binom{n}{(n+1)/2} \\;(n \\text{ odd})', note: 'unique peak at even $n$ (row 12: $924$), twin peaks at odd $n$ (row 11: $462$ twice) — the twin fact is the classic trap.' },
+    { kind: 'formula', name: 'The equal-coefficient seat law', latex: 'k = \\frac{b\\,(n+1)}{a+b}', note: 'in $(a+bx)^n$ the coefficients of $x^k$ and $x^{k-1}$ are equal exactly at this seat — $(2+5x)^{13}$: $k = 10$; the same law locates the magnitude peak.' },
+    { kind: 'formula', name: 'The term independent of x', latex: 'p\\,(n-r) + q\\,r = 0 \\quad \\text{(the constant seat of } (Ax^{p} + Bx^{q})^{n}\\text{)}', note: 'solve for the seat $r$, then price $\\binom{n}{r} A^{n-r} B^r$ — $\\left(x - \\tfrac{1}{x}\\right)^{10}$: $r = 5$, price $-252$.' },
+  ],
+}
+
+
+
+// ------------------------------------------------------------------
+// lesson 76 — authored by the run-118 swarm (agent 4-b), integrated verbatim
+// ------------------------------------------------------------------
+
+/* ------------------------------------------------------------------ */
+/* figures — original SVG, vivid palette (owner directive 2026-11-08)  */
+/* every geometric value computed inside the helper before drawing     */
+/* ------------------------------------------------------------------ */
+
+function linearTrio76Svg(): string {
+  // the linearization trio near zero, x in [-0.4, 0.4]: the true curve
+  // y = (1+x)^(1/2), the tangent y = 1 + x/2 and the second-order curve
+  // y = 1 + x/2 - x^2/8, each sampled at 17 engine-computed points
+  // (x = -0.4, -0.35, ..., 0.4). The window is y in [0.74, 1.22] and BOTH
+  // axes run at the same scale of 625 px per unit, so the drawn drift is
+  // true to scale: at x = 0.4 the tangent sits 0.0168 above the true
+  // curve and at x = -0.4 it sits 0.0254 above, while the second-order
+  // curve stays within 0.0054 of the true curve over the whole window.
+  const px = (x: number) => 80 + (x + 0.4) * 625
+  const py = (y: number) => 340 - (y - 0.74) * 625
+  const trueY = (x: number) => Math.sqrt(1 + x)
+  const tanY = (x: number) => 1 + x / 2
+  const quadY = (x: number) => 1 + x / 2 - (x * x) / 8
+  const poly = (f: (x: number) => number, stroke: string, width: number, dash?: string) => {
+    let pts = ''
+    for (let i = 0; i <= 16; i++) {
+      const x = -0.4 + (i * 0.8) / 16
+      pts += `${px(x).toFixed(1)},${py(f(x)).toFixed(1)} `
+    }
+    const d = dash ? ` stroke-dasharray="${dash}"` : ''
+    return `<polyline points="${pts.trim()}" fill="none" stroke="${stroke}" stroke-width="${width}"${d}/>`
+  }
+  const dot = (x: number, f: (x: number) => number, fill: string) =>
+    `<circle cx="${px(x).toFixed(1)}" cy="${py(f(x)).toFixed(1)}" r="4" fill="${fill}"/>`
+  let grid = ''
+  for (let g = 0.8; g <= 1.2001; g += 0.1) {
+    const gy = py(g)
+    grid += `<line x1="80" y1="${gy.toFixed(1)}" x2="580" y2="${gy.toFixed(1)}" stroke="#5eead4" stroke-width="1"/>`
+    grid += `<text x="72" y="${(gy + 4).toFixed(1)}" font-size="11" font-weight="700" fill="#0f766e" text-anchor="end">${g.toFixed(1)}</text>`
+  }
+  let ticks = ''
+  for (const t of [-0.4, -0.2, 0, 0.2, 0.4]) {
+    const tx = px(t)
+    ticks += `<line x1="${tx.toFixed(1)}" y1="340" x2="${tx.toFixed(1)}" y2="346" stroke="#d97706" stroke-width="2"/>`
+    ticks += `<text x="${tx.toFixed(1)}" y="360" font-size="11" font-weight="700" fill="#0f766e" text-anchor="middle">${t.toFixed(1)}</text>`
+  }
+  return `<svg viewBox="0 0 620 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three curves over the window x from minus zero point four to zero point four, both axes at the same scale: the true curve y equals the square root of one plus x drawn solid green, the tangent line y equals one plus x over two drawn dashed orange, and the second-order curve y equals one plus x over two minus x squared over eight drawn dotted teal. All three pass through the point zero comma one. At the right edge the tangent sits about zero point zero one seven above the true curve, at the left edge about zero point zero two five above, while the second-order curve stays within zero point zero zero six of the true curve everywhere — the tangent is the first-order read and the parabola hugs the curve longer.">
+  <title>the linearization trio near zero: y = √(1+x) and its two reads</title>
+  <text x="310" y="22" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the linearization trio near zero: y = √(1+x) and its two reads</text>
+  ${grid}
+  <rect x="80" y="40" width="500" height="300" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+  <line x1="330" y1="40" x2="330" y2="340" stroke="#16a34a" stroke-width="1.2" stroke-dasharray="4 4"/>
+  ${poly(trueY, '#16a34a', 2.6)}
+  ${poly(tanY, '#ea580c', 2.2, '9 6')}
+  ${poly(quadY, '#0d9488', 2.2, '2.5 4')}
+  ${dot(-0.4, trueY, '#16a34a')}${dot(0.4, trueY, '#16a34a')}
+  ${dot(-0.4, tanY, '#ea580c')}${dot(0.4, tanY, '#ea580c')}
+  ${dot(-0.4, quadY, '#0d9488')}${dot(0.4, quadY, '#0d9488')}
+  <rect x="96" y="56" width="270" height="76" rx="8" fill="#fef3c7" stroke="#16a34a" stroke-width="1.4"/>
+  <line x1="108" y1="80" x2="144" y2="80" stroke="#16a34a" stroke-width="2.6"/>
+  <text x="152" y="84" font-size="11.5" font-weight="700" fill="#166534">true curve y = √(1+x)</text>
+  <line x1="108" y1="104" x2="144" y2="104" stroke="#ea580c" stroke-width="2.2" stroke-dasharray="9 6"/>
+  <text x="152" y="108" font-size="11.5" font-weight="700" fill="#166534">tangent 1 + x/2 (first-order read)</text>
+  <line x1="108" y1="124" x2="144" y2="124" stroke="#0d9488" stroke-width="2.2" stroke-dasharray="2.5 4"/>
+  <text x="152" y="128" font-size="11.5" font-weight="700" fill="#166534">second-order 1 + x/2 − x²/8</text>
+  ${ticks}
+  <text x="310" y="378" font-size="10.5" font-weight="700" text-anchor="middle" fill="#0f766e">the tangent drifts 0.017 and 0.025 by the edges; the second-order curve stays within 0.006</text>
+</svg>`
+}
+
+function errorLadder76Svg(): string {
+  // the error ladder for (1+x)^(1/2): the linear read's error
+  // |1 + x/2 - sqrt(1+x)| against the quadratic read's error
+  // |1 + x/2 - x^2/8 - sqrt(1+x)| at x = 0.01, 0.05, 0.1. The six bar
+  // heights are engine-computed at draw time on a log scale (baseline
+  // 10^-8, one gridline per power of ten) because the six values span
+  // five decades — 6.2e-8 (quadratic, x = 0.01) up to 1.19e-3 (linear,
+  // x = 0.1) — so no single linear scale could keep every bar visible.
+  // The gains (linear error / quadratic error) are 200x, 40x and 20x:
+  // the quadratic read wins everywhere by strictly more than a factor
+  // of 20, and at x = 0.1 the linear error stays under 2e-3 while the
+  // quadratic stays under 1e-4.
+  const base = 350
+  const dec = (350 - 70) / 6
+  const errLin = (x: number) => Math.abs(1 + x / 2 - Math.sqrt(1 + x))
+  const errQuad = (x: number) => Math.abs(1 + x / 2 - (x * x) / 8 - Math.sqrt(1 + x))
+  const barH = (v: number) => dec * Math.log10(v / 1e-8)
+  const SUP = '⁰¹²³⁴⁵⁶⁷⁸⁹'
+  const toSup = (e: number) =>
+    String(e)
+      .split('')
+      .map((d) => (d === '-' ? '⁻' : SUP[Number(d)]))
+      .join('')
+  const sci = (v: number) => {
+    const e = Math.floor(Math.log10(v))
+    return `${(v / Math.pow(10, e)).toFixed(2)}×10${toSup(e)}`
+  }
+  let grid = ''
+  for (let e = -8; e <= -2; e++) {
+    const gy = base - (e + 8) * dec
+    grid += `<line x1="84" y1="${gy.toFixed(1)}" x2="664" y2="${gy.toFixed(1)}" stroke="${e === -8 ? '#16a34a' : '#5eead4'}" stroke-width="${e === -8 ? 2 : 1.2}"/>`
+    grid += `<text x="76" y="${(gy + 4).toFixed(1)}" font-size="11" font-weight="700" fill="#0f766e" text-anchor="end">10${toSup(e)}</text>`
+  }
+  let bars = ''
+  ;[0.01, 0.05, 0.1].forEach((x, i) => {
+    const cx = 200 + i * 190
+    const el = errLin(x)
+    const eq = errQuad(x)
+    const hl = barH(el)
+    const hq = barH(eq)
+    bars += `<rect x="${cx - 58}" y="${(base - hl).toFixed(1)}" width="56" height="${hl.toFixed(1)}" rx="4" fill="#d97706"/>`
+    bars += `<rect x="${cx + 2}" y="${(base - hq).toFixed(1)}" width="56" height="${hq.toFixed(1)}" rx="4" fill="#ea580c"/>`
+    bars += `<text x="${cx - 30}" y="${(base - hl - 8).toFixed(1)}" font-size="11" font-weight="800" fill="#166534" text-anchor="middle">${sci(el)}</text>`
+    bars += `<text x="${cx + 30}" y="${(base - hq - 8).toFixed(1)}" font-size="11" font-weight="800" fill="#166534" text-anchor="middle">${sci(eq)}</text>`
+    bars += `<text x="${cx}" y="372" font-size="12.5" font-weight="800" fill="#166534" text-anchor="middle">x = ${x}</text>`
+    bars += `<text x="${cx}" y="390" font-size="11" font-weight="700" fill="#0d9488" text-anchor="middle">quadratic ${(el / eq).toFixed(0)}× smaller</text>`
+  })
+  return `<svg viewBox="0 0 720 410" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A grouped bar chart of the error ladder for the square root of one plus x: at each of x equals zero point zero one, zero point zero five and zero point one, an amber bar for the linear read's error and an orange bar for the quadratic read's error, bar heights on a logarithmic scale with one gridline per power of ten from ten to the minus eight at the baseline up to ten to the minus two. The labelled values: linear errors one point two four times ten to the minus five, three point zero five times ten to the minus four and one point one nine times ten to the minus three; quadratic errors six point two one times ten to the minus eight, seven point five eight times ten to the minus six and five point eight eight times ten to the minus five. The quadratic error is roughly two hundred, forty and twenty times smaller than the linear error at the three x values.">
+  <title>the error ladder for √(1+x): linear error vs quadratic error, log-scale bars</title>
+  <text x="360" y="20" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the error ladder for √(1+x): linear error vs quadratic error (log-scale bars)</text>
+  <rect x="150" y="36" width="18" height="12" fill="#d97706"/>
+  <text x="176" y="46" font-size="11.5" font-weight="700" fill="#166534">linear error |1 + x/2 − √(1+x)|</text>
+  <rect x="150" y="52" width="18" height="12" fill="#ea580c"/>
+  <text x="176" y="62" font-size="11.5" font-weight="700" fill="#166534">second-order error |1 + x/2 − x²/8 − √(1+x)|</text>
+  ${grid}
+  ${bars}
+</svg>`
+}
+
+function partialFractionBands76Svg(): string {
+  // the partial-fraction split for (1-5x+6x^2)^-1 = -2(1-2x)^-1 +
+  // 3(1-3x)^-1, drawn as two stacked geometric-row bands meeting at the
+  // combined coefficient row. The amber band contributes +3·3^n per
+  // column (values 3, 9, 27, 81, 243 at n = 0..4), the red band
+  // -2·2^n (-2, -4, -8, -16, -32), and the combined row 3·3^n - 2·2^n
+  // = 3^(n+1) - 2^(n+1) reads 1, 5, 19, 65, 211 — every value
+  // engine-computed inside this helper before drawing.
+  const colX = (i: number) => 160 + i * 102
+  const cx = (i: number) => colX(i) + 48
+  let cells = ''
+  for (let i = 0; i < 5; i++) {
+    const b1 = 3 * Math.pow(3, i) // the amber band's n-th seat: 3·3ⁿ
+    const b2 = -2 * Math.pow(2, i) // the red band's n-th seat: −2·2ⁿ
+    const comb = Math.pow(3, i + 1) - Math.pow(2, i + 1) // 3ⁿ⁺¹ − 2ⁿ⁺¹
+    cells += `<text x="${cx(i)}" y="46" font-size="12" font-weight="700" fill="#0f766e" text-anchor="middle">n = ${i}</text>`
+    cells += `<rect x="${colX(i)}" y="56" width="96" height="52" rx="7" fill="#ffedd5" stroke="#d97706" stroke-width="1.6"/>`
+    cells += `<text x="${cx(i)}" y="88" font-size="15" font-weight="800" fill="#166534" text-anchor="middle">${b1}</text>`
+    cells += `<rect x="${colX(i)}" y="138" width="96" height="52" rx="7" fill="#fef3c7" stroke="#dc2626" stroke-width="1.6"/>`
+    cells += `<text x="${cx(i)}" y="170" font-size="15" font-weight="800" fill="#dc2626" text-anchor="middle">${b2}</text>`
+    cells += `<rect x="${colX(i)}" y="222" width="96" height="56" rx="7" fill="#fef3c7" stroke="#16a34a" stroke-width="2.2"/>`
+    cells += `<text x="${cx(i)}" y="256" font-size="16" font-weight="800" fill="#166534" text-anchor="middle">${comb}</text>`
+  }
+  return `<svg viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The partial-fraction split of one over one minus five x plus six x squared, shown as two stacked geometric-row bands meeting at one combined coefficient row. The amber band carries the values three, nine, twenty-seven, eighty-one and two hundred forty-three at n equals zero to four — the three times three to the n contributions of the three over one minus three x row; the red band carries minus two, minus four, minus eight, minus sixteen and minus thirty-two — the minus two times two to the n contributions of the minus two over one minus two x row. Column by column the bands sum into the combined row one, five, nineteen, sixty-five and two hundred eleven, which is three to the n plus one minus two to the n plus one. By n equals four the amber band has outrun the red band two hundred forty-three to thirty-two, so the combined row inherits three-to-the-n growth.">
+  <title>the partial-fraction split: two geometric bands meet in one coefficient row</title>
+  <text x="340" y="22" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the partial-fraction split: two bands meet in one coefficient row</text>
+  ${cells}
+  <rect x="16" y="56" width="136" height="52" rx="7" fill="#fef3c7" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="84" y="78" font-size="12.5" font-weight="800" fill="#166534" text-anchor="middle">the 3·3ⁿ band</text>
+  <text x="84" y="96" font-size="10.5" font-weight="700" fill="#0f766e" text-anchor="middle">from 3(1−3x)⁻¹</text>
+  <text x="84" y="134" font-size="20" font-weight="800" fill="#d97706" text-anchor="middle">+</text>
+  <rect x="16" y="138" width="136" height="52" rx="7" fill="#fef3c7" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="84" y="160" font-size="12.5" font-weight="800" fill="#dc2626" text-anchor="middle">the −2·2ⁿ band</text>
+  <text x="84" y="178" font-size="10.5" font-weight="700" fill="#0f766e" text-anchor="middle">from −2(1−2x)⁻¹</text>
+  <text x="84" y="216" font-size="20" font-weight="800" fill="#d97706" text-anchor="middle">=</text>
+  <rect x="16" y="222" width="136" height="56" rx="7" fill="#fef3c7" stroke="#16a34a" stroke-width="2.2"/>
+  <text x="84" y="246" font-size="12.5" font-weight="800" fill="#166534" text-anchor="middle">the combined row</text>
+  <text x="84" y="264" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">3·3ⁿ − 2·2ⁿ</text>
+  <text x="340" y="302" font-size="11" font-weight="800" fill="#166534" text-anchor="middle">each column: 3·3ⁿ + (−2·2ⁿ) = 3·3ⁿ − 2·2ⁿ — the coefficient of xⁿ in (1−5x+6x²)⁻¹</text>
+  <text x="340" y="322" font-size="10.5" font-weight="700" fill="#0d9488" text-anchor="middle">the amber band outruns the red band 243 to 32 by n = 4 — the combined row inherits 3ⁿ growth</text>
+</svg>`
+}
+
+function partialSumWalk76Svg(): string {
+  // the partial-sum walk of 1 − 7 + 21 − 35 + 35, the alternating row
+  // sum of C(7, r) for r = 0..4: vertices (k, S_k) = (0, 0), (1, 1),
+  // (2, −6), (3, 15), (4, −20), (5, 15) — five oscillating steps that
+  // close on 15 = C(6,4). The horizontal grid runs every 5 units; the
+  // emphasized green zero line is the number line the partial sums
+  // live on, and the final vertex is ringed orange.
+  const kx = (k: number) => 100 + k * 108
+  const py = (v: number) => 310 - (v + 25) * (250 / 45)
+  const C = [1, 7, 21, 35, 35] // C(7, r), r = 0..4 — engine-checked
+  const S = [0]
+  for (let r = 0; r < 5; r++) S.push(S[r] + (r % 2 === 0 ? C[r] : -C[r]))
+  let grid = ''
+  for (let v = -20; v <= 20; v += 5) {
+    const gy = py(v)
+    const zero = v === 0
+    grid += `<line x1="84" y1="${gy.toFixed(1)}" x2="656" y2="${gy.toFixed(1)}" stroke="${zero ? '#16a34a' : '#5eead4'}" stroke-width="${zero ? 2.4 : 1.2}"/>`
+    if (v % 10 === 0) grid += `<text x="76" y="${(gy + 4).toFixed(1)}" font-size="11" font-weight="700" fill="#0f766e" text-anchor="end">${v}</text>`
+  }
+  let path = ''
+  for (let k = 0; k <= 5; k++) path += `${kx(k)},${py(S[k]).toFixed(1)} `
+  let dots = ''
+  for (let k = 0; k <= 5; k++) dots += `<circle cx="${kx(k)}" cy="${py(S[k]).toFixed(1)}" r="5.5" fill="#fef3c7" stroke="#16a34a" stroke-width="2.2"/>`
+  let ticks = ''
+  for (let k = 0; k <= 5; k++) {
+    ticks += `<line x1="${kx(k)}" y1="310" x2="${kx(k)}" y2="316" stroke="#d97706" stroke-width="2.2"/>`
+    ticks += `<text x="${kx(k)}" y="331" font-size="11" font-weight="700" fill="#0f766e" text-anchor="middle">${k}</text>`
+  }
+  const steps = [
+    { t: '+1', x: 145, y: 157 },
+    { t: '−7', x: 252, y: 213 },
+    { t: '+21', x: 354, y: 133 },
+    { t: '−35', x: 459, y: 216 },
+    { t: '+35', x: 565, y: 162 },
+  ]
+  const stepTxt = steps.map((s) => `<text x="${s.x}" y="${s.y}" font-size="12" font-weight="800" fill="#d97706" text-anchor="middle">${s.t}</text>`).join('')
+  return `<svg viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The partial-sum walk of one minus seven plus twenty-one minus thirty-five plus thirty-five, plotted as an oscillating path of five steps against the number of terms taken: the partial sums run zero, one, minus six, fifteen, minus twenty, fifteen, and the fifth step closes on fifteen, which equals C of six choose four — ringed orange at the end. The emphasized green zero line is the number line the partial sums live on; horizontal gridlines run every five units from minus twenty to twenty. The five step sizes are plus one, minus seven, plus twenty-one, minus thirty-five and plus thirty-five, the signed row of C of seven choose r.">
+  <title>the partial-sum walk: 1 − 7 + 21 − 35 + 35 closing on 15 = C(6,4)</title>
+  <text x="340" y="22" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the partial-sum walk: 1 − 7 + 21 − 35 + 35 closing on 15 = C(6,4)</text>
+  <text x="66" y="46" font-size="10.5" font-weight="700" fill="#0f766e">partial sum</text>
+  ${grid}
+  <line x1="84" y1="310" x2="656" y2="310" stroke="#16a34a" stroke-width="2"/>
+  ${ticks}
+  <text x="370" y="350" font-size="11" font-weight="700" fill="#0f766e" text-anchor="middle">terms taken (k)</text>
+  <polyline points="${path.trim()}" fill="none" stroke="#ea580c" stroke-width="3" stroke-linejoin="round"/>
+  ${dots}
+  ${stepTxt}
+  <text x="100" y="158" font-size="11.5" font-weight="800" fill="#166534" text-anchor="middle">0</text>
+  <text x="184" y="160" font-size="11.5" font-weight="800" fill="#166534" text-anchor="middle">1</text>
+  <text x="316" y="221" font-size="11.5" font-weight="800" fill="#166534" text-anchor="middle">−6</text>
+  <text x="424" y="74" font-size="11.5" font-weight="800" fill="#166534" text-anchor="middle">15</text>
+  <text x="532" y="302" font-size="11.5" font-weight="800" fill="#166534" text-anchor="middle">−20</text>
+  <circle cx="${kx(5)}" cy="${py(S[5]).toFixed(1)}" r="11" fill="none" stroke="#ea580c" stroke-width="2.6"/>
+  <text x="652" y="44" font-size="11.5" font-weight="800" fill="#166534" text-anchor="end">15 = C(6,4)</text>
+  <line x1="641" y1="49" x2="641" y2="74" stroke="#ea580c" stroke-width="1.6"/>
+  <text x="340" y="366" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">the five steps are the signed row +1 − 7 + 21 − 35 + 35 = C(7,0) − C(7,1) + C(7,2) − C(7,3) + C(7,4)</text>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 7.6                                                          */
+/* ------------------------------------------------------------------ */
+
+const lesson76: Lesson = {
+  id: 'aa-binomial-applications-and-approximations',
+  number: '7.6',
+  title: 'Binomial Applications and Approximations',
+  concepts: [
+    'the linear approximation (1+x)^n ≈ 1+nx and its honest error',
+    'multi-factor linearizations of products and quotients',
+    'root estimates near perfect powers',
+    'divisibility, remainders and fractional parts by binomial reads',
+    'the conjugate-pair integer trick for surd powers',
+    'coefficient hunting via partial fractions on any-index objects',
+    'the (1−x)^−k cancellation engine',
+    'Bernoulli’s inequality as the error bound',
+  ],
+  objectives: [
+    'Read $(1+x)^n$ to first and second order for small $x$ — the $1+nx$ read and the $1+nx+\\tfrac{n(n-1)}{2!}x^2$ read — with the honest error stated beside every estimate, and cite Bernoulli’s inequality from lesson 7.1 as the certified lower bound at integer indices.',
+    'Linearize multi-factor products and quotients — $(1+a_1x)^{n_1}(1+a_2x)^{n_2}\\cdots \\approx 1 + (\\sum n_i a_i)x$ — including the conjugate square-root product $\\sqrt{\\tfrac{x}{x+y}}\\cdot\\sqrt{\\tfrac{x}{x-y}} \\approx 1 + \\tfrac{y^2}{2x^2}$.',
+    'Estimate roots near perfect squares and cubes — $\\sqrt{26}$, $\\sqrt{99}$, $\\sqrt[3]{65}$ — to controlled precision by the template $a(1+x)^{1/k} \\approx a + \\tfrac{ax}{k}$, and say exactly when the linear read alone delivers three significant figures.',
+    'Prove divisibility, remainder and fractional-part facts by binomial reads — $(1+x)^n - 1 - nx$ carries the factor $x^2$; $7^{101} + 11^{51} \\equiv 2 \\pmod 8$; $5^{2n} \\equiv (-1)^n \\pmod{13}$ — without writing a single induction.',
+    'Run the conjugate-pair trick: add the mirror $(a-b)^n$ to a surd power $(a+b)^n$, produce the exact integer even part $2\\sum_{j \\text{ even}} \\binom{n}{j} a^{n-j} b^j$, size the mirror into $(0,1)$, and read off the smallest integer larger than $(a+b)^n$.',
+    'Hunt coefficients at exam speed by splitting $\\tfrac{1}{(1-ax)(1-bx)\\cdots}$ into geometric rows via partial fractions — the two-factor law $\\tfrac{a^{n+1} - b^{n+1}}{a-b}$, the quadratic-factor and three-factor cover-up hunts — and by the $(1-x)^{-k}$ cancellation engine, including the alternating partial-sums law $\\sum_{r=0}^{k}(-1)^r\\binom{n}{r} = (-1)^k\\binom{n-1}{k}$.',
+    'Locate the first negative term of a fractional-index row such as $(1+x)^{9/2}$ — the falling factors flip sign at a computable seat — and close the chapter’s arc: the theorem built across 7.1–7.5 is now a working tool, not an exhibit.',
+  ],
+  prerequisites: ['aa-binomial-theorem-any-index', 'aa-mathematical-induction-the-domino-principle', 'aa-the-binomial-theorem-proved'],
+  sources: ['cengage-m2-08', 'cengage-jee-style', 'hall-knight-higher-algebra', 'jee-main-2026-syllabus'],
+  blocks: [
+    { kind: 'para', text: 'The binomial theorem has spent this chapter as the object of study. Lesson 7.2 proved it twice, lesson 7.3 extended its index to every rational number and banked the frequently used rows, lesson 7.4 taught it to count across any number of letters, and lesson 7.5 put its coefficients to work in identities of their own. Each lesson ended with the theorem admired — a machine built, tested and parked. This lesson drives it out of the garage. The questions change character entirely. How large is $(1.02)^5$ when the calculator stays in the bag? What remainder does $7^{101} + 11^{51}$ leave on division by $8$ — without expanding anything with $101$ factors? Which integer first overtakes $(\\sqrt5+\\sqrt2)^4$? What is the coefficient of $x^n$ in a rational function that no sane person would ever multiply out? None of these asks the theorem to finish a row; each asks it to work on the first few seats, or on a cleverly chosen neighbour, and then stop while the arithmetic is still cheap. That is the practical binomial theorem: not the whole row, but the row’s front window.' },
+    { kind: 'para', text: 'Everything here runs on one of three engines, and each is a cancellation in disguise. The **linearization engine** keeps only the first two seats of $(1+x)^n = 1 + nx + \\cdots$ and drops the $x^2$ mass — legal only when $x$ is small, and paid for with an honest error statement, because the dropped mass is not a mystery but a computable object. The **conjugate-pairing engine** adds a surd power to its mirror image: the odd seats cancel in pairs, the surd tail dies, and an exact integer survives — which is how a question about $\\sqrt5 + \\sqrt2$ becomes a statement about $178$. The **partial-fraction engine** splits a rational function into geometric rows BEFORE any expansion: each row is a banked friend from lesson 7.3, and a coefficient hunt that would demand a convolution collapses to a one-line read. Linearization approximates numbers, conjugate pairing pins integers, partial fractions price seats — three jobs, one philosophy: make the hard part cancel before you compute it.' },
+    { kind: 'para', text: 'One discipline threads through all three: no estimate without its error. Every approximation in this lesson is printed beside its true value — the honest-error convention — because an approximation you cannot bound is a guess wearing a suit. Sometimes the bound is already banked: lesson 7.1 PROVED Bernoulli’s inequality, $(1+x)^n \\geq 1 + nx$ for every integer $n \\geq 1$ and every $x \\geq -1$, by a one-line induction — so at integer indices the linear read is a certified LOWER bound, and the error column says exactly how much truth is unpaid. At other indices the engine’s own arithmetic runs the same discipline: the dropped mass starts at the $\\tbinom{n}{2}$-shaped seat, and the derivation below prices it.' },
+
+    { kind: 'heading', text: 'The Linear Approximation Engine' },
+    { kind: 'para', text: 'Strip the any-index theorem of lesson 7.3 down to its first two seats and the working tool appears. For any rational index $n$ and $|x| < 1$, the row begins $(1+x)^n = 1 + nx + \\tfrac{n(n-1)}{2!}x^2 + \\cdots$; when $x$ is SMALL — a few hundredths, say — every seat after the second is dwarfed, and the two-seat truncation is remarkably good. This section makes the statement precise, honest and fast.' },
+    { kind: 'callout', tone: 'definition', title: 'The linear approximation (the first-order read)', text: 'For $|x|$ small and any rational index $n$, the expression $(1+x)^n$ is said to be **linearly approximated** by $1 + nx$ if the seats from $x^2$ onward are neglected — that is, only the first two seats of the binomial row are kept. Thus, $(1+x)^n \\approx 1 + nx$ with an error beginning at the $x^2$ seat, so the error is of order $x^2$ and quarters whenever $x$ is halved.' },
+    { kind: 'equation', latex: '(1+x)^n = 1 + nx + \\tfrac{n(n-1)}{2!}x^2 + \\tfrac{n(n-1)(n-2)}{3!}x^3 + \\cdots \\quad \\Longrightarrow \\quad (1+x)^n \\approx 1 + nx \\quad (|x| \\ \\text{small}) \\tag{1}', note: 'the working read: keep two seats, drop the $x^2$ mass — the derivation below prices exactly what was dropped.' },
+    { kind: 'terms', items: [
+      { term: 'Linear approximation (the first-order read)', def: 'the two-seat read $(1+x)^n \\approx 1 + nx$ for $|x|$ small — the tangent line at zero, valid for every rational index inside the window, with an error that begins at the $x^2$ seat.' },
+      { term: 'Second-order read', def: 'the three-seat read $1 + nx + \\tfrac{n(n-1)}{2!}x^2$ — the error drops to the $x^3$ seat, buying roughly two more decimals for one extra term.' },
+      { term: 'Honest error', def: 'the exact gap between an estimate and its engine-checked true value, printed beside every approximation — this lesson’s standing discipline.' },
+      { term: 'Multi-factor linearization', def: 'for a product or quotient of $(1 + \\text{small})$ powers: linearize each factor, add the linear coefficients, drop every $x^2$ crossing — $\\prod (1+a_i x)^{n_i} \\approx 1 + (\\sum n_i a_i)x$.' },
+      { term: 'Conjugate pair', def: 'a surd power $(a+b)^n$ and its mirror $(a-b)^n$: their sum is the doubled even part $2\\sum_{j \\ \\mathrm{even}} \\tbinom{n}{j} a^{n-j} b^j$ — an exact integer when $a$ and $b$ are square roots.' },
+      { term: 'Smallest integer larger (the ceiling seat)', def: 'when the mirror lies in $(0,1)$, the smallest integer larger than $(a+b)^n$ is the conjugate sum itself — the surd power plus its mirror.' },
+      { term: 'Partial-fraction split', def: 'resolving a rational function into geometric rows BEFORE expanding: $\\tfrac{1}{(1-ax)(1-bx)} = \\tfrac{a}{a-b}(1-ax)^{-1} - \\tfrac{b}{a-b}(1-bx)^{-1}$, each row a banked friend of lesson 7.3.' },
+      { term: 'Cover-up method', def: 'the one-line partial-fraction pricing: hide one factor, substitute its root, and the surviving value is that factor’s coefficient.' },
+      { term: 'Cancellation engine', def: 'multiplying by $(1-x)^{-k}$ instead of convolving: $(1-x)^n (1-x)^{-1} = (1-x)^{n-1}$ kills the tail and prices alternating partial sums in one move.' },
+      { term: 'Error ladder', def: 'the side-by-side comparison of the linear read’s error with the quadratic read’s error at a fixed ladder of $x$-values — the gain of the second-order seat made visible.' },
+      { term: 'Bernoulli’s inequality (the bound)', def: '$(1+x)^n \\geq 1 + nx$ for $x \\geq -1$ and integer $n \\geq 1$ — proved by induction in lesson 7.1, cited here as the linear read’s certified lower bound.' },
+    ] },
+    { kind: 'para', text: 'The honest-error discipline begins with a structural fact: the gap between $(1+x)^n$ and its linear read is not an amorphous fog but a polynomial with a factor you can name. The derivation proves it for positive integer $n$, and the same computation runs the any-index rows of lesson 7.3 word for word.' },
+    { kind: 'derivation', title: 'The honest error: (1+x)^n − 1 − nx carries the factor x²', statement: 'For every integer $n \\geq 2$ and every $x$, the difference between $(1+x)^n$ and its first-order read is divisible by $x^2$ — the error is genuinely second-order, and its leading coefficient is $\\tbinom{n}{2}$.', steps: [
+      { label: 'Expand by the theorem', formula: '(1+x)^n = 1 + nx + \\tbinom{n}{2}x^2 + \\tbinom{n}{3}x^3 + \\cdots + x^n', explanation: 'lesson 7.2’s finite row: every seat after the first two is degree two or higher.' },
+      { label: 'Subtract the linear read', formula: '(1+x)^n - 1 - nx = \\tbinom{n}{2}x^2 + \\tbinom{n}{3}x^3 + \\cdots + x^n', explanation: 'the $1$ and the $nx$ cancel seat by seat; what remains starts at the $x^2$ seat.' },
+      { label: 'Factor out x²', formula: '(1+x)^n - 1 - nx = x^2\\left(\\tbinom{n}{2} + \\tbinom{n}{3}x + \\cdots + x^{n-2}\\right)', explanation: 'every surviving term carries $x^2$, so the whole gap is $x^2$ times a polynomial — halving $x$ quarters the error.' },
+      { label: 'Witness at n = 5, x = 0.02', formula: '(1.02)^5 - 1 - 0.1 = 10(0.02)^2 + \\cdots = 0.004 + 0.0000808', explanation: 'the $x^2$ seat alone is worth $0.004$; the true gap is $0.0040808$, the extra $0.0000808$ being the $x^3$-and-beyond tail.' },
+    ], result: '$(1+x)^n - 1 - nx = x^2\\left(\\tbinom{n}{2} + \\cdots\\right)$ — the linear read errs by a genuine multiple of $x^2$, which is exactly why the second-order read exists and why small $x$ is the whole game.' },
+    { kind: 'para', text: 'The second-order read adds one seat and reaps the dividend.' },
+    { kind: 'equation', latex: '(1+x)^n \\approx 1 + nx + \\tfrac{n(n-1)}{2!}x^2 \\tag{2}', note: 'the second-order read: one more seat, roughly two more decimals — the error now begins at the $x^3$ seat, so halving $x$ cuts it eightfold.' },
+    { kind: 'para', text: 'Now the discipline in numbers. The table below runs the engine three times — a positive-integer power, a square root, and a power just under one — and prints every read beside its engine-checked true value — the convention the whole lesson keeps: the estimate and the truth, side by side, always.' },
+    { kind: 'table', head: ['Power', 'First-order read', 'Second-order read', 'True value (engine-checked)'], rows: [
+      ['$(1.02)^5$', '$1 + 5(0.02) = 1.10$', '$1.10 + 10(0.02)^2 = 1.104$', '$1.1040808032$'],
+      ['$\\sqrt{1.04} = (1.04)^{1/2}$', '$1 + \\tfrac{1}{2}(0.04) = 1.02$', '$1.02 - \\tfrac{1}{8}(0.04)^2 = 1.0198$', '$1.0198039027$'],
+      ['$(0.99)^4$', '$1 - 4(0.01) = 0.96$', '$0.96 + 6(0.01)^2 = 0.9606$', '$0.96059601$'],
+    ], caption: 'The honest-error discipline at work: every estimate printed beside its true value — first order, second order, exact — each entry engine-verified before printing.' },
+    { kind: 'para', text: 'Read the table as a contract. The worst first-order gap in it is $0.0040808$ (at $(1.02)^5$), the worst second-order gap $0.0000808$ — one extra seat bought two more decimals. The same pattern holds everywhere: at $(1.02)^4$ the first-order read $1.08$ faces the true $1.08243216$, and Bernoulli certifies the direction at both integer indices — the truth sits ABOVE the read, never below. The figure below draws the geometry of the contract for the square-root row.' },
+    { kind: 'figure', caption: 'The linearization trio near zero, drawn true to scale over $-0.4 \\leq x \\leq 0.4$ (both axes at the same scale, seventeen engine-computed sample points per curve): the true curve $y = \\sqrt{1+x}$ (solid green), the tangent line $y = 1 + \\tfrac{x}{2}$ (dashed orange) and the second-order curve $y = 1 + \\tfrac{x}{2} - \\tfrac{x^2}{8}$ (dotted teal). All three meet at $(0, 1)$. The tangent IS the first-order read; by the window’s edges it has drifted $0.017$ and $0.025$ from the curve, while the second-order curve — one extra seat — stays within $0.006$ everywhere. The parabola hugs the curve longer: that is what buying the $x^2$ seat looks like.', svg: linearTrio76Svg() },
+    { kind: 'para', text: 'The picture shows what the table cannot: the tangent and the parabola agree at zero and disagree about everything else in a controlled way. Near zero all three curves are visually one; walk to the edges and the tangent marches away while the second-order curve stays glued. The whole approximation industry of this lesson lives inside that glued region — and the error column tells you how far you have walked.' },
+    { kind: 'example', title: 'Estimate $(1.02)^5$, $\\sqrt{1.04}$ and $(0.99)^4$ to first and second order, printing the true value beside every estimate.', steps: [
+      'Set up each power in the $(1+x)$ form: $(1.02)^5$ has $x = 0.02$, $n = 5$; $\\sqrt{1.04} = (1.04)^{1/2}$ has $x = 0.04$, $n = \\tfrac{1}{2}$; $(0.99)^4$ has $x = -0.01$, $n = 4$.',
+      'First order, the $1 + nx$ read: $(1.02)^5 \\approx 1 + 5(0.02) = 1.10$; $\\sqrt{1.04} \\approx 1 + \\tfrac{1}{2}(0.04) = 1.02$; $(0.99)^4 \\approx 1 - 4(0.01) = 0.96$.',
+      'So, second order adds the $\\tfrac{n(n-1)}{2}x^2$ seat: $(1.02)^5 \\approx 1.10 + 10(0.0004) = 1.104$; $\\sqrt{1.04} \\approx 1.02 - \\tfrac{1}{8}(0.04)^2 = 1.0198$; $(0.99)^4 \\approx 0.96 + 6(0.0001) = 0.9606$.',
+      'Now, the honesty column, engine-checked: the true values are $1.1040808032$, $1.0198039027$ and $0.96059601$.',
+      'Hence the reads and their errors: first-order gaps $0.0040808$, $0.0001961$ and $0.00059601$; second-order gaps $0.0000808$, $0.0000039$ and $0.0000040$ — the worst first-order error beats four parts in a thousand, and one extra seat repairs all of it.',
+    ] },
+    { kind: 'para', text: 'Products and quotients are the engine’s next market, and the rule is a one-line law: linearize each factor separately, then ADD the linear coefficients — because when $(1+a_1x)(1+a_2x)$ multiplies out, every crossing of two small quantities is $x^2$ mass, and $x^2$ mass is what the engine drops.' },
+    { kind: 'equation', latex: '\\prod_i \\left(1 + a_i x\\right)^{n_i} \\approx 1 + \\left(\\sum_i n_i a_i\\right)x \\tag{3}', note: 'the multi-factor linearization: each factor contributes its index times its argument to the common linear coefficient; every product of two contributions is dropped $x^2$ mass.' },
+    { kind: 'example', title: 'Show that for small $x$, $(1+2x)^{-3}\\left(1-\\tfrac{x}{2}\\right)^{1/2}\\left(1+\\tfrac{x}{4}\\right)^{-1} \\approx 1 - \\tfrac{13}{2}x$, and price both sides at $x = 0.01$.', steps: [
+      'Linearize each factor by the $(1+u)^n \\approx 1 + nu$ read at its own small argument: $(1+2x)^{-3} \\approx 1 - 6x$; $\\left(1 - \\tfrac{x}{2}\\right)^{1/2} \\approx 1 - \\tfrac{x}{4}$; $\\left(1 + \\tfrac{x}{4}\\right)^{-1} \\approx 1 - \\tfrac{x}{4}$.',
+      'So, multiply the three reads and drop every $x^2$ crossing: the linear coefficient is the sum $(-3)(2) + \\left(\\tfrac{1}{2}\\right)\\left(-\\tfrac{1}{2}\\right) + (-1)\\left(\\tfrac{1}{4}\\right) = -6 - \\tfrac{1}{4} - \\tfrac{1}{4} = -\\tfrac{13}{2}$.',
+      'Now, price it: at $x = 0.01$ the linearization reads $1 - \\tfrac{13}{2}(0.01) = 1 - 0.065 = 0.935$.',
+      'Check the honesty column: the true value at $x = 0.01$ is $\\approx 0.9376$, so the gap is $\\approx 0.0026$ — exactly the dropped $x^2$ mass, of which the $(1+2x)^{-3}$ factor alone contributes $24x^2 = 0.0024$ (its own $x^2$ seat is $\\tfrac{(-3)(-4)}{2}(2x)^2 = 24x^2$).',
+      'Hence $\\approx 1 - \\tfrac{13}{2}x$ with a certified, located error budget: the dominant part of the gap is not merely estimated — it is named.',
+    ] },
+    { kind: 'para', text: 'The conjugate square-root product is the prettiest resident of this market. Two twin surds $\\sqrt{\\tfrac{x}{x+y}}$ and $\\sqrt{\\tfrac{x}{x-y}}$ look like separate work; combined, they are one clean read.' },
+    { kind: 'equation', latex: '\\sqrt{\\tfrac{x}{x+y}} \\cdot \\sqrt{\\tfrac{x}{x-y}} = \\left(1 - \\tfrac{y^2}{x^2}\\right)^{-1/2} \\approx 1 + \\tfrac{y^2}{2x^2} \\tag{4}', note: 'the twin surds multiply into a single $(1+u)^{-1/2}$ at the automatically-small argument $u = \\tfrac{y^2}{x^2}$ — the conjugate square-root product.' },
+    { kind: 'example', title: 'If $x$ is very large compared with $y$, show that $\\sqrt{\\tfrac{x}{x+y}} \\cdot \\sqrt{\\tfrac{x}{x-y}} \\approx 1 + \\tfrac{y^2}{2x^2}$, and check the read at $\\tfrac{y}{x} = 0.1$.', steps: [
+      'Combine the roots first: $\\sqrt{\\tfrac{x}{x+y}} \\cdot \\sqrt{\\tfrac{x}{x-y}} = \\left(\\tfrac{x^2}{x^2 - y^2}\\right)^{1/2} = \\left(1 - \\tfrac{y^2}{x^2}\\right)^{-1/2}$.',
+      'So, run the linear engine at the small argument $u = -\\tfrac{y^2}{x^2}$: the $(1+u)^{-1/2}$ row begins $1 - \\tfrac{u}{2}$, and substituting gives $\\approx 1 + \\tfrac{y^2}{2x^2}$.',
+      'Now, check at $\\tfrac{y}{x} = 0.1$: the read gives $1 + \\tfrac{0.01}{2} = 1.005$.',
+      'Hence the honesty column: the true value is $(1 - 0.01)^{-1/2} = 1.0050378$ — the read is short by $0.0000378$, almost exactly the dropped quadratic seat $\\tfrac{3}{8}(0.01)^2 = 0.0000375$.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'Calculus will recognise a friend', text: 'The linear read is the first chapter of calculus standing on algebra’s ground. The number $n$ is precisely the derivative of $(1+x)^n$ at $x = 0$ — lesson 7.3’s series differentiates to $n(1+x)^{n-1}$, which is $n$ at zero — and the line $y = 1 + nx$ is exactly the tangent line at that point, as the figure drew it. Nothing in this lesson NEEDS calculus: every estimate was produced and bounded by binomial seats alone. But when calculus arrives, it will recognise a friend — the tangent line, the second-order correction, and even the error ladder are the first three rungs of the Taylor development, built here entirely from the theorem this chapter proved.' },
+    { kind: 'para', text: 'From the above discussion, the linearization reflex assembles into one sentence — read, multiply, add:' },
+    { kind: 'list', marker: 'roman', items: [
+      '**(i) single factor:** $(1+2x)^{-3} \\approx 1 - 6x$ — the index times the argument, nothing else kept;',
+      '**(ii) multi-factor:** $\\prod (1+a_i x)^{n_i} \\approx 1 + (\\sum n_i a_i)x$ — add the contributions, drop the crossings: $-6 - \\tfrac{1}{4} - \\tfrac{1}{4} = -\\tfrac{13}{2}$;',
+      '**(iii) conjugate square-root product:** $\\sqrt{\\tfrac{x}{x+y}}\\cdot\\sqrt{\\tfrac{x}{x-y}} \\approx 1 + \\tfrac{y^2}{2x^2}$ — the twins collapse to one $(1-u)^{-1/2}$ read at an automatically-small argument.',
+    ] },
+
+    { kind: 'heading', text: 'Roots near Perfect Powers' },
+    { kind: 'para', text: 'Root extraction is where the linear engine earns its examination keep, because a root near a perfect power is already in $(1+x)$ form. The template: write $\\sqrt[k]{a^k + \\epsilon}$ as $a\\left(1 + \\tfrac{\\epsilon}{a^k}\\right)^{1/k}$ — seat the root at the NEAREST perfect $k$-th power, so the argument is small by construction — then read two seats, and a third when the fourth digit matters.' },
+    { kind: 'equation', latex: 'a(1+x)^{1/k} \\approx a\\left(1 + \\tfrac{x}{k}\\right) = a + \\tfrac{ax}{k} \\tag{5}', note: 'the root-estimate template: the correction is the root’s base times the argument over the index — $\\sqrt[3]{65}$, $\\sqrt{26}$ and $\\sqrt{99}$ below run it three ways.' },
+    { kind: 'example', title: 'Estimate $\\sqrt[3]{65}$ to first and second order, with the honest errors printed.', steps: [
+      'Seat the root at the nearest perfect cube: $65 = 64 + 1 = 64\\left(1 + \\tfrac{1}{64}\\right)$, so $\\sqrt[3]{65} = 4\\left(1 + \\tfrac{1}{64}\\right)^{1/3}$ — the argument $\\tfrac{1}{64}$ is small by construction.',
+      'So, first order: $4\\left(1 + \\tfrac{1}{3} \\cdot \\tfrac{1}{64}\\right) = 4\\left(1 + \\tfrac{1}{192}\\right) \\approx 4.0208333$.',
+      'Now, second order: the $\\tfrac{n(n-1)}{2}x^2$ seat at $n = \\tfrac{1}{3}$ is $-\\tfrac{1}{9}\\left(\\tfrac{1}{64}\\right)^2$, so $\\sqrt[3]{65} \\approx 4\\left(1 + \\tfrac{1}{192} - \\tfrac{1}{9}\\left(\\tfrac{1}{64}\\right)^2\\right) \\approx 4.0207248$.',
+      'Check the honesty column: the true value is $\\approx 4.0207257$ — the first-order read runs long by $\\approx 0.0001076$, the second-order falls short by only $\\approx 0.0000016$.',
+      'Hence $\\sqrt[3]{65} \\approx 4.0207$ to four significant figures from two seats — and the second seat repaired all but the sixth decimal.',
+    ] },
+    { kind: 'example', title: 'Estimate $\\sqrt{26}$ to second order and state both honest errors.', steps: [
+      'Seat at the nearest perfect square: $26 = 25\\left(1 + \\tfrac{1}{25}\\right)$, so $\\sqrt{26} = 5\\left(1 + \\tfrac{1}{25}\\right)^{1/2}$.',
+      'So, first order: $5\\left(1 + \\tfrac{1}{50}\\right) = 5.1$ — only two reliable decimals so far.',
+      'Now, second order subtracts the $-\\tfrac{x^2}{8}$ seat: $5\\left(1 + \\tfrac{1}{50} - 0.0002\\right) = 5.099$.',
+      'Hence the honesty column: $\\sqrt{26} = 5.0990195$, so the second-order read is short by $0.0000195$ while the first-order ran long by $0.0009805$ — the extra seat bought a factor of fifty in accuracy.',
+    ] },
+    { kind: 'para', text: 'The engine works equally well from the far side of a perfect power. $\\sqrt{99} = 10(1 - 0.01)^{1/2}$ reads $9.95$ at first order and $10\\left(1 - 0.005 - 0.0000125\\right) = 9.949875$ at second order, against the true $9.9498743$ — a four-decimal answer from two seats, and the exercise set asks you to reproduce it. But the deeper question every approximation raises is: how much does the second seat buy? The answer deserves its own table and picture.' },
+    { kind: 'table', head: ['$x$', 'Linear error $|1 + \\tfrac{x}{2} - \\sqrt{1+x}|$', 'Quadratic error $|1 + \\tfrac{x}{2} - \\tfrac{x^2}{8} - \\sqrt{1+x}|$', 'Gain'], rows: [
+      ['$0.01$', '$1.24 \\times 10^{-5}$', '$6.2 \\times 10^{-8}$', '$\\approx 200\\times$'],
+      ['$0.05$', '$3.05 \\times 10^{-4}$', '$7.6 \\times 10^{-6}$', '$\\approx 40\\times$'],
+      ['$0.1$', '$1.19 \\times 10^{-3}$', '$5.9 \\times 10^{-5}$', '$\\approx 20\\times$'],
+    ], caption: 'The error ladder for $(1+x)^{1/2}$ — every entry engine-computed; the quadratic error is more than $20\\times$ smaller everywhere, and even at $x = 0.1$ the linear error stays under $2 \\times 10^{-3}$ while the quadratic stays under $10^{-4}$.' },
+    { kind: 'figure', caption: 'The error ladder drawn: the linear read’s error (amber) against the quadratic read’s error (orange) at $x = 0.01, 0.05, 0.1$. The six bar heights sit on a log scale — one gridline per power of ten, baseline $10^{-8}$ — because the six engine-computed errors span five decades, from $6.2 \\times 10^{-8}$ to $1.19 \\times 10^{-3}$; a single linear scale would render five of the bars invisible. Read the gains instead: about $200\\times$, $40\\times$ and $20\\times$ — the quadratic read wins everywhere, and the closer $x$ gets to zero the more dramatic the victory. This is the whole economics of the second-order seat in one picture.', svg: errorLadder76Svg() },
+    { kind: 'para', text: 'The ladder teaches the choosing rule. When three significant figures suffice — a comparison, a sanity check — the linear read alone is honest: even at $x = 0.1$ its error, under $2 \\times 10^{-3}$, sits in the fourth significant figure of a number near $1.05$. When the fourth digit matters — a stated-precision question, a table value — the second-order read delivers: under $10^{-4}$ at the very same $x$, improving eightfold for every halving of $x$, and two hundred times better already at $x = 0.01$. Buy the second seat exactly when the problem has started counting digits.' },
+    { kind: 'callout', tone: 'warn', title: 'Three traps on the approximation road', text: '**Trap 1 — the read is a NEAR-zero tool.** At $x = 0.5$ the dropped $x^2$ mass is comparable to the seats you kept: $1.5$ is not a small perturbation of $1$, the "error" is no longer second-order in any useful sense, and no honest error column survives the abuse. Small means a few hundredths — not a few halves. **Trap 2 — the estimate without its column.** Quoting $\\sqrt[3]{65} \\approx 4.02$ with no error statement is quoting nothing: the discipline of this lesson is that every read ships with its true value or its bounded gap. **Trap 3 — the negative-index sign flip.** A negative index does NOT make every term negative: $(1+2x)^{-3}$ reads $1 - 6x + 24x^2 - \\cdots$ — the signs alternate seat by seat, exactly as lesson 7.3’s rows showed, and the second-order term here is POSITIVE. Assuming a blanket sign flip mis-prices the very $x^2$ mass the honest-error column is built on.' },
+
+    { kind: 'heading', text: 'Divisibility, Remainders and Fractional Parts' },
+    { kind: 'para', text: 'The chapter’s proof engine was induction, and it was heavy machinery. The binomial theorem offers a lighter route to a whole family of number-theory facts: read each base as a NEIGHBOUR of the modulus, expand the binomial that appears, and watch the divisibility fall out of the seats — no dominoes, no base case, no inductive step. The prototype is already proved above: $(1+x)^n - 1 - nx$ carries the factor $x^2$, and for integer $x$ that is a divisibility statement about whole numbers.' },
+    { kind: 'equation', latex: '(1+x)^n - 1 - nx = x^2\\left(\\tbinom{n}{2} + \\tbinom{n}{3}x + \\cdots + x^{n-2}\\right) \\tag{6}', note: 'the linear-read gap as a divisibility certificate: for integer $n \\geq 2$ the whole gap is a multiple of $x^2$ — an induction-free proof of a divisibility fact.' },
+    { kind: 'example', title: 'Find the remainder when $7^{101} + 11^{51}$ is divided by $8$.', steps: [
+      'Read each base as its neighbour modulo $8$: $7 = 8 - 1 \\equiv -1 \\pmod 8$, and $11 = 8 + 3 \\equiv 3 \\pmod 8$ — a binomial read on each side of the modulus.',
+      'So, the first power: $7^{101} \\equiv (-1)^{101} = -1 \\pmod 8$ — the odd exponent fixes the sign.',
+      'Now, the second: $11^{51} \\equiv 3^{51} = 3 \\cdot (3^2)^{25} \\equiv 3 \\cdot 1^{25} = 3 \\pmod 8$, because $3^2 = 9 \\equiv 1 \\pmod 8$.',
+      'Hence the sum $\\equiv -1 + 3 = 2 \\pmod 8$ — remainder $2$, by neighbour reads alone.',
+    ] },
+    { kind: 'para', text: 'The same neighbour read, applied to a SQUARE, produces the parity pair that fractional-part questions ride. Because $5^2 = 25 = 26 - 1 \\equiv -1 \\pmod{13}$, every even power of $5$ is one sign-flip away from being pinned:' },
+    { kind: 'equation', latex: '5^{2n} = (5^2)^n \\equiv (-1)^n \\pmod{13} \\tag{7}', note: 'the parity pair: even $n$ leaves remainder $1$, odd $n$ leaves remainder $12$ — the fractional part of $\\tfrac{5^{2n}}{13}$ follows immediately.' },
+    { kind: 'example', title: 'Find the fractional part of $\\tfrac{5^{2n}}{13}$ for even $n$ and for odd $n$, and pin the year-sized witness $5^{2024}$.', steps: [
+      'The congruence: $5^{2n} \\equiv (-1)^n \\pmod{13}$, so the remainder is $1$ or $12$ depending on the parity of $n$.',
+      'So, even $n$: $5^{2n} = 13q + 1$, hence $\\tfrac{5^{2n}}{13} = q + \\tfrac{1}{13}$ — fractional part $\\tfrac{1}{13}$.',
+      'Now, odd $n$: the remainder is $12$, so $\\tfrac{5^{2n}}{13}$ ends in $\\tfrac{12}{13}$ — fractional part $\\tfrac{12}{13}$.',
+      'Check the witness: $5^{2024} = 5^{2 \\cdot 1012}$ with $1012$ even — remainder $1$, fractional part $\\tfrac{1}{13}$, and the engine confirms $5^{2024} \\equiv 1 \\pmod{13}$.',
+    ] },
+    { kind: 'para', text: 'Now the section’s showpiece: a question about a SURD POWER answered by an exact integer. The instrument is the conjugate pair — the surd power plus its mirror image — and the derivation below builds it.' },
+    { kind: 'derivation', title: 'The conjugate-pair identity: (a+b)^n + (a−b)^n = 2(even part)', statement: 'Adding a binomial power to its mirror image cancels every seat that carries an odd power of $b$; what survives is the even part, doubled — a pure integer when $a$ and $b$ are square roots.', steps: [
+      { label: 'Write both rows at n = 4', formula: '(a+b)^4 = a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4', explanation: 'the finite row of lesson 7.2, written out where every seat is visible.' },
+      { label: 'The mirror row', formula: '(a-b)^4 = a^4 - 4a^3b + 6a^2b^2 - 4ab^3 + b^4', explanation: 'same seats, the sign of every odd-$b$ seat flipped.' },
+      { label: 'Add seat by seat', formula: '(a+b)^4 + (a-b)^4 = 2a^4 + 12a^2b^2 + 2b^4 = 2\\left(a^4 + 6a^2b^2 + b^4\\right)', explanation: 'the odd seats cancel in pairs — only the even seats survive, doubled.' },
+      { label: 'State the general law', formula: '(a+b)^n + (a-b)^n = 2\\!\\sum_{j \\ \\mathrm{even}} \\tbinom{n}{j} a^{n-j} b^j', explanation: 'at any index, every odd seat cancels against its mirror; the even seats double. No surd with an odd $b$-count survives.' },
+      { label: 'The surd witness', formula: '(\\sqrt5+\\sqrt2)^4 + (\\sqrt5-\\sqrt2)^4 = 2(25 + 60 + 4) = 178', explanation: 'at $a = \\sqrt5$, $b = \\sqrt2$: $a^4 = 25$, $6a^2b^2 = 60$, $b^4 = 4$ — pure integers, no surd in sight.' },
+    ], result: '$(a+b)^n + (a-b)^n = 2\\sum_{j \\ \\mathrm{even}} \\binom{n}{j} a^{n-j} b^j$ — the even part doubled; for square-root $a, b$ this is an exact integer, the surd tail cancelled completely.' },
+    { kind: 'example', title: 'Find the smallest integer larger than $(\\sqrt5+\\sqrt2)^4$.', steps: [
+      'Summon the conjugate pair: $(\\sqrt5+\\sqrt2)^4 + (\\sqrt5-\\sqrt2)^4 = 2(25 + 60 + 4) = 178$ — the even-part identity, an exact integer.',
+      'Now, size the mirror: $(\\sqrt5-\\sqrt2)^4 \\approx 0.4562$, which lies strictly between $0$ and $1$.',
+      'So, $(\\sqrt5+\\sqrt2)^4 = 178 - 0.4562 \\approx 177.5438$, which lies strictly between $177$ and $178$.',
+      'Hence the smallest integer larger than $(\\sqrt5+\\sqrt2)^4$ is $178$ — the conjugate sum itself, the mirror being too small to reach the next integer down.',
+    ] },
+    { kind: 'para', text: 'The trick generalises verbatim: whenever $a > b > 0$ with $a - b$ small, the mirror $(a-b)^n$ is squeezed into $(0,1)$ and the smallest integer larger than $(a+b)^n$ is the conjugate sum — the exercise set runs it at $(\\sqrt7+\\sqrt3)^4 = 184 + 40\\sqrt{21} \\approx 367.30$, whose mirror $(\\sqrt7-\\sqrt3)^4$ again lives in $(0,1)$, so the answer is the even part $368$. One more divisibility classic closes the section, stated here with its witness and proved in the exercise set: strip the corner seats from $(a+b)^n$ and every surviving seat carries the factor $ab$.' },
+    { kind: 'equation', latex: '(a+b)^n - a^n - b^n = \\sum_{r=1}^{n-1} \\tbinom{n}{r} a^{n-r} b^r \\tag{8}', note: 'the interior seats: each carries a factor $ab$, and for odd $n$ the mirrored pairs $r \\leftrightarrow n-r$ each carry a further factor $(a+b)$ — so the whole sum is divisible by $ab(a+b)$ for every odd $n$.' },
+    { kind: 'para', text: 'The pairing at the heart of that law: $\\tbinom{n}{r}a^{n-r}b^r + \\tbinom{n}{n-r}a^r b^{n-r} = \\tbinom{n}{r}a^r b^r\\left(a^{n-2r} + b^{n-2r}\\right)$, and when $n$ is odd the exponent $n - 2r$ is odd, so the bracket splits by the odd-power sum rule into a multiple of $a + b$. The witness at $n = 5$: $(2+3)^5 - 2^5 - 3^5 = 3125 - 32 - 243 = 2850 = 30 \\cdot 95$, exactly $ab(a+b) = 2 \\cdot 3 \\cdot 5$ times an integer. The full pairing proof is exercise L6-1 — and it needs no induction either.' },
+    { kind: 'para', text: 'From the above discussion, the divisibility reflex has three reads, one per engine:' },
+    { kind: 'list', marker: 'roman', items: [
+      '**(i) the neighbour read:** $7 \\equiv -1 \\pmod 8$ with odd exponent gives $-1$; $11 \\equiv 3$ and $3^{51} = 3 \\cdot (3^2)^{25} \\equiv 3$; the sum pins at $2$;',
+      '**(ii) the parity pair:** $5^{2n} \\equiv (-1)^n \\pmod{13}$ — remainder $1$ or $12$, fractional part $\\tfrac{1}{13}$ or $\\tfrac{12}{13}$;',
+      '**(iii) the conjugate pin:** the even part is the exact integer, the mirror lives in $(0,1)$ — and the smallest integer larger than the surd power is the conjugate sum itself.',
+    ] },
+
+    { kind: 'heading', text: 'Coefficient Hunting at Any Index — Partial Fractions and the Cancellation Engine' },
+    { kind: 'para', text: 'The last engine turns coefficient questions about rational functions into one-line reads. The raw material is banked: lesson 7.3’s frequently used rows price the $x^4$ seat of $(1-x)^{-2}$ at $5$ and the $x^8$ seat of $(1-x)^{-4}$ at $\\binom{11}{3} = 165$ without any expansion. The missing piece is the PRODUCT of such rows — $\\tfrac{1}{(1-x)(1-2x)}$, say — because multiplying two infinite rows seat by seat is a convolution, and convolutions are exactly the work this engine exists to avoid. The move: split BEFORE expanding, so that each piece is a geometric row you already own.' },
+    { kind: 'equation', latex: '\\tfrac{1}{(1-ax)(1-bx)} = \\tfrac{a}{a-b}(1-ax)^{-1} - \\tfrac{b}{a-b}(1-bx)^{-1}, \\qquad [x^n] = \\tfrac{a^{n+1} - b^{n+1}}{a-b} \\tag{9}', note: 'the partial-fraction split law: two geometric rows instead of one convolution — and the coefficient of $x^n$ is the difference of two geometric sequences over $a - b$.' },
+    { kind: 'example', title: 'Find the coefficient of $x^n$ in the expansion of $\\tfrac{1}{(1-x)(1-2x)}$.', steps: [
+      'Split before expanding — partial fractions by the cover-up read: $\\tfrac{1}{(1-x)(1-2x)} = -\\tfrac{1}{1-x} + \\tfrac{2}{1-2x} = -(1-x)^{-1} + 2(1-2x)^{-1}$.',
+      'So, expand both geometric rows: $-(1-x)^{-1} = -(1 + x + x^2 + \\cdots)$ and $2(1-2x)^{-1} = 2(1 + 2x + 4x^2 + 8x^3 + \\cdots)$.',
+      'Now, the $x^n$ seat collects $-1$ from the first row and $2 \\cdot 2^n$ from the second: the coefficient is $2^{n+1} - 1$.',
+      'Check the seats: $n = 0, 1, 2, 3, 4$ read $1, 3, 7, 15, 31$ — the Mersenne family, engine-verified seat by seat for $n \\leq 10$.',
+    ] },
+    { kind: 'para', text: 'When the denominator is a quadratic, the split needs one extra beat — FACTOR first, then cover up. And when it is a product of three linear factors, the cover-up method runs three times in a row, one hiding per factor, and the coefficient law assembles itself.' },
+    { kind: 'example', title: 'Find the coefficient of $x^n$ in $(1-5x+6x^2)^{-1}$.', steps: [
+      'Factor the quadratic denominator first: $1 - 5x + 6x^2 = (1-2x)(1-3x)$.',
+      'So, split by cover-up: at $x = \\tfrac{1}{2}$ the surviving factor is $1 - \\tfrac{3}{2} = -\\tfrac{1}{2}$, pricing the $(1-2x)^{-1}$ piece at $-2$; at $x = \\tfrac{1}{3}$ it is $1 - \\tfrac{2}{3} = \\tfrac{1}{3}$, pricing the $(1-3x)^{-1}$ piece at $3$.',
+      'Now, read the $x^n$ seat of $-2(1-2x)^{-1} + 3(1-3x)^{-1}$: it collects $-2 \\cdot 2^n + 3 \\cdot 3^n = 3^{n+1} - 2^{n+1}$.',
+      'Check the seats: $n = 0, 1, 2, 3, 4$ read $1, 5, 19, 65, 211$ — and $3^1 - 2^1 = 1$ matches the function’s value at $x = 0$, as the constant seat must.',
+    ] },
+    { kind: 'example', title: 'Prove that the coefficient of $x^n$ in $\\tfrac{1}{(1-x)(1-3x)(1-5x)}$ is $\\tfrac{1 - 18 \\cdot 3^n + 25 \\cdot 5^n}{8}$.', steps: [
+      'Set up the three-way split: $\\tfrac{1}{(1-x)(1-3x)(1-5x)} = A(1-x)^{-1} + B(1-3x)^{-1} + C(1-5x)^{-1}$.',
+      'So, cover up each factor in turn: $A = \\tfrac{1}{(1-3)(1-5)} = \\tfrac{1}{8}$ at $x = 1$; $B = \\tfrac{1}{\\left(\\tfrac{2}{3}\\right)\\left(-\\tfrac{2}{3}\\right)} = -\\tfrac{9}{4}$ at $x = \\tfrac{1}{3}$; $C = \\tfrac{1}{\\left(\\tfrac{4}{5}\\right)\\left(\\tfrac{2}{5}\\right)} = \\tfrac{25}{8}$ at $x = \\tfrac{1}{5}$.',
+      'Now, the $x^n$ seat collects $\\tfrac{1}{8} - \\tfrac{9}{4} \\cdot 3^n + \\tfrac{25}{8} \\cdot 5^n = \\tfrac{1 - 18 \\cdot 3^n + 25 \\cdot 5^n}{8}$ — clearing the denominators to read the law in one line.',
+      'Check the $n = 0$ seat: $\\tfrac{1 - 18 + 25}{8} = \\tfrac{8}{8} = 1$ — the constant term is the function’s value at the origin, as it must be.',
+    ] },
+    { kind: 'para', text: 'The cancellation engine is the sibling trick for SUMS of binomial coefficients: instead of convolving rows, MULTIPLY by a negative-index row and let the index cancel. Its flagship identity below is proved by one multiplication — and it converts an alternating partial-sum question into a single seat read.' },
+    { kind: 'derivation', title: 'The alternating partial-sums law, by the cancellation engine', statement: 'For every $n \\geq 1$ and $0 \\leq k \\leq n$: $\\sum_{r=0}^{k} (-1)^r \\tbinom{n}{r} = (-1)^k \\tbinom{n-1}{k}$ — proved not by induction but by one cancellation.', steps: [
+      { label: 'Plant the two series', formula: '(1-x)^n = \\sum_{r=0}^{n} (-1)^r \\tbinom{n}{r} x^r, \\qquad (1-x)^{-1} = 1 + x + x^2 + \\cdots', explanation: 'the finite row of lesson 7.2 beside the geometric engine of lesson 7.3, both valid for $|x| < 1$.' },
+      { label: 'Cancel before expanding', formula: '(1-x)^n (1-x)^{-1} = (1-x)^{n-1}', explanation: 'the $(1-x)$ factor divides out — a genuine identity of series, and the whole proof.' },
+      { label: 'Read the x^k seat on both sides', formula: '\\sum_{r=0}^{k} (-1)^r \\tbinom{n}{r} = (-1)^k \\tbinom{n-1}{k}', explanation: 'the product’s $x^k$ seat collects every way to build $x^k$ — the alternating partial sum; the right side’s seat is one coefficient.' },
+      { label: 'Witness at n = 7, k = 4', formula: '1 - 7 + 21 - 35 + 35 = 15 = \\tbinom{6}{4}', explanation: 'the partial sums walk $1, -6, 15, -20, 15$ — the fifth step lands exactly on $\\tbinom{6}{4}$, as the drawn walk in the exercise shows.' },
+    ], result: '$\\sum_{r=0}^{k} (-1)^r \\binom{n}{r} = (-1)^k \\binom{n-1}{k}$ — engine-verified for every $n \\leq 12$ and all $k \\leq n$; the entire proof is one cancellation, $(1-x)^n(1-x)^{-1} = (1-x)^{n-1}$.' },
+    { kind: 'example', title: 'Find the coefficient of $x^8$ in $(1-x)^{15}(1-x)^{-3}$.', steps: [
+      'Cancel before expanding — the engine at its simplest: $(1-x)^{15}(1-x)^{-3} = (1-x)^{12}$, the negative index dividing out.',
+      'So, the $x^8$ seat of $(1-x)^{12}$ is $\\tbinom{12}{8}$ by lesson 7.2’s row.',
+      'Now, the arithmetic: $\\tbinom{12}{8} = \\tbinom{12}{4} = \\tfrac{12 \\cdot 11 \\cdot 10 \\cdot 9}{24} = 495$.',
+      'Hence $495$ — one line of cancellation replaced a fifteen-by-three convolution of sixteen rows.',
+    ] },
+    { kind: 'para', text: 'One shape remains, and it closes the loop back to lesson 7.3’s fractional indices: the FIRST NEGATIVE TERM. For a positive index every seat of $(1+x)^n$ is positive when $x > 0$; for a fractional index the falling factors $n, n-1, n-2, \\ldots$ descend past zero and turn negative one seat at a time — so the row’s signs flip at a computable place.' },
+    { kind: 'example', title: 'Find the first negative term in the expansion of $(1+x)^{9/2}$ for $x > 0$.', steps: [
+      'Write the general term: $T_{r+1} = \\tfrac{\\left(\\tfrac{9}{2}\\right)\\left(\\tfrac{9}{2}-1\\right)\\cdots\\left(\\tfrac{9}{2}-r+1\\right)}{r!}\\,x^r$ — the falling factors carry every sign.',
+      'So, list them: $\\tfrac{9}{2},\\; \\tfrac{7}{2},\\; \\tfrac{5}{2},\\; \\tfrac{3}{2},\\; \\tfrac{1}{2},\\; -\\tfrac{1}{2},\\; \\ldots$ — the factors stay positive down to the fifth and the SIXTH turns negative.',
+      'Now, with $x > 0$ the sign of each term is the sign of its coefficient: $T_1$ through $T_6$ are positive, and at $r = 6$ the falling factorial acquires its first negative factor.',
+      'Hence the first negative term is the 7th, $T_7$ — the fractional index descends past zero at a computable seat, and the row’s signs flip exactly there.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'Three engines, one philosophy', text: 'Linearization, conjugate pairing and partial fractions look like three tricks; they are one move worn three ways: CHANGE THE OBJECT so the expensive part cancels before you compute. Drop the $x^2$ mass and the arithmetic quarters; add the mirror image and the surd tail dies; split the denominator and the convolution never happens. In every case the algebra you refuse to do is algebra the theorem does for free — the difference between a tool you have memorised and a tool you own, and exactly what the examination room pays for.' },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner', text: 'This lesson carries some of the highest-yield binomial material on JEE-style papers. The shapes, in frequency order: the first/second-order approximation MCQ — "(1.02)^5 to first order is" — with the second-order value sitting among the options as the classic trap; the root estimate to a stated precision ($\\sqrt[3]{65}$-class, "correct to four decimal places"); the remainder-on-division and fractional-part reads ($7^{101} + 11^{51}$-class mod-8 arithmetic, $5^{2n}/13$-class parity pairs); the smallest-integer-larger-than-a-surd-power classic ($(\\sqrt5+\\sqrt2)^4$-class, one conjugate line); and the partial-fraction coefficient hunt at two and three factors, plus the first-negative-term seat for fractional indices. Every item in this lesson’s sets is exam-style — written for this book, not lifted from any paper; the methods, not the questions, are the syllabus’s property.' },
+    { kind: 'quiz', title: 'Check yourself: binomial applications and approximations', items: [
+      { q: 'To first order, $(1.02)^5 \\approx$', options: ['1.104', '1.1', '1.01', '1.2'], answer: 1, explain: 'Option 1 is the two-seat read: $1 + 5(0.02) = 1.1$ — first order means keeping exactly the $1 + nx$ seats and no more. Option 0’s $1.104$ is the SECOND-order value, the honest two-term-plus-$x^2$ read — the right number for the wrong order, and precisely the trap the honest-error column exists to catch. Option 2’s $1.01$ forgets the index: it is the $n = 1$ read $1 + 1(0.02)$. Option 3’s $1.2$ uses $n = 10$: $1 + 10(0.02)$ — the right shape, the wrong row.' },
+      { q: '$\\sqrt[3]{65} \\approx$', options: ['4.208', '4.5', '4.0208', '3.9'], answer: 2, explain: 'Option 2 is the seat-and-read: $\\sqrt[3]{65} = 4\\left(1 + \\tfrac{1}{64}\\right)^{1/3} \\approx 4\\left(1 + \\tfrac{1}{192}\\right) \\approx 4.0208$ — the template’s $a + \\tfrac{ax}{k}$ seat at $a = 4$, $x = \\tfrac{1}{64}$, $k = 3$. Option 0’s $4.208$ divides by $19.2$ instead of $192$ — the decimal slipped one seat. Option 1’s $4.5$ interpolates toward the NEXT cube as if roots travelled linearly — $65$ is one unit above $64$, not halfway to $125$. Option 3’s $3.9$ rounds DOWN, impossible: the cube root of $64\\left(1 + \\tfrac{1}{64}\\right)$ must exceed $4$ — Bernoulli’s direction.' },
+      { q: 'The remainder when $7^{101} + 11^{51}$ is divided by $8$ is', options: ['0', '1', '2', '4'], answer: 2, explain: 'Option 2 is the neighbour read: $7 = 8 - 1 \\equiv -1 \\pmod 8$, and the odd exponent gives $7^{101} \\equiv -1$; $11 \\equiv 3 \\pmod 8$, and $3^{51} = 3 \\cdot (3^2)^{25} \\equiv 3 \\cdot 1 = 3$ because $3^2 = 9 \\equiv 1$. The sum pins at $-1 + 3 = 2$. Option 0 assumes the two residues cancel — they do not. Option 1 reduces $3^{51}$ to $1$, which needs an even power of $3^2$, not the odd $51$. Option 4’s $4$ would require a residue pair summing to $4$ — no seat produces it.' },
+      { q: 'The smallest integer larger than $(\\sqrt5+\\sqrt2)^4$ is', options: ['177', '178', '176', '180'], answer: 1, explain: 'Option 1 is the conjugate seat: $(\\sqrt5+\\sqrt2)^4 + (\\sqrt5-\\sqrt2)^4 = 2(25 + 60 + 4) = 178$ exactly, and the mirror $(\\sqrt5-\\sqrt2)^4 \\approx 0.4562$ lies strictly in $(0,1)$, so $(\\sqrt5+\\sqrt2)^4 \\approx 177.5438$ lies in $(177, 178)$ — the smallest integer larger is the conjugate sum itself, $178$. Option 0’s $177$ is the floor, but the question asks for the ceiling. Option 2’s $176$ subtracts a whole unit, as if the mirror exceeded $1$. Option 3’s $180$ abandons the pin altogether — the surd power is nowhere near it.' },
+      { q: 'The coefficient of $x^n$ in $(1-5x+6x^2)^{-1}$ is', options: ['$5^{n+1} - 4^{n+1}$', '$3^{n+1} - 2^{n+1}$', '$6^{n+1} - 5^{n+1}$', '$2^{n+1} - 1$'], answer: 1, explain: 'Option 1 is the split: factor $1 - 5x + 6x^2 = (1-2x)(1-3x)$, then $(1-5x+6x^2)^{-1} = -2(1-2x)^{-1} + 3(1-3x)^{-1}$, so the $x^n$ seat collects $-2 \\cdot 2^n + 3 \\cdot 3^n = 3^{n+1} - 2^{n+1}$. Option 0 uses the bases $5$ and $4$ — the roots of the WRONG quadratic $1 - 9x + 20x^2$. Option 2 multiplies the two roots $2 \\cdot 3$ into a $6$-base family — no such split exists. Option 3 is the Mersenne law $2^{n+1} - 1$ — the right law for $\\tfrac{1}{(1-x)(1-2x)}$, pasted onto the wrong denominator.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises 7.6', sets: [
+      { level: 'L1', questions: [
+        { q: 'Estimate $(1.03)^6$ to first order, and say what you dropped. (exam-style)', solution: [
+          'The setup: $(1.03)^6 = (1 + 0.03)^6$, so the engine runs at $x = 0.03$ — comfortably small.',
+          'So, the first-order read: $(1.03)^6 \\approx 1 + 6(0.03) = 1.18$.',
+          'Now, name the dropped mass: everything from the $x^2$ seat on, beginning at $\\tbinom{6}{2}x^2$ — so the true value sits ABOVE the read, as Bernoulli (lesson 7.1) certifies for a positive-integer index.',
+          'Hence the estimate is $1.18$ — a two-seat read whose error is honestly classified as second-order.',
+        ], answer: '1.18' },
+        { q: 'Using the frequently used rows of lesson 7.3, state the coefficient of $x^4$ in $(1-x)^{-2}$ without expanding anything.', solution: [
+          'The row is banked in 7.3: $(1-x)^{-2} = 1 + 2x + 3x^2 + 4x^3 + 5x^4 + \\cdots$, seats $r + 1$.',
+          'So, the $x^4$ seat sits at $r = 4$: the coefficient is $5$.',
+          'Check by the counting-row law: the seat of $x^r$ in $(1-x)^{-n}$ is $\\tbinom{n+r-1}{r}$, here $\\tbinom{5}{4} = 5$.',
+          'Hence $5$ — one recycled row, zero expansion.',
+        ], answer: '5' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Find the remainder when $5^{2024}$ is divided by $13$. (exam-style)', solution: [
+          'The key congruence: $5^2 = 25 \\equiv -1 \\pmod{13}$, so every even power satisfies $5^{2n} = (5^2)^n \\equiv (-1)^n \\pmod{13}$.',
+          'So, $2024 = 2 \\cdot 1012$ with $1012$ even: $5^{2024} \\equiv (-1)^{1012} \\equiv 1 \\pmod{13}$.',
+          'Hence the remainder is $1$.',
+          'Check the twin seat: an odd half-exponent would leave remainder $12$ — the parity pair the fractional-part reads ride.',
+        ], answer: '1' },
+        { q: 'Estimate $\\sqrt{99}$ to four decimal places, stating the honest error. (exam-style)', solution: [
+          'Seat the root at the nearest perfect square: $99 = 100(1 - 0.01)$, so $\\sqrt{99} = 10(1 - 0.01)^{1/2}$.',
+          'First order: $10(1 - 0.005) = 9.95$ — only three reliable figures so far.',
+          'So, second order adds the $-\\tfrac{x^2}{8}$ seat at $x = 0.01$: $10\\left(1 - 0.005 - 0.0000125\\right) = 9.949875$.',
+          'Hence $\\sqrt{99} \\approx 9.9499$ to four decimal places; the true value is $9.9498743$, so the second-order read is long by $0.0000007$ — comfortably inside the fourth decimal.',
+        ], answer: '9.9499' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Find the coefficient of $x^n$ in the expansion of $\\dfrac{1}{(1-x)(1-2x)}$.', solution: [
+          'Split before expanding — partial fractions by the cover-up read: $\\dfrac{1}{(1-x)(1-2x)} = -\\dfrac{1}{1-x} + \\dfrac{2}{1-2x} = -(1-x)^{-1} + 2(1-2x)^{-1}$.',
+          'So, expand both geometric rows: $-(1-x)^{-1} = -(1 + x + x^2 + \\cdots)$ and $2(1-2x)^{-1} = 2(1 + 2x + 4x^2 + 8x^3 + \\cdots)$.',
+          'Now, the $x^n$ seat collects $-1$ from the first row and $2 \\cdot 2^n$ from the second: the coefficient is $2^{n+1} - 1$.',
+          'Check the seats: $n = 0, 1, 2, 3, 4$ read $1, 3, 7, 15, 31$ — the Mersenne family, engine-verified seat by seat for $n \\leq 10$.',
+        ], answer: '$2^{n+1} - 1$' },
+        { q: 'Approximate $(0.98)^5$ to three decimal places, with the honest error stated.', solution: [
+          'The setup: $(0.98)^5 = (1 - 0.02)^5$, so $x = -0.02$ and $n = 5$.',
+          'First order: $1 - 5(0.02) = 0.90$ — not yet three-decimal material.',
+          'So, second order adds the $\\tbinom{5}{2}x^2$ seat: $1 - 0.1 + 10(0.0004) = 0.904$.',
+          'Hence $(0.98)^5 \\approx 0.904$ to three decimals; the true value is $0.9039207968$, so the second-order read runs long by $0.0000792$ — inside the third decimal place.',
+        ], answer: '0.904' },
+        { q: 'Show that $(\\sqrt7+\\sqrt3)^4 + (\\sqrt7-\\sqrt3)^4 = 368$, and find the smallest integer larger than $(\\sqrt7+\\sqrt3)^4$.', solution: [
+          'The conjugate-pair identity: $(a+b)^4 + (a-b)^4 = 2\\left(a^4 + 6a^2b^2 + b^4\\right)$, the odd seats having cancelled.',
+          'Substitute $a = \\sqrt7$, $b = \\sqrt3$: $a^4 = 49$, $6a^2b^2 = 6 \\cdot 21 = 126$, $b^4 = 9$, so the sum is $2(49 + 126 + 9) = 368$ — an exact integer.',
+          'Now, size the mirror: $(\\sqrt7-\\sqrt3)^2 = 10 - 2\\sqrt{21} \\approx 0.835$ already lies in $(0,1)$, so $(\\sqrt7-\\sqrt3)^4$ lies strictly between $0$ and $1$.',
+          'So, $(\\sqrt7+\\sqrt3)^4 = 184 + 40\\sqrt{21} \\approx 367.30$, which lies strictly between $367$ and $368$.',
+          'Hence the smallest integer larger than $(\\sqrt7+\\sqrt3)^4$ is $368$ — the conjugate sum itself.',
+        ], answer: '368' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Prove that for small $x$, $(1+2x)^{-3}\\left(1-\\tfrac{x}{2}\\right)^{1/2}\\left(1+\\tfrac{x}{4}\\right)^{-1} \\approx 1 - \\tfrac{13}{2}x$, and compute both sides at $x = 0.01$.', solution: [
+          'Linearize each factor by the $(1+u)^n \\approx 1 + nu$ read: $(1+2x)^{-3} \\approx 1 - 6x$; $\\left(1 - \\tfrac{x}{2}\\right)^{1/2} \\approx 1 - \\tfrac{x}{4}$; $\\left(1 + \\tfrac{x}{4}\\right)^{-1} \\approx 1 - \\tfrac{x}{4}$.',
+          'So, multiply the three reads and drop every $x^2$ crossing: the linear coefficient is $(-3)(2) + \\left(\\tfrac{1}{2}\\right)\\left(-\\tfrac{1}{2}\\right) + (-1)\\left(\\tfrac{1}{4}\\right) = -6 - \\tfrac{1}{4} - \\tfrac{1}{4} = -\\tfrac{13}{2}$.',
+          'Now, price it: at $x = 0.01$ the linearization reads $1 - \\tfrac{13}{2}(0.01) = 0.935$.',
+          'Check the honesty column: the true value at $x = 0.01$ is $\\approx 0.9376$, so the gap is $\\approx 0.0026$ — exactly the dropped $x^2$ mass, the $(1+2x)^{-3}$ factor alone contributing $24x^2 = 0.0024$.',
+          'Hence the read $1 - \\tfrac{13}{2}x$ with the error budget located: the gap is second-order and its dominant part is named.',
+        ], answer: 'the linearization is $1 - \\tfrac{13}{2}x$; at $x = 0.01$ it reads $0.935$ against the true $\\approx 0.9376$ — gap $\\approx 0.0026$, the dropped $x^2$ mass' },
+        { q: 'Find the coefficient of $x^n$ in $(1-5x+6x^2)^{-1}$. (exam-style)', solution: [
+          'Factor the quadratic denominator first: $1 - 5x + 6x^2 = (1-2x)(1-3x)$.',
+          'So, split by cover-up: at $x = \\tfrac{1}{2}$ the surviving denominator is $1 - \\tfrac{3}{2} = -\\tfrac{1}{2}$, pricing the $(1-2x)^{-1}$ piece at $-2$; at $x = \\tfrac{1}{3}$ it is $1 - \\tfrac{2}{3} = \\tfrac{1}{3}$, pricing the $(1-3x)^{-1}$ piece at $3$.',
+          'Now, read the $x^n$ seat of $-2(1-2x)^{-1} + 3(1-3x)^{-1}$: it collects $-2 \\cdot 2^n + 3 \\cdot 3^n$.',
+          'Hence the coefficient of $x^n$ is $3^{n+1} - 2^{n+1}$ — and the seats read $1, 5, 19, 65, 211$ at $n = 0, \\ldots, 4$, exactly the split picture’s combined row.',
+        ], answer: '$3^{n+1} - 2^{n+1}$', figures: [
+          { caption: 'The partial-fraction split as two stacked geometric-row bands meeting at the combined coefficient row: the amber $3 \\cdot 3^n$ band (values $3, 9, 27, 81, 243$ at $n = 0, \\ldots, 4$) and the red $-2 \\cdot 2^n$ band ($-2, -4, -8, -16, -32$) sum column by column into $3^{n+1} - 2^{n+1}$ — the combined row $1, 5, 19, 65, 211$.', svg: partialFractionBands76Svg() },
+        ] },
+        { q: 'Find the first negative term in the expansion of $(1+x)^{9/2}$ for $x > 0$.', solution: [
+          'The general term: $T_{r+1} = \\tfrac{\\left(\\tfrac{9}{2}\\right)\\left(\\tfrac{7}{2}\\right)\\left(\\tfrac{5}{2}\\right)\\cdots\\left(\\tfrac{9}{2} - r + 1\\right)}{r!}\\,x^r$ — the falling factors carry every sign.',
+          'So, list them: $\\tfrac{9}{2}, \\tfrac{7}{2}, \\tfrac{5}{2}, \\tfrac{3}{2}, \\tfrac{1}{2}, -\\tfrac{1}{2}, \\ldots$ — the factors stay positive down to the fifth, and the SIXTH factor ($r = 6$) is the first to go negative.',
+          'Now, with $x > 0$ the sign of each term is the sign of its coefficient: $T_1$ through $T_6$ are positive, and the seventh term carries its first negative factor.',
+          'Hence the first negative term is the 7th, $T_7$ — the row’s signs flip exactly where the falling factorial crosses zero.',
+        ], answer: 'the 7th term $T_7$' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Prove that the coefficient of $x^n$ in $\\dfrac{1}{(1-x)(1-3x)(1-5x)}$ is $\\dfrac{1 - 18 \\cdot 3^n + 25 \\cdot 5^n}{8}$, verifying the $n = 0$ seat.', solution: [
+          'Set up the split: $\\dfrac{1}{(1-x)(1-3x)(1-5x)} = A(1-x)^{-1} + B(1-3x)^{-1} + C(1-5x)^{-1}$.',
+          'So, cover up each factor: $A = \\dfrac{1}{(1-3)(1-5)} = \\dfrac{1}{8}$ at $x = 1$; $B = \\dfrac{1}{\\left(\\tfrac{2}{3}\\right)\\left(-\\tfrac{2}{3}\\right)} = -\\dfrac{9}{4}$ at $x = \\tfrac{1}{3}$; $C = \\dfrac{1}{\\left(\\tfrac{4}{5}\\right)\\left(\\tfrac{2}{5}\\right)} = \\dfrac{25}{8}$ at $x = \\tfrac{1}{5}$.',
+          'Now, the $x^n$ seat collects $\\tfrac{1}{8} - \\tfrac{9}{4} \\cdot 3^n + \\tfrac{25}{8} \\cdot 5^n = \\dfrac{1 - 18 \\cdot 3^n + 25 \\cdot 5^n}{8}$ — clearing denominators to read the law in one line.',
+          'Check the $n = 0$ seat: $\\dfrac{1 - 18 + 25}{8} = \\dfrac{8}{8} = 1$ — the constant term is the function’s value at the origin, as it must be.',
+          'Hence the coefficient law as stated — three geometric rows, one line of cover-up, no convolution anywhere.',
+        ], answer: '$\\dfrac{1 - 18 \\cdot 3^n + 25 \\cdot 5^n}{8}$' },
+        { q: 'Prove that $\\sum_{r=0}^{k} (-1)^r \\tbinom{n}{r} = (-1)^k \\tbinom{n-1}{k}$ by the cancellation engine $(1-x)^n (1-x)^{-1} = (1-x)^{n-1}$, verifying the law at $n = 7$, $k = 4$.', solution: [
+          'Plant both series inside the window $|x| < 1$: $(1-x)^n = \\sum_{r=0}^{n} (-1)^r \\tbinom{n}{r} x^r$ and $(1-x)^{-1} = 1 + x + x^2 + \\cdots$ — the finite row times the geometric engine.',
+          'So, cancel before expanding: $(1-x)^n (1-x)^{-1} = (1-x)^{n-1}$ — the negative index divides out, a genuine series identity.',
+          'Now, read the coefficient of $x^k$ on both sides: the product’s seat collects $\\sum_{r=0}^{k} (-1)^r \\tbinom{n}{r}$ — every way to build $x^k$ — and the right side’s seat is $(-1)^k \\tbinom{n-1}{k}$.',
+          'Hence the law, engine-verified for every $n \\leq 12$ and all $k \\leq n$.',
+          'Check the witness $n = 7$, $k = 4$: the walk $1 - 7 + 21 - 35 + 35$ runs through the partial sums $1, -6, 15, -20$ and lands on $15 = \\tbinom{6}{4}$ — the drawn walk’s five steps.',
+        ], answer: 'the law $\\sum_{r=0}^{k} (-1)^r \\tbinom{n}{r} = (-1)^k \\tbinom{n-1}{k}$; witness $1 - 7 + 21 - 35 + 35 = 15 = \\tbinom{6}{4}$', figures: [
+          { caption: 'The partial-sum walk of $1 - 7 + 21 - 35 + 35$: five oscillating steps through the partial sums $0, 1, -6, 15, -20$, closing on $15 = \\tbinom{6}{4}$ — the emphasized zero line is the number line the partial sums live on.', svg: partialSumWalk76Svg() },
+        ] },
+        { q: 'Compute the coefficient of $x^8$ in $(1-x)^{15}(1-x)^{-3}$.', solution: [
+          'Cancel before expanding — the engine at its simplest: $(1-x)^{15}(1-x)^{-3} = (1-x)^{12}$.',
+          'So, the $x^8$ seat of $(1-x)^{12}$ is $\\tbinom{12}{8}$ by lesson 7.2’s row.',
+          'Now, the arithmetic: $\\tbinom{12}{8} = \\tbinom{12}{4} = \\tfrac{12 \\cdot 11 \\cdot 10 \\cdot 9}{24} = 495$.',
+          'Hence $495$ — one line of cancellation replaced a fifteen-by-three convolution.',
+        ], answer: '495' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Prove that $(a+b)^n - a^n - b^n$ is divisible by $ab(a+b)$ for every odd $n$, and verify the witness $(2+3)^5 - 2^5 - 3^5 = 2850 = 30 \\cdot 95$.', solution: [
+          'Strip the corner seats: $(a+b)^n - a^n - b^n = \\sum_{r=1}^{n-1} \\tbinom{n}{r} a^{n-r} b^r$ — the interior seats alone, and every one of them carries a factor $ab$.',
+          'So, pair each interior seat with its mirror, $r \\leftrightarrow n - r$: $\\tbinom{n}{r}a^{n-r}b^r + \\tbinom{n}{n-r}a^r b^{n-r} = \\tbinom{n}{r}\\, a^r b^r\\left(a^{n-2r} + b^{n-2r}\\right)$, using $\\tbinom{n}{n-r} = \\tbinom{n}{r}$.',
+          'Now, for ODD $n$ the exponent $n - 2r$ is odd for every whole-number $r$, and an odd-power sum splits as $a^{m} + b^{m} = (a+b)\\left(a^{m-1} - a^{m-2}b + \\cdots - ab^{m-2} + b^{m-1}\\right)$ with $m = n - 2r$ odd — so each mirrored pair carries the factor $(a+b)$.',
+          'Hence every pair — and so the whole interior sum — is divisible by $a^r b^r (a+b)$, in particular by $ab(a+b)$: the divisibility is proved for every odd $n$, no induction written.',
+          'Check the witness: $(2+3)^5 - 2^5 - 3^5 = 3125 - 32 - 243 = 2850$, and $2850 = 30 \\cdot 95$ with $30 = 2 \\cdot 3 \\cdot 5 = ab(a+b)$ — exactly as promised.',
+        ], answer: 'divisible by $ab(a+b)$ for every odd $n$; witness $2850 = 30 \\cdot 95$' },
+        { q: 'Prove the error-discipline statement for $(1+x)^{1/2}$: at each of $x = 0.01, 0.05, 0.1$, the second-order read beats the linear read by a factor greater than $20$; state the three concrete error pairs, and the regime in which the linear read alone suffices.', solution: [
+          'The three linear errors, engine-computed against $\\sqrt{1+x}$: at $x = 0.01$: $\\left|1.005 - 1.0049876\\right| = 1.24 \\times 10^{-5}$; at $x = 0.05$: $\\left|1.025 - 1.0246951\\right| = 3.05 \\times 10^{-4}$; at $x = 0.1$: $\\left|1.05 - 1.0488088\\right| = 1.19 \\times 10^{-3}$.',
+          'So, the three quadratic errors, with the $-\\tfrac{x^2}{8}$ seat included: $6.2 \\times 10^{-8}$, $7.6 \\times 10^{-6}$ and $5.9 \\times 10^{-5}$ respectively.',
+          'Now, the gains: $\\approx 200\\times$, $\\approx 40\\times$ and $\\approx 20\\times$ — every one strictly greater than $20$, and the gain GROWS as $x$ shrinks.',
+          'Hence the discipline statement is proved; and the regime: the linear read alone suffices for three significant figures — its worst error here, $1.19 \\times 10^{-3}$ at $x = 0.1$, sits in the fourth significant figure of $\\approx 1.05$ — while the second-order read is already good to $10^{-4}$ at the very same $x$.',
+        ], answer: 'gains $\\approx 200\\times, 40\\times, 20\\times$ (all $> 20$); linear errors $1.24 \\times 10^{-5}, 3.05 \\times 10^{-4}, 1.19 \\times 10^{-3}$ vs quadratic $6.2 \\times 10^{-8}, 7.6 \\times 10^{-6}, 5.9 \\times 10^{-5}$ — the linear read suffices for three significant figures' },
+      ] },
+    ] },
+    { kind: 'formula', name: 'The linear read (first order)', latex: '(1+x)^n \\approx 1 + nx \\quad (|x| \\ \\text{small, any rational } n)', note: 'the two-seat read; at integer indices Bernoulli (lesson 7.1) makes it a certified lower bound, and the dropped mass begins at the $\\tbinom{n}{2}x^2$ seat.' },
+    { kind: 'formula', name: 'The second-order read', latex: '(1+x)^n \\approx 1 + nx + \\tfrac{n(n-1)}{2!}x^2', note: 'one more seat, roughly two more decimals — the error now begins at the $x^3$ seat, so halving $x$ cuts it eightfold.' },
+    { kind: 'formula', name: 'The multi-factor linearization', latex: '\\prod_i \\left(1 + a_i x\\right)^{n_i} \\approx 1 + \\left(\\sum_i n_i a_i\\right)x', note: 'linearize each factor, add the linear coefficients, drop every $x^2$ crossing — the three-factor exhibit’s $-\\tfrac{13}{2}$.' },
+    { kind: 'formula', name: 'The root-estimate template', latex: 'a(1+x)^{1/k} \\approx a + \\tfrac{ax}{k} \\quad \\text{for } \\sqrt[k]{a^k + \\epsilon},\\ \\epsilon \\ \\text{small}', note: 'seat the root at the nearest perfect power: $\\sqrt[3]{65} \\approx 4 + \\tfrac{4}{192}$, $\\sqrt{26} \\approx 5 + \\tfrac{1}{50}$, $\\sqrt{99} \\approx 10 - 0.05$.' },
+    { kind: 'formula', name: 'The conjugate-pair even part', latex: '(a+b)^n + (a-b)^n = 2\\!\\sum_{j \\ \\mathrm{even}} \\tbinom{n}{j} a^{n-j} b^j', note: 'the odd seats cancel against the mirror; at $n = 4$: $2\\left(a^4 + 6a^2b^2 + b^4\\right)$ — an exact integer when $a, b$ are square roots.' },
+    { kind: 'formula', name: 'The smallest-integer-larger seat', latex: '0 < (a-b)^n < 1 \\ \\Longrightarrow\\ \\text{the smallest integer larger than } (a+b)^n \\text{ is } (a+b)^n + (a-b)^n', note: 'the surd power plus its mirror IS the integer sought: $(\\sqrt5+\\sqrt2)^4 \\to 178$, $(\\sqrt7+\\sqrt3)^4 \\to 368$.' },
+    { kind: 'formula', name: 'The partial-fraction split law', latex: '\\tfrac{1}{(1-ax)(1-bx)} = \\tfrac{a}{a-b}(1-ax)^{-1} - \\tfrac{b}{a-b}(1-bx)^{-1}, \\qquad [x^n] = \\tfrac{a^{n+1} - b^{n+1}}{a-b}', note: 'split before expanding; the cover-up method prices each row — at $a = 2, b = 1$: $2^{n+1} - 1$; at $a = 3, b = 2$: $3^{n+1} - 2^{n+1}$.' },
+    { kind: 'formula', name: 'The cancellation engine', latex: '\\sum_{r=0}^{k} (-1)^r \\tbinom{n}{r} = (-1)^k \\tbinom{n-1}{k}', note: 'from $(1-x)^n (1-x)^{-1} = (1-x)^{n-1}$: cancel before expanding — the alternating partial sums and the $495$ exhibit in one move.' },
+    { kind: 'formula', name: 'Bernoulli’s inequality (lesson 7.1)', latex: '(1+x)^n \\geq 1 + nx \\quad (x \\geq -1,\\ n \\in \\mathbb{N})', note: 'proved by induction in 7.1, cited here as the error bound — the linear read is a certified lower bound at integer indices.' },
+    { kind: 'formula', name: 'The conjugate square-root product', latex: '\\sqrt{\\tfrac{x}{x+y}} \\cdot \\sqrt{\\tfrac{x}{x-y}} = \\left(1 - \\tfrac{y^2}{x^2}\\right)^{-1/2} \\approx 1 + \\tfrac{y^2}{2x^2}', note: 'the twin surds multiply into a single $(1-u)^{-1/2}$ read; at $\\tfrac{y}{x} = 0.1$: $1.005$ against the true $1.0050378$.' },
+  ],
+}
+
+
+
+// ------------------------------------------------------------------
+// lesson 7R — authored by the run-118 swarm (agent 4-c), integrated verbatim
+// ------------------------------------------------------------------
+
+/* ------------------------------------------------------------------ */
+/* figures — original SVG, vivid palette (owner directive 2026-11-08)  */
+/* ------------------------------------------------------------------ */
+
+function decisionMap7RSvg(): string {
+  // the two-stage decision map: 'which index?' routes to the three theorem
+  // boxes (7.2 / 7.3 / 7.4); 'which object?' routes to the four engine
+  // labels (7.2 general+middle term / 7.5 coefficient engine / 7.3 rows+validity
+  // / 7.6 linearization+partial fractions); the ground bar (the row of
+  // Pascal's triangle — selection counts that induction certifies) runs
+  // underneath. Two stages stacked top-to-bottom, arrows as amber curves.
+  const questions = [
+    { y: 81, q: 'which index?', sub: 'positive · rational · k letters' },
+    { y: 255, q: 'which object?', sub: 'term · coefficient · sum · estimate' },
+  ]
+    .map(
+      (c) =>
+        `<rect x="28" y="${c.y - 23}" width="200" height="46" rx="7" fill="#fef3c7" stroke="#16a34a" stroke-width="2.2"/><text x="128" y="${c.y - 4}" font-size="11.5" font-weight="700" text-anchor="middle" fill="#166534">${c.q}</text><text x="128" y="${c.y + 13}" font-size="9.5" text-anchor="middle" fill="#0f766e">${c.sub}</text>`
+    )
+    .join('')
+  const theorems = [
+    { y: 81, t: 'the positive-index theorem — 7.2', sub: 'n + 1 terms, proved twice' },
+    { y: 135, t: 'the any-index rows — 7.3', sub: 'valid only inside |x| < 1' },
+    { y: 189, t: 'the multinomial — 7.4', sub: 'k letters, C(n+k-1, k-1) terms' },
+  ]
+    .map(
+      (c) =>
+        `<rect x="300" y="${c.y - 23}" width="250" height="46" rx="7" fill="#fef3c7" stroke="#16a34a" stroke-width="2.2"/><text x="425" y="${c.y - 4}" font-size="11.5" font-weight="700" text-anchor="middle" fill="#166534">${c.t}</text><text x="425" y="${c.y + 13}" font-size="9.5" text-anchor="middle" fill="#0f766e">${c.sub}</text>`
+    )
+    .join('')
+  const engines = [
+    { y: 249, e: 'a single term — 7.2', sub: 'the general and the middle term' },
+    { y: 303, e: 'a coefficient — 7.5', sub: 'substitution, Vandermonde, ratios, peaks' },
+    { y: 357, e: 'a sum or identity — 7.3', sub: 'the rows and the validity window' },
+    { y: 411, e: 'an approximation — 7.6', sub: 'linearization and partial fractions' },
+  ]
+    .map(
+      (c) =>
+        `<rect x="300" y="${c.y - 23}" width="380" height="46" rx="7" fill="#ffedd5" stroke="#16a34a" stroke-width="2.2"/><text x="490" y="${c.y - 4}" font-size="11.5" font-weight="700" text-anchor="middle" fill="#166534">${c.e}</text><text x="490" y="${c.y + 13}" font-size="9.5" text-anchor="middle" fill="#0f766e">${c.sub}</text>`
+    )
+    .join('')
+  const arrows = [
+    'M228,81 Q264,81 300,81',
+    'M228,81 Q262,108 300,135',
+    'M228,81 Q260,135 300,189',
+    'M228,255 Q262,249 300,249',
+    'M228,255 Q260,278 300,303',
+    'M228,255 Q258,330 300,357',
+    'M228,255 Q256,384 300,411',
+  ]
+    .map((d) => `<path d="${d}" fill="none" stroke="#d97706" stroke-width="1.6"/>`)
+    .join('')
+  return `<svg viewBox="0 0 760 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The decision map of the chapter: two questions asked in order. Question one, which index: a positive integral index routes to the positive-index theorem of lesson 7.2, n plus 1 terms, proved twice; any rational index routes to the any-index rows of lesson 7.3, valid only inside the window where the absolute value of x is less than 1; several letters route to the multinomial theorem of lesson 7.4, k letters with C of n plus k minus 1 choose k minus 1 terms. Question two, which object: a single term routes to 7.2, the general and the middle term; a coefficient routes to 7.5, substitution, Vandermonde, ratios and peaks; a sum or identity routes to 7.3, the rows and the validity window; an approximation routes to 7.6, linearization and partial fractions. A ground bar underneath reads: the row of Pascal's triangle — selection counts that induction certifies, lessons 7.1 and 7.2.">
+  <text x="380" y="24" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the decision map: which index, then which object</text>
+  <text x="128" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#0f766e">ask, in order</text>
+  <text x="460" y="50" font-size="10" font-weight="700" text-anchor="middle" fill="#0f766e">the theorem, then the engine</text>
+  ${questions}
+  ${theorems}
+  ${engines}
+  ${arrows}
+  <rect x="28" y="444" width="704" height="44" rx="7" fill="#ffedd5" stroke="#0d9488" stroke-width="2.2"/>
+  <text x="380" y="462" font-size="10.5" font-weight="700" text-anchor="middle" fill="#166534">the ground: the row of Pascal\u2019s triangle — selection counts</text>
+  <text x="380" y="478" font-size="9.5" text-anchor="middle" fill="#0f766e">selection counts that induction certifies for every n — 7.1 / 7.2</text>
+</svg>`
+}
+
+function promiseCashings7RSvg(): string {
+  // the promise-cashings of the chapter: five lanes stacked above the six
+  // lesson boxes, each lane running from the lesson that made an early
+  // promise to the lesson that cashed it, with an amber arrow between the
+  // promise chip and the cashing chip (7.1 Bernoulli -> 7.6 the error bound;
+  // 7.2 Pascal's rule -> 7.5 the row algebra; 7.3 the convergence window ->
+  // 7.6 honest errors; 7.4 the word census -> 7.5 the coefficient sums;
+  // 7.2 conjugate powers -> 7.6 the conjugate-pair trick)
+  const chip = (x: number, y: number, w: number, bold: string, sub: string) =>
+    `<rect x="${x}" y="${y}" width="${w}" height="40" rx="7" fill="#fef3c7" stroke="#16a34a" stroke-width="2.2"/><text x="${x + w / 2}" y="${y + 17}" font-size="10.5" font-weight="700" text-anchor="middle" fill="#166534">${bold}</text><text x="${x + w / 2}" y="${y + 32}" font-size="9.5" text-anchor="middle" fill="#0f766e">${sub}</text>`
+  const arrow = (x1: number, x2: number, y: number) =>
+    `<line x1="${x1}" y1="${y}" x2="${x2 - 9}" y2="${y}" stroke="#d97706" stroke-width="1.8"/><path d="M${x2},${y} l-9,-5 v10 z" fill="#ea580c"/>`
+  const lanes = [
+    { y: 58, px: 22, pw: 190, p: 'Bernoulli proved', ps: 'promised in 7.1', cx: 545, cw: 195, c: 'the error bound', cs: 'cashed in 7.6' },
+    { y: 102, px: 140, pw: 190, p: 'Pascal\u2019s rule', ps: 'promised in 7.2', cx: 440, cw: 185, c: 'the row algebra', cs: 'cashed in 7.5' },
+    { y: 146, px: 255, pw: 190, p: 'the convergence window', ps: 'promised in 7.3', cx: 545, cw: 195, c: 'honest errors', cs: 'cashed in 7.6' },
+    { y: 190, px: 290, pw: 165, p: 'the word census', ps: 'promised in 7.4', cx: 480, cw: 140, c: 'the coefficient sums', cs: 'cashed in 7.5' },
+    { y: 234, px: 140, pw: 190, p: 'conjugate powers', ps: 'promised in 7.2', cx: 540, cw: 200, c: 'the conjugate-pair trick', cs: 'cashed in 7.6' },
+  ]
+    .map((l) => chip(l.px, l.y, l.pw, l.p, l.ps) + arrow(l.px + l.pw, l.cx, l.y + 20) + chip(l.cx, l.y, l.cw, l.c, l.cs))
+    .join('')
+  const lessons = [
+    ['7.1', 'the domino', 'principle'],
+    ['7.2', 'the theorem', 'proved'],
+    ['7.3', 'any index', 'rows'],
+    ['7.4', 'multinomial', 'theorem'],
+    ['7.5', 'coefficients', 'at work'],
+    ['7.6', 'applications', 'approximations'],
+  ]
+    .map(
+      (l, i) =>
+        `<rect x="${31 + i * 120}" y="292" width="108" height="60" rx="7" fill="#fef3c7" stroke="#16a34a" stroke-width="2.2"/><text x="${85 + i * 120}" y="312" font-size="11.5" font-weight="800" text-anchor="middle" fill="#166534">${l[0]}</text><text x="${85 + i * 120}" y="328" font-size="9" text-anchor="middle" fill="#0f766e">${l[1]}</text><text x="${85 + i * 120}" y="342" font-size="9" text-anchor="middle" fill="#0f766e">${l[2]}</text>`
+    )
+    .join('')
+  return `<svg viewBox="0 0 780 415" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The promise-cashings of the chapter: five lanes, each running from the lesson that made an early promise to the lesson that cashed it. 7.1 proved Bernoulli's inequality, cashed by 7.6 as the approximation error bound. 7.2 proved Pascal's rule, cashed by 7.5 as the row algebra. 7.3 stated the convergence window, cashed by 7.6 as the honest error column. 7.4 built the word census, cashed by 7.5 as the coefficient sums. 7.2 priced the conjugate powers, cashed by 7.6 as the conjugate-pair integer trick. The six lesson boxes sit in teaching order beneath: 7.1 the domino principle, 7.2 the theorem proved, 7.3 any-index rows, 7.4 the multinomial theorem, 7.5 coefficients at work, 7.6 applications and approximations.">
+  <text x="390" y="24" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the promise-cashings: what 7.1–7.4 promised, 7.5–7.6 paid</text>
+  <text x="390" y="42" font-size="10" text-anchor="middle" fill="#0f766e">each lane runs from the lesson that made the promise to the lesson that cashed it</text>
+  ${lanes}
+  ${lessons}
+  <text x="390" y="372" font-size="10.5" font-weight="700" text-anchor="middle" fill="#166534">the six storeys of the chapter, in teaching order — the promises ride forward, never backward</text>
+  <text x="390" y="388" font-size="9.5" text-anchor="middle" fill="#0f766e">every promise made in 7.1 through 7.4 is paid by 7.5 or 7.6 — the chapter pays its own debts before it closes</text>
+</svg>`
+}
+
+function partialSumWalk7RSvg(): string {
+  // the L5-2 solution figure: the partial-sum walk of
+  // sum_{r=0}^{4} (-1)^r C(7,r) — the five running totals 1, -6, 15, -20, 15,
+  // drawn as a zigzag on an axis pair; y-axis scaled value -20 -> 205,
+  // value +15 -> 45 (160 px over the 35-unit range, zero at y = 114)
+  const xs = [55, 122.5, 190, 257.5, 325]
+  const vs = [1, -6, 15, -20, 15]
+  const yOf = (v: number) => 205 - (v + 20) * (160 / 35)
+  const dots = vs
+    .map((v, i) => `<circle cx="${xs[i]}" cy="${yOf(v).toFixed(1)}" r="4.5" fill="#ea580c" stroke="#166534" stroke-width="1.6"/>`)
+    .join('')
+  // the landing seat r = 4 (value 15 again — the twin of the k = 2 visit) is
+  // RINGED so the two 15-points are tellable apart: the path's final answer
+  const ring = `<circle cx="325" cy="${yOf(15).toFixed(1)}" r="10" fill="none" stroke="#ea580c" stroke-width="2.4"/>`
+  const labels = [
+    { x: 55, y: 97, t: '1' },
+    { x: 122.5, y: 158, t: '-6' },
+    { x: 190, y: 37, t: '15' },
+    { x: 273, y: 210, t: '-20' },
+    { x: 352, y: 48, t: '15' },
+  ]
+    .map((l) => `<text x="${l.x}" y="${l.y}" font-size="10" font-weight="700" text-anchor="middle" fill="#166534">${l.t}</text>`)
+    .join('')
+  const ticks = xs
+    .map((x, i) => `<line x1="${x}" y1="220" x2="${x}" y2="224" stroke="#16a34a" stroke-width="1.4"/><text x="${x}" y="236" font-size="9" text-anchor="middle" fill="#0f766e">r = ${i}</text>`)
+    .join('')
+  const walk = `M55,${yOf(1).toFixed(1)} L122.5,${yOf(-6).toFixed(1)} L190,${yOf(15).toFixed(1)} L257.5,${yOf(-20).toFixed(1)} L325,${yOf(15).toFixed(1)}`
+  return `<svg viewBox="0 0 380 265" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The partial-sum walk of the alternating row of seven: the five running totals 1, minus 6, 15, minus 20 and 15 zigzag either side of the dashed zero line, swinging up to 15, down to minus 20, and landing finally — ringed — on 15, which equals C(6,4) — the cancellation law at k = 4.">
+  <text x="190" y="20" font-size="11" font-weight="700" text-anchor="middle" fill="currentColor">the partial-sum walk of the alternating row of seven</text>
+  <line x1="45" y1="114" x2="355" y2="114" stroke="#5eead4" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <text x="40" y="117" font-size="9" text-anchor="end" fill="#0d9488">0</text>
+  <text x="50" y="38" font-size="9.5" font-weight="700" fill="#0d9488">the running sum</text>
+  <line x1="45" y1="35" x2="45" y2="220" stroke="#16a34a" stroke-width="1.5"/>
+  <line x1="45" y1="220" x2="355" y2="220" stroke="#16a34a" stroke-width="1.5"/>
+  <path d="${walk}" fill="none" stroke="#d97706" stroke-width="2"/>
+  ${dots}
+  ${ring}
+  ${labels}
+  ${ticks}
+  <text x="190" y="252" font-size="10" font-weight="700" text-anchor="middle" fill="#166534">the landing — ringed: 15 = C(6,4) — the cancellation law at k = 4</text>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 7.R — the Unit 7 Completion Review                           */
+/* ------------------------------------------------------------------ */
+
+const lesson7R: Lesson = {
+  id: 'aa-induction-binomial-theorem-unit-7-review',
+  number: '7.R',
+  title: 'Unit 7 Completion Review',
+  concepts: [
+    'the arc of the chapter: one proof engine and its five consequences',
+    'the decision map: which index, which object, which engine',
+    'the master law table: theorem statements, term pricing, row algebra, approximations',
+    'the witnesses, re-audited: one verified number per lesson',
+    'the traps the hall sets: off-by-one seats, boundary honesty, parity of the peak',
+    'the mixed bench: items that price several engines at once',
+    'the handoffs: calculus\u2019s series doorstep, the Theory of Equations chapter',
+  ],
+  objectives: [
+    'hold the whole chapter in one hand — the wiring of its six engines (the domino principle, the proved theorem, the any-index rows, the multinomial, the coefficient algebra, the applications), the promises made early and cashed late (Bernoulli proved in 7.1 and cashed in 7.6; Pascal\u2019s rule proved in 7.2 and cashed in 7.5; the window stated in 7.3 and cashed in 7.6; the word census built in 7.4 and cashed in 7.5), and where each master law row lives.',
+    'run the decision map\u2019s two questions at examination speed — which index (positive integral, any rational inside |x| < 1, or k letters), then which object (a single term, a coefficient, a sum or identity, an approximation) — and reach for the engine the answers point at.',
+    'recall the consolidated laws and both master tables without re-deriving them — each law, its validity seat and its trap — and rebuild any of them from its lesson\u2019s engine when memory fails.',
+    'solve mixed items that price several engines in one exhibit, and diagnose every miss back to its home lesson by the shape it wore.',
+    'state the chapter\u2019s honest boundaries — what was proved and what was only verified (the any-index rows), where each row is valid and where it stops, and the handoffs: the series doorstep of calculus, probability\u2019s distribution ground, and chapter 8 "The Theory of Equations".',
+  ],
+  prerequisites: [
+    'aa-mathematical-induction-the-domino-principle',
+    'aa-the-binomial-theorem-proved',
+    'aa-binomial-theorem-any-index',
+    'aa-the-multinomial-theorem',
+    'aa-binomial-coefficients-at-work',
+    'aa-binomial-applications-and-approximations',
+  ],
+  sources: [
+    'cengage-m2-04',
+    'cengage-m2-08',
+    'cengage-jee-style',
+    'hall-knight-higher-algebra',
+    'jee-main-2026-syllabus',
+  ],
+  blocks: [
+    { kind: 'para', text: 'Chapter 7 was announced as "the book\u2019s proof engine and its most-used consequence", and the chapter kept that promise in working order for six lessons. Lesson 7.1, "Mathematical Induction: the Domino Principle", built the engine — the two-step principle with its least-failure certificate through well-ordering, the sum formulas $\\Sigma n$, $\\Sigma n^{2}$, $\\Sigma n^{3}$ certified for every $n$ at once, the divisibility and inequality families, Bernoulli\u2019s inequality PROVED as a promise, and strong induction for the statements that reach further back than one domino. Lesson 7.2, "The Binomial Theorem, Proved", pointed the engine at algebra itself and proved the chapter\u2019s headline TWICE — once by counting, once by induction with Pascal\u2019s rule as the merge — then priced every seat: the general term, the middle term, terms from the end, conjugate powers. Lesson 7.3, "The Binomial Theorem for Any Index", let the index go rational and paid the new price honestly: the row never terminates, the statement is an infinite series, and the window $|x| < 1$ is part of the theorem — verified numerically seat by seat, never "proved" by calculus this book has not built. Lesson 7.4, "The Multinomial Theorem", let the alphabet grow and found that nothing new was needed: the same word census prices every seat, the identical-distribution bridge counts the terms, and the binomial reappears at $k = 2$ as the smallest case. Lesson 7.5, "Binomial Coefficients at Work", turned the coefficients into objects of study — substitutions, conjugate reads, Vandermonde, the ratio law and the peaks. Lesson 7.6, "Binomial Applications and Approximations", cashed the whole shelf at examination speed — the linear engine with its honest error column, the divisibility reads, the conjugate-pair integer trick, the partial-fraction hunts. The engine ran; this review closes the room it powers.' },
+    { kind: 'para', text: 'A review in this book does two things and refuses a third. It RE-MAPS the chapter — the arc from one proof engine to its five consequences, the promises made early and cashed late (7.1 proved Bernoulli\u2019s inequality; 7.6 cashed it as the error bound on every approximation. 7.2 proved Pascal\u2019s rule; 7.5 cashed it as the row algebra. 7.3 stated the convergence window; 7.6 cashed it as the honest error column every estimate rides with. 7.4 built the word census; 7.5 cashed it as the coefficient sums. 7.2 priced the conjugate powers; 7.6 cashed them as the conjugate-pair integer trick) — together with the one master law table that reunites the chapter\u2019s whole formula family, and the decision map that routes any question to its engine. And it runs a MIXED bench: the witnesses below deliberately price several engines in one exhibit, and the fifteen-question bench prices several storeys per item, because that is exactly how an examination prices a chapter — one machine arrives, and every reading the chapter owns is asked of it in turn. What the review refuses: re-proving what the lessons already proved. Every derivation below is one line of recall with a pointer to its lesson; nothing is re-derived that 7.1 through 7.6 established once. Every number on this page was re-computed by hand and reconciled against the lessons\u2019 own pinned witnesses before a word of the prose was fixed.' },
+    { kind: 'para', text: 'The arc first, then the promise map, then the tables, then the witnesses, then the laws, then the traps, then the mixed bench. Read the decision map once before the exercises and once after: the second reading should look shorter.' },
+
+    { kind: 'heading', text: 'The Arc: One Engine, Five Consequences' },
+    { kind: 'para', text: 'Storey one (7.1, "Mathematical Induction: the Domino Principle") built the gear the whole chapter turns on: the principle FORMALISED — base case $P(1)$ plus inductive step $P(k) \\Rightarrow P(k+1)$ for every $k$ — and CERTIFIED by the least-failure argument through the well-ordering principle (a failure set would have a least element, and the step kills it: the logical heart under the domino picture). The engine then ran on its families: the sum formulas $\\Sigma n$, $\\Sigma n^{2}$, $\\Sigma n^{3}$ certified for every $n$ at once — chapter 5\u2019s ladders had derived them, induction now certifies them; the divisibility families by the add-a-multiple move — $5^{2n+1} + 1 \\equiv 0 \\pmod 6$ with the witnesses $126$, $3126$, $78126$, and $n^{3} - n \\equiv 0 \\pmod 6$; the inequalities with their honest shifted base — $2^{n} \\geq n^{2}$ holds only from $n = 4$ upward, the fail-witness $8 < 9$ at $n = 3$ printed beside the theorem; Bernoulli\u2019s inequality $(1+x)^{n} \\geq 1 + nx$ for $x \\geq -1$, PROVED here and named as the promise 7.6 would cash; and strong induction for the two-term recurrence $u_{n} < 2^{n}$ and the postage family — every amount $\\geq 2$ payable in 2s and 3s. The honest scope section closed the storey: verification is never proof (Euler\u2019s $n^{2} + n + 41$, prime for $0 \\leq n \\leq 39$, fails at $n = 40$ where the value is $41^{2}$), and a plausible step with a broken $k = 1$ case proves nothing — the horses fallacy.' },
+    { kind: 'para', text: 'Storey two (7.2, "The Binomial Theorem, Proved") pointed the engine at algebra: the reflex toolkit $(a \\pm b)^{2}$, $(a \\pm b)^{3}$ first — the theorem\u2019s smallest cases — then Pascal\u2019s triangle carrying its two meanings at once (each entry the sum of its two parents, AND the selection count $\\binom{n}{r}$), Pascal\u2019s rule PROVED TWICE (the newest-object split, then the factorial algebra), and the theorem itself PROVED TWICE: the counting proof — at $n = 4$ the $16$ uncollected products group $1, 4, 6, 4, 1$ by how many factors donate $b$, because a group of size $\\binom{4}{r}$ is by definition the count of ways to choose which $r$ of the four factors donate — and the induction proof, with Pascal\u2019s rule as the step\u2019s one merge: 7.1\u2019s engine at the headline, exactly as the chapter summary promised. The pricing machinery followed: the seat dictionary (term number $\\leftrightarrow$ index $r \\leftrightarrow$ monomial), the general term $T_{r+1} = \\binom{n}{r}a^{n-r}b^{r}$ with its sign discipline in $(a-b)^{n}$ — the 7th term of $(2a+b)^{12}$ prices at $59136\\,a^{6}b^{6}$ — the middle-term seats by the parity of $n$: $(3x+2)^{8}$ has the one middle term $90720\\,x^{4}$, $(x-2y)^{7}$ the twin pair $-280\\,x^{4}y^{3}$ and $560\\,x^{3}y^{4}$ — the from-the-end reversal ($p$-th from the end $= (n+2-p)$-th from the start: the 5th-from-end of $(x+2)^{12}$ prices at $126720\\,x^{4}$), and the conjugate powers whose sum keeps the even seats only: $(1.02)^{4} + (0.98)^{4} = 2.00480032$, four binomial seats instead of two fourth powers.' },
+    { kind: 'para', text: 'Storey three (7.3, "The Binomial Theorem for Any Index") let the index go rational and paid the new price honestly: the general term is the falling factorial $n(n-1)\\cdots(n-r+1)$ over $r!$ — pure arithmetic at ANY rational index — but the row never terminates (no factor ever reads zero), so the statement is an infinite series whose equals-sign is a limit of partial sums, and the WINDOW $|x| < 1$ is part of the theorem, not decoration hung on afterwards. The lesson\u2019s honesty about its own proof: the full derivation — differentiate the series, solve the differential equation — belongs to the calculus doorstep, so 7.3 did what Euler\u2019s generation did: stated the theorem and verified it, every truncated case checked numerically against direct computation, with $\\sqrt{1.02} = 1.0099505$ against the true $1.00995049\\ldots$ standing witness. The ten-row frequently-used table was built seat by seat, and two laws were pulled out of it: the counting-row law $(1-x)^{-n} = \\sum \\binom{n+r-1}{r}x^{r}$ (the negative-integer rows are selection counts — the triangular numbers at the index $-3$) and the central-binomial law $\\tbinom{2r}{r}/4^{r}$ behind the half row. The pricing craft: scaled arguments ($\\tfrac{4}{27}$; $80$; the elegant collapse to $\\binom{8}{4} = 70$ at $(1-4x)^{-1/2}$; $-\\tfrac{1}{64}$ and $\\tfrac{3}{16}$ from the leading-factor transform), the two-root seat equation ($n = \\tfrac{3}{2}$ OR $-\\tfrac{1}{2}$, both roots printed and verified), the partial-fraction route ($2^{n+1} - 1$ in $\\tfrac{1}{(1-x)(1-2x)}$), and the boundary honesty — oscillation $1, 0, 1, 0$ at $x = 1$, escape $1, 2, 3, 4$ at $x = -1$, divergence at $x = 2$, and the geometric ladder at $x = 0.6$ closing on $2.5$: convergence in the flesh.' },
+    { kind: 'para', text: 'Storey four (7.4, "The Multinomial Theorem") let the alphabet grow and found nothing new was needed: $(a+b+c)^{2}$ built literally — six terms, every mixed seat priced $\\tfrac{2!}{1!\\,1!} = 2$; $(a+b+c)^{3}$ — ten terms, the $\\tfrac{3!}{2!\\,1!} = 3$ family beside the balanced $6abc$; then the word-census proof: the uncollected products ARE words of length $n$ over $\\{a, b, c\\}$, and the coefficient of $a^{p}b^{q}c^{r}$ is exactly the arrangement count $\\tfrac{n!}{p!\\,q!\\,r!}$ — witnessed at $n = 4$ by the census of all $81$ four-letter words finding exactly $12$ carrying two $a$\u2019s, one $b$ and one $c$. The identical-distribution bridge counted the TERMS: the distinct monomials are the non-negative solutions of $p + q + r = n$, chapter 6\u2019s identical-balls count $\\tbinom{n+2}{2}$, swept $6, 10, 15, 21, 28$ against the literal expansions — and the $k$-letter law $\\tbinom{n+k-1}{k-1}$ recovered the binomial\u2019s $n + 1$ at $k = 2$: one theorem, not two. The pricing reflex took its three examination homes: plain seats ($60$ at $a^{2}b^{3}c$ of $(a+b+c)^{6}$), the balanced seat — $(2,2,2) = 90$, towering over its neighbours $60$ and $30$, the multinomial\u2019s analogue of the binomial middle — degree-constrained seats ($x^{3}$ in $(1+x+x^{2})^{4} = 16$ by enumerating the admissible triples; $x^{8} = 90$ via the three triples priced $15 + 60 + 15$), and the exam shortcuts ($\\tbinom{12}{2} = 66$ terms of $(a+b+c)^{10}$; $\\tbinom{13}{3} = 286$ of the four-letter power).' },
+    { kind: 'para', text: 'Storey five (7.5, "Binomial Coefficients at Work") turned the coefficients into objects of study. The substitution engine: set $x = 1$ and the row sums to $2^{n}$; set $x = -1$ and it alternates to $0$; run the conjugate sum $(1+x)^{n} + (1-x)^{n}$ and the even seats alone are worth $2^{n-1}$ — and the substitution must be run on the ACTUAL base: $(2-3x)^{12}$ sums to $(2-3)^{12} = 1$, not $2^{12}$, and $(1+x-2x^{2})^{9}$ sums to an honest $0$. The conjugate reads: $(1+x)^{6} + (1-x)^{6} = 2(1 + 15x^{2} + 15x^{4} + x^{6})$, an even polynomial — and the alternating squares via $(1-x^{2})^{n}$: $1 - 16 + 36 - 16 + 1 = 6 = (-1)^{2}\\binom{4}{2}$, the law reading $0$ at odd $n$ and $(-1)^{n/2}\\binom{n}{n/2}$ at even. Vandermonde: the coefficient of $x^{2}$ in $(1+x)^{4}(1+x)^{4}$ is $28 = 6 + 16 + 6$, and the square-sum law $\\sum\\binom{n}{r}^{2} = \\tbinom{2n}{n}$ carries the witness $1 + 16 + 36 + 16 + 1 = 70 = \\tbinom{8}{4}$, with the cross-pair census $(4^{n} - \\tbinom{2n}{n})/2$ witnessed at $22$ for $n = 3$. The row\u2019s shape: the ratio law $\\tfrac{n-r+1}{r}$, the A.P. condition on the 5th, 6th and 7th coefficients ($n = 7$ or $14$), the equal-consecutive pair of $(2+5x)^{13}$ at $x^{9}$ and $x^{10}$, the peaks — row 11\u2019s twin $462$; row 12\u2019s profile $1, 12, 66, 220, 495, 792, 924, 792, 495, 220, 66, 12, 1$ with the even/odd split $2048 = 2^{11}$ on each side — the least coefficient of $(2-3x)^{15}$ (the 10th term, $-6{,}304{,}858{,}560$), the greatest term of $(1.3)^{15} = T_{4}$ by the ratio test, the complex reads ($(1+i)^{8} = 16$; $\\cos 3\\theta = 4\\cos^{3}\\theta - 3\\cos\\theta$; $(1+ix)^{4n}$ carrying $2n+1$ real terms), and the terms independent of $x$ across its exhibits ($-252$; $84$; $2016$).' },
+    { kind: 'para', text: 'Storey six (7.6, "Binomial Applications and Approximations") cashed the shelf at examination speed. The linear engine: $(1.02)^{5}$ — true value $1.1040808$, first order $1.10$, second order $1.104$; $\\sqrt{1.04}$ and $(0.99)^{4}$ the same way; the three-factor linearisation $(1+2x)^{-3}(1-\\tfrac{x}{2})^{1/2}(1+\\tfrac{x}{4})^{-1} \\approx 1 - \\tfrac{13x}{2}$; the root estimates — $\\sqrt[3]{65} \\approx 4.0208$ at first order, $4.0207248$ at second order, against the true $4.0207257$; $\\sqrt{26}$ and $\\sqrt{99}$ beside it — and the error ladder that prices the honesty: the quadratic read beats the linear by more than twenty-fold at $|x| \\leq 0.1$. The integer families: divisibility and remainders ($7^{101} + 11^{51} \\equiv 2 \\pmod 8$; $5^{2n} \\equiv (-1)^{n} \\pmod{13}$), the conjugate-pair integer trick — $(\\sqrt{5}+\\sqrt{2})^{4} + (\\sqrt{5}-\\sqrt{2})^{4} = 178$, so the smallest integer larger than $(\\sqrt{5}+\\sqrt{2})^{4}$ is $178$, with the $(\\sqrt{7}+\\sqrt{3})^{4}$ twin closing at $368$ — the odd-power divisibility $(a+b)^{n} - a^{n} - b^{n}$ by $ab(a+b)$, and the partial-fraction hunts: the coefficient of $x^{n}$ in $\\tfrac{1}{(1-x)(1-2x)}$ is $2^{n+1} - 1$; in $(1-5x+6x^{2})^{-1}$ it is $3^{n+1} - 2^{n+1}$; in $\\tfrac{1}{(1-x)(1-3x)(1-5x)}$ it is $\\tfrac{1 - 18 \\cdot 3^{n} + 25 \\cdot 5^{n}}{8}$. The cancellation engine closed the storey — $\\sum_{r \\leq k} (-1)^{r}\\binom{n}{r} = (-1)^{k}\\binom{n-1}{k}$, with the coefficient of $x^{8}$ in $(1-x)^{15}(1-x)^{-3}$ collapsing to $\\tbinom{12}{8} = 495$ — beside the first-negative-term flip: $T_{7}$ of $(1+x)^{9/2}$.' },
+    { kind: 'para', text: 'And under all six storeys, one ground: the row of Pascal\u2019s triangle — every entry simultaneously a sum of its two parents (the generation rule, which 7.2 proved is a theorem) and a selection count $\\binom{n}{r}$ (the meaning, which 7.2\u2019s counting proof installed) — and induction is what certifies the whole staircase for every $n$ at once: the engine is the ground\u2019s own certificate. On that ground stand the earlier chapters this one kept citing without re-teaching: chapter 6\u2019s selection engine owns every coefficient ($\\binom{n}{r}$ IS ${}^{n}C_{r}$, and 7.4\u2019s $\\tfrac{n!}{p!\\,q!\\,r!}$ is its permutation-with-repeats count repointed at algebra); chapter 5\u2019s geometric row and its infinite-tail discipline own the window ($|x| < 1$ was banked there first — the first payment on calculus\u2019s doorstep, cashed at scale by 7.3); and Elementary Algebra\u2019s reflex identities $(a \\pm b)^{2}$ and $(a \\pm b)^{3}$ are the theorem\u2019s smallest cases, quoted at 7.2\u2019s opening and never re-derived since. One engine, five consequences, and a ground of counted selections: that is the whole chapter in one line, and the figure below draws its promise-cashings.' },
+    { kind: 'figure', caption: 'The promise-cashings of the chapter: five lanes, each running from the lesson that made an early promise to the lesson that cashed it. 7.1 proved Bernoulli\u2019s inequality — cashed by 7.6 as the approximation error bound. 7.2 proved Pascal\u2019s rule — cashed by 7.5 as the row algebra. 7.3 stated the convergence window — cashed by 7.6 as the honest error column. 7.4 built the word census — cashed by 7.5 as the coefficient sums. 7.2 priced the conjugate powers — cashed by 7.6 as the conjugate-pair integer trick. The six storeys sit in teaching order beneath the lanes: every promise made in 7.1 through 7.4 is paid by 7.5 or 7.6, before the chapter closes.', svg: promiseCashings7RSvg() },
+    { kind: 'callout', tone: 'definition', title: 'The six engines of the chapter', text: 'The chapter\u2019s architecture, stated once as a definition. An ENGINE of this chapter is one machine that prices a family of binomial questions: (i) the PROOF engine — induction, the domino principle that certifies statements for every $n$ (7.1); (ii) the EXPANSION engine — the positive-index theorem with its general and middle terms (7.2); (iii) the INFINITE engine — the any-index rows inside their window (7.3); (iv) the ALPHABET engine — the multinomial, its seats and term counts (7.4); (v) the COEFFICIENT engine — substitutions, conjugate reads, Vandermonde, ratios and peaks (7.5); (vi) the APPLICATION engine — linearization, divisibility, conjugate pairs, partial fractions (7.6). Thus every question this chapter answers is two questions in disguise: which index and which object — and the engine that owns the pair.' },
+
+    { kind: 'heading', text: 'The Master Tables Reunited' },
+    { kind: 'para', text: 'Strip the chapter of its prose and two tables remain — the two the examinations actually price. The first is the master law table: one row per engine, the statement in one line, the validity seat (where the row holds, and where it stops holding), and the witness that pins it — every witness re-run against its home lesson before this prose was written, not a memory transcribed. The second is the frequently-used shelf of 7.3, compact: the rows an examination expects read on sight, each with the law hiding inside it. And above both sits the decision map — the figure below — whose two questions route any item of the bench to its engine: WHICH INDEX first (a positive integral index, any rational index inside $|x| < 1$, or $k$ letters of a multinomial), then WHICH OBJECT (a single term, a coefficient, a sum or identity, an approximation).' },
+    { kind: 'table', caption: 'The law family in one census — one row per engine of the chapter: the statement, its validity seat, and the verified witness that pins it. Every row cross-checked against its home lesson before this prose was written.', head: ['Engine (lesson)', 'The statement, one line', 'The validity seat', 'A verified witness'], rows: [
+      ['the positive-index theorem (7.2)', '$(a+b)^{n} = \\sum_{r=0}^{n}\\binom{n}{r}a^{n-r}b^{r}$ — exactly $n+1$ terms', 'any $a, b$; positive integral $n$ — no window ever needed', 'the $n = 4$ census: $16$ products grouped $1, 4, 6, 4, 1$'],
+      ['the general and middle term (7.2)', '$T_{r+1} = \\binom{n}{r}a^{n-r}b^{r}$; middle $T_{n/2+1}$ ($n$ even), twins $T_{(n+1)/2}, T_{(n+3)/2}$ ($n$ odd); $p$-th from the end $= (n+2-p)$-th', 'the seat dictionary; sign $(-1)^{r}$ rides every term of $(a-b)^{n}$', '$T_{7}$ of $(2a+b)^{12} = 59136\\,a^{6}b^{6}$; the middle $90720\\,x^{4}$ of $(3x+2)^{8}$'],
+      ['the any-index rows (7.3)', '$(1+x)^{n} = \\sum \\tfrac{n(n-1)\\cdots(n-r+1)}{r!}x^{r}$ — the row never terminates', 'rational $n$ AND $|x| < 1$ — the window is part of the theorem', '$\\sqrt{1.02} = 1.0099505$ against the true $1.00995049\\ldots$'],
+      ['the multinomial (7.4)', '$\\sum \\tfrac{n!}{p!\\,q!\\,r!}a^{p}b^{q}c^{r}$ over $p+q+r = n$; terms $\\tbinom{n+k-1}{k-1}$', 'any letters; the sum-check $p+q+r = n$ before any price', 'the balanced seat $(2,2,2) = 90$; $21 = \\tbinom{7}{2}$ terms at $n = 5$'],
+      ['the substitution engine (7.5)', 'row sums $2^{n}$; alternating $0$; even seats alone $2^{n-1}$', 'set $x = 1$, $x = -1$, or run the conjugate sum — on the ACTUAL base', 'row 12\u2019s even/odd split $2048$ each; $(2-3x)^{12}$ sums to $1$'],
+      ['the conjugate reads (7.5)', '$(1+x)^{n} \\pm (1-x)^{n}$ — the even (or odd) seats only', 'any conjugate pair $a \\pm b$; surds ride the same machine', '$1-16+36-16+1 = 6 = (-1)^{2}\\tbinom{4}{2}$; $(1.02)^{4} + (0.98)^{4} = 2.00480032$'],
+      ['Vandermonde (7.5)', '$\\sum_{r}\\binom{m}{r}\\binom{n}{k-r} = \\binom{m+n}{k}$; $\\sum\\binom{n}{r}^{2} = \\tbinom{2n}{n}$', 'any rows; the convolution reads products of expansions', '$x^{2}$ in $(1+x)^{4}(1+x)^{4}$ is $28 = 6+16+6$; $1+16+36+16+1 = 70 = \\tbinom{8}{4}$'],
+      ['the ratio law and the peaks (7.5)', '$\\tbinom{n}{r+1}/\\tbinom{n}{r} = \\tfrac{n-r}{r+1}$ — one peak ($n$ even), twin peaks ($n$ odd)', 'the whole row; the ratio test also prices greatest TERMS of $(1+x)^{n}$', 'row 11\u2019s twin $462$; row 12\u2019s peak $924$; the greatest term of $(1.3)^{15}$ is $T_{4}$'],
+      ['the linear approximation (7.6)', '$(1+x)^{n} \\approx 1 + nx$, or $+\\ \\tfrac{n(n-1)}{2}x^{2}$ at second order', '$|x| < 1$ and genuinely small — the honest error column rides beside every price', '$\\sqrt[3]{65}$: $4.0208$ linear, $4.0207248$ second-order, true $4.0207257$'],
+      ['the partial-fraction hunts (7.6)', 'coefficient of $x^{n}$ in $\\tfrac{1}{(1-x)(1-2x)} = 2^{n+1} - 1$; cover-up splits rational functions into known rows', 'the NARROWEST window of the parts governs the combination', '$3^{n+1} - 2^{n+1}$ in $(1-5x+6x^{2})^{-1}$; $x^{8}$ in $(1-x)^{15}(1-x)^{-3} = 495$'],
+    ] },
+    { kind: 'table', caption: 'The frequently-used rows of 7.3, compact — the shelf an examination expects read on sight, every row valid only inside $|x| < 1$, each with the law hiding inside it.', head: ['Row', 'First seats, valid $|x| < 1$', 'The law inside'], rows: [
+      ['$(1+x)^{-1}$', '$1 - x + x^{2} - x^{3} + \\cdots$', 'the alternating geometric — chapter 5\u2019s own row'],
+      ['$(1-x)^{-1}$', '$1 + x + x^{2} + x^{3} + \\cdots$', 'the geometric itself, the first infinite object this book banked'],
+      ['$(1+x)^{-2}$', '$1 - 2x + 3x^{2} - 4x^{3} + \\cdots$', 'the counting numbers, alternating'],
+      ['$(1-x)^{-2}$', '$1 + 2x + 3x^{2} + 4x^{3} + \\cdots$', 'the counting numbers — seats $\\tbinom{r+1}{1} = r+1$'],
+      ['$(1-x)^{-3}$', '$1 + 3x + 6x^{2} + 10x^{3} + \\cdots$', 'the triangular numbers — seats $\\tbinom{r+2}{2}$'],
+      ['$(1-x)^{-1/2}$', '$1 + \\tfrac{x}{2} + \\tfrac{3x^{2}}{8} + \\tfrac{5x^{3}}{16} + \\cdots$', 'the central-binomial law $\\tbinom{2r}{r}/4^{r}$'],
+      ['$(1+x)^{1/2}$', '$1 + \\tfrac{x}{2} - \\tfrac{x^{2}}{8} + \\tfrac{x^{3}}{16} - \\cdots$', 'the half row — the root estimates of 7.6 live here'],
+    ] },
+    { kind: 'figure', caption: 'The decision map of the chapter: two questions asked in order. First — which index? A positive integral index routes to the positive-index theorem of 7.2 ($n + 1$ terms, proved twice); any rational index routes to the any-index rows of 7.3, valid only inside the window $|x| < 1$; $k$ letters route to the multinomial of 7.4, with its $\\tbinom{n+k-1}{k-1}$ term count. Then — which object? A single term routes to 7.2\u2019s general and middle term; a coefficient routes to 7.5\u2019s substitution, Vandermonde, ratio and peak engine; a sum or identity routes to 7.3\u2019s rows and validity window; an approximation routes to 7.6\u2019s linearization and partial fractions. Under both stages runs the ground bar: the row of Pascal\u2019s triangle — selection counts that induction certifies (7.1 / 7.2). Name the index and the object; the engine follows.', svg: decisionMap7RSvg() },
+    { kind: 'callout', tone: 'theorem', title: 'The one discipline behind the tables', text: 'Every row of both tables is the same move in a different dress: PRICE THE SEAT BY A COUNT, THEN STATE WHERE THE COUNT HOLDS. The positive-index rows are finite — the count is exact at every $a$ and $b$, no conditions. The any-index rows are infinite — the count still prices every seat, but the EQUALITY needs the window $|x| < 1$, and the window is part of the statement, not decoration. The multinomial rows are censuses — the count is of words, and the sum-check $p + q + r = n$ decides which seats exist at all. The substitution rows are reads — set $x = \\pm 1$ and the theorem becomes an identity about its own coefficients. And the approximation rows are honest truncations — the first seats of an infinite row, with the unpaid tail measured in an error column. Proved once in its lesson, recalled in one line here — the refusal discipline working for you as a map.' },
+
+    { kind: 'heading', text: 'The Witnesses, Re-Audited' },
+    { kind: 'para', text: 'Sixteen exhibits carried the chapter\u2019s weight — at least two from every storey — and a review earns its keep by re-auditing them TOGETHER: each line below is one verified number, re-computed by hand and reconciled against the home lesson\u2019s own pinned value before a word of this prose was fixed, and each now prices more than the storey that introduced it. Read the roster once as a census of the chapter\u2019s honesty: every law on the master table carries at least one of these numbers on its back.' },
+    { kind: 'list', marker: 'roman', items: [
+      '(i) $5^{2n+1} + 1$ divisible by $6$, the witnesses $126$, $3126$, $78126$ at $n = 1, 2, 3$ — 7.1\u2019s add-a-multiple divisibility engine;',
+      '(ii) $2^{n} \\geq n^{2}$ holding only from $n = 4$, failing at the honest witness $8 < 9$ ($n = 3$) — 7.1\u2019s shifted-base inequality;',
+      '(iii) $T_{7}$ of $(2a+b)^{12} = 59136\\,a^{6}b^{6}$ ($924 \\cdot 64$) — 7.2\u2019s general term at the row\u2019s peak seat;',
+      '(iv) $90720\\,x^{4}$, the middle term of $(3x+2)^{8}$ ($70 \\cdot 81 \\cdot 16$) — 7.2\u2019s middle-term pricing at even $n$;',
+      '(v) $(1.02)^{4} + (0.98)^{4} = 2.00480032$ — 7.2\u2019s conjugate powers, the even seats only;',
+      '(vi) $\\sqrt{1.02} = 1.0099505$ against the true $1.00995049\\ldots$ — 7.3\u2019s trust-but-verify standard on the half row;',
+      '(vii) $(1-x)^{-n} = \\sum \\binom{n+r-1}{r}x^{r}$, the counting-row law — 7.3\u2019s negative-integer rows are selection counts;',
+      '(viii) the word census: exactly $12$ of the $81$ four-letter words carry two $a$\u2019s, one $b$ and one $c$ — 7.4\u2019s brute-checked coefficient;',
+      '(ix) the balanced seat $(2,2,2) = 90$, towering over its neighbours $60$ and $30$ — 7.4\u2019s greatest coefficient of $(a+b+c)^{6}$;',
+      '(x) $1 - 16 + 36 - 16 + 1 = 6 = (-1)^{2}\\binom{4}{2}$ — 7.5\u2019s alternating squares via $(1-x^{2})^{n}$;',
+      '(xi) $1 + 16 + 36 + 16 + 1 = 70 = \\binom{8}{4}$ — 7.5\u2019s Vandermonde square-sum at $n = 4$;',
+      '(xii) the row 12 profile with the even/odd split $2048 = 2^{11}$ on each side — 7.5\u2019s substitution engine at $x = \\pm 1$;',
+      '(xiii) $\\sqrt[3]{65} \\approx 4.0207$ (linear $4.0208$, second-order $4.0207248$, true $4.0207257$) — 7.6\u2019s root estimate with its honest error column;',
+      '(xiv) $7^{101} + 11^{51} \\equiv 2 \\pmod 8$ — 7.6\u2019s divisibility read on residues;',
+      '(xv) $(\\sqrt{5}+\\sqrt{2})^{4}$: the smallest integer larger than it is $178$ (the conjugate pair sums to exactly $178$) — 7.6\u2019s conjugate-pair integer trick;',
+      '(xvi) the coefficient of $x^{8}$ in $(1-x)^{15}(1-x)^{-3} = \\binom{12}{8} = 495$ — 7.6\u2019s cancellation engine at work.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'How the witnesses interlock', text: 'The sixteen exhibits are not sixteen problems — they are the chapter wearing sixteen costumes. Witnesses (iii) and (iv) are the same seat dictionary at two difficulties; (v) and (x) are the same conjugate machine run on decimals and on rows; (vi) and (xiii) are the same half row read once as a value and once as an estimate; (vii) and (xvi) are the same counting-row law priced from both ends; (viii) and (xi) are the same census discipline run on words and on coefficients; (ii) and (xiv) are the chapter\u2019s honesty about integers — where a claim starts and what a residue hides. The hall\u2019s mixed items run exactly this game: hand you one machine and bill you for several storeys at once — and the diagnosis runs the same direction, a miss on a mixed item naming its home lesson by its shape.' },
+
+    { kind: 'heading', text: 'The Laws Worth Recalling' },
+    { kind: 'para', text: 'The chapter deposited its formula shelf lesson by lesson — the theorem and its terms in 7.2, the infinite rows in 7.3, the multinomial family in 7.4, the coefficient algebra in 7.5, the approximation engines in 7.6 — and the reader\u2019s formula-sheet page aggregates them automatically. Nine of them are load-bearing: the consolidated laws the next chapters will actually reach for, each re-verified against its lesson before this page was written. The laws in display, then the cards, then the recall derivation, then the vocabulary:' },
+    { kind: 'equation', latex: '(a+b)^{n} = \\sum_{r=0}^{n} \\binom{n}{r} a^{n-r} b^{r}, \\qquad T_{r+1} = \\binom{n}{r} a^{n-r} b^{r} \\tag{1}', note: 'the theorem and its general term — 7.2\u2019s twin statements; the 7th term means $r = 6$, and the $p$-th from the end is the $(n+2-p)$-th from the start.' },
+    { kind: 'equation', latex: '(1+x)^{n} = \\sum_{r=0}^{\\infty} \\frac{n(n-1)(n-2)\\cdots(n-r+1)}{r!}\\, x^{r}, \\qquad |x| < 1 \\tag{2}', note: 'the any-index form — 7.3; the window clause is part of the statement, and a positive integer $n$ closes the row and voids the window.' },
+    { kind: 'equation', latex: '\\sum_{r=0}^{n} \\binom{n}{r} = 2^{n}; \\qquad \\sum_{r=0}^{n} (-1)^{r}\\binom{n}{r} = 0; \\qquad \\sum_{\\text{even } r} \\binom{n}{r} = 2^{n-1} \\tag{3}', note: 'the row-sum family — 7.5\u2019s substitution engine at $x = 1$, $x = -1$, and the conjugate sum; the even-index split $2048 = 2^{11}$ of row 12 is its standing witness.' },
+    { kind: 'formula', name: 'The binomial theorem (positive index)', latex: '(a+b)^{n} = \\sum_{r=0}^{n} \\binom{n}{r} a^{n-r} b^{r} \\quad (n \\in \\mathbb{N})', note: 'exactly $n+1$ terms, coefficients symmetric about the middle, total mass $2^{n}$; proved twice in 7.2 — by counting and by induction (Pascal\u2019s rule the merge).' },
+    { kind: 'formula', name: 'The general term', latex: 'T_{r+1} = \\binom{n}{r} a^{n-r} b^{r}; \\qquad T_{r+1} = (-1)^{r}\\binom{n}{r} a^{n-r} b^{r} \\;\\text{ in } (a-b)^{n}', note: 'the seat dictionary: term number $= r + 1$; the $p$-th from the end is the $(n+2-p)$-th from the start (7.2; $T_7$ of $(2a+b)^{12} = 59136\\,a^{6}b^{6}$).' },
+    { kind: 'formula', name: 'The middle-term seat rule', latex: 'n \\text{ even}: \\; T_{n/2+1} \\text{ alone}; \\qquad n \\text{ odd}: \\; T_{(n+1)/2} \\text{ and } T_{(n+3)/2}', note: 'the peak seats of the row — one peak at even $n$, twin equal peaks at odd $n$ (7.2; the middle $90720\\,x^{4}$ of $(3x+2)^{8}$; the twins $-280\\,x^{4}y^{3}$, $560\\,x^{3}y^{4}$ of $(x-2y)^{7}$).' },
+    { kind: 'formula', name: 'The row-sum family', latex: '2^{n} \\; (x = 1); \\qquad 0 \\; (x = -1); \\qquad 2^{n-1} \\; (\\text{even seats, conjugate sum})', note: 'run the substitution on the ACTUAL base — $(2-3x)^{12}$ sums to $(2-3)^{12} = 1$, and $(1+x-2x^{2})^{9}$ to an honest $0$ (7.5; row 12 splits $2048$ each side).' },
+    { kind: 'formula', name: 'Vandermonde and the square-sum', latex: '\\sum_{r} \\binom{m}{r}\\binom{n}{k-r} = \\binom{m+n}{k}; \\qquad \\sum_{r=0}^{n} \\binom{n}{r}^{2} = \\binom{2n}{n}', note: 'the convolution of two expansions — 7.5; the witness $1+16+36+16+1 = 70 = \\binom{8}{4}$, and the cross-pair census $(4^{n} - \\binom{2n}{n})/2$ at $22$ for $n = 3$.' },
+    { kind: 'formula', name: 'The any-index form and its window', latex: '(1+x)^{n} = \\sum_{r=0}^{\\infty} \\frac{n(n-1)\\cdots(n-r+1)}{r!}\\, x^{r}, \\quad |x| < 1', note: 'rational $n$; the row never terminates and the window is part of the theorem — oscillation at $x = 1$, escape at $x = -1$, divergence beyond (7.3; $\\sqrt{1.02} = 1.0099505$).' },
+    { kind: 'formula', name: 'The counting-row law', latex: '(1-x)^{-n} = \\sum_{r \\geq 0} \\binom{n+r-1}{r}\\, x^{r}, \\quad |x| < 1', note: 'the negative-integer rows are selection counts — the counting numbers at $-2$, the triangular numbers at $-3$; the central-binomial law $\\tbinom{2r}{r}/4^{r}$ rides the half row (7.3).' },
+    { kind: 'formula', name: 'The multinomial general term and term count', latex: '\\frac{n!}{p!\\,q!\\,r!}\\, a^{p} b^{q} c^{r} \\;\\; (p + q + r = n); \\qquad \\text{terms of } (x_{1} + \\cdots + x_{k})^{n} = \\binom{n+k-1}{k-1}', note: 'the word-census price and the identical-distribution bridge — 7.4; sum-check before pricing, and $k = 2$ recovers $\\tfrac{n!}{p!\\,q!} = \\binom{n}{p}$ with $n + 1$ terms.' },
+    { kind: 'formula', name: 'The linear read (Bernoulli-cited)', latex: '(1+x)^{n} \\approx 1 + nx + \\tfrac{n(n-1)}{2}x^{2}; \\qquad (1+x)^{n} \\geq 1 + nx \\quad (x \\geq -1)', note: 'the first-order engine 7.6 runs on every approximation; the inequality beneath it was PROVED by induction in 7.1 — the chapter\u2019s own promise cashed. The error column rides beside every price.' },
+    { kind: 'derivation', title: 'The alternating-squares law, recalled in one line', statement: 'The law $\\sum_{r=0}^{n}(-1)^{r}\\binom{n}{r}^{2} = 0$ at odd $n$ and $(-1)^{n/2}\\binom{n}{n/2}$ at even $n$ — recalled from 7.5 via the $(1-x^{2})^{n}$ conjugate read; each step one line with its pointer, nothing re-derived.', steps: [
+      { label: 'The conjugate product', formula: '(1+x)^{n}(1-x)^{n} = (1-x^{2})^{n}', explanation: '7.5\u2019s engine: multiply the two conjugate powers and the odd seats cancel — 7.2\u2019s conjugate-sum machine (the $(1.02)^{4} + (0.98)^{4}$ witness) re-read as an identity.' },
+      { label: 'Price the x^n seat on the left', formula: '\\sum_{r=0}^{n} (-1)^{n-r} \\binom{n}{r}^{2} = (-1)^{n} \\sum_{r=0}^{n} (-1)^{r}\\binom{n}{r}^{2}', explanation: 'the $r$-seat of the first row pairs against the $(n-r)$-seat of the second, whose sign is $(-1)^{n-r}$; the selection symmetry $\\binom{n}{n-r} = \\binom{n}{r}$ of 7.2 collapses each pair to a square.' },
+      { label: 'Price the same seat on the right', formula: '(1-x^{2})^{n} = \\sum_{j} (-1)^{j}\\binom{n}{j} x^{2j} \\; \\Rightarrow \\; x^{n} \\text{ absent if } n \\text{ odd}; \\; (-1)^{n/2}\\binom{n}{n/2} \\text{ if } n \\text{ even}', explanation: 'only EVEN powers exist on the right — the parity of $n$ decides whether the seat exists at all, and at even $n = 2m$ the seat is the middle one, $(-1)^{m}\\binom{n}{m}$.' },
+      { label: 'Match and verify', formula: 'n = 4: \\; 1 - 16 + 36 - 16 + 1 = 6 = (-1)^{2}\\binom{4}{2}; \\qquad n = 5: \\; 1 - 25 + 100 - 100 + 25 - 1 = 0', explanation: 'the two pinned witnesses of 7.5\u2019s alternating-squares exhibit — re-run here by hand before the prose was fixed, exactly as the refusal discipline demands.' },
+    ], result: '$\\sum(-1)^{r}\\binom{n}{r}^{2} = 0$ ($n$ odd), $\\; = (-1)^{n/2}\\binom{n}{n/2}$ ($n$ even) — one conjugate product, two seat pricings, no induction required' },
+    { kind: 'terms', items: [
+      { term: 'The decision map', def: 'the two questions asked in order — which index (positive integral, any rational inside $|x| < 1$, or $k$ letters), then which object (a single term, a coefficient, a sum or identity, an approximation) — that route any binomial question to the engine that owns it.' },
+      { term: 'The seat dictionary', def: 'the three-way encoding of every term — term number $T_{r+1}$, index $r$, monomial $a^{n-r}b^{r}$ — with the conversion rules the 7th term means $r = 6$ and the $p$-th from the end is the $(n+2-p)$-th from the start.' },
+      { term: 'The validity window', def: 'the clause $|x| < 1$ that rides every any-index row: the infinite series equals its left side exactly inside the window, and the same row is meaningless outside it — oscillation and escape are the boundary\u2019s two failure modes.' },
+      { term: 'The counting-row law', def: 'the law $(1-x)^{-n} = \\sum\\binom{n+r-1}{r}x^{r}$ — the negative-integer rows are selection counts in binomial clothing, chapter 6\u2019s identical-distribution engine seen from the series side.' },
+      { term: 'The balanced seat', def: 'the most-even split of the degree $n$ across the letters — where the multinomial coefficient peaks; the analogue of the binomial row\u2019s middle, witnessed by $(2,2,2) = 90$ at $n = 6$.' },
+      { term: 'The mixed bench', def: 'the review\u2019s discipline of pricing several engines in one exhibit — the way an examination actually prices a chapter: one machine arrives, and every reading the chapter owns is asked of it in turn.' },
+      { term: 'The promise-cashing', def: 'the chapter\u2019s wiring discipline: machinery proved early and used late — Bernoulli to the error bound, Pascal\u2019s rule to the row algebra, the window to the honest errors, the word census to the coefficient sums, the conjugate powers to the conjugate-pair trick.' },
+      { term: 'The conjugate-pair integer trick', def: 'the move that bounds an irrational power by its conjugate twin: $(\\sqrt{5}+\\sqrt{2})^{4} + (\\sqrt{5}-\\sqrt{2})^{4} = 178$ exactly, so the irrational power sits just below the integer its pair sums to.' },
+      { term: 'The cancellation engine', def: 'the identity $\\sum_{r \\leq k}(-1)^{r}\\binom{n}{r} = (-1)^{k}\\binom{n-1}{k}$ — every alternating partial sum of a row collapses to one binomial coefficient; the working tool behind $x^{8}$ in $(1-x)^{15}(1-x)^{-3} = 495$.' },
+    ] },
+
+    { kind: 'heading', text: 'The Traps the Hall Sets' },
+    { kind: 'para', text: 'The chapter\u2019s own caution shelf, compressed to the six traps the examination hall actually sets — each is one lesson\u2019s discipline pointed at one wrong instinct, each is cross-checkable against that lesson\u2019s own caution box, and every witness number below was re-run before this page was written:' },
+    { kind: 'list', items: [
+      'The off-by-one seats (7.2): "the 7th term" means $r = 6$, not $r = 7$ — the general term is $T_{r+1}$ precisely so the first term sits at $r = 0$; and "the 5th term from the end" of an $(n+1)$-term row is the $(n + 2 - 5)$-th from the start — of $(x+2)^{12}$, the 9th, with $r = 8$ and the price $126720\\,x^{4}$. Both traps die the same death: write the seat\u2019s defining equation BEFORE any coefficient is touched.',
+      'The peak\u2019s parity (7.5): at ODD $n$ the greatest coefficient is TWO terms — row 11\u2019s twin $462$s — and an answer that names one term has answered half the question; at even $n$ the peak is unique ($924$ alone at the row 12 profile\u2019s centre). And the greatest TERM of a weighted expansion is a ratio-test verdict, not a symmetry read: $(1.3)^{15}$ peaks at $T_{4}$ because $\\tfrac{15-k}{k+1} \\cdot 0.3 \\geq 1$ exactly while $k \\leq 2.69$.',
+      'The sum-of-coefficients needs the actual base (7.5): setting $x = 1$ must be run on the expression AS WRITTEN — $(2-3x)^{12}$ sums to $(2-3)^{12} = 1$, not $2^{12}$; $(1+x-2x^{2})^{9}$ sums to $(1+1-2)^{9} = 0$, an honest zero. The reflex $2^{n}$ belongs to $(1+x)^{n}$ alone.',
+      'Convergence honesty (7.3/7.6): the any-index rows are valid ONLY inside $|x| < 1$ — on the boundary the $(1+x)^{-1}$ row oscillates $1, 0, 1, 0$ at $x = 1$ and escapes $1, 2, 3, 4$ at $x = -1$, and beyond the window the partial sums swing with growing magnitude ($683$ by seat $r = 10$ at $x = 2$). And the linear read needs $|x|$ genuinely small — the honest error column is the difference between $\\sqrt[3]{65} \\approx 4.0208$ (first order) and $4.0207248$ (second) against the true $4.0207257$: a dropped error column is a wrong answer wearing a decimal point.',
+      'The first-negative-term flip (7.6): in $(1+x)^{9/2}$ with $x > 0$, the falling factors $\\tfrac{9}{2}, \\tfrac{7}{2}, \\tfrac{5}{2}, \\tfrac{3}{2}, \\tfrac{1}{2}, -\\tfrac{1}{2}, \\ldots$ turn negative at the SIXTH factor — so the first negative term is $T_{7}$ ($r = 6$), not $T_{6}$ (whose last factor is still $+\\tfrac{1}{2}$). The same discipline prices $(a-b)^{n}$: odd $r$ seats are negative, and the sign is decided by the SEAT, not by the half of the row it sits in.',
+      'The partial-fraction cover-up discipline (7.6/7.3): split $\\tfrac{1}{(1-x)(1-2x)} = \\tfrac{2}{1-2x} - \\tfrac{1}{1-x}$ and check it by recombining — then remember that the NARROWEST window governs the combination ($|x| < \\tfrac{1}{2}$, not $|x| < 1$). And the seat equation in the index is a QUADRATIC: $\\tfrac{n(n-1)}{2} = \\tfrac{3}{8}$ delivers $n = \\tfrac{3}{2}$ OR $-\\tfrac{1}{2}$, and dropping the negative root drops a whole theorem-case that verifies just as well.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'The one warning that carries forward', text: 'A coefficient priced without its validity seat is a guess — and this chapter\u2019s engines are now load-bearing for the rest of the book. Chapter 8\u2019s Theory of Equations reads the roots of a polynomial through exactly these symmetric functions; the any-index rows are the doorstep of the calculus chapters, where the $|x| < 1$ discipline graduates from clause to theorem; Probability inherits the word census as the numerator of its distributions. Carry the decision map\u2019s two questions into all three — which index, which object — they are the one habit every later chapter prices, and the one the hall never stops testing.' },
+
+    { kind: 'heading', text: 'The Chapter Closes' },
+    { kind: 'para', text: 'And so the chapter closes. Chapter 5 handed this book the geometric row and its infinite tail; chapter 6 handed it the selection count; chapter 7 returned a proof engine and its most-used consequence: one engine, five consequences, every coefficient a count, every row certified for all $n$ by induction, every identity about the coefficients a substitution read of one proved theorem. The handoffs, named honestly: the any-index series is the doorstep of CALCULUS itself — the full proof (differentiate the series, solve the differential equation it satisfies) waits for derivatives this book has not built, and 7.3 said so in the open; the Cengage tradition itself continues on that doorstep, and chapter 5\u2019s $|x| < 1$ discipline was the first payment on it. The multinomial hands to PROBABILITY\u2019S distribution ground: the word census IS the multinomial distribution\u2019s numerator, and every "favourable over total" count Probability will ever price is a census audited exactly like 7.4\u2019s. And the whole chapter\u2019s coefficient algebra hands to chapter 8, "The Theory of Equations" — the next unit, named here as planned and not yet written: Viète\u2019s symmetric functions read the roots of a cubic through its coefficients, and the symmetric-function algebra this chapter built (the row\u2019s mirror, Vandermonde\u2019s convolution) is exactly the ground that chapter stands on. All named, none cashed early.' },
+    { kind: 'para', text: 'Use the review honestly and it will diagnose you. Attempt the mixed bench WITHOUT looking back at the lessons; every miss names its home lesson by its shape — a broken induction scaffold or a missing base case sends you to 7.1, a slipped seat number or a forgotten sign to 7.2, a missing window or a dropped root of the index quadratic to 7.3, a failed sum-check or a mispriced triple to 7.4, a mispriced substitution or a forgotten conjugate to 7.5, a dropped error column or a broken partial fraction to 7.6. The five quiz questions price five engines — one alternating-squares read, one general term, one negative-index linearisation, one term count, one first-negative flip; the bench takes the rest. Score them honestly, revisit exactly what the misses name, and the chapter is yours — and when chapter 8 asks for the roots of a cubic, you will recognise the coefficients: you priced them.' },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner — the honest coverage audit', text: 'The audit, stated once for the whole chapter: the banked JEE (Main) 2026 syllabus audit carries the binomial theorem for a positive integral index with general and middle term and coefficient properties as its own unit — unit 6 of the banked listing — and that unit is precisely this chapter\u2019s 7.2/7.5 heartland: the general, middle and from-the-end term hunts, the conjugate reads, the substitution row-sums, the greatest-coefficient and greatest-term questions, the term-independent-of-x items. The any-index material of 7.3 rides the same unit\u2019s negative-and-fractional index band, and 7.4\u2019s multinomial surfaces in the extension topics the harder papers price. Induction is the chapter\u2019s own engine and the school canon\u2019s dropped chapter — the NCERT rationalized class 11 book no longer carries it — so this book keeps it the way the classics keep it: the module arc (the M2 04 module, 7.1\u2019s ground) and Hall & Knight\u2019s induction chapter, with the banked JEE unit list still listing a unit 5 for it; nothing in this chapter is orphaned either way. The school canon\u2019s binomial ground is NCERT class 11 chapter 7\u2019s general and middle term — the arc 7.2 walked storey by storey. The registers the six lessons drilled, re-priced by this bench: 7.1 induction scaffolds and find-the-flaw items; 7.2 general, middle and from-the-end term hunts with conjugate reads; 7.3 row recognition, scaled-argument seat pricing and validity statements; 7.4 term counts and constrained seats; 7.5 substitution hunts, Vandermonde, peaks and term-independent items; 7.6 approximations with honest errors, divisibility, conjugate-pair integers and partial fractions. The items in this review are exam-style — our own constructions on those registers, honestly labelled; no past-paper text is reproduced, and every number above was generated and verified by this book\u2019s own engines before a word of this prose was fixed.' },
+    { kind: 'callout', tone: 'insight', title: 'What this chapter actually built', text: 'One sentence: the chapter fused its two inheritors — chapter 6\u2019s counting and chapter 5\u2019s series discipline — into a single COEFFICIENT ALGEBRA, and certified it for every $n$ with the proof engine it built first. Every coefficient of $(a+b)^{n}$ is a selection count; every row of Pascal\u2019s triangle is certified for all $n$ by induction; every identity about the coefficients is a substitution read of one proved theorem; every infinite row is the same theorem inside its window, verified everywhere it can be reached; and every approximation is the row\u2019s first seats with the unpaid tail measured. The five cashes — term pricing, infinite rows, word censuses, row algebra, approximations — re-used each other\u2019s machinery without re-proving it, which is what makes this a chapter rather than six lessons: the counting proof priced the multinomial, Pascal\u2019s rule became the row algebra, Bernoulli became the error bound, the conjugate powers became the conjugate-pair trick. A reader who can run the decision map\u2019s two questions at examination speed owns the whole shelf at once — and hands the next chapter its ground.' },
+
+    { kind: 'quiz', title: 'Check yourself — the chapter in five questions', items: [
+      { q: '$1 - 16 + 36 - 16 + 1$ equals', options: ['$0$', '$6$', '$70$', '$-6$'], answer: 1, explain: 'Alternating squares at $n = 4$: the row $1, 4, 6, 4, 1$ alternated is $1 - 16 + 36 - 16 + 1 = 6 = (-1)^{2}\\binom{4}{2}$ (option B) — the alternating-squares law cashed through the $(1-x^{2})^{n}$ conjugate read of 7.5. Option C\u2019s $70 = 1 + 16 + 36 + 16 + 1$ is the UN-alternated square-sum $\\sum\\binom{4}{r}^{2} = \\binom{8}{4}$ — Vandermonde\u2019s witness with the signs stripped, the family\u2019s most natural wrong turn. Option A\u2019s $0$ is the ODD-$n$ value of the same law ($n = 5$ alternates to zero) — right law, wrong parity. Option D\u2019s $-6$ is the sign trap: the central factor $(-1)^{n/2}$ read with one flip too many.' },
+      { q: 'The 7th term of $(2a+b)^{12}$ is', options: ['$7936\\,a^{6}b^{6}$', '$59136\\,a^{6}b^{6}$', '$59136\\,a^{7}b^{5}$', '$118272\\,a^{6}b^{6}$'], answer: 1, explain: 'The seat dictionary first: the 7th term means $r = 6$ — the general term is $T_{r+1}$ precisely so the first term sits at $r = 0$. So $T_{7} = \\binom{12}{6}(2a)^{6}b^{6} = 924 \\cdot 64\\,a^{6}b^{6} = 59136\\,a^{6}b^{6}$ (option B), the middle seat of an even row standing at the peak coefficient. Option A\u2019s $7936$ is the digit-slip $124 \\cdot 64$ — the middle coefficient $\\binom{12}{6} = 924$ misread as $124$. Option C keeps the magnitude but misplaces the seat: $a^{7}b^{5}$ is the $r = 5$ monomial (the 6th term), whose honest price is $\\binom{12}{5}2^{7} = 792 \\cdot 128 = 101376$, not $59136$. Option D\u2019s $118272 = 2 \\cdot 59136$ counts the base\u2019s power twice — the $64$ of $(2a)^{6}$ applied once as a coefficient and once again on the letters.' },
+      { q: '$(1.01)^{-2}$ to first order is', options: ['$0.98$', '$1.02$', '$0.99$', '$1.002$'], answer: 0, explain: 'The negative index flips the sign of the linear seat: $(1+x)^{-2} \\approx 1 - 2x$ for small $x$, so $(1.01)^{-2} \\approx 1 - 2(0.01) = 0.98$ (option A) — and the true value $0.9803\\ldots$ confirms the read. Option B\u2019s $1.02$ forgets the negative index: it is the first-order read of $(1.01)^{+2}$, a value ABOVE one — while a negative power of a base above one must land BELOW one. Option C\u2019s $0.99 = 1 - 0.01$ uses the index $-1$ — the alternating geometric\u2019s first-order read pasted onto the reciprocal square. Option D\u2019s $1.002$ slips the decimal a place ($0.01$ misread as $0.001$) and drops the sign besides — above one again, impossible for this family.' },
+      { q: 'The number of distinct terms of $(a+b+c)^{5}$ is', options: ['$15$', '$10$', '$21$', '$31$'], answer: 2, explain: 'The term-count law of 7.4: the seats are the non-negative solutions of $p + q + r = 5$, and chapter 6\u2019s identical-distribution bridge counts them at $\\binom{5+2}{2} = \\binom{7}{2} = 21$ (option C) — swept against the literal expansions $6, 10, 15, 21, 28$ at $n = 2$ to $6$. Option A\u2019s $15 = \\binom{6}{2}$ is the $n = 4$ count — the classic off-by-one on exactly this question, the exponent read one low. Option B\u2019s $10 = \\binom{5}{2}$ is the CUBE\u2019s term count ($n = 3$) — one exponent lower still. Option D\u2019s $31$ prices a freedom about SETS (a $2^{5}$-style in/out census, minus its empty case) — terms are distributions of the degree budget, never subsets of a five-set; no honest seat-count route produces it.' },
+      { q: 'The first negative term of $(1+x)^{9/2}$, $x > 0$, is', options: ['the 6th', 'the 7th', 'the 5th', 'the 8th'], answer: 1, explain: 'The falling factors of the index $\\tfrac{9}{2}$ descend $\\tfrac{9}{2}, \\tfrac{7}{2}, \\tfrac{5}{2}, \\tfrac{3}{2}, \\tfrac{1}{2}, -\\tfrac{1}{2}, \\ldots$ — positive through the fifth factor, negative from the sixth. The term $T_{r+1}$ owns the factors through $n - r + 1$, so the first term to carry a negative factor is the one with $r = 6$: the 7th term (option B), 7.6\u2019s pinned witness. Option A\u2019s 6th owns factors ending at $+\\tfrac{1}{2}$ — small, but POSITIVE: shrinking is not signing. Option C\u2019s 5th is where the factors merely fall below $1$ in size — the same confusion at an earlier seat. Option D\u2019s 8th overshoots: the sign flipped one seat earlier, so $T_{8}$ is only the SECOND negative term.' },
+    ] },
+
+    { kind: 'exercises', title: 'Exercises 7.R — the mixed bench', sets: [
+      { level: 'L1', questions: [
+        { q: 'Sum the even-index coefficients of row 12 of Pascal\u2019s triangle — the seats $\\binom{12}{0}, \\binom{12}{2}, \\binom{12}{4}, \\ldots, \\binom{12}{12}$ — and reconcile the answer against the row-sum law.', solution: [
+          'Row 12 is the coefficient row of $(1+x)^{12}$: $1, 12, 66, 220, 495, 792, 924, 792, 495, 220, 66, 12, 1$.',
+          'So, the even-index seats price as $\\binom{12}{0} + \\binom{12}{2} + \\binom{12}{4} + \\binom{12}{6} + \\binom{12}{8} + \\binom{12}{10} + \\binom{12}{12}$.',
+          'Now, the arithmetic: $1 + 66 + 495 + 924 + 495 + 66 + 1 = 2048$.',
+          'The reconciliation: the whole row sums to $2^{12} = 4096$, and the conjugate read $(1+x)^{12} + (1-x)^{12}$ cancels the odd seats while doubling the even ones — so each half of the row is worth $\\tfrac{4096}{2} = 2^{11} = 2048$.',
+          'Hence the even-index sum is $2048 = 2^{11}$ — and the odd-index seats carry the SAME $2048$, the row split exactly in half by the conjugate machine.',
+        ], answer: '2048 = 2^11 (the odd seats carry the other 2048)' },
+        { q: 'Write $(1+x)^{6} + (1-x)^{6}$ as a polynomial in even powers of $x$ only.', solution: [
+          'Recognise the conjugate shape: the two powers carry the same coefficient magnitudes and differ only in the signs $(-1)^{r}$, so their sum cancels every odd seat and doubles every even one — the machine behind $(1.02)^{4} + (0.98)^{4}$.',
+          'So, $(1+x)^{6} + (1-x)^{6} = 2\\left[\\binom{6}{0} + \\binom{6}{2}x^{2} + \\binom{6}{4}x^{4} + \\binom{6}{6}x^{6}\\right]$.',
+          'Now, the coefficients: row 6 is $1, 6, 15, 20, 15, 6, 1$, so the even seats are $1, 15, 15, 1$.',
+          'Hence $(1+x)^{6} + (1-x)^{6} = 2\\left(1 + 15x^{2} + 15x^{4} + x^{6}\\right)$ — an even polynomial, every odd power gone by cancellation.',
+        ], answer: '2(1 + 15x² + 15x⁴ + x⁶)' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Find the term independent of $x$ in the expansion of $\\left(x - \\tfrac{1}{x}\\right)^{10}$.', solution: [
+          'Setup: the general term is $T_{r+1} = \\binom{10}{r}x^{10-r}\\left(-\\tfrac{1}{x}\\right)^{r} = \\binom{10}{r}(-1)^{r}x^{10-2r}$.',
+          'So, the term independent of $x$ needs the exponent $10 - 2r = 0$, giving $r = 5$ — the middle seat of an even row, exactly where the middle-term law of 7.2 says the action sits.',
+          'Now, the price: $\\binom{10}{5}(-1)^{5}x^{0} = -252$.',
+          'Hence the term independent of $x$ is $-252$ — negative because $r = 5$ is odd, the $(a-b)^{n}$ sign discipline cashed at the central seat.',
+        ], answer: '−252' },
+        { q: 'Estimate $\\sqrt{26}$ to first order, and state the honest error against the true value.', solution: [
+          'The transform first: $26 = 25\\left(1 + \\tfrac{1}{25}\\right)$, so $\\sqrt{26} = 5\\left(1 + \\tfrac{1}{25}\\right)^{1/2}$ — the leading-factor move of 7.3 with the half row run at $x = \\tfrac{1}{25}$, well inside the window.',
+          'So, the first-order read — 7.6\u2019s linear engine, with Bernoulli\u2019s proved inequality underneath it as the guarantee: $\\left(1 + \\tfrac{1}{25}\\right)^{1/2} \\approx 1 + \\tfrac{1}{2} \\cdot \\tfrac{1}{25} = 1 + \\tfrac{1}{50}$.',
+          'Now, the price: $5\\left(1 + \\tfrac{1}{50}\\right) = 5 + 0.1 = 5.1$.',
+          'The honest error column: the true value is $\\sqrt{26} = 5.09902\\ldots$, so the first-order read over-estimates by about $0.00098$ — and the unpaid $-\\tfrac{x^{2}}{8}$ seat of the half row, $\\tfrac{1}{8} \\cdot \\left(\\tfrac{1}{25}\\right)^{2} \\cdot 5 \\approx 0.001$, is exactly the size of the miss.',
+          'Hence $\\sqrt{26} \\approx 5.1$ to first order, against the true $5.09902\\ldots$ — the error column the chapter refuses to drop.',
+        ], answer: '5.1 (true 5.09902…; the unpaid −x²/8 seat ≈ 0.001 is the miss)' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Evaluate $\\sum_{r=0}^{6} \\binom{6}{r}^{2}$, and name the law that prices it without expansion.', solution: [
+          'The law: Vandermonde\u2019s square-sum, $\\sum_{r=0}^{n}\\binom{n}{r}^{2} = \\binom{2n}{n}$ — 7.5\u2019s exhibit, itself the $m = n$, $k = n$ seat of the convolution $\\sum_{r}\\binom{m}{r}\\binom{n}{k-r} = \\binom{m+n}{k}$.',
+          'So, at $n = 6$ the sum is $\\binom{12}{6}$.',
+          'Now, the arithmetic: $\\binom{12}{6} = 924$ — the middle entry of row 12, the peak its profile climbs to.',
+          'Check by the direct run: $1 + 36 + 225 + 400 + 225 + 36 + 1 = 924$ — the seven squared seats of row 6 total exactly the peak of row 12.',
+          'Hence $\\sum_{r=0}^{6}\\binom{6}{r}^{2} = 924 = \\binom{12}{6}$, priced with no expansion written — the counting-row witness ($1+16+36+16+1 = 70 = \\binom{8}{4}$ at $n = 4$) is the same law one exponent down.',
+        ], answer: '924 = C(12,6)' },
+        { q: 'Find the 7th term of $(2a+b)^{12}$.', solution: [
+          'Setup: the 7th term means $r = 6$ — the term number is one more than the index, the first discipline of 7.2\u2019s seat dictionary.',
+          'So, $T_{7} = \\binom{12}{6}(2a)^{6}b^{6}$.',
+          'Now, the numbers: $\\binom{12}{6} = 924$ (row 12\u2019s middle entry) and $(2a)^{6} = 64a^{6}$.',
+          'Hence $T_{7} = 924 \\cdot 64\\,a^{6}b^{6} = 59136\\,a^{6}b^{6}$ — the middle term of an even row, standing at the row\u2019s peak coefficient, exactly as the parity law of the middle-term seats predicts.',
+        ], answer: '59136 a⁶b⁶' },
+        { q: 'Without expanding, state the number of distinct terms in $(a+b+c)^{5}$, and name the bridge that counts them.', solution: [
+          'No expansion: the terms of $(a+b+c)^{5}$ are the monomials $a^{p}b^{q}c^{r}$ with $p + q + r = 5$ — the seats of the degree budget.',
+          'So, the bridge: counting seats is counting the non-negative solutions of one linear equation — chapter 6\u2019s identical-distribution count, five identical balls into three labelled boxes, $\\binom{5+2}{2}$.',
+          'Hence $\\binom{7}{2} = 21$ distinct terms — swept against the literal expansions in 7.4 ($6, 10, 15, 21, 28$ at $n = 2$ to $6$), and the $k$-letter law $\\binom{n+k-1}{k-1}$ at $k = 3$ recovering the same number.',
+          'Hence 21 terms, counted by a census with no expansion ever written — the trap being the off-by-one neighbours 15 ($n = 4$) and 10 ($n = 3$).',
+        ], answer: '21 = C(7,2) (the identical-distribution bridge)' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Find the coefficient of $x^{6}$ in the expansion of $\\left(x^{2} - \\tfrac{2}{x}\\right)^{9}$.', solution: [
+          'Setup: $T_{r+1} = \\binom{9}{r}(x^{2})^{9-r}\\left(-\\tfrac{2}{x}\\right)^{r} = \\binom{9}{r}(-2)^{r}x^{18-3r}$.',
+          'So, the target seat: $18 - 3r = 6$ gives $r = 4$ — the exponent equation solved before any coefficient is touched, the second door of 7.2\u2019s dictionary.',
+          'Now, the price: $\\binom{9}{4}(-2)^{4}x^{6} = 126 \\cdot 16\\,x^{6}$.',
+          'Hence the coefficient of $x^{6}$ is $2016$ — positive, because $r = 4$ is even and the $(a-b)^{n}$ sign discipline had already done its work at the seat.',
+        ], answer: '2016' },
+        { q: 'Find the remainder when $7^{101} + 11^{51}$ is divided by $8$.', solution: [
+          'The residues first: $7 \\equiv -1 \\pmod 8$ and $11 \\equiv 3 \\pmod 8$.',
+          'So, $7^{101} \\equiv (-1)^{101} = -1 \\equiv 7 \\pmod 8$ — the odd exponent keeps the sign.',
+          'And $11^{51} \\equiv 3^{51} = 3 \\cdot (3^{2})^{25} \\equiv 3 \\cdot 1^{25} = 3 \\pmod 8$, because $3^{2} = 9 \\equiv 1 \\pmod 8$ — the exponent halved by pairing.',
+          'Hence the sum: $7 + 3 = 10 \\equiv 2 \\pmod 8$ — the remainder is $2$, the pinned witness of 7.6\u2019s divisibility bench.',
+        ], answer: '2' },
+        { q: 'Find the smallest integer larger than $\\left(\\sqrt{5}+\\sqrt{2}\\right)^{4}$.', solution: [
+          'The conjugate-pair trick of 7.6: add the twin $\\left(\\sqrt{5}-\\sqrt{2}\\right)^{4}$ and the irrational parts cancel — 7.2\u2019s conjugate-sum machine cashed on surds.',
+          'So, the sum: $\\left(\\sqrt{5}+\\sqrt{2}\\right)^{4} + \\left(\\sqrt{5}-\\sqrt{2}\\right)^{4} = 2\\left[(\\sqrt{5})^{4} + 6(\\sqrt{5})^{2}(\\sqrt{2})^{2} + (\\sqrt{2})^{4}\\right] = 2(25 + 60 + 4) = 178$.',
+          'Now, the twin\u2019s size: $\\sqrt{5} - \\sqrt{2} \\approx 0.82$, so $\\left(\\sqrt{5}-\\sqrt{2}\\right)^{4} \\approx 0.45$ — small and positive, which places the big power just BELOW the integer its pair sums to.',
+          'Hence $\\left(\\sqrt{5}+\\sqrt{2}\\right)^{4} = 178 - 0.45\\ldots = 177.54\\ldots$, and the smallest integer larger than it is $178$ — the conjugate pair\u2019s exact sum, arrived at without ever expanding the irrational power.',
+        ], answer: '178' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Find the coefficient of $x^{n}$ in the expansion of $(1-5x+6x^{2})^{-1}$, and state the window.', solution: [
+          'Factor the quadratic: $1 - 5x + 6x^{2} = (1-2x)(1-3x)$ — the denominator splits into two geometric rows.',
+          'So, split by partial fractions: $\\tfrac{1}{(1-2x)(1-3x)} = \\tfrac{-2}{1-2x} + \\tfrac{3}{1-3x}$ — check by recombining: $3(1-2x) - 2(1-3x) = 1$, as the cover-up discipline demands.',
+          'Now, expand each row: $\\tfrac{-2}{1-2x} = -2\\left(1 + 2x + 4x^{2} + \\cdots\\right)$ and $\\tfrac{3}{1-3x} = 3\\left(1 + 3x + 9x^{2} + \\cdots\\right)$, both geometric — and the combination is valid only in the NARROWER window, $|x| < \\tfrac{1}{3}$.',
+          'So, the $x^{n}$ seat collects $-2 \\cdot 2^{n} + 3 \\cdot 3^{n}$ from the two rows.',
+          'Hence the coefficient of $x^{n}$ is $3^{n+1} - 2^{n+1}$ — checked at the first seats: $n = 0, 1, 2$ give $1, 5, 19$, and dividing $1$ by $1 - 5x + 6x^{2}$ returns exactly $1 + 5x + 19x^{2} + \\cdots$.',
+        ], answer: '3^(n+1) − 2^(n+1), valid for |x| < 1/3' },
+        { q: 'Evaluate $\\sum_{r=0}^{4} (-1)^{r}\\binom{7}{r}$ by the cancellation engine, and verify by listing the partial sums.', solution: [
+          'The engine of 7.6: the alternating row collapses in blocks — $\\sum_{r \\leq k}(-1)^{r}\\binom{n}{r} = (-1)^{k}\\binom{n-1}{k}$, the identity behind every partial-sum hunt.',
+          'So, at $n = 7$, $k = 4$: the sum is $(-1)^{4}\\binom{6}{4} = 15$.',
+          'The verification, seat by seat: $\\binom{7}{0} - \\binom{7}{1} + \\binom{7}{2} - \\binom{7}{3} + \\binom{7}{4} = 1 - 7 + 21 - 35 + 35$.',
+          'Now, the partial-sum walk: $1, -6, 15, -20, 15$ — the run swings both sides of zero and lands on $15$, the walk drawn in the figure below.',
+          'Hence $\\sum_{r=0}^{4}(-1)^{r}\\binom{7}{r} = 15 = \\binom{6}{4}$ — the cancellation engine\u2019s one-line verdict, reconciled against the literal walk.',
+        ], answer: '15 = C(6,4) (partial sums 1, −6, 15, −20, 15)', figures: [
+          { caption: 'The partial-sum walk of the alternating row of seven: the five running totals 1, −6, 15, −20, 15 zigzag either side of the dashed zero line, swing down to −20 at r = 3, and land on 15 = C(6,4) — the cancellation law at k = 4.', svg: partialSumWalk7RSvg() },
+        ] },
+        { q: 'Find the greatest term in the expansion of $(1.3)^{15}$ — state which term it is and why.', solution: [
+          'Setup: $(1.3)^{15} = (1 + 0.3)^{15}$, so $T_{k+1} = \\binom{15}{k}(0.3)^{k}$ with every seat positive.',
+          'The ratio test: $\\tfrac{T_{k+2}}{T_{k+1}} = \\tfrac{\\binom{15}{k+1}}{\\binom{15}{k}} \\cdot 0.3 = \\tfrac{15-k}{k+1} \\cdot 0.3$ — the terms climb while this ratio is at least $1$.',
+          'So, solve the inequality: $(15-k) \\cdot 0.3 \\geq k + 1 \\iff 3.5 \\geq 1.3k \\iff k \\leq 2.69$.',
+          'Now, read the verdict: the climb continues through $k = 2$ (the ratio still above $1$ there) and stops at $k = 3$ — the greatest term is $T_{4}$, the $k = 3$ seat.',
+          'Check the neighbours: $T_{3} = \\binom{15}{2}(0.3)^{2} = 9.45$, $T_{4} = \\binom{15}{3}(0.3)^{3} = 12.285$, $T_{5} = \\binom{15}{4}(0.3)^{4} = 11.0565$ — the peak is indeed $T_{4}$.',
+          'Hence the greatest term is $T_{4}$ ($k = 3$) — the ratio test\u2019s honest verdict: the climb holds exactly while $\\tfrac{15-k}{k+1} \\cdot 0.3 \\geq 1$, that is, while $k \\leq 2.69$.',
+        ], answer: 'T₄ (k = 3) — the ratio (15−k)/(k+1)·0.3 ≥ 1 ⇔ k ≤ 2.69, so the climb stops at k = 3' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Prove the alternating-squares law $\\sum_{r=0}^{n}(-1)^{r}\\binom{n}{r}^{2} = 0$ for odd $n$ and $(-1)^{n/2}\\binom{n}{n/2}$ for even $n$, via the $(1-x^{2})^{n}$ conjugate read; verify both at $n = 4$ and $n = 5$.', solution: [
+          'The engine: multiply the conjugate powers — $(1+x)^{n}(1-x)^{n} = (1-x^{2})^{n}$, 7.5\u2019s read of 7.2\u2019s conjugate machine, the same law this review recalls in one line among its laws.',
+          'Price the $x^{n}$ seat on the LEFT: choosing the $r$-seat of the first row forces the $(n-r)$-seat of the second, whose sign is $(-1)^{n-r}$ — so the seat is $\\sum_{r=0}^{n}\\binom{n}{r}(-1)^{n-r}\\binom{n}{n-r} = \\sum_{r=0}^{n}(-1)^{n-r}\\binom{n}{r}^{2}$, the selection symmetry $\\binom{n}{n-r} = \\binom{n}{r}$ of 7.2 collapsing each pair to a square.',
+          'So, factor the sign: $(-1)^{n-r} = (-1)^{n}(-1)^{r}$, and the left seat is $(-1)^{n}\\sum_{r=0}^{n}(-1)^{r}\\binom{n}{r}^{2}$.',
+          'Price the SAME seat on the RIGHT: $(1-x^{2})^{n} = \\sum_{j}(-1)^{j}\\binom{n}{j}x^{2j}$ carries EVEN powers only — so at odd $n$ the $x^{n}$ seat is absent (the sum is $0$), and at even $n = 2m$ it is $(-1)^{m}\\binom{n}{m}$.',
+          'Match the two pricings: odd $n$ gives $\\sum(-1)^{r}\\binom{n}{r}^{2} = 0$; even $n$ (where $(-1)^{n} = +1$) gives $\\sum(-1)^{r}\\binom{n}{r}^{2} = (-1)^{n/2}\\binom{n}{n/2}$.',
+          'Verify: $n = 4$ gives $1 - 16 + 36 - 16 + 1 = 6 = (-1)^{2}\\binom{4}{2}$; $n = 5$ gives $1 - 25 + 100 - 100 + 25 - 1 = 0$.',
+          'Hence the law — one conjugate product, two seat pricings, and the parity of $n$ deciding everything: no induction required, the meaning did the work.',
+        ], answer: 'proved: 0 (n odd), (−1)^(n/2)·C(n, n/2) (n even); witnesses 6 at n = 4 and 0 at n = 5' },
+        { q: 'Prove that $(a+b)^{n} - a^{n} - b^{n}$ is divisible by $ab(a+b)$ for every odd positive integer $n$; verify at the witness $a = 2$, $b = 3$, $n = 5$.', solution: [
+          'The expansion: $(a+b)^{n} - a^{n} - b^{n} = \\sum_{r=1}^{n-1}\\binom{n}{r}a^{n-r}b^{r}$ — the two pure seats removed, the mixed seats kept, and every mixed seat carries at least one $a$ and one $b$, so $ab$ divides each term and hence the whole sum.',
+          'Pair the seats $r$ and $n - r$: because $n$ is ODD, $r \\neq n - r$ for every $r$ — the sum splits into honest pairs with no middle seat left over.',
+          'So, each pair collects as $\\binom{n}{r}\\left(a^{n-r}b^{r} + a^{r}b^{n-r}\\right) = \\binom{n}{r}a^{r}b^{r}\\left(a^{n-2r} + b^{n-2r}\\right)$, using the coefficient symmetry $\\binom{n}{r} = \\binom{n}{n-r}$.',
+          'Now, the odd-power factorisation: for odd $m$, $x^{m} + y^{m} = (x+y)\\left(x^{m-1} - x^{m-2}y + \\cdots - xy^{m-2} + y^{m-1}\\right)$ — the alternating bracket, verified by expanding (every interior term cancels in $\\pm$ pairs). And $n - 2r$ is odd, because $n$ is odd and $2r$ is even.',
+          'So, each pair carries the factor $a^{n-2r} + b^{n-2r} = (a+b) \\cdot (\\text{an integer-coefficient polynomial})$ — and $a^{r}b^{r}$ with $r \\geq 1$ carries the $ab$.',
+          'Hence every pair is divisible by $ab(a+b)$, and with it the whole expansion — the two structure checks (odd $n$ for the pairing, odd $n - 2r$ for the factorisation) both riding the one parity fact.',
+          'The witness: $(2+3)^{5} - 2^{5} - 3^{5} = 3125 - 32 - 243 = 2850 = 30 \\cdot 95 = ab(a+b) \\cdot 95$ — divisible exactly, as promised.',
+        ], answer: 'proved by seat-pairing (odd n: no middle seat; odd n−2r: the a+b factor); witness 2850 = 30 · 95 at a = 2, b = 3, n = 5' },
+      ] },
+    ] },
+  ],
+}
+
 export const chapter07: Chapter = {
   number: 7,
   slug: 'induction-and-binomial-theorem',
   title: 'Induction and the Binomial Theorem',
   summary:
     'The book’s proof engine and its most-used consequence, in the order the classics teach them. Mathematical induction first — the domino principle: base case, inductive step, and the honest scope note (what induction proves and what it never can), applied to the sum formulas chapter 5 left uncertified, to divisibility statements, and to inequality statements the AM–GM engine guessed. Then the binomial theorem for a positive integral index — Pascal’s triangle read as a counting statement about chapter 6’s selections, the theorem PROVED by induction, the general and middle terms priced exactly. The coefficients become objects of study (their sum, their alternating sum, the term independent of x), and the chapter closes with the applications: (1 + x)ⁿ ≈ 1 + nx for small x, divisibility reads, and coefficient-hunting at exam speed. The frequently used expansions — (a ± b)², (a ± b)³ and the kin every exam expects by reflex — banked as the chapter’s opening toolkit.',
-  status: 'in-progress',
-  lessons: [lesson71, lesson72, lesson73, lesson74],
-  plannedLessons: [
-    'Binomial Coefficients at Work',
-    'Binomial Applications and Approximations',
-    'Unit 7 Completion Review',
-  ],
+  status: 'complete',
+  lessons: [lesson71, lesson72, lesson73, lesson74, lesson75, lesson76, lesson7R],
+  plannedLessons: [],
 }

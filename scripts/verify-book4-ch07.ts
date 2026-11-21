@@ -790,6 +790,342 @@ function sectionG(): SectionCheck[] {
 sections.push(tally('E (7.3 engines)', sectionE()))
 sections.push(tally('G (7.4 engines)', sectionG()))
 
+// ------------------------------------------------------------------
+// (I) 7.5 engines — EVERY number lesson 7.5 will write, brute-forced
+// (binomial coefficients at work: substitution sums, conjugate reads,
+// Vandermonde products, ratios, peaks, complex binomials, term-in-x)
+// ------------------------------------------------------------------
+
+// a Laurent polynomial (integer exponents, possibly negative) as a Map
+// from exponent to coefficient — the honest ground for term-in-x hunts
+function laurentPow(base: Map<number, number>, n: number): Map<number, number> {
+  let acc = new Map<number, number>([[0, 1]])
+  for (let t = 0; t < n; t++) {
+    const next = new Map<number, number>()
+    for (const [e1, c1] of acc) for (const [e2, c2] of base) {
+      const e = e1 + e2
+      next.set(e, (next.get(e) ?? 0) + c1 * c2)
+    }
+    acc = next
+  }
+  return acc
+}
+
+function sectionI(): SectionCheck[] {
+  const c: SectionCheck[] = []
+
+  // --- I1 the substitution engine: row sums and their families ---
+  let rowOk = true
+  for (let n = 0; n <= 12; n++) { let s = 0; for (let r = 0; r <= n; r++) s += binom(n, r); if (s !== 2 ** n) rowOk = false }
+  c.push(check('I1 row sums 2^n, n=0..12', rowOk))
+  let altOk = true
+  for (let n = 1; n <= 12; n++) { let s = 0; for (let r = 0; r <= n; r++) s += (-1) ** r * binom(n, r); if (s !== 0) altOk = false }
+  c.push(check('I2 alternating row sums 0, n=1..12', altOk))
+  let evenOk = true
+  for (let n = 1; n <= 12; n++) { let s = 0; for (let r = 0; r <= n; r += 2) s += binom(n, r); if (s !== 2 ** (n - 1)) evenOk = false }
+  c.push(check('I3 even-index family 2^(n-1), n=1..12', evenOk))
+  // sum of coefficients of (2-3x)^12 at x=1: (2-3)^12 = 1
+  c.push(check('I4 sum of coefficients of (2-3x)^12 = 1', ((2 - 3) ** 12) === 1))
+  // sum of coefficients of (1+x-2x^2)^9 at x=1: (1+1-2)^9 = 0 — the honest zero
+  c.push(check('I5 sum of coefficients of (1+x-2x^2)^9 = 0', ((1 + 1 - 2) ** 9) === 0))
+  // (1+x+x^2)^6 sum of coefficients = 3^6 = 729 (literal)
+  c.push(check('I6 sum of coefficients of (1+x+x^2)^6 = 729', polyPow1Dlocal([1, 1, 1], 6).reduce((s, v) => s + v, 0) === 729))
+
+  // --- I2 standard expansions as algebra objects (the reflex family) ---
+  // (a+b)^3 - a^3 - b^3 = 3ab(a+b): literal at a=5, b=3
+  c.push(check('I7 (5+3)^3 - 125 - 27 = 360 = 3*5*3*8', 8 ** 3 - 125 - 27 === 360 && 3 * 5 * 3 * 8 === 360))
+  // (a+b)^2 + (a-b)^2 = 2(a^2+b^2): numeric witness a=7, b=2
+  c.push(check('I8 9^2 + 5^2 = 106 = 2(49+4)', 9 ** 2 + 5 ** 2 === 106 && 2 * (49 + 4) === 106))
+  // (1+x)^6 + (1-x)^6 = 2(1 + 15x^2 + 15x^4 + x^6): literal
+  const p6p = binomialLiteral(6), p6m = binomialLiteral(6, true)
+  const conjSum6 = p6p.map((v, i) => v + p6m[i])
+  c.push(check('I9 (1+x)^6+(1-x)^6 = 2,0,30,0,30,0,2', JSON.stringify(conjSum6) === JSON.stringify([2, 0, 30, 0, 30, 0, 2])))
+  // (1+x)^5 - (1-x)^5 = 2(5x + 10x^3 + x^5): literal
+  const p5p = binomialLiteral(5), p5m = binomialLiteral(5, true)
+  const conjDiff5 = p5p.map((v, i) => v - p5m[i])
+  c.push(check('I10 (1+x)^5-(1-x)^5 = 0,10,0,20,0,2', JSON.stringify(conjDiff5) === JSON.stringify([0, 10, 0, 20, 0, 2])))
+
+  // --- I3 alternating squares via the (1-x^2)^n conjugate read ---
+  const altSq = (n: number) => { let s = 0; for (let r = 0; r <= n; r++) s += (-1) ** r * binom(n, r) ** 2; return s }
+  let altSqOk = true
+  for (let n = 1; n <= 10; n++) {
+    const want = n % 2 === 1 ? 0 : (-1) ** (n / 2) * binom(n, n / 2)
+    if (altSq(n) !== want) altSqOk = false
+  }
+  c.push(check('I11 alternating squares law, n=1..10', altSqOk))
+  c.push(check('I12 n=4 witness: 1-16+36-16+1 = 6 = (-1)^2 C(4,2)', altSq(4) === 6 && (-1) ** 2 * binom(4, 2) === 6))
+  c.push(check('I13 n=5 witness: 1-25+100-100+25-1 = 0', altSq(5) === 0))
+
+  // --- I4 Vandermonde / product of two expansions ---
+  // coefficient of x^2 in (1+x)^4 (1+x)^4 = 28 = C(8,2); the three ways 6+16+6
+  const v44 = polyMul(binomialLiteral(4), binomialLiteral(4))
+  c.push(check('I14 x^2 in (1+x)^4(1+x)^4 = 28 = 6+16+6', v44[2] === 28 && binom(4, 0) * binom(4, 2) + binom(4, 1) * binom(4, 1) + binom(4, 2) * binom(4, 0) === 28))
+  let vandOk = true
+  for (let m = 0; m <= 8; m++) for (let n = 0; n <= 8; n++) {
+    const prod = polyMul(binomialLiteral(m), binomialLiteral(n))
+    for (let r = 0; r <= m + n; r++) if (prod[r] !== binom(m + n, r)) vandOk = false
+  }
+  c.push(check('I15 Vandermonde sweep m,n<=8, all r', vandOk))
+  let sqSumOk = true
+  for (let n = 1; n <= 10; n++) { let s = 0; for (let r = 0; r <= n; r++) s += binom(n, r) ** 2; if (s !== binom(2 * n, n)) sqSumOk = false }
+  c.push(check('I16 sum C(n,r)^2 = C(2n,n), n=1..10', sqSumOk))
+  c.push(check('I17 n=4 witness: 1+16+36+16+1 = 70 = C(8,4)', (1 + 16 + 36 + 16 + 1) === 70 && binom(8, 4) === 70))
+  // cross pairs i<j: (4^n - C(2n,n))/2
+  let crossOk = true
+  for (let n = 1; n <= 8; n++) {
+    let all = 0, diag = 0
+    for (let i = 0; i <= n; i++) for (let j = 0; j <= n; j++) { all += binom(n, i) * binom(n, j); if (i === j) diag += binom(n, i) ** 2 }
+    let ij = 0
+    for (let i = 0; i <= n; i++) for (let j = i + 1; j <= n; j++) ij += binom(n, i) * binom(n, j)
+    if (ij !== (4 ** n - binom(2 * n, n)) / 2) crossOk = false
+  }
+  c.push(check('I18 cross pairs i<j = (4^n - C(2n,n))/2, n=1..8', crossOk))
+  c.push(check('I19 n=3 witness: (64-20)/2 = 22', (64 - 20) / 2 === 22))
+  let wOk = true
+  for (let n = 1; n <= 8; n++) { let s = 0; for (let r = 0; r <= n; r++) s += r * binom(n, r) ** 2; if (s !== n * binom(2 * n - 1, n - 1)) wOk = false }
+  c.push(check('I20 weighted sum r*C(n,r)^2 = n*C(2n-1,n-1), n=1..8', wOk))
+
+  // --- I5 ratios, A.P. condition, equal consecutive coefficients ---
+  let ratOk = true
+  for (let n = 1; n <= 12; n++) for (let r = 1; r <= n; r++) if (binom(n, r) / binom(n, r - 1) !== (n - r + 1) / r) ratOk = false
+  c.push(check('I21 ratio law C(n,r)/C(n,r-1) = (n-r+1)/r', ratOk))
+  const apSet: number[] = []
+  for (let n = 6; n <= 20; n++) if (2 * binom(n, 5) === binom(n, 4) + binom(n, 6)) apSet.push(n)
+  c.push(check('I22 A.P. condition 5th/6th/7th -> n in {7,14}', JSON.stringify(apSet) === JSON.stringify([7, 14])))
+  c.push(check('I22b witnesses 42=2*21, 4004=2*2002', binom(7, 4) + binom(7, 6) === 2 * binom(7, 5) && binom(14, 4) + binom(14, 6) === 2 * binom(14, 5)))
+  // equal consecutive coefficients in (2+5x)^13: x^9 and x^10, unique pair
+  let base25 = [1]
+  for (let i = 0; i < 13; i++) base25 = polyMul(base25, [2, 5])
+  const eqIdx: number[] = []
+  for (let k = 1; k <= 13; k++) if (base25[k] === base25[k - 1]) eqIdx.push(k)
+  c.push(check('I23 (2+5x)^13 equal consecutive at k=10 only', JSON.stringify(eqIdx) === JSON.stringify([10])))
+  c.push(check('I23b the equal value C(13,9)2^4 5^9 = C(13,10)2^3 5^10', base25[9] === base25[10] && base25[9] === binom(13, 9) * 2 ** 4 * 5 ** 9))
+
+  // --- I6 peaks: greatest coefficient, twin shoulders, least coefficient ---
+  const row11 = binomialLiteral(11)
+  const peak11 = Math.max(...row11)
+  c.push(check('I24 row 11 twin peaks 462 at r=5,6', peak11 === 462 && row11[5] === 462 && row11[6] === 462 && row11.filter((v) => v === 462).length === 2))
+  const row12 = binomialLiteral(12)
+  c.push(check('I25 row 12 profile pinned', JSON.stringify(row12) === JSON.stringify([1, 12, 66, 220, 495, 792, 924, 792, 495, 220, 66, 12, 1])))
+  let es12 = 0, os12 = 0
+  row12.forEach((v, i) => { if (i % 2 === 0) es12 += v; else os12 += v })
+  c.push(check('I26 row 12 even/odd split 2048 = 2^11 each', es12 === 2048 && os12 === 2048))
+  // algebraically least coefficient of (2-3x)^15: the most negative seat
+  let b23 = [1]
+  for (let i = 0; i < 15; i++) b23 = polyMul(b23, [2, -3])
+  let minIdx = 0
+  b23.forEach((v, i) => { if (v < b23[minIdx]) minIdx = i })
+  c.push(check('I27 least coefficient of (2-3x)^15 at k=9 (10th term)', minIdx === 9 && b23[9] === -(binom(15, 9) * 2 ** 6 * 3 ** 9) && b23[9] === -6304858560))
+  // greatest TERM numeric: (1+0.3)^15 — the term index the ratio test pins
+  const terms15 = Array.from({ length: 16 }, (_, k) => binom(15, k) * 0.3 ** k)
+  let gIdx = 0
+  terms15.forEach((v, i) => { if (v > terms15[gIdx]) gIdx = i })
+  c.push(check('I28 greatest term of (1+0.3)^15 at k=3 (T_4)', gIdx === 3 && terms15[3] > terms15[2] && terms15[3] >= terms15[4]))
+
+  // --- I7 binomial expansions using complex numbers ---
+  // (1+i)^8 = 16 exactly real: literal complex powering
+  const cMul = (a: [number, number], b: [number, number]): [number, number] => [a[0] * b[0] - a[1] * b[1], a[0] * b[1] + a[1] * b[0]]
+  let z: [number, number] = [1, 0]
+  for (let i = 0; i < 8; i++) z = cMul(z, [1, 1])
+  c.push(check('I29 (1+i)^8 = 16 + 0i', Math.abs(z[0] - 16) < 1e-9 && Math.abs(z[1]) < 1e-9))
+  // the binomial expansion itself: real parts 1-28+70-28+1, imaginary 8-56+56-8
+  let re = 0, im = 0
+  for (let r = 0; r <= 8; r++) { const p = binom(8, r) * (r % 4 === 0 ? 1 : r % 4 === 1 ? 0 : r % 4 === 2 ? -1 : 0) * (r % 2 === 1 ? 1 : 1); re += binom(8, r) * (r % 4 === 0 ? 1 : r % 4 === 2 ? -1 : 0); im += binom(8, r) * (r % 4 === 1 ? 1 : r % 4 === 3 ? -1 : 0) }
+  c.push(check('I30 real 1-28+70-28+1=16, imag 8-56+56-8=0', re === 16 && im === 0))
+  // cos 3theta / sin 3theta from the literal cube: numeric at theta = pi/6
+  const th = Math.PI / 6, cs = Math.cos(th), sn = Math.sin(th)
+  const cos3 = cs ** 3 - 3 * cs * sn ** 2, sin3 = 3 * cs ** 2 * sn - sn ** 3
+  c.push(check('I31 cos3t = 4c^3-3c, sin3t = 3c^2 s - s^3 at pi/6', Math.abs(cos3 - Math.cos(3 * th)) < 1e-12 && Math.abs(sin3 - Math.sin(3 * th)) < 1e-12 && Math.abs(cos3 - (4 * cs ** 3 - 3 * cs)) < 1e-12 && Math.abs(sin3 - (3 * sn - 4 * sn ** 3)) < 1e-12))
+  // real/negative term counts in (1+ix)^{4n}: 2n+1 real terms, n negative
+  let realCountOk = true
+  for (let n = 1; n <= 4; n++) {
+    let real = 0, neg = 0
+    for (let r = 0; r <= 4 * n; r++) {
+      const isReal = r % 2 === 0
+      const sign = r % 4 === 0 ? 1 : r % 4 === 2 ? -1 : 0
+      if (isReal) { real++; if (sign < 0) neg++ }
+    }
+    if (real !== 2 * n + 1 || neg !== n) realCountOk = false
+  }
+  c.push(check('I32 (1+ix)^{4n}: 2n+1 real terms, n negative', realCountOk))
+
+  // --- I8 the term independent of x (Laurent ground) ---
+  // (x - 1/x)^10 constant term = -C(10,5) = -252
+  const l1 = laurentPow(new Map([[1, 1], [-1, -1]]), 10)
+  c.push(check('I33 constant term of (x-1/x)^10 = -252', l1.get(0) === -252 && l1.get(0) === -binom(10, 5)))
+  // (x^(2/3) + x^(-1/3))^9 constant term = C(9,3) = 84 (exponent units of 1/3)
+  const l2 = laurentPow(new Map([[2, 1], [-1, 1]]), 9)
+  c.push(check('I34 constant term of (x^(2/3)+x^(-1/3))^9 = 84', l2.get(0) === 84 && l2.get(0) === binom(9, 3)))
+  // coefficient of x^6 in (x^2 - 2/x)^9 = C(9,4)(-2)^4 = 2016
+  const l3 = laurentPow(new Map([[2, 1], [-1, -2]]), 9)
+  c.push(check('I35 x^6 in (x^2-2/x)^9 = 2016', l3.get(6) === 2016 && l3.get(6) === binom(9, 4) * (-2) ** 4))
+
+  // --- I9 the multinomial bridge pins (the glossary fold's numbers) ---
+  c.push(check('I36 (a+b+c)^5 coefficient mass 243 = 3^5', Array.from(multinomialLiteral(5, 3).values()).reduce((s, v) => s + v, 0) === 243))
+  c.push(check('I37 a b^2 c^2 in (a+b+c)^5 = 30', multinomialLiteral(5, 3).get('1,2,2') === 30))
+
+  // --- I10 frequently-used-expansion witnesses 7.5 will use ---
+  c.push(check('I38 x^8 in (1-x)^-4 = 165', genCoeff(-4, 1, 8).eq(rat(165, 1))))
+  c.push(check('I39 x^5 in (1+x)^-2 = -6', genCoeff(-2, 1, 5).eq(rat(-6, 1))))
+  c.push(check('I40 x^6 in (1-x)^-1/2 = 231/1024', genCoeff(-1, 2, 6).eq(rat(231, 1024))))
+
+  return c
+}
+
+// local poly powering helper for section I
+function polyPow1Dlocal(base: number[], n: number): number[] {
+  let acc = [1]
+  for (let i = 0; i < n; i++) acc = polyMul(acc, base)
+  return acc
+}
+
+sections.push(tally('I (7.5 engines)', sectionI()))
+
+// ------------------------------------------------------------------
+// (K) 7.6 engines — EVERY number lesson 7.6 will write, brute-forced
+// (applications and approximations: linearization, root estimates,
+// divisibility/remainder reads, partial-fraction coefficient hunts)
+// ------------------------------------------------------------------
+
+// modular power (integer)
+function modPow(base: bigint, exp: bigint, mod: bigint): bigint {
+  let b = base % mod, e = exp, r = 1n
+  while (e > 0n) { if (e & 1n) r = (r * b) % mod; b = (b * b) % mod; e >>= 1n }
+  return r
+}
+// series inverse of (1 + a x + b x^2 + ...) to rMax terms, as integer-ish
+// floats (exact while values stay small): the literal ground truth for
+// coefficient hunts on negative-index objects
+function seriesInverse(base: number[], rMax: number): number[] {
+  const out = new Array(rMax + 1).fill(0)
+  out[0] = 1 / base[0]
+  for (let r = 1; r <= rMax; r++) {
+    let s = 0
+    for (let i = 1; i <= Math.min(r, base.length - 1); i++) s += base[i] * out[r - i]
+    out[r] = -s / base[0]
+  }
+  return out
+}
+
+function sectionK(): SectionCheck[] {
+  const c: SectionCheck[] = []
+
+  // --- K1 the linear approximation engine, with honest errors ---
+  const t1025 = 1.02 ** 5
+  c.push(check('K1 (1.02)^5 true 1.1040808, linear 1.10, quad 1.104', Math.abs(t1025 - 1.1040808032) < 1e-9 && 1 + 5 * 0.02 === 1.1 && Math.abs(1 + 5 * 0.02 + 10 * 0.0004 - 1.104) < 1e-12))
+  const sq104 = Math.sqrt(1.04)
+  c.push(check('K2 sqrt(1.04) true 1.0198039, linear 1.02, quad 1.0198', Math.abs(sq104 - 1.0198039027) < 1e-8 && 1 + 0.02 === 1.02 && Math.abs(1 + 0.02 - 0.0002 - 1.0198) < 1e-12))
+  const p0994 = 0.99 ** 4
+  c.push(check('K3 (0.99)^4 true 0.96059601, linear 0.96, quad 0.9606', Math.abs(p0994 - 0.96059601) < 1e-9 && 1 - 4 * 0.01 === 0.96 && Math.abs(1 - 0.04 + 6 * 0.0001 - 0.9606) < 1e-12))
+
+  // --- K2 the three-factor linearization (OUR OWN exhibit) ---
+  // (1+2x)^-3 (1-x/2)^{1/2} (1+x/4)^-1 ~ 1 - 13x/2: exact linear coefficient
+  const linA = genCoeff(-3, 1, 1).mul(rat(2, 1))          // (-3)(2) = -6
+  const linB = genCoeff(1, 2, 1).mul(rat(-1, 2))           // (1/2)(-1/2) = -1/4
+  const linC = genCoeff(-1, 1, 1).mul(rat(1, 4))           // (-1)(1/4) = -1/4
+  const linTotal = linA.add(linB).add(linC)
+  c.push(check('K4 three-factor linear coefficient -13/2', linTotal.eq(rat(-13, 2)) && linA.eq(rat(-6, 1)) && linB.eq(rat(-1, 4)) && linC.eq(rat(-1, 4))))
+  const trueAt = (1 + 0.02) ** -3 * Math.sqrt(1 - 0.005) * (1 + 0.0025) ** -1
+  c.push(check('K5 numeric at x=0.01: true 0.9376 vs linear 0.935 (gap 0.0026 = the dropped x^2 mass)', Math.abs(trueAt - 0.9376) < 2e-4 && 1 - (13 / 2) * 0.01 === 0.935 && Math.abs(trueAt - 0.935) > 2e-3 && Math.abs(trueAt - 0.935) < 5e-3))
+  // the conjugate sqrt product: (1-(y/x)^2)^{-1/2} = 1 + y^2/(2x^2) at y/x = 0.1
+  const conjVal = 1 / Math.sqrt(1 - 0.01)
+  c.push(check('K6 (1-0.01)^-1/2 = 1.0050378 vs 1.005', Math.abs(conjVal - 1.0050378144) < 1e-8 && Math.abs(1.005 - conjVal) < 6e-4))
+
+  // --- K3 root estimates near perfect powers ---
+  const cbrt65 = Math.cbrt(65)
+  const lin65 = 4 * (1 + 1 / 192)
+  const quad65 = 4 * (1 + 1 / 192 - (1 / 9) * (1 / 64) ** 2)
+  c.push(check('K7 cbrt(65) true 4.0207257, linear 4.0208333, quad 4.0207248', Math.abs(cbrt65 - 4.0207257570) < 1e-8 && Math.abs(lin65 - 4.0208333) < 1e-6 && Math.abs(quad65 - 4.0207248) < 1e-6))
+  const sq26 = Math.sqrt(26)
+  c.push(check('K8 sqrt(26) true 5.0990195, linear 5.1, quad 5.099', Math.abs(sq26 - 5.0990195136) < 1e-9 && Math.abs(5 * (1 + 1 / 50) - 5.1) < 1e-12 && Math.abs(5 * (1 + 1 / 50 - 0.0002) - 5.099) < 1e-12))
+  const sq99 = Math.sqrt(99)
+  c.push(check('K9 sqrt(99) true 9.9498743, linear 9.95, quad 9.949875', Math.abs(sq99 - 9.949874371) < 1e-8 && Math.abs(10 * (1 - 0.005) - 9.95) < 1e-12 && Math.abs(10 * (1 - 0.005 - 0.0000125) - 9.949875) < 1e-12))
+
+  // --- K4 the honest error ladder for (1+x)^{1/2} at x = 0.01, 0.05, 0.1 ---
+  const ladder: [number, number, number][] = [0.01, 0.05, 0.1].map((x) => [
+    x,
+    Math.abs(Math.sqrt(1 + x) - (1 + x / 2)),
+    Math.abs(Math.sqrt(1 + x) - (1 + x / 2 - (x * x) / 8)),
+  ])
+  c.push(check('K10 error ladder: quad errors ~2 orders below linear', ladder.every(([x, e1, e2]) => e2 < e1 && e1 / e2 > 20) && ladder[2][1] < 2e-3 && ladder[2][2] < 1e-4))
+
+  // --- K5 divisibility, remainders, fractional parts ---
+  // (1+x)^n - 1 - nx carries factor x^2 (integer n >= 2): literal
+  let facOk = true
+  for (let n = 2; n <= 8; n++) {
+    const p = binomialLiteral(n)
+    for (let r = 2; r <= n; r++) if (p[r] % binom(n, 2) !== 0 && r === 2) facOk = false
+    if (p.slice(2).some((v) => v === 0)) { /* not expected */ }
+    if (p[2] !== binom(n, 2)) facOk = false
+  }
+  c.push(check('K11 (1+x)^n - 1 - nx has x^2 coefficient C(n,2), n=2..8', facOk))
+  c.push(check('K12 7^101 + 11^51 = 2 (mod 8)', (modPow(7n, 101n, 8n) + modPow(11n, 51n, 8n)) % 8n === 2n))
+  c.push(check('K13 5^{2n} = (25)^n = (-1)^n (mod 13), n=1..6', [1, 2, 3, 4, 5, 6].every((n) => modPow(5n, BigInt(2 * n), 13n) === BigInt((-1) ** n === 1 ? 1 : 12))))
+  // the conjugate-pair integer trick: (sqrt5+sqrt2)^4 + (sqrt5-sqrt2)^4 = 178
+  const a5 = Math.sqrt(5), b2 = Math.sqrt(2)
+  const plus = (a5 + b2) ** 4, minus = (a5 - b2) ** 4
+  c.push(check('K14 (sqrt5+sqrt2)^4 + (sqrt5-sqrt2)^4 = 178 exactly', Math.abs(plus + minus - 178) < 1e-9 && 2 * (25 + 6 * 10 + 4) === 178))
+  c.push(check('K15 minus in (0,1), plus in (177,178) -> ceil(plus) = 178', minus > 0 && minus < 1 && plus > 177 && plus < 178 && Math.ceil(plus) === 178))
+  // (a+b)^n - a^n - b^n divisible by ab(a+b) for odd n
+  let divOk = true
+  for (const [aa, bb] of [[2, 3], [2, 5], [3, 5], [3, 7]] as [number, number][]) {
+    for (const n of [3, 5, 7]) if (((aa + bb) ** n - aa ** n - bb ** n) % (aa * bb * (aa + bb)) !== 0) divOk = false
+  }
+  c.push(check('K16 (a+b)^n - a^n - b^n = 0 mod ab(a+b), odd n', divOk))
+  c.push(check('K17 witness (2+3)^5 - 32 - 243 = 2850 = 30*95', 5 ** 5 - 32 - 243 === 2850 && 2850 === 30 * 95))
+
+  // --- K6 partial-fraction coefficient hunts on any-index objects ---
+  // 1/((1-x)(1-2x)): coefficient of x^n = 2^{n+1} - 1
+  const inv12 = seriesInverse(polyMul([1, -1], [1, -2]), 10)
+  c.push(check('K18 x^n in 1/((1-x)(1-2x)) = 2^{n+1}-1, n=0..10', inv12.every((v, n) => Math.abs(v - (2 ** (n + 1) - 1)) < 1e-9)))
+  // (1-5x+6x^2)^-1: coefficient of x^n = 3^{n+1} - 2^{n+1}
+  const inv156 = seriesInverse([1, -5, 6], 10)
+  c.push(check('K19 x^n in (1-5x+6x^2)^-1 = 3^{n+1}-2^{n+1}, n=0..10', inv156.every((v, n) => Math.abs(v - (3 ** (n + 1) - 2 ** (n + 1))) < 1e-9)))
+  // 1/((1-x)(1-3x)(1-5x)): 8*coeff = 1 - 18*3^n + 25*5^n
+  const inv135 = seriesInverse(polyMul(polyMul([1, -1], [1, -3]), [1, -5]), 8)
+  c.push(check('K20 8*[x^n] 1/((1-x)(1-3x)(1-5x)) = 1-18*3^n+25*5^n, n=0..8', inv135.every((v, n) => Math.abs(8 * v - (1 - 18 * 3 ** n + 25 * 5 ** n)) < 1e-6)))
+  // the partial fractions themselves: 1/8, -9/4, 25/8
+  c.push(check('K21 cover-up values A=1/8, B=-9/4, C=25/8', Math.abs(1 / 8 - (1 / ((1 - 3) * (1 - 5)))) < 1e-12 && Math.abs(-9 / 4 - 1 / ((1 - 1 / 3) * (1 - 5 / 3))) < 1e-12 && Math.abs(25 / 8 - 1 / ((1 - 1 / 5) * (1 - 3 / 5))) < 1e-12))
+
+  // --- K7 the (1-x)^{-k} cancellation engine ---
+  let altPartOk = true
+  for (let n = 1; n <= 12; n++) for (let k = 0; k < n; k++) {
+    let s = 0
+    for (let r = 0; r <= k; r++) s += (-1) ** r * binom(n, r)
+    if (s !== (-1) ** k * binom(n - 1, k)) altPartOk = false
+  }
+  c.push(check('K22 sum to k of (-1)^r C(n,r) = (-1)^k C(n-1,k), n=1..12', altPartOk))
+  // coefficient of x^8 in (1-x)^15 (1-x)^-3 = C(12,8) = 495: literal
+  const neg3series = (() => { const out = new Array(9).fill(0); for (let r = 0; r <= 8; r++) out[r] = binom(r + 2, 2); return out })()
+  const p15 = binomialLiteral(15, true)
+  let acc = new Array(9).fill(0)
+  for (let i = 0; i <= 8; i++) for (let j = 0; j + i <= 8; j++) acc[i + j] += p15[i] * neg3series[j]
+  c.push(check('K23 x^8 in (1-x)^15 (1-x)^-3 = 495 = C(12,8)', acc[8] === 495 && binom(12, 8) === 495))
+
+  // --- K8 Bernoulli cross-ref + first-negative-term shape ---
+  let bernOk = true
+  for (let n = 1; n <= 6; n++) for (const x of [-0.9, -0.5, 0, 0.3, 2]) if ((1 + x) ** n < 1 + n * x - 1e-12) bernOk = false
+  c.push(check('K24 Bernoulli (1+x)^n >= 1+nx, n=1..6 sampled', bernOk))
+  // first negative term of (1+x)^{9/2}, x>0: factors flip at r=6 -> T_7
+  const signs = (num: number, den: number, r: number) => genCoeff(num, den, r).n < 0n
+  let firstNeg = 0
+  for (let r = 0; r <= 8; r++) { if (signs(9, 2, r)) { firstNeg = r; break } }
+  c.push(check('K25 first negative term of (1+x)^{9/2} at r=6 (T_7)', firstNeg === 6))
+
+  // --- K9 the remaining exhibit pins 7.6 will use ---
+  c.push(check('K26 (1.02)^4 true 1.08243216, first-order 1.08', Math.abs(1.02 ** 4 - 1.08243216) < 1e-8 && 1 + 4 * 0.02 === 1.08))
+  c.push(check('K27 x^4 in (1-x)^-2 = 5', genCoeff(-2, 1, 4).eq(rat(5, 1))))
+  c.push(check('K28 (0.98)^5 true 0.9039207968, quad 0.904', Math.abs(0.98 ** 5 - 0.9039207968) < 1e-8 && Math.abs(1 - 0.1 + 10 * 0.0004 - 0.904) < 1e-12))
+  const a7 = Math.sqrt(7), b3 = Math.sqrt(3)
+  const plus73 = (a7 + b3) ** 4, minus73 = (a7 - b3) ** 4
+  c.push(check('K29 (sqrt7+sqrt3)^4 + (sqrt7-sqrt3)^4 = 368 = 2(49+126+9)', Math.abs(plus73 + minus73 - 368) < 1e-9 && 2 * (49 + 126 + 9) === 368))
+  c.push(check('K29b minus73 in (0,1), plus73 in (367,368), exact 184+40sqrt21', minus73 > 0 && minus73 < 1 && plus73 > 367 && plus73 < 368 && Math.abs(plus73 - (184 + 40 * Math.sqrt(21))) < 1e-9))
+
+  return c
+}
+
+sections.push(tally('K (7.6 engines)', sectionK()))
+
 const chapterPath = path.join(__dirname, '..', 'src', 'data', 'library', 'books', 'mathematics', 'advanced-algebra', 'ch-07.ts')
 const chapterExists = fs.existsSync(chapterPath)
 
@@ -889,16 +1225,17 @@ function sectionZ(chapter: { lessons: Lesson[]; plannedLessons: string[]; status
   const c: SectionCheck[] = []
   c.push(check('Z1 chapter number 7', chapter.number === 7))
   c.push(check('Z2 slug pinned', chapter.slug === 'induction-and-binomial-theorem'))
-  c.push(check('Z3 status in-progress', chapter.status === 'in-progress'))
-  c.push(check('Z4 four lessons shipped (run 117)', chapter.lessons.length === 4, `got ${chapter.lessons.length}`))
-  c.push(check('Z5 three planned remain', chapter.plannedLessons.length === 3, `got ${chapter.plannedLessons.length}`))
-  c.push(check('Z6 planned titles pinned', JSON.stringify(chapter.plannedLessons) === JSON.stringify(['Binomial Coefficients at Work', 'Binomial Applications and Approximations', 'Unit 7 Completion Review'])))
+  c.push(check('Z3 status complete (run 118 closed the chapter)', chapter.status === 'complete'))
+  c.push(check('Z4 seven lessons shipped (6 lessons + the unit review)', chapter.lessons.length === 7, `got ${chapter.lessons.length}`))
+  c.push(check('Z5 zero planned remain', chapter.plannedLessons.length === 0, `got ${chapter.plannedLessons.length}`))
   const ids = chapter.lessons.map((l) => l.id)
-  c.push(check('Z7 ids unique in chapter', new Set(ids).size === ids.length))
-  c.push(check('Z8 lesson numbers pinned', chapter.lessons.map((l) => l.number).join(',') === '7.1,7.2,7.3,7.4'))
+  c.push(check('Z6 ids unique in chapter', new Set(ids).size === ids.length))
+  c.push(check('Z7 lesson numbers pinned', chapter.lessons.map((l) => l.number).join(',') === '7.1,7.2,7.3,7.4,7.5,7.6,7.R'))
+  c.push(check('Z7b the review is the last lesson', chapter.lessons[chapter.lessons.length - 1].number === '7.R'))
   const totalWords = chapter.lessons.reduce((s, l) => s + countLessonWords(l), 0)
-  c.push(check('Z9 honest depth >= 24000', totalWords >= 24000, `got ${totalWords}`))
-  c.push(check('Z10 every lesson has sources + prerequisites', chapter.lessons.every((l) => (l.sources?.length ?? 0) >= 3 && (l.prerequisites?.length ?? 0) >= 2)))
+  c.push(check('Z8 honest depth >= 36000 (7 lessons)', totalWords >= 36000, `got ${totalWords}`))
+  c.push(check('Z9 every lesson has sources + prerequisites', chapter.lessons.every((l) => (l.sources?.length ?? 0) >= 3 && (l.prerequisites?.length ?? 0) >= 2)))
+  c.push(check('Z10 every lesson carries an exercises block + quiz', chapter.lessons.every((l) => l.blocks.some((b) => b.kind === 'exercises') && l.blocks.some((b) => b.kind === 'quiz'))))
   return c
 }
 
@@ -1045,7 +1382,215 @@ function sectionH(chapter: { lessons: Lesson[] }): SectionCheck[] {
   sections.push(tally('D (7.2 pins)', sectionD(ch)))
   sections.push(tally('F (7.3 pins)', sectionF(ch)))
   sections.push(tally('H (7.4 pins)', sectionH(ch)))
+  sections.push(tally('J (7.5 pins)', sectionJ(ch)))
+  sections.push(tally('L (7.6 pins)', sectionL(ch)))
+  sections.push(tally('M (7.R pins)', sectionM(ch)))
   sections.push(tally('Z (census)', sectionZ(ch)))
+}
+
+// ------------------------------------------------------------------
+// (J) 7.5 pins — the shipped prose carries exactly the pinned numbers
+// (grown after the run-118 swarm shipped lesson 7.5)
+// ------------------------------------------------------------------
+
+function sectionJ(chapter: { lessons: Lesson[] }): SectionCheck[] {
+  const c: SectionCheck[] = []
+  const byNumber = new Map<string, Lesson>(chapter.lessons.map((l) => [l.number, l] as const))
+  const L = byNumber.get('7.5')
+  c.push(check('J0 lesson 7.5 present', !!L))
+  if (!L) return c
+  const { raw, full } = collectStrings(L)
+  const either = (needle: string) => raw.includes(needle) || full.includes(needle)
+
+  const pins: [string, string][] = [
+    ['J1 id pinned', 'aa-binomial-coefficients-at-work'],
+    // the ten fold discharges
+    ['J2 fold: Coefficients of Terms section heading', 'Coefficients of Terms in a Binomial Expansion'],
+    ['J3 fold: Multinomial expansion glossary entry', 'Multinomial expansion'],
+    ['J4 fold: Some Standard Expansions (cube read)', 'The standard cube read as a factorization'],
+    ['J5 fold: Some Standard Expansions (conjugate-sum reflex)', 'The conjugate-sum reflex'],
+    ['J6 fold: Sum of Coefficients (2-3x)^12', 'The sum of the coefficients of $(2-3x)^{12}$'],
+    ['J7 fold: Sum of Coefficients (honest zero + 729)', 'Two more substitutions'],
+    ['J8 fold: Frequently Used Rows (165, -6)', 'Two seats from the 7.3 rows'],
+    ['J9 fold: Frequently Used Rows (231/1024)', 'The half row at work'],
+    ['J10 fold: Conjugate Expansions (both machines)', 'Run both machines'],
+    ['J11 fold: Conjugate Expansions (alternating squares)', 'Witness the alternating-squares law'],
+    ['J12 fold: Product of Two Expansions (28 = 6+16+6)', 'seat of $(1+x)^4(1+x)^4'],
+    ['J13 fold: Product of Two Expansions (squares sum 70)', 'The squares sum'],
+    ['J14 fold: Product of Two Expansions (cross pairs 22)', 'cross pairs at $n = 3'],
+    ['J15 fold: Ratio (A.P. condition)', 'The A.P. condition'],
+    ['J16 fold: Ratio (equal pair)', 'The equal pair'],
+    ['J17 fold: Greatest (reverse read 2048 -> 462)', 'The reverse read'],
+    ['J18 fold: Greatest TERM (1.3)^15', 'The greatest TERM'],
+    ['J19 fold: Greatest (least coefficient)', 'The algebraically LEAST coefficient'],
+    ['J20 fold: Complex binomials ((1+i)^8)', 'Evaluate $(1+i)^8'],
+    ['J21 fold: Complex binomials (triple-angle)', 'The triple-angle laws'],
+    // the engine numbers
+    ['J22 row 12 profile 924', '924'],
+    ['J23 row 12 even/odd split 2048', '2048'],
+    ['J24 row 11 twin peaks 462', '462'],
+    ['J25 the honest zero', '0^9'],
+    ['J26 three-letter total 729', '729'],
+    ['J27 the equal value 22,343,750,000', '22{,}343{,}750{,}000'],
+    ['J28 least coefficient value', '6{,}304{,}858{,}560'],
+    ['J29 greatest term value 12.285', '12.285'],
+    ['J30 alternating squares n=4 witness list', '1, -16, 36, -16, 1'],
+    ['J31 constant term -252', '252'],
+    ['J32 fractional constant 84', '84'],
+    ['J33 the x^6 hunt 2016', '2016'],
+    ['J34 multinomial bridge 243', '243'],
+    ['J35 frequently-used witnesses 165 and 231/1024', '231'],
+  ]
+  for (const [name, needle] of pins) c.push(check(name, either(needle), needle.slice(0, 40)))
+
+  // quiz keys [1, 2, 2, 2, 2]
+  const quiz = L.blocks.find((b) => b.kind === 'quiz') as { items: { q: string; options: string[]; answer: number; explain: string }[] }
+  c.push(check('J36 quiz keys [1,2,2,2,2]', JSON.stringify(quiz.items.map((i) => i.answer)) === JSON.stringify([1, 2, 2, 2, 2]), JSON.stringify(quiz.items.map((i) => i.answer))))
+  c.push(check('J37 every quiz explain kills wrong options', quiz.items.every((i) => i.explain.includes('Option'))))
+
+  // SOLUTION FIGURES (v9.0 amendment): >= 2 questions carry figures
+  const ex = L.blocks.find((b) => b.kind === 'exercises') as never as { sets?: { questions: unknown[] }[] }
+  const allQ = (ex.sets ?? []).flatMap((s) => (s as { questions: unknown[] }).questions ?? [])
+  const withFig = allQ.filter((q) => (q as { figures?: unknown[] }).figures?.length)
+  c.push(check('J38 >= 2 solution figures (v9.0)', withFig.length >= 2, `${withFig.length} questions carry figures`))
+  const figSvg = withFig.map((q) => (q as { figures: { svg: string }[] }).figures.map((f) => f.svg).join('')).join('')
+  c.push(check('J39 solution figures aria-labelled', figSvg.includes('aria-label')))
+  c.push(check('J40 solution figure the signed bars carries the partial sums', figSvg.includes('36')))
+
+  const words = countLessonWords(L)
+  c.push(check('J41 word depth >= 5500', words >= 5500, `got ${words}`))
+  c.push(check('J42 prerequisites pinned', JSON.stringify(L.prerequisites) === JSON.stringify(['aa-the-binomial-theorem-proved', 'aa-factorials-and-the-counting-toolkit', 'aa-binomial-theorem-any-index']), JSON.stringify(L.prerequisites)))
+  c.push(check('J43 sources >= 4', (L.sources?.length ?? 0) >= 4))
+  return c
+}
+
+// ------------------------------------------------------------------
+// (L) 7.6 pins — the shipped prose carries exactly the pinned numbers
+// (grown after the run-118 swarm shipped lesson 7.6)
+// ------------------------------------------------------------------
+
+function sectionL(chapter: { lessons: Lesson[] }): SectionCheck[] {
+  const c: SectionCheck[] = []
+  const byNumber = new Map<string, Lesson>(chapter.lessons.map((l) => [l.number, l] as const))
+  const L = byNumber.get('7.6')
+  c.push(check('L0 lesson 7.6 present', !!L))
+  if (!L) return c
+  const { raw, full } = collectStrings(L)
+  const either = (needle: string) => raw.includes(needle) || full.includes(needle)
+
+  const pins: [string, string][] = [
+    ['L1 id pinned', 'aa-binomial-applications-and-approximations'],
+    ['L2 heading: The Linear Approximation Engine', 'The Linear Approximation Engine'],
+    ['L3 heading: Roots near Perfect Powers', 'Roots near Perfect Powers'],
+    ['L4 heading: Divisibility, Remainders and Fractional Parts', 'Divisibility, Remainders and Fractional Parts'],
+    ['L5 heading: Coefficient Hunting at Any Index', 'Coefficient Hunting at Any Index'],
+    // the engine numbers
+    ['L6 (1.02)^5 true 1.1040808', '1.1040808'],
+    ['L7 (1.02)^5 second-order 1.104', '1.104'],
+    ['L8 sqrt(1.04) second-order 1.0198', '1.0198'],
+    ['L9 (0.99)^4 true 0.96059601', '0.96059601'],
+    ['L10 three-factor linear coefficient 13/2', 'tfrac{13}{2}x'],
+    ['L11 three-factor numeric true 0.9376', '0.9376'],
+    ['L12 the dropped x^2 mass gap 0.0026', '0.0026'],
+    ['L13 cbrt(65) linear 4.0208333', '4.0208333'],
+    ['L14 cbrt(65) second-order 4.0207248', '4.0207248'],
+    ['L15 cbrt(65) true 4.0207257', '4.0207257'],
+    ['L16 sqrt(26) true 5.0990195', '5.0990195'],
+    ['L17 sqrt(99) second-order 9.949875', '9.949875'],
+    ['L18 mod-8 witness', 'pmod 8'],
+    ['L19 the conjugate-pair trick 178', '178'],
+    ['L20 the second conjugate witness 368', '368'],
+    ['L21 divisibility witness 2850', '2850'],
+    ['L22 partial fractions 2^{n+1} - 1', '2^{n+1} - 1'],
+    ['L23 partial fractions 3^{n+1} - 2^{n+1}', '3^{n+1} - 2^{n+1}'],
+    ['L24 the three-factor hunt', '18 \\cdot 3^n'],
+    ['L25 cancellation engine 495', '495'],
+    ['L26 first negative term T_7', 'T_7'],
+    ['L27 Bernoulli cross-ref', 'Bernoulli'],
+  ]
+  for (const [name, needle] of pins) c.push(check(name, either(needle), needle.slice(0, 40)))
+
+  const quiz = L.blocks.find((b) => b.kind === 'quiz') as { items: { q: string; options: string[]; answer: number; explain: string }[] }
+  c.push(check('L28 quiz keys [1,2,2,1,1]', JSON.stringify(quiz.items.map((i) => i.answer)) === JSON.stringify([1, 2, 2, 1, 1]), JSON.stringify(quiz.items.map((i) => i.answer))))
+  c.push(check('L29 every quiz explain kills wrong options', quiz.items.every((i) => i.explain.includes('Option'))))
+
+  const ex = L.blocks.find((b) => b.kind === 'exercises') as never as { sets?: { questions: unknown[] }[] }
+  const allQ = (ex.sets ?? []).flatMap((s) => (s as { questions: unknown[] }).questions ?? [])
+  const withFig = allQ.filter((q) => (q as { figures?: unknown[] }).figures?.length)
+  c.push(check('L30 >= 2 solution figures (v9.0)', withFig.length >= 2, `${withFig.length} questions carry figures`))
+  const figSvg = withFig.map((q) => (q as { figures: { svg: string }[] }).figures.map((f) => f.svg).join('')).join('')
+  c.push(check('L31 solution figures aria-labelled', figSvg.includes('aria-label')))
+  c.push(check('L32 the partial-fraction figure carries the combined row', figSvg.includes('211') && figSvg.includes('65')))
+
+  const words = countLessonWords(L)
+  c.push(check('L33 word depth >= 5500', words >= 5500, `got ${words}`))
+  c.push(check('L34 prerequisites pinned', JSON.stringify(L.prerequisites) === JSON.stringify(['aa-binomial-theorem-any-index', 'aa-mathematical-induction-the-domino-principle', 'aa-the-binomial-theorem-proved']), JSON.stringify(L.prerequisites)))
+  c.push(check('L35 sources >= 4', (L.sources?.length ?? 0) >= 4))
+  return c
+}
+
+// ------------------------------------------------------------------
+// (M) 7.R pins — the unit review closes the chapter honestly
+// (grown after the run-118 swarm shipped the Unit 7 Completion Review)
+// ------------------------------------------------------------------
+
+function sectionM(chapter: { lessons: Lesson[] }): SectionCheck[] {
+  const c: SectionCheck[] = []
+  const byNumber = new Map<string, Lesson>(chapter.lessons.map((l) => [l.number, l] as const))
+  const L = byNumber.get('7.R')
+  c.push(check('M0 lesson 7.R present', !!L))
+  if (!L) return c
+  const { raw, full } = collectStrings(L)
+  const either = (needle: string) => raw.includes(needle) || full.includes(needle)
+
+  const pins: [string, string][] = [
+    ['M1 id pinned', 'aa-induction-binomial-theorem-unit-7-review'],
+    ['M2 heading: The Arc', 'The Arc'],
+    ['M3 heading: Master Tables Reunited', 'The Master Tables Reunited'],
+    ['M4 heading: Witnesses, Re-Audited', 'The Witnesses, Re-Audited'],
+    ['M5 heading: Laws Worth Recalling', 'The Laws Worth Recalling'],
+    ['M6 heading: Traps the Hall Sets', 'The Traps the Hall Sets'],
+    ['M7 heading: The Chapter Closes', 'The Chapter Closes'],
+    // the re-audited witnesses (one per lesson, pinned)
+    ['M8 witness 7.1 divisibility family', '126'],
+    ['M9 witness 7.2 the 7th term 59136a^6b^6', '59136'],
+    ['M10 witness 7.2 middle term 90720', '90720'],
+    ['M11 witness 7.2 conjugate powers', '2.00480032'],
+    ['M12 witness 7.4 balanced seat 90', '90'],
+    ['M13 witness 7.5 alternating squares 6', '1-16+36-16+1'],
+    ['M14 witness 7.5 row 12 split 2048', '2048'],
+    ['M15 witness 7.6 cbrt(65) honest column', '4.0207248'],
+    ['M16 witness 7.6 mod 8', 'pmod 8'],
+    ['M17 witness 7.6 conjugate pair 178', '178'],
+    ['M18 witness the cancellation 495', '495'],
+    // the mixed bench answers
+    ['M19 bench: even-index row-12 sum', '2048'],
+    ['M20 bench: constant term -252', '252'],
+    ['M21 bench: sqrt(26) 5.1', '5.1'],
+    ['M22 bench: squares sum 924', '924'],
+    ['M23 bench: term count 21', '21'],
+    ['M24 bench: x^6 hunt 2016', '2016'],
+    ['M25 bench: 3^{n+1} - 2^{n+1}', '3^{n+1} - 2^{n+1}'],
+    ['M26 bench: partial sums 15 = C(6,4)', '15'],
+    ['M27 bench: greatest term T_4', 'T_{4}'],
+    ['M28 bench: divisibility 2850 = 30*95', '2850'],
+    // the handoffs
+    ['M29 handoff: Theory of Equations chapter 8', 'Theory of Equations'],
+    ['M30 handoff: calculus doorstep', 'doorstep'],
+  ]
+  for (const [name, needle] of pins) c.push(check(name, either(needle), needle.slice(0, 40)))
+
+  const quiz = L.blocks.find((b) => b.kind === 'quiz') as { items: { q: string; options: string[]; answer: number; explain: string }[] }
+  c.push(check('M31 quiz keys [1,1,0,2,1]', JSON.stringify(quiz.items.map((i) => i.answer)) === JSON.stringify([1, 1, 0, 2, 1]), JSON.stringify(quiz.items.map((i) => i.answer))))
+  c.push(check('M32 every quiz explain kills wrong options', quiz.items.every((i) => i.explain.includes('Option'))))
+
+  const words = countLessonWords(L)
+  c.push(check('M33 review depth >= 5000', words >= 5000, `got ${words}`))
+  c.push(check('M34 prerequisites = all six chapter lessons', JSON.stringify(L.prerequisites) === JSON.stringify(['aa-mathematical-induction-the-domino-principle', 'aa-the-binomial-theorem-proved', 'aa-binomial-theorem-any-index', 'aa-the-multinomial-theorem', 'aa-binomial-coefficients-at-work', 'aa-binomial-applications-and-approximations']), JSON.stringify(L.prerequisites)))
+  c.push(check('M35 sources >= 5', (L.sources?.length ?? 0) >= 5))
+  c.push(check('M36 the review carries a decision map figure', L.blocks.some((b) => b.kind === 'figure')))
+  c.push(check('M37 the review carries the master table', L.blocks.some((b) => b.kind === 'table')))
+  return c
 }
 
 let failed = false

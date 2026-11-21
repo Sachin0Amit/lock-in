@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-21 11:56:47 (Asia/Kolkata)",
+  "generated": "2026-11-21 14:45:34 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -9145,7 +9145,7 @@
         "description": "The book where algebra grows up a second time. Foundation Mathematics opened the doorstep and Arithmetic and Number Systems proved the ground; Elementary Algebra opened the door and ended at the function idea. This book walks through: functions become objects — relations as sets of pairs, machines classified one-one and onto, composed in series with their honest domains, and undone by inverses. The quadratic returns as a working object — optimized, settled as inequalities on the sign diagram, mined for symmetric reads, its roots located in intervals. The extension ladder climbs its most famous rung: complex numbers built from a closure failure, carried by the field laws, and handed back to the quadratic formula so every discriminant is kept. Inequalities become the classical engine (AM–GM, Cauchy–Schwarz, the triangle inequality — proved, not recited). Sequences and series run from the constant climb to the infinite tail; counting becomes the exact science of permutations and combinations; mathematical induction certifies statements for every n at once; the binomial theorem is proved for a positive integral index and worked to its approximation power; the theory of equations counts roots, prices symmetric functions and transforms old roots into new equations; and the exponential and logarithmic family is defined once and for all as inverse machines. Cross-references Foundation Mathematics, Arithmetic and Number Systems and Elementary Algebra throughout; hands off to Coordinate Geometry, Trigonometry, Calculus and Probability.",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 6,
+        "chaptersWritten": 7,
         "chapters": [
           {
             "number": 1,
@@ -12146,13 +12146,9 @@
             "slug": "induction-and-binomial-theorem",
             "title": "Induction and the Binomial Theorem",
             "summary": "The book’s proof engine and its most-used consequence, in the order the classics teach them. Mathematical induction first — the domino principle: base case, inductive step, and the honest scope note (what induction proves and what it never can), applied to the sum formulas chapter 5 left uncertified, to divisibility statements, and to inequality statements the AM–GM engine guessed. Then the binomial theorem for a positive integral index — Pascal’s triangle read as a counting statement about chapter 6’s selections, the theorem PROVED by induction, the general and middle terms priced exactly. The coefficients become objects of study (their sum, their alternating sum, the term independent of x), and the chapter closes with the applications: (1 + x)ⁿ ≈ 1 + nx for small x, divisibility reads, and coefficient-hunting at exam speed. The frequently used expansions — (a ± b)², (a ± b)³ and the kin every exam expects by reflex — banked as the chapter’s opening toolkit.",
-            "status": "in-progress",
-            "lessonsWritten": 4,
-            "plannedLessons": [
-              "Binomial Coefficients at Work",
-              "Binomial Applications and Approximations",
-              "Unit 7 Completion Review"
-            ],
+            "status": "complete",
+            "lessonsWritten": 7,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "aa-mathematical-induction-the-domino-principle",
@@ -12445,9 +12441,226 @@
                 },
                 "exerciseQuestions": 15,
                 "termsDefined": 8
+              },
+              {
+                "id": "aa-binomial-coefficients-at-work",
+                "number": "7.5",
+                "title": "Binomial Coefficients at Work",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8746,
+                "readMins": 44,
+                "concepts": [
+                  "the substitution engine: sums of coefficients in any expansion",
+                  "conjugate reads: the even and odd machines",
+                  "alternating squares via (1-x²)^n",
+                  "Vandermonde’s identity and series from products of expansions",
+                  "the ratio of consecutive coefficients and the A.P. condition",
+                  "greatest coefficient, twin peaks and the greatest term",
+                  "binomial expansions using complex numbers",
+                  "the term independent of x"
+                ],
+                "objectives": [
+                  "Price the sum of the coefficients of ANY expansion by substitution at $x = 1$ — including the honest zeros ($(1+x-2x^2)^9 \\to 0$) and the $2^n$ trap for bases that are not $1+x$ — and split any row into its even-index and odd-index families, each $2^{n-1}$.",
+                  "Read conjugate expansions: harvest the even seats by adding $(1+x)^n$ and $(1-x)^n$, the odd seats by subtracting them, and prove the alternating-squares law for $\\sum (-1)^r \\binom{n}{r}^2$ via the $(1-x^2)^n$ collapse, verifying it at $n = 4$ and $n = 5$.",
+                  "Prove Vandermonde’s identity BOTH ways — by the coefficient read of $(1+x)^m(1+x)^n$ AND by the two-collection selection count — and harvest its corollaries: $\\sum \\binom{n}{r}^2 = \\binom{2n}{n}$, the cross-pairs total and the weighted squares sum.",
+                  "Use the ratio law $\\binom{n}{r}/\\binom{n}{r-1} = (n-r+1)/r$ to decide arithmetic-progression conditions on three consecutive coefficients (the $n = 7$ or $n = 14$ law) and equal-consecutive-coefficient questions (the seat law $k = b(n+1)/(a+b)$).",
+                  "Locate the greatest coefficient (unique peak at even $n$, twin peaks at odd $n$) and the greatest TERM of a numeric power by the ratio test with the $x$-weight priced in — and find the algebraically least coefficient of a signed base.",
+                  "Expand binomials with complex letters: price $(1+i)^8$, extract the triple-angle laws from the literal cube $(\\cos\\theta + i\\sin\\theta)^3$, and run the real/negative sign census of $(1+ix)^{4n}$.",
+                  "Match seats for the term independent of $x$ in negative- and fractional-power bases — $(x - 1/x)^{10}$, $(x^{2/3} + x^{-1/3})^9$, $(x^2 - 2/x)^9$ — by solving the seat equation, never by expanding."
+                ],
+                "prerequisites": [
+                  "aa-the-binomial-theorem-proved",
+                  "aa-factorials-and-the-counting-toolkit",
+                  "aa-binomial-theorem-any-index"
+                ],
+                "sources": [
+                  "cengage-m2-08",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 26,
+                  "callout": 6,
+                  "heading": 8,
+                  "list": 2,
+                  "example": 20,
+                  "derivation": 4,
+                  "equation": 7,
+                  "figure": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 10
+                },
+                "calloutTones": {
+                  "insight": 1,
+                  "definition": 2,
+                  "historical": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 11
+              },
+              {
+                "id": "aa-binomial-applications-and-approximations",
+                "number": "7.6",
+                "title": "Binomial Applications and Approximations",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 6835,
+                "readMins": 34,
+                "concepts": [
+                  "the linear approximation (1+x)^n ≈ 1+nx and its honest error",
+                  "multi-factor linearizations of products and quotients",
+                  "root estimates near perfect powers",
+                  "divisibility, remainders and fractional parts by binomial reads",
+                  "the conjugate-pair integer trick for surd powers",
+                  "coefficient hunting via partial fractions on any-index objects",
+                  "the (1−x)^−k cancellation engine",
+                  "Bernoulli’s inequality as the error bound"
+                ],
+                "objectives": [
+                  "Read $(1+x)^n$ to first and second order for small $x$ — the $1+nx$ read and the $1+nx+\\tfrac{n(n-1)}{2!}x^2$ read — with the honest error stated beside every estimate, and cite Bernoulli’s inequality from lesson 7.1 as the certified lower bound at integer indices.",
+                  "Linearize multi-factor products and quotients — $(1+a_1x)^{n_1}(1+a_2x)^{n_2}\\cdots \\approx 1 + (\\sum n_i a_i)x$ — including the conjugate square-root product $\\sqrt{\\tfrac{x}{x+y}}\\cdot\\sqrt{\\tfrac{x}{x-y}} \\approx 1 + \\tfrac{y^2}{2x^2}$.",
+                  "Estimate roots near perfect squares and cubes — $\\sqrt{26}$, $\\sqrt{99}$, $\\sqrt[3]{65}$ — to controlled precision by the template $a(1+x)^{1/k} \\approx a + \\tfrac{ax}{k}$, and say exactly when the linear read alone delivers three significant figures.",
+                  "Prove divisibility, remainder and fractional-part facts by binomial reads — $(1+x)^n - 1 - nx$ carries the factor $x^2$; $7^{101} + 11^{51} \\equiv 2 \\pmod 8$; $5^{2n} \\equiv (-1)^n \\pmod{13}$ — without writing a single induction.",
+                  "Run the conjugate-pair trick: add the mirror $(a-b)^n$ to a surd power $(a+b)^n$, produce the exact integer even part $2\\sum_{j \\text{ even}} \\binom{n}{j} a^{n-j} b^j$, size the mirror into $(0,1)$, and read off the smallest integer larger than $(a+b)^n$.",
+                  "Hunt coefficients at exam speed by splitting $\\tfrac{1}{(1-ax)(1-bx)\\cdots}$ into geometric rows via partial fractions — the two-factor law $\\tfrac{a^{n+1} - b^{n+1}}{a-b}$, the quadratic-factor and three-factor cover-up hunts — and by the $(1-x)^{-k}$ cancellation engine, including the alternating partial-sums law $\\sum_{r=0}^{k}(-1)^r\\binom{n}{r} = (-1)^k\\binom{n-1}{k}$.",
+                  "Locate the first negative term of a fractional-index row such as $(1+x)^{9/2}$ — the falling factors flip sign at a computable seat — and close the chapter’s arc: the theorem built across 7.1–7.5 is now a working tool, not an exhibit."
+                ],
+                "prerequisites": [
+                  "aa-binomial-theorem-any-index",
+                  "aa-mathematical-induction-the-domino-principle",
+                  "aa-the-binomial-theorem-proved"
+                ],
+                "sources": [
+                  "cengage-m2-08",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 25,
+                  "heading": 4,
+                  "callout": 5,
+                  "equation": 9,
+                  "terms": 1,
+                  "derivation": 3,
+                  "table": 2,
+                  "figure": 2,
+                  "example": 13,
+                  "list": 2,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 10
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 2,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 11
+              },
+              {
+                "id": "aa-induction-binomial-theorem-unit-7-review",
+                "number": "7.R",
+                "title": "Unit 7 Completion Review",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8467,
+                "readMins": 42,
+                "concepts": [
+                  "the arc of the chapter: one proof engine and its five consequences",
+                  "the decision map: which index, which object, which engine",
+                  "the master law table: theorem statements, term pricing, row algebra, approximations",
+                  "the witnesses, re-audited: one verified number per lesson",
+                  "the traps the hall sets: off-by-one seats, boundary honesty, parity of the peak",
+                  "the mixed bench: items that price several engines at once",
+                  "the handoffs: calculus’s series doorstep, the Theory of Equations chapter"
+                ],
+                "objectives": [
+                  "hold the whole chapter in one hand — the wiring of its six engines (the domino principle, the proved theorem, the any-index rows, the multinomial, the coefficient algebra, the applications), the promises made early and cashed late (Bernoulli proved in 7.1 and cashed in 7.6; Pascal’s rule proved in 7.2 and cashed in 7.5; the window stated in 7.3 and cashed in 7.6; the word census built in 7.4 and cashed in 7.5), and where each master law row lives.",
+                  "run the decision map’s two questions at examination speed — which index (positive integral, any rational inside |x| < 1, or k letters), then which object (a single term, a coefficient, a sum or identity, an approximation) — and reach for the engine the answers point at.",
+                  "recall the consolidated laws and both master tables without re-deriving them — each law, its validity seat and its trap — and rebuild any of them from its lesson’s engine when memory fails.",
+                  "solve mixed items that price several engines in one exhibit, and diagnose every miss back to its home lesson by the shape it wore.",
+                  "state the chapter’s honest boundaries — what was proved and what was only verified (the any-index rows), where each row is valid and where it stops, and the handoffs: the series doorstep of calculus, probability’s distribution ground, and chapter 8 \"The Theory of Equations\"."
+                ],
+                "prerequisites": [
+                  "aa-mathematical-induction-the-domino-principle",
+                  "aa-the-binomial-theorem-proved",
+                  "aa-binomial-theorem-any-index",
+                  "aa-the-multinomial-theorem",
+                  "aa-binomial-coefficients-at-work",
+                  "aa-binomial-applications-and-approximations"
+                ],
+                "sources": [
+                  "cengage-m2-04",
+                  "cengage-m2-08",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 16,
+                  "heading": 6,
+                  "figure": 2,
+                  "callout": 6,
+                  "table": 2,
+                  "list": 2,
+                  "equation": 3,
+                  "formula": 9,
+                  "derivation": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 1,
+                  "insight": 2,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 9
               }
             ],
-            "words": 24776
+            "words": 48824
           },
           {
             "number": 8,
@@ -51003,13 +51216,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 512,
-      "totalLines": 177692,
+      "totalLines": 179387,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5860,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 139031,
+        "src/data/library (content model + books)": 140726,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -76491,33 +76704,125 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "46439bdf517239320650b6010de78f8f9cdf5b65",
+      "short": "46439bd",
+      "date": "2026-11-21 06:28",
+      "message": "run 117: AA ch.7 7.3 'The Binomial Theorem for Any Index' + 7.4 'The Multinomial Theorem' — FIRST v9.0 SWARM RUN (two parallel authoring agents, one lesson each, orchestrator-integrated): engines E/G green pre-prose (exact rational + literal multinomial arithmetic), pins F/H grown, verifier 291/291; E2E 48/48 per lesson across 3 viewports, quiz 5/5 live; VLM audit caught + fixed 2 real figure defects (re-audited PASS); SOLUTION FIGURES inside exercise solutions (v9.0 amendment); lib:pack 172 lessons / 931,600 words; pointer -> run 118 closes ch.7 (7.5 + 7.6 + unit review)",
+      "filesChanged": 13,
+      "insertions": 4797,
+      "deletions": 2908,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2865,
+          "del": 2865
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 20,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 301,
+          "del": 27
+        },
+        {
+          "path": "scripts/e2e-aa-73.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-73.sh",
+          "add": 102,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-74.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-74.sh",
+          "add": 102,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch07.ts",
+          "add": 448,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-07.ts",
+          "add": 850,
+          "del": 8
+        }
+      ]
+    },
+    {
+      "sha": "b15a23d6a801c70f78e42dd5a13b4e96c5b645ae",
+      "short": "b15a23d",
+      "date": "2026-11-21 06:28",
+      "message": "chore(bookkeeping): run-117 push record (HEAD 46439bd, ls-remote verified)",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 277,
     "booksLive": 269,
-    "chaptersWritten": 39,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 172,
-    "wordsAuthored": 931600,
-    "termsDefined": 1305,
-    "quizItems": 860,
-    "exerciseQuestions": 2305,
+    "chaptersWritten": 40,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 175,
+    "wordsAuthored": 955648,
+    "termsDefined": 1336,
+    "quizItems": 875,
+    "exerciseQuestions": 2350,
     "blockTotals": {
-      "para": 2418,
-      "callout": 1118,
-      "heading": 979,
-      "list": 206,
-      "terms": 166,
-      "equation": 327,
-      "figure": 345,
-      "derivation": 391,
-      "table": 225,
-      "example": 994,
-      "quiz": 172,
-      "exercises": 172,
-      "formula": 646,
+      "para": 2485,
+      "callout": 1135,
+      "heading": 997,
+      "list": 212,
+      "terms": 169,
+      "equation": 346,
+      "figure": 352,
+      "derivation": 399,
+      "table": 229,
+      "example": 1027,
+      "quiz": 175,
+      "exercises": 175,
+      "formula": 675,
       "algorithm": 27
     }
   }
