@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-21 00:21:57 (Asia/Kolkata)",
+  "generated": "2026-11-21 11:56:47 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -12147,10 +12147,8 @@
             "title": "Induction and the Binomial Theorem",
             "summary": "The book’s proof engine and its most-used consequence, in the order the classics teach them. Mathematical induction first — the domino principle: base case, inductive step, and the honest scope note (what induction proves and what it never can), applied to the sum formulas chapter 5 left uncertified, to divisibility statements, and to inequality statements the AM–GM engine guessed. Then the binomial theorem for a positive integral index — Pascal’s triangle read as a counting statement about chapter 6’s selections, the theorem PROVED by induction, the general and middle terms priced exactly. The coefficients become objects of study (their sum, their alternating sum, the term independent of x), and the chapter closes with the applications: (1 + x)ⁿ ≈ 1 + nx for small x, divisibility reads, and coefficient-hunting at exam speed. The frequently used expansions — (a ± b)², (a ± b)³ and the kin every exam expects by reflex — banked as the chapter’s opening toolkit.",
             "status": "in-progress",
-            "lessonsWritten": 2,
+            "lessonsWritten": 4,
             "plannedLessons": [
-              "The Binomial Theorem for Any Index",
-              "The Multinomial Theorem",
               "Binomial Coefficients at Work",
               "Binomial Applications and Approximations",
               "Unit 7 Completion Review"
@@ -12299,9 +12297,157 @@
                 },
                 "exerciseQuestions": 15,
                 "termsDefined": 0
+              },
+              {
+                "id": "aa-binomial-theorem-any-index",
+                "number": "7.3",
+                "title": "The Binomial Theorem for Any Index",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 6345,
+                "readMins": 32,
+                "concepts": [
+                  "the binomial theorem for any rational index",
+                  "the convergence window |x| < 1",
+                  "infinite expansions vs finite ones",
+                  "the general term n(n-1)...(n-r+1)/r! x^r",
+                  "(1+x)^{-n} and (1-x)^{-n} as counting rows",
+                  "the frequently used expansions",
+                  "coefficient pricing at any index",
+                  "honesty at the boundary: what diverges means"
+                ],
+                "objectives": [
+                  "State the binomial theorem for any rational index — the general term as a falling factorial over r! — and say exactly what is new beyond lesson 7.2: the row never terminates, and the statement carries the convergence window |x| < 1.",
+                  "Explain why the window is part of the theorem: an infinite sum is a limit of partial sums, the terms must shrink, and the positive-integer theorem of 7.2 is the terminating special case that never paid this price.",
+                  "Write and recognise the frequently used expansions — the −1, −2, −3, −1/2 and +1/2 rows — and verify them numerically, seat by seat, against direct computation (the trust-but-verify standard).",
+                  "Derive the counting-row law behind the negative-integer rows and the central-binomial law behind the half row, and use both to price seats without writing any expansion out.",
+                  "Price any coefficient at any index — scaled arguments, sign discipline, the leading-factor transform with its rescaled window, and the partial-fraction identity route for rational functions built from geometric rows.",
+                  "Solve seat equations honestly, including the two-root case where a quadratic in the index delivers a fractional and a negative solution, both of which must be printed and verified.",
+                  "State what diverges means at the boundary and beyond it — oscillation, escape, unbounded growth — and keep the power-versus-series distinction straight when a row fails where the power is perfectly well defined."
+                ],
+                "prerequisites": [
+                  "aa-the-binomial-theorem-proved",
+                  "aa-geometric-progressions-and-the-infinite-tail",
+                  "aa-factorials-and-the-counting-toolkit"
+                ],
+                "sources": [
+                  "cengage-m2-08",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "ncert-math11-ch7-binomial-theorem",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 16,
+                  "heading": 4,
+                  "callout": 6,
+                  "equation": 1,
+                  "table": 1,
+                  "derivation": 2,
+                  "example": 6,
+                  "figure": 2,
+                  "list": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 6
+                },
+                "calloutTones": {
+                  "theorem": 1,
+                  "warn": 2,
+                  "historical": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 0
+              },
+              {
+                "id": "aa-the-multinomial-theorem",
+                "number": "7.4",
+                "title": "The Multinomial Theorem",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 6277,
+                "readMins": 31,
+                "concepts": [
+                  "the multinomial theorem for (a+b+c)^n and beyond",
+                  "the general term n!/(p!q!r!) a^p b^q c^r",
+                  "the word census: coefficients as arrangement counts",
+                  "the term-count law C(n+k-1, k-1)",
+                  "the identical-distribution bridge from chapter 6",
+                  "the balanced seat and the greatest coefficient",
+                  "pricing coefficients under degree constraints",
+                  "the binomial theorem as the k = 2 multinomial"
+                ],
+                "objectives": [
+                  "State the multinomial theorem for $(a+b+c)^n$ and for a sum of $k$ letters, and write the general term $\\tfrac{n!}{p!\\,q!\\,r!}\\,a^p b^q c^r$ standing at any seat with $p+q+r = n$.",
+                  "Prove the theorem by the word census: show that the coefficient of $a^p b^q c^r$ is exactly the count of length-$n$ words over $\\{a,b,c\\}$ with those letter counts — chapter 6’s permutation-with-repeats engine repointed at algebra.",
+                  "Count the terms of any multinomial expansion by the identical-distribution bridge — $\\binom{n+k-1}{k-1}$ seats — and reconcile the $k = 2$ case with the binomial’s $n + 1$ row length.",
+                  "Price specific coefficients at speed, including degree-constrained seats such as the coefficient of $x^3$ in $(1+x+x^2)^4$, by enumerating the admissible triples and summing their multinomial prices.",
+                  "Locate the greatest coefficient at the balanced seat — the most-even split of the degree — and verify that it towers over its neighbours.",
+                  "Read the coefficient census $\\sum = 3^n$ by setting every letter to $1$, and connect it to lesson 7.2’s row sums $\\sum \\binom{n}{r} = 2^n$.",
+                  "Recover the binomial theorem as the $k = 2$ multinomial — one theorem, not two — reading $\\tfrac{n!}{p!\\,q!}$ as $\\binom{n}{p}$."
+                ],
+                "prerequisites": [
+                  "aa-the-binomial-theorem-proved",
+                  "aa-distributions-and-the-classic-counting-puzzles",
+                  "aa-combinations-the-selection-count"
+                ],
+                "sources": [
+                  "cengage-m2-08",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "cengage-m2-07",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "heading": 4,
+                  "callout": 6,
+                  "equation": 1,
+                  "terms": 1,
+                  "list": 1,
+                  "table": 2,
+                  "figure": 2,
+                  "derivation": 2,
+                  "example": 5,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 6
+                },
+                "calloutTones": {
+                  "theorem": 1,
+                  "definition": 1,
+                  "historical": 1,
+                  "insight": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 8
               }
             ],
-            "words": 12154
+            "words": 24776
           },
           {
             "number": 8,
@@ -50856,14 +51002,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 511,
-      "totalLines": 176076,
+      "srcFilesTracked": 512,
+      "totalLines": 177692,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5860,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 137415,
+        "src/data/library (content model + books)": 139031,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -51091,7 +51237,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-20",
+      "surveyed": "2026-11-21",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -76217,6 +76363,134 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "a1637e695a05d6cd7a68de4f609bb93d63f055e0",
+      "short": "a1637e6",
+      "date": "2026-11-20 18:52",
+      "message": "run 116: open AA ch.7 — 7.1 'Mathematical Induction: the Domino Principle' + 7.2 'The Binomial Theorem, Proved' verify-first (engines A53+C41 green pre-prose, 7 slips caught; pins B42+D51+census Z10 = 197/197), gates green (tsc 0, lint 0 err, pack 170 written / 918,871 words, E2E 90/90 across 3 viewports with quiz 5/5 live, VLM audit caught+fixed 2 real figure defects and re-audited PASS), ship + log; pointer -> run 117 opens 7.3 + 7.4",
+      "filesChanged": 15,
+      "insertions": 2042,
+      "deletions": 66,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 9,
+          "del": 5
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 11,
+          "del": 13
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 22,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 236,
+          "del": 30
+        },
+        {
+          "path": "scripts/build_work_inventory.ts",
+          "add": 2,
+          "del": 1
+        },
+        {
+          "path": "scripts/e2e-aa-71.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-71.sh",
+          "add": 111,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-72.page.js",
+          "add": 80,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-72.sh",
+          "add": 111,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch07.ts",
+          "add": 615,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/book.ts",
+          "add": 2,
+          "del": 17
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-07.ts",
+          "add": 773,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "401a51bc96293543ef5ff63304471d1303f48422",
+      "short": "401a51b",
+      "date": "2026-11-20 18:52",
+      "message": "chore(bookkeeping): run-116 push record (HEAD a1637e6, ls-remote verified)",
+      "filesChanged": 2,
+      "insertions": 3,
+      "deletions": 10,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 10
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "57de8755c5af0f984b927f12b8469d2fc949fb32",
+      "short": "57de875",
+      "date": "2026-11-21 05:08",
+      "message": "chore(protocol): v9.0 owner-directive amendment - RUN_PROTOCOL.md (swarm authoring, solution figures, book-theory vision extraction) + WORKLOG record; cron job rebuilt compact (protocol in-repo, PAT stays in payload only)",
+      "filesChanged": 2,
+      "insertions": 105,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/RUN_PROTOCOL.md",
+          "add": 95,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 10,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -76225,25 +76499,25 @@
     "booksLive": 269,
     "chaptersWritten": 39,
     "chaptersInProgress": 1,
-    "lessonsWritten": 170,
-    "wordsAuthored": 918978,
-    "termsDefined": 1297,
-    "quizItems": 850,
-    "exerciseQuestions": 2275,
+    "lessonsWritten": 172,
+    "wordsAuthored": 931600,
+    "termsDefined": 1305,
+    "quizItems": 860,
+    "exerciseQuestions": 2305,
     "blockTotals": {
-      "para": 2388,
-      "callout": 1106,
-      "heading": 971,
-      "list": 204,
-      "terms": 165,
-      "equation": 325,
-      "figure": 341,
-      "derivation": 387,
-      "table": 222,
-      "example": 983,
-      "quiz": 170,
-      "exercises": 170,
-      "formula": 634,
+      "para": 2418,
+      "callout": 1118,
+      "heading": 979,
+      "list": 206,
+      "terms": 166,
+      "equation": 327,
+      "figure": 345,
+      "derivation": 391,
+      "table": 225,
+      "example": 994,
+      "quiz": 172,
+      "exercises": 172,
+      "formula": 646,
       "algorithm": 27
     }
   }

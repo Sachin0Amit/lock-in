@@ -2,9 +2,10 @@ import type { Chapter, Lesson } from '../../../types'
 
 /**
  * Advanced Algebra — chapter 7 "Induction and the Binomial Theorem"
- * (opened by RUN 116, 2026-11-21; the chapter stays IN-PROGRESS — 7.1
- * shipped this run, 7.2 authored this run after its own engines, the
- * remaining lessons 7.3–7.6 + the unit review ride the next runs).
+ * (opened by RUN 116, 2026-11-21; RUN 117, 2026-11-21, shipped 7.3 + 7.4
+ * as the first v9.0 SWARM run — two parallel authoring agents, one lesson
+ * each, orchestrator-integrated; engines E/F + G/H grown verify-first; the
+ * remaining lessons 7.5–7.6 + the unit review ride the next runs).
  *
  * PROVENANCE: ground = the Drive `MATHS/M2 Algebra :: 04. Principle of
  * Mathematical Induction` module (citation key `cengage-m2-04`, Drive id
@@ -31,8 +32,8 @@ import type { Chapter, Lesson } from '../../../types'
  * engine, then the binomial theorem that engine proves):
  *   7.1 "Mathematical Induction: the Domino Principle"   (engines A/B)
  *   7.2 "The Binomial Theorem, Proved"                   (engines C/D)
- *   7.3 "The Binomial Theorem for Any Index"             (planned)
- *   7.4 "The Multinomial Theorem"                        (planned)
+ *   7.3 "The Binomial Theorem for Any Index"             (RUN 117 swarm)
+ *   7.4 "The Multinomial Theorem"                        (RUN 117 swarm)
  *   7.5 "Binomial Coefficients at Work"                  (planned)
  *   7.6 "Binomial Applications and Approximations"       (planned)
  *   7.R "Unit 7 Completion Review"                       (planned)
@@ -755,6 +756,849 @@ const lesson72: Lesson = {
   ],
 }
 
+
+/* ------------------------------------------------------------------ */
+/* lesson 7.3 — run 117 swarm (agent 2-a), engines E + pins F          */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Advanced Algebra — lesson 7.3 "The Binomial Theorem for Any Index"
+ * (swarm run 117, task 2-a; authored as ONE self-contained part file —
+ * the orchestrator splices this body into ch-07.ts verbatim, so no export
+ * statement and no chapter object live here).
+ *
+ * PROVENANCE: method shapes only from the Drive `MATHS/M2 Algebra :: 08.
+ * Binomial Theorem` module's any-index band (citation key `cengage-m2-08`,
+ * printed 8.26–8.27 — STUDY-NEVER-REPRODUCE honored) + the banked web canon
+ * (`hall-knight-higher-algebra`, `ncert-math11-ch7-binomial-theorem`,
+ * `jee-main-2026-syllabus`, `cengage-jee-style`). Every roster, witness
+ * value, figure, Illustration, quiz item and exercise below is OUR OWN,
+ * pinned by scripts/verify-book4-ch07.ts section E (35/35 green) BEFORE
+ * this prose was declared done.
+ */
+
+/* ------------------------------------------------------------------ */
+/* figures — original SVG, vivid palette (owner directive 2026-11-08)  */
+/* ------------------------------------------------------------------ */
+
+function validityWindowSvg(): string {
+  // the honest number line: the open window (-1, 1) shaded green; the
+  // boundary points x = -1 and x = +1 drawn as red hollow dashed circles
+  // labelled "diverges"; ticks at -2, -1, 0, 1, 2
+  const W = 720
+  const H = 230
+  const axisY = 132
+  const xOf = (v: number) => 84 + (v + 2) * 138 // -2 -> 84, 2 -> 636
+  const ticks = [-2, -1, 0, 1, 2]
+  let tickMarks = ''
+  for (const t of ticks) {
+    const x = xOf(t)
+    tickMarks += `<line x1="${x}" y1="${axisY - 8}" x2="${x}" y2="${axisY + 8}" stroke="#d97706" stroke-width="2.2"/>` +
+      `<text x="${x}" y="${axisY + 30}" font-size="12" font-weight="700" fill="#166534" text-anchor="middle">${t}</text>`
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A number line from minus two to two with the open window from minus one to one shaded green — the validity window of the binomial theorem for any rational index. The boundary points at minus one and one are drawn as red dashed hollow circles labelled diverges: on the boundary the partial sums of the row oscillate without ever settling. Ticks mark minus two, minus one, zero, one and two. The window rule: the never-ending row is valid only for x strictly between minus one and one.">
+  <text x="360" y="26" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the validity window of the any-index theorem: |x| &lt; 1</text>
+  <rect x="${xOf(-1)}" y="90" width="${xOf(1) - xOf(-1)}" height="84" fill="#16a34a" fill-opacity="0.13"/>
+  <text x="360" y="112" font-size="11.5" font-weight="700" fill="#166534" text-anchor="middle">valid: the open window |x| &lt; 1</text>
+  <text x="360" y="196" font-size="10.5" font-weight="700" fill="#0f766e" text-anchor="middle">inside: the terms shrink — the infinite row is a genuine number</text>
+  <line x1="52" y1="${axisY}" x2="668" y2="${axisY}" stroke="#0d9488" stroke-width="2.4"/>
+  <path d="M 46 ${axisY} l 12 -6 v 12 z" fill="#0d9488"/>
+  <path d="M 674 ${axisY} l -12 -6 v 12 z" fill="#0d9488"/>
+  <text x="662" y="118" font-size="11" font-style="italic" font-weight="700" fill="#0f766e">x</text>
+  ${tickMarks}
+  <circle cx="${xOf(-1)}" cy="${axisY}" r="10" fill="#fffdf5" stroke="#dc2626" stroke-width="2.4" stroke-dasharray="5 3"/>
+  <circle cx="${xOf(1)}" cy="${axisY}" r="10" fill="#fffdf5" stroke="#dc2626" stroke-width="2.4" stroke-dasharray="5 3"/>
+  <text x="${xOf(-1)}" y="74" font-size="10.5" font-weight="700" fill="#dc2626" text-anchor="middle">diverges</text>
+  <text x="${xOf(1)}" y="74" font-size="10.5" font-weight="700" fill="#dc2626" text-anchor="middle">diverges</text>
+  <text x="360" y="214" font-size="10.5" font-weight="700" fill="#166534" text-anchor="middle">the boundary points are excluded — the window is open, and it is the price of infiniteness</text>
+</svg>`
+}
+
+function geometricLadderSvg(): string {
+  // the twelve pinned partial sums of (1-x)^{-1} at x = 0.6 climbing onto
+  // the true sum 2.5 = 1/(1-0.6); the closed form is S_r = (1 - 0.6^{r+1})/0.4,
+  // and the pinned values below are drawn at exactly proportional heights
+  const sums = [1, 1.6, 1.96, 2.176, 2.3056, 2.38336, 2.43002, 2.45801, 2.47481, 2.48488, 2.48993, 2.49296]
+  const target = 2.5
+  const W = 720
+  const H = 345
+  const ml = 56
+  const mr = 30
+  const mt = 56
+  const mb = 51
+  const plotW = W - ml - mr
+  const plotH = H - mt - mb
+  const yMax = 2.7
+  const yOf = (v: number) => mt + (1 - v / yMax) * plotH
+  const slot = plotW / sums.length
+  const xc = (i: number) => ml + (i + 0.5) * slot
+  const barW = 40
+  let bars = ''
+  sums.forEach((s, i) => {
+    const x = xc(i)
+    const top = yOf(s)
+    bars += `<rect x="${x - barW / 2}" y="${top}" width="${barW}" height="${yOf(0) - top}" fill="#d97706" stroke="#d97706" stroke-width="1.4"/>` +
+      `<circle cx="${x}" cy="${top}" r="4.5" fill="#16a34a" stroke="#fffdf5" stroke-width="1.5"/>` +
+      `<text x="${x}" y="${top + 17}" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">${s}</text>` +
+      `<text x="${x}" y="${yOf(0) + 18}" font-size="9.5" font-weight="700" fill="#0f766e" text-anchor="middle">${i}</text>` +
+      `<line x1="${x}" y1="${yOf(0)}" x2="${x}" y2="${yOf(0) + 6}" stroke="#16a34a" stroke-width="1.6"/>`
+  })
+  const yTicks = [0, 0.5, 1, 1.5, 2]
+  let yAxis = ''
+  for (const t of yTicks) {
+    const y = yOf(t)
+    yAxis += `<line x1="${ml - 6}" y1="${y}" x2="${ml}" y2="${y}" stroke="#16a34a" stroke-width="1.8"/>` +
+      `<text x="${ml - 10}" y="${y + 3.5}" font-size="9.5" font-weight="700" fill="#0f766e" text-anchor="end">${t}</text>`
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A bar chart of the first twelve partial sums of the geometric series one plus x plus x squared and so on at x equals 0.6. The amber bars climb through the pinned values 1, 1.6, 1.96, 2.176, 2.3056, 2.38336, 2.43002, 2.45801, 2.47481, 2.48488, 2.48993 and 2.49296, each labelled inside the bar, and close in on the dashed target line at 2.5 — the exact sum, one divided by one minus 0.6. Each gap between successive bar tops is the next term of the series, 0.6 to the power r, shrinking by the factor 0.6: the partial sums converge on the true value.">
+  <text x="360" y="26" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the geometric ladder: partial sums of (1 − x)⁻¹ at x = 0.6 closing on the true sum</text>
+  <line x1="${ml}" y1="${yOf(0)}" x2="${W - mr}" y2="${yOf(0)}" stroke="#16a34a" stroke-width="2.2"/>
+  <line x1="${ml}" y1="${mt}" x2="${ml}" y2="${yOf(0)}" stroke="#16a34a" stroke-width="2.2"/>
+  ${yAxis}
+  <line x1="${ml}" y1="${yOf(target)}" x2="${W - mr}" y2="${yOf(target)}" stroke="#ea580c" stroke-width="2.2" stroke-dasharray="8 5"/>
+  <text x="${ml + 8}" y="${yOf(target) - 11}" font-size="11" font-weight="700" fill="#ea580c">the sum: 1/(1 − 0.6) = 2.5</text>
+  ${bars}
+  <text x="${ml + plotW / 2}" y="${H - 13}" font-size="10" font-weight="700" fill="#0d9488" text-anchor="middle">partial-sum index r — the closed form is S_r = (1 − 0.6^(r+1))/0.4</text>
+</svg>`
+}
+
+function oscillatingLadderSvg(): string {
+  // the eleven pinned partial sums of (1+x)^{-2} at x = 1/2, oscillating
+  // onto the limit 4/9 = 1/(1.5)^2 — dots above the limit amber, dots below
+  // it teal; positions computed from the pinned values array, never eyeballed
+  const sums = [1, 0, 0.75, 0.25, 0.5625, 0.375, 0.484375, 0.421875, 0.457031, 0.4375, 0.448242]
+  const labels: Record<number, string> = { 0: '1', 1: '0', 2: '0.75', 3: '0.25', 4: '0.5625', 5: '0.375', 6: '0.484375', 7: '0.421875', 8: '0.457031', 9: '0.4375', 10: '0.448242' }
+  const limit = 4 / 9
+  const W = 650
+  const H = 308
+  const ml = 46
+  const mr = 14
+  const mt = 36
+  const mb = 50
+  const plotW = W - ml - mr
+  const plotH = H - mt - mb
+  const yMax = 1.05
+  const xOf = (r: number) => ml + (r / 10) * plotW
+  const yOf = (v: number) => mt + (1 - v / yMax) * plotH
+  const dots = sums
+    .map((s, r) => {
+      const x = xOf(r)
+      const y = yOf(s)
+      const col = s > limit ? '#d97706' : '#0d9488'
+      let out = `<circle cx="${x}" cy="${y}" r="5" fill="${col}" stroke="#fffdf5" stroke-width="1.5"/>`
+      if (labels[r] !== undefined) {
+        if (r === 0) out += `<text x="${x + 12}" y="${y + 4}" font-size="9.5" font-weight="700" fill="#166534">${labels[r]}</text>`
+        else if (r === 1) out += `<text x="${x}" y="${y - 14}" font-size="9.5" font-weight="700" fill="#166534" text-anchor="middle">${labels[r]}</text>`
+        else if (r === 10) out += `<text x="640" y="${y - 17}" font-size="9.5" font-weight="700" fill="#166534" text-anchor="end">${labels[r]}</text>`
+        else if (r === 2 || r === 4) out += `<text x="${x + 10}" y="${y + 3.5}" font-size="9.5" font-weight="700" fill="#166534">${labels[r]}</text>`
+        else out += `<text x="${x}" y="${y - 11}" font-size="9.5" font-weight="700" fill="#166534" text-anchor="middle" stroke="#fffdf5" stroke-width="3" paint-order="stroke">${labels[r]}</text>`
+      }
+      return out
+    })
+    .join('')
+  const poly = sums.map((s, r) => `${xOf(r)},${yOf(s)}`).join(' ')
+  let xTicks = ''
+  for (let r = 0; r <= 10; r++) {
+    xTicks += `<line x1="${xOf(r)}" y1="${yOf(0)}" x2="${xOf(r)}" y2="${yOf(0) + 5}" stroke="#16a34a" stroke-width="1.6"/>` +
+      `<text x="${xOf(r)}" y="${yOf(0) + 16}" font-size="9" font-weight="700" fill="#0f766e" text-anchor="middle">${r}</text>`
+  }
+  let yTicks = ''
+  for (const t of [0, 0.25, 0.5, 0.75, 1]) {
+    const y = yOf(t)
+    yTicks += `<line x1="${ml - 6}" y1="${y}" x2="${ml}" y2="${y}" stroke="#16a34a" stroke-width="1.8"/>` +
+      `<text x="${ml - 10}" y="${y + 3.5}" font-size="9" font-weight="700" fill="#0f766e" text-anchor="end">${t}</text>`
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The oscillating ladder: eleven dots showing the partial sums of one plus x to the power minus two at x equals one half, with values 1, 0, 0.75, 0.25, 0.5625, 0.375, 0.484375, 0.421875, 0.457031, 0.4375 and 0.448242. Dots above the dashed limit line are amber, dots below it are teal: the odd-indexed partial sums rise toward the line and the even-indexed ones fall toward it, both closing on the limit four over nine, about 0.4444, which equals one over one point five squared.">
+  <circle cx="240" cy="22" r="4.5" fill="#d97706" stroke="#fffdf5" stroke-width="1.5"/>
+  <text x="250" y="25.5" font-size="9" font-weight="700" fill="#166534">above the limit</text>
+  <circle cx="350" cy="22" r="4.5" fill="#0d9488" stroke="#fffdf5" stroke-width="1.5"/>
+  <text x="360" y="25.5" font-size="9" font-weight="700" fill="#166534">below the limit</text>
+  <line x1="${ml}" y1="${yOf(0)}" x2="${xOf(10)}" y2="${yOf(0)}" stroke="#16a34a" stroke-width="2"/>
+  <line x1="${ml}" y1="${mt}" x2="${ml}" y2="${yOf(0)}" stroke="#16a34a" stroke-width="2"/>
+  ${yTicks}
+  ${xTicks}
+  <polyline points="${poly}" fill="none" stroke="#16a34a" stroke-width="1.6" stroke-linejoin="round"/>
+  <line x1="${ml}" y1="${yOf(limit)}" x2="${xOf(10)}" y2="${yOf(limit)}" stroke="#ea580c" stroke-width="2.2" stroke-dasharray="7 5"/>
+  <text x="${ml + 6}" y="${yOf(limit) - 9}" font-size="10" font-weight="700" fill="#ea580c" stroke="#fffdf5" stroke-width="4" paint-order="stroke">the limit 4/9 (about 0.4444)</text>
+  ${dots}
+  <text x="${ml + plotW / 2}" y="${H - 13}" font-size="9.5" font-weight="700" fill="#0d9488" text-anchor="middle">partial-sum index r</text>
+  <text x="14" y="147" font-size="9.5" font-weight="700" fill="#0d9488" text-anchor="middle" transform="rotate(-90 14 147)">partial sum</text>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 7.3                                                          */
+/* ------------------------------------------------------------------ */
+
+const lesson73: Lesson = {
+  id: 'aa-binomial-theorem-any-index',
+  number: '7.3',
+  title: 'The Binomial Theorem for Any Index',
+  concepts: [
+    'the binomial theorem for any rational index',
+    'the convergence window |x| < 1',
+    'infinite expansions vs finite ones',
+    'the general term n(n-1)...(n-r+1)/r! x^r',
+    '(1+x)^{-n} and (1-x)^{-n} as counting rows',
+    'the frequently used expansions',
+    'coefficient pricing at any index',
+    'honesty at the boundary: what diverges means',
+  ],
+  objectives: [
+    'State the binomial theorem for any rational index — the general term as a falling factorial over r! — and say exactly what is new beyond lesson 7.2: the row never terminates, and the statement carries the convergence window |x| < 1.',
+    'Explain why the window is part of the theorem: an infinite sum is a limit of partial sums, the terms must shrink, and the positive-integer theorem of 7.2 is the terminating special case that never paid this price.',
+    'Write and recognise the frequently used expansions — the −1, −2, −3, −1/2 and +1/2 rows — and verify them numerically, seat by seat, against direct computation (the trust-but-verify standard).',
+    'Derive the counting-row law behind the negative-integer rows and the central-binomial law behind the half row, and use both to price seats without writing any expansion out.',
+    'Price any coefficient at any index — scaled arguments, sign discipline, the leading-factor transform with its rescaled window, and the partial-fraction identity route for rational functions built from geometric rows.',
+    'Solve seat equations honestly, including the two-root case where a quadratic in the index delivers a fractional and a negative solution, both of which must be printed and verified.',
+    'State what diverges means at the boundary and beyond it — oscillation, escape, unbounded growth — and keep the power-versus-series distinction straight when a row fails where the power is perfectly well defined.',
+  ],
+  prerequisites: ['aa-the-binomial-theorem-proved', 'aa-geometric-progressions-and-the-infinite-tail', 'aa-factorials-and-the-counting-toolkit'],
+  sources: ['cengage-m2-08', 'cengage-jee-style', 'hall-knight-higher-algebra', 'ncert-math11-ch7-binomial-theorem', 'jee-main-2026-syllabus'],
+  blocks: [
+    { kind: 'para', text: 'Lesson 7.2 proved the binomial theorem for every positive integer $n$ — proved it twice, once by counting and once by the domino engine — and the theorem’s rows terminate: $n + 1$ seats, then silence. But mathematics did not stop at that border, and neither does the examination room. What is $(1+x)^{1/2}$, the square root written as an expansion? What is $(1+x)^{-3}$, a reciprocal cube? The reflex pattern of lesson 7.2 — the coefficients $1$, $n$, $\\tfrac{n(n-1)}{2!}$, $\\tfrac{n(n-1)(n-2)}{3!}$, $\\ldots$ — does not need $n$ to be an integer to be WRITTEN: each coefficient is the falling factorial $n(n-1)(n-2)\\cdots(n-r+1)$ divided by $r!$, and a falling factorial makes sense for ANY rational index. Substitute $n = \\tfrac{1}{2}$ and the coefficients begin $\\tfrac{1}{2}$, $-\\tfrac{1}{8}$, $\\tfrac{1}{16}$, $\\ldots$ — perfectly computable, seat after seat after seat. And that is precisely what changes: the row NEVER ends. When $n$ was a positive integer the factor $(n - r + 1)$ hit zero at $r = n + 1$ and closed the row; for every other index no factor ever reaches zero, and the "expansion" is an infinite series — a sentence about infinitely many terms, whose meaning is no longer automatic.' },
+    { kind: 'para', text: 'The meaning question is the one chapter 5 already answered for the geometric row. The infinite-tail lesson banked the discipline: $1 + x + x^2 + \\cdots$ EQUALS $\\tfrac{1}{1-x}$ exactly when $|x| < 1$, and equals nothing outside that window — the partial sums either oscillate forever or run away. That discipline is cashed here at full scale: the any-index row is an infinite sum, an infinite sum is a limit of partial sums, and such a limit exists only when the terms shrink — the window $|x| < 1$ is the price of infiniteness. This lesson states the theorem for any rational index, verifies every truncated case numerically against direct computation, prices coefficients at examination speed, and maps what fails at the boundary and beyond it. The finite theorem of 7.2 is the special case where the infinite statement terminates; the infinite theorem is the general weather.' },
+
+    { kind: 'heading', text: 'The Theorem for Any Index' },
+    { kind: 'para', text: 'The statement first, in the house form. The index $n$ may now be any rational number — negative, fractional, or both — and the base is written $1 + x$ (the leading-factor transform below moves any general base into this form). One new ingredient enters that lesson 7.2 never needed: a condition on $x$, without which the statement is not even false — it is MEANINGLESS, an infinite sum that does not sum to anything.' },
+    { kind: 'callout', tone: 'theorem', title: 'The binomial theorem for any rational index', text: 'For any rational index $n$ and any $x$ with $|x| < 1$: $(1+x)^n = 1 + nx + \\tfrac{n(n-1)}{2!}x^2 + \\tfrac{n(n-1)(n-2)}{3!}x^3 + \\cdots + \\tfrac{n(n-1)\\cdots(n-r+1)}{r!}x^r + \\cdots$. The general term is $T_{r+1} = \\tfrac{n(n-1)(n-2)\\cdots(n-r+1)}{r!}\\,x^r$ — a product of $r$ descending factors starting at $n$, over $r!$. If $n$ is a positive integer, the factor $(n - r + 1)$ reads zero from $r = n + 1$ onward, every later seat is zero, and the row terminates as the finite theorem of lesson 7.2 — with no window required at all. For every other rational $n$ no factor ever reads zero, the row never terminates, and the statement is an infinite series valid exactly inside the window $|x| < 1$.' },
+    { kind: 'equation', latex: '(1+x)^n = \\sum_{r=0}^{\\infty} \\frac{n(n-1)(n-2)\\cdots(n-r+1)}{r!}\\, x^r \\qquad (|x| < 1) \\tag{1}', note: 'the coefficient of $x^r$ is the falling factorial $n(n-1)\\cdots(n-r+1)$ over $r!$ — a product of $r$ rational factors, defined at every rational index; the window clause is part of the statement, not a decoration hung on afterwards.' },
+    { kind: 'para', text: 'Thus, in the honest reading: the coefficients of (1) are products of rational numbers, computable at any index — that part is pure arithmetic. The EQUALS sign is the deep part. For a terminating row, equality is an algebraic identity, true at every $x$ without exception. For a never-ending row, equality means the partial sums converge to the left side, and convergence is a property of $x$: the same row, the same coefficients, and a different verdict at $x = \\tfrac{1}{2}$ than at $x = 2$. Nothing in the coefficient pattern announces this — the window does. For example, at the index $n = \\tfrac{1}{2}$ the factors descend $\\tfrac{1}{2}, -\\tfrac{1}{2}, -\\tfrac{3}{2}, -\\tfrac{5}{2}, \\ldots$ — past zero, into negatives, forever — which is exactly why no seat of that row ever dies and why the sum needs a window to mean anything.' },
+    { kind: 'callout', tone: 'warn', title: 'Why |x| < 1 — the terms must shrink', text: 'An infinite sum is DEFINED as the limit of its partial sums, and a limit of partial sums can exist only if the individual terms shrink to zero. Inside the window they shrink — and fast: the ratio of consecutive term magnitudes of (1) tends to $|x|$ as $r$ grows, so for $|x| < 1$ the seats eventually shrink geometrically, the chapter 5 precedent doing exactly the work it was banked for. At the boundary and beyond it the terms fail to shrink, and the partial sums cannot settle — the convergence section below exhibits the three failure modes with pinned numbers. If $n$ IS a positive integer, none of this matters: the row terminates, a terminating sum converges at every $x$, and no window condition is ever invoked. The window discipline is the price paid ONLY for the never-ending rows.' },
+    { kind: 'para', text: 'Note how cleanly the finite theorem falls out as the special case. At a positive integer index $n$, the seat $r = n + 1$ would need the factor $(n - r + 1) = (n - (n+1) + 1) = 0$, and every later seat needs factors that have already passed through zero — so the row stops at exactly $n + 1$ seats, and the "infinite" statement collapses to lesson 7.2’s theorem with the window clause vacuous. The any-index statement is therefore the STRICTER theorem: it demands more (a window) and delivers more (every rational index, the negative rows and the half rows included). The two theorems do not compete; one contains the other, and the contained one was proved first — exactly the order this chapter ran.' },
+    { kind: 'callout', tone: 'historical', title: 'Newton’s extension, and the rigor that followed it', text: 'The fractional-index expansion is Newton’s: by the mid-1660s he was computing with rows like $(1+x)^{1/2}$, and his letters on the binomial series — relayed through Henry Oldenburg to the young Leibniz — carried the extension to negative and fractional indices into the European mainstream. What those letters did not carry was the convergence question: for a century and a half the series were used as trust-but-verify instruments, and only the nineteenth-century rigor of Cauchy’s and Abel’s generation gave the window $|x| < 1$ its settled meaning. This lesson walks exactly that road in miniature: state, verify, and mark the boundary honestly.' },
+    { kind: 'para', text: 'One more honesty note, and it is structural: the full PROOF of the any-index theorem — differentiating the series and solving the differential equation it satisfies — belongs to the calculus doorstep, and this book has not built derivatives yet. So this lesson does what Euler’s generation did with the tools available: it states the theorem, then verifies it. Every roster below was recomputed brute-force by the chapter’s verifier before this prose was declared done; every truncated row is checked numerically against direct computation — square roots against square roots, reciprocals against reciprocals — and the coefficient pattern is the falling factorial, which needs no calculus to write. The verification tables are the engine of the lesson: what makes the statement trustworthy at every seat you can see, while the full proof waits for the calculus chapters where it belongs.' },
+
+    { kind: 'heading', text: 'The Frequently Used Expansions' },
+    { kind: 'para', text: 'The engine of this lesson is a table of rows you will eventually recognise on sight — the “frequently used expansions”. Each row below is the any-index statement at one small index, computed seat by seat from the general term and cross-checked against direct arithmetic. Read the table twice: once for the rows themselves (the examination reflex set), and once for the LAWS inside it. The negative-integer rows are counting rows — selection counts in binomial clothing — and the half rows are central-binomial rows; the two derivations below pull those laws into the open.' },
+    { kind: 'table', head: ['Row', 'Expansion (first seats), valid for $|x| < 1$'], rows: [
+      ['$(1+x)^{-1}$', '$1 - x + x^2 - x^3 + x^4 - x^5 + \\cdots$'],
+      ['$(1-x)^{-1}$', '$1 + x + x^2 + x^3 + x^4 + x^5 + \\cdots$'],
+      ['$(1+x)^{-2}$', '$1 - 2x + 3x^2 - 4x^3 + 5x^4 - 6x^5 + \\cdots$'],
+      ['$(1-x)^{-2}$', '$1 + 2x + 3x^2 + 4x^3 + 5x^4 + 6x^5 + \\cdots$'],
+      ['$(1+x)^{-3}$', '$1 - 3x + 6x^2 - 10x^3 + 15x^4 - 21x^5 + \\cdots$'],
+      ['$(1-x)^{-3}$', '$1 + 3x + 6x^2 + 10x^3 + 15x^4 + 21x^5 + \\cdots$'],
+      ['$(1+x)^{-1/2}$', '$1 - \\tfrac{x}{2} + \\tfrac{3x^2}{8} - \\tfrac{5x^3}{16} + \\tfrac{35x^4}{128} - \\tfrac{63x^5}{256} + \\cdots$'],
+      ['$(1-x)^{-1/2}$', '$1 + \\tfrac{x}{2} + \\tfrac{3x^2}{8} + \\tfrac{5x^3}{16} + \\tfrac{35x^4}{128} + \\tfrac{63x^5}{256} + \\cdots$'],
+      ['$(1+x)^{1/2}$', '$1 + \\tfrac{x}{2} - \\tfrac{x^2}{8} + \\tfrac{x^3}{16} - \\tfrac{5x^4}{128} + \\tfrac{7x^5}{256} - \\cdots$'],
+      ['$(1-x)^{1/2}$', '$1 - \\tfrac{x}{2} - \\tfrac{x^2}{8} - \\tfrac{x^3}{16} - \\tfrac{5x^4}{128} - \\tfrac{7x^5}{256} - \\cdots$'],
+    ], caption: 'The frequently used expansions, valid for $|x| < 1$ — every row computed seat-by-seat from the general term and cross-checked numerically; the negative-integer rows are the counting rows of the first derivation below, and the $\\pm\\tfrac{1}{2}$ rows are the central-binomial family of the second.' },
+    { kind: 'para', text: 'Two laws live in that table, and both deserve the daylight. The negative-integer rows hide selection counts: their seats are $\\binom{n+r-1}{r}$, the triangular numbers at the index $-3$, the plain counting numbers at the index $-2$ — chapter 5’s difference-table family reborn as binomial rows. And the $-\\tfrac{1}{2}$ row hides the central binomial coefficients, scaled by powers of four. Both derivations run on the general term alone: no calculus, just the falling factorial and honest bookkeeping.' },
+    { kind: 'derivation', title: 'The counting-row law behind the negative-integer rows', statement: 'For every positive integer n and |x| < 1, the row of (1 − x)^{−n} is a selection-count row: (1 − x)^{−n} = 1 + C(n,1)x + C(n+1,2)x² + C(n+2,3)x³ + ⋯, the general seat being C(n+r−1, r)·xʳ.', steps: [
+      { label: 'Write the general seat', formula: '\\text{seat of } x^r \\text{ in } (1-x)^{-n}: \\; \\frac{(-n)(-n-1)(-n-2)\\cdots(-n-r+1)}{r!}', explanation: 'The any-index theorem prices the $x^r$ seat of $(1+u)^{-n}$ by the falling factorial with index $-n$: $r$ descending factors over $r!$ — the pattern that makes sense at every rational index, negative ones included.' },
+      { label: 'Count the minus signs', formula: '(-n)(-n-1)\\cdots(-n-r+1) = (-1)^r\\, n(n+1)\\cdots(n+r-1)', explanation: 'Each of the $r$ factors carries exactly one minus sign; stripping all of them leaves the RISING product $n(n+1)\\cdots(n+r-1)$, with $(-1)^r$ still attached out front.' },
+      { label: 'Recognise the selection count', formula: '\\frac{n(n+1)\\cdots(n+r-1)}{r!} = \\frac{(n+r-1)!}{(n-1)!\\, r!} = \\binom{n+r-1}{r}', explanation: 'The rising product is exactly $\\tfrac{(n+r-1)!}{(n-1)!}$ — the factorial of $n + r - 1$ with its first $n - 1$ factors cancelled — so the seat is the selection count $\\binom{n+r-1}{r}$, sign still pending.' },
+      { label: 'Substitute the argument −x', formula: '(1-x)^{-n} = \\sum_{r \\geq 0} \\binom{n+r-1}{r}\\, x^r', explanation: 'Putting $u = -x$ multiplies each seat by $(-1)^r$ once more, and $(-1)^r \\cdot (-1)^r = +1$: the two sign flips cancel, and every seat of the $(1-x)^{-n}$ row is POSITIVE — a counting row, all sums, no alternation.' },
+      { label: 'Witness the rows', formula: '(1-x)^{-3}: \\; \\binom{r+2}{2} = 1, 3, 6, 10, 15, 21; \\qquad (1-x)^{-2}: \\; \\binom{r+1}{1} = 1, 2, 3, 4, 5, 6', explanation: 'The $n = 3$ row is the triangular numbers — chapter 5’s difference-table family reborn as a binomial row — and the $n = 2$ row is the plain counting numbers; both match the table above seat for seat.' },
+    ], result: '$(1-x)^{-n} = \\sum_{r \\geq 0} \\binom{n+r-1}{r}\\, x^r$ for $|x| < 1$ — the negative-integer rows are selection-count rows in disguise' },
+    { kind: 'para', text: 'The counting law explains half the table’s shape at a stroke: the $(1-x)^{-n}$ rows are ALL-POSITIVE — the argument’s sign flip cancels the coefficient sign flip — while their $(1+x)^{-n}$ twins alternate strictly. And the seats are genuine selection counts, not arithmetic coincidences: $\\binom{n+r-1}{r}$ is the number of ways to choose $r$ objects from $n$ kinds when repetition is allowed — chapter 6’s selection machinery, wearing a negative index as a costume. The half row’s law is different, and leads somewhere even better known.' },
+    { kind: 'derivation', title: 'The half row’s central-binomial law', statement: 'For |x| < 1, the seats of (1 − x)^{−1/2} are the scaled central binomial coefficients: 1, 1/2, 3/8, 5/16, 35/128, 63/256, … — the general seat being C(2r, r)/4ʳ.', steps: [
+      { label: 'Price the seat by the falling factorial', formula: '\\text{seat of } x^r \\text{ in } (1+x)^{-1/2}: \\; \\frac{\\left(-\\tfrac{1}{2}\\right)\\left(-\\tfrac{3}{2}\\right)\\cdots\\left(-\\tfrac{2r-1}{2}\\right)}{r!} = (-1)^r\\,\\frac{1 \\cdot 3 \\cdot 5 \\cdots (2r-1)}{2^r\\, r!}', explanation: 'The factors descend from $-\\tfrac{1}{2}$ through $-\\tfrac{3}{2}, -\\tfrac{5}{2}, \\ldots$ — never reaching zero, which is why this row never ends. Each factor donates one minus sign and one power of $\\tfrac{1}{2}$.' },
+      { label: 'Convert the odd product', formula: '1 \\cdot 3 \\cdot 5 \\cdots (2r-1) = \\frac{(2r)!}{2 \\cdot 4 \\cdot 6 \\cdots 2r} = \\frac{(2r)!}{2^r\\, r!}', explanation: 'The product of the first $r$ odd numbers is the full factorial $(2r)!$ with the even factors divided out — and the even factors collect as $2 \\cdot 4 \\cdots 2r = 2^r r!$, chapter 6’s double-factorial bookkeeping.' },
+      { label: 'Assemble the seat', formula: '(-1)^r\\, \\frac{(2r)!}{2^r r! \\cdot 2^r r!} = (-1)^r\\, \\frac{\\binom{2r}{r}}{4^r}', explanation: 'The two powers of $2^r$ collect into $4^r$ in the denominator, and the factorial ratio upstairs is exactly $\\binom{2r}{r}$ — the central binomial coefficient of row $2r$, the same coefficient family that carried the middle-term pricing of lesson 7.2.' },
+      { label: 'Cancel the argument sign', formula: '(1-x)^{-1/2} = \\sum_{r \\geq 0} \\frac{\\binom{2r}{r}}{4^r}\\, x^r', explanation: 'The $(-1)^r$ from the coefficients meets the $(-1)^r$ from the argument $-x$ and cancels: every seat is positive. Check the first seats: $\\tfrac{\\binom{0}{0}}{1} = 1$, $\\tfrac{\\binom{2}{1}}{4} = \\tfrac{1}{2}$, $\\tfrac{\\binom{4}{2}}{16} = \\tfrac{3}{8}$, $\\tfrac{\\binom{6}{3}}{64} = \\tfrac{5}{16}$, $\\tfrac{\\binom{8}{4}}{256} = \\tfrac{35}{128}$, $\\tfrac{\\binom{10}{5}}{1024} = \\tfrac{63}{256}$ — the table’s half row, seat for seat.' },
+    ], result: '$(1-x)^{-1/2} = \\sum_{r \\geq 0} \\tfrac{\\binom{2r}{r}}{4^r}\\, x^r$ for $|x| < 1$ — the central binomial coefficients, quartered by the row’s own scaling' },
+    { kind: 'example', title: 'A numeric witness: $(1.02)^{1/2}$, $(0.98)^{1/2}$ and $(1.02)^{-1}$ from three table rows', steps: [
+      'Take $x = 0.02$ — comfortably inside the window — and read the $(1+x)^{1/2}$ row: $(1.02)^{1/2} = 1 + \\tfrac{0.02}{2} - \\tfrac{(0.02)^2}{8} + \\tfrac{(0.02)^3}{16} - \\cdots$',
+      'So, the seats price as $1 + 0.01 - 0.00005 + 0.0000005$, summing to $1.0099505$.',
+      'Now, compare with the direct square root: $\\sqrt{1.02} = 1.00995049\\ldots$ — the row agrees through six decimals and more, on four seats.',
+      'So, the mirrored root: $(0.98)^{1/2}$ is the $(1-x)^{1/2}$ row at $x = 0.02$: $1 - 0.01 - 0.00005 - 0.0000005 = 0.9899495$, against the direct value $0.98994949\\ldots$ — the same six-decimal agreement, with every seat after the first negative.',
+      'And the reciprocal: $(1.02)^{-1}$ is the alternating geometric at $x = 0.02$: $1 - 0.02 + 0.0004 - 0.000008 + 0.00000016 = 0.98039216$, against $\\tfrac{1}{1.02} = 0.9803921568\\ldots$ — the row lands $0.98039216$ on the nose of the true value.',
+      'Hence three witnesses from three rows — the $\\tfrac{1}{2}$ row (both signs of the argument) and the $-1$ row — each delivering six-plus honest decimals from a handful of seats: the trust-but-verify standard this lesson runs on.',
+    ] },
+    { kind: 'para', text: 'Sit with what those witnesses do and do not establish. They do not prove the theorem — no finite list of test points ever could, the boundary lesson 7.1 installed permanently. What they establish is that the statement is not a pretty fiction: at every index tested, the truncated row lands on the directly computed value with the accuracy the unpaid tail predicts. That is the Euler standard — trust the pattern, verify it everywhere you can reach, and say where the verification stops. The exercise set closes on exactly that discipline, with a six-decimal verification and an argument for why the sixth decimal is safe.' },
+    { kind: 'example', title: 'The $(a+x)^n$ transform: expand $(4+x)^{1/2}$ and $(2+x)^{-2}$, and price the early seats', steps: [
+      'The theorem’s window is written for the base $1 + u$; a general base must be moved into that form FIRST — factor the leading power out and let the scaled remainder be the argument.',
+      'So, $(4+x)^{1/2} = 4^{1/2}\\left(1 + \\tfrac{x}{4}\\right)^{1/2} = 2\\left(1 + \\tfrac{x}{4}\\right)^{1/2}$ — and the window rescales with the substitution: $\\left|\\tfrac{x}{4}\\right| < 1$ reads as $|x| < 4$.',
+      'Now, price the $x^2$ seat: the row’s $u^2$ seat is $-\\tfrac{1}{8}$, so the term is $2 \\cdot \\left(-\\tfrac{1}{8}\\right) \\cdot \\left(\\tfrac{x}{4}\\right)^2$.',
+      'So, the coefficient of $x^2$ is $2 \\cdot \\left(-\\tfrac{1}{8}\\right) \\cdot \\tfrac{1}{16} = -\\tfrac{1}{64}$ — the leading factor $2$ and the seat’s own scaling $\\tfrac{1}{16}$ both price in.',
+      'And the second run: $(2+x)^{-2} = 2^{-2}\\left(1 + \\tfrac{x}{2}\\right)^{-2} = \\tfrac{1}{4}\\left(1 + \\tfrac{x}{2}\\right)^{-2}$, window $|x| < 2$.',
+      'Now, the row at $u = \\tfrac{x}{2}$: $\\tfrac{1}{4}\\left(1 - 2 \\cdot \\tfrac{x}{2} + 3\\left(\\tfrac{x}{2}\\right)^2 - 4\\left(\\tfrac{x}{2}\\right)^3 + \\cdots\\right) = \\tfrac{1}{4} - \\tfrac{x}{4} + \\tfrac{3x^2}{16} - \\tfrac{x^3}{8} + \\cdots$',
+      'Hence the seat prices: coefficient of $x$ is $-\\tfrac{1}{4}$, of $x^2$ is $\\tfrac{3}{16}$ — the transform is mechanical: leading power out, scaled remainder in, window rescaled.',
+    ] },
+    { kind: 'para', text: 'The leading-factor transform deserves its own line in the reflex toolkit, because examinations rarely hand over a $(1 + u)$ base. For a general $(a + x)^n$: factor $a^n$ out — $(a+x)^n = a^n\\left(1 + \\tfrac{x}{a}\\right)^n$ — run the row in the scaled argument $u = \\tfrac{x}{a}$, then multiply back through $a^n$, seat by seat. The window rescales with the substitution: $|u| < 1$ becomes $|x| < |a|$, so a LARGER leading constant buys a WIDER window — $(4+x)^{1/2}$ is valid four times as far out as $(1+x)^{1/2}$, and validity questions set silently inside such expansions are decided by this rescale. Note the sign discipline: if the base reads $(a - x)^n$, the argument is $-\\tfrac{x}{a}$ and the alternation rides the seats exactly as the table’s minus rows show.' },
+
+    { kind: 'heading', text: 'Convergence: the Honest Window' },
+    { kind: 'para', text: 'The window is not fine print — it is half the theorem, and this section walks it at the places it bites: the boundary, the outside, and the inside. The instrument throughout is the partial sum: cut the row at seat $r$, add what you have, and watch the running total as $r$ grows. The demonstration row is the oldest infinite object in this book — the alternating geometric $(1+x)^{-1}$ — because its partial sums are small enough to hold in the hand while failing or succeeding in every mode the window forbids or allows.' },
+    { kind: 'figure', caption: 'The validity window on the number line: the open interval $-1 < x < 1$ shaded green, its boundary points $x = -1$ and $x = 1$ drawn as red dashed hollow circles labelled "diverges", ticks at $-2, -1, 0, 1, 2$. Inside the window the terms shrink and the infinite row is a genuine number; on the boundary and beyond it the partial sums fail to settle. The window $|x| < 1$ is the price of infiniteness — the finite rows of lesson 7.2 never paid it.', svg: validityWindowSvg() },
+    { kind: 'para', text: 'Watch the partial sums of the $(1+x)^{-1}$ row at the four stations of the number line. At $x = 1$, on the boundary: the partial sums read $1, 0, 1, 0, \\ldots$ forever — an oscillation with no limit, so the row has no value there. At $x = -1$, the other boundary point: the partial sums read $1, 2, 3, 4, \\ldots$ — unbounded growth, again no limit, a different failure mode on the same boundary. At $x = 2$, outside: the partial sums of $1 - 2 + 4 - 8 + \\cdots$ oscillate with GROWING magnitude, each swing about twice the previous, and the magnitudes reach $683$ by seat $r = 10$ and $2731$ by seat $r = 12$ — nothing settles, and the word "sum" has no number behind it. Inside, at $x = \\tfrac{1}{2}$: the partial sums squeeze onto $\\tfrac{2}{3}$ — the odd partial sums rise, the even partial sums fall, and the gap between consecutive partial sums halves at every step, the two strands closing on the value $\\tfrac{1}{1 + \\tfrac{1}{2}}$ from opposite sides. That is the whole anatomy of the window in one row: two flavours of divergence on the boundary (oscillation and escape), violent divergence outside, and a two-sided squeeze inside.' },
+    { kind: 'example', title: 'Recognise the power behind a series: $1 - \\tfrac{x}{2} + \\tfrac{3x^2}{8} - \\tfrac{5x^3}{16} + \\cdots$ and $1 + 2x + 3x^2 + 4x^3 + \\cdots$', steps: [
+      'Recognition is the table read backwards: match a given series against the pinned rows BEFORE computing anything — the reverse read examinations set as recognition items.',
+      'So, the first series: signs strictly alternating, magnitudes $\\tfrac{1}{2}, \\tfrac{3}{8}, \\tfrac{5}{16}$ — exactly the $(1+x)^{-1/2}$ row. The series is $(1+x)^{-1/2}$, valid for $|x| < 1$.',
+      'And the second: every seat positive, magnitudes $1, 2, 3, 4$ climbing by one — the $(1-x)^{-2}$ row. The series is $(1-x)^{-2}$, again for $|x| < 1$.',
+      'Now, the evaluation door that recognition opens: at the specific point $x = \\tfrac{1}{5}$ the first series sums to $\\left(1 + \\tfrac{1}{5}\\right)^{-1/2} = \\left(\\tfrac{6}{5}\\right)^{-1/2} = \\sqrt{\\tfrac{5}{6}}$ — the number the infinite row equals at that point, read off without summing a single partial sum.',
+      'Hence the recognition discipline: one seat alone never decides. A row’s first seat fits many indices; the SECOND seat pins the match — two coefficients determine the index and the argument by two equations, and a solver who checks only one seat is guessing. Confirm two seats, then name the power with its window.',
+    ] },
+    { kind: 'figure', caption: 'The geometric ladder: the first twelve partial sums of $(1-x)^{-1}$ at $x = 0.6$ — the pinned values $1, 1.6, 1.96, 2.176, 2.3056, 2.38336, \\ldots$ labelled bar by bar, each bar drawn at exactly proportional height — climbing onto the dashed target line at the true sum $\\tfrac{1}{1-0.6} = 2.5$. The gaps between successive bar tops are the series’ own terms $0.6^r$, each $0.6$ times the one before, so the gaps shrink geometrically and the staircase is forced to close on the target — the partial sums close in on the true value: convergence in the flesh.', svg: geometricLadderSvg() },
+    { kind: 'para', text: 'Read the ladder slowly — it is the picture of everything this section claims. The closed form of the $r$-th partial sum is $S_r = \\tfrac{1 - 0.6^{r+1}}{0.4}$ — the truncated geometric with its own tail subtracted — and the run begins $1, 1.6, 1.96, 2.176, 2.3056, 2.38336, \\ldots$ The first gap is the full $0.6$; every later gap is $0.6$ times the one before — $0.6$, then $0.36$, then $0.216$ — so the unpaid tail above each bar is a shrinking geometric of its own, and the partial sums are pushed onto $\\tfrac{1}{1-0.6} = 2.5$ whether anyone watches or not. The last bar tops out within a pixel of the dashed line, and no later bar will ever move that far again — the series’ remaining motion is smaller than the motion already drawn. That is what convergence MEANS operationally: not “the terms are small”, but “the running total stops moving appreciably, with a computable budget for the motion left”.' },
+    { kind: 'callout', tone: 'insight', title: 'What the window buys — and the distinction it protects', text: 'Inside the window, the any-index row is not an approximation scheme that happens to work: it is an exact identity whose right side is a limit, and every partial sum is an honest estimate whose unpaid tail is a shrinking geometric. Outside the window, the row is not “a bad estimate” — it is NOTHING: the partial sums have no limit, so there is no number for the left side to equal. And the boundary phrasing matters: at $x = 1$ the POWER $(1+x)^{-1}$ is the perfectly well-defined number $\\tfrac{1}{2}$ — what diverges is the ROW. The series fails; the function does not — and keeping that distinction straight is the examination-grade honesty this lesson’s title promises.' },
+
+    { kind: 'heading', text: 'Pricing Coefficients at Any Index' },
+    { kind: 'para', text: 'The examination workhorse of this lesson is the same as lesson 7.2’s: price one seat. At any index the instrument is unchanged — write the row, substitute the argument, read off the requested seat — with two new degrees of freedom (the index may now be negative or fractional) and one standing obligation (the window statement rides along with every price). Three Illustrations, three grades of craft: the scaled argument, the seat equation solved honestly, and the identity route that never expands a binomial row at all.' },
+    { kind: 'example', title: 'Price three seats: $x^3$ in $\\left(1 - \\tfrac{x}{3}\\right)^{-2}$, $x^4$ in $(1+2x)^{-2}$, and $x^4$ in $(1-4x)^{-1/2}$', steps: [
+      'Seat pricing at any index is the general term at work: name the row, substitute the argument, price the seat — the window statement travels with the substitution.',
+      'So, the first: $\\left(1 - \\tfrac{x}{3}\\right)^{-2}$ is the $(1-x)^{-2}$ row at argument $\\tfrac{x}{3}$, window $|x| < 3$, general term $(r+1)\\left(\\tfrac{x}{3}\\right)^r$ — the $x^3$ seat sits at $r = 3$: $(3+1) \\cdot \\tfrac{1}{27} = \\tfrac{4}{27}$.',
+      'And the second: $(1+2x)^{-2}$ is the $(1+x)^{-2}$ row at argument $2x$, window $|x| < \\tfrac{1}{2}$, general term $(-1)^r (r+1)(2x)^r$ — the $x^4$ seat sits at $r = 4$: $(-1)^4 \\cdot 5 \\cdot 2^4 = 80$, positive because the seat index is even.',
+      'Now, the third — the elegant collapse: $(1-4x)^{-1/2}$ is the central-binomial row at argument $4x$, and the seat $\\tfrac{\\binom{2r}{r}}{4^r}$ meets the argument’s own $4^r$ and cancels it exactly: the $x^4$ seat is $\\binom{8}{4} = 70$ — an integer, the half row’s fractions gone without a trace.',
+      'Hence three prices — $\\tfrac{4}{27}$, $80$, $70$ — from one reflex: index the row, substitute the argument, price the seat, state the window.',
+    ] },
+    { kind: 'example', title: 'The two-root seat equation: for which $n$ does the $x^2$ seat of $(1+x)^n$ equal $\\tfrac{3}{8}$?', steps: [
+      'The seat equation: the $x^2$ seat of $(1+x)^n$ is $\\tfrac{n(n-1)}{2!}$, so the request reads $\\tfrac{n(n-1)}{2} = \\tfrac{3}{8}$.',
+      'So, clear denominators: $4n(n-1) = 3$, that is $4n^2 - 4n - 3 = 0$ — a quadratic in the index, not in $x$.',
+      'Now, solve honestly: $(2n - 3)(2n + 1) = 0$, so $n = \\tfrac{3}{2}$ or $n = -\\tfrac{1}{2}$ — two roots, two rows.',
+      'Check BOTH roots against the seat: $\\tfrac{3}{2} \\cdot \\tfrac{1}{2} \\div 2 = \\tfrac{3}{8}$ and $\\left(-\\tfrac{1}{2}\\right)\\left(-\\tfrac{3}{2}\\right) \\div 2 = \\tfrac{3}{8}$ — both land exactly.',
+      'Hence the answer is a PAIR, and the two rows are genuinely different series (their $x$ seats read $\\tfrac{3}{2}$ and $-\\tfrac{1}{2}$ respectively) — dropping a root drops a whole theorem-case, which is the Caution below.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'Caution: a quadratic in the index has two roots', text: 'The classic loss in this family is silent: the solver factors $4n^2 - 4n - 3 = 0$, reads off $n = \\tfrac{3}{2}$, and stops — because the fractional index "looks like" the expected answer and the negative one does not. But the quadratic has TWO roots, both verified above, and both are legitimate binomial indices: $(1+x)^{3/2}$ and $(1+x)^{-1/2}$ genuinely share their $x^2$ seat. The professional habit: solve the equation, print every root that satisfies the seat, and verify each by substitution — an examination that expects one root will still accept the pair stated correctly, and an examination that expects the pair marks the single answer wrong.' },
+    { kind: 'example', title: 'The algebraic identity route: the coefficient of $x^n$ in $\\tfrac{1}{(1-x)(1-2x)}$', steps: [
+      'Split first, by partial fractions: $\\tfrac{1}{(1-x)(1-2x)} = \\tfrac{2}{1-2x} - \\tfrac{1}{1-x}$ — check the split by recombining over the common denominator: $2(1-x) - (1-2x) = 1$, as required.',
+      'So, expand both geometric rows: $\\tfrac{2}{1-2x} = 2\\left(1 + 2x + 4x^2 + 8x^3 + \\cdots\\right)$ and $\\tfrac{1}{1-x} = 1 + x + x^2 + x^3 + \\cdots$ — each valid in its own window, and the narrower one, $|x| < \\tfrac{1}{2}$, governs the combination.',
+      'Now, the $x^n$ seat collects from both rows: $2 \\cdot 2^n$ from the first, minus $1$ from the second.',
+      'So, the coefficient of $x^n$ is $2^{n+1} - 1$ — the Mersenne family: at $n = 0, 1, 2, 3$ the seats read $1, 3, 7, 15$, doubling and subtracting one forever.',
+      'Check by multiplying back: $(1 - 3x + 2x^2)\\left(1 + 3x + 7x^2 + 15x^3 + \\cdots\\right) = 1 + 0x + 0x^2 + 0x^3 + \\cdots$ — every interior seat cancels, exactly as a reciprocal demands.',
+      'Hence the identity route: partial fractions turn one rational function into two KNOWN rows, and the seat prices by subtraction — no any-index row was ever written down.',
+    ] },
+    { kind: 'para', text: 'From the above discussion, the pricing reflex assembles into one sentence — index the row, substitute the argument, price the seat, state the window — and the worked seats sort by the move they exercised. For example:' },
+    { kind: 'list', marker: 'roman', items: [
+      '(i) a scaled-argument seat — $\\left(1 - \\tfrac{x}{3}\\right)^{-2}$ at $x^3$: $\\tfrac{4}{27}$, window restated as $|x| < 3$;',
+      '(ii) a sign-and-scale seat — $(1+2x)^{-2}$ at $x^4$: $(-1)^4 \\cdot 5 \\cdot 2^4 = 80$, the window narrowing to $|x| < \\tfrac{1}{2}$;',
+      '(iii) a collapse seat — $(1-4x)^{-1/2}$ at $x^4$: $\\binom{8}{4} = 70$, the argument’s $4^r$ cancelling the row’s own $4^r$;',
+      '(iv) an identity seat — $\\tfrac{1}{(1-x)(1-2x)}$ at $x^n$: $2^{n+1} - 1$, priced by partial fractions into two geometric rows with no binomial row involved at all.',
+    ] },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner', text: 'The binomial theorem for any rational index sits in the JEE (Main) syllabus’ binomial chapter as the negative-and-fractional index material, and it is a standard differentiator there. The question shapes, in frequency order: first-few-terms expansions at a negative or fractional index (the table rows by reflex); seat pricing with a scaled argument ($x \\to \\tfrac{x}{3}$ or $x \\to 2x$ substitutions, where the window rescales silently); recognition items (name the power behind a given series — the two-seat discipline); numeric approximations at small $x$ (the witness method, six-decimal standards); and the honest validity statement $|x| < 1$ that separates complete answers from half answers. The identity route — partial fractions into geometric rows — is the doorstep of the generating-function habits later combinatorics builds on.' },
+    { kind: 'quiz', title: 'Check yourself: the binomial theorem for any index', items: [
+      { q: 'The infinite-series form $(1+x)^n = 1 + nx + \\tfrac{n(n-1)}{2!}x^2 + \\cdots$ for NEGATIVE or FRACTIONAL $n$ is valid for which $x$?', options: ['every real $x$', 'only $x = 0$', '$|x| < 1$', '$|x| \\geq 1$'], answer: 2, explain: 'Option 2 is the window itself: for negative or fractional $n$ the row never terminates, so the statement is an infinite series, and an infinite series equals its left side only where its partial sums converge — exactly $|x| < 1$. Option 0 fails because outside the window the terms do not shrink: at $x = 2$ the partial-sum magnitudes reach $683$ by seat $r = 10$ and climb from there — there is no sum for the left side to equal. Option 1 fails by needlessness: $x = 0$ is inside the window and both sides read $1$, but the theorem claims the whole open window, not a single point of it. Option 3 is exactly the complement of the truth: the region $|x| \\geq 1$ is where the expansion is silent — the boundary partial sums oscillate ($1, 0, 1, 0, \\ldots$ at $x = 1$) or run away ($1, 2, 3, 4, \\ldots$ at $x = -1$).' },
+      { q: 'The coefficient of $x^3$ in the expansion of $(1-x)^{-2}$ is', options: ['3', '4', '5', '-4'], answer: 1, explain: 'Option 1 is the seat: the counting row $(1-x)^{-2} = 1 + 2x + 3x^2 + 4x^3 + \\cdots$ prices the $x^3$ seat at $r = 3$ with the row law $r + 1$ — namely $4$. Option 0 stops one seat early: $3$ is the $x^2$ seat (the term $3x^2$), the classic off-by-one of term-number versus index. Option 2 runs one seat long: $5$ is the $x^4$ seat (the term $5x^4$). Option 3 imports a sign the row does not carry: every seat of $(1-x)^{-2}$ is positive, because the argument’s sign flip cancels the coefficient sign flip — only the $(1+x)^{-2}$ twin alternates.' },
+      { q: 'The first four terms of the expansion of $(1-x)^{-3}$ are', options: ['$1 + 3x + 6x^2 + 10x^3$', '$1 - 3x + 6x^2 - 10x^3$', '$1 + x + x^2 + x^3$', '$1 - x + x^2 - x^3$'], answer: 0, explain: 'Option 0 is the row: the counting law prices the seats as $\\binom{r+2}{2} = 1, 3, 6, 10$ — the triangular numbers — and every seat is positive because the argument $-x$ cancels the row’s alternation. Option 1 is the $(1+x)^{-3}$ twin: correct magnitudes, wrong argument — the alternating signs belong to the plus row, a different series. Option 2 is the plain geometric $(1-x)^{-1}$ — the row of index $-1$, not $-3$; it ignores the row law entirely. Option 3 is the $(1+x)^{-1}$ row — the alternating geometric: a different index AND a different argument, doubly wrong.' },
+      { q: 'For rational non-integer $n$, the number of terms in the (valid) expansion of $(1+x)^n$ is', options: ['infinitely many', '$n + 1$', 'exactly 2', 'exactly 1'], answer: 0, explain: 'Option 0 is the structural fact: the seat $r$ needs the factor $(n - r + 1)$, and for non-integer $n$ no such factor ever reads zero — the factors descend past zero into negatives forever, so the row never terminates. Option 1 is lesson 7.2’s count — the terminating row of a positive INTEGER index has exactly $n + 1$ seats; quoting it here mixes the two theorems (and “$n + 1$ terms” is not even a term count at $n = \\tfrac{1}{2}$). Option 2 truncates arbitrarily: two seats are a handy approximation, not the expansion. Option 3 makes the same error at one seat: no finite count describes the row.' },
+      { q: 'The coefficient of $x^2$ in the expansion of $(1+2x)^{-1}$ is', options: ['$-4$', '$+4$', '$2$', '$\\tfrac{1}{4}$'], answer: 1, explain: 'Option 1 is the seat: the alternating geometric row $1 - u + u^2 - \\cdots$ at argument $u = 2x$ reads $1 - 2x + 4x^2 - \\cdots$, so the $x^2$ seat is $+4$ — the sign is positive because the seat index $2$ is even. Option 0 is the $x^1$ seat of the WRONG index: the $(1+2x)^{-2}$ row opens $1 - 4x + \\cdots$, so $-4$ confuses the reciprocal with the reciprocal square. Option 2 is the magnitude of this row’s own $x^1$ seat (the term $-2x$): right row, wrong seat, with the sign dropped. Option 3 divides where the row multiplies: the argument $2x$ scales the $x^r$ seat by $2^r$ — seats grow along the row, never shrink.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises 7.3', sets: [
+      { level: 'L1', questions: [
+        { q: 'Write the first four terms of the expansion of $(1+x)^{-1}$ and state the validity window.', solution: [
+          'The row is the alternating geometric: $(1+x)^{-1} = 1 - x + x^2 - x^3 + x^4 - \\cdots$ — every seat of magnitude $1$, the signs alternating strictly.',
+          'So, the first four terms are $1 - x + x^2 - x^3$, and the row runs on without end: at the index $-1$ no factor $(n - r + 1)$ ever reads zero.',
+          'Hence the validity window is $|x| < 1$ — on the boundary the partial sums read $1, 0, 1, 0, \\ldots$ at $x = 1$ and never settle, and beyond it they run away.',
+        ], answer: '$1 - x + x^2 - x^3 + \\dots$, valid for $|x| < 1$' },
+        { q: 'Write the first four terms of the expansion of $(1-x)^{-2}$.', solution: [
+          'The counting-row law: the seats of $(1-x)^{-n}$ are $\\binom{n+r-1}{r}$, and at $n = 2$ that is $\\binom{r+1}{1} = r + 1$.',
+          'So, the seats read $1, 2, 3, 4, \\ldots$ — every one positive, the argument’s sign flip cancelling the row’s alternation.',
+          'Hence $(1-x)^{-2} = 1 + 2x + 3x^2 + 4x^3 + \\cdots$ for $|x| < 1$, the first four terms as above.',
+        ], answer: '$1 + 2x + 3x^2 + 4x^3 + \\dots$' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Rewrite $(2+x)^{-2}$ in the $(1+u)$ form and expand as far as the $x^2$ term.', solution: [
+          'Factor out the leading power: $(2+x)^{-2} = 2^{-2}\\left(1 + \\tfrac{x}{2}\\right)^{-2} = \\tfrac{1}{4}\\left(1 + \\tfrac{x}{2}\\right)^{-2}$, valid for $\\left|\\tfrac{x}{2}\\right| < 1$, that is $|x| < 2$.',
+          'So, run the $(1+u)^{-2}$ row at $u = \\tfrac{x}{2}$: $1 - 2u + 3u^2 - 4u^3 + \\cdots$ becomes $1 - x + \\tfrac{3x^2}{4} - \\tfrac{x^3}{2} + \\cdots$',
+          'Now, multiply back through the leading factor: $\\tfrac{1}{4} - \\tfrac{x}{4} + \\tfrac{3x^2}{16} - \\tfrac{x^3}{8} + \\cdots$',
+          'Hence the expansion through the $x^2$ term: $\\tfrac{1}{4} - \\tfrac{x}{4} + \\tfrac{3x^2}{16}$, window $|x| < 2$.',
+        ], answer: '$\\tfrac{1}{4} - \\tfrac{x}{4} + \\tfrac{3x^2}{16} - \\dots$' },
+        { q: 'Find the coefficient of $x^{10}$ in the expansion of $(1-x)^{-3}$.', solution: [
+          'The counting-row law prices the whole seat at once: the coefficient of $x^r$ in $(1-x)^{-3}$ is $\\binom{r+2}{2}$.',
+          'So, for the $x^{10}$ seat take $r = 10$: the coefficient is $\\binom{12}{2}$.',
+          'Now, $\\binom{12}{2} = \\tfrac{12 \\cdot 11}{2} = 66$ — the tenth seat of the triangular row $1, 3, 6, 10, 15, 21, \\ldots$',
+        ], answer: '66' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Find the coefficient of $x^3$ in the expansion of $\\left(1 - \\tfrac{x}{3}\\right)^{-2}$.', solution: [
+          'The row is $(1-x)^{-2}$ at the scaled argument $\\tfrac{x}{3}$ — valid for $\\left|\\tfrac{x}{3}\\right| < 1$, that is $|x| < 3$.',
+          'So, the general term is $(r+1)\\left(\\tfrac{x}{3}\\right)^r$, and the $x^3$ seat sits at $r = 3$.',
+          'Now, price it: $(3+1) \\cdot \\tfrac{1}{27} = \\tfrac{4}{27}$.',
+        ], answer: '$\\tfrac{4}{27}$' },
+        { q: 'Find the coefficient of $x^4$ in the expansion of $(1+2x)^{-2}$.', solution: [
+          'The row is $(1+x)^{-2}$ at argument $2x$: general term $(-1)^r (r+1)(2x)^r$, valid for $|2x| < 1$.',
+          'So, the $x^4$ seat sits at $r = 4$: $(-1)^4 \\cdot 5 \\cdot 2^4$.',
+          'Now, price it: $5 \\cdot 16 = 80$ — positive, because the seat index $4$ is even and the sign flips cancel in pairs.',
+        ], answer: '80' },
+        { q: 'If the coefficient of $x^2$ in the expansion of $(1+x)^n$ is $\\tfrac{3}{8}$, find BOTH values of $n$.', solution: [
+          'The seat equation: the $x^2$ seat of $(1+x)^n$ is $\\tfrac{n(n-1)}{2!}$, so $\\tfrac{n(n-1)}{2} = \\tfrac{3}{8}$.',
+          'So, clear denominators: $4n(n-1) = 3$, that is $4n^2 - 4n - 3 = 0$.',
+          'Now, factor: $(2n - 3)(2n + 1) = 0$, so $n = \\tfrac{3}{2}$ or $n = -\\tfrac{1}{2}$ — two roots, two rows.',
+          'Check BOTH against the seat: $\\tfrac{3}{2} \\cdot \\tfrac{1}{2} \\div 2 = \\tfrac{3}{8}$ and $\\left(-\\tfrac{1}{2}\\right)\\left(-\\tfrac{3}{2}\\right) \\div 2 = \\tfrac{3}{8}$ — both land exactly, and both must be printed.',
+        ], answer: '$n = \\tfrac{3}{2}$ or $n = -\\tfrac{1}{2}$' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Find the coefficient of $x^4$ in the expansion of $(1-4x)^{-1/2}$, and explain the central-binomial collapse that makes it an integer.', solution: [
+          'The half row’s law: the coefficient of $x^r$ in $(1-x)^{-1/2}$ is $\\tfrac{\\binom{2r}{r}}{4^r}$ — the central-binomial family, scaled.',
+          'So, at the argument $4x$ each seat picks up the factor $4^r$: the coefficient of $x^r$ in $(1-4x)^{-1/2}$ is $\\tfrac{\\binom{2r}{r}}{4^r} \\cdot 4^r = \\binom{2r}{r}$.',
+          'Now, the $x^4$ seat: $\\binom{8}{4} = 70$.',
+          'Hence the collapse: the $4^r$ built into the argument cancels the $4^r$ dividing the central binomial coefficient, so EVERY seat of this row is an integer — the half row’s fractions vanish, and $\\binom{8}{4} = 70$ is the visible certificate.',
+        ], answer: '70' },
+        { q: 'Find the coefficient of $x^2$ in the expansion of $(4+x)^{1/2}$.', solution: [
+          'Factor out the leading power: $(4+x)^{1/2} = 4^{1/2}\\left(1 + \\tfrac{x}{4}\\right)^{1/2} = 2\\left(1 + \\tfrac{x}{4}\\right)^{1/2}$, valid for $|x| < 4$.',
+          'So, the $x^2$ seat of the $(1+u)^{1/2}$ row is $-\\tfrac{u^2}{8}$, here $-\\tfrac{1}{8}\\left(\\tfrac{x}{4}\\right)^2$.',
+          'Now, multiply through the leading factor: $2 \\cdot \\left(-\\tfrac{1}{8}\\right) \\cdot \\tfrac{1}{16} = -\\tfrac{1}{64}$.',
+        ], answer: '$-\\tfrac{1}{64}$' },
+        { q: 'Find the coefficient of $x^n$ in the expansion of $\\dfrac{1}{(1-x)(1-2x)}$.', solution: [
+          'Split by partial fractions: $\\tfrac{1}{(1-x)(1-2x)} = \\tfrac{2}{1-2x} - \\tfrac{1}{1-x}$ — recombine to check: $2(1-x) - (1-2x) = 1$ over the common denominator.',
+          'So, expand both rows: $\\tfrac{2}{1-2x} = 2\\left(1 + 2x + 4x^2 + 8x^3 + \\cdots\\right)$ and $\\tfrac{1}{1-x} = 1 + x + x^2 + x^3 + \\cdots$ — the narrower window $|x| < \\tfrac{1}{2}$ governs the difference.',
+          'Now, the $x^n$ seat collects $2 \\cdot 2^n$ from the first row minus $1$ from the second: $2^{n+1} - 1$.',
+          'So, the seats read $1, 3, 7, 15, \\ldots$ at $n = 0, 1, 2, 3$ — the Mersenne family, doubling and subtracting one forever.',
+          'Check by multiplying back: $(1 - 3x + 2x^2)\\left(1 + 3x + 7x^2 + 15x^3 + \\cdots\\right) = 1$ with every interior seat cancelling — the reciprocal’s certificate.',
+        ], answer: '$2^{n+1} - 1$' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Write the expansion of $(1+x)^{-1/2}$ as far as the $x^3$ term.', solution: [
+          'Run the falling factorial from $n = -\\tfrac{1}{2}$: the $x$ seat is $-\\tfrac{1}{2}$; the $x^2$ seat is $\\tfrac{(-1/2)(-3/2)}{2!} = \\tfrac{3}{8}$; the $x^3$ seat is $\\tfrac{(-1/2)(-3/2)(-5/2)}{3!} = -\\tfrac{5}{16}$.',
+          'So, $(1+x)^{-1/2} = 1 - \\tfrac{x}{2} + \\tfrac{3x^2}{8} - \\tfrac{5x^3}{16} - \\cdots$ for $|x| < 1$.',
+          'Hence the row is the alternating twin of the central-binomial table row — same magnitudes $1, \\tfrac{1}{2}, \\tfrac{3}{8}, \\tfrac{5}{16}$, alternating signs.',
+        ], answer: '$1 - \\tfrac{x}{2} + \\tfrac{3x^2}{8} - \\tfrac{5x^3}{16} - \\dots$' },
+        { q: 'Show that $(1+x)^{-1}(1-x)^{-1} = (1-x^2)^{-1}$ as series, and read off the coefficient pattern.', solution: [
+          'Write both rows: $(1+x)^{-1} = 1 - x + x^2 - x^3 + \\cdots$ and $(1-x)^{-1} = 1 + x + x^2 + x^3 + \\cdots$, each valid for $|x| < 1$.',
+          'So, multiply seat by seat: the $x^k$ seat of the product collects $\\sum_{j=0}^{k} (-1)^{j}$ — one contribution per split of the $k$ powers between the two factors.',
+          'Now, the alternating count lands on $1$ when $k$ is even and $0$ when $k$ is odd — an even number of alternating contributions cancels pairwise, an odd number leaves exactly one.',
+          'So, the product is $1 + x^2 + x^4 + \\cdots$ — even seats $1$, odd seats $0$.',
+          'Hence the series identity: $(1+x)^{-1}(1-x)^{-1} = (1-x^2)^{-1}$, the geometric row at the squared argument — and the algebra agrees, since $\\tfrac{1}{(1+x)(1-x)} = \\tfrac{1}{1-x^2}$.',
+        ], answer: 'even coefficients 1, odd coefficients 0 — the product is $1 + x^2 + x^4 + \\dots$' },
+        { q: 'For the series $(1+x)^{-2}$ at $x = \\tfrac{1}{2}$: compute the first eleven partial sums, describe the oscillation, and state the limit.', solution: [
+          'The terms first: the row $1 - 2x + 3x^2 - 4x^3 + 5x^4 - \\cdots$ at $x = \\tfrac{1}{2}$ reads $1, -1, \\tfrac{3}{4}, -\\tfrac{1}{2}, \\tfrac{5}{16}, \\ldots$ — magnitudes shrinking, signs alternating.',
+          'So, the partial sums accumulate: $1, 0, 0.75, 0.25, 0.5625, 0.375, 0.484375, 0.421875, 0.457031, 0.4375, 0.448242$ — eleven of them.',
+          'Now, read the two strands: the odd-indexed sums $0, 0.25, 0.375, 0.421875, 0.4375$ RISE; the even-indexed sums $1, 0.75, 0.5625, 0.484375, 0.457031, 0.448242$ FALL — two staircases closing on each other.',
+          'So, the squeeze closes on $\\tfrac{4}{9} \\approx 0.4444$ — exactly $\\tfrac{1}{\\left(1 + \\tfrac{1}{2}\\right)^2} = \\tfrac{4}{9}$, the value of $(1+x)^{-2}$ at $x = \\tfrac{1}{2}$.',
+          'Hence the series converges inside the window by oscillation: the partial sums alternate onto the limit from both sides, the ladder figure drawing the staircase.',
+        ], answer: 'the partial sums oscillate onto $\\tfrac{4}{9} = 1/(1+\\tfrac{1}{2})^2$', figures: [
+          { caption: 'The oscillating ladder: partial sums of $(1+x)^{-2}$ at $x = \\tfrac{1}{2}$ — odd partial sums rise, even ones fall, both closing on the limit $\\tfrac{4}{9} \\approx 0.444$.', svg: oscillatingLadderSvg() },
+        ] },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Verify the telescoping identity $(1-x)\\left(1 + x + x^2 + \\cdots + x^8\\right) = 1 - x^9$ term by term, and explain what this says about the infinite series $(1-x)^{-1}$ inside its window.', solution: [
+          'Multiply out honestly: $(1-x)\\left(1 + x + x^2 + \\cdots + x^8\\right) = \\left(1 + x + \\cdots + x^8\\right) - \\left(x + x^2 + \\cdots + x^9\\right)$.',
+          'So, collect powers: for each power from $x$ to $x^8$ the two copies ($+x^k$ and $-x^k$) cancel pairwise; the leading $1$ survives alone, and the trailing $x^9$ survives as $-x^9$.',
+          'Hence $(1-x)\\left(1 + x + x^2 + \\cdots + x^8\\right) = 1 - x^9$ — the truncated telescoping ladder of chapter 5, in polynomial clothing.',
+          'Now, the infinite read: for $|x| < 1$ the leftover boundary term $-x^9$ shrinks toward zero as the truncation length grows, so the product of $(1-x)$ with the FULL series $1 + x + x^2 + \\cdots$ is exactly $1$.',
+          'So, the infinite series is the exact inverse of $(1-x)$ — which is precisely what the symbol $(1-x)^{-1}$ demands, and why the identity $(1-x)^{-1} = 1 + x + x^2 + \\cdots$ holds inside the window and nowhere else.',
+        ], answer: 'the interior coefficients cancel pairwise; the truncated product leaves exactly the boundary term $-x^9$ — and the infinite product is exactly 1' },
+        { q: 'Using five terms of the $(1+x)^{1/2}$ row, verify $(1.02)^{1/2}$ to six decimal places, and state why the sixth decimal is trustworthy.', solution: [
+          'Take $x = 0.02$ — well inside the window — and read the row: $(1+x)^{1/2} = 1 + \\tfrac{x}{2} - \\tfrac{x^2}{8} + \\tfrac{x^3}{16} - \\tfrac{5x^4}{128} - \\cdots$',
+          'So, the seats price as $1 + 0.01 - 0.00005 + 0.0000005$, with the fifth seat worth $-\\tfrac{5}{128}(0.02)^4 \\approx -0.000000006$.',
+          'Now, add: the four displayed seats give $1.0099505$, the fifth trims the total to $1.00995049\\ldots$, and the direct square root reads $\\sqrt{1.02} = 1.00995049\\ldots$ — agreement through the sixth decimal and beyond.',
+          'So, the verdict to six decimals is $1.009950$ — trustworthy because the unpaid tail is smaller than the fifth seat already paid, and that seat lives three decimal places below the resolution the sixth decimal is asked for.',
+        ], answer: '1.009950 — the five-term sum 1.0099505 agrees to six decimals' },
+      ] },
+    ] },
+    { kind: 'formula', name: 'The binomial theorem for any rational index', latex: '(1+x)^n = 1 + nx + \\tfrac{n(n-1)}{2!}\\,x^2 + \\tfrac{n(n-1)(n-2)}{3!}\\,x^3 + \\cdots \\quad (|x| < 1)', note: 'for rational $n$ — the positive-integer case of lesson 7.2 is the terminating special case; every other index gives a never-ending row valid only inside the window.' },
+    { kind: 'formula', name: 'The general term at any index', latex: 'T_{r+1} = \\tfrac{n(n-1)(n-2)\\cdots(n-r+1)}{r!}\\, x^r', note: 'the falling factorial over $r!$, defined at every rational index; at a positive integer $n$ the factor $(n - r + 1)$ kills the seats from $r = n + 1$ onward.' },
+    { kind: 'formula', name: 'The counting row (negative integer index)', latex: '(1-x)^{-n} = \\sum_{r \\geq 0} \\binom{n+r-1}{r}\\, x^r \\qquad (|x| < 1)', note: 'every seat positive — the argument’s sign flip cancels the coefficient sign flip; the $(1+x)^{-n}$ twin alternates.' },
+    { kind: 'formula', name: 'The central-binomial half row', latex: '(1-x)^{-1/2} = \\sum_{r \\geq 0} \\tfrac{\\binom{2r}{r}}{4^{r}}\\, x^r \\qquad (|x| < 1)', note: 'the seats $1, \\tfrac{1}{2}, \\tfrac{3}{8}, \\tfrac{5}{16}, \\tfrac{35}{128}, \\tfrac{63}{256}, \\ldots$; at the argument $4x$ the row’s $4^r$ cancels the argument’s $4^r$ and the seats become the integers $\\binom{2r}{r}$.' },
+    { kind: 'formula', name: 'The leading-factor transform', latex: '(a+x)^n = a^n\\left(1 + \\tfrac{x}{a}\\right)^{n} \\qquad (|x| < |a|)', note: 'move any base into the $(1 + u)$ form; the window rescales with the substitution — a larger leading constant buys a wider window.' },
+    { kind: 'formula', name: 'The window rule', latex: '\\text{never-ending row: valid for } |x| < 1; \\qquad \\text{terminating row } (n \\in \\mathbb{N}): \\text{ valid for every } x', note: 'the window is the price of infiniteness — on the boundary the partial sums oscillate, beyond it they run away.' },
+  ],
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 7.4 — run 117 swarm (agent 2-b), engines G + pins H          */
+/* ------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------ */
+/* figures — original SVG, vivid palette (owner directive 2026-11-08)   */
+/* ------------------------------------------------------------------ */
+
+function termLatticeSvg(): string {
+  // the 10 monomials of (a+b+c)^3 on the (q, r) degree lattice: b-degree
+  // steps left-up, c-degree steps right-up, and the a-degree is forced as
+  // 3 - q - r, so the bottom corner is a^3 and the far corners b^3, c^3.
+  // Every node carries its monomial and its coefficient; the balanced seat
+  // 6abc is ringed orange at the centre.
+  const cx = 330
+  const baseY = 430
+  const s = 96
+  const h = 86
+  const seats: { q: number; r: number; mono: string; coef: string }[] = [
+    { q: 0, r: 0, mono: 'a³', coef: '1' },
+    { q: 1, r: 0, mono: 'a²b', coef: '3' },
+    { q: 0, r: 1, mono: 'a²c', coef: '3' },
+    { q: 2, r: 0, mono: 'ab²', coef: '3' },
+    { q: 1, r: 1, mono: 'abc', coef: '6' },
+    { q: 0, r: 2, mono: 'ac²', coef: '3' },
+    { q: 3, r: 0, mono: 'b³', coef: '1' },
+    { q: 2, r: 1, mono: 'b²c', coef: '3' },
+    { q: 1, r: 2, mono: 'bc²', coef: '3' },
+    { q: 0, r: 3, mono: 'c³', coef: '1' },
+  ]
+  const P = (q: number, r: number) => ({ x: cx + (r - q) * s, y: baseY - (q + r) * h })
+  let lines = ''
+  seats.forEach((a) => {
+    seats.forEach((b) => {
+      const dq = b.q - a.q
+      const dr = b.r - a.r
+      if ((dq === 1 && dr === 0) || (dq === 0 && dr === 1) || (dq === 1 && dr === -1)) {
+        const pa = P(a.q, a.r)
+        const pb = P(b.q, b.r)
+        lines += `<line x1="${pa.x}" y1="${pa.y}" x2="${pb.x}" y2="${pb.y}" stroke="#0d9488" stroke-width="2"/>`
+      }
+    })
+  })
+  let nodes = ''
+  seats.forEach((st) => {
+    const { x, y } = P(st.q, st.r)
+    if (st.mono === 'abc') {
+      nodes += `<circle cx="${x}" cy="${y}" r="33" fill="none" stroke="#ea580c" stroke-width="2.6"/>`
+    }
+    nodes += `<circle cx="${x}" cy="${y}" r="26" fill="#fef3c7" stroke="#16a34a" stroke-width="2"/>`
+    nodes += `<text x="${x}" y="${y - 4}" font-size="11.5" font-weight="800" fill="#166534" text-anchor="middle">${st.mono}</text>`
+    nodes += `<text x="${x}" y="${y + 13}" font-size="12.5" font-weight="800" fill="#d97706" text-anchor="middle">${st.coef}</text>`
+  })
+  // the two degree axes, drawn as amber arrows from below the origin
+  const axis = (dir: number) => {
+    const x1 = cx + dir * 18
+    const y1 = baseY + 36
+    const x2 = x1 + dir * 78
+    const y2 = y1 - 70
+    const bx1 = x2 + dir * 11.5
+    const bx2 = x2 + dir * 4.8
+    return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#d97706" stroke-width="2.4"/><path d="M ${x2} ${y2} L ${bx1} ${y2 + 3.6} L ${bx2} ${y2 + 11} Z" fill="#d97706"/>`
+  }
+  return `<svg viewBox="0 0 660 516" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The ten terms of (a plus b plus c) cubed, drawn on a triangular degree lattice. The b-degree axis steps left-up and the c-degree axis steps right-up; the a-degree is forced as three minus b-degree minus c-degree, so the bottom corner is a cubed with coefficient one, the far top-left corner is b cubed and the far top-right corner is c cubed. The six edge seats — three a squared b, three a squared c, three a b squared, three a c squared, three b squared c, three b c squared — each carry coefficient three, and the orange-ringed centre is six a b c, the balanced seat one-one-one priced six factorial over one factorial one factorial one factorial. The ten coefficients sum to twenty-seven, three cubed.">
+  <text x="330" y="24" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the ten terms of (a+b+c)³ on the degree lattice</text>
+  <text x="330" y="46" font-size="10.5" font-weight="700" text-anchor="middle" fill="#166534">each node: its monomial, its coefficient (amber) — the ringed centre is the balanced seat 6abc</text>
+  ${lines}
+  ${nodes}
+  ${axis(-1)}${axis(1)}
+  <text x="273" y="486" font-size="11" font-weight="800" fill="#d97706" text-anchor="middle">b-degree</text>
+  <text x="387" y="486" font-size="11" font-weight="800" fill="#d97706" text-anchor="middle">c-degree</text>
+  <text x="330" y="506" font-size="10.5" font-weight="700" text-anchor="middle" fill="#0f766e">the a-degree is forced: p = 3 − q − r — the seat grid is really the (q, r) lattice</text>
+</svg>`
+}
+
+function distributionBridgeSvg(): string {
+  // the 6 terms of (a+b+c)^2 as 6 box-fillings, three rows of box-pairs:
+  // for each letter pair the double seat (ONE distribution, count 1) sits
+  // beside the mixed seat (TWO distributions, count 2) — the amber counts
+  // are the words feeding each term; 6 seats, 9 words in total.
+  const rows: { double: string; mixed: [string, string][]; mono: string; term: string }[] = [
+    { double: 'a', mixed: [['a', 'b'], ['b', 'a']], mono: 'a²', term: '2ab' },
+    { double: 'b', mixed: [['b', 'c'], ['c', 'b']], mono: 'b²', term: '2bc' },
+    { double: 'c', mixed: [['c', 'a'], ['a', 'c']], mono: 'c²', term: '2ca' },
+  ]
+  const slot = (x: number, y: number, ch: string) =>
+    `<rect x="${x}" y="${y}" width="15" height="22" rx="3" fill="#ffedd5" stroke="#d97706" stroke-width="1.4"/><text x="${x + 7.5}" y="${y + 15.5}" font-size="12" font-weight="800" fill="#166534" text-anchor="middle">${ch}</text>`
+  let s = ''
+  rows.forEach((row, i) => {
+    const y = 54 + i * 72
+    s += `<rect x="36" y="${y}" width="188" height="60" rx="8" fill="#fef3c7" stroke="#16a34a" stroke-width="1.8"/>`
+    s += slot(52, y + 19, row.double) + slot(70, y + 19, row.double)
+    s += `<text x="96" y="${y + 37}" font-size="14" font-weight="800" fill="#166534">→ ${row.mono}</text>`
+    s += `<text x="204" y="${y + 36}" font-size="11.5" font-weight="800" fill="#d97706" text-anchor="end">1 word</text>`
+    s += `<rect x="244" y="${y}" width="388" height="60" rx="8" fill="#fef3c7" stroke="#16a34a" stroke-width="1.8"/>`
+    s += slot(262, y + 19, row.mixed[0][0]) + slot(280, y + 19, row.mixed[0][1])
+    s += slot(304, y + 19, row.mixed[1][0]) + slot(322, y + 19, row.mixed[1][1])
+    s += `<text x="348" y="${y + 37}" font-size="14" font-weight="800" fill="#166534">→ ${row.term}</text>`
+    s += `<text x="616" y="${y + 36}" font-size="11.5" font-weight="800" fill="#d97706" text-anchor="end">2 words</text>`
+  })
+  return `<svg viewBox="0 0 660 336" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The six terms of (a plus b plus c) squared shown as six box-fillings, three rows of box-pairs, one per letter pair. Row one: the distribution a-a fills the a-squared seat, one word; the two distributions a-b and b-a both fill the 2ab seat, two words. Row two: b-b fills b-squared, one word; b-c and c-b fill 2bc, two words. Row three: c-c fills c-squared, one word; c-a and a-c fill 2ca, two words. Six seats in total, nine words in total — one plus two, three times, equals nine equals three squared — every word of length two over three letters lands in exactly one seat.">
+  <text x="330" y="22" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the bridge at n = 2: six seats, and the words that fill them</text>
+  ${s}
+  <text x="330" y="286" font-size="11" font-weight="800" text-anchor="middle" fill="#166534">each box = one seat (p, q, r) — one way to spend the degree-2 budget across the three letters</text>
+  <text x="330" y="308" font-size="10.5" font-weight="700" text-anchor="middle" fill="#0f766e">six seats, nine words: 1 + 2 + 1 + 2 + 1 + 2 = 9 = 3² — the term count and the coefficient census in one picture</text>
+</svg>`
+}
+
+function constraintTriplesSvg(): string {
+  // the p+q+r = 6 seat grid drawn as a right-triangle of 28 cells indexed
+  // (p, q), with r = 6 - p - q forced; the degree constraint q + 2r = 8
+  // (that is, 2p + q = 4 in (p, q) coordinates) passes through exactly the
+  // three admissible cells (0,4), (1,2), (2,0) — the triples (0,4,2),
+  // (1,2,3), (2,0,4), priced 15, 60 and 15 by the multinomial formula.
+  const s = 46
+  const ox = 84
+  const oy = 60
+  const hot: Record<string, string> = { '0,4': '15', '1,2': '60', '2,0': '15' }
+  const pos = (p: number, q: number) => ({ x: ox + q * s + p * s * 0.5, y: oy + p * s * 0.866 })
+  let grid = ''
+  for (let p = 0; p <= 6; p++) {
+    for (let q = 0; q <= 6 - p; q++) {
+      const { x, y } = pos(p, q)
+      const price = hot[`${p},${q}`]
+      if (price) {
+        grid += `<rect x="${x - 15}" y="${y - 15}" width="30" height="30" rx="7" fill="#fef3c7" stroke="#ea580c" stroke-width="2.4"/>`
+        grid += `<rect x="${x - 12}" y="${y - 12}" width="24" height="24" rx="5" fill="#ffedd5" stroke="#16a34a" stroke-width="1.4"/>`
+        grid += `<text x="${x}" y="${y + 4.5}" font-size="12.5" font-weight="800" fill="#166534" text-anchor="middle">${price}</text>`
+      } else {
+        grid += `<rect x="${x - 12}" y="${y - 12}" width="24" height="24" rx="5" fill="#5eead4" fill-opacity="0.55" stroke="#16a34a" stroke-width="1.2"/>`
+      }
+    }
+  }
+  // the dashed constraint line through the three hot cells, extended past both
+  const a = pos(0, 4)
+  const b = pos(2, 0)
+  const t = (k: number) => ({ x: a.x + k * (b.x - a.x), y: a.y + k * (b.y - a.y) })
+  const e1 = t(-0.2)
+  const e2 = t(1.15)
+  const line = `<line x1="${e1.x.toFixed(1)}" y1="${e1.y.toFixed(1)}" x2="${e2.x.toFixed(1)}" y2="${e2.y.toFixed(1)}" stroke="#ea580c" stroke-width="2.4" stroke-dasharray="6 4"/>`
+  // axes: q along the top row, p down the left edge
+  const qArrow = `<line x1="72" y1="42" x2="134" y2="42" stroke="#d97706" stroke-width="2.4"/><path d="M 134 42 L 125 37.5 L 125 46.5 Z" fill="#d97706"/><text x="148" y="46" font-size="11" font-weight="800" fill="#166534">q</text>`
+  const pArrow = `<line x1="64" y1="92" x2="93" y2="142" stroke="#d97706" stroke-width="2.4"/><path d="M 93 142 L 91.9 131.1 L 84.1 135.6 Z" fill="#d97706"/><text x="56" y="126" font-size="11" font-weight="800" fill="#166534" text-anchor="middle">p</text>`
+  return `<svg viewBox="0 0 380 352" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The twenty-eight seats of the expansion of (1 + x + x squared) to the sixth power, drawn as a triangular lattice indexed by p and q, with r forced as six minus p minus q. The dashed orange constraint line q + 2r = 8 passes through exactly three cells — the triples (0,4,2), (1,2,3) and (2,0,4) — each highlighted with an orange ring and priced 15, 60 and 15. The other twenty-five seats are faint teal. The three prices sum to 90, the coefficient of x to the eighth.">
+  <text x="16" y="20" font-size="11.5" font-weight="700" fill="currentColor">the q + 2r = 8 cut of the p + q + r = 6 lattice</text>
+  ${grid}
+  ${line}
+  <text x="302" y="38" font-size="10" font-weight="800" fill="#ea580c">q + 2r = 8</text>
+  ${qArrow}${pArrow}
+  <text x="190" y="336" font-size="10.5" font-weight="800" fill="#166534" text-anchor="middle">the cut admits exactly three seats — prices 15 + 60 + 15 = 90</text>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 7.4                                                          */
+/* ------------------------------------------------------------------ */
+
+const lesson74: Lesson = {
+  id: 'aa-the-multinomial-theorem',
+  number: '7.4',
+  title: 'The Multinomial Theorem',
+  concepts: [
+    'the multinomial theorem for (a+b+c)^n and beyond',
+    'the general term n!/(p!q!r!) a^p b^q c^r',
+    'the word census: coefficients as arrangement counts',
+    'the term-count law C(n+k-1, k-1)',
+    'the identical-distribution bridge from chapter 6',
+    'the balanced seat and the greatest coefficient',
+    'pricing coefficients under degree constraints',
+    'the binomial theorem as the k = 2 multinomial',
+  ],
+  objectives: [
+    'State the multinomial theorem for $(a+b+c)^n$ and for a sum of $k$ letters, and write the general term $\\tfrac{n!}{p!\\,q!\\,r!}\\,a^p b^q c^r$ standing at any seat with $p+q+r = n$.',
+    'Prove the theorem by the word census: show that the coefficient of $a^p b^q c^r$ is exactly the count of length-$n$ words over $\\{a,b,c\\}$ with those letter counts — chapter 6’s permutation-with-repeats engine repointed at algebra.',
+    'Count the terms of any multinomial expansion by the identical-distribution bridge — $\\binom{n+k-1}{k-1}$ seats — and reconcile the $k = 2$ case with the binomial’s $n + 1$ row length.',
+    'Price specific coefficients at speed, including degree-constrained seats such as the coefficient of $x^3$ in $(1+x+x^2)^4$, by enumerating the admissible triples and summing their multinomial prices.',
+    'Locate the greatest coefficient at the balanced seat — the most-even split of the degree — and verify that it towers over its neighbours.',
+    'Read the coefficient census $\\sum = 3^n$ by setting every letter to $1$, and connect it to lesson 7.2’s row sums $\\sum \\binom{n}{r} = 2^n$.',
+    'Recover the binomial theorem as the $k = 2$ multinomial — one theorem, not two — reading $\\tfrac{n!}{p!\\,q!}$ as $\\binom{n}{p}$.',
+  ],
+  prerequisites: ['aa-the-binomial-theorem-proved', 'aa-distributions-and-the-classic-counting-puzzles', 'aa-combinations-the-selection-count'],
+  sources: ['cengage-m2-08', 'cengage-jee-style', 'hall-knight-higher-algebra', 'cengage-m2-07', 'jee-main-2026-syllabus'],
+  blocks: [
+    { kind: 'para', text: 'Lesson 7.2 built the expansion machine for TWO letters: $(a+b)^n$ opens into exactly $n+1$ terms, each a selection count $\\binom{n}{r}$ in costume, the whole statement proved twice — once by counting, once by induction. But the alphabet of algebra is not two letters long. The moment a problem writes $(a+b+c)^n$ — a three-term base raised to a power, a degree budget split three ways, the expansion of $(1+x+x^2)^n$ that series work reaches for constantly — the two-letter machine stops, and two questions arrive together: what exactly does $(a+b+c)^n$ contain, term by term, and what price does each term carry? The examination hall asks this at every difficulty band; the counting engine asks it too, because chapter 6 counted arrangements of words over any alphabet, and a three-letter expansion is a word census waiting to be run. This lesson answers both questions with one theorem — the multinomial theorem, the binomial theorem’s big sibling, stated for any number of letters and proved by counting alone.' },
+    { kind: 'para', text: 'The pleasing part is that half the work is already banked. Chapter 6’s identical-distribution lesson counted the TERMS of the expansion without ever expanding anything: the distinct monomials of $(a+b+c)^n$ are in bijection with the ways to put $n$ identical balls into three labelled boxes, and that count is $\\binom{n+2}{2}$. So the SHAPE of the expansion — how many terms, which monomials appear, which never can — is a chapter 6 census; what chapter 6 did not yet do is price the COEFFICIENT standing in front of each term. Pricing is this lesson’s engine, and the engine is a second census: expand $(a+b+c)^n$ without collecting like terms and the uncollected products are exactly the words of length $n$ over the alphabet $\\{a,b,c\\}$ — $3^n$ of them — and the coefficient of any monomial is the number of words that multiply to it. Chapter 6’s permutation-with-repeats formula counts those words in one line, and the multinomial theorem falls out as a counted statement rather than a memorised one.' },
+    { kind: 'para', text: 'Keep one frame in view from the first paragraph, because it is the destination the lesson is steered toward: the binomial theorem is the SMALLEST case of the theorem built here. Set $k = 2$ — two letters — and every multinomial formula must collapse back onto lesson 7.2’s rows of Pascal’s triangle: the term count $\\binom{n+1}{1} = n+1$, the seat price $\\tfrac{n!}{p!\\,q!} = \\binom{n}{p}$, the coefficient census $2^n$. The unification is not a coincidence to be admired at the end; it is a design constraint that keeps every formula honest along the way, and the closing illustration cashes it in explicitly. One theorem, not two.' },
+
+    { kind: 'heading', text: 'What (a+b+c)^n Actually Contains' },
+    { kind: 'para', text: 'The theorem’s claim can be said in one sentence before any symbol is written: when $(a+b+c)^n$ is multiplied out completely and like monomials collected, every monomial $a^p b^q c^r$ whose exponents sum to $n$ appears exactly once, and the coefficient standing in front of it is the number of ways to arrange $n$ letters of which $p$ are $a$, $q$ are $b$ and $r$ are $c$. The formal statement, in the two shapes the examination hall meets:' },
+    { kind: 'callout', tone: 'theorem', title: 'The multinomial theorem', text: 'For every positive integer $n$ and any three quantities $a, b, c$: $(a+b+c)^n = \\sum_{p+q+r=n} \\tfrac{n!}{p!\\,q!\\,r!}\\,a^p b^q c^r$, the sum running over ALL triples of non-negative integers $(p, q, r)$ with $p + q + r = n$. For $k$ letters the same statement reads $(x_1 + x_2 + \\cdots + x_k)^n = \\sum_{p_1 + \\cdots + p_k = n} \\tfrac{n!}{p_1!\\,p_2!\\cdots p_k!}\\,x_1^{p_1} x_2^{p_2} \\cdots x_k^{p_k}$ — every monomial of total degree $n$ appears exactly once, priced by the arrangement count of its letter multiset. Nothing else appears: the degree-$n$ budget is fully spent by every product.' },
+    { kind: 'equation', latex: '(a+b+c)^n = \\sum_{p+q+r=n} \\tfrac{n!}{p!\\,q!\\,r!}\\,a^p b^q c^r \\tag{1}', note: 'the sum runs over all non-negative $(p,q,r)$ with $p+q+r = n$ — every monomial of total degree $n$, and no monomial of any other degree; the $k$-letter form is the same sentence with $k$ indices and $k$ denominators.' },
+    { kind: 'callout', tone: 'definition', title: 'The general term of (a+b+c)^n', text: 'For any seat $(p, q, r)$ of non-negative integers with $p + q + r = n$, the term of the expansion standing at that seat is $\\tfrac{n!}{p!\\,q!\\,r!}\\,a^p b^q c^r$ — the analogue of the binomial general term $T_{r+1} = \\binom{n}{r}a^{n-r}b^r$, with one exponent per letter instead of one running index. Thus, the whole expansion is the list of these terms, one per seat, and pricing any requested coefficient is nothing but reading its seat and evaluating one factorial quotient.' },
+    { kind: 'terms', items: [
+      { term: 'Multinomial theorem', def: 'the expansion law for a power of a sum of any number of letters: every degree-n monomial appears exactly once, priced by the arrangement count of its letter multiset.' },
+      { term: 'Multinomial coefficient', def: 'the price n!/(p!q!r!) standing at the seat a^p b^q c^r — the count of length-n words with those letter counts.' },
+      { term: 'Seat', def: 'an exponent triple (p, q, r) with p + q + r = n; the monomial position the term occupies. Sum-check first, price second.' },
+      { term: 'Word census', def: 'the uncollected expansion read as words: 3^n products of n factors, each a word of length n over {a,b,c}; grouping by letter counts prices every coefficient.' },
+      { term: 'Term-count law', def: 'the number of distinct terms of (x_1 + ... + x_k)^n is C(n+k-1, k-1) — chapter 6’s identical-distribution count.' },
+      { term: 'Balanced seat', def: 'the most-even split of the degree n across the letters — where the multinomial coefficient peaks; the analogue of the binomial middle.' },
+      { term: 'Coefficient census', def: 'the sum of all coefficients of (a+b+c)^n is 3^n — set a = b = c = 1; every word counted exactly once.' },
+      { term: 'Degree-constrained seat', def: 'a coefficient hunt in (1+x+x^2)^n-type expansions, where the collected degree q + 2r fixes which triples are admissible before any price is computed.' },
+    ] },
+    { kind: 'para', text: 'Thus, the statement hands over three structural facts at sight — each checkable against the literal expansions printed below, and each load-bearing for the rest of the lesson. For example, the fact bank:' },
+    { kind: 'list', marker: 'roman', items: [
+      '**Term count.** exactly $\\binom{n+2}{2}$ seats — the solutions of $p+q+r = n$ — never more, never fewer; the identical-distribution bridge of the third section prices this count.',
+      '**Symmetry.** the coefficient of $a^pb^qc^r$ equals that of any letter-swapped seat, $a^qb^pc^r$ say — the formula $\\tfrac{n!}{p!\\,q!\\,r!}$ reads the exponents as a multiset and is blind to which letter carries which count.',
+      '**Coefficient mass.** $\\sum_{p+q+r=n} \\tfrac{n!}{p!\\,q!\\,r!} = 3^n$ — set $a = b = c = 1$ and every word multiplies to 1, so the mass counts the census exactly once.',
+    ] },
+    { kind: 'para', text: 'The evidence before the proof, multiplied out literally — the two smallest powers, with the formula’s own checks printed beside the seats it prices:' },
+    { kind: 'table', head: ['Power', 'Literal expansion (collected)', 'Terms', 'The formula’s checks'], rows: [
+      ['$(a+b+c)^2$', '$a^2+b^2+c^2+2ab+2bc+2ca$', '6', '$\\tfrac{2!}{1!\\,1!} = 2$ on every mixed seat'],
+      ['$(a+b+c)^3$', '$a^3+b^3+c^3+3a^2b+3a^2c+3b^2a+3b^2c+3c^2a+3c^2b+6abc$', '10', '$\\tfrac{3!}{2!\\,1!} = 3$ and $\\tfrac{3!}{1!\\,1!\\,1!} = 6$'],
+      ['coefficient mass', '$1+1+1+2+2+2 = 9 = 3^2$; then $1+1+1+3+3+3+3+3+3+6 = 27 = 3^3$', '—', 'every word counted once: the mass is $3^n$'],
+    ], caption: 'Both expansions multiplied out literally, term by term (engine-verified by repeated polynomial multiplication before any prose here was declared done); the checks beside them are the formula n!/(p!q!r!) evaluated at the 3a^2b seat and the 6abc seat — 3!/(2!·1!) = 3, 3!/(1!·1!·1!) = 6. The mass row is the word census: 3^n products in total.' },
+    { kind: 'figure', caption: 'The ten terms of $(a+b+c)^3$ on the degree lattice. The b-degree axis steps left-up, the c-degree axis right-up; the a-degree is forced, $p = 3 - q - r$, so the lattice IS the seat grid and the bottom corner is $a^3$ (coefficient 1). The edges carry the six two-letter seats at coefficient 3 each — the formula’s $\\tfrac{3!}{2!\\,1!}$ — and the orange-ringed centre is the balanced seat $6abc$, priced $\\tfrac{3!}{1!\\,1!\\,1!} = 6$: the most-even split of the degree is where the price peaks, even at $n = 3$. The amber numbers are the coefficients; their mass is $27 = 3^3$.', svg: termLatticeSvg() },
+    { kind: 'para', text: 'Why are those coefficients word counts? Multiply $(a+b+c)(a+b+c)(a+b+c)$ out WITHOUT collecting: the multiplication rule prices the raw census at $3 \\cdot 3 \\cdot 3 = 27$ products, and each product is formed by choosing one letter from each factor — so each product is a three-letter WORD over the alphabet $\\{a, b, c\\}$: $aaa$, $aab$, $aba$, $abb$, and so on down to $ccc$. Now group the words by their letter counts. The words with counts $(2, 1, 0)$ — two $a$’s, one $b$, no $c$ — are $aab$, $aba$, $baa$: three of them, and the formula agrees, $\\tfrac{3!}{2!\\,1!\\,0!} = 3$ — which is exactly the coefficient 3 on the $a^2b$ seat of the collected expansion. The words with counts $(1, 1, 1)$ are $abc$, $acb$, $bac$, $bca$, $cab$, $cba$: six of them, $\\tfrac{3!}{1!\\,1!\\,1!} = 6$, and the 6 sits on the $abc$ seat. Every word with counts $(p, q, r)$ multiplies to $a^p b^q c^r$ and to nothing else, so collecting like monomials IS grouping the census by letter counts — the two acts are indistinguishable. And the census runs wider than $n = 3$: the words with counts $(2, 1, 1)$ at $n = 4$ number $\\tfrac{4!}{2!\\,1!\\,1!} = 12$ among the $3^4 = 81$ four-letter words, and a brute enumeration of all 81 words finds exactly 12 carrying two $a$’s, one $b$ and one $c$ — the engine-verified witness. The coefficient is not merely computed by the formula; it IS a count.' },
+    { kind: 'callout', tone: 'historical', title: 'An old theorem with many parents', text: 'The multinomial theorem is commonly traced to the Leibniz–Bernoulli correspondence of the late seventeenth century, where the general letter-count expansion is sketched amid the calculus the two were building, with the special cases known to the algebra tradition long before. This book’s standing honesty applies: the arithmetic belongs to the whole tradition — the statement proved below by counting is the same theorem, whoever first wrote it down.' },
+    { kind: 'para', text: 'Read the figure once more before the proof, because the geometry IS the bookkeeping. The ten seats arrange as a triangle because the three degrees are not independent: $p + q + r = 3$ leaves only two free choices, and the lattice draws exactly those two (the b-degree and the c-degree), with the a-degree forced as the remainder. The same triangular shape reappears at every $n$, growing one row per exponent — the term counts $6, 10, 15, 21, 28$ for $n = 2$ to $6$ are that triangle’s growing cell census, the identical-distribution bridge of the next section. And the ringed centre foreshadows the pricing section: the arrangement count peaks where the letters are most evenly spread — the balanced seat, the multinomial’s analogue of the binomial middle term.' },
+
+    { kind: 'heading', text: 'The Counting Proof: Coefficients are Word Counts' },
+    { kind: 'para', text: 'The proof is chapter 6’s permutation-with-repeats engine repointed at algebra, and it deserves the full derivation treatment because it is the REASON the theorem is true — not just a formula-check by substitution. The strategy: never expand symbolically at all. Count the uncollected products directly, let the collection happen inside the census, and read the coefficient off as a census total.' },
+    { kind: 'derivation', title: 'Theorem: the coefficients of (a+b+c)^n are word counts, priced by the arrangement formula', statement: 'For every positive integer n and every seat (p, q, r) of non-negative integers with p + q + r = n, the coefficient of a^p b^q c^r in the expansion of (a+b+c)^n is exactly n!/(p!q!r!) — the count of length-n words over {a, b, c} carrying p a’s, q b’s and r c’s.', steps: [
+      { label: 'Each factor donates one letter', formula: '(a+b+c)^n = \\underbrace{(a+b+c)\\cdots(a+b+c)}_{n \\text{ factors}}', explanation: 'Write the power as $n$ separate factors and refuse to collect: a fully-expanded product is formed by picking exactly one letter from each of the $n$ factors, so every product is a word of length $n$ over the alphabet $\\{a, b, c\\}$ — and the multiplication rule prices the whole census at $3^n$ words.' },
+      { label: 'Count the words at one seat', formula: '\\text{count}(p, q, r) = \\tfrac{n!}{p!\\,q!\\,r!}', explanation: 'The words carrying exactly $p$ $a$’s, $q$ $b$’s and $r$ $c$’s are the arrangements of a multiset of size $n$ — chapter 6’s permutation-with-repeats count. Choose the $p$ positions that hold $a$ (an unordered selection, $\\binom{n}{p}$ ways by the selection count of lesson 6.5), then the $q$ positions that hold $b$ among the remaining $n - p$, and the $r$ positions left over are forced to hold $c$: the product of the two selections telescopes to $\\tfrac{n!}{p!\\,q!\\,r!}$.' },
+      { label: 'Collect like monomials', formula: 'w \\text{ with counts } (p,q,r) \\Rightarrow w = a^p b^q c^r', explanation: 'Every word with letter counts $(p, q, r)$ multiplies to exactly $a^p b^q c^r$ and to nothing else, so when like monomials are collected, all the words of one seat land on the same term — the coefficient of $a^p b^q c^r$ IS the word count of its seat. That is the whole theorem.' },
+      { label: 'Witness at n = 4, seat (2,1,1)', formula: '\\tfrac{4!}{2!\\,1!\\,1!} = 12 \\text{ of the } 3^4 = 81 \\text{ words}', explanation: 'The formula claims 12; the brute census agrees — enumerating all 81 words of length four over $\\{a, b, c\\}$ finds exactly 12 carrying two $a$’s, one $b$ and one $c$ (the aabc-family in all its arrangements). The lesson’s verifier runs this census before any prose was declared done, so the number is pinned, not guessed.' },
+      { label: 'The total census', formula: '\\sum_{p+q+r=n} \\tfrac{n!}{p!\\,q!\\,r!} = 3^n', explanation: 'Every word lands in exactly one seat, so the coefficients must sum to the census total: $n = 2$ gives $1+1+1+2+2+2 = 9 = 3^2$; $n = 3$ gives $1+1+1+3+3+3+3+3+3+6 = 27 = 3^3$; $n = 6$ gives the coefficient mass of $(a+b+c)^6$ as $729 = 3^6$ — three independent witnesses, one law.' },
+    ], result: '$\\tfrac{n!}{p!\\,q!\\,r!}$ — the multinomial coefficient is an arrangement count, and the multinomial theorem is a census statement' },
+    { kind: 'para', text: 'The proof generalises letter by letter with nothing new to invent: $k$ letters give $k^n$ words, the seat $(p_1, \\ldots, p_k)$ prices $\\tfrac{n!}{p_1! \\cdots p_k!}$ by the same arrangement count, and the coefficient census reads $\\sum = k^n$. At $k = 2$ the census is exactly lesson 7.2’s row sum, $\\sum_{r=0}^{n} \\binom{n}{r} = 2^n$ — the same statement rediscovered from the word side. That is the shape of this whole lesson: the multinomial theorem is not a second theorem to be memorised beside the binomial; it is the same counting argument run on a larger alphabet, with the binomial as its smallest instance. The census view also explains a substitution instantly: why does setting $a = b = c = 1$ collapse the expansion to $3^n$? Because equal letters make every word multiply to 1, so the sum of the coefficients counts every word exactly once. No induction required, no expansion written — the meaning did the work.' },
+
+    { kind: 'heading', text: 'How Many Terms? The Identical-Distribution Bridge' },
+    { kind: 'para', text: 'The pricing engine answers "which coefficient"; the shape question — "how many terms" — was already answered by chapter 6, and the bridge deserves its own section because it is the fastest examination skill in the whole topic. The distinct terms of $(a+b+c)^n$ are the distinct monomials $a^p b^q c^r$ with $p + q + r = n$; a monomial is fixed by its exponent triple, so counting terms is counting the non-negative solutions of one linear equation — which is precisely chapter 6’s identical-distribution problem: $n$ identical balls into three labelled boxes, the box-labels being the letters themselves.' },
+    { kind: 'derivation', title: 'Theorem: (a+b+c)^n has C(n+2, 2) terms — and k letters give C(n+k−1, k−1)', statement: 'The number of distinct terms in the expansion of (a+b+c)^n is the number of non-negative integer solutions of p + q + r = n, namely C(n+2, 2); for a sum of k letters the count is C(n+k−1, k−1).', steps: [
+      { label: 'Bijection with the distributions', formula: 'a^p b^q c^r \\leftrightarrow (p, q, r), \\quad p+q+r = n', explanation: 'Each term is fixed by its exponent triple, and each triple is exactly one way of spending the degree budget $n$ across the three letters — a distribution of $n$ identical balls into three labelled boxes. Distinct terms ↔ distinct distributions: the bijection is the identity on triples, so the two counts are the same number.' },
+      { label: 'Chapter 6’s identical-distribution count', formula: '\\binom{n+2}{2} = \\tfrac{(n+1)(n+2)}{2}', explanation: 'The stars-and-bars count of chapter 6: $n$ identical objects into $3$ labelled boxes means choosing the $2$ bar-positions among $n + 2$ slots — $\\binom{n+2}{2}$ distributions, hence $\\binom{n+2}{2}$ terms. The lesson’s prerequisites chip for the distributions lesson is there for exactly this bridge.' },
+      { label: 'Witness against the literal expansions', formula: 'n = 2 \\to 6,\\; n = 3 \\to 10,\\; n = 4 \\to 15,\\; n = 5 \\to 21,\\; n = 6 \\to 28', explanation: 'Each count matches the literal, engine-multiplied expansions — six terms at $n = 2$, ten at $n = 3$, fifteen, twenty-one, twenty-eight as the exponent climbs; and the closed form $\\tfrac{(n+1)(n+2)}{2}$ evaluated at $n = 2, 3, 4, 5, 6$ returns exactly $6, 10, 15, 21, 28$. The bridge is not a hope; it is a swept law.' },
+      { label: 'The k-letter law', formula: '\\binom{n+k-1}{k-1}; \\quad k = 2: \\; \\binom{n+1}{1} = n+1', explanation: 'With $k$ letters the degree budget splits across $k$ boxes: $n$ identical balls into $k$ labelled boxes is $\\binom{n+k-1}{k-1}$ terms. At $k = 2$ the law reads $\\binom{n+1}{1} = n + 1$ — the binomial row length of lesson 7.2, arriving as the promised unification, early and for free.' },
+    ], result: 'terms of $(a+b+c)^n = \\binom{n+2}{2}$ — the identical-distribution bridge — and $\\binom{n+k-1}{k-1}$ for $k$ letters, recovering the binomial’s $n + 1$ at $k = 2$' },
+    { kind: 'table', head: ['Expansion', 'Terms', 'The bridge formula', 'Witness'], rows: [
+      ['$(a+b+c)^2$', '6', '$\\binom{4}{2}$', 'literal: six terms'],
+      ['$(a+b+c)^3$', '10', '$\\binom{5}{2}$', 'literal: ten terms'],
+      ['$(a+b+c)^4$', '15', '$\\binom{6}{2}$', 'literal: fifteen terms'],
+      ['$(a+b+c)^5$', '21', '$\\binom{7}{2}$', 'literal: twenty-one terms'],
+      ['$(a+b+c)^6$', '28', '$\\binom{8}{2}$', 'literal: twenty-eight terms'],
+      ['$(a+b+c+d)^2$', '10', '$\\binom{5}{3}$', 'literal: ten terms'],
+      ['$(a+b+c+d)^3$', '20', '$\\binom{6}{3}$', 'literal: twenty terms'],
+      ['$(a+b+c+d)^4$', '35', '$\\binom{7}{3}$', 'literal: thirty-five terms'],
+      ['$(a+b+c+d)^5$', '56', '$\\binom{8}{3}$', 'literal: fifty-six terms'],
+    ], caption: 'The term-count law swept: three letters at n = 2 to 6 give 6, 10, 15, 21, 28 terms; four letters at n = 2 to 5 give 10, 20, 35, 56 — every count the identical-distribution number of the degree budget, and every count checked against the literal expansion. The k = 2 column of the same law is Pascal’s row length n + 1.' },
+    { kind: 'figure', caption: 'The bridge drawn at its smallest: the six terms of $(a+b+c)^2$ as six box-fillings, three rows of box-pairs. Each box is one seat — one way to spend the degree-2 budget across the three letters — and the amber count is the number of two-letter words landing in it: the double seats $aa$, $bb$, $cc$ are fed by one word each, the mixed seats by two each ($ab/ba$, $bc/cb$, $ca/ac$). Six seats, nine words: $1 + 2 + 1 + 2 + 1 + 2 = 9 = 3^2$ — the term count and the coefficient census in one picture.', svg: distributionBridgeSvg() },
+    { kind: 'callout', tone: 'insight', title: 'The examination shortcut this bridge buys', text: '"Number of distinct terms in $(a+b+c)^{10}$" is a one-line question once the bridge is installed: $\\binom{10+2}{2} = \\binom{12}{2} = 66$ — no expansion ever written, and none is possible by hand at that size. The same read prices four letters: $(a+b+c+d)^{10}$ carries $\\binom{13}{3} = 286$ terms. The trap is the off-by-one in both entries — the count is $n + k - 1$ choose $k - 1$ — and the two classic wrong answers are seductive: $3^n$ (the word census, a count of products, not of seats) and $n + 1$ (the binomial reflex, right only at $k = 2$).' },
+    { kind: 'para', text: 'Why identical balls are the right picture deserves one more sentence, because the picture converts a polynomial question into a chapter 6 reflex. A term is a monomial of total degree exactly $n$: the FULL budget is spent, since every product of $n$ factors carries total degree $n$ — no term of degree $n - 1$ can appear, and none does. Spending on $b$’s and $c$’s forces the $a$-spend, $p = n - q - r$, which is why the seat grid is two-dimensional (the $(q, r)$ lattice of the figure) even though the expansion has three letters: two free letters, one forced. Every seat a distribution; every distribution a term; the bridge holds in both directions.' },
+
+    { kind: 'heading', text: 'Pricing Coefficients' },
+    { kind: 'para', text: 'The pricing reflex is four moves, and every illustration below runs it in the open. (i) Read the seat: the requested monomial’s exponents ARE the triple $(p, q, r)$. (ii) Check the sum: $p + q + r$ must equal $n$, or the seat does not exist. (iii) Price: $\\tfrac{n!}{p!\\,q!\\,r!}$, the factorial arithmetic done visibly. (iv) Sanity-check by the census meaning — the answer is a word count, so it must be an integer no larger than the census total, and the neighbouring seats should price lower as the split gets less even. The illustrations then take the reflex to the three places examinations push it: plain seats, degree-constrained seats, and the greatest-coefficient hunt.' },
+    { kind: 'example', title: 'Find the coefficient of $a^2b^3c$ in the expansion of $(a+b+c)^6$', steps: [
+      'Read the seat: $a^2b^3c$ has the exponent triple $(p, q, r) = (2, 3, 1)$.',
+      'Check the sum: $2 + 3 + 1 = 6 = n$ — the seat exists, the full degree budget is spent.',
+      'So, the price is the arrangement count $\\tfrac{6!}{2!\\,3!\\,1!}$.',
+      'Now, the factorial arithmetic in the open: $6! = 720$ and $2!\\,3!\\,1! = 2 \\cdot 6 \\cdot 1 = 12$, so the price is $\\tfrac{720}{12} = 60$.',
+      'Hence the coefficient of $a^2b^3c$ is $60$ — meaning, in the census reading: exactly 60 of the $3^6 = 729$ six-letter words carry two $a$’s, three $b$’s and one $c$.',
+    ] },
+    { kind: 'example', title: 'Price four seats: $a^3b^2c^2$ in $(a+b+c)^7$; $x^2y^2z$ in $(x+y+z)^5$; $x^2y^3z^3$ in $(x+y+z)^8$; and $a^4b^4c^2$ in $(a+b+c)^{10}$', steps: [
+      'Seat $(3, 2, 2)$, sum $7$ — the price is $\\tfrac{7!}{3!\\,2!\\,2!} = \\tfrac{5040}{6 \\cdot 2 \\cdot 2} = \\tfrac{5040}{24} = 210$.',
+      'Seat $(2, 2, 1)$, sum $5$ — the price is $\\tfrac{5!}{2!\\,2!\\,1!} = \\tfrac{120}{2 \\cdot 2 \\cdot 1} = \\tfrac{120}{4} = 30$.',
+      'Seat $(2, 3, 3)$, sum $8$ — the price is $\\tfrac{8!}{2!\\,3!\\,3!} = \\tfrac{40320}{2 \\cdot 6 \\cdot 6} = \\tfrac{40320}{72} = 560$.',
+      'And the big one: seat $(4, 4, 2)$, sum $10$ — the price is $\\tfrac{10!}{4!\\,4!\\,2!} = \\tfrac{3628800}{24 \\cdot 24 \\cdot 2} = \\tfrac{3628800}{1152} = 3150$.',
+      'Hence the four prices: $210,\\; 30,\\; 560,\\; 3150$ — each a word count, each one line of visible factorial arithmetic once the seat is read. Note how the seats with the most EVEN splits price highest: $(3,2,2)$ and $(2,3,3)$ at 210 and 560 tower over their lopsided neighbours at the same $n$.',
+    ] },
+    { kind: 'example', title: 'Find the coefficient of $x^3$ in the expansion of $(1+x+x^2)^4$ — a degree-constrained seat', steps: [
+      'Split the letters by weight: the expansion is a multinomial in the three "letters" $1$, $x$ and $x^2$ — write $(p, q, r)$ for the counts of $1$’s, $x$’s and $x^2$’s donated by the four factors.',
+      'So, the two constraints: $p + q + r = 4$ (there are four factors), and the collected degree $q + 2r = 3$ (each $x$ donates degree 1, each $x^2$ donates degree 2).',
+      'Enumerate honestly: $r = 0$ forces $q = 3$ and then $p = 1$ — the triple $(1, 3, 0)$; $r = 1$ forces $q = 1$ and $p = 2$ — the triple $(2, 1, 1)$; $r \\geq 2$ would already spend $q + 2r \\geq 4 > 3$. Exactly two admissible triples.',
+      'Now, price each: $\\tfrac{4!}{1!\\,3!\\,0!} = 4$ and $\\tfrac{4!}{2!\\,1!\\,1!} = 12$.',
+      'Hence the coefficient of $x^3$ is $4 + 12 = 16$ — and the literal expansion of $(1+x+x^2)^4$ carries exactly 16 on its $x^3$ seat, the engine’s direct multiplication check. Degree-constrained pricing is the plain reflex plus one enumeration step: the constraint line picks the seats before any price is computed.',
+    ] },
+    { kind: 'example', title: 'Find the greatest coefficient in the expansion of $(a+b+c)^6$, and state the monomial it prices', steps: [
+      'The hunt: price the candidate seats and compare — the multinomial peak sits at the most-even split of the degree, the balanced seat, exactly as the binomial peak sits at the row’s middle.',
+      'So, $n = 6$ across three letters: the balanced seat is $(2, 2, 2)$, priced $\\tfrac{6!}{2!\\,2!\\,2!} = \\tfrac{720}{8} = 90$.',
+      'Check the neighbours: $(3, 2, 1)$ prices $\\tfrac{6!}{3!\\,2!\\,1!} = 60$, and the lopsided $(4, 1, 1)$ prices $\\tfrac{6!}{4!\\,1!\\,1!} = 30$ — the balanced seat towers over both, by a factor of 1.5 over its nearest neighbour and 3 over the lopsided one.',
+      'Hence the greatest coefficient is $90$, standing at $a^2b^2c^2$ — the multinomial’s analogue of the binomial middle term: the arrangement count peaks where the multiset is most evenly spread, and the peak is unique here because 6 splits across three letters with no rival seat of equal evenness.',
+    ] },
+    { kind: 'example', title: 'The k = 2 unification: price $a^2b^3$ in $(a+b)^5$ by the multinomial engine, and recognise what appears', steps: [
+      'The seat: $(p, q) = (2, 3)$ with $p + q = 5$ — a two-letter multinomial seat, sum-check passed.',
+      'So, the price is $\\tfrac{5!}{2!\\,3!} = \\tfrac{120}{12} = 10$.',
+      'Now, recognise it: $\\tfrac{5!}{2!\\,3!} = \\tfrac{5!}{2!\\,(5-2)!} = \\binom{5}{2} = 10$ — row 5’s third entry, exactly what lesson 7.2’s general term $T_{r+1} = \\binom{n}{r}a^{n-r}b^r$ prices at $r = 2$.',
+      'Hence the multinomial at $k = 2$ IS the binomial theorem: the denominator $p!\\,q!$ with $p + q = n$ is precisely the $\\binom{n}{p}$ rearrangement, the term count $\\binom{n+1}{1} = n + 1$ is the binomial row length, and the census $\\sum = 2^n$ is lesson 7.2’s row sum. One theorem, not two — the opening’s promise, cashed.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'The two discipline checks of multinomial pricing', text: 'Check one — the sum: a monomial whose exponents do NOT total $n$ is not a seat of the expansion at all. "Find the coefficient of $a^2b^3c$ in $(a+b+c)^5$" is a trick question: $2 + 3 + 1 = 6 \\neq 5$, and the honest answer is that no such term exists in that expansion. Check two — the constraint: in $(1+x+x^2)^n$ the collected degree is $q + 2r$, not $q + r$; forgetting the weight of the $x^2$ letter mis-enumerates the admissible triples and prices seats the expansion does not carry. Both checks are the same habit: write the seat’s defining equations BEFORE any factorial is touched.' },
+    { kind: 'para', text: 'The chapter’s machine is now one machine. Lesson 7.2 expanded two letters and proved the expansion twice; this lesson let the alphabet grow and found that nothing new was needed — the same word census prices every seat, the same identical-distribution bridge counts the terms, and the binomial theorem reappears at $k = 2$ as the smallest case of the single theorem that rules the family. What remains for the chapter is depth of use: lesson 7.5 turns the coefficients themselves into objects of study — their sums, their alternating sums, the seats that carry no letter — and lesson 7.6 takes the approximation programme to the expansions doorstep. Before that, the self-check and the graded set, with one exercise carrying its own lattice figure: the constraint cut drawn on the seat grid, priced cell by cell.' },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner', text: 'The multinomial theorem rides the JEE syllabus through the binomial chapter’s extension topics and surfaces in JEE (Advanced)-style coefficient hunts; state-board courses meet it through $(1+x+x^2)^n$ seats. The question shapes, in frequency order: coefficient pricing at a named seat ($\\tfrac{n!}{p!\\,q!\\,r!}$ at speed — Illustrations 1 and 2); term-count reads ($\\binom{n+k-1}{k-1}$, the 66-term shortcut — no expansion ever written); degree-constrained seats in $(1+x+x^2)^n$ (enumerate the admissible triples, sum the prices — Illustration 3 and exercise L5-1); and the greatest-coefficient hunt at the balanced seat (Illustration 4). The discipline that separates the marks from the misses is the sum-check: exponents totalling $n$ before any factorial is touched, and the constraint written before any triple is priced.' },
+    { kind: 'quiz', title: 'Check yourself: the multinomial theorem', items: [
+      { q: 'The general term of the expansion of $(a+b+c)^n$ is', options: ['$\\binom{n}{r} a^{n-r} b^r$', '$\\dfrac{n!}{p!\\,q!\\,r!}\\,a^p b^q c^r$, where $p+q+r=n$', '$\\dfrac{n!}{p!\\,q!}\\,a^p b^q$', '$n^n\\,a^p b^q c^r$'], answer: 1, explain: 'Option 1 is the theorem’s general term: the seat $(p, q, r)$ with $p + q + r = n$ is priced by the arrangement count $\\tfrac{n!}{p!\\,q!\\,r!}$ — the whole lesson in one formula. Option 0 is the BINOMIAL general term of lesson 7.2, one running index for two letters: it has no seat for $c$ at all, so it cannot price a three-letter expansion. Option 2 also stops at two letters, and it drops the constraint that the exponents must sum to $n$ — without which the quotient is not even a coefficient of anything. Option 3’s $n^n$ prices nothing here: the census total is $3^n$ words, and no seat’s price is built from $n^n$.' },
+      { q: 'The number of terms in the expansion of $(a+b+c)^4$ is', options: ['15', '10', '16', '21'], answer: 0, explain: 'Option 0 is the term-count law: $\\binom{4+2}{2} = \\binom{6}{2} = 15$ — the seats are the solutions of $p+q+r = 4$, fifteen distributions of the degree budget. Option 1’s 10 is the count one exponent lower ($\\binom{5}{2}$, the $n = 3$ expansion) — the classic off-by-one on this exact question. Option 2’s 16 is $2^4$, the BINARY word census: right shape of idea, wrong alphabet — the products number $3^4 = 81$, and the terms are seats, not products. Option 3’s 21 is $\\binom{7}{2}$, the $n = 5$ count — reading the exponent as one higher than it is.' },
+      { q: 'The coefficient of $a^2b^3c$ in the expansion of $(a+b+c)^6$ is', options: ['60', '120', '360', '20'], answer: 0, explain: 'Option 0 is the seat price: $(p, q, r) = (2, 3, 1)$ with $2 + 3 + 1 = 6$, priced $\\tfrac{6!}{2!\\,3!\\,1!} = \\tfrac{720}{12} = 60$ — and the census agrees, 60 words with two $a$’s, three $b$’s and one $c$. Option 1’s $120 = \\tfrac{6!}{3!}$ cancels only the $b$-repeats: forgetting that the two $a$’s ALSO overcount the arrangements doubles the true price. Option 2’s $360 = \\tfrac{6!}{2!}$ makes the mirror error — cancelling only the $a$-repeats and leaving the three $b$’s unsplit. Option 3’s $20 = \\binom{6}{3}$ is the two-letter reflex: the middle entry of Pascal row 6, which prices an $(a+b)^6$ seat, never a three-letter one.' },
+      { q: 'The number of terms in the expansion of $(a+b+c+d)^3$ is', options: ['10', '20', '16', '27'], answer: 1, explain: 'Option 1 is the four-letter term-count law: $\\binom{3+3}{3} = \\binom{6}{3} = 20$ — the seats are the solutions of $p+q+r+s = 3$, twenty distributions of degree 3 across four letters. Option 0’s 10 is the THREE-letter count at the same exponent ($\\binom{5}{2} = 10$) — forgetting the fourth letter entirely. Option 2’s 16 is $4^2$ read backwards: the uncollected products actually number $4^3 = 64$, and neither number counts seats. Option 3’s 27 is $3^3$ — the three-letter word census: the count of products for three letters, not the distinct terms for four.' },
+      { q: 'The sum of all coefficients in the expansion of $(a+b+c)^6$ (set $a=b=c=1$) is', options: ['$3^6 = 729$', '$6^3 = 216$', '$2^6 = 64$', '$\\binom{6}{3} = 20$'], answer: 0, explain: 'Option 0 is the substitution read: setting $a = b = c = 1$ makes every word multiply to 1, so the expansion collapses to its coefficient sum, $\\left(1+1+1\\right)^6 = 3^6 = 729$ — every one of the 729 words counted exactly once, the total census. Option 1’s $216 = 6^3$ inverts the roles: the alphabet size 3 is what gets exponentiated, never the exponent $n$. Option 2’s $64 = 2^6$ is the two-letter row sum $\\sum \\binom{6}{r}$ — lesson 7.2’s territory, the $k = 2$ census, not the $k = 3$ one. Option 3’s $\\binom{6}{3} = 20$ is the balanced-seat price alone — one seat’s coefficient, not the mass of all 28 seats.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises 7.4', sets: [
+      { level: 'L1', questions: [
+        { q: 'Expand $(a+b+c)^2$ completely and verify that it has the promised six terms.', solution: [
+          'The expansion is the theorem’s smallest three-letter case: every monomial $a^pb^qc^r$ with $p+q+r = 2$, priced $\\tfrac{2!}{p!\\,q!\\,r!}$.',
+          'Split the seats by budget: the three double seats $(2,0,0)$, $(0,2,0)$, $(0,0,2)$ price $\\tfrac{2!}{2!} = 1$ each; the three mixed seats $(1,1,0)$, $(0,1,1)$, $(1,0,1)$ price $\\tfrac{2!}{1!\\,1!} = 2$ each.',
+          'Hence $(a+b+c)^2 = a^2+b^2+c^2+2ab+2bc+2ca$ — six terms, exactly the term-count law’s $\\binom{4}{2} = 6$.',
+          'Check the coefficient mass: $1+1+1+2+2+2 = 9 = 3^2$ — every two-letter word over $\\{a,b,c\\}$ lands in exactly one seat.',
+        ], answer: '$a^2+b^2+c^2+2ab+2bc+2ca$' },
+        { q: 'Without expanding, state the number of distinct terms in $(a+b+c)^5$.', solution: [
+          'No expansion: the term-count bridge counts the seats directly.',
+          'Now, the seats are the solutions of $p+q+r = 5$ in non-negative integers — chapter 6’s identical-distribution count, five balls into three boxes.',
+          'So, $\\binom{5+2}{2} = \\binom{7}{2} = 21$ distinct terms.',
+          'Hence the answer in one census line: 21 seats, no expansion ever written.',
+        ], answer: '21' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Find the coefficient of $ab^2$ in the expansion of $(a+b+c)^4$.', solution: [
+          'Read the seat: $ab^2$ has the triple $(p, q, r) = (1, 2, 1)$, and $1+2+1 = 4$ matches the exponent $n = 4$.',
+          'So, the price is the arrangement count $\\tfrac{4!}{1!\\,2!\\,1!}$.',
+          'Now, the arithmetic: $\\tfrac{24}{2} = 12$.',
+          'Hence the coefficient is 12 — the count of the four-letter words with one $a$, two $b$’s and one $c$, which the census reading confirms at sight.',
+        ], answer: '12' },
+        { q: 'Without expanding, state the number of distinct terms in $(a+b+c+d)^4$.', solution: [
+          'Four letters: the term-count law is $\\binom{n+k-1}{k-1}$ with $k = 4$.',
+          'So, the seats are the solutions of $p+q+r+s = 4$ — four identical balls into four labelled boxes.',
+          'Hence $\\binom{4+3}{3} = \\binom{7}{3} = 35$ distinct terms.',
+          'Check the sibling law: three letters at the same exponent give $\\binom{6}{2} = 15$ — the fourth letter widens the budget split and the seat count with it.',
+        ], answer: '35' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Find the coefficient of $x^2y^2z$ in the expansion of $(x+y+z)^5$.', solution: [
+          'Read the seat: $x^2y^2z$ has the triple $(2, 2, 1)$, and $2+2+1 = 5$ matches the exponent.',
+          'So, the price is $\\tfrac{5!}{2!\\,2!\\,1!}$.',
+          'Now, the arithmetic: $\\tfrac{120}{4} = 30$.',
+          'Hence the coefficient is 30 — thirty five-letter words over $\\{x,y,z\\}$ carrying two $x$’s, two $y$’s and one $z$.',
+        ], answer: '30' },
+        { q: 'Find the coefficient of $a^3b^2c^2$ in the expansion of $(a+b+c)^7$.', solution: [
+          'Read the seat: $(3, 2, 2)$ with $3+2+2 = 7$ — the sum-check passes.',
+          'So, the price is $\\tfrac{7!}{3!\\,2!\\,2!}$.',
+          'Now, the arithmetic in the open: $\\tfrac{5040}{6 \\cdot 2 \\cdot 2} = \\tfrac{5040}{24}$.',
+          'Hence the coefficient is 210.',
+        ], answer: '210' },
+        { q: 'Find the sum of all the coefficients in the expansion of $(a+b+c)^6$.', solution: [
+          'The coefficient mass: set $a = b = c = 1$, so every term collapses to its bare coefficient.',
+          'So, the whole expansion becomes $(1+1+1)^6 = 3^6$.',
+          'Hence the sum of all coefficients is $729$.',
+          'Check by the census: the 729 words of length six over three letters each land in exactly one seat — the mass IS the census total, engine-verified against the literal expansion.',
+        ], answer: '$729 = 3^6$' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Find the coefficient of $x^3$ in the expansion of $(1+x+x^2)^4$ by enumerating the degree-constrained triples.', solution: [
+          'Split the letters by weight: each of the four factors donates one of $1$, $x$ or $x^2$ — write $(p, q, r)$ for the counts of the three.',
+          'So, the constraints: $p+q+r = 4$ and the collected degree $q + 2r = 3$.',
+          'Enumerate: $r = 0$ forces $q = 3$, $p = 1$ — the triple $(1,3,0)$; $r = 1$ forces $q = 1$, $p = 2$ — the triple $(2,1,1)$; $r \\geq 2$ overspends the degree budget. Exactly two triples.',
+          'Now, price each: $\\tfrac{4!}{1!\\,3!\\,0!} = 4$ and $\\tfrac{4!}{2!\\,1!\\,1!} = 12$.',
+          'Hence the coefficient of $x^3$ is $4 + 12 = 16$ — matching the literal expansion, whose $x^3$ seat carries exactly 16.',
+        ], answer: '16' },
+        { q: 'Find the coefficient of $x^2y^3z^3$ in the expansion of $(x+y+z)^8$.', solution: [
+          'Read the seat: $(2, 3, 3)$ with $2+3+3 = 8$ — the sum-check passes.',
+          'So, the price is $\\tfrac{8!}{2!\\,3!\\,3!}$.',
+          'Now, the arithmetic in the open: $\\tfrac{40320}{2 \\cdot 6 \\cdot 6} = \\tfrac{40320}{72}$.',
+          'Hence the coefficient is 560.',
+        ], answer: '560' },
+        { q: 'Find the greatest coefficient in the expansion of $(a+b+c)^6$ and state the monomial it prices.', solution: [
+          'The greatest coefficient sits at the balanced seat — the most-even split of the degree 6 across the three letters.',
+          'So, the seat is $(2, 2, 2)$: priced $\\tfrac{6!}{2!\\,2!\\,2!} = \\tfrac{720}{8} = 90$.',
+          'Check the neighbours: $(3,2,1)$ prices $\\tfrac{6!}{3!\\,2!\\,1!} = 60$, and $(4,1,1)$ prices $\\tfrac{6!}{4!\\,1!\\,1!} = 30$ — the balanced seat towers over both.',
+          'Hence the greatest coefficient is 90, at $a^2b^2c^2$ — the multinomial peak at the most-even split, the analogue of the binomial middle.',
+        ], answer: '90, at $a^2b^2c^2$ (the balanced seat)' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Find the coefficient of $x^8$ in the expansion of $(1+x+x^2)^6$ by enumerating every triple $(p,q,r)$ with $p+q+r=6$ and $q+2r=8$.', solution: [
+          'Split the letters by weight: each of the six factors donates one of $1$, $x$ or $x^2$ — write $(p, q, r)$ for the counts of the three.',
+          'So, the constraints: $p+q+r = 6$ and the collected degree $q + 2r = 8$.',
+          'Enumerate: $r = 2$ gives $q = 4$, $p = 0$ — the triple $(0,4,2)$; $r = 3$ gives $q = 2$, $p = 1$ — the triple $(1,2,3)$; $r = 4$ gives $q = 0$, $p = 2$ — the triple $(2,0,4)$; and no other $r$ works: $r = 1$ would need $q = 6$ and then $p = -1$, while $r \\geq 5$ overspends past degree 8. Exactly three admissible triples.',
+          'Now, price each: $\\tfrac{6!}{0!\\,4!\\,2!} = 15$, $\\tfrac{6!}{1!\\,2!\\,3!} = 60$ and $\\tfrac{6!}{2!\\,0!\\,4!} = 15$.',
+          'Hence the coefficient of $x^8$ is $15 + 60 + 15 = 90$ — the three admissible seats on the constraint line, drawn on the lattice figure below.',
+        ], answer: '90', figures: [
+          { caption: 'The three admissible triples $(0,4,2)$, $(1,2,3)$, $(2,0,4)$ on the $p+q+r = 6$ lattice — the constraint $q+2r = 8$ cuts the triangle in exactly three cells, priced 15, 60 and 15.', svg: constraintTriplesSvg() },
+        ] },
+        { q: 'Count the distinct terms of $(a+b+c+d)^5$ two ways: by the identical-distribution bridge and by the term-count formula.', solution: [
+          'By the bridge: the seats are the solutions of $p+q+r+s = 5$ in non-negative integers — five identical balls into four labelled boxes.',
+          'So, $\\binom{5+3}{3} = \\binom{8}{3} = 56$ distributions, each one a distinct monomial.',
+          'Now, by the formula: the term-count law $\\binom{n+k-1}{k-1}$ at $n = 5$, $k = 4$ reads $\\binom{8}{3} = 56$ — the same expression.',
+          'Hence both routes give 56 — two names for one count, which is exactly what the bridge promises: the formula IS the identical-distribution count, stated in expansion language.',
+        ], answer: '56' },
+        { q: 'Find the coefficient of $a^4b^4c^2$ in the expansion of $(a+b+c)^{10}$.', solution: [
+          'Read the seat: $(4, 4, 2)$ with $4+4+2 = 10$ — the sum-check passes.',
+          'So, the price is $\\tfrac{10!}{4!\\,4!\\,2!}$.',
+          'Now, the arithmetic in the open: $\\tfrac{3628800}{24 \\cdot 24 \\cdot 2} = \\tfrac{3628800}{1152}$.',
+          'Hence the coefficient is 3150.',
+        ], answer: '3150' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Prove the multinomial theorem for three letters by the word-census argument: show the coefficient of $a^p b^q c^r$ counts the length-$n$ words over $\\{a,b,c\\}$ with those letter counts, and verify the count at $n=4$, counts $(2,1,1)$: exactly 12 of the 81 words.', solution: [
+          'The engine: write $(a+b+c)^n$ as $n$ separate factors and multiply WITHOUT collecting — each fully-expanded product picks exactly one letter per factor, so every product is a word of length $n$ over $\\{a,b,c\\}$, and the multiplication rule counts the census at $3^n$ words.',
+          'Now, fix a seat $(p,q,r)$ with $p+q+r = n$: the words carrying exactly $p$ $a$’s, $q$ $b$’s and $r$ $c$’s are arrangements of one multiset of size $n$ — chapter 6’s permutation-with-repeats count $\\tfrac{n!}{p!\\,q!\\,r!}$, because choosing the $p$ positions that hold $a$ (unordered) and then the $q$ positions that hold $b$ leaves the $r$ remaining positions forced to hold $c$, and each such placement is exactly one word.',
+          'So, every word with counts $(p,q,r)$ multiplies to $a^pb^qc^r$ and to nothing else — collecting like monomials, the coefficient of $a^pb^qc^r$ IS the word count $\\tfrac{n!}{p!\\,q!\\,r!}$, which is the multinomial theorem.',
+          'Hence the witness at $n = 4$, seat $(2,1,1)$: $\\tfrac{4!}{2!\\,1!\\,1!} = 12$ words among the $3^4 = 81$ — and the brute census, run over all 81 words, finds exactly 12 carrying two $a$’s, one $b$ and one $c$, the engine-verified check that the count is pinned, not estimated.',
+        ], answer: 'proved — the arrangement count $\\tfrac{n!}{p!\\,q!\\,r!}$ prices every monomial; 12 words at $(2,1,1)$' },
+        { q: 'Prove that the sum of all multinomial coefficients of $(a+b+c)^n$ is $3^n$ (every word counted exactly once), and reconcile it with the $k = 2$ case $\\sum_r \\binom{n}{r} = 2^n$ from lesson 7.2.', solution: [
+          'The census identity: the words of length $n$ over $\\{a,b,c\\}$ total $3^n$ — three choices per factor, $n$ factors, the multiplication rule — and every word lands in exactly ONE seat $(p,q,r)$ with $p+q+r = n$, determined by its own letter counts.',
+          'So, grouping the census by seat: $\\sum_{p+q+r=n} \\tfrac{n!}{p!\\,q!\\,r!} = 3^n$ — the sum of all multinomial coefficients of $(a+b+c)^n$ is the word total. Equivalently: set $a=b=c=1$ in the theorem and every term collapses to its bare coefficient.',
+          'Check the witnesses: $n = 2$ gives $1+1+1+2+2+2 = 9 = 3^2$; $n = 3$ gives $1+1+1+3+3+3+3+3+3+6 = 27 = 3^3$; $n = 6$ gives the coefficient mass $729 = 3^6$ — the law holds at every swept exponent.',
+          'Hence the reconciliation at $k = 2$: the same argument over two letters counts the $2^n$ binary words — $\\sum_{r=0}^{n} \\binom{n}{r} = 2^n$, lesson 7.2’s row sum. One theorem, one census engine; the binomial is the $k = 2$ instance wearing a triangle.',
+        ], answer: 'the word census counts all $3^n$ words; at $k = 2$ it is the $2^n$ row-sum — one theorem' },
+      ] },
+    ] },
+    { kind: 'formula', name: 'The multinomial theorem (k letters)', latex: '(x_1 + \\cdots + x_k)^n = \\sum_{p_1+\\cdots+p_k = n} \\tfrac{n!}{p_1!\\cdots p_k!}\\,x_1^{p_1}\\cdots x_k^{p_k}', note: 'every monomial of total degree $n$ appears exactly once, priced by the arrangement count of its letter multiset — proved by the word census.' },
+    { kind: 'formula', name: 'The general term (three letters)', latex: '\\tfrac{n!}{p!\\,q!\\,r!}\\,a^p b^q c^r, \\quad p+q+r = n', note: 'the seat is fixed by the exponents; the price is chapter 6’s permutation-with-repeats count. Sum-check before pricing.' },
+    { kind: 'formula', name: 'The term-count law', latex: '\\text{terms of } (x_1 + \\cdots + x_k)^n = \\binom{n+k-1}{k-1}, \\quad \\text{three letters: } \\binom{n+2}{2}', note: '$n$ identical balls into $k$ labelled boxes — the identical-distribution bridge; $k = 2$ recovers the binomial row length $n+1$. Swept against literal expansions.' },
+    { kind: 'formula', name: 'The balanced seat', latex: '\\tfrac{n!}{p!\\,q!\\,r!} \\;\\text{ peaks at the most-even } (p,q,r)', note: 'the multinomial’s analogue of the binomial middle: at $n = 6$ the seat $(2,2,2)$ prices 90, towering over its neighbours 60 and 30.' },
+    { kind: 'formula', name: 'The k = 2 unification', latex: '\\tfrac{n!}{p!\\,q!} = \\binom{n}{p}, \\quad p + q = n', note: 'the binomial coefficient IS the two-letter multinomial coefficient — one theorem, not two; the term count $n+1$ and the census $2^n$ collapse back onto lesson 7.2 with it.' },
+    { kind: 'formula', name: 'The coefficient census', latex: '\\sum_{p+q+r=n} \\tfrac{n!}{p!\\,q!\\,r!} = 3^n; \\quad \\text{over } k \\text{ letters} = k^n', note: 'set every letter to 1: every word multiplies to 1, so the coefficient mass counts the word census exactly once.' },
+  ],
+}
 export const chapter07: Chapter = {
   number: 7,
   slug: 'induction-and-binomial-theorem',
@@ -762,10 +1606,8 @@ export const chapter07: Chapter = {
   summary:
     'The book’s proof engine and its most-used consequence, in the order the classics teach them. Mathematical induction first — the domino principle: base case, inductive step, and the honest scope note (what induction proves and what it never can), applied to the sum formulas chapter 5 left uncertified, to divisibility statements, and to inequality statements the AM–GM engine guessed. Then the binomial theorem for a positive integral index — Pascal’s triangle read as a counting statement about chapter 6’s selections, the theorem PROVED by induction, the general and middle terms priced exactly. The coefficients become objects of study (their sum, their alternating sum, the term independent of x), and the chapter closes with the applications: (1 + x)ⁿ ≈ 1 + nx for small x, divisibility reads, and coefficient-hunting at exam speed. The frequently used expansions — (a ± b)², (a ± b)³ and the kin every exam expects by reflex — banked as the chapter’s opening toolkit.',
   status: 'in-progress',
-  lessons: [lesson71, lesson72],
+  lessons: [lesson71, lesson72, lesson73, lesson74],
   plannedLessons: [
-    'The Binomial Theorem for Any Index',
-    'The Multinomial Theorem',
     'Binomial Coefficients at Work',
     'Binomial Applications and Approximations',
     'Unit 7 Completion Review',

@@ -705,3 +705,7 @@ server.log
 !/scripts/e2e-aa-71.page.js
 !/scripts/e2e-aa-72.sh
 !/scripts/e2e-aa-72.page.js
+!/scripts/e2e-aa-73.sh
+!/scripts/e2e-aa-73.page.js
+!/scripts/e2e-aa-74.sh
+!/scripts/e2e-aa-74.page.js

@@ -486,6 +486,310 @@ const sections: ReturnType<typeof tally>[] = [
   tally('C (7.2 engines)', sectionC()),
 ]
 
+// ------------------------------------------------------------------
+// (E) 7.3 engines — EVERY number lesson 7.3 will write, brute-forced
+// (the binomial theorem for ANY index: exact rational arithmetic)
+// ------------------------------------------------------------------
+
+// exact rational (small BigInt fractions) — the only honest way to pin
+// coefficient rows like 3/8, 5/16, 35/128 without float lies
+function gcdB(a: bigint, b: bigint): bigint {
+  a = a < 0n ? -a : a
+  b = b < 0n ? -b : b
+  while (b) { const t = a % b; a = b; b = t }
+  return a || 1n
+}
+class Rat {
+  n: bigint
+  d: bigint
+  constructor(n: bigint | number, d: bigint | number = 1n) {
+    let nn = typeof n === 'number' ? BigInt(Math.round(n)) : n
+    let dd = typeof d === 'number' ? BigInt(Math.round(d)) : d
+    if (dd < 0n) { nn = -nn; dd = -dd }
+    const g = gcdB(nn, dd)
+    this.n = nn / g
+    this.d = dd / g
+  }
+  mul(o: Rat) { return new Rat(this.n * o.n, this.d * o.d) }
+  div(o: Rat) { return new Rat(this.n * o.d, this.d * o.n) }
+  add(o: Rat) { return new Rat(this.n * o.d + o.n * this.d, this.d * o.d) }
+  neg() { return new Rat(-this.n, this.d) }
+  eq(o: Rat) { return this.n === o.n && this.d === o.d }
+  get s() { return `${this.n}/${this.d}` }
+  get num() { return Number(this.n) / Number(this.d) }
+}
+// the generalized binomial coefficient n(n-1)...(n-r+1)/r! for RATIONAL n
+function genCoeff(nNum: number, nDen: number, r: number): Rat {
+  let acc = new Rat(1n)
+  const nRat = new Rat(BigInt(nNum), BigInt(nDen))
+  for (let i = 0; i < r; i++) acc = acc.mul(nRat.add(new Rat(-i)))
+  let fact = 1n
+  for (let i = 2n; i <= BigInt(r); i++) fact *= i
+  return acc.div(new Rat(fact))
+}
+const rat = (n: number, d: number) => new Rat(BigInt(n), BigInt(d))
+
+function sectionE(): SectionCheck[] {
+  const c: SectionCheck[] = []
+
+  // --- E1 the frequently-used expansions table, exact rational rows r=0..5 ---
+  // (1+x)^-1, (1-x)^-1, (1+x)^-2, (1-x)^-2, (1+x)^-3, (1-x)^-3
+  const row = (nNum: number, nDen: number, sgn: number, rMax = 5) =>
+    Array.from({ length: rMax + 1 }, (_, r) => genCoeff(nNum, nDen, r).mul(rat(sgn ** r, 1)))
+  const r1 = row(-1, 1, 1)
+  c.push(check('E1 (1+x)^-1 row', r1.map((v) => v.num).join(',') === '1,-1,1,-1,1,-1'))
+  c.push(check('E2 (1-x)^-1 row', row(-1, 1, -1).every((v, r) => v.eq(rat(1, 1)))))
+  const r2n = row(-2, 1, 1)
+  c.push(check('E3 (1+x)^-2 row', r2n.map((v) => v.num).join(',') === '1,-2,3,-4,5,-6'))
+  c.push(check('E4 (1-x)^-2 row', row(-2, 1, -1).map((v) => v.num).join(',') === '1,2,3,4,5,6'))
+  c.push(check('E5 (1+x)^-3 row', row(-3, 1, 1).map((v) => v.num).join(',') === '1,-3,6,-10,15,-21'))
+  c.push(check('E6 (1-x)^-3 row = C(r+2,2)', row(-3, 1, -1).every((v, r) => v.num === binom(r + 2, 2))))
+  // the half-index rows, exact fractions
+  const rH = row(-1, 2, 1)
+  c.push(check('E7 (1+x)^-1/2 row', rH.map((v) => v.s).join(',') === '1/1,-1/2,3/8,-5/16,35/128,-63/256'))
+  const rHn = row(-1, 2, -1)
+  c.push(check('E8 (1-x)^-1/2 row', rHn.map((v) => v.s).join(',') === '1/1,1/2,3/8,5/16,35/128,63/256'))
+  const rP = row(1, 2, 1)
+  c.push(check('E9 (1+x)^1/2 row', rP.map((v) => v.s).join(',') === '1/1,1/2,-1/8,1/16,-5/128,7/256'))
+  const rPn = row(1, 2, -1)
+  c.push(check('E10 (1-x)^1/2 row', rPn.map((v) => v.s).join(',') === '1/1,-1/2,-1/8,-1/16,-5/128,-7/256'))
+  // the central-binomial closed form C(2r,r)/4^r for (1-x)^-1/2, swept
+  const cbc = (r: number) => new Rat(BigInt(binom(2 * r, r)), BigInt(4 ** r))
+  c.push(check('E11 C(2r,r)/4^r law swept', Array.from({ length: 10 }, (_, r) => genCoeff(-1, 2, r).mul(rat((-1) ** r, 1)).eq(cbc(r))).every((v) => v)))
+
+  // --- E2 function-equality numeric witnesses (honest, small x) ---
+  const partial = (nNum: number, nDen: number, sgn: number, x: number, terms: number) => {
+    let s = 0
+    for (let r = 0; r <= terms; r++) s += genCoeff(nNum, nDen, r).num * (sgn * x) ** r
+    return s
+  }
+  const sq1 = partial(1, 2, 1, 0.02, 4)
+  c.push(check('E12 sqrt(1.02) 5 terms', Math.abs(sq1 - Math.sqrt(1.02)) < 1e-7, `${sq1} vs ${Math.sqrt(1.02)}`))
+  const sq2 = partial(1, 2, -1, 0.02, 4)
+  c.push(check('E13 sqrt(0.98) 5 terms', Math.abs(sq2 - Math.sqrt(0.98)) < 1e-6, `${sq2} vs ${Math.sqrt(0.98)}`))
+  const inv = partial(-1, 1, 1, 0.02, 4)
+  c.push(check('E14 (1.02)^-1 5 terms', Math.abs(inv - 1 / 1.02) < 1e-8, `${inv} vs ${1 / 1.02}`))
+  const inv3 = partial(-3, 1, -1, 0.1, 9)
+  c.push(check('E15 (0.9)^-3 10 terms', Math.abs(inv3 - 1 / 0.9 ** 3) < 1e-6, `${inv3} vs ${1 / 0.9 ** 3}`))
+
+  // --- E3 boundary honesty: divergence at |x| >= 1, convergence inside ---
+  const geoms: number[] = []
+  let acc = 0
+  for (let r = 0; r <= 5; r++) { acc += 1 * 1 ** r; geoms.push(acc) } // x=1 in (1-x)^-1: 1,2,3,4,5,6 — grows
+  c.push(check('E16 x=1 geometric grows', geoms.every((v, i) => v === i + 1)))
+  const alt: number[] = []
+  acc = 0
+  for (let r = 0; r <= 5; r++) { acc += (-1) ** r; alt.push(acc) } // x=-1... wait (1+x)^-1 at x=1: 1,-1,1... partials 1,0,1,0
+  c.push(check('E17 x=1 in (1+x)^-1 oscillates', alt.join(',') === '1,0,1,0,1,0'))
+  let big = 0
+  acc = 0
+  for (let r = 0; r <= 12; r++) { acc += (-2) ** r; big = Math.max(big, Math.abs(acc)) }
+  c.push(check('E18 x=2 in (1+x)^-1 diverges', big > 1000, `max |S| ${big}`))
+  // inside the window: (1+x)^-1 at x=1/2 -> 2/3, oscillating convergence
+  acc = 0
+  const conv: number[] = []
+  for (let r = 0; r <= 12; r++) { acc += (-0.5) ** r; conv.push(acc) }
+  c.push(check('E19 x=1/2 in (1+x)^-1 -> 2/3', Math.abs(conv[12] - 2 / 3) < 1e-3 && conv[12] < conv[10] && conv[11] > conv[9]))
+
+  // --- E4 the oscillating ladder for the SOLUTION FIGURE: (1+x)^-2 at x=1/2 -> 4/9 ---
+  const ladder: number[] = []
+  acc = 0
+  for (let r = 0; r <= 10; r++) { acc += (-1) ** r * (r + 1) * 0.5 ** r; ladder.push(acc) }
+  c.push(check('E20 (1+x)^-2 x=1/2 ladder', ladder.map((v) => Math.round(v * 1e6) / 1e6).join(',') === '1,0,0.75,0.25,0.5625,0.375,0.484375,0.421875,0.457031,0.4375,0.448242', ladder.map((v) => Math.round(v * 1e6) / 1e6).join(',')))
+  acc = 0
+  for (let r = 0; r <= 30; r++) acc += (-1) ** r * (r + 1) * 0.5 ** r
+  c.push(check('E21 ladder limit 4/9', Math.abs(acc - 4 / 9) < 1e-6, `${acc}`))
+
+  // --- E5 priced coefficients (OUR OWN exhibits) ---
+  // x^3 in (1 - x/3)^-2: (-1)^3 * (-4) * (1/3)^3 = +4/27
+  c.push(check('E22 x^3 in (1-x/3)^-2 = 4/27', genCoeff(-2, 1, 3).mul(rat(-1, 27)).eq(rat(4, 27))))
+  // x^4 in (1+2x)^-2
+  c.push(check('E23 x^4 in (1+2x)^-2 = 80', genCoeff(-2, 1, 4).num * 2 ** 4 === 5 * 16 && 5 * 16 === 80))
+  // x^4 in (1-4x)^-1/2 — the C(2r,r) collapse: (35/128)*4^4 = 70
+  c.push(check('E24 x^4 in (1-4x)^-1/2 = 70', genCoeff(-1, 2, 4).eq(rat(35, 128)) && genCoeff(-1, 2, 4).num * 4 ** 4 === 70))
+  // x^10 in (1-x)^-3
+  c.push(check('E25 x^10 in (1-x)^-3 = 66', binom(12, 2) === 66))
+  // (4+x)^1/2 = 2(1+x/4)^1/2: x^2 coefficient
+  c.push(check('E26 x^2 in (4+x)^1/2 = -1/64', genCoeff(1, 2, 2).mul(rat(1, 16)).mul(rat(2, 1)).eq(rat(-1, 64))))
+  // (2+x)^-2 = (1/4)(1+x/2)^-2: x and x^2 coefficients
+  c.push(check('E27 (2+x)^-2 x coeff', genCoeff(-2, 1, 1).mul(rat(1, 2)).mul(rat(1, 4)).eq(rat(-1, 4))))
+  c.push(check('E28 (2+x)^-2 x^2 coeff', genCoeff(-2, 1, 2).mul(rat(1, 4)).mul(rat(1, 4)).eq(rat(3, 16))))
+  // the two-root solve: coeff of x^2 in (1+x)^n = 3/8 -> n = 3/2 or -1/2
+  const quadRoots = (aa: number, bb: number, cc: number) => {
+    const disc = bb * bb - 4 * aa * cc
+    return disc < 0 ? null : [(-bb + Math.sqrt(disc)) / (2 * aa), (-bb - Math.sqrt(disc)) / (2 * aa)].sort((x, y) => x - y)
+  }
+  const roots = quadRoots(4, -4, -3)
+  c.push(check('E29 n(n-1)/2 = 3/8 roots', roots !== null && Math.abs(roots[0] - -0.5) < 1e-12 && Math.abs(roots[1] - 1.5) < 1e-12))
+  c.push(check('E30 both roots verified', genCoeff(3, 2, 2).eq(rat(3, 8)) && genCoeff(-1, 2, 2).eq(rat(3, 8))))
+
+  // --- E6 product + telescoping identities on truncated series ---
+  const trunc = (nNum: number, nDen: number, sgn: number, rMax: number) => Array.from({ length: rMax + 1 }, (_, r) => genCoeff(nNum, nDen, r).num * sgn ** r)
+  const cauchy = (p: number[], q: number[]) => {
+    const out = new Array(p.length + q.length - 1).fill(0)
+    for (let i = 0; i < p.length; i++) for (let j = 0; j < q.length; j++) out[i + j] += p[i] * q[j]
+    return out
+  }
+  const prod = cauchy(trunc(-1, 1, 1, 7), trunc(-1, 1, -1, 7))
+  c.push(check('E31 (1+x)^-1 (1-x)^-1 = (1-x^2)^-1', prod.slice(0, 8).map((v) => Math.round(v * 1e9) / 1e9).join(',') === '1,0,1,0,1,0,1,0'))
+  const tele = cauchy([1, -1], trunc(-1, 1, -1, 8))
+  c.push(check('E32 (1-x)(1+x+...+x^8) = 1 - x^9', Math.abs(tele[0] - 1) < 1e-9 && tele.slice(1, 9).every((v) => Math.abs(v) < 1e-9) && Math.abs(tele[9] + 1) < 1e-9))
+  const tele3 = polyMul([1, -3, 3, -1], trunc(-3, 1, -1, 8))
+  c.push(check('E33 (1-x)^3 (1-x)^-3 = 1 + O(x^9)', tele3[0] === 1 && tele3.slice(1, 9).every((v) => Math.abs(v) < 1e-9)))
+
+  // --- E7 convergence sweep, both directions ---
+  const convOk = [0.2, 0.5, 0.8].every((x) => {
+    let s = 0
+    for (let r = 0; r <= 200; r++) s += x ** r
+    return Math.abs(s - 1 / (1 - x)) < 1e-9
+  })
+  c.push(check('E34 geometric convergence inside window', convOk))
+  const divOk = [1.2, 2].every((x) => {
+    let s = 0
+    let max = 0
+    for (let r = 0; r <= 30; r++) { s += x ** r; max = Math.max(max, Math.abs(s)) }
+    return max > 500
+  })
+  c.push(check('E35 divergence outside window', divOk))
+
+  return c
+}
+
+// ------------------------------------------------------------------
+// (G) 7.4 engines — EVERY number lesson 7.4 will write, brute-forced
+// (the multinomial theorem: literal expansions + word censuses)
+// ------------------------------------------------------------------
+
+// a polynomial in k letters as a Map from exponent tuple (string 'p,q,r')
+// to integer coefficient — multiplied out LITERALLY, the ground truth
+function multinomialLiteral(n: number, k: number): Map<string, number> {
+  let acc = new Map<string, number>()
+  acc.set(new Array(k).fill(0).join(','), 1)
+  for (let t = 0; t < n; t++) {
+    const next = new Map<string, number>()
+    for (const [key, coef] of acc) {
+      const ex = key.split(',').map(Number)
+      for (let v = 0; v < k; v++) {
+        const ne = ex.slice()
+        ne[v]++
+        const nk = ne.join(',')
+        next.set(nk, (next.get(nk) ?? 0) + coef)
+      }
+    }
+    acc = next
+  }
+  return acc
+}
+function factorial(n: number): number {
+  let f = 1
+  for (let i = 2; i <= n; i++) f *= i
+  return f
+}
+// the count of monomials of exact degree n in k letters (terms of the
+// expansion) — by literal enumeration, ground truth for the C(n+k-1,k-1) law
+function monomialCount(n: number, k: number): number {
+  let count = 0
+  const rec = (spent: number, varsLeft: number) => {
+    if (varsLeft === 1) { count++; return }
+    for (let p = 0; p <= spent; p++) rec(spent - p, varsLeft - 1)
+  }
+  rec(n, k)
+  return count
+}
+
+function sectionG(): SectionCheck[] {
+  const c: SectionCheck[] = []
+
+  // --- G1 literal expansions, term counts ---
+  const cnt = (n: number, k: number) => multinomialLiteral(n, k).size
+  c.push(check('G1 (a+b+c)^2 = 6 terms', cnt(2, 3) === 6))
+  c.push(check('G2 (a+b+c)^3 = 10 terms', cnt(3, 3) === 10))
+  c.push(check('G3 (a+b+c)^4 = 15 terms', cnt(4, 3) === 15))
+  c.push(check('G4 (a+b+c)^5 = 21, ^6 = 28', cnt(5, 3) === 21 && cnt(6, 3) === 28))
+  c.push(check('G5 4 letters: 10, 20, 35, 56', cnt(2, 4) === 10 && cnt(3, 4) === 20 && cnt(4, 4) === 35 && cnt(5, 4) === 56))
+
+  // --- G2 the term-count law, swept against literal enumeration ---
+  const lawOk: boolean[] = []
+  for (let k = 2; k <= 5; k++) for (let n = 1; n <= 8; n++) lawOk.push(monomialCount(n, k) === binom(n + k - 1, k - 1))
+  c.push(check('G6 term-count law C(n+k-1,k-1) swept', lawOk.every((v) => v)))
+  c.push(check('G7 k=2 recovers n+1 (the binomial)', Array.from({ length: 8 }, (_, n) => n + 1).every((n) => monomialCount(n, 2) === n + 1)))
+
+  // --- G3 every literal coefficient equals n!/(p!q!r!...) ---
+  const formulaOk: boolean[] = []
+  for (let n = 2; n <= 6; n++) {
+    const lit = multinomialLiteral(n, 3)
+    for (const [key, coef] of lit) {
+      const ex = key.split(',').map(Number)
+      const f = factorial(n) / ex.reduce((s, p) => s * factorial(p), 1)
+      formulaOk.push(coef === f)
+    }
+  }
+  c.push(check('G8 multinomial formula = literal coefficients', formulaOk.every((v) => v)))
+
+  // --- G4 coefficient sum = k^n ---
+  const sumOk: boolean[] = []
+  for (let n = 2; n <= 6; n++) sumOk.push([...multinomialLiteral(n, 3).values()].reduce((a, b) => a + b, 0) === 3 ** n)
+  c.push(check('G9 sum of coefficients = 3^n swept', sumOk.every((v) => v)))
+  c.push(check('G10 (a+b+c)^6 sum = 729', [...multinomialLiteral(6, 3).values()].reduce((a, b) => a + b, 0) === 729))
+
+  // --- G5 priced exhibits (OUR OWN) ---
+  const lit3of6 = multinomialLiteral(6, 3)
+  c.push(check('G11 a^2 b^3 c in ^6 = 60', lit3of6.get('2,3,1') === 60 && factorial(6) / (factorial(2) * factorial(3) * factorial(1)) === 60))
+  const lit3of7 = multinomialLiteral(7, 3)
+  c.push(check('G12 a^3 b^2 c^2 in ^7 = 210', lit3of7.get('3,2,2') === 210))
+  const lit3of5 = multinomialLiteral(5, 3)
+  c.push(check('G13 x^2 y^2 z in ^5 = 30', lit3of5.get('2,2,1') === 30))
+  const lit3of8 = multinomialLiteral(8, 3)
+  c.push(check('G14 x^2 y^3 z^3 in ^8 = 560', lit3of8.get('2,3,3') === 560))
+  const lit3of10 = multinomialLiteral(10, 3)
+  c.push(check('G15 a^4 b^4 c^2 in ^10 = 3150', lit3of10.get('4,4,2') === 3150))
+  const lit3of4 = multinomialLiteral(4, 3)
+  c.push(check('G16 a b^2 in ^4 = 12', lit3of4.get('1,2,1') === 12))
+
+  // --- G6 the 1-D reduction: (1+x+x^2)^n by literal powering ---
+  const polyPow1D = (base: number[], n: number) => {
+    let acc = [1]
+    for (let i = 0; i < n; i++) acc = polyMul(acc, base)
+    return acc
+  }
+  const tri6 = polyPow1D([1, 1, 1], 6)
+  c.push(check('G17 x^3 in (1+x+x^2)^4 = 16', polyPow1D([1, 1, 1], 4)[3] === 16))
+  c.push(check('G18 x^8 in (1+x+x^2)^6 = 90', tri6[8] === 90))
+  c.push(check('G19 the three triples 15+60+15', factorial(6) / (factorial(0) * factorial(4) * factorial(2)) === 15 && factorial(6) / (factorial(1) * factorial(2) * factorial(3)) === 60 && factorial(6) / (factorial(2) * factorial(0) * factorial(4)) === 15))
+
+  // --- G7 the greatest multinomial coefficient, balanced seat ---
+  let max = 0
+  let maxKey = ''
+  for (const [key, coef] of lit3of6) if (coef > max) { max = coef; maxKey = key }
+  c.push(check('G20 greatest of (a+b+c)^6 at (2,2,2) = 90', maxKey === '2,2,2' && max === 90))
+
+  // --- G8 the word census (the counting proof's engine) ---
+  let census = 0
+  for (let mask = 0; mask < 81; mask++) {
+    const digits = [0, 0, 0, 0]
+    for (let i = 0; i < 4; i++) digits[i] = Math.floor(mask / 3 ** i) % 3
+    if (digits.filter((d) => d === 0).length === 2 && digits.filter((d) => d === 1).length === 1) census++
+  }
+  c.push(check('G21 words 2a,1b,1c = 12 = 4!/(2!1!1!)', census === 12 && factorial(4) / (factorial(2) * factorial(1) * factorial(1)) === 12))
+  const wordId: boolean[] = []
+  for (let n = 2; n <= 6; n++) {
+    let total = 0
+    for (const [key, coef] of multinomialLiteral(n, 3)) total += coef
+    wordId.push(total === 3 ** n)
+  }
+  c.push(check('G22 word census sums to 3^n', wordId.every((v) => v)))
+
+  // --- G9 quiz + unification pins ---
+  c.push(check('G23 (a+b)^5 a^2b^3 = C(5,2) = 10', factorial(5) / (factorial(2) * factorial(3)) === 10 && binom(5, 2) === 10))
+  c.push(check('G24 (a+b+c)^4 term count 15 = C(6,2)', monomialCount(4, 3) === 15 && binom(6, 2) === 15))
+  c.push(check('G25 (a+b+c+d)^3 term count 20 = C(6,3)', monomialCount(3, 4) === 20 && binom(6, 3) === 20))
+
+  return c
+}
+
+sections.push(tally('E (7.3 engines)', sectionE()))
+sections.push(tally('G (7.4 engines)', sectionG()))
+
 const chapterPath = path.join(__dirname, '..', 'src', 'data', 'library', 'books', 'mathematics', 'advanced-algebra', 'ch-07.ts')
 const chapterExists = fs.existsSync(chapterPath)
 
@@ -586,15 +890,152 @@ function sectionZ(chapter: { lessons: Lesson[]; plannedLessons: string[]; status
   c.push(check('Z1 chapter number 7', chapter.number === 7))
   c.push(check('Z2 slug pinned', chapter.slug === 'induction-and-binomial-theorem'))
   c.push(check('Z3 status in-progress', chapter.status === 'in-progress'))
-  c.push(check('Z4 two lessons shipped', chapter.lessons.length === 2, `got ${chapter.lessons.length}`))
-  c.push(check('Z5 five planned remain', chapter.plannedLessons.length === 5, `got ${chapter.plannedLessons.length}`))
-  c.push(check('Z6 planned titles pinned', JSON.stringify(chapter.plannedLessons) === JSON.stringify(['The Binomial Theorem for Any Index', 'The Multinomial Theorem', 'Binomial Coefficients at Work', 'Binomial Applications and Approximations', 'Unit 7 Completion Review'])))
+  c.push(check('Z4 four lessons shipped (run 117)', chapter.lessons.length === 4, `got ${chapter.lessons.length}`))
+  c.push(check('Z5 three planned remain', chapter.plannedLessons.length === 3, `got ${chapter.plannedLessons.length}`))
+  c.push(check('Z6 planned titles pinned', JSON.stringify(chapter.plannedLessons) === JSON.stringify(['Binomial Coefficients at Work', 'Binomial Applications and Approximations', 'Unit 7 Completion Review'])))
   const ids = chapter.lessons.map((l) => l.id)
   c.push(check('Z7 ids unique in chapter', new Set(ids).size === ids.length))
-  c.push(check('Z8 lesson numbers pinned', chapter.lessons.map((l) => l.number).join(',') === '7.1,7.2'))
+  c.push(check('Z8 lesson numbers pinned', chapter.lessons.map((l) => l.number).join(',') === '7.1,7.2,7.3,7.4'))
   const totalWords = chapter.lessons.reduce((s, l) => s + countLessonWords(l), 0)
-  c.push(check('Z9 honest depth >= 12000', totalWords >= 12000, `got ${totalWords}`))
+  c.push(check('Z9 honest depth >= 24000', totalWords >= 24000, `got ${totalWords}`))
   c.push(check('Z10 every lesson has sources + prerequisites', chapter.lessons.every((l) => (l.sources?.length ?? 0) >= 3 && (l.prerequisites?.length ?? 0) >= 2)))
+  return c
+}
+
+// ------------------------------------------------------------------
+// (F) 7.3 pins — the shipped prose carries exactly the pinned numbers
+// (grown after the run-117 swarm shipped lesson 7.3)
+// ------------------------------------------------------------------
+
+function collectStrings(L: Lesson): { raw: string; full: string } {
+  const rawParts: string[] = []
+  const walk = (v: unknown) => {
+    if (typeof v === 'string') rawParts.push(v)
+    else if (Array.isArray(v)) v.forEach(walk)
+    else if (v && typeof v === 'object') Object.values(v).forEach(walk)
+  }
+  L.blocks.forEach((b) => walk(b))
+  return { raw: rawParts.join('\n'), full: JSON.stringify(L) }
+}
+
+function sectionF(chapter: { lessons: Lesson[] }): SectionCheck[] {
+  const c: SectionCheck[] = []
+  const byNumber = new Map<string, Lesson>(chapter.lessons.map((l) => [l.number, l] as const))
+  const L = byNumber.get('7.3')
+  c.push(check('F0 lesson 7.3 present', !!L))
+  if (!L) return c
+  const { raw, full } = collectStrings(L)
+  const either = (needle: string) => raw.includes(needle) || full.includes(needle)
+
+  const pins: [string, string][] = [
+    ['F1 id pinned', 'aa-binomial-theorem-any-index'],
+    ['F2 (1+x)^-2 table row', '1 - 2x + 3x^2 - 4x^3 + 5x^4 - 6x^5'],
+    ['F3 (1-x)^-3 table row', '1 + 3x + 6x^2 + 10x^3 + 15x^4 + 21x^5'],
+    ['F4 (1+x)^-3 table row', '1 - 3x + 6x^2 - 10x^3 + 15x^4 - 21x^5'],
+    ['F5 (1+x)^-1/2 row', '\\tfrac{35x^4}{128} - \\tfrac{63x^5}{256}'],
+    ['F6 (1-x)^-1/2 row', '\\tfrac{35x^4}{128} + \\tfrac{63x^5}{256}'],
+    ['F7 (1-x)^1/2 row', '1 - \\tfrac{x}{2} - \\tfrac{x^2}{8} - \\tfrac{x^3}{16}'],
+    ['F8 sqrt(1.02) witness', '1.0099505'],
+    ['F9 sqrt(0.98) witness', '0.9899495'],
+    ['F10 (1.02)^-1 witness', '0.98039216'],
+    ['F11 ladder value', '0.484375'],
+    ['F12 ladder limit 4/9', '\\tfrac{4}{9}'],
+    ['F13 geometric ladder value', '2.3056'],
+    ['F14 geometric ladder tail', '2.49296'],
+    ['F15 x^3 in (1-x/3)^-2', '\\tfrac{4}{27}'],
+    ['F16 x^4 in (1+2x)^-2', '80'],
+    ['F17 x^4 in (1-4x)^-1/2 = 70', '70'],
+    ['F18 x^2 in (4+x)^1/2', '-\\tfrac{1}{64}'],
+    ['F19 (2+x)^-2 x^2 coeff', '\\tfrac{3x^2}{16}'],
+    ['F20 partial-fraction price', '2^{n+1} - 1'],
+    ['F21 two-root answer', 'n = \\tfrac{3}{2}$ or $n = -\\tfrac{1}{2}'],
+    ['F22 convergence witness 683', '683'],
+    ['F23 oscillation witness', '1, 0, 1, 0'],
+    ['F24 central-binomial law', '\\binom{2r}{r}'],
+  ]
+  for (const [name, needle] of pins) c.push(check(name, either(needle), needle.slice(0, 40)))
+
+  // quiz keys [2, 1, 0, 0, 1]
+  const quiz = L.blocks.find((b) => b.kind === 'quiz') as { items: { q: string; options: string[]; answer: number; explain: string }[] }
+  c.push(check('F25 quiz keys', JSON.stringify(quiz.items.map((i) => i.answer)) === JSON.stringify([2, 1, 0, 0, 1]), JSON.stringify(quiz.items.map((i) => i.answer))))
+  c.push(check('F26 every quiz explain kills wrong options', quiz.items.every((i) => i.explain.includes('Option'))))
+
+  // the SOLUTION FIGURE (v9.0 amendment): exercise L5-3 carries figures
+  const ex = L.blocks.find((b) => b.kind === 'exercises') as never as { sets?: { questions?: unknown[] }[] }
+  const allQ = (ex.sets ?? []).flatMap((s) => s.questions ?? [])
+  const withFig = allQ.filter((q) => (q as { figures?: unknown[] }).figures?.length)
+  c.push(check('F27 solution figure present (v9.0)', withFig.length >= 1, `${withFig.length} questions carry figures`))
+  const figSvg = withFig.map((q) => (q as { figures: { svg: string }[] }).figures.map((f) => f.svg).join('')).join('')
+  c.push(check('F28 solution figure ladder values', figSvg.includes('0.484375') && figSvg.includes('4/9')))
+  c.push(check('F29 solution figure aria', figSvg.includes('aria-label')))
+
+  // honest word count + prerequisites + sources
+  const words = countLessonWords(L)
+  c.push(check('F30 word depth >= 5500', words >= 5500, `got ${words}`))
+  c.push(check('F31 prerequisites pinned', JSON.stringify(L.prerequisites) === JSON.stringify(['aa-the-binomial-theorem-proved', 'aa-geometric-progressions-and-the-infinite-tail', 'aa-factorials-and-the-counting-toolkit'])))
+  c.push(check('F32 sources >= 5', (L.sources?.length ?? 0) >= 5))
+  return c
+}
+
+// ------------------------------------------------------------------
+// (H) 7.4 pins — the shipped prose carries exactly the pinned numbers
+// (grown after the run-117 swarm shipped lesson 7.4)
+// ------------------------------------------------------------------
+
+function sectionH(chapter: { lessons: Lesson[] }): SectionCheck[] {
+  const c: SectionCheck[] = []
+  const byNumber = new Map<string, Lesson>(chapter.lessons.map((l) => [l.number, l] as const))
+  const L = byNumber.get('7.4')
+  c.push(check('H0 lesson 7.4 present', !!L))
+  if (!L) return c
+  const { raw, full } = collectStrings(L)
+  const either = (needle: string) => raw.includes(needle) || full.includes(needle)
+
+  const pins: [string, string][] = [
+    ['H1 id pinned', 'aa-the-multinomial-theorem'],
+    ['H2 (a+b+c)^2 expansion', '$a^2+b^2+c^2+2ab+2bc+2ca$'],
+    ['H3 the 6abc term', '6abc'],
+    ['H4 a^3b^2c^2 price', 'a^3b^2c^2'],
+    ['H5 the 210 price', '210'],
+    ['H6 x^2y^3z^3 price', '560'],
+    ['H7 the big price', '3150'],
+    ['H8 the arithmetic', '3628800'],
+    ['H9 coefficient census 729', '729'],
+    ['H10 word census', 'word census'],
+    ['H11 balanced seat', 'balanced seat'],
+    ['H12 the 12-of-81 witness', '12'],
+    ['H13 term counts table', '21'],
+    ['H14 k=4 term count 35', '35'],
+    ['H15 term count 56', '56'],
+    ['H16 C(12,2) = 66 shortcut', '66'],
+    ['H17 exam shortcut C(13,3)', '\\binom{13}{3}'],
+    ['H18 286', '286'],
+    ['H19 x^3 in (1+x+x^2)^4', '16'],
+    ['H20 k=2 unification 10 = C(5,2)', '\\binom{5}{2}'],
+    ['H21 general term law', '\\dfrac{n!}{p!\\,q!\\,r!}'],
+    ['H22 term-count law', '\\binom{n+k-1}{k-1}'],
+  ]
+  for (const [name, needle] of pins) c.push(check(name, either(needle), needle.slice(0, 40)))
+
+  // quiz keys [1, 0, 0, 1, 0]
+  const quiz = L.blocks.find((b) => b.kind === 'quiz') as { items: { q: string; options: string[]; answer: number; explain: string }[] }
+  c.push(check('H23 quiz keys', JSON.stringify(quiz.items.map((i) => i.answer)) === JSON.stringify([1, 0, 0, 1, 0]), JSON.stringify(quiz.items.map((i) => i.answer))))
+  c.push(check('H24 every quiz explain kills wrong options', quiz.items.every((i) => i.explain.includes('Option'))))
+
+  // the SOLUTION FIGURE (v9.0 amendment): the x^8 question carries figures
+  const ex = L.blocks.find((b) => b.kind === 'exercises') as never as { sets?: { questions: unknown[] }[]; questions?: unknown[] }
+  const allQ = (ex.sets ?? []).flatMap((s) => s.questions ?? [])
+  const withFig = allQ.filter((q) => (q as { figures?: unknown[] }).figures?.length)
+  c.push(check('H25 solution figure present (v9.0)', withFig.length >= 1, `${withFig.length} questions carry figures`))
+  const figSvg = withFig.map((q) => (q as { figures: { svg: string }[] }).figures.map((f) => f.svg).join('')).join('')
+  c.push(check('H26 solution figure prices the three triples', figSvg.includes('15') && figSvg.includes('60')))
+  c.push(check('H27 solution figure aria', figSvg.includes('aria-label')))
+
+  // honest word count + prerequisites + sources
+  const words = countLessonWords(L)
+  c.push(check('H28 word depth >= 5500', words >= 5500, `got ${words}`))
+  c.push(check('H29 prerequisites pinned', JSON.stringify(L.prerequisites) === JSON.stringify(['aa-the-binomial-theorem-proved', 'aa-distributions-and-the-classic-counting-puzzles', 'aa-combinations-the-selection-count'])))
+  c.push(check('H30 sources >= 5', (L.sources?.length ?? 0) >= 5))
   return c
 }
 
@@ -602,6 +1043,8 @@ function sectionZ(chapter: { lessons: Lesson[]; plannedLessons: string[]; status
   const ch = chapter07 as never as { lessons: Lesson[]; plannedLessons: string[]; status: string; number: number; slug: string; title: string }
   sections.push(tally('B (7.1 pins)', sectionB(ch)))
   sections.push(tally('D (7.2 pins)', sectionD(ch)))
+  sections.push(tally('F (7.3 pins)', sectionF(ch)))
+  sections.push(tally('H (7.4 pins)', sectionH(ch)))
   sections.push(tally('Z (census)', sectionZ(ch)))
 }
 
