@@ -3721,3 +3721,13 @@ The owner directed the comprehensive double-layer pass. Layer 1 (drive TOC): the
 ### Gates: static DOM 0 issues; VLM PASS ×4; tsc 0 errors in ch-05.ts; sanity 213/213 braces, 4 SVGs clean
 ### State: lastAuditedLessonId → ans-unit-digit-cycles-of-powers; rotation → ch.5 L4
 | CS RUN 1 | 2026-11-21 | computer-fundamentals ch.1 OPENED (the CS shelf's first written lessons) | 1.1 'The Basic Structure and Operation of the Computer' + 1.2 'A Census of Hardware: Desktops to Embedded Chips' | the cs job's FIRST honored fire — a TWO-AGENT SWARM (both delivery channels timed out; files landed complete; engines A 45 + C 54 green pre-prose, orchestrator-verified); ground = the sanctioned internet fallback (`cs-cf-web-ground`, web-verified dates/numbers); verifier 213/213; tsc 0, lint 0 err, pack 184 lessons / 1,031,263 words; standing gates 667+4023+1240+696+2350 (cs-shelf-planning honestly updated for the authoring era); E2E ×2 ×3 viewports ALL GREEN (quiz 5/5 live; KaTeX 196+38); VLM 16-crop audit: 2 real defects fixed (the '\frac' form-feed leak + the generations-table right-edge clipping) + re-audited PASS both themes | CS RUN 2: close ch.1 with 1.3 + the 1.R review (cs lane); run 120 opens AA ch.9 (maths lane) | verify-cs-book1-ch01 213/213 |
+
+
+## 2026-11-21 — job 538572 fire (cron 0,30 * * * ? IST) — lesson ans-linear-congruences-glimpse-of-fermat detailed change list
+
+### Files touched: ch-05.ts + 5 docs
+### Pass A: 1 body fig (CRT two-filters) VLM PASS first time, untouched (margins L=34 R=34 T=22 B=17)
+### Pass B: 3 solution figures, all first-pass PASS: Ex4 Sunzi ladder (3 rungs, modulus 3→15→105); Ex6 Fermat reduction (4-box flow 2^100→2^12≡1→100=12·8+4→2^4=16≡3); L2-Q2 solution family (number line 0-14, solutions 3/8/13 circled, +5 spacings)
+### Pass C: 2 enrichments (L5 non-coprime CRT trap: no solution; L5 non-coprime working pair: x≡6 mod 24) — L5 1→3 questions; ACCURACY CATCH: fixed previous fire's 5.3 duplicate-kind TS1117 defect + indentation
+### Gates: static DOM 0 issues; VLM PASS ×4 first-pass; tsc 0 errors in ch-05.ts (after fix); sanity 790/790 full-file braces, no duplicate kinds
+### State: lastAuditedLessonId → ans-linear-congruences-glimpse-of-fermat; ANS chapter 5 fully audited 4/4 lessons; rotation advances to next written lesson per queue cursor

@@ -1835,7 +1835,6 @@ export const chapter05: Chapter = {
           text: 'The same census discipline, run at other heights, gives three more exam-grade facts. **Cubes**: the cube map on unit digits is a bijection — every digit is the unit digit of some cube ($3^3 = 27$ ends in 7, $7^3 = 343$ ends in 3; the digits trade places) — because cubing is a bijection modulo 2 and modulo 5 separately. **Fourth powers**: one full lap of any four-cycle returns to the start, and the two-cycles land on their even member — so a fourth power ends in 0, 1, 5 or 6 only ($2^4 = 16$, $3^4 = 81$, $5^4 = 625$, $7^4 = 2401$, $8^4 = 4096$, $9^4 = 6561$ — six witnesses, four digits). And **odd squares modulo 8** — a different modulus, same discipline: $(2k+1)^2 = 4k(k+1) + 1$ with $k(k+1)$ even, so every odd square leaves remainder 1 on division by 8 ($21^2 = 441 = 8 \\cdot 55 + 1$) — a fact that will do quiet structural work in the Number Theory book this one is handing off to.',
         },
         {
-          kind: 'para',
           kind: 'example',
           title: 'The cube census — every digit appears',
           steps: [
@@ -1848,7 +1847,7 @@ export const chapter05: Chapter = {
         },
         {
           kind: 'para',
-                    text: 'Finally, factorials. Lesson 4.3 counted the trailing zeros of $n!$ with Legendre’s census; the unit-digit version is its shadow: from $5! = 120$ onward, every factorial carries the factor $2 \\cdot 5 = 10$ outright, so every factorial from the fifth on ends in 0 — the unit digits of $1!, 2!, 3!, \\dots, 10!$ read $1, 2, 6, 4, 0, 0, 0, 0, 0, 0$. Sums of factorials therefore freeze after the fourth term: $1! + 2! + 3! + 4! + \\dots$ has unit digit $1 + 2 + 6 + 4 = 13 \\to 3$, forever after — the true value $\\sum_{i=1}^{10} i! = 4{,}037{,}913$ ends in 3, exactly as the 5.1 engine predicted.',
+          text: 'Finally, factorials. Lesson 4.3 counted the trailing zeros of $n!$ with Legendre’s census; the unit-digit version is its shadow: from $5! = 120$ onward, every factorial carries the factor $2 \\cdot 5 = 10$ outright, so every factorial from the fifth on ends in 0 — the unit digits of $1!, 2!, 3!, \\dots, 10!$ read $1, 2, 6, 4, 0, 0, 0, 0, 0, 0$. Sums of factorials therefore freeze after the fourth term: $1! + 2! + 3! + 4! + \\dots$ has unit digit $1 + 2 + 6 + 4 = 13 \\to 3$, forever after — the true value $\\sum_{i=1}^{10} i! = 4{,}037{,}913$ ends in 3, exactly as the 5.1 engine predicted.',
         },
         {
           kind: 'callout',
@@ -2365,6 +2364,35 @@ export const chapter05: Chapter = {
             'Take the landing: $t = 1$ gives $x = 8 + 15 = 23$ — the smallest positive solution.',
             'Hence $x \\equiv 23 \\pmod{105}$ — check: $23 = 3 \\cdot 7 + 2$ ✓, $23 = 5 \\cdot 4 + 3$ ✓, $23 = 7 \\cdot 3 + 2$ ✓; and the next solution is $128 = 23 + 105$.',
           ],
+          figures: [{
+            caption: 'The Sunzi ladder: three conditions merged rung by rung — x ≡ 8 (mod 15) from the first pair, then x ≡ 23 (mod 105) from adding the mod-7 condition; the modulus grows 3 → 15 → 105 with each rung.',
+            svg: `<svg viewBox="0 0 640 325" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Sunzi ladder: three conditions x congruent 2 mod 3, x congruent 3 mod 5, x congruent 2 mod 7 merged rung by rung, each rung growing the modulus from 3 to 15 to 105, landing at x congruent 23 mod 105">
+  <text x="320.0" y="28" font-size="14" text-anchor="middle" fill="currentColor" opacity="0.85">the Sunzi ladder — three conditions, one survivor (mod 105)</text>
+  <text x="70" y="38" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.6">rung</text>
+  <text x="240" y="38" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.6">conditions merged</text>
+  <text x="430" y="38" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.6">the answer class</text>
+  <text x="560" y="38" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.6">modulus</text>
+  <text x="70" y="85.0" font-size="14" text-anchor="middle" fill="currentColor" opacity="0.8">start</text>
+  <text x="240" y="85.0" font-size="14" text-anchor="middle" fill="currentColor">x ≡ 2 (mod 3)</text>
+  <text x="430" y="85.0" font-size="14" text-anchor="middle" fill="currentColor">scan: 2, 5, 8, 11, …</text>
+  <text x="560" y="85.0" font-size="15" text-anchor="middle" fill="currentColor" font-weight="bold">3</text>
+  <line x1="60" y1="127.5" x2="580" y2="127.5" stroke="currentColor" stroke-width="0.6" opacity="0.3"/>
+  <line x1="560" y1="108" x2="560" y2="129" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+  <polygon points="560,133 556,127 564,127" fill="currentColor" opacity="0.6"/>
+  <text x="70" y="170.0" font-size="14" text-anchor="middle" fill="currentColor" opacity="0.8">one</text>
+  <text x="240" y="170.0" font-size="14" text-anchor="middle" fill="currentColor">∧ x ≡ 3 (mod 5)</text>
+  <text x="430" y="170.0" font-size="14" text-anchor="middle" fill="currentColor">x ≡ 8 (mod 15)</text>
+  <text x="560" y="170.0" font-size="15" text-anchor="middle" fill="currentColor" font-weight="bold">15</text>
+  <line x1="60" y1="212.5" x2="580" y2="212.5" stroke="currentColor" stroke-width="0.6" opacity="0.3"/>
+  <line x1="560" y1="193" x2="560" y2="214" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+  <polygon points="560,218 556,212 564,212" fill="currentColor" opacity="0.6"/>
+  <text x="70" y="255.0" font-size="14" text-anchor="middle" fill="currentColor" opacity="0.8">two</text>
+  <text x="240" y="255.0" font-size="14" text-anchor="middle" fill="currentColor" font-weight="bold">∧ x ≡ 2 (mod 7)</text>
+  <text x="430" y="255.0" font-size="14" text-anchor="middle" fill="currentColor" font-weight="bold">x ≡ 23 (mod 105)</text>
+  <text x="560" y="255.0" font-size="15" text-anchor="middle" fill="currentColor" font-weight="bold">105</text>
+  <text x="320.0" y="310" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">smallest solution x = 23 — check: 23 = 3·7+2 ✓ = 5·4+3 ✓ = 7·3+2 ✓; next: 128</text>
+</svg>`,
+          }],
         },
         {
           kind: 'example',
@@ -2418,6 +2446,31 @@ export const chapter05: Chapter = {
             'So, the third: Fermat at $p = 19$ gives $17^{18} \\equiv 1$; and $200 = 18 \\cdot 11 + 2$, so $17^{200} \\equiv 17^2 = 289 = 19 \\cdot 15 + 4 \\equiv 4 \\pmod{19}$.',
             'Hence **3**, **1**, **4** — three astronomical powers, each collapsed by one reduction; the verification script confirmed each by direct modular exponentiation.',
           ],
+          figures: [{
+            caption: 'The Fermat licence on 2¹⁰⁰ mod 13: Fermat gives 2¹² ≡ 1 (mod 13); splitting 100 = 12·8 + 4 leaves the leftover 2⁴ = 16 ≡ 3 — one reduction, ten orders of magnitude gone.',
+            svg: `<svg viewBox="0 0 920 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Fermat exponent reduction for 2 to the 100 modulo 13: Fermats little theorem gives 2 to the 12 congruent 1 mod 13; split 100 as 12 times 8 plus 4; the leftover 2 to the 4 equals 16 congruent 3 mod 13">
+  <text x="460.0" y="26" font-size="14" text-anchor="middle" fill="currentColor" opacity="0.85">the Fermat licence — 2¹⁰⁰ mod 13 in one reduction</text>
+  <rect x="40" y="55" width="180" height="46" rx="8" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+  <text x="130.0" y="75" font-size="16" text-anchor="middle" fill="currentColor" font-weight="normal">2¹⁰⁰</text>
+  <text x="130.0" y="93" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.7">the power</text>
+  <line x1="224" y1="78.0" x2="252" y2="78.0" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+  <polygon points="256,78.0 250,74.0 250,82.0" fill="currentColor" opacity="0.6"/>
+  <rect x="260" y="55" width="180" height="46" rx="8" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+  <text x="350.0" y="75" font-size="16" text-anchor="middle" fill="currentColor" font-weight="normal">2¹² ≡ 1</text>
+  <text x="350.0" y="93" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.7">Fermat (mod 13)</text>
+  <line x1="444" y1="78.0" x2="472" y2="78.0" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+  <polygon points="476,78.0 470,74.0 470,82.0" fill="currentColor" opacity="0.6"/>
+  <rect x="480" y="55" width="180" height="46" rx="8" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+  <text x="570.0" y="75" font-size="16" text-anchor="middle" fill="currentColor" font-weight="normal">100 = 12·8 + 4</text>
+  <text x="570.0" y="93" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.7">split the exponent</text>
+  <line x1="664" y1="78.0" x2="692" y2="78.0" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+  <polygon points="696,78.0 690,74.0 690,82.0" fill="currentColor" opacity="0.6"/>
+  <rect x="700" y="55" width="180" height="46" rx="8" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+  <text x="790.0" y="75" font-size="16" text-anchor="middle" fill="currentColor" font-weight="bold">2⁴ = 16 ≡ 3</text>
+  <text x="790.0" y="93" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.7">the leftover</text>
+  <text x="460.0" y="185" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">2¹⁰⁰ = (2¹²)⁸ · 2⁴ ≡ 1⁸ · 2⁴ = 16 ≡ 3 (mod 13) — verified: 4096 = 13·315 + 1</text>
+</svg>`,
+          }],
         },
         {
           kind: 'para',
@@ -2543,6 +2596,51 @@ export const chapter05: Chapter = {
                     'Hence the checks: $27 = 15 + 12$, $72 = 60 + 12$, $117 = 105 + 12$ ✓ — three solutions.',
                   ],
                   answer: 'x = 3, 8, 13 (mod 15)',
+                  figures: [{
+                    caption: 'The solution family of 9x ≡ 12 (mod 15) on the mod-15 dial: three solutions x = 3, 8, 13, spaced exactly 15/3 = 5 apart — one per multiple of m/g, as the theorem promises.',
+                    svg: `<svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The three solutions of 9x congruent 12 modulo 15 marked on a number line from 0 to 14: the solutions x equals 3, 8 and 13 are highlighted, spaced 5 apart exactly as the theorem promises with gcd 3">
+  <text x="320.0" y="28" font-size="14" text-anchor="middle" fill="currentColor" opacity="0.85">9x ≡ 12 (mod 15) — three solutions, spaced 15/3 = 5 apart</text>
+  <line x1="70" y1="110" x2="570" y2="110" stroke="currentColor" stroke-width="1.2" opacity="0.8"/>
+  <line x1="70.0" y1="102" x2="70.0" y2="118" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+  <text x="70.0" y="138" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.6">0</text>
+  <line x1="105.71428571428572" y1="102" x2="105.71428571428572" y2="118" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+  <text x="105.71428571428572" y="138" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.6">1</text>
+  <line x1="141.42857142857144" y1="102" x2="141.42857142857144" y2="118" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+  <text x="141.42857142857144" y="138" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.6">2</text>
+  <line x1="177.14285714285714" y1="96" x2="177.14285714285714" y2="124" stroke="currentColor" stroke-width="2" opacity="1.0"/>
+  <text x="177.14285714285714" y="144" font-size="17" text-anchor="middle" fill="currentColor" font-weight="bold">3</text>
+  <circle cx="177.14285714285714" cy="110" r="16" fill="none" stroke="currentColor" stroke-width="1.6" opacity="0.85"/>
+  <line x1="212.85714285714286" y1="102" x2="212.85714285714286" y2="118" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+  <text x="212.85714285714286" y="138" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.6">4</text>
+  <line x1="248.57142857142858" y1="102" x2="248.57142857142858" y2="118" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+  <text x="248.57142857142858" y="138" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.6">5</text>
+  <line x1="284.2857142857143" y1="102" x2="284.2857142857143" y2="118" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+  <text x="284.2857142857143" y="138" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.6">6</text>
+  <line x1="320.0" y1="102" x2="320.0" y2="118" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+  <text x="320.0" y="138" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.6">7</text>
+  <line x1="355.7142857142857" y1="96" x2="355.7142857142857" y2="124" stroke="currentColor" stroke-width="2" opacity="1.0"/>
+  <text x="355.7142857142857" y="144" font-size="17" text-anchor="middle" fill="currentColor" font-weight="bold">8</text>
+  <circle cx="355.7142857142857" cy="110" r="16" fill="none" stroke="currentColor" stroke-width="1.6" opacity="0.85"/>
+  <line x1="391.42857142857144" y1="102" x2="391.42857142857144" y2="118" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+  <text x="391.42857142857144" y="138" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.6">9</text>
+  <line x1="427.14285714285717" y1="102" x2="427.14285714285717" y2="118" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+  <text x="427.14285714285717" y="138" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.6">10</text>
+  <line x1="462.8571428571429" y1="102" x2="462.8571428571429" y2="118" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+  <text x="462.8571428571429" y="138" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.6">11</text>
+  <line x1="498.57142857142856" y1="102" x2="498.57142857142856" y2="118" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+  <text x="498.57142857142856" y="138" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.6">12</text>
+  <line x1="534.2857142857142" y1="96" x2="534.2857142857142" y2="124" stroke="currentColor" stroke-width="2" opacity="1.0"/>
+  <text x="534.2857142857142" y="144" font-size="17" text-anchor="middle" fill="currentColor" font-weight="bold">13</text>
+  <circle cx="534.2857142857142" cy="110" r="16" fill="none" stroke="currentColor" stroke-width="1.6" opacity="0.85"/>
+  <line x1="570.0" y1="102" x2="570.0" y2="118" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+  <text x="570.0" y="138" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.6">14</text>
+  <line x1="195.14285714285714" y1="80" x2="337.7142857142857" y2="80" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+  <text x="266.42857142857144" y="74" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.75">+5</text>
+  <line x1="373.7142857142857" y1="80" x2="516.2857142857142" y2="80" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+  <text x="445.0" y="74" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.75">+5</text>
+  <text x="320.0" y="185" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.85">checks: 9·3 = 27 = 15+12 ✓ · 9·8 = 72 = 60+12 ✓ · 9·13 = 117 = 105+12 ✓</text>
+</svg>`,
+                  }],
                 },
                 {
                   q: 'Solve 6x ≡ 9 (mod 15), listing every solution class.',
@@ -2642,6 +2740,28 @@ export const chapter05: Chapter = {
                     'Hence the smallest positive solution is **23** (checks: odd ✓, $23 = 21 + 2$ ✓, $23 = 20 + 3$ ✓) — three conditions, two ladder rungs, one survivor, as CRT guarantees.',
                   ],
                   answer: 'x ≡ 23 (mod 30); smallest 23',
+                },
+                {
+                  q: 'Find the smallest positive x with x ≡ 2 (mod 6) and x ≡ 3 (mod 4) — or show that none exists, and explain what went wrong.',
+                  solution: [
+                    'Split the moduli: $6 = 2 \\cdot 3$ and $4 = 2^2$ — they share the factor $2$, so the moduli are NOT coprime and the CRT guarantee does not apply.',
+                    'Now, translate each condition into prime-factor language: $x \\equiv 2 \\pmod 6$ says $x$ is even AND $x \\equiv 2 \\pmod 3$; $x \\equiv 3 \\pmod 4$ says $x$ is odd. The conditions contradict: even ∧ odd is impossible.',
+                    'So, conclude: NO solution exists — the first condition forces $x$ even, the second forces $x$ odd, and no integer is both.',
+                    'Take the general lesson: when moduli share a prime, the conditions must AGREE on the shared prime part (here both moduli are divisible by 2: one condition demands remainder 0 on division by 2, the other remainder 1 — disagreement, death). When they do agree, the shared part merges and a solution class modulo $\\mathrm{lcm}(6, 4) = 12$ exists; when they disagree, nothing does.',
+                    'Hence no solution — the coprimality hypothesis of the CRT is load-bearing, exactly like the coprime licence of Lesson 5.2.',
+                  ],
+                  answer: 'no solution — x ≡ 2 (mod 6) forces x even, x ≡ 3 (mod 4) forces x odd; the shared prime 2 receives contradictory demands',
+                },
+                {
+                  q: 'Find the smallest positive x with x ≡ 6 (mod 8) and x ≡ 6 (mod 12) — a non-coprime pair that DOES work.',
+                  solution: [
+                    'Split the moduli: $\\gcd(8, 12) = 4 \\neq 1$ — not coprime, so first check agreement on the shared part: $x \\equiv 6 \\pmod 8$ demands $x \\equiv 2 \\pmod 4$, and $x \\equiv 6 \\pmod{12}$ also demands $x \\equiv 6 \\equiv 2 \\pmod 4$ — the two demands agree, so a solution exists.',
+                    'Now, scan the mod-12 ladder: $6, 18, 30, 42, \\dots$ — which are $\\equiv 6 \\pmod 8$? $6 \\equiv 6$ ✓; $18 \\equiv 2$; $30 \\equiv 6$ ✓ (every second rung, as expected: the true modulus is the lcm).',
+                    'So, read off: $x = 6$ is the smallest positive solution, and the general solution is $x \\equiv 6 \\pmod{\\mathrm{lcm}(8, 12)} = x \\equiv 6 \\pmod{24}$.',
+                    'Take the shape: when non-coprime conditions agree on the shared prime part, the answer class runs modulo the LCM (not the product): here $\\mathrm{lcm}(8, 12) = 24$, and $x = 6, 30, 54, \\dots$ — check $30 = 24 + 6 \\equiv 6 \\pmod 8$ ✓ and $30 \\equiv 6 \\pmod{12}$ ✓.',
+                    'Hence $x \\equiv 6 \\pmod{24}$ — agreement on the shared part merges the conditions into one class of the lcm; disagreement (as in the previous question) kills them both.',
+                  ],
+                  answer: 'x ≡ 6 (mod lcm(8,12) = 24) — smallest 6; the pair works because both conditions demand x ≡ 2 (mod 4), the shared prime part',
                 },
               ],
             },

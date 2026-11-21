@@ -973,3 +973,18 @@ clean). RESUME_POINTER / PROGRESS / WORK_INVENTORY / DETAILED_LOG untouched
 **Pass C — two enrichments INTO existing lesson:**
 1. **New example "The cube census — every digit appears"** — in the 'squares census' section. Lists all 10 cube unit digits (0³→0, 1³→1, 2³=8, 3³=27→7, 4³=64→4, 5³=125→5, 6³=216→6, 7³=343→3, 8³=512→2, 9³=729→9) showing the bijection is its own inverse on non-fixed points (2↔8, 3↔7). Explains via mod-2/mod-5 permutation.
 2. **New L5 question "Find the unit digit of 7^7^7"** — L5 2→3 questions. Power tower (right-associative): 7^7=823543, 823543 mod 4=3, position 3 on 7-wheel=3. Answer: 3.
+
+
+## 2026-11-21 — job 538572 fire (cron 0,30 * * * ? IST) — ans-linear-congruences-glimpse-of-fermat
+
+**Pass B — three solution visual aids (all inline SVG from named constants), all first-pass VLM PASS:**
+1. **Example-4 Sunzi ladder** — 3-rung table showing conditions merged rung by rung (x≡2 mod 3 → ∧ x≡3 mod 5 → x≡8 mod 15 → ∧ x≡2 mod 7 → x≡23 mod 105), modulus growing 3→15→105, downward arrows between rungs, footer with the three checks.
+2. **Example-6 Fermat reduction** — 4-box arrow flow for 2^100 mod 13: the power → Fermat 2^12≡1 (mod 13) → split 100=12·8+4 → leftover 2^4=16≡3; footer 2^100=(2^12)^8·2^4≡3 (mod 13).
+3. **L2-Q2 solution family** — number line 0-14 with the three solutions of 9x≡12 (mod 15) at x=3, 8, 13 circled and bolded, +5 spacing annotations, footer with the three checks (27=15+12, 72=60+12, 117=105+12).
+
+**Pass C — two enrichments INTO existing lesson + one accuracy catch:**
+1. **New L5 question: the non-coprime trap** (x ≡ 2 mod 6 ∧ x ≡ 3 mod 4 — no solution): gcd(6,4)=2≠1 so CRT guarantee does not apply; the conditions demand contradictory parities (even vs odd). General lesson: agreement on the shared prime part → class mod lcm; disagreement → no solution.
+2. **New L5 question: the non-coprime pair that works** (x ≡ 6 mod 8 ∧ x ≡ 6 mod 12): both demand x ≡ 2 (mod 4), agreement → x ≡ 6 (mod lcm(8,12) = 24), smallest 6. L5 1→3 questions.
+3. **ACCURACY CATCH (inherited defect fixed):** the previous fire's 5.3 cube-census enrichment shipped a duplicate kind property (kind: 'para' + kind: 'example' in one object literal — TS error TS1117) plus a mis-indented following para; both fixed this run; tsc clean on ch-05.ts after the fix.
+
+**Verification:** every coordinate in the 3 new SVGs computed from named constants (ROW_H, ROW_GAP, TOP_Y, COL_*, BOX_W2, BOX_H2, GAP2, LINE_Y, X_START, X_END, TICK_W). Generator: /home/z/my-project/scripts/audit-figs-5-4.py. VLM strict PASS ×4 (all first-pass). Static XML DOM gate clean. tsc 0 errors in ch-05.ts (after the inherited-defect fix). Sanity: braces 790/790 full file; no duplicate kinds. 13 refusals recorded.
