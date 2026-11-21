@@ -2,8 +2,8 @@
   "$schema": "./PROGRESS.schema.json",
   "project": "LockIn Library",
   "updated": "2026-11-21",
-  "phase": "AA ch.7 'Induction and the Binomial Theorem' COMPLETE (7/7: 7.1-7.4 by runs 116-117, 7.5 'Binomial Coefficients at Work' + 7.6 'Binomial Applications and Approximations' + 7.R the unit completion review authored by the run-118 THREE-AGENT SWARM — the second v9.0 swarm run — verify-first engines I (42) + K (30) green BEFORE prose, pins J (44) + L (36) + M (38) + census Z grown after, all 512/512 green, chapter status 'complete'); chapters 1-7 COMPLETE (44 written lessons in AA); chapters 8-10 planned",
-  "awaiting": "run 119 opens AA chapter 8 'The Theory of Equations' (8.1 + 8.2, as a swarm per docs/project/RUN_PROTOCOL.md; ground: the Hall & Knight theory-of-equations arc + the Drive module for the unit — survey first; never open a second chapter in the same run)",
+  "phase": "AA ch.8 'The Theory of Equations' COMPLETE (8/8: 8.1-8.6 + 8.R authored WHOLE-UNIT by the run-119 SEVEN-AGENT SWARM — the 'launch multiple authoring agents' directive; engines green before every lesson's prose, verifier 774/774, all gates green); chapters 1-8 COMPLETE (51 written lessons in AA); chapters 9-10 planned. THE CS LANE OPENED (owner directive): the cs cron job created (:20 IST, CS_AUTHORING_POINTER.json — computer-fundamentals 1.1 + 1.2 at its first honored fire); the maths job (:50 IST) untouched",
+  "awaiting": "run 120 (maths lane): AA ch.9 'Exponentials and Logarithms' 9.1 + 9.2 as a swarm per docs/project/RUN_PROTOCOL.md; AND the cs lane's first honored fire: computer-fundamentals 1.1 + 1.2 per docs/project/CS_AUTHORING_POINTER.json",
   "platform": {
     "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
     "stack": "Next.js 16 App Router (SSG library routes + dynamic builder routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk · Prisma/SQLite (Custom Book Builder user data) · pdfjs-dist + poppler/tesseract (syllabus PDF extraction)",

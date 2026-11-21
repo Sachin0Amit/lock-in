@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-21 14:45:34 (Asia/Kolkata)",
+  "generated": "2026-11-21 18:01:15 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -4250,8 +4250,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5117,
-                "readMins": 26,
+                "words": 5810,
+                "readMins": 29,
                 "concepts": [
                   "The fundamental theorem of arithmetic",
                   "Existence by strong induction",
@@ -4282,10 +4282,10 @@
                 ],
                 "blockCounts": {
                   "para": 7,
-                  "callout": 5,
+                  "callout": 6,
                   "heading": 5,
                   "derivation": 5,
-                  "example": 6,
+                  "example": 7,
                   "algorithm": 1,
                   "equation": 1,
                   "figure": 1,
@@ -4298,6 +4298,7 @@
                 "calloutTones": {
                   "theorem": 2,
                   "warn": 1,
+                  "insight": 1,
                   "historical": 1,
                   "exam": 1
                 },
@@ -4320,8 +4321,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5285,
-                "readMins": 26,
+                "words": 5921,
+                "readMins": 30,
                 "concepts": [
                   "The divisor sum σ(n)",
                   "The geometric-series identity",
@@ -4350,11 +4351,11 @@
                   "khattar-qa-4e"
                 ],
                 "blockCounts": {
-                  "para": 11,
+                  "para": 12,
                   "heading": 5,
-                  "callout": 7,
+                  "callout": 8,
                   "derivation": 2,
-                  "example": 5,
+                  "example": 7,
                   "table": 4,
                   "figure": 1,
                   "list": 1,
@@ -4366,7 +4367,7 @@
                 },
                 "calloutTones": {
                   "definition": 2,
-                  "insight": 1,
+                  "insight": 2,
                   "historical": 2,
                   "warn": 1,
                   "exam": 1
@@ -4378,9 +4379,9 @@
                   "L3": 3,
                   "L4": 2,
                   "L5": 2,
-                  "L6": 1
+                  "L6": 2
                 },
-                "exerciseQuestions": 14,
+                "exerciseQuestions": 15,
                 "termsDefined": 8
               },
               {
@@ -4390,8 +4391,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5204,
-                "readMins": 26,
+                "words": 5567,
+                "readMins": 28,
                 "concepts": [
                   "Prime gaps and the canyon after 89",
                   "Twin primes and the unique 3, 5, 7",
@@ -4423,7 +4424,7 @@
                 "blockCounts": {
                   "para": 11,
                   "heading": 5,
-                  "callout": 7,
+                  "callout": 8,
                   "table": 4,
                   "figure": 1,
                   "derivation": 1,
@@ -4436,7 +4437,7 @@
                 },
                 "calloutTones": {
                   "definition": 2,
-                  "insight": 1,
+                  "insight": 2,
                   "historical": 1,
                   "theorem": 2,
                   "exam": 1
@@ -4448,13 +4449,13 @@
                   "L3": 3,
                   "L4": 2,
                   "L5": 2,
-                  "L6": 1
+                  "L6": 2
                 },
-                "exerciseQuestions": 14,
+                "exerciseQuestions": 15,
                 "termsDefined": 8
               }
             ],
-            "words": 21333
+            "words": 23025
           },
           {
             "number": 5,
@@ -4472,8 +4473,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5499,
-                "readMins": 27,
+                "words": 5894,
+                "readMins": 29,
                 "concepts": [
                   "Congruence modulo m",
                   "Same remainder ⟺ divisible difference",
@@ -4505,7 +4506,7 @@
                   "para": 15,
                   "heading": 7,
                   "list": 3,
-                  "example": 7,
+                  "example": 9,
                   "figure": 2,
                   "callout": 7,
                   "equation": 1,
@@ -4529,11 +4530,11 @@
                   "L1": 3,
                   "L2": 3,
                   "L3": 3,
-                  "L4": 2,
+                  "L4": 3,
                   "L5": 2,
                   "L6": 1
                 },
-                "exerciseQuestions": 14,
+                "exerciseQuestions": 15,
                 "termsDefined": 8
               },
               {
@@ -4740,7 +4741,7 @@
                 "termsDefined": 8
               }
             ],
-            "words": 20675
+            "words": 21070
           },
           {
             "number": 6,
@@ -9145,7 +9146,7 @@
         "description": "The book where algebra grows up a second time. Foundation Mathematics opened the doorstep and Arithmetic and Number Systems proved the ground; Elementary Algebra opened the door and ended at the function idea. This book walks through: functions become objects — relations as sets of pairs, machines classified one-one and onto, composed in series with their honest domains, and undone by inverses. The quadratic returns as a working object — optimized, settled as inequalities on the sign diagram, mined for symmetric reads, its roots located in intervals. The extension ladder climbs its most famous rung: complex numbers built from a closure failure, carried by the field laws, and handed back to the quadratic formula so every discriminant is kept. Inequalities become the classical engine (AM–GM, Cauchy–Schwarz, the triangle inequality — proved, not recited). Sequences and series run from the constant climb to the infinite tail; counting becomes the exact science of permutations and combinations; mathematical induction certifies statements for every n at once; the binomial theorem is proved for a positive integral index and worked to its approximation power; the theory of equations counts roots, prices symmetric functions and transforms old roots into new equations; and the exponential and logarithmic family is defined once and for all as inverse machines. Cross-references Foundation Mathematics, Arithmetic and Number Systems and Elementary Algebra throughout; hands off to Coordinate Geometry, Trigonometry, Calculus and Probability.",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 7,
+        "chaptersWritten": 8,
         "chapters": [
           {
             "number": 1,
@@ -12667,18 +12668,516 @@
             "slug": "theory-of-equations",
             "title": "The Theory of Equations",
             "summary": "The polynomial’s deepest algebra — Hall & Knight’s heartland, entered honestly. How many roots a degree-n equation truly has: n over the complex numbers (the fundamental theorem stated, not proved — with the honesty the platform owes its readers), multiplicities counted, and the conjugate-pair law for real coefficients derived from chapter 3’s algebra rather than asserted. Viète generalizes: the symmetric functions of a cubic’s and a quartic’s roots, the sum–sum-of-products–product staircase, and what symmetric reads survive when the roots are not nice. The chapter closes with the transformation craft: build the equation whose roots are the old roots shifted, scaled or inverted — the classic technique that turns hard cubics into transparent ones and reciprocal equations into quadratics in disguise.",
-            "status": "planned",
-            "lessonsWritten": 0,
-            "plannedLessons": [
-              "How Many Roots: Degree n, n Roots",
-              "Descartes’ Rule of Signs",
-              "Cubics and Quartics: the Symmetric Functions",
-              "Cardan and Ferrari: the Cubic and Quartic, Solved",
-              "Transformation of Equations",
-              "Reciprocal Equations"
+            "status": "complete",
+            "lessonsWritten": 7,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "aa-how-many-roots-degree-n-n-roots",
+                "number": "8.1",
+                "title": "How Many Roots: Degree n, n Roots",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8146,
+                "readMins": 41,
+                "concepts": [
+                  "real and complex polynomials",
+                  "roots and the solution set",
+                  "the fundamental theorem of algebra: n roots counted with multiplicity",
+                  "multiplicity as the root census",
+                  "the factor theorem as the census tool",
+                  "the conjugate-pair law for real coefficients",
+                  "the odd-degree corollary: at least one real root",
+                  "root counts over the reals vs over the complex numbers"
+                ],
+                "objectives": [
+                  "State and use the fundamental theorem of algebra — a degree-n polynomial equation has exactly n roots over the complex numbers, counted with multiplicity — with the honesty note that this platform states the theorem and does not prove it.",
+                  "Distinguish the real-root census from the complex census: over ℝ a degree-n equation owns at most n roots and their count is parity-forced by the conjugate-pair law; over ℂ it owns exactly n.",
+                  "Derive the conjugate-pair law from chapter 3’s conjugate algebra — P(z̄) equals the conjugate of P(z) for real coefficients — and use it to rebuild whole equations from a single given non-real root.",
+                  "Count multiplicity: read (x−1)²(x−2)³ as the five-root multiset {1, 1, 2, 2, 2} and check the census 2 + 3 = 5 = degree.",
+                  "Use the factor theorem as the census tool — hunt integer candidates, split off linear factors, and finish the census over ℂ, as in solving x³ − 7x + 6 = 0 by the root hunt {1, 2, −3}.",
+                  "Form polynomial equations from prescribed root multisets — all-real rosters, conjugate pairs, and mixed sets such as {2, 3, −6} or {i, −i, 2, −1} — verifying each by expansion and evaluation at every prescribed root.",
+                  "Prove the odd-degree corollary and the parity law, and locate guaranteed real roots numerically by sign-change bisection — x³+x+1 at ≈ −0.6823, x⁵+x+1 at ≈ −0.7549."
+                ],
+                "prerequisites": [
+                  "aa-negative-discriminants-the-doors-turn-complex",
+                  "aa-conjugate-and-modulus",
+                  "aa-symmetric-reads-and-common-roots"
+                ],
+                "sources": [
+                  "cengage-m2-02",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 21,
+                  "heading": 4,
+                  "callout": 11,
+                  "list": 1,
+                  "equation": 6,
+                  "example": 10,
+                  "terms": 1,
+                  "figure": 3,
+                  "table": 1,
+                  "derivation": 2,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 10
+                },
+                "calloutTones": {
+                  "definition": 3,
+                  "theorem": 2,
+                  "insight": 3,
+                  "historical": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 10
+              },
+              {
+                "id": "aa-descartes-rule-of-signs",
+                "number": "8.2",
+                "title": "Descartes’ Rule of Signs",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8794,
+                "readMins": 44,
+                "concepts": [
+                  "sign variations of a polynomial",
+                  "Descartes’ rule of signs: the positive-root bound",
+                  "the even deficit",
+                  "negative roots via f(−x)",
+                  "root-type censuses combining rule + conjugate parity",
+                  "the quadratic case proved completely",
+                  "censuses when the actual roots are known",
+                  "the rule as a bound, never a count"
+                ],
+                "objectives": [
+                  "State Descartes’ rule of signs precisely — the number of positive real roots (multiplicity counted) never exceeds the sign variations V(f) and differs from it by an even number — and run it on polynomials written in descending powers, zero coefficients skipped.",
+                  "Convert the negative-root question into a positive-root question by the mirror substitution x → −x: read V(f(−x)) and its own stepped census, never confusing the mirror with the negation −f(x).",
+                  "Combine the rule with lesson 8.1’s conjugate-pair parity and degree count to pin the complete possible root-type censuses (p, q, c) of a real polynomial — the census table craft.",
+                  "Prove the quadratic case of the rule completely — the three-case table V = 0, 1, 2, with the discriminant deciding the V = 2 fork.",
+                  "Construct polynomials with designed root-type censuses from chosen root multisets, and verify the rule on the products — the engineering direction of the census craft.",
+                  "State exactly what the rule promises (a bound plus a parity) and what it never does (count exactly, or locate a single root) — including where the missing possibilities go when the roots are known."
+                ],
+                "prerequisites": [
+                  "aa-how-many-roots-degree-n-n-roots",
+                  "aa-quadratic-inequalities-and-the-sign-diagram"
+                ],
+                "sources": [
+                  "cengage-m2-02",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 22,
+                  "heading": 5,
+                  "callout": 6,
+                  "terms": 1,
+                  "list": 1,
+                  "equation": 8,
+                  "formula": 8,
+                  "example": 9,
+                  "figure": 3,
+                  "algorithm": 1,
+                  "table": 2,
+                  "derivation": 2,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 1,
+                  "insight": 1,
+                  "historical": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 4
+              },
+              {
+                "id": "aa-cubics-and-quartics-the-symmetric-functions",
+                "number": "8.3",
+                "title": "Cubics and Quartics: the Symmetric Functions",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 6212,
+                "readMins": 31,
+                "concepts": [
+                  "Viète’s staircase for the cubic",
+                  "Viète’s staircase for the quartic",
+                  "the general degree-n pattern (alternating signs)",
+                  "power sums by Newton’s identities",
+                  "reciprocal and pairwise reads",
+                  "forming equations from prescribed roots",
+                  "reads when the roots are not nice",
+                  "the factor-theorem cubic solve with the Viète audit"
+                ],
+                "objectives": [
+                  "State and use the cubic staircase — $\\sigma_1 = -b/a$, $\\sigma_2 = c/a$, $\\sigma_3 = -d/a$ — and the quartic staircase, deriving both from the literal expansion of $(x - \\alpha)(x - \\beta)(x - \\gamma)$ and its four-factor extension.",
+                  "State the general degree-n law $\\sigma_k = (-1)^k a_k/a_0$ with the product rule $r_1 r_2 \\cdots r_n = (-1)^n a_n/a_0$, and place chapter 2’s quadratic reads as the $n = 2$ case of the same staircase.",
+                  "Express the power sums $\\Sigma r^2$ and $\\Sigma r^3$ through the $\\sigma$ rungs — $p_2 = \\sigma_1^2 - 2\\sigma_2$ and $p_3 = \\sigma_1^3 - 3\\sigma_1\\sigma_2 + 3\\sigma_3$ by Newton’s identities, the cubic case derived in full by the identity route — and price them on cubics and quartics without solving anything.",
+                  "Price the reciprocal and pairwise reads — $\\Sigma 1/r = \\sigma_2/\\sigma_3$, $\\Sigma_{i<j} r_i^2 r_j^2 = \\sigma_2^2 - 2\\sigma_1\\sigma_3$, and the shifted read $\\Sigma 1/(1+r)$ through a transformed polynomial — on both nice and not-nice root multisets, complex roots included.",
+                  "Form monic cubics and quartics from prescribed root multisets — including complex conjugate pairs and structured (geometric-progression, squared) multisets — using the $\\sigma$ census as the audit rather than long multiplication.",
+                  "Solve cubics by the factor theorem (rational-root hunt, divide, solve the quadratic quotient) and audit every claimed factorisation by Viète’s staircase: three sums, no division, every sign checked.",
+                  "Recognise the depressed cubic $x^3 + px + q$ reads ($\\sigma_1 = 0$, $\\sigma_2 = p$, $\\sigma_3 = -q$) and chapter 3’s roots of unity as banked ground the staircase re-prices."
+                ],
+                "prerequisites": [
+                  "aa-symmetric-reads-and-common-roots",
+                  "aa-how-many-roots-degree-n-n-roots"
+                ],
+                "sources": [
+                  "cengage-m2-02",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 22,
+                  "heading": 4,
+                  "equation": 6,
+                  "derivation": 2,
+                  "callout": 5,
+                  "figure": 3,
+                  "list": 3,
+                  "example": 7,
+                  "formula": 9,
+                  "terms": 1,
+                  "table": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "theorem": 2,
+                  "historical": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 10
+              },
+              {
+                "id": "aa-cardan-and-ferrari-the-cubic-and-quartic-solved",
+                "number": "8.4",
+                "title": "Cardan and Ferrari: the Cubic and Quartic, Solved",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8788,
+                "readMins": 44,
+                "concepts": [
+                  "the depressed cubic x = t − a/3",
+                  "Cardan’s substitution x = u + v with 3uv = −p",
+                  "the discriminant Δ = −4p³ − 27q²",
+                  "the three cases: Δ < 0, Δ = 0, Δ > 0",
+                  "the casus irreducibilis honesty",
+                  "Ferrari’s resolvent cubic",
+                  "the Sophie Germain special case",
+                  "numeric verification as the trust engine"
+                ],
+                "objectives": [
+                  "Depress any cubic $x^3 + ax^2 + bx + c$ by the substitution $x = t - \\tfrac{a}{3}$ — proving once and for all why the $t^2$ term dies — and read the depressed coefficients $p = b - \\tfrac{a^2}{3}$, $q = \\tfrac{2a^3}{27} - \\tfrac{ab}{3} + c$.",
+                  "Run Cardan’s substitution $x = u + v$ with $3uv = -p$ and derive the $u^3/v^3$ quadratic $t^2 + qt - \\tfrac{p^3}{27} = 0$ — the collapse that turns a cubic into a quadratic plus two cube roots.",
+                  "Classify the depressed cubic by the discriminant $\\Delta = -4p^3 - 27q^2$ and solve each case: $\\Delta < 0$ one real root with real cube roots; $\\Delta = 0$ a repeated root with the $\\tfrac{3q}{p}$, $-\\tfrac{3q}{2p}$ shortcut; $\\Delta > 0$ three real roots.",
+                  "Explain the casus irreducibilis honestly: when $\\Delta > 0$ all three roots are real, yet Cardan’s formula routes through COMPLEX cube roots — chapter 3’s De Moivre arithmetic cashed in full, with the Wantzel honesty that no real-radical route exists.",
+                  "Run Ferrari’s resolvent on a depressed quartic $y^4 + py^2 + qy + r$: derive the resolvent cubic $M^3 + 2pM^2 + (p^2 - 4r)M - q^2 = 0$, split the quartic into two quadratics, and handle the Sophie Germain and biquadratic special cases.",
+                  "Verify every solution numerically — substitute each claimed root back into its equation, compare against a bisection root, check the symmetric-function reads — because a formula is a claim, not a proof.",
+                  "Carry the depressed-cubic speed tools (the depression, the Δ classification, the numeric audit) into examination work even where the full Cardan machinery is not asked for."
+                ],
+                "prerequisites": [
+                  "aa-cubics-and-quartics-the-symmetric-functions",
+                  "aa-de-moivre-roots-of-unity-and-the-complex-loci"
+                ],
+                "sources": [
+                  "cengage-m2-02",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 20,
+                  "callout": 6,
+                  "heading": 5,
+                  "derivation": 4,
+                  "equation": 7,
+                  "example": 7,
+                  "table": 2,
+                  "terms": 1,
+                  "figure": 3,
+                  "list": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 10
+                },
+                "calloutTones": {
+                  "historical": 2,
+                  "insight": 1,
+                  "theorem": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 9
+              },
+              {
+                "id": "aa-transformation-of-equations",
+                "number": "8.5",
+                "title": "Transformation of Equations",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 7618,
+                "readMins": 38,
+                "concepts": [
+                  "roots increased: P(x − h) and the shift law",
+                  "roots multiplied: the scaling law",
+                  "roots inverted: xⁿP(1/x) and the inversion law",
+                  "the diminished-roots craft",
+                  "transformed reads: squares and shifts of prescribed roots",
+                  "loss of root by cancellation",
+                  "extraneous roots by domain expansion",
+                  "the equivalence discipline"
+                ],
+                "objectives": [
+                  "Form, on sight, the equation whose roots are the roots of $P(x) = 0$ each increased or decreased by $h$ — the shift law $P(x-h) = 0$ derived, sign-checked, and run on the chapter witness $x^3-6x^2+11x-6$.",
+                  "Form the equation whose roots are the old roots multiplied by $k$ or inverted to $1/r_i$ — the scaling law $k^nP(x/k) = 0$ and the inversion law $x^nP(1/x) = 0$, both derived and verified on engine-pinned witnesses.",
+                  "Use the diminished-roots craft to turn hard cubics transparent — shifting the roots by $a/3$ — the increase by $a/3$, a decrease exactly when $a < 0$ — kills the $x^2$ term, which is exactly Cardan's depression of lesson 8.4: one engine in two costumes.",
+                  "Read transformed equations off prescribed roots — squares of roots, shifts of roots, and the general shift-coefficient law for $x^3+ax^2+bx+c$ — without expanding anything but the law itself.",
+                  "Audit every solve for LOST roots: recognise the cancellation of a common factor as a one-way door that drops the factor's roots, and carry those roots forward instead.",
+                  "Audit every solve for EXTRANEOUS roots: recognise squaring and domain expansion as the opposite one-way door, and test every candidate in the original equation before declaring it a root.",
+                  "State the equivalence discipline: a transformation is safe exactly when it is reversible in both directions — and know which of the standard moves are not reversible."
+                ],
+                "prerequisites": [
+                  "aa-cardan-and-ferrari-the-cubic-and-quartic-solved",
+                  "aa-cubics-and-quartics-the-symmetric-functions"
+                ],
+                "sources": [
+                  "cengage-m2-02",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 24,
+                  "heading": 4,
+                  "callout": 4,
+                  "terms": 1,
+                  "derivation": 4,
+                  "equation": 9,
+                  "example": 6,
+                  "figure": 3,
+                  "table": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 9
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 4
+              },
+              {
+                "id": "aa-reciprocal-equations",
+                "number": "8.6",
+                "title": "Reciprocal Equations",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8710,
+                "readMins": 44,
+                "concepts": [
+                  "palindromic (reciprocal) coefficients",
+                  "the substitution t = x + 1/x",
+                  "the t-ladder: x² + 1/x² = t² − 2 and beyond",
+                  "even degree: the quadratic-in-t reduction",
+                  "odd degree: the guaranteed root",
+                  "anti-palindromic equations",
+                  "roots in reciprocal pairs",
+                  "the GP-root and roots-of-unity cross-refs"
+                ],
+                "objectives": [
+                  "Recognise palindromic (reciprocal) and anti-palindromic coefficient structure on sight — read the row backwards and forwards — and say immediately which guaranteed root an odd degree carries.",
+                  "Execute the t-reduction for even degrees: divide by the middle power, pair the mirrored terms, substitute $t = x + \\tfrac{1}{x}$, and collapse a degree-$2n$ equation to degree $n$ — the quartic to a quadratic in $t$, the sextic to a cubic in $t$.",
+                  "Handle odd degrees by the guaranteed-root laws: prove that every odd palindromic equation has $x = -1$ as a root and every odd anti-palindromic equation has $x = 1$, then reduce and finish.",
+                  "Use the t-ladder fluently: $x^2 + \\tfrac{1}{x^2} = t^2 - 2$, $x^3 + \\tfrac{1}{x^3} = t^3 - 3t$, $x^4 + \\tfrac{1}{x^4} = t^4 - 4t^2 + 2$ — and generate further rungs by the recurrence $L_n = tL_{n-1} - L_{n-2}$.",
+                  "Prove the reciprocal-pair law — the roots of a palindromic equation come in pairs $r, \\tfrac{1}{r}$ — and read the total product $\\sigma_n = 1$ as 8.3's Viète certificate of it.",
+                  "Connect the structure to its neighbours: the roots of unity of chapter 3 (the quintic $x^5 + x^4 + x^3 + x^2 + x + 1 = 0$ is the sixth roots of unity except $1$; $x^4 + 1 = 0$ runs the eighth roots), and the GP-root cubics of lesson 8.3 ($\\sigma_2^3 = \\sigma_1^3 \\sigma_3$).",
+                  "Apply the return trip honestly: solve $x^2 - tx + 1 = 0$ for EACH root $t$, never forgetting that one $t$ buys two $x$'s, and use the reality gate $|t| \\geq 2$ to census real against non-real roots before computing anything."
+                ],
+                "prerequisites": [
+                  "aa-transformation-of-equations",
+                  "aa-cubics-and-quartics-the-symmetric-functions"
+                ],
+                "sources": [
+                  "cengage-m2-02",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 20,
+                  "figure": 3,
+                  "callout": 4,
+                  "list": 2,
+                  "terms": 1,
+                  "heading": 4,
+                  "equation": 7,
+                  "derivation": 4,
+                  "example": 7,
+                  "table": 1,
+                  "formula": 11,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 8
+              },
+              {
+                "id": "aa-theory-of-equations-unit-8-review",
+                "number": "8.R",
+                "title": "Unit 8 Completion Review",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9064,
+                "readMins": 45,
+                "concepts": [
+                  "the arc: the census, the lens, the staircase, the solve, the craft, the symmetry",
+                  "the decision map: which question, which engine",
+                  "the master law table: one row per engine with its validity seat and witness",
+                  "the witnesses, re-audited: one verified number per lesson",
+                  "the traps the hall sets",
+                  "the mixed bench: items that price several engines at once",
+                  "the handoffs: chapter 9 exponentials and logarithms, the synthesis chapter, the calculus doorstep"
+                ],
+                "objectives": [
+                  "hold the whole chapter in one hand — the wiring of its six engines (the census, the lens, the staircase, the solve, the craft, the symmetry), the promises made early and cashed late (8.1’s conjugate pairs cashed by 8.2’s censuses; 8.1’s multiplicity cashed by 8.3’s staircase; 8.3’s symmetric reads cashed by 8.4’s Cardan audits; 8.5’s shift law cashed backward by 8.4’s depression; 8.5’s inversion law cashed by 8.6’s palindrome; 8.2’s parity cashed by this review’s own census bench), and where each master law row lives.",
+                  "run the decision map at examination speed — how many roots (the census), what kind (the lens), what do the coefficients know (the staircase), solve it exactly (Cardan–Ferrari), move the roots (the craft), spot the symmetry (the palindrome) — and reach for the engine the answer points at.",
+                  "recall the consolidated laws without re-deriving them — each law, its validity seat and its trap — and rebuild any of them from its lesson’s engine when memory fails.",
+                  "solve mixed items that price several engines in one exhibit, and diagnose every miss back to its home lesson by the shape it wore.",
+                  "state the chapter’s honest boundaries — what was stated and not proved, which counts run over $\\mathbb{C}$ only, where the casus sends you — and the handoffs: chapter 9 \"Exponentials and Logarithms\", chapter 10 \"The Synthesis and the Doorstep\", and the calculus doorstep named, never taught here."
+                ],
+                "prerequisites": [
+                  "aa-how-many-roots-degree-n-n-roots",
+                  "aa-descartes-rule-of-signs",
+                  "aa-cubics-and-quartics-the-symmetric-functions",
+                  "aa-cardan-and-ferrari-the-cubic-and-quartic-solved",
+                  "aa-transformation-of-equations",
+                  "aa-reciprocal-equations"
+                ],
+                "sources": [
+                  "cengage-m2-02",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 16,
+                  "heading": 6,
+                  "figure": 2,
+                  "callout": 7,
+                  "table": 2,
+                  "list": 2,
+                  "equation": 5,
+                  "formula": 9,
+                  "derivation": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 1,
+                  "insight": 3,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 8
+              }
             ],
-            "lessons": [],
-            "words": 0
+            "words": 57332
           },
           {
             "number": 9,
@@ -51216,13 +51715,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 512,
-      "totalLines": 179387,
+      "totalLines": 180019,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5860,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 140726,
+        "src/data/library (content model + books)": 141358,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -76796,34 +77295,346 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "b1bcdc1e3c1d3aca35bdf04150448b1a8103d5e8",
+      "short": "b1bcdc1",
+      "date": "2026-11-21 08:17",
+      "message": "audit: ans-fundamental-theorem-of-arithmetic — A:1fig B:4sol C:2enrich+1catch",
+      "filesChanged": 7,
+      "insertions": 317,
+      "deletions": 28,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 19,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 17,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 25,
+          "del": 23
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch04.ts",
+          "add": 62,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-04.ts",
+          "add": 182,
+          "del": 5
+        }
+      ]
+    },
+    {
+      "sha": "d47099536259fff96c7c085028296dfb32faa995",
+      "short": "d470995",
+      "date": "2026-11-21 08:20",
+      "message": "audit: ans-fundamental-theorem-of-arithmetic — collision trail amendment (A:1 fig fix round recorded)",
+      "filesChanged": 2,
+      "insertions": 6,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "ce4d4a32850f5bc79a6b585259ff298c7dc89a7a",
+      "short": "ce4d4a3",
+      "date": "2026-11-21 09:02",
+      "message": "audit: ans-divisors-from-dna-divisor-counts — A:1fig B:5sol C:4enrich",
+      "filesChanged": 7,
+      "insertions": 340,
+      "deletions": 23,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 19,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 24,
+          "del": 22
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch04.ts",
+          "add": 71,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-04.ts",
+          "add": 199,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "ca78648b68621f0a7ab755870217a2ca0c4be9d4",
+      "short": "ca78648",
+      "date": "2026-11-21 09:17",
+      "message": "audit: ans-how-the-primes-are-distributed — A:1fig B:4sol C:2enrich",
+      "filesChanged": 7,
+      "insertions": 287,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 17,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch04.ts",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-04.ts",
+          "add": 194,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "c65869e7fff5cbd6ffa0413a1dd5582b884a5e8d",
+      "short": "c65869e",
+      "date": "2026-11-21 09:17",
+      "message": "run 118: AA ch.7 CLOSED COMPLETE — 7.5 'Binomial Coefficients at Work' + 7.6 'Binomial Applications and Approximations' + 7.R 'Unit 7 Completion Review' — SECOND v9.0 SWARM RUN (first three-agent shape; one deliverable each, orchestrator-integrated; 4-a's channel timed out but its part file landed complete and was audited+integrated directly): engines I 42 + K 30 green pre-prose (6 drafting slips caught), 7.5's ten fold obligations discharged (pins J 44), pins L 36 + M 38 + closed census Z 11 = verifier 512/512; tsc 0, lint 0 err, pack 175 lessons / 955,644 words; standing gates green; E2E x3 lessons x3 viewports green (quiz 5/5 live; one plain-title-rule catch fixed; generated page.js key-inheritance bug caught by the 1/5 live score); VLM 26-crop audit: 1 real defect fixed (7.R landing ring), 3 claims rejected by eye-verification; 13 figures incl. 6 solution figures (v9.0); m2-08 working copies deleted at unit completion; pointer -> run 119 opens ch. 8",
+      "filesChanged": 16,
+      "insertions": 3943,
+      "deletions": 912,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 844,
+          "del": 844
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 23,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 337,
+          "del": 32
+        },
+        {
+          "path": "scripts/e2e-aa-75.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-75.sh",
+          "add": 102,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-76.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-76.sh",
+          "add": 102,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-7R.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-7R.sh",
+          "add": 102,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch07.ts",
+          "add": 553,
+          "del": 8
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/book.ts",
+          "add": 14,
+          "del": 18
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-07.ts",
+          "add": 1706,
+          "del": 7
+        }
+      ]
+    },
+    {
+      "sha": "5e6c9ff641171773cd6d1d2b10c3af1c70631f64",
+      "short": "5e6c9ff",
+      "date": "2026-11-21 09:19",
+      "message": "chore(bookkeeping): run-118 push record (HEAD c65869e, ls-remote verified; the sibling-divergence rebase recorded)",
+      "filesChanged": 1,
+      "insertions": 2,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "84f0a9ec737050138126d117b2835a26b71487e7",
+      "short": "84f0a9e",
+      "date": "2026-11-21 11:26",
+      "message": "audit: ans-remainders-become-numbers-congruence-defined — A:2fig B:3sol C:3enrich",
+      "filesChanged": 7,
+      "insertions": 199,
+      "deletions": 31,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 15,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 30,
+          "del": 27
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 13,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-05.ts",
+          "add": 82,
+          "del": 4
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 277,
     "booksLive": 269,
-    "chaptersWritten": 40,
+    "chaptersWritten": 41,
     "chaptersInProgress": 0,
-    "lessonsWritten": 175,
-    "wordsAuthored": 955648,
-    "termsDefined": 1336,
-    "quizItems": 875,
-    "exerciseQuestions": 2350,
+    "lessonsWritten": 182,
+    "wordsAuthored": 1015067,
+    "termsDefined": 1389,
+    "quizItems": 910,
+    "exerciseQuestions": 2458,
     "blockTotals": {
-      "para": 2485,
-      "callout": 1135,
-      "heading": 997,
-      "list": 212,
-      "terms": 169,
-      "equation": 346,
-      "figure": 352,
-      "derivation": 399,
-      "table": 229,
-      "example": 1027,
-      "quiz": 175,
-      "exercises": 175,
-      "formula": 675,
-      "algorithm": 27
+      "para": 2631,
+      "callout": 1181,
+      "heading": 1029,
+      "list": 222,
+      "terms": 176,
+      "equation": 394,
+      "figure": 372,
+      "derivation": 418,
+      "table": 239,
+      "example": 1078,
+      "quiz": 182,
+      "exercises": 182,
+      "formula": 741,
+      "algorithm": 28
     }
   }
 }

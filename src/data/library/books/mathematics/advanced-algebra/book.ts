@@ -6,24 +6,26 @@ import { chapter04 } from './ch-04'
 import { chapter05 } from './ch-05'
 import { chapter06 } from './ch-06'
 import { chapter07 } from './ch-07'
+import { chapter08 } from './ch-08'
 
 /**
  * Advanced Algebra — the fourth book of the Mathematics shelf.
  *
- * STATUS: IN-PROGRESS — SEVEN chapters COMPLETE (chapters 1–7, each with
- * its unit review; chapter 7 'Induction and the Binomial Theorem' closed
- * complete by the run-118 swarm: 7.1–7.6 + 7.R — 44 written lessons in
- * all), chapters 8–10 planned (the remaining 16 planned lessons:
- * chapters 8–10: 6 + 6 + 4) authoring on the one-unit-at-a-time cadence
- * (run 110 closed chapter 3; the 2026-11-18 PARALLEL-SWARM RUN — owner
- * chat directive "launch multiple agents for authoring lessons" — closed
- * chapter 4 whole-unit; the 2026-11-20 swarm closed chapters 5's remainder
- * + chapter 6 whole-unit; the 2026-11-21 v9.0 SWARM RUNS (runs 117-118,
- * owner directive "use multiple agents or swarm of agents") authored
- * chapter 7: run 117 shipped 7.3 + 7.4, run 118 shipped 7.5 + 7.6 + 7.R
- * and closed the chapter, recorded in WORKLOG). Lesson ids use the `aa-`
- * prefix (verified unused across the library at promotion time; globally
- * unique, stable forever).
+ * STATUS: IN-PROGRESS — EIGHT chapters COMPLETE (chapters 1–8, each with
+ * its unit review; chapter 8 'The Theory of Equations' closed complete
+ * by the run-119 WHOLE-UNIT SWARM — lessons 8.1–8.6 + 8.R, seven parallel
+ * authoring agents — 51 written lessons in all), chapters 9–10 planned
+ * (the remaining 10 planned lessons: chapters 9–10: 6 + 4) authoring on
+ * the one-unit-at-a-time cadence (run 110 closed chapter 3; the 2026-11-18
+ * PARALLEL-SWARM RUN — owner chat directive "launch multiple agents for
+ * authoring lessons" — closed chapter 4 whole-unit; the 2026-11-20 swarm
+ * closed chapter 5's remainder + chapter 6 whole-unit; the 2026-11-21
+ * v9.0 SWARM RUNS (owner directive "use multiple agents or swarm of
+ * agents") authored chapter 7 (runs 117-118) and chapter 8 WHOLE-UNIT
+ * (run 119, the "launch multiple authoring agents" directive — seven
+ * parallel agents, one per lesson + the review, recorded in WORKLOG).
+ * Lesson ids use the `aa-` prefix (verified unused across the library
+ * at promotion time; globally unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Elementary
  * Algebra ended at the function doorstep — the input-output machine, its
@@ -120,23 +122,7 @@ const chapters: Chapter[] = [
   chapter05,
   chapter06,
   chapter07,
-  {
-    number: 8,
-    slug: 'theory-of-equations',
-    title: 'The Theory of Equations',
-    summary:
-      'The polynomial’s deepest algebra — Hall & Knight’s heartland, entered honestly. How many roots a degree-n equation truly has: n over the complex numbers (the fundamental theorem stated, not proved — with the honesty the platform owes its readers), multiplicities counted, and the conjugate-pair law for real coefficients derived from chapter 3’s algebra rather than asserted. Viète generalizes: the symmetric functions of a cubic’s and a quartic’s roots, the sum–sum-of-products–product staircase, and what symmetric reads survive when the roots are not nice. The chapter closes with the transformation craft: build the equation whose roots are the old roots shifted, scaled or inverted — the classic technique that turns hard cubics into transparent ones and reciprocal equations into quadratics in disguise.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'How Many Roots: Degree n, n Roots',
-      'Descartes\u2019 Rule of Signs',
-      'Cubics and Quartics: the Symmetric Functions',
-      'Cardan and Ferrari: the Cubic and Quartic, Solved',
-      'Transformation of Equations',
-      'Reciprocal Equations',
-    ],
-  },
+  chapter08,
   {
     number: 9,
     slug: 'exponentials-and-logarithms',
