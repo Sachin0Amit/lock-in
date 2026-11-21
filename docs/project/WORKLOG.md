@@ -7160,3 +7160,7 @@ Gates: static DOM gate 0 issues (all margins ≥8px); VLM PASS ×4 (all first-pa
 **Bookkeeping:** this WORKLOG entry + PROGRESS (phase → the first CS chapter CLOSED; awaiting → run 120 maths + CS RUN 3 opens ch. 2) + CS_AUTHORING_POINTER (lastCompleted → CS RUN 2; nextAction → CS RUN 3 opens ch.2 'Interacting with Your Computer' 2.1 + 2.2) + SOURCE_LOG (`cs-cf-web-ground` extended with the software-side pins + URL list) + WORK_INVENTORY regenerated + DETAILED_LOG row. New e2e pairs (2) whitelisted; the swarmCS1 .ts.txt records persist as provenance.
 
 **Push record (no token):** rides step (7) below.
+
+## 2026-11-21 — CS RUN 2 push record (no token)
+
+**Push:** first attempt rejected (remote advanced again: the sibling figure-audit job shipped `80b5b5c audit: ans-linear-congruences-glimpse-of-fermat` — ANS ch-05 enrichment; the job is evidently live again despite the earlier 'all sibling jobs disabled' note); reconciled per FIRST-SHIPPED-STANDS with a rebase (the one ledger-tail conflict in SOURCE_LOG.md resolved keep-both; the sibling's ch-05 additions merged cleanly with this run's duplicate-property gate repair — tsc re-verified 0 after the rebase). Rebased HEAD `c12108b` pushed via the one-time HTTPS PAT URL; anonymous ls-remote verified after push (refs/heads/main == `c12108b` == local HEAD). The PAT lived only inside the single fetch/push command URLs — never written to any file, config or log.
