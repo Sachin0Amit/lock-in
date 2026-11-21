@@ -1916,7 +1916,7 @@ export const chapter04: Chapter = {
   <g font-size="13" fill="currentColor" text-anchor="start">
     <text x="300" y="232">either margin: 195</text>
   </g>
-  <text x="280" y="258" font-size="14" fill="currentColor" text-anchor="middle" font-weight="600">σ(72) = 15 · 13 = 195 — the grid totalled along the rows or along the columns</text>
+  <text x="280" y="258" font-size="14" fill="currentColor" text-anchor="middle" font-weight="600">σ(72) = 15 · 13 = 195 — the grid totalled along either edge</text>
 </svg>`,
         },
         {
@@ -1924,6 +1924,20 @@ export const chapter04: Chapter = {
           tone: 'insight',
           title: 'σ splits across coprime factors — and only those',
           text: 'The product formula says more than “here is a shortcut”: it says $\\sigma$ is **multiplicative on coprime arguments**. If $\\gcd(a, b) = 1$, their DNAs share no prime, so $\\sigma(ab) = \\sigma(a)\\,\\sigma(b)$ — the series never interact. The engine checks it everywhere it can see: $\\sigma(8)\u03c3(9) = 15 \u22c5 13 = 195 = \\sigma(72)$, and every coprime pair with product $\\le 600$ agrees in the sweep. When the factors *do* share primes the split fails — $\\sigma(4)\u03c3(3) = 7 \u22c5 4 = 28$ but $\\sigma(12) = 28$ here only because $4$ and $3$ were coprime; $\\sigma(4)\u03c3(4) = 49 \u2260 \\sigma(16) = 31$. The formula never lies because it never needs the split: it always reads the *collected* DNA.',
+        },
+        {
+          kind: 'para',
+          text: 'The multiplicative reading answers a parity question examinations like: *when is $\\sigma(n)$ odd?* A product is odd only when every factor is odd, so $\\sigma(n)$ is odd exactly when every per-prime series is odd. On an odd prime $p$, the series $1 + p + \\cdots + p^a$ is a run of $a + 1$ odd terms — odd exactly when $a + 1$ is odd, that is, when $a$ is even. The prime $2$ never objects: its series $2^{a+1} - 1$ is odd for *every* $a$. So an odd $\\sigma(n)$ demands even exponents on every odd prime — $n = 2^a \\cdot m^2$ with $m$ odd — which makes $n$ a square when $a$ is even and twice a square when $a$ is odd.',
+        },
+        {
+          kind: 'example',
+          title: 'Reading parity off the DNA: σ(9), σ(18), σ(36) odd; σ(12) even',
+          steps: [
+            'Split, the instances: $9 = 3^2$, $18 = 2 \\cdot 3^2$, $36 = 2^2 \\cdot 3^2$, $12 = 2^2 \\cdot 3$.',
+            'Now, the odd-exponent test: $9$, $18$, $36$ carry even exponents on their odd prime — only $12$ carries an odd one ($3^1$).',
+            'So, the sums: $\\sigma(9) = 13$, $\\sigma(18) = 3 \\cdot 13 = 39$, $\\sigma(36) = 7 \\cdot 13 = 91$ — all odd; $\\sigma(12) = 7 \\cdot 4 = 28$ — even.',
+            'Hence $\\sigma(n)$ is odd exactly when $n$ is a square or twice a square — the sweep certifies it through 600.',
+          ],
         },
         { kind: 'heading', text: 'Perfect, abundant, deficient' },
         {
@@ -1970,12 +1984,51 @@ export const chapter04: Chapter = {
             'Take the proper sums: $s(220) = 504 - 220 = 284$ and $s(284) = 504 - 284 = 220$ — each number is exactly the sum of the other’s proper divisors.',
             'Hence 220 and 284 form an **amicable pair** — the engine re-lists 220’s proper divisors $1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110$, sums them to 284, and confirms the friendship both ways.',
           ],
+          figures: [
+            {
+              caption: 'The friendship loop: σ totals of 504 sit above both numbers, and each proper-divisor sum walks to the partner — s(220) = 284 rightward, s(284) = 220 back.',
+              svg: `
+<svg viewBox="0 0 560 252" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The amicable pair 220 and 284 drawn as a loop: sigma chips 504 over each number box, green arrow carrying s of 220 = 284 to the right, teal arrow carrying s of 284 = 220 back to the left">
+<text x="280" y="22" font-size="13" fill="currentColor" text-anchor="middle" font-weight="600">the amicable loop — each the sum of the other’s proper divisors</text>
+<rect x="42.0" y="30" width="176" height="32" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.1"/>
+<text x="130.0" y="50.5" font-size="13" fill="#92400e" text-anchor="middle" font-weight="600">σ(220) = 504</text>
+<rect x="342.0" y="30" width="176" height="32" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.1"/>
+<text x="430.0" y="50.5" font-size="13" fill="#92400e" text-anchor="middle" font-weight="600">σ(284) = 504</text>
+<rect x="70" y="108" width="120" height="58" rx="10" fill="#ffedd5" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="130.0" y="134" font-size="20" fill="currentColor" text-anchor="middle" font-weight="700">220</text>
+<text x="130.0" y="153" font-size="11.5" fill="currentColor" text-anchor="middle" font-weight="normal">2² · 5 · 11</text>
+<rect x="370" y="108" width="120" height="58" rx="10" fill="#ffedd5" stroke="#f59e0b" stroke-width="1.4"/>
+<text x="430.0" y="134" font-size="20" fill="currentColor" text-anchor="middle" font-weight="700">284</text>
+<text x="430.0" y="153" font-size="11.5" fill="currentColor" text-anchor="middle" font-weight="normal">2² · 71</text>
+<path d="M 196,114 C 220.0,88 340.0,88 360,114" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+<polygon points="362,116 371,111.5 371,120.5" fill="#16a34a"/>
+<text x="280.0" y="80" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="600">s(220) = 504 − 220 = 284</text>
+<path d="M 364,160 C 340.0,176 220.0,176 200,160" fill="none" stroke="#0f766e" stroke-width="1.6"/>
+<polygon points="202,158 193,153.5 193,162.5" fill="#0f766e"/>
+<text x="280.0" y="196" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="600">s(284) = 504 − 284 = 220</text>
+<text x="280" y="224" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal">220’s proper divisors: 1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110 — summed 284 ✓</text>
+<text x="280" y="244" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">each is exactly the sum of the other’s proper divisors</text>
+</svg>
+`,
+            },
+          ],
         },
         {
           kind: 'callout',
           tone: 'historical',
           title: 'A friendship two thousand years deep',
           text: 'The pair $(220, 284)$ is the smallest amicable pair and the only one known to the ancient Greeks — the Pythagorean tradition knew it and read it as a symbol of friendship. Nothing further turned up for over a millennium: around AD 850 the Baghdad mathematician **Thābit ibn Qurra** proved a general rule that manufactures amicable pairs (his rule regenerates 220/284 and produced the next known pair), and the thirteenth-century **al-Fārisī** — the very mathematician Lesson 4.2 credited with the first full existence proof of prime factorisation — sharpened the same amicable-number machinery. The amicable story and the fundamental-theorem story share a workshop: both grew out of divisor sums, centuries before either had a modern statement. Today tens of millions of amicable pairs are catalogued; whether infinitely many exist is open.',
+        },
+        {
+          kind: 'example',
+          title: 'Thābit’s rule, run at n = 2: the Greeks’ pair regenerated',
+          steps: [
+            'Split, the candidates: $p = 3 \\cdot 2^1 - 1 = 5$, $q = 3 \\cdot 2^2 - 1 = 11$, $r = 9 \\cdot 2^3 - 1 = 71$ — all three prime.',
+            'Now, the rule: whenever those three shapes are prime, the pair $(2^n \\cdot p \\cdot q,\\ 2^n \\cdot r)$ is amicable.',
+            'So, the pair at $n = 2$: $(4 \\cdot 5 \\cdot 11,\\ 4 \\cdot 71) = (220, 284)$ — exactly the pair above.',
+            'Take the check: $\\sigma(220) = \\sigma(284) = 504 = 220 + 284$ — the amicable condition, re-certified both ways.',
+            'Hence Thābit’s rule (c. AD 850) regenerates the smallest amicable pair centuries after the Greeks found it — and manufactures pairs they never knew.',
+          ],
         },
         {
           kind: 'para',
@@ -2062,6 +2115,44 @@ export const chapter04: Chapter = {
             'Take the sweep: the engine checked every $n < 60$ — none carries twelve divisors (the nearest rivals $48$ with $10$ and $40$ with $8$ confirm the gap).',
             'Hence **60** is the champion: $\\tau(60) = (2+1)(1+1)(1+1) = 12$ — big exponents on small primes, but a wide prime base beats tall towers.',
           ],
+          figures: [
+            {
+              caption: 'The shape tree for τ = 12: each factorisation of 12 dressed minimally, and the four-prime shape 3 · 2 · 2 lands on 60 — the smallest of the four.',
+              svg: `
+<svg viewBox="0 0 560 268" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A tree: root tau n = 12 branches into the four factorisations of 12 — 12, 6 by 2, 4 by 3, 3 by 2 by 2 — each dressed into 2048, 96, 72 and 60, with 60 ringed as the champion because 60, then 72, then 96, then 2048 rises in size">
+<text x="280" y="22" font-size="13" fill="currentColor" text-anchor="middle" font-weight="600">the four shapes of k = 12, dressed minimally — 60 wins</text>
+<rect x="214.0" y="36" width="132" height="30" rx="15" fill="#ffedd5" stroke="#f59e0b" stroke-width="1.3"/>
+<text x="280" y="56" font-size="14" fill="currentColor" text-anchor="middle" font-weight="700">τ(n) = 12</text>
+<path d="M 280,66 L 70,108" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<path d="M 280,66 L 210,108" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<path d="M 280,66 L 350,108" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<path d="M 280,66 L 490,108" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<rect x="24.0" y="108" width="92" height="28" rx="6" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<text x="70" y="127" font-size="13" fill="currentColor" text-anchor="middle" font-weight="normal">12</text>
+<rect x="164.0" y="108" width="92" height="28" rx="6" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<text x="210" y="127" font-size="13" fill="currentColor" text-anchor="middle" font-weight="normal">6 · 2</text>
+<rect x="304.0" y="108" width="92" height="28" rx="6" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<text x="350" y="127" font-size="13" fill="currentColor" text-anchor="middle" font-weight="normal">4 · 3</text>
+<rect x="444.0" y="108" width="92" height="28" rx="6" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<text x="490" y="127" font-size="13" fill="currentColor" text-anchor="middle" font-weight="normal">3 · 2 · 2</text>
+<path d="M 70,136 L 70,164" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<path d="M 210,136 L 210,164" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<path d="M 350,136 L 350,164" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<path d="M 490,136 L 490,164" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<rect x="12.0" y="164" width="116" height="30" rx="6" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<text x="70" y="184" font-size="13" fill="currentColor" text-anchor="middle" font-weight="normal">2¹¹ = 2048</text>
+<rect x="152.0" y="164" width="116" height="30" rx="6" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<text x="210" y="184" font-size="13" fill="currentColor" text-anchor="middle" font-weight="normal">2⁵ · 3 = 96</text>
+<rect x="292.0" y="164" width="116" height="30" rx="6" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<text x="350" y="184" font-size="13" fill="currentColor" text-anchor="middle" font-weight="normal">2³ · 3² = 72</text>
+<rect x="432.0" y="164" width="116" height="30" rx="6" fill="#fef3c7" stroke="#166534" stroke-width="2.0"/>
+<text x="490" y="184" font-size="13" fill="currentColor" text-anchor="middle" font-weight="700">2² · 3 · 5 = 60</text>
+<text x="490" y="212" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">champion</text>
+<text x="280" y="238" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">60 &lt; 72 &lt; 96 &lt; 2048 — a wide prime base beats tall towers</text>
+</svg>
+`,
+            },
+          ],
         },
         {
           kind: 'table',
@@ -2098,6 +2189,12 @@ export const chapter04: Chapter = {
         {
           kind: 'para',
           text: 'The second inversion is the trap-question: *does any factorial end in exactly $K$ zeros?* The census climbs by more than one at multiples of $5^2$, so some counts are **skipped** entirely. The classic: at $n = 125 = 5^3$, the new term donates three fives at once — $v_5(124!) = 24 + 4 = 28$ but $v_5(125!) = 25 + 5 + 1 = 31$. The counts $29$ and $30$ are never achieved: no factorial ends in exactly 29 or exactly 30 zeros (swept to 600, and the pattern repeats past every power of five). A “closest factorial” answer must respect the skips — the census, not the intuition, decides which zero counts exist.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The skips repeat past every power of five',
+          text: 'The jump at $125$ is not a one-off — every power $5^k$ donates $k$ fives at once and skips $k - 1$ zero counts. At $625 = 5^4$ the census climbs $v_5(624!) = 152 \\to v_5(625!) = 156$: the counts $153$, $154$, $155$ never occur (swept to 625). A “closest factorial” answer must always check the local jump before claiming a zero count exists.',
         },
         {
           kind: 'table',
@@ -2193,6 +2290,30 @@ export const chapter04: Chapter = {
                     'Hence 12 is **abundant** — the smallest abundant number, as the sweep confirms.',
                   ],
                   answer: 'σ(12) = 28 > 24 — abundant',
+                  figures: [
+                    {
+                      caption: 'Each divisor of 12 is a rectangle side: the pairs 1 × 12, 2 × 6, 3 × 4 drawn to scale with area 12 throughout — six divisors in three pairs, and σ(12) = 28 oversums 24.',
+                      svg: `
+<svg viewBox="0 0 560 244" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three area-12 rectangles drawn to scale — 1 by 12, 2 by 6 and 3 by 4 — with each side labelled by its divisor; the six divisors 1 2 3 4 6 12 pair up and sum to 28, more than 2n = 24, so 12 is abundant">
+<text x="280" y="22" font-size="13" fill="currentColor" text-anchor="middle" font-weight="600">every divisor of 12 is a rectangle side — area 12 throughout</text>
+<rect x="40.0" y="158.0" width="120.0" height="10.0" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+<text x="100" y="148.0" font-size="13.5" fill="#92400e" text-anchor="middle" font-weight="700">1 × 12</text>
+<text x="100" y="184" font-size="11.5" fill="#0f766e" text-anchor="middle" font-weight="normal">12</text>
+<text x="170.0" y="162.0" font-size="11.5" fill="#0f766e" text-anchor="middle" font-weight="normal">1</text>
+<rect x="220.0" y="148.0" width="60.0" height="20.0" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+<text x="250" y="138.0" font-size="13.5" fill="#92400e" text-anchor="middle" font-weight="700">2 × 6</text>
+<text x="250" y="184" font-size="11.5" fill="#0f766e" text-anchor="middle" font-weight="normal">6</text>
+<text x="290.0" y="157.0" font-size="11.5" fill="#0f766e" text-anchor="middle" font-weight="normal">2</text>
+<rect x="380.0" y="138.0" width="40.0" height="30.0" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+<text x="400" y="128.0" font-size="13.5" fill="#92400e" text-anchor="middle" font-weight="700">3 × 4</text>
+<text x="400" y="184" font-size="11.5" fill="#0f766e" text-anchor="middle" font-weight="normal">4</text>
+<text x="430.0" y="152.0" font-size="11.5" fill="#0f766e" text-anchor="middle" font-weight="normal">3</text>
+<path d="M 40,168 L 520,168" fill="none" stroke="currentColor" stroke-width="0.8"/>
+<text x="280" y="206" font-size="12.5" fill="currentColor" text-anchor="middle" font-weight="normal">the six divisors 1, 2, 3, 4, 6, 12 — three pairs, each multiplying to 12</text>
+<text x="280" y="232" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">σ(12) = 1 + 2 + 3 + 4 + 6 + 12 = 28 > 24 = 2n — abundant</text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Classify 15 using the canonical form and the σ formula.',
@@ -2240,6 +2361,48 @@ export const chapter04: Chapter = {
                     'Hence $\\operatorname{HCF} \u00b7 \\operatorname{LCM} = ab$: the min–max identity, working.',
                   ],
                   answer: 'HCF = 6, LCM = 36, 6 · 36 = 216 = 12 · 18',
+                  figures: [
+                    {
+                      caption: 'The min–max duel on the exponent lines: dashed green rings take each minimum for the HCF, dashed teal rings take each maximum for the LCM — and min + max rebuilds the original exponent, so 6 · 36 = 216 = 12 · 18.',
+                      svg: `
+<svg viewBox="0 0 560 336" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two exponent lines, one for prime 2 and one for prime 3: amber dots mark 12 carrying exponents 2 then 1, teal dots mark 18 carrying 1 then 2; dashed green rings the minimum each time for the HCF, dashed teal rings the maximum for the LCM; HCF 6 times LCM 36 equals 216 equals 12 by 18">
+<text x="280" y="22" font-size="13" fill="currentColor" text-anchor="middle" font-weight="600">min + max = the original exponent — 12 and 18 on the exponent line</text>
+<rect x="60" y="36" width="150" height="28" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.1"/>
+<text x="135" y="55" font-size="13" fill="#92400e" text-anchor="middle" font-weight="600">12 = 2² · 3¹</text>
+<rect x="350" y="36" width="150" height="28" rx="6" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.1"/>
+<text x="425" y="55" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="600">18 = 2¹ · 3²</text>
+<text x="40" y="138" font-size="12.5" fill="currentColor" text-anchor="start" font-weight="600">prime 2</text>
+<path d="M 150,134 L 506,134" fill="none" stroke="currentColor" stroke-width="1.1"/>
+<polygon points="508,134 499,129.5 499,138.5" fill="currentColor"/>
+<path d="M 150,130 L 150,138" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<path d="M 260,130 L 260,138" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<path d="M 370,130 L 370,138" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<path d="M 480,130 L 480,138" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<circle cx="370" cy="134" r="6" fill="#f59e0b"/>
+<circle cx="260" cy="134" r="6" fill="#0f766e"/>
+<circle cx="260" cy="134" r="13" fill="none" stroke="#16a34a" stroke-width="1.4" stroke-dasharray="4 2.5"/>
+<circle cx="370" cy="134" r="13" fill="none" stroke="#0f766e" stroke-width="1.4" stroke-dasharray="4 2.5"/>
+<text x="370" y="162" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal">12 carries 2</text>
+<text x="260" y="162" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal">18 carries 1</text>
+<text x="40" y="232" font-size="12.5" fill="currentColor" text-anchor="start" font-weight="600">prime 3</text>
+<path d="M 150,228 L 506,228" fill="none" stroke="currentColor" stroke-width="1.1"/>
+<polygon points="508,228 499,223.5 499,232.5" fill="currentColor"/>
+<path d="M 150,224 L 150,232" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<path d="M 260,224 L 260,232" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<path d="M 370,224 L 370,232" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<path d="M 480,224 L 480,232" fill="none" stroke="currentColor" stroke-width="1.0"/>
+<circle cx="260" cy="228" r="6" fill="#f59e0b"/>
+<circle cx="370" cy="228" r="6" fill="#0f766e"/>
+<circle cx="260" cy="228" r="13" fill="none" stroke="#16a34a" stroke-width="1.4" stroke-dasharray="4 2.5"/>
+<circle cx="370" cy="228" r="13" fill="none" stroke="#0f766e" stroke-width="1.4" stroke-dasharray="4 2.5"/>
+<text x="260" y="256" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal">12 carries 1</text>
+<text x="370" y="256" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal">18 carries 2</text>
+<text x="280" y="182" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal">green ring = min → HCF · teal ring = max → LCM</text>
+<text x="280" y="302" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="600">HCF = 2¹ · 3¹ = 6 · LCM = 2² · 3² = 36</text>
+<text x="280" y="324" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">6 · 36 = 216 = 12 · 18 ✓</text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'How many zeros end 200!?',
@@ -2250,6 +2413,30 @@ export const chapter04: Chapter = {
                     'Hence $200!$ ends in **49** zeros — three census terms, no calculator.',
                   ],
                   answer: '49 trailing zeros (40 + 8 + 1)',
+                  figures: [
+                    {
+                      caption: 'The census bars for 200!: floors 40, 8, 1 drawn to true proportion, the 625 slot dashed empty — 40 + 8 + 1 = 49 trailing zeros.',
+                      svg: `
+<svg viewBox="0 0 560 244" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three amber bars of heights proportional to 40, 8 and 1 — the floors of 200 over 5, 25 and 125 — beside a dashed empty slot for 200 over 625 which closes the census; the total 40 + 8 + 1 = 49 trailing zeros">
+<text x="280" y="22" font-size="13" fill="currentColor" text-anchor="middle" font-weight="600">the Legendre census for 200! — three floors, then it closes</text>
+<path d="M 36,178 L 520,178" fill="none" stroke="currentColor" stroke-width="0.9"/>
+<rect x="48" y="50.0" width="72" height="128.0" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>
+<text x="84.0" y="42.0" font-size="13.5" fill="currentColor" text-anchor="middle" font-weight="700">40</text>
+<text x="84.0" y="196" font-size="11.5" fill="currentColor" text-anchor="middle" font-weight="normal">⌊200/5⌋</text>
+<rect x="168" y="152.4" width="72" height="25.6" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>
+<text x="204.0" y="144.4" font-size="13.5" fill="currentColor" text-anchor="middle" font-weight="700">8</text>
+<text x="204.0" y="196" font-size="11.5" fill="currentColor" text-anchor="middle" font-weight="normal">⌊200/25⌋</text>
+<rect x="288" y="174.8" width="72" height="3.2" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>
+<text x="324.0" y="166.8" font-size="13.5" fill="currentColor" text-anchor="middle" font-weight="700">1</text>
+<text x="324.0" y="196" font-size="11.5" fill="currentColor" text-anchor="middle" font-weight="normal">⌊200/125⌋</text>
+<rect x="408" y="170" width="72" height="8" rx="6" fill="none" stroke="currentColor" stroke-width="0.9" stroke-dasharray="4 2.5"/>
+<text x="444.0" y="196" font-size="11.5" fill="currentColor" text-anchor="middle" font-weight="normal">⌊200/625⌋</text>
+<text x="444.0" y="214" font-size="11" fill="currentColor" text-anchor="middle" font-weight="normal">625 > 200 — closed</text>
+<text x="280" y="240" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">40 + 8 + 1 = 49 zeros — the twos never bind</text>
+</svg>
+`,
+                    },
+                  ],
                 },
               ],
             },
@@ -2357,6 +2544,17 @@ export const chapter04: Chapter = {
                     'Hence the consecutive equal-$\\sigma$ pairs below 600 are **(14, 15)** with $\\sigma = 24$ and **(206, 207)** with $\\sigma = 312$ — the sweep decides, the formulas confirm.',
                   ],
                   answer: '(14, 15) both σ = 24; (206, 207) both σ = 312',
+                },
+                {
+                  q: 'The number 120 satisfies $\\sigma(120) = 3 \\cdot 120$. Verify this from the canonical form, confirm no smaller number manages it, and name the family such numbers belong to.',
+                  solution: [
+                    'Split, the DNA: $120 = 2^3 \\cdot 3 \\cdot 5$.',
+                    'Now, the series: $(1 + 2 + 4 + 8)(1 + 3)(1 + 5) = 15 \\cdot 4 \\cdot 6 = 360$.',
+                    'So, the comparison: $3 \\cdot 120 = 360$ — exact equality; the engine swept every $n < 120$ and found no other $\\sigma(n) = 3n$.',
+                    'Take the name: numbers with $\\sigma(n) = k n$ are **multiperfect of order $k$** — 120 is the smallest of order 3, with $\\tau(120) = 16$ divisors along for the ride.',
+                    'Hence 120 is **3-perfect**: the perfect family $\\sigma = 2n$ generalises to $\\sigma = kn$, and $6$, $28$, $496$ are the $k = 2$ charter members.',
+                  ],
+                  answer: 'σ(120) = 15 · 4 · 6 = 360 = 3 · 120 — multiperfect of order 3, the smallest',
                 },
               ],
             },

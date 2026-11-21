@@ -898,3 +898,21 @@ clean). RESUME_POINTER / PROGRESS / WORK_INVENTORY / DETAILED_LOG untouched
 3. **Accuracy catch (the exam callout)** — the quoted exam shape "n = 2^a 3^b has 12 divisors and n is a square, find a + b" was vacuous: τ = 12 is even, and this lesson's own L6 pairing theorem (τ odd ⟺ square) forbids it — no such n exists. The clause now teaches the trap (and the honest τ = 9 version: a = b = 2, n = 36, a + b = 4). Quiz keys and exercise answers untouched; the trap defuser is the lesson's own theorem.
 
 **Verification:** every new number pinned in scripts/verify-book2-ch04.ts section AS BEFORE any prose (verify-first): 392 passed / 0 failed, was 370; tsc --noEmit 0 project-wide; content pack re-run (v23) so the site serves the new figures; all five lesson figures DOM-gate 0 + VLM strict PASS (the fix rounds and their re-audits are logged in FIGURE_AUDIT_LOG.md).
+## 2026-11-21 — audit-bot fire 16:30 IST (job 538572) — ANS 4.3 ans-divisors-from-dna-divisor-counts: 5 solution figures + 4 enrichments
+
+**Pass B — solution visual aids (5 authored, all VLM strict PASS + DOM gate 0):**
+1. **example-2 (220, 284)** — the amicable friendship loop: σ(220) = σ(284) = 504 chips over the DNA boxes, s-arrows crossing both ways, the eleven-name proper-divisor list, verdict line. 1 fix round (verdict-line clip).
+2. **example-4 (smallest with 12 divisors)** — the shape tree: τ(n) = 12 → {12, 6·2, 4·3, 3·2·2} → {2048, 96, 72, 60}, champion 60. First-pass PASS.
+3. **L1-Q1 (σ(12), classify)** — the divisor-pair rectangles: 1×12, 2×6, 3×4 to scale on a shared baseline — every divisor of 12 is a rectangle side. 1 fix round (browser-gate label graze).
+4. **L2-Q2 (HCF/LCM of 12, 18)** — the min–max exponent duel: two exponent lines with amber/teal dots, green min rings → HCF, teal max rings → LCM, 6·36 = 216 = 12·18. 3 fix rounds.
+5. **L2-Q3 (zeros of 200!)** — the Legendre census bars: 40 : 8 : 1 at true proportion, the dashed 625 ghost slot. First-pass PASS.
+
+8 examples + 10 questions judged and refused with recorded reasons (see FIGURE_AUDIT_LOG.md).
+
+**Pass C — subtopic enrichments (4, authored into the existing lesson):**
+1. **σ-parity para + example** (after the coprime-split insight callout) — "when is σ(n) odd?" developed in the body: the odd-prime series is odd iff the exponent is even, the 2-series is odd always; the example reads σ(9) = 13, σ(18) = 39, σ(36) = 91 odd vs σ(12) = 28 even straight off the DNAs. The terms block had banked the theorem; the body now teaches it. Swept n ≤ 600 in verifier section AT.
+2. **Thābit's rule example** (after the friendship callout) — the historical callout named the rule; the example runs it at n = 2: p = 5, q = 11, r = 71 all prime → (2²·5·11, 2²·71) = (220, 284) — the Greeks' pair regenerated, σ-check re-certified both ways.
+3. **"The skips repeat past every power of five" insight callout** (after the skipped-counts para) — the 125 jump was the only skip instance; the callout adds the 625 = 5⁴ landing: v₅(624!) = 152 → v₅(625!) = 156, counts 153/154/155 never occur, and the k-fives-jump / (k−1)-skips law.
+4. **L6-Q2** (new question in the thin L6 level, 1 → 2 questions) — σ(120) = 3·120 multiperfect verification: 2³·3·5 → 15·4·6 = 360, sweep-certified smallest of order 3, the σ = kn family named with 6/28/496 as the k = 2 charter members.
+
+**Verification:** every new number pinned in scripts/verify-book2-ch04.ts section AT BEFORE any prose (verify-first): 423 passed / 0 failed, was 392 (one pin self-corrected mid-flight — v₂(200!) = 197, not 196); tsc --noEmit 0; pack v28; all six svgs expanded-DOM-gate 0; VLM strict PASS ×6 (fix rounds in FIGURE_AUDIT_LOG.md).

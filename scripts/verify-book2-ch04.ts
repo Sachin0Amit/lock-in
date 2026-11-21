@@ -2502,6 +2502,77 @@ for (let n = 2; n <= 100; n++) if (isPrimeDef(n)) primes100List.push(n)
   ok(36 === 2 ** 2 * 3 ** 2 && divisors(36).length === 9 && 2 + 2 === 4, 'AS: the solvable shape — (a+1)(b+1) = 9 gives a = b = 2, n = 36, a + b = 4')
 }
 
+/* ------------------------------------------------------------------ */
+/* (AT) audit-bot run 2026-11-21 (late fire) — 4.3 solution figures     */
+/*      + enrichments — verify-first: pinned BEFORE any prose           */
+/* ------------------------------------------------------------------ */
+{
+  const sigmaSum = (n: number): number => divisors(n).reduce((s, d) => s + d, 0)
+  const properSum = (n: number): number => sigmaSum(n) - n
+  const vp = (p: number, n: number): number => { let s = 0; for (let i = 1; p ** i <= n; i++) s += Math.floor(n / p ** i); return s }
+
+  // figure: the amicable friendship loop (4.3 example-2 solution figure)
+  ok(sigmaSum(220) === 504 && sigmaSum(284) === 504, 'AT: σ(220) = σ(284) = 504 — the equal totals the loop figure chips carry')
+  ok(properSum(220) === 284 && properSum(284) === 220, 'AT: s(220) = 284 and s(284) = 220 — each is the other’s proper-divisor sum, both arrow labels')
+  ok(factorList(220).join(',') === '2,2,5,11' && factorList(284).join(',') === '2,2,71', 'AT: the DNAs 220 = 2²·5·11 and 284 = 2²·71 behind the σ chips')
+  ok((1 + 2 + 4) * (1 + 5) * (1 + 11) === 504 && (1 + 2 + 4) * (1 + 71) === 504, 'AT: the series products 7·6·12 and 7·72 both land on 504')
+  ok(divisors(220).slice(0, -1).join(',') === '1,2,4,5,10,11,20,22,44,55,110', 'AT: 220’s proper divisor list — eleven names summing to 284')
+
+  // enrichment: Thābit’s rule at n = 2 regenerates (220, 284)
+  const p2 = 3 * 2 ** 1 - 1, q2 = 3 * 2 ** 2 - 1, r2 = 9 * 2 ** 3 - 1
+  ok(p2 === 5 && q2 === 11 && r2 === 71, 'AT: Thābit’s triple at n = 2 is (p, q, r) = (5, 11, 71)')
+  ok([p2, q2, r2].every((v) => isPrimeDef(v)), 'AT: all three Thābit candidates are prime — the rule’s hypothesis holds at n = 2')
+  ok(2 ** 2 * p2 * q2 === 220 && 2 ** 2 * r2 === 284, 'AT: the rule’s pair (2ⁿ·p·q, 2ⁿ·r) = (220, 284) — the Greeks’ pair regenerated')
+  ok(sigmaSum(220) === 220 + 284 && sigmaSum(284) === 220 + 284, 'AT: σ(220) = σ(284) = 504 = 220 + 284 — the amicable condition both ways')
+
+  // figure: the shape tree for k = 12 (4.3 example-4 solution figure)
+  const shapes12: Array<[string, number]> = [['2¹¹', 2 ** 11], ['2⁵·3', 2 ** 5 * 3], ['2³·3²', 2 ** 3 * 3 ** 2], ['2²·3·5', 2 ** 2 * 3 * 5]]
+  ok(shapes12.map(([, v]) => v).join(',') === '2048,96,72,60', 'AT: the four dressed instances of the 12-shapes — 2048, 96, 72, 60')
+  ok(shapes12.every(([, v]) => divisors(v).length === 12), 'AT: every dressed instance carries exactly twelve divisors — each shape honest')
+  ok(60 < 72 && 72 < 96 && 96 < 2048, 'AT: the champion order 60 < 72 < 96 < 2048 — the tree’s footer line')
+  let first12 = 0
+  for (let n = 1; n <= 60; n++) if (divisors(n).length === 12 && first12 === 0) first12 = n
+  ok(first12 === 60, 'AT: the sweep — no n < 60 carries twelve divisors; 60 is the first occurrence')
+
+  // figure: the divisor-pair rectangles of 12 (L1-Q1 solution figure)
+  ok([[1, 12], [2, 6], [3, 4]].every(([d, e]) => d * e === 12), 'AT: the three factor pairs drawn as area-12 rectangles — 1×12, 2×6, 3×4')
+  ok(divisors(12).join(',') === '1,2,3,4,6,12' && divisors(12).length === 6, 'AT: the six divisors of 12 — the rectangle edges, read off')
+  ok(sigmaSum(12) === 28 && 2 * 12 === 24 && 28 > 24, 'AT: σ(12) = 28 > 24 = 2n — the abundant verdict the figure footer states')
+
+  // figure: the min–max exponent duel (L2-Q2 solution figure)
+  ok(12 === 2 ** 2 * 3 ** 1 && 18 === 2 ** 1 * 3 ** 2, 'AT: the two DNAs on the common prime list — 12 = 2²·3¹, 18 = 2¹·3²')
+  ok(Math.min(2, 1) === 1 && Math.max(2, 1) === 2 && Math.min(1, 2) === 1 && Math.max(1, 2) === 2, 'AT: the min/max reads — (2,1) and (1,2) both give min 1, max 2')
+  ok(2 ** 1 * 3 ** 1 === 6 && 2 ** 2 * 3 ** 2 === 36 && 6 * 36 === 216 && 12 * 18 === 216, 'AT: HCF 2¹·3¹ = 6, LCM 2²·3² = 36, 6·36 = 216 = 12·18 — the product rule closes')
+
+  // figure: the Legendre census bars for 200! (L2-Q3 solution figure)
+  ok(Math.floor(200 / 5) === 40 && Math.floor(200 / 25) === 8 && Math.floor(200 / 125) === 1, 'AT: the three census terms ⌊200/5⌋ = 40, ⌊200/25⌋ = 8, ⌊200/125⌋ = 1')
+  ok(40 + 8 + 1 === 49 && Math.floor(200 / 625) === 0, 'AT: 40 + 8 + 1 = 49 zeros, and 625 > 200 closes the census')
+  ok(vp(5, 200) === 49 && vp(2, 200) === 197 && 197 > 49, 'AT: the engine cross-check v₅(200!) = 49 and v₂(200!) = 197 (100+50+25+12+6+3+1) — the twos never bind')
+
+  // enrichment: σ-parity — odd exactly on squares and twice-squares, swept n ≤ 600
+  let parityOk = true
+  for (let n = 1; n <= 600; n++) {
+    const isSq = isqrt(n) ** 2 === n
+    const isTwiceSq = n % 2 === 0 && isqrt(n / 2) ** 2 === n / 2
+    if ((sigmaSum(n) % 2 === 1) !== (isSq || isTwiceSq)) parityOk = false
+  }
+  ok(parityOk, 'AT: swept n ≤ 600 — σ(n) odd ⇔ n is a square or twice a square, exactly as the enrichment states')
+  ok(sigmaSum(9) === 13 && sigmaSum(18) === 39 && sigmaSum(36) === 91 && sigmaSum(12) === 28, 'AT: the instances — σ(9) = 13, σ(18) = 39, σ(36) = 91 all odd; σ(12) = 28 even')
+
+  // enrichment: the skip pattern repeats past 625 = 5⁴
+  ok(vp(5, 624) === 152 && vp(5, 625) === 156, 'AT: v₅(624!) = 152 and v₅(625!) = 156 — the four-five jump at 625 = 5⁴')
+  ok([153, 154, 155].every((k) => { for (let n = 1; n <= 625; n++) if (vp(5, n) === k) return false; return true }), 'AT: zero counts 153, 154, 155 are never achieved by any n! up to 625 — three skips, one more than 125’s two')
+  ok(vp(5, 124) === 28 && vp(5, 125) === 31, 'AT: the 125 reference — jump 28 → 31 donates three, skips two (29, 30)')
+
+  // enrichment (L6-Q2): 120 is multiperfect of order 3 — σ(120) = 3·120
+  ok(120 === 2 ** 3 * 3 * 5, 'AT: 120 = 2³·3·5 — the canonical form the question verifies from')
+  ok(sigmaSum(120) === (1 + 2 + 4 + 8) * (1 + 3) * (1 + 5) && sigmaSum(120) === 360 && 3 * 120 === 360, 'AT: σ(120) = 15·4·6 = 360 = 3·120 — the multiperfect verdict')
+  ok(divisors(120).length === 16, 'AT: τ(120) = (3+1)(1+1)(1+1) = 16 — the divisor count alongside')
+  let first3 = 0
+  for (let n = 1; n <= 120; n++) if (sigmaSum(n) === 3 * n && first3 === 0) first3 = n
+  ok(first3 === 120, 'AT: the sweep — no n < 120 satisfies σ(n) = 3n; 120 is the smallest 3-perfect number')
+}
+
 console.log(`\n=== RESULT: ${pass} passed, ${fail} failed ===`)
 
 if (fail > 0) {

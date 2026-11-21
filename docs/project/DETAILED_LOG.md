@@ -3586,3 +3586,22 @@ The owner directed the comprehensive double-layer pass. Layer 1 (drive TOC): the
 - Gates: expanded DOM gate 0 on all 5 svgs (39/29/8/12/18 texts) after each fix round · VLM strict PASS ×5 · tsc --noEmit exit 0 project-wide · lib:pack v23 verify PASS · lesson route 200.
 - Dark-mode note: the cascade's light-ink-on-cream dark-sheet variant flagged by the VLM was re-classified audit-method (the renderer pins bg-[#fffdf5] + text-[#1c1917] with no dark variant — blocks.tsx verified); one REAL margin defect it surfaced was fixed (796 → 788 anchor).
 - Main-AI-owned files untouched (RESUME_POINTER/PROGRESS/WORK_INVENTORY/TOC_FOLD_LEDGER/ENHANCEMENT_POINTER); audit-state.json bumped outside the repo (lastAuditedLessonId → ans-fundamental-theorem-of-arithmetic).
+## 2026-11-21 — audit-bot fire 16:30 IST (job 538572) — ANS 4.3 ans-divisors-from-dna-divisor-counts
+
+- Files touched: src/data/library/books/mathematics/arithmetic-number-systems/ch-04.ts (lesson 4.3 only), scripts/verify-book2-ch04.ts (section AT), docs (this log, FIGURE_AUDIT_LOG, ENHANCEMENT_LOG, WORKLOG, FIGURE_AUDIT_QUEUE.json). No AI images (SOURCE_LOG unchanged); main-AI-owned files untouched.
+- Pass A (1 figure): body "divisor lattice of 72" — VLM round 1 FAIL (bottom line clipped both edges; values 1..72 + sums 13/26/52/104/15/45/135/195 all verified correct); fix-in-SVG footer "σ(72) = 15 · 13 = 195 — the grid totalled along either edge"; re-audit PASS light+dark; DOM 0 (29 texts).
+- Pass B (5 solution figures; coordinates computed from constants in a generator script, never hand-placed):
+  1. example-2 figures[0] "amicable friendship loop" (560×252) — σ chips 504, s-arrows, proper-divisor list; round 1: verdict clip → shortened; PASS.
+  2. example-4 figures[0] "shape tree k = 12" (560×268) — root τ=12 → 4 shapes → 4 dressed instances, champion 60; PASS first time.
+  3. L1-Q1 figures[0] "divisor-pair rectangles of 12" (560×244) — 1×12/2×6/3×4 to scale, sides labeled; 720-render scale artifact re-classified (1:1 render measured exact); browser gate caught "1" grazing the baseline → lifted y+h/2−1; PASS.
+  4. L2-Q2 figures[0] "min–max exponent duel" (560×336) — 2 lanes, amber/teal dots, green/teal dashed rings, compact legend; rounds: left-edge clip → stack respacing → legend one-line; PASS.
+  5. L2-Q3 figures[0] "Legendre census bars 200!" (560×244) — 40/8/1 proportional, ghost 625 slot; PASS first time.
+- Pass C (4 enrichments INTO the existing lesson; no new lesson, no block renumbering):
+  1. para + example "Reading parity off the DNA" — σ-parity (odd ⟺ square or twice-square) taught in the body; instances 9/18/36/12; swept n ≤ 600.
+  2. example "Thābit's rule, run at n = 2" — p = 5, q = 11, r = 71 prime → (220, 284) regenerated; σ-check 504 = 220 + 284.
+  3. insight callout "The skips repeat past every power of five" — 625 = 5⁴: 152 → 156, skips 153/154/155; the k-jump/(k−1)-skip law.
+  4. exercises L6 second question — σ(120) = 3·120: 2³·3·5 → 15·4·6 = 360; sweep-certified smallest multiperfect of order 3; τ(120) = 16.
+- Verifier: section AT added BEFORE the prose (verify-first) — 31 ok() pins incl. four sweeps (σ-parity n ≤ 600; first-12-divisor sweep to 60; σ(n) = 3n sweep to 120; skips 153/154/155 sweep to 625): **423 passed / 0 failed** (was 392). One pin self-caught: v₂(200!) = 197 (100+50+25+12+6+3+1), first written as 196.
+- Gates: expanded DOM gate 0 on all 6 svgs after each fix round · VLM strict PASS ×6 · tsc --noEmit exit 0 project-wide · lib:pack v28 verify PASS · lesson route 200 · raw-backslash leak 0.
+- Audit-method artifacts (logged, zero content changes made for them): (1) the 720px PNG render of a 560-unit viewBox scales measurements ×1.286 — b3's first "scale violation" was exactly this; re-rendered 1:1 before judging; (2) offline glyph-width estimates differ from browser fonts — two grazes (b3 label/baseline, b4 carries/rings) caught ONLY by the browser DOM gate.
+- State bumped outside the repo (lastAuditedLessonId → ans-divisors-from-dna-divisor-counts).
