@@ -86,6 +86,15 @@ The gateway caps a run at ~2 hours — if fewer than ~35 minutes remain, do NOT 
 
 The visual-upgrade/figure-audit jobs may be disabled; if the lock `docs/project/.figure_upgrade_lock` is fresh (<45 min) or its figure changes sit uncommitted, wait up to 10 min then proceed; if stale, delete the lock, never revert its files, and `git add` your chapter files explicitly, never `git add -A`. As of 2026-11-21 all sibling jobs are disabled by API — the authoring job is the only live job and owns the run-end push.
 
+## THE TWO AUTHORING LANES (owner directive 2026-11-21: "every thing same but do authoring for computer science book create a corn job keep the old one and create new one just for cs")
+
+There are now TWO scheduled authoring jobs, one per shelf lane, both governed by THIS protocol (the HOW) and each by its own pointer (the WHAT):
+
+- **the maths job** (the original hourly job, firing at :50 IST) — its WHAT lives in `docs/project/RESUME_POINTER.json`; it owns the Mathematics-shelf books it has been authoring (currently Advanced Algebra).
+- **the cs job** (created by the owner directive, firing at :20 IST) — its WHAT lives in `docs/project/CS_AUTHORING_POINTER.json`; it authors the Computer Science shelf (44 planned books, registry order, `computer-fundamentals` first).
+
+Rules both lanes share, verbatim from this protocol: swarm authoring (one DISTINCT deliverable per agent, the orchestrator integrates/gates/ships), verify-first engines before prose, solution figures inside exercises, book-theory vision extraction, step-0 pull-first, FIRST-SHIPPED-STANDS on any collision, the time budget, and the run-end PAT push. The shared ledgers (WORKLOG/PROGRESS/SOURCE_LOG/DETAILED_LOG/WORK_INVENTORY) are APPENDED by both lanes — never forked. A lane never touches the other lane's in-flight lesson files; the pointer files decide which lane a fire serves (the payload's lane label decides when both somehow fire together).
+
 ## STANDING RULES
 
 No streak/gamification; original content only; lesson ids stable forever; one unit of one subject at a time; completeness > speed, accuracy > volume, never fabricate (label exam-style items honestly); if blocked (sandbox reset, server down): retry once, log in WORKLOG.md, stop — the next fire resumes.
