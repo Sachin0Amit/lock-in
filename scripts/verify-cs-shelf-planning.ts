@@ -4,20 +4,26 @@
  * do for computer science — same method, same detail style depth"). Mirrors
  * verify-math-shelf-planning.ts for the Computer Science shelf:
  *
- *  A. all 44 CS books load, status 'planned' (planning pass only)
+ *  A. all 44 CS books load, status 'planned' or 'in-progress' (the cs
+ *     authoring lane opened the shelf 2026-11-21 — CS RUN 1 opened
+ *     computer-fundamentals; every other book stays planned)
  *  B. per-book chapter + planned-lesson census printed; shelf totals pinned
  *     (364 chapters / 1222 planned lessons — grown by the 2026-11-15
  *     CS exam-topic coverage pass; mismatches FAIL below)
  *  C. every planned chapter: status 'planned', empty lessons array,
- *     plannedLessons >= 3, slugs unique within book, numbers 1..N
+ *     plannedLessons >= 3; chapters in progress: written + planned >= 3;
+ *     slugs unique within book, numbers 1..N
  *  D. planned-lesson titles non-trivial, unique within book
- *  E. the 44 lesson-id prefixes are unused across all WRITTEN lesson ids
- *     AND distinct from the Mathematics shelf's reserved prefixes
+ *  E. the 44 lesson-id prefixes are reserved across all WRITTEN lesson ids
+ *     AND distinct from the Mathematics shelf's reserved prefixes; 'cf-'
+ *     is now IN USE, owned by computer-fundamentals (every 'cf-' lesson id
+ *     must sit in that book)
  *  F. book ids globally unique; disciplines valid; accents [2, string]
  *  G. cross-reference/handoff language present in every book
  *  H. the survey evidence base exists and carries the 27/27 Drive census
  *     + every CS book id mentioned
- *  I. PLANNING-ONLY guarantee: zero written lessons in the whole CS shelf
+ *  I. authoring-era census: exactly 2 written lessons (CS RUN 1:
+ *     computer-fundamentals 1.1 + 1.2) — the pin grows with the cs lane
  */
 import { allBooks } from '../src/data/library'
 import { readFileSync } from 'fs'
@@ -73,7 +79,8 @@ const cs = allBooks.filter((b) => b.discipline === 'computer-science')
 ok(cs.length === 44, `44 CS books (got ${cs.length})`)
 ok(allBooks.length === 269, `library now 269 books: 28 math + 44 CS + 38 engineering + 16 humanities + 13 languages + 19 physics + 23 ECF + 10 chemistry + 23 biology + 19 medical-sciences + 36 arts-music (got ${allBooks.length})`)
 ok(CS_IDS.length === 44 && CS_PREFIXES.length === 44, 'the id/prefix rosters pin 44 entries each')
-ok(cs.every((b) => b.status === 'planned'), 'every CS book status planned')
+ok(cs.every((b) => b.status === 'planned' || b.status === 'in-progress'), 'every CS book status planned or in-progress')
+ok(cs.filter((b) => b.status === 'in-progress').map((b) => b.id).join(',') === 'computer-fundamentals', 'the only in-progress CS book is computer-fundamentals (CS RUN 1 opened it, 2026-11-21)')
 
 console.log('== B. the honest census (per book) ==')
 const census: Record<string, { chapters: number; plannedLessons: number }> = {}
@@ -94,9 +101,9 @@ ok(totPl === 1222, `shelf total 1222 planned lessons (got ${totPl})`)
 console.log('== C. planned-chapter hygiene ==')
 for (const b of cs) {
   for (const c of b.chapters) {
-    ok(c.status === 'planned', `${b.id} ch${c.number} status planned`)
-    ok(c.lessons.length === 0, `${b.id} ch${c.number} lessons empty`)
-    ok((c.plannedLessons?.length ?? 0) >= 3 || THIN_OK.has(`${b.id}:${c.number}`), `${b.id} ch${c.number} >= 3 plannedLessons (or THIN_OK)`)
+    ok(c.status === 'planned' || c.status === 'in-progress', `${b.id} ch${c.number} status planned or in-progress`)
+    ok(c.status === 'planned' ? c.lessons.length === 0 : c.lessons.length > 0, `${b.id} ch${c.number} lessons match status (planned -> empty; in-progress -> written)`)
+    ok((c.status === 'planned' ? (c.plannedLessons?.length ?? 0) : c.lessons.length + (c.plannedLessons?.length ?? 0)) >= 3 || THIN_OK.has(`${b.id}:${c.number}`), `${b.id} ch${c.number} >= 3 lessons written+planned (or THIN_OK)`)
     ok(c.slug.length > 3 && !/\s/.test(c.slug), `${b.id} ch${c.number} slug clean`)
     ok(c.summary.length > 200, `${b.id} ch${c.number} summary substantial (${c.summary.length} chars)`)
   }
@@ -119,7 +126,14 @@ for (const b of allBooks) for (const c of b.chapters) for (const l of c.lessons)
 const writtenSet = new Set(writtenIds)
 ok(writtenSet.size === writtenIds.length, `written lesson ids globally unique (${writtenIds.length})`)
 for (const p of CS_PREFIXES) {
-  ok(!writtenIds.some((id) => id.startsWith(p)), `CS prefix '${p}' unused by written lessons`)
+  if (p === 'cf-') {
+    const used = writtenIds.filter((id) => id.startsWith(p))
+    ok(used.length > 0, `CS prefix 'cf-' IN USE by the cs lane (computer-fundamentals, ${used.length} lessons)`)
+    const cfIds = cs.filter((b) => b.id === 'computer-fundamentals').flatMap((b) => b.chapters.flatMap((c) => c.lessons.map((l) => l.id)))
+    ok(used.every((id) => cfIds.includes(id)), `every 'cf-' lesson id sits in computer-fundamentals (ownership)`)
+  } else {
+    ok(!writtenIds.some((id) => id.startsWith(p)), `CS prefix '${p}' unused by written lessons (reserved for its book)`)
+  }
 }
 for (const p of MATH_RESERVED) {
   ok(!CS_PREFIXES.some((q) => q === p), `CS prefixes distinct from math's '${p}'`)
@@ -151,9 +165,9 @@ ok(survey.includes('27/27'), 'survey records the 27/27 Drive census')
 for (const id of CS_IDS) ok(survey.includes(id), `survey mentions ${id}`)
 ok(survey.length > 40_000, `survey substantial (${survey.length} chars)`)
 
-console.log('== I. planning-only guarantee ==')
+console.log('== I. the authoring-era census (the cs lane opened the shelf 2026-11-21) ==')
 const csWritten = cs.reduce((n, b) => n + b.chapters.reduce((m, c) => m + c.lessons.length, 0), 0)
-ok(csWritten === 0, 'zero written lessons in the whole CS shelf (planning pass only)')
+ok(csWritten === 2, 'exactly 2 written lessons in the CS shelf (CS RUN 1: computer-fundamentals 1.1 + 1.2) — the pin grows with the cs lane')
 
 // ---- summary ----
 console.log(`\nverify-cs-shelf-planning: ${pass} checks passed, ${fail} failed`)

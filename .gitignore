@@ -730,3 +730,10 @@ server.log
 !/scripts/e2e-aa-8R.sh
 !/scripts/e2e-aa-8R.page.js
 !/scripts/verify-book4-ch08.ts
+
+# CS RUN 1 (cf ch.1 swarm) — the cs job lane
+!/scripts/verify-cs-book1-ch01.ts
+!/scripts/e2e-cf-11.sh
+!/scripts/e2e-cf-11.page.js
+!/scripts/e2e-cf-12.sh
+!/scripts/e2e-cf-12.page.js

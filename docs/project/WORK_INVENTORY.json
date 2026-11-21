@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-21 18:01:15 (Asia/Kolkata)",
+  "generated": "2026-11-21 19:18:56 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -16727,7 +16727,7 @@
         "discipline": "computer-science",
         "level": "Absolute beginner → comfortable computer literacy",
         "description": "The zero-rung entry to the Computer Science shelf (its Foundation Mathematics). The information processing cycle priced on real machines; a census of hardware from desktops to embedded chips; interacting with computers — input and output devices and the first usability instincts; data representation as a first meeting (bits, codes, text/image/sound) that hands its theory to Arithmetic and Number Systems and Digital Logic Design; inside the box — motherboard, processor named honestly, the first memory hierarchy; the software families and the manager layer that Operating Systems will theorize; the network idea that Computer Networks takes over; files and digital space; and the synthesis with user-level security. Cross-references every core CS book as its doorstep; no prior knowledge assumed.",
-        "status": "planned",
+        "status": "in-progress",
         "chaptersPlanned": 8,
         "chaptersWritten": 0,
         "chapters": [
@@ -16735,16 +16735,144 @@
             "number": 1,
             "slug": "the-computing-machine",
             "title": "The Computing Machine",
-            "summary": "What a computer actually is: the information processing cycle (input, processing, output, storage) priced on real everyday examples, a census of the hardware families from desktops to phones and embedded chips, the software half of the machine, and the honest question this whole shelf answers — how does a box of switches come to seem thoughtful?",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "summary": "The human side of the machine: input devices (keyboards, pointing devices, scanners, cameras, microphones) and output devices (monitors and their panels, printers, speakers) with how each actually works, plus the first usability instincts — the chapter hands off to Human-Computer Interaction later on the shelf.",
+            "status": "in-progress",
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "The Basic Structure and Operation of the Computer",
-              "A Census of Hardware: Desktops to Embedded Chips",
               "Software: the Invisible Half of the Machine"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "cf-the-basic-structure-and-operation-of-the-computer",
+                "number": "1.1",
+                "title": "The Basic Structure and Operation of the Computer",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 7865,
+                "readMins": 39,
+                "concepts": [
+                  "the information processing cycle: input, processing, output, storage",
+                  "the five functional units of the von Neumann machine",
+                  "the stored-program concept: instructions are data",
+                  "the fetch–decode–execute cycle",
+                  "clock rate and cycle time",
+                  "word size and the bus",
+                  "address space: two to the power of the address lines"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can draw the information processing cycle and name its four stages in order.",
+                  "By the end of this lesson you can tell data from information, with the mark-list run as your witness.",
+                  "By the end of this lesson you can name the five functional units of the von Neumann machine and say what each unit does.",
+                  "By the end of this lesson you can explain the stored-program concept and why it turned the machine general-purpose.",
+                  "By the end of this lesson you can trace a three-instruction program through the fetch–decode–execute cycle, reading the program counter at every lap.",
+                  "By the end of this lesson you can convert a clock rate into a cycle time and an address-bus width into an address space."
+                ],
+                "prerequisites": [],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "para": 24,
+                  "heading": 11,
+                  "callout": 17,
+                  "example": 8,
+                  "figure": 3,
+                  "table": 2,
+                  "list": 3,
+                  "terms": 6,
+                  "derivation": 3,
+                  "algorithm": 1,
+                  "equation": 5,
+                  "quiz": 1,
+                  "formula": 6,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 12,
+                  "historical": 1,
+                  "insight": 2,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 23
+              },
+              {
+                "id": "cf-a-census-of-hardware-desktops-to-embedded-chips",
+                "number": "1.2",
+                "title": "A Census of Hardware: Desktops to Embedded Chips",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8248,
+                "readMins": 41,
+                "concepts": [
+                  "the hardware families census",
+                  "the four census axes: form factor, performance, power budget, dedication",
+                  "Moore's law as the growth census",
+                  "the five generations of computers",
+                  "the personal-computing arc",
+                  "the embedded world: microcontroller, SoC and ECU",
+                  "choosing a family honestly"
+                ],
+                "objectives": [
+                  "by the end you can classify any computing machine you meet into one of the eleven hardware families, and say WHY axis by axis",
+                  "by the end you can read the four census axes — form factor, performance, power budget and dedication — as a taxonomist’s checklist",
+                  "by the end you can compute Moore’s-law growth with $2^k$ and the battery-life arithmetic of a power budget",
+                  "by the end you can date the five generations and the personal-computing arc from ENIAC to the Raspberry Pi",
+                  "by the end you can tell an embedded microcontroller from a general-purpose machine, and count the ECUs hiding in a modern car"
+                ],
+                "prerequisites": [],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "para": 32,
+                  "heading": 8,
+                  "callout": 19,
+                  "figure": 3,
+                  "table": 3,
+                  "example": 9,
+                  "equation": 2,
+                  "derivation": 1,
+                  "list": 3,
+                  "algorithm": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "formula": 5,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 12,
+                  "insight": 2,
+                  "warn": 2,
+                  "historical": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 18
+              }
+            ],
+            "words": 16113
           },
           {
             "number": 2,
@@ -51714,14 +51842,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 512,
-      "totalLines": 180019,
+      "srcFilesTracked": 513,
+      "totalLines": 183782,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5860,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 141358,
+        "src/data/library (content model + books)": 145121,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -77607,6 +77735,163 @@
           "del": 4
         }
       ]
+    },
+    {
+      "sha": "fcbb7cc8ba80569b3cc18f746ebf8199c74d8b68",
+      "short": "fcbb7cc",
+      "date": "2026-11-21 12:31",
+      "message": "run 119: AA ch.8 'The Theory of Equations' authored COMPLETE WHOLE-UNIT by the SEVEN-AGENT SWARM (the 'launch multiple authoring agents' directive): 8.1-8.6 + 8.R, one agent per lesson; engines 408 green pre-prose (6 real spec slips caught), verifier 774/774; tsc 0, lint 0 err, pack 182 lessons / 1,014,673 words; standing gates green; E2E x7 lessons x3 viewports ALL GREEN (quiz 5/5 live; one plain-name-rule catch fixed); VLM 66-crop audit: 5 real defects fixed (8.4: curve frame-inset + Bombelli labels + Cardan audit box; 8.5: inversion-lane ticks + stacked chips), re-audited PASS both themes; the m2-02 module banked (3 vision bands), working copies deleted at unit completion; pointer -> run 120 opens ch. 9",
+      "filesChanged": 25,
+      "insertions": 8588,
+      "deletions": 95,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 15,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 22,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 871,
+          "del": 60
+        },
+        {
+          "path": "docs/research/AA_CH08_MASTER_PLAN.md",
+          "add": 116,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-81.page.js",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-81.sh",
+          "add": 102,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-82.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-82.sh",
+          "add": 102,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-83.page.js",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-83.sh",
+          "add": 104,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-84.page.js",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-84.sh",
+          "add": 104,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-85.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-85.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-86.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-86.sh",
+          "add": 102,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-8R.page.js",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-8R.sh",
+          "add": 105,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch08.ts",
+          "add": 2702,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/book.ts",
+          "add": 17,
+          "del": 31
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-08.ts",
+          "add": 3768,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "b14c3e6a570f1465b2f347b1e06632cfc4aaa54c",
+      "short": "b14c3e6",
+      "date": "2026-11-21 12:31",
+      "message": "chore(protocol): the CS LANE opens - owner directive 'every thing same but do authoring for computer science book create a corn job keep the old one and create new one just for cs': CS_AUTHORING_POINTER.json created (computer-fundamentals 1.1 + 1.2 at the cs job's first honored fire; registry order; internet fallback; shared ledgers), RUN_PROTOCOL.md amended with THE TWO AUTHORING LANES section (maths :50 + cs :20, one protocol, one-time-URL PAT push each); the maths job untouched; the cs cron job created after this push",
+      "filesChanged": 2,
+      "insertions": 17,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/CS_AUTHORING_POINTER.json",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/RUN_PROTOCOL.md",
+          "add": 9,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -77614,27 +77899,27 @@
     "booksPlannedBacklog": 277,
     "booksLive": 269,
     "chaptersWritten": 41,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 182,
-    "wordsAuthored": 1015067,
-    "termsDefined": 1389,
-    "quizItems": 910,
-    "exerciseQuestions": 2458,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 184,
+    "wordsAuthored": 1031180,
+    "termsDefined": 1430,
+    "quizItems": 920,
+    "exerciseQuestions": 2488,
     "blockTotals": {
-      "para": 2631,
-      "callout": 1181,
-      "heading": 1029,
-      "list": 222,
-      "terms": 176,
-      "equation": 394,
-      "figure": 372,
-      "derivation": 418,
-      "table": 239,
-      "example": 1078,
-      "quiz": 182,
-      "exercises": 182,
-      "formula": 741,
-      "algorithm": 28
+      "para": 2687,
+      "callout": 1217,
+      "heading": 1048,
+      "list": 228,
+      "terms": 183,
+      "equation": 401,
+      "figure": 378,
+      "derivation": 422,
+      "table": 244,
+      "example": 1095,
+      "quiz": 184,
+      "exercises": 184,
+      "formula": 752,
+      "algorithm": 30
     }
   }
 }

@@ -1,12 +1,19 @@
 import type { Book, Chapter } from '../../../types'
+import { chapter01 } from './ch-01'
 
 /**
  * Computer Fundamentals — the first book of the Computer Science shelf
  * (the shelf's own 'Foundation Mathematics').
  *
- * STATUS: PLANNED (CS full-shelf planning pass, 2026-11-15) — 8 chapters /
- * 27 planned lessons, zero written. Lesson ids will use the `cf-` prefix
- * (verified unused across all existing lesson ids).
+ * STATUS: IN-PROGRESS — chapter 1 OPEN (2 written lessons: 1.1 'The
+ * Basic Structure and Operation of the Computer' + 1.2 'A Census of
+ * Hardware: Desktops to Embedded Chips', authored by the CS RUN 1
+ * SWARM — the cs cron job's first honored fire, 2026-11-21, two
+ * parallel authoring agents; 1.3 + the unit review ride the next
+ * fires), 8 chapters / 25 planned lessons remain (1.3 + ch.2–8's 24).
+ * Lesson ids use the `cf-` prefix (verified unused across all
+ * existing lesson ids at the planning pass; globally unique, stable
+ * forever).
  *
  * POSITIONING (no-duplication contract): the binary/codes chapter defers
  * the full number-systems theory to Arithmetic and Number Systems and the
@@ -33,20 +40,7 @@ import type { Book, Chapter } from '../../../types'
  *   scripts/verify-cs-exam-coverage.ts.
  */
 const chapters: Chapter[] = [
-  {
-    number: 1,
-    slug: 'the-computing-machine',
-    title: 'The Computing Machine',
-    summary:
-      'What a computer actually is: the information processing cycle (input, processing, output, storage) priced on real everyday examples, a census of the hardware families from desktops to phones and embedded chips, the software half of the machine, and the honest question this whole shelf answers — how does a box of switches come to seem thoughtful?',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'The Basic Structure and Operation of the Computer',
-      'A Census of Hardware: Desktops to Embedded Chips',
-      'Software: the Invisible Half of the Machine',
-    ],
-  },
+  chapter01,
   {
     number: 2,
     slug: 'interacting-with-your-computer',
@@ -161,7 +155,7 @@ export const computerFundamentals: Book = {
   level: 'Absolute beginner → comfortable computer literacy',
   description:
     'The zero-rung entry to the Computer Science shelf (its Foundation Mathematics). The information processing cycle priced on real machines; a census of hardware from desktops to embedded chips; interacting with computers — input and output devices and the first usability instincts; data representation as a first meeting (bits, codes, text/image/sound) that hands its theory to Arithmetic and Number Systems and Digital Logic Design; inside the box — motherboard, processor named honestly, the first memory hierarchy; the software families and the manager layer that Operating Systems will theorize; the network idea that Computer Networks takes over; files and digital space; and the synthesis with user-level security. Cross-references every core CS book as its doorstep; no prior knowledge assumed.',
-  status: 'planned',
+  status: 'in-progress',
   accent: ['#0f766e', '#115e59'],
   chapters,
 }
