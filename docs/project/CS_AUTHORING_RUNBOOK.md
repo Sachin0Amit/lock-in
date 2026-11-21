@@ -69,15 +69,24 @@ with junk, check `WORKLOG.md` tail before acting.
 
 1. `cat docs/project/RUN_PROTOCOL.md` — the full v9.0 SWARM protocol (step-0
    pull-first, verify-first, swarm spec, swarm authoring, gates, solution
-   figures, ship-and-log, commit+push, time budget, sibling-jobs). Follow it
+   figures, ship-and-log, commit+push, time budget, sibling-jobs) — and its
+   THE TWO AUTHORING LANES section, which governs both lanes. Follow it
    for the HOW.
-2. `cat /home/z/my-project/.state/cs-authoring-state.json` — the CS authoring
-   rotation state (outside the repo, never committed). Has `lastAuthoredLessonId`
-   + `shelfOrder` (44 CS books in canonical order, starting with
-   `computer-fundamentals`).
+2. `cat docs/project/CS_AUTHORING_POINTER.json` — **the CS lane's WHAT-is-next
+   pointer** (IN THE REPO, committed). The cron payload itself says: 'the CS
+   lane's state lives in docs/project/CS_AUTHORING_POINTER.json - read it
+   FIRST and follow it exactly; it supersedes this payload on WHAT is next;
+   update it at every run end.' Read it first, follow it exactly, update it at
+   every run end. (The earlier `.state/cs-authoring-state.json` outside the
+   repo is RETIRED — superseded by the pointer, 2026-11-21 reconciliation.)
 
 ## STEP 3 — Pick the next CS lesson
 
+**The POINTER decides WHAT is next** (`CS_AUTHORING_POINTER.json`'s
+`nextAction`) — it may name one lesson, or a close-chapter pair (the last
+lesson + the unit completion review in one run, per the standing cadence
+used by the maths lane). Follow it exactly. Only when the pointer is silent
+on a specific lesson does this fallback rotation apply:
 Walk `shelfOrder` in order:
 - For each `bookId`, read `src/data/library/books/computer-science/<bookId>/book.ts`.
 - Flatten `chapters[].lessons[]` (written lessons have non-empty `blocks`).
@@ -86,7 +95,9 @@ Walk `shelfOrder` in order:
 - If `lastAuthoredLessonId` is null, start at `computer-fundamentals` ch.1
   lesson 1.
 
-**ONE lesson per run** (two if TIME BUDGET permits — see `RUN_PROTOCOL.md`).
+**Follow the pointer's cadence** (the pointer supersedes the older 'ONE
+lesson per run' wording — the reconciliation note logged in WORKLOG 2026-11-21;
+the time budget still governs: fewer than ~35 minutes left, no second lesson).
 Never start a NEW chapter in the same run that closes another.
 
 ## STEP 4 — Research (book theory sanctioned; vision extraction)
@@ -161,24 +172,29 @@ the image. Follow `docs/project/FIGURE_VERIFICATION_PROTOCOL.md` strictly.
 
 ## STEP 9 — Ship & log
 
-Append entries to these project logs (NEVER rewrite — append only):
+Ship & log per `RUN_PROTOCOL.md` STEP 6, and update
+`docs/project/CS_AUTHORING_POINTER.json` (nextAction + lastCompleted) at
+every run end. The ledgers WORKLOG/PROGRESS/SOURCE_LOG/DETAILED_LOG/WORK_INVENTORY
+are SHARED between the two lanes — append CS-run entries, never fork them.
 
 | File | What to log |
 |---|---|
-| `docs/project/WORKLOG.md` | One summary entry: `<date> cs-author run — <bookId>/<chapter>/<lesson>: <title> authored by <n>-agent swarm` |
+| `docs/project/WORKLOG.md` | One summary entry: `<date> CS RUN n — <bookId>/<chapter>/<lesson>: <title> authored by <n>-agent swarm` |
 | `docs/project/DETAILED_LOG.md` | Detailed change list: every file touched, every block added |
 | `docs/project/SOURCE_LOG.md` | Provenance for any book-theory/vision-extraction source |
+| `docs/project/PROGRESS.json` | Shared: update phase + awaiting (append CS-run state) |
+| `docs/project/CS_AUTHORING_POINTER.json` | The CS lane's own pointer — nextAction + lastCompleted |
+| `docs/project/WORK_INVENTORY.json` | Regenerate via `bun run scripts/build_work_inventory.ts` |
 
-Bump `/home/z/my-project/.state/cs-authoring-state.json` (outside the repo):
-`lastAuthitedLessonId` → the lesson you just authored; append a history entry.
-The state file is NEVER committed.
-
-**DO NOT touch** (the mathematics authoring job owns these):
+**DO NOT touch** (the maths lane's own pointer; the enhancement job's pointer;
+the shared fold ledger — consult it for hosted-fold obligations, never rewrite):
 - `docs/project/RESUME_POINTER.json`
-- `docs/project/PROGRESS.json`
-- `docs/project/WORK_INVENTORY.json`
 - `docs/project/TOC_FOLD_LEDGER.json`
 - `docs/project/ENHANCEMENT_POINTER.json`
+
+(PROGRESS.json and WORK_INVENTORY.json are SHARED ledgers per the cron payload
+and RUN_PROTOCOL.md's THE TWO AUTHORING LANES section — append CS-run entries,
+never fork them; the 2026-11-21 reconciliation note is logged in WORKLOG.md.)
 
 ## STEP 10 — Stage explicitly (NEVER `git add -A`)
 
@@ -252,10 +268,10 @@ End your run with:
   status. Label exam-style items honestly.
 - **Never** author a whole new book — only author chapters/lessons within the
   44 planned CS books.
-- **Never** touch `RESUME_POINTER.json`, `PROGRESS.json`, `WORK_INVENTORY.json`,
-  `TOC_FOLD_LEDGER.json`, `ENHANCEMENT_POINTER.json` — the mathematics job
-  owns those. This job's state lives in
-  `/home/z/my-project/.state/cs-authoring-state.json`.
+- **Never** touch `RESUME_POINTER.json` (the maths lane's own pointer — the
+  540785 job reads it) or `ENHANCEMENT_POINTER.json`/`TOC_FOLD_LEDGER.json`
+  (the enhancement job's / the shared fold ledger — consult, never rewrite).
+  The ledgers named above stay SHARED and appended.
 - **Always** match the existing Cengage voice — read an existing written
   mathematics lesson first.
 - **Always** compute SVG coordinates from constants, never hand-place.

@@ -1273,7 +1273,7 @@ console.log('== III. census integrity ==')
   const totPl = cs.reduce((n, b) => n + b.chapters.reduce((m, c) => m + (c.plannedLessons?.length ?? 0) + c.lessons.length, 0), 0)
   ok(cs.length === 44, `44 CS books (got ${cs.length})`)
   ok(totCh === 364, `CS shelf census 364 chapters (got ${totCh})`)
-  ok(totPl === 1222, `CS shelf census 1,222 planned lessons (got ${totPl})`) // 1218->1222 2026-11-17 swarm reorg: the dedup pass removed the padding; the CS shelf gained 4 honest moves in
+  ok(totPl === 1223, `CS shelf census 1,223 lessons (got ${totPl})`) // 1218->1222 2026-11-17 reorg; +1 the cf ch.1 1.R unit review (CS RUN 2, 2026-11-21)
   const ledger = readFileSync('docs/research/CS_EXAM_TOPIC_LEDGER.md', 'utf8')
   ok(ledger.includes('251'), 'the durable ledger records the 251-topic census')
   for (const id of ['gate2026.iitg.ac.in', 'ugcnetonline.in', 'ioinformatics.org', 'cuet.nta.nic.in', 'cambridgeinternational.org', 'apcentral.collegeboard.org', 'ibo.org']) {

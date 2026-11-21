@@ -159,3 +159,35 @@ and pushes per the PAT protocol.
 bun run lint · bunx tsc --noEmit · verify-cs-book1-ch01 green · verify-cs-exam-coverage
 green (the CS planning gate) · the three standing gates · lib:pack + lib:check ·
 E2E ×2 lessons ×3 viewports · VLM strict figure audit (light + dark crops).
+
+---
+
+# RUN 2 section — closing chapter 1 (2026-11-21, the cs job's second honored fire)
+
+Per CS_AUTHORING_POINTER.json: author 1.3 'Software: the Invisible Half of the Machine' PLUS the unit completion review 1.R 'Unit 1 Completion Review' in ONE run; the run that ships both closes chapter 1 COMPLETE (lessons [1.1, 1.2, 1.3, 1.R], plannedLessons [], chapter status 'complete'; the BOOK stays in-progress — seven chapters remain). Also this run: reconcile the sibling's docs/project/CS_AUTHORING_RUNBOOK.md with the authoritative chain (pointer-reference, shared-ledgers, pointer cadence) — done pre-swarm.
+
+## New web-verified pins (checked 2026-11-21, riding `cs-cf-web-ground`)
+- UNIX born 1969 at Bell Labs (Ken Thompson, Dennis Ritchie; rewritten in C in 1973).
+- The Linux kernel: Linus Torvalds, August 1991, a hobby for 386 PCs, released under the GPL.
+- MS-DOS lineage: Microsoft licensed 86-DOS (QDOS — 'Quick and Dirty Operating System') from Seattle Computer Products; PC DOS 1.0 shipped with the first IBM PC in August 1981; Microsoft purchased full rights July 1981.
+- Windows 1.0: November 1985.
+- Android 1.0: the first commercial version, released 23 September 2008 (iPhone OS 1 in 2007).
+- The Linux kernel surpassed 40,000,000 lines of code with the 6.14-rc1 cycle (January 2025; 39,819,522 lines at end-2024) — cite as 'about forty million lines, crossed in early 2025'.
+- System software = operating system + utility programs + device drivers (the NCERT Class XI / Siyavula arc).
+- Licensing families: proprietary / freeware (free of charge, still proprietary) / shareware (try-then-buy) / open source (GPL etc.) / public domain.
+Anything else stays qualitative ('ballpark', 'typically').
+
+## Lesson 1.3 — 'Software: the Invisible Half of the Machine'
+id `cf-software-the-invisible-half-of-the-machine`, number '1.3', prerequisites [cf-the-basic-structure-and-operation-of-the-computer, cf-a-census-of-hardware-desktops-to-embedded-chips].
+Arc: opening motivation (hardware without software is a piano no one plays; ENIAC's switch-patching from 1.1 recalled) → what software is (programs as instruction lists; the stored-program link back to 1.1) → the two great families (system vs application software; definition callouts + the census table) → the operating system as the manager (process/memory/file/device management + the UI; a table; DERIVATION: why N programs need a manager — without an OS every program drives bare metal; the boot story as an ALGORITHM block: firmware POST → bootloader → kernel → the login shell, each line noted) → utilities and device drivers (the maintenance crew; the translator role; terms) → application software and the platform question (binary compatibility, honestly) → how big is software (the Linux kernel ≈ 40 million lines; DERIVATION: the library-wall arithmetic — 40,000,000 lines ÷ 50 lines/page = 800,000 pages, engine-computed; caution: quantity ≠ quality) → licensing, the honest first meeting (definition callout: software license; proprietary/freeware/shareware/open-source table; the GPL/Android example; hands off to ch.5) → exam corner + summary.
+QUIZ keys [2,1,0,3,2]. Exercises 15 = 2/2/3/3/3/2 (classification cards; OS-function ID; boot-order sequencing; exam-style chain; the 800,000-page arithmetic; platform/licensing reasoning; design reasoning). 3 body figures (the software family tree; the OS as manager arbitrating between apps and hardware; the boot sequence strip) + ≥3 solution figures. Terms ≥ 12 (software, program, system software, application software, operating system, utility program, device driver, firmware, bootloader, software license, proprietary software, open-source software, freeware, shareware). Formula cards ≥ 4 (the boot order; the two families; the library-wall estimate; the license families). Word depth ≥ 6,000.
+
+## Lesson 1.R — 'Unit 1 Completion Review'
+id `cf-unit-1-completion-review`, number '1.R', prerequisites [all three lessons].
+The AA 8.R precedent shape: 'The Chapter in One Map' (the whole-machine map figure: the IPOS cycle + the five units + the software half unified) → per-lesson recap sections (1.1 the structure and operation; 1.2 the hardware census; 1.3 the invisible half — each a heading + prose + the lesson's take-aways harvested) → the recap terms block (the chapter's vocabulary) → the formula harvest (2^n address space; cycle time 1/f; N(t) = N₀·2^{Δt/2}; the boot order) → mixed synthesis exercises 15 = 2/2/3/3/3/2 spanning all three lessons (an IPOS trace; address arithmetic; generations matching; software classification; the whole-machine essay; the 'which door opens next' forward look to ch.2 'Interacting with Your Computer' + the shelf doorsteps) → quiz 5 keys [1,3,0,2,1] → solution figures ≥ 2 (a mixed-synthesis strip; the whole-machine recap map). Word depth ≥ 5,200. 2–3 body figures.
+
+## Verifier growth
+scripts/verify-cs-book1-ch01.ts: + E/F (1.3 engines/pins) + G/H (1.R engines/pins) + section Z FLIPPED to the closed-chapter census (status 'complete', 4 lessons [1.1, 1.2, 1.3, 1.R], zero planned, numbers '1.1,1.2,1.3,1.R', ids pinned, total ≥ 26,000 words, every lesson quiz+exercises+figures+solution figures+sources cs-cf-web-ground).
+
+## Swarm shape
+TWO agents in ONE message: agent 1 owns 1.3 (part-cf13.ts + v-cf13.ts, e2e pair best-effort), agent 2 owns 1.R (part-cf1R.ts + v-cf1R.ts, e2e pair best-effort). The orchestrator authors the e2e pairs if the channels time out (the CS RUN 1 precedent), assembles, gates, books and ships. After ship: verify-cs-shelf-planning gate pins updated (4 written CS lessons; ch.1 status 'complete' allowed), pointer → CS RUN 3 opens ch.2 (2.1 + 2.2).

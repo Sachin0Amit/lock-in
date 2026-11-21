@@ -8,11 +8,11 @@
  *     authoring lane opened the shelf 2026-11-21 — CS RUN 1 opened
  *     computer-fundamentals; every other book stays planned)
  *  B. per-book chapter + planned-lesson census printed; shelf totals pinned
- *     (364 chapters / 1222 planned lessons — grown by the 2026-11-15
+ *     (364 chapters / 1223 lessons = 1222 planned + the 1.R review —
  *     CS exam-topic coverage pass; mismatches FAIL below)
  *  C. every planned chapter: status 'planned', empty lessons array,
- *     plannedLessons >= 3; chapters in progress: written + planned >= 3;
- *     slugs unique within book, numbers 1..N
+ *     plannedLessons >= 3; authored chapters may be in-progress or
+ *     complete (ch.1 complete 2026-11-21); slugs unique, numbers 1..N
  *  D. planned-lesson titles non-trivial, unique within book
  *  E. the 44 lesson-id prefixes are reserved across all WRITTEN lesson ids
  *     AND distinct from the Mathematics shelf's reserved prefixes; 'cf-'
@@ -96,13 +96,13 @@ for (const b of cs) {
   ok(EXPECTED_CHAPTERS[b.id] === b.chapters.length, `${b.id} chapter count pins ${EXPECTED_CHAPTERS[b.id]} (got ${b.chapters.length})`)
 }
 ok(totCh === 364, `shelf total 364 chapters (got ${totCh})`)
-ok(totPl === 1222, `shelf total 1222 planned lessons (got ${totPl})`)
+ok(totPl === 1223, `shelf total 1223 planned lessons + reviews (got ${totPl})`) // 1222 planned + the cf ch.1 1.R unit review (authored CS RUN 2; every closed chapter adds one review beyond the planned census)
 
 console.log('== C. planned-chapter hygiene ==')
 for (const b of cs) {
   for (const c of b.chapters) {
-    ok(c.status === 'planned' || c.status === 'in-progress', `${b.id} ch${c.number} status planned or in-progress`)
-    ok(c.status === 'planned' ? c.lessons.length === 0 : c.lessons.length > 0, `${b.id} ch${c.number} lessons match status (planned -> empty; in-progress -> written)`)
+    ok(c.status === 'planned' || c.status === 'in-progress' || c.status === 'complete', `${b.id} ch${c.number} status planned/in-progress/complete`)
+    ok(c.status === 'planned' ? c.lessons.length === 0 : c.lessons.length > 0, `${b.id} ch${c.number} lessons match status (planned -> empty; written states -> written)`)
     ok((c.status === 'planned' ? (c.plannedLessons?.length ?? 0) : c.lessons.length + (c.plannedLessons?.length ?? 0)) >= 3 || THIN_OK.has(`${b.id}:${c.number}`), `${b.id} ch${c.number} >= 3 lessons written+planned (or THIN_OK)`)
     ok(c.slug.length > 3 && !/\s/.test(c.slug), `${b.id} ch${c.number} slug clean`)
     ok(c.summary.length > 200, `${b.id} ch${c.number} summary substantial (${c.summary.length} chars)`)
@@ -167,7 +167,7 @@ ok(survey.length > 40_000, `survey substantial (${survey.length} chars)`)
 
 console.log('== I. the authoring-era census (the cs lane opened the shelf 2026-11-21) ==')
 const csWritten = cs.reduce((n, b) => n + b.chapters.reduce((m, c) => m + c.lessons.length, 0), 0)
-ok(csWritten === 2, 'exactly 2 written lessons in the CS shelf (CS RUN 1: computer-fundamentals 1.1 + 1.2) — the pin grows with the cs lane')
+ok(csWritten === 4, 'exactly 4 written lessons in the CS shelf (CS RUN 1 + RUN 2: computer-fundamentals 1.1 + 1.2 + 1.3 + the 1.R review, chapter 1 COMPLETE) — the pin grows with the cs lane')
 
 // ---- summary ----
 console.log(`\nverify-cs-shelf-planning: ${pass} checks passed, ${fail} failed`)

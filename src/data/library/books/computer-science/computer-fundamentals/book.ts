@@ -5,15 +5,15 @@ import { chapter01 } from './ch-01'
  * Computer Fundamentals — the first book of the Computer Science shelf
  * (the shelf's own 'Foundation Mathematics').
  *
- * STATUS: IN-PROGRESS — chapter 1 OPEN (2 written lessons: 1.1 'The
- * Basic Structure and Operation of the Computer' + 1.2 'A Census of
- * Hardware: Desktops to Embedded Chips', authored by the CS RUN 1
- * SWARM — the cs cron job's first honored fire, 2026-11-21, two
- * parallel authoring agents; 1.3 + the unit review ride the next
- * fires), 8 chapters / 25 planned lessons remain (1.3 + ch.2–8's 24).
- * Lesson ids use the `cf-` prefix (verified unused across all
- * existing lesson ids at the planning pass; globally unique, stable
- * forever).
+ * STATUS: IN-PROGRESS — chapter 1 COMPLETE (4 written lessons: 1.1 +
+ * 1.2 by the CS RUN 1 SWARM, 1.3 + the 1.R unit completion review by
+ * the CS RUN 2 SWARM — the cs cron job's first two honored fires,
+ * 2026-11-21, two parallel authoring agents per fire), chapters 2–8
+ * planned (the remaining 24 planned lessons), authoring on the
+ * one-chapter-at-a-time cadence (CS RUN 3 opens chapter 2
+ * 'Interacting with Your Computer'). Lesson ids use the `cf-` prefix
+ * (verified unused across all existing lesson ids at the planning
+ * pass; globally unique, stable forever).
  *
  * POSITIONING (no-duplication contract): the binary/codes chapter defers
  * the full number-systems theory to Arithmetic and Number Systems and the

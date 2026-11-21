@@ -1869,6 +1869,1358 @@ const lesson12: Lesson = {
   ],
 }
 
+// ------------------------------------------------------------------
+// lesson 1.3 — authored by the CS RUN 2 swarm (the cf13 agent), integrated verbatim
+// ------------------------------------------------------------------
+
+function softwareFamilyTreeSvg(): string {
+  // the two great families as one tree: SOFTWARE at the root, system
+  // software (operating system, utility programs, device drivers) stacked
+  // under the left branch, application software (word processor, browser,
+  // game, media editor) under the right — every box on computed centers.
+  const W = 720, H = 420
+  const ROOT_CX = 360, FAM_L_CX = 200, FAM_R_CX = 520
+  const ROOT_Y = 24, ROOT_H = 40
+  const FAM_Y = 96, FAM_H = 44
+  const LEAF_W = 250, LEAF_H = 40
+  const sysLeafYs = [210, 274, 338]
+  const appLeafYs = [176, 228, 280, 332]
+  const sysLeaves = [
+    { name: 'operating system', desc: 'the manager of the whole machine' },
+    { name: 'utility programs', desc: 'the maintenance crew' },
+    { name: 'device drivers', desc: 'one translator per device family' },
+  ]
+  const appLeaves = [
+    { name: 'word processor', desc: 'writes letters and reports' },
+    { name: 'browser', desc: 'reads the web' },
+    { name: 'game', desc: 'plays' },
+    { name: 'media editor', desc: 'edits photo, audio, video' },
+  ]
+  const leaf = (cx: number, cy: number, name: string, desc: string, stroke: string, ink: string, mid: string, fill: string) => {
+    const x = cx - LEAF_W / 2, y = cy - LEAF_H / 2
+    return `<rect x="${x}" y="${y}" width="${LEAF_W}" height="${LEAF_H}" rx="9" fill="${fill}" stroke="${stroke}" stroke-width="1.6"/>` +
+      `<text x="${cx}" y="${cy - 3}" font-size="11.5" font-weight="700" fill="${ink}" text-anchor="middle">${name}</text>` +
+      `<text x="${cx}" y="${cy + 13}" font-size="9.5" font-weight="700" fill="${mid}" text-anchor="middle">${desc}</text>`
+  }
+  let body = ''
+  // the root box + its split connector
+  body += `<rect x="${ROOT_CX - 110}" y="${ROOT_Y}" width="220" height="${ROOT_H}" rx="10" fill="#fef3c7" stroke="#16a34a" stroke-width="2.2"/>`
+  body += `<text x="${ROOT_CX}" y="${ROOT_Y + 18}" font-size="12.5" font-weight="800" fill="#166534" text-anchor="middle">SOFTWARE</text>`
+  body += `<text x="${ROOT_CX}" y="${ROOT_Y + 33}" font-size="9.5" font-weight="700" fill="#65a30d" text-anchor="middle">the invisible half of the machine</text>`
+  body += `<path d="M ${ROOT_CX} ${ROOT_Y + ROOT_H} V 80" fill="none" stroke="#d97706" stroke-width="1.7"/>`
+  body += `<path d="M ${FAM_L_CX} 80 H ${FAM_R_CX}" fill="none" stroke="#d97706" stroke-width="1.7"/>`
+  for (const fx of [FAM_L_CX, FAM_R_CX]) {
+    body += `<path d="M ${fx} 80 V ${FAM_Y - 6}" fill="none" stroke="#d97706" stroke-width="1.7"/>`
+    body += `<path d="M ${fx} ${FAM_Y - 6} l -4.5 7 h 9 z" fill="#ea580c"/>`
+  }
+  // the two family boxes
+  const fam = (cx: number, name: string, desc: string, stroke: string, ink: string, mid: string, fill: string) => {
+    const x = cx - 130
+    return `<rect x="${x}" y="${FAM_Y}" width="260" height="${FAM_H}" rx="10" fill="${fill}" stroke="${stroke}" stroke-width="2.2"/>` +
+      `<text x="${cx}" y="${FAM_Y + 19}" font-size="12" font-weight="800" fill="${ink}" text-anchor="middle">${name}</text>` +
+      `<text x="${cx}" y="${FAM_Y + 35}" font-size="9.5" font-weight="700" fill="${mid}" text-anchor="middle">${desc}</text>`
+  }
+  body += fam(FAM_L_CX, 'SYSTEM SOFTWARE', 'manages the machine itself', '#16a34a', '#166534', '#65a30d', '#fef3c7')
+  body += fam(FAM_R_CX, 'APPLICATION SOFTWARE', 'does the user’s work', '#0d9488', '#0f766e', '#0f766e', '#ffedd5')
+  // the left spine + system leaves
+  body += `<path d="M ${FAM_L_CX} ${FAM_Y + FAM_H} V ${sysLeafYs[0] - LEAF_H / 2}" fill="none" stroke="#d97706" stroke-width="1.7"/>`
+  for (let k = 1; k < sysLeafYs.length; k++) {
+    body += `<path d="M ${FAM_L_CX} ${sysLeafYs[k - 1] + LEAF_H / 2} V ${sysLeafYs[k] - LEAF_H / 2}" fill="none" stroke="#d97706" stroke-width="1.7"/>`
+  }
+  sysLeaves.forEach((l, i) => { body += leaf(FAM_L_CX, sysLeafYs[i], l.name, l.desc, '#16a34a', '#166534', '#65a30d', '#fef3c7') })
+  // the right spine + application leaves
+  body += `<path d="M ${FAM_R_CX} ${FAM_Y + FAM_H} V ${appLeafYs[0] - LEAF_H / 2}" fill="none" stroke="#d97706" stroke-width="1.7"/>`
+  for (let k = 1; k < appLeafYs.length; k++) {
+    body += `<path d="M ${FAM_R_CX} ${appLeafYs[k - 1] + LEAF_H / 2} V ${appLeafYs[k] - LEAF_H / 2}" fill="none" stroke="#d97706" stroke-width="1.7"/>`
+  }
+  appLeaves.forEach((l, i) => { body += leaf(FAM_R_CX, appLeafYs[i], l.name, l.desc, '#0d9488', '#0f766e', '#0f766e', '#ffedd5') })
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The two great families of software drawn as one tree. At the root sits software, the invisible half of the machine. The left branch is system software, which manages the machine itself: the operating system as the manager of the whole machine, utility programs as the maintenance crew, and device drivers as one translator per device family. The right branch is application software, which does the user's work: the word processor for writing, the browser for reading the web, the game for play, and the media editor for photo, audio and video work. A footer states that every program you will ever meet sits somewhere on this tree, and the only question is which half.">
+  <text x="${W / 2}" y="20" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the two great families: every program sits somewhere on this tree</text>
+  ${body}
+  <line x1="24" y1="378" x2="696" y2="378" stroke="#fcd34d" stroke-width="1.4"/>
+  <text x="${W / 2}" y="398" font-size="10.5" font-weight="700" fill="#0f766e" text-anchor="middle">every program you will ever meet sits somewhere on this tree — the only question is which half</text>
+</svg>`
+}
+
+function osAsManagerSvg(): string {
+  // the operating system as manager: four application boxes above (asking
+  // downward through the one manager box), five hardware boxes below
+  // (commanded only by the manager) — every arrow on computed centers.
+  const W = 720, H = 445
+  const APP_CXS = [105, 275, 445, 615], OS_CX = 360, HW_CXS = [120, 240, 360, 480, 600]
+  const APP_Y = 64, BOX_H = 38
+  const OS_Y = 178, OS_W = 560, OS_H = 62
+  const HW_Y = 344
+  const APP_W = 130, HW_W = 96
+  const apps = ['word processor', 'browser', 'game', 'media editor']
+  const hws = ['CPU', 'RAM', 'disk', 'screen', 'printer']
+  const downArrow = (x: number, y1: number, y2: number, color: string) =>
+    `<path d="M ${x} ${y1} V ${y2 - 8}" fill="none" stroke="${color}" stroke-width="1.8"/>` +
+    `<path d="M ${x} ${y2} l -4.5 -8 h 9 z" fill="${color}"/>`
+  let body = ''
+  body += `<text x="${W / 2}" y="52" font-size="10.5" font-weight="700" fill="#0f766e" text-anchor="middle">the application layer — the user’s work, asking downward</text>`
+  apps.forEach((name, i) => {
+    const cx = APP_CXS[i]
+    body += `<rect x="${cx - APP_W / 2}" y="${APP_Y}" width="${APP_W}" height="${BOX_H}" rx="9" fill="#fef3c7" stroke="#16a34a" stroke-width="1.6"/>`
+    body += `<text x="${cx}" y="${APP_Y + 24}" font-size="10.5" font-weight="700" fill="#166534" text-anchor="middle">${name}</text>`
+  })
+  // every app asks the manager — never the hardware directly
+  for (const cx of APP_CXS) body += downArrow(cx, APP_Y + BOX_H, OS_Y, '#ea580c')
+  body += `<rect x="${OS_CX - OS_W / 2}" y="${OS_Y}" width="${OS_W}" height="${OS_H}" rx="12" fill="#fef3c7" stroke="#16a34a" stroke-width="2.4"/>`
+  body += `<text x="${OS_CX}" y="${OS_Y + 24}" font-size="12.5" font-weight="800" fill="#166534" text-anchor="middle">THE OPERATING SYSTEM</text>`
+  body += `<text x="${OS_CX}" y="${OS_Y + 44}" font-size="9.5" font-weight="700" fill="#65a30d" text-anchor="middle">processes · memory · files · devices · the interface</text>`
+  // the manager alone commands the hardware
+  for (const cx of HW_CXS) body += downArrow(cx, OS_Y + OS_H, HW_Y, '#ea580c')
+  body += `<text x="${W / 2}" y="400" font-size="10.5" font-weight="700" fill="#0f766e" text-anchor="middle">the hardware layer — the machine itself, lesson 1.1’s census</text>`
+  hws.forEach((name, i) => {
+    const cx = HW_CXS[i]
+    body += `<rect x="${cx - HW_W / 2}" y="${HW_Y}" width="${HW_W}" height="${BOX_H}" rx="9" fill="#ffedd5" stroke="#0d9488" stroke-width="1.6"/>`
+    body += `<text x="${cx}" y="${HW_Y + 24}" font-size="10.5" font-weight="700" fill="#0f766e" text-anchor="middle">${name}</text>`
+  })
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The operating system as the manager. Above, four application programs — word processor, browser, game and media editor — form the application layer that does the user's work. In the middle, one wide box is the operating system, managing processes, memory, files, devices and the interface. Below, five hardware boxes — CPU, RAM, disk, screen and printer — form the hardware layer. Orange arrows run from every application down into the operating system, and from the operating system down to every hardware box: no program touches the hardware directly; every arrow passes through the one manager.">
+  <text x="${W / 2}" y="22" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the operating system: one manager between the workers and the machine</text>
+  ${body}
+  <line x1="24" y1="424" x2="696" y2="424" stroke="#fcd34d" stroke-width="1.4"/>
+  <text x="${W / 2}" y="438" font-size="9.5" font-weight="700" fill="#0f766e" text-anchor="middle">the manager owns the only honest path to the hardware — every program goes through it</text>
+</svg>`
+}
+
+function bootSequenceStripSvg(): string {
+  // the cold-start ritual as one strip: six stage boxes on computed centers
+  // (power on, the firmware's POST, the bootloader, the kernel, drivers +
+  // services, the login screen), each with its owner above and a one-line
+  // note below — the hops joined by connector arrows.
+  const W = 720, H = 290
+  const BOOT_CXS = [80, 192, 304, 416, 528, 640]
+  const BOX_W = 96, BOX_Y = 96, BOX_H = 56
+  const stages = [
+    { name: 'power on', sub: 'the machine wakes', owner: 'you', note: 'button pressed' },
+    { name: 'POST', sub: 'firmware checks', owner: 'firmware', note: 'RAM + ports checked' },
+    { name: 'bootloader', sub: 'found + run', owner: 'firmware', note: 'loader found on disk' },
+    { name: 'kernel', sub: 'loaded into RAM', owner: 'the loader', note: 'kernel into RAM' },
+    { name: 'drivers + services', sub: 'brought up', owner: 'the kernel', note: 'machine ready' },
+    { name: 'login screen', sub: 'you arrive', owner: 'you', note: 'you may log in' },
+  ]
+  let body = ''
+  stages.forEach((s, i) => {
+    const cx = BOOT_CXS[i]
+    body += `<text x="${cx}" y="56" font-size="9" font-weight="700" fill="#65a30d" text-anchor="middle">owner: ${s.owner}</text>`
+    body += `<circle cx="${cx}" cy="78" r="9" fill="#16a34a" stroke="#166534" stroke-width="1.2"/>`
+    body += `<text x="${cx}" y="81.5" font-size="10" font-weight="800" fill="#ffffff" text-anchor="middle">${i + 1}</text>`
+    body += `<rect x="${cx - BOX_W / 2}" y="${BOX_Y}" width="${BOX_W}" height="${BOX_H}" rx="9" fill="#fef3c7" stroke="#16a34a" stroke-width="1.6"/>`
+    body += `<text x="${cx}" y="${BOX_Y + 24}" font-size="10" font-weight="800" fill="#166534" text-anchor="middle">${s.name}</text>`
+    body += `<text x="${cx}" y="${BOX_Y + 40}" font-size="9" font-weight="700" fill="#65a30d" text-anchor="middle">${s.sub}</text>`
+    body += `<text x="${cx}" y="${BOX_Y + BOX_H + 22}" font-size="9.5" font-weight="700" fill="#0d9488" text-anchor="middle">${s.note}</text>`
+    if (i > 0) {
+      const px = BOOT_CXS[i - 1], gap = cx - px
+      body += `<path d="M ${px + BOX_W / 2 - 6} 78 H ${cx - BOX_W / 2 + 2}" fill="none" stroke="#d97706" stroke-width="1.7"/>`
+      body += `<path d="M ${cx - BOX_W / 2 + 7} 78 l -7 -4.5 v 9 z" fill="#ea580c"/>`
+      void gap
+    }
+  })
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The boot sequence as one strip of six stages. Stage one, power on, owned by you: the machine wakes when the button is pressed. Stage two, POST, owned by the firmware: the motherboard's own program checks RAM and ports before any disk is trusted. Stage three, the bootloader, still owned by the firmware: the loader is found on disk and run — the first disk program. Stage four, the kernel, owned by the loader: the kernel, the operating system's core, is carried into RAM. Stage five, drivers and services, owned by the kernel: the device drivers and background services are brought up and the machine is ready. Stage six, the login screen, owned by you again: the manager is fully up and asks who you are. A footer states that the firmware owns the first hops because it must run before any disk exists, and that each hop hands the machine to the next owner: firmware, then loader, then kernel, then you.">
+  <text x="${W / 2}" y="22" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the boot sequence: from the button to the login screen, one owner at a time</text>
+  ${body}
+  <line x1="24" y1="196" x2="696" y2="196" stroke="#fcd34d" stroke-width="1.4"/>
+  <text x="${W / 2}" y="222" font-size="10.5" font-weight="700" fill="#0f766e" text-anchor="middle">the firmware owns the first two hops — it must run before any disk exists, so it lives on the motherboard</text>
+  <text x="${W / 2}" y="246" font-size="10.5" font-weight="700" fill="#0f766e" text-anchor="middle">each hop hands the machine to the next owner: firmware → loader → kernel → you</text>
+  <text x="${W / 2}" y="272" font-size="10" font-weight="700" fill="#0d9488" text-anchor="middle">the kernel is the operating system’s core — from its hop onwards, the OS manages everything</text>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* solution figures (v9.0) — compact, computed geometry, one short      */
+/* accurate caption about THIS solution                                */
+/* ------------------------------------------------------------------ */
+
+function solutionFamilyTreeSvg(): string {
+  // the classification answer for the L1 item: two panels, system software
+  // (disk cleanup tool, touchpad driver) vs application software (word
+  // processor, browser) — the honest test printed in the footer.
+  const W = 720, H = 260
+  const PANEL_W = 340, PANEL_Y = 56, PANEL_H = 152
+  const LX = 16, RX = 364
+  const left = ['disk cleanup tool — a utility', 'touchpad driver — a translator']
+  const right = ['word processor', 'browser']
+  const rows = (x: number, items: string[], ink: string) => {
+    let s = ''
+    items.forEach((t, i) => {
+      const y = PANEL_Y + 44 + i * 26
+      s += `<circle cx="${x + 28}" cy="${y - 4}" r="8" fill="#16a34a" stroke="#166534" stroke-width="1.2"/>`
+      s += `<path d="M ${x + 24.5} ${y - 4} l 2.5 3 l 5 -6" fill="none" stroke="#ffffff" stroke-width="1.8"/>`
+      s += `<text x="${x + 46}" y="${y}" font-size="10.5" font-weight="700" fill="${ink}">${t}</text>`
+    })
+    return s
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The classification answer drawn as two panels. The left panel is system software and holds the disk cleanup tool, a utility, and the touchpad driver, a translator. The right panel is application software and holds the word processor and the browser, which serve the user's work. The footer states the honest test: does the program serve the user's work, or manage the machine itself?">
+  <text x="${W / 2}" y="22" font-size="12.5" font-weight="700" text-anchor="middle" fill="currentColor">the two families for this classification: two panels, one honest test</text>
+  <rect x="${LX}" y="${PANEL_Y}" width="${PANEL_W}" height="${PANEL_H}" rx="12" fill="#fef3c7" stroke="#16a34a" stroke-width="2.2"/>
+  <text x="${LX + PANEL_W / 2}" y="${PANEL_Y + 24}" font-size="11.5" font-weight="800" fill="#166534" text-anchor="middle">SYSTEM SOFTWARE</text>
+  <text x="${LX + PANEL_W / 2}" y="${PANEL_Y + 38}" font-size="9" font-weight="700" fill="#65a30d" text-anchor="middle">manages the machine itself</text>
+  ${rows(LX, left, '#166534')}
+  <rect x="${RX}" y="${PANEL_Y}" width="${PANEL_W}" height="${PANEL_H}" rx="12" fill="#ffedd5" stroke="#0d9488" stroke-width="2.2"/>
+  <text x="${RX + PANEL_W / 2}" y="${PANEL_Y + 24}" font-size="11.5" font-weight="800" fill="#0f766e" text-anchor="middle">APPLICATION SOFTWARE</text>
+  <text x="${RX + PANEL_W / 2}" y="${PANEL_Y + 38}" font-size="9" font-weight="700" fill="#0f766e" text-anchor="middle">does the user’s work</text>
+  ${rows(RX, right, '#0f766e')}
+  <line x1="24" y1="230" x2="696" y2="230" stroke="#fcd34d" stroke-width="1.4"/>
+  <text x="${W / 2}" y="248" font-size="10" font-weight="700" fill="#0f766e" text-anchor="middle">the test: does it serve the user’s work (right panel) or manage the machine itself (left panel)?</text>
+</svg>`
+}
+
+function solutionBootStripSvg(): string {
+  // the honest boot order for the L3 item: four hops on computed centers —
+  // firmware POST before any disk is read, the bootloader as the first disk
+  // program, the kernel, then the login screen — with the why under each.
+  const W = 720, H = 166
+  const CXS = [90, 270, 450, 630]
+  const BOX_W = 150, BOX_Y = 44, BOX_H = 48
+  const stages = [
+    { name: 'firmware POST', sub: 'hardware checked', why: 'before any disk is read' },
+    { name: 'bootloader', sub: 'the loader runs', why: 'the first disk program' },
+    { name: 'kernel', sub: 'the OS core loads', why: 'the manager takes over' },
+    { name: 'login screen', sub: 'you arrive', why: 'the user session starts' },
+  ]
+  let body = ''
+  stages.forEach((s, i) => {
+    const cx = CXS[i]
+    body += `<rect x="${cx - BOX_W / 2}" y="${BOX_Y}" width="${BOX_W}" height="${BOX_H}" rx="9" fill="#fef3c7" stroke="#16a34a" stroke-width="1.8"/>`
+    body += `<text x="${cx}" y="${BOX_Y + 20}" font-size="11" font-weight="800" fill="#166534" text-anchor="middle">${s.name}</text>`
+    body += `<text x="${cx}" y="${BOX_Y + 36}" font-size="9" font-weight="700" fill="#65a30d" text-anchor="middle">${s.sub}</text>`
+    body += `<text x="${cx}" y="${BOX_Y + BOX_H + 24}" font-size="9.5" font-weight="700" fill="#0d9488" text-anchor="middle">${s.why}</text>`
+    if (i > 0) {
+      const px = CXS[i - 1]
+      body += `<path d="M ${px + BOX_W / 2 - 4} ${BOX_Y + BOX_H / 2} H ${cx - BOX_W / 2 + 2}" fill="none" stroke="#d97706" stroke-width="1.8"/>`
+      body += `<path d="M ${cx - BOX_W / 2 + 8} ${BOX_Y + BOX_H / 2} l -8 -4.5 v 9 z" fill="#ea580c"/>`
+    }
+  })
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The honest boot order as a four-hop strip. Hop one, firmware POST: the hardware is checked before any disk is read. Hop two, the bootloader: the loader runs — the first disk program. Hop three, the kernel: the operating system's core loads and the manager takes over. Hop four, the login screen: you arrive and the user session starts. A footer states that each hop must finish before the next can begin — no kernel without a loader, and no login without a kernel.">
+  <text x="${W / 2}" y="20" font-size="12.5" font-weight="700" text-anchor="middle" fill="currentColor">the honest boot order: four hops, each the loader of the next</text>
+  ${body}
+  <line x1="24" y1="132" x2="696" y2="132" stroke="#fcd34d" stroke-width="1.4"/>
+  <text x="${W / 2}" y="150" font-size="9.5" font-weight="700" fill="#0f766e" text-anchor="middle">each hop must finish before the next can begin — no kernel without a loader, no login without a kernel</text>
+</svg>`
+}
+
+function driverTranslatorSvg(): string {
+  // the translation chain for the printer item: the word processor's general
+  // print command passes to the driver box, which renders it into the
+  // printer's own dialect — the update repaired the middle box.
+  const W = 720, H = 252
+  const PROG_X = 40, PROG_Y = 84, PROG_W = 170, PROG_H = 64
+  const DRV_X = 300, DRV_W = 150, DRV_H = 56
+  const HW_X = 560
+  let body = ''
+  body += `<rect x="${PROG_X}" y="${PROG_Y}" width="${PROG_W}" height="${PROG_H}" rx="10" fill="#fef3c7" stroke="#16a34a" stroke-width="2"/>`
+  body += `<text x="${PROG_X + PROG_W / 2}" y="${PROG_Y + 26}" font-size="11.5" font-weight="800" fill="#166534" text-anchor="middle">the word processor</text>`
+  body += `<text x="${PROG_X + PROG_W / 2}" y="${PROG_Y + 44}" font-size="9" font-weight="700" fill="#65a30d" text-anchor="middle">one set of general print commands</text>`
+  body += `<rect x="${DRV_X}" y="56" width="${DRV_W}" height="${DRV_H}" rx="10" fill="#ffedd5" stroke="#0d9488" stroke-width="2"/>`
+  body += `<text x="${DRV_X + DRV_W / 2}" y="80" font-size="11" font-weight="800" fill="#0f766e" text-anchor="middle">the printer driver</text>`
+  body += `<text x="${DRV_X + DRV_W / 2}" y="96" font-size="9" font-weight="700" fill="#0f766e" text-anchor="middle">translates — updated here</text>`
+  body += `<rect x="${HW_X}" y="56" width="${DRV_W}" height="${DRV_H}" rx="10" fill="#fef3c7" stroke="#16a34a" stroke-width="2"/>`
+  body += `<text x="${HW_X + DRV_W / 2}" y="80" font-size="11" font-weight="800" fill="#166534" text-anchor="middle">the printer</text>`
+  body += `<text x="${HW_X + DRV_W / 2}" y="96" font-size="9" font-weight="700" fill="#65a30d" text-anchor="middle">its own dialect</text>`
+  // the elbow from the program to the driver, then the arrow driver → printer
+  body += `<path d="M ${PROG_X + PROG_W} 116 H 255 V 84 H ${DRV_X - 8}" fill="none" stroke="#ea580c" stroke-width="1.8"/>`
+  body += `<path d="M ${DRV_X} 84 l -8 -4.5 v 9 z" fill="#ea580c"/>`
+  body += `<text x="258" y="46" font-size="9.5" font-weight="700" fill="#65a30d" text-anchor="middle">general commands, one language</text>`
+  body += `<path d="M ${DRV_X + DRV_W} 84 H ${HW_X - 10}" fill="none" stroke="#d97706" stroke-width="1.8"/>`
+  body += `<path d="M ${HW_X} 84 l -8 -4.5 v 9 z" fill="#ea580c"/>`
+  body += `<text x="${(DRV_X + DRV_W + HW_X) / 2}" y="74" font-size="9.5" font-weight="700" fill="#d97706" text-anchor="middle">translated into the dialect</text>`
+  // the failed old path, shown dashed below: the mistranslation before the update
+  body += `<path d="M ${DRV_X + DRV_W} 128 H ${HW_X - 10}" fill="none" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 4"/>`
+  body += `<path d="M ${HW_X} 128 l -8 -4.5 v 9 z" fill="#dc2626"/>`
+  body += `<text x="${(DRV_X + DRV_W + HW_X) / 2}" y="148" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">before the update: the wrong dialect — unreadable</text>`
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The driver as translator in the printer story. On the left, the word processor holds one set of general print commands. In the middle, the printer driver translates — and this is the box the update repaired. On the right, the printer speaks its own dialect. A solid arrow carries general commands from the program to the driver, and a second arrow carries the translated commands into the printer's dialect. A dashed red arrow below shows the state before the update: the driver spoke the wrong dialect and the printer could not read the commands.">
+  <text x="${W / 2}" y="22" font-size="12.5" font-weight="700" text-anchor="middle" fill="currentColor">the driver as translator: the update repaired the middle box</text>
+  ${body}
+  <line x1="24" y1="228" x2="696" y2="228" stroke="#fcd34d" stroke-width="1.4"/>
+  <text x="${W / 2}" y="246" font-size="10" font-weight="700" fill="#0f766e" text-anchor="middle">the program never changed; the printer never changed — only the translation between them did</text>
+</svg>`
+}
+
+function libraryWallSvg(): string {
+  // the library wall for the L4 item: three blocks on computed centers —
+  // 40,000,000 lines ÷ 50 = 800,000 pages ÷ 500 = 1,600 volumes — with the
+  // ballpark inputs named as operator chips.
+  const W = 720, H = 230
+  const ROW_Y = 70, ROW_H = 90
+  const B1_X = 30, B1_W = 180, B2_X = 280, B2_W = 150, B3_X = 490, B3_W = 200
+  const CH1_X = 218, CH2_X = 442, CH_W = 40, CH_H = 32
+  const block = (x: number, w: number, big: string, small: string, stroke: string, fill: string, ink: string, mid: string) => {
+    const cx = x + w / 2
+    return `<rect x="${x}" y="${ROW_Y}" width="${w}" height="${ROW_H}" rx="10" fill="${fill}" stroke="${stroke}" stroke-width="2.2"/>` +
+      `<text x="${cx}" y="${ROW_Y + 36}" font-size="15" font-weight="800" fill="${ink}" text-anchor="middle">${big}</text>` +
+      `<text x="${cx}" y="${ROW_Y + 58}" font-size="9.5" font-weight="700" fill="${mid}" text-anchor="middle">${small}</text>`
+  }
+  const chip = (x: number, label: string) => {
+    const cx = x + CH_W / 2
+    return `<rect x="${x}" y="${ROW_Y + 29}" width="${CH_W}" height="${CH_H}" rx="8" fill="#ffedd5" stroke="#d97706" stroke-width="1.6"/>` +
+      `<text x="${cx}" y="${ROW_Y + 50}" font-size="12" font-weight="800" fill="#d97706" text-anchor="middle">${label}</text>`
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The library-wall estimate as three blocks joined by two operator chips. The first block reads 40,000,000 lines of kernel code. A divide-by-50 chip converts it to the second block: 800,000 printed pages at fifty lines per page. A divide-by-500 chip converts that to the third block: 1,600 shelf volumes at five hundred pages per volume. A footer states the arithmetic exactly — forty million divided by fifty equals eight hundred thousand pages; eight hundred thousand divided by five hundred equals one thousand six hundred volumes — and labels it an honest estimate of scale, a wall of shelf volumes, never a claim about quality.">
+  <text x="${W / 2}" y="24" font-size="12.5" font-weight="700" text-anchor="middle" fill="currentColor">the library wall: 40,000,000 lines priced as printed books</text>
+  ${block(B1_X, B1_W, '40,000,000', 'lines of kernel code', '#16a34a', '#fef3c7', '#166534', '#65a30d')}
+  ${chip(CH1_X, '÷ 50')}
+  ${block(B2_X, B2_W, '800,000', 'printed pages at 50 lines each', '#0d9488', '#ffedd5', '#0f766e', '#0f766e')}
+  ${chip(CH2_X, '÷ 500')}
+  ${block(B3_X, B3_W, '1,600', 'shelf volumes at 500 pages each', '#16a34a', '#fef3c7', '#166534', '#65a30d')}
+  <line x1="24" y1="182" x2="696" y2="182" stroke="#fcd34d" stroke-width="1.4"/>
+  <text x="${W / 2}" y="202" font-size="10.5" font-weight="700" fill="#0f766e" text-anchor="middle">40,000,000 ÷ 50 = 800,000 pages; 800,000 ÷ 500 = 1,600 volumes — the inputs are the ballpark, the division is exact</text>
+  <text x="${W / 2}" y="222" font-size="10" font-weight="700" fill="#0d9488" text-anchor="middle">an honest estimate of scale — a wall of shelf volumes, never a claim about quality</text>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* the lesson                                                          */
+/* ------------------------------------------------------------------ */
+
+const lesson13: Lesson = {
+  id: 'cf-software-the-invisible-half-of-the-machine',
+  number: '1.3',
+  title: 'Software: the Invisible Half of the Machine',
+  concepts: [
+    'software: the instructions, their data and their documentation',
+    'system software versus application software',
+    'the operating system as the machine’s manager',
+    'utilities and device drivers',
+    'the platform question: binaries and the API',
+    'software scale: the library-wall estimate',
+    'the licensing families: proprietary to public domain',
+  ],
+  objectives: [
+    'By the end of this lesson you can define software and say why the stored-program concept of lesson 1.1 makes it loadable at all.',
+    'By the end of this lesson you can classify any program you meet as system software or application software, with a reason.',
+    'By the end of this lesson you can name the operating system’s five visible duties and say what the user sees of each.',
+    'By the end of this lesson you can walk the boot sequence from power on to login screen and justify each hop in order.',
+    'By the end of this lesson you can explain why a program compiled for one operating system does not run on another, and what an API is in that story.',
+    'By the end of this lesson you can state the honest scale of the Linux kernel and read a software license by family.',
+  ],
+  prerequisites: ['cf-the-basic-structure-and-operation-of-the-computer', 'cf-a-census-of-hardware-desktops-to-embedded-chips'],
+  sources: ['cs-cf-web-ground'],
+  blocks: [
+    // ---------------- opening ----------------
+    { kind: 'para', text: 'The machine census of lesson 1.2 named every family on the hardware side — the desktop on the desk, the laptop beside it, the phone in the pocket, the console under the television, the server rack in the basement, the quiet chip inside the washing machine. Yet every one of them is furniture until the invisible half arrives: a piano no one plays. Recall ENIAC from lesson 1.1: the visible machine was complete — a room of tubes, arithmetic and memory — but the invisible half barely existed, and setting a new problem meant days of physical switch-patching and cable-plugging while the machine sat idle. The stored-program concept fixed that: instructions became data in one memory, and the machine’s personality became something you could load. This lesson meets that personality properly. Software is the half of the machine you cannot touch, and — the honest surprise — it is the half that does nearly everything you actually want done. By the end you can classify any program you meet, say what the operating system actually does all day, walk the boot sequence from the power button to the login screen, read a software license honestly, and state the scale of the largest commonly shared software ever written.' },
+
+    // ---------------- what software is ----------------
+    { kind: 'heading', text: 'What Software Is' },
+    { kind: 'para', text: 'Begin with the plainest question in the field: what *is* software? The hardware of lessons 1.1 and 1.2 is the half you can kick — metal, silicon, glass, plastic. Software is everything the machine is told to be. The two halves meet at exactly one place, and lesson 1.1 already built it.' },
+    { kind: 'callout', tone: 'definition', title: 'Software', text: 'Software is said to be the set of instructions that tells the hardware what to do — together with the data those instructions work on and the documentation that explains them both. Thus, software is programs plus their data plus their documentation: the invisible half of the machine, the half that cannot be touched with a screwdriver.' },
+    { kind: 'para', text: 'A program, the instruction-carrying part of software, is an ordered list of instructions that the machine obeys blindly. Lesson 1.1 named the machine’s only dance — fetch, decode, execute — beating lap after lap under the control unit’s direction, with the program counter walking on. Software is what that loop *eats*: every instruction the control unit ever fetches, decodes and executes is a piece of some program, and the program as a whole is what gives the blind dance its purpose. Nothing in the loop understands the purpose — the caution of lesson 1.1 stands — but the purpose arrives anyway, carried as instruction patterns in memory.' },
+    { kind: 'callout', tone: 'insight', title: 'The machine’s personality is a file', text: 'Because the stored-program concept keeps instructions in the same memory as data, software is *loadable*: a new program is a new memory image, written in minutes, never a re-wiring. The machine’s personality is a file. The same box of hardware becomes a typewriter, a cinema, a games arcade or a laboratory overnight, with no panel opened — the quiet idea beneath every app, every update and every program download you will ever meet.' },
+    { kind: 'example', title: 'Take one familiar act and name its invisible half: a commuter checks the next train on a phone.', steps: [
+      'Take the act: a thumb taps a timetable app, and the next departure appears on the screen.',
+      'Now, name the visible half: the screen, the touch panel, the processor and memory inside — hardware, the census of lesson 1.2.',
+      'So, name the invisible half: the timetable app itself, the timetable data it reads, and the documentation its makers keep for their maintainers.',
+      'Check the triad: the app is the instructions, the timetable is the data, the maintainers’ notes are the documentation — software, all three parts.',
+      'Hence, one familiar act splits cleanly into a visible half and an invisible half — and the invisible half is the one doing the wanted work.',
+    ] },
+    { kind: 'para', text: 'The triad deserves one honest pause. Documentation is software too, in the field’s wide sense: the makers’ notes travel with the program, keep it maintainable, and outlive the makers’ memories. And data is neither hardware nor an afterthought — a program without data is a recipe with no ingredients. When this book says *software*, it means the whole triad.' },
+    { kind: 'terms', items: [
+      { term: 'Software', def: 'Software is said to be the instructions that tell the hardware what to do, together with the data they work on and the documentation that explains them.' },
+      { term: 'Program', def: 'A program is said to be an ordered list of instructions that tells the machine, step by step, what to do — the unit of software the machine obeys blindly.' },
+    ] },
+
+    // ---------------- the two great families ----------------
+    { kind: 'heading', text: 'The Two Great Families' },
+    { kind: 'para', text: 'Every program you will ever meet falls into one of two great families — a census far steadier than the hardware census of lesson 1.2, because the boundary is the *job*, not the machine. Ask of any program one honest question: who is served — the machine itself, or the user doing their work? The answer sorts everything.' },
+    { kind: 'callout', tone: 'definition', title: 'System software', text: 'System software is said to be the family of programs that manage the machine itself and provide the platform on which other programs run. Thus, system software serves the machine, not the user: the operating system, utility programs and device drivers are its three named kinds.' },
+    { kind: 'callout', tone: 'definition', title: 'Application software', text: 'Application software is said to be the family of programs that do the user’s own work — writing, browsing, playing, editing. Thus, application software serves the user directly and rides on the platform the system family builds beneath it.' },
+    { kind: 'figure', caption: 'The two great families as one tree: software at the root; system software (the operating system, utility programs, device drivers) managing the machine on the left branch; application software (word processor, browser, game, media editor) doing the user’s work on the right — every program sits somewhere on this tree.', svg: softwareFamilyTreeSvg() },
+    { kind: 'table', caption: 'The family census: what each common program is for — the job, not the brand, decides the family.', head: ['Program', 'Family', 'What it is for'], rows: [
+      ['operating system', 'system', 'manages the machine itself; the platform'],
+      ['utility programs', 'system', 'housekeeping: cleanup, backup, scans'],
+      ['device drivers', 'system', 'one translator per device family'],
+      ['word processor', 'application', 'the user’s writing work'],
+      ['browser', 'application', 'the user’s reading of the web'],
+      ['game', 'application', 'the user’s play'],
+      ['media editor', 'application', 'the user’s photo, audio, video work'],
+    ] },
+    { kind: 'para', text: 'Read the census by its boundary, not its members: the left column keeps the machine itself healthy and usable; the right column hands the user finished work. A browser is as large and as clever as many an operating system — size proves nothing here; the *service direction* decides. That single test is the whole apparatus of classification in this field.' },
+    { kind: 'para', text: 'For example, classify these everyday programs — the test is always who is served:' },
+    { kind: 'list', marker: 'roman', items: [
+      'the program that backs up the disk overnight — the machine’s own housekeeping: a utility, system software;',
+      'the photo editor the wedding photographer uses all day — the user’s creative work: application software;',
+      'the small translator that makes a newly plugged printer usable — a device driver: system software;',
+      'the word processor on which this very book is drafted — the user’s writing work: application software;',
+      'the program that quietly scans the disk for malware — the machine’s guard duty: a utility, system software;',
+      'the racing game the exam-weary student plays at midnight — the user’s play: application software.',
+    ] },
+    { kind: 'example', title: 'Classify the eight programs of a school’s computer room onto the two great families: a timetable app, the operating system, a backup utility, a browser, the touchpad driver, a media editor, an antivirus program, a report-writing word processor.', steps: [
+      'Split the eight by the honest test: who is served — the machine, or the user?',
+      'Now, the machine-servers: the operating system (the manager), the backup utility, the touchpad driver and the antivirus program — four, all system software.',
+      'So, the user-servers: the timetable app, the browser, the media editor and the word processor — four, all application software.',
+      'Check the census: a $4 + 4 = 8$ split, matching the family tree’s two halves exactly.',
+      'Hence, the classification rides one question asked eight times — the boundary of the census table, never any knowledge of brands.',
+    ] },
+    { kind: 'terms', items: [
+      { term: 'System software', def: 'System software is said to be the family of programs that manage the machine itself and provide the platform — the operating system, utilities and device drivers.' },
+      { term: 'Application software', def: 'Application software is said to be the family of programs that do the user’s own work — writing, browsing, playing, editing — riding on the platform.' },
+    ] },
+
+    // ---------------- the operating system ----------------
+    { kind: 'heading', text: 'The Operating System: the Manager' },
+    { kind: 'para', text: 'The heart of system software, and of this whole lesson, is one program: the operating system. It is the program that is *always* running — from the moment the machine finishes booting until it is switched off — and every other program, however grand, runs as its guest. What follows is the visible half of its invisible work: five duties you can actually watch, if you know where to look.' },
+    { kind: 'callout', tone: 'definition', title: 'Operating system', text: 'The operating system (OS) is said to be the system program that manages the machine’s resources — its processes, its memory, its files and its devices — and provides the user interface on which every other program runs. Thus, the operating system is the machine’s manager: the one trusted intermediary every program must pass through.' },
+    { kind: 'para', text: 'Watch the manager at work, duty by duty. **Process management** lets many programs share one machine: one processor cannot serve two masters at the same instant, so the manager interleaves them — turns taken so fast that each program behaves as if it owned the whole machine. **Memory management** gives each of those programs its share of RAM and keeps the shares from trampling one another: each program *believes* it owns the memory it uses, and the belief holds precisely because the manager enforces it.' },
+    { kind: 'para', text: '**File management** turns storage into names: you open *letters* or *photos*, never a numbered address — the manager keeps the mapping from the names you meet to the places the machine keeps. **Device management** opens one honest channel to every device: the disk, the screen, the printer and the gamepad are all reached through the manager, never grabbed directly. And the **user interface** is the duty you meet most of all — the desktop, the icons, the menus and the touch targets, or the typed command line; whether you meet pictures or typed words is a design choice, not a difference of species.' },
+    { kind: 'table', caption: 'What the operating system does, mapped against what the user ever sees of it — the duty invisible, its effects everywhere.', head: ['The OS duty', 'What the user sees'], rows: [
+      ['process management', 'many apps open at once; nothing freezes'],
+      ['memory management', 'apps run together without trampling'],
+      ['file management', 'files with names, kept in folders'],
+      ['device management', 'plug in a printer; it simply works'],
+      ['the user interface', 'the desktop, icons and menus you touch'],
+    ] },
+    { kind: 'figure', caption: 'The operating system as manager: four application programs (word processor, browser, game, media editor) ask downward through the one manager box, which alone commands the hardware row below (CPU, RAM, disk, screen, printer) — no program touches the hardware directly; every arrow passes through the manager.', svg: osAsManagerSvg() },
+    { kind: 'derivation', title: 'Why n programs need a manager', statement: 'A machine must run $n$ programs on $d$ devices. Two designs are on the table: let every program drive every device itself, or install one trusted manager between them. The claim: the manager is cheaper for everyone.', steps: [
+      { label: 'Count the work under no manager', formula: 'n \\times d \\text{ driver codes}', explanation: 'If there is no manager, each of the $n$ programs must itself carry working code for each of the $d$ devices — every device’s handling written $n$ times over, once per program.' },
+      { label: 'Count the work under one manager', formula: 'd \\text{ drivers} + 1 \\text{ manager}', explanation: 'If one manager sits between, each device’s handling is written once, inside the manager — $d$ drivers plus the manager itself — and every program simply asks.' },
+      { label: 'Let the machine grow', formula: 'n \\to 2n: \\quad 2n \\times d \\text{ versus } d', explanation: 'Add programs and the no-manager bill grows in lock-step — doubling the programs doubles the bill — while the managed bill does not move: the machine grows in programs without growing in device code.' },
+      { label: 'Price the trust', formula: '\\text{one honest channel} < n \\text{ rival channels}', explanation: 'One channel is also one honest referee: no program can seize a device out of another’s hands, and the machine can serve many masters precisely because it serves them one at a time, in turns too fast to notice.' },
+    ], result: 'Thus, $n$ programs on bare metal need $n \\times d$ driver codes, while the same $n$ programs with one operating system need only $d$ — the manager writes each device once and serves every program with it.' },
+    { kind: 'callout', tone: 'insight', title: 'The manager is itself a program', text: 'Note honestly what the manager is made of: the operating system is itself a program, riding the same fetch–decode–execute loop of lesson 1.1 as the humblest calculator toy. Its authority comes from position — everything must pass through it — not from different matter. The deeper machinery, from interrupts to scheduling to protection, belongs to the Operating Systems course; this lesson only opens its door.' },
+    { kind: 'example', title: 'Four programs, one machine: name the manager’s duty at work in each part of the scene.', steps: [
+      'Take the scene: a word processor holds an open letter, a browser streams a lecture, a backup utility copies the disk, and an antivirus scan runs quietly behind them all.',
+      'Now, all four share one processor — turns interleaved so fast that nobody notices: process management.',
+      'So, all four sit in RAM without trampling, each believing it owns its share: memory management.',
+      'Check the letter and the backup: both are named files in folders — file management — and the disk they use is reached through one channel, not four: device management.',
+      'Hence, one ordinary screen of work is the manager performing every duty at once — invisibly, which is the whole point of management.',
+    ] },
+    { kind: 'para', text: 'One question is left, and it is the oldest one in the field: where does the manager *come from*? Every program must be loaded into memory by something, and the operating system is a program — so who loads the loader? The answer is a fixed ritual every machine performs from cold: the boot sequence.' },
+    { kind: 'algorithm', title: 'The Boot Sequence', lines: [
+      { code: 'power on:', note: 'you press the button — electricity arrives, and nothing else is true yet' },
+      { code: '  firmware checks the hardware (POST)', note: 'the power-on self-test: the motherboard’s own small program tests RAM, ports and display before any disk is trusted' },
+      { code: '  firmware finds the bootloader', note: 'the firmware looks on the storage for the small loader program and runs it' },
+      { code: '  bootloader loads the kernel', note: 'the loader carries the kernel — the operating system’s core — from disk into memory and hands over the machine' },
+      { code: '  kernel starts drivers + services', note: 'the kernel brings up the device drivers and the background services, one translator per device family' },
+      { code: 'login screen appears', note: 'the manager is fully up: it asks who you are, and everything you do afterwards passes through it' },
+    ], note: 'Why the firmware lives on the motherboard: someone must run before any disk exists — a disk is a device, and reaching a device needs software, which must be loaded by something. The firmware breaks the circle because it is a small permanent program kept on the board itself, always there, needing no loading. "Boot" is the old short word for this cold start — the machine lifting itself by its own bootstraps, one small program loading a larger one, each hop more capable than the last.' },
+    { kind: 'figure', caption: 'The boot sequence as one strip: power on, the firmware’s POST, the bootloader hop, the kernel load, drivers and services, the login screen — six stages with their owner printed above each, the hops joined by arrows, each handover loading the program that loads the next.', svg: bootSequenceStripSvg() },
+    { kind: 'example', title: 'Walk the boot trace: name who owns the machine at each stage, and why each hop must precede the next.', steps: [
+      'Take the six stages in order: power on, POST, bootloader, kernel, drivers + services, login.',
+      'Now, the first two belong to the firmware: it must check the hardware before trusting any disk, because it existed before disks could be read at all.',
+      'So, the bootloader is the first disk program: the firmware is too small to load a whole kernel, so it loads a loader — which can.',
+      'Check the kernel: once loaded, it starts the drivers, for no device works without its translator; services follow, and the machine becomes ready.',
+      'Hence, the login screen is last because the manager must be complete before it can ask who you are — each hop loads the program that loads the next.',
+    ] },
+    { kind: 'callout', tone: 'historical', title: 'The operating system arc', text: 'The manager has a short, loud history. UNIX was born in 1969 at Bell Labs — Ken Thompson and Dennis Ritchie its makers — and was rewritten in C by 1973, a landmark: an operating system written in a portable language rather than one machine’s assembly. On the personal-computer side, Microsoft licensed 86-DOS — nicknamed QDOS, "Quick and Dirty Operating System" — from Seattle Computer Products, purchased full rights in July 1981, and PC DOS 1.0 shipped with the first IBM PC in August 1981. Windows 1.0 arrived in November 1985 — a graphical shell that in later generations grew into an operating system family of its own. The Linux kernel began with Linus Torvalds in August 1991 — a hobby for 386 PCs, released under the GPL — and today it anchors servers, supercomputers and the Android world. The mobile era followed: iPhone OS 1 in 2007, and Android 1.0 — the first commercial version — on 23 September 2008. Every date above is web-verified, and every system named is still somebody’s daily manager.' },
+    { kind: 'terms', items: [
+      { term: 'Operating system', def: 'The operating system is said to be the system program that manages the machine’s processes, memory, files and devices, and provides the interface every other program runs on.' },
+      { term: 'Kernel', def: 'The kernel is said to be the operating system’s core — the first part loaded at boot, the part that starts the drivers and manages everything after.' },
+      { term: 'Firmware', def: 'Firmware is said to be the small permanent program kept on the motherboard itself, running the power-on self-test and loading the bootloader before any disk exists.' },
+    ] },
+
+    // ---------------- utilities and device drivers ----------------
+    { kind: 'heading', text: 'Utilities and Device Drivers' },
+    { kind: 'para', text: 'Two kinds of system software sit beside the manager, and both are easy to underrate. The first is the maintenance crew: **utility programs**. They tidy, guard and repair the machine itself — disk cleanup clearing the leftovers of finished work, backup copying earned data to safety, compression packing files into smaller parcels, antivirus scans hunting known malware. These are *families of jobs*, not brands: a fundamentals lesson names the work, and any maker’s tool that does the work is a member of the family.' },
+    { kind: 'callout', tone: 'definition', title: 'Utility program', text: 'A utility program is said to be a system program that maintains or guards the machine itself rather than doing the user’s work. Thus, utilities are the maintenance crew: cleanup, backup, compression and antivirus scanning are the classic families.' },
+    { kind: 'para', text: 'For example, name the utility families at work in one ordinary week:' },
+    { kind: 'list', marker: 'roman', items: [
+      'Sunday’s overnight copy of the week’s earned files to a second disk — the backup family;',
+      'the mid-week tidy that clears leftover temporary files — the cleanup family;',
+      'the archive that packs a term’s work into a smaller parcel for sending — the compression family;',
+      'the quiet nightly hunt for known malware — the antivirus family.',
+    ] },
+    { kind: 'example', title: 'Classify the maintenance jobs: (a) an overnight backup; (b) a defragment-style tidy-up of scattered storage; (c) an antivirus scan.', steps: [
+      'Take the honest test: who is served — the user’s own work, or the machine itself?',
+      'Now, the overnight backup guards the machine’s earned data — housekeeping: a utility of the backup family.',
+      'So, the defragment-style tidy re-arranges the machine’s own storage — housekeeping again: a utility of the cleanup family.',
+      'Check the antivirus scan: it hunts malware that would harm the machine — the guard duty of the scanning family: a utility.',
+      'Hence, all three are utilities — none does the user’s work; each keeps the machine itself healthy, which is system software throughout.',
+    ] },
+    { kind: 'para', text: 'The second kind is stranger and more important than it looks: the **device driver**. Every device speaks its own dialect — the printer one language, the gamepad another, each graphics card a third — while the operating system would rather speak one general device language to all of them. A driver is the small program that stands between and translates: one driver per device family, living in the system layer, invisible until it fails or improves. The graphics example is the classic one, and it explains a household phrase: *driver update*.' },
+    { kind: 'callout', tone: 'definition', title: 'Device driver', text: 'A device driver is said to be a small system program that translates between one device family and the operating system. Thus, a driver is a translator: the OS speaks general device language, and the driver renders it into the particular dialect one maker’s hardware understands.' },
+    { kind: 'example', title: 'The translator at work: why can the same game run on two quite different graphics cards?', steps: [
+      'Take the two cards: different makers, different internal dialects — neither understands the other’s commands.',
+      'Now, the game is one program: it issues general draw commands in the operating system’s graphics language, not in either card’s dialect.',
+      'So, each card ships with its own driver: card A’s driver translates the general commands into A’s dialect, card B’s driver renders the same commands into B’s.',
+      'Check the win: the game is written once, and the translating is done twice — by two small system programs, not by the game.',
+      'Hence, the same game runs on both cards because the drivers carry the translation — which is exactly why "driver update" is a household phrase.',
+    ] },
+    { kind: 'terms', items: [
+      { term: 'Utility program', def: 'A utility program is said to be a system program that maintains or guards the machine itself — cleanup, backup, compression and antivirus scanning are its families.' },
+      { term: 'Device driver', def: 'A device driver is said to be a small system program that translates between one device family and the operating system — one translator per family.' },
+    ] },
+
+    // ---------------- application software and the platform ----------------
+    { kind: 'heading', text: 'Application Software and the Platform Question' },
+    { kind: 'para', text: 'On the application side, the census is a census of *work*. The productivity family carries the user’s writing, counting and presenting — word processors, spreadsheets, slide-makers. The browser family reads the living web. The creative family edits photo, audio and video. The game family plays — and is, incidentally, the most demanding tenant any machine ever hosts, the reason gaming hardware sells at all. Every application, whatever its work, shares one dependence: it cannot reach the machine except by asking the manager.' },
+    { kind: 'callout', tone: 'definition', title: 'Application programming interface (API)', text: 'An application programming interface (API) is said to be the published set of calls through which application programs ask the operating system for services — opening files, drawing windows, sending network traffic, reaching devices. Thus, an API is the manager’s service counter: the app asks; the operating system performs.' },
+    { kind: 'para', text: 'And now the platform honesty, the part of this lesson that saves the most confusion later. A program, once *compiled*, is machine code bound to two things at once: the instruction dialect of one processor line, and the exact call names of one operating system’s service counter. Take that binary to a machine with a different operating system and two mismatches greet it — the new processor may not speak its dialect at all, and even if it does, the names it calls at the service counter were never taught to the other manager. That is why one title ships as *for Windows*, *for Mac* and *for Linux* editions: not three products, but three platform bindings of one source. The deeper story of instruction dialects belongs to chapter 4, "Inside the Box", of this book.' },
+    { kind: 'callout', tone: 'warn', title: 'A program is not a program', text: 'A caution worth boxing: "it is a program, it runs anywhere" is false twice over. Compiled code is dialect-bound to an instruction set and service-counter-bound to one operating system’s API. The honest sentence is "this binary runs on this platform" — and the honest everyday evidence is the editions row on any software download page.' },
+    { kind: 'example', title: 'One source, three editions: why does the same application ship separately for Windows, for Mac and for Linux?', steps: [
+      'Take the one source: the makers’ code as written by humans — one program in principle.',
+      'Now, compiling it for Windows binds it twice: to that machine’s instruction dialect and to that manager’s service counter — its API.',
+      'So, the same source compiled for Mac is a different binary — Mac dialect, Mac API — and again for Linux: three editions, one program in source.',
+      'Check the user’s evidence: the download page offers the three editions side by side — not three products, but three platform bindings of one.',
+      'Hence, the platform question in a sentence: an application rides a platform, and a binary is married to the platform it was compiled for.',
+    ] },
+    { kind: 'terms', items: [
+      { term: 'Platform', def: 'A platform is said to be the combination of hardware and operating system a program is compiled to run on — the ground an application rides.' },
+      { term: 'Application programming interface (API)', def: 'An application programming interface (API) is said to be the published set of calls through which applications ask the operating system for its services.' },
+    ] },
+
+    // ---------------- how big is software ----------------
+    { kind: 'heading', text: 'How Big Is Software' },
+    { kind: 'para', text: 'Scale deserves one honest paragraph, because it is the question every beginner eventually asks: how much software is there? The single most striking verified answer concerns the Linux kernel — the same kernel that began as a hobby in August 1991, and the largest commonly shared open codebase in the world. It surpassed forty million lines of code in early 2025 — about $40{,}000{,}000$. What does such a number even mean? A derivation prices it the only way a number that large can be *felt*: as a library.' },
+    { kind: 'derivation', title: 'The library wall', statement: 'Price the honest scale of the Linux kernel as printed books, using two labelled ballpark inputs: a printed page carries roughly 50 lines, and a typical shelf volume carries roughly 500 pages. The claim: the kernel prices as a library wall.', steps: [
+      { label: 'Take the input', formula: '40{,}000{,}000 \\text{ lines}', explanation: 'Start from the pinned scale: the kernel surpassed 40,000,000 lines of code in early 2025 — the count of lines is exact, and it is the only exact number in this derivation.' },
+      { label: 'Convert to pages', formula: '40{,}000{,}000 \\div 50 = 800{,}000 \\text{ pages}', explanation: 'At roughly 50 lines per printed page, the kernel fills $800{,}000$ pages — engine-checked, exact given the assumption.' },
+      { label: 'Convert to volumes', formula: '800{,}000 \\div 500 = 1{,}600 \\text{ volumes}', explanation: 'At roughly 500 pages per typical shelf volume, those pages bind into about $1{,}600$ volumes — a wall of shelving.' },
+      { label: 'Test the ballpark', formula: '40{,}000{,}000 \\div 40 = 1{,}000{,}000 \\text{ pages}', explanation: 'Vary the soft input to 40 lines per page and the wall becomes $1{,}000{,}000$ pages, or $2{,}000$ volumes — the estimate moves by a factor of only $2{,}000 \\div 1{,}600 = 1.25$, so the order of magnitude stands.' },
+    ], result: 'Thus, $40{,}000{,}000 \\div 50 = 800{,}000$ pages, and $800{,}000 \\div 500 = 1{,}600$ volumes — the kernel prices, honestly, as a library wall of about $1{,}600$ volumes.' },
+    { kind: 'callout', tone: 'warn', title: 'Quantity is not quality', text: 'A caution the number invites: a 40,000,000-line kernel is not "better" than the ten-thousand-line controller riding a washing machine — both do their jobs, and each would be absurd in the other’s post. Size measures work spent, never worth achieved. Read the library wall as a scale of effort, not a ranking.' },
+    { kind: 'example', title: 'Price the kernel on the library wall: 40,000,000 lines at 50 lines per printed page, then 500 pages per shelf volume.', steps: [
+      'Take the pinned scale: about $40{,}000{,}000$ lines of code — the kernel’s honest size in early 2025.',
+      'Now, the page hop: $40{,}000{,}000 \\div 50 = 800{,}000$ printed pages.',
+      'So, the volume hop: $800{,}000 \\div 500 = 1{,}600$ shelf volumes — one library wall.',
+      'Check both round trips: $1{,}600 \\times 500 = 800{,}000$ and $800{,}000 \\times 50 = 40{,}000{,}000$ — the arithmetic closes exactly.',
+      'Hence, the kernel is honest wall-scale — a wall, note, never a judgement: the estimate prices scale alone.',
+    ] },
+    { kind: 'para', text: 'Everything in that derivation except the 40,000,000 itself is a labelled ballpark — "roughly", "typical", "about" — and that honesty is the habit this book keeps wherever an estimate stands in for a count: soft inputs, hard division, a clearly labelled answer. An estimate earns its place by naming its assumptions; a number that hides them is not an estimate but a guess dressed as one.' },
+
+    // ---------------- licensing ----------------
+    { kind: 'heading', text: 'Licensing: the Honest First Meeting' },
+    { kind: 'para', text: 'One last meeting belongs in this first lesson on software, because it is the one you personally transact earliest: when you "buy" a program, you almost never buy the program. You buy *permission*. The legal instrument that states the permission is the software license, and its families are few enough to learn on first meeting.' },
+    { kind: 'callout', tone: 'definition', title: 'Software license', text: 'A software license is said to be the legal instrument that states what a user may do with a program — use it, copy it, study it, change it, redistribute it, or some stated subset of these. Thus, buying software usually buys a license: the permission, never the software itself.' },
+    { kind: 'table', caption: 'The licensing families at a first meeting — price, source and redistribution rights decide the family.', head: ['Licensing family', 'What you pay', 'Source code + rights'], rows: [
+      ['proprietary', 'a price, per copy', 'closed; no right to change or share'],
+      ['freeware', 'nothing', 'still closed; free of charge only'],
+      ['shareware', 'try free, then pay', 'closed; payment on trust'],
+      ['open source', 'varies', 'open; study, change, redistribute'],
+      ['public domain', 'nothing', 'no rights reserved at all'],
+    ] },
+    { kind: 'para', text: 'The families are easiest to believe through one story. Android’s core is open source — built by Google around the Linux kernel, whose GPL lineage this lesson met in the historical arc — and precisely because the license granted study, change and redistribution, hundreds of manufacturers could carry that one core into their own handsets, shaping it to their screens and their markets. A proprietary license would have needed one owner’s permission hundreds of times over; the open license made a fleet possible with one granted freedom. That is the entire practical meaning of the licence families — what the license permits, the world can build on. The practice of choosing, installing and updating under these families belongs to chapter 5 of this book, "Installing, Updating and Licensing Honestly"; this lesson opens the door and hands off.' },
+    { kind: 'example', title: 'Read three licenses honestly: (a) free of charge, no source offered, no redistribution permitted; (b) full use granted for a trial period, then payment asked; (c) source code shipped, with study, change and redistribution granted.', steps: [
+      'Take each license by its three tells: the price, the source, the redistribution right.',
+      'Now, (a) charges nothing but offers no source and grants no sharing: free of charge, still proprietary — freeware, the family most often mistaken for its rival.',
+      'So, (b) grants full use for a trial, then asks payment on trust — the try-then-pay family: shareware.',
+      'Check (c): the source ships, and study, change and redistribution are granted — open source, the GPL’s family.',
+      'Hence, three licenses, three families — and the one honest habit: read what is *granted* before calling anything "free".',
+    ] },
+    { kind: 'terms', items: [
+      { term: 'Software license', def: 'A software license is said to be the legal instrument stating what a user may do with a program — use, copy, study, change, redistribute, or a subset of these.' },
+      { term: 'Proprietary software', def: 'Proprietary software is said to be software whose license charges for use and closes the source — permission to use, never the rights to change or share.' },
+      { term: 'Freeware', def: 'Freeware is said to be software licensed free of charge but still proprietary — no source offered, no redistribution right granted.' },
+      { term: 'Shareware', def: 'Shareware is said to be software licensed for full trial use, with payment asked afterwards on the honour system.' },
+      { term: 'Open-source software', def: 'Open-source software is said to be software whose license grants the study, change and redistribution of its source code — the GPL being the classic instrument.' },
+      { term: 'Public-domain software', def: 'Public-domain software is said to be software to which no rights are reserved at all — anyone may use, change or sell it without asking.' },
+    ] },
+
+    // ---------------- exam corner ----------------
+    { kind: 'heading', text: 'Exam Corner' },
+    { kind: 'callout', tone: 'exam', title: 'What the awareness papers ask of this lesson', text: 'Banking and SSC computer-awareness papers ask this lesson directly, in three recurring shapes: system-versus-application classification ("which of the following is system software?"), operating-system function identification ("which duty is process management?"), and licensing types ("freeware differs from open-source software because —"). The exercise items below include exam-style items in that idiom — original items written to the pattern, honestly labelled as such, never presented as real past paper questions.' },
+    { kind: 'para', text: 'From the above discussion, it follows that the machine of lessons 1.1 and 1.2 was half a machine. The invisible half is software — loadable instructions riding the stored-program concept — and it splits into two great families by a single honest test: system software serves the machine itself (the operating system, the utilities, the drivers); application software serves the user’s work. The operating system is the manager that makes sharing possible — processes, memory, files, devices and the interface — and it arrives by the boot sequence’s six hops, each program loading the next. Applications ride the manager’s API, and a compiled binary stays married to the platform it was compiled for. Scale is honest wall-scale: the kernel’s 40,000,000 lines price, ballpark, as 800,000 pages — about $1{,}600$ volumes. And licensing is permission, in five families from proprietary to public domain.' },
+    { kind: 'list', marker: 'roman', items: [
+      'software is instructions plus data plus documentation — the invisible half, loadable because instructions are data in one memory;',
+      'the two families: system software manages the machine; application software does the user’s work — the test is who is served;',
+      'the operating system manages processes, memory, files and devices, and provides the interface — one trusted intermediary for all;',
+      'the boot sequence runs power on → POST → bootloader → kernel → drivers + services → login, each hop loading the next;',
+      'a compiled binary runs only on its own platform — its instruction dialect plus its manager’s API;',
+      'licensing is permission, in five families — and free of charge never means free to modify.',
+    ] },
+
+    // ---------------- quiz ----------------
+    { kind: 'quiz', items: [
+      { q: 'Which of the following is system software?', options: ['A word processor', 'A photo editor', 'An operating system', 'A racing game'], answer: 2, explain: 'Option 3 is correct: the operating system manages the machine itself and provides the platform — the definition of system software. Option 1 is a writing tool that does the user’s work: application software. Option 2 likewise serves the user’s creative work, not the machine. Option 4 is the purest application of all — play, served directly, platform provided by others.' },
+      { q: 'What does the operating system’s process management actually do?', options: ['It runs each program to completion before any other may start', 'It shares the one machine among many programs, in turns nobody sees', 'It compresses stored files so that more of them fit', 'It translates print commands into a printer’s own dialect'], answer: 1, explain: 'Option 2 is the duty: many programs share one processor in interleaved turns too fast to notice — the invisible referee. Option 1 describes the one-master-at-a-time machine the manager exists to overcome. Option 3 is a utility’s job — the compression family — not the sharing duty. Option 4 is a device driver’s job, the translator between one device family and the OS.' },
+      { q: 'What is a device driver?', options: ['A small system program that translates between one device family and the operating system', 'A backup copy of a program kept off-site for emergencies', 'The name of the chip inside every printer', 'A license that permits hardware to be resold'], answer: 0, explain: 'Option 1 is the definition: the driver translates the operating system’s general device language into one device family’s own dialect. Option 2 confuses the translator with a backup utility’s output — different family, different job. Option 3 mistakes a hardware part for the software that serves it. Option 4 drags licensing vocabulary into hardware — a license governs software use, and no chip is named a driver.' },
+      { q: 'When you buy a piece of software, what is it that you usually buy?', options: ['The program’s source code and its trade secrets', 'A share in the company that made it', 'The factory rights to manufacture further copies', 'A license — the permission to use, as the agreement states'], answer: 3, explain: 'Option 4 is the honest rule: you buy a license, the legal instrument stating what you may do — use, on the stated terms. Option 1 describes what proprietary licensing withholds: the source stays closed, trade secrets stay secret. Option 2 confuses a purchase with an investment — buying permission makes you an owner of nothing. Option 3 is exactly backwards: the copying rights stay with the copyright holder, which is why the license exists at all.' },
+      { q: 'Which licensing family grants the right to study the source code, change it, and redistribute both the original and the changes?', options: ['Freeware', 'Shareware', 'Open source', 'Public domain'], answer: 2, explain: 'Option 3 is right: open-source licenses grant study, change and redistribution of the source — the GPL being the classic instrument, the Linux and Android lineage its witness. Option 1 is the commonest trap: freeware is free of charge but closed — no source, no rights beyond use. Option 2 is try-then-pay, still closed after payment. Option 4 grants everything with no license asked at all — but it is rarity, not the family the GPL built, and this question asks for the granting family.' },
+    ] },
+
+    // ---------------- formula cards ----------------
+    { kind: 'formula', name: 'The boot order', latex: '\\text{power on} \\to \\text{POST} \\to \\text{bootloader} \\to \\text{kernel} \\to \\text{login screen}', note: 'the cold-start ritual: each hop loads the program that loads the next — the firmware first, because it must run before any disk exists.' },
+    { kind: 'formula', name: 'The two-families census', latex: '\\text{software} = \\text{system software} + \\text{application software}', note: 'the boundary is the job, not the machine: the system family serves the machine itself (OS, utilities, drivers); the application family serves the user’s work.' },
+    { kind: 'formula', name: 'The library-wall estimate', latex: '40{,}000{,}000 \\div 50 = 800{,}000 \\text{ pages}; \\quad 800{,}000 \\div 500 = 1{,}600 \\text{ volumes}', note: 'the kernel priced as printed books — soft inputs (roughly 50 lines per page, roughly 500 pages per volume), hard division, an honestly labelled wall.' },
+    { kind: 'formula', name: 'The license families', latex: '\\text{proprietary} / \\text{freeware} / \\text{shareware} / \\text{open source} / \\text{public domain}', note: 'five families by price, source and redistribution — buying software buys permission, and free of charge never means free to modify.' },
+    { kind: 'formula', name: 'The manager count', latex: 'n \\times d \\text{ bare metal} \\;\\; \\text{vs} \\;\\; d \\text{ with one operating system}', note: 'each device’s driver written once inside the OS serves every program — the arithmetic behind the manager’s existence.' },
+
+    // ---------------- exercises ----------------
+    { kind: 'exercises', sets: [
+      { level: 'L1', questions: [
+        { q: 'Classify each of these programs onto the two great families, with a reason: (a) a disk cleanup tool; (b) a word processor; (c) the touchpad driver; (d) a web browser.', solution: [
+          'Take the honest test: who is served — the machine itself, or the user doing their work?',
+          'Now, the disk cleanup tool tidies the machine’s own storage — housekeeping: system software, a utility.',
+          'So, the word processor serves the user’s writing work — application software.',
+          'Check the remaining pair: the touchpad driver translates for one device family — system software; the browser does the user’s reading of the web — application software.',
+          'Hence, (a) and (c) ride the system half, (b) and (d) the application half — the split the panels below draw.',
+        ], answer: '(a) system software — a utility; (b) application software; (c) system software — a device driver; (d) application software.', figures: [
+          { caption: 'The two families for this classification: the cleanup tool and the touchpad driver ride the system panel; the word processor and the browser ride the application panel.', svg: solutionFamilyTreeSvg() },
+        ] },
+        { q: 'Classify each of these onto the two great families: (a) an antivirus program; (b) a photo editor; (c) the operating system itself; (d) a chess program.', solution: [
+          'Take the honest test again: the machine, or the user?',
+          'Now, the antivirus program guards the machine itself — system software, a utility.',
+          'So, the photo editor does the user’s creative work — application software.',
+          'Check the remaining pair: the operating system manages the machine itself — system software, the manager; the chess program serves the user’s play — application software.',
+          'Hence, (a) and (c) are system software; (b) and (d) are application software.',
+        ], answer: '(a) system software — a utility; (b) application software; (c) system software — the manager; (d) application software.' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Two programs run at once on one machine, and neither knows the other exists. Which duty of the operating system is at work, and what is it actually doing?', solution: [
+          'Take the scene’s two clues: many programs, one machine, mutual ignorance.',
+          'Now, one processor cannot serve two masters at the same instant — so the manager interleaves them, giving each its turns so fast that neither notices the other exists.',
+          'So, the duty is process management: sharing the machine between programs that never meet.',
+          'Hence, the invisible referee is the OS’s process management — turns, not miracles.',
+        ], answer: 'process management — the operating system takes turns between the programs so fast that neither notices.' },
+        { q: 'A printer that failed on a new machine works right after its driver is updated. What was the driver doing before and after, and why did the update fix it?', solution: [
+          'Take the three parties: the application, the operating system, and the printer speaking its own dialect.',
+          'Now, the driver is the translator between the OS’s general print language and this printer’s particular dialect — a small system program, one per device family.',
+          'So, the fault was a mistranslation: the old driver could not render the general commands into this printer’s actual dialect — the middle box, not the printer and not the program.',
+          'Check the fix: the updated driver translates the same general commands correctly into the printer’s dialect — the OS never changed, the printer never changed.',
+          'Hence, the update repaired the translating layer — the one place the two languages meet.',
+        ], answer: 'the driver translates OS print commands into the printer’s own dialect; the update fixed the translation — the program and the printer were unchanged.', figures: [
+          { caption: 'The translation chain for this printer story: the program’s general commands pass through the driver, which renders them into the printer’s dialect — the update repaired the middle box.', svg: driverTranslatorSvg() },
+        ] },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Put these boot stages in the honest order and justify each hop: the login screen, the firmware’s POST, power on, the kernel load, the bootloader.', solution: [
+          'Take the rule: each hop loads the program that loads the next — the machine grows more capable stage by stage.',
+          'Now, first comes power on — nothing is true before electricity arrives; then the firmware’s POST checks the hardware before any disk is trusted.',
+          'So, the bootloader follows as the first disk program — small enough for the firmware to run — and it loads the kernel, the manager’s core.',
+          'Check the last hop: drivers and services start under the kernel, and only then can the login screen ask who you are.',
+          'Hence, the order is power on → POST → bootloader → kernel → login screen — each stage the loader of the next.',
+        ], answer: 'power on → firmware POST → bootloader → kernel → login screen, each hop loading the next.', figures: [
+          { caption: 'The honest boot order for this question: the firmware’s POST before any disk is read, the bootloader as the first disk program, the kernel, then the login screen.', svg: solutionBootStripSvg() },
+        ] },
+        { q: 'Classify these maintenance jobs and name the utility family each belongs to: (a) an overnight backup of earned files; (b) a defragment-style tidy-up of scattered storage; (c) an antivirus scan.', solution: [
+          'Take the test one more time: housekeeping for the machine, or the user’s own work?',
+          'Now, the overnight backup guards the machine’s earned data — the backup family: a utility.',
+          'So, the defragment-style tidy re-arranges the machine’s own storage — the cleanup family: a utility.',
+          'Check the antivirus scan: it hunts malware that would harm the machine — the scanning family: a utility.',
+          'Hence, all three are utilities — system software serving the machine itself, never the user’s work.',
+        ], answer: 'all three are utilities — the backup, cleanup and antivirus-scanning families, all system software.' },
+        { q: 'Name the operating-system duty at work in each moment: (a) three programs sit in memory at once, each behaving as if it owned the RAM; (b) a saved letter opens by its name, not by a memory address; (c) a newly plugged gamepad works at once, with no new application installed.', solution: [
+          'Take the three moments one at a time, asking which duty owns each.',
+          'Now, (a) is memory management: the manager hands each program its share of RAM and keeps the shares from trampling.',
+          'So, (b) is file management: names and folders stand between the user and the numbered storage underneath.',
+          'Check (c): the gamepad spoke through its driver to the operating system — device management, the one honest channel.',
+          'Hence, (a) memory management, (b) file management, (c) device management — three duties, one manager.',
+        ], answer: '(a) memory management; (b) file management; (c) device management.' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Exam-style MCQ chain (original items written in the bank/SSC computer-awareness idiom — not a real past paper): (i) Which of the following is system software? (ii) Which duty belongs to the operating system? (iii) Freeware differs from open-source software because —', solution: [
+          'Split the chain into its three questions and answer each from the boxed definitions.',
+          '(i) The system family serves the machine: among a word processor, a game, an operating system and a browser, only the operating system manages the machine itself — system software.',
+          '(ii) The OS’s duties are process, memory, file and device management, and the interface — interleaving programs among the applicants is process management.',
+          '(iii) Freeware is free of charge but closed — no source, no redistribution right; open source grants study, change and redistribution of the source: the difference is rights, never price.',
+          'Hence, (i) the operating system, (ii) process management, (iii) freeware grants no source-code rights while open source does.',
+        ], answer: '(i) the operating system; (ii) process management; (iii) freeware is free of charge but grants no source rights — open source does.' },
+        { q: 'The library wall: price 40,000,000 lines of kernel code at 50 lines per printed page, then at 500 pages per shelf volume.', solution: [
+          'Take the pinned scale: about $40{,}000{,}000$ lines — the kernel’s honest size in early 2025.',
+          'Now, the page hop: $40{,}000{,}000 \\div 50 = 800{,}000$ printed pages.',
+          'So, the volume hop: $800{,}000 \\div 500 = 1{,}600$ shelf volumes.',
+          'Check both round trips: $1{,}600 \\times 500 = 800{,}000$ and $800{,}000 \\times 50 = 40{,}000{,}000$ — the wall closes exactly.',
+          'Hence, the kernel prices as $800{,}000$ pages — about $1{,}600$ volumes, one library wall.',
+        ], answer: '800,000 pages, which is 1,600 volumes — one library wall.', figures: [
+          { caption: 'The library wall for this question: 40,000,000 lines ÷ 50 = 800,000 pages ÷ 500 = 1,600 volumes — the inputs are the ballpark, the division is exact.', svg: libraryWallSvg() },
+        ] },
+        { q: 'The honest sensitivity: re-price the same 40,000,000 lines at 40 lines per printed page (still 500 pages per volume). What changes, and what does that say about the estimate?', solution: [
+          'Take the new page width: 40 lines per page instead of 50 — the soft input moves.',
+          'Now, the page hop: $40{,}000{,}000 \\div 40 = 1{,}000{,}000$ printed pages.',
+          'So, the volume hop: $1{,}000{,}000 \\div 500 = 2{,}000$ shelf volumes.',
+          'Check the movement: $1{,}600$ volumes grew to $2{,}000$ — a factor of $2{,}000 \\div 1{,}600 = 1.25$, nothing more.',
+          'Hence, under any nearby assumption the kernel is wall-scale — the order of magnitude stands, and the words around the number should stay honestly soft.',
+        ], answer: '1,000,000 pages — 2,000 volumes; the estimate moves by a factor of 1.25 only, so the wall itself stands.' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Explain, in plain words, why a program compiled for Windows does not run on Linux — and say exactly what the API contributes to the story.', solution: [
+          'Take the binary as compiled: machine code — the processor’s own dialect, produced for one platform.',
+          'Now, the first mismatch is instruction dialect: the binary speaks the instruction set it was compiled to, and a different machine may simply not understand it.',
+          'So, the second mismatch is the service counter: even where the dialect happens to match, the binary asks the operating system by one manager’s API call names — and the other manager never learned those names.',
+          'Check the API’s role: it is the published set of calls through which applications ask the OS — so a binary is married to the exact counter it was compiled against.',
+          'Hence, dialect and service counter bind the binary to one platform — which is why one source ships as for Windows, for Mac and for Linux editions.',
+        ], answer: 'two mismatches — the binary’s instruction dialect and its API calls — bind it to the one platform it was compiled for; the API is the OS’s service counter it was compiled against.' },
+        { q: 'A colleague says: "That program is free, so we can modify it and give away our modified copies." Distinguish freeware from open-source software, and say exactly what the sentence gets wrong.', solution: [
+          'Take the two families as boxed: freeware is free of charge but still proprietary — closed source, no redistribution right; open source grants study, change and redistribution.',
+          'Now, the colleague’s "free" is a price statement — and price is the one thing the two families can share.',
+          'So, the rights differ: freeware grants use only; the modifying and redistributing in the sentence belong to open-source licenses such as the GPL.',
+          'Check the honest sentence: "free of charge" settles what you pay, never what you may do — rights live in the license, not in the price tag.',
+          'Hence, the claim holds only for open source; for freeware it fails twice — no source to modify, no right to redistribute.',
+        ], answer: 'the sentence confuses price with rights — freeware charges nothing but grants no source and no redistribution; only an open-source license grants the modifying and sharing described.' },
+        { q: 'A machine must run 4 programs and owns 5 devices. Count the device-driver code needed on bare metal (no operating system) and with one operating system, and state the saving plainly.', solution: [
+          'Take the counts: $n = 4$ programs and $d = 5$ devices.',
+          'Now, on bare metal every program must itself drive every device: $4 \\times 5 = 20$ driver codes in all, scattered across the programs.',
+          'So, with one operating system each device’s driver is written once, inside the manager: $5$ drivers, serving all four programs through one channel.',
+          'Check the saving: $20 - 5 = 15$ driver codes not written — and each of the $5$ serves every program, one driver doing the work of four.',
+          'Hence, bare metal needs 20 driver codes, the managed machine 5 — the saving of 15 is the arithmetic behind the manager’s existence.',
+        ], answer: 'bare metal: 4 × 5 = 20 driver codes; with one operating system: 5 — a saving of 15 codes.' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'State the manager theorem in your own words: why do n programs on bare metal need device-driving code against every device, while with one operating system the machine needs it only once per device? Name the shape of the saving plainly — no big-O notation, just the arithmetic of growth.', solution: [
+          'Take the bare-metal bill: each of $n$ programs must carry working code for each of $d$ devices — $n \\times d$ pieces of device code in all.',
+          'Now, grow the machine: twice the programs, twice the bill ($2n \\times d$), because every newcomer re-writes what every older program already contains — the bill grows with the tenants.',
+          'So, take the managed bill: with one OS, the $d$ drivers are written once and live in the manager — every program asks, and the bill stays $d$ however many programs arrive.',
+          'Check the gap concretely: $n = 4$ programs on $d = 5$ devices pays $20$ against $5$ — a factor of $4$; and each new program widens it further while the managed bill stands still.',
+          'Hence, the saving is not a fixed amount but a growing one — the more tenants the machine hosts, the better the single manager pays — which is why every serious machine keeps one.',
+        ], answer: 'bare metal needs $n \\times d$ driver codes while one operating system needs only $d$ — and the gap widens with every added program, so the saving grows with the machine itself.' },
+        { q: 'Argue why the stored-program concept of lesson 1.1 is what makes a software industry possible at all — hardware alone cannot be an industry’s product in this sense, but software can.', solution: [
+          'Take the concept as lesson 1.1 boxed it: instructions are data in one memory, fetched like numbers — so a program is a pattern of bits, loadable and copyable like any other data.',
+          'Now, the first move: because programs are loadable, one machine can host uncountably many products without a panel being opened — the piano can be given any sheet music, overnight.',
+          'So, the second move: because a program is bits, a second copy costs next to nothing to make — a maker can deliver the same product many times, which hardware manufacturing never permits.',
+          'Check the third: an industry must maintain and improve its products after sale — with instructions in memory, fixing a product is writing new bits, not recalling hardware from customers.',
+          'Hence, the stored-program concept is the whole commercial hinge: loadable makes the product deliverable, copyable makes it sellable at scale, and rewritable makes it maintainable — the software industry is the stored program, monetised.',
+        ], answer: 'the stored-program concept makes programs loadable, copyable and rewritable — the three properties an industry needs, none of which hardware possesses.' },
+      ] },
+    ] },
+  ],
+}
+
+
+// ------------------------------------------------------------------
+// lesson 1.R — authored by the CS RUN 2 swarm (the cf1R agent), integrated verbatim
+// ------------------------------------------------------------------
+
+function wholeMachineMapSvg(): string {
+  // The WHOLE machine in one map: the IPOS cycle as the spine (accent
+  // arrows I, P, O, S), the five von Neumann units around it (the input
+  // unit left, the CPU's control unit and ALU centre, the output unit
+  // right, primary memory below), the software half layered above (the
+  // applications riding the OS as manager), the three buses joining every
+  // unit, and the loop closing as stored results return as input.
+  const W = 720, H = 470
+  // the software half — apps stacked on the OS-as-manager
+  const SWX0 = 176, SWX1 = 544, APP_Y0 = 54, APP_Y1 = 98, OS_Y0 = 106, OS_Y1 = 152
+  // the five units around the cycle spine
+  const IN_X0 = 44, IN_X1 = 172, IN_Y0 = 214, IN_Y1 = 286
+  const CP_X0 = 248, CP_X1 = 472, CP_Y0 = 200, CP_Y1 = 342
+  const CU_X0 = 260, CU_X1 = 460, CU_Y0 = 218, CU_Y1 = 268
+  const AL_X0 = 260, AL_X1 = 460, AL_Y0 = 284, AL_Y1 = 330
+  const OU_X0 = 548, OU_X1 = 676, OU_Y0 = 214, OU_Y1 = 286
+  const PM_X0 = 248, PM_X1 = 472, PM_Y0 = 384, PM_Y1 = 438
+  const BUS_X0 = 56, BUS_X1 = 664, BUS_Y0 = 348, BUS_Y1 = 362
+  // the spine chips: I between input and CPU, P on the CPU top, O between
+  // CPU and output, S on the right rail down to storage
+  const CHIP_R = 10
+  const chipI: [number, number] = [210, 218], chipP: [number, number] = [418, 192]
+  const chipO: [number, number] = [510, 218], chipS: [number, number] = [696, 316]
+  const ARROW = '#ea580c', STRUCT = '#16a34a', INK = '#166534', TEAL = '#0d9488'
+  const TEALINK = '#0f766e', MID = '#65a30d', TICK = '#d97706'
+  const tri = (tip: [number, number], dir: [number, number], fill: string, size = 9): string => {
+    const len = Math.hypot(dir[0], dir[1]) || 1
+    const ux = dir[0] / len, uy = dir[1] / len
+    const px = -uy, py = ux
+    const bx = tip[0] - ux * size, by = tip[1] - uy * size
+    return `<path d="M ${tip[0]} ${tip[1]} L ${+(bx + px * size * 0.45).toFixed(1)} ${+(by + py * size * 0.45).toFixed(1)} L ${+(bx - px * size * 0.45).toFixed(1)} ${+(by - py * size * 0.45).toFixed(1)} Z" fill="${fill}"/>`
+  }
+  const spine = `<line x1="${IN_X1}" y1="236" x2="${CP_X0 - 8}" y2="236" stroke="${ARROW}" stroke-width="2.6"/>` + tri([CP_X0, 236], [1, 0], ARROW)
+    + `<line x1="${CP_X1}" y1="236" x2="${OU_X0 - 8}" y2="236" stroke="${ARROW}" stroke-width="2.6"/>` + tri([OU_X0, 236], [1, 0], ARROW)
+    + `<path d="M ${OU_X1} ${OU_Y1 - 36} L ${chipS[0]} ${OU_Y1 - 36} L ${chipS[0]} 408 L ${PM_X1 + 8} 408" fill="none" stroke="${ARROW}" stroke-width="2.6"/>` + tri([PM_X1, 408], [-1, 0], ARROW)
+    + `<path d="M ${PM_X0} 408 L 24 408 L 24 250 L ${IN_X0 - 8} 250" fill="none" stroke="${ARROW}" stroke-width="2.6"/>` + tri([IN_X0, 250], [1, 0], ARROW)
+  const chips = [
+    { cx: chipI[0], cy: chipI[1], letter: 'I' },
+    { cx: chipP[0], cy: chipP[1], letter: 'P' },
+    { cx: chipO[0], cy: chipO[1], letter: 'O' },
+    { cx: chipS[0], cy: chipS[1], letter: 'S' },
+  ]
+  const chipsSvg = chips
+    .map((ch) => `<circle cx="${ch.cx}" cy="${ch.cy}" r="${CHIP_R}" fill="${ARROW}" stroke="${INK}" stroke-width="1.4"/><text x="${ch.cx}" y="${ch.cy + 4}" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">${ch.letter}</text>`)
+    .join('')
+  const busConnectors = `<line x1="108" y1="${IN_Y1}" x2="108" y2="${BUS_Y0}" stroke="${TICK}" stroke-width="1.2"/>`
+    + `<line x1="360" y1="${CP_Y1}" x2="360" y2="${BUS_Y0}" stroke="${TICK}" stroke-width="1.2"/>`
+    + `<line x1="612" y1="${OU_Y1}" x2="612" y2="${BUS_Y0}" stroke="${TICK}" stroke-width="1.2"/>`
+    + `<line x1="360" y1="${BUS_Y1}" x2="360" y2="${PM_Y0}" stroke="${TICK}" stroke-width="1.2"/>`
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The whole machine in one map, the chapter compressed into a single drawing. The information processing cycle is the spine, marked by four accent chips: I for input between the input unit and the CPU, P for processing riding the CPU top, O for output between the CPU and the output unit, S for storage on the right rail, with the loop closing as stored results return as input along the left rail. The five von Neumann units sit around the spine: the input unit at the left (keyboard, mouse, touchscreen, sensors), the CPU at the centre containing the control unit (fetch, decode, execute, directs every other unit) above and the arithmetic and logic unit (where 62 plus 48 happens) below, the output unit at the right (screen, printer, speakers), and primary memory below holding the stored program and its data. The three buses join every unit in one bar: address names where, data carries what, control commands when. The software half is layered above: the applications the user chooses riding on the operating system as manager, whose duties are process, memory, file and device management plus the user interface, with a dashed arrow showing that the OS arbitrates every lap. The census of eleven families and five generations waits outside the map.">
+  <text x="360" y="20" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the whole machine in one map — the cycle as the spine, five units around it</text>
+  <text x="360" y="36" font-size="10" text-anchor="middle" fill="${TEALINK}">the software half above, the von Neumann units at the centre, storage below — the loop closing</text>
+  <rect x="${SWX0}" y="${APP_Y0}" width="${SWX1 - SWX0}" height="${APP_Y1 - APP_Y0}" rx="7" fill="#fef3c7" stroke="${TEAL}" stroke-width="1.8"/>
+  <text x="360" y="70" font-size="11" font-weight="800" text-anchor="middle" fill="${INK}">APPLICATIONS</text>
+  <text x="360" y="84" font-size="9" text-anchor="middle" fill="${TEALINK}">the programs you choose</text>
+  <text x="360" y="95" font-size="9" text-anchor="middle" fill="${TEALINK}">browser · editor · game</text>
+  <line x1="250" y1="${APP_Y1}" x2="250" y2="${OS_Y0}" stroke="${TEAL}" stroke-width="1.4" stroke-dasharray="3 3"/>
+  <line x1="470" y1="${APP_Y1}" x2="470" y2="${OS_Y0}" stroke="${TEAL}" stroke-width="1.4" stroke-dasharray="3 3"/>
+  <rect x="${SWX0}" y="${OS_Y0}" width="${SWX1 - SWX0}" height="${OS_Y1 - OS_Y0}" rx="7" fill="#ffedd5" stroke="${TEAL}" stroke-width="2.2"/>
+  <text x="360" y="122" font-size="11" font-weight="800" text-anchor="middle" fill="${INK}">the OS as MANAGER</text>
+  <text x="360" y="136" font-size="9" text-anchor="middle" fill="${TEALINK}">process · memory · file · device management</text>
+  <text x="360" y="148" font-size="9" text-anchor="middle" fill="${TEALINK}">plus the user interface — the UI</text>
+  <text x="108" y="76" font-size="9.5" font-weight="700" text-anchor="middle" fill="${TEALINK}">the invisible half</text>
+  <text x="108" y="90" font-size="9" text-anchor="middle" fill="${MID}">(software)</text>
+  <text x="612" y="76" font-size="9.5" font-weight="700" text-anchor="middle" fill="${TEALINK}">the census</text>
+  <text x="612" y="90" font-size="9" text-anchor="middle" fill="${MID}">eleven families</text>
+  <line x1="302" y1="${OS_Y1}" x2="302" y2="${CP_Y0 - 4}" stroke="${TEAL}" stroke-width="1.8" stroke-dasharray="5 4"/>` + tri([302, CP_Y0], [0, 1], TEAL) + `
+  <text x="312" y="172" font-size="9.5" font-weight="700" fill="${TEALINK}">the OS arbitrates every lap</text>
+  <rect x="${IN_X0}" y="${IN_Y0}" width="${IN_X1 - IN_X0}" height="${IN_Y1 - IN_Y0}" rx="8" fill="#fef3c7" stroke="${STRUCT}" stroke-width="2.2"/>
+  <text x="108" y="234" font-size="11.5" font-weight="800" text-anchor="middle" fill="${INK}">INPUT UNIT</text>
+  <text x="108" y="250" font-size="9" text-anchor="middle" fill="${TEALINK}">keyboard · mouse</text>
+  <text x="108" y="262" font-size="9" text-anchor="middle" fill="${TEALINK}">touchscreen · sensors</text>
+  <text x="108" y="277" font-size="9" font-weight="700" text-anchor="middle" fill="${INK}">I — data crossing in</text>
+  <rect x="${CP_X0}" y="${CP_Y0}" width="${CP_X1 - CP_X0}" height="${CP_Y1 - CP_Y0}" rx="9" fill="#ffedd5" stroke="${STRUCT}" stroke-width="2.4"/>
+  <text x="${CP_X0 + 10}" y="213" font-size="10" font-weight="800" fill="${INK}">the CPU</text>
+  <rect x="${CU_X0}" y="${CU_Y0}" width="${CU_X1 - CU_X0}" height="${CU_Y1 - CU_Y0}" rx="6" fill="#fef3c7" stroke="${TEAL}" stroke-width="1.8"/>
+  <text x="360" y="236" font-size="11" font-weight="800" text-anchor="middle" fill="${INK}">CONTROL UNIT</text>
+  <text x="360" y="252" font-size="9" text-anchor="middle" fill="${TEALINK}">fetch · decode · execute</text>
+  <text x="360" y="264" font-size="9" text-anchor="middle" fill="${TEALINK}">directs every other unit</text>
+  <rect x="${AL_X0}" y="${AL_Y0}" width="${AL_X1 - AL_X0}" height="${AL_Y1 - AL_Y0}" rx="6" fill="#fef3c7" stroke="${TEAL}" stroke-width="1.8"/>
+  <text x="360" y="300" font-size="11" font-weight="800" text-anchor="middle" fill="${INK}">the ALU</text>
+  <text x="360" y="314" font-size="9" text-anchor="middle" fill="${TEALINK}">arithmetic and logic unit</text>
+  <text x="360" y="326" font-size="9" text-anchor="middle" fill="${TEALINK}">where 62 + 48 happens</text>
+  <rect x="${OU_X0}" y="${OU_Y0}" width="${OU_X1 - OU_X0}" height="${OU_Y1 - OU_Y0}" rx="8" fill="#fef3c7" stroke="${STRUCT}" stroke-width="2.2"/>
+  <text x="612" y="234" font-size="11.5" font-weight="800" text-anchor="middle" fill="${INK}">OUTPUT UNIT</text>
+  <text x="612" y="250" font-size="9" text-anchor="middle" fill="${TEALINK}">screen · printer</text>
+  <text x="612" y="262" font-size="9" text-anchor="middle" fill="${TEALINK}">speakers</text>
+  <text x="612" y="277" font-size="9" font-weight="700" text-anchor="middle" fill="${INK}">O — meaning handed out</text>
+  <rect x="${BUS_X0}" y="${BUS_Y0}" width="${BUS_X1 - BUS_X0}" height="${BUS_Y1 - BUS_Y0}" rx="5" fill="#fcd34d" stroke="${TICK}" stroke-width="1.4"/>
+  <text x="360" y="358.5" font-size="9" font-weight="700" text-anchor="middle" fill="${INK}">the three buses — address names where · data carries what · control commands when</text>
+  ${busConnectors}
+  <rect x="${PM_X0}" y="${PM_Y0}" width="${PM_X1 - PM_X0}" height="${PM_Y1 - PM_Y0}" rx="8" fill="#fef3c7" stroke="${STRUCT}" stroke-width="2.2"/>
+  <text x="360" y="402" font-size="11" font-weight="800" text-anchor="middle" fill="${INK}">PRIMARY MEMORY</text>
+  <text x="360" y="416" font-size="9" text-anchor="middle" fill="${TEALINK}">the stored program and its data live here</text>
+  <text x="360" y="429" font-size="9" font-weight="700" text-anchor="middle" fill="${INK}">the S beat of the spine — the working desk</text>
+  ${spine}
+  ${chipsSvg}
+  <text x="30" y="428" font-size="9" font-weight="700" fill="${TEALINK}">the loop closes:</text>
+  <text x="30" y="440" font-size="9" font-weight="700" fill="${MID}">stored results return as input</text>
+  <text x="360" y="462" font-size="9" text-anchor="middle" fill="${TEALINK}">one map, three lessons — the structure below, the invisible half above, the census outside</text>
+</svg>`
+}
+
+function chapterTimelineSvg(): string {
+  // The chapter's pinned machines on one computed timeline: x positions are
+  // a linear map of the years over 1940..2020 (8.4 px per year); labels
+  // staggered across five rows with side anchors so no label collides and
+  // no stem crosses a lower label (engine-checked in v-cf1R.ts sectionG);
+  // the four solid generation bands sit above the axis, the honest fifth
+  // drawn dashed with fuzzy edges, and the three lessons' eras bracketed.
+  const W = 720, H = 392
+  const X0 = 30, X1 = 702, Y0 = 1940, Y1 = 2020
+  const x = (year: number) => X0 + ((year - Y0) / (Y1 - Y0)) * (X1 - X0)
+  const AX = 224, AXIS_X0 = 36, AXIS_X1 = 708
+  const rowY = [48, 74, 100, 126, 152]
+  const machines: { name: string; year: number; row: number; anchor: 'middle' | 'end' }[] = [
+    { name: 'ENIAC', year: 1946, row: 0, anchor: 'middle' },
+    { name: 'UNIVAC I', year: 1951, row: 1, anchor: 'middle' },
+    { name: 'Intel 4004', year: 1971, row: 4, anchor: 'end' },
+    { name: 'Altair 8800', year: 1975, row: 3, anchor: 'end' },
+    { name: 'Apple II', year: 1977, row: 2, anchor: 'middle' },
+    { name: 'IBM PC 5150', year: 1981, row: 1, anchor: 'end' },
+    { name: 'Macintosh', year: 1984, row: 0, anchor: 'middle' },
+    { name: 'Linux kernel', year: 1991, row: 3, anchor: 'middle' },
+    { name: 'iPhone', year: 2007, row: 0, anchor: 'end' },
+    { name: 'Raspberry Pi', year: 2012, row: 0, anchor: 'middle' },
+  ]
+  const GAP_ANCHOR = 7
+  const INK = '#166534', MID = '#65a30d', TEAL = '#0d9488', TEALINK = '#0f766e', TICK = '#d97706'
+  let labels = ''
+  let stems = ''
+  machines.forEach((m) => {
+    const cx = x(m.year)
+    const labelX = m.anchor === 'end' ? +(cx - GAP_ANCHOR).toFixed(1) : +cx.toFixed(1)
+    labels += `<text x="${labelX}" y="${rowY[m.row]}" font-size="10" font-weight="800" text-anchor="${m.anchor}" fill="${INK}">${m.name}</text>`
+    labels += `<text x="${labelX}" y="${rowY[m.row] + 11}" font-size="9.2" font-weight="700" text-anchor="${m.anchor}" fill="${MID}">${m.year}</text>`
+    stems += `<line x1="${+cx.toFixed(1)}" y1="${rowY[m.row] + 15}" x2="${+cx.toFixed(1)}" y2="${AX}" stroke="${TICK}" stroke-width="1.2"/>`
+  })
+  let dots = ''
+  machines.forEach((m) => {
+    dots += `<circle cx="${+x(m.year).toFixed(1)}" cy="${AX}" r="4.5" fill="#16a34a" stroke="${INK}" stroke-width="1.2"/>`
+  })
+  let decadeTicks = ''
+  for (let yr = 1950; yr <= 2020; yr += 10) {
+    const tx = +x(yr).toFixed(1)
+    decadeTicks += `<line x1="${tx}" y1="${AX}" x2="${tx}" y2="236" stroke="${TEALINK}" stroke-width="1.4"/><text x="${tx}" y="250" font-size="9" font-weight="700" text-anchor="middle" fill="${MID}">${yr}</text>`
+  }
+  const edges = [1946, 1956, 1964, 1971]
+  const bandY = 258, bandH = 28
+  let bands = ''
+  edges.forEach((e, i) => {
+    const bx0 = x(e)
+    const bx1 = i === 3 ? X1 : x(edges[i + 1])
+    bands += `<rect x="${+bx0.toFixed(1)}" y="${bandY}" width="${+(bx1 - bx0).toFixed(1)}" height="${bandH}" fill="${i % 2 === 0 ? '#ffedd5' : '#fef3c7'}" stroke="${TICK}" stroke-width="1.5"/>`
+  })
+  const genLabels = [
+    { text: '1st · tubes 1946–1956', cx: +((x(1946) + x(1956)) / 2).toFixed(1), y: 300 },
+    { text: '3rd · ICs 1964–1971', cx: +((x(1964) + x(1971)) / 2).toFixed(1), y: 300 },
+    { text: '2nd · transistors 1956–1964', cx: +((x(1956) + x(1964)) / 2).toFixed(1), y: 314 },
+    { text: '4th · microprocessors 1971 →', cx: +((x(1971) + X1) / 2).toFixed(1), y: 314 },
+  ]
+  const genText = genLabels.map((g) => `<text x="${g.cx}" y="${g.y}" font-size="9.5" font-weight="700" text-anchor="middle" fill="${TEALINK}">${g.text}</text>`).join('')
+  const bracket = (from: number, to: number, y: number): string => {
+    const x0 = +x(from).toFixed(1), x1 = +x(to).toFixed(1)
+    return `<line x1="${x0}" y1="${y}" x2="${x1}" y2="${y}" stroke="${TEAL}" stroke-width="1.8"/><line x1="${x0}" y1="${y - 4}" x2="${x0}" y2="${y + 4}" stroke="${TEAL}" stroke-width="1.8"/><line x1="${x1}" y1="${y - 4}" x2="${x1}" y2="${y + 4}" stroke="${TEAL}" stroke-width="1.8"/>`
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The chapter timeline: ten pinned machines at engine-computed x positions on a linear year map over 1940 to 2020, their labels staggered five rows high with stems down to the axis dots. ENIAC of 14 February 1946 and UNIVAC I of 31 March 1951 ride the vacuum-tube first generation band; the Intel 4004 of 15 November 1971 opens the microprocessor fourth band, where the Altair 8800 of the January 1975 cover, the Apple II of 1977, the IBM PC 5150 of 12 August 1981 at 4.77 MHz with 16 KB, the Macintosh of 1984, the Linux kernel of August 1991, the iPhone announced 9 January 2007 and the Raspberry Pi of 29 February 2012 at 35 dollars all sit. Four solid generation bands sit below the axis: tubes 1946 to 1956, transistors 1956 to 1964, integrated circuits 1964 to 1971, microprocessors 1971 onward; at the right a dashed red box marks the honest fifth generation as a label with fuzzy edges, never a crisp switch. Three brackets under the axis band the three lessons' eras: lesson 1.1 the founding structure 1946 to 1951, lesson 1.2 the census and the personal arc 1971 to 2012, lesson 1.3 the invisible half coming of age from 1991.">
+  <text x="360" y="20" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">the chapter timeline: ten pinned machines, four solid generations, three lesson eras</text>
+  <text x="360" y="32" font-size="9.5" text-anchor="middle" fill="${TEALINK}">x positions computed linearly from the years over 1940–2020; labels staggered five rows to avoid collisions</text>
+  ${stems}
+  ${labels}
+  ${dots}
+  <line x1="${AXIS_X0}" y1="${AX}" x2="${AXIS_X1}" y2="${AX}" stroke="${TEAL}" stroke-width="2.6"/>
+  <path d="M ${AXIS_X1} ${AX} l -10 -5 v 10 z" fill="${TEAL}"/>
+  ${decadeTicks}
+  ${bands}
+  ${genText}
+  <rect x="580" y="288" width="120" height="30" fill="none" stroke="#dc2626" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <text x="640" y="300" font-size="9" font-weight="800" text-anchor="middle" fill="#dc2626">the honest fifth</text>
+  <text x="640" y="312" font-size="9" font-weight="800" text-anchor="middle" fill="#dc2626">a label with fuzzy edges</text>
+  ${bracket(1946, 1951, 336)}
+  <text x="130" y="340" font-size="9" font-weight="700" fill="${TEALINK}">lesson 1.1 · the founding structure — five units, one stored program (1946–1951)</text>
+  ${bracket(1971, 2012, 358)}
+  <text x="282" y="362" font-size="9" font-weight="700" text-anchor="end" fill="${TEALINK}">lesson 1.2 · the census and the personal arc (1971–2012)</text>
+  ${bracket(1991, 2012, 380)}
+  <text x="450" y="384" font-size="9" font-weight="700" text-anchor="end" fill="${TEALINK}">lesson 1.3 · the invisible half comes of age (1991 →)</text>
+</svg>`
+}
+
+/* ---- solution figures (v9.0) — compact, computed geometry ---- */
+
+function generationMatchStripSvg(): string {
+  // The generations strip for the matching drill: five pinned machine boxes
+  // on the top row, elbow connectors dropping each to its solid generation
+  // band (engine-checked: ENIAC and UNIVAC I -> tubes; System/360 -> ICs;
+  // the 4004 and the IBM PC 5150 -> microprocessors).
+  const W = 720, H = 150
+  const BOX_W = 118, BOX_GAP = 20, BOX_X0 = 25, BOX_Y0 = 26, BOX_H = 40
+  const entries = [
+    { name: 'ENIAC', year: 1946, target: 100 },
+    { name: 'UNIVAC I', year: 1951, target: 180 },
+    { name: 'System/360', year: 1964, target: 420 },
+    { name: 'Intel 4004', year: 1971, target: 540 },
+    { name: 'IBM PC 5150', year: 1981, target: 640 },
+  ]
+  const BAND_Y0 = 100, BAND_Y1 = 140
+  const bands = [
+    { x0: 25, x1: 240, fill: '#ffedd5', line1: '1st · vacuum tubes', line2: '1946–1956' },
+    { x0: 240, x1: 370, fill: '#fef3c7', line1: '2nd · transistors', line2: '1956–1964' },
+    { x0: 370, x1: 485, fill: '#ffedd5', line1: '3rd · ICs', line2: '1964–1971' },
+    { x0: 485, x1: 695, fill: '#fef3c7', line1: '4th · microprocessors', line2: '1971 →' },
+  ]
+  const INK = '#166534', TEALINK = '#0f766e', TICK = '#d97706'
+  let boxes = ''
+  let elbows = ''
+  entries.forEach((e, i) => {
+    const bx0 = BOX_X0 + i * (BOX_W + BOX_GAP)
+    const cx = bx0 + BOX_W / 2
+    boxes += `<rect x="${bx0}" y="${BOX_Y0}" width="${BOX_W}" height="${BOX_H}" rx="7" fill="#fef3c7" stroke="#16a34a" stroke-width="1.8"/>`
+    boxes += `<text x="${cx}" y="44" font-size="10" font-weight="800" text-anchor="middle" fill="${INK}">${e.name}</text>`
+    boxes += `<text x="${cx}" y="58" font-size="9" font-weight="700" text-anchor="middle" fill="${TEALINK}">${e.year}</text>`
+    elbows += `<path d="M ${cx} ${BOX_Y0 + BOX_H} L ${cx} 80 L ${e.target} 80 L ${e.target} ${BAND_Y0 - 7}" fill="none" stroke="${TICK}" stroke-width="1.4"/>`
+    elbows += `<path d="M ${e.target} ${BAND_Y0} l -3.5 -7 v 14 z" fill="${TICK}" transform="rotate(180 ${e.target} ${BAND_Y0 - 3.5})"/>`
+  })
+  const bandText = bands.map((b) => {
+    const cx = (b.x0 + b.x1) / 2
+    return `<text x="${cx}" y="118" font-size="9.5" font-weight="800" text-anchor="middle" fill="${INK}">${b.line1}</text><text x="${cx}" y="132" font-size="9" font-weight="700" text-anchor="middle" fill="${TEALINK}">${b.line2}</text>`
+  }).join('')
+  const bandRects = bands.map((b) => `<rect x="${b.x0}" y="${BAND_Y0}" width="${b.x1 - b.x0}" height="${BAND_Y1 - BAND_Y0}" fill="${b.fill}" stroke="${TICK}" stroke-width="1.5"/>`).join('')
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The generation-matching strip: five pinned machines dropping by elbow connectors onto the four solid generation bands. ENIAC 1946 and UNIVAC I 1951 land in the vacuum-tube first band, System/360 1964 lands in the integrated-circuit third band, and the Intel 4004 of 1971 together with the IBM PC 5150 of 1981 land in the microprocessor fourth band; the transistor second band carries no pinned machine of this drill.">
+  <text x="360" y="14" font-size="11.5" font-weight="700" text-anchor="middle" fill="currentColor">the generation-matching drill: five machines, four solid bands</text>
+  ${boxes}
+  ${elbows}
+  ${bandRects}
+  ${bandText}
+</svg>`
+}
+
+function programLifeStripSvg(): string {
+  // One program's life through the whole-machine map as a strip: the OS
+  // arbitration band above, the five unit doors in a row — input unit,
+  // primary memory (program at 100, 101, 102), the control unit's
+  // fetch-decode-execute walk, the ALU's arithmetic (sum 332, average 66.4,
+  // highest 91), the output unit — accent arrows carrying the life along.
+  const W = 720, H = 170
+  const OS_Y0 = 26, OS_Y1 = 54
+  const BOX_W = 126, BOX_GAP = 14, BOX_X0 = 17, BOX_Y0 = 78, BOX_H = 62
+  const stages: { title: string; lines: string[] }[] = [
+    { title: 'the INPUT UNIT', lines: ['the keystrokes of', 'the five marks', 'cross in — I'] },
+    { title: 'PRIMARY MEMORY', lines: ['the program sits at', '100, 101, 102', 'with the marks — data'] },
+    { title: 'the CONTROL UNIT', lines: ['fetch · decode · execute', 'the PC walks', '100 → 101 → 102'] },
+    { title: 'the ALU', lines: ['the arithmetic happens:', 'sum 332, average 66.4', 'highest 91 by compare'] },
+    { title: 'the OUTPUT UNIT', lines: ['the summary appears:', 'average 66.4', 'highest 91 — O'] },
+  ]
+  const INK = '#166534', TEALINK = '#0f766e', TEAL = '#0d9488', ARROW = '#ea580c'
+  let boxes = ''
+  stages.forEach((s, i) => {
+    const bx0 = BOX_X0 + i * (BOX_W + BOX_GAP)
+    const cx = bx0 + BOX_W / 2
+    boxes += `<rect x="${bx0}" y="${BOX_Y0}" width="${BOX_W}" height="${BOX_H}" rx="8" fill="#fef3c7" stroke="#16a34a" stroke-width="1.8"/>`
+    boxes += `<text x="${cx}" y="96" font-size="9.8" font-weight="800" text-anchor="middle" fill="${INK}">${s.title}</text>`
+    s.lines.forEach((line, j) => {
+      boxes += `<text x="${cx}" y="${110 + j * 12}" font-size="9" text-anchor="middle" fill="${TEALINK}">${line}</text>`
+    })
+  })
+  let arrows = ''
+  for (let i = 0; i < stages.length - 1; i++) {
+    const x0 = BOX_X0 + i * (BOX_W + BOX_GAP) + BOX_W
+    const x1 = x0 + BOX_GAP
+    arrows += `<line x1="${x0 + 1}" y1="109" x2="${x1 - 7}" y2="109" stroke="${ARROW}" stroke-width="2.2"/>`
+    arrows += `<path d="M ${x1} 109 l -7 -3.5 v 7 z" fill="${ARROW}" transform="rotate(180 ${x1 - 3.5} 109)"/>`
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One program's life through the whole-machine map: the OS as manager arbitrates every lap from the dashed band above, and the life walks the five unit doors left to right — the keystrokes of the five marks cross in at the input unit, primary memory holds the program at the addresses 100, 101 and 102 with the marks, the control unit walks fetch, decode and execute with the program counter going 100 to 101 to 102, the ALU computes the sum 332 with the average 66.4 and the highest mark 91, and the summary appears at the output unit.">
+  <text x="360" y="14" font-size="11.5" font-weight="700" text-anchor="middle" fill="currentColor">one program’s life through the whole-machine map</text>
+  <rect x="30" y="${OS_Y0}" width="660" height="${OS_Y1 - OS_Y0}" rx="7" fill="none" stroke="${TEAL}" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <text x="360" y="44" font-size="9.5" font-weight="800" text-anchor="middle" fill="${TEALINK}">the OS as MANAGER arbitrates every lap — process, memory, file, device</text>
+  <line x1="220" y1="${OS_Y1}" x2="220" y2="${BOX_Y0}" stroke="${TEAL}" stroke-width="1.4" stroke-dasharray="3 3"/>
+  <line x1="500" y1="${OS_Y1}" x2="500" y2="${BOX_Y0}" stroke="${TEAL}" stroke-width="1.4" stroke-dasharray="3 3"/>
+  ${boxes}
+  ${arrows}
+  <text x="360" y="158" font-size="9" font-weight="700" text-anchor="middle" fill="${TEALINK}">the PC walk 100 → 101 → 102 — one lap of fetch–decode–execute per instruction</text>
+</svg>`
+}
+
+function ladderStripSvg(): string {
+  // The doubling ladder for the address drill: three bars whose heights are
+  // proportional to the line counts (12, 16, 24), each labelled with its
+  // reach — 4,096, 65,536, 16,777,216 — and the honest jump annotations
+  // (+4 lines = ×16, +8 lines = ×256).
+  const W = 720, H = 140
+  const BASE_Y = 112, BAR_W = 150, UNIT_H = 2.2
+  const bars = [
+    { n: 12, reach: '4,096', cx: 150, fill: '#16a34a', stroke: '#166534', label: '12 address lines' },
+    { n: 16, reach: '65,536', cx: 360, fill: '#0d9488', stroke: '#0f766e', label: '16 address lines' },
+    { n: 24, reach: '16,777,216', cx: 570, fill: '#ea580c', stroke: '#166534', label: '24 address lines' },
+  ]
+  const INK = '#166534', TEALINK = '#0f766e'
+  let barsSvg = ''
+  bars.forEach((b) => {
+    const h = b.n * UNIT_H
+    const y0 = BASE_Y - h
+    barsSvg += `<rect x="${b.cx - BAR_W / 2}" y="${+y0.toFixed(1)}" width="${BAR_W}" height="${+h.toFixed(1)}" rx="4" fill="${b.fill}" stroke="${b.stroke}" stroke-width="1.6"/>`
+    barsSvg += `<text x="${b.cx}" y="${+(y0 - 5).toFixed(1)}" font-size="9.5" font-weight="800" text-anchor="middle" fill="${INK}">${b.label}</text>`
+    barsSvg += `<text x="${b.cx}" y="104" font-size="10" font-weight="800" text-anchor="middle" fill="#ffffff">${b.reach}</text>`
+  })
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The doubling ladder recalled for the address drill: three bars with heights proportional to the line counts. Twelve address lines reach 4,096 locations, four thousand ninety-six; sixteen lines reach 65,536, sixty-five thousand five hundred thirty-six; twenty-four lines reach 16,777,216, sixteen million seven hundred seventy-seven thousand two hundred sixteen. The jump annotations price the honest growth: four more lines multiply the reach by sixteen, eight more by two hundred fifty-six — one byte per location throughout.">
+  <text x="360" y="16" font-size="11.5" font-weight="700" text-anchor="middle" fill="currentColor">the doubling ladder: every added line doubles the reach</text>
+  ${barsSvg}
+  <text x="255" y="92" font-size="9" font-weight="700" text-anchor="middle" fill="${TEALINK}">+4 = ×16</text>
+  <text x="465" y="92" font-size="9" font-weight="700" text-anchor="middle" fill="${TEALINK}">+8 = ×256</text>
+  <text x="360" y="132" font-size="9" font-weight="700" text-anchor="middle" fill="${TEALINK}">12 lines reach 4,096 · 16 reach 65,536 · 24 reach 16,777,216 — one byte per location</text>
+</svg>`
+}
+
+const lesson1R: Lesson = {
+  id: 'cf-unit-1-completion-review',
+  number: '1.R',
+  title: 'Unit 1 Completion Review',
+  concepts: [
+    'the whole-machine map: hardware, census and the invisible half in one view',
+    'the information processing cycle and the five von Neumann units, revisited',
+    'the stored-program concept as the chapter’s hinge',
+    'the hardware census: axes, families, generations and Moore’s law',
+    'the software half: the operating system as manager',
+    'the chapter’s formula and vocabulary harvest',
+  ],
+  objectives: [
+    'by the end you can redraw the whole-machine map — the IPOS spine, the five von Neumann units, the software half layered above — from memory',
+    'by the end you can restate the chapter’s engine-pinned numbers cold: the $2^{n}$ ladder, the cycle-time law, the Moore arithmetic',
+    'by the end you can file any machine you meet into one of the eleven families and the five generations, axis by axis',
+    'by the end you can name the software families and walk the boot sequence from power to login',
+    'by the end you can trace one program’s life across hardware and software in one breath, and argue the chapter’s essay honestly',
+  ],
+  prerequisites: [
+    'cf-the-basic-structure-and-operation-of-the-computer',
+    'cf-a-census-of-hardware-desktops-to-embedded-chips',
+    'cf-software-the-invisible-half-of-the-machine',
+  ],
+  sources: ['cs-cf-web-ground'],
+  blocks: [
+    // ---------- the opening ----------
+    { kind: 'para', text: 'Three lessons ago, the word *computer* meant, at best, a box — something humming on a desk, doing things you could not see. The chapter has spent its whole length widening that word until it cracked open. Lesson 1.1, ‘The Basic Structure and Operation of the Computer’, went inside the box and found a *structure*: the information processing cycle, five functional units, the stored program, the fetch–decode–execute dance, and the measurable machine — clock, word, bus, address space. Lesson 1.2, ‘A Census of Hardware: Desktops to Embedded Chips’, stepped outside and found a *family tree*: four census axes, eleven families, five generations, Moore’s law — from a room of tubes to chips hiding in car doors. Lesson 1.3, ‘Software: the Invisible Half of the Machine’, found the *invisible half* riding both: the operating system as manager, the utilities and drivers, the boot sequence, the license families. A structure, a census, an invisible half — that is what the word *computer* now means. This review’s job is twofold: to put the whole chapter back together in ONE map you can redraw from memory, and then to make you USE it — because a chapter’s content that cannot be used was never learned. Every number below was engine-pinned before this prose was written; the recap is the chapter, restated at bench speed.' },
+
+    // ---------- the one map ----------
+    { kind: 'heading', text: 'The Chapter in One Map' },
+    { kind: 'figure', caption: 'The whole machine in one map: the information processing cycle as the spine — input through the input unit (I), processing inside the CPU’s control unit and ALU (P), output through the output unit (O), storage in primary memory (S) — the software half above (the applications riding the operating system, its manager, which arbitrates every lap), the three buses joining every unit, and the loop closing as stored results return as input.', svg: wholeMachineMapSvg() },
+    { kind: 'para', text: 'Read the map the way it is drawn, top to bottom. Above the hardware sits the invisible half of lesson 1.3: the *applications* you choose — browser, editor, game — riding on the *operating system*, whose five duties (process management, memory management, file management, device management, plus the user interface) make one machine shareable among many programs; the dashed arrow says it plainly — the OS arbitrates every lap the hardware takes. At the centre sits the von Neumann census of lesson 1.1: the **input unit** at the left (keyboard, mouse, touchscreen, sensors — data crossing in), the **CPU** in the middle with the control unit directing above and the arithmetic and logic unit computing below, the **output unit** at the right (screen, printer, speakers — meaning handed out), and **primary memory** below, holding the running program and its data — the seat the stored-program concept made central. The three **buses** — address naming *where*, data carrying *what*, control commanding *when* — join every unit to every other. And over the whole machine runs the spine: the information processing cycle, $I \\to P \\to O \\to S$ — input through the input unit, processing inside the CPU, output through the output unit, storage in memory — closing into the loop, because stored results can be taken as input again. The census of lesson 1.2 is the world outside the map: the eleven families and five generations this one structure wears at every size, from a warehouse of racks to a chip in a door.' },
+    { kind: 'callout', tone: 'definition', title: 'The whole machine, defined once', text: 'A computer is said to be a machine that runs the information processing cycle — input, processing, output, storage — on a structure of five von Neumann units (the input unit, the output unit, primary memory, and the CPU’s control unit and arithmetic and logic unit) joined by buses, under the direction of a stored program, with the software half — the operating system and its applications — riding the hardware. Thus the one map is the chapter in a single drawing: the structure, the invisible half, and the census of families waiting outside.' },
+
+    // ---------- lesson 1.1 recap ----------
+    { kind: 'heading', text: 'Lesson 1.1 Recap: the Structure and Operation' },
+    { kind: 'para', text: 'The first lesson asked how a box of switches comes to seem thoughtful, and answered it with parts and measures. The *cycle* is the rhythm: every run, whatever the machine, follows $I \\to P \\to O \\to S$ — data in, meaning out, kept for later, ready to return. The *five units* are the census that carries the rhythm: the arithmetic and logic unit (ALU), where $62 + 48$ physically happens; the control unit, which fetches, decodes and directs but never computes; primary memory, the working desk that holds the running program and its data; and the input unit and the output unit, the cycle’s first and third beats made of hardware. The *stored-program concept* is the hinge of the whole chapter: instructions live in memory exactly as data does, so a program *is* data — the machine is re-tasked by a change of memory, never by a change of wiring. ENIAC, announced 14 February 1946, filled a room — 17,468 vacuum tubes, ~30 tons, ~150 kW, 5,000 additions per second — yet was re-wired by hand for every new job; UNIVAC I, accepted 31 March 1951 as the first commercial computer, arrived carrying the fix. The *fetch–decode–execute cycle* is the machine’s only dance: the control unit fetches the instruction the program counter names, decodes it, and has the named unit execute it — the PC walking 100, 101, 102, one lap per instruction. And the *measurable machine* gave the first quantitative vocabulary: the clock, with cycle time $T = 1/f$ (the IBM PC 5150’s 4.77 MHz means each beat lasted about 209.6 ns; 2 GHz gives 0.5 ns); the word, the fixed-width parcel (a 64-bit word is 8 bytes); the three buses; and the address space, where $n$ lines name $2^{n}$ locations.' },
+    { kind: 'table', caption: 'The lesson 1.1 harvest, one line each: the concept, its one-line essence, and the engine-pinned witness that proves it.', head: ['Concept', 'One-line essence', 'The engine-pinned witness'], rows: [
+      ['Information processing cycle', 'Input, processing, output, storage, looping', 'Every run, $I \\to P \\to O \\to S$'],
+      ['Five functional units', 'ALU, control unit, memory, input, output', 'The 1945 EDVAC report’s five parts'],
+      ['Stored-program concept', 'Instructions live in memory as data', 'UNIVAC I, 31 March 1951'],
+      ['Fetch–decode–execute', 'The machine’s only dance, one lap per instruction', 'The PC walks 100 → 101 → 102'],
+      ['Clock and cycle time', '$T = 1/f$, seconds per beat', '4.77 MHz ≈ 209.6 ns; 2 GHz → 0.5 ns'],
+      ['Word', 'The fixed-width parcel of one move', 'A 64-bit word is 8 bytes'],
+      ['Bus', 'Address names where, data carries what', 'Three buses join all five units'],
+      ['Address space', '$n$ lines name $2^{n}$ locations', '16 lines → 65,536'],
+    ] },
+    { kind: 'para', text: 'Three worked recaps keep the numbers honest — the same mark list, the same ladder and the same PC walk the lesson’s engines pinned before any prose was declared done.' },
+    { kind: 'example', title: 'Recap Illustration: run the mark list 62, 48, 91, 77, 54 through the whole cycle once more — count, sum, average, highest.', steps: [
+      'Take the list as data: five marks — nothing yet attached to them.',
+      'So, the sum: $62 + 48 + 91 + 77 + 54 = 332$, and the count is 5.',
+      'Now, the average: $332 \\div 5 = 66.4$, and the highest mark, by comparison, is 91 — the five facts have become information.',
+      'Hence the summary goes out at the output stage and the file is kept in storage — the earned result, ready to be input again.',
+    ] },
+    { kind: 'example', title: 'Recap Illustration: an address bus of 12 lines reaches how many locations — and one of 16?', steps: [
+      'Take the address-space law: $n$ lines name $2^{n}$ locations.',
+      'So, with 12 lines: $2^{12} = 4{,}096$ locations — 4 KB exactly, one byte per location.',
+      'Now, with 16 lines: $2^{16} = 65{,}536$ locations — the 64 KB rung of the ladder.',
+      'Hence the jump from 12 to 16 lines is ×16: four more lines, sixteen times the reach — 4,096 to 65,536, engine-checked.',
+    ] },
+    { kind: 'example', title: 'Recap Illustration: walk the three-instruction program (load, add, store) through fetch–decode–execute, the PC starting at 100.', steps: [
+      'Take the program as stored: load at 100, add at 101, store at 102 — instructions in memory as data, the stored program at work.',
+      'So, lap one: the control unit fetches memory[100], decodes load, and executes — the PC advances to 101.',
+      'Now, lap two: fetch at 101, decode add, and the ALU executes — the PC advances to 102.',
+      'Hence lap three: fetch at 102, decode store, and memory keeps the result — the PC walks on past, 100 → 101 → 102, one lap per instruction.',
+    ] },
+    { kind: 'example', title: 'Recap Illustration: the two clock witnesses — the 8088 at 4.77 MHz and a modern 2 GHz machine.', steps: [
+      'Take the cycle-time law: $T = 1/f$.',
+      'So, the IBM PC 5150’s 8088 at 4.77 MHz: each beat lasted about 209.6 ns — the witness the chapter pinned.',
+      'Now, a 2 GHz machine: $T = 0.5$ ns per beat — the doubling of the rate halves the beat.',
+      'Hence the honest comparison: each number is tempo, not speed — the law prices the pulse, never the program.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'The two cautions that carry forward', text: 'First, clock rate is tempo, not speed: a machine that completes more work per beat can beat a faster-clocked machine, and the honest first approximation is $\\text{instructions per second} \\approx f \\times \\text{IPC}$ — a ballpark, labelled as one, never a measurement. Second, the machine does not understand: fetch, decode, execute, repeat, with perfect discipline and zero comprehension — whatever thoughtfulness you meet at a screen is speed plus structure plus the stored program’s reach, not insight.' },
+
+    // ---------- lesson 1.2 recap ----------
+    { kind: 'heading', text: 'Lesson 1.2 Recap: the Hardware Census' },
+    { kind: 'para', text: 'The second lesson stepped outside the box and counted what the word *computer* had become. Four *census axes* do the sorting — **form factor** (the shape and size class), **performance** (the work per second), **power budget** (the watts allowed — wall or battery), and **dedication** (one job forever, or anything asked) — and a classification that cannot cite its axis is an opinion, not a census. The *eleven families* run from the desktop tower to the embedded microcontroller, and every row is a compromise: the laptop trades performance for portability, the smartphone trades raw performance for a 3–8 W battery budget, the server trades the single user for many, the mainframe banks on dependable volume, the supercomputer spends everything for peak speed, and the games console sits honestly between families. *Moore’s law* is the growth census: observed 1965, revised 1975 to a doubling every two years — the arithmetic the recap below prices. The *five generations* are the era census: vacuum tubes 1946–1956, transistors about 1956–1964, integrated circuits 1964–1971, microprocessors 1971 onward — and the honest fifth, a label with fuzzy edges, never a crisp switch. The *personal-computing arc* rides the fourth generation: the Altair 8800 (the January 1975 Popular Electronics cover), the Apple II (1977), the IBM PC 5150 (1981), the Macintosh (1984), the iPhone (announced 9 January 2007), the Raspberry Pi (29 February 2012, at 35 dollars). And the *embedded census* is the quiet majority: a typical modern car carries roughly 50–100 electronic control units, premium vehicles up to about 150 — the engine, the brakes, the battery and each door owning one computer apiece.' },
+    { kind: 'table', caption: 'The families census recap — one row per family, the axis it gives up and why. Read a row and ask: which prize did this family buy, and which did it sell?', head: ['Family', 'The axis it sacrifices (and why)'], rows: [
+      ['Desktop tower', 'Portability — wall power buys raw performance'],
+      ['All-in-one desktop', 'Upgradability — fewer cables, sealed slab'],
+      ['Laptop', 'Some performance — the battery caps the watts'],
+      ['Tablet', 'Creation heft — reading and browsing first'],
+      ['Smartphone', 'Raw performance — a 3–8 W budget rules all'],
+      ['Workstation', 'Price — one desk buys the heavy jobs'],
+      ['Server', 'The single user — it serves many instead'],
+      ['Mainframe', 'Flexibility — it banks on dependable volume'],
+      ['Supercomputer', 'Everything but speed — a hall, a crew, a bill'],
+      ['Games console', 'Dedication wobbles — locked to games, yet desktop-class'],
+      ['Embedded MCU / SBC', 'General-purpose use — one job, hidden forever'],
+    ] },
+    { kind: 'para', text: 'For example, file these everyday machines by the axis each one sacrifices — the test is always the compromise, never a single ranking:' },
+    { kind: 'list', marker: 'roman', items: [
+      'the phone in your pocket sells raw performance to its battery — the 3–8 W budget shapes its whole personality;',
+      'the rack in the machine room sells the single user — it exists to serve thousands arriving at once;',
+      'the room-sized batch machine sells flexibility — dependable volume, serviced by its own engineers;',
+      'the set-top box under the television sells full dedication — desktop-class parts locked to games and a curated store;',
+      'the chip timing the washing drum sells general-purpose use — one job, hidden forever.',
+    ] },
+    { kind: 'example', title: 'Recap Illustration: match each machine to its generation — ENIAC, UNIVAC I, System/360, the Intel 4004, the IBM PC 5150.', steps: [
+      'Take the generation edges as the ruler: tubes 1946–1956, transistors 1956–1964, integrated circuits 1964–1971, microprocessors 1971 onward.',
+      'So, ENIAC (1946) and UNIVAC I (1951) sit in the first generation — the vacuum-tube era.',
+      'Now, System/360 (1964) sits in the third — the integrated-circuit era; the Intel 4004 (15 November 1971) opens the fourth.',
+      'Hence the IBM PC 5150 (12 August 1981) rides the fourth too — the microprocessor generation that still runs.',
+    ] },
+    { kind: 'example', title: 'Recap Illustration: Moore arithmetic — from the 4004’s 2,300 transistors (1971), what does the revised cadence force by 2011?', steps: [
+      'Take the revised cadence: one doubling every two years (Moore, 1965; revised 1975).',
+      'So, the span: $2011 - 1971 = 40$ years — twenty doublings.',
+      'Now, the growth factor: $2^{20} = 1{,}048{,}576$.',
+      'Hence the count: 2,300 × 1,048,576 = 2,411,724,800 — about 2.4 billion transistors, engine-checked digit by digit.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'The one discipline behind the census', text: 'Every family is a compromise: a machine can lose on one axis and win on another — which is why eleven families coexist instead of one winner sweeping the board. When you classify a machine, cite the axis: *a smartphone sacrifices raw performance to a 3–8 W battery budget* is a census; *a smartphone is worse than a desktop* is an opinion wearing a census badge. The same discipline dates the generations: the first four are switches of the switching technology, each with a pinned witness; the fifth is branding plus continued scaling — a label with fuzzy edges, drawn dashed and never banded.' },
+
+    // ---------- lesson 1.3 recap ----------
+    { kind: 'heading', text: 'Lesson 1.3 Recap: the Invisible Half' },
+    { kind: 'para', text: 'The third lesson crossed the boundary the first two had drawn: hardware is structure, software is behaviour, and the stored program is the bridge that lets one fixed structure carry endless behaviours. The census of the invisible half has two great families: *system software*, which manages the machine itself — the operating system, the utilities, the device drivers — and *application software*, the programs you choose for your work. The *operating system* is the manager, and its five duties are worth reciting cold: **process management** (fair turns at the CPU for every running program), **memory management** (each program’s parcel kept apart), **file management** (named storage, found again), **device management** (every keyboard, disk and screen reached through its drivers) — and the *user interface*, the UI, without which the machine would be unusable. *Utilities* do the housekeeping — cleanup, backup, antivirus; *drivers* are the small programs that teach the manager one device’s language. The *boot sequence* is the waking order, and it is fixed because each stage knows only enough to build the next one’s seat: firmware → bootloader → kernel → login. The *platform question* asks which operating system — and which hardware beneath it — a program depends on. And the *license families* are the honesty census of the software world: proprietary (buy permission, source closed), freeware (free to use, source closed), shareware (free to try, pay to keep), open source (source public, licensed to study, change and share).' },
+    { kind: 'table', caption: 'The software families recap — one row per member of the invisible half, its one-line essence.', head: ['Software family', 'One-line essence'], rows: [
+      ['System software', 'Manages the machine itself — the OS, utilities, drivers'],
+      ['Operating system', 'The manager: process, memory, file, device + the UI'],
+      ['Utility', 'Housekeeping — cleanup, backup, antivirus'],
+      ['Device driver', 'Teaches the OS one device’s language'],
+      ['Application software', 'The programs you choose — browser, editor, game'],
+      ['Firmware / bootloader', 'The first code that runs, waking the machine'],
+      ['Proprietary license', 'Buy permission, source closed, per-seat fees'],
+      ['Freeware', 'Free to use, source closed'],
+      ['Shareware', 'Free to try, pay to keep'],
+      ['Open source', 'Source public — licensed to study, change, share'],
+    ] },
+    { kind: 'algorithm', title: 'The Boot Sequence, Recalled', lines: [
+      { code: 'power arrives — the firmware wakes first', note: 'the factory-fixed code on the board, too small to see' },
+      { code: 'the firmware checks the hardware, then hands control to the bootloader', note: 'the check that everything essential answers' },
+      { code: 'the bootloader loads the kernel from storage', note: 'the hand-off from the machine’s fixed code to the chosen system' },
+      { code: 'the kernel initialises processes, memory, files and devices', note: 'the manager’s duties coming alive one by one' },
+      { code: 'login appears — the UI is ready', note: 'the OS begins arbitrating; your programs may now ask' },
+    ], note: 'The order is fixed because each stage knows only enough to hand control to the next — nothing later exists until the earlier stage builds its seat. The fetch–decode–execute loop of lesson 1.1 begins its endless laps only when this staircase ends.' },
+    { kind: 'example', title: 'Recap Illustration: a user presses the power button — put the four boot stages in order and state each stage’s one job.', steps: [
+      'Take the stages as named: the firmware, the bootloader, the kernel, the login screen.',
+      'So, first the firmware — the factory-fixed code wakes and checks the hardware.',
+      'Now, the bootloader loads the kernel from storage, and the kernel initialises processes, memory, files and devices.',
+      'Hence login appears last — the UI ready, and the OS begins arbitrating every lap from here.',
+    ] },
+    { kind: 'example', title: 'Recap Illustration: classify each described program — (a) the manager giving every program fair turns; (b) the antivirus; (c) the program teaching the manager a new printer’s language; (d) the word processor.', steps: [
+      'Take the family test first: does the program manage the machine, or serve the user?',
+      'So, (a) is the operating system — system software’s head — and (b) the antivirus is a utility.',
+      'Now, (c) is a device driver, teaching the OS the printer’s language.',
+      'Hence (d) the word processor is application software — the visible half the user chooses.',
+    ] },
+    { kind: 'callout', tone: 'historical', title: 'The invisible half’s witnesses', text: 'Two numbers price the invisible half’s scale. The Linux kernel — begun by Linus Torvalds in August 1991 — has crossed about 40,000,000 lines early in 2025: one program, an encyclopaedia of code, built in public under an open-source license. And Android 1.0, released 23 September 2008, rode that kernel onto billions of pocket machines — the invisible half deciding what a *phone* would mean. The invisible half is invisible the way an iceberg’s mass is invisible: the larger part, below the waterline of the screen.' },
+
+    // ---------- the formula harvest ----------
+    { kind: 'heading', text: 'The Formula Harvest' },
+    { kind: 'para', text: 'A chapter ends by collecting what must travel forward cold. Six cards from the chapter’s formula sheet, restated once — then one derivation recalled in a chain, because the Moore arithmetic is the chapter’s own engine at work.' },
+    { kind: 'formula', name: 'The address-space law', latex: '2^{n} \\text{ locations from } n \\text{ address lines}', note: 'every line added doubles the reach — 12 lines reach 4,096; 16 reach 65,536; 20 reach 1,048,576; 24 reach 16,777,216.' },
+    { kind: 'formula', name: 'The cycle-time law', latex: 'T = \\frac{1}{f}', note: 'seconds per beat from beats per second — 2 GHz gives 0.5 ns, and the IBM PC 5150’s 4.77 MHz gave about 209.6 ns.' },
+    { kind: 'formula', name: 'The Moore growth law', latex: 'N(t) = N_0 \\cdot 2^{\\Delta t/2}', note: 'the 1965 observation revised in 1975: one doubling every two years — twenty doublings in the forty years from the 4004 to 2011.' },
+    { kind: 'formula', name: 'The boot order', latex: '\\text{firmware} \\to \\text{bootloader} \\to \\text{kernel} \\to \\text{login}', note: 'the waking order, fixed because each stage knows only enough to build the next one’s seat.' },
+    { kind: 'formula', name: 'The IPOS recap', latex: '\\text{input} \\to \\text{processing} \\to \\text{output} \\to \\text{storage}', note: 'the four beats of every run, closing into a loop — stored results can be input again.' },
+    { kind: 'formula', name: 'The stored-program identity', latex: '\\text{instructions} \\equiv \\text{data in the one memory}', note: 'the chapter’s hinge: the machine is re-tasked by a change of memory, never of wiring.' },
+    { kind: 'derivation', title: 'The Moore growth, recalled in one chain', statement: 'Starting from the Intel 4004’s 2,300 transistors (released 15 November 1971), the revised Moore cadence — one doubling every two years — forces the transistor count after forty years.', steps: [
+      { label: 'Span', formula: '\\Delta t = 2011 - 1971 = 40 \\text{ years}', explanation: 'the honest span, pinned at both ends: the 4004’s release year and the census year of the lesson 1.2 computation.' },
+      { label: 'Doublings', formula: '20 = \\frac{40}{2}', explanation: 'the revised 1975 cadence — one doubling every two years — turns forty years into twenty doublings.' },
+      { label: 'Growth factor', formula: '2^{20} = 1{,}048{,}576', explanation: 'twenty doublings, engine-built by repeated doubling from one — the same ladder the address bus rides.' },
+      { label: 'The count', formula: 'N = 2{,}300 \\times 1{,}048{,}576 = 2{,}411{,}724{,}800', explanation: 'the engine-computed product, checked digit by digit — 2,411,724,800 in plain digits.' },
+    ], result: 'forty years of the revised cadence force $2{,}300 \times 2^{20} = 2{,}411{,}724{,}800 \approx 2.4 \times 10^{9}$ — about 2.4 billion transistors.' },
+    { kind: 'callout', tone: 'insight', title: 'What to carry to chapter 2', text: 'Chapter 2, ‘Interacting with Your Computer’, takes the human side of the map: the input and output devices that carry the cycle’s first and third beats. What travels: the $I \to P \to O \to S$ spine, because every device chapter 2 meets serves one beat of it; the OS’s device management, because the manager’s fourth duty is exactly what those devices plug into; the census axes, because devices get filed by the same four questions; and the two laws — $2^{n}$ and $1/f$ — which price reach and tempo wherever you meet a bus or a clock.' },
+
+    // ---------- the chapter timeline ----------
+    { kind: 'heading', text: 'The Chapter Timeline' },
+    { kind: 'figure', caption: 'The chapter timeline: the chapter’s ten pinned machines at x positions computed linearly from their years over 1940–2020 — ENIAC 1946 and UNIVAC I 1951 in the tube era, the Intel 4004 1971 opening the microprocessor band where the Altair 8800 (1975), Apple II (1977), IBM PC 5150 (1981), Macintosh (1984), Linux kernel (1991), iPhone (2007) and Raspberry Pi (2012) ride — the four solid generation bands above the axis, the honest fifth drawn dashed with fuzzy edges, and the three lessons’ eras bracketed below.', svg: chapterTimelineSvg() },
+    { kind: 'para', text: 'The timeline puts the chapter’s witnesses on one line, left to right. ENIAC (14 February 1946) and UNIVAC I (31 March 1951) ride the vacuum-tube first generation — the founding structure, lesson 1.1’s witnesses, the era the first bracket names. The Intel 4004 (15 November 1971, 2,300 transistors) opens the microprocessor fourth generation, and the personal-computing arc rides it: the Altair 8800’s January 1975 cover, the Apple II 1977, the IBM PC 5150 (12 August 1981, 4.77 MHz, 16 KB), the Macintosh 1984 — then the invisible half comes of age, as the third bracket says: the Linux kernel (August 1991), the iPhone (announced 9 January 2007), the Raspberry Pi (29 February 2012, at 35 dollars). Above the axis sit the four solid generation bands; at the right, the dashed red box is the honest fifth — a label with fuzzy edges, drawn dashed, never banded; below the axis, the three brackets band the three lessons’ eras. Every date on the line was banked in the lesson that earned it; the review only re-arranges the witnesses.' },
+    { kind: 'callout', tone: 'historical', title: 'The arc in one breath', text: 'From a room drawing ~150 kW to a 35-dollar credit-card board, in sixty-six years. Moore’s cadence — observed 1965, revised 1975 to a doubling every two years — is the engine of the sweep: twenty doublings from the 4004’s 2,300 transistors force about 2.4 billion, the arithmetic the harvest above pins. The honest note that keeps the timeline true: it is the chapter’s own witness list, nothing more — and that restraint is exactly what a review is for.' },
+
+    // ---------- the vocabulary harvest ----------
+    { kind: 'heading', text: 'The Vocabulary Harvest' },
+    { kind: 'para', text: 'The chapter’s vocabulary, harvested once — fifteen terms a computer-literate reader owns after unit 1, each definition one self-contained sentence, as the lessons boxed them.' },
+    { kind: 'terms', items: [
+      { term: 'Information processing cycle', def: 'The information processing cycle is the four-stage rhythm of every computer run — input, processing, output, storage — joined into a loop because stored results can be taken as input again.' },
+      { term: 'Stored-program concept', def: 'The stored-program concept is the design in which a program’s instructions are held in the machine’s memory exactly as data is, fetched and executed one by one under the control unit’s direction.' },
+      { term: 'Arithmetic and logic unit', def: 'The arithmetic and logic unit (ALU) is the functional unit whose circuits perform the machine’s arithmetic and its logic, the comparisons.' },
+      { term: 'Control unit', def: 'The control unit is the functional unit that fetches each instruction, decodes it, and directs the other units to carry it out — the manager that never computes.' },
+      { term: 'Bus', def: 'A bus is a shared set of lines that carries bits between the functional units — the address bus naming where, the data bus carrying what, the control bus commanding when.' },
+      { term: 'Address space', def: 'The address space is the set of memory locations the address bus can name — $2^{n}$ of them for $n$ address lines, so every line added doubles the reach.' },
+      { term: 'Clock rate', def: 'The clock rate is the number of pulses the machine’s clock beats per second, measured in hertz, with the cycle time $T = 1/f$ as its reciprocal.' },
+      { term: 'Word', def: 'A word is the machine’s unit of data — the fixed number of bits its registers, buses and memory transfers handle in one move.' },
+      { term: 'Moore’s law', def: 'Moore’s law is the 1965 observation, revised in 1975 to a doubling every two years, that the transistor count on an affordable chip grows exponentially.' },
+      { term: 'Embedded system', def: 'An embedded system is a small computer hidden inside a larger product to run that one product, unseen by its user.' },
+      { term: 'Electronic control unit', def: 'An electronic control unit (ECU) is one small dedicated computer inside a car, of which a typical modern car carries roughly 50–100, up to about 150 in premium vehicles.' },
+      { term: 'System software', def: 'System software is the family that manages the machine itself — the operating system, the utilities, and the device drivers.' },
+      { term: 'Operating system', def: 'The operating system is the system software that manages the machine’s processes, memory, files and devices, and gives every program fair turns through its drivers.' },
+      { term: 'Device driver', def: 'A device driver is the small system program that teaches the operating system one device’s language, so the manager can arbitrate it.' },
+      { term: 'Software license', def: 'A software license is the legal statement of what a user may do with a program — the honest families being proprietary, freeware, shareware and open source.' },
+    ] },
+
+    // ---------- mixed synthesis ----------
+    { kind: 'heading', text: 'Mixed Synthesis' },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner — the chapter’s typology, honestly labelled', text: 'Banking and SSC computer-awareness papers, and school and board computer-science papers, draw on this chapter with a stable typology across all three lessons: (i) ordering the information processing cycle; (ii) unit identification — which unit computes (the ALU), which directs (the control unit), which holds the running program (primary memory); (iii) the stored-program concept — instructions in the same memory as data; (iv) address arithmetic — $2^{n}$ locations from $n$ lines, with $2^{16} = 65{,}536$ the perennial favourite; (v) generation matching — ENIAC the tube witness, the 4004 the microprocessor door; (vi) census counts — roughly 50–100 ECUs in a typical car, up to about 150 in premium vehicles; (vii) software classification — the OS, a utility, a driver, an application; (viii) the boot order; and (ix) the license families. The exercise sets below include items in exactly this style, labelled exam-style — original items in the examination idiom, not real past-paper questions.' },
+    { kind: 'para', text: 'From the above discussion, it follows that the word *computer* now names three things at once. It names a **structure**: the information processing cycle running on five von Neumann units joined by three buses, pointed by the program counter through the fetch–decode–execute loop, measured by clock rate ($T = 1/f$), word, bus width and address space ($2^{n}$ locations). It names a **census**: eleven families sorted by four axes, five generations dated from tubes to microprocessors, Moore’s two-year doubling behind the sweep, embedded machines the quiet majority. And it names an **invisible half**: the operating system managing processes, memory, files and devices through drivers, booted in a fixed order, licensed in four honest families. The chapter’s own essay question — how a box of switches comes to seem thoughtful — has the same answer three ways: it is fast, structured and re-taskable; it is shareable; it is everywhere. Not one word of which is *understands*.' },
+    { kind: 'list', marker: 'roman', items: [
+      'the machine is the cycle on a structure — $I \to P \to O \to S$ on five units joined by buses;',
+      'behaviour lives in memory, not wiring — the stored program is the hinge that re-tasks the box overnight;',
+      'the measurable machine is tempo, parcel and reach — $T = 1/f$, the word, $2^{n}$;',
+      'the census is compromise — four axes, eleven families, each row citing the axis it sacrifices;',
+      'the generations are switches with witnesses — tubes, transistors, ICs, microprocessors; the fifth is a label with fuzzy edges;',
+      'the invisible half is the manager — five duties, boot order fixed, drivers teaching devices;',
+      'the licenses are honesty families — proprietary, freeware, shareware, open source;',
+      'the box seems thoughtful because it is fast, structured, re-taskable, shareable and everywhere — not because it understands.',
+    ] },
+
+    // ---------- quiz ----------
+    { kind: 'quiz', title: 'Check yourself — the chapter in five questions', items: [
+      { q: 'Which sequence is the information processing cycle?', options: ['Processing → input → storage → output', 'Input → processing → output → storage', 'Output → storage → input → processing', 'Storage → processing → output → input'], answer: 1, explain: 'Option 2 is the cycle: data enters (input), is transformed (processing), is handed out as meaning (output), and is kept for later (storage) — $I \\to P \\to O \\to S$, the four beats every run follows, closing into a loop. Option 1 begins at processing — impossible, since no data has yet entered the machine to be processed. Option 3 begins at output — output hands out finished results, so nothing can come out before something went in and was worked on. Option 4 begins at storage — storage keeps earned results, and nothing has been earned in the first beat of a run.' },
+      { q: 'A machine’s address bus carries 20 lines. How many distinct memory locations can it name?', options: ['512', '20,000', '2,048', '1,048,576'], answer: 3, explain: 'Option 4 is the address-space law: $n$ lines name $2^{n}$ locations, and $2^{20} = 1{,}048{,}576$ — one full MB at one byte per location, the ladder rung the chapter pinned. Option 1’s 512 is $2^{9}$ — the nine-line rung, miscounted on a bus of twenty. Option 2’s 20,000 multiplies the line count by a round thousand — the ladder doubles with every line, it never multiplies by tens. Option 3’s 2,048 is $2^{11}$, the eleven-line rung — off by nine doublings.' },
+      { q: 'Which machine marks the start of the microprocessor (fourth) generation?', options: ['The Intel 4004, released 15 November 1971', 'ENIAC, announced 14 February 1946', 'UNIVAC I, accepted 31 March 1951', 'The IBM System/360, announced 1964'], answer: 0, explain: 'Option 1 opens the fourth generation: the Intel 4004, released 15 November 1971 with 2,300 transistors — the first commercial microprocessor, the door the census dates from. Option 2’s ENIAC is the first generation’s witness — 17,468 vacuum tubes, the room-sized founding machine. Option 3’s UNIVAC I (1951) also rides the tube generation, though it carried the first commercial title. Option 4’s System/360 (1964) is the third generation’s witness — integrated circuits, not microprocessors.' },
+      { q: 'What does the operating system’s device management actually do?', options: ['It counts the ECUs hiding in a modern car', 'It stores each program’s files as bytes on disk', 'It hands running programs fair turns at the keyboard, disk and screen through drivers', 'It performs the machine’s arithmetic inside the ALU'], answer: 2, explain: 'Option 3 is the duty: device management is the manager’s traffic control — every program gets fair turns at the keyboard, the disk and the screen, each reached through the device driver that teaches the OS that device’s language. Option 1 counts ECUs — the hardware census of lesson 1.2, a fact about cars, not a duty of any OS. Option 2 describes file management — the named-storage duty — a neighbour duty, not the same one. Option 4 sends arithmetic to the ALU — hardware’s job; the OS never computes, it manages.' },
+      { q: 'Which of these is a member of the system software family?', options: ['A photo editor', 'The operating system', 'A web browser', 'A spreadsheet program'], answer: 1, explain: 'Option 2 heads the family: the operating system is system software’s chief — the manager that runs the machine itself, with utilities and drivers its relations. Option 1’s photo editor is application software — a program chosen for a job the user wants done. Option 3’s browser is likewise the most-used application of all, not a manager of machines. Option 4’s spreadsheet is an application too; the family test is one question — does it manage the machine, or serve the user?' },
+    ] },
+
+    // ---------- exercises ----------
+    { kind: 'exercises', title: 'Exercises 1.R — the mixed bench', sets: [
+      { level: 'L1', questions: [
+        { q: 'Classify each described machine into the hardware families of the census: (a) a pocket slab whose whole personality bends around a 3–8 W battery budget; (b) a room-sized machine serviced by its own engineers, bought for dependable batch volume; (c) a chip hidden inside a washing machine, timing the drum; (d) a rack shelf in a machine room, serving thousands of arriving users.', solution: [
+          'Take the four census axes as the checklist — form factor, performance, power budget, dedication.',
+          'Now, the pocket slab ruled by its watts is the smartphone; the room with its own engineers is the mainframe.',
+          'So, the hidden chip with one job is the embedded microcontroller, and the rack serving many is the server.',
+          'Hence four machines, four families — each verdict citing its axis.',
+        ], answer: '(a) smartphone, (b) mainframe, (c) embedded microcontroller, (d) server.' },
+        { q: 'Classify each described program into the software families of lesson 1.3: (a) the manager that gives every running program fair turns at the machine’s units; (b) a disk-cleanup and backup tool; (c) the small program that teaches the manager a new printer’s language; (d) the word processor this exercise was drafted in.', solution: [
+          'Take the family test: does the program manage the machine, or serve the user?',
+          'Now, the fair-turns manager is the operating system — system software’s head.',
+          'So, the cleanup tool is a utility, and the printer-teaching program a device driver — both system software.',
+          'Hence the word processor is application software — the visible half the user chooses.',
+        ], answer: '(a) operating system, (b) utility, (c) device driver, (d) application software.' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'IPOS stage identification: a studio run is described — (a) the microphone takes in the sung take; (b) the processor corrects the pitch of every note; (c) the corrected track plays from the speakers; (d) the take is saved into the session file. Name the stage each act carries.', solution: [
+          'Take the four stages as the checklist: input, processing, output, storage.',
+          'Now, the microphone taking in the take is input — data crossing in.',
+          'So, the pitch correction is processing, and the speakers are output.',
+          'Hence the saved take is storage — the earned result kept as future input.',
+        ], answer: '(a) input, (b) processing, (c) output, (d) storage — the cycle in order.' },
+        { q: 'Unit identification, one line each: (a) which unit holds the running program and its data; (b) which unit performs the arithmetic and the comparisons; (c) which unit fetches and sequences the instructions; (d) which shared roadways carry the bits between them all.', solution: [
+          'Take the five units in census order: memory, the ALU, the control unit, the buses.',
+          'Now, the running program’s home is primary memory — the stored program’s seat.',
+          'So, the arithmetic and the comparisons belong to the arithmetic and logic unit (ALU).',
+          'Hence the fetch-and-sequence duty is the control unit’s, and the roadways are the three buses.',
+        ], answer: '(a) primary memory, (b) the arithmetic and logic unit (ALU), (c) the control unit, (d) the three buses — address, data, control.' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Address arithmetic drill: a controller board carries a 16-line address bus, and a games console carries 24 lines. How many distinct memory locations can each name?', solution: [
+          'Take the address-space law: $n$ lines name $2^{n}$ locations.',
+          'So, at $n = 16$: $2^{16} = 65{,}536$ locations.',
+          'Now, at $n = 24$: $2^{24} = 16{,}777{,}216$ locations.',
+          'Hence the board reaches 65,536 and the console 16,777,216 — the ×256 jump of eight more lines, the strip below.',
+        ], answer: '65,536 locations; 16,777,216 locations.', figures: [
+          { caption: 'The doubling ladder strip: 12 lines reach 4,096, 16 reach 65,536, 24 reach 16,777,216 — four more lines always ×16.', svg: ladderStripSvg() },
+        ] },
+        { q: 'Moore arithmetic drill: from the Intel 4004’s 2,300 transistors (15 November 1971), how many doublings does the revised cadence force across the forty years to 2011 — and what growth factor is that?', solution: [
+          'Take the revised cadence: one doubling every two years.',
+          'So, the span: $2011 - 1971 = 40$ years.',
+          'Now, the doublings: $40 \div 2 = 20$ of them.',
+          'Hence the growth factor: $2^{20} = 1{,}048{,}576$ — the number the full computation rides.',
+        ], answer: '20 doublings; a growth factor of 2^20 = 1,048,576.' },
+        { q: 'Clock drill: a modern machine runs at 2 GHz. (i) What is its cycle time? (ii) A short program runs 200 instructions, each needing 2 clock cycles — how long does the program take in total?', solution: [
+          'Take the cycle-time law: $T = 1/f$.',
+          'So, at $f = 2$ GHz: one beat lasts $T = 0.5$ ns.',
+          'Now, the program’s work: $200 \times 2 = 400$ cycles.',
+          'Hence the total: $400 \times 0.5 = 200$ ns — engine-checked as $200 \times 2 \times 0.5$.',
+        ], answer: '(i) 0.5 ns; (ii) 200 ns in total.' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Exam-style MCQ chain (original items in the bank/SSC computer-awareness idiom — not a real past paper): (i) match each machine to its generation and name the switching technology — ENIAC; (ii) UNIVAC I; (iii) the IBM System/360; (iv) the Intel 4004; (v) the IBM PC 5150; (vi) name the OS duty that hands running programs fair turns at the keyboard, the disk and the screen.', solution: [
+          'Take the generation edges as the ruler: 1946, 1956, 1964, 1971 — tubes, transistors, integrated circuits, microprocessors.',
+          'So, ENIAC (1946) and UNIVAC I (1951) sit in the first generation — vacuum tubes.',
+          'Now, System/360 (1964) sits in the third — integrated circuits; the 4004 (15 November 1971) opens the fourth — microprocessors.',
+          'So, the IBM PC 5150 (12 August 1981, 4.77 MHz, 16 KB) rides the fourth generation too — the strip below.',
+          'And (vi) is device management — the OS duty that reaches every device through its drivers and arbitrates fair turns.',
+          'Hence five machine matches plus one duty named: the census and the manager, both in the examination idiom.',
+        ], answer: 'ENIAC and UNIVAC I → 1st (tubes); System/360 → 3rd (integrated circuits); the 4004 and the IBM PC 5150 → 4th (microprocessors); (vi) device management.', figures: [
+          { caption: 'The generation-matching strip: ENIAC 1946 and UNIVAC I 1951 drop into the vacuum-tube first band, System/360 1964 into the integrated-circuit third, the 4004 1971 and the IBM PC 5150 1981 into the microprocessor fourth.', svg: generationMatchStripSvg() },
+        ] },
+        { q: 'A described machine, filed honestly: a credit-card-sized board with its ports exposed, sold for 35 dollars for learning — the Raspberry Pi of 29 February 2012. File it by family, by generation, and by the axis it sacrifices.', solution: [
+          'Take the four axes one at a time: form factor — a credit-card board with ports exposed; performance — modest, honest learning speed; power budget — a few watts from a small supply; dedication — open to anything.',
+          'Now, the family: the census’s eleventh seat — the single-board computer, the embedded family’s teaching door.',
+          'So, the generation: born 29 February 2012, deep in the microprocessor (fourth) generation.',
+          'Hence the axis sacrificed: raw performance — a 35-dollar board buys a doorway into computing, not a workstation.',
+        ], answer: 'family: single-board computer; generation: fourth (microprocessors); axis sacrificed: raw performance.' },
+        { q: 'Exam-style boot-order item (original item, labelled honestly — not a real past paper): a user presses the power button. Put the four boot stages in honest order, and state each stage’s one job.', solution: [
+          'Take the stages as named: the firmware, the bootloader, the kernel, the login screen.',
+          'So, the firmware comes first — the factory-fixed code wakes and checks the hardware.',
+          'Now, the bootloader loads the kernel from storage, and the kernel initialises processes, memory, files and devices.',
+          'Hence login appears last — the UI ready, and the OS begins arbitrating every lap from here.',
+        ], answer: 'firmware → bootloader → kernel → login.' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'The whole-machine trace: walk ONE program’s life through the map — a teacher’s five-mark summary program (the marks 62, 48, 91, 77, 54; the program’s three instructions stored at the addresses 100, 101 and 102) — naming the unit at work at every stage, with the OS arbitrating.', solution: [
+          'Take the program’s life in map order: the keystrokes cross in at the input unit — and the OS arbitrates the turn.',
+          'So, primary memory holds the program (at 100, 101, 102) and the marks — the stored program at work.',
+          'Now, the control unit walks the fetch–decode–execute lap: PC = 100 (fetch the load), PC = 101 (fetch the add), PC = 102 (fetch the store) — the PC advancing one per lap.',
+          'Then the ALU does the arithmetic: $62 + 48 + 91 + 77 + 54 = 332$, and $332 \div 5 = 66.4$, with the highest mark 91 found by comparison.',
+          'Hence the summary reaches the screen at the output unit, and the file is kept in storage — one program, five doors, the strip below.',
+        ], answer: 'the input unit (marks in) → primary memory (program at 100–102) → fetch–decode–execute (PC 100 → 101 → 102) → the ALU (sum 332, average 66.4, highest 91) → the output unit (the summary) — storage keeps the file, and the OS arbitrates throughout.', figures: [
+          { caption: 'One program’s life through the five unit doors: the keystrokes in at the input unit, the program held at 100–102 in memory, the control unit’s PC walk, the ALU’s sum 332 and average 66.4, the summary out — the OS arbitrating from above.', svg: programLifeStripSvg() },
+        ] },
+        { q: 'Licensing and platform synthesis: three software products are described — (a) a bank buys a teller program, locked to one vendor, paid per seat, source closed; (b) a studio gives away a painting tool, source closed, no charge; (c) a community publishes an operating system’s kernel source under a public licence, free to study, change and share. Name each license family — and say what the platform question asks of the bank’s tellers.', solution: [
+          'Take the license families as the checklist: proprietary, freeware, shareware, open source.',
+          'So, (a) bought per seat with the source closed is the proprietary family; (b) free of charge but still closed is freeware.',
+          'Now, (c) — source public, with the rights to study, change and share guaranteed — is open source, the Linux kernel’s road.',
+          'Hence the platform question: the teller program runs only on the operating system it was built for — the software’s answer rides on the platform chosen underneath it, hardware and OS together.',
+        ], answer: '(a) proprietary, (b) freeware, (c) open source; the platform question asks which operating system — and which hardware under it — the software depends on.' },
+        { q: 'The census applied to two machines: ENIAC (announced 14 February 1946, ~30 tons, ~150 kW, 5,000 additions per second) and a smartphone (a pocket slab on a 3–8 W budget). State what can be compared honestly, and what must stay qualitative.', solution: [
+          'Take the census axes as the honest ruler: form factor, performance, power budget, dedication.',
+          'So, the honest contrasts: a room-sized, wall-powered machine against a pocket slab on a battery — form factor and power budget, both banked as ballparks.',
+          'Now, performance: ENIAC’s 5,000 additions per second is pinned; the chapter pinned no pocket figure, so no invented ratio — that comparison stays qualitative.',
+          'Hence dedication flips the story last: both machines are general-purpose — the census says which axes moved, never a single ranking.',
+        ], answer: 'honest contrasts: form factor (room vs pocket) and power budget (~150 kW from the wall vs a 3–8 W battery); performance stays qualitative — only ENIAC’s 5,000 additions per second is pinned; both are general-purpose.' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'THE chapter essay: ‘How does a box of switches come to seem thoughtful?’ — argue it through the three lessons, each carrying one move.', solution: [
+          'Take the essay’s three moves in chapter order: the structure, the manager, the census.',
+          'First move (lesson 1.1): the stored program — behaviour lives in memory, not wiring, so one fixed box of switches can become a different machine overnight; the fetch–decode–execute loop then runs any program with perfect discipline and zero comprehension.',
+          'Now, the second move (lesson 1.3): the manager — the operating system makes one machine shareable, arbitrating fair turns at every unit and hiding the hardware’s rough edges behind a usable interface.',
+          'So, the third move (lesson 1.2): the census — the same stored-program design scales from a room of tubes to a chip in a door, so the machine is everywhere a person turns.',
+          'Hence the thesis: fast, structured, re-taskable, shareable, everywhere — the thoughtfulness is ours, deposited in the program, never the box’s own.',
+        ], answer: 'the box seems thoughtful because the stored program makes it re-taskable, the OS makes it shareable, and the census makes it everywhere — speed plus structure plus reach, never comprehension.' },
+        { q: 'The honest-label essay: why is the ‘fifth generation’ a label with fuzzy edges, while the first four are census-grade switches? Argue from the chapter’s own criterion.', solution: [
+          'Take the chapter’s criterion first: a generation is a switch of the switching TECHNOLOGY — a measurable change in the physical thing that computes.',
+          'So, generations one to four pass the test: tubes, transistors, integrated circuits, microprocessors — each a dated physical switch with a pinned witness (ENIAC 1946, the transistor era, System/360 1964, the 4004 of 15 November 1971).',
+          'Now, the ‘fifth’ proposes AI-era branding and ULSI scale — but continued scaling is a trend, and branding names a hope; neither is a crisp physical switch with a dated witness.',
+          'Hence the honest verdict: the first four are switches, the fifth is a label with fuzzy edges — drawn dashed, never banded, and the honesty itself is part of what the chapter teaches.',
+        ], answer: 'the first four generations are technology switches with pinned witnesses; the ‘fifth’ is a label with fuzzy edges — branding plus continued scaling, not a crisp switch — so the chapter draws it dashed, never banded.' },
+      ] },
+    ] },
+
+    // ---------- the closing ----------
+    { kind: 'para', text: 'Which door opens next. Chapter 2, ‘Interacting with Your Computer’, takes the human side of the map: the input and output devices that carry the cycle’s first and third beats — keyboards and pointing devices, scanners, cameras and microphones; monitors and their panels, printers and speakers — with how each actually works, and the first usability instincts, handing off later to Human-Computer Interaction on the shelf. Two doorsteps keep their promises from here: *Operating Systems* takes the manager’s full story — the five duties met as theory and design; *Computer Organization and Architecture* takes the machine’s — the stored-program structure met as engineering. The map is drawn, the census is counted, the invisible half has a name; the word *computer* has earned its width. Carry it whole into chapter 2.' },
+  ],
+}
 
 export const chapter01: Chapter = {
   number: 1,
@@ -1876,7 +3228,7 @@ export const chapter01: Chapter = {
   title: 'The Computing Machine',
   summary:
     'The human side of the machine: input devices (keyboards, pointing devices, scanners, cameras, microphones) and output devices (monitors and their panels, printers, speakers) with how each actually works, plus the first usability instincts — the chapter hands off to Human-Computer Interaction later on the shelf.',
-  status: 'in-progress',
-  lessons: [lesson11, lesson12],
-  plannedLessons: ['Software: the Invisible Half of the Machine'],
+  status: 'complete',
+  lessons: [lesson11, lesson12, lesson13, lesson1R],
+  plannedLessons: [],
 }

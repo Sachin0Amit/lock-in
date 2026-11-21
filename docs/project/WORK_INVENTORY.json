@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-21 19:18:56 (Asia/Kolkata)",
+  "generated": "2026-11-21 20:04:58 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -4544,8 +4544,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5277,
-                "readMins": 26,
+                "words": 5721,
+                "readMins": 29,
                 "concepts": [
                   "10 ≡ 1 (mod 3), (mod 9) — the digit-sum engine",
                   "10 ≡ −1 (mod 11) — the alternating engine",
@@ -4579,7 +4579,7 @@
                   "equation": 1,
                   "list": 1,
                   "example": 8,
-                  "callout": 5,
+                  "callout": 6,
                   "derivation": 3,
                   "figure": 1,
                   "table": 2,
@@ -4592,7 +4592,7 @@
                 "calloutTones": {
                   "warn": 2,
                   "historical": 1,
-                  "insight": 1,
+                  "insight": 2,
                   "exam": 1
                 },
                 "quizItems": 5,
@@ -4600,11 +4600,11 @@
                   "L1": 3,
                   "L2": 3,
                   "L3": 3,
-                  "L4": 2,
+                  "L4": 3,
                   "L5": 2,
                   "L6": 1
                 },
-                "exerciseQuestions": 14,
+                "exerciseQuestions": 15,
                 "termsDefined": 8
               },
               {
@@ -4614,8 +4614,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 4985,
-                "readMins": 25,
+                "words": 5402,
+                "readMins": 27,
                 "concepts": [
                   "Unit digits are residues mod 10",
                   "The census: fixed points 0, 1, 5, 6",
@@ -4647,7 +4647,7 @@
                   "table": 2,
                   "figure": 1,
                   "derivation": 2,
-                  "example": 4,
+                  "example": 5,
                   "callout": 3,
                   "algorithm": 1,
                   "terms": 1,
@@ -4666,10 +4666,10 @@
                   "L2": 3,
                   "L3": 3,
                   "L4": 2,
-                  "L5": 2,
+                  "L5": 3,
                   "L6": 1
                 },
-                "exerciseQuestions": 14,
+                "exerciseQuestions": 15,
                 "termsDefined": 8
               },
               {
@@ -4741,7 +4741,7 @@
                 "termsDefined": 8
               }
             ],
-            "words": 21070
+            "words": 21931
           },
           {
             "number": 6,
@@ -16729,18 +16729,16 @@
         "description": "The zero-rung entry to the Computer Science shelf (its Foundation Mathematics). The information processing cycle priced on real machines; a census of hardware from desktops to embedded chips; interacting with computers — input and output devices and the first usability instincts; data representation as a first meeting (bits, codes, text/image/sound) that hands its theory to Arithmetic and Number Systems and Digital Logic Design; inside the box — motherboard, processor named honestly, the first memory hierarchy; the software families and the manager layer that Operating Systems will theorize; the network idea that Computer Networks takes over; files and digital space; and the synthesis with user-level security. Cross-references every core CS book as its doorstep; no prior knowledge assumed.",
         "status": "in-progress",
         "chaptersPlanned": 8,
-        "chaptersWritten": 0,
+        "chaptersWritten": 1,
         "chapters": [
           {
             "number": 1,
             "slug": "the-computing-machine",
             "title": "The Computing Machine",
             "summary": "The human side of the machine: input devices (keyboards, pointing devices, scanners, cameras, microphones) and output devices (monitors and their panels, printers, speakers) with how each actually works, plus the first usability instincts — the chapter hands off to Human-Computer Interaction later on the shelf.",
-            "status": "in-progress",
-            "lessonsWritten": 2,
-            "plannedLessons": [
-              "Software: the Invisible Half of the Machine"
-            ],
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "cf-the-basic-structure-and-operation-of-the-computer",
@@ -16870,9 +16868,142 @@
                 },
                 "exerciseQuestions": 15,
                 "termsDefined": 18
+              },
+              {
+                "id": "cf-software-the-invisible-half-of-the-machine",
+                "number": "1.3",
+                "title": "Software: the Invisible Half of the Machine",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8659,
+                "readMins": 43,
+                "concepts": [
+                  "software: the instructions, their data and their documentation",
+                  "system software versus application software",
+                  "the operating system as the machine’s manager",
+                  "utilities and device drivers",
+                  "the platform question: binaries and the API",
+                  "software scale: the library-wall estimate",
+                  "the licensing families: proprietary to public domain"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can define software and say why the stored-program concept of lesson 1.1 makes it loadable at all.",
+                  "By the end of this lesson you can classify any program you meet as system software or application software, with a reason.",
+                  "By the end of this lesson you can name the operating system’s five visible duties and say what the user sees of each.",
+                  "By the end of this lesson you can walk the boot sequence from power on to login screen and justify each hop in order.",
+                  "By the end of this lesson you can explain why a program compiled for one operating system does not run on another, and what an API is in that story.",
+                  "By the end of this lesson you can state the honest scale of the Linux kernel and read a software license by family."
+                ],
+                "prerequisites": [
+                  "cf-the-basic-structure-and-operation-of-the-computer",
+                  "cf-a-census-of-hardware-desktops-to-embedded-chips"
+                ],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "para": 21,
+                  "heading": 8,
+                  "callout": 14,
+                  "example": 9,
+                  "terms": 6,
+                  "figure": 3,
+                  "table": 3,
+                  "list": 3,
+                  "derivation": 2,
+                  "algorithm": 1,
+                  "quiz": 1,
+                  "formula": 5,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 8,
+                  "insight": 2,
+                  "historical": 1,
+                  "warn": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 17
+              },
+              {
+                "id": "cf-unit-1-completion-review",
+                "number": "1.R",
+                "title": "Unit 1 Completion Review",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 7600,
+                "readMins": 38,
+                "concepts": [
+                  "the whole-machine map: hardware, census and the invisible half in one view",
+                  "the information processing cycle and the five von Neumann units, revisited",
+                  "the stored-program concept as the chapter’s hinge",
+                  "the hardware census: axes, families, generations and Moore’s law",
+                  "the software half: the operating system as manager",
+                  "the chapter’s formula and vocabulary harvest"
+                ],
+                "objectives": [
+                  "by the end you can redraw the whole-machine map — the IPOS spine, the five von Neumann units, the software half layered above — from memory",
+                  "by the end you can restate the chapter’s engine-pinned numbers cold: the $2^{n}$ ladder, the cycle-time law, the Moore arithmetic",
+                  "by the end you can file any machine you meet into one of the eleven families and the five generations, axis by axis",
+                  "by the end you can name the software families and walk the boot sequence from power to login",
+                  "by the end you can trace one program’s life across hardware and software in one breath, and argue the chapter’s essay honestly"
+                ],
+                "prerequisites": [
+                  "cf-the-basic-structure-and-operation-of-the-computer",
+                  "cf-a-census-of-hardware-desktops-to-embedded-chips",
+                  "cf-software-the-invisible-half-of-the-machine"
+                ],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "heading": 8,
+                  "figure": 2,
+                  "callout": 7,
+                  "table": 3,
+                  "example": 8,
+                  "list": 2,
+                  "algorithm": 1,
+                  "formula": 6,
+                  "derivation": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 1,
+                  "insight": 2,
+                  "historical": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 15
               }
             ],
-            "words": 16113
+            "words": 32372
           },
           {
             "number": 2,
@@ -51842,14 +51973,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 513,
-      "totalLines": 183782,
+      "srcFilesTracked": 514,
+      "totalLines": 187205,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5860,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 145121,
+        "src/data/library (content model + books)": 148544,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -77737,6 +77868,22 @@
       ]
     },
     {
+      "sha": "dabbc2a2c7620b04803494b74b994e6074812aeb",
+      "short": "dabbc2a",
+      "date": "2026-11-21 12:06",
+      "message": "docs: add CS_AUTHORING_RUNBOOK.md for the CS authoring swarm cron job",
+      "filesChanged": 1,
+      "insertions": 276,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/CS_AUTHORING_RUNBOOK.md",
+          "add": 276,
+          "del": 0
+        }
+      ]
+    },
+    {
       "sha": "fcbb7cc8ba80569b3cc18f746ebf8199c74d8b68",
       "short": "fcbb7cc",
       "date": "2026-11-21 12:31",
@@ -77892,34 +78039,243 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "8c53bceaef4f0eddf32b6c24acd26c2c8c85b4b0",
+      "short": "8c53bce",
+      "date": "2026-11-21 13:02",
+      "message": "Merge remote-tracking branch 'origin/main'",
+      "filesChanged": 0,
+      "insertions": 0,
+      "deletions": 0,
+      "files": []
+    },
+    {
+      "sha": "c8e30d8aa8a0c9f93421d7c97d1c6d46219d1908",
+      "short": "c8e30d8",
+      "date": "2026-11-21 13:15",
+      "message": "audit: ans-why-the-divisibility-tests-work — A:1fig B:3sol C:2enrich",
+      "filesChanged": 7,
+      "insertions": 169,
+      "deletions": 4,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 39,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 14,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 6,
+          "del": 4
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 13,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-05.ts",
+          "add": 86,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "4ca4d60ba71b7aaf2a82add245d5899551ff486c",
+      "short": "4ca4d60",
+      "date": "2026-11-21 13:44",
+      "message": "audit: ans-unit-digit-cycles-of-powers — A:1fig B:3sol C:2enrich",
+      "filesChanged": 7,
+      "insertions": 153,
+      "deletions": 4,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 5,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-05.ts",
+          "add": 104,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "3fed43976ecf2c4489553ef25953ee67143ae251",
+      "short": "3fed439",
+      "date": "2026-11-21 13:49",
+      "message": "CS RUN 1 (the cs job's first honored fire, the TWO AUTHORING LANES protocol): computer-fundamentals ch.1 OPENED — 1.1 'The Basic Structure and Operation of the Computer' + 1.2 'A Census of Hardware: Desktops to Embedded Chips' authored by the two-agent swarm (both delivery channels timed out; files landed complete; engines A 45 + C 54 green pre-prose, verified directly) — the CS shelf's first written lessons; ground = the sanctioned internet fallback (cs-cf-web-ground, every pinned date web-verified, SOURCE_LOG); verifier 213/213; tsc 0, lint 0 err; pack 184 lessons / 1,031,263 words; standing gates green incl. cs-shelf-planning honestly updated for the authoring era (2350/2350); E2E x2 lessons x3 viewports ALL GREEN (quiz 5/5 live); VLM 16-crop audit: 2 real defects fixed (the frac form-feed escape leak + the generations-table right-edge clipping) + re-audited PASS; 1.3 + 1.R ride the next fire (CS RUN 2)",
+      "filesChanged": 16,
+      "insertions": 3449,
+      "deletions": 66,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/CS_AUTHORING_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 13,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 317,
+          "del": 32
+        },
+        {
+          "path": "docs/research/CF_CH01_MASTER_PLAN.md",
+          "add": 161,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-11.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-11.sh",
+          "add": 102,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-12.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-12.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-book1-ch01.ts",
+          "add": 722,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-shelf-planning.ts",
+          "add": 26,
+          "del": 12
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/book.ts",
+          "add": 12,
+          "del": 18
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-01.ts",
+          "add": 1882,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "ae48c1e23d08cdfb9200ead40b00773a62e1038c",
+      "short": "ae48c1e",
+      "date": "2026-11-21 13:50",
+      "message": "chore(bookkeeping): CS RUN 1 push record (rebased onto the sibling line 4ca4d60, ls-remote verified 3fed439; the CS_AUTHORING_RUNBOOK.md sibling note for the next fire)",
+      "filesChanged": 1,
+      "insertions": 5,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 5,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 277,
     "booksLive": 269,
-    "chaptersWritten": 41,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 184,
-    "wordsAuthored": 1031180,
-    "termsDefined": 1430,
-    "quizItems": 920,
-    "exerciseQuestions": 2488,
+    "chaptersWritten": 42,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 186,
+    "wordsAuthored": 1048300,
+    "termsDefined": 1462,
+    "quizItems": 930,
+    "exerciseQuestions": 2520,
     "blockTotals": {
-      "para": 2687,
-      "callout": 1217,
-      "heading": 1048,
-      "list": 228,
-      "terms": 183,
+      "para": 2720,
+      "callout": 1239,
+      "heading": 1064,
+      "list": 233,
+      "terms": 190,
       "equation": 401,
-      "figure": 378,
-      "derivation": 422,
-      "table": 244,
-      "example": 1095,
-      "quiz": 184,
-      "exercises": 184,
-      "formula": 752,
-      "algorithm": 30
+      "figure": 383,
+      "derivation": 425,
+      "table": 250,
+      "example": 1113,
+      "quiz": 186,
+      "exercises": 186,
+      "formula": 763,
+      "algorithm": 32
     }
   }
 }

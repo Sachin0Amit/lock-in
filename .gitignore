@@ -737,3 +737,7 @@ server.log
 !/scripts/e2e-cf-11.page.js
 !/scripts/e2e-cf-12.sh
 !/scripts/e2e-cf-12.page.js
+!/scripts/e2e-cf-13.sh
+!/scripts/e2e-cf-13.page.js
+!/scripts/e2e-cf-1R.sh
+!/scripts/e2e-cf-1R.page.js
