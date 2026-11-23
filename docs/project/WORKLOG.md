@@ -7207,3 +7207,8 @@ audit-bot run — lesson ans-closure-failures-that-force-extension: A=1 figure a
 ## 2026-11-23 — CS RUN 3 push record (no token)
 
 **Push:** local main carried TWO unpushed commits (`a7ec7fd` the AW-undo + `71d1d03` CS RUN 3); pushed together via the one-time HTTPS PAT URL as a clean fast-forward `d77d992..71d1d03` — first attempt succeeded, no retry needed. Anonymous ls-remote verified after push: refs/heads/main == `71d1d03` == local HEAD — **SYNCED**. The PAT lived only inside the single push command's URL — never written to any file, config, log or message. The sibling maths lane's in-flight files were never touched this run (FIRST-SHIPPED-STANDS observed, no collision encountered).
+
+
+## 2026-11-24 — audit-bot run (figure-audit + enrichment): ANS 6.2
+
+**Lesson:** ans-constructing-the-integers-from-the-naturals (arithmetic-and-number-systems ch-06 L2). Pass A: 1 body figure audited, FIXED (owe-box label attachment jam — viewBox widened left, label to the left margin; aria direction inversion; caption step count) — verifier V2 re-pinned, 244/244. Pass B: 4 solution figures added (cross-sum X-bridge, box-rule routing, value-3 family, pooling line — all first-pass VLM PASS; 15 refusals logged). Pass C: 2 enrichments (the fault-tolerant have/owe audit example; L5 mirror-sum question, L5 1→2). Docs: FIGURE_AUDIT_LOG/ENHANCEMENT_LOG/WORKLOG/DETAILED_LOG + FIGURE_AUDIT_QUEUE (lesson marked done). No new lesson authored; no protected pointer files touched; state bumped outside the repo.

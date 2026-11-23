@@ -976,7 +976,8 @@ function clsLE(a: number, b: number, c: number, d: number): boolean {
 }
 
 /* ------------------------------------------------------------------ */
-/* (R) 6.2 exercise keys re-derived (14 exercises, L1–L6)              */
+/* (R) 6.2 exercise keys re-derived (15 exercises, L1–L6 — L5.2 added  */
+/* by the audit-bot run 2026-11-24)                                     */
 /* ------------------------------------------------------------------ */
 {
   // L1.1: which of (5,3), (8,5), (6,2) are equivalent to (3,1)?
@@ -1044,6 +1045,26 @@ function clsLE(a: number, b: number, c: number, d: number): boolean {
     ok(inst[0] === inst[1] && inst[0] === 25, 'R L5.1b: the printed instance [(4,1)]·[(5,5)] = [(25,25)] ↦ 0 (4·5 + 1·5 on both sides)')
   }
 
+  // L5.2: the mirror sum — [(a,b)] + [(b,a)] lands on the diagonal; mirror of mirror returns the original (authored by audit run 2026-11-24)
+  {
+    let mirrorBad = 0
+    for (let a = 1; a <= 8; a++) for (let b = 1; b <= 8; b++) {
+      const s = clsAdd(a, b, b, a)
+      if (s[0] !== s[1]) mirrorBad++
+    }
+    ok(mirrorBad === 0, 'R L5.2: [(a,b)] + [(b,a)] = [(a+b, a+b)] — diagonal for all swept a, b ≤ 8: every class has an opposite')
+    const inst = clsAdd(2, 1, 1, 2)
+    ok(inst[0] === 3 && inst[1] === 3 && val(3, 3) === 0, 'R L5.2b: the printed instance [(2,1)] + [(1,2)] = [(3,3)] — the tie, zero')
+    const sw = (p: number[]) => [p[1], p[0]]
+    const once = sw([1, 2]), twice = sw(once)
+    ok(twice[0] === 1 && twice[1] === 2 && val(once[0], once[1]) === 1 && val(1, 2) === -1 && val(2, 1) === -val(1, 2), 'R L5.2c: swapping (1,2) twice restores it — the mirror of the mirror is the original (−(−x) = x)')
+    let selfBad = 0
+    for (let a = 1; a <= 8; a++) for (let b = 1; b <= 8; b++) {
+      if (eq(a, b, b, a) !== (a === b)) selfBad++   // self-opposite ⟺ diagonal
+    }
+    ok(selfBad === 0, 'R L5.2d: [(a,b)] = [(b,a)] ⟺ a + a = b + b ⟺ a = b — only the diagonal is its own opposite (swept a, b ≤ 8)')
+  }
+
   // L6.1: uniqueness of the canonical form — (n+1,1) ~ (m+1,1) ⟺ n = m
   {
     let uniqBad = 0
@@ -1059,7 +1080,7 @@ function clsLE(a: number, b: number, c: number, d: number): boolean {
 /* (V2) figure-2 geometry: the difference lattice                      */
 /* ------------------------------------------------------------------ */
 {
-  // viewBox 0 0 520 360; pair (a, b) at x = 50 + 42(a−1), y = 310 − 30(b−1), a, b ∈ 1..9
+  // viewBox -95 0 615 360 (widened 95 left on audit run 2026-11-24 so the owe-box label owns the left margin); pair (a, b) at x = 50 + 42(a−1), y = 310 − 30(b−1), a, b ∈ 1..9
   const PX = (a: number) => 50 + 42 * (a - 1)
   const PY = (b: number) => 310 - 30 * (b - 1)
   ok(PX(1) === 50 && PX(9) === 386 && PY(1) === 310 && PY(9) === 70, 'V2: grid corners — (1,1) at (50,310), (9,9) at (386,70)')
@@ -1067,11 +1088,16 @@ function clsLE(a: number, b: number, c: number, d: number): boolean {
   ok(PX(1) === 50 && PY(1) === 310 && PX(9) === 386 && PY(9) === 70, 'V2: the d = 0 diagonal runs (50,310) → (386,70)')
   ok(PX(3) === 134 && PY(1) === 310 && PX(9) === 386 && PY(7) === 130, 'V2: the d = 2 diagonal runs (134,310) → (386,130)')
   ok(PX(1) === 50 && PY(2) === 280 && PX(8) === 344 && PY(9) === 70, 'V2: the d = −1 diagonal runs (50,280) → (344,70)')
-  // the class labels sit clear of the endpoints: [(k,k)] = 0 label at (398,64), have-box at (398,128), owe-box at (54,300)
-  ok(398 - PX(9) === 12 && 128 - PY(7) === -2 + 0, 'V2: the d=0/d=2 labels anchor 12 px right of the (9,·) column')
-  ok(398 - 386 === 12 && Math.abs(64 - 70) === 6 && Math.abs(128 - 130) === 2, 'V2: label anchors ≥ 6 px from the diagonal endpoints (bboxes clear: text starts at x = 398, dots end at x = 390)')
-  // the owe-box label at (54,300) clears the bottom dot row (y = 310, r 3 → 307..313) and the d = −1 diagonal (at x 54..160 the diagonal is at y ≤ 277)
-  ok(300 + 0 < 307 - 1 && 277 < 300 - 12, 'V2: owe-box label band y ≤ 300 vs dots ≥ 307 and diagonal ≤ 277 — clear on both sides')
+  // the class labels sit clear of the endpoints: [(k,k)] = 0 label at (398,64), have-box at (398,126); the owe-box label is two end-anchored lines at x = 38, baselines 276 and 292 (viewBox left edge −95)
+  ok(398 - PX(9) === 12 && Math.abs(64 - 70) === 6 && Math.abs(126 - 130) === 4, 'V2: the d=0/d=2 labels anchor 12 px right of the (9,·) column, 6/4 px above their endpoint rows')
+  // the owe-box label brackets the (1,2) endpoint row: line baselines 276 and 292 straddle the row band 276..284
+  ok(46 - 38 === 8 && 276 <= 276 && 292 >= 284, 'V2: owe-box label right edge 8 px left of the a=1 dot column (x=46) and its two lines bracket the (1,2) row — attachment unambiguous')
+  // label glyph band ~265..296 vs the (1,3) dot ink bottom 254 and the (1,1) dot ink top 306; left margin: line 1 starts at x ≈ −57, ≥ 8 px inside the −95 edge
+  ok(265 - 254 === 11 && 306 - 296 === 10 && -57 - (-95) === 38, 'V2: owe-box label clears the (1,3) and (1,1) endpoint dots by 11/10 px and holds a 38 px left margin')
+  // aria honesty (b counts upward): the positive class d = +2 sits BELOW-right of the main diagonal, the negative class d = −1 ABOVE-left — as the aria-label now states
+  ok(PY(7) > PY(9) && PX(3) > PX(1) && PY(2) < PY(1), 'V2: with b upward, the d=+2 line is below-right and the d=−1 line above-left of the diagonal — the aria directions match the drawing')
+  ok(615 - 520 === 95 && 0 - (-95) === 95, 'V2: the viewBox widened from 0 0 520 360 to -95 0 615 360 — 95 px of new left margin')
+
   // axis caption at y 344 clears the axis line (322) and the dot rows (≤ 310)
   ok(344 - 322 === 22 && 322 - 310 === 12, 'V2: axis line at y 322, caption at 344 — 22 px below the axis, clear of everything')
   // the "b (what you owe)" hint at top-left (50, 40) clears the top dot row (b = 9 at y = 70)
@@ -1088,6 +1114,22 @@ function clsLE(a: number, b: number, c: number, d: number): boolean {
   ok(class0.length === 9 && class2.length === 7 && classM1.length === 8, 'V2: the highlighted classes have 9 + 7 + 8 members (the diagonal, the d=2 family, the d=−1 family)')
   ok(class2.join(' ') === '3,1 4,2 5,3 6,4 7,5 8,6 9,7', 'V2: the have-box family enumerated')
   ok(classM1.join(' ') === '1,2 2,3 3,4 4,5 5,6 6,7 7,8 8,9', 'V2: the owe-box family enumerated')
+}
+
+/* ------------------------------------------------------------------ */
+/* (V3) 6.2 enrichment pins (audit-bot run 2026-11-24): the            */
+/* have/owe audit example + the mirror-sum question L5.2              */
+/* ------------------------------------------------------------------ */
+{
+  // the have/owe audit of (−3) + 7 + (−5) + 9: have 7 + 9 = 16, owe 3 + 5 = 8, net +8
+  ok(7 + 9 === 16 && 3 + 5 === 8 && 16 - 8 === 8, 'V3a: the have/owe audit of (−3)+7+(−5)+9 — have 16, owe 8, net +8')
+  {
+    const s = clsAdd(1, 4, 8, 1)        // [(1,4)] = −3  plus [(8,1)] = 7
+    const t = clsAdd(s[0], s[1], 1, 6)  // plus [(1,6)] = −5
+    const u = clsAdd(t[0], t[1], 10, 1) // plus [(10,1)] = 9
+    ok(u[0] === 20 && u[1] === 12, 'V3b: the pair sum [(1,4)]+[(8,1)]+[(1,6)]+[(10,1)] = [(20,12)]')
+    ok(eq(20, 12, 9, 1) && 20 + 1 === 21 && 12 + 9 === 21 && val(9, 1) === 8, 'V3c: (20,12) ~ (9,1) via 20+1 = 12+9 = 21 — names 8, the audit agreed with the boxes')
+  }
 }
 
 /* ------------------------------------------------------------------ */

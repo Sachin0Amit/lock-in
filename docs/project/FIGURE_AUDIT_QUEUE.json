@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21",
+  "updated": "2026-11-24",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
   "cursor": 65,
@@ -630,7 +630,9 @@
       "bookId": "arithmetic-and-number-systems",
       "chapter": 6,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "doneDate": "2026-11-24",
+      "verdict": "FIXED (label attachment + aria direction + caption step count; verifier V2 re-pinned 244/0; +4 solution figures, +2 enrichments)"
     },
     {
       "lessonId": "ans-the-laws-of-integer-arithmetic",

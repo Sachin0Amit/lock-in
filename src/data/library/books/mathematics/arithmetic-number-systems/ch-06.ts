@@ -879,6 +879,33 @@ export const chapter06: Chapter = {
             'So, the verdict: $(5, 2) \\sim (8, 5)$ — and the shared intended value is $5 - 2 = 8 - 5 = 3$ (both legal here).',
             'Hence one value, two names — and the definition caught the agreement without subtracting anything.',
           ],
+          figures: [{
+            caption: 'The cross-sum test on (5, 2) and (8, 5): the amber route adds the first have to the second owe (a + d = 5 + 5 = 10), the teal route the first owe to the second have (b + c = 2 + 8 = 10) — equal cross-sums, so the pairs are equivalent without any subtraction.',
+            svg: `<svg viewBox="0 0 560 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The cross-sum test for equivalence: two pair cards (a, b) = (5, 2) and (c, d) = (8, 5), one amber arrow pairing the first have with the second owe giving a plus d = 5 plus 5 = 10, one teal arrow pairing the first owe with the second have giving b plus c = 2 plus 8 = 10; the sums match, so the pairs are equivalent and both name 3">
+  <text x="280.0" y="26" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">The cross-sum test — equivalent without subtracting</text>
+  <text x="100.0" y="66" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.8">(a, b) = (5, 2)</text>
+  <text x="460.0" y="66" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.8">(c, d) = (8, 5)</text>
+  <rect x="30" y="72" width="140" height="52" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.4"/>
+  <rect x="30" y="124" width="140" height="52" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="1.4"/>
+  <text x="100.0" y="90.0" font-size="9" text-anchor="middle" fill="currentColor" opacity="0.65">have</text>
+  <text x="100.0" y="106.0" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">a = 5</text>
+  <text x="100.0" y="142.0" font-size="9" text-anchor="middle" fill="currentColor" opacity="0.65">owe</text>
+  <text x="100.0" y="158.0" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">b = 2</text>
+  <rect x="390" y="72" width="140" height="52" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.4"/>
+  <rect x="390" y="124" width="140" height="52" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="1.4"/>
+  <text x="460.0" y="90.0" font-size="9" text-anchor="middle" fill="currentColor" opacity="0.65">have</text>
+  <text x="460.0" y="106.0" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">c = 8</text>
+  <text x="460.0" y="142.0" font-size="9" text-anchor="middle" fill="currentColor" opacity="0.65">owe</text>
+  <text x="460.0" y="158.0" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">d = 5</text>
+  <line x1="172" y1="98.0" x2="380" y2="150.0" stroke="#f59e0b" stroke-width="2.2" opacity="0.95"/>
+  <polygon points="388,150.0 377,145.0 377,155.0" fill="#f59e0b" opacity="0.95"/>
+  <line x1="172" y1="150.0" x2="380" y2="98.0" stroke="#0f766e" stroke-width="2.2" opacity="0.95"/>
+  <polygon points="388,98.0 377,93.0 377,103.0" fill="#0f766e" opacity="0.95"/>
+  <text x="280.0" y="56" font-size="12.5" text-anchor="middle" fill="#b45309" font-weight="bold">a + d = 5 + 5 = 10</text>
+  <text x="280.0" y="202" font-size="12.5" text-anchor="middle" fill="#0f766e" font-weight="bold">b + c = 2 + 8 = 10</text>
+  <text x="280.0" y="228" font-size="12.5" text-anchor="middle" fill="currentColor">cross-sums agree &#8594; (5, 2) ~ (8, 5): both name 3</text>
+</svg>`,
+          }],
         },
         {
           kind: 'list',
@@ -953,8 +980,8 @@ export const chapter06: Chapter = {
         {
           kind: 'figure',
           caption:
-            'The difference lattice. Each dot is a pair $(a, b)$: horizontal position is the have box $a$, vertical position (counting upward) is the owe box $b$. The three ruled diagonals are equivalence classes — all pairs on one diagonal share one cross-sum identity. The main diagonal (have = owe) is the zero class; the parallel diagonal one step into the have region is $[(n+1, 1)]$, the naturals’ new address; the one drifting into the owe region is $[(1, n+1)]$, the mirrors. Every integer is exactly one such diagonal — the whole line of $\\mathbb{Z}$, laid flat.',
-          svg: `<svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A nine by nine grid of pair dots with three diagonal equivalence classes ruled: the main diagonal as zero, one diagonal above it as the positive integers, one below as the negative integers">
+            'The difference lattice. Each dot is a pair $(a, b)$: horizontal position is the have box $a$, vertical position (counting upward) is the owe box $b$. The three ruled diagonals are equivalence classes — all pairs on one diagonal share one cross-sum identity. The main diagonal (have = owe) is the zero class; the parallel diagonal two steps into the have region is $[(n+1, 1)]$, the naturals’ new address; the one drifting into the owe region is $[(1, n+1)]$, the mirrors. Every integer is exactly one such diagonal — the whole line of $\\mathbb{Z}$, laid flat.',
+          svg: `<svg viewBox="-95 0 615 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A nine by nine grid of pair dots with three diagonal equivalence classes ruled: the main diagonal as zero, one diagonal below it toward the have region as the positive integers, one above it toward the owe region as the negative integers">
   <line x1="50" y1="310" x2="386" y2="70" stroke="currentColor" stroke-width="1.4" opacity="0.5"/>
   <line x1="134" y1="310" x2="386" y2="130" stroke="currentColor" stroke-width="1.4" opacity="0.5"/>
   <line x1="50" y1="280" x2="344" y2="70" stroke="currentColor" stroke-width="1.4" opacity="0.5"/>
@@ -979,7 +1006,8 @@ export const chapter06: Chapter = {
     <text x="398" y="80" opacity="0.7">the diagonal</text>
     <text x="398" y="126">[(n+1, 1)] = n</text>
     <text x="398" y="142" opacity="0.7">the have-box</text>
-    <text x="54" y="300">[(1, n+1)] = −n (the owe-box)</text>
+    <text x="38" y="276" text-anchor="end">[(1, n+1)] = −n</text>
+    <text x="38" y="292" text-anchor="end" opacity="0.7">(the owe-box)</text>
   </g>
   <text x="50" y="40" font-size="12" fill="currentColor" opacity="0.8">b (what you owe) ↑</text>
   <line x1="50" y1="322" x2="386" y2="322" stroke="currentColor" stroke-width="1" opacity="0.6"/>
@@ -1118,6 +1146,50 @@ export const chapter06: Chapter = {
             'Take the product pair: $(5, 7)$ — five in hand, seven owed: the class of $(1, 4)$ ($5 + 4 = 7 + 1$), which names $-2$.',
             'Hence $[(2, 1)] \\cdot [(1, 3)] = -2 = 1 \\cdot (-2)$ — a have times an owe lands in the owe region, exactly as the sign rule will demand.',
           ],
+          figures: [{
+            caption: 'The box rule on [(2, 1)] · [(1, 3)]: the like-with-like products (a·c = 2, b·d = 3) route into the have box (total 5), the mixed products (a·d = 6, b·c = 1) into the owe box (total 7) — the product pair (5, 7) names −2.',
+            svg: `<svg viewBox="0 0 596 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The box rule for multiplying classes: input pairs (2, 1) and (1, 3); the four products route as chips — the like-with-like products a times c = 2 and b times d = 3 fill the amber have box totalling 5, the mixed products a times d = 6 and b times c = 1 fill the orange owe box totalling 7 — giving the product pair (5, 7), which names minus 2">
+  <text x="298.0" y="22" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">The box rule routes the four products of (2, 1) &#183; (1, 3)</text>
+  <text x="100.0" y="38" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.8">(2, 1)</text>
+  <rect x="40" y="44" width="60" height="44" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.4"/>
+  <rect x="100" y="44" width="60" height="44" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="1.4"/>
+  <text x="70.0" y="71.0" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">2</text>
+  <text x="130.0" y="71.0" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">1</text>
+  <text x="292.0" y="38" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.8">(1, 3)</text>
+  <rect x="232" y="44" width="60" height="44" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.4"/>
+  <rect x="292" y="44" width="60" height="44" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="1.4"/>
+  <text x="262.0" y="71.0" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">1</text>
+  <text x="322.0" y="71.0" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">3</text>
+  <text x="196" y="72.0" font-size="16" font-weight="bold" text-anchor="middle" fill="currentColor" opacity="0.9">&#215;</text>
+  <rect x="40" y="110" width="118" height="56" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+  <text x="99.0" y="134" font-size="12" text-anchor="middle" fill="currentColor">a&#183;c = 2&#183;1 = 2</text>
+  <text x="99.0" y="154" font-size="9.5" text-anchor="middle" fill="currentColor" opacity="0.7">(have&#183;have)</text>
+  <rect x="178" y="110" width="118" height="56" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+  <text x="237.0" y="134" font-size="12" text-anchor="middle" fill="currentColor">b&#183;d = 1&#183;3 = 3</text>
+  <text x="237.0" y="154" font-size="9.5" text-anchor="middle" fill="currentColor" opacity="0.7">(owe&#183;owe)</text>
+  <rect x="316" y="110" width="118" height="56" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.3"/>
+  <text x="375.0" y="134" font-size="12" text-anchor="middle" fill="currentColor">a&#183;d = 2&#183;3 = 6</text>
+  <text x="375.0" y="154" font-size="9.5" text-anchor="middle" fill="currentColor" opacity="0.7">(have&#183;owe)</text>
+  <rect x="454" y="110" width="118" height="56" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.3"/>
+  <text x="513.0" y="134" font-size="12" text-anchor="middle" fill="currentColor">b&#183;c = 1&#183;1 = 1</text>
+  <text x="513.0" y="154" font-size="9.5" text-anchor="middle" fill="currentColor" opacity="0.7">(owe&#183;have)</text>
+  <line x1="99.0" y1="168" x2="99.0" y2="205" stroke="#f59e0b" stroke-width="2" opacity="0.9"/>
+  <polygon points="99.0,214 94.0,204 104.0,204" fill="#f59e0b" opacity="0.9"/>
+  <line x1="237.0" y1="168" x2="237.0" y2="205" stroke="#f59e0b" stroke-width="2" opacity="0.9"/>
+  <polygon points="237.0,214 232.0,204 242.0,204" fill="#f59e0b" opacity="0.9"/>
+  <line x1="375.0" y1="168" x2="375.0" y2="205" stroke="#ea580c" stroke-width="2" opacity="0.9"/>
+  <polygon points="375.0,214 370.0,204 380.0,204" fill="#ea580c" opacity="0.9"/>
+  <line x1="513.0" y1="168" x2="513.0" y2="205" stroke="#ea580c" stroke-width="2" opacity="0.9"/>
+  <polygon points="513.0,214 508.0,204 518.0,204" fill="#ea580c" opacity="0.9"/>
+  <rect x="40" y="216" width="240" height="42" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="160.0" y="233" font-size="10.5" text-anchor="middle" fill="#b45309" font-weight="bold">the have box (like-with-like)</text>
+  <text x="160.0" y="250" font-size="13" font-weight="bold" text-anchor="middle" fill="currentColor">ac + bd = 2 + 3 = 5</text>
+  <rect x="316" y="216" width="240" height="42" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8"/>
+  <text x="436.0" y="233" font-size="10.5" text-anchor="middle" fill="#0f766e" font-weight="bold">the owe box (mixed)</text>
+  <text x="436.0" y="250" font-size="13" font-weight="bold" text-anchor="middle" fill="currentColor">ad + bc = 6 + 1 = 7</text>
+  <text x="298.0" y="300" font-size="12.5" text-anchor="middle" fill="currentColor">the product pair (5, 7) &#8212; five in hand, seven owed &#8212; names &#8722;2 = 1 &#183; (&#8722;2)</text>
+</svg>`,
+          }],
         },
         {
           kind: 'example',
@@ -1159,6 +1231,17 @@ export const chapter06: Chapter = {
             ['1', '−3', '−2', '−1', '0', '1', '2', '3'],
             ['2', '−6', '−4', '−2', '0', '2', '4', '6'],
             ['3', '−9', '−6', '−3', '0', '3', '6', '9'],
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'The fault-tolerant audit: re-run $-3 + 7 + (-5) + 9$ as have versus owe',
+          steps: [
+            'Split the summands into their boxes: the haves are $7$ and $9$; the owes are $3$ and $5$.',
+            'Now, the boxes: have $7 + 9 = 16$, owe $3 + 5 = 8$ — so the net is $16 - 8 = 8$.',
+            'So, re-run the same sum in pairs, where no subtraction is needed at all: $-3 \mapsto [(1, 4)]$, $7 \mapsto [(8, 1)]$, $-5 \mapsto [(1, 6)]$, $9 \mapsto [(10, 1)]$.',
+            'Take the pair total: $[(1, 4)] + [(8, 1)] + [(1, 6)] + [(10, 1)] = [(20,\ 12)]$ — and $20 + 1 = 12 + 9 = 21$, so $(20, 12) \sim (9, 1)$, which names $8$.',
+            'Hence both readings land on $8$: the have/owe split is the class rule in work clothes — a two-second audit of any lengthier signed sum, and the same split the box rule uses.',
           ],
         },
         { kind: 'heading', text: 'Zero, mirrors and the embedding' },
@@ -1337,6 +1420,30 @@ export const chapter06: Chapter = {
                     'Hence six pairs name the integer $3$ on the $\\le 9$ grid: the class is a whole diagonal slice of the lattice, exactly as the figure shows.',
                   ],
                   answer: '(4,1), (5,2), (6,3), (7,4), (8,5), (9,6) — six pairs',
+                  figures: [{
+                    caption: 'The class of (5, 2) on the ≤ 9 grid: six pairs with a − b = 3 lie on one ruled diagonal, each step +1 have and +1 owe; the next member (10, 7) needs a = 10, beyond the bound — so the class has exactly six members.',
+                    svg: `<svg viewBox="0 0 620 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The equivalence class of the pair (5, 2) on the bounded grid: six solid dots (4,1), (5,2), (6,3), (7,4), (8,5), (9,6) lying on one ruled diagonal with value a minus b = 3, each step moving one more have and one more owe; a seventh dashed dot (10, 7) lies on the same line but needs a = 10, beyond the grid bound, so the class has exactly six members inside the grid">
+  <text x="60" y="24" font-size="12.5" fill="currentColor" opacity="0.85">The class of (5, 2) on the &#8804; 9 grid: every pair with a &#8722; b = 3</text>
+  <line x1="46" y1="163.6" x2="596" y2="22.7" stroke="currentColor" stroke-width="1.4" opacity="0.5"/>
+  <circle cx="60" cy="160" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5" opacity="0.95"/>
+  <text x="60" y="182" font-size="12" text-anchor="middle" fill="currentColor">(4, 1)</text>
+  <circle cx="142" cy="139" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5" opacity="0.95"/>
+  <text x="142" y="161" font-size="12" text-anchor="middle" fill="currentColor">(5, 2)</text>
+  <circle cx="224" cy="118" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5" opacity="0.95"/>
+  <text x="224" y="140" font-size="12" text-anchor="middle" fill="currentColor">(6, 3)</text>
+  <circle cx="306" cy="97" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5" opacity="0.95"/>
+  <text x="306" y="119" font-size="12" text-anchor="middle" fill="currentColor">(7, 4)</text>
+  <circle cx="388" cy="76" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5" opacity="0.95"/>
+  <text x="388" y="98" font-size="12" text-anchor="middle" fill="currentColor">(8, 5)</text>
+  <circle cx="470" cy="55" r="5" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5" opacity="0.95"/>
+  <text x="470" y="77" font-size="12" text-anchor="middle" fill="currentColor">(9, 6)</text>
+  <circle cx="552" cy="34" r="5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.75"/>
+  <text x="552" y="58" font-size="12" text-anchor="middle" fill="currentColor">(10, 7)</text>
+  <text x="552" y="74" font-size="10" text-anchor="middle" fill="currentColor" opacity="0.75">beyond the &#8804; 9 grid</text>
+  <text x="429.0" y="42" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.85">each step: +1 have, +1 owe</text>
+  <text x="380" y="200" font-size="12" text-anchor="middle" fill="currentColor" font-weight="bold">all six name the same integer: 3</text>
+</svg>`,
+                  }],
                 },
                 {
                   q: 'Compute $[(1, 3)] + [(1, 4)]$ by the class rule and reduce to canonical form.',
@@ -1347,6 +1454,39 @@ export const chapter06: Chapter = {
                     'Hence $[(1, 3)] + [(1, 4)] = [(1, 6)] = -5$ — and $(-2) + (-3) = -5$: two owe-boxes pool their debts.',
                   ],
                   answer: '[(1, 6)] = −5',
+                  figures: [{
+                    caption: 'Pooling two owe-box classes on the line: [(1, 3)] walks −2 from 0, then [(1, 4)] walks −3 more — the sum pair (2, 7) reduces to [(1, 6)] = −5, exactly (−2) + (−3).',
+                    svg: `<svg viewBox="0 0 560 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pooling two owe-box classes on the number line: a green dot sits at 0; an amber arc walks left by 2 to minus 2 labelled the class of (1,3); a second arc continues left by 3 more to minus 5; a teal dot marks minus 5 labelled the class of (1,6) equals minus 5 — the two debts pool to minus 5">
+  <line x1="32" y1="96" x2="486" y2="96" stroke="currentColor" stroke-width="1.4" opacity="0.85"/>
+  <line x1="40" y1="90" x2="40" y2="102" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <text x="40" y="118" font-size="12" text-anchor="middle" fill="currentColor">-6</text>
+  <line x1="100" y1="90" x2="100" y2="102" stroke="currentColor" stroke-width="1.3" opacity="0.9"/>
+  <text x="100" y="118" font-size="12" text-anchor="middle" fill="currentColor" font-weight="bold">-5</text>
+  <line x1="160" y1="90" x2="160" y2="102" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <text x="160" y="118" font-size="12" text-anchor="middle" fill="currentColor">-4</text>
+  <line x1="220" y1="90" x2="220" y2="102" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <text x="220" y="118" font-size="12" text-anchor="middle" fill="currentColor">-3</text>
+  <line x1="280" y1="90" x2="280" y2="102" stroke="currentColor" stroke-width="1.3" opacity="0.9"/>
+  <text x="280" y="118" font-size="12" text-anchor="middle" fill="currentColor" font-weight="bold">-2</text>
+  <line x1="340" y1="90" x2="340" y2="102" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <text x="340" y="118" font-size="12" text-anchor="middle" fill="currentColor">-1</text>
+  <line x1="400" y1="90" x2="400" y2="102" stroke="currentColor" stroke-width="1.3" opacity="0.9"/>
+  <text x="400" y="118" font-size="12" text-anchor="middle" fill="currentColor" font-weight="bold">0</text>
+  <line x1="460" y1="90" x2="460" y2="102" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <text x="460" y="118" font-size="12" text-anchor="middle" fill="currentColor">1</text>
+  <path d="M 400 84 Q 340.0 50 282 84" fill="none" stroke="#f59e0b" stroke-width="2.2" opacity="0.95"/>
+  <polygon points="282,84 292,79 292,89" fill="#f59e0b" opacity="0.95"/>
+  <path d="M 276 84 Q 190.0 62 102 84" fill="none" stroke="#0f766e" stroke-width="2.2" opacity="0.95"/>
+  <polygon points="102,84 112,79 112,89" fill="#0f766e" opacity="0.95"/>
+  <text x="340.0" y="40" font-size="12" text-anchor="middle" fill="#b45309" font-weight="bold">[(1, 3)] = &#8722;2</text>
+  <text x="190.0" y="54" font-size="12" text-anchor="middle" fill="#0f766e" font-weight="bold">[(1, 4)] = &#8722;3 more</text>
+  <circle cx="400" cy="96" r="5" fill="#16a34a" opacity="0.95"/>
+  <circle cx="280" cy="96" r="5" fill="#f59e0b" opacity="0.95"/>
+  <circle cx="100" cy="96" r="6" fill="#0f766e" opacity="0.95"/>
+  <text x="100" y="138" font-size="12" text-anchor="middle" fill="#0f766e" font-weight="bold">[(1, 6)] = &#8722;5</text>
+  <text x="280.0" y="160" font-size="12" text-anchor="middle" fill="currentColor">(1, 3) + (1, 4) = (2, 7) ~ (1, 6): two owe-boxes pool their debts</text>
+</svg>`,
+                  }],
                 },
                 {
                   q: 'Verify the embedding instance $4 + 3 = 7$ entirely in pairs: show $[(5, 1)] + [(4, 1)] \\sim [(8, 1)]$ via cross-sums.',
@@ -1413,6 +1553,18 @@ export const chapter06: Chapter = {
                   ],
                   answer: '[(a,b)]·[(k,k)] = [(ak+bk, ak+bk)] — diagonal always',
                 },
+                {
+                  q: 'Prove the mirror sum: for every class $[(a, b)]$, the sum $[(a, b)] + [(b, a)]$ lands on the diagonal. Then show the mirror of the mirror returns the original, and decide which classes are their own opposites.',
+                  solution: [
+                    'Split the sum by the class rule: $[(a, b)] + [(b, a)] = [(a + b,\ a + b)]$ — coordinate-wise addition with the boxes swapped.',
+                    'Now, read the sum pair: have $a + b$, owe $a + b$ — equal entries, so the pair is diagonal: the zero class, every time, with no condition on $a$ or $b$ (at the printed instance, $[(2, 1)] + [(1, 2)] = [(3, 3)] = 0$).',
+                    'So, the mirror of the mirror: $-[(b, a)] = [(a, b)]$ — swapping the boxes twice restores the pair — which is the law $-(-x) = x$, witnessed at $[(1, 2)] \mapsto [(2, 1)] \mapsto [(1, 2)]$.',
+                    'Take the self-opposites: $[(a, b)] = [(b, a)]$ would force $a + a = b + b$, so $a = b$ by cancellation — only the diagonal class is its own opposite.',
+                    'Hence every class has an opposite — the property $\mathbb{N}$ lacked, and demand (i) of the repair criterion cashed: every wall case $x + b = 0$ now has its witness — and the mirrors pair up everything except zero.',
+                  ],
+                  answer: '[(a,b)] + [(b,a)] = [(a+b, a+b)] — diagonal, zero; −(−x) = x; only the diagonal is its own opposite',
+                },
+
               ],
             },
             {
