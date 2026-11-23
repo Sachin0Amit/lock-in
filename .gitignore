@@ -733,6 +733,13 @@ server.log
 
 # CS RUN 1 (cf ch.1 swarm) — the cs job lane
 !/scripts/verify-cs-book1-ch01.ts
+# exception: the CS RUN 3 chapter-2 verifier + per-lesson E2E + VLM crop collector (the cs lane's third fire)
+!/scripts/verify-cs-book2-ch02.ts
+!/scripts/e2e-cf-21.sh
+!/scripts/e2e-cf-21.page.js
+!/scripts/e2e-cf-22.sh
+!/scripts/e2e-cf-22.page.js
+!/scripts/collect_vlm_crops_cf2.sh
 !/scripts/e2e-cf-11.sh
 !/scripts/e2e-cf-11.page.js
 !/scripts/e2e-cf-12.sh

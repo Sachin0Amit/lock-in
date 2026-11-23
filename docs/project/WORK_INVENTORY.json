@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-21 22:42:32 (Asia/Kolkata)",
+  "generated": "2026-11-23 18:08:12 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -16735,7 +16735,7 @@
             "number": 1,
             "slug": "the-computing-machine",
             "title": "The Computing Machine",
-            "summary": "The human side of the machine: input devices (keyboards, pointing devices, scanners, cameras, microphones) and output devices (monitors and their panels, printers, speakers) with how each actually works, plus the first usability instincts — the chapter hands off to Human-Computer Interaction later on the shelf.",
+            "summary": "The machine met whole: the information processing cycle priced on the mark-list run; data versus information; the five functional units of the von Neumann machine, the stored-program concept that made machines general-purpose, and the fetch–decode–execute loop that is the machine’s life; the measurable machine — clock rate and cycle time, word size, buses and the address-space law; a census of hardware from desktops to embedded chips across the generations; and the software half — the families, the manager layer and licensing honestly — closed by the unit completion review.",
             "status": "complete",
             "lessonsWritten": 4,
             "plannedLessons": [],
@@ -17010,15 +17010,149 @@
             "slug": "interacting-with-your-computer",
             "title": "Interacting with Your Computer",
             "summary": "The human side of the machine: input devices (keyboards, pointing devices, scanners, cameras, microphones) and output devices (monitors and their panels, printers, speakers) with how each actually works, plus the first usability instincts — the chapter hands off to Human-Computer Interaction later on the shelf.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "Input Devices: the Human Handshake",
-              "Output Devices: Screens, Printers and Sound",
               "Interacting Well: the First Usability Instincts"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "cf-input-devices-the-human-handshake",
+                "number": "2.1",
+                "title": "Input Devices: the Human Handshake",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9369,
+                "readMins": 47,
+                "concepts": [
+                  "input devices and the input unit",
+                  "scan code and the keypress chain",
+                  "QWERTY and the home row",
+                  "counts per inch (CPI)",
+                  "resistive and capacitive touchscreens",
+                  "scanner resolution, DPI and the ×4 law",
+                  "cameras, microphones and sampling",
+                  "the transducer view of input"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can classify any device as an input device or an output device, and name the physical act it converts.",
+                  "By the end of this lesson you can trace a keypress from switch to scan code to character, and explain why the keyboard sends positions rather than letters.",
+                  "By the end of this lesson you can compute pixel censuses — a scanned page at 300 or 600 DPI, a 720p or 1080p frame — and prove the ×4 law for doubled DPI.",
+                  "By the end of this lesson you can explain resistive and capacitive touchscreens in one sentence each, and say which physical act each one answers.",
+                  "By the end of this lesson you can compute input data rates: typing speed in characters per second, mouse counts from CPI, and CD-quality stereo samples per second.",
+                  "By the end of this lesson you can state the transducer view of input: every input device turns a physical act into numbers the machine can chew."
+                ],
+                "prerequisites": [
+                  "cf-the-basic-structure-and-operation-of-the-computer",
+                  "cf-a-census-of-hardware-desktops-to-embedded-chips"
+                ],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 12,
+                  "para": 33,
+                  "callout": 19,
+                  "figure": 3,
+                  "terms": 6,
+                  "algorithm": 1,
+                  "example": 10,
+                  "table": 3,
+                  "equation": 2,
+                  "formula": 6,
+                  "derivation": 1,
+                  "list": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 7,
+                  "insight": 4,
+                  "historical": 5,
+                  "warn": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 22
+              },
+              {
+                "id": "cf-output-devices-screens-printers-and-sound",
+                "number": "2.2",
+                "title": "Output Devices: Screens, Printers and Sound",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8717,
+                "readMins": 44,
+                "concepts": [
+                  "output devices",
+                  "pixels, resolution and PPI",
+                  "impact and non-impact printers",
+                  "the laser printer’s six-beat cycle",
+                  "dots per inch and the ×4 law",
+                  "digital sound and the DAC"
+                ],
+                "objectives": [
+                  "explain how the output unit turns the machine’s finished numbers into light, ink and pressure waves",
+                  "count the pixels of a screen, and check a “16:9” label with arithmetic",
+                  "distinguish impact from non-impact printers, and walk the laser printer’s six-beat cycle",
+                  "compute dots per square inch, pixel density and the frame budget",
+                  "compute the CD’s bitrate, and argue via Nyquist why 44.1 kHz covers human hearing"
+                ],
+                "prerequisites": [
+                  "cf-the-basic-structure-and-operation-of-the-computer",
+                  "cf-input-devices-the-human-handshake"
+                ],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "para": 34,
+                  "figure": 3,
+                  "callout": 13,
+                  "list": 3,
+                  "heading": 12,
+                  "equation": 2,
+                  "example": 9,
+                  "formula": 6,
+                  "terms": 4,
+                  "table": 4,
+                  "derivation": 1,
+                  "algorithm": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 8,
+                  "warn": 1,
+                  "historical": 1,
+                  "insight": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 19
+              }
+            ],
+            "words": 18086
           },
           {
             "number": 3,
@@ -51974,13 +52108,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 514,
-      "totalLines": 187523,
+      "totalLines": 187512,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5860,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 148862,
+        "src/data/library (content model + books)": 148851,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -52208,7 +52342,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-21",
+      "surveyed": "2026-11-03",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -78478,6 +78612,32 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "a7ec7fde166805535d1df12cdfc2475463201340",
+      "short": "a7ec7fd",
+      "date": "2026-11-21 17:12",
+      "message": "undo (owner directive 2026-11-21 'undo the changes which was made of academic weapon and things like changing the structure of books'): the Academic Weapon era fully reverted — local main reset to the remote line d77d992 (the 5 unpushed AW-era commits discarded: AW v1.0 f793679, AW v1.1 d4bfea8, retrofit-lane creation 136b143, RETROFIT RUN 1 4e27738, the RUN 2 auto-checkpoint 71a979d; shas recorded in WORKLOG, reflog the safety net); retrofit cron job 541378 deleted; untracked AW scripts/specs deleted; all 186 lessons back on the shipped Cengage-era structure (1.1/1.2 byte-identical to shipped, one quiz per lesson, 1.3/2.1 never modified); RUN_PROTOCOL back to v9.0 amendments 1-4 + TWO AUTHORING LANES; BOOK_FORMAT/MASTER_PLAN Cengage sequence mandate restored; maths :50 + cs :20 jobs/pointers untouched — next fires author under the restored Cengage sequence; post-reset gates all green (tsc 0, lint 0 err, verify-unit-2 165/0, toc 4023/0, coverage 667/0, math-planning 1240/0, pack+check PASS 186 lessons / 1,049,342 words, routes 200 single-quiz structure); WORKLOG + DETAILED_LOG + WORK_INVENTORY rows; no push — no PAT with in-session directives, rides the sibling lanes' run-end pushes (step 7b)",
+      "filesChanged": 3,
+      "insertions": 262,
+      "deletions": 17,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 14,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 247,
+          "del": 17
+        }
+      ]
     }
   ],
   "totals": {
@@ -78485,27 +78645,27 @@
     "booksPlannedBacklog": 277,
     "booksLive": 269,
     "chaptersWritten": 42,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 186,
-    "wordsAuthored": 1049342,
-    "termsDefined": 1462,
-    "quizItems": 930,
-    "exerciseQuestions": 2523,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 188,
+    "wordsAuthored": 1067428,
+    "termsDefined": 1503,
+    "quizItems": 940,
+    "exerciseQuestions": 2553,
     "blockTotals": {
-      "para": 2720,
-      "callout": 1239,
-      "heading": 1064,
-      "list": 233,
-      "terms": 190,
-      "equation": 401,
-      "figure": 383,
-      "derivation": 425,
-      "table": 250,
-      "example": 1114,
-      "quiz": 186,
-      "exercises": 186,
-      "formula": 763,
-      "algorithm": 32
+      "para": 2787,
+      "callout": 1271,
+      "heading": 1088,
+      "list": 237,
+      "terms": 200,
+      "equation": 405,
+      "figure": 389,
+      "derivation": 427,
+      "table": 257,
+      "example": 1133,
+      "quiz": 188,
+      "exercises": 188,
+      "formula": 775,
+      "algorithm": 34
     }
   }
 }

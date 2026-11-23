@@ -3227,7 +3227,7 @@ export const chapter01: Chapter = {
   slug: 'the-computing-machine',
   title: 'The Computing Machine',
   summary:
-    'The human side of the machine: input devices (keyboards, pointing devices, scanners, cameras, microphones) and output devices (monitors and their panels, printers, speakers) with how each actually works, plus the first usability instincts — the chapter hands off to Human-Computer Interaction later on the shelf.',
+    'The machine met whole: the information processing cycle priced on the mark-list run; data versus information; the five functional units of the von Neumann machine, the stored-program concept that made machines general-purpose, and the fetch–decode–execute loop that is the machine’s life; the measurable machine — clock rate and cycle time, word size, buses and the address-space law; a census of hardware from desktops to embedded chips across the generations; and the software half — the families, the manager layer and licensing honestly — closed by the unit completion review.',
   status: 'complete',
   lessons: [lesson11, lesson12, lesson13, lesson1R],
   plannedLessons: [],

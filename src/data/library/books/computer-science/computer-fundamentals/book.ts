@@ -1,5 +1,6 @@
 import type { Book, Chapter } from '../../../types'
 import { chapter01 } from './ch-01'
+import { chapter02 } from './ch-02'
 
 /**
  * Computer Fundamentals — the first book of the Computer Science shelf
@@ -7,13 +8,14 @@ import { chapter01 } from './ch-01'
  *
  * STATUS: IN-PROGRESS — chapter 1 COMPLETE (4 written lessons: 1.1 +
  * 1.2 by the CS RUN 1 SWARM, 1.3 + the 1.R unit completion review by
- * the CS RUN 2 SWARM — the cs cron job's first two honored fires,
- * 2026-11-21, two parallel authoring agents per fire), chapters 2–8
- * planned (the remaining 24 planned lessons), authoring on the
- * one-chapter-at-a-time cadence (CS RUN 3 opens chapter 2
- * 'Interacting with Your Computer'). Lesson ids use the `cf-` prefix
- * (verified unused across all existing lesson ids at the planning
- * pass; globally unique, stable forever).
+ * the CS RUN 2 SWARM), chapter 2 IN-PROGRESS (2.1 'Input Devices: the
+ * Human Handshake' + 2.2 'Output Devices: Screens, Printers and Sound'
+ * by the CS RUN 3 SWARM, 2026-11-23 — 2.3 'Interacting Well: the First
+ * Usability Instincts' + the 2.R review ride the next fires), chapters
+ * 3–8 planned (the remaining 24 planned lessons), authoring on the
+ * one-chapter-at-a-time cadence (CS RUN 4 delivers 2.3). Lesson ids
+ * use the `cf-` prefix (verified unused across all existing lesson ids
+ * at the planning pass; globally unique, stable forever).
  *
  * POSITIONING (no-duplication contract): the binary/codes chapter defers
  * the full number-systems theory to Arithmetic and Number Systems and the
@@ -41,20 +43,7 @@ import { chapter01 } from './ch-01'
  */
 const chapters: Chapter[] = [
   chapter01,
-  {
-    number: 2,
-    slug: 'interacting-with-your-computer',
-    title: 'Interacting with Your Computer',
-    summary:
-      'The human side of the machine: input devices (keyboards, pointing devices, scanners, cameras, microphones) and output devices (monitors and their panels, printers, speakers) with how each actually works, plus the first usability instincts — the chapter hands off to Human-Computer Interaction later on the shelf.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'Input Devices: the Human Handshake',
-      'Output Devices: Screens, Printers and Sound',
-      'Interacting Well: the First Usability Instincts',
-    ],
-  },
+  chapter02,
   {
     number: 3,
     slug: 'data-representation-first-meeting',
