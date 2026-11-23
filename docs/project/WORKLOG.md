@@ -7203,3 +7203,7 @@ audit-bot run — lesson ans-closure-failures-that-force-extension: A=1 figure a
 **Bookkeeping:** this WORKLOG entry + PROGRESS (phase → ch.2 opened; awaiting → run 120 maths + CS RUN 4 delivers 2.3) + CS_AUTHORING_POINTER (lastCompleted → CS RUN 3; nextAction → CS RUN 4: 2.3 'Interacting Well: the First Usability Instincts', then 2.R closes) + SOURCE_LOG (`cs-cf-web-ground` extended with the ch.2 pins + URL list) + WORK_INVENTORY regenerated + DETAILED_LOG row. New e2e pairs (2) + the crop-collector script; the spec/engine/part records persist in temporary-references/ as provenance.
 
 **Push record (no token):** rides step (7) below.
+
+## 2026-11-23 — CS RUN 3 push record (no token)
+
+**Push:** local main carried TWO unpushed commits (`a7ec7fd` the AW-undo + `71d1d03` CS RUN 3); pushed together via the one-time HTTPS PAT URL as a clean fast-forward `d77d992..71d1d03` — first attempt succeeded, no retry needed. Anonymous ls-remote verified after push: refs/heads/main == `71d1d03` == local HEAD — **SYNCED**. The PAT lived only inside the single push command's URL — never written to any file, config, log or message. The sibling maths lane's in-flight files were never touched this run (FIRST-SHIPPED-STANDS observed, no collision encountered).
