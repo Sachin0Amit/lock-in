@@ -1,0 +1,630 @@
+/**
+ * v-aa103.ts — the verify-first ENGINE + PIN script for Advanced Algebra
+ * lesson 10.3 "The Book in One Page: Synthesis" (agent aa103, run-122 swarm).
+ *
+ * DISCIPLINE (spec §0, §8): the ENGINE section below recomputed EVERY witness
+ * the prose will print — by brute force, with no repo imports — and ran GREEN
+ * before the prose in part-aa103.ts was declared done. Where the spec and this
+ * engine disagree, THE ENGINE WINS; any catch is recorded in the part file's
+ * header comment. The PIN section re-reads the finished lesson and pins the
+ * structural contract (quiz keys, exercise spread, figure counts, word floor,
+ * honesty-ledger presence, wiring coverage). The harness exits 1 on any fail.
+ *
+ * Run:  cd /home/z/my-project && bun run temporary-references/v-aa103.ts
+ */
+
+/* ==================================================================== */
+/* SECTION A — THE ENGINE (no repo imports: pure recomputation)          */
+/* ==================================================================== */
+
+let enginePass = 0
+let engineFail = 0
+const engineFails: string[] = []
+
+function chk(name: string, cond: boolean, detail?: string): void {
+  if (cond) {
+    enginePass++
+    console.log(`ENGINE OK   ${name}${detail ? '  ·  ' + detail : ''}`)
+  } else {
+    engineFail++
+    engineFails.push(name)
+    console.log(`ENGINE FAIL ${name}${detail ? '  ·  ' + detail : ''}`)
+  }
+}
+
+function closeTo(name: string, got: number, want: number, tol: number, detail?: string): void {
+  chk(name, Math.abs(got - want) <= tol, `${detail ? detail + ' · ' : ''}got ${got} want ${want} tol ${tol}`)
+}
+
+/* ---- helpers ------------------------------------------------------ */
+
+// complex arithmetic, implemented from scratch (ch.3's machine)
+interface Cx { re: number; im: number }
+const cx = (re: number, im: number): Cx => ({ re, im })
+const cxMul = (a: Cx, b: Cx): Cx => cx(a.re * b.re - a.im * b.im, a.re * b.im + a.im * b.re)
+const cxAdd = (a: Cx, b: Cx): Cx => cx(a.re + b.re, a.im + b.im)
+const cxPow = (a: Cx, n: number): Cx => {
+  let r = cx(1, 0)
+  for (let i = 0; i < n; i++) r = cxMul(r, a)
+  return r
+}
+const cxMod = (z: Cx): number => Math.hypot(z.re, z.im)
+const cxArg = (z: Cx): number => Math.atan2(z.im, z.re)
+
+// exact counts (ch.6's toolkit), implemented from scratch
+function nPr(n: number, r: number): number {
+  let p = 1
+  for (let i = 0; i < r; i++) p *= n - i
+  return p
+}
+function nCr(n: number, r: number): number {
+  const rr = Math.min(r, n - r)
+  let num = 1
+  let den = 1
+  for (let i = 1; i <= rr; i++) {
+    num *= n - rr + i
+    den *= i
+  }
+  return num / den // exact for the sizes used (integer division exact)
+}
+function bigC(n: bigint, r: bigint): bigint {
+  const rr = r < n - r ? r : n - r
+  let p = 1n
+  for (let i = 1n; i <= rr; i++) p = (p * (n - rr + i)) / i
+  return p
+}
+
+// grid scans (the honest brute force)
+function gridScanMin(f: (x: number) => number, lo: number, hi: number, step: number): { val: number; arg: number } {
+  let best = { val: Infinity, arg: lo }
+  for (let x = lo; x <= hi + 1e-12; x += step) {
+    const v = f(x)
+    if (v < best.val) best = { val: v, arg: x }
+  }
+  return best
+}
+function gridScanMax(f: (x: number) => number, lo: number, hi: number, step: number): { val: number; arg: number } {
+  let best = { val: -Infinity, arg: lo }
+  for (let x = lo; x <= hi + 1e-12; x += step) {
+    const v = f(x)
+    if (v > best.val) best = { val: v, arg: x }
+  }
+  return best
+}
+
+const f103 = (x: number) => 2 * x + 1 // ch.1 witness machine
+const g103 = (x: number) => x * x
+
+/* ---- A1. ch.1 witness — the composition grammar -------------------- */
+console.log('\n--- A1 · ch.1 Functions as Objects: g(f(3)) vs f(g(3)) on f = 2x+1, g = x^2 ---')
+chk('A1 f(3) = 7', f103(3) === 7, '2·3+1')
+chk('A1 g(7) = 49', g103(7) === 49)
+chk('A1 g(f(3)) = 49', g103(f103(3)) === 49, 'the composite machine in series')
+chk('A1 g(3) = 9', g103(3) === 9)
+chk('A1 f(9) = 19', f103(9) === 19)
+chk('A1 f(g(3)) = 19', f103(g103(3)) === 19)
+chk('A1 order matters: g∘f(3) ≠ f∘g(3)', g103(f103(3)) !== f103(g103(3)), '49 vs 19')
+chk('A1 both are machines on the same input: f(3) ≠ g(3)', f103(3) !== g103(3))
+
+/* ---- A2. ch.2 witness — the vertex --------------------------------- */
+console.log('\n--- A2 · ch.2 The Quadratic at Depth: max of -2x^2+12x-7 ---')
+const q103 = (x: number) => -2 * x * x + 12 * x - 7
+const vertexForm = (x: number) => -2 * (x - 3) * (x - 3) + 11
+let expandOK = true
+for (const t of [-2, -1.5, 0, 0.5, 1, 2.25, 3, 4.5, 5, 6.75, 8]) {
+  if (Math.abs(q103(t) - vertexForm(t)) > 1e-9) expandOK = false
+}
+chk('A2 vertex form -2(x-3)^2+11 agrees with -2x^2+12x-7 (11 probes)', expandOK)
+chk('A2 value at vertex x = 3 is exactly 11', q103(3) === 11, '-2·9 + 36 - 7')
+const g2 = gridScanMax(q103, -2, 8, 0.001)
+chk('A2 grid scan (step 0.001) max ≈ 11', g2.val > 10.999 && g2.val <= 11.0000001, `max ${g2.val.toFixed(6)} at ${g2.arg.toFixed(3)}`)
+chk('A2 grid argmax within 0.002 of 3', Math.abs(g2.arg - 3) <= 0.002)
+chk('A2 symmetry about x = 3: f(0) = f(6) = -7', q103(0) === -7 && q103(6) === -7)
+chk('A2 f(3-t) = f(3+t) at t = 1, 2.5', q103(2) === q103(4) && q103(0.5) === q103(5.5))
+
+/* ---- A3. ch.3 witness — the closure repair ------------------------- */
+console.log('\n--- A3 · ch.3 Complex Numbers: (1+i)^8 = 16 ---')
+const oneI = cx(1, 1)
+const p2 = cxPow(oneI, 2)
+const p4 = cxPow(oneI, 4)
+const p8 = cxPow(oneI, 8)
+chk('A3 (1+i)^2 = 2i (implemented multiplication)', Math.abs(p2.re) < 1e-12 && Math.abs(p2.im - 2) < 1e-12)
+chk('A3 (1+i)^4 = -4', Math.abs(p4.re + 4) < 1e-12 && Math.abs(p4.im) < 1e-12)
+chk('A3 (1+i)^8 = 16 (exact real, zero imaginary)', Math.abs(p8.re - 16) < 1e-12 && Math.abs(p8.im) < 1e-12)
+const mod8 = Math.pow(cxMod(oneI), 8) // (sqrt 2)^8
+closeTo('A3 modulus route: |1+i|^8 = (sqrt2)^8 = 16', mod8, 16, 1e-9)
+const argRoute = 8 * cxArg(oneI) // 8 · pi/4 = 2pi
+closeTo('A3 argument route: 8·arg(1+i) = 2pi', argRoute, 2 * Math.PI, 1e-12)
+chk('A3 de Moivre reassembles: 16·(cos 2pi, sin 2pi) = (16, 0)',
+  Math.abs(16 * Math.cos(argRoute) - 16) < 1e-9 && Math.abs(16 * Math.sin(argRoute)) < 1e-9)
+
+/* ---- A4. ch.4 witness — the classical engine ------------------------ */
+console.log('\n--- A4 · ch.4 Inequalities: min of 9x + 4/x (x > 0) ---')
+const amgm = (x: number) => 9 * x + 4 / x
+const g4 = gridScanMin(amgm, 0.02, 10, 0.0005)
+chk('A4 grid scan min ≥ 12 (AM-GM bound never violated)', g4.val >= 12 - 1e-9, `min ${g4.val.toFixed(6)} at ${g4.arg.toFixed(4)}`)
+chk('A4 grid argmin ≈ 2/3', Math.abs(g4.arg - 2 / 3) <= 0.001)
+closeTo('A4 equality witness x = 2/3 gives 12', amgm(2 / 3), 12, 1e-9)
+chk('A4 the priced product 9x·(4/x) = 36 at every probe', [0.1, 0.5, 2 / 3, 1, 3].every((x) => Math.abs(9 * x * (4 / x) - 36) < 1e-9))
+chk('A4 AM-GM: min = 2·sqrt(36) = 12', 2 * Math.sqrt(36) === 12)
+chk('A4 equality condition 9x = 4/x solves to x = 2/3', Math.abs(Math.sqrt(4 / 9) - 2 / 3) < 1e-12)
+
+/* ---- A5. ch.5 witness — the climbs and tails ------------------------ */
+console.log('\n--- A5 · ch.5 Sequences and Series: sum k/2^k ---')
+let s10 = 0
+for (let k = 1; k <= 10; k++) s10 += k / Math.pow(2, k)
+chk('A5 S_10 = 1.98828125 exactly (dyadic)', s10 === 1.98828125, String(s10))
+let s400 = 0
+for (let k = 1; k <= 400; k++) s400 += k / Math.pow(2, k)
+closeTo('A5 S_400 within 1e-9 of the limit 2', s400, 2, 1e-9, `S_400 = ${s400.toFixed(12)}`)
+chk('A5 partial sums stay below 2 forever (S_400 < 2)', s400 <= 2)
+const tailLaw = (n: number) => 2 - (n + 2) / Math.pow(2, n) // closed form of S_n
+let tailOK = true
+for (const n of [1, 2, 3, 5, 10, 20, 60]) {
+  let s = 0
+  for (let k = 1; k <= n; k++) s += k / Math.pow(2, k)
+  if (Math.abs(s - tailLaw(n)) > 1e-12) tailOK = false
+}
+chk('A5 closed form S_n = 2 - (n+2)/2^n verified at 7 sizes', tailOK)
+chk('A5 tail after 10: S_10 + 12/2^10 = 2 exactly', s10 + 12 / Math.pow(2, 10) === 2, 'tail = 12/1024 = 0.01171875')
+
+/* ---- A6. ch.6 witness — the exact counts --------------------------- */
+console.log('\n--- A6 · ch.6 Counting: C(10,3) and 10P3 ---')
+chk('A6 10P3 = 720 (implemented product)', nPr(10, 3) === 720)
+chk('A6 C(10,3) = 120 (implemented selection)', nCr(10, 3) === 120)
+chk('A6 the bridge: C(10,3)·3! = 10P3', nCr(10, 3) * 6 === nPr(10, 3))
+chk('A6 Pascal spot check: C(10,3) = C(9,2)+C(9,3) = 36+84', nCr(10, 3) === nCr(9, 2) + nCr(9, 3) && nCr(9, 2) === 36 && nCr(9, 3) === 84)
+chk('A6 symmetry C(10,7) = C(10,3) = 120', nCr(10, 7) === 120)
+chk('A6 factorial read: 10!/(7!·3!) = 120', nPr(10, 10) / (nPr(7, 7) * nPr(3, 3)) === 120)
+
+/* ---- A7. ch.7 witness — the proof engine --------------------------- */
+console.log('\n--- A7 · ch.7 Induction + Binomial: sum of row 12 and sum to 100 ---')
+let rowSum = 0
+for (let k = 0; k <= 12; k++) rowSum += nCr(12, k)
+chk('A7 sum of row 12 = 4096 = 2^12', rowSum === 4096 && Math.pow(2, 12) === 4096)
+chk('A7 middle coefficient C(12,6) = 924', nCr(12, 6) === 924)
+let gauss = 0
+for (let k = 1; k <= 100; k++) gauss += k
+chk('A7 loop sum to 100 = 5050', gauss === 5050)
+chk('A7 closed form n(n+1)/2 at 100 = 5050', (100 * 101) / 2 === 5050)
+chk('A7 domino step priced: S_100 - S_99 = 100', gauss - (99 * 100) / 2 === 100)
+chk('A7 Gauss pairing: 50 pairs of 101 = 5050', 50 * 101 === 5050)
+
+/* ---- A8. ch.8 witness — the deep polynomial algebra ----------------- */
+console.log('\n--- A8 · ch.8 Theory of Equations: alpha^3+beta^3 on x^2-7x+11 ---')
+const disc8 = 49 - 44
+chk('A8 discriminant = 49 - 44 = 5 > 0 (two real roots)', disc8 === 5)
+const alpha = (7 + Math.sqrt(5)) / 2
+const beta = (7 - Math.sqrt(5)) / 2
+closeTo('A8 numeric root alpha ≈ 4.6180340', alpha, 4.6180340, 5e-7)
+closeTo('A8 numeric root beta ≈ 2.3819660', beta, 2.3819660, 5e-7)
+closeTo('A8 Vieta product alpha·beta = 11', alpha * beta, 11, 1e-9)
+closeTo('A8 Vieta sum alpha+beta = 7', alpha + beta, 7, 1e-12)
+closeTo('A8 route 1 (solve, cube, sum): alpha^3+beta^3 = 112', Math.pow(alpha, 3) + Math.pow(beta, 3), 112, 1e-6)
+const identityRoute = Math.pow(alpha + beta, 3) - 3 * alpha * beta * (alpha + beta)
+chk('A8 route 2 (identity): s^3 - 3ps = 343 - 231 = 112 exactly', identityRoute === 112)
+chk('A8 both routes agree', Math.abs(Math.pow(alpha, 3) + Math.pow(beta, 3) - identityRoute) < 1e-6)
+closeTo('A8 bonus symmetric read alpha^2+beta^2 = s^2-2p = 27', alpha * alpha + beta * beta, 27, 1e-9)
+
+/* ---- A9. ch.9 witness — the inverse family -------------------------- */
+console.log('\n--- A9 · ch.9 Exponentials and Logarithms: the log chain, e, digits ---')
+let chain = 1
+for (let k = 3; k <= 8; k++) chain *= Math.log(k + 1) / Math.log(k)
+closeTo('A9 log chain (log_3 4)(log_4 5)...(log_8 9) = 2', chain, 2, 1e-9, `product = ${chain.toFixed(12)}`)
+closeTo('A9 telescoping read: product = ln9/ln3', chain, Math.log(9) / Math.log(3), 1e-12)
+let e15 = 0
+let fact = 1
+for (let k = 0; k <= 15; k++) {
+  if (k > 0) fact *= k
+  e15 += 1 / fact
+}
+closeTo('A9 e by the 9.5 series to n = 15: |S_15 - e| < 1e-12', e15, Math.E, 1e-12, `S_15 = ${e15.toFixed(12)}`)
+chk('A9 S_15 rounds to 2.7182818 at 7 decimals', Math.round(e15 * 1e7) / 1e7 === 2.7182818)
+const big2100 = 2n ** 100n
+const str2100 = big2100.toString()
+chk('A9 2^100 exact decimal', str2100 === '1267650600228229401496703205376')
+chk('A9 2^100 has 31 digits (BigInt string length)', str2100.length === 31)
+const log2100 = Math.log10(Math.pow(2, 100))
+chk('A9 digit-count law agrees: floor(log10 2^100)+1 = 31', Math.floor(log2100) + 1 === 31, `log10 = ${log2100.toFixed(10)}`)
+chk('A9 log10 2^100 = 100·log10 2 ≈ 30.1030 (between 30 and 31)', log2100 > 30 && log2100 < 31)
+
+/* ---- A10. the chains (the audit bench, recomputed end to end) ------- */
+console.log('\n--- A10 · chain 1: the max-chain (one fact, three registers) ---')
+const prod6 = (x: number) => x * (6 - x)
+const gC1 = gridScanMax(prod6, -1, 7, 0.001)
+chk('C1 AM-GM register: x(6-x) ≤ 9 on the grid (max ≈ 9)', gC1.val <= 9 + 1e-9 && gC1.val > 8.999, `max ${gC1.val.toFixed(6)} at ${gC1.arg.toFixed(3)}`)
+chk('C1 AM-GM bound formula: max = ((x+(6-x))/2)^2 = 9', Math.pow(6 / 2, 2) === 9)
+chk('C1 equality condition x = 6-x solves to x = 3; value 9', 6 - 3 === 3 && prod6(3) === 9)
+chk('C1 discriminant register: D of x^2-6x+9 = 36-36 = 0 (double root)', 36 - 36 === 0)
+chk('C1 double root x = 3: (6+0)/2 = 3', (6 + 0) / 2 === 3)
+chk('C1 register 3: (x-3)^2 = 0 exactly at x = 3, positive 1 away', (3 - 3) * (3 - 3) === 0 && (4 - 3) * (4 - 3) === 1)
+chk('C1 all three registers agree: max 9 at x = 3', prod6(3) === 9 && (3 - 3) * (3 - 3) === 0)
+
+console.log('\n--- A10 · chain 2: the binomial-digit chain ---')
+const bigC5025 = bigC(50n, 25n)
+chk('C2 C(50,25) exact = 126410606437752', bigC5025 === 126410606437752n, bigC5025.toString())
+chk('C2 digit count = 15', bigC5025.toString().length === 15)
+const logC5025 = Math.log10(Number(bigC5025))
+// SPEC-VS-ENGINE CATCH: the spec printed 14.1017 (a truncation); the true value
+// 14.101783514802 rounds to 14.1018 at 4 dp — THE ENGINE WINS, the prose prints
+// 14.1018 and the catch is recorded in the part file's header.
+chk('C2 log10 C(50,25) = 14.1018 (4 dp; engine value, spec said 14.1017 — engine wins)', Math.round(logC5025 * 1e4) / 1e4 === 14.1018, `log10 = ${logC5025.toFixed(12)}`)
+chk('C2 the 9.6 law cashed: floor(log10 C)+1 = 15', Math.floor(logC5025) + 1 === 15)
+chk('C2 row identity cross-check: sum of row 50 = 2^50 (BigInt)', (() => {
+  let s = 0n
+  for (let k = 0n; k <= 50n; k++) s += bigC(50n, k)
+  return s === 2n ** 50n
+})())
+
+console.log('\n--- A10 · chain 3: the induction-Gauss chain ---')
+chk('C3 domino proof object: n(n+1)/2 at n = 100 = 5050', (100 * 101) / 2 === 5050)
+chk('C3 loop re-addition agrees', gauss === 5050)
+chk('C3 pairing census: 100 terms form 50 pairs, each summing 101', 100 / 2 === 50 && 50 * 101 === 5050)
+chk('C3 the same 5050 at n = 100 again (the 10.2-rule regeneration target)', (100 * (100 + 1)) / 2 === 5050)
+
+console.log('\n--- A10 · chain 4: the complex-Vieta chain ---')
+const omega = cx(-0.5, Math.sqrt(3) / 2) // (-1 + i·sqrt3)/2
+const omega2 = cxMul(omega, omega)
+const omega3 = cxMul(omega2, omega)
+closeTo('C4 omega^2 = conjugate (-1-i·sqrt3)/2 (implemented mult)', omega2.re, -0.5, 1e-12)
+closeTo('C4 omega^2 imaginary part', omega2.im, -Math.sqrt(3) / 2, 1e-12)
+closeTo('C4 omega^3 = 1 (de Moivre: 3·2pi/3 = 2pi)', omega3.re, 1, 1e-12)
+closeTo('C4 omega^3 imaginary part = 0', omega3.im, 0, 1e-12)
+closeTo('C4 Vieta: omega + omega^2 = -1', omega.re + omega2.re, -1, 1e-12)
+closeTo('C4 Vieta: omega·omega^2 = 1', omega.re * omega2.re - omega.im * omega2.im, 1, 1e-12)
+chk('C4 both roots of x^2+x+1: |omega^2+omega+1| < 1e-12 and same for omega^2',
+  Math.abs(omega.re + omega2.re + 1) < 1e-12 && Math.abs(omega.im + omega2.im) < 1e-12)
+closeTo('C4 modulus route: |omega| = 1, arg = 2pi/3', cxMod(omega), 1, 1e-12)
+closeTo('C4 arg(omega) = 2pi/3', cxArg(omega), (2 * Math.PI) / 3, 1e-12)
+
+/* ---- A11. the mixed bench — every exercise answer, recomputed ------- */
+console.log('\n--- A11 · exercise bench (fresh constants, all recomputed) ---')
+// L1(a) composition census at f = 3x-2, g = x^2+1
+const fA = (x: number) => 3 * x - 2
+const gA = (x: number) => x * x + 1
+chk('E L1a g(f(2)) = 17', gA(fA(2)) === 17, 'f(2)=4, g(4)=17')
+chk('E L1a f(g(2)) = 13', fA(gA(2)) === 13, 'g(2)=5, f(5)=13')
+chk('E L1a inverse check: f^{-1}(f(2)) = 2', (fA(2) + 2) / 3 === 2)
+// L1(b) vertex of 2x^2-8x+3
+const qb = (x: number) => 2 * x * x - 8 * x + 3
+const vb = (x: number) => 2 * (x - 2) * (x - 2) - 5
+chk('E L1b vertex form 2(x-2)^2-5 agrees (8 probes)', [-1, 0, 0.5, 1, 2, 3, 4, 5].every((t) => Math.abs(qb(t) - vb(t)) < 1e-9))
+chk('E L1b min -5 at x = 2 exactly', qb(2) === -5)
+const gL1b = gridScanMin(qb, -1, 5, 0.001)
+chk('E L1b grid scan argmin ≈ 2, value ≈ -5', Math.abs(gL1b.arg - 2) <= 0.002 && gL1b.val > -5.0000001 && gL1b.val < -4.999)
+// L1(c) committee count
+chk('E L1c C(9,3) = 84', nCr(9, 3) === 84, '9·8·7/6')
+// L2(a) the three-sided pen: 2x + y = 20, area A = x(20-2x)
+const penA = (x: number) => x * (20 - 2 * x)
+let penOK = true
+for (const t of [0, 1, 2.5, 4, 5, 6, 8, 10]) {
+  if (Math.abs(penA(t) - (-2 * (t - 5) * (t - 5) + 50)) > 1e-9) penOK = false
+}
+chk('E L2a vertex form -2(x-5)^2+50 agrees with x(20-2x) (8 probes)', penOK)
+chk('E L2a max 50 at x = 5 exactly', penA(5) === 50)
+const gL2a = gridScanMax(penA, 0, 10, 0.001)
+chk('E L2a grid scan confirms max ≈ 50 at ≈ 5', Math.abs(gL2a.arg - 5) <= 0.002 && gL2a.val <= 50 + 1e-9)
+chk('E L2a constraint holds at the winner: 2(5) + 10 = 20', 2 * 5 + 10 === 20)
+chk('E L2a symmetric probes A(4) = A(6) = 48', penA(4) === 48 && penA(6) === 48)
+chk('E L2a roots 0 and 10 (degenerate pens)', penA(0) === 0 && penA(10) === 0)
+// L2(b) same-base equation
+chk('E L2b 4^(x+1) = 8^(x-1) at x = 5: 4^6 = 8^4 = 4096', Math.pow(4, 6) === 4096 && Math.pow(8, 4) === 4096)
+chk('E L2b exponent algebra: 2x+2 = 3x-3 solves to x = 5', 2 * 5 + 2 === 3 * 5 - 3)
+// L2(c) AP from a3 = 11, a7 = 23
+const dAp = (23 - 11) / 4
+const a1Ap = 11 - 2 * dAp
+const s10Ap = (10 / 2) * (2 * a1Ap + 9 * dAp)
+chk('E L2c d = 3, a1 = 5', dAp === 3 && a1Ap === 5)
+chk('E L2c S_10 = 185', s10Ap === 185, '5·37')
+let apCheck = 0
+for (let k = 1; k <= 10; k++) apCheck += a1Ap + (k - 1) * dAp
+chk('E L2c loop sum agrees: 185', apCheck === 185)
+// L3(a) modulus/argument of z = 1 + i·sqrt3
+const zL3 = cx(1, Math.sqrt(3))
+closeTo('E L3a |z| = 2', cxMod(zL3), 2, 1e-12)
+closeTo('E L3a arg z = pi/3', cxArg(zL3), Math.PI / 3, 1e-12)
+const z3L3 = cxPow(zL3, 3)
+closeTo('E L3a z^3 = -8 (multiplication route)', z3L3.re, -8, 1e-9)
+chk('E L3a z^3 imaginary part ≈ 0', Math.abs(z3L3.im) < 1e-9)
+chk('E L3a de Moivre route: 2^3·(cos pi + i·sin pi) = -8', Math.abs(8 * Math.cos(3 * (Math.PI / 3)) + 8) < 1e-9 && Math.abs(8 * Math.sin(Math.PI)) < 1e-9)
+// L3(b) telescoping sum 1/(k(k+2)) to n = 20
+let tel20 = 0
+for (let k = 1; k <= 20; k++) tel20 += 1 / (k * (k + 2))
+closeTo('E L3b S_20 = 325/462 ≈ 0.7034632', tel20, 325 / 462, 1e-12)
+closeTo('E L3b limit = 3/4 (S_20 + tail 43/924)', tel20 + 43 / 924, 0.75, 1e-12)
+const splitOK = [1, 2, 3, 5, 9].every((k) => Math.abs(1 / (k * (k + 2)) - 0.5 * (1 / k - 1 / (k + 2))) < 1e-15)
+chk('E L3b split 1/(k(k+2)) = (1/2)(1/k - 1/(k+2)) verified at 5 probes', splitOK)
+// L3(c) min of 4x + 25/x
+const amgmE = (x: number) => 4 * x + 25 / x
+const gL3c = gridScanMin(amgmE, 0.02, 10, 0.0005)
+chk('E L3c grid min ≥ 20 (AM-GM)', gL3c.val >= 20 - 1e-9, `min ${gL3c.val.toFixed(6)} at ${gL3c.arg.toFixed(4)}`)
+chk('E L3c equality at x = 5/2: 4·(5/2) = 25/(5/2) = 10, sum 20', amgmE(2.5) > 20 - 1e-9 && amgmE(2.5) < 20 + 1e-9)
+chk('E L3c AM-GM bound = 2·sqrt(100) = 20', 2 * Math.sqrt(4 * 25) === 20)
+// L4(a) Cauchy-Schwarz: max of 3x+4y on x^2+y^2 = 25
+let csMax = -Infinity
+let csArg = 0
+for (let t = 0; t < 2 * Math.PI; t += 1e-4) {
+  const v = 3 * 5 * Math.cos(t) + 4 * 5 * Math.sin(t)
+  if (v > csMax) { csMax = v; csArg = t }
+}
+chk('E L4a Cauchy-Schwarz bound (sqrt9+16)·sqrt25 = 25', Math.sqrt(9 + 16) * Math.sqrt(25) === 25)
+chk('E L4a angular scan max ≈ 25', csMax <= 25 + 1e-6 && csMax > 24.9999, `max ${csMax.toFixed(6)}`)
+chk('E L4a equality witness (x,y) = (3,4): 3·3+4·4 = 25 and 9+16 = 25', 3 * 3 + 4 * 4 === 25 && 3 * 3 + 4 * 4 === 25)
+closeTo('E L4a argmax angle ≈ atan(4/3)', csArg, Math.atan2(4, 3), 1e-3)
+// L4(b) induction priced at n = 12 (sum of squares)
+let sq12 = 0
+for (let k = 1; k <= 12; k++) sq12 += k * k
+chk('E L4b loop sum of squares to 12 = 650', sq12 === 650)
+chk('E L4b closed form n(n+1)(2n+1)/6 at 12 = 650', (12 * 13 * 25) / 6 === 650)
+chk('E L4b domino step: S_12 - S_11 = 144 = 12^2', sq12 - (11 * 12 * 23) / 6 === 144 && 12 * 12 === 144)
+// L4(c) stars and bars, brute-force enumeration
+let ge1 = 0
+let ge0 = 0
+for (let a = 0; a <= 10; a++)
+  for (let b = 0; b <= 10 - a; b++)
+    for (let c = 0; c <= 10 - a - b; c++) {
+      const d0 = 10 - a - b - c // fourth child, unrestricted
+      ge0++
+      if (a >= 1 && b >= 1 && c >= 1 && d0 >= 1) ge1++
+    }
+chk('E L4c enumeration: each child ≥ 1 gives 84 = C(9,3)', ge1 === 84 && nCr(9, 3) === 84)
+chk('E L4c enumeration: unrestricted gives 286 = C(13,3)', ge0 === 286 && nCr(13, 3) === 286)
+// L5(a) transformation of equations: roots shifted by +3
+const r1a = (6 + Math.sqrt(36 - 32)) / 2
+const r2a = (6 - Math.sqrt(36 - 32)) / 2
+chk('E L5a roots of x^2-6x+8 are 2 and 4', r1a === 4 && r2a === 2)
+chk('E L5a shifted roots 5 and 7 give y^2-12y+35', 5 + 7 === 12 && 5 * 7 === 35)
+const shiftedPoly = (y: number) => (y - 3) * (y - 3) - 6 * (y - 3) + 8
+chk('E L5a substitution x = y-3 lands on y^2-12y+35 (6 probes)', [3.1, 4, 5, 6, 7, 8.4].every((y) => Math.abs(shiftedPoly(y) - (y * y - 12 * y + 35)) < 1e-9))
+chk('E L5a new equation vanishes at y = 5, 7', shiftedPoly(5) === 0 && shiftedPoly(7) === 0)
+// L5(b) digit count of C(20,10)
+const bigC2010 = bigC(20n, 10n)
+chk('E L5b C(20,10) = 184756', bigC2010 === 184756n, bigC2010.toString())
+chk('E L5b digit count = 6', bigC2010.toString().length === 6)
+const logC2010 = Math.log10(Number(bigC2010))
+chk('E L5b log10 C(20,10) = 5.2666 (4 dp)', Math.round(logC2010 * 1e4) / 1e4 === 5.2666, `log10 = ${logC2010.toFixed(6)}`)
+chk('E L5b law agrees: floor(log10)+1 = 6', Math.floor(logC2010) + 1 === 6)
+// L6(a) the fence chain
+const areaFence = (x: number) => x * (20 - x)
+chk('E L6a AM-GM register: x(20-x) ≤ ((x+20-x)/2)^2 = 100 on grid',
+  gridScanMax(areaFence, 0, 20, 0.001).val <= 100 + 1e-9)
+chk('E L6a vertex register: max 100 at x = 10 (the square)', areaFence(10) === 100)
+const rects: { x: number; y: number; area: number }[] = []
+for (let x = 1; x <= 10; x++) rects.push({ x, y: 20 - x, area: x * (20 - x) })
+chk('E L6a 10 distinct integer rectangles (x ≤ y, x+y = 20)', rects.length === 10)
+chk('E L6a area roster 19,36,51,64,75,84,91,96,99,100',
+  rects.map((r) => r.area).join(',') === '19,36,51,64,75,84,91,96,99,100')
+const bigAreas = rects.filter((r) => r.area >= 96)
+chk('E L6a area ≥ 96 holds for 3 rectangles (96, 99, 100)', bigAreas.length === 3 && bigAreas.map((r) => r.area).join(',') === '96,99,100')
+chk('E L6a their areas sum to 295', bigAreas.reduce((s, r) => s + r.area, 0) === 295)
+chk('E L6a quadratic register of the ≥96 cut: (x-8)(x-12) ≤ 0 solves to 8 ≤ x ≤ 12',
+  [8, 9, 10, 11, 12].every((x) => (x - 8) * (x - 12) <= 0) && [7, 13].every((x) => (x - 8) * (x - 12) > 0))
+chk('E L6a convention cut: the quadratic band {8..12} meets x ≤ y in exactly {8, 9, 10} (11, 12 mirror 9, 8)',
+  [8, 9, 10].every((x) => x <= 20 - x) && [11, 12].every((x) => x > 20 - x))
+// L6(b) the logarithmic-binomial-complex chain
+const bigC168 = bigC(16n, 8n)
+chk('E L6b C(16,8) = 12870 (the middle coefficient of row 16)', bigC168 === 12870n, bigC168.toString())
+chk('E L6b digit count 5', bigC168.toString().length === 5)
+const logC168 = Math.log10(Number(bigC168))
+chk('E L6b log10 C(16,8) = 4.1096 (4 dp)', Math.round(logC168 * 1e4) / 1e4 === 4.1096, `log10 = ${logC168.toFixed(6)}`)
+chk('E L6b law agrees: floor+1 = 5', Math.floor(logC168) + 1 === 5)
+let row16 = 0n
+for (let k = 0n; k <= 16n; k++) row16 += bigC(16n, k)
+chk('E L6b sum of row 16 = 65536 = 2^16', row16 === 65536n && 2n ** 16n === 65536n)
+chk('E L6b digits of 65536 = 5', String(65536n).length === 5)
+const log65536 = 16 * Math.log10(2)
+chk('E L6b log10 2^16 = 4.8165 (4 dp)', Math.round(log65536 * 1e4) / 1e4 === 4.8165, `log10 = ${log65536.toFixed(6)}`)
+const p16 = cxPow(oneI, 16)
+chk('E L6b (1+i)^16 = 256 (complex route: (1+i)^8 squared)', Math.abs(p16.re - 256) < 1e-9 && Math.abs(p16.im) < 1e-9)
+chk('E L6b de Moivre route: (sqrt2)^16 = 2^8 = 256 (to 1e-9), 16·pi/4 = 4pi ≡ 0',
+  Math.abs(Math.pow(Math.SQRT2, 16) - 256) < 1e-9 && Math.abs(16 * (Math.PI / 4) - 4 * Math.PI) < 1e-12)
+chk('E L6b digits of 256 = 3', String(256).length === 3)
+chk('E L6b 17 terms in row 16, single middle term k = 8', 16 + 1 === 17 && nCr(16, 8) === nCr(16, 16 - 8))
+
+/* ---- A12. prose-constant printout ----------------------------------- */
+console.log('\n==================== PROSE CONSTANTS (copy into part-aa103.ts) ====================')
+console.log(`ch1 witness:        g(f(3)) = ${g103(f103(3))}, f(g(3)) = ${f103(g103(3))}`)
+console.log(`ch2 witness:        max = ${q103(3)} at x = 3; vertex form -2(x-3)^2+11`)
+console.log(`ch3 witness:        (1+i)^8 = ${p8.re} (modulus route ${(Math.SQRT2 ** 8).toFixed(6)})`)
+console.log(`ch4 witness:        min = ${amgm(2 / 3).toFixed(6)} at x = 2/3`)
+console.log(`ch5 witness:        S_10 = ${s10}, S_400 = ${s400.toFixed(10)}, tail10 = ${(2 - s10).toFixed(8)}`)
+console.log(`ch6 witness:        C(10,3) = ${nCr(10, 3)}, 10P3 = ${nPr(10, 3)}`)
+console.log(`ch7 witness:        sum row 12 = ${rowSum}, sum k to 100 = ${gauss}, C(12,6) = ${nCr(12, 6)}`)
+console.log(`ch8 witness:        alpha^3+beta^3 = ${identityRoute} (identity 343-231); alpha^2+beta^2 = 27; alpha^4+beta^4 = ${((alpha ** 4 + beta ** 4).toFixed(6))}`)
+console.log(`ch9 witness:        log chain = ${chain.toFixed(12)}; e(15) = ${e15.toFixed(10)}; digits 2^100 = ${str2100.length}; log10 2^100 = ${log2100.toFixed(4)}`)
+console.log(`chain max:          max x(6-x) = ${prod6(3)} at x = 3; D = 0; grid max ${gC1.val.toFixed(6)}`)
+console.log(`chain binom-digit:  C(50,25) = ${bigC5025}; digits ${bigC5025.toString().length}; log10 = ${logC5025.toFixed(4)}`)
+console.log(`chain gauss:        5050 = 50 × 101; S_100 - S_99 = 100`)
+console.log(`chain omega:        omega^3 = (${omega3.re.toFixed(10)}, ${omega3.im.toFixed(10)}); omega+omega^2 = ${omega.re + omega2.re}; |omega| = ${cxMod(omega).toFixed(10)}`)
+console.log(`E L1a:              g(f(2)) = ${gA(fA(2))}, f(g(2)) = ${fA(gA(2))}`)
+console.log(`E L1b:              min ${qb(2)} at x = 2; roots ${((8 - Math.sqrt(64 - 24)) / 4).toFixed(7)}, ${((8 + Math.sqrt(64 - 24)) / 4).toFixed(7)}`)
+console.log(`E L1c:              C(9,3) = ${nCr(9, 3)}`)
+console.log(`E L2a:              pen max ${penA(5)} at x = 5 (y = 10); A(4) = ${penA(4)}`)
+console.log(`E L2b:              x = 5, both sides ${Math.pow(4, 6)}`)
+console.log(`E L2c:              d = ${dAp}, a1 = ${a1Ap}, S_10 = ${s10Ap}`)
+console.log(`E L3a:              |z| = ${cxMod(zL3).toFixed(10)}, arg = ${(cxArg(zL3) / Math.PI).toFixed(10)}·pi, z^3 = ${z3L3.re.toFixed(10)}`)
+console.log(`E L3b:              S_20 = ${tel20.toFixed(10)} = 325/462; limit 0.75; tail 43/924 = ${(43 / 924).toFixed(10)}`)
+console.log(`E L3c:              min ${amgmE(2.5).toFixed(6)} at x = 2.5`)
+console.log(`E L4a:              max ${csMax.toFixed(6)} at (3,4); argmax ${csArg.toFixed(6)} ≈ atan2(4,3) = ${Math.atan2(4, 3).toFixed(6)}`)
+console.log(`E L4b:              sum sq to 12 = ${sq12}; step 144`)
+console.log(`E L4c:              ≥1 each: ${ge1}; unrestricted: ${ge0}`)
+console.log(`E L5a:              roots 2,4 → 5,7; y^2-12y+35`)
+console.log(`E L5b:              C(20,10) = ${bigC2010}; digits ${bigC2010.toString().length}; log10 = ${logC2010.toFixed(4)}`)
+console.log(`E L6a:              rects ${rects.length}; areas ${rects.map((r) => r.area).join(',')}; ≥96: ${bigAreas.map((r) => `${r.x}×${r.y}`).join(', ')}; sum ${bigAreas.reduce((s, r) => s + r.area, 0)}`)
+console.log(`E L6b:              C(16,8) = ${bigC168}; log10 = ${logC168.toFixed(4)}; row sum 2^16 = 65536, log10 = ${log65536.toFixed(4)}; (1+i)^16 = ${p16.re.toFixed(6)}`)
+console.log('==================================================================================\n')
+
+/* ---- engine verdict -------------------------------------------------- */
+console.log(`ENGINE SECTION: ${enginePass} checks OK, ${engineFail} FAILED`)
+if (engineFail > 0) {
+  console.log('FAILED CHECKS: ' + engineFails.join(' | '))
+}
+
+/* ==================================================================== */
+/* SECTION B — THE PINS (re-reads part-aa103.ts; runs after the prose)   */
+/* ==================================================================== */
+
+let pinPass = 0
+let pinFail = 0
+const pinFails: string[] = []
+function pin(name: string, cond: boolean, detail?: string): void {
+  if (cond) {
+    pinPass++
+    console.log(`PIN   OK   ${name}${detail ? '  ·  ' + detail : ''}`)
+  } else {
+    pinFail++
+    pinFails.push(name)
+    console.log(`PIN   FAIL ${name}${detail ? '  ·  ' + detail : ''}`)
+  }
+}
+
+import { existsSync, readFileSync } from 'node:fs'
+const partPath = new URL('./part-aa103.ts', import.meta.url).pathname
+
+if (!existsSync(partPath)) {
+  console.log('\nPIN SECTION: part-aa103.ts not authored yet — engine-only run (this is the verify-first order).')
+} else {
+  console.log('\n--- PIN SECTION: re-reading part-aa103.ts ---')
+  const { lesson103 } = await import('./part-aa103')
+  const { countLessonWords } = await import('../src/data/library/types')
+
+  // identity pins
+  pin('P1 id', lesson103.id === 'aa-the-book-in-one-page-synthesis', lesson103.id)
+  pin('P2 number', lesson103.number === '10.3', lesson103.number)
+  pin('P3 title', lesson103.title === 'The Book in One Page: Synthesis', lesson103.title)
+  pin('P4 concepts 5-8', lesson103.concepts.length >= 5 && lesson103.concepts.length <= 8, String(lesson103.concepts.length))
+  pin('P5 objectives 4-6', !!lesson103.objectives && lesson103.objectives.length >= 4 && lesson103.objectives.length <= 6, String(lesson103.objectives?.length))
+  pin('P6 prerequisites', JSON.stringify(lesson103.prerequisites) === JSON.stringify(['aa-exponentials-and-logarithms-unit-9-review', 'aa-unit-review-functions-as-objects', 'al-the-function-idea-the-doorstep']))
+  pin('P7 sources', JSON.stringify(lesson103.sources) === JSON.stringify(['cengage-jee-style', 'jee-main-2026-syllabus', 'hall-knight-higher-algebra']))
+  pin('P8 words field NOT set', (lesson103 as { words?: number }).words === undefined)
+
+  // structural pins
+  const blocks = lesson103.blocks
+  const bodyFigures = blocks.filter((b) => b.kind === 'figure')
+  pin('P9 body figures ≥ 3', bodyFigures.length >= 3, String(bodyFigures.length))
+  let termCount = 0
+  let formulaCount = 0
+  let quizItems: { q: string; options: string[]; answer: number; explain: string }[] = []
+  interface ExQ { q: string; solution: string | string[]; answer?: string; figures?: { caption: string; svg: string }[] }
+  const exSets: { level: string; questions: ExQ[] }[] = []
+  for (const b of blocks) {
+    if (b.kind === 'terms') termCount += b.items.length
+    if (b.kind === 'formula') formulaCount++
+    if (b.kind === 'quiz') quizItems = quizItems.concat(b.items)
+    if (b.kind === 'exercises') exSets.push(...b.sets)
+  }
+  pin('P10 terms ≥ 6', termCount >= 6, String(termCount))
+  pin('P11 formula cards ≥ 8', formulaCount >= 8, String(formulaCount))
+  pin('P12 quiz has 5 items', quizItems.length === 5, String(quizItems.length))
+  pin('P13 quiz keys [0,2,1,0,3]', JSON.stringify(quizItems.map((i) => i.answer)) === JSON.stringify([0, 2, 1, 0, 3]), JSON.stringify(quizItems.map((i) => i.answer)))
+  pin('P14 quiz options exactly 4 each', quizItems.every((i) => i.options.length === 4))
+  pin('P15 quiz explains non-trivial (≥ 12 words each)', quizItems.every((i) => i.explain.trim().split(/\s+/).length >= 12))
+
+  const spread: Record<string, number> = {}
+  let questionCount = 0
+  let solutionFigCount = 0
+  let allHaveSteps = true
+  let allHaveAnswers = true
+  for (const set of exSets) {
+    spread[set.level] = (spread[set.level] ?? 0) + set.questions.length
+    for (const q of set.questions) {
+      questionCount++
+      if (!Array.isArray(q.solution) || q.solution.length < 3) allHaveSteps = false
+      if (!q.answer || q.answer.trim().length === 0) allHaveAnswers = false
+      solutionFigCount += (q.figures ?? []).length
+    }
+  }
+  pin('P16 ≥ 16 exercise questions', questionCount >= 16, String(questionCount))
+  pin('P17 spread L1×3 L2×3 L3×3 L4×3 L5×2 L6×2', spread['L1'] === 3 && spread['L2'] === 3 && spread['L3'] === 3 && spread['L4'] === 3 && spread['L5'] === 2 && spread['L6'] === 2, JSON.stringify(spread))
+  pin('P18 every question has a steps-array solution (≥ 3 lines)', allHaveSteps)
+  pin('P19 every question has a terminal answer', allHaveAnswers)
+  pin('P20 solution figures ≥ 3', solutionFigCount >= 3, String(solutionFigCount))
+  pin('P21 levels are L1..L6 in order', exSets.map((s) => s.level).join(',') === 'L1,L2,L3,L4,L5,L6')
+
+  // word floor
+  const wc = countLessonWords(lesson103)
+  pin('P22 word count ≥ 6000', wc >= 6000, String(wc))
+
+  // honesty ledger: string-verify the part FILE text
+  const partText = readFileSync(partPath, 'utf8')
+  pin('P23 ledger names the deferred convergence proofs', /convergence\s+proofs/.test(partText))
+  pin('P24 ledger names Calculus as the owning door', /Calculus/.test(partText))
+  pin('P25 ledger speaks of deferral (deferred/defer)', /defer/i.test(partText))
+  pin('P26 lesson mentions the epsilon-delta machinery honestly', lessonTextJsonHas('ε–δ'))
+
+  // wiring coverage: all ten chapter objects named
+  const wiringPhrases = ['Functions as Objects', 'Quadratic', 'Complex', 'Inequalities', 'Sequences', 'Counting', 'Induction', 'Binomial', 'Theory of Equations', 'Exponentials']
+  for (const w of wiringPhrases) pin(`P27 wiring names "${w}"`, lessonTextJsonHas(w))
+  pin('P28 no-duplication anchor ids named in prose',
+    lessonTextJsonHas('al-the-function-idea-the-doorstep') && lessonTextJsonHas('al-competition-algebra-identities-and-substitutions'))
+
+  // mixed-bench family coverage (fresh constants; question text markers)
+  const exText = JSON.stringify(blocks.filter((b) => b.kind === 'exercises'))
+  const familyMarkers: [number, string[]][] = [
+    [1, ['g(f(2))', 'f(g(2))']],
+    [2, ['2(x − 2)² − 5', 'minimum −5 at x = 2']],
+    [3, ['1 + i√3', 'π/3']],
+    [4, ['Cauchy–Schwarz', 'AM–GM']],
+    [5, ['telescoping', 'arithmetic progression']],
+    [6, ['stars and bars', 'C(9, 3)']],
+    [7, ['induction', 'binomial']],
+    [8, ['shifted by +3', 'transformation']],
+    [9, ['digit-count', 'log']],
+  ]
+  for (const [fam, markers] of familyMarkers)
+    pin(`P29 family ch.${fam} covered in the bench`, markers.every((m) => exText.includes(m)), markers.join(' & '))
+
+  // KaTeX / mobile-law discipline on prose fields
+  const prose: string[] = []
+  const push = (...xs: (string | undefined)[]) => { for (const x of xs) if (x) prose.push(x) }
+  for (const b of blocks) {
+    switch (b.kind) {
+      case 'para': case 'heading': push(b.text); break
+      case 'callout': push(b.title, b.text); break
+      case 'terms': for (const t of b.items) push(t.term, t.def); break
+      case 'equation': push(b.note); break
+      case 'derivation': push(b.title, b.statement, b.result); for (const s of b.steps) push(s.label, s.explanation); break
+      case 'example': push(b.title, ...b.steps); for (const f of b.figures ?? []) push(f.caption); break
+      case 'figure': push(b.caption); break
+      case 'table': push(b.caption, ...b.head, ...b.rows.flat()); break
+      case 'list': push(...b.items); break
+      case 'quiz': for (const it of b.items) push(it.q, ...it.options, it.explain); break
+      case 'exercises': for (const s of b.sets) for (const q of s.questions) { push(q.q, ...(Array.isArray(q.solution) ? q.solution : [q.solution]), q.answer); for (const f of q.figures ?? []) push(f.caption) } break
+      case 'formula': push(b.name, b.note); break
+    }
+  }
+  const badDollar = prose.filter((s) => /\$\$/.test(s))
+  const badParen = prose.filter((s) => /\\\(|\\\[/.test(s))
+  const badDfrac = prose.filter((s) => /\\dfrac|\\qquad/.test(s))
+  pin('P30 no $$ display delimiters in prose', badDollar.length === 0)
+  pin('P31 no raw \\( \\[ in prose', badParen.length === 0)
+  pin('P32 no \\dfrac or \\qquad in prose (mobile law)', badDfrac.length === 0)
+
+  // figure discipline: every svg carries role, aria-label, viewBox; PLAIN text
+  const allSvgs: [string, string][] = []
+  for (const b of blocks) {
+    if (b.kind === 'figure') allSvgs.push(['body:' + b.caption.slice(0, 40), b.svg])
+    if (b.kind === 'example') for (const f of b.figures ?? []) allSvgs.push(['example:' + f.caption.slice(0, 40), f.svg])
+    if (b.kind === 'exercises') for (const s of b.sets) for (const q of s.questions) for (const f of q.figures ?? []) allSvgs.push(['sol:' + f.caption.slice(0, 40), f.svg])
+  }
+  pin('P33 every svg has role="img"', allSvgs.every(([, s]) => s.includes('role="img"')))
+  pin('P34 every svg has aria-label', allSvgs.every(([, s]) => s.includes('aria-label=')))
+  pin('P35 every svg has a viewBox', allSvgs.every(([, s]) => s.includes('viewBox=')))
+  pin('P36 svg text PLAIN (no $, no TeX backslashes)', allSvgs.every(([, s]) => !s.includes('$') && !s.includes('\\')))
+
+  function lessonTextJsonHas(needle: string): boolean {
+    return JSON.stringify(blocks).includes(needle)
+  }
+}
+
+/* ---- verdict --------------------------------------------------------- */
+console.log(`\nPIN SECTION: ${pinPass} checks OK, ${pinFail} FAILED${pinFail ? ' | ' + pinFails.join(' | ') : ''}`)
+const totalPass = enginePass + pinPass
+const totalFail = engineFail + pinFail
+console.log(`\nTOTAL: ${totalPass} OK, ${totalFail} FAILED  (${enginePass} engine + ${pinPass} pins)`)
+if (totalFail > 0) {
+  console.log('RESULT: NOT ALL GREEN — fix the failures and re-run.')
+  process.exit(1)
+} else {
+  console.log('RESULT: ALL GREEN ✔')
+}

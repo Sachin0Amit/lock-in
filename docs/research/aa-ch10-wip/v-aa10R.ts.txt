@@ -1,0 +1,633 @@
+/**
+ * v-aa10R.ts — verify-first engine + pin script for Advanced Algebra lesson
+ * 10.R "Unit 10 Completion Review" (the book's LAST page), run-122
+ * whole-chapter swarm, agent aa10R.
+ *
+ * Run:  cd /home/z/my-project && bun run temporary-references/v-aa10R.ts
+ *
+ * DISCIPLINE (spec §0, §8): the ENGINE section below recomputes EVERY
+ * number the review's prose will print — brute force, no repo imports —
+ * and ran GREEN before a word of part-aa10R.ts was authored. The PIN
+ * section (appended after the prose exists) re-reads the part file and
+ * audits the lesson contract: quiz keys, exercise census, figures, terms,
+ * formula cards, word count, table rows, coda strings, KaTeX/mobile law.
+ * Where spec and engine disagree, THE ENGINE WINS; every catch is recorded
+ * in the part file header and the final report.
+ *
+ * Harness: prints CHK lines, counts, exits 1 on any fail.
+ */
+
+/* ================================================================
+ * ENGINE SECTION — no repo imports
+ * ================================================================ */
+
+let pass = 0
+let total = 0
+const fails: string[] = []
+
+function chk(name: string, got: unknown, want: unknown): void {
+  total++
+  const ok = Object.is(got, want) || (typeof got === 'number' && typeof want === 'number' && Number.isNaN(got) && Number.isNaN(want)) || got === want
+  if (ok) pass++
+  else {
+    fails.push(`${name}: got ${String(got)} want ${String(want)}`)
+    console.log(`CHK FAIL ${name}: ${String(got)}  (want ${String(want)})`)
+  }
+}
+function close(name: string, got: number, want: number, tol = 5e-7): void {
+  total++
+  const ok = Math.abs(got - want) <= tol
+  if (ok) pass++
+  else {
+    fails.push(`${name}: got ${got.toFixed(9)} want ${want.toFixed(9)} (tol ${tol})`)
+    console.log(`CHK FAIL ${name}: ${got.toFixed(9)}  (want ${want.toFixed(9)}, tol ${tol})`)
+  }
+}
+function bigClose(name: string, got: number, want: number, tol = 5e-7): void {
+  // for big-magnitude values compared with relative-scale tolerance
+  close(name, got, want, tol)
+}
+function sec(title: string): void {
+  console.log(`== ${title} ==`)
+}
+
+/* ---------- shared little engines ---------- */
+const fact = (n: number): number => (n <= 1 ? 1 : n * fact(n - 1))
+function comb(n: number, r: number): number {
+  let c = 1
+  for (let i = 0; i < r; i++) c = (c * (n - i)) / (i + 1)
+  return Math.round(c)
+}
+const dq = (f: (x: number) => number, x: number, h: number): number => (f(x + h) - f(x)) / h
+
+/* ================================================================
+ * 1. The ladder sweep at the canonical seed 3 (10.1's own witness)
+ * ================================================================ */
+sec('1. the x + 1/x ladder at seed 3 (10.1 canonical)')
+{
+  const s: number[] = [2, 3] // s0 = 2, s1 = x + 1/x = 3
+  for (let k = 2; k <= 9; k++) s.push(3 * s[k - 1] - s[k - 2])
+  chk('s1 seed3', s[1], 3)
+  chk('s2 seed3', s[2], 7)
+  chk('s3 seed3', s[3], 18)
+  chk('s4 seed3 (quiz Q1)', s[4], 47)
+  chk('s5 seed3', s[5], 123)
+  chk('s6 seed3', s[6], 322)
+  chk('s7 seed3', s[7], 843)
+  chk('s8 seed3', s[8], 2207)
+  chk('s9 seed3', s[9], 5778)
+  close('s5 recurrence identity 3*s4-s3', 3 * s[4] - s[3], 123, 0)
+  close('s9 recurrence identity 3*s8-s7', 3 * s[8] - s[7], 5778, 0)
+}
+
+/* ================================================================
+ * 2. The ladder at the review's NEW seed 5
+ * ================================================================ */
+sec('2. the ladder at the new seed 5 (review witness)')
+{
+  const s: number[] = [2, 5]
+  for (let k = 2; k <= 9; k++) s.push(5 * s[k - 1] - s[k - 2])
+  chk('s1 seed5', s[1], 5)
+  chk('s2 seed5', s[2], 23)
+  chk('s3 seed5', s[3], 110)
+  chk('s4 seed5', s[4], 527)
+  chk('s5 seed5', s[5], 2525)
+  chk('s6 seed5', s[6], 12098)
+  chk('s7 seed5', s[7], 57965)
+  chk('s8 seed5', s[8], 277727)
+  chk('s9 seed5', s[9], 1330670)
+  chk('s9 = 5*s8 - s7', 5 * s[8] - s[7], 1330670)
+}
+
+/* ================================================================
+ * 3. The nested substitution (10.1 canonical): (x^2-5x+5)^2 - 7(...) + 12
+ * ================================================================ */
+sec('3. the nested substitution, canonical roots + back-check')
+{
+  // t = x^2 - 5x + 5  ->  t^2 - 7t + 12 = 0 -> t in {3, 4}
+  const t1 = 3
+  const t2 = 4
+  const disc1 = 25 - 4 * (5 - t1) // x^2-5x+3 = 0 -> disc 17
+  const disc2 = 25 - 4 * (5 - t2) // x^2-5x+1 = 0 -> disc 21
+  chk('disc t=3', disc1, 17)
+  chk('disc t=4', disc2, 21)
+  const r = [
+    (5 + Math.sqrt(17)) / 2,
+    (5 - Math.sqrt(17)) / 2,
+    (5 + Math.sqrt(21)) / 2,
+    (5 - Math.sqrt(21)) / 2,
+  ]
+  close('root (5+sqrt17)/2', r[0], 4.5615528)
+  close('root (5-sqrt17)/2', r[1], 0.4384472)
+  close('root (5+sqrt21)/2', r[2], 4.7912879)
+  close('root (5-sqrt21)/2', r[3], 0.2087121)
+  const orig = (x: number): number => {
+    const t = x * x - 5 * x + 5
+    return t * t - 7 * t + 12
+  }
+  for (const [i, x] of r.entries()) close(`back-check root ${i + 1}`, orig(x), 0, 1e-6)
+  bigClose('root sum (Vieta) = 10', r[0] + r[1] + r[2] + r[3], 10, 1e-9)
+  bigClose('root product (Vieta) = 2', r[0] * r[1] * r[2] * r[3], 2, 1e-9)
+}
+
+/* ================================================================
+ * 4. AM-GM boundaries (canonical + the review's fresh pair)
+ * ================================================================ */
+sec('4. AM-GM grids and equality witnesses')
+{
+  let best = { v: Infinity, x: 0 }
+  for (let x = 0.001; x <= 20; x += 0.0005) {
+    const v = x + 4 / x
+    if (v < best.v) best = { v, x }
+  }
+  bigClose('grid min x+4/x -> 4', best.v, 4, 1e-3)
+  close('grid argmin x+4/x -> x=2', best.x, 2, 1e-3)
+
+  best = { v: Infinity, x: 0 }
+  for (let x = 0.001; x <= 30; x += 0.0005) {
+    const v = 4 * x + 9 / x
+    if (v < best.v) best = { v, x }
+  }
+  bigClose('grid min 4x+9/x -> 12', best.v, 12, 1e-3)
+  close('grid argmin 4x+9/x -> x=3/2', best.x, 1.5, 1e-3)
+  close('equality witness 4*(3/2)', 4 * 1.5, 6, 0)
+  close('equality witness 9/(3/2)', 9 / 1.5, 6, 0)
+
+  let bmax = { v: -Infinity, x: 0 }
+  for (let x = 0; x <= 6; x += 0.0005) {
+    const v = x * (6 - x)
+    if (v > bmax.v) bmax = { v, x }
+  }
+  bigClose('grid max x(6-x) -> 9', bmax.v, 9, 1e-3)
+  close('grid argmax x(6-x) -> x=3', bmax.x, 3, 1e-3)
+
+  bmax = { v: -Infinity, x: 0 }
+  for (let x = 0; x <= 8; x += 0.0005) {
+    const v = x * (8 - x)
+    if (v > bmax.v) bmax = { v, x }
+  }
+  bigClose('grid max x(8-x) -> 16', bmax.v, 16, 1e-3)
+  close('grid argmax x(8-x) -> x=4', bmax.x, 4, 1e-3)
+
+  close('disc x^2-6x+9 (double root)', 36 - 36, 0, 0)
+  close('disc x^2-8x+16 (double root)', 64 - 64, 0, 0)
+
+  let pmax = 0
+  for (let i = 1; i <= 120; i++)
+    for (let j = 1; j <= 120; j++)
+      for (let k = 1; k <= 120; k++) {
+        const x = i / 10, y = j / 10, z = k / 10
+        if (Math.abs(x + y + z - 12) < 1e-9) pmax = Math.max(pmax, x * y * z)
+      }
+  bigClose('grid max xyz under x+y+z=12 -> 64', pmax, 64, 1e-3)
+}
+
+/* ================================================================
+ * 5. The telescoping families (canonical)
+ * ================================================================ */
+sec('5. telescoping: 1/(k(k+2)), sum k*k!, sum k/2^k')
+{
+  const S = (n: number): number => {
+    let a = 0
+    for (let k = 1; k <= n; k++) a += 1 / (k * (k + 2))
+    return a
+  }
+  close('1/(k(k+2)) S5', S(5), 0.5952381)
+  const formula = (n: number): number => 0.5 * (1.5 - 1 / (n + 1) - 1 / (n + 2))
+  close('1/(k(k+2)) S10 = formula', S(10), formula(10), 1e-12)
+  close('1/(k(k+2)) S1000 = formula', S(1000), formula(1000), 1e-12)
+  close('1/(k(k+2)) infinite = 3/4', 0.75, 0.75, 0)
+  for (const n of [5, 7]) {
+    let a = 0
+    for (let k = 1; k <= n; k++) a += k * fact(k)
+    chk(`sum k*k! at n=${n} = (n+1)!-1`, a, fact(n + 1) - 1)
+  }
+  const T = (n: number): number => {
+    let a = 0
+    for (let k = 1; k <= n; k++) a += k / 2 ** k
+    return a
+  }
+  close('k/2^k S6', T(6), 1.875, 1e-12)
+  close('k/2^k S10', T(10), 1.98828125, 1e-12)
+  close('k/2^k S20', T(20), 1.9999790)
+  close('k/2^k infinite -> 2', T(400), 2, 1e-12)
+}
+
+/* ================================================================
+ * 6. The review's OWN telescoping family: sum 1/(k(k+3))
+ * ================================================================ */
+sec('6. fresh telescoping: 1/(k(k+3))')
+{
+  let splitOK = true
+  for (let k = 1; k <= 6; k++) {
+    const lhs = 1 / (k * (k + 3))
+    const rhs = (1 / 3) * (1 / k - 1 / (k + 3))
+    if (Math.abs(lhs - rhs) > 1e-15) splitOK = false
+  }
+  chk('split 1/(k(k+3)) = (1/3)(1/k - 1/(k+3)) at k=1..6', splitOK, true)
+  const S = (n: number): number => {
+    let a = 0
+    for (let k = 1; k <= n; k++) a += 1 / (k * (k + 3))
+    return a
+  }
+  close('1/(k(k+3)) S4', S(4), 0.4412698)
+  close('1/(k(k+3)) S6', S(6), 0.4847884)
+  const fS6 = (1 / 3) * (1 + 1 / 2 + 1 / 3 - 1 / 7 - 1 / 8 - 1 / 9)
+  close('S6 = (1/3)(1+1/2+1/3-1/7-1/8-1/9)', S(6), fS6, 1e-12)
+  close('1/(k(k+3)) infinite = 11/18', S(300000), 11 / 18, 1e-5)
+  close('11/18 decimal', 11 / 18, 0.6111111)
+}
+
+/* ================================================================
+ * 7. Binomial hunts (canonical)
+ * ================================================================ */
+sec('7. binomial coefficients: C(12,k), C(50,25), log10 read')
+{
+  chk('C(12,5)', comb(12, 5), 792)
+  chk('C(12,6)', comb(12, 6), 924)
+  let tot = 0
+  let alt = 0
+  for (let k = 0; k <= 12; k++) {
+    tot += comb(12, k)
+    alt += (k % 2 === 0 ? 1 : -1) * comb(12, k)
+  }
+  chk('sum C(12,k) = 2^12', tot, 4096)
+  chk('alternating sum C(12,k) = 0', alt, 0)
+  const C5025 = comb(50, 25)
+  chk('C(50,25) exact', C5025, 126410606437752)
+  chk('digits C(50,25)', String(C5025).length, 15)
+  const log10C = Math.log10(C5025)
+  console.log(`   log10 C(50,25) = ${log10C.toFixed(7)}  (prose carries this)`)
+  // spec said 14.1017; the engine pins 14.1017835 (rounds to 14.1018 at 4dp) — engine wins, catch recorded
+  close('log10 C(50,25) vs 14.1017835', log10C, 14.1017835, 2e-6)
+}
+
+/* ================================================================
+ * 8. Digit counts of powers (BigInt, exact)
+ * ================================================================ */
+sec('8. digit counts of big powers')
+{
+  const digitsOf = (n: bigint): number => n.toString().length
+  chk('digits 8^25 = 23', digitsOf(8n ** 25n), 23)
+  const p100 = 2n ** 100n
+  chk('digits 2^100 = 31', digitsOf(p100), 31)
+  const dec = p100.toString()
+  console.log(`   2^100 = ${dec}  (${dec.length} digits, printed in full)`)
+  chk('2^100 exact decimal', dec, '1267650600228229401496703205376')
+  chk('digits 5^20 = 14', digitsOf(5n ** 20n), 14)
+  chk('5^20 exact', (5n ** 20n).toString(), '95367431640625')
+  chk('digits 7^12 = 11', digitsOf(7n ** 12n), 11)
+  chk('7^12 exact', (7n ** 12n).toString(), '13841287201')
+  chk('digits 6^20 = 16', digitsOf(6n ** 20n), 16)
+  chk('6^20 exact', (6n ** 20n).toString(), '3656158440062976')
+  const log10 = (x: number): number => Math.log10(x)
+  close('20*log10 5', 20 * log10(5), 13.9794)
+  chk('floor+1 on 13.9794', Math.floor(20 * log10(5)) + 1, 14)
+  close('12*log10 7', 12 * log10(7), 10.141176)
+  chk('floor+1 on 10.1412', Math.floor(12 * log10(7)) + 1, 11)
+  close('20*log10 6', 20 * log10(6), 15.563025)
+  chk('floor+1 on 15.5630', Math.floor(20 * log10(6)) + 1, 16)
+  close('25*log10 8 (canonical)', 25 * log10(8), 22.5772497)
+  chk('floor+1 on 22.5772', Math.floor(25 * log10(8)) + 1, 23)
+  close('100*log10 2 (canonical)', 100 * log10(2), 30.1029996)
+  chk('floor+1 on 30.1030', Math.floor(100 * log10(2)) + 1, 31)
+}
+
+/* ================================================================
+ * 9. The logarithm constants
+ * ================================================================ */
+sec('9. log constants and the change-of-base chain')
+{
+  const ln2 = Math.log(2)
+  const ln3 = Math.log(3)
+  close('ln 2', ln2, 0.6931472)
+  close('ln 3', ln3, 1.0986123)
+  close('2*ln 2', 2 * ln2, 1.3862944)
+  close('1/ln 2', 1 / ln2, 1.4426950)
+  close('log10 5', Math.log10(5), 0.69897)
+  close('log10 7', Math.log10(7), 0.845098)
+  close('log10 6', Math.log10(6), 0.7781513)
+  close('mu = log10 e', Math.log10(Math.E), 0.4342945)
+  let chain = 1
+  for (let k = 3; k <= 8; k++) chain *= Math.log(k + 1) / Math.log(k)
+  bigClose('log chain log_3 4 ... log_8 9 = 2', chain, 2, 1e-9)
+}
+
+/* ================================================================
+ * 10. The rule ladders (10.2) at the review's own seeds
+ * ================================================================ */
+sec('10. additive / product ladders, shifted, quadratic regeneration, census')
+{
+  // additive ladder at seed 5
+  const f5 = (x: number): number => 5 * x
+  chk('additive f(1)=5: f(9)', f5(9), 45)
+  chk('additive f(1/5)', f5(1 / 5), 1)
+  chk('additive f(-2)', f5(-2), -10)
+  chk('additive f(0)', f5(0), 0)
+  close('additive f(2.5+3.5) = f(2.5)+f(3.5)', f5(6), f5(2.5) + f5(3.5), 1e-12)
+  // product ladder at seed 6
+  const f6 = (x: number): number => 6 ** x
+  chk('product f(1)=6: f(20) exact', 6n ** 20n, 3656158440062976n)
+  close('product f(1/2) = sqrt6 (positive branch)', Math.sqrt(6), 2.4494897)
+  chk('product f(3+4) = f(3)*f(4)', 6 ** 7, 6 ** 3 * 6 ** 4)
+  // shifted ladder
+  const g = (x: number): number => 4 * x - 1
+  chk('shifted f(2+5) = f(2)+f(5)+1', g(7), g(2) + g(5) + 1)
+  // quadratic regeneration
+  const fq = (x: number): number => (x * (x + 1)) / 2
+  for (const [x, y] of [
+    [2, 3],
+    [5, 7],
+    [10, 10],
+    [1, 1],
+  ]) {
+    close(`quad rule at (${x},${y})`, fq(x + y), fq(x) + fq(y) + x * y, 1e-12)
+  }
+  chk('Gauss fq(100) = 5050', fq(100), 5050)
+  chk('sum k at 100 (7.1 certification target)', (100 * 101) / 2, 5050)
+  // census NO-witnesses
+  const h1 = (x: number): number => x * x + 1
+  chk('census NO: x^2+1 not additive at (2,3)', h1(5) === h1(2) + h1(3), false)
+  chk('census NO: x^2+1 not product at (2,3)', h1(5) === h1(2) * h1(3), false)
+  const gs = (x: number): number => 5 * x + 3
+  chk('census YES: 5x+3 shifted f(x+y)=f(x)+f(y)-3 at (2,3)', gs(5), gs(2) + gs(3) - 3)
+  chk('census YES: 2^x product at (2,3)', 2 ** 5, 2 ** 2 * 2 ** 3)
+  chk('census NO: 2^x not additive', (2 ** 5 === 2 ** 2 + 2 ** 3), false)
+}
+
+/* ================================================================
+ * 11. The order-4 sweep (10.2's canonical machine)
+ * ================================================================ */
+sec('11. order-4 machine f(x) = (x-1)/(x+1)')
+{
+  const f = (x: number): number => (x - 1) / (x + 1)
+  close('f(2) = 1/3', f(2), 1 / 3, 1e-12)
+  close('f^2(2) = -1/2', f(f(2)), -0.5, 1e-12)
+  close('f^3(2) = -3', f(f(f(2))), -3, 1e-12)
+  close('f^4(2) = 2', f(f(f(f(2)))), 2, 1e-12)
+  const wit = [2, 3.5, -0.5, 7, 0.25]
+  const id4 = wit.map((x) => f(f(f(f(x)))))
+  chk('f^4 = id on five witnesses', id4.every((v, i) => Math.abs(v - wit[i]) < 1e-9), true)
+  close('f^2(7) = -1/7', f(f(7)), -1 / 7, 1e-12)
+  chk('2026 mod 4', 2026 % 4, 2)
+  chk('2027 mod 4', 2027 % 4, 3)
+  close('f^2026(2) = f^2(2)', f(f(2)), -0.5, 1e-12)
+}
+
+/* ================================================================
+ * 12. The review's OWN order-3 machine f(x) = 1/(1-x)
+ * ================================================================ */
+sec('12. order-3 machine f(x) = 1/(1-x)')
+{
+  const f = (x: number): number => 1 / (1 - x)
+  let x = 3
+  const orbit: number[] = []
+  for (let i = 0; i < 4; i++) {
+    x = f(x)
+    orbit.push(x)
+  }
+  close('f(3)', orbit[0], -0.5, 1e-12)
+  close('f^2(3) = 2/3', orbit[1], 2 / 3, 1e-12)
+  close('f^3(3) = 3', orbit[2], 3, 1e-12)
+  close('f^4(3) restarts the cycle', orbit[3], -0.5, 1e-12)
+  // f^2(x) = (x-1)/x, checked numerically
+  const f2 = (t: number): number => (t - 1) / t
+  close('f^2(2) = (2-1)/2', f(f(2)), f2(2), 1e-12)
+  close('f^2(5) = (5-1)/5', f(f(5)), f2(5), 1e-12)
+  chk('2027 mod 3', 2027 % 3, 2)
+  chk('2026 mod 3', 2026 % 3, 1)
+  close('f^2027(3) = f^2(3) = 2/3', f(f(3)), 2 / 3, 1e-12)
+  close('f^2026(3) = f(3) = -1/2', f(3), -0.5, 1e-12)
+}
+
+/* ================================================================
+ * 13. Secant tables (canonical x^2 at 3, 1/x at 2 + fresh x^2 at 5, 1/x at 3)
+ * ================================================================ */
+sec('13. secant tables')
+{
+  const sq = (x: number): number => x * x
+  const inv = (x: number): number => 1 / x
+  close('dq x^2 at 3, h=1', dq(sq, 3, 1), 7, 1e-12)
+  close('dq x^2 at 3, h=0.1', dq(sq, 3, 0.1), 6.1, 1e-9)
+  close('dq x^2 at 3, h=0.01 (quiz Q4)', dq(sq, 3, 0.01), 6.01, 1e-9)
+  close('delta x^2 at 3, h=0.01', sq(3.01) - sq(3), 0.0601, 1e-9)
+  close('dq x^2 at 5, h=1', dq(sq, 5, 1), 11, 1e-12)
+  close('dq x^2 at 5, h=0.1', dq(sq, 5, 0.1), 10.1, 1e-9)
+  close('dq x^2 at 5, h=0.01', dq(sq, 5, 0.01), 10.01, 1e-9)
+  close('dq x^2 at 5, h=0.001', dq(sq, 5, 0.001), 10.001, 1e-9)
+  close('dq 1/x at 2, h=0.1 (canonical)', dq(inv, 2, 0.1), -0.2380952)
+  close('dq 1/x at 2, h=0.01', dq(inv, 2, 0.01), -0.2487562)
+  close('limit of 1/x secant at 2 = -1/4', -0.25, -0.25, 0)
+  close('dq 1/x at 3, h=1', dq(inv, 3, 1), -1 / 12, 1e-12)
+  close('dq 1/x at 3, h=0.1', dq(inv, 3, 0.1), -0.1075269)
+  close('dq 1/x at 3, h=0.01', dq(inv, 3, 0.01), -0.110742)
+  close('dq 1/x at 3, h=0.001', dq(inv, 3, 0.001), -0.1110741)
+  close('limit of 1/x secant at 3 = -1/9', -1 / 9, -0.1111111)
+}
+
+/* ================================================================
+ * 14. The (2^h-1)/h and (e^h-1)/h ladders (canonical)
+ * ================================================================ */
+sec('14. canonical doorstep ladders')
+{
+  const L = [
+    [0.1, 0.7177346],
+    [0.01, 0.695555],
+    [0.001, 0.6933875],
+    [0.0001, 0.6931712],
+  ] as const
+  for (const [h, w] of L) close(`(2^h-1)/h at h=${h}`, (2 ** h - 1) / h, w)
+  for (const [h, w] of [
+    [0.1, 1.0517092],
+    [0.01, 1.0050167],
+  ] as const)
+    close(`(e^h-1)/h at h=${h}`, (Math.E ** h - 1) / h, w)
+  for (const [h, w] of [
+    [0.1, 1.4354693],
+    [0.01, 1.39111],
+    [0.001, 1.3867749],
+  ] as const)
+    close(`dq 2^x at 1, h=${h}`, dq((x) => 2 ** x, 1, h), w)
+}
+
+/* ================================================================
+ * 15. The review's doorstep chain: (3^h-1)/h -> ln 3
+ * ================================================================ */
+sec('15. the (3^h-1)/h chain closing on ln 3')
+{
+  const L = [
+    [0.1, 1.1612317],
+    [0.01, 1.1046692],
+    [0.001, 1.099216],
+    [0.0001, 1.0986726],
+  ] as const
+  const ln3 = Math.log(3)
+  for (const [h, w] of L) close(`(3^h-1)/h at h=${h}`, (3 ** h - 1) / h, w)
+  chk('ladder monotone decreasing', L.every((v, i) => i === 0 || L[i - 1][1] > v[1]), true)
+  chk('every rung above ln 3', L.every((v) => v[1] > ln3), true)
+  close('dq 3^x at 0, h=0.001 (same quotient)', dq((x) => 3 ** x, 0, 0.001), 1.099216)
+  close('dq 3^x at 1, h=0.001', dq((x) => 3 ** x, 1, 0.001), 3.297648)
+  close('table target 3*ln 3', 3 * ln3, 3.2958369)
+  const lg2 = (x: number): number => Math.log(x) / Math.log(2)
+  close('dq log_2 x at 2, h=0.001', dq(lg2, 2, 0.001), 0.7211672, 1e-6)
+  close('table target 1/(2 ln 2)', 1 / (2 * Math.log(2)), 0.7213475, 1e-6)
+}
+
+/* ================================================================
+ * 16. The eps-N searches on the review's own tails
+ * ================================================================ */
+sec('16. eps-N searches')
+{
+  let S = 0
+  let N14 = -1
+  for (let k = 1; k <= 40; k++) {
+    S += k / 2 ** k
+    if (2 - S < 0.001) {
+      N14 = k
+      break
+    }
+  }
+  chk('first n with 2 - S_n < 0.001 for k/2^k', N14, 14)
+  const S14 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].reduce((a, k) => a + k / 2 ** k, 0)
+  close('S14 of k/2^k', S14, 1.9990234, 1e-7)
+  const S13 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].reduce((a, k) => a + k / 2 ** k, 0)
+  chk('S13 misses the 0.001 bar', 2 - S13 >= 0.001, true)
+  close('2 - S13', 2 - S13, 0.0018311, 1e-6)
+
+  let T = 0
+  let N8 = -1
+  for (let k = 1; k <= 30; k++) {
+    T += 1 / 3 ** k
+    if (0.5 - T < 0.0001) {
+      N8 = k
+      break
+    }
+  }
+  chk('first n with 1/2 - S_n < 0.0001 for 1/3^k', N8, 8)
+  const T8 = [1, 2, 3, 4, 5, 6, 7, 8].reduce((a, k) => a + 1 / 3 ** k, 0)
+  close('S8 of 1/3^k', T8, 0.4999238, 1e-7)
+  const T7 = [1, 2, 3, 4, 5, 6, 7].reduce((a, k) => a + 1 / 3 ** k, 0)
+  chk('S7 misses the 0.0001 bar', 0.5 - T7 >= 0.0001, true)
+  close('1/2 - S7', 0.5 - T7, 0.0002282, 1e-6)
+}
+
+/* ================================================================
+ * 17. Symmetric reads (canonical x^2-7x+11 + fresh x^2-9x+19)
+ * ================================================================ */
+sec('17. symmetric reads')
+{
+  const a = (7 + Math.sqrt(5)) / 2
+  const b = (7 - Math.sqrt(5)) / 2
+  bigClose('canonical a^3+b^3 (x^2-7x+11)', a ** 3 + b ** 3, 112, 1e-6)
+  bigClose('canonical a^4+b^4', a ** 4 + b ** 4, 487, 1e-6)
+  bigClose('canonical (a-b)^2 = 5', (a - b) ** 2, 5, 1e-9)
+  bigClose('canonical 1/a+1/b = 7/11', 1 / a + 1 / b, 7 / 11, 1e-9)
+  const u = (9 + Math.sqrt(5)) / 2
+  const v = (9 - Math.sqrt(5)) / 2
+  close('u root of x^2-9x+19', u * u - 9 * u + 19, 0, 1e-9)
+  close('v root of x^2-9x+19', v * v - 9 * v + 19, 0, 1e-9)
+  close('u numeric', u, 5.618034)
+  close('v numeric', v, 3.381966)
+  bigClose('u^2+v^2 = 43', u * u + v * v, 43, 1e-9)
+  bigClose('u^3+v^3 = 216', u ** 3 + v ** 3, 216, 1e-6)
+  bigClose('1/u+1/v = 9/19', 1 / u + 1 / v, 9 / 19, 1e-9)
+  close('9/19 decimal', 9 / 19, 0.4736842)
+  bigClose('(u-v)^2 = 5', (u - v) ** 2, 5, 1e-9)
+}
+
+/* ================================================================
+ * 18. The review's OWN nested substitutions
+ * ================================================================ */
+sec('18. fresh nested substitutions (L2 and L5 witnesses)')
+{
+  // Q4: (x^2-3x+3)^2 - 5(x^2-3x+3) + 6 = 0, t^2-5t+6 -> t in {2,3}
+  const r1 = (3 + Math.sqrt(5)) / 2
+  const r2 = (3 - Math.sqrt(5)) / 2
+  const roots4 = [r1, r2, 0, 3]
+  close('Q4 root (3+sqrt5)/2', r1, 2.618034)
+  close('Q4 root (3-sqrt5)/2', r2, 0.381966)
+  const orig4 = (x: number): number => {
+    const t = x * x - 3 * x + 3
+    return t * t - 5 * t + 6
+  }
+  for (const [i, x] of roots4.entries()) close(`Q4 back-check root ${i + 1}`, orig4(x), 0, 1e-9)
+  bigClose('Q4 root sum = 6', roots4[0] + roots4[1] + roots4[2] + roots4[3], 6, 1e-9)
+  bigClose('Q4 root product = 0', roots4[0] * roots4[1] * roots4[2] * roots4[3], 0, 1e-9)
+  // Q15: (x^2-4x+1)^2 - 6(x^2-4x+1) + 8 = 0, t^2-6t+8 -> t in {2,4}
+  const q15 = [2 + Math.sqrt(5), 2 - Math.sqrt(5), 2 + Math.sqrt(7), 2 - Math.sqrt(7)]
+  close('Q15 root 2+sqrt5', q15[0], 4.236068)
+  close('Q15 root 2-sqrt5', q15[1], -0.236068)
+  close('Q15 root 2+sqrt7', q15[2], 4.6457513)
+  close('Q15 root 2-sqrt7', q15[3], -0.6457513)
+  const orig15 = (x: number): number => {
+    const t = x * x - 4 * x + 1
+    return t * t - 6 * t + 8
+  }
+  for (const [i, x] of q15.entries()) close(`Q15 back-check root ${i + 1}`, orig15(x), 0, 1e-9)
+  bigClose('Q15 root sum = 8', q15[0] + q15[1] + q15[2] + q15[3], 8, 1e-9)
+  bigClose('Q15 root product = 3', q15[0] * q15[1] * q15[2] * q15[3], 3, 1e-9)
+  chk('Q15 disc of x^2-4x-1', 16 + 4, 20)
+  chk('Q15 disc of x^2-4x-3', 16 + 12, 28)
+}
+
+/* ================================================================
+ * 19. The seed-6 ladder + the Vieta deep read (L6 witness)
+ * ================================================================ */
+sec('19. seed-6 ladder and the a^n + b^n bridge')
+{
+  const s: number[] = [2, 6]
+  for (let k = 2; k <= 10; k++) s.push(6 * s[k - 1] - s[k - 2])
+  chk('s2 seed6', s[2], 34)
+  chk('s3 seed6', s[3], 198)
+  chk('s4 seed6', s[4], 1154)
+  chk('s5 seed6', s[5], 6726)
+  chk('s6 seed6', s[6], 39202)
+  chk('s7 seed6', s[7], 228486)
+  chk('s8 seed6', s[8], 1331714)
+  chk('s9 seed6', s[9], 7761798)
+  chk('s10 seed6', s[10], 45239074)
+  const A = 3 + 2 * Math.sqrt(2)
+  const B = 3 - 2 * Math.sqrt(2)
+  close('a = 3+2sqrt2', A, 5.8284271)
+  close('b = 3-2sqrt2', B, 0.1715729)
+  bigClose('a^2+b^2 = s2 = 34', A ** 2 + B ** 2, 34, 1e-6)
+  bigClose('a^3+b^3 = s3 = 198', A ** 3 + B ** 3, 198, 1e-6)
+  bigClose('a^4+b^4 = s4 = 1154', A ** 4 + B ** 4, 1154, 1e-6)
+  bigClose('a^5+b^5 = s5 = 6726', A ** 5 + B ** 5, 6726, 1e-6)
+  chk('digits of s8 = 7', String(s[8]).length, 7)
+  close('log10 s8 read', Math.log10(s[8]), 6.124411, 1e-6)
+  chk('floor+1 on log10 s8', Math.floor(Math.log10(s[8])) + 1, 7)
+}
+
+/* ================================================================
+ * 20. Extra census checks + the canonical order-4 orbit print
+ * ================================================================ */
+sec('20. census prints for prose')
+{
+  const f = (x: number): number => (x - 1) / (x + 1)
+  let x = 2
+  const orb: string[] = []
+  for (let i = 0; i < 4; i++) {
+    x = f(x)
+    orb.push(x.toFixed(7))
+  }
+  console.log(`   orbit of 2 under (x-1)/(x+1): 2 -> ${orb.join(' -> ')} -> 2`)
+  close('orbit step 1 = 1/3', f(2), 0.3333333, 1e-7)
+  chk('shifted ladder witness f(5) = 19 (4x-1)', 4 * 5 - 1, 19)
+  chk('quiz Q2 additive chain 7*3', 7 * 3, 21)
+  chk('quiz Q5 digits of 2^100 (recount)', (2n ** 100n).toString().length, 31)
+}
+
+console.log('')
+console.log(`ENGINE ${pass}/${total} checks green`)
+if (fails.length > 0) {
+  console.log('FAILS:')
+  for (const fl of fails) console.log('  FAIL:', fl)
+  process.exit(1)
+}
+console.log('ENGINE SECTION: ALL GREEN')
+
+/* ================================================================
+ * PIN SECTION — appended after part-aa10R.ts exists (spec §8)
+ * (placeholder — filled in phase 2)
+ * ================================================================ */

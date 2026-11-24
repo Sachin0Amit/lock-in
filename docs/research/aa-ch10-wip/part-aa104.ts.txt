@@ -1,0 +1,475 @@
+/**
+ * part-aa104.ts — Advanced Algebra lesson 10.4 "The Doorstep: Limits and the
+ * Changing Output" (run-122 whole-chapter swarm, agent aa104).
+ *
+ * Every number printed in this prose was recomputed by brute force in the
+ * engine section of temporary-references/v-aa104.ts (122 green checks) BEFORE
+ * this file was written. Where the spec and the engine disagreed, the engine
+ * won and this prose carries the engine's value (S10 = 5.8618940; the two
+ * distinct epsilon reads on the 0.9-tail: term read n = 22 / 66, tail read
+ * n = 43 / 87; the sqrt quotient presented as a HALF-wall via the conjugate).
+ *
+ * HONESTY LAW: the derivative is NAMED here as the limit of the secant slopes
+ * and PRICED numerically; nothing that belongs to calculus's machinery is
+ * proved. Every such claim is a promise with the door named.
+ */
+
+import type { Lesson } from '../src/data/library/types'
+
+/* ------------------------------------------------------------------ */
+/* Figure helpers — prefix dr104. SVG computed from named constants;   */
+/* strokes ≥ 1.2px; role="img" + aria-label; labels match the prose.   */
+/* ------------------------------------------------------------------ */
+
+const dr104SecantLadder = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" role="img" aria-label="Secant ladder on y = x squared pivoting at P(1.5, 2.25): secant slopes 4, 3.5 and 3.25 close in on the tangent slope 3">
+  <rect x="0" y="0" width="600" height="500" fill="#ffffff"/>
+  <line x1="50" y1="480" x2="580" y2="480" stroke="#166534" stroke-width="1.4"/>
+  <line x1="60" y1="490" x2="60" y2="25" stroke="#166534" stroke-width="1.4"/>
+  <line x1="187.5" y1="480" x2="187.5" y2="486" stroke="#166534" stroke-width="1.2"/>
+  <line x1="315" y1="480" x2="315" y2="486" stroke="#166534" stroke-width="1.2"/>
+  <line x1="442.5" y1="480" x2="442.5" y2="486" stroke="#166534" stroke-width="1.2"/>
+  <line x1="54" y1="408" x2="60" y2="408" stroke="#166534" stroke-width="1.2"/>
+  <line x1="54" y1="336" x2="60" y2="336" stroke="#166534" stroke-width="1.2"/>
+  <line x1="54" y1="264" x2="60" y2="264" stroke="#166534" stroke-width="1.2"/>
+  <line x1="54" y1="192" x2="60" y2="192" stroke="#166534" stroke-width="1.2"/>
+  <line x1="54" y1="120" x2="60" y2="120" stroke="#166534" stroke-width="1.2"/>
+  <line x1="54" y1="48" x2="60" y2="48" stroke="#166534" stroke-width="1.2"/>
+  <text x="178" y="497" font-size="12" fill="#166534">1</text>
+  <text x="306" y="497" font-size="12" fill="#166534">2</text>
+  <text x="433" y="497" font-size="12" fill="#166534">3</text>
+  <text x="561" y="497" font-size="12" fill="#166534">4</text>
+  <text x="40" y="412" font-size="12" fill="#166534">2</text>
+  <text x="40" y="340" font-size="12" fill="#166534">4</text>
+  <text x="40" y="268" font-size="12" fill="#166534">6</text>
+  <text x="40" y="196" font-size="12" fill="#166534">8</text>
+  <text x="35" y="124" font-size="12" fill="#166534">10</text>
+  <text x="35" y="52" font-size="12" fill="#166534">12</text>
+  <text x="46" y="496" font-size="12" fill="#166534">0</text>
+  <path d="M 123.75 471 L 187.5 444 L 251.25 399 L 315 336 L 378.75 255 L 442.5 156 L 506.25 39" fill="none" stroke="#16a34a" stroke-width="2.4"/>
+  <text x="430" y="55" font-size="13" fill="#16a34a">y = x²</text>
+  <line x1="251.25" y1="399" x2="410.63" y2="219" stroke="#d97706" stroke-width="1.8"/>
+  <text x="392" y="238" font-size="11.5" fill="#d97706">h = 1 · slope 4</text>
+  <line x1="251.25" y1="399" x2="346.88" y2="304.5" stroke="#ea580c" stroke-width="1.8"/>
+  <text x="347" y="322" font-size="11.5" fill="#ea580c">h = 0.5 · slope 3.5</text>
+  <line x1="251.25" y1="399" x2="308.63" y2="346.35" stroke="#dc2626" stroke-width="1.6"/>
+  <text x="311" y="368" font-size="11.5" fill="#dc2626">h = 0.25 · slope 3.25</text>
+  <line x1="155.63" y1="480" x2="391.5" y2="280.2" stroke="#0d9488" stroke-width="1.8" stroke-dasharray="7 4"/>
+  <text x="163" y="330" font-size="11.5" fill="#0d9488">tangent · slope 3 = 2·1.5</text>
+  <circle cx="251.25" cy="399" r="4.5" fill="#0f766e"/>
+  <text x="222" y="424" font-size="12" fill="#0f766e">P(1.5, 2.25)</text>
+  <text x="472" y="300" font-size="12" fill="#65a30d">slopes:</text>
+  <text x="472" y="318" font-size="12" fill="#65a30d">4 → 3.5 → 3.25 → 3</text>
+</svg>`
+
+const dr104LadderBars = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-label="Bar ladder of (2 to the h minus 1) over h for h = 0.1, 0.01, 0.001, 0.0001 closing in on ln 2 = 0.6931472">
+  <rect x="0" y="0" width="600" height="360" fill="#ffffff"/>
+  <text x="300" y="26" font-size="14" text-anchor="middle" fill="#166534">(2^h − 1)/h closes on ln 2 = 0.6931472</text>
+  <line x1="50" y1="300" x2="560" y2="300" stroke="#166534" stroke-width="1.4"/>
+  <line x1="60" y1="308" x2="60" y2="40" stroke="#166534" stroke-width="1.4"/>
+  <rect x="90" y="73.6" width="70" height="226.4" fill="#5eead4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.6"/>
+  <rect x="210" y="206.7" width="70" height="93.3" fill="#5eead4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.6"/>
+  <rect x="330" y="219.7" width="70" height="80.3" fill="#5eead4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.6"/>
+  <rect x="450" y="221" width="70" height="79" fill="#5eead4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.6"/>
+  <line x1="60" y1="221.1" x2="560" y2="221.1" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="66" y="212" font-size="11" fill="#dc2626">ln 2 = 0.6931472</text>
+  <text x="125" y="66" font-size="11.5" text-anchor="middle" fill="#166534">0.7177346</text>
+  <text x="245" y="199" font-size="11.5" text-anchor="middle" fill="#166534">0.6955550</text>
+  <text x="365" y="212" font-size="11.5" text-anchor="middle" fill="#166534">0.6933875</text>
+  <text x="485" y="213.5" font-size="11.5" text-anchor="middle" fill="#166534">0.6931712</text>
+  <text x="125" y="318" font-size="12" text-anchor="middle" fill="#166534">h = 0.1</text>
+  <text x="245" y="318" font-size="12" text-anchor="middle" fill="#166534">h = 0.01</text>
+  <text x="365" y="318" font-size="12" text-anchor="middle" fill="#166534">h = 0.001</text>
+  <text x="485" y="318" font-size="12" text-anchor="middle" fill="#166534">h = 0.0001</text>
+  <text x="300" y="344" font-size="12" text-anchor="middle" fill="#65a30d">each step of h shrinks the gap by a factor near 10</text>
+</svg>`
+
+const dr104JumpChart = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" role="img" aria-label="Step chart: GIF jumps 1 at each integer while signum jumps 2 at 0">
+  <rect x="0" y="0" width="600" height="300" fill="#ffffff"/>
+  <text x="175" y="34" font-size="13.5" text-anchor="middle" fill="#166534">GIF: jump 1 at each integer</text>
+  <line x1="60" y1="221.4" x2="146.25" y2="221.4" stroke="#16a34a" stroke-width="2"/>
+  <line x1="146.25" y1="173.8" x2="203.75" y2="173.8" stroke="#16a34a" stroke-width="2"/>
+  <line x1="203.75" y1="126.2" x2="261.25" y2="126.2" stroke="#16a34a" stroke-width="2"/>
+  <line x1="261.25" y1="78.6" x2="290" y2="78.6" stroke="#16a34a" stroke-width="2"/>
+  <line x1="146.25" y1="221.4" x2="146.25" y2="173.8" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="203.75" y1="173.8" x2="203.75" y2="126.2" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="261.25" y1="126.2" x2="261.25" y2="78.6" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="146.25" cy="221.4" r="3.5" fill="#ffffff" stroke="#0f766e" stroke-width="1.5"/>
+  <circle cx="146.25" cy="173.8" r="3.5" fill="#0f766e"/>
+  <circle cx="203.75" cy="173.8" r="3.5" fill="#ffffff" stroke="#0f766e" stroke-width="1.5"/>
+  <circle cx="203.75" cy="126.2" r="3.5" fill="#0f766e"/>
+  <circle cx="261.25" cy="126.2" r="3.5" fill="#ffffff" stroke="#0f766e" stroke-width="1.5"/>
+  <circle cx="261.25" cy="78.6" r="3.5" fill="#0f766e"/>
+  <text x="152" y="206" font-size="10.5" fill="#dc2626">jump 1</text>
+  <text x="209" y="158" font-size="10.5" fill="#dc2626">jump 1</text>
+  <text x="267" y="111" font-size="10.5" fill="#dc2626">jump 1</text>
+  <text x="146" y="268" font-size="11.5" text-anchor="middle" fill="#166534">1</text>
+  <text x="204" y="268" font-size="11.5" text-anchor="middle" fill="#166534">2</text>
+  <text x="261" y="268" font-size="11.5" text-anchor="middle" fill="#166534">3</text>
+  <text x="80" y="214" font-size="11" fill="#65a30d">GIF = 0</text>
+  <text x="220" y="167" font-size="11" fill="#65a30d">GIF = 1</text>
+  <text x="270" y="120" font-size="11" fill="#65a30d">GIF = 2</text>
+  <text x="445" y="34" font-size="13.5" text-anchor="middle" fill="#166534">signum: jump 2 at 0</text>
+  <line x1="330" y1="150" x2="560" y2="150" stroke="#fcd34d" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <line x1="330" y1="221.4" x2="443" y2="221.4" stroke="#16a34a" stroke-width="2"/>
+  <line x1="447" y1="78.6" x2="560" y2="78.6" stroke="#16a34a" stroke-width="2"/>
+  <line x1="445" y1="221.4" x2="445" y2="78.6" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <circle cx="445" cy="221.4" r="3.5" fill="#ffffff" stroke="#0f766e" stroke-width="1.5"/>
+  <circle cx="445" cy="78.6" r="3.5" fill="#ffffff" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="451" y="145" font-size="10.5" fill="#dc2626">jump 2</text>
+  <text x="350" y="214" font-size="11" fill="#65a30d">signum = −1</text>
+  <text x="480" y="71" font-size="11" fill="#65a30d">signum = +1</text>
+  <text x="445" y="164" font-size="11" text-anchor="middle" fill="#166534">signum(0) = 0</text>
+  <text x="445" y="268" font-size="11.5" text-anchor="middle" fill="#166534">0</text>
+</svg>`
+
+const dr104TailBars = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" role="img" aria-label="Bar chart of partial sums S_n for n = 10, 20, 30, 40, 43, 50 climbing into the band 9 plus or minus 0.1, first inside at n = 43">
+  <rect x="0" y="0" width="600" height="340" fill="#ffffff"/>
+  <text x="300" y="26" font-size="14" text-anchor="middle" fill="#166534">Sₙ = 9(1 − 0.9ⁿ) enters the band 9 ± 0.1 first at n = 43</text>
+  <line x1="50" y1="300" x2="560" y2="300" stroke="#166534" stroke-width="1.4"/>
+  <line x1="60" y1="308" x2="60" y2="45" stroke="#166534" stroke-width="1.4"/>
+  <rect x="82" y="248.7" width="46" height="51.3" fill="#5eead4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.5"/>
+  <rect x="172" y="127" width="46" height="173" fill="#5eead4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.5"/>
+  <rect x="262" y="84.6" width="46" height="215.4" fill="#5eead4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.5"/>
+  <rect x="352" y="69.9" width="46" height="230.1" fill="#5eead4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.5"/>
+  <rect x="419" y="67.7" width="46" height="232.3" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <rect x="486" y="64.7" width="46" height="235.3" fill="#5eead4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.5"/>
+  <line x1="60" y1="67.85" x2="560" y2="67.85" stroke="#d97706" stroke-width="1.3" stroke-dasharray="5 4"/>
+  <line x1="60" y1="55.95" x2="560" y2="55.95" stroke="#d97706" stroke-width="1.3" stroke-dasharray="5 4"/>
+  <line x1="60" y1="61.9" x2="560" y2="61.9" stroke="#0f766e" stroke-width="1.6"/>
+  <text x="8" y="58" font-size="9.5" fill="#d97706">9.1</text>
+  <text x="8" y="64" font-size="9.5" fill="#0f766e">9</text>
+  <text x="8" y="70" font-size="9.5" fill="#d97706">8.9</text>
+  <text x="105" y="241" font-size="10.5" text-anchor="middle" fill="#166534">5.8618940</text>
+  <text x="195" y="119" font-size="10.5" text-anchor="middle" fill="#166534">7.9058101</text>
+  <text x="285" y="77" font-size="10.5" text-anchor="middle" fill="#166534">8.6184796</text>
+  <text x="375" y="62" font-size="10.5" text-anchor="middle" fill="#166534">8.8669721</text>
+  <text x="442" y="60" font-size="10.5" text-anchor="middle" fill="#ea580c">8.9030226</text>
+  <text x="509" y="57" font-size="10.5" text-anchor="middle" fill="#166534">8.9536160</text>
+  <text x="105" y="316" font-size="11.5" text-anchor="middle" fill="#166534">n = 10</text>
+  <text x="195" y="316" font-size="11.5" text-anchor="middle" fill="#166534">n = 20</text>
+  <text x="285" y="316" font-size="11.5" text-anchor="middle" fill="#166534">n = 30</text>
+  <text x="375" y="316" font-size="11.5" text-anchor="middle" fill="#166534">n = 40</text>
+  <text x="442" y="316" font-size="11.5" text-anchor="middle" fill="#ea580c">n = 43</text>
+  <text x="509" y="316" font-size="11.5" text-anchor="middle" fill="#166534">n = 50</text>
+  <text x="300" y="332" font-size="11.5" text-anchor="middle" fill="#65a30d">the tail 9·0.9ⁿ shrinks by the factor 0.9 at every step</text>
+</svg>`
+
+/* Solution-figure helpers (compact, used inside worked solutions). */
+
+const dr104SqrtLadderSol = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 300" role="img" aria-label="Bar ladder of (square root of 4 plus h minus 2) over h closing in on 0.25">
+  <rect x="0" y="0" width="460" height="300" fill="#ffffff"/>
+  <text x="230" y="26" font-size="13.5" text-anchor="middle" fill="#166534">the √x ladder closes on 1/4 = 0.25</text>
+  <line x1="50" y1="260" x2="430" y2="260" stroke="#166534" stroke-width="1.4"/>
+  <rect x="80" y="221.9" width="64" height="38.1" fill="#5eead4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.4"/>
+  <rect x="200" y="106.3" width="64" height="153.7" fill="#5eead4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.4"/>
+  <rect x="320" y="94.6" width="64" height="165.4" fill="#5eead4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.4"/>
+  <line x1="60" y1="93.3" x2="430" y2="93.3" stroke="#dc2626" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <text x="352" y="82" font-size="11" fill="#dc2626">1/4 = 0.25</text>
+  <text x="112" y="214" font-size="11" text-anchor="middle" fill="#166534">0.2484567</text>
+  <text x="232" y="98" font-size="11" text-anchor="middle" fill="#166534">0.2498439</text>
+  <text x="352" y="87" font-size="11" text-anchor="middle" fill="#166534">0.2499844</text>
+  <text x="112" y="278" font-size="11.5" text-anchor="middle" fill="#166534">h = 0.1</text>
+  <text x="232" y="278" font-size="11.5" text-anchor="middle" fill="#166534">h = 0.01</text>
+  <text x="352" y="278" font-size="11.5" text-anchor="middle" fill="#166534">h = 0.001</text>
+</svg>`
+
+const dr104JumpSol = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 280" role="img" aria-label="GIF step chart showing jumps of 1 at x = 1 and at x = 2">
+  <rect x="0" y="0" width="460" height="280" fill="#ffffff"/>
+  <text x="230" y="26" font-size="13.5" text-anchor="middle" fill="#166534">GIF jumps 1 at 1 and at 2</text>
+  <line x1="50" y1="240" x2="430" y2="240" stroke="#fcd34d" stroke-width="1.3" stroke-dasharray="5 4"/>
+  <line x1="60" y1="205.5" x2="150" y2="205.5" stroke="#16a34a" stroke-width="2"/>
+  <line x1="150" y1="136.5" x2="330" y2="136.5" stroke="#16a34a" stroke-width="2"/>
+  <line x1="330" y1="67.5" x2="420" y2="67.5" stroke="#16a34a" stroke-width="2"/>
+  <line x1="150" y1="205.5" x2="150" y2="136.5" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="330" y1="136.5" x2="330" y2="67.5" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="150" cy="205.5" r="3.5" fill="#ffffff" stroke="#0f766e" stroke-width="1.5"/>
+  <circle cx="150" cy="136.5" r="3.5" fill="#0f766e"/>
+  <circle cx="330" cy="136.5" r="3.5" fill="#ffffff" stroke="#0f766e" stroke-width="1.5"/>
+  <circle cx="330" cy="67.5" r="3.5" fill="#0f766e"/>
+  <text x="156" y="182" font-size="11" fill="#dc2626">jump 1</text>
+  <text x="336" y="112" font-size="11" fill="#dc2626">jump 1</text>
+  <text x="150" y="258" font-size="11.5" text-anchor="middle" fill="#166534">1</text>
+  <text x="330" y="258" font-size="11.5" text-anchor="middle" fill="#166534">2</text>
+</svg>`
+
+const dr104ExpLadderSol = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 290" role="img" aria-label="Bar ladder of secant slopes of 2 to the x at x = 3 descending toward 8 ln 2 = 5.5451774">
+  <rect x="0" y="0" width="480" height="290" fill="#ffffff"/>
+  <text x="240" y="26" font-size="13.5" text-anchor="middle" fill="#166534">the 2^x ladder at x = 3 descends on 8·ln 2</text>
+  <line x1="50" y1="240" x2="460" y2="240" stroke="#166534" stroke-width="1.4"/>
+  <rect x="70" y="57.3" width="60" height="182.7" fill="#5eead4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.4"/>
+  <rect x="180" y="217.9" width="60" height="22.1" fill="#5eead4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.4"/>
+  <rect x="290" y="233.6" width="60" height="6.4" fill="#5eead4" fill-opacity="0.55" stroke="#0d9488" stroke-width="1.4"/>
+  <rect x="400" y="235.1" width="60" height="4.9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+  <line x1="55" y1="235.3" x2="455" y2="235.3" stroke="#dc2626" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <text x="55" y="230" font-size="10.5" fill="#dc2626">8 ln 2 = 5.5451774</text>
+  <text x="100" y="50" font-size="10.5" text-anchor="middle" fill="#166534">5.7418770</text>
+  <text x="210" y="210" font-size="10.5" text-anchor="middle" fill="#166534">5.5644400</text>
+  <text x="320" y="226" font-size="10.5" text-anchor="middle" fill="#166534">5.5470997</text>
+  <text x="430" y="252" font-size="10.5" text-anchor="middle" fill="#ea580c">5.5453696</text>
+  <text x="100" y="258" font-size="11" text-anchor="middle" fill="#166534">h = 0.1</text>
+  <text x="210" y="258" font-size="11" text-anchor="middle" fill="#166534">h = 0.01</text>
+  <text x="320" y="258" font-size="11" text-anchor="middle" fill="#166534">h = 0.001</text>
+  <text x="430" y="268" font-size="11" text-anchor="middle" fill="#ea580c">h = 0.0001</text>
+</svg>`
+
+/* ------------------------------------------------------------------ */
+/* The lesson                                                          */
+/* ------------------------------------------------------------------ */
+
+export const lesson104: Lesson = {
+  id: 'aa-the-doorstep-limits-and-the-changing-output',
+  number: '10.4',
+  title: 'The Doorstep: Limits and the Changing Output',
+  concepts: [
+    'the limit of the secant slopes',
+    'the difference quotient and the secant ladder',
+    'the ε–N promise for the infinite tail',
+    'the derivative as a named machine',
+    'the natural base e and the slope-1 ladder',
+    'continuity named as a promise and the jump witnesses',
+    'the four doors of the handoff',
+  ],
+  objectives: [
+    'state the ε–N form of the convergence promise and price it on the 0.9-tail',
+    'compute secant slopes of x², 1/x, 2^x and log₂ x at pinned points for a chain of h values',
+    'carry the quotient algebra of x² and 1/x to its exact exit and say precisely where it fails for 2^x',
+    'name the derivative as the limit of secant slopes and read the four-family derivative table with its honest status marks',
+    'separate the line rate (one number) from the curve rate (a new function) across the AL 10.2 seam',
+    'witness continuity and its failure through the signum and GIF jumps',
+  ],
+  prerequisites: [
+    'aa-geometric-progressions-and-the-infinite-tail',
+    'aa-exponential-and-logarithmic-series',
+    'aa-function-zoo-modulus-signum-gif-elementary-catalog',
+    'al-slope-the-steepness-theorem',
+  ],
+  sources: ['cengage-jee-style', 'jee-main-2026-syllabus', 'openstax-college-algebra', 'hall-knight-higher-algebra'],
+  blocks: [
+    /* ---------- opening: three promises, one machine ---------- */
+    { kind: 'para', text: 'This book has made three great promises and kept every one of them the same way. Lesson 5.2 promised a SUM for the infinite tail $0.9 + 0.9^2 + 0.9^3 + \\dots$ and delivered it by banding the partial sums. Lesson 9.1 promised a place on the number line for $\\sqrt{2}$ and delivered it by squeezing the rationals from both sides. Lesson 9.5 promised a value for $e$ and delivered it by pricing $2.7182818$ against a closing band. Three different topics, one identical move: build witnesses, watch the gap shrink, and promise that it closes.' },
+    { kind: 'para', text: 'The move worked every time, but it was always a PROMISE — we priced the band and named the landing value, and we deferred the machine that makes the closure certain. This, the last new idea of the book, is where the deferral ends. The machine is called THE LIMIT, and on this doorstep we do two things with it: we name it honestly on a sum we already own, and then we cash it on the question the book has been circling since AL 10.2 — what is the rate of change of a CURVE? At the far side of the lesson stand four doors. Walking through them is the next book\'s job; building the key was ours.' },
+    { kind: 'callout', tone: 'insight', title: 'What "deferred" meant', text: 'A deferral in this book was never a refusal. Each time we priced a value numerically (the sum 9, the rung 1.4142135, the base 2.7182818) we were doing honest mathematics with an unnamed tool. Naming the tool is the last lesson\'s work — and it explains why the pricing tables of 5.2, 9.1 and 9.5 all had the same shape.' },
+
+    /* ---------- 1. the infinite tail met again ---------- */
+    { kind: 'heading', text: 'The Infinite Tail, Met Again' },
+    { kind: 'para', text: 'Take the old witness apart once more, now with the doorstep vocabulary. The partial sums of $\\sum 0.9^k$ (the rungs $k = 1, 2, 3, \\dots$) are $S_n = 9(1 - 0.9^n)$ — the same closed form Lesson 5.2 derived, and the engine re-sums it rung by rung to certify every value below. The tail — what is still owed after $n$ terms — is $9 - S_n = 9 \\cdot 0.9^n$.' },
+    { kind: 'table', caption: 'Partial sums of Σ0.9^k and the remaining tail, recomputed rung by rung', head: ['n', 'Sₙ = 9(1 − 0.9ⁿ)', 'tail 9 − Sₙ'], rows: [
+      ['10', '5.8618940', '3.1381060'],
+      ['20', '7.9058101', '1.0941899'],
+      ['30', '8.6184796', '0.3815204'],
+      ['40', '8.8669721', '0.1330279'],
+      ['43', '8.9030226', '0.0969774'],
+      ['50', '8.9536160', '0.0463840'],
+    ] },
+    { kind: 'para', text: 'Read the table twice. First read: the partials climb — $S_{10} = 5.8618940$, then $7.9058101$, $8.6184796$, $8.8669721$, $8.9536160$ — and they climb TOWARD something, without ever passing it. Second read: the tail $9 \\cdot 0.9^n$ is itself a geometric sequence with ratio $0.9$, so each step of $n$ multiplies the remaining debt by $0.9$: the tail after 30 terms is $0.3815204$, after 40 terms $0.1330279$, after 50 terms $0.0463840$. The gap does not merely shrink; it shrinks by a FIXED FACTOR, and that is why the closure promise can be priced.' },
+    { kind: 'figure', caption: 'Figure 1 — the partial sums climb into the band 9 ± 0.1; the orange bar (n = 43) is the first witness inside the band', svg: dr104TailBars },
+    { kind: 'callout', tone: 'definition', title: 'The promise, in its definition-shaped form (ε–N)', text: 'To say "$S_n$ converges to 9" means: FOR EVERY tolerance $\\varepsilon > 0$ THERE IS a rank $N$ such that $|S_n - 9| < \\varepsilon$ for every $n \\ge N$. The tolerance is chosen first — any positive number, however small — and the promise is that some rank $N$ answers it. On this tail the answer is explicit: since $|S_n - 9| = 9 \\cdot 0.9^n$, the rank for $\\varepsilon = 0.1$ is $N = 43$ (the engine checks $9 \\cdot 0.9^{42} = 0.1077526 \\ge 0.1$ and $9 \\cdot 0.9^{43} = 0.0969774 < 0.1$), and the rank for $\\varepsilon = 0.001$ is $N = 87$.' },
+    { kind: 'para', text: 'Two honest warnings about the pricing above. First, there is a second, smaller read of the same tail: asking for the single RUNG $0.9^n$ to fall below the tolerance (rather than the whole tail $9 \\cdot 0.9^n$). That term read answers $n = 22$ for $\\varepsilon = 0.1$, because $0.9^{21} = 0.1094190$ is still above $0.1$ while $0.9^{22} = 0.0984771$ is below; and $n = 66$ for $\\varepsilon = 0.001$, because $0.9^{65} = 0.0010611$ sits above while $0.9^{66} = 0.0009550$ sits below. The factor of 9 in the tail is exactly what pushes the tail read from 22 up to 43 and from 66 up to 87. Both reads are correct for their own questions; keep them apart. Second, and more important: what we did NOT do is prove that every tolerance gets answered. We priced the two tolerances we named, and the pattern ($9 \\cdot 0.9^n$ below $\\varepsilon$) makes the general answer visible — but the general machinery that turns a visible pattern into a theorem is the next book\'s. Here the promise is stated, witnessed and priced, never proved.' },
+
+    /* ---------- 2. the changing output, measured discretely ---------- */
+    { kind: 'heading', text: 'The Changing Output, Measured Discretely' },
+    { kind: 'para', text: 'AL 10.2 priced the rate of change for one class of objects: LINES. There the steepness theorem told us the whole story — a line\'s steepness is one number $m = (y_2 - y_1)/(x_2 - x_1)$, computed from any two points, the same at every place on the line. A curve refuses this. The parabola $y = x^2$ is gentle near $x = 0$ and steep near $x = 10$; no single number can be its "steepness". The honest discrete read is to measure the rate over an INTERVAL of width $h$ and let $h$ shrink.' },
+    { kind: 'para', text: 'For $f$ and a point $x$, choose a step $h$ and measure how much the output moves per unit of input:' },
+    { kind: 'equation', latex: '\\frac{f(x+h) - f(x)}{h} \\tag{1}', note: 'the secant slope, also called the difference quotient — a rise over a run of width h' },
+    { kind: 'para', text: 'This number is the slope of the SECANT LINE: the straight line joining $(x, f(x))$ to $(x+h, f(x+h))$ on the curve. For a line, Expression (1) returns the same $m$ for every pair of points. For a curve it depends on BOTH $x$ (where we stand) and $h$ (how far we lean). The programme of this lesson is to hold $x$ fixed and push $h$ down through a ladder of values — $1$, $0.1$, $0.01$, $0.001$, \\dots — and watch whether the secant slopes settle.' },
+    { kind: 'figure', caption: 'Figure 2 — the secant ladder on y = x² pivoting at P(1.5, 2.25): slopes 4, 3.5, 3.25 pivot into the tangent slope 3 as h shrinks', svg: dr104SecantLadder },
+    { kind: 'table', caption: 'The secant ladder of f(x) = x² at the fixed point x = 1.5, computed exactly', head: ['h', 'secant joins', 'slope (f(1.5+h) − f(1.5))/h'], rows: [
+      ['1', '(1.5, 2.25) to (2.5, 6.25)', '4'],
+      ['0.5', '(1.5, 2.25) to (2, 4)', '3.5'],
+      ['0.25', '(1.5, 2.25) to (1.75, 3.0625)', '3.25'],
+      ['0.1', '(1.5, 2.25) to (1.6, 2.56)', '3.1'],
+      ['0.01', '(1.5, 2.25) to (1.51, 2.2801)', '3.01'],
+    ] },
+    { kind: 'para', text: 'The slopes $4, 3.5, 3.25, 3.1, 3.01$ close in on $3$ — and Figure 2 shows the same thing geometrically, the three secants pivoting about $P$ into the dashed TANGENT LINE, the rung at which the two points of the secant have merged. The tangent at $P$ has slope $3$ and passes through $(1.5, 2.25)$, so its equation is $y = 3x - 2.25$ (check: $3 \\cdot 1.5 - 2.25 = 2.25$); the $h = 1$ secant through $P$ and $(2.5, 6.25)$ is $y = 4x - 3.75$. The tangent is named here as the $h \\to 0$ ENDPOINT of the ladder — the line the secants are settling onto — and that naming is a promise priced by the table, not a construction proved.' },
+    { kind: 'example', title: 'Illustration 1 — the ladder and its landing value at x = 1.5', steps: ['Take f(x) = x² at the fixed point x = 1.5 and let the secant join (1.5, 2.25) to (1.5 + h, (1.5 + h)²).', 'Now, h = 1 gives the slope ((2.5)² − (1.5)²)/1 = (6.25 − 2.25)/1 = 4, and h = 0.5 gives (4 − 2.25)/0.5 = 3.5.', 'So, h = 0.25 gives ((1.75)² − 2.25)/0.25 = (3.0625 − 2.25)/0.25 = 3.25, and h = 0.1 gives 3.1.', 'Hence the ladder 4, 3.5, 3.25, 3.1, 3.01 is closing on 3, and the tangent line the ladder names is y = 3x − 2.25 with slope 3 = 2 · 1.5.'] },
+
+    /* ---------- family 1: x² — algebra wins ---------- */
+    { kind: 'heading', text: 'Four Families on the Rack: Where the Algebra Exits' },
+    { kind: 'para', text: 'Fix $x = 3$ and push the ladder of $h$ under $f(x) = x^2$. Every value below is computed directly from $(3+h)^2$:' },
+    { kind: 'table', caption: 'Secant slopes of f(x) = x² at x = 3: the ladder 7, 6.1, 6.01, 6.001', head: ['h', 'f(3+h) − f(3)', 'secant slope'], rows: [
+      ['1', '3', '7'],
+      ['0.1', '0.61', '6.1'],
+      ['0.01', '0.0601', '6.01'],
+      ['0.001', '0.006001', '6.001'],
+    ] },
+    { kind: 'para', text: 'The ladder $7, 6.1, 6.01, 6.001$ is closing on $6$. But this family offers something the next three will not: the quotient itself can be SIMPLIFIED by school algebra before any push happens. The expansion $(x+h)^2 = x^2 + 2xh + h^2$ — the binomial cash of Chapters 2 and 7 — makes the numerator collapse.' },
+    { kind: 'derivation', title: 'The quotient algebra of f(x) = x²', statement: 'Simplify the difference quotient of $f(x) = x^2$ exactly, for every $x$ and every admissible $h \\ne 0$.', steps: [
+      { label: 'Expand the square', formula: '(x+h)^2 - x^2 = x^2 + 2xh + h^2 - x^2', explanation: 'The binomial expansion of Chapter 2 is an identity, valid for all x and h; the engine re-checks it numerically at (3, 0.1), (1.5, 0.25) and (2.7, 0.01) with zero error.' },
+      { label: 'Cancel', formula: '(x+h)^2 - x^2 = 2xh + h^2', explanation: 'The pure x² part cancels; what survives is the mixed term and the h² corner.' },
+      { label: 'Divide by h', formula: '\\frac{2xh + h^2}{h} = 2x + h', explanation: 'Legal because h ≠ 0 on the ladder — every rung of the quotient (1) is computed at a nonzero step, so the division is school algebra, not a limit.' },
+      { label: 'Push h → 0', formula: '2x + h \\;\\longrightarrow\\; 2x', explanation: 'The surviving h dies in the push. This is the only step that is not algebra — it is the named machine, applied for the first time.' },
+    ], result: 'For every $x$, the secant slopes of $x^2$ equal $2x + h$ exactly, and the push $h \\to 0$ names the landing value $2x$. At $x = 3$ the algebra reads $2(3) + h = 6 + h$: rung for rung it reproduces the table ($7$, $6.1$, $6.01$, $6.001$) and names the landing value $6$.' },
+    { kind: 'para', text: 'The same algebra closes the continuity band quoted later: $f(x+h) - f(x) = 2xh + h^2 = h(2x + h)$, an EXACT identity, so at $x = 3$ with $h = 0.01$ the output moves by $0.01 \\cdot 6.01 = 0.0601$ — no inequality, no estimate, an equality the engine certifies to twelve decimals.' },
+
+    /* ---------- family 2: 1/x — algebra wins again ---------- */
+    { kind: 'heading', text: 'The Reciprocal: the Common-Denominator Exit' },
+    { kind: 'para', text: 'Now rack up $f(x) = 1/x$ at the fixed point $x = 2$ (the family is defined only off $0$, and every ladder below stands on positive ground). The direct quotients are ugly decimals, but they are honest:' },
+    { kind: 'table', caption: 'Secant slopes of f(x) = 1/x at x = 2: the ladder closes on −0.25 from above', head: ['h', 'secant slope (f(2+h) − f(2))/h'], rows: [
+      ['0.1', '−0.2380952'],
+      ['0.01', '−0.2487562'],
+      ['0.001', '−0.2498751'],
+    ] },
+    { kind: 'para', text: 'The slopes $-0.2380952, -0.2487562, -0.2498751$ close on $-0.25$: the reciprocal FALLS as $x$ grows, so its rate is negative, and the shrinkage slows as $x$ grows. Once again the algebra finds an exit — not a binomial this time, but the common-denominator move of Chapter 3.' },
+    { kind: 'derivation', title: 'The quotient algebra of f(x) = 1/x', statement: 'Simplify the difference quotient of $f(x) = 1/x$ exactly, for $x \\ne 0$ and $h \\ne 0$ with $x + h \\ne 0$.', steps: [
+      { label: 'Common denominator', formula: '\\frac{1}{x+h} - \\frac{1}{x} = \\frac{x - (x+h)}{x(x+h)}', explanation: 'The identity of the additive inverse over the product — checked by the engine at (2, 0.01) and (2, 0.001) to twelve decimals.' },
+      { label: 'Collapse the numerator', formula: '\\frac{x - (x+h)}{x(x+h)} = \\frac{-h}{x(x+h)}', explanation: 'The x cancels against x; the −h is the whole output change, which is why the reciprocal changes so gently.' },
+      { label: 'Divide by h', formula: '\\frac{1}{h} \\cdot \\frac{-h}{x(x+h)} = \\frac{-1}{x(x+h)}', explanation: 'The h cancels exactly — again pure algebra, no limit taken.' },
+      { label: 'Push h → 0', formula: '\\frac{-1}{x(x+h)} \\;\\longrightarrow\\; \\frac{-1}{x^2}', explanation: 'The push drives the factor x + h to x. At x = 2 the landing value is −1/4 = −0.25, exactly where the ladder points.' },
+    ], result: 'For every admissible $x$, the secant slopes of $1/x$ equal $\\frac{-1}{x(x+h)}$ exactly, and the push names the landing value $\\frac{-1}{x^2}$. At $x = 2$: the landing value is $-0.25$, and the ladder $-0.2380952, -0.2487562, -0.2498751$ closes on it from above.' },
+
+    /* ---------- family 3: 2^x — the wall ---------- */
+    { kind: 'heading', text: 'The Exponential: Where the Wall Stands' },
+    { kind: 'para', text: 'Third family: $f(x) = 2^x$ at the fixed point $x = 1$. Compute the ladder directly — $(2 + 0.1)^1$ is a number, $2^{1.1}$ is a number, and the engine prices every rung:' },
+    { kind: 'table', caption: 'Secant slopes of f(x) = 2^x at x = 1: the ladder descends on 1.3862944 from above', head: ['h', 'secant slope (f(1+h) − f(1))/h'], rows: [
+      ['0.1', '1.4354693'],
+      ['0.01', '1.3911100'],
+      ['0.001', '1.3867749'],
+    ] },
+    { kind: 'para', text: 'The ladder $1.4354693 > 1.3911100 > 1.3867749$ descends and closes on $1.3862944$ — which is $2 \\ln 2$, twice the value $\\ln 2 = 0.6931472$ priced by the fast series of Lesson 9.5. The target is thus PRICED, not derived here. And now the honest obstruction: try to repeat the trick of the last two families. The numerator is $2^{x+h} - 2^x = 2^x(2^h - 1)$. No binomial theorem expands $2^h$ — the exponential puts its variable in the POSSESSIVE position, upstairs, where Chapter 7\'s algebra has no grip. The quotient $2^x (2^h - 1)/h$ simplifies no further at school level: the factor $(2^h - 1)/h$ is stuck.' },
+    { kind: 'callout', tone: 'warn', title: 'The wall, stated precisely', text: 'The difference quotient of $a^x$ reduces to $a^x \\cdot (a^h - 1)/h$, and NO algebraic identity collapses $(a^h - 1)/h$ — that is the wall. What this lesson does is name the landing value ($2\\ln 2$ at $x = 1$ for $a = 2$, with $\\ln 2 = 0.6931472$ priced by 9.5\'s series) and certify that the numeric ladder closes on it. The ALGEBRAIC machinery that evaluates such limits is calculus\'s, and it lives behind the Calculus door.' },
+    { kind: 'para', text: 'The wall has a most informative special rung: stand at $x = 0$, where $a^x = 1$ and the quotient collapses to $(a^h - 1)/h$ — the base itself, no $x$ anywhere. For $a = 2$ the ladder is:' },
+    { kind: 'table', caption: 'The base ladder (2^h − 1)/h: closing on ln 2 = 0.6931472', head: ['h', '(2^h − 1)/h'], rows: [
+      ['0.1', '0.7177346'],
+      ['0.01', '0.6955550'],
+      ['0.001', '0.6933875'],
+      ['0.0001', '0.6931712'],
+    ] },
+    { kind: 'figure', caption: 'Figure 3 — the base ladder (2^h − 1)/h closes on ln 2 = 0.6931472; each halving of h shrinks the gap roughly tenfold', svg: dr104LadderBars },
+    { kind: 'para', text: 'This ladder prices a fact we shall use in a moment: $(2^h - 1)/h \\to \\ln 2$. Note what the wall means for exam honesty: when an examination item asks for the slope of $2^x$ at a point, the expected work is to READ the named rule and price it numerically — exactly what we do here — because the quotient cannot be simplified by hand.' },
+
+    /* ---------- the natural base revealed ---------- */
+    { kind: 'heading', text: 'The Natural Base Revealed' },
+    { kind: 'para', text: 'Run the same base ladder for the other famous base — Lesson 9.5\'s priced constant $e = 2.7182818$:' },
+    { kind: 'table', caption: 'The base ladder (e^h − 1)/h: closing on 1', head: ['h', '(e^h − 1)/h'], rows: [
+      ['0.1', '1.0517092'],
+      ['0.01', '1.0050167'],
+      ['0.001', '1.0005002'],
+      ['0.0001', '1.0000500'],
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'Why e is "natural" — the slope-1 answer', text: 'The ladder $(e^h - 1)/h$ closes on exactly 1: at $x = 0$ the graph of $e^x$ climbs at slope 1 — for every other base the landing value is $\\ln a$, different from 1. Lesson 9.2 promised that the fold between $2^x$ and its inverse would open a door at the end of the book; THIS is that door. The base $e$ is the one whose exponential is its own simplest description: the secant slope of $e^x$ at $0$ needs no scale factor at all. That is the honest, numeric meaning of "natural".' },
+
+    /* ---------- family 4: log2 — the wall again ---------- */
+    { kind: 'heading', text: 'The Logarithm: the Exponential\'s Upside Down' },
+    { kind: 'para', text: 'Fourth family: $f(x) = \\log_2 x$ at the fixed point $x = 1$. The quotient is $\\log_2(1+h)/h$ — once again a variable trapped inside a function with no algebraic grip, the wall of the last family seen from the other side (the logarithm IS the upside down of the exponential):' },
+    { kind: 'table', caption: 'Secant slopes of f(x) = log₂ x at x = 1: the ladder climbs on 1/ln 2 = 1.4426950 from below', head: ['h', 'secant slope (f(1+h) − f(1))/h'], rows: [
+      ['0.1', '1.3750352'],
+      ['0.01', '1.4355293'],
+      ['0.001', '1.4419742'],
+    ] },
+    { kind: 'para', text: 'The ladder $1.3750352 < 1.4355293 < 1.4419742$ climbs and closes on $1/\\ln 2 = 1.4426950$ — the exponential\'s landing value INVERTED, exactly as the upside-down shape suggests: the slope of the log at $1$ is the reciprocal of the slope of the exponential at $1$. The target is priced by 9.5\'s series ($\\ln 2 = 0.6931472$) and the numerics certify the approach; the algebraic evaluation is behind the wall with the exponential\'s.' },
+
+    /* ---------- 3. the derivative, named ---------- */
+    { kind: 'heading', text: 'The Derivative, Named' },
+    { kind: 'para', text: 'Four families, one shared machine. For $x^2$ and $1/x$ the quotient algebra found an exact exit and the push finished the job. For $2^x$ and $\\log_2 x$ the wall blocked the algebra, and the numeric ladder did all the certifying. In every case the OBJECT being computed was the same: the landing value of the secant slopes as $h \\to 0$. That object deserves its name.' },
+    { kind: 'callout', tone: 'definition', title: 'Definition — the derivative', text: 'The DERIVATIVE of $f$ at $x$ is the LIMIT of the secant slopes as the step $h$ shrinks to $0$: in symbols, $f\'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$. It is a NEW MACHINE built on the limit: the numerator $f(x+h) - f(x)$ measures the output change over a run of width $h$, the division converts it to a rate, and the limit names the value the rates approach. In this lesson the derivative is named and PRICED NUMERICALLY — ladder by ladder — and proved nowhere: the machinery that evaluates limits in general is calculus\'s and is not built here.' },
+    { kind: 'equation', latex: "f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h} \\tag{2}", note: 'the machine of this doorstep — read it as "the landing value of the secant slopes"' },
+    { kind: 'table', caption: 'The four-family derivative table, with honest status marks', head: ['function', 'derivative at x', 'status of this row'], rows: [
+      ['$x^2$', '$2x$', 'algebra-derived (the binomial quotient, this lesson)'],
+      ['$\\frac{1}{x}$', '$-\\frac{1}{x^2}$', 'algebra-derived (the common-denominator quotient, this lesson)'],
+      ['$a^x$', '$a^x \\ln a$', 'named + numerically priced (the wall; targets priced by 9.5)'],
+      ['$\\log_a x$', '$\\frac{1}{x \\ln a}$', 'named + numerically priced (the wall; targets priced by 9.5)'],
+    ] },
+    { kind: 'para', text: 'Read the status column before the values. Two rows are ALGEBRA-DERIVED: for $x^2$ and $1/x$ this lesson carried the quotient to an exact exit, so the landing values $2x$ and $-1/x^2$ rest on identity plus one named push. Two rows are NAMED + NUMERICALLY PRICED: for $a^x$ and $\\log_a x$ the wall blocks any school-level exit, so the rows are targets that the ladders close on — $2^x$ at $x = 1$ toward $2\\ln 2 = 1.3862944$; $\\log_2 x$ at $x = 1$ toward $1/\\ln 2 = 1.4426950$; and at fresh points the same pattern holds, for instance $2^x$ at $x = 3$ toward $8 \\ln 2 = 5.5451774$ and $\\log_{10} x$ at $x = 100$ toward $1/(100 \\ln 10) = 0.0043429$. Nothing here was proved; everything here was either derived (two rows) or priced (two rows).' },
+    { kind: 'callout', tone: 'warn', title: 'A rung is not the landing value', text: 'The most common misread of this lesson: quoting a secant slope at one convenient h as if it were the derivative. The rung at $h = 0.1$ for $x^2$ at $x = 3$ is $6.1$; the landing value is $6$. They agree to one decimal and differ in the digit that matters. An answer to a rate question must say which it is giving — a rung (a measured secant slope at a named h) or the named landing value (the derivative).' },
+    { kind: 'callout', tone: 'exam', title: 'Exam-style reading of this table', text: 'Examination items on this material stay inside the honesty boundary drawn here: they ask either for a difference quotient at a NAMED h (pure algebra — the $x^2$ and $1/x$ rows suffice) or for the numeric comparison of a ladder rung against the named value (read the table, price one rung). Items demanding an unaided evaluation of $\\lim_{h \\to 0}(2^h - 1)/h$ belong to the next book, not to this syllabus point.' },
+
+    /* ---------- 4. lines vs curves: the AL 10.2 seam ---------- */
+    { kind: 'heading', text: 'Slope for Lines vs Slope for Curves: the AL 10.2 Seam' },
+    { kind: 'para', text: 'The seam between AL 10.2 and this lesson is the widest idea-gap in the book, so walk it slowly. For a LINE, the steepness theorem (cited, not re-proved) says the rate is ONE number: compute $(y_2 - y_1)/(x_2 - x_1)$ from any two points and you own the steepness at every point at once. For a CURVE the computation (1) returns a value that depends on where you stand: the rate at $x = 3$ for $x^2$ is $6$, at $x = 1.5$ it is $3$, at $x = 10$ it is $20$. The curve\'s rate is not a number — it is a NEW FUNCTION of $x$.' },
+    { kind: 'table', caption: 'The seam, question by question', head: ['question', 'line (AL 10.2)', 'curve (this lesson)'], rows: [
+      ['what is the rate?', 'one number, the steepness m', 'a new function f′ of x'],
+      ['which machine?', 'the steepness theorem (cited)', 'the limit of secant slopes (named)'],
+      ['what does a computation give?', 'the same value at every point', 'a rung at one h, one x'],
+      ['the geometric endpoint', 'the line itself', 'the tangent line at each x'],
+    ] },
+    { kind: 'para', text: 'This is why the derivative table reads $x^2 \\mapsto 2x$ and not "$x^2$ has slope 6": the number 6 is the landing value AT $x = 3$. The function $2x$ is the rate FUNCTION — feed it any $x$ and it returns the slope of the tangent there. The parabola of Chapter 2 was a formula to be factored and completed; seen through the new machine it is a geometric object whose steepness changes by the rule $2x$, and Coordinate Geometry (door two, below) is the subject that finishes that picture.' },
+
+    /* ---------- 5. continuity named as a promise ---------- */
+    { kind: 'heading', text: 'Continuity, Named as a Promise' },
+    { kind: 'para', text: 'The machine named above needs one property of the underlying function, and the function zoo of Chapter 1 already contains both its owners and its violators. The informal read: a function is CONTINUOUS at $x$ when a small change of input moves the output only a little — no jumps, no tearing. For the tame families this is visible from the algebra: $f(x+h) - f(x) = h(2x + h)$ for $x^2$ dies with $h$.' },
+    { kind: 'para', text: 'The violators are old friends. The signum function jumps at $0$: the engine checks $\\mathrm{signum}(0.001) - \\mathrm{signum}(-0.001) = 2$ — an input change of $0.002$, an output change of $2$ — while away from $0$ the same-sized change moves nothing ($\\mathrm{signum}(1.001) - \\mathrm{signum}(0.999) = 0$). The GIF (floor) jumps $1$ at EVERY integer: $\\mathrm{gif}(1.0001) - \\mathrm{gif}(0.9999) = 1$ and $\\mathrm{gif}(2.001) - \\mathrm{gif}(1.999) = 1$, yet at a non-integer like $2.5$ the same move gives $0$. A jump of any size kills the derivative machine: at the jump there is no landing value, because the secant slopes refuse to settle — from the left they herd toward one number, from the right toward another, and the gap between those two is the jump itself.' },
+    { kind: 'figure', caption: 'Figure 4 — the jump witnesses: GIF steps up 1 at each integer; signum jumps 2 at 0. The smooth families move their outputs continuously', svg: dr104JumpChart },
+    { kind: 'callout', tone: 'theorem', title: 'The continuity promise (stated honestly, witnessed, not proved)', text: 'The derivative\'s $h \\to 0$ push is meaningful where the function is CONTINUOUS — where $f(x + h)$ lands on $f(x)$ as $h$ shrinks. For the smooth families the band is computable: $|f(x+h) - f(x)| = h(2|x| + h)$ for $x^2$, EXACTLY, so at $x = 3$ with $h = 0.01$ the output moves $0.0601$, and with $h = 0.001$ it moves $0.006001$. The general machine behind such bands — the ε–δ read of continuity, the dual of the ε–N promise of the tail — belongs to calculus. Here the promise is named, witnessed on the jumps of the zoo, and priced on the band of the parabola; it is proved nowhere.' },
+
+    /* ---------- 6. the handoff ---------- */
+    { kind: 'heading', text: 'The Handoff — the Four Neighbouring Doors' },
+    { kind: 'para', text: 'The book closes by handing its banked assets to the neighbours. Each door takes a specific account with it — not a vague "you are ready", but named lessons whose results are load-bearing on the other side:' },
+    { kind: 'list', ordered: true, marker: 'roman', items: [
+      'The Calculus door takes the machine itself: the limit named here on the tail and the derivative table priced here become the definitions the next book proves with. This book\'s promises — 5.2\'s sum, 9.1\'s rung, 9.5\'s base, and the ε–N form they share — are cashed there, starting with the ε–δ machinery and the evaluation of the walled limits $(a^h - 1)/h$.',
+      'The Coordinate Geometry door takes the parabola re-seen: Chapter 2\'s formula $y = x^2$, through the derivative $2x$ of this lesson, becomes a geometric object with tangent lines at every point — and the conic sections of that door attach foci and directrices to it.',
+      'The Trigonometry door takes the periodic gap: Chapter 1\'s period census catalogued cyclic behaviour but owned no periodic functions; that door builds sine and cosine as the machine family the census was waiting for, with their own quotient algebras to derive.',
+      'The Probability door takes the counting cash: Chapter 6\'s permutations, combinations and the binomial counts become the MEASURE of events — the same binomial whose expansion cracked the $x^2$ quotient in this lesson reappears as the arithmetic of chance.',
+    ] },
+    { kind: 'callout', tone: 'historical', title: 'The first time through the door', text: 'The machine named in this lesson has a famous birth. In the 17th century, Isaac Newton in England and Gottfried Wilhelm Leibniz on the continent independently built the calculus — the same limit machinery this book deferred, each publishing in his own notation, each convinced the other had taken his ideas; the priority dispute between their followers ran for generations and is a standing lesson in how jealous new machines make their makers. What matters here is the shape of their common achievement: both understood that secant slopes pushed to a limit answer the ancient questions of tangents and of changing quantities at once, and both priced their machines on the same kinds of ladders this lesson printed. The doorway the limit opened is the one this book ends at.' },
+
+    /* ---------- Illustrations 2-4 ---------- */
+    { kind: 'example', title: 'Illustration 2 — pricing an ε–N rank on a fresh tail', steps: ['Question: for the tail of Σ 0.8^k, whose sum is 0.8/(1 − 0.8) = 5, find the first rank n with the remaining tail below ε = 0.05.', 'Now, the tail is 5 · 0.8^n, and the engine prices the boundary: 5 · 0.8^20 = 0.0576461, which is still above 0.05.', 'So, n = 20 fails, while the next rung gives 5 · 0.8^21 = 0.0461169 < 0.05.', 'Hence the first witness rank is n = 21 — and past it every later rank is smaller still, since the tail multiplies by 0.8 at every step.'] },
+    { kind: 'example', title: 'Illustration 3 — reading the jumps off the zoo', steps: ['Question: name the jump sizes of signum and GIF at their break points, with witnesses.', 'Now, signum at 0: signum(0.001) − signum(−0.001) = 1 − (−1) = 2, so the jump is 2; away from 0 the same move gives signum(1.001) − signum(0.999) = 0.', 'So, GIF at each integer: gif(1.0001) − gif(0.9999) = 1 and gif(2.001) − gif(1.999) = 1, so the jump is 1 everywhere on the integers; at a non-integer such as 2.5 the move gives 0.', 'Hence the derivative machine is welcome on the smooth intervals of both functions and is barred exactly at 0 for signum (jump 2) and at each integer for GIF (jump 1).'] },
+    { kind: 'example', title: 'Illustration 4 — the half-wall: √x priced through the conjugate', steps: ['Question: price the secant slopes of f(x) = √x at x = 4 for h = 0.1, 0.01, 0.001 and name the landing value.', 'Now, (√(4+h) − 2)/h is not binomial-expanded, but the conjugate move rationalises it exactly: √(4+h) − 2 = h/(√(4+h) + 2), so the quotient equals 1/(√(4+h) + 2) — an identity the engine certifies at all three h.', 'So, h = 0.1 gives 1/(√4.1 + 2) = 0.2484567, h = 0.01 gives 0.2498439, and h = 0.001 gives 0.2499844.', 'Hence the ladder closes on 1/(√4 + 2) = 1/4 = 0.25, which is plain arithmetic at h = 0 — the naive wall is a half-wall: the algebra exits and the push only has to read the answer.'] },
+
+    /* ---------- vocabulary ---------- */
+    { kind: 'terms', items: [
+      { term: 'the limit', def: 'the machine this book deferred: the value the witnesses of a process settle onto as the step shrinks — of partial sums as n grows, of secant slopes as h shrinks. Named here; evaluated in general by calculus.' },
+      { term: 'the tolerance ε', def: 'the positive number chosen first in a convergence promise; the promise answers it with a rank N. Priced on the 0.9-tail: ε = 0.1 needs N = 43 (tail read) and ε = 0.001 needs N = 87.' },
+      { term: 'the secant slope', def: 'the difference quotient (f(x+h) − f(x))/h: the measured rate of change over an interval of width h — the slope of the chord joining two curve points.' },
+      { term: 'the difference quotient', def: 'the same object under its algebraic name; for x² it collapses exactly to 2x + h, for 1/x to −1/(x(x+h)), for the exponential and log it hits the wall.' },
+      { term: 'the derivative', def: 'the limit of the secant slopes as h → 0 — the curve\'s rate function. Two of the four rows here are algebra-derived, two are named and numerically priced.' },
+      { term: 'the tangent line', def: 'the endpoint of the secant ladder: the line through (x, f(x)) with slope f′(x), named as the h → 0 settling of the secants and priced by the tables, never constructed.' },
+      { term: 'continuity', def: 'the promise that small input changes move the output a little — the licence the derivative machine needs; stated with its ε–δ machinery named as calculus\'s.' },
+      { term: 'the jump', def: 'the discontinuity witness: an input change of vanishing size with a nonzero output change — 2 at 0 for signum, 1 at each integer for GIF.' },
+    ] },
+
+    /* ---------- formula cards ---------- */
+    { kind: 'formula', name: 'the difference quotient (secant slope)', latex: '\\frac{f(x+h) - f(x)}{h}', note: 'one rung of the ladder; the rate over an interval of width h — Equation (1)' },
+    { kind: 'formula', name: 'the quotient algebra of x² (exact exit)', latex: '\\frac{(x+h)^2 - x^2}{h} = 2x + h \\;\\longrightarrow\\; 2x', note: 'algebra-derived: the binomial cash of Chapters 2 and 7' },
+    { kind: 'formula', name: 'the quotient algebra of 1/x (exact exit)', latex: '\\frac{1}{h}\\left(\\frac{1}{x+h} - \\frac{1}{x}\\right) = \\frac{-1}{x(x+h)} \\;\\longrightarrow\\; \\frac{-1}{x^2}', note: 'algebra-derived: the common-denominator move' },
+    { kind: 'formula', name: 'the derivative table (four families, honest status)', latex: "(x^2)' = 2x, \\quad \\left(\\frac{1}{x}\\right)' = \\frac{-1}{x^2}, \\quad (a^x)' = a^x \\ln a, \\quad (\\log_a x)' = \\frac{1}{x \\ln a}", note: 'first two rows algebra-derived; last two rows named + numerically priced (the wall)' },
+    { kind: 'formula', name: 'the ε–N promise for the 0.9-tail', latex: '|S_n - 9| = 9 \\cdot 0.9^n < \\varepsilon \\;\\text{ for all } n \\ge N', note: 'ε = 0.1 answered by N = 43; ε = 0.001 by N = 87 (term read: 22 and 66)' },
+    { kind: 'formula', name: 'the continuity band of x² (exact)', latex: '|(x+h)^2 - x^2| = h(2|x| + h)', note: 'at x = 3, h = 0.01: the output moves 0.0601, exactly' },
+
+    /* ---------- quiz ---------- */
+    { kind: 'quiz', title: 'Checkpoint — five questions on the doorstep', items: [
+      { q: 'The secant slope of $f(x) = x^2$ at $x = 3$ with step $h = 0.1$ is:', options: ['6', '6.01', '6.1', '7'], answer: 2, explain: 'The quotient gives ((3.1)² − 9)/0.1 = (9.61 − 9)/0.1 = 6.1 — option 2. Option 0 (6) is the landing value, the h → 0 endpoint, not the rung at h = 0.1; option 1 (6.01) is the rung at h = 0.01; option 3 (7) is the rung at h = 1. Each rung belongs to its own h.' },
+      { q: 'Before any limit is taken, the difference quotient of $f(x) = x^2$ simplifies exactly to:', options: ['2x', '2x + h', 'x² + h', '2x − h'], answer: 1, explain: '(x+h)² − x² = 2xh + h², and division by h gives 2x + h — option 1. Option 0 (2x) is the landing value AFTER the push h → 0, not the quotient; option 2 forgets the x² cancellation; option 3 has the wrong sign pattern for the cross term. The h survives in the quotient and dies only in the push.' },
+      { q: 'The base $a$ for which $(a^h - 1)/h \\to 1$ as $h \\to 0$ is:', options: ['e', '2', '10', '1'], answer: 0, explain: 'The ladder (e^h − 1)/h closes on 1 (1.0517092 at h = 0.1, 1.0050167 at h = 0.01, ...) — option 0. For a = 2 the same ladder closes on ln 2 = 0.6931472, for a = 10 on ln 10 = 2.3025851, and a = 1 gives the constant quotient 0 = (1^h − 1)/h, never 1. Only e makes the base ladder land exactly at 1.' },
+      { q: 'Which of these machines has a jump at $x = 0$?', options: ['x²', '2^x', 'signum', 'log₂ x on the positive reals'], answer: 2, explain: 'signum(0.001) − signum(−0.001) = 2: a jump of 2 at 0 — option 2. The parabola x² moves 0.0601 under the same input change (continuous, banded exactly by h(2|x| + h)); 2^x moves by about 0.00139 (continuous, though its slope hits the wall); log₂ x is not even defined at 0, and on the positive reals it moves continuously with no break.' },
+      { q: 'For $\\sum 0.9^k$, the smallest $n$ for which the RUNG $0.9^n$ falls below $0.1$ is:', options: ['21', '22', '30', '10'], answer: 1, explain: '0.9^21 = 0.1094190 is still above 0.1 while 0.9^22 = 0.0984771 is below — option 1. Option 0 stops one rung early; option 2 confuses the term read with looser bounds; option 3 is far too small (0.9^10 = 0.3486784). Note this is the TERM read; the tail read (9 · 0.9^n < 0.1) answers n = 43 — the factor 9 pushes the rank up.' },
+    ] },
+
+    /* ---------- exercises ---------- */
+    { kind: 'exercises', title: 'Exercises — the doorstep worked by hand', sets: [
+      { level: 'L1', questions: [
+        { q: 'Compute the secant slope of $f(x) = x^2$ at $x = 2$ with step $h = 0.1$, and check it against the quotient algebra $2x + h$.', solution: ['Take the quotient directly: ((2.1)² − 4)/0.1 = (4.41 − 4)/0.1 = 0.41/0.1 = 4.1.', 'Now, the algebra of the lesson says the quotient of x² equals 2x + h exactly, and here 2(2) + 0.1 = 4.1.', 'Hence the rung is 4.1 and the algebra certifies it.', 'Note the landing value 2x = 4 is one push away, but the rung at h = 0.1 is honestly 4.1.'], answer: '4.1' },
+        { q: 'Compute the secant slope of $f(x) = x^2$ at $x = 1$ with step $h = 0.5$.', solution: ['Take ((1.5)² − 1)/0.5 = (2.25 − 1)/0.5 = 1.25/0.5 = 2.5.', 'Now, the quotient algebra reads 2x + h = 2(1) + 0.5 = 2.5, agreeing with the direct computation.', 'Hence the secant joining (1, 1) to (1.5, 2.25) has slope 2.5; the ladder continues 2.1 at h = 0.1 and lands on 2.'], answer: '2.5' },
+        { q: 'Use the exact quotient $2x + h$ of $f(x) = x^2$ to price the secant slope at $x = 2.7$ with $h = 0.01$, and state which digit separates the rung from the landing value.', solution: ['Now, the exact quotient is 2x + h, so at x = 2.7 with h = 0.01 the rung is 2(2.7) + 0.01 = 5.4 + 0.01 = 5.41.', 'So, the landing value after the push is 2(2.7) = 5.4.', 'Hence the rung is 5.41 and the landing value is 5.4 — the separating digit is the surviving hundredths 0.01, which dies only in the push.'], answer: 'rung 5.41; landing value 5.4' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Price the secant slope of $f(x) = 1/x$ at $x = 3$ with $h = 0.1$, both directly and through the exact identity $-1/(x(x+h))$, and name the landing value.', solution: ['Take the direct quotient: (1/3.1 − 1/3)/0.1 = (0.3225806 − 0.3333333)/0.1 = −0.0107527/0.1 = −0.1075269.', 'Now, the exact identity gives −1/(3 · 3.1) = −1/9.3 = −0.1075269 — the same value, as the engine certifies to twelve decimals.', 'So, the push h → 0 drives the identity to −1/x², which at x = 3 is −1/9.', 'Hence the rung is −0.1075269 and the landing value is −1/9 ≈ −0.1111111, the ladder closing on it from above.'], answer: '−0.1075269 at h = 0.1; landing value −1/9 ≈ −0.1111111' },
+        { q: 'Carry the cube: show $(x+h)^3 - x^3 = 3x^2h + 3xh^2 + h^3$, simplify the difference quotient of $f(x) = x^3$, and price it at $x = 2$, $h = 0.1$.', solution: ['Take the binomial expansion of Chapter 7: (x + h)³ = x³ + 3x²h + 3xh² + h³, so subtracting x³ leaves 3x²h + 3xh² + h³ — an identity the engine checks at (1, 0.1) and (2, 0.01) exactly.', 'Now, dividing by h the quotient collapses to 3x² + 3xh + h².', 'So, at x = 2 with h = 0.1: 3(4) + 3(2)(0.1) + 0.01 = 12 + 0.6 + 0.01 = 12.61, and the direct read (2.1³ − 8)/0.1 = (9.261 − 8)/0.1 = 12.61 agrees.', 'Hence the rung is 12.61 and the push names the landing value 3x² = 12 at x = 2.'], answer: 'quotient 3x² + 3xh + h²; rung 12.61; landing value 12' },
+        { q: 'For $\\sum 0.5^k$ (sum 1), find the smallest $n$ for which the tail $1 \\cdot 0.5^n$ falls below $\\varepsilon = 0.01$.', solution: ['Now, the tail is 1 · 0.5^n, and the engine prices the boundary: 0.5⁶ = 0.0156250 is still above 0.01.', 'So, the next rung 0.5⁷ = 0.0078125 < 0.01 answers the tolerance.', 'Hence the first witness rank is n = 7, and every later rank is smaller still since the tail multiplies by 0.5 at each step.'], answer: 'n = 7' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Price the secant slopes of $f(x) = \\sqrt{x}$ at $x = 4$ for $h = 0.1, 0.01, 0.001$, rationalise the quotient by the conjugate, and name the landing value.', figures: [{ caption: 'the √x ladder at x = 4 closes on 1/4 = 0.25 — a half-wall: the conjugate exits, the push reads the answer', svg: dr104SqrtLadderSol }], solution: ['Take the quotient (√(4+h) − 2)/h: at h = 0.1 it prices 0.2484567, at h = 0.01 it prices 0.2498439, at h = 0.001 it prices 0.2499844.', 'Now, the naive binomial expansion of √(4+h) does not exist at school level — but the conjugate move does: √(4+h) − 2 = h/(√(4+h) + 2), so the quotient equals 1/(√(4+h) + 2), an identity the engine certifies at all three h.', 'So, the push h → 0 turns the conjugate form into 1/(√4 + 2) = 1/4 by plain arithmetic.', 'Hence the landing value is 1/4 = 0.25 and the ladder 0.2484567, 0.2498439, 0.2499844 closes on it from below — the wall here is a half-wall.'], answer: '0.2484567, 0.2498439, 0.2499844; landing value 1/4 = 0.25' },
+        { q: 'Verify the exact continuity band of $x^2$ at $x = 2$: compute $f(2.01) - f(2)$ and check it against $h(2|x| + h)$ at $h = 0.01$.', solution: ['Take the direct output change: f(2.01) − f(2) = (2.01)² − 4 = 4.0401 − 4 = 0.0401.', 'Now, the exact identity says the change equals h(2x + h) = 0.01 · (4 + 0.01) = 0.01 · 4.01 = 0.0401.', 'So, the band is met with equality — no estimate was needed, because the algebra is exact.', 'Hence the output moves 0.0401 for an input move of 0.01, and shrinking h to 0.001 shrinks the move to 0.004001: continuity priced.'], answer: '0.0401 = h(2|x| + h) exactly' },
+        { q: 'Witness the jumps of GIF at the integers 1 and 2, the absence of a jump at 2.5, and state where the derivative machine is barred.', figures: [{ caption: 'GIF steps: jump 1 at x = 1 and at x = 2; no move at the non-integer 2.5', svg: dr104JumpSol }], solution: ['Take the engine witnesses: gif(1.0001) − gif(0.9999) = 1 and gif(2.001) − gif(1.999) = 1 — an input change of about 0.002 moves the output a whole 1.', 'Now, at the non-integer 2.5 the same-sized move gives gif(2.501) − gif(2.499) = 2 − 2 = 0.', 'So, the jump of GIF is 1 at every integer and 0 everywhere else; the step chart shows the two jumps at 1 and 2.', 'Hence the secant slopes refuse to settle exactly at the integers (left rates herd to the lower value, right rates to the upper), and the derivative machine is barred there — while on every open interval between integers GIF is constant and the machine reads 0.'], answer: 'jump 1 at each integer (witnesses 1 and 2); 0 at 2.5; the machine is barred at the integers' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Price the secant slopes of $f(x) = 2^x$ at $x = 3$ for $h = 0.1, 0.01, 0.001, 0.0001$ and check the ladder against the named landing value $8 \\ln 2$.', figures: [{ caption: 'the 2^x ladder at x = 3 descends toward the named landing value 8 ln 2 = 5.5451774 from above', svg: dr104ExpLadderSol }], solution: ['Take the ladder: at h = 0.1 the quotient prices 5.7418770, at h = 0.01 it prices 5.5644400, at h = 0.001 it prices 5.5470997, at h = 0.0001 it prices 5.5453696.', 'Now, the named rule (a^x)′ = a^x ln a prices the landing value at x = 3 as 8 ln 2 = 5.5451774.', 'So, the ladder descends 5.7418770 > 5.5644400 > 5.5470997 > 5.5453696 > 5.5451774 — every rung above the target, the gap dying by roughly a factor of 10 per shrink of h.', 'Hence the numerics certify the named row: the derivative of 2^x at x = 3 is priced 5.5451774, a numerically-priced row of the table (the wall blocks any algebraic exit).'], answer: 'ladder 5.7418770, 5.5644400, 5.5470997, 5.5453696; named landing value 8 ln 2 = 5.5451774' },
+        { q: 'Price the secant slopes of $f(x) = \\log_{10} x$ at $x = 100$ for $h = 0.1$ and $h = 0.01$, and check them against the named landing value $1/(100 \\ln 10)$.', solution: ['Take the ladder: at h = 0.1 the quotient prices 0.0043408, at h = 0.01 it prices 0.0043427.', 'Now, the named rule (log_a x)′ = 1/(x ln a) prices the landing value at x = 100 as 1/(100 ln 10), and ln 10 = 2.3025851, so the target is 1/230.25851 = 0.0043429.', 'So, the ladder climbs 0.0043408 < 0.0043427 < 0.0043429 — from below, the gap already below 0.0000002 at the second rung.', 'Hence the numerics certify the named row at a fresh point: the derivative of log₁₀ x at x = 100 is priced 0.0043429.'], answer: 'rungs 0.0043408, 0.0043427; named landing value 1/(100 ln 10) = 0.0043429' },
+        { q: 'The tail of $\\sum 0.99^k$ (sum 100): find the smallest $n$ for which the tail $100 \\cdot 0.99^n$ falls below $\\varepsilon = 1$.', solution: ['Now, the engine prices the boundary: 100 · 0.99^458 = 1.0021186 is still above 1.', 'So, the next rung 100 · 0.99^459 = 0.9920974 < 1 answers the tolerance.', 'Hence the first witness rank is n = 459 — the slow ratio 0.99 makes the promise patient, and the same tolerance at ε = 0.01 needs n = 917.'], answer: 'n = 459' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Run the two base ladders side by side at $h = 0.1$ and $h = 0.01$ — $(e^h - 1)/h$ and $(2^h - 1)/h$ — and explain, with the numbers, why $e$ is called the natural base.', solution: ['Take the two ladders: at h = 0.1 the e-ladder prices 1.0517092 while the 2-ladder prices 0.7177346; at h = 0.01 the e-ladder prices 1.0050167 while the 2-ladder prices 0.6955550.', 'Now, the landing values: the e-ladder closes on 1 exactly, the 2-ladder on ln 2 = 0.6931472 — priced by 9.5\'s series, not derived here.', 'So, at x = 0 the exponential e^x climbs at slope 1 with no scale factor, while 2^x climbs at slope ln 2 and needs the correction factor in every row of its derivative rule (a^x)′ = a^x ln a.', 'Hence e is natural in the honest, numeric sense: it is the one base whose secant ladder at 0 lands on exactly 1, the ladder 1.0517092, 1.0050167, 1.0005002, 1.0000500 closing on it.'], answer: 'the e-ladder lands on 1; the 2-ladder on ln 2 = 0.6931472 — e is the base of slope 1' },
+        { q: 'Price the secant slopes of $f(x) = \\log_2 x$ at $x = 8$ for $h = 0.1, 0.01, 0.001$ and certify the named landing value $1/(8 \\ln 2)$.', solution: ['Take the ladder: at h = 0.1 the quotient prices 0.1792191, at h = 0.01 it prices 0.1802243, at h = 0.001 it prices 0.1803256.', 'Now, the named rule prices the landing value at x = 8 as 1/(8 ln 2), and 8 ln 2 = 8 × 0.6931472 = 5.5451774, so the target is 1/5.5451774 = 0.1803369.', 'So, the ladder climbs 0.1792191 < 0.1802243 < 0.1803256 < 0.1803369 — from below, mirroring the exponential ladder which descends on the reciprocal landing value 5.5451774.', 'Hence the upside-down pairing is certified numerically at a fresh point: the log\'s landing value at 8 is the exponential\'s landing value at 3, inverted.'], answer: 'ladder 0.1792191, 0.1802243, 0.1803256; named landing value 1/(8 ln 2) = 0.1803369' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'The honest chain at $a = 3$: price the ladder $(3^h - 1)/h$ at $h = 0.1, 0.01, 0.001$, name the landing value, and connect it to the fast series of Lesson 9.5 that prices it.', solution: ['Take the ladder: at h = 0.1 the quotient prices 1.1612317, at h = 0.01 it prices 1.1046692, at h = 0.001 it prices 1.0992160.', 'Now, the ladder descends toward the named landing value ln 3 — the base ladder (a^h − 1)/h always closes on ln a, the wall case of the exponential row.', 'So, price ln 3 the way Lesson 9.5 did, by the fast series at x = 0.5: five terms give 1.0984995, and nine terms give 1.0986120 — within 2.6 × 10⁻⁷ of the priced value.', 'Hence the chain is honest end to end: the ladder 1.1612317, 1.1046692, 1.0992160 closes on ln 3 = 1.0986123, a value PRICED by 9.5\'s series and not derived by algebra — the wall, met honestly and handed to the Calculus door.'], answer: 'ladder 1.1612317, 1.1046692, 1.0992160; landing value ln 3 = 1.0986123, priced by the 9.5 series (9 terms within 2.6 × 10⁻⁷)' },
+        { q: 'The two reads, kept distinct: for the 0.9-tail with $\\varepsilon = 0.1$, find the term-read rank (first $n$ with $0.9^n < 0.1$) and the tail-read rank (first $n$ with $|S_n - 9| < 0.1$), and explain the factor between them.', solution: ['Take the term read: 0.9²¹ = 0.1094190 is still above 0.1 and 0.9²² = 0.0984771 is below, so the term-read rank is n = 22.', 'Now, the tail read asks for 9 · 0.9^n < 0.1: the engine prices 9 · 0.9^42 = 0.1077526, still above, and 9 · 0.9^43 = 0.0969774, below — so the tail-read rank is n = 43.', 'So, the two honest answers differ by the factor 9 sitting in front of the rung: asking the whole remaining debt (9 · 0.9^n) to fit the tolerance takes 21 further steps of patience beyond asking one rung.', 'Hence both ranks are correct for their own questions — 22 for the rung, 43 for the tail — and the definition-shaped promise (ε–N on |Sₙ − 9|) is the tail read: the rank N = 43 answers ε = 0.1, and N = 87 answers ε = 0.001.'], answer: 'term read n = 22; tail read n = 43 (and N = 87 for ε = 0.001)' },
+      ] },
+    ] },
+  ],
+}
+
+
+
+

@@ -1,0 +1,538 @@
+import type { Lesson } from '../src/data/library/types'
+
+/* ================================================================== */
+/* AA 10.1 — Competition Algebra: the Advanced Craft                   */
+/* Every number printed in this lesson is recomputed and pinned by     */
+/* temporary-references/v-aa101.ts (engine wins over any other source).*/
+/* Figure helpers: all geometry is computed from the named constants   */
+/* below; SVG text stays PLAIN (no TeX, no $, U+2212 for minus).       */
+/* ================================================================== */
+
+/* palette (vivid set; never blue/indigo) */
+const C = {
+  struct: '#16a34a', // structure strokes/axes/boxes
+  ink: '#166534', // primary text
+  mid: '#65a30d', // mid text/formulas
+  teal: '#0d9488', // teal strokes
+  tealInk: '#0f766e', // teal ink
+  conn: '#d97706', // connectors/ticks
+  accent: '#ea580c', // accent/arrows/highlights
+  warn: '#dc2626', // warning
+  panelA: '#ffedd5', // tinted panel
+  panelB: '#fef3c7', // tinted panel
+  faint: '#5eead4', // faint grids/dots
+  white: '#ffffff',
+}
+const FONT = 'ui-sans-serif, system-ui, sans-serif'
+
+function in101Txt(x: number, y: number, s: string, size: number, color: string, anchor = 'middle', weight = '400'): string {
+  return `<text x="${x}" y="${y}" font-family="${FONT}" font-size="${size}" fill="${color}" text-anchor="${anchor}" font-weight="${weight}">${s}</text>`
+}
+function in101ArrowDef(): string {
+  return `<defs><marker id="aa101Arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="${C.conn}"/></marker></defs>`
+}
+
+/* (a) the substitution map: the t-machine collapsing the quartic into two families */
+function in101SubMapSvg(): string {
+  const W = 780, H = 272, M = 16
+  const L = { x: M, y: 70, w: 198, h: 128 }
+  const Md = { x: 254, y: 70, w: 188, h: 128 }
+  const rw = 288
+  const R1 = { x: W - M - rw, y: 46, w: rw, h: 62 }
+  const R2 = { x: W - M - rw, y: 160, w: rw, h: 62 }
+  const midY = L.y + L.h / 2
+  const box = (b: { x: number; y: number; w: number; h: number }, fill: string, stroke: string) =>
+    `<rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" rx="9" fill="${fill}" stroke="${stroke}" stroke-width="1.6"/>`
+  const arr = (x1: number, y1: number, x2: number, y2: number) =>
+    `<path d="M ${x1} ${y1} L ${x2} ${y2}" stroke="${C.conn}" stroke-width="1.7" marker-end="url(#aa101Arrow)" fill="none"/>`
+  return [
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Substitution map: the t machine collapses the quartic into two quadratic families, giving four roots.">`,
+    in101ArrowDef(),
+    box(L, C.panelA, C.struct),
+    box(Md, C.panelB, C.teal),
+    box(R1, '#fffdf5', C.accent),
+    box(R2, '#fffdf5', C.accent),
+    in101Txt(L.x + L.w / 2, L.y + 26, 'the quartic in x', 12.5, C.mid),
+    in101Txt(L.x + L.w / 2, L.y + 58, '(x² − 5x + 5)²', 14.5, C.ink, 'middle', '600'),
+    in101Txt(L.x + L.w / 2, L.y + 82, '− 7(x² − 5x + 5) + 12 = 0', 14, C.ink, 'middle', '600'),
+    in101Txt(L.x + L.w / 2, L.y + 112, 'one equation, degree 4', 11.5, C.mid),
+    in101Txt(Md.x + Md.w / 2, Md.y + 24, 'the t-machine', 12.5, C.mid),
+    in101Txt(Md.x + Md.w / 2, Md.y + 50, 't = x² − 5x + 5', 13.5, C.tealInk, 'middle', '600'),
+    in101Txt(Md.x + Md.w / 2, Md.y + 74, 't² − 7t + 12 = 0', 14, C.ink, 'middle', '600'),
+    in101Txt(Md.x + Md.w / 2, Md.y + 96, '(t − 3)(t − 4) = 0', 13.5, C.ink),
+    in101Txt(Md.x + Md.w / 2, Md.y + 118, 't = 3  or  t = 4', 13, C.accent, 'middle', '600'),
+    in101Txt(R1.x + 14, R1.y + 26, 't = 3 → x² − 5x + 2 = 0', 13.5, C.ink, 'start', '600'),
+    in101Txt(R1.x + 14, R1.y + 50, 'x = (5 ± √17)/2', 14, C.accent, 'start', '600'),
+    in101Txt(R2.x + 14, R2.y + 26, 't = 4 → x² − 5x + 1 = 0', 13.5, C.ink, 'start', '600'),
+    in101Txt(R2.x + 14, R2.y + 50, 'x = (5 ± √21)/2', 14, C.accent, 'start', '600'),
+    arr(L.x + L.w + 4, midY, Md.x - 4, midY),
+    in101Txt((L.x + L.w + Md.x) / 2, midY - 9, 'substitute t', 11.5, C.mid),
+    arr(Md.x + Md.w + 4, R1.y + R1.h / 2, R1.x - 4, R1.y + R1.h / 2),
+    arr(Md.x + Md.w + 4, R2.y + R2.h / 2, R2.x - 4, R2.y + R2.h / 2),
+    in101Txt((Md.x + Md.w + R1.x) / 2, R1.y + R1.h / 2 - 9, 'back-solve', 11.5, C.mid),
+    in101Txt(W / 2, H - 10, 'four roots, two families', 12, C.mid),
+    `</svg>`,
+  ].join('')
+}
+
+/* (b) the x + 1/x ladder: each rung born from the two below it */
+function in101LadderSvg(): string {
+  const W = 640, H = 288
+  const rungs = [3, 7, 18, 47, 123]
+  const scale = 300 / 123
+  const x0 = 150, barH = 24, top = 52, dy = 46
+  const y = (i: number) => top + i * dy
+  const w = (v: number) => 46 + v * scale
+  const nodeX = 484
+  let out: string[] = [
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="The ladder of symmetric sums: each rung s(k+1) is born from the two rungs below it by the recurrence.">`,
+    in101ArrowDef(),
+    in101Txt(20, 28, 'x + 1/x = 3', 13.5, C.mid, 'start', '600'),
+    in101Txt(nodeX + 60, 28, 's(k+1) = 3·s(k) − s(k−1)', 12.5, C.conn, 'middle', '600'),
+  ]
+  rungs.forEach((v, i) => {
+    out.push(`<rect x="${x0}" y="${y(i)}" width="${(w(v)).toFixed(1)}" height="${barH}" rx="5" fill="${C.teal}" stroke="${C.tealInk}" stroke-width="1.2"/>`)
+    out.push(in101Txt(x0 - 12, y(i) + 17, `s${i + 1} = ${v}`, 14, C.ink, 'end', '600'))
+    out.push(in101Txt(x0 + w(v) + 12, y(i) + 17, `${v}`, 13, C.tealInk, 'start'))
+  })
+  for (let k = 1; k <= 3; k++) {
+    const srcA = { x: x0 + w(rungs[k - 1]) + 6, y: y(k - 1) + barH / 2 }
+    const srcB = { x: x0 + w(rungs[k]) + 6, y: y(k) + barH / 2 }
+    const tgt = { x: x0 - 8, y: y(k + 1) + barH / 2 }
+    out.push(`<path d="M ${srcA.x.toFixed(1)} ${srcA.y} H ${nodeX} V ${tgt.y}" stroke="${C.conn}" stroke-width="1.4" fill="none"/>`)
+    out.push(`<path d="M ${srcB.x.toFixed(1)} ${srcB.y} H ${nodeX}" stroke="${C.conn}" stroke-width="1.4" fill="none"/>`)
+    out.push(`<circle cx="${nodeX}" cy="${tgt.y}" r="3.2" fill="${C.accent}"/>`)
+    out.push(`<path d="M ${nodeX} ${tgt.y} H ${tgt.x}" stroke="${C.conn}" stroke-width="1.4" marker-end="url(#aa101Arrow)" fill="none"/>`)
+  }
+  out.push(in101Txt(W / 2, H - 10, 'two rungs below are all a new rung ever needs', 12, C.mid))
+  out.push(`</svg>`)
+  return out.join('')
+}
+
+/* (c) the AM–GM boundary: x(6−x) under its 9-ceiling with the equality point */
+function in101AmgmSvg(): string {
+  const W = 640, H = 304
+  const ox = 66, oy = 254
+  const xmax = 6.4, ymax = 10.4
+  const pxPerX = (640 - ox - 26) / xmax
+  const pyPerY = (oy - 44) / ymax
+  const X = (x: number) => ox + x * pxPerX
+  const Y = (y: number) => oy - y * pyPerY
+  let pts = ''
+  for (let x = 0; x <= 6.001; x += 0.05) pts += `${X(x).toFixed(1)},${Y(x * (6 - x)).toFixed(1)} `
+  let out: string[] = [
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="The parabola y = x(6 − x) sits under the dashed ceiling y = 9 and touches it only at the equality point x = 3.">`,
+    `<rect x="${X(0)}" y="${Y(9)}" width="${(X(6) - X(0)).toFixed(1)}" height="${(oy - Y(9)).toFixed(1)}" fill="${C.panelB}" opacity="0.55"/>`,
+  ]
+  for (let gx = 1; gx <= 6; gx++) out.push(`<line x1="${X(gx).toFixed(1)}" y1="${Y(9.9).toFixed(1)}" x2="${X(gx).toFixed(1)}" y2="${oy}" stroke="${C.faint}" stroke-width="1" opacity="0.4"/>`)
+  for (const gy of [3, 6, 9]) out.push(`<line x1="${X(0)}" y1="${Y(gy).toFixed(1)}" x2="${X(6).toFixed(1)}" y2="${Y(gy).toFixed(1)}" stroke="${C.faint}" stroke-width="1" opacity="0.4"/>`)
+  out.push(`<line x1="${ox - 10}" y1="${oy}" x2="${X(6) + 14}" y2="${oy}" stroke="${C.struct}" stroke-width="1.6"/>`)
+  out.push(`<line x1="${ox}" y1="${oy}" x2="${ox}" y2="${Y(ymax) - 6}" stroke="${C.struct}" stroke-width="1.6"/>`)
+  for (let t = 0; t <= 6; t++) {
+    out.push(`<line x1="${X(t).toFixed(1)}" y1="${oy}" x2="${X(t).toFixed(1)}" y2="${oy + 5}" stroke="${C.conn}" stroke-width="1.3"/>`)
+    out.push(in101Txt(X(t), oy + 20, `${t}`, 11.5, C.mid))
+  }
+  for (const ty of [3, 6, 9]) {
+    out.push(`<line x1="${ox - 5}" y1="${Y(ty).toFixed(1)}" x2="${ox}" y2="${Y(ty).toFixed(1)}" stroke="${C.conn}" stroke-width="1.3"/>`)
+    out.push(in101Txt(ox - 12, Y(ty) + 4, `${ty}`, 11.5, C.mid, 'end'))
+  }
+  out.push(`<polyline points="${pts.trim()}" fill="none" stroke="${C.accent}" stroke-width="2.4"/>`)
+  out.push(`<line x1="${X(0)}" y1="${Y(9).toFixed(1)}" x2="${X(6).toFixed(1)}" y2="${Y(9).toFixed(1)}" stroke="${C.teal}" stroke-width="1.8" stroke-dasharray="7 5"/>`)
+  out.push(`<circle cx="${X(3).toFixed(1)}" cy="${Y(9).toFixed(1)}" r="5.5" fill="${C.accent}" stroke="${C.white}" stroke-width="1.4"/>`)
+  out.push(in101Txt(X(5.05), Y(5.05) - 12, 'y = x(6 − x)', 13.5, C.accent, 'start', '600'))
+  out.push(in101Txt(X(0.35), Y(9) - 9, 'ceiling y = 9', 12.5, C.tealInk, 'start'))
+  out.push(in101Txt(X(3) - 12, Y(9) + 22, 'equality at x = 3, y = 9', 12.5, C.ink, 'end', '600'))
+  out.push(in101Txt(X(6) + 14, oy + 4, 'x', 13, C.ink))
+  out.push(in101Txt(ox - 14, Y(9.6), 'y', 13, C.ink))
+  out.push(in101Txt(W / 2, H - 8, 'the ceiling is touched once — and only once', 12, C.mid))
+  out.push(`</svg>`)
+  return out.join('')
+}
+
+/* (d) the log-ordering chain as a decreasing staircase */
+function in101LogStairSvg(): string {
+  const W = 640, H = 272
+  const vals = [1.5849625, 1.2618595, 1.1609640, 1.1132828, 1.0860331]
+  const show = ['1.5850', '1.2619', '1.1610', '1.1133', '1.0860']
+  const names = ['log2 3', 'log3 4', 'log4 5', 'log5 6', 'log6 7']
+  const base = 212, bw = 76, gap = 22, x0 = 60, hScale = 116
+  let out: string[] = [
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="A decreasing staircase of logarithms: log base n of n plus one falls strictly from 1.5850 down to 1.0860.">`,
+    in101Txt(60, 28, 'add 1 to base and argument — the value still falls', 12.5, C.mid, 'start', '600'),
+  ]
+  const tops: string[] = []
+  vals.forEach((v, i) => {
+    const x = x0 + i * (bw + gap)
+    const h = v * hScale
+    const yTop = base - h
+    out.push(`<rect x="${x}" y="${yTop.toFixed(1)}" width="${bw}" height="${h.toFixed(1)}" rx="6" fill="${C.teal}" stroke="${C.tealInk}" stroke-width="1.2"/>`)
+    out.push(in101Txt(x + bw / 2, yTop - 8, show[i], 12.5, C.ink, 'middle', '600'))
+    out.push(in101Txt(x + bw / 2, base + 20, names[i], 12.5, C.mid))
+    tops.push(`${(x + bw / 2).toFixed(1)},${yTop.toFixed(1)}`)
+    out.push(`<circle cx="${(x + bw / 2).toFixed(1)}" cy="${yTop.toFixed(1)}" r="3" fill="${C.accent}"/>`)
+  })
+  out.push(`<polyline points="${tops.join(' ')}" fill="none" stroke="${C.accent}" stroke-width="1.8" stroke-dasharray="6 4"/>`)
+  out.push(`<line x1="${x0 - 14}" y1="${base}" x2="${x0 + 5 * bw + 4 * gap + 14}" y2="${base}" stroke="${C.struct}" stroke-width="1.6"/>`)
+  out.push(in101Txt(W / 2, H - 10, 'strictly decreasing: 1.5850 → 1.2619 → 1.1610 → 1.1133 → 1.0860', 12, C.mid))
+  out.push(`</svg>`)
+  return out.join('')
+}
+
+/* solution figure S1: the four roots of exercise 1 on one number line */
+function in101Ex1Svg(): string {
+  const W = 640, H = 152, y0 = 86
+  const xa = 44, xb = 596, lo = -0.25, hi = 3.45
+  const px = (x: number) => xa + ((x - lo) / (hi - lo)) * (xb - xa)
+  const rootsT3 = [0, 3], rootsT2 = [(3 - Math.sqrt(5)) / 2, (3 + Math.sqrt(5)) / 2]
+  let out: string[] = [
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Number line: the t equals 3 branch gives roots 0 and 3, the t equals 2 branch gives the surd pair near 0.382 and 2.618.">`,
+    in101Txt(44, 26, '● t = 3 branch → x = 0, 3', 12.5, C.accent, 'start', '600'),
+    in101Txt(44, 46, '● t = 2 branch → x = (3 ± √5)/2', 12.5, C.tealInk, 'start', '600'),
+    `<line x1="${xa}" y1="${y0}" x2="${xb + 10}" y2="${y0}" stroke="${C.struct}" stroke-width="1.6"/>`,
+    `<path d="M ${xb + 10} ${y0} l -8 -4 l 0 8 z" fill="${C.struct}"/>`,
+  ]
+  for (const t of [0, 1, 2, 3]) {
+    out.push(`<line x1="${px(t).toFixed(1)}" y1="${y0}" x2="${px(t).toFixed(1)}" y2="${y0 + 6}" stroke="${C.conn}" stroke-width="1.3"/>`)
+    out.push(in101Txt(px(t), y0 + 22, `${t}`, 11.5, C.mid))
+  }
+  for (const r of rootsT3) out.push(`<circle cx="${px(r).toFixed(1)}" cy="${y0}" r="5.5" fill="${C.accent}" stroke="${C.white}" stroke-width="1.3"/>`)
+  for (const r of rootsT2) {
+    out.push(`<circle cx="${px(r).toFixed(1)}" cy="${y0}" r="5.5" fill="${C.teal}" stroke="${C.white}" stroke-width="1.3"/>`)
+    out.push(`<line x1="${px(r).toFixed(1)}" y1="${y0 + 6}" x2="${px(r).toFixed(1)}" y2="${y0 + 30}" stroke="${C.teal}" stroke-width="1.2"/>`)
+  }
+  out.push(in101Txt(px(rootsT2[0]) + 6, y0 + 44, '(3 − √5)/2 ≈ 0.382', 11.5, C.tealInk, 'start', '600'))
+  out.push(in101Txt(px(rootsT2[1]) + 6, y0 + 44, '(3 + √5)/2 ≈ 2.618', 11.5, C.tealInk, 'start', '600'))
+  out.push(`</svg>`)
+  return out.join('')
+}
+
+/* solution figure S2: the ladder at seed 5 (exercise 8) */
+function in101Ex8Svg(): string {
+  const W = 640, H = 288
+  const rungs = [5, 23, 110, 527, 2525]
+  const x0 = 150, barH = 24, top = 52, dy = 46, nodeX = 484
+  const w = (v: number) => 60 + 260 * (Math.log10(v) / Math.log10(2525))
+  let out: string[] = [
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Ladder at seed 5: rungs 5, 23, 110, 527, 2525, each born from the two below by multiplying by five and subtracting the rung two below.">`,
+    in101ArrowDef(),
+    in101Txt(20, 28, 'x + 1/x = 5', 13.5, C.mid, 'start', '600'),
+    in101Txt(nodeX + 64, 28, 's(k+1) = 5·s(k) − s(k−1)', 12.5, C.conn, 'middle', '600'),
+  ]
+  rungs.forEach((v, i) => {
+    out.push(`<rect x="${x0}" y="${top + i * dy}" width="${w(v).toFixed(1)}" height="${barH}" rx="5" fill="${C.teal}" stroke="${C.tealInk}" stroke-width="1.2"/>`)
+    out.push(in101Txt(x0 - 12, top + i * dy + 17, `s${i + 1} = ${v}`, 14, C.ink, 'end', '600'))
+    out.push(in101Txt(x0 + w(v) + 12, top + i * dy + 17, `${v}`, 13, C.tealInk, 'start'))
+  })
+  for (let k = 1; k <= 3; k++) {
+    const tgtY = top + (k + 1) * dy + barH / 2
+    out.push(`<path d="M ${(x0 + w(rungs[k - 1]) + 6).toFixed(1)} ${top + (k - 1) * dy + barH / 2} H ${nodeX} V ${tgtY}" stroke="${C.conn}" stroke-width="1.4" fill="none"/>`)
+    out.push(`<path d="M ${(x0 + w(rungs[k]) + 6).toFixed(1)} ${top + k * dy + barH / 2} H ${nodeX}" stroke="${C.conn}" stroke-width="1.4" fill="none"/>`)
+    out.push(`<circle cx="${nodeX}" cy="${tgtY}" r="3.2" fill="${C.accent}"/>`)
+    out.push(`<path d="M ${nodeX} ${tgtY} H ${x0 - 8}" stroke="${C.conn}" stroke-width="1.4" marker-end="url(#aa101Arrow)" fill="none"/>`)
+  }
+  out.push(in101Txt(W / 2, H - 10, 'bar length on a log scale — the rung still doubles the read', 12, C.mid))
+  out.push(`</svg>`)
+  return out.join('')
+}
+
+/* solution figure S3: the log duel 5^40 vs 4^50 (exercise 13) */
+function in101Ex13Svg(): string {
+  const W = 640, H = 288, base = 222
+  const bars = [
+    { x: 190, w: 108, v: 64.3775165, top: '64.3775', lab: 'ln(5^40) = 40 ln 5', col: C.conn },
+    { x: 372, w: 108, v: 69.3147181, top: '69.3147', lab: 'ln(4^50) = 50 ln 4', col: C.teal },
+  ]
+  const hScale = 1.92
+  let out: string[] = [
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Two bars comparing 40 ln 5 against 50 ln 4: the taller bar for 50 ln 4 certifies that 4^50 beats 5^40.">`,
+    in101Txt(320, 30, 'the taller log wins the duel', 13, C.mid, 'middle', '600'),
+  ]
+  for (const b of bars) {
+    const h = b.v * hScale
+    out.push(`<rect x="${b.x}" y="${(base - h).toFixed(1)}" width="${b.w}" height="${h.toFixed(1)}" rx="6" fill="${b.col}" stroke="${C.tealInk}" stroke-width="1.2"/>`)
+    out.push(in101Txt(b.x + b.w / 2, base - h - 9, b.top, 13, C.ink, 'middle', '600'))
+    out.push(in101Txt(b.x + b.w / 2, base + 22, b.lab, 12.5, C.mid))
+  }
+  out.push(`<line x1="${bars[0].x + bars[0].w}" y1="${(base - bars[0].v * hScale).toFixed(1)}" x2="${bars[1].x}" y2="${(base - bars[1].v * hScale).toFixed(1)}" stroke="${C.accent}" stroke-width="1.6" stroke-dasharray="5 4"/>`)
+  out.push(`<line x1="150" y1="${base}" x2="530" y2="${base}" stroke="${C.struct}" stroke-width="1.6"/>`)
+  out.push(in101Txt(320, H - 34, 'integer check: (4^5)^10 = 1024^10 beats (5^4)^10 = 625^10', 12.5, C.tealInk, 'middle', '600'))
+  out.push(in101Txt(320, H - 12, 'same tenth-power read, no logarithm needed at all', 12, C.mid))
+  out.push(`</svg>`)
+  return out.join('')
+}
+
+export const lesson101: Lesson = {
+  id: 'aa-competition-algebra-the-advanced-craft',
+  number: '10.1',
+  title: 'Competition Algebra: the Advanced Craft',
+  concepts: [
+    'nested substitution',
+    'the ladder recurrence',
+    'the symmetric read',
+    'AM–GM under constraints',
+    'the telescoping split',
+    'the general term',
+    'the digit-count read',
+  ],
+  objectives: [
+    'Run nested quadratic substitutions beyond the single $t$-swap, down to four roots in two families.',
+    'Read symmetric functions of the roots by Vieta without ever solving for the roots.',
+    'Price AM–GM maxima and minima under constraints and always name the equality witness.',
+    'Telescope reciprocal series and factorial-shifted sums into closed forms.',
+    'Hunt binomial terms — specific coefficients, greatest terms, independent terms — and read digit counts and log duels off monotonicity.',
+  ],
+  prerequisites: [
+    'al-competition-algebra-identities-and-substitutions',
+    'aa-symmetric-reads-and-common-roots',
+    'aa-the-arithmetic-geometric-mean-inequality',
+    'aa-special-series-and-the-method-of-differences',
+    'aa-binomial-coefficients-at-work',
+    'aa-the-laws-of-logarithms-and-the-change-of-base',
+  ],
+  sources: ['cengage-jee-style', 'jee-main-2026-syllabus', 'hall-knight-higher-algebra', 'cengage-m1-01'],
+  blocks: [
+    { kind: 'para', text: 'Lesson AL 11.2 — \`al-competition-algebra-identities-and-substitutions\` — banked five craft moves on the identity bank: the $t$-substitution, the $x + \\frac{1}{x}$ ladder, the symmetric read, the AM–GM bound, and the telescoping split, with binomial counting and logarithm speed reads riding along. Nothing in this lesson replaces that bank. What chapter 10 does is re-weld those same five moves onto the five machine families this book has built: the quadratic machines of chapter 2, the AM–GM inequality machinery of chapter 4, the series engines of chapter 5, the binomial coefficient atlas of chapter 7, and the logarithm laws of chapter 9.' },
+    { kind: 'para', text: 'The sequel\'s question is deliberately narrow: what do the *same* moves do on the *new* machines? Not new moves — deeper moves. The single $t$-swap becomes a nested substitution feeding two quadratic families. The ladder climbs further rungs than AL 11.2 ever asked for. The symmetric read stops at two roots and starts pricing third and fourth powers through Newton\'s identities. AM–GM stops being a standalone bound and starts carrying a discipline about the boundary — a maximum claim without an equality witness is not a solution. And the telescoping split meets series that AL 11.2\'s difference method could not price.' },
+    { kind: 'para', text: 'A craft lesson is depth over novelty. Every Illustration below is our own, every number in it is engine-verified to at least six decimal places, and every exercise is a fresh witness — the constants are not recycled from earlier lessons. Where a banked lesson already proved the underlying tool (the AM–GM inequality in \`aa-the-arithmetic-geometric-mean-inequality\`, the method of differences in \`aa-special-series-and-the-method-of-differences\`, the change-of-base law in \`aa-the-laws-of-logarithms-and-the-change-of-base\`), we cite it by id and move on.' },
+    { kind: 'callout', tone: 'insight', title: 'Note — how to read a craft lesson', text: 'Work each Illustration with pen and paper before reading its steps; the steps are the Cengage presentation chain — one move per line, led by a natural connective. The engine pins every printed number: if your hand disagrees with a decimal here, redo the arithmetic, because the decimals have been recomputed by brute force.' },
+
+    /* ---------------- Section 1: the substitution game at depth ---------------- */
+    { kind: 'heading', text: 'The Substitution Game at Depth' },
+    { kind: 'para', text: 'AL 11.2 played the substitution game at one level: a polynomial in $x$ was recognised as a polynomial in $t = x^2 - 5x + 5$ (or a cousin), the $t$-equation was solved, and each $t$-value was pushed back through one quadratic. The advanced game runs the same machine but respects its full output: one quartic equation can and should deliver **four** roots arranged in **two** families, and the craft is to report them as families rather than as a loose list. Half the errors in exam scripts come from stopping at two roots and never back-substituting the second $t$-value.' },
+    { kind: 'callout', tone: 'definition', title: 'Definition — nested substitution', text: 'A substitution is said to be *nested* if the new variable $t$ is itself a non-linear function of the old variable $x$, so that solving in $t$ requires a further solve in $x$. Formally: an equation $F(x) = 0$ is solved by nested substitution when $F(x) = G\\big(h(x)\\big)$ with $\\deg h \\ge 2$, and the solution set is $\\bigcup_{t_0 \\in Z(G)} \\{ x : h(x) = t_0 \\}$, where $Z(G)$ is the root set of $G$. Thus, $F(x) = 0$ splits into as many quadratic families as $G$ has real roots, and the family count multiplies the degree: a quartic through a quadratic $h$ carries up to four roots.' },
+    { kind: 'para', text: 'For example,' },
+    { kind: 'list', marker: 'roman', items: [
+      'if $G(t) = t^2 - 7t + 12$ and $h(x) = x^2 - 5x + 5$, then $Z(G) = \\{3, 4\\}$ and the quartic $F(x) = 0$ splits into $x^2 - 5x + 2 = 0$ and $x^2 - 5x + 1 = 0$;',
+      'if the inner quadratic $h$ itself arises from a square, the nesting can go three deep — an equation in $\\big(x + \\frac{1}{x}\\big)^2 + \\big(x + \\frac{1}{x}\\big)$ is a two-stage nest with the ladder of this section at its heart;',
+      'if $G$ has a repeated root, the two families merge — $t = 3$ twice still means one family $h(x) = 3$, and the quartic has at most two distinct roots.',
+    ] },
+    { kind: 'example', title: 'Illustration 1 — Solve $(x^2 - 5x + 5)^2 - 7(x^2 - 5x + 5) + 12 = 0$.', steps: [
+      'Split: put $t = x^2 - 5x + 5$; the equation reads $t^2 - 7t + 12 = 0$, a quadratic in $t$ with coefficient discipline intact.',
+      'Factor: $t^2 - 7t + 12 = (t - 3)(t - 4)$, so $t = 3$ or $t = 4$ — the discriminant is $49 - 48 = 1$, a perfect square, and the machine will not leak complex roots at this stage.',
+      'Take $t = 3$: back-substitute into $x^2 - 5x + 5 = 3$, i.e. $x^2 - 5x + 2 = 0$, whose discriminant is $25 - 8 = 17$; hence $x = \\frac{5 \\pm \\sqrt{17}}{2}$.',
+      'Take $t = 4$: the family is $x^2 - 5x + 1 = 0$ with discriminant $25 - 4 = 21$; hence $x = \\frac{5 \\pm \\sqrt{21}}{2}$.',
+      'Check: numerically the four roots are $4.5615528$, $0.4384472$, $4.7912878$, $0.2087122$ (engine-pinned to seven places), and each one substituted back into the original equation gives a residual below $10^{-6}$.',
+      'Now, the Vieta cross-check: the expanded quartic is $x^4 - 10x^3 + 28x^2 - 15x + 2$, so the roots must sum to $10$ and multiply to $2$; indeed $4.5615528 + 0.4384472 + 4.7912878 + 0.2087122 = 10$ and the product is $2$ — the cross-family read certifies the family split.',
+      'Hence $x \\in \\left\\{ \\frac{5 + \\sqrt{17}}{2},\\ \\frac{5 - \\sqrt{17}}{2},\\ \\frac{5 + \\sqrt{21}}{2},\\ \\frac{5 - \\sqrt{21}}{2} \\right\\}$, four roots in two families.',
+    ] },
+    { kind: 'figure', caption: 'Figure 1 — the substitution map: the t-machine collapses the quartic into two quadratic families, each contributing two roots.', svg: in101SubMapSvg() },
+    { kind: 'para', text: 'The Vieta cross-check in Illustration 1 deserves its own sentence of craft. The family split produces four numbers; the expanded quartic produces two clean certificates (sum $10$, product $2$) that those four numbers are the *complete* root set. Whenever an exam-style question says "solve", the sum-and-product read is the cheapest possible audit: it costs two additions and one multiplication, and it catches the classic failure of dropping the second $t$-branch — a two-root answer sums to the wrong total immediately.' },
+    { kind: 'para', text: 'The same machine drives the ladder. If $x + \\frac{1}{x} = 3$, then squaring gives $x^2 + \\frac{1}{x^2} = 7$, and there is a recurrence that climbs the whole staircase without ever solving for $x$:' },
+    { kind: 'equation', latex: 'x^{k+1} + \\frac{1}{x^{k+1}} = \\left( x + \\frac{1}{x} \\right) \\left( x^k + \\frac{1}{x^k} \\right) - \\left( x^{k-1} + \\frac{1}{x^{k-1}} \\right) \\tag{1}' },
+    { kind: 'para', text: 'The law behind equation (1): pair $x^{k+1} = x \\cdot x^k$ with $x^{-(k+1)} = x^{-1} \\cdot x^{-k}$ to build $(x + \\frac{1}{x})(x^k + \\frac{1}{x^k})$, then correct the cross terms $x^{k-1} + x^{-(k-1)}$, which appear once each and must be subtracted. With $s_0 = 2$ and $s_1 = 3$ the engine sweep runs: $s_2 = 7$, $s_3 = 18$, $s_4 = 47$, $s_5 = 123$, and then keeps going exactly as the recurrence promises: $s_6 = 322$, $s_7 = 843$, $s_8 = 2207$, $s_9 = 5778$.' },
+    { kind: 'example', title: 'Illustration 2 — Climb the ladder $x + \\frac{1}{x} = 3$ from $s_2$ to $s_9$ and verify it numerically.', steps: [
+      'Split: the seed read gives $s_0 = 2$ (every $x$ and its reciprocal cancel) and $s_1 = 3$ (given).',
+      'Take $k = 1$: $s_2 = 3 \\cdot 3 - 2 = 7$ — and squaring $x + \\frac{1}{x} = 3$ gives $9 - 2 = 7$, the first independent confirmation.',
+      'Take $k = 2$: $s_3 = 3 \\cdot 7 - 3 = 18$; Newton\'s read agrees: $s_3 = 3^3 - 3 \\cdot 3 = 27 - 9 = 18$. So,',
+      'Take $k = 3$ and $k = 4$: $s_4 = 3 \\cdot 18 - 7 = 47$ and $s_5 = 3 \\cdot 47 - 18 = 123$, the rungs AL 11.2 stopped at.',
+      'Now, keep climbing: $s_6 = 3 \\cdot 123 - 47 = 322$, $s_7 = 3 \\cdot 322 - 123 = 843$, $s_8 = 3 \\cdot 843 - 322 = 2207$, $s_9 = 3 \\cdot 2207 - 843 = 5778$ — the engine recomputes every one by brute recurrence and by direct powers.',
+      'Check: the ladder\'s two roots are $\\frac{3 + \\sqrt{5}}{2} = 2.6180340$ and $\\frac{3 - \\sqrt{5}}{2} = 0.3819660$, reciprocals of each other; $x^k + x^{-k}$ evaluated at both agrees with $s_k$ for every $k$ from $0$ to $9$ to within $10^{-6}$.',
+      'Hence the ladder is a genuine engine: nine rungs from two seeds and one multiplication-subtraction law, with $s_9 = 5778$ the highest rung this lesson needs.',
+    ] },
+    { kind: 'figure', caption: 'Figure 2 — the ladder at seed 3: each rung is born from the two rungs below it, so two seeds plus one law reach any height.', svg: in101LadderSvg() },
+    { kind: 'callout', tone: 'insight', title: 'Note — why the recurrence is trustworthy', text: 'Equation (1) is an identity in $x$, so it holds for *both* roots of $x^2 - 3x + 1 = 0$ simultaneously. That is why the ladder never needs to know which root you are carrying: $s_k = x^k + x^{-k}$ is symmetric, and the two roots of the seed quadratic share the same ladder. The engine checks the sweep numerically at both roots and finds the same nine integers.' },
+    { kind: 'callout', tone: 'warn', title: 'Caution — the classic wrong recurrence', text: 'A persistent exam slip writes $s_{k+1} = s_k^2 - 2$ for every step. That law is true only for **even** climbs: $s_2 = s_1^2 - 2$ and $s_4 = s_2^2 - 2$ are correct, but $s_3 = s_2^2 - 2 = 47$ is false — the true value is $18$. Squaring skips a rung; the ladder law $s_{k+1} = 3 s_k - s_{k-1}$ never does.' },
+
+    /* ---------------- Section 2: symmetric reads via the roots ---------------- */
+    { kind: 'heading', text: 'Symmetric Reads via the Roots' },
+    { kind: 'para', text: 'The symmetric read is the craft of pricing $\\alpha^3 + \\beta^3$, $\\alpha^4 + \\beta^4$, $\\frac{1}{\\alpha} + \\frac{1}{\\beta}$ — anything symmetric in the roots — from the coefficients alone. Chapter 2\'s quadratic machine and the banked lesson \`aa-symmetric-reads-and-common-roots\` established the two-run ladder $\\alpha + \\beta$ and $\\alpha\\beta$; the advanced craft runs it to higher powers and adds the cubic staple with three roots. The rule of the game: never solve for the roots. Every read below is computed from two numbers, and the roots appear only at the end, numerically, as an audit.' },
+    { kind: 'equation', latex: '\\alpha^2 + \\beta^2 = (\\alpha + \\beta)^2 - 2\\alpha\\beta, \\quad \\alpha^3 + \\beta^3 = (\\alpha + \\beta)^3 - 3\\alpha\\beta(\\alpha + \\beta) \\tag{2}' },
+    { kind: 'equation', latex: '\\alpha^4 + \\beta^4 = \\left( \\alpha^2 + \\beta^2 \\right)^2 - 2(\\alpha\\beta)^2, \\quad \\frac{1}{\\alpha} + \\frac{1}{\\beta} = \\frac{\\alpha + \\beta}{\\alpha\\beta} \\tag{3}' },
+    { kind: 'example', title: 'Illustration 3 — For $\\alpha, \\beta$ the roots of $x^2 - 7x + 11 = 0$, price $\\alpha^2+\\beta^2$, $\\alpha^3+\\beta^3$, $\\alpha^4+\\beta^4$, $(\\alpha-\\beta)^2$, and $\\frac{1}{\\alpha}+\\frac{1}{\\beta}$ without solving.', steps: [
+      'Split: Vieta reads the coefficients directly — $\\alpha + \\beta = 7$ and $\\alpha\\beta = 11$; the discriminant is $49 - 44 = 5$, positive, so both roots are real and distinct.',
+      'Take the square: $\\alpha^2 + \\beta^2 = 7^2 - 2 \\cdot 11 = 49 - 22 = 27$.',
+      'Now, the cube: $\\alpha^3 + \\beta^3 = 7^3 - 3 \\cdot 11 \\cdot 7 = 343 - 231 = 112$ — the correction term $3\\alpha\\beta(\\alpha+\\beta)$ is the whole game.',
+      'And the fourth power: $\\alpha^4 + \\beta^4 = 27^2 - 2 \\cdot 11^2 = 729 - 242 = 487$, climbing on the square rung rather than restarting.',
+      'But the difference is not symmetric in sign: $(\\alpha - \\beta)^2 = (\\alpha+\\beta)^2 - 4\\alpha\\beta = 49 - 44 = 5$, so $|\\alpha - \\beta| = \\sqrt{5}$.',
+      'So, reciprocals fold into the same two seeds: $\\frac{1}{\\alpha} + \\frac{1}{\\beta} = \\frac{7}{11}$.',
+      'Check: numerically $\\alpha = 4.6180340$ and $\\beta = 2.3819660$ (engine-pinned; these are $\\frac{7 \\pm \\sqrt{5}}{2}$). Direct computation gives $\\alpha^2+\\beta^2 = 27.0000000$, $\\alpha^3+\\beta^3 = 112.0000000$, $\\alpha^4+\\beta^4 = 487.0000000$ — every read certified.',
+      'Hence all five reads price out as $27$, $112$, $487$, $5$, and $\\frac{7}{11}$, from the two seeds $\\alpha+\\beta = 7$, $\\alpha\\beta = 11$ alone.',
+    ] },
+    { kind: 'para', text: 'Notice what the numeric audit does and does not do. It does not *produce* the answers — the Vieta reads did that in four lines of integer arithmetic. It certifies them: $4.6180340 + 2.3819660 = 7$ exactly, $4.6180340 \\cdot 2.3819660 = 11$ to nine places, and each higher read lands on its integer. In an exam script the audit is optional; in a craft lesson it is the habit that separates a lucky answer from a verified one.' },
+    { kind: 'para', text: 'The cubic staple extends the read to three roots. Chapter 8.3\'s identity — named there and used here — is:' },
+    { kind: 'equation', latex: '\\alpha^3 + \\beta^3 + \\gamma^3 - 3\\alpha\\beta\\gamma = (\\alpha + \\beta + \\gamma)\\left( \\alpha^2 + \\beta^2 + \\gamma^2 - \\alpha\\beta - \\beta\\gamma - \\gamma\\alpha \\right) \\tag{4}' },
+    { kind: 'para', text: 'One verified instance: the roots of $x^3 - 6x^2 + 11x - 6 = 0$ are $1, 2, 3$ (the integer-root scan finds all three). The left side of (4) reads $1 + 8 + 27 - 3 \\cdot 6 = 18$; the right side reads $(1+2+3)(1 + 4 + 9 - 2 - 6 - 3) = 6 \\cdot 3 = 18$. Both sides agree at $18$, and the identity is available whenever a symmetric cubic in three roots needs pricing — in particular when $\\alpha + \\beta + \\gamma = 0$, where the staple collapses to the memorable $\\alpha^3 + \\beta^3 + \\gamma^3 = 3\\alpha\\beta\\gamma$.' },
+    { kind: 'callout', tone: 'warn', title: 'Caution — symmetric in what?', text: 'A read is only available if the expression is symmetric — unchanged by swapping roots. $(\\alpha - \\beta)^2$ is symmetric (the sign square hides the order), but $(\\alpha - \\beta)^3$ is not: swapping $\\alpha, \\beta$ negates it, and no coefficient read can price it. Check symmetry before spending Vieta on anything.' },
+
+    /* ---------------- Section 3: AM–GM maxima under constraints ---------------- */
+    { kind: 'heading', text: 'AM–GM Maxima Under Constraints' },
+    { kind: 'para', text: 'The banked lesson `aa-the-arithmetic-geometric-mean-inequality` proved the two-term engine: for $a, b \\ge 0$, $\\frac{a+b}{2} \\ge \\sqrt{ab}$, with equality exactly when $a = b$. The advanced craft cashes it under **constraints** — sums held fixed, products forced constant — and adds the discipline AL 11.2 only hinted at: a bound is not an answer until the equality witness is named and found inside the constraint set. Three cashed reads follow, each with its witness, then the boundary law.' },
+    { kind: 'equation', latex: '9x + \\frac{4}{x} \\;\\ge\\; 2\\sqrt{9x \\cdot \\frac{4}{x}} = 2\\sqrt{36} = 12 \\tag{5}' },
+    { kind: 'callout', tone: 'definition', title: 'Definition — the equality witness', text: 'A point $x_0$ is said to be the *equality witness* of an AM–GM bound if the compared terms become equal exactly at $x_0$, so the bound is attained there. Formally: for terms $u(x), v(x) \\ge 0$ the claim $u(x) + v(x) \\ge 2\\sqrt{u(x)v(x)}$ prices a true minimum only if $u(x) = v(x)$ has a solution inside the constraint set, and that solution is $x_0$. Thus, the witness is the certificate: name it, or the bound prices nothing.' },
+    { kind: 'example', title: 'Illustration 4 — Find the minimum of $x + \\frac{4}{x}$ for $x > 0$ and the point where it is attained.', steps: [
+      'Split: the terms are $x$ and $\\frac{4}{x}$, both positive on the constraint set $x > 0$; their product is the constant $4$.',
+      'Take the bound: $x + \\frac{4}{x} \\ge 2\\sqrt{4} = 4$, independent of $x$ — the whole difficulty is whether it can be touched.',
+      'Now, hunt the witness: equality needs $x = \\frac{4}{x}$, that is $x = 2$, which does lie in the constraint set $x > 0$.',
+      'Check: $2 + \\frac{4}{2} = 4$ exactly; the engine\'s fine grid over $(0, 10]$ tops out below $4.000001$ only near $x = 2.0000$, so no smaller value hides anywhere.',
+      'Hence the minimum is $4$, attained at the equality witness $x = 2$.',
+    ] },
+    { kind: 'example', title: 'Illustration 5 — Find the minimum of $9x + \\frac{4}{x}$ for $x > 0$.', steps: [
+      'Split: the terms are $9x$ and $\\frac{4}{x}$ — a *weighted* split, since the coefficients differ; their product $9x \\cdot \\frac{4}{x} = 36$ is still constant.',
+      'Take the bound: $9x + \\frac{4}{x} \\ge 2\\sqrt{36} = 12$ (equation (5) displays the chain).',
+      'Now, hunt the witness: equality needs $9x = \\frac{4}{x}$, so $x^2 = \\frac{4}{9}$ and $x = \\frac{2}{3}$ — inside the constraint set.',
+      'Check: $9 \\cdot \\frac{2}{3} + \\frac{4}{2/3} = 6 + 6 = 12$ exactly; the engine grid confirms the floor at $12.000000$ near $x = 0.6667$.',
+      'Hence the minimum is $12$ at $x = \\frac{2}{3}$ — the weights move the witness but never move the bound.',
+    ] },
+    { kind: 'para', text: 'The same engine prices maxima the moment the sum is pinned. If $x + y = 6$ with $x, y \\ge 0$, then the product law reads:' },
+    { kind: 'equation', latex: 'xy \\;\\le\\; \\left( \\frac{x + y}{2} \\right)^2 = 9, \\qquad x(6-x) \\le 9 \\tag{6}' },
+    { kind: 'example', title: 'Illustration 6 — Find the maximum of $x(6-x)$ and certify it on the boundary.', steps: [
+      'Split: the sum is pinned — $x + (6 - x) = 6$ — so the product law of equation (6) applies verbatim.',
+      'Take the bound: $x(6-x) \\le 9$ for every real $x$, with the ceiling priced by $\\left(\\frac{6}{2}\\right)^2$.',
+      'Now, hunt the witness: equality needs $x = 6 - x$, so $x = 3$, and $3 \\cdot 3 = 9$ is attained.',
+      'But note the shape of the claim: the parabola touches the ceiling at exactly one point (Figure 3) — near $x = 2.9$ the product is $8.99$, near $x = 3.1$ it is $8.99$; the ceiling binds only at the witness.',
+      'Hence the maximum is $9$ at $x = 3$, and the engine grid over $[0, 6]$ confirms $9.000000$ is touched once.',
+    ] },
+    { kind: 'figure', caption: 'Figure 3 — the AM–GM boundary: x(6−x) under its 9-ceiling, touched once at the equality witness x = 3.', svg: in101AmgmSvg() },
+    { kind: 'example', title: 'Illustration 7 — Find the maximum of $xyz$ subject to $x + y + z = 12$ with $x, y, z > 0$.', steps: [
+      'Split: three terms, one pinned sum — the three-term AM–GM read applies: $\\frac{x+y+z}{3} \\ge \\sqrt[3]{xyz}$.',
+      'Take the bound: $xyz \\le 4^3 = 64$, since $\\frac{12}{3} = 4$ is forced by the constraint.',
+      'Now, hunt the witness: equality needs $x = y = z$, and the sum forces $x = y = z = 4$.',
+      'Check: $4 \\cdot 4 \\cdot 4 = 64$ exactly; the engine\'s grid over the whole simplex ($x, y \\ge 0$, $z = 12 - x - y$) peaks at $64.00$ near $(4, 4, 4)$ and nowhere else.',
+      'Hence the maximum is $64$ at $(4, 4, 4)$ — the symmetric witness the symmetric constraint demanded.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'Caution — the boundary discipline', text: 'The AM–GM bound binds ONLY at equality. A max/min claim must name the equality witness; a constraint that never reaches equality prices no maximum. Watch what happens when the witness is exiled: over $x \\ge 3$, the minimum of $x + \\frac{4}{x}$ is **not** $4$ — the witness $x = 2$ lies outside the constraint, and the true minimum is the boundary value $3 + \\frac{4}{3} = \\frac{13}{3} = 4.3333333$. Always ask two questions: does the witness exist, and does it live inside the constraint?' },
+
+    /* ---------------- Section 4: series sums priced by difference and telescoping ---------------- */
+    { kind: 'heading', text: 'Series Sums Priced by Difference and Telescoping' },
+    { kind: 'para', text: 'Chapter 5\'s engines — the method of differences (banked in `aa-special-series-and-the-method-of-differences`) and the telescoping split — were built on clean families: $k^2$, $\\frac{1}{k(k+1)}$, $\\frac{k}{2^k}$. The advanced craft prices the next tier: reciprocal products with a **gap** ($\\frac{1}{k(k+2)}$, where the cancellation skips a rung), factorial-shifted sums ($\\sum k \\cdot k!$), and the AGP tail that prices the infinite value of $\\sum \\frac{k}{2^k}$. The craft is the same: find the split that cancels, keep the boundary terms, and audit the closed form against brute addition.' },
+    { kind: 'derivation', title: 'Telescoping the reciprocal product with a gap', statement: 'Show that $\\frac{1}{k(k+2)}$ splits into a difference of reciprocals two steps apart, and price the partial sum $S_n$ and its limit.', steps: [
+      { label: 'Split', formula: '\\frac{1}{k(k+2)} = \\frac{1}{2}\\left( \\frac{1}{k} - \\frac{1}{k+2} \\right)', explanation: 'Recombine the right side: the bracket equals $\\frac{(k+2) - k}{k(k+2)} = \\frac{2}{k(k+2)}$, and the outer $\\frac{1}{2}$ restores exactly $\\frac{1}{k(k+2)}$.' },
+      { label: 'Shift', formula: '\\sum_{k=1}^{n} \\left( \\frac{1}{k} - \\frac{1}{k+2} \\right) = 1 + \\frac{1}{2} - \\frac{1}{n+1} - \\frac{1}{n+2}', explanation: 'Two-step telescoping: each reciprocal cancels one two rungs down the staircase, so only the top two rungs and the two unmatched bottom rungs survive.' },
+      { label: 'Scale', formula: '\\sum_{k=1}^{n} \\frac{1}{k(k+2)} = \\frac{1}{2}\\left( \\frac{3}{2} - \\frac{1}{n+1} - \\frac{1}{n+2} \\right)', explanation: 'Multiplying by the outer half prices the whole sum; the engine confirms this closed form against brute addition for every $n$ from 1 to 12.' },
+    ], result: 'Hence $S_n = \\frac{1}{2}\\left(\\frac{3}{2} - \\frac{1}{n+1} - \\frac{1}{n+2}\\right)$, and as $n$ grows the two tail fractions fade, so $S_n \\to \\frac{3}{4}$.' },
+    { kind: 'example', title: 'Illustration 8 — Audit $\\sum_{k=1}^{n} \\frac{1}{k(k+2)}$ at $n = 5, 10, 1000$ and price the limit.', steps: [
+      'Split: the closed form of the derivation gives $S_n = \\frac{1}{2}\\left(\\frac{3}{2} - \\frac{1}{n+1} - \\frac{1}{n+2}\\right)$.',
+      'Take $n = 5$: $S_5 = \\frac{1}{2}\\left(\\frac{3}{2} - \\frac{1}{6} - \\frac{1}{7}\\right) = 0.5952381$ (engine-pinned, and brute addition agrees).',
+      'Now, $n = 10$: $S_{10} = \\frac{1}{2}\\left(\\frac{3}{2} - \\frac{1}{11} - \\frac{1}{12}\\right) = 0.6628788$ — brute addition confirms it again.',
+      'And the far tail: $S_{1000} = \\frac{1}{2}\\left(\\frac{3}{2} - \\frac{1}{1001} - \\frac{1}{1002}\\right) = 0.7490015$, missing $\\frac{3}{4}$ by about $\\frac{1}{1000}$ — the tail fades like $\\frac{1}{n}$.',
+      'Hence the partials climb $0.5952381 \\to 0.6628788 \\to 0.7490015 \\to \\frac{3}{4}$, exactly as the closed form promises.',
+    ] },
+    { kind: 'para', text: 'The factorial family telescopes by a different shift. Because $k \\cdot k! = (k+1)! - k!$ (check: $(k+1)! = (k+1)\\cdot k!$, and subtracting $k!$ leaves $k \\cdot k!$), the sum collapses pairwise:' },
+    { kind: 'equation', latex: '\\sum_{k=1}^{n} k \\cdot k! = (2! - 1!) + (3! - 2!) + \\cdots + ((n+1)! - n!) = (n+1)! - 1 \\tag{7}' },
+    { kind: 'example', title: 'Illustration 9 — Price $\\sum_{k=1}^{n} k \\cdot k!$ at $n = 5$ and $n = 7$ and confirm the closed form.', steps: [
+      'Split: equation (7) reduces the whole sum to one factorial minus one.',
+      'Take $n = 5$: the closed form gives $6! - 1 = 719$; brute addition $1 + 4 + 18 + 96 + 600 + 4320 = 719$ agrees rung by rung.',
+      'Now, $n = 7$: the closed form gives $8! - 1 = 40319$, and the engine\'s brute sum lands on $40319$ exactly — the partial $S_5 = 719$ was no accident.',
+      'Check: the engine verifies $\\sum k \\cdot k! = (n+1)! - 1$ for every $n$ from 1 to 8, integer-perfect each time.',
+      'Hence any factorial-weighted sum prices to $(n+1)! - 1$ — one line, no cases.',
+    ] },
+    { kind: 'para', text: 'The last family is the AGP tail: $\\frac{k}{2^k}$ mixes an arithmetic ladder with a geometric decay. Chapter 5.2\'s shift-and-cancel prices it in closed form:' },
+    { kind: 'equation', latex: '\\sum_{k=1}^{n} \\frac{k}{2^k} = 2 - \\frac{n+2}{2^n} \\;\\to\\; 2 \\tag{8}' },
+    { kind: 'example', title: 'Illustration 10 — Confirm $\\sum_{k=1}^{n} \\frac{k}{2^k} = 2 - \\frac{n+2}{2^n}$ at $n = 6, 10$ and read the infinite value.', steps: [
+      'Split: the closed form of equation (8) predicts every partial sum from one formula.',
+      'Take $n = 6$: $2 - \\frac{8}{64} = 1.875$, and brute addition $\\frac{1}{2} + \\frac{2}{4} + \\frac{3}{8} + \\frac{4}{16} + \\frac{5}{32} + \\frac{6}{64} = 1.875$ agrees.',
+      'Now, $n = 10$: $2 - \\frac{12}{1024} = 1.98828125$ — the tail $\\frac{n+2}{2^n}$ has already fallen below $0.012$.',
+      'And the infinite value: as $n$ grows, the subtracted tail vanishes exponentially, so the sum tends to $2$ — the engine confirms agreement to $10^{-12}$ by $n = 50$.',
+      'Hence the partials run $1.875 \\to 1.98828125 \\to 2$, and the infinite value is exactly $2$.',
+    ] },
+
+    /* ---------------- Section 5: binomial term hunts ---------------- */
+    { kind: 'heading', text: 'Binomial Term Hunts' },
+    { kind: 'para', text: 'Chapter 7\'s atlas (banked in `aa-binomial-coefficients-at-work`) lists the identities; the advanced craft runs **hunts** with them: locating one coefficient, certifying the greatest one, and taking a census of the whole row without writing the row out. The census is the deepest of the three reads — it prices sum and alternating sum from two substitutions ($x = 1$ and $x = -1$) and the middle-turning law from symmetry alone.' },
+    { kind: 'example', title: 'Illustration 11 — For $(1+x)^{12}$, report the coefficient of $x^5$, the greatest coefficient, the sum of all coefficients, and the alternating sum.', steps: [
+      'Split: the coefficient of $x^5$ is $\\binom{12}{5} = 792$ (the engine computes row 12 by the multiplicative rule and cross-checks against the factorial route).',
+      'Take the middle turn: with $n = 12$ even, the greatest coefficient is the single middle one, $\\binom{12}{6} = 924$ — a row scan confirms no coefficient exceeds it.',
+      'Now, the census: setting $x = 1$ gives $\\sum \\binom{12}{k} = 2^{12} = 4096$; setting $x = -1$ gives $\\sum (-1)^k \\binom{12}{k} = (1-1)^{12} = 0$.',
+      'Check: the engine adds row 12 to $4096$ and alternates it to $0$, integer-perfect.',
+      'Hence the four reads are $792$, $924$, $4096$, and $0$ — no expansion ever written out.',
+    ] },
+    { kind: 'equation', latex: 'T_{k+1} = \\binom{n}{k} a^{\\,n-k} b^{\\,k} \\tag{9}' },
+    { kind: 'derivation', title: 'The general term of a two-part binomial', statement: 'Set up the general term of $\\left(2x - \\frac{1}{x}\\right)^{10}$ and locate the constant term and the $x^4$ coefficient.', steps: [
+      { label: 'Setup', formula: 'T_{k+1} = \\binom{10}{k} (2x)^{10-k} \\left(-\\frac{1}{x}\\right)^k', explanation: 'Each factor contributes either the $2x$ part or the $-\\frac{1}{x}$ part; choosing $k$ of the latter leaves $10 - k$ of the former.' },
+      { label: 'Collect', formula: 'T_{k+1} = \\binom{10}{k} 2^{10-k} (-1)^k x^{10-2k}', explanation: 'The net power of $x$ falls by 2 for every $-\\frac{1}{x}$ chosen, so the exponent tracks $10 - 2k$.' },
+      { label: 'Hunt', explanation: 'The constant term needs $10 - 2k = 0$, so $k = 5$; the $x^4$ coefficient needs $10 - 2k = 4$, so $k = 3$.' },
+      { label: 'Price', formula: '\\binom{10}{5}\\, 2^5\\,(-1)^5 = -8064', explanation: 'And at $k = 3$: $\\binom{10}{3}\\, 2^7\\,(-1)^3 = -15360$. Both are engine-verified against a full polynomial convolution of the tenth power.' },
+    ], result: 'Hence the independent term is $-8064$ and the $x^4$ coefficient is $-15360$ — the exponent read $10 - 2k$ located both in one move.' },
+    { kind: 'example', title: 'Illustration 12 — For $\\left(2x - \\frac{1}{x}\\right)^{10}$, find the independent term and the coefficient of $x^4$.', steps: [
+      'Split: the general term from the derivation is $T_{k+1} = \\binom{10}{k} 2^{10-k} (-1)^k x^{10-2k}$.',
+      'Take the constant term: $10 - 2k = 0$ forces $k = 5$, giving $\\binom{10}{5} \\cdot 2^5 \\cdot (-1)^5 = 252 \\cdot 32 \\cdot (-1) = -8064$.',
+      'Now, the $x^4$ hunt: $10 - 2k = 4$ forces $k = 3$, giving $\\binom{10}{3} \\cdot 2^7 \\cdot (-1)^3 = 120 \\cdot 128 \\cdot (-1) = -15360$.',
+      'Check: the engine multiplies $(2x - \\frac{1}{x})$ by itself ten times by convolution and reads $-8064$ at exponent $0$ and $-15360$ at exponent $4$ — both certified.',
+      'Hence the independent term is $-8064$ and the $x^4$ coefficient is $-15360$, signs included.',
+    ] },
+
+    /* ---------------- Section 6: log speed reads ---------------- */
+    { kind: 'heading', text: 'Log Speed Reads' },
+    { kind: 'para', text: 'The banked lesson `aa-the-laws-of-logarithms-and-the-change-of-base` supplies the laws; chapter 9\'s digit-count law supplies the payoff. The advanced craft reads **orderings** off them: a chain of five logarithms whose values fall strictly, a digit count priced to seven places, and a duel between two powers settled twice over — once by logarithms, once by pure base-pairing.' },
+    { kind: 'equation', latex: '\\log_n (n+1) = 1 + \\frac{\\ln\\left(1 + \\frac{1}{n}\\right)}{\\ln n} \\tag{10}' },
+    { kind: 'example', title: 'Illustration 13 — Show $\\log_2 3 > \\log_3 4 > \\log_4 5 > \\log_5 6 > \\log_6 7$ and explain why the chain must fall.', steps: [
+      'Split: change of base puts all five on one footing — $\\log_2 3 = \\frac{\\ln 3}{\\ln 2}$ and so on; the engine pins each to seven places.',
+      'Take the values: $1.5849625$, $1.2618595$, $1.1609640$, $1.1132828$, $1.0860331$ — strictly decreasing (Table 1 and Figure 4).',
+      'Now, the why: equation (10) rewrites each term as $1$ plus a fraction; the increment $\\ln(1 + \\frac{1}{n})$ shrinks like $\\frac{1}{n}$ while the denominator $\\ln n$ climbs, so each new term is $1$ plus a smaller fraction — the chain must fall.',
+      'And the mirror: change of base also gives $\\log_{n+1} n = \\frac{1}{\\log_n(n+1)}$; the reciprocals climb toward $1$ from below, confirming the same monotonicity from the other side.',
+      'Check: the engine verifies the decomposition of equation (10) at $n = 2$ through $6$ to within $10^{-12}$, and that the increment itself falls at every step.',
+      'Hence the chain $\\log_2 3 > \\log_3 4 > \\log_4 5 > \\log_5 6 > \\log_6 7$ holds, each term $1$ plus a shrinking fraction.',
+    ] },
+    { kind: 'table', caption: 'Table 1 — the decreasing chain, engine-pinned at seven places.', head: ['Read', 'Value (7 dp)', 'Decomposition read'], rows: [
+      ['$\\log_2 3$', '1.5849625', '$1 + \\ln(1.5)/\\ln 2$'],
+      ['$\\log_3 4$', '1.2618595', '$1 + \\ln(4/3)/\\ln 3$'],
+      ['$\\log_4 5$', '1.1609640', '$1 + \\ln(5/4)/\\ln 4$'],
+      ['$\\log_5 6$', '1.1132828', '$1 + \\ln(6/5)/\\ln 5$'],
+      ['$\\log_6 7$', '1.0860331', '$1 + \\ln(7/6)/\\ln 6$'],
+    ] },
+    { kind: 'figure', caption: 'Figure 4 — the log-ordering chain as a decreasing staircase: add 1 to base and argument, and the value still falls.', svg: in101LogStairSvg() },
+    { kind: 'equation', latex: '25\\,\\log_{10} 8 = 22.5772497 \\tag{11}' },
+    { kind: 'example', title: 'Illustration 14 — Count the digits of $8^{25}$ by the digit-count law, then confirm exactly.', steps: [
+      'Split: the digit-count law says $\\text{digits}(N) = \\lfloor \\log_{10} N \\rfloor + 1$ — the banked 9.6 law, cashed here.',
+      'Take the logarithm: $\\log_{10} 8 = 3\\log_{10} 2 = 3 \\times 0.3010300 = 0.9030900$, so equation (11) gives $25\\,\\log_{10} 8 = 22.5772497$ (engine-pinned).',
+      'Now, apply the law: $\\lfloor 22.5772497 \\rfloor + 1 = 22 + 1 = 23$ digits.',
+      'Check: the exact integer read — $8^{25} = 2^{75} = 37778931862957161709568$ — has 23 characters, engine-confirmed by BigInt string length.',
+      'Hence $8^{25}$ has $23$ digits, priced by a floor and certified by an exact 23-digit integer.',
+    ] },
+    { kind: 'example', title: 'Illustration 15 — Settle the duel $2^{300}$ versus $3^{200}$ twice: by logarithms and by base-pairing.', steps: [
+      'Split: logarithms compare the two magnitudes directly — $\\ln(2^{300}) = 300\\,\\ln 2$ and $\\ln(3^{200}) = 200\\,\\ln 3$.',
+      'Take the values: $300\\,\\ln 2 = 207.9441542$ and $200\\,\\ln 3 = 219.7224577$ (engine-pinned to seven places).',
+      'Now, conclude: since $207.9441542 < 219.7224577$, the duel goes to $3^{200}$.',
+      'But there is a cleaner read: $2^{300} = (2^3)^{100} = 8^{100}$ and $3^{200} = (3^2)^{100} = 9^{100}$; since $8 < 9$, the same winner follows with no logarithm at all.',
+      'Check: exact BigInt comparison confirms $3^{200} > 2^{300}$ — a 96-digit number beating a 91-digit one.',
+      'Hence $3^{200}$ wins twice over: by the log duel and by the base-pairing read.',
+    ] },
+
+    /* ---------------- Section 7: the mixed craft + exam corner ---------------- */
+    { kind: 'heading', text: 'The Mixed Craft — One Problem, Three Families' },
+    { kind: 'para', text: 'The exam does not label its families. A single question can hide an AM–GM bound, a Vieta certification, and a binomial count in three consecutive sentences, and the craft is to *route* each sentence to its machine without losing the thread. The closing Illustration chains three families through one shared number, and the exam corner maps the whole lesson onto the JEE Main arc.' },
+    { kind: 'example', title: 'Illustration 16 — Price the minimum $m$ of $x + \\frac{4}{x}$ for $x > 0$; read $\\alpha^3 + \\beta^3$ for the roots of $t^2 - mt + 4 = 0$; then census $(t+2)^4$.', steps: [
+      'Split: AM–GM prices the bound — $x + \\frac{4}{x} \\ge 4$ with equality at $x = 2$, so $m = 4$ and the witness is named (family one).',
+      'Take: with $m = 4$ the quadratic is $t^2 - 4t + 4 = (t - 2)^2$; Vieta certifies sum $4$, product $4$, and the factorization reveals a double root $2$ (family two).',
+      'Now, the symmetric read: $\\alpha^3 + \\beta^3 = m^3 - 3 \\cdot 4 \\cdot m = 64 - 48 = 16$; directly, $2 \\cdot 2^3 = 16$ — the double root agrees.',
+      'And the census: the coefficients of $(t+2)^4$ are $1, 8, 24, 32, 16$ (engine-convolved), summing to $81 = 3^4$, peaking at $24$ by the middle-turning law, with alternating sum $(1-2)^4 = 1$ (family three).',
+      'But the census closes the loop: the constant coefficient $16$ is exactly $\\alpha^3 + \\beta^3 = 16$ — the same double root $2$, priced from the counting side.',
+      'Hence one problem, three families, one echo: $m = 4$, $\\alpha^3 + \\beta^3 = 16$, and the census $\\{81, 24, 1\\}$.',
+    ] },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner — where the craft lands in JEE Main (exam-style)', text: 'Exam-style items across the arc, honestly labelled: nested substitutions appear as Single Correct asks for the number of real roots (four, when both $t$-branches are honored); weighted AM–GM minima appear as Numerical Value asks (price $9x + \\frac{4}{x}$); binomial term hunts appear as Multiple Correct asks (independent-term signs, middle-turning coefficients, census identities); and the digit-count law and log duels are one-line Numerical Value staples. Nothing here claims a real paper — these are the typologies the syllabus arc rewards, written as exam-style drills.' },
+
+    /* ---------------- vocabulary ---------------- */
+    { kind: 'terms', items: [
+      { term: 'nested substitution', def: 'A substitution $t = h(x)$ with $\\deg h \\ge 2$; the equation in $t$ splits into one quadratic family per $t$-root, and every family must be back-solved.' },
+      { term: 'the ladder recurrence', def: 'The climb $s_{k+1} = \\left(x + \\frac{1}{x}\\right) s_k - s_{k-1}$ from $s_0 = 2$; it prices $x^k + x^{-k}$ for every $k$ without ever solving for $x$.' },
+      { term: 'the symmetric read', def: 'Pricing a symmetric expression in the roots from Vieta\'s two seeds $\\alpha + \\beta$ and $\\alpha\\beta$ alone; available only when the expression is genuinely symmetric.' },
+      { term: 'the constraint boundary', def: 'The edge of the constraint set where an extremum can hide; AM–GM binds only at equality, so every claim must check whether the witness lies inside the constraint.' },
+      { term: 'the telescoping split', def: 'Writing $\\frac{1}{k(k+2)} = \\frac{1}{2}\\left(\\frac{1}{k} - \\frac{1}{k+2}\\right)$ so consecutive partial sums cancel, leaving only the boundary terms.' },
+      { term: 'the general term', def: 'The read $T_{k+1} = \\binom{n}{k} a^{n-k} b^k$ of the $(k+1)$-th term of $(a+b)^n$; the powers of $x$ inside it locate any wanted coefficient.' },
+      { term: 'the digit-count read', def: 'The law $\\text{digits}(N) = \\lfloor \\log_{10} N \\rfloor + 1$; since $25\\,\\log_{10} 8 = 22.5772497$, the number $8^{25}$ has $23$ digits.' },
+      { term: 'the equality witness', def: 'The point where the compared AM–GM terms coincide and the bound is attained; a max/min claim without its witness prices nothing.' },
+    ] },
+
+    /* ---------------- formula cards ---------------- */
+    { kind: 'formula', name: 'The ladder recurrence', latex: 's_{k+1} = \\left( x + \\frac{1}{x} \\right) s_k - s_{k-1}', note: 'with $s_0 = 2$, $s_1 = x + \\frac{1}{x}$; at seed 3 it climbs $7, 18, 47, 123, 322, 843, 2207, 5778$.' },
+    { kind: 'formula', name: 'The product-under-fixed-sum law', latex: 'xy \\le \\left( \\frac{x+y}{2} \\right)^2', note: 'equality exactly at $x = y$; for $x + y = 6$ the ceiling is $9$, touched once.' },
+    { kind: 'formula', name: 'The telescoping split', latex: '\\frac{1}{k(k+2)} = \\frac{1}{2}\\left( \\frac{1}{k} - \\frac{1}{k+2} \\right)', note: 'two-step cancellation; $S_n = \\frac{1}{2}\\left(\\frac{3}{2} - \\frac{1}{n+1} - \\frac{1}{n+2}\\right) \\to \\frac{3}{4}$.' },
+    { kind: 'formula', name: 'The general term', latex: 'T_{k+1} = \\binom{n}{k} a^{\\,n-k} b^{\\,k}', note: 'for $\\left(2x - \\frac{1}{x}\\right)^{10}$ the exponent read is $10 - 2k$; constant term at $k = 5$.' },
+    { kind: 'formula', name: 'The digit-count law', latex: '\\text{digits}(N) = \\lfloor \\log_{10} N \\rfloor + 1', note: '$25\\,\\log_{10} 8 = 22.5772497$ forces $23$ digits for $8^{25}$.' },
+    { kind: 'formula', name: 'The log-ordering read', latex: '\\log_n(n+1) = 1 + \\frac{\\ln\\left(1 + \\frac{1}{n}\\right)}{\\ln n}', note: 'the fraction shrinks while the denominator climbs, so the chain falls strictly.' },
+
+    /* ---------------- quiz ---------------- */
+    { kind: 'quiz', items: [
+      { q: 'If $x + \\frac{1}{x} = 3$, what is $x^3 + \\frac{1}{x^3}$?', options: ['$21$', '$27$', '$18$', '$15$'], answer: 2,
+        explain: 'The correct option is $18$: the ladder gives $s_3 = 3 \\cdot 7 - 3 = 18$, and Newton\'s read agrees, $27 - 9 = 18$. Option $21$ runs the ladder as $3 \\cdot 7$ but forgets to subtract $s_1 = 3$. Option $27$ is $3^3$ with the correction term $3\\left(x + \\frac{1}{x}\\right)$ dropped entirely. Option $15$ is an arithmetic slip: it subtracts $12$ (as if the correction were $4 \\times 3$) instead of $9$.' },
+      { q: '$\\alpha, \\beta$ are the roots of $x^2 - 7x + 11 = 0$. Then $\\alpha^3 + \\beta^3$ equals:', options: ['$112$', '$231$', '$487$', '$343$'], answer: 0,
+        explain: 'The correct option is $112$: $7^3 - 3 \\cdot 11 \\cdot 7 = 343 - 231 = 112$. Option $231$ is the correction term $3\\alpha\\beta(\\alpha+\\beta)$ alone — computed but never subtracted. Option $487$ is the fourth-power read $\\alpha^4 + \\beta^4$: the wrong rung of the ladder. Option $343$ is $7^3$ with the correction term dropped.' },
+      { q: 'For $x > 0$, the minimum of $9x + \\frac{4}{x}$ is:', options: ['$6$', '$13$', 'No minimum exists for $x > 0$', '$12$'], answer: 3,
+        explain: 'The correct option is $12$: $2\\sqrt{9x \\cdot \\frac{4}{x}} = 2\\sqrt{36} = 12$, attained at $9x = \\frac{4}{x}$, i.e. $x = \\frac{2}{3}$. Option $6$ stops at $\\sqrt{36}$ and forgets the outer factor $2$. Option $13$ is a plain arithmetic slip ($\\sqrt{36} = 6$, doubled is $12$, not $13$). Option \'No minimum\' is false: the AM–GM bound is genuine and attained, so a minimum exists.' },
+      { q: 'The independent (constant) term of $\\left(2x - \\frac{1}{x}\\right)^{10}$ is:', options: ['$8064$', '$-792$', '$-252$', '$-8064$'], answer: 3,
+        explain: 'The correct option is $-8064$: the independent term needs $10 - 2k = 0$, so $k = 5$, giving $\\binom{10}{5} \\cdot 2^5 \\cdot (-1)^5 = 252 \\cdot 32 \\cdot (-1)$. Option $8064$ drops the sign $(-1)^5$. Option $-792$ borrows $\\binom{12}{5}$ from the wrong row of Pascal (that is the $(1+x)^{12}$ census, not this binomial). Option $-252$ keeps $\\binom{10}{5}$ but forgets the factor $2^5 = 32$.' },
+      { q: 'The number of digits of $8^{25}$ is:', options: ['$22$', '$23$', '$24$', '$21$'], answer: 1,
+        explain: 'The correct option is $23$: $25\\,\\log_{10} 8 = 22.5772497$ and the law is $\\lfloor 22.5772497 \\rfloor + 1 = 23$. Option $22$ reads the floor and forgets the $+1$. Option $24$ rounds the characteristic up (ceiling) instead of flooring it. Option $21$ misprices the logarithm itself, using roughly $0.83$ for $\\log_{10} 8$ instead of the true $0.9030900$.' },
+    ] },
+  ],
+}

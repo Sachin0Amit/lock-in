@@ -1,0 +1,583 @@
+/**
+ * part-aa103.ts — Advanced Algebra, lesson 10.3 "The Book in One Page: Synthesis"
+ * (agent aa103, run-122 swarm). Companion engine: v-aa103.ts (verify-first).
+ *
+ * SPEC-VS-ENGINE CATCH (recorded per spec §0/§8): the spec printed
+ * log10 C(50,25) = 14.1017; the engine's full-precision value 14.101783514802…
+ * rounds to 14.1018 at 4 dp. THE ENGINE WINS — the prose below prints 14.1018
+ * and the binomial-digit Illustration says so. Every other printed number was
+ * recomputed by the engine and matched the spec exactly.
+ *
+ * Figure law: prefix syn103; VIVID palette only; viewBox with >= 8px margins;
+ * role="img" + aria-label; strokes >= 1.2px; SVG text PLAIN (no $, no TeX).
+ */
+
+import type { Lesson } from '../src/data/library/types'
+
+/* ------------------------------------------------------------------ */
+/* Figure helpers — every coordinate computed from named constants     */
+/* ------------------------------------------------------------------ */
+
+const SYN = {
+  structure: '#16a34a',
+  primary: '#166534',
+  mid: '#65a30d',
+  teal: '#0d9488',
+  conn: '#d97706',
+  accent: '#ea580c',
+  tealInk: '#0f766e',
+  warn: '#dc2626',
+  panelA: '#fef3c7',
+  panelB: '#ffedd5',
+  sep: '#fcd34d',
+  faint: '#5eead4',
+  white: '#ffffff',
+} as const
+
+function syn103Poly(pts: Array<[number, number]>): string {
+  return pts.map((p, i) => (i === 0 ? 'M ' : 'L ') + p[0].toFixed(2) + ' ' + p[1].toFixed(2)).join(' ')
+}
+
+/* (a) body figure — the book's wiring diagram: ten stations on one rail */
+function syn103Wiring(): string {
+  const W = 920
+  const H = 208
+  const railY = 116
+  const x0 = 62
+  const x1 = 858
+  const n = 10
+  const step = (x1 - x0) / (n - 1)
+  const st: string[][] = [
+    ['1', 'Functions', 'machine grammar', 'witness: 49 vs 19'],
+    ['2', 'Quadratic', 'the vertex', 'witness: max 11 @ x = 3'],
+    ['3', 'Complex', 'closure repaired', 'witness: (1+i)^8 = 16'],
+    ['4', 'Inequalities', 'bounds as tools', 'witness: min 12 @ x = 2/3'],
+    ['5', 'Series', 'sums priced', 'witness: sum k/2^k = 2'],
+    ['6', 'Counting', 'exact counts', 'witness: C(10,3) = 120'],
+    ['7', 'Induction +', 'Binomial', 'witness: row 12 = 4096'],
+    ['8', 'Equations', 'deep algebra', 'witness: a^3+b^3 = 112'],
+    ['9', 'Exp · Log', 'inverse family', 'witness: 31 digits'],
+    ['10', 'Synthesis', 'the map + limit', 'witness: this page'],
+  ]
+  const hand = ['tools', 'closure', 'bounds', 'pricing', 'precision', 'proof', 'expansion', 'deepening', 'the map']
+  let s = '<svg role="img" aria-label="The wiring of the book: ten chapter stations on one rail, each handing a tool to the next, with each station witness printed beneath" viewBox="0 0 920 208" xmlns="http://www.w3.org/2000/svg">'
+  s += '<defs><marker id="awWire" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="' + SYN.conn + '"/></marker></defs>'
+  s += '<text x="460" y="18" text-anchor="middle" font-size="12.5" font-weight="bold" fill="' + SYN.accent + '">THE WIRING — one rail, ten stations, every handoff a tool the next chapter assumes</text>'
+  s += '<line x1="' + (x0 - 20) + '" y1="' + railY + '" x2="' + (x1 + 14) + '" y2="' + railY + '" stroke="' + SYN.conn + '" stroke-width="2.4" marker-end="url(#awWire)"/>'
+  for (let i = 0; i < n; i++) {
+    const x = x0 + i * step
+    if (i < n - 1) {
+      const hx = x0 + (i + 0.5) * step
+      s += '<text x="' + hx.toFixed(1) + '" y="' + (railY - 26) + '" text-anchor="middle" font-size="10.5" font-weight="bold" fill="' + SYN.conn + '">' + hand[i] + '</text>'
+    }
+    s += '<circle cx="' + x.toFixed(1) + '" cy="' + railY + '" r="15" fill="' + SYN.structure + '" stroke="' + SYN.primary + '" stroke-width="1.6"/>'
+    s += '<text x="' + x.toFixed(1) + '" y="' + (railY + 4.5) + '" text-anchor="middle" font-size="11.5" font-weight="bold" fill="' + SYN.white + '">' + st[i][0] + '</text>'
+    s += '<text x="' + x.toFixed(1) + '" y="' + (railY + 36) + '" text-anchor="middle" font-size="11" font-weight="bold" fill="' + SYN.primary + '">' + st[i][1] + '</text>'
+    s += '<text x="' + x.toFixed(1) + '" y="' + (railY + 50) + '" text-anchor="middle" font-size="9.5" fill="' + SYN.mid + '">' + st[i][2] + '</text>'
+    s += '<text x="' + x.toFixed(1) + '" y="' + (railY + 64) + '" text-anchor="middle" font-size="9" fill="' + SYN.tealInk + '">' + st[i][3] + '</text>'
+  }
+  s += '</svg>'
+  return s
+}
+
+/* (b) body figure — the honesty ledger: promise | owning door */
+function syn103Ledger(): string {
+  const W = 920
+  const H = 336
+  const rows: string[][] = [
+    ['9.1 — the nested-bracket convergence proof for the sum of k/2^k', 'Calculus'],
+    ['9.5 — e as a limit: the 2.7182818 series was used, its limit unproved', 'Calculus'],
+    ['9.6 — the fast-series remainder: how close S_n sits to e was bounded', 'Calculus'],
+    ['the squeezes of ch. 5 assumed the completeness of the reals', 'Real Analysis'],
+    ['the instantaneous rate — 10.4 walks to the wall and names it', 'Calculus · 10.4'],
+    ['the ε–δ machinery — the honest language of limits, never opened', 'Calculus'],
+  ]
+  let s = '<svg role="img" aria-label="The honesty ledger as a two-column diagram: six deferred promises on the left, each joined by an arrow to the door that owns it on the right" viewBox="0 0 920 336" xmlns="http://www.w3.org/2000/svg">'
+  s += '<defs><marker id="awLedger" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="' + SYN.conn + '"/></marker></defs>'
+  s += '<text x="460" y="18" text-anchor="middle" font-size="12.5" font-weight="bold" fill="' + SYN.accent + '">THE HONESTY LEDGER — every deferred proof has an address</text>'
+  s += '<text x="40" y="46" font-size="12" font-weight="bold" fill="' + SYN.primary + '">THE PROMISE — used, never proved</text>'
+  s += '<text x="560" y="46" font-size="12" font-weight="bold" fill="' + SYN.tealInk + '">THE DOOR THAT OWNS IT</text>'
+  for (let i = 0; i < rows.length; i++) {
+    const y = 66 + i * 44
+    s += '<line x1="500" y1="' + (y + 19) + '" x2="552" y2="' + (y + 19) + '" stroke="' + SYN.conn + '" stroke-width="1.8" marker-end="url(#awLedger)"/>'
+    s += '<rect x="40" y="' + y + '" width="460" height="38" rx="6" fill="' + SYN.panelA + '" stroke="' + SYN.sep + '" stroke-width="1.4"/>'
+    s += '<text x="52" y="' + (y + 17) + '" font-size="10.8" fill="' + SYN.primary + '">' + rows[i][0] + '</text>'
+    s += '<text x="52" y="' + (y + 31) + '" font-size="9.2" fill="' + SYN.mid + '">used in this book · proved nowhere in it</text>'
+    s += '<rect x="560" y="' + y + '" width="320" height="38" rx="6" fill="' + SYN.panelB + '" stroke="' + SYN.sep + '" stroke-width="1.4"/>'
+    s += '<text x="572" y="' + (y + 24) + '" font-size="13.5" font-weight="bold" fill="' + SYN.tealInk + '">' + rows[i][1] + '</text>'
+  }
+  s += '</svg>'
+  return s
+}
+
+/* (c) body figure — one question, three registers (the max-chain as stations) */
+function syn103Chain(): string {
+  const W = 920
+  const H = 302
+  const cx0 = 460
+  const cy0 = 158
+  const r = 52
+  let s = '<svg role="img" aria-label="The max-chain: one central question x(6-x) connected to three register boxes, AM-GM, discriminant and completed square, each certifying the same maximum 9 at x = 3" viewBox="0 0 920 302" xmlns="http://www.w3.org/2000/svg">'
+  s += '<text x="460" y="22" text-anchor="middle" font-size="12.5" font-weight="bold" fill="' + SYN.accent + '">ONE QUESTION · THREE REGISTERS · max x(6−x) = 9 at x = 3</text>'
+  // connectors first (behind)
+  s += '<line x1="' + (cx0 - 44) + '" y1="' + (cy0 - 30) + '" x2="352" y2="96" stroke="' + SYN.conn + '" stroke-width="1.8"/>'
+  s += '<line x1="' + (cx0 - 44) + '" y1="' + (cy0 + 30) + '" x2="352" y2="240" stroke="' + SYN.conn + '" stroke-width="1.8"/>'
+  s += '<line x1="' + (cx0 + r) + '" y1="' + cy0 + '" x2="568" y2="' + cy0 + '" stroke="' + SYN.conn + '" stroke-width="1.8"/>'
+  // central node
+  s += '<circle cx="' + cx0 + '" cy="' + cy0 + '" r="' + r + '" fill="' + SYN.structure + '" stroke="' + SYN.primary + '" stroke-width="2"/>'
+  s += '<text x="' + cx0 + '" y="' + (cy0 - 2) + '" text-anchor="middle" font-size="15" font-weight="bold" fill="' + SYN.white + '">x(6−x)</text>'
+  s += '<text x="' + cx0 + '" y="' + (cy0 + 16) + '" text-anchor="middle" font-size="10" fill="' + SYN.white + '">maximise it</text>'
+  // register boxes
+  const box = (x: number, y: number, head: string, l2: string, l3: string) => {
+    let b = '<rect x="' + x + '" y="' + y + '" width="304" height="76" rx="8" fill="' + SYN.panelA + '" stroke="' + SYN.sep + '" stroke-width="1.5"/>'
+    b += '<text x="' + (x + 14) + '" y="' + (y + 20) + '" font-size="10.5" font-weight="bold" fill="' + SYN.mid + '">' + head + '</text>'
+    b += '<text x="' + (x + 14) + '" y="' + (y + 42) + '" font-size="12" font-weight="bold" fill="' + SYN.primary + '">' + l2 + '</text>'
+    b += '<text x="' + (x + 14) + '" y="' + (y + 62) + '" font-size="10" fill="' + SYN.tealInk + '">' + l3 + '</text>'
+    return b
+  }
+  s += box(48, 58, 'REGISTER 1 · AM–GM (ch. 4)', 'x(6−x) ≤ ((x + (6−x))/2)² = 3² = 9', 'equality when the two parts agree: x = 3')
+  s += box(48, 202, 'REGISTER 2 · DISCRIMINANT (ch. 2)', 'x² − 6x + 9: D = 36 − 36 = 0, double root', 'the single root x = 3 is where the top lives')
+  s += box(568, 120, 'REGISTER 3 · THE SQUARE (ch. 4)', 'x(6−x) = 9 − (x−3)² ≤ 9', 'equality exactly when (x−3)² = 0, i.e. x = 3')
+  s += '</svg>'
+  return s
+}
+
+/* solution figure — the pen optimisation parabola A = -2(x-5)^2 + 50 */
+function syn103Pen(): string {
+  const W = 460
+  const H = 300
+  const X = (u: number) => 40 + (u + 1) * (380 / 12)
+  const Y = (v: number) => 268 - (v + 8) * (230 / 63)
+  const pts: Array<[number, number]> = []
+  for (let u = -0.5; u <= 10.5001; u += 0.25) pts.push([X(u), Y(-2 * (u - 5) * (u - 5) + 50)])
+  let s = '<svg role="img" aria-label="The pen area parabola A equals minus two times x minus five squared plus fifty, with maximum 50 at x = 5, symmetry probes at 48, and degenerate roots at 0 and 10" viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg">'
+  s += '<rect x="8" y="8" width="444" height="284" fill="' + SYN.white + '"/>'
+  s += '<line x1="' + X(-1) + '" y1="' + Y(0) + '" x2="' + X(11) + '" y2="' + Y(0) + '" stroke="' + SYN.mid + '" stroke-width="1.4"/>'
+  s += '<line x1="' + X(0) + '" y1="' + Y(-8) + '" x2="' + X(0) + '" y2="' + Y(55) + '" stroke="' + SYN.mid + '" stroke-width="1.4"/>'
+  s += '<text x="' + (X(11) - 4) + '" y="' + (Y(0) + 16) + '" font-size="11" fill="' + SYN.primary + '">x</text>'
+  s += '<text x="' + (X(0) - 14) + '" y="' + (Y(55) + 12) + '" font-size="11" fill="' + SYN.primary + '">A</text>'
+  s += '<path d="' + syn103Poly(pts) + '" fill="none" stroke="' + SYN.structure + '" stroke-width="2.2"/>'
+  s += '<line x1="' + X(5) + '" y1="' + Y(50) + '" x2="' + X(5) + '" y2="' + Y(0) + '" stroke="' + SYN.conn + '" stroke-width="1.3" stroke-dasharray="5 4"/>'
+  s += '<circle cx="' + X(5) + '" cy="' + Y(50) + '" r="4" fill="' + SYN.accent + '"/>'
+  s += '<text x="' + (X(5) + 8) + '" y="' + (Y(50) - 6) + '" font-size="11" font-weight="bold" fill="' + SYN.accent + '">max 50 at x = 5</text>'
+  s += '<circle cx="' + X(4) + '" cy="' + Y(48) + '" r="3.2" fill="' + SYN.teal + '"/>'
+  s += '<circle cx="' + X(6) + '" cy="' + Y(48) + '" r="3.2" fill="' + SYN.teal + '"/>'
+  s += '<text x="' + (X(6) + 8) + '" y="' + (Y(48) + 14) + '" font-size="10" fill="' + SYN.tealInk + '">A(4) = A(6) = 48</text>'
+  s += '<circle cx="' + X(0) + '" cy="' + Y(0) + '" r="3.2" fill="' + SYN.warn + '"/>'
+  s += '<circle cx="' + X(10) + '" cy="' + Y(0) + '" r="3.2" fill="' + SYN.warn + '"/>'
+  s += '<text x="' + (X(10) - 10) + '" y="' + (Y(0) + 16) + '" font-size="10" fill="' + SYN.warn + '">x = 10 (degenerate)</text>'
+  s += '<text x="' + (X(0) + 6) + '" y="' + (Y(0) + 16) + '" font-size="10" fill="' + SYN.warn + '">x = 0</text>'
+  s += '<text x="' + (X(5) + 6) + '" y="' + (Y(0) - 8) + '" font-size="10" fill="' + SYN.conn + '">axis x = 5</text>'
+  s += '</svg>'
+  return s
+}
+
+/* solution figure — the complex plane for z = 1 + i√3 */
+function syn103Complex(): string {
+  const W = 480
+  const H = 300
+  const ox = 248
+  const oy = 152
+  const u = 21
+  const zx = ox + u
+  const zy = oy - Math.sqrt(3) * u
+  const arcR = 26
+  const ax = ox + arcR * Math.cos(Math.PI / 3)
+  const ay = oy - arcR * Math.sin(Math.PI / 3)
+  const lx = ox + 36 * Math.cos(Math.PI / 6)
+  const ly = oy - 36 * Math.sin(Math.PI / 6)
+  let s = '<svg role="img" aria-label="The complex plane showing z = 1 + i root 3 at modulus 2 and angle sixty degrees, its modulus arrow, the angle arc pi over 3, and z cubed = minus 8 on the negative real axis" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg">'
+  s += '<defs><marker id="awCx" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="' + SYN.accent + '"/></marker></defs>'
+  s += '<line x1="' + (ox - 9.4 * u) + '" y1="' + oy + '" x2="' + (ox + 10.4 * u) + '" y2="' + oy + '" stroke="' + SYN.mid + '" stroke-width="1.4"/>'
+  s += '<line x1="' + ox + '" y1="' + (oy + 6.4 * u) + '" x2="' + ox + '" y2="' + (oy - 6.4 * u) + '" stroke="' + SYN.mid + '" stroke-width="1.4"/>'
+  s += '<circle cx="' + ox + '" cy="' + oy + '" r="' + 2 * u + '" fill="none" stroke="' + SYN.faint + '" stroke-width="1.4" stroke-dasharray="4 4"/>'
+  s += '<line x1="' + ox + '" y1="' + oy + '" x2="' + zx + '" y2="' + zy + '" stroke="' + SYN.accent + '" stroke-width="2.2" marker-end="url(#awCx)"/>'
+  s += '<path d="M ' + (ox + arcR) + ' ' + oy + ' A ' + arcR + ' ' + arcR + ' 0 0 0 ' + ax.toFixed(1) + ' ' + ay.toFixed(1) + '" fill="none" stroke="' + SYN.teal + '" stroke-width="1.8"/>'
+  s += '<text x="' + lx.toFixed(1) + '" y="' + ly.toFixed(1) + '" font-size="11.5" font-weight="bold" fill="' + SYN.tealInk + '">π/3</text>'
+  s += '<text x="' + (ox + 14) + '" y="' + (oy + 22) + '" font-size="11" font-weight="bold" fill="' + SYN.accent + '">|z| = 2</text>'
+  s += '<circle cx="' + zx + '" cy="' + zy + '" r="4.2" fill="' + SYN.structure + '"/>'
+  s += '<text x="' + (zx + 8) + '" y="' + (zy - 8) + '" font-size="11.5" font-weight="bold" fill="' + SYN.primary + '">z = 1 + i√3</text>'
+  s += '<circle cx="' + (ox - 8 * u) + '" cy="' + oy + '" r="4.2" fill="' + SYN.teal + '"/>'
+  s += '<text x="' + (ox - 8 * u - 8) + '" y="' + (oy + 22) + '" font-size="11.5" font-weight="bold" fill="' + SYN.tealInk + '">z³ = −8</text>'
+  s += '<text x="' + (ox - 14) + '" y="' + (oy + 16) + '" font-size="10.5" fill="' + SYN.mid + '">O</text>'
+  s += '<text x="' + (ox + 2 * u - 6) + '" y="' + (zy - 10) + '" font-size="9.5" fill="' + SYN.faint + '">circle |z| = 2</text>'
+  s += '</svg>'
+  return s
+}
+
+/* solution figure — the fence chain: area parabola with the band x in [8, 12] */
+function syn103Fence(): string {
+  const W = 460
+  const H = 300
+  const X = (xv: number) => 44 + xv * (376 / 20)
+  const Y = (a: number) => 264 - a * (216 / 105)
+  const pts: Array<[number, number]> = []
+  for (let xv = 0; xv <= 20.001; xv += 0.5) pts.push([X(xv), Y(xv * (20 - xv))])
+  let s = '<svg role="img" aria-label="The fence area parabola x times 20 minus x with maximum 100 at x = 10 and the shaded band from x = 8 to 12 where the area is at least 96" viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg">'
+  s += '<rect x="8" y="8" width="444" height="284" fill="' + SYN.white + '"/>'
+  s += '<rect x="' + X(8).toFixed(1) + '" y="' + Y(96).toFixed(1) + '" width="' + (X(12) - X(8)).toFixed(1) + '" height="' + (Y(0) - Y(96)).toFixed(1) + '" fill="' + SYN.panelA + '" opacity="0.6"/>'
+  s += '<line x1="' + X(0) + '" y1="' + Y(0) + '" x2="' + X(20) + '" y2="' + Y(0) + '" stroke="' + SYN.mid + '" stroke-width="1.4"/>'
+  s += '<line x1="' + X(0) + '" y1="' + Y(105) + '" x2="' + X(0) + '" y2="' + Y(0) + '" stroke="' + SYN.mid + '" stroke-width="1.4"/>'
+  s += '<path d="' + syn103Poly(pts) + '" fill="none" stroke="' + SYN.structure + '" stroke-width="2.2"/>'
+  s += '<circle cx="' + X(10) + '" cy="' + Y(100) + '" r="4" fill="' + SYN.accent + '"/>'
+  s += '<text x="' + (X(10) + 8) + '" y="' + (Y(100) - 4) + '" font-size="11" font-weight="bold" fill="' + SYN.accent + '">square: max 100 at x = 10</text>'
+  s += '<text x="' + X(10) + '" y="' + (Y(96) - 6) + '" text-anchor="middle" font-size="10.5" font-weight="bold" fill="' + SYN.tealInk + '">area ≥ 96</text>'
+  s += '<text x="' + (X(12) + 6) + '" y="' + (Y(96) + 18) + '" font-size="10" fill="' + SYN.primary + '">3 rectangles:</text>'
+  s += '<text x="' + (X(12) + 6) + '" y="' + (Y(96) + 32) + '" font-size="10" font-weight="bold" fill="' + SYN.primary + '">96 · 99 · 100</text>'
+  s += '<text x="' + (X(12) + 6) + '" y="' + (Y(96) + 46) + '" font-size="10" fill="' + SYN.tealInk + '">their sum 295</text>'
+  for (const t of [0, 5, 10, 15, 20]) {
+    s += '<line x1="' + X(t) + '" y1="' + Y(0) + '" x2="' + X(t) + '" y2="' + (Y(0) + 5) + '" stroke="' + SYN.mid + '" stroke-width="1.2"/>'
+    s += '<text x="' + X(t) + '" y="' + (Y(0) + 18) + '" text-anchor="middle" font-size="10" fill="' + SYN.mid + '">' + t + '</text>'
+  }
+  s += '<text x="' + (X(20) + 2) + '" y="' + (Y(0) - 8) + '" font-size="11" fill="' + SYN.primary + '">x</text>'
+  s += '<text x="' + (X(0) - 16) + '" y="' + (Y(105) + 12) + '" font-size="11" fill="' + SYN.primary + '">A</text>'
+  s += '</svg>'
+  return s
+}
+
+/* solution figure — the digit-count stations for the L6 chain */
+function syn103Digits(): string {
+  const W = 460
+  const H = 226
+  const bw = 128
+  const bh = 96
+  const y0 = 58
+  const xs = [24, 166, 308]
+  const data: string[][] = [
+    ['C(16, 8)', '12870', '5 digits'],
+    ['2^16', '65536', '5 digits'],
+    ['(1+i)^16', '256', '3 digits'],
+  ]
+  let s = '<svg role="img" aria-label="Three digit-count stations: C of 16 and 8 equals 12870 with 5 digits, 2 to the 16 equals 65536 with 5 digits, and 1 plus i to the 16 equals 256 with 3 digits" viewBox="0 0 460 226" xmlns="http://www.w3.org/2000/svg">'
+  s += '<defs><marker id="awDig" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="' + SYN.conn + '"/></marker></defs>'
+  s += '<text x="230" y="24" text-anchor="middle" font-size="12" font-weight="bold" fill="' + SYN.accent + '">THE DIGIT-COUNT LAW — digits(N) = floor(log10 N) + 1</text>'
+  for (let i = 0; i < 3; i++) {
+    s += '<rect x="' + xs[i] + '" y="' + y0 + '" width="' + bw + '" height="' + bh + '" rx="8" fill="' + (i === 1 ? SYN.panelB : SYN.panelA) + '" stroke="' + SYN.sep + '" stroke-width="1.5"/>'
+    s += '<text x="' + (xs[i] + bw / 2) + '" y="' + (y0 + 26) + '" text-anchor="middle" font-size="12" font-weight="bold" fill="' + SYN.primary + '">' + data[i][0] + '</text>'
+    s += '<text x="' + (xs[i] + bw / 2) + '" y="' + (y0 + 52) + '" text-anchor="middle" font-size="14" font-weight="bold" fill="' + SYN.accent + '">' + data[i][1] + '</text>'
+    s += '<text x="' + (xs[i] + bw / 2) + '" y="' + (y0 + 76) + '" text-anchor="middle" font-size="11.5" fill="' + SYN.tealInk + '">' + data[i][2] + '</text>'
+    if (i < 2) {
+      s += '<line x1="' + (xs[i] + bw + 4) + '" y1="' + (y0 + bh / 2) + '" x2="' + (xs[i + 1] - 4) + '" y2="' + (y0 + bh / 2) + '" stroke="' + SYN.conn + '" stroke-width="1.8" marker-end="url(#awDig)"/>'
+    }
+  }
+  s += '<text x="230" y="192" text-anchor="middle" font-size="10.5" fill="' + SYN.mid + '">log10 C(16,8) = 4.1096 · log10 2^16 = 4.8165 · 256 &lt; 1000</text>'
+  s += '<text x="230" y="210" text-anchor="middle" font-size="10.5" fill="' + SYN.tealInk + '">one chain, three registers, every digit count confirmed exactly</text>'
+  s += '</svg>'
+  return s
+}
+
+/* ==================================================================== */
+/* THE LESSON                                                           */
+/* ==================================================================== */
+
+export const lesson103: Lesson = {
+  id: 'aa-the-book-in-one-page-synthesis',
+  number: '10.3',
+  title: 'The Book in One Page: Synthesis',
+  concepts: [
+    'the census of ten chapters and their witnesses',
+    'the wiring — which chapter feeds which',
+    'the formula shelf, gathered in one place',
+    'the honesty ledger of deferred proofs',
+    'cross-chapter chains as the audit bench',
+    'the forward doors and backward anchors',
+  ],
+  objectives: [
+    'Read the ten-row census table and connect every witness to the chapter that owns it',
+    'Reconstruct the wiring: why each chapter could not have been written before its predecessor',
+    'Use the formula shelf as a one-page retrieval tool across all ten chapter families',
+    'State honestly what the book used but never proved, and name the door that owns each debt',
+    'Solve cross-chapter chain problems that visit three or more registers in one calculation',
+  ],
+  prerequisites: [
+    'aa-exponentials-and-logarithms-unit-9-review',
+    'aa-unit-review-functions-as-objects',
+    'al-the-function-idea-the-doorstep',
+  ],
+  sources: ['cengage-jee-style', 'jee-main-2026-syllabus', 'hall-knight-higher-algebra'],
+  blocks: [
+    /* ---------------- opening motivation ---------------- */
+    { kind: 'para', text: "Nine chapters were walked one machine at a time. Each chapter built one object, certified it with worked structure, and banked it. This page now holds the whole book in one hand: one table that lists what each chapter built, one shelf that gathers the formulas worth recalling cold, one ledger that admits what was used but never proved, and one bench where single calculations cross chapter lines. Nothing here re-teaches — every banked lesson is cited by name, never repeated. The census consolidates; it does not replace." },
+    { kind: 'para', text: "The method of this page is the method of the whole book: nothing is remembered that can be recomputed. Every witness printed below was recomputed by brute force before this prose was fixed — the composite machines were actually composed, the vertex was actually scanned on a grid, the complex powers were actually multiplied out, the counts were actually enumerated, the logarithms were actually taken. The census table is therefore not a list of claims; it is a list of computations, each one re-runnable in the companion engine." },
+    { kind: 'callout', tone: 'insight', title: 'What "one page" honestly means', text: "One table (the census), one shelf (the formulas), one ledger (the debts), one bench (the chains). A map is not the territory, and this page is not the book — but a map read twice is shorter the second time. The first pass collects the objects; the second pass collects the wiring: who feeds whom, who owes whom, and which door each debt is payable at. That wiring, not the wording, is what you carry out of this page." },
+    /* ---------------- the book in one table ---------------- */
+    { kind: 'heading', text: 'The book in one table' },
+    { kind: 'para', text: "Ten chapters, ten objects, ten witnesses. The middle column names what each chapter BUILT — the object you should be able to pick up and use. The right column prints each object's WITNESS: one computation, recomputed by the engine before this prose was fixed, small enough to check by hand where hand-checking is honest." },
+    { kind: 'table', caption: 'The census — ten chapters, ten objects, ten engine-recomputed witnesses', head: ['Chapter', 'The object it built', 'The witness (recomputed)'], rows: [
+      ['1 · Functions as Objects', 'the machine grammar — functions as objects you can compose, invert and classify', '$g(f(3)) = 49$ vs $f(g(3)) = 19$ on $f = 2x+1$, $g = x^2$'],
+      ['2 · The Quadratic at Depth', 'the vertex — completing the square as a reading tool, the discriminant as a root census', 'max of $-2x^2+12x-7$ is $11$ at $x = 3$ (vertex form $-2(x-3)^2+11$)'],
+      ['3 · Complex Numbers', 'the closure repair — arithmetic on the plane, every quadratic solvable', '$(1+i)^8 = 16$'],
+      ['4 · Inequalities', 'the classical engine — AM–GM, Cauchy–Schwarz, the square-read', 'min $9x + 4/x = 12$ at $x = 2/3$'],
+      ['5 · Sequences and Series', 'the climbs and tails — AP, GP, telescoping, the first honest limit', '$\\sum_{k=1}^{\\infty} k/2^k = 2$, with $S_{10} = 1.98828125$'],
+      ['6 · Counting', 'the exact counts — permutations, combinations, distribution censuses', '$C(10,3) = 120$ and $10P3 = 720$'],
+      ['7 · Induction + Binomial', 'the proof engine and the binomial expansion', '$\\sum_{k=0}^{12} C(12,k) = 4096$; $\\sum_{k=1}^{100} k = 5050$'],
+      ['8 · Theory of Equations', 'the deep polynomial algebra — Vieta, symmetric functions, transformations', '$\\alpha^3 + \\beta^3 = 112$ on $x^2 - 7x + 11$'],
+      ['9 · Exponentials and Logarithms', 'the inverse family — the definition pair, the log laws, the digit-count law', '$(\\log_3 4)(\\log_4 5)\\cdots(\\log_8 9) = 2$; $e = 2.7182818$; $2^{100}$ has 31 digits'],
+      ['10 · Synthesis + the Doorstep', 'the map and the limit — this page, and the wall the next book walks to', 'the book itself — every row above recomputed, not remembered'],
+    ] },
+    { kind: 'para', text: "Read the third column as the honest sentence of this lesson: a synthesis earns trust by recomputation, not recollection. Two witnesses even disagree with each other's order — $g(f(3)) = 49$ while $f(g(3)) = 19$ on the same two machines $f = 2x+1$ and $g = x^2$ — and that asymmetry is chapter 1's whole point in one breath: composition is a real operation with a direction. The series witness is equally candid: the engine printed $S_{10} = 1.98828125$ exactly (a dyadic rational), confirmed the closed form $S_n = 2 - (n+2)/2^n$ at seven sizes, and only then let the prose say the sum is 2." },
+    { kind: 'equation', latex: '\\text{witness} \\; = \\; \\text{one computation, recomputed — not remembered}', note: 'The discipline of the third column, stated once for the whole table.' },
+    { kind: 'para', text: "A witness is small on purpose. A big number impresses nobody who cannot check it; a small one — 49 against 19, 120 against 720, 5050 — can be re-run by hand in a minute and by the engine in a millisecond. That is the whole trick of a trustworthy synthesis: keep every certifying computation small enough to redo, and redo it. When this page was drafted, one printed decimal (a logarithm below) came from a truncated source; the engine caught it and the prose was corrected before it was ever fixed. Small witnesses, honestly recomputed, are the reason you may believe the big ones." },
+    /* ---------------- the wiring ---------------- */
+    { kind: 'heading', text: 'The wiring' },
+    { kind: 'para', text: "The chapters are not a list; they are a chain. Each object was buildable only because the previous object existed to build with. Walk the chain once, slowly — this is the dependency structure the figure below compresses:" },
+    { kind: 'list', marker: 'roman', items: [
+      "Chapter 1 — Functions as Objects: built the machine grammar. Functions became objects that can be composed, inverted and classified; every later chapter inherits its raw material from here.",
+      "Chapter 2 — The Quadratic at Depth: took the simplest non-linear machine and made it a working object — completing the square, the vertex, the discriminant as a census of roots.",
+      "Chapter 3 — Complex Numbers: repaired closure. The quadratic's honest failure at $D < 0$ demanded new numbers, and the plane's arithmetic made every quadratic — indeed every polynomial — solvable.",
+      "Chapter 4 — Inequalities: turned bounds into tools. AM–GM, Cauchy–Schwarz and the square-read became engines for minima and maxima, not merely comparisons.",
+      "Chapter 5 — Sequences and Series: priced the infinite. AP and GP sums, telescoping splits, and the first honest limit — partial sums climbing under a ceiling they never reach.",
+      "Chapter 6 — Counting: made quantities exact. Permutations, combinations and distribution censuses turned how-many questions into arithmetic.",
+      "Chapter 7 — Induction + Binomial: built the proof engine and its first great expansion; the domino schema and Pascal's triangle feed each other.",
+      "Chapter 8 — Theory of Equations: went deep into polynomial algebra — Vieta's pair, symmetric functions, and transformations that move roots without solving.",
+      "Chapter 9 — Exponentials and Logarithms: completed the inverse family — the definition pair, the log-law family, and the digit-count law that turns sizes into logs.",
+      "Chapter 10 — Synthesis + the Doorstep: drew this map and walked to the wall of instantaneous rate, where the next book's door stands.",
+    ] },
+    { kind: 'para', text: "The chain rests on ground that was banked, not re-laid — the no-duplication contract of the whole series. Foundation Mathematics banked the number sense this book computes with; the ANS book banked the proof discipline that induction later formalised; and AL, the first algebra course, built the doorstep: its function doorstep is lesson al-the-function-idea-the-doorstep, and its craft lesson on identities and substitutions is lesson al-competition-algebra-identities-and-substitutions. Every chapter of this book cited that ground rather than repeating it: when chapter 1 classified machines, the definition of a function itself was AL's; when chapter 7 proved by induction, the idea of a verified instance was ANS's. This page keeps the same contract — the table above cites, it does not re-teach." },
+    { kind: 'figure', caption: 'The wiring of the book: ten stations on one rail; the label on each handoff names the tool the next chapter assumes, and each station carries its own witness from the census table.', svg: syn103Wiring() },
+    { kind: 'callout', tone: 'warn', title: 'The rail is the main line, not the only path', text: "Do not read the wiring as a strictly linear ladder. Later chapters lean on earlier ones constantly and in both directions: chapter 4's AM–GM certifies chapter 2's vertex, chapter 6's counts price chapter 7's row sums, and chapter 9's logarithms size chapter 7's binomial coefficients. The rail says what had to exist FIRST, not what may never touch again. The audit bench below is precisely where the chapters touch — read the rail for dependencies, and the bench for reunions." },
+    /* ---------------- the formula family gathered ---------------- */
+    { kind: 'heading', text: 'The formula family gathered' },
+    { kind: 'para', text: "One shelf, one card per chapter family, plus the synthesis's own tools at the end. A shelf is a retrieval instrument, not a substitute for understanding: each card names the formula, prints it symbolically, and pins it to a witness from the census table so that recall is anchored to a recomputation. Read the shelf top to bottom and you re-walk the wiring in miniature." },
+    { kind: 'formula', name: 'Composition and inverse — the machine pair', latex: '(f \\circ g)(x) = f(g(x)); \\quad f\\left(f^{-1}(y)\\right) = y', note: 'Order is load-bearing: on $f = 2x+1$, $g = x^2$, $g(f(3)) = 49$ but $f(g(3)) = 19$. The inverse is the undo machine — $ax+b$ undoes to $(y-b)/a$.' },
+    { kind: 'formula', name: 'Vertex form and the discriminant read', latex: 'ax^2 + bx + c = a(x - h)^2 + k, \\quad h = -\\frac{b}{2a}, \\quad D = b^2 - 4ac', note: '$k$ is the extreme value at $x = h$ (witness: max $11$ at $x=3$); $D>0$, $D=0$, $D<0$ is the root census — two, double, conjugates.' },
+    { kind: 'formula', name: 'The modulus–argument pair (with de Moivre)', latex: '|z| = \\sqrt{x^2 + y^2}, \\quad z = |z|(\\cos\\theta + i\\sin\\theta), \\quad z^n = |z|^n(\\cos n\\theta + i\\sin n\\theta)', note: 'de Moivre rides on the pair: $(1+i)^8 = (\\sqrt{2})^8$ at angle $8 \\cdot \\pi/4 = 2\\pi$, so the reassembly is $16$.' },
+    { kind: 'formula', name: 'AM–GM · Cauchy–Schwarz · the triangle inequality', latex: 'a + b \\ge 2\\sqrt{ab}; \\quad (a^2+b^2)(c^2+d^2) \\ge (ac+bd)^2; \\quad |z_1 + z_2| \\le |z_1| + |z_2|', note: 'Bounds as tools, each with an equality witness: $a = b$; $(a,b)$ proportional to $(c,d)$; same direction. Witness: min $9x + 4/x = 12$ at $x = 2/3$.' },
+    { kind: 'formula', name: 'AP and GP sums, and the infinite tail', latex: 'S_n = \\frac{n}{2}\\left(2a + (n-1)d\\right); \\quad S_n = a\\,\\frac{r^n - 1}{r - 1}; \\quad a + ar + ar^2 + \\cdots = \\frac{a}{1-r} \\; (|r| < 1)', note: 'Climbs priced exactly; the tail $a/(1-r)$ is the book\'s first honest limit — used throughout, its proof deferred to Calculus (see the ledger).' },
+    { kind: 'formula', name: 'The choose identities', latex: 'C(n,k) = C(n, n-k); \\quad \\sum_{k=0}^{n} C(n,k) = 2^n; \\quad C(n,k) = C(n-1, k-1) + C(n-1, k)', note: 'Symmetry, the row sum, Pascal. Witness: row 12 sums to $4096 = 2^{12}$ with middle coefficient $924$.' },
+    { kind: 'formula', name: 'The induction schema', latex: 'S(1) \\; \\text{and} \\; \\left( S(n) \\Rightarrow S(n+1) \\right) \\; \\Rightarrow \\; S(n) \\; \\text{for all} \\; n \\ge 1', note: 'Base case plus domino step. Priced at $n = 100$: $\\sum k = 5050 = 50 \\cdot 101$, with domino difference $S_{100} - S_{99} = 100$.' },
+    { kind: 'formula', name: 'Vieta pair', latex: '\\alpha + \\beta = s, \\quad \\alpha\\beta = p \\; \\text{for} \\; x^2 - sx + p = 0', note: 'Symmetric functions need no roots: $\\alpha^3 + \\beta^3 = s^3 - 3ps = 343 - 231 = 112$ on $x^2 - 7x + 11$.' },
+    { kind: 'formula', name: 'The definition pair, the log-law family, the digit-count law', latex: 'b^x \\; \\text{and} \\; \\log_b x \\; \\text{invert}; \\quad \\log_b(xy) = \\log_b x + \\log_b y; \\quad \\text{digits}(N) = \\lfloor \\log_{10} N \\rfloor + 1', note: 'The inverse family. Log chain: $(\\log_3 4)\\cdots(\\log_8 9) = \\log_3 9 = 2$; $e = 2.7182818$; $2^{100}$ has 31 digits.' },
+    { kind: 'formula', name: 'Secant-slope ladder — 10.4 owns this one', latex: '\\text{slope of secant} = \\frac{f(x+h) - f(x)}{h}', note: 'The chapter\'s one NEW card, forward-referenced honestly: the average-rate ladder that the next lesson collapses into the instantaneous rate.' },
+    /* ---------------- the honesty ledger ---------------- */
+    { kind: 'heading', text: 'What was only opened: the honesty ledger' },
+    { kind: 'callout', tone: 'definition', title: 'The deferred ledger', text: "A synthesis that hides what it did not prove is not honest — this ledger is the lesson's spine. The book USED the convergence proofs of 9.1's nested brackets: the bound $S_n = 2 - (n+2)/2^n$ was verified at seven sizes, never derived. It USED e's 9.5 series to compute $e = 2.7182818$ without proving the limit exists. It USED the fast-series remainder of 9.6 as a bound, not a derivation. Its squeezes ASSUMED the completeness of the reals. And the ε–δ machinery — the honest language of limits — was never opened at all. Each debt has an address: the deferred convergence proofs, the limit defining e, the remainder bound and the ε–δ machinery are owed to Calculus; the completeness of the reals is owed to Real Analysis, Calculus's own doorstep; the instantaneous rate is the wall that 10.4 itself walks to and names." },
+    { kind: 'table', caption: 'The ledger in rows — the promise, and the door that owns it', head: ['The promise (used, never proved here)', 'The door that owns it'], rows: [
+      ['the convergence proofs: 9.1\'s nested brackets behind $\\sum k/2^k = 2$', 'Calculus'],
+      ['e as a limit: the $2.7182818$ series was computed, its limit unproved', 'Calculus'],
+      ['the fast-series remainder: how close $S_n$ sits to $e$ was bounded', 'Calculus'],
+      ['the completeness of the reals, assumed by every squeeze', 'Real Analysis'],
+      ['the instantaneous rate, named as a wall in 10.4', 'Calculus · 10.4'],
+      ['the ε–δ machinery, the honest language of limits', 'Calculus'],
+    ] },
+    { kind: 'figure', caption: 'The honesty ledger as a diagram: six deferred promises on the left, each arrowed to the door that owns it. Four doors say Calculus — the next book — and one says Real Analysis.', svg: syn103Ledger() },
+    { kind: 'para', text: "None of this is a defect to be hidden. A first course that refused to use a limit until it had proved the completeness of the reals would never reach the GP tail, never price $e$, never count the digits of $2^{100}$. The honest structure is: use the tool, verify every instance you print, and record exactly which proofs were consumed and where they live. That is what the ledger does — and it is why the ledger, not the census table, is this lesson's spine." },
+    /* ---------------- cross-references ---------------- */
+    { kind: 'heading', text: 'The cross-references made good' },
+    { kind: 'para', text: "The forward doors: four rooms this book deliberately did not enter, each waiting for an object this book finished. One verified fact per door — every fact recomputed in its own chapter:" },
+    { kind: 'list', marker: 'roman', items: [
+      "Coordinate Geometry — graphs reunited. The parabola $y = ax^2 + bx + c$ IS chapter 2's vertex object set into a coordinate plane: the vertex $(h, k)$ becomes a geometric point, the axis $x = h$ a geometric line, and the witness — max of $-2x^2+12x-7$ at $(3, 11)$ — becomes a location on graph paper.",
+      "Trigonometry — the next machine family. The periodic machines that chapter 1's period census was waiting for live here, and de Moivre's circle arithmetic is the bridgehead: $(1+i)^8$ landed at angle $2\\pi$ with modulus $16$, which is trigonometry already wearing algebra's clothes.",
+      "Calculus — the rates and the limits. The secant-slope ladder on the shelf's last card, the honest limits of chapter 5, and every debt on the ledger converge on this door; it is the next book, and 10.4 is its doorstep.",
+      "Probability — the counts cashed as measure. Chapter 6's exact counts become the denominators of chance: $C(10,3) = 120$ is already a probability space waiting for its outcomes to be weighed, and $\\sum C(12,k) = 4096$ is the total mass of row 12.",
+    ] },
+    { kind: 'para', text: "A reading order for the doors, since a map should also say where to walk first. Coordinate Geometry can be entered almost immediately — chapter 2's vertex object is already coordinate-ready. Trigonometry asks for de Moivre, so it waits for chapter 3. Probability waits for chapter 6's exact counts. Calculus waits for everything: it is the door the whole ledger points at, and 10.4 is its threshold. If you take one walking plan from this page, take that one — it is the wiring, projected forward." },
+    { kind: 'para', text: "The backward anchors are just as real. Foundation Mathematics banked the number sense this book computes with; the ANS book banked the proof discipline that induction formalised; and AL built the first algebra course — its identities-and-substitutions craft lesson (al-competition-algebra-identities-and-substitutions) is where completing the square was first rehearsed, and its function doorstep (al-the-function-idea-the-doorstep) is where function-as-machine was first said. Chapter 1 of this book began at that doorstep; it did not rebuild it. A reader who finds this page readable has already cashed those anchors." },
+    /* ---------------- the audit bench ---------------- */
+    { kind: 'heading', text: 'The audit bench: cross-chapter chains' },
+    { kind: 'para', text: "A synthesis earns its keep on the bench. Each Illustration below is a single calculation that cannot be filed in one chapter — it visits three or more registers and finds the same truth at each. All four were verified end to end by the engine, every printed digit included." },
+    { kind: 'figure', caption: "The first chain as a diagram: one question — maximise x(6 − x) — and the three registers it visits, each certifying the same maximum 9 at x = 3. The bench's remaining chains follow the same shape.", svg: syn103Chain() },
+    { kind: 'derivation', title: 'The witness audit, done once slowly: alpha cubed plus beta cubed', statement: "Chapter 8's witness on $x^2 - 7x + 11$ is $\\alpha^3 + \\beta^3 = 112$. One derivation, no roots solved, to show why the census trusts it:", steps: [
+      { label: 'Read Vieta', formula: '\\alpha + \\beta = 7, \\quad \\alpha\\beta = 11', explanation: 'The sum and product come from the coefficients directly — the roots themselves (irrational, near 4.618 and 2.382) never need to be named.' },
+      { label: 'Cube the sum', formula: '(\\alpha + \\beta)^3 = \\alpha^3 + \\beta^3 + 3\\alpha\\beta(\\alpha + \\beta)', explanation: 'The binomial cube, applied to the root pair; the mixed term is exactly $3ps$.' },
+      { label: 'Rearrange', formula: '\\alpha^3 + \\beta^3 = s^3 - 3ps', explanation: 'The symmetric function is expressible through $s$ and $p$ alone — the deep fact of chapter 8.' },
+      { label: 'Substitute', formula: '7^3 - 3 \\cdot 11 \\cdot 7 = 343 - 231 = 112', explanation: 'Pure arithmetic, no approximation at any step.' },
+    ], result: "$\\alpha^3 + \\beta^3 = 112$ — and the engine agreed by the other route too: it solved the quadratic, cubed each root numerically, and landed on 112 to six decimals. Two routes, one number: that is what makes a witness trustworthy." },
+    { kind: 'example', title: 'Illustration 1 · One fact, three registers: maximise x(6 − x)', steps: [
+      'Split: by AM–GM on the parts $x$ and $6-x$, whose sum is $6$: $x(6-x) \\le (6/2)^2 = 9$, equality when $x = 6 - x$, that is, $x = 3$.',
+      'Now, certify by the discriminant: the top is where $x^2 - 6x + 9 = 0$ touches down, and $D = 36 - 36 = 0$ — a double root at $x = 3$, exactly one candidate.',
+      'So, read the same fact in chapter 4\'s register: $x(6-x) = 9 - (x-3)^2 \\le 9$, with equality exactly when $(x-3)^2 = 0$.',
+      'Hence all three registers agree — maximum 9 at $x = 3$ — and the grid scan confirms it: max $9.000$ at $x = 3.000$.',
+    ] },
+    { kind: 'example', title: 'Illustration 2 · The binomial-digit chain: how many digits has C(50, 25)?', steps: [
+      'Split: the 9.6 law turns size into logs — digits of $N$ = floor of $\\log_{10} N$, plus 1 — so the question is one logarithm.',
+      'Now, compute: $\\log_{10} C(50,25) = 14.1018$ to four decimals (the engine\'s full-precision value; the draft\'s 14.1017 was a truncation), which sits between 14 and 15.',
+      'So, the count: floor of 14.1018 is 14, giving 15 digits — and the exact value confirms it: $C(50,25) = 126410606437752$.',
+      'Hence a chapter 7 object — row 50 of Pascal, whose entries sum to $2^{50}$ — priced by a chapter 9 law: 15 digits, law and BigInt agreeing.',
+    ] },
+    { kind: 'example', title: 'Illustration 3 · The induction–Gauss chain: 5050 three ways', steps: [
+      'Split: the pairing census — the 100 terms form 50 pairs, each summing 101, so the total is $50 \\cdot 101 = 5050$.',
+      'Now, the domino: the induction schema of 7.1 proves $\\sum k = n(n+1)/2$, and its step priced at the top is $S_{100} - S_{99} = 100$ — the last tile falls.',
+      'So, the closed form regenerates the same number: $n(n+1)/2$ at $n = 100$ is $100 \\cdot 101 / 2 = 5050$ — the same 5050 the 10.2 rule regenerates.',
+      'Hence one number, three chapters: the pairing (arithmetic), the domino (induction), and the closed form (the formula) — the engine checked all three, plus a plain loop, and they agreed.',
+    ] },
+    { kind: 'example', title: 'Illustration 4 · The complex–Vieta chain: omega cubed equals 1', steps: [
+      'Split: $x^2 + x + 1 = 0$ has $D = 1 - 4 = -3 < 0$ — chapter 2\'s honest failure, repaired by chapter 3\'s numbers: the roots are $\\omega = (-1 + i\\sqrt{3})/2$ and its conjugate $\\omega^2$.',
+      'Now, multiply: $\\omega^2$ comes out as $(-1 - i\\sqrt{3})/2$, so $\\omega + \\omega^2 = -1$ and $\\omega \\cdot \\omega^2 = 1$ — Vieta\'s pair holding perfectly on complex roots.',
+      'So, cube it: three copies of the angle $2\\pi/3$ make $2\\pi$, and de Moivre reassembles the point $(1, 0)$ — $\\omega^3 = 1$ exactly, modulus 1 throughout.',
+      'Hence the Fundamental Theorem\'s promise — every quadratic solvable — is not merely existential: the roots are working objects you can multiply, and they carry Vieta\'s bookkeeping with them.',
+    ] },
+    /* ---------------- the synthesis's own tools ---------------- */
+    { kind: 'heading', text: "The synthesis's own tools" },
+    { kind: 'para', text: "Three cards belong to this lesson itself. They are the patterns the census table kept repeating — the habits that made every witness checkable. Keep them next to the shelf." },
+    { kind: 'formula', name: 'The witness discipline', latex: '\\text{witness} \\; = \\; \\text{one computation, recomputed — not remembered}', note: 'Every third-column value in the census table was re-derived by brute force in this lesson\'s engine before the prose was fixed; where a printed decimal came from a truncation, the engine\'s rounding replaced it.' },
+    { kind: 'formula', name: 'The telescoping product (the log chain)', latex: '\\prod_{k=3}^{8} \\log_k(k+1) = \\frac{\\ln 9}{\\ln 3} = \\log_3 9 = 2', note: 'Products of logs telescope exactly like sums of differences — the same split as chapter 5, multiplicative. Verified to $10^{-9}$.' },
+    { kind: 'formula', name: 'The three-register certificate', latex: 'x(A - x) \\le \\frac{A^2}{4} \\; \\text{three ways: AM–GM, } D = 0, \\; \\frac{A^2}{4} - x(A-x) = \\left(x - \\frac{A}{2}\\right)^2 \\ge 0', note: 'One fact certified in three registers — the audit bench\'s pattern, stated for any total $A$. Register agreement is the strongest cheap certificate a first course can print.' },
+    /* ---------------- vocabulary ---------------- */
+    { kind: 'terms', items: [
+      { term: 'the census', def: "This lesson's ten-row table: every chapter of the book, the object it built, and one engine-recomputed witness for that object. The census consolidates; it never re-teaches." },
+      { term: 'the wiring', def: 'The dependency chain across the ten chapters: which object feeds which, and why each chapter could not have been written before its predecessor.' },
+      { term: 'the formula shelf', def: "The gathered cards of the book's chapter families — one card per family, each formula pinned to a witness — plus this lesson's own synthesis tools." },
+      { term: 'the honesty ledger', def: "The record of what the book used but never proved — the deferred convergence proofs, e's limit, the fast-series remainder, the ε–δ machinery — and the door that owns each debt, mostly Calculus." },
+      { term: 'the cross-chapter chain', def: "A single calculation that visits several chapters' registers — AM–GM, the discriminant, the digit-count law — and finds the same truth at each stop." },
+      { term: 'the forward door', def: 'A later course or chapter that owns material this book deliberately deferred: Coordinate Geometry, Trigonometry, Calculus, Probability.' },
+      { term: 'the backward anchor', def: "A banked earlier lesson cited rather than repeated — FM's number sense, ANS's proof discipline, AL's function doorstep and craft lesson." },
+      { term: 'the witness', def: 'One small computation, recomputed by brute force, that certifies a chapter\'s object — the discipline that makes this synthesis trustworthy.' },
+    ] },
+    /* ---------------- quiz ---------------- */
+    { kind: 'para', text: "Five questions, one on each major arc of the page: the object chapter 1 built, the witness of chapter 8, the row-sum identity of chapter 7, the ownership of the digit-count law, and the honesty ledger itself. Each explanation says not only which option is right but why the other three fail — on a synthesis page, the failures are part of the map too." },
+    { kind: 'quiz', title: 'Quiz — five questions on the map', items: [
+      { q: 'Which statement best states the object that Chapter 1 built?', options: [
+        'a machine on inputs — equivalently, a set of ordered pairs in which no input is sent to two outputs',
+        'only a polynomial rule in one variable',
+        'only its graph drawn on a coordinate plane',
+        'an equation whose solutions are to be found',
+      ], answer: 0, explain: 'Chapter 1 built functions as objects — machines composable and invertible, equivalently sets of ordered pairs. Option 1 collapses machines to one family (polynomials); option 2 mistakes a representation (the graph) for the object; option 3 confuses a function with an equation to solve — an equation asks a question, a machine answers inputs.' },
+      { q: 'On $x^2 - 7x + 11 = 0$ with roots $\\alpha, \\beta$, the witness $\\alpha^3 + \\beta^3$ equals:', options: ['343', '231', '112', '90'], answer: 2, explain: 'By Vieta, $s = 7$ and $p = 11$, so $\\alpha^3 + \\beta^3 = s^3 - 3ps = 343 - 231 = 112$. Option 343 is $s^3$ alone — the $-3ps$ term was dropped; option 231 is the $3ps$ term alone; option 90 is the mis-substitution $343 - 3 \\cdot 11 \\cdot 7$ with $3ps$ halved — none survives recomputation.' },
+      { q: 'The sum of the whole of row 12 of Pascal, $\\sum_{k=0}^{12} C(12,k)$, equals:', options: ['924', '4096', '8192', '2048'], answer: 1, explain: 'The row-sum identity gives $2^{12} = 4096$, engine-verified entry by entry. Option 924 is the single middle coefficient $C(12,6)$; option 8192 is $2^{13}$ — one row too far; option 2048 is $2^{11}$ — one row short. The identity, not the middle entry, answers the question.' },
+      { q: 'Which chapter owns the digit-count law — digits of $N$ = floor of $\\log_{10} N$, plus 1?', options: [
+        'Chapter 9 — Exponentials and Logarithms',
+        'Chapter 6 — Counting',
+        'Chapter 7 — Induction and the Binomial',
+        'Chapter 4 — Inequalities',
+      ], answer: 0, explain: 'The digit-count law is a logarithm law: it converts size into $\\log_{10} N$ and reads the floor, so it belongs to the inverse family of Chapter 9. Counting (option 1) supplies objects like $C(50,25)$ for the law to price, induction (option 2) proves identities, and inequalities (option 3) bounds sums — none of them owns logs.' },
+      { q: 'What does the honesty ledger defer, and to where?', options: [
+        'nothing was deferred — the book proved everything it used',
+        'the counting laws, deferred to Probability',
+        'the quadratic formula, deferred to Coordinate Geometry',
+        'the convergence proofs and the ε–δ machinery, deferred to Calculus',
+      ], answer: 3, explain: 'The ledger defers the convergence proofs (9.1\'s nested brackets, e\'s limit, the fast-series remainder) and the ε–δ machinery — all payable at Calculus\'s door. Option 0 is exactly the dishonesty the ledger exists to prevent; options 1 and 2 name things the book actually proved or banked — the counting laws were derived in Chapter 6, the quadratic formula in Chapter 2.' },
+    ] },
+    /* ---------------- exercises ---------------- */
+    { kind: 'exercises', title: 'The mixed bench — one fresh question per chapter family, L1 to L6', sets: [
+      { level: 'L1', questions: [
+        { q: 'Let $f(x) = 3x - 2$ and $g(x) = x^2 + 1$. Compute $g(f(2))$ and $f(g(2))$, find $f^{-1}$ in the form $(y + 2)/3$ scaled correctly, and check that $f^{-1}(f(2)) = 2$.', solution: [
+          'Split: inside machine first — $f(2) = 3 \\cdot 2 - 2 = 4$.',
+          'Now, $g(f(2)) = g(4) = 4^2 + 1 = 17$.',
+          'So, the other order: $g(2) = 2^2 + 1 = 5$, hence $f(g(2)) = 3 \\cdot 5 - 2 = 13$.',
+          'Now, the undo machine: $f^{-1}(y) = (y + 2)/3$, and $(f(2) + 2)/3 = (4 + 2)/3 = 2$ ✓.',
+          'Hence $g(f(2)) = 17$, $f(g(2)) = 13$, $f^{-1}(y) = (y+2)/3$ — the order census replicated at fresh constants.',
+        ], answer: '$g(f(2)) = 17$, $f(g(2)) = 13$, $f^{-1}(y) = (y + 2)/3$' },
+        { q: 'Complete the square on $2x^2 - 8x + 3$: write it in the vertex form 2(x − 2)² − 5, state the axis of symmetry, and solve $2x^2 - 8x + 3 = 0$ exactly.', solution: [
+          'Split: $2x^2 - 8x + 3 = 2(x^2 - 4x) + 3$.',
+          'Now, inside the bracket: $x^2 - 4x = (x - 2)^2 - 4$, so the whole is $2(x-2)^2 - 8 + 3 = 2(x-2)^2 - 5$.',
+          'So, the vertex sits at $x = 2$ with value $-5$: the minimum −5 at x = 2, and the axis is $x = 2$.',
+          'Now, the roots: $2(x-2)^2 = 5$ gives $(x - 2)^2 = 5/2$, so $x = 2 \\pm \\sqrt{5/2} = 2 \\pm \\frac{\\sqrt{10}}{2}$.',
+          'Hence vertex form $2(x-2)^2 - 5$, minimum $-5$ at $x = 2$, roots $2 \\pm \\frac{\\sqrt{10}}{2} \\approx 0.4189$ and $3.5811$ — the grid scan agrees.',
+        ], answer: 'Vertex form 2(x − 2)² − 5; the minimum −5 at x = 2; roots $x = 2 \\pm \\frac{\\sqrt{10}}{2}$' },
+        { q: 'From a class of 9 students a three-member committee is to be chosen. Why does order not matter here, and how many committees are possible? Give the count as a choose value and as a factorial ratio.', solution: [
+          'Split: a committee is a set — swapping two members yields the same committee, so this is a selection, not an arrangement.',
+          'Now, count: the ways to choose 3 from 9 form $C(9,3)$, and $\\frac{9 \\cdot 8 \\cdot 7}{3!} = \\frac{504}{6} = 84$.',
+          'So, the factorial read: $\\frac{9!}{6! \\, 3!} = \\frac{362880}{4320} = 84$ — the same number by the other route.',
+          'Hence 84 committees, since C(9, 3) = 84 — order ignored, exactly as the census\'s counting row demands.',
+        ], answer: '84 committees — C(9, 3) = 84' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'A pen is built against a straight wall with exactly 20 m of fencing: two equal sides of length $x$ and one parallel side of length $y$, so $2x + y = 20$. Write the area $A = x(20 - 2x)$, complete the square, and maximise the pen; verify the constraint at the winner and name the degenerate roots.', solution: [
+          'Split: substitute the constraint $y = 20 - 2x$ into the area: $A(x) = x(20 - 2x) = -2x^2 + 20x$.',
+          'Now, complete the square: $A(x) = -2(x^2 - 10x) = -2(x - 5)^2 + 50$ — vertex form with $a = -2 < 0$, so the vertex is a maximum.',
+          'So, the winner: maximum area 50 at $x = 5$, where $y = 20 - 2 \\cdot 5 = 10$; the constraint checks: $2 \\cdot 5 + 10 = 20$ ✓.',
+          'Now, the symmetry probes: $A(4) = 48$ and $A(6) = 48$ — equal values either side of the axis $x = 5$, as the vertex form guarantees.',
+          'Hence the pen is maximal at 5 m by 10 m, area 50 m², with degenerate pens of area 0 at $x = 0$ and $x = 10$.',
+        ], answer: 'Maximum area 50 at $x = 5$ (then $y = 10$); vertex form $-2(x-5)^2 + 50$; degenerate at $x = 0, 10$', figures: [{ caption: 'The pen area A = −2(x − 5)² + 50: maximum 50 at x = 5, symmetry probes A(4) = A(6) = 48, degenerate roots x = 0 and x = 10.', svg: syn103Pen() }] },
+        { q: 'Solve $4^{x+1} = 8^{x-1}$ by writing both sides as powers of 2, and check the solution in both original machines.', solution: [
+          'Split: $4 = 2^2$ and $8 = 2^3$, so $4^{x+1} = 2^{2x+2}$ and $8^{x-1} = 2^{3x-3}$.',
+          'Now, equal powers of 2 have equal exponents: $2x + 2 = 3x - 3$.',
+          'So, the linear engine gives $x = 5$.',
+          'Now, check: $4^6 = 4096$ and $8^4 = 4096$ — the two sides agree exactly, as the engine verified.',
+          'Hence $x = 5$ with both sides 4096 — the definition pair and the power law $(b^m)^n = b^{mn}$ doing the work.',
+        ], answer: '$x = 5$ (both sides equal 4096)' },
+        { q: 'An arithmetic progression has third term 11 and seventh term 23. Find the common difference and the first term, then compute $S_{10}$ two ways.', solution: [
+          'Split: $a_3 = a_1 + 2d = 11$ and $a_7 = a_1 + 6d = 23$.',
+          'Now, subtract: $4d = 12$, so $d = 3$, and back-substitute: $a_1 = 11 - 2 \\cdot 3 = 5$.',
+          'So, the sum formula: $S_{10} = \\frac{10}{2}(2 \\cdot 5 + 9 \\cdot 3) = 5 \\cdot 37 = 185$.',
+          'Now, the loop check: adding $5 + 8 + 11 + \\cdots + 32$ term by term also gives 185, engine-confirmed.',
+          'Hence $d = 3$, $a_1 = 5$, $S_{10} = 185$ — the AP engine priced at fresh constants.',
+        ], answer: '$d = 3$, $a_1 = 5$, $S_{10} = 185$' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'For z = 1 + i√3, find the modulus and the argument, confirm the argument is π/3, and compute $z^3$ two ways — direct multiplication and de Moivre.', solution: [
+          'Split: $|z| = \\sqrt{1^2 + (\\sqrt{3})^2} = \\sqrt{4} = 2$.',
+          'Now, the argument: $\\tan\\theta = \\sqrt{3}$ with both parts positive, so $\\theta = \\pi/3$ — first quadrant, confirmed.',
+          'So, direct multiplication: $z^2 = (1 + i\\sqrt{3})^2 = -2 + 2i\\sqrt{3}$, then $z^3 = (-2 + 2i\\sqrt{3})(1 + i\\sqrt{3}) = -8 + 0i$.',
+          'Now, de Moivre: $z^3 = 2^3(\\cos \\pi + i\\sin \\pi) = 8(-1) = -8$ — the two routes agree to a digit.',
+          'Hence $|z| = 2$, $\\arg z = \\pi/3$, $z^3 = -8$ — modulus, argument and de Moivre in one computation.',
+        ], answer: '$|z| = 2$, $\\arg z = \\pi/3$, $z^3 = -8$', figures: [{ caption: 'z = 1 + i√3 on the complex plane: modulus arrow of length 2, angle arc π/3, dashed circle |z| = 2, and z³ = −8 on the negative real axis.', svg: syn103Complex() }] },
+        { q: 'Sum the telescoping series $\\sum_{k=1}^{20} \\frac{1}{k(k+2)}$ using the split $\\frac{1}{k(k+2)} = \\frac{1}{2}\\left(\\frac{1}{k} - \\frac{1}{k+2}\\right)$, then find the limit of the $n$-term sum as $n \\to \\infty$.', solution: [
+          'Split: verify the split at a probe — $k = 1$: $\\frac{1}{1 \\cdot 3} = \\frac{1}{2}(1 - \\frac{1}{3})$ ✓ (the engine checked five sizes).',
+          'Now, sum with cancellations: $S_{20} = \\frac{1}{2}\\left(1 + \\frac{1}{2} - \\frac{1}{21} - \\frac{1}{22}\\right)$ — only the first two and last two survive.',
+          'So, $S_{20} = \\frac{1}{2}\\left(\\frac{3}{2} - \\frac{43}{462}\\right) = \\frac{1}{2} \\cdot \\frac{650}{462} = \\frac{325}{462} \\approx 0.7034632$.',
+          'Now, the limit: the surviving tail $\\frac{1}{2}(\\frac{1}{n+1} + \\frac{1}{n+2})$ dies as $n$ grows, so the sum climbs to $\\frac{1}{2} \\cdot \\frac{3}{2} = \\frac{3}{4}$.',
+          'Hence $S_{20} = 325/462$ with limit $3/4$ — the climb verified under its ceiling, exactly as in chapter 5.',
+        ], answer: '$S_{20} = \\frac{325}{462} \\approx 0.7035$; the limit is $\\frac{3}{4}$' },
+        { q: 'Minimise $4x + \\frac{25}{x}$ for $x > 0$ by AM–GM, stating the bound, the equality witness, and why the minimum cannot be beaten.', solution: [
+          'Split: both parts are positive, so AM–GM applies: $4x + \\frac{25}{x} \\ge 2\\sqrt{4x \\cdot \\frac{25}{x}} = 2\\sqrt{100} = 20$.',
+          'Now, the priced product: $4x \\cdot \\frac{25}{x} = 100$ at every $x > 0$ — the engine probed five values and the product never moved.',
+          'So, the equality witness: $4x = \\frac{25}{x}$ gives $x^2 = \\frac{25}{4}$, so $x = 5/2$, where the sum is exactly 20.',
+          'Now, the grid: the scan\'s minimum reads 20.000 at 2.5000 — the bound is attained, not merely approached.',
+          'Hence the minimum is 20 at $x = 5/2$ — the census\'s inequality row replayed at fresh constants.',
+        ], answer: 'Minimum 20 at $x = 5/2$' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Use Cauchy–Schwarz to maximise $3x + 4y$ subject to $x^2 + y^2 = 25$, and give the equality witness and the maximising angle.', solution: [
+          'Split: Cauchy–Schwarz in two terms: $(3^2 + 4^2)(x^2 + y^2) \\ge (3x + 4y)^2$.',
+          'Now, on the circle $x^2 + y^2 = 25$: $25 \\cdot 25 \\ge (3x + 4y)^2$, so $3x + 4y \\le 25$.',
+          'So, equality holds when $(x, y)$ is proportional to $(3, 4)$; on the circle that forces $(x, y) = (3, 4)$, and indeed $9 + 16 = 25$.',
+          'Now, the scan: sweeping the angle, the maximum sits at $\\arctan(4/3) \\approx 0.9273$ radians — the direction of the vector $(3, 4)$.',
+          'Hence the maximum of $3x + 4y$ is 25 at $(x, y) = (3, 4)$ — bound, witness and scan agreeing.',
+        ], answer: 'Maximum 25 at $(x, y) = (3, 4)$, at angle $\\arctan(4/3) \\approx 0.9273$' },
+        { q: 'Prove by induction that $\\sum_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}$, then price the formula at $n = 12$ and verify the domino step $S_{12} - S_{11} = 144$.', solution: [
+          'Split: base case — $n = 1$: the left side is 1 and the right side is $\\frac{1 \\cdot 2 \\cdot 3}{6} = 1$ ✓.',
+          'Now, the domino: assume the formula for $n$; then $S_{n+1} = S_n + (n+1)^2 = (n+1)\\left(\\frac{n(2n+1)}{6} + (n+1)\\right) = \\frac{(n+1)(n+2)(2n+3)}{6}$ ✓.',
+          'So, the schema fires: base plus domino gives the closed form for every $n \\ge 1$.',
+          'Now, price it at $n = 12$: $\\frac{12 \\cdot 13 \\cdot 25}{6} = 650$, and the loop addition $1 + 4 + \\cdots + 144$ also gives 650.',
+          'Hence the domino step is honest — $S_{12} - S_{11} = 650 - 506 = 144 = 12^2$ — and the induction stands priced.',
+        ], answer: '$\\sum_{k=1}^{12} k^2 = 650$; the domino step is $S_{12} - S_{11} = 144$' },
+        { q: 'Distribute 10 identical candies among 4 children. Using stars and bars, count the distributions in which every child gets at least one candy, and also the unrestricted count; reconcile both with a brute-force enumeration.', solution: [
+          'Split: at least one each — pre-place one candy per child, leaving 6 free candies: the count is $C(6 + 3, 3) = C(9, 3)$.',
+          'Now, compute: $C(9,3) = 84$.',
+          'So, unrestricted: 10 stars and 3 bars — $C(13, 3) = 286$.',
+          'Now, the enumeration: the engine looped all quadruples $a + b + c + d = 10$ and counted 84 with every part at least 1 and 286 unrestricted — both laws confirmed by brute force.',
+          'Hence 84 constrained distributions and 286 unrestricted — the stars-and-bars engine priced twice.',
+        ], answer: '84 with every child at least one; 286 unrestricted' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'The roots of $x^2 - 6x + 8$ are 2 and 4. Find the equation whose roots are the roots shifted by +3 — a transformation of equations — by substituting $x = y - 3$, and check the new roots directly.', solution: [
+          'Split: shift the variable first — $x = y - 3$ turns the equation into $(y - 3)^2 - 6(y - 3) + 8 = 0$.',
+          'Now, expand: $y^2 - 6y + 9 - 6y + 18 + 8 = y^2 - 12y + 35$.',
+          'So, Vieta on the new equation: sum 12, product 35 — and the shifted roots are $2 + 3 = 5$ and $4 + 3 = 7$, with $5 + 7 = 12$ and $5 \\cdot 7 = 35$ ✓.',
+          'Now, the direct check: $25 - 60 + 35 = 0$ and $49 - 84 + 35 = 0$ — both new roots vanish in the new equation.',
+          'Hence the transformation of equations gives $y^2 - 12y + 35 = 0$ with roots 5 and 7 — roots moved without being solved.',
+        ], answer: '$y^2 - 12y + 35 = 0$, roots 5 and 7 (the originals shifted by +3)' },
+        { q: 'Use the digit-count law to find how many digits the binomial coefficient $\\binom{20}{10}$ has, and confirm with the exact value; state the logarithm to four decimals.', solution: [
+          'Split: the 9.6 law — digits of $N$ equals the floor of $\\log_{10} N$ plus 1.',
+          'Now, compute the logarithm: $\\log_{10} C(20,10) = 5.2666$ to four decimals, which lies between 5 and 6.',
+          'So, the count: floor 5, plus 1 — 6 digits.',
+          'Now, confirm exactly: $C(20,10) = 184756$ — six digits, BigInt and law agreeing.',
+          'Hence $\\binom{20}{10} = 184756$ has 6 digits with $\\log_{10} = 5.2666$ — the digit-count law cashed on a fresh binomial object.',
+        ], answer: '$\\binom{20}{10} = 184756$: 6 digits, $\\log_{10} C(20,10) = 5.2666$' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'A fence of 20 m encloses a rectangle with sides $x$ and $20 - x$. (a) Certify the maximum area in three registers — AM–GM, the vertex, and the completed square. (b) List the 10 distinct integer rectangles (taking $x \\le 20 - x$) and their areas. (c) Find which rectangles have area at least 96, their count and the sum of their areas, using the quadratic band $(x - 8)(x - 12) \\le 0$.', solution: [
+          'Split, register 1: AM–GM on $x$ and $20 - x$, whose sum is 20 — $x(20 - x) \\le (20/2)^2 = 100$, equality at $x = 10$: the square.',
+          'Now, register 2: $x^2 - 20x + 100$ has $D = 400 - 400 = 0$ — a double root at $x = 10$; the vertex census agrees.',
+          'So, register 3: $x(20 - x) = 100 - (x - 10)^2 \\le 100$, equality iff $(x - 10)^2 = 0$; the grid scan reads max 100.000 at 10.000.',
+          'Now, the census: with $x \\le 20 - x$ the 10 integer rectangles carry areas 19, 36, 51, 64, 75, 84, 91, 96, 99, 100.',
+          'So, the cut: area at least 96 solves to $(x - 8)(x - 12) \\le 0$, the band $8 \\le x \\le 12$, which meets the convention $x \\le 20 - x$ in exactly $x = 8, 9, 10$ — three rectangles (96 · 99 · 100) summing 295.',
+          'Hence maximum area 100 at the square, and exactly three qualifying rectangles with total 295 — one chain through inequalities, quadratics and counting.',
+        ], answer: 'Max 100 at $x = 10$; area ≥ 96 for exactly 3 rectangles (96, 99, 100), their sum 295', figures: [{ caption: 'The fence area x(20 − x): maximum 100 at x = 10, with the shaded band 8 ≤ x ≤ 12 where the area is at least 96 — three integer rectangles qualify.', svg: syn103Fence() }] },
+        { q: 'One chain, three registers. (a) Compute $C(16, 8)$ and its digit count via the digit-count law. (b) Show that the sum of row 16 of Pascal is $2^{16}$, and count its digits via $\\log_{10} 2^{16}$. (c) Compute $(1 + i)^{16}$ by de Moivre and count its digits. Where does each digit count land?', solution: [
+          'Split, register 1: the middle coefficient of row 16 is $C(16, 8) = 12870$, and $\\log_{10} 12870 = 4.1096$, so floor 4 plus 1 — 5 digits.',
+          'Now, register 2: the row identity gives $\\sum_{k=0}^{16} C(16,k) = 2^{16} = 65536$ (engine-summed with BigInt), and $\\log_{10} 2^{16} = 16 \\cdot 0.30103 = 4.8165$ — again 5 digits.',
+          'So, register 3: de Moivre — $(1 + i)^{16} = (\\sqrt{2})^{16}$ at angle $16 \\cdot \\pi/4 = 4\\pi$, so the value is $2^8 = 256$: 3 digits.',
+          'Now, the checks: the engine squared its implemented $(1+i)^8 = 16$ to get 256 ✓, and matched every digit count against the exact strings.',
+          'Hence the digit census lands 5, 5, 3 — a counting row, a logarithm law and a complex power priced in one chain.',
+        ], answer: 'Digit counts 5, 5, 3 — $C(16,8) = 12870$, $2^{16} = 65536$, $(1+i)^{16} = 256$', figures: [{ caption: 'The digit-count stations of the L6 chain: C(16,8) = 12870 and 2 to the 16 = 65536 both carry 5 digits; (1+i) to the 16 = 256 carries 3.', svg: syn103Digits() }] },
+      ] },
+    ] },
+    { kind: 'para', text: "The bench was built by one rule: fresh constants everywhere. No question above reuses a census-table witness as its answer — the machines are $3x-2$ and $x^2+1$ (not $2x+1$ and $x^2$), the pen total is 20 (not 6), the induction is priced at 12 (not 100), the digit chain runs on row 16 and row 20 (not row 50). Every terminal answer was recomputed by the engine before the question was allowed into the set, and every solution line is one move, led by its connective. That is the census discipline, extended to the bench." },
+    /* ---------------- closing ---------------- */
+    { kind: 'callout', tone: 'warn', title: 'A witness is not a proof', text: "The census certifies; it does not derive. Reading 112 in the witness column does not substitute for the identity $\\alpha^3 + \\beta^3 = s^3 - 3ps$, and a grid scan does not substitute for AM–GM. The bench recomputes to keep the book honest — the derivations, banked in their chapters, are what make the witnesses believable. Exam-style questions will ask for the derivation; the census only asks that you know where it lives." },
+    { kind: 'para', text: "Read this page twice. The first pass collects the objects — ten machines, from the function grammar to the inverse family. The second pass collects the wiring: who feeds whom, who owes whom, and at which door each debt is payable. After the second pass the map is shorter: ten objects, one shelf, four deferred debts, four forward doors, three backward anchors, one bench. The doorstep ahead — the instantaneous rate, the secant-slope ladder collapsed — is where the next book begins, and this page is the last hand that passes you to it." },
+  ],
+}
