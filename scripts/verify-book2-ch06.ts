@@ -1289,6 +1289,59 @@ function clsLE(a: number, b: number, c: number, d: number): boolean {
 }
 
 /* ------------------------------------------------------------------ */
+/* (V4) 6.3 enrichment pins (audit-bot run 2026-11-24): the            */
+/* equation-inventory example + the wall case 5 − 5 + the two audit    */
+/* questions L5.2 (distributive sign factoring) and L6.2 (existence    */
+/* + uniqueness of x + b = a)                                          */
+/* ------------------------------------------------------------------ */
+{
+  // the equation-inventory example: one additive verdict, three multiplicative verdicts
+  {
+    const x = clsAdd(3, 1, 1, 4) // 2 − 3 = [(3,1)] + [(1,4)] = [(4,5)] ↦ −1
+    ok(x[0] === 4 && x[1] === 5 && val(4, 5) === -1, 'V4a: 3 + x = 2 → x = [(4,5)] ↦ −1 — the additive equation solves (and uniquely, by cancellation)')
+    const p = clsMul(4, 1, 5, 1) // 3·4 = [(4,1)]·[(5,1)] = [(21,9)]
+    ok(p[0] === 21 && p[1] === 9 && eq(21, 9, 13, 1) && val(21, 9) === 12, 'V4b: 3·x = 12 solves at x = [(5,1)] — [(21,9)] ~ [(13,1)] via 21 + 1 = 9 + 13 = 22')
+    ok(13 % 3 === 1, 'V4c: 3·x = 13 is witnessless — 3 ∤ 13 (13 = 3·4 + 1); chapter 2’s criterion survives verbatim')
+    let noHit = true
+    for (let v = -20; v <= 20; v++) if (3 * v === 13) noHit = false
+    ok(noHit, 'V4d: brute check — no class in −20..20 triples to 13')
+    const z = clsMul(4, 1, 1, 1) // 3·0 = [(4,1)]·[(1,1)] = [(5,5)]
+    ok(z[0] === 5 && z[1] === 5 && val(5, 5) === 0, 'V4e: 3·x = 0 forces x = 0 — [(4,1)]·[(1,1)] = [(5,5)], the diagonal (the zero-product lemma)')
+  }
+  // the wall case of the Example-2 figure: 5 − 5 = [(6,1)] + [(1,6)] = [(7,7)]
+  {
+    const w = clsAdd(6, 1, 1, 6)
+    ok(w[0] === 7 && w[1] === 7 && val(7, 7) === 0, 'V4f: 5 − 5 = [(6,1)] + [(1,6)] = [(7,7)] — the diagonal: zero, born as promised')
+  }
+  // L5.2: the distributive sign factoring as an exercise — the distribution route through the raw class sum
+  {
+    const raw = clsAdd(48, 1, 54, 1) // [(48,1)] + [(54,1)] = [(102,2)]
+    ok(raw[0] === 102 && raw[1] === 2 && eq(102, 2, 101, 1) && val(102, 2) === 100, 'V4g: [(48,1)] + [(54,1)] = [(102,2)] ~ [(101,1)] — 47 + 53 = 100 as classes (cross-sums 102 + 1 = 2 + 101 = 103)')
+    const d = clsMul(1, 7, raw[0], raw[1]) // [(1,7)]·[(102,2)] = (102 + 14, 2 + 714) = (116, 716)
+    ok(d[0] === 116 && d[1] === 716 && val(116, 716) === -600, 'V4h: [(1,7)]·[(102,2)] = [(116,716)] ↦ −600 — the distributed route agrees with N’s term-by-term −282 + (−318)')
+  }
+  // L6.2: the uniqueness audit — every x + b = a has exactly one solution
+  {
+    let exBad = 0
+    for (let a = -8; a <= 8; a++) for (let b = -8; b <= 8; b++) {
+      const ca = canon(a); const cb = canon(b)
+      const mb = clsNeg(cb[0], cb[1]) // mirror of b
+      const xx = clsAdd(ca[0], ca[1], mb[0], mb[1]) // x = a + (−b)
+      const chk = clsAdd(xx[0], xx[1], cb[0], cb[1]) // x + b
+      if (!eq(chk[0], chk[1], ca[0], ca[1])) exBad++
+    }
+    ok(exBad === 0, 'V4i: existence swept — x = a + mirror(b) satisfies x + b = a for every a, b ∈ −8..8 (289 pairs, through the classes)')
+    let unBad = 0
+    for (let x1 = -6; x1 <= 6; x1++) for (let x2 = -6; x2 <= 6; x2++) for (let b = -6; b <= 6; b++) {
+      const s1 = clsAdd(...canon(x1) as [number, number], ...canon(b) as [number, number])
+      const s2 = clsAdd(...canon(x2) as [number, number], ...canon(b) as [number, number])
+      if (eq(s1[0], s1[1], s2[0], s2[1]) && x1 !== x2) unBad++
+    }
+    ok(unBad === 0, 'V4j: uniqueness swept — x1 + b = x2 + b forces x1 = x2 (right-side additive cancellation, 13³ triples)')
+  }
+}
+
+/* ------------------------------------------------------------------ */
 /* (U) the twelve formula cards' claims verified                       */
 /* ------------------------------------------------------------------ */
 {

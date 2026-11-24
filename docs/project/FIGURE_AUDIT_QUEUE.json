@@ -639,7 +639,9 @@
       "bookId": "arithmetic-and-number-systems",
       "chapter": 6,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-24",
+      "note": "VLM strict PASS (body mirror map untouched; 4 solution figs added, 2 first-time 2 one-fix-round; run 2026-11-24)"
     },
     {
       "lessonId": "ans-from-fractions-to-the-rational-system",
