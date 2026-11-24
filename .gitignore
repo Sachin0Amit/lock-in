@@ -748,3 +748,9 @@ server.log
 !/scripts/e2e-cf-13.page.js
 !/scripts/e2e-cf-1R.sh
 !/scripts/e2e-cf-1R.page.js
+# RUN 120 (AA ch.9 swarm, the maths lane's 120th fire) — the chapter verifier + per-lesson E2E
+!/scripts/verify-book4-ch09.ts
+!/scripts/e2e-aa-91.sh
+!/scripts/e2e-aa-91.page.js
+!/scripts/e2e-aa-92.sh
+!/scripts/e2e-aa-92.page.js

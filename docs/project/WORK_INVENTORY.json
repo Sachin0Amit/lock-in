@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-23 18:08:12 (Asia/Kolkata)",
+  "generated": "2026-11-24 06:10:34 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -4828,8 +4828,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5269,
-                "readMins": 26,
+                "words": 5662,
+                "readMins": 28,
                 "concepts": [
                   "Difference pairs (a, b)",
                   "The relation (a, b) ~ (c, d) ⟺ a + d = b + c",
@@ -4863,7 +4863,7 @@
                   "callout": 8,
                   "list": 3,
                   "equation": 3,
-                  "example": 5,
+                  "example": 6,
                   "derivation": 2,
                   "figure": 1,
                   "table": 4,
@@ -4885,10 +4885,10 @@
                   "L2": 3,
                   "L3": 3,
                   "L4": 3,
-                  "L5": 1,
+                  "L5": 2,
                   "L6": 1
                 },
-                "exerciseQuestions": 14,
+                "exerciseQuestions": 15,
                 "termsDefined": 8
               },
               {
@@ -4961,7 +4961,7 @@
                 "termsDefined": 8
               }
             ],
-            "words": 16308
+            "words": 16701
           },
           {
             "number": 7,
@@ -13184,18 +13184,163 @@
             "slug": "exponentials-and-logarithms",
             "title": "Exponentials and Logarithms",
             "summary": "The first great non-polynomial family inside algebra. The exponent laws AL banked on integer and rational indices are extended to every real index — the exponential function aˣ as a machine with a constant percent climb, its shape family, and the growth stories it prices. The logarithm is then defined once and for all as the inverse machine — chapter 1’s theory cashing its first big cheque: domain and range swap, log_a(aˣ) = x, and every log law DERIVED from the exponent law it mirrors instead of memorized. Change of base, the common and natural logarithms, and the chapter closes on equations: same-base discipline, exponent equations that hide quadratics, log equations with their domain discipline enforced (extraneous roots caught, not mourned), and the growth and decay problems that make the family famous.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "The Exponential Family: Every Real Index",
-              "Logarithms: the Inverse Machine",
               "The Laws of Logarithms and the Change of Base",
               "Logarithmic and Exponential Equations",
               "Exponential and Logarithmic Series",
               "Logarithm Tables: Characteristic, Mantissa and Antilogarithm"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "aa-the-exponential-family-every-real-index",
+                "number": "9.1",
+                "title": "The Exponential Family: Every Real Index",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8181,
+                "readMins": 41,
+                "concepts": [
+                  "the exponential function",
+                  "real index by squeezing",
+                  "growth and decay families",
+                  "the horizontal asymptote",
+                  "percent growth and the rule of 72",
+                  "exponential versus polynomial races",
+                  "same-base equations",
+                  "the decay flip"
+                ],
+                "objectives": [
+                  "Define the exponential function $f(x) = a^x$ for every real index $x$ — the rational rungs through roots, the irrational rung through squeezing — and justify the base restrictions $a > 0$ with $a \\neq 1$ as closure stories.",
+                  "Prove the shape laws from the exponent laws: strict increase for $a > 1$, strict decrease for $0 < a < 1$, the shared point $(0, 1)$, the range $(0, \\infty)$ and the horizontal asymptote $y = 0$.",
+                  "Read the family qualitatively: the mirror $(1/2)^x = 2^{-x}$, the percent reading $a = 1 + r$ and its decay mirror, and the steeper-base principle in both directions.",
+                  "Price compound growth: evaluate $A(n) = P(1 + r)^n$, bracket doubling times between integer powers, and treat the rule of 72 as an estimate checked against the engine.",
+                  "Solve same-base equations and inequalities — including the decay-base flip and the $|\\text{base}|^{\\text{exponent}} = 1$ case split with the $0^0$ guard.",
+                  "Count the solutions of mixed equations such as $3x - 5 = 2^{-x}$ by the monotonicity discipline (a rising line against a falling curve) plus bracket bisection."
+                ],
+                "prerequisites": [
+                  "al-powers-and-the-laws-of-exponents",
+                  "al-zero-and-negative-exponents-another-repair",
+                  "ans-how-irrationals-behave"
+                ],
+                "sources": [
+                  "cengage-m1-01",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 18,
+                  "heading": 5,
+                  "equation": 3,
+                  "derivation": 3,
+                  "callout": 9,
+                  "list": 2,
+                  "terms": 1,
+                  "figure": 3,
+                  "table": 2,
+                  "formula": 6,
+                  "example": 7,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 4,
+                  "historical": 1,
+                  "definition": 1,
+                  "theorem": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 17,
+                "termsDefined": 8
+              },
+              {
+                "id": "aa-logarithms-the-inverse-machine",
+                "number": "9.2",
+                "title": "Logarithms: the Inverse Machine",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8935,
+                "readMins": 45,
+                "concepts": [
+                  "the logarithm: the exponent read backwards",
+                  "the definition pair log_a y = x iff a^x = y",
+                  "the two inverse identities",
+                  "the mirror law and the vertical asymptote x = 0",
+                  "the base-symmetry law log_{1/a} x = −log_a x",
+                  "the sign law: ordering and squeezing without tables",
+                  "irrational logarithms by unique factorisation",
+                  "natural logarithms: ln x = log_e x and the number e"
+                ],
+                "objectives": [
+                  "Define the logarithm by the pair $\\log_a y = x \\iff a^x = y$ and read values off at sight — including fractional and negative exponents, as in $\\log_4 8 = \\tfrac{3}{2}$ and $\\log_{2\\sqrt{2}} 128 = \\tfrac{14}{3}$.",
+                  "Derive and use both inverse identities $a^{\\log_a y} = y$ and $\\log_a(a^x) = x$ — collapsing towers such as $\\log_2\\log_2\\log_2\\log_2 65536$ without any table.",
+                  "Graph $y = \\log_a x$ as the reflection of $y = a^x$ in the line $y = x$: derive the mirror law, the vertical asymptote $x = 0$, the domain $(0, \\infty)$, the shared point $(1, 0)$ and the behaviour by base — including the honest decaying family for $0 < a < 1$.",
+                  "Read logarithms without tables: order them by base, sign them by the sign law, squeeze them between fractions by monotonicity, and prove irrationality by unique factorisation.",
+                  "Count solutions of mixed equations such as $\\log_2(x+3) = 8 - x$ by monotonicity arguments that prove uniqueness, not just existence.",
+                  "State the natural logarithm $\\ln x = \\log_e x$ with $e \\approx 2.718281828$, its common twin $\\log x = \\log_{10} x$, and evaluate the doorstep constants $\\ln 2 \\approx 0.6931$, $\\ln 7 \\approx 1.9459$ and $\\ln 10 \\approx 2.3026$."
+                ],
+                "prerequisites": [
+                  "aa-the-exponential-family-every-real-index",
+                  "aa-inverse-functions-the-machine-undone",
+                  "ans-fundamental-theorem-of-arithmetic"
+                ],
+                "sources": [
+                  "cengage-m1-01",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 5,
+                  "callout": 9,
+                  "equation": 6,
+                  "list": 2,
+                  "table": 3,
+                  "derivation": 4,
+                  "example": 7,
+                  "terms": 1,
+                  "figure": 3,
+                  "formula": 6,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 2,
+                  "theorem": 1,
+                  "exam": 1,
+                  "insight": 2,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 17,
+                "termsDefined": 9
+              }
+            ],
+            "words": 17116
           },
           {
             "number": 10,
@@ -52107,14 +52252,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 514,
-      "totalLines": 187512,
+      "srcFilesTracked": 515,
+      "totalLines": 189902,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5860,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 148851,
+        "src/data/library (content model + books)": 151241,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -52342,7 +52487,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-03",
+      "surveyed": "2026-11-24",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -78638,6 +78783,185 @@
           "del": 17
         }
       ]
+    },
+    {
+      "sha": "71d1d03ccf655a52ac6fae11418c62ed043b9732",
+      "short": "71d1d03",
+      "date": "2026-11-23 12:39",
+      "message": "CS RUN 3 (the cs job's third honored fire): computer-fundamentals ch.2 'Interacting with Your Computer' OPENED — 2.1 'Input Devices: the Human Handshake' + 2.2 'Output Devices: Screens, Printers and Sound' authored by the two-agent swarm (both delivered; engines 52 + 58 green pre-prose; the DPI x4 law + the PPI law derived; the input/output censuses engine-pinned: 8,415,000 px / 2,073,600 px / 1,411,200 bits/s) — verify-cs-book2-ch02 237/237; tsc 0, lint 0 err; pack 188 lessons / 1,067,428 words; standing gates green incl. cs-shelf-planning 2350/2350 with csWritten honestly grown 4->6; E2E x2 x3 viewports ALL GREEN re-run against the fixed content (quiz 5/5 live); VLM 11-crop audit: TWO real defects caught and fixed (the laser-ring exit strip abutting the fuse circle; the handshake's rotated rail label in the arrows' path + arrowheads 10px short of the box — arrows now land on the border and pass behind the rail; re-audited PASS both themes) + the shipped ch-1 summary copy-paste defect (ch-2's text since CS RUN 1) found and surgically repaired, pinned Z17/Z18; citation key cs-cf-web-ground extended (QWERTY 1867/1878, the mouse 1967/1968/1970, the CCD 1969/2009, the Simon 1994, the coffee-pot webcam 1991/2001, the laser chain 1969-1985, the Red Book 1980); the sibling maths lane's files untouched; 2.3 + the 2.R review ride the next fires",
+      "filesChanged": 17,
+      "insertions": 3514,
+      "deletions": 61,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/CS_AUTHORING_POINTER.json",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 20,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 191,
+          "del": 31
+        },
+        {
+          "path": "scripts/collect_vlm_crops_cf2.sh",
+          "add": 72,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-21.page.js",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-21.sh",
+          "add": 105,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-22.page.js",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-22.sh",
+          "add": 105,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-book2-ch02.ts",
+          "add": 592,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-shelf-planning.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/book.ts",
+          "add": 10,
+          "del": 21
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-01.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-02.ts",
+          "add": 2295,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "bd1d6ca49f373bc0db4659a48de75bcb0514def4",
+      "short": "bd1d6ca",
+      "date": "2026-11-23 12:40",
+      "message": "chore(bookkeeping): CS RUN 3 push record (fast-forward d77d992..71d1d03, ls-remote verified 71d1d03)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "9f696668246b6530c6ddb4b8c49275d570c6881a",
+      "short": "9f69666",
+      "date": "2026-11-23 15:31",
+      "message": "audit: ans-constructing-the-integers-from-the-naturals — A:1fig B:3sol C:2enrich",
+      "filesChanged": 8,
+      "insertions": 280,
+      "deletions": 51,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 22,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 34,
+          "del": 32
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch06.ts",
+          "add": 76,
+          "del": 10
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-06.ts",
+          "add": 112,
+          "del": 9
+        }
+      ]
+    },
+    {
+      "sha": "6477fe813cfed584c3bf55bfd09e150d33ff05b3",
+      "short": "6477fe8",
+      "date": "2026-11-23 15:32",
+      "message": "47f9f534-3a52-4efa-9a08-5609f8617520",
+      "filesChanged": 1,
+      "insertions": 7,
+      "deletions": 0,
+      "files": [
+        {
+          "path": ".state/audit-state.json",
+          "add": 7,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -78645,26 +78969,26 @@
     "booksPlannedBacklog": 277,
     "booksLive": 269,
     "chaptersWritten": 42,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 188,
-    "wordsAuthored": 1067428,
-    "termsDefined": 1503,
-    "quizItems": 940,
-    "exerciseQuestions": 2553,
+    "chaptersInProgress": 2,
+    "lessonsWritten": 190,
+    "wordsAuthored": 1084937,
+    "termsDefined": 1520,
+    "quizItems": 950,
+    "exerciseQuestions": 2588,
     "blockTotals": {
-      "para": 2787,
-      "callout": 1271,
-      "heading": 1088,
-      "list": 237,
-      "terms": 200,
-      "equation": 405,
-      "figure": 389,
-      "derivation": 427,
-      "table": 257,
-      "example": 1133,
-      "quiz": 188,
-      "exercises": 188,
-      "formula": 775,
+      "para": 2822,
+      "callout": 1289,
+      "heading": 1098,
+      "list": 241,
+      "terms": 202,
+      "equation": 414,
+      "figure": 395,
+      "derivation": 434,
+      "table": 262,
+      "example": 1148,
+      "quiz": 190,
+      "exercises": 190,
+      "formula": 787,
       "algorithm": 34
     }
   }

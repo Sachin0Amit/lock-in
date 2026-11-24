@@ -7,6 +7,7 @@ import { chapter05 } from './ch-05'
 import { chapter06 } from './ch-06'
 import { chapter07 } from './ch-07'
 import { chapter08 } from './ch-08'
+import { chapter09 } from './ch-09'
 
 /**
  * Advanced Algebra — the fourth book of the Mathematics shelf.
@@ -14,16 +15,22 @@ import { chapter08 } from './ch-08'
  * STATUS: IN-PROGRESS — EIGHT chapters COMPLETE (chapters 1–8, each with
  * its unit review; chapter 8 'The Theory of Equations' closed complete
  * by the run-119 WHOLE-UNIT SWARM — lessons 8.1–8.6 + 8.R, seven parallel
- * authoring agents — 51 written lessons in all), chapters 9–10 planned
- * (the remaining 10 planned lessons: chapters 9–10: 6 + 4) authoring on
- * the one-unit-at-a-time cadence (run 110 closed chapter 3; the 2026-11-18
- * PARALLEL-SWARM RUN — owner chat directive "launch multiple agents for
- * authoring lessons" — closed chapter 4 whole-unit; the 2026-11-20 swarm
- * closed chapter 5's remainder + chapter 6 whole-unit; the 2026-11-21
- * v9.0 SWARM RUNS (owner directive "use multiple agents or swarm of
- * agents") authored chapter 7 (runs 117-118) and chapter 8 WHOLE-UNIT
- * (run 119, the "launch multiple authoring agents" directive — seven
- * parallel agents, one per lesson + the review, recorded in WORKLOG).
+ * authoring agents — 51 written lessons in all), chapter 9 'Exponentials
+ * and Logarithms' OPENED by the RUN 120 TWO-AGENT SWARM (9.1 'The
+ * Exponential Family: Every Real Index' + 9.2 'Logarithms: the Inverse
+ * Machine' shipped — engines green before prose, every number pinned in
+ * scripts/verify-book4-ch09.ts; 9.3–9.6 + the 9.R review ride the next
+ * fires), chapter 10 planned (the remaining 8 planned lessons: chapter 9
+ * (4) + chapter 10 (4)) authoring on the one-unit-at-a-time cadence (run
+ * 110 closed chapter 3; the 2026-11-18 PARALLEL-SWARM RUN — owner chat
+ * directive "launch multiple agents for authoring lessons" — closed
+ * chapter 4 whole-unit; the 2026-11-20 swarm closed chapter 5's remainder
+ * + chapter 6 whole-unit; the 2026-11-21 v9.0 SWARM RUNS (owner directive
+ * "use multiple agents or swarm of agents") authored chapter 7 (runs
+ * 117-118) and chapter 8 WHOLE-UNIT (run 119, the "launch multiple
+ * authoring agents" directive — seven parallel agents, one per lesson +
+ * the review, recorded in WORKLOG); run 120 (2026-11-24) opened chapter 9
+ * with the two-lesson swarm).
  * Lesson ids use the `aa-` prefix (verified unused across the library
  * at promotion time; globally unique, stable forever).
  *
@@ -123,23 +130,7 @@ const chapters: Chapter[] = [
   chapter06,
   chapter07,
   chapter08,
-  {
-    number: 9,
-    slug: 'exponentials-and-logarithms',
-    title: 'Exponentials and Logarithms',
-    summary:
-      'The first great non-polynomial family inside algebra. The exponent laws AL banked on integer and rational indices are extended to every real index — the exponential function aˣ as a machine with a constant percent climb, its shape family, and the growth stories it prices. The logarithm is then defined once and for all as the inverse machine — chapter 1’s theory cashing its first big cheque: domain and range swap, log_a(aˣ) = x, and every log law DERIVED from the exponent law it mirrors instead of memorized. Change of base, the common and natural logarithms, and the chapter closes on equations: same-base discipline, exponent equations that hide quadratics, log equations with their domain discipline enforced (extraneous roots caught, not mourned), and the growth and decay problems that make the family famous.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'The Exponential Family: Every Real Index',
-      'Logarithms: the Inverse Machine',
-      'The Laws of Logarithms and the Change of Base',
-      'Logarithmic and Exponential Equations',
-      'Exponential and Logarithmic Series',
-      'Logarithm Tables: Characteristic, Mantissa and Antilogarithm',
-    ],
-  },
+  chapter09,
   {
     number: 10,
     slug: 'the-synthesis-and-the-doorstep',
