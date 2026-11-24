@@ -1,0 +1,857 @@
+import type { Lesson } from '../src/data/library/types'
+
+/* ------------------------------------------------------------------ */
+/* vivid palette + font                                                */
+/* ------------------------------------------------------------------ */
+const C = {
+  ink: '#1B2A4A',
+  slate: '#475569',
+  blue: '#2563EB',
+  blueDeep: '#1D4ED8',
+  teal: '#0D9488',
+  purple: '#7C3AED',
+  red: '#DC2626',
+  amber: '#D97706',
+  amberVivid: '#F59E0B',
+  green: '#059669',
+  pink: '#DB2777',
+  blueSoft: '#DBEAFE',
+  tealSoft: '#CCFBF1',
+  purpleSoft: '#EDE9FE',
+  redSoft: '#FEE2E2',
+  amberSoft: '#FEF3C7',
+  greenSoft: '#D1FAE5',
+  slateSoft: '#E2E8F0',
+  paper: '#FFFFFF',
+}
+const FONT = "'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+
+/* ------------------------------------------------------------------ */
+/* geo12 SVG helpers (plain text only — no $, minus is U+2212)         */
+/* ------------------------------------------------------------------ */
+const geo12Txt = (
+  x: number, y: number, s: string,
+  size = 13, color = C.ink, anchor = 'middle', weight = '600',
+): string =>
+  `<text x="${x}" y="${y}" font-family="${FONT}" font-size="${size}" fill="${color}" text-anchor="${anchor}" font-weight="${weight}">${s}</text>`
+
+const geo12Line = (
+  x1: number, y1: number, x2: number, y2: number,
+  color = C.ink, w = 2.5, dash = '',
+): string =>
+  `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="${w}" stroke-linecap="round"${dash ? ` stroke-dasharray="${dash}"` : ''}/>`
+
+const geo12Circ = (
+  cx: number, cy: number, r: number, color = C.ink, w = 2.5, fill = 'none',
+): string =>
+  `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${fill}" stroke="${color}" stroke-width="${w}"/>`
+
+const geo12Dot = (x: number, y: number, color = C.ink, r = 4): string =>
+  `<circle cx="${x}" cy="${y}" r="${r}" fill="${color}"/>`
+
+const geo12Rect = (
+  x: number, y: number, w: number, h: number,
+  fill: string, stroke: string, rx = 9,
+): string =>
+  `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`
+
+const geo12Head = (x: number, y: number, deg: number, color: string, s = 9): string => {
+  const a = (deg * Math.PI) / 180
+  const u = [Math.cos(a), Math.sin(a)]
+  const v = [-u[1], u[0]]
+  const p1 = [x - u[0] * s + v[0] * s * 0.6, y - u[1] * s + v[1] * s * 0.6]
+  const p2 = [x - u[0] * s - v[0] * s * 0.6, y - u[1] * s - v[1] * s * 0.6]
+  return `<polygon points="${x},${y} ${p1[0].toFixed(1)},${p1[1].toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}" fill="${color}"/>`
+}
+
+const geo12Arrow = (
+  x1: number, y1: number, x2: number, y2: number, color = C.slate, w = 2,
+): string => {
+  const a = (Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI
+  return (
+    geo12Line(x1, y1, x2, y2, color, w) + geo12Head(x2, y2, a, color, 8)
+  )
+}
+
+const geo12Svg = (w: number, h: number, label: string, body: string): string =>
+  `<svg viewBox="0 0 ${w} ${h}" width="100%" role="img" aria-label="${label}" xmlns="http://www.w3.org/2000/svg">${body}</svg>`
+
+/* ================================================================== */
+/* LESSON 1.2 — Euclid’s Five Postulates: the Rules of the Game        */
+/* ================================================================== */
+export const lessonGeo102: Lesson = {
+  id: 'geo-euclids-five-postulates-the-rules-of-the-game',
+  number: '1.2',
+  title: 'Euclid\u2019s Five Postulates: the Rules of the Game',
+  concepts: [
+    'postulate',
+    'common notion',
+    'straightedge',
+    'compass',
+    'parallel postulate',
+    'two right angles',
+    'construction licence',
+    'extendable line',
+  ],
+  objectives: [
+    'Distinguish Euclid’s three kinds of opening statement — definitions, postulates, common notions — and classify any given statement correctly',
+    'State all five postulates in your own words and name the construction each one licenses',
+    'Run the 180° shortfall arithmetic: given two interior angles on one side, decide whether the lines meet on that side and compute the shortfall',
+    'Recount the Book I census (23 definitions, 5 postulates, 5 common notions, 48 propositions) and explain what the rules buy together',
+    'Place Playfair 1795, Saccheri 1733, Lobachevsky 1829, Bólyai 1832 and Hilbert 1899 in the correct order and say what each contributed',
+  ],
+  prerequisites: ['geo-the-undefined-words-and-the-defined-ones'],
+  sources: ['geo-euclid-elements', 'geo-playfair-1795', 'geo-non-euclid-chronology'],
+  blocks: [
+    /* -------------------------------------------------------------- */
+    /* 1. opening motivation                                          */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'From vocabulary to permission' },
+    {
+      kind: 'para',
+      text: 'Lesson 1.1 left us with a well-dressed stage. Twenty-three definitions described the cast: point, line, straight line, surface, plane, angle, right angle, circle and its parts. Every one of those definitions is vocabulary — it tells us what a word will mean, and nothing more. But a definition cannot make anything happen. "A straight line is a line which lies evenly with the points on itself" does not hand you a line; it merely tells you what to call one once you have it. Geometry, as Euclid found it, still needed PERMISSION — statements that say what may be DONE without proof, and what may be ASSUMED without proof. Without such a licence list, the very first proof in the Elements would have nowhere to stand.',
+    },
+    {
+      kind: 'para',
+      text: 'Euclid’s move — the move that makes the Elements the template for every rigorous subject written since — was to keep the permission list ruthlessly short. In Book I he allows himself exactly five postulates: five statements about what may be constructed and assumed, specific to geometry. Beside them he places five common notions: five general truths about equality and comparison that are not special to geometry at all (they would serve arithmetic or measurement just as well). Everything else in Book I — all forty-eight propositions — must be earned from that base of twenty-three definitions, five postulates and five common notions. Nothing may be smuggled in: no diagrams that claim more than the text licenses, no "obviously" that is not licensed by the list.',
+    },
+    {
+      kind: 'para',
+      text: 'Why five? Because the game needs just enough to get started and no more. Two postulates license the straightedge (draw a line, extend a line), one licenses the compass (draw a circle), one calibrates the ruler (all right angles are equal), and one — the strangest and greatest of them — makes a promise about the far-away behaviour of two lines. Five permissions, five counting rules, twenty-three words: that is the entire starting equipment of deductive geometry. This lesson walks the five postulates one by one, watches them work together on Book I’s opening construction, and then follows the fifth postulate through its two-thousand-year trial — the longest-running open problem in the history of mathematics, resolved at last by proving that it could never be proved.',
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 2. the two lists                                               */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'Two lists: postulates and common notions' },
+    {
+      kind: 'para',
+      text: 'Euclid’s Book I opens with three lists, and the distinction between the second and third is a genuine exam skill. The postulates are geometry-specific permissions: each one either licenses a construction (something you may now DO with straightedge or compass) or asserts a geometric fact (something you may now ASSUME about points, lines, angles). The common notions are general truths about equality and magnitude: they mention no geometric objects at all — only "things", "equals", "wholes" and "parts" — and they would be at home in a book on arithmetic. When you are asked to classify a statement as postulate or common notion, ask the one diagnostic question: does the statement name or use a geometric object (point, line, circle, angle)? If yes, it is in postulate territory; if it speaks only of quantities being equal, added, subtracted or compared, it is a common notion.',
+    },
+    {
+      kind: 'para',
+      text: 'Here are the five common notions, paraphrased in our words (study the content, never the exact wording — our paraphrase follows the sense of the standard translations):',
+    },
+    {
+      kind: 'list',
+      items: [
+        'CN1 (equals-to-the-same): things equal to the same thing are equal to one another. If segment $AB$ and segment $CD$ are both equal to the same segment $EF$, then $AB = CD$. This is the transitive property of equality, stated for magnitudes.',
+        'CN2 (add-equals-to-equals): if equals are added to equals, the wholes are equal. If $AB = CD$ and equal segments $EF$ are appended to both, then $AC = BD$. Adding the same amount to equal amounts preserves equality.',
+        'CN3 (subtract-equals-from-equals): if equals are subtracted from equals, the remainders are equal. The mirror of CN2: take the same amount away from equal amounts and what is left is still equal. (Euclid adds a caveat — the remainders are equal "with respect to the corresponding part" — which guards the case of unequal remainders.)',
+        'CN4 (coinciding-implies-equal): things that coincide with one another are equal to one another. If one figure can be placed exactly on top of another — point on point, line on line — the figures are equal. This is the licence behind superposition arguments and behind "apply one figure to another" proofs.',
+        'CN5 (whole-greater-than-part): the whole is greater than the part. A magnitude is strictly larger than any of its proper pieces. This is the notion that makes "larger" meaningful and, two thousand years later, makes the idea of a magnitude "greater than any assigned amount" coherent.',
+      ],
+    },
+    {
+      kind: 'callout',
+      tone: 'insight',
+      title: 'Why the split into two lists matters',
+      text: 'The postulates are where geometry lives: they are about points, lines, circles and angles, and each is a permission slip for a construction or an assumption. The common notions are pure logic of quantity: no point, no line, no circle appears in them. That is why the same five common notions could serve a book on numbers unchanged, while the five postulates are welded to the plane. In an answer, the fastest classifier is: geometric object named → postulate; only quantities compared → common notion.',
+    },
+    {
+      kind: 'para',
+      text: 'The two lists do not work alone. Together with the twenty-three definitions they form the entire foundation of Book I, and the shape of the foundation is worth memorising as a census:',
+    },
+    {
+      kind: 'table',
+      caption: 'The Book I census — the whole foundation, counted',
+      head: ['Layer', 'Count', 'What the layer contributes'],
+      rows: [
+        ['Definitions', '23', 'vocabulary: what the words will mean (point, line, right angle, circle…)'],
+        ['Postulates', '5', 'geometry-specific permissions: what may be constructed and assumed'],
+        ['Common notions', '5', 'general truths about equality: the logic of adding, subtracting, coinciding, whole-and-part'],
+        ['Propositions', '48', 'everything else in Book I — each proved from the layers above, none assumed'],
+      ],
+    },
+    {
+      kind: 'para',
+      text: 'So the ledger of Book I reads $23 + 5 + 5 = 33$ opening statements feeding $48$ proved propositions — and those forty-eight are just Book One of thirteen. Keep this census handy: it is the cleanest one-line answer to "how much did Euclid assume, and how much did he earn?" — and it is exactly the sort of count an examiner loves to ask for.',
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 3. the five postulates one by one                              */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'The five postulates, one by one' },
+    {
+      kind: 'para',
+      text: 'We take the five postulates in order, in our own paraphrase (we study what they say, never a word-for-word reproduction; the standard translation was consulted only to check the sense). For each one, watch two things: what it licenses, and what the geometry would look like without it. The whole gallery at a glance:',
+    },
+    {
+      kind: 'figure',
+      caption: 'The five-postulate gallery. P1 joins any two points; P2 extends any finite line; P3 draws any circle; P4 makes every right angle equal; P5 forces lines to meet when the interior angles fall short of two right angles (180°).',
+      svg: geo12Svg(900, 220, 'The five postulates as five mini-panels: a joined line, an extended line, a circle with its centre and radius, two equal right angles, and two lines meeting across a transversal.', [
+        // P1 panel
+        geo12Rect(6, 8, 168, 204, C.paper, C.blue),
+        geo12Txt(90, 32, 'P1 · the joiner', 12.5, C.blueDeep, 'middle', '700'),
+        geo12Line(44, 118, 124, 118, C.blue, 2.5),
+        geo12Dot(38, 118, C.ink), geo12Dot(130, 118, C.ink),
+        geo12Txt(36, 140, 'A', 12, C.ink), geo12Txt(132, 140, 'B', 12, C.ink),
+        geo12Txt(90, 198, 'join any point to any point', 10.5, C.slate, 'middle', '500'),
+        // P2 panel
+        geo12Rect(186, 8, 168, 204, C.paper, C.teal),
+        geo12Txt(270, 32, 'P2 · the extender', 12.5, C.teal, 'middle', '700'),
+        geo12Line(216, 118, 286, 118, C.teal, 2.5),
+        geo12Line(286, 118, 322, 118, C.teal, 2, '5,5'),
+        geo12Head(326, 118, 0, C.teal, 9),
+        geo12Dot(216, 118, C.ink), geo12Dot(286, 118, C.ink),
+        geo12Txt(216, 140, 'A', 12, C.ink), geo12Txt(286, 140, 'B', 12, C.ink),
+        geo12Txt(312, 104, 'C', 12, C.teal),
+        geo12Txt(270, 198, 'extend continuously', 10.5, C.slate, 'middle', '500'),
+        // P3 panel
+        geo12Rect(366, 8, 168, 204, C.paper, C.purple),
+        geo12Txt(450, 32, 'P3 · the circler', 12.5, C.purple, 'middle', '700'),
+        geo12Circ(450, 118, 36, C.purple, 2.5),
+        geo12Dot(450, 118, C.purple, 3.5),
+        geo12Line(450, 118, 477.6, 94.9, C.purple, 2),
+        geo12Dot(477.6, 94.9, C.ink, 3.5),
+        geo12Txt(440, 132, 'A', 12, C.ink), geo12Txt(486, 90, 'B', 12, C.ink),
+        geo12Txt(450, 198, 'any centre, any radius', 10.5, C.slate, 'middle', '500'),
+        // P4 panel
+        geo12Rect(546, 8, 168, 204, C.paper, C.green),
+        geo12Txt(630, 32, 'P4 · the uniform ruler', 12.5, C.green, 'middle', '700'),
+        geo12Line(586, 92, 616, 92, C.green, 2.5),
+        geo12Line(586, 92, 586, 122, C.green, 2.5),
+        geo12Line(586, 104, 598, 104, C.green, 1.5),
+        geo12Line(598, 104, 598, 92, C.green, 1.5),
+        geo12Line(666, 152, 636, 152, C.amber, 2.5),
+        geo12Line(666, 152, 666, 122, C.amber, 2.5),
+        geo12Line(666, 140, 654, 140, C.amber, 1.5),
+        geo12Line(654, 140, 666, 140, C.amber, 1.5),
+        geo12Txt(604, 116, '90°', 10.5, C.green), geo12Txt(646, 132, '90°', 10.5, C.amber),
+        geo12Txt(630, 198, 'all right angles are equal', 10.5, C.slate, 'middle', '500'),
+        // P5 panel
+        geo12Rect(726, 8, 168, 204, C.paper, C.red),
+        geo12Txt(810, 32, 'P5 · the parallel clause', 12.5, C.red, 'middle', '700'),
+        geo12Line(746, 150, 876, 95, C.blue, 2.5),
+        geo12Line(746, 60, 876, 95, C.teal, 2.5),
+        geo12Line(766, 180, 801, 30, C.red, 2),
+        geo12Dot(876, 95, C.red, 4.5),
+        geo12Txt(872, 84, 'X', 12, C.red, 'middle', '700'),
+        geo12Txt(786, 138, 'α', 12, C.red), geo12Txt(806, 66, 'β', 12, C.red),
+        geo12Txt(810, 198, 'α + β < 180°: they meet', 10.5, C.slate, 'middle', '500'),
+      ].join('')),
+    },
+    { kind: 'heading', text: 'P1 — the joiner' },
+    {
+      kind: 'para',
+      text: 'Postulate 1 (our paraphrase): a straight line can be drawn joining any point to any other point. It is the license that makes the straightedge legal. Notice how much is packed into the little word "any": no restriction on how far apart the points are, no restriction on what already exists between them. Given two points $A$ and $B$ — anywhere, however far — the segment $AB$ exists on demand. This is what "buys lines": before any proposition can be proved, the geometer must be allowed to produce the very lines the proof talks about. Without P1, even the phrase "draw $AB$" in a proof would be unlicensed smuggling.',
+    },
+    { kind: 'heading', text: 'P2 — the extender' },
+    {
+      kind: 'para',
+      text: 'Postulate 2 (our paraphrase): any finite straight line can be extended continuously in a straight line. P1 gave us segments; P2 says no segment is a prisoner of its endpoints — it can be prolonged, a little or a lot, always in the same straight direction. The deep point is easy to miss: P2 makes a line an OPERATION, not an object of fixed length. A "line" in Euclid’s plane is not a finished thing you inspect; it is something you can always act on further — extend it again, and again, as the argument requires. The line is extendable, indefinitely. That is precisely the power P5 will need later: "the two lines, extended far enough" is a legal move only because P2 already granted it.',
+    },
+    {
+      kind: 'callout',
+      tone: 'warn',
+      title: 'The P2 subtlety: extending is not re-drawing',
+      text: 'P2 licenses extending a line you already have, in its own direction. It does NOT license drawing a second line through the same two points, nor bending the extension, nor choosing how the extended piece "should" look. A straight line through $A$ and $B$ is determined; you may prolong it, but you may never replace it. Examiners test exactly this: "extend $AB$ beyond $B$ to $C$" is P2; "draw another line through $A$ and $B$" would need to be a different (and here unlicensed) act.',
+    },
+    { kind: 'heading', text: 'P3 — the circler' },
+    {
+      kind: 'para',
+      text: 'Postulate 3 (our paraphrase): a circle can be drawn with any centre and any radius. This is the compass license, and the two "any"s are the whole story: the centre may be any point whatever, and the radius may be any length whatever — in particular, the radius may be set to the distance between two existing points, which is how the compass "carries" a length from one place to another. Together, P1, P2 and P3 form the famous ruler-and-compass charter: the straightedge draws the unique line through two points and extends it; the compass draws the circle with a given centre through a given point (and hence, by CN4-style reasoning, marks off equal radii anywhere). Every classical construction — bisecting an angle, copying a segment, building an equilateral triangle, dropping a perpendicular — is nothing but a legal combination of these three permissions, executed step by step.',
+    },
+    {
+      kind: 'list',
+      items: [
+        'Straightedge (licenced by P1 + P2): draws the unique straight line joining two given points, and prolongs any given segment. It cannot measure, cannot mark off lengths, has no graduations — it only makes straight lines exist.',
+        'Compass (licenced by P3): draws the circle with any given centre and any given radius — in particular, through any given point. It can therefore carry a distance: set to $AB$ at centre $A$, it collects every point at distance $AB$ from $A$.',
+        'Together: the charter. Constructions are finite chains of straightedge and compass moves, each move citing its postulate. If a step cannot be traced to P1, P2 or P3 (plus P4’s calibration where equality of angles is needed), the "construction" is not legal in Euclid’s game.',
+      ],
+    },
+    { kind: 'heading', text: 'P4 — the uniform ruler' },
+    {
+      kind: 'para',
+      text: 'Postulate 4 (our paraphrase): all right angles are equal to one another. Of the five postulates this is the quietest, and its greatness is easiest to overlook. P4 is a calibration: it says the right angle is an absolute measure of turning, the same at every place in the plane and in every figure. Pick up a right angle from one corner of a diagram and compare it with a right angle drawn miles away (on the same plane): they are equal — not by coincidence, but by postulate. This is what makes the phrase "two right angles" in P5 meaningful (every right angle is THE right angle, so two of them is a fixed amount of turning, $180°$), and what makes congruent-triangle arguments portable from place to place. P4 is the guarantee that the grid of the plane is uniform: geometry here is geometry there.',
+    },
+    { kind: 'heading', text: 'P5 — the parallel clause' },
+    {
+      kind: 'para',
+      text: 'Postulate 5 (our paraphrase): if a straight line crossing two straight lines makes the interior angles on one side together less than two right angles, then the two straight lines, extended far enough, meet on that side. Everything about this statement announces that it is the odd one out. It is by far the longest. It is constructive-negative: it does not hand you a figure here and now, it forces a meeting somewhere far away. And it is about the unobservable: no drawing can show two lines meeting "far enough" — the claim is about the indefinite extension that only P2 made legal. Where P1–P4 license what you can do on the page in front of you, P5 legislates what happens out toward infinity. That is why, of the five, only this one was doubted — and why its two-thousand-year trial is a story worth a whole section below.',
+    },
+    {
+      kind: 'para',
+      text: 'The engine room of P5 is arithmetic about two right angles. One right angle is $90°$, so two right angles are $90° + 90° = 180°$ — that is the boundary. Suppose a transversal $r$ crosses lines $m$ and $n$, and the interior angles on one side of $r$ are $\\alpha$ and $\\beta$. If $\\alpha + \\beta = 180°$ exactly, the clause is silent: we are on the boundary, and (as chapter 2 will show) this is exactly the parallel case. If $\\alpha + \\beta < 180°$, the lines are legally committed to meet on that side. And the gap — the SHORTFALL $180° - (\\alpha + \\beta)$ — measures how hard they turn toward each other. Two pinned examples, which we will verify in the worked problems: $100° + 70° = 170°$, a shortfall of $180° - 170° = 10°$; and $50° + 60° = 110°$, a shortfall of $180° - 110° = 70°$. Both pairs meet on that side; the second pair converges far more sharply.',
+    },
+    {
+      kind: 'figure',
+      caption: 'The fifth-postulate configuration, drawn true to scale with α = 100° and β = 70°. The interior angles on the right of transversal r sum to 170° < 180°, so lines m and n, extended far enough, meet at X on that side — and the angle the lines make at X is exactly the shortfall, 10°.',
+      svg: geo12Svg(880, 260, 'Transversal r crosses line m at A and line n at B. The interior angles on the right side are alpha 100 degrees at A and beta 70 degrees at B; the lines meet at X on the right, where they make a 10 degree angle equal to the shortfall.', [
+        geo12Txt(440, 26, 'α + β = 170° < 180°:  shortfall = 180° − 170° = 10°', 14.5, C.ink, 'middle', '700'),
+        geo12Txt(440, 46, 'the angle the two lines make at their meeting point X is exactly the shortfall', 12, C.slate, 'middle', '500'),
+        geo12Line(30, 205, 850, 205, C.blue, 2.5),
+        geo12Txt(842, 194, 'm', 14, C.blue, 'middle', '700'),
+        geo12Line(36.2, 95.6, 775.2, 225.8, C.teal, 2.5),
+        geo12Txt(40, 88, 'n', 14, C.teal, 'middle', '700'),
+        geo12Line(176.9, 244.4, 149.2, 86.9, C.red, 2.5),
+        geo12Txt(153, 80, 'r', 14, C.red, 'middle', '700'),
+        geo12Dot(170, 205, C.blue), geo12Txt(162, 226, 'A', 13, C.ink, 'middle', '700'),
+        geo12Dot(154.4, 116.4, C.teal), geo12Txt(140, 112, 'B', 13, C.ink, 'middle', '700'),
+        geo12Dot(657, 205, C.red, 5), geo12Txt(666, 192, 'X', 13.5, C.red, 'middle', '700'),
+        geo12Txt(602, 178, 'the meeting point', 11.5, C.red, 'end', '600'),
+        // angle marks
+        `<path d="M 198 205 A 28 28 0 0 0 165.1 177.4" fill="none" stroke="${C.amber}" stroke-width="2"/>`,
+        geo12Txt(212, 188, 'α = 100°', 13, C.amber, 'start', '700'),
+        `<path d="M 184 121.6 A 30 30 0 0 1 159.6 145.9" fill="none" stroke="${C.amber}" stroke-width="2"/>`,
+        geo12Txt(196, 150, 'β = 70°', 13, C.amber, 'start', '700'),
+        `<path d="M 633 205 A 24 24 0 0 1 633.4 200.8" fill="none" stroke="${C.red}" stroke-width="2"/>`,
+        geo12Txt(618, 192, '10°', 12, C.red, 'end', '700'),
+      ].join('')),
+    },
+    {
+      kind: 'derivation',
+      title: 'The shortfall arithmetic, clause by clause',
+      statement: 'A transversal crosses two lines; the interior angles on one side are $\u03b1$ and $\u03b2$. Compare $\u03b1 + \u03b2$ with two right angles and read off what P5 promises.',
+      steps: [
+        { label: 'Boundary', formula: '90° + 90° = 180°', explanation: 'Two right angles are the fixed amount of turning $180°$. This is the boundary case: $\u03b1 + \u03b2 = 180°$ leaves P5 silent — no meeting is forced, and chapter 2 will identify this side with the parallel case.' },
+        { label: 'Take', formula: '\u03b1 = 100°, \u03b2 = 70°', explanation: 'First shortfall example. The sum is $100° + 70° = 170°$, which is less than $180°$.' },
+        { label: 'So,', formula: '180° − 170° = 10°', explanation: 'The shortfall is ten degrees. P5 now speaks: both lines, extended far enough, meet on that side — and in the triangle cut off by the three lines, the angle at the meeting point is exactly the shortfall, $10°$.' },
+        { label: 'Take', formula: '\u03b1 = 50°, \u03b2 = 60°', explanation: 'Second shortfall example. The sum is $50° + 60° = 110°$, far below the boundary.' },
+        { label: 'So,', formula: '180° − 110° = 70°', explanation: 'The shortfall is seventy degrees — a much sharper convergence: the two lines turn toward each other strongly and meet sooner, making a $70°$ angle where they cross.' },
+        { label: 'Check', formula: '(360° − (\u03b1 + \u03b2))', explanation: 'The interior angles on the OTHER side sum to $360° - (\u03b1 + \u03b2)$ (the four interior angles fit around the two crossing points). For $100° + 70°$: the other side has $360° - 170° = 190° > 180°$, so P5 promises nothing there — the meeting, if any, is only on the shortfall side.' },
+      ],
+      result: 'Shortfall $= 180° - (\u03b1 + \u03b2)$: positive shortfall means the lines meet on that side, and the meeting angle equals the shortfall; zero shortfall is the boundary; negative shortfall (sum above $180°$) puts the promise on the other side.',
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 4. what the rules buy together                                 */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'What the rules buy together' },
+    {
+      kind: 'para',
+      text: 'Now watch the machine run. From the twenty-three definitions, the five postulates and the five common notions, Euclid proves forty-eight propositions in Book I — and Proposition 1 is a deliberately chosen showpiece: on a given finite straight line, construct an EQUILATERAL TRIANGLE. The proof is pure charter: draw $AB$ (P1); draw the circle centred at $A$ through $B$ and the circle centred at $B$ through $A$ (P3, twice); let them meet at $C$; join $AC$ and $BC$ (P1 again). Then $AC = AB$ (radii of one circle) and $BC = AB$ (radii of the other), so $AC = BC$ by CN1 — things equal to the same thing are equal to one another. Every single move cites its licence: P1, P3, P3, P1, CN1, CN1. That is the shape of the whole game: five permissions plus five counting rules, used over and over, building all forty-eight propositions — and in thirteen books, the entire Elements.',
+    },
+    {
+      kind: 'figure',
+      caption: 'The Book-I pyramid: 23 definitions, 5 postulates and 5 common notions form the base; the 48 proved propositions of Book I rest on them; and the 13 books of the Elements stand on Book I’s foundation.',
+      svg: geo12Svg(700, 270, 'Pyramid diagram: at the base three boxes labelled 23 definitions, 5 postulates and 5 common notions; above them a box labelled Book I 48 propositions proved; at the top a box labelled the Elements 13 books.', [
+        geo12Rect(240, 30, 220, 48, C.purpleSoft, C.purple),
+        geo12Txt(350, 60, 'the Elements — 13 books', 14.5, C.purple, 'middle', '700'),
+        geo12Line(350, 78, 350, 118, C.slate, 2),
+        geo12Rect(150, 118, 400, 48, C.blueSoft, C.blue),
+        geo12Txt(350, 148, 'Book I: 48 propositions proved', 14.5, C.blueDeep, 'middle', '700'),
+        geo12Txt(372, 104, 'each proved from the base', 11.5, C.slate, 'start', '500'),
+        geo12Line(350, 166, 132, 206, C.slate, 2),
+        geo12Line(350, 166, 350, 206, C.slate, 2),
+        geo12Line(350, 166, 568, 206, C.slate, 2),
+        geo12Rect(30, 206, 205, 48, C.slateSoft, C.slate),
+        geo12Txt(132, 236, '23 definitions', 14, C.ink, 'middle', '700'),
+        geo12Rect(247, 206, 205, 48, C.amberSoft, C.amber),
+        geo12Txt(350, 236, '5 postulates', 14, C.amber, 'middle', '700'),
+        geo12Rect(465, 206, 205, 48, C.greenSoft, C.green),
+        geo12Txt(568, 236, '5 common notions', 14, C.green, 'middle', '700'),
+        geo12Txt(132, 266, 'words', 11.5, C.slate, 'middle', '600'),
+        geo12Txt(350, 266, 'permissions', 11.5, C.amber, 'middle', '600'),
+        geo12Txt(568, 266, 'general truths', 11.5, C.green, 'middle', '600'),
+      ].join('')),
+    },
+    {
+      kind: 'para',
+      text: 'Read the pyramid bottom-up and you have the entire method in one picture. The definitions fix the vocabulary. The postulates and common notions grant the starting moves. Everything above is earned: each proposition is proved from the base plus already-proven propositions, and nothing else. Euclid’s five postulates are therefore not a curiosity to memorise for their own sake — they are the constitution of a two-thousand-year-old kingdom of theorems, and every ruler-and-compass construction you will ever perform is a citizen of it. The next time you bisect an angle, you are running legislation older than most empires.',
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 5. the fifth postulate's two-thousand-year trial               */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'The fifth postulate’s two-thousand-year trial' },
+    {
+      kind: 'para',
+      text: 'From the moment the Elements circulated, readers felt that P5 did not belong among the postulates. P1–P4 are short, immediate, and about figures you can draw in front of you; P5 is long, elaborate, and about a meeting that may lie beyond any drawing. The natural suspicion: P5 is not a rule at all but a THEOREM in disguise — something the other four postulates ought to be able to prove. If it could be proved from P1–P4, the permission list would shrink to four, and the geometry would be that much tighter. This hope launched what is fairly called the longest-running project in the history of mathematics: roughly twenty-three centuries of attempts to derive P5 from its four siblings.',
+    },
+    {
+      kind: 'para',
+      text: 'The doubters were not a handful of cranks. The Greek commentator Proclus, writing in the fifth century AD, records in his commentary on Book I that P5 "ought to be struck from the postulates altogether" — and Proclus is summarising a controversy already ancient in his day; the battle was old when Rome was young. Ancient and medieval geometers tried again and again: each attempt took some statement felt to be "obvious" (for instance, that parallel lines stay a constant distance apart, or that there exists a rectangle) and tried to prove P5 from it. The trap, invisible at first, is that every such "obvious" helper statement turned out to be LOGICALLY EQUIVALENT to P5 — assuming it was assuming the fifth postulate with a new face on it. Nothing was proved; P5 was merely re-dressed.',
+    },
+    {
+      kind: 'para',
+      text: 'The most honest attempt ever made is also the most instructive. In 1733 the Jesuit Girolamo Saccheri published Euclides ab omni naevo vindicatus ("Euclid freed of every flaw") with a genuinely modern strategy: a reductio. Assume the NEGATION of P5 (keeping P1–P4), derive contradiction after contradiction, and P5 will be vindicated by force. Saccheri worked through case after case — the acute-angle hypothesis, the obtuse-angle hypothesis — and pushed both to wild, strange consequences. But here is the twist that makes the book immortal: the "contradictions" he reached were merely STRANGE, not false. Deep in the file, the reductio had actually begun building a new geometry — one where P5 fails and nothing explodes. Saccheri could not see that he was holding the door to a different world; he had opened it and called it a refutation.',
+    },
+    {
+      kind: 'para',
+      text: 'The resolution required letting the strangeness stand. In 1829 Nikolai Ivanovich Lobachevsky, in Kazan, published in the Kazan Messenger the first publicly printed non-Euclidean geometry — a consistent system in which P5 fails (through a point there are TWO or more parallels to a given line) and in which theorems were proved honestly from P1–P4 plus the new, negated fifth. In 1832 János Bólyai published his version as the famous Appendix to his father’s book — the younger Bólyai wrote of creating "a strange new world from nothing." Two independent publications, one conclusion: a geometry without Euclid’s fifth is coherent. And that settles the ancient question in the only way it could be settled: P5 is INDEPENDENT of P1–P4. It cannot be proved from them, because there is a whole consistent universe where it is false while they hold. The two-thousand-year search for a proof had been a search for something that was never there.',
+    },
+    {
+      kind: 'para',
+      text: 'Two more dates complete the verified chronology. In 1795 — well before the non-Euclidean resolution — John Playfair published the reformulation that modern textbooks (including this one, from chapter 2 onward) actually quote: through a given point, not on a given line, AT MOST ONE parallel line can be drawn. Playfair’s form is beloved because it is short, symmetric, and easy to test, but it is a genuine equivalent of Euclid’s clause: assuming Playfair’s form you can prove Euclid’s, and vice versa — the equivalence itself is one of the celebrated equivalents catalogued for chapter 11. And in 1899 David Hilbert, in his Grundlagen der Geometrie, rebuilt the whole rulebook cleanly: modern axioms, modern logic, gaps closed. Hilbert’s system is the one in which "independence" becomes a theorem-provable fact rather than an acquired taste.',
+    },
+    {
+      kind: 'table',
+      caption: 'The verified chronology of the fifth postulate',
+      head: ['Year', 'Figure', 'What happened — nothing folklore'],
+      rows: [
+        ['c. 300 BC', 'Euclid', 'the five postulates are fixed in Book I of the Elements'],
+        ['5th century AD', 'Proclus', 'his commentary on Book I already records the doubters and the demand to strike P5 from the postulates'],
+        ['1733', 'Saccheri', 'the honest reductio: assume P5 fails, hunt contradictions — and nearly build a non-Euclidean geometry without noticing'],
+        ['1795', 'Playfair', 'the through-a-point-at-most-one-parallel form modern texts quote — an equivalent of Euclid’s clause'],
+        ['1829', 'Lobachevsky', 'Kazan Messenger: the first published non-Euclidean geometry — P5 fails, the system stands'],
+        ['1832', 'Bólyai', 'the Appendix: an independent non-Euclidean geometry, "a strange new world from nothing"'],
+        ['1899', 'Hilbert', 'Grundlagen der Geometrie: the rules rebuilt cleanly; independence becomes precise mathematics'],
+      ],
+    },
+    {
+      kind: 'callout',
+      tone: 'historical',
+      title: 'What "independent" buys — and costs',
+      text: 'Independent means: P5 can be neither proved nor disproved from P1–P4 — there are consistent geometries (Lobachevsky 1829, Bólyai 1832) in which P1–P4 hold and P5 fails. The ancient ambition died, and the prize was greater than the ambition: geometry became a family of possible worlds, with Euclid’s plane one member among them. Chapter 2 adopts Playfair’s 1795 form for the parallel theory; chapter 11 owns the full catalogue of equivalents and opens the non-Euclidean door properly.',
+    },
+    {
+      kind: 'para',
+      text: 'Why does the trial matter to a student, beyond the story? Because it teaches the shape of a permission list. Euclid’s five are not "five obvious facts" — they are a CHOICE, the smallest set that works, and one member of the set is a genuine choice point: change only P5 and you get another consistent world. No other postulate enjoys that status. That is the deepest reason the fifth is examined separately, quoted in Playfair’s form, and asked about in the exam-style shapes below.',
+    },
+    {
+      kind: 'callout',
+      tone: 'exam',
+      title: 'Exam callout — the two classic assessment shapes',
+      text: 'This lesson is examined in exactly two shapes, and both are easy marks with the right reflexes. Shape 1 — CLASSIFY: given a statement, answer postulate / common notion / definition with a one-line reason (geometric object named and a construction licensed → postulate; only quantities compared → common notion; a word is being given meaning → definition; something being proved → none of these, it is a proposition). Shape 2 — NAME THE LICENCE: given a construction step ("join A to B", "extend AB beyond B to C", "draw the circle centred at A through B"), name the postulate that licenses it — P1, P2, P3 respectively; a step producing a right angle anywhere draws in P4 as the calibration guarantee. Drill both shapes in the Illustrations and the exercise set below.',
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 7. Illustrations (Cengage chains)                              */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'Illustrations' },
+    {
+      kind: 'example',
+      title: 'Illustration 1 — classify five statements: postulate, common notion, or definition',
+      steps: [
+        'Classify each of the following as postulate, common notion, or definition, with a one-line reason.',
+        '(a) "A circle is a plane figure bounded by one line, such that every point of the boundary is equally distant from a certain point inside." — This gives MEANING to the word "circle"; nothing is constructed, nothing compared. Classification: definition (it is vocabulary).',
+        '(b) "A straight line may be drawn from any one point to any other point." — A geometric object (a straight line) is licensed into existence, and the licence names points. Classification: postulate — this is P1, the joiner.',
+        '(c) "Things which are equal to the same thing are also equal to one another." — No point, line, circle or angle appears; only quantities and equality. Classification: common notion — CN1, equals-to-the-same.',
+        '(d) "All right angles are equal to one another." — It names angles (geometric objects) and ASSUMES a universal fact rather than licensing a construction or defining a word. Classification: postulate — P4, the uniform ruler.',
+        '(e) "The whole is greater than the part." — Pure comparison of magnitudes, no geometric object named. Classification: common notion — CN5, whole-greater-than-part.',
+        'Check (Now, the reflex): geometric object named → postulate; only quantities compared → common notion; a word being given meaning → definition. All five classifications follow in one move each.',
+      ],
+      figures: [
+        {
+          caption: 'The classification flowchart: three tests, three answers — the reflex for any "classify this statement" exam item.',
+          svg: geo12Svg(660, 210, 'Flowchart: from read the statement, three arrows lead to three boxes: names what a word means gives definition; states a permission to construct gives postulate; general truth about equal quantities gives common notion.', [
+            geo12Rect(240, 14, 180, 34, C.slateSoft, C.slate),
+            geo12Txt(330, 36, 'read the statement', 13, C.ink, 'middle', '700'),
+            geo12Arrow(292, 48, 130, 108, C.slate),
+            geo12Arrow(330, 48, 330, 108, C.slate),
+            geo12Arrow(368, 48, 530, 108, C.slate),
+            geo12Txt(180, 80, 'it defines a term', 11.5, C.slate, 'middle', '600'),
+            geo12Txt(330, 78, 'it licences a construction', 11.5, C.slate, 'middle', '600'),
+            geo12Txt(486, 80, 'it compares quantities', 11.5, C.slate, 'middle', '600'),
+            geo12Rect(20, 110, 196, 44, C.purpleSoft, C.purple),
+            geo12Txt(118, 130, 'names what a word means', 11.5, C.ink, 'middle', '600'),
+            geo12Txt(118, 146, 'definition', 12.5, C.purple, 'middle', '700'),
+            geo12Rect(232, 110, 196, 44, C.amberSoft, C.amber),
+            geo12Txt(330, 130, 'states a permission', 11.5, C.ink, 'middle', '600'),
+            geo12Txt(330, 146, 'postulate', 12.5, C.amber, 'middle', '700'),
+            geo12Rect(444, 110, 196, 44, C.greenSoft, C.green),
+            geo12Txt(542, 130, 'equal quantities compared', 11.5, C.ink, 'middle', '600'),
+            geo12Txt(542, 146, 'common notion', 12.5, C.green, 'middle', '700'),
+            geo12Txt(330, 190, 'Book I opens with all three: 23 definitions, 5 postulates, 5 common notions', 11.5, C.slate, 'middle', '500'),
+          ].join('')),
+        },
+      ],
+    },
+    {
+      kind: 'example',
+      title: 'Illustration 2 — exam-shaped: name the postulate licensing each construction',
+      steps: [
+        'Question (exam-style): A construction uses the following four steps. For each step, name the postulate that licenses it, or explain how it is built from the charter.',
+        'Step 1: "Join $A$ to $B$." — A straight line is drawn through two given points. Licence: P1, the joiner. One move, one citation.',
+        'Step 2: "Extend $AB$ beyond $B$ to a point $C$." — An existing finite segment is prolonged in its own direction. Licence: P2, the extender. Note the subtlety: the step does not re-draw $AB$; it only prolongs it.',
+        'Step 3: "Draw the circle centred at $A$ through $B$." — A circle with given centre and given radius. Licence: P3, the circler — centre $A$, radius $AB$.',
+        'Step 4: "Drop the perpendicular from $C$ to $AB$." — No single postulate draws a perpendicular; this is Book I.12, a proved construction built from P1 + P2 + P3 (arcs on both sides of the line, joined to give the foot of the perpendicular). P4 enters as the guarantee that the right angle so produced is THE right angle — equal to every other right angle in the plane.',
+        'Hence (the mark-scoring line): P1; P2; P3; and Book I.12 built from P1 + P2 + P3, certified by P4. Every construction step in any ruler-and-compass problem answers to this mapping.',
+      ],
+      figures: [
+        {
+          caption: 'The construction-licence arrows: four standard construction steps mapped to the postulates that make them legal.',
+          svg: geo12Svg(660, 240, 'Four rows: join A to B maps to P1 the joiner; extend AB beyond B to C maps to P2 the extender; draw the circle centred at A through B maps to P3 the circler; drop the perpendicular maps to built from P1 plus P2 plus P3, certified by P4.', [
+            geo12Rect(20, 14, 300, 38, C.blueSoft, C.blue),
+            geo12Txt(170, 38, 'join A to B', 13, C.ink, 'middle', '600'),
+            geo12Arrow(320, 33, 456, 33, C.slate),
+            geo12Rect(456, 14, 186, 38, C.paper, C.blue),
+            geo12Txt(549, 38, 'P1 · the joiner', 13, C.blueDeep, 'middle', '700'),
+            geo12Rect(20, 72, 300, 38, C.tealSoft, C.teal),
+            geo12Txt(170, 96, 'extend AB beyond B to C', 13, C.ink, 'middle', '600'),
+            geo12Arrow(320, 91, 456, 91, C.slate),
+            geo12Rect(456, 72, 186, 38, C.paper, C.teal),
+            geo12Txt(549, 96, 'P2 · the extender', 13, C.teal, 'middle', '700'),
+            geo12Rect(20, 130, 300, 38, C.purpleSoft, C.purple),
+            geo12Txt(170, 154, 'draw the circle centred at A through B', 12.5, C.ink, 'middle', '600'),
+            geo12Arrow(320, 149, 456, 149, C.slate),
+            geo12Rect(456, 130, 186, 38, C.paper, C.purple),
+            geo12Txt(549, 154, 'P3 · the circler', 13, C.purple, 'middle', '700'),
+            geo12Rect(20, 188, 300, 38, C.redSoft, C.red),
+            geo12Txt(170, 212, 'drop the perpendicular from C to AB', 12.5, C.ink, 'middle', '600'),
+            geo12Arrow(320, 207, 456, 207, C.slate),
+            geo12Rect(456, 188, 186, 38, C.paper, C.red),
+            geo12Txt(549, 203, 'built from P1 + P2 + P3', 11, C.red, 'middle', '700'),
+            geo12Txt(549, 218, '(Book I.12), certified by P4', 11, C.red, 'middle', '700'),
+            geo12Txt(330, 238, 'the licence mapping — four shapes worth memorising', 11.5, C.slate, 'middle', '500'),
+          ].join('')),
+        },
+      ],
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 8. terms + formula cards                                       */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'The working vocabulary of the rulebook' },
+    {
+      kind: 'terms',
+      items: [
+        { term: 'postulate', def: 'a geometry-specific statement assumed without proof: it licenses a construction (P1, P2, P3) or asserts a geometric fact (P4, P5). Euclid’s Book I has exactly five.' },
+        { term: 'common notion', def: 'a general truth about equality and magnitude assumed without proof, mentioning no geometric object: equals-to-the-same, add-equals, subtract-equals, coinciding-implies-equal, whole-greater-than-part.' },
+        { term: 'straightedge', def: 'the unmarked tool licensed by P1 and P2: it draws the line joining two points and extends a finite line. It cannot measure or transfer lengths.' },
+        { term: 'compass', def: 'the tool licensed by P3: it draws the circle with any centre and any radius, and so carries a distance from one place to another.' },
+        { term: 'ruler-and-compass charter', def: 'the joint licence of P1 + P2 + P3: every classical construction is a finite chain of straightedge and compass moves, each citing its postulate.' },
+        { term: 'extendable line', def: 'the view of a line produced by P2: a line is an operation that can always be continued, not an object of fixed length — "extend far enough" is legal because P2 said so.' },
+        { term: 'two right angles', def: 'the fixed amount of turning 90° + 90° = 180°, meaningful as an absolute measure because P4 makes every right angle equal to every other.' },
+        { term: 'shortfall', def: 'the quantity 180° − (α + β): how far the interior angles on one side of a transversal fall below two right angles. Positive shortfall forces a meeting on that side, and the meeting angle equals the shortfall.' },
+        { term: 'parallel postulate', def: 'P5, the odd one out: the long, constructive-negative clause forcing two lines to meet on the side where the interior angles sum to less than 180°. Modern texts quote Playfair’s equivalent form.' },
+        { term: 'independent', def: 'said of P5: it can be neither proved nor disproved from P1–P4, because consistent geometries exist (Lobachevsky 1829, Bólyai 1832) in which P1–P4 hold and P5 fails.' },
+        { term: 'Playfair’s form', def: 'the 1795 equivalent: through a given point not on a given line, at most one parallel can be drawn. The form chapter 2 adopts; equivalent to Euclid’s clause.' },
+        { term: 'reductio (Saccheri’s)', def: 'the 1733 strategy of assuming the negation of P5 and hunting contradictions — which produced strange-but-consistent results and effectively began non-Euclidean geometry.' },
+      ],
+    },
+    { kind: 'heading', text: 'Formula cards — the four facts to recall cold' },
+    {
+      kind: 'formula',
+      name: 'Two-right-angles boundary (P5’s trigger)',
+      latex: '90\u00b0 + 90\u00b0 = 180\u00b0',
+      note: 'Two right angles are the fixed turning 180°. The clause fires exactly when α + β < 180°; at α + β = 180° it is silent (the parallel case of chapter 2).',
+    },
+    {
+      kind: 'formula',
+      name: 'Shortfall identity',
+      latex: '180\u00b0 - (\u03b1 + \u03b2)',
+      note: 'The shortfall measures how far the interior angles fall below 180°. Positive shortfall ⟺ the lines meet on that side, and the angle at the meeting point X equals the shortfall.',
+    },
+    {
+      kind: 'formula',
+      name: 'Other-side complement',
+      latex: '360\u00b0 - (\u03b1 + \u03b2)',
+      note: 'The interior angles on the other side of the transversal sum to 360° − (α + β). Example: α = 95°, β = 80° gives 175° and 185° — the promise sits only on the shortfall side.',
+    },
+    {
+      kind: 'formula',
+      name: 'The Book I census',
+      latex: '23 + 5 + 5 = 33',
+      note: 'Twenty-three definitions, five postulates and five common notions are the 33 opening statements from which the 48 propositions of Book I — and the 13-book Elements — are earned.',
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 9. quiz                                                        */
+    /* -------------------------------------------------------------- */
+    {
+      kind: 'quiz',
+      title: 'Checkpoint quiz — 5 questions',
+      items: [
+        {
+          q: 'A textbook statement reads: "things which are equal to the same thing are also equal to one another." To which of Euclid’s lists does it belong?',
+          options: [
+            'a definition — it gives meaning to the word "equal"',
+            'a postulate — it licenses drawing a line',
+            'a common notion — it is CN1, a general truth about equality',
+            'a proposition — it is proved in Book I',
+          ],
+          answer: 2,
+          explain: 'It belongs to the common notions (CN1, equals-to-the-same). Why the others fail: it is NOT a definition, because it does not give meaning to any word — equality is already understood, the statement is a fact ABOUT equal things. It is not a postulate, because no geometric object is named and no construction is licensed — no point, line, circle or angle appears. It is not a proposition, because Euclid assumes it without proof; nothing is earned here. The classifier: only quantities compared → common notion.',
+        },
+        {
+          q: 'A proof contains the step "extend segment AB beyond B, continuously in the same straight direction, to a point C." Which postulate licenses this step?',
+          options: [
+            'P1, the joiner',
+            'P2, the extender',
+            'P3, the circler',
+            'P4, the uniform ruler',
+          ],
+          answer: 1,
+          explain: 'P2, the extender: any finite straight line can be extended continuously in a straight line. Why the others fail: P1 licenses DRAWING the line AB from scratch, not prolonging one we already have; P3 licenses drawing circles, and no circle is involved; P4 says all right angles are equal, which calibrates measures but licenses no construction. Remember the P2 subtlety: extending is not re-drawing — the step keeps the line it was given.',
+        },
+        {
+          q: 'A transversal crosses two lines. On one side, the interior angles are 80° and 60°. What does Euclid’s fifth postulate promise?',
+          options: [
+            'nothing — the clause is silent because the sum is exactly 180°',
+            'the lines are parallel on that side',
+            'the lines meet on the opposite side only',
+            'the lines, extended far enough, meet on that side — the shortfall is 180° − 140° = 40°',
+          ],
+          answer: 3,
+          explain: 'The sum is 80° + 60° = 140° < 180°, so P5 fires: the two lines, extended far enough, meet on that side, and the shortfall is 180° − 140° = 40° (which is also the angle they make at the meeting point). Why the others fail: the clause is silent only at exactly 90° + 90° = 180° — here we are 40° below the boundary, not on it. "Parallel on that side" is the boundary reading, not this one. The opposite side carries interior angles summing to 360° − 140° = 220° > 180°, so the promise sits on the shortfall side, not the opposite.',
+        },
+        {
+          q: 'Which postulate guarantees that a right angle drawn in one corner of a diagram equals a right angle drawn anywhere else in the plane?',
+          options: [
+            'P4 — all right angles are equal to one another',
+            'P1 — the joiner',
+            'P2 — the extender',
+            'P5 — the parallel clause',
+          ],
+          answer: 0,
+          explain: 'P4 is the uniform ruler: all right angles are equal to one another, making the right angle an absolute measure everywhere in the plane. Why the others fail: P1 only licenses joining two points by a line; P2 only licenses extending lines; P5 is about lines meeting across a transversal. This calibration is also what makes "two right angles" in P5 a fixed amount (90° + 90° = 180°): without P4, "right angle" would vary from place to place and P5 would have no fixed trigger.',
+        },
+        {
+          q: 'In the two-thousand-year trial of the fifth postulate, what was finally established by Lobachevsky (1829) and Bólyai (1832)?',
+          options: [
+            'that P5 can be proved from P1–P4 with clever enough constructions',
+            'that P5 is independent of P1–P4: consistent geometries exist in which P5 fails',
+            'that Saccheri’s 1733 reductio contained a logical error',
+            'that Playfair’s 1795 form is not equivalent to Euclid’s clause',
+          ],
+          answer: 1,
+          explain: 'They published consistent geometries (Lobachevsky in the Kazan Messenger, 1829; Bólyai in the Appendix, 1832) in which P1–P4 hold and P5 fails — so no proof of P5 from P1–P4 can exist, and the fifth is independent. Why the others fail: the whole point of 1829/1832 is that a proof of P5 was never found BECAUSE none exists — the opposite of option A. Saccheri’s 1733 reductio was logically honest; its "contradictions" were merely strange, which is precisely how it nearly built a non-Euclidean geometry — not an error, an incomplete reading. Playfair’s form IS equivalent to Euclid’s clause; chapter 2 adopts it.',
+        },
+      ],
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 10. exercises                                                  */
+    /* -------------------------------------------------------------- */
+    {
+      kind: 'exercises',
+      title: 'Exercises — 15 questions, L1 to L6',
+      sets: [
+        {
+          level: 'L1',
+          questions: [
+            {
+              q: 'Classify this statement: "It is possible to draw one and only one circle with any centre and any radius." Is it a definition, a postulate, or a common notion?',
+              solution: [
+                'Ask the classifier question: does the statement name a geometric object and license a construction?',
+                'Now, it names two geometric objects — a circle and its centre — and it licenses a construction: draw a circle with any centre and any radius.',
+                'So, it is not vocabulary (no word is being given meaning) and it is not a comparison of quantities (no equals, wholes or parts).',
+                'Hence, classification: a postulate — this is P3, the circler, the compass licence of the ruler-and-compass charter.',
+              ],
+              answer: 'a postulate — P3, the circler (the compass licence)',
+            },
+            {
+              q: 'Segments $PQ$ and $RS$ are each equal to the same segment $MN$. What does Euclid let you conclude about $PQ$ and $RS$, and by which common notion?',
+              solution: [
+                'Both $PQ$ and $RS$ are equal to the same thing, namely $MN$.',
+                'Take CN1, equals-to-the-same: things equal to the same thing are equal to one another.',
+                'So, $PQ = RS$ follows in one step — no construction, no measurement, pure logic of quantity.',
+                'Hence: $PQ = RS$, by CN1 (the transitive property of equality for magnitudes).',
+              ],
+              answer: 'PQ = RS, by CN1',
+            },
+            {
+              q: 'A transversal crosses two lines. On one side of it, the interior angles are $100°$ and $70°$. Does Euclid’s fifth postulate force a meeting, and what is the shortfall?',
+              solution: [
+                'Split the check: the sum on that side is $100° + 70° = 170°$.',
+                'Compare with the boundary of two right angles: $90° + 90° = 180°$, and $170° < 180°$.',
+                'So, the clause of P5 fires: the two lines, extended far enough, meet on that side.',
+                'Take the shortfall: $180° - 170° = 10°$.',
+                'Hence: yes — they meet on that side, and the shortfall is $10°$ (which is also the angle the lines make at the meeting point).',
+              ],
+              answer: 'yes, meet on that side; shortfall = 10°',
+            },
+          ],
+        },
+        {
+          level: 'L2',
+          questions: [
+            {
+              q: 'Which postulate licenses the step "extend $AB$ beyond $B$ to a point $C$" — and why does the same postulate NOT license "draw a second straight line through $A$ and $B$"?',
+              solution: [
+                'Name the operation: an existing finite segment is being prolonged in its own direction.',
+                'Take P2, the extender: any finite straight line can be extended continuously in a straight line. Licence: P2.',
+                'Check the second operation: "a second straight line through $A$ and $B$" is not an extension — it replaces the existing line by another one.',
+                'So, P2 extends what exists; it does not re-draw. The straight line through $A$ and $B$ is determined, and no postulate offers a second one.',
+                'Hence: P2 licenses the extension; the second line is unlicensed — extending is not re-drawing.',
+              ],
+              answer: 'P2 licenses the extension; a second line through A and B is unlicensed',
+            },
+            {
+              q: 'Segments $AB$ and $CD$ are equal, each of length $7$ units. Equal segments $EF$ of length $3$ units are appended to both: to $AB$ giving $AC$, and to $CD$ giving $BD$. Compute $AC$ and $BD$ and cite the common notion that guarantees $AC = BD$.',
+              solution: [
+                'Take the data: $AB = CD = 7$, and equal additions $EF = 3$ are made to both.',
+                'Split the arithmetic: $AC = AB + EF = 7 + 3 = 10$, and $BD = CD + EF = 7 + 3 = 10$.',
+                'So, $AC = 10$ and $BD = 10$ — the two wholes came out equal.',
+                'Now, name the law: CN2, add-equals-to-equals — if equals are added to equals, the wholes are equal. The arithmetic instantiates it exactly.',
+                'Hence: $AC = BD = 10$, guaranteed by CN2.',
+              ],
+              answer: 'AC = BD = 10, by CN2',
+            },
+            {
+              q: 'Book I rests on $23 + 5 + 5 = 33$ opening statements. Using CN5 (the whole is greater than the part), state one clean comparison between the whole set of $48$ propositions and a proved subset of $12$ of them.',
+              solution: [
+                'Identify the whole and the part: the whole is the $48$ proved propositions of Book I; the subset of $12$ is a part of that whole.',
+                'Take CN5: the whole is greater than the part — so $48 > 12$.',
+                'So, the subset is strictly smaller: it cannot exhaust the book; $48 - 12 = 36$ propositions lie outside it.',
+                'Hence: $48 > 12$ by CN5 (whole greater than part), with $36$ propositions remaining outside the subset.',
+              ],
+              answer: '48 > 12 by CN5; 36 propositions lie outside the subset',
+            },
+          ],
+        },
+        {
+          level: 'L3',
+          questions: [
+            {
+              q: 'A construction proceeds: (i) join $A$ to $B$; (ii) extend $AB$ beyond $B$ to $C$; (iii) draw the circle centred at $A$ through $B$; (iv) construct a right angle at $A$ and state that it equals any other right angle. Name the postulate licensing each of (i)–(iv).',
+              solution: [
+                'Step (i): a straight line is drawn through two given points — this is P1, the joiner.',
+                'Step (ii): an existing finite segment is prolonged continuously in its own direction — this is P2, the extender (extend, never re-draw).',
+                'Step (iii): a circle with any centre ($A$) and any radius ($AB$) is drawn — this is P3, the circler.',
+                'Step (iv): the claim that a right angle here equals a right angle anywhere is the calibration of the plane — this is P4, the uniform ruler: all right angles are equal to one another.',
+                'Hence: (i) P1, (ii) P2, (iii) P3, (iv) P4 — the licence mapping every construction step answers to.',
+              ],
+              answer: '(i) P1, (ii) P2, (iii) P3, (iv) P4',
+            },
+            {
+              q: 'Fill the shortfall table: for each pair of interior angles on one side of a transversal — $(90°, 90°)$, $(100°, 70°)$, $(50°, 60°)$, $(80°, 60°)$ — compute the sum $\u03b1 + \u03b2$, the shortfall $180° - (\u03b1 + \u03b2)$, and say what P5 promises.',
+              solution: [
+                'Boundary pair: $90° + 90° = 180°$, shortfall $180° - 180° = 0$ — exactly two right angles; the clause is silent, no meeting forced (the parallel case).',
+                'Second pair: $100° + 70° = 170°$, shortfall $180° - 170° = 10°$ — the lines meet on that side, making a $10°$ angle.',
+                'Third pair: $50° + 60° = 110°$, shortfall $180° - 110° = 70°$ — the lines meet on that side, converging sharply with a $70°$ meeting angle.',
+                'Fourth pair: $80° + 60° = 140°$, shortfall $180° - 140° = 40°$ — the lines meet on that side, meeting angle $40°$.',
+                'Hence: shortfalls $0$ (boundary), $10°$, $70°$, $40°$ respectively; P5 fires on every pair with positive shortfall.',
+              ],
+              answer: 'shortfalls 0 (boundary), 10°, 70°, 40° — P5 fires on the last three',
+              figures: [
+                {
+                  caption: 'The shortfall at a glance: two bars against the 180° boundary — 170° is short by 10°, 110° is short by 70°.',
+                  svg: geo12Svg(660, 190, 'Number-line bars: the 180 degree boundary line, a bar to 170 degrees labelled short by 10 degrees, and a bar to 110 degrees labelled short by 70 degrees.', [
+                    geo12Line(40, 40, 620, 40, C.ink, 2.5),
+                    geo12Head(620, 40, 0, C.ink, 8),
+                    geo12Txt(640, 44, '180°', 13, C.ink, 'middle', '700'),
+                    geo12Txt(330, 60, '90° + 90° = 180°: exactly two right angles — the boundary, the clause is silent', 12, C.slate, 'middle', '600'),
+                    geo12Rect(40, 70, 547.8, 26, C.redSoft, C.red, 6),
+                    geo12Line(587.8, 66, 587.8, 100, C.amber, 2, '4,4'),
+                    geo12Txt(313, 88, '100° + 70° = 170°', 12.5, C.red, 'middle', '700'),
+                    geo12Txt(604, 92, 'short 10°', 11, C.amber, 'start', '700'),
+                    geo12Txt(330, 118, 'shortfall 180° − 170° = 10° — they meet, meeting angle 10°', 12, C.ink, 'middle', '600'),
+                    geo12Rect(40, 130, 354.4, 26, C.amberSoft, C.amber, 6),
+                    geo12Txt(217, 148, '50° + 60° = 110°', 12.5, C.amber, 'middle', '700'),
+                    geo12Txt(330, 178, 'shortfall 180° − 110° = 70° — they meet sooner, meeting angle 70°', 12, C.ink, 'middle', '600'),
+                  ].join('')),
+                },
+              ],
+            },
+            {
+              q: 'A compass is set with centre $A = (2, 3)$ and radius $6$ (P3). Decide for each point whether it lies on the circle: $(2, 9)$, $(10, 3)$, $(5.6, 7.8)$. Justify each by the radius-equality check.',
+              solution: [
+                'Recall the P3 record: the circle is the set of points at distance exactly the radius ($6$) from the centre $(2, 3)$.',
+                'Check $(2, 9)$: distance $= \u221a((2-2)^2 + (9-3)^2) = \u221a36 = 6$ — equal to the radius, so it lies on the circle.',
+                'Check $(10, 3)$: distance $= \u221a((10-2)^2 + (3-3)^2) = \u221a64 = 8 \u2260 6$ — not on the circle (it lies outside, $2$ beyond the radius).',
+                'Check $(5.6, 7.8)$: distance $= \u221a(3.6^2 + 4.8^2) = \u221a(12.96 + 23.04) = \u221a36 = 6$ — equal to the radius, so it lies on the circle.',
+                'Hence: $(2, 9)$ and $(5.6, 7.8)$ lie on the circle; $(10, 3)$ does not.',
+              ],
+              answer: '(2, 9) on, (10, 3) off, (5.6, 7.8) on',
+            },
+          ],
+        },
+        {
+          level: 'L4',
+          questions: [
+            {
+              q: 'Essay (with structure): explain why P5 is called "constructive-negative" and "about the unobservable", contrasted with P1–P4. Give one concrete way the exam tests the contrast.',
+              solution: [
+                'Take the four siblings first: P1, P2, P3 license constructions you execute here and now (join, extend, circle), and P4 asserts the equality of right angles — figures you can exhibit on the page.',
+                'Now, P5 instead points forward: it does not produce a figure; it forces a MEETING of two lines "extended far enough" — an event that may lie beyond any drawing you can make.',
+                'So, "constructive-negative": from a shortfall $(\u03b1 + \u03b2 < 180°)$ it forces the two lines not to stay separate — the conclusion is a negative that generates a construction far away. And "about the unobservable": the meeting cannot be checked on paper, only legislated.',
+                'Check the dependency: the "extended far enough" move is legal only because P2 makes lines extendable, and the "two right angles" trigger is fixed only because P4 calibrates them at $90° + 90° = 180°$.',
+                'Exam shape: given the interior angles $95°$ and $80°$ on one side, compute $95° + 80° = 175°$, shortfall $180° - 175° = 5°$, and answer: meet on that side, meeting angle $5°$ — one line of arithmetic, one mark.',
+                'Hence: P1–P4 are present-tense permissions and calibrations; P5 alone legislates the far-away — and the exam tests it with arithmetic like $95° + 80° = 175°$, shortfall $180° - 175° = 5°$, meeting angle $5°$.',
+              ],
+              answer: 'P5 forces a far-away meeting (95° + 80° = 175°, shortfall 5°, meet with angle 5°) — unlike the present-tense P1–P4',
+            },
+            {
+              q: 'For $\u03b1 = 95°$ and $\u03b2 = 80°$ on one side of a transversal: compute both side-sums, the shortfall, and the angle the lines make where they meet. Which side carries P5’s promise?',
+              solution: [
+                'Split the four interior angles: they fill $360°$ around the two crossing points, so the other side sums to $360° - (\u03b1 + \u03b2)$.',
+                'Take the given side: $95° + 80° = 175°$ — below the $180°$ boundary.',
+                'So, shortfall $= 180° - 175° = 5°$: the promise fires on THIS side — the lines meet here, making a $5°$ angle.',
+                'Check the other side: $360° - 175° = 185° > 180°$ — above the boundary, so P5 promises nothing there.',
+                'Hence: given side $175°$, shortfall $5°$, meeting angle $5°$; other side $185°$, silent.',
+              ],
+              answer: '175° and shortfall 5° on the given side (meeting angle 5°); other side 185°, silent',
+            },
+          ],
+        },
+        {
+          level: 'L5',
+          questions: [
+            {
+              q: 'Chronology essay: order the five pinned dates — Saccheri, Playfair, Lobachevsky, Bólyai, Hilbert — and give one verified sentence on each contribution.',
+              solution: [
+                'Order the years first: $1733 < 1795 < 1829 < 1832 < 1899$.',
+                'So, the order is Saccheri (1733), Playfair (1795), Lobachevsky (1829), Bólyai (1832), Hilbert (1899).',
+                'Saccheri 1733: the honest reductio — assumed the failure of P5 and pushed the consequences, nearly building a non-Euclidean geometry without realising it.',
+                'Playfair 1795: the through-a-point-at-most-one-parallel form — a genuine equivalent of Euclid’s clause, the form modern texts quote (chapter 2 adopts it).',
+                'Lobachevsky 1829: the Kazan Messenger publication — the first published non-Euclidean geometry, where P5 fails and the system stands.',
+                'Bólyai 1832: the Appendix — an independent discovery of non-Euclidean geometry, "a strange new world from nothing."',
+                'Hilbert 1899: the Grundlagen — the rulebook rebuilt cleanly, making independence precise mathematics.',
+                'Hence: 1733, 1795, 1829, 1832, 1899 — Saccheri, Playfair, Lobachevsky, Bólyai, Hilbert, in that order.',
+              ],
+              answer: '1733 Saccheri, 1795 Playfair, 1829 Lobachevsky, 1832 Bólyai, 1899 Hilbert',
+            },
+            {
+              q: 'State Playfair’s form of the parallel postulate and explain in two moves why it deserves to be called an "equivalent" of Euclid’s clause rather than a replacement rule.',
+              solution: [
+                'State it: through a given point not on a given line, at most ONE parallel line can be drawn.',
+                'Now, the equivalence claim has two directions: from Playfair’s form you can derive Euclid’s clause (the shortfall side forces the meeting, else there would be two parallels); from Euclid’s clause you can derive Playfair’s form.',
+                'So, neither rule is stronger: each proves the other, while P1–P4 sit quietly underneath both — which is exactly what "equivalent" means.',
+                'Check the history pin: Playfair published this form in 1795, before the independence question was settled (1829/1832) — the form is a re-dressing of P5, not a cure for it.',
+                'Hence: Playfair’s form is P5 with a new face on it — equivalent, adoptable (chapter 2 adopts it), and equally unprovable from P1–P4.',
+              ],
+              answer: 'through a point not on a line, at most one parallel — equivalent in both directions to Euclid’s clause',
+            },
+          ],
+        },
+        {
+          level: 'L6',
+          questions: [
+            {
+              q: 'Research-level argument: what exactly was established in 1829/1832, and why does it close the two-thousand-year question in the direction it does? (Address: consistency, independence, and what Hilbert 1899 added.)',
+              solution: [
+                'Set the ancient target: to PROVE P5 from P1–P4 and shrink the permission list to four.',
+                'Take the 1829/1832 result: Lobachevsky (Kazan Messenger) and Bólyai (the Appendix) each published a consistent geometry in which P1–P4 hold and P5 FAILS.',
+                'Now, the logical squeeze: if P5 followed from P1–P4, it would have to hold in every system where P1–P4 hold. It demonstrably does not.',
+                'So, P5 is independent of P1–P4 — neither provable nor disprovable from them — and the ancient project was aimed at a target that never existed.',
+                'Check the resolution layer: the 1829/1832 systems were convincing but built on classical ideas of point, line and plane; Hilbert (1899, Grundlagen der Geometrie) rebuilt the rules cleanly with modern axioms and logic, making independence a precise, provable fact rather than a persuasive case.',
+                'Hence: 1829/1832 established independence by example — consistent worlds where P5 fails; 1899 turned the example into rigorous mathematics. The two-thousand-year question closed not with a proof of P5 but with the discovery that no such proof was ever possible.',
+              ],
+              answer: 'independence: consistent geometries (1829, 1832) where P5 fails; Hilbert 1899 made it precise — no proof of P5 exists',
+            },
+            {
+              q: 'The Book-I census question: with $23$ definitions, $5$ postulates and $5$ common notions feeding $48$ propositions, compute the number of opening statements, the number of permissions among them, and argue why keeping the permission list at five was the achievement.',
+              solution: [
+                'Count the opening statements: $23 + 5 + 5 = 33$.',
+                'Split them by kind: $23$ are vocabulary (definitions), $5$ are geometry-specific permissions (postulates), $5$ are general truths about equality (common notions).',
+                'Now, the permissions subset: $5$ of the $33$ — the whole $33$ is greater than this part $5$ (CN5), and it is the part that does the geometric work.',
+                'So, the achievement question: could a geometer have done the same with more permissions? Of course — the discipline is the refusal. Every extra assumption would have hidden a theorem inside the "rules" and made the game easier but the knowledge cheaper.',
+                'Check the extreme: the fifth shows even five was one too many in a sense — P5 could not be derived, but it could be REPLACED (Playfair 1795) or negated (1829/1832) to produce new worlds; the list is a choice, not a given.',
+                'Hence: $33$ opening statements, $5$ permissions among them, $48$ propositions earned — and the five-permission discipline is the constitution that made the earning possible.',
+              ],
+              answer: '33 opening statements; 5 of them permissions; 48 propositions earned from the five-permission discipline',
+            },
+          ],
+        },
+      ],
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 11. reading the rulebook like an examiner                      */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'Reading the rulebook like an examiner' },
+    {
+      kind: 'para',
+      text: 'Three confusions account for almost every lost mark on this material, so name them now. Confusion one: "postulate" versus "axiom". Older books (and some traditions) call the common notions "axioms" and reserve "postulates" for the geometric permissions; modern usage varies from book to book. In this course the rule is fixed: postulate = one of Euclid’s five geometric permissions; common notion = one of the five general truths. If an exam paper says "axiom", read it as whichever list the statement’s content demands — the classifier question (is a geometric object named?) settles it either way.',
+    },
+    {
+      kind: 'para',
+      text: 'Confusion two: "straightedge" versus "ruler". A ruler in the schoolroom sense is marked — it measures. Euclid’s straightedge is deliberately UNMARKED: it can draw the line through two points and extend a line, and that is all. Every length-transfer in classical geometry is done by the compass (P3), never by reading a scale. When a construction problem says "using ruler and compasses", the intended charter is exactly P1 + P2 + P3; a step like "measure the length of $AB$ with the ruler" is not a legal move in the ancient game — it must be replaced by a compass construction that produces the equal length.',
+    },
+    {
+      kind: 'para',
+      text: 'Confusion three: the direction of P5’s arithmetic. Students memorise "less than two right angles means meeting" but then mis-assign the side. The discipline is mechanical: compute $\u03b1 + \u03b2$ for ONE named side. If the sum is below $180°$, the meeting is on THAT side, and the shortfall $180° - (\u03b1 + \u03b2)$ is the angle at the meeting point. The other side automatically carries $360° - (\u03b1 + \u03b2)$, which is then above $180°$ — silent, no promise. Never say "the lines meet" without naming the side; the side is half the answer.',
+    },
+    {
+      kind: 'para',
+      text: 'One more study aid, the five-in-one-breath summary. P1: lines exist on demand (join any two points). P2: lines never run out (extend any finite line). P3: circles exist on demand (any centre, any radius). P4: the right angle is absolute (all right angles are equal). P5: shortfall forces meeting (interior angles under $180°$ on one side mean the lines meet on that side). Four of the five are about making things; the fifth is about what happens when you don’t stop extending. Say it that way in your head and the list will never come out shuffled.',
+    },
+    {
+      kind: 'para',
+      text: 'And a closing word about the game itself. The five postulates are the reason a geometry proof feels different from every other kind of school writing: every line in it is either licensed (a construction citing P1, P2 or P3), calibrated (a comparison citing P4), assumed (a postulate or common notion invoked by name), or earned (a proposition already proved). Nothing else is allowed in. That discipline — Euclid’s discipline — is the same one that still runs through every mathematical subject you will meet in this library: a short list of permissions, and everything else earned. Chapter 2 picks up the thread with Playfair’s 1795 form of the fifth postulate and builds the parallel theory on it; chapter 11 returns to the fifth one last time, with the full catalogue of its equivalents and the non-Euclidean door standing open. Until then, you own the rulebook: five postulates, five common notions, twenty-three words — and forty-eight propositions that were all, one way or another, paid for in full.',
+    },
+  ],
+}

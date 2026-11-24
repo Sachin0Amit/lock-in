@@ -1,0 +1,644 @@
+import type { Lesson } from '../src/data/library/types'
+
+/* ================================================================== */
+/* GEO 1.1 — The Undefined Words and the Defined Ones                  */
+/* Every number printed in this lesson is recomputed and pinned by     */
+/* temporary-references/v-geo101.ts (engine wins over any other source).*/
+/* Figure helpers: all geometry is computed from the named constants   */
+/* below; SVG text stays PLAIN (no TeX, no $; minus would be U+2212).  */
+/* ================================================================== */
+
+/* palette (vivid set; never blue/indigo) */
+const C = {
+  struct: '#16a34a', // structure strokes/axes/boxes
+  ink: '#166534', // primary text
+  mid: '#65a30d', // mid text/formulas
+  teal: '#0d9488', // teal strokes
+  tealInk: '#0f766e', // teal ink
+  conn: '#d97706', // connectors/ticks
+  accent: '#ea580c', // accent/arrows/highlights
+  warn: '#dc2626', // warning
+  panelA: '#ffedd5', // tinted panel
+  panelB: '#fef3c7', // tinted panel
+  faint: '#5eead4', // faint grids/dots
+  white: '#ffffff',
+  paper: '#fffdf5',
+}
+const FONT = 'ui-sans-serif, system-ui, sans-serif'
+
+function geo11Txt(x: number, y: number, s: string, size: number, color: string, anchor = 'middle', weight = '400'): string {
+  return `<text x="${x}" y="${y}" font-family="${FONT}" font-size="${size}" fill="${color}" text-anchor="${anchor}" font-weight="${weight}">${s}</text>`
+}
+function geo11ArrowDef(): string {
+  return `<defs><marker id="geo11Arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="${C.conn}"/></marker></defs>`
+}
+function geo11Box(x: number, y: number, w: number, h: number, fill: string, stroke: string, sw = 1.6): string {
+  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9" fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>`
+}
+function geo11Dot(x: number, y: number, r: number, fill: string): string {
+  return `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" stroke="${C.white}" stroke-width="1.3"/>`
+}
+
+/* (F1) the word tower: undefined base, defined words stacked above */
+function geo11TowerSvg(): string {
+  const W = 780, H = 360
+  return [
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="The word tower: the undefined base of point, line and plane with the first defined words stacked above, each tagged with the primitives it is built from.">`,
+    geo11ArrowDef(),
+    // the upward rail
+    `<line x1="30" y1="330" x2="30" y2="92" stroke="${C.conn}" stroke-width="1.8" marker-end="url(#geo11Arrow)"/>`,
+    geo11Txt(44, 36, 'an arrow reads: defined from', 11.5, C.mid, 'start'),
+    geo11Txt(44, 54, 'the rail reads: built upward', 11.5, C.mid, 'start'),
+    // base tier — the undefined words
+    geo11Box(80, 286, 150, 56, C.teal, C.tealInk, 1.8),
+    geo11Txt(155, 312, 'point', 14, C.white, 'middle', '600'),
+    geo11Txt(155, 331, 'dimension 0', 11.5, C.panelB, 'middle'),
+    geo11Box(330, 286, 150, 56, C.teal, C.tealInk, 1.8),
+    geo11Txt(405, 312, 'line', 14, C.white, 'middle', '600'),
+    geo11Txt(405, 331, 'dimension 1', 11.5, C.panelB, 'middle'),
+    geo11Box(580, 286, 150, 56, C.teal, C.tealInk, 1.8),
+    geo11Txt(655, 312, 'plane', 14, C.white, 'middle', '600'),
+    geo11Txt(655, 331, 'dimension 2', 11.5, C.panelB, 'middle'),
+    geo11Txt(390, 356, 'the undefined base — assumed, never defined', 12.5, C.ink, 'middle', '600'),
+    // storey 2 — defined from one primitive each
+    geo11Box(50, 186, 170, 54, C.white, C.struct, 1.6),
+    geo11Txt(135, 208, 'segment', 13.5, C.ink, 'middle', '600'),
+    geo11Txt(135, 228, 'from point', 11.5, C.tealInk, 'middle'),
+    geo11Box(250, 186, 170, 54, C.white, C.struct, 1.6),
+    geo11Txt(335, 208, 'ray', 13.5, C.ink, 'middle', '600'),
+    geo11Txt(335, 228, 'from point', 11.5, C.tealInk, 'middle'),
+    geo11Box(490, 186, 180, 54, C.white, C.struct, 1.6),
+    geo11Txt(580, 208, 'collinear', 13.5, C.ink, 'middle', '600'),
+    geo11Txt(580, 228, 'from line', 11.5, C.tealInk, 'middle'),
+    // storey 3 — defined from two primitives
+    geo11Box(150, 86, 190, 56, C.panelA, C.struct, 1.6),
+    geo11Txt(245, 110, 'intersect', 13.5, C.ink, 'middle', '600'),
+    geo11Txt(245, 130, 'from point + line', 11.5, C.tealInk, 'middle'),
+    geo11Box(440, 86, 200, 56, C.panelA, C.struct, 1.6),
+    geo11Txt(540, 110, 'parallel', 13.5, C.ink, 'middle', '600'),
+    geo11Txt(540, 130, 'from line + plane', 11.5, C.tealInk, 'middle'),
+    // defined-from arrows for storey 2
+    `<line x1="135" y1="240" x2="140" y2="284" stroke="${C.conn}" stroke-width="1.6" marker-end="url(#geo11Arrow)"/>`,
+    geo11Txt(160, 262, 'defined from', 11.5, C.conn, 'start'),
+    `<line x1="335" y1="240" x2="162" y2="284" stroke="${C.conn}" stroke-width="1.6" marker-end="url(#geo11Arrow)"/>`,
+    `<line x1="580" y1="240" x2="422" y2="284" stroke="${C.conn}" stroke-width="1.6" marker-end="url(#geo11Arrow)"/>`,
+    `</svg>`,
+  ].join('')
+}
+
+/* (F2) the dimensional ladder: four rungs 0,1,2,3 */
+function geo11LadderSvg(): string {
+  const W = 780, H = 250
+  const panels = [
+    { x: 30, title: 'point', dim: 'dimension 0', sub: 'a location, no parts', fill: C.panelB },
+    { x: 215, title: 'line', dim: 'dimension 1', sub: 'length, no breadth', fill: C.white },
+    { x: 400, title: 'plane', dim: 'dimension 2', sub: 'flat, two directions', fill: C.panelA },
+    { x: 585, title: 'space', dim: 'dimension 3', sub: 'the 3-D setting', fill: C.white },
+  ]
+  const out: string[] = [
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="The dimensional ladder in four panels: point at dimension 0, line at dimension 1, plane at dimension 2 and space at dimension 3, each rung one independent direction higher.">`,
+    geo11ArrowDef(),
+  ]
+  panels.forEach((p) => {
+    out.push(geo11Box(p.x, 40, 160, 170, p.fill, C.struct, 1.6))
+    out.push(geo11Txt(p.x + 80, 62, p.title, 13.5, C.ink, 'middle', '600'))
+    out.push(geo11Txt(p.x + 80, 78, p.dim, 11.5, C.tealInk, 'middle'))
+    out.push(geo11Txt(p.x + 80, 200, p.sub, 11.5, C.teal, 'middle'))
+  })
+  // panel 1: a single point
+  out.push(geo11Dot(110, 135, 6.5, C.accent))
+  // panel 2: a line with three points on it
+  out.push(`<line x1="240" y1="135" x2="345" y2="135" stroke="${C.teal}" stroke-width="2.4"/>`)
+  out.push(geo11Dot(262, 135, 4.5, C.accent))
+  out.push(geo11Dot(292, 135, 4.5, C.accent))
+  out.push(geo11Dot(322, 135, 4.5, C.accent))
+  // panel 3: a plane with a line and a point lying in it
+  out.push(`<polygon points="428,95 542,95 556,165 412,165" fill="${C.panelB}" opacity="0.6" stroke="${C.struct}" stroke-width="1.6"/>`)
+  out.push(`<line x1="438" y1="150" x2="538" y2="112" stroke="${C.teal}" stroke-width="2.2"/>`)
+  out.push(geo11Dot(488, 131, 5, C.accent))
+  // panel 4: space as a box (front square + offset back square)
+  out.push(`<rect x="615" y="95" width="75" height="65" fill="none" stroke="${C.struct}" stroke-width="1.8"/>`)
+  out.push(`<rect x="637" y="77" width="75" height="65" fill="none" stroke="${C.faint}" stroke-width="1.4" stroke-dasharray="5 4"/>`)
+  for (const [x1, y1, x2, y2] of [[615, 95, 637, 77], [690, 95, 712, 77], [690, 160, 712, 142], [615, 160, 637, 142]] as const) {
+    out.push(`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${C.struct}" stroke-width="1.4"/>`)
+  }
+  // next-rung arrows between panels
+  for (const [a, b] of [[194, 211], [379, 396], [564, 581]] as const) {
+    out.push(`<line x1="${a}" y1="125" x2="${b}" y2="125" stroke="${C.conn}" stroke-width="1.8" marker-end="url(#geo11Arrow)"/>`)
+  }
+  out.push(geo11Txt(390, 238, 'the dimensional ladder: 0 → 1 → 2 → 3 — each rung adds one independent direction', 12, C.mid, 'middle', '600'))
+  out.push(`</svg>`)
+  return out.join('')
+}
+
+/* (F3) the incidence picture: a point on a line, a line in a plane, one point off */
+function geo11IncidenceSvg(): string {
+  const W = 780, H = 300
+  return [
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="The incidence relation: point P lies on line l, line l lies in plane pi, and point Q sits in the plane but off the line.">`,
+    geo11ArrowDef(),
+    // the plane
+    `<polygon points="170,70 620,70 720,230 270,230" fill="${C.panelA}" opacity="0.55" stroke="${C.struct}" stroke-width="1.8"/>`,
+    geo11Txt(660, 58, 'plane π', 12.5, C.ink, 'start', '600'),
+    // the line, lying in the plane
+    `<line x1="300" y1="190" x2="620" y2="120" stroke="${C.teal}" stroke-width="2.6"/>`,
+    geo11Txt(628, 112, 'line l', 13, C.tealInk, 'start', '600'),
+    // point P on the line; point Q off it
+    geo11Dot(460, 155, 6.5, C.accent),
+    geo11Txt(470, 148, 'point P', 12.5, C.ink, 'start', '600'),
+    geo11Dot(500, 205, 6.5, C.ink),
+    geo11Txt(508, 212, 'point Q', 12.5, C.ink, 'start', '600'),
+    // annotations
+    geo11Txt(330, 90, 'P lies on l', 12.5, C.tealInk, 'start', '600'),
+    `<line x1="372" y1="96" x2="452" y2="149" stroke="${C.conn}" stroke-width="1.2"/>`,
+    geo11Txt(560, 180, 'Q does not lie on l', 11.5, C.warn, 'start'),
+    `<line x1="556" y1="184" x2="510" y2="200" stroke="${C.warn}" stroke-width="1.2"/>`,
+    geo11Txt(120, 258, 'l lies in plane π', 11.5, C.tealInk, 'start'),
+    geo11Txt(390, 285, 'the incidence relation: lies on · contains · passes through · incident with', 12, C.mid, 'middle', '600'),
+    `</svg>`,
+  ].join('')
+}
+
+/* (S1) exercise 1: the classification, sorted into its two bins */
+function geo11BinsSvg(): string {
+  const W = 640, H = 240
+  return [
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="The classification sorted: bin one holds the assumed words point and plane; bin two holds the built words segment, ray and collinear.">`,
+    // left bin: assumed
+    geo11Box(40, 50, 280, 150, C.white, C.struct, 1.6),
+    `<rect x="40" y="50" width="280" height="32" rx="9" fill="${C.struct}"/>`,
+    geo11Txt(180, 71, 'assumed — undefined', 12.5, C.white, 'middle', '600'),
+    geo11Box(62, 100, 90, 32, C.teal, C.tealInk, 1.4),
+    geo11Txt(107, 121, 'point', 12.5, C.white, 'middle', '600'),
+    geo11Box(170, 100, 90, 32, C.teal, C.tealInk, 1.4),
+    geo11Txt(215, 121, 'plane', 12.5, C.white, 'middle', '600'),
+    geo11Txt(180, 180, '2 words', 12, C.ink, 'middle', '600'),
+    // right bin: built
+    geo11Box(320, 50, 280, 150, C.white, C.teal, 1.6),
+    `<rect x="320" y="50" width="280" height="32" rx="9" fill="${C.teal}"/>`,
+    geo11Txt(460, 71, 'built — defined', 12.5, C.white, 'middle', '600'),
+    geo11Box(340, 100, 105, 32, C.white, C.struct, 1.4),
+    geo11Txt(392, 121, 'segment', 12.5, C.ink, 'middle', '600'),
+    geo11Box(340, 140, 60, 32, C.white, C.struct, 1.4),
+    geo11Txt(370, 161, 'ray', 12.5, C.ink, 'middle', '600'),
+    geo11Box(410, 140, 110, 32, C.white, C.struct, 1.4),
+    geo11Txt(465, 161, 'collinear', 12.5, C.ink, 'middle', '600'),
+    geo11Txt(460, 194, '3 words', 12, C.ink, 'middle', '600'),
+    geo11Txt(320, 226, 'no defined word was built from anything but the primitives', 11.5, C.mid, 'middle'),
+    `</svg>`,
+  ].join('')
+}
+
+/* (S2) exercise 11: the circular trap against the grounded chain */
+function geo11LoopSvg(): string {
+  const W = 640, H = 260
+  return [
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="The circular trap: segment defined by its endpoints and the endpoints defined by the segment, a closed loop; below it the legal chain from segment down to point.">`,
+    geo11ArrowDef(),
+    // the trap loop
+    geo11Box(90, 50, 150, 44, C.white, C.warn, 1.8),
+    geo11Txt(165, 77, 'segment', 13, C.ink, 'middle', '600'),
+    geo11Box(340, 50, 170, 44, C.white, C.warn, 1.8),
+    geo11Txt(425, 71, 'its endpoints', 13, C.ink, 'middle', '600'),
+    geo11Txt(425, 87, 'the ends of the segment', 11, C.warn, 'middle'),
+    `<line x1="240" y1="64" x2="338" y2="64" stroke="${C.warn}" stroke-width="1.8" marker-end="url(#geo11Arrow)"/>`,
+    `<line x1="338" y1="88" x2="242" y2="88" stroke="${C.warn}" stroke-width="1.8" marker-end="url(#geo11Arrow)"/>`,
+    geo11Txt(320, 130, 'circular — the chase loops and never lands', 12.5, C.warn, 'middle', '600'),
+    // the grounded chain
+    geo11Box(90, 180, 150, 44, C.white, C.struct, 1.8),
+    geo11Txt(165, 207, 'segment', 13, C.ink, 'middle', '600'),
+    geo11Box(340, 180, 120, 44, C.teal, C.tealInk, 1.8),
+    geo11Txt(400, 207, 'point', 13, C.white, 'middle', '600'),
+    `<line x1="240" y1="202" x2="338" y2="202" stroke="${C.struct}" stroke-width="1.8" marker-end="url(#geo11Arrow)"/>`,
+    geo11Txt(320, 244, 'grounded — the chase lands on a primitive', 12.5, C.struct, 'middle', '600'),
+    `</svg>`,
+  ].join('')
+}
+
+/* (S3) exercise 14: the triangle model and its renaming */
+function geo11RenameSvg(): string {
+  const W = 640, H = 300
+  const tri = (sx: number): Array<[number, number, number, number]> => {
+    const a: [number, number] = [sx + 130, 80], b: [number, number] = [sx + 60, 220], c: [number, number] = [sx + 260, 220]
+    return [[a[0], a[1], b[0], b[1]], [a[0], a[1], c[0], c[1]], [b[0], b[1], c[0], c[1]]]
+  }
+  const L = tri(0), R = tri(330)
+  const out: string[] = [
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="The triangle model renamed: the same three points and three pair-lines, labelled a, b, c on the left and table, chair, beer mug on the right; the incidence census is unchanged.">`,
+    geo11ArrowDef(),
+  ]
+  for (const [x1, y1, x2, y2] of L) out.push(`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${C.teal}" stroke-width="2.2"/>`)
+  for (const [x1, y1, x2, y2] of R) out.push(`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${C.teal}" stroke-width="2.2"/>`)
+  for (const [x, y] of [[130, 80], [60, 220], [260, 220]] as const) out.push(geo11Dot(x, y, 6, C.accent))
+  for (const [x, y] of [[460, 80], [390, 220], [590, 220]] as const) out.push(geo11Dot(x, y, 6, C.accent))
+  out.push(geo11Txt(130, 66, 'a', 13, C.ink, 'middle', '600'))
+  out.push(geo11Txt(48, 236, 'b', 13, C.ink, 'middle', '600'))
+  out.push(geo11Txt(272, 236, 'c', 13, C.ink, 'middle', '600'))
+  out.push(geo11Txt(460, 66, 'table', 12.5, C.ink, 'middle', '600'))
+  out.push(geo11Txt(378, 240, 'chair', 12.5, C.ink, 'middle', '600'))
+  out.push(geo11Txt(602, 240, 'beer mug', 12.5, C.ink, 'middle', '600'))
+  out.push(geo11Txt(88, 146, 'ab', 11.5, C.tealInk, 'end'))
+  out.push(geo11Txt(201, 146, 'ac', 11.5, C.tealInk, 'start'))
+  out.push(geo11Txt(160, 240, 'bc', 11.5, C.tealInk, 'middle'))
+  out.push(`<line x1="300" y1="150" x2="345" y2="150" stroke="${C.conn}" stroke-width="1.8" marker-end="url(#geo11Arrow)"/>`)
+  out.push(geo11Txt(322, 138, 'rename', 11.5, C.conn, 'middle', '600'))
+  out.push(geo11Txt(320, 280, '3 pair-lines · 6 incidences — unchanged by renaming', 12, C.mid, 'middle', '600'))
+  out.push(`</svg>`)
+  return out.join('')
+}
+
+export const lessonGeo101: Lesson = {
+  id: 'geo-the-undefined-words-and-the-defined-ones',
+  number: '1.1',
+  title: 'The Undefined Words and the Defined Ones',
+  concepts: [
+    'undefined terms',
+    'point',
+    'line',
+    'plane',
+    'incidence',
+    'defined terms',
+    'dimension',
+  ],
+  objectives: [
+    'State which words the theory leaves undefined and explain why the choice is forced by logic, not laziness.',
+    'Classify any candidate word as undefined, defined, a primitive relation, or not a term of the theory at all.',
+    'Build the first defined words — segment, ray, collinear, intersect, parallel — spending only legal ingredients.',
+    'Detect circular definitions by chasing "uses" links to a loop, and state the regress-or-loop dichotomy.',
+    'Work fluently with the dimensional ladder $(0, 1, 2, 3)$ and the endpoint census $2, 1, 0$.',
+  ],
+  prerequisites: [],
+  sources: ['geo-euclid-elements', 'geo-hilbert-grundlagen'],
+  blocks: [
+    /* ---------------- opening motivation: no definition first ---------------- */
+    { kind: 'para', text: 'Ask a child what a point is and you will get an answer at once — "a dot", "a tiny mark", "the tip of a sharpened pencil". Ask the subject itself, and you get silence. Not the silence of ignorance: geometry knows perfectly well how to draw points, join them, slice them and reason with them. The silence is a decision. Every subject must start somewhere, and mathematics starts by choosing — openly, deliberately, and with its eyes open — what it will NOT define. Those chosen words are the undefined terms, and the choice is the most powerful move in the whole discipline: it is the moment the subject stops pretending that every word can be explained by a simpler one, and instead anchors everything on a small, permanent, assumed base.' },
+    { kind: 'para', text: 'This lesson is the census of that choice. We watch Euclid attempt to define everything and see precisely why his chain had to fail; we meet the three words modern geometry leaves undefined — point, line and plane — and the primitive relations hiding beside them; we build the first defined words (segment, ray, collinear, intersect, parallel) strictly from the assumed ones; and we prove why any other arrangement either loops in circles or runs backward forever. Your FM 8 work already gave you these shapes as things to draw — the dot, the edge, the flat face of a solid; this book re-grounds them as things to assume, and the difference between drawing and assuming is the difference between a picture and a theory.' },
+    { kind: 'para', text: 'A promise about honesty before we begin: every count printed in this lesson — endpoint counts, dimension numbers, the census of Euclid\'s Book I, Hilbert\'s primitives, every exercise witness — is recomputed by the verification engine that accompanies this chapter, and where prose and engine ever disagree, the engine wins and the prose is corrected. The numbers you are about to read have been brute-forced, not guessed.' },
+    { kind: 'callout', tone: 'insight', title: 'Note — the silence is the method', text: 'Undefined does not mean vague, mystical or unknowable. It means: adopted, named, counted, and then constrained by axioms, with no attempt made to say what the word "is". The child\'s question — what IS a point? — has no answer inside the theory, by design. What the theory answers instead is: what does a point DO? It lies on lines; it lies between other points; it is incident with the figures the axioms go on to build. Function replaces essence, and the geometry never stumbles for lack of a definition.' },
+
+    /* ---------------- section: Euclid's attempt ---------------- */
+    { kind: 'heading', text: 'Euclid\'s Attempt — a Chain That Must End' },
+    { kind: 'para', text: 'Euclid of Alexandria, working around 300 BC, produced the Elements in 13 books — the most successful textbook in the history of the subject. Book I opens not with axioms but with an attempt to define everything: 23 definitions, then 5 postulates, then 5 common notions, and then 48 propositions proved from that base. The instinct is magnificent, and the trouble is instructive. Look closely at the opening definitions — in paraphrase, since we translate rather than quote — and at what each one leans on.' },
+    { kind: 'table', caption: 'Table 1 — the opening definitions of Euclid\'s Book I, in paraphrase, and the word each leans on.', head: ['Definition', 'In paraphrase', 'The leaning phrase'], rows: [
+      ['Def 1', 'a point is that which has no part', 'part'],
+      ['Def 2', 'a line is breadthless length', 'breadth, length'],
+      ['Def 4', 'a straight line lies evenly with the points on itself', 'lies evenly'],
+      ['Def 7', 'a plane surface lies evenly with the straight lines on itself', 'lies evenly'],
+      ['Def 23', 'parallel straight lines are lines in the same plane that never meet in either direction', 'none — built from line and plane'],
+    ] },
+    { kind: 'para', text: 'Read the leaning column again, slowly. Definition 1 tells us a point has no "part" — but what is a part? Definition 2 calls a line "breadthless length" — but what is breadth, and what is length? Definition 4 says a straight line lies "evenly" with its points — and evenly is doing all the work, entirely undefined. Definition 7 repeats the same move for surfaces. Every one of these definitions borrows words MORE PRIMITIVE than the word it was supposed to define; the chain descends, rung by rung, but never lands anywhere. Only the last row of the table — Definition 23, the parallel-lines definition — is a real definition in the modern sense: it spends only line and plane, the very words we now assume.' },
+    { kind: 'para', text: 'And this is not sloppiness on Euclid\'s part — it is logic, and it admits no exception. A definition chain must either end at words that are NOT defined, or run backward forever, or close into a loop. There is no fourth possibility, and we shall prove this at the end of the lesson. Euclid\'s chain runs down through part, breadth, length and lies evenly — and at the bottom, silently and without announcement, sits exactly what every modern treatment makes explicit: point, line and plane, assumed. His opening definitions are best read not as definitions but as descriptions — ways of pointing at the assumed words, invaluable for intuition, carrying no logical weight whatsoever.' },
+    { kind: 'callout', tone: 'warn', title: 'Caution — a description is not a definition', text: '"Breadthless length" paints a picture; it does not define anything. A real definition must reduce a word to ingredients already in hand — undefined words, primitive relations, and previously defined words. When the ingredients are themselves undefined-sounding, you have a description wearing a definition\'s clothes. Examination scripts lose marks for quoting Euclid\'s openings as if they were definitions; quote them as history, and cite the primitives as the actual foundation.' },
+
+    /* ---------------- section: the three undefined words + the hidden fourth ---------------- */
+    { kind: 'heading', text: 'The Three Undefined Words — and the Hidden Fourth' },
+    { kind: 'para', text: 'Modern geometry keeps exactly three undefined words: point, line and plane. "Undefined" here means adopted: named, counted — three of them — and then put to work without ever being defined. Everything else in the theory, every figure and every property, must be built from these three and from what the axioms say about them. The three are not chosen at random, either: they are the words every attempted definition eventually runs into, the words Euclid\'s own chain collapsed onto. The census is discovered by failure, not decreed by taste.' },
+    { kind: 'callout', tone: 'definition', title: 'Definition — the undefined terms', text: 'A term is said to be *undefined* if it is adopted into the theory without definition, its behaviour fixed only by the axioms. The undefined terms of geometry are point, line and plane. Thus, the word "point" carries no definition — only incidence, betweenness and congruence statements involving points, lines and planes.' },
+    { kind: 'para', text: 'But words are only half the census, and the other half is easy to miss because it hides inside verbs. Beside the three undefined words sit the primitive relations — the hidden fourth kind of ingredient. When we say a point lies on a line, or a line contains a point, or a line passes through a point, or a point and a line are incident with each other, we are using four names for one primitive relation. When we say that $B$ lies between $A$ and $C$, that is a second primitive relation — betweenness. And when we say two segments have the same size, that is the third — congruence. The axioms of this chapter speak only through the three words and these relations; nothing else is available to them, and nothing else needs to be.' },
+    { kind: 'para', text: 'It was David Hilbert\'s Grundlagen der Geometrie of 1899 that made this census explicit and complete: three primitive words — point, line, plane — and three primitive relations — incidence, betweenness and congruence — carrying five axiom groups: 8 incidence axioms (I.1–I.8), 4 betweenness axioms (II.1–II.4), 6 congruence axioms (III.1–III.6), 1 parallel axiom (IV.1) and 2 continuity axioms (V.1–V.2). Even the axiom list itself was audited: in 1902, E. H. Moore proved one of Hilbert\'s original axioms redundant — a hint of how carefully this part of mathematics checks its own receipts. The full rulebook waits for the coming lessons of this chapter; what Lesson 1.1 claims is only the census: 3 words, 3 relations, 6 primitives in all, and nothing else assumed.' },
+    { kind: 'callout', tone: 'historical', title: 'Historical note — tables, chairs and beer mugs', text: 'Hilbert\'s students preserved a remark of his on exactly this point (Otto Blumenthal\'s reminiscence is the standard source; we paraphrase rather than reproduce). Setting up a axiomatic system, Hilbert said, one must always be able to say "tables, chairs and beer mugs" instead of "points, lines and planes". The remark sounds like a joke and is the opposite of one: the WORDS carry no meaning; the AXIOMS carry everything. If tables and beer mugs satisfy the axioms, then for that system tables and beer mugs are the points — and every theorem transfers to them unchanged.' },
+    { kind: 'para', text: 'Notice what the remark buys us. If the words are mere labels, then a geometry is not a study of dots and sheets at all — it is a study of structure: of whatever satisfies the axioms. Many different structures satisfy the same axioms, and later in this very lesson we shall rename the triangle\'s points as pieces of furniture and lose nothing at all. The undefined words are the price of that generality, and it is a bargain: by refusing to say what a point is, geometry became a language that can speak about networks, configurations and models no one had imagined when the words were chosen.' },
+
+    /* ---------------- section: the defined ones ---------------- */
+    { kind: 'heading', text: 'The Defined Ones — Building Upward from the Primitives' },
+    { kind: 'para', text: 'With three words and three relations assumed, the defining begins — and the defining has a law. Everything built must be built from ingredients already in hand: the undefined words, the primitive relations, and words defined EARLIER. Not the word being defined itself; not a word defined later. This is the no-circularity law, and it is the whole craft of the section. We state it formally, then spend it five times.' },
+    { kind: 'equation', latex: '\\text{a word is defined} \\;\\Longrightarrow\\; \\text{its ingredients} \\subseteq \\{\\text{primitives}\\} \\cup \\{\\text{earlier defined words}\\} \\tag{1}' },
+    { kind: 'callout', tone: 'theorem', title: 'Theorem — the no-circularity law', text: 'A word is said to be *defined* only if its definition uses nothing but undefined words, primitive relations, and words defined earlier. Thus, the allowed budget of any definition is $\\{\\text{undefined words}\\} \\cup \\{\\text{primitive relations}\\} \\cup \\{\\text{earlier defined words}\\}$ — never the word itself, and never a word that comes later in the build. Equation (1) is the whole law; every definition this book ever prints obeys it, and any candidate that violates it is rejected on sight.' },
+    { kind: 'callout', tone: 'definition', title: 'Definition — segment', text: 'A segment is said to be determined by two points $A$ and $B$ if it consists of $A$, of $B$, and of every point between them. Thus, $\\overline{AB} = \\{A\\} \\cup \\{B\\} \\cup \\{P : P \\text{ lies between } A \\text{ and } B\\}$. The two named points are the endpoints of the segment: exactly $2$ endpoints, no more and no fewer.' },
+    { kind: 'para', text: 'The segment is the first defined word of the course, and notice exactly what it spends: the undefined word point, and the primitive relation betweenness — nothing else. The "territory between" is not a vague flourish: betweenness is a primitive relation with its own axiom group (Hilbert\'s group II), so "every point between $A$ and $B$" is a precise phrase, not a shrug. Of the segment\'s points, exactly two are endpoints — the two that named it — and everything else is interior. That count, $2$, is a pinned fact of this lesson, not a suggestion.' },
+    { kind: 'callout', tone: 'definition', title: 'Definition — ray', text: 'A ray is said to be determined by an origin $A$ and a second point $B$ if it consists of $A$, of $B$, of every point between them, and of every further point $P$ such that $B$ lies between $A$ and $P$. Thus, $\\overrightarrow{AB} = \\overline{AB} \\cup \\{P : B \\text{ lies between } A \\text{ and } P\\}$. The origin is the ray\'s only endpoint: $1$ endpoint, with none in the far direction.' },
+    { kind: 'para', text: 'The ray spends the same ingredients as the segment — point, line for its direction, betweenness — and then does one thing more: it continues. Count its ends. The origin is named. The far direction runs on without end, so no second endpoint can be named anywhere: a census of exactly $1$ endpoint. Segment and ray are siblings — the ray is the segment continued past its second point — and the endpoint counts $2$ and $1$ are the classic way examiners tell them apart. A full line, by contrast, is not defined at all here: it is an undefined word, with $0$ endpoints, running on in both directions without ever being asked to justify itself.' },
+    { kind: 'callout', tone: 'definition', title: 'Definition — collinear and non-collinear', text: 'Points are said to be collinear if one line contains all of them; they are said to be non-collinear if no single line contains them all. Thus, points $P_1, P_2, \\ldots, P_k$ are collinear $\\Longleftrightarrow$ there is a line $\\ell$ with every $P_i$ lying on $\\ell$.' },
+    { kind: 'para', text: 'Collinear spends the undefined word line and the incidence relation — nothing more: one line containing all the points in question. Three points are either collinear or non-collinear, and no drawing can decide the matter: only the incidence facts can, which is why the definition is written in containment language rather than in picture language.' },
+    { kind: 'callout', tone: 'definition', title: 'Definition — intersect', text: 'Two figures are said to intersect if some point lies on both of them and no other point does. Thus, figures $F_1$ and $F_2$ intersect $\\Longleftrightarrow$ there is exactly one point $P$ with $P$ lying on $F_1$ and on $F_2$; that point $P$ is the point of intersection.' },
+    { kind: 'callout', tone: 'definition', title: 'Definition — parallel lines', text: 'Two lines are said to be parallel if they lie in the same plane and do not meet in either direction. Thus, lines $\\ell \\parallel m \\Longleftrightarrow$ some plane contains both $\\ell$ and $m$, and no point lies on both. This is Euclid\'s Definition 23 of Book I, quoted in paraphrase — and it is a real definition: it spends only line and plane, the primitives.' },
+    { kind: 'para', text: 'Watch the build order the definitions obey — it is the no-circularity law in action. For example,' },
+    { kind: 'list', marker: 'roman', items: [
+      'segment is built from point (and the betweenness relation) — one undefined word spent;',
+      'ray is built from point and line (and betweenness) — the segment continued past its second point;',
+      'collinear is built from line (and incidence) — containment raised to a property of several points;',
+      'parallel is built from line and plane — the only word of this first storey that spends two primitives.',
+    ] },
+    { kind: 'figure', caption: 'Figure 1 — the word tower: the undefined base (point, line, plane) with the first defined words stacked above, each tagged with the primitives it is built from. Arrows read "defined from"; the rail reads "built upward".', svg: geo11TowerSvg() },
+    { kind: 'para', text: 'The tower is more than a mnemonic. It encodes an order of dependence: nothing on the upper storeys can be stated without the base, and each storey can only use the storeys beneath it. When a later lesson defines the angle from two rays sharing an origin, it will be adding a third storey onto this one — legally, because rays are already in hand. When an examiner asks why a definition is acceptable, the answer is always the same sentence: every ingredient is either a primitive or a word defined earlier, and you can point to each one.' },
+
+    /* ---------------- section: the dimensional ladder ---------------- */
+    { kind: 'heading', text: 'The Dimensional Ladder' },
+    { kind: 'para', text: 'The three undefined words climb a ladder of dimensions, and space completes it. A point occupies no directions at all — dimension $0$. A line, running along itself, has one independent direction — dimension $1$. A plane, flat with two independent directions, has dimension $2$. And space — not a fourth undefined word but the setting the axioms treat through their spatial clauses — has dimension $3$. The tuple $(0, 1, 2, 3)$ is the subject\'s address system, and every incidence statement of the coming lessons is a statement about who lives at which rung.' },
+    { kind: 'figure', caption: 'Figure 2 — the dimensional ladder: point, line, plane and space at dimensions 0, 1, 2 and 3. Each rung adds exactly one independent direction.', svg: geo11LadderSvg() },
+    { kind: 'para', text: 'Properties of the dimensional ladder:' },
+    { kind: 'list', marker: 'disc', items: [
+      'Each rung adds exactly one independent direction: $0 \\to 1 \\to 2 \\to 3$. Verified instance: a line needs only its along-direction; a plane needs the along-direction plus one cross-direction; space needs a third direction out of the flat.',
+      'The rungs nest by incidence: points lie on lines, lines lie in planes, planes lie in space — and nothing lies in a point, because dimension $0$ has no directions to lie along.',
+      'The ladder is the reason drawings mislead: paper is a dimension-$2$ object, so a drawn "point" has size and a drawn "line" has width. The picture is a metaphor for the mind, never the thing itself — the thing is the incidence structure.',
+      'The ladder explains the hierarchy of meetings: a line and a plane can share exactly one point (dimension $1$ meeting dimension $2$), while two distinct planes in space, when they do meet, share a whole line — dimension $2$ meeting dimension $2$ drops the meeting down one rung.',
+    ] },
+    { kind: 'para', text: 'Keep the tuple handy: $(0, 1, 2, 3)$ for point, line, plane, space in that order. Exercise 3 drills it, and the engine pins it as $(0,1,2,3)$ — the same four numbers, in the same order, everywhere they appear in this book.' },
+
+    /* ---------------- section: why not define them anyway ---------------- */
+    { kind: 'heading', text: 'Why Not Define Them Anyway?' },
+    { kind: 'para', text: 'Could we defy the silence and define point anyway? The attempt is worth making once, because its failure is a proof, not an inconvenience. Try it: "a point is that which has no part." Now define part. "A part is a piece of a thing." Define thing. Define piece. Each round defines one word but spends one more, and after $k$ rounds you still owe $k + 1$ definitions: the debt grows by one per round and never shrinks. Two exits exist, and only two. Exit one: stop somewhere — choose words to leave undefined, the primitives. Exit two: let the chain bite its own tail — definitions that borrow from each other in a circle, which define nothing. The choice of the undefined words is exit one, taken honestly and recorded in the census. The next derivation turns this story into a theorem.' },
+    { kind: 'derivation', title: 'The regress-or-loop dichotomy', statement: 'Show that a finite system of words in which EVERY word is defined must contain a circular chain — so that any coherent system must leave some words undefined.', steps: [
+      { label: 'Model', formula: 'w \\to u \\;\\Longleftrightarrow\\; \\text{the definition of } w \\text{ uses } u', explanation: 'A definition system is a directed graph: an arrow from each word to every word its definition uses. Primitives have no outgoing arrows; the hypothesis "every word is defined" says every word has at least one.' },
+      { label: 'Chase', explanation: 'Start at any word $w_1$ and follow arrows: $w_1 \\to w_2 \\to w_3 \\to \\cdots$. Each step is legitimate, because under the hypothesis every word visited has an outgoing arrow to spend.' },
+      { label: 'Pigeonhole', formula: 'n + 1 \\text{ visited positions, only } n \\text{ words available}', explanation: 'After $n$ steps the chase has visited $n + 1$ positions, but the system holds only $n$ words — so some word appears twice among them.' },
+      { label: 'Conclude', explanation: 'A repeated word closes a cycle of definitions borrowing from one another; nothing inside the cycle is ever grounded on a primitive, so nothing in it is actually defined. The hypothesis defeats itself.' },
+    ], result: 'Hence $\\text{every word defined} \\Rightarrow \\text{some cycle}$: a finite definition system either anchors on undefined words or loops in circles — and there is no third option.' },
+    { kind: 'para', text: 'The engine does not take the pigeonhole step on faith: it enumerates ALL functional "uses" maps on systems of up to 6 words — 50069 maps in total — and verifies that every chase from every starting word repeats within $n$ steps, with the bound attained exactly by a pure 6-word cycle. The theorem is not an argument from fatigue; it is a combinatorial fact.' },
+    { kind: 'para', text: 'The second reason for the silence cuts deeper, and it is the beer-mug reason. Suppose the undefined words DID carry pinned meanings — dots, sheets, edges. Then geometry would be about exactly those familiar things, and no more. By leaving the words free, the axioms describe a structure, and any structure satisfying the axioms counts as an instance. The next derivation makes this precise on the smallest honest model: the triangle, renamed as furniture.' },
+    { kind: 'derivation', title: 'Renaming leaves the incidence census intact', statement: 'Show that any bijective renaming of the triangle model preserves every incidence count — so the labels are spent and the structure survives.', steps: [
+      { label: 'Setup', formula: 'P = \\{a, b, c\\}, \\quad L = \\{ab, ac, bc\\}', explanation: 'The triangle model: three points, three pair-lines, every pair of points on exactly one line, six point-line incidences in all.' },
+      { label: 'Rename', formula: 'f : P \\to P \\text{ bijective}', explanation: 'Let $f$ relabel the points — $a \\to$ table, $b \\to$ chair, $c \\to$ beer mug is one instance. A bijection keeps distinct labels distinct, so no two points collapse.' },
+      { label: 'Translate', explanation: 'The line $ab$ maps to the line $f(a)f(b)$, still a two-point line; the statement "$P$ lies on $ab$" translates to "$f(P)$ lies on $f(a)f(b)$", which is true exactly when the original was true. Incidence statements survive word for word.' },
+      { label: 'Count', formula: '3 \\text{ pairs} \\;\\Rightarrow\\; 3 \\text{ lines} \\;\\Rightarrow\\; 3 \\times 2 = 6 \\text{ incidences}', explanation: 'Every count re-reads identically after renaming: three pairs, three lines, uniqueness of the line through each pair, six incidences.' },
+    ], result: 'Hence the census — $3$ pairs, $3$ lines, $6$ incidences — survives renaming untouched: the labels are spent, the structure stands.' },
+    { kind: 'para', text: 'From the above discussion, it follows that:' },
+    { kind: 'list', marker: 'roman', items: [
+      'the undefined words are chosen, not discovered — a decision forced by the regress argument and recorded in the census;',
+      'every definition spends only earned ingredients — the no-circularity law of equation (1);',
+      'the meaning of the theory lives in its axioms, not its nouns — the beer-mug reading of the undefined words;',
+      'renaming a model changes nothing that matters — the incidence census survives any bijection intact.',
+    ] },
+
+    /* ---------------- section: the census of words ---------------- */
+    { kind: 'heading', text: 'The Census of Words' },
+    { kind: 'para', text: 'The lesson\'s whole economy fits one table. Three entries are assumed; two relations are assumed (not words, but verbs); everything else is built — and each build names its ingredients, in obedience to equation (1). Read the Status column top to bottom and you are reading the tower of Figure 1 from its base upward.' },
+    { kind: 'table', caption: 'Table 2 — the census of words: three assumed, two primitive relations, everything else built from them.', head: ['Entry', 'Status', 'Built from', 'Census note'], rows: [
+      ['point', 'undefined', '—', 'dimension 0; census word 1'],
+      ['line', 'undefined', '—', 'dimension 1; census word 2; 0 endpoints'],
+      ['plane', 'undefined', '—', 'dimension 2; census word 3'],
+      ['lies on / contains / passes through / incident with', 'primitive relation', '—', 'one relation, four printed names'],
+      ['betweenness', 'primitive relation', '—', 'the hidden fourth kind of ingredient'],
+      ['segment', 'defined', 'point', 'exactly 2 endpoints'],
+      ['ray', 'defined', 'point', 'exactly 1 endpoint (the origin)'],
+      ['collinear', 'defined', 'line', 'several points, one line'],
+      ['intersect', 'defined', 'point, line', 'one shared point'],
+      ['parallel', 'defined', 'line, plane', 'Euclid\'s Def 23; never meet in either direction'],
+      ['space', 'the setting', '—', 'dimension 3; where planes sit'],
+    ] },
+    { kind: 'figure', caption: 'Figure 3 — the incidence relation in pictures: point P lies on line l, line l lies in plane π, and point Q sits in the plane but does not lie on l. Four names, one relation; incident or not, one verdict each.', svg: geo11IncidenceSvg() },
+    { kind: 'example', title: 'Illustration 1 — Classify each candidate as undefined, defined, a primitive relation, or not a term of the theory: point, segment, breadthless, line, plane, betweenness.', steps: [
+      'Sort: the candidates are point, segment, breadthless, line, plane, betweenness — six words, three possible verdicts and one refusal.',
+      'point: undefined — census word 1, adopted without definition.',
+      'line: undefined — census word 2; and plane: undefined — census word 3.',
+      'segment: defined — two points plus the betweenness territory; built from point alone.',
+      'betweenness: not a word at all but a primitive RELATION — the hidden fourth kind of ingredient, spending no definition and needing none.',
+      'breadthless: no verdict available — it is a discarded descriptor from Euclid\'s Definition 2, a term of no modern axiomatic system, however evocative.',
+      'Hence the bins read 3 undefined, 1 defined, 1 primitive relation, 1 not-a-term — a verdict for every candidate, and the not-a-term bin is a real bin: examiners plant words like "breadthless" precisely to catch readers who classify by vibes.',
+    ] },
+
+    /* ---------------- section: worked craft ---------------- */
+    { kind: 'heading', text: 'Worked Craft — Building Definitions and Catching Loops' },
+    { kind: 'para', text: 'Examination questions on this material come in two shapes. Classification asks which words are assumed and which are built — Illustration 1\'s shape. Construction asks you to build a definition legally, or to find the circular one planted in a candidate list. The second Illustration runs both shapes in one chain, and its verdict pattern is the one the exercises drill.' },
+    { kind: 'example', title: 'Illustration 2 — (Exam-style) Build the definitions of segment and ray from the primitives, then detect the circular candidate planted in this list: (a) "two points and everything between them"; (b) "an origin point and one far direction"; (c) "the set of ends of a segment, together with the segment they bound".', steps: [
+      'Build (a): two points $A, B$ plus every point between them — ingredients: the undefined word point and the primitive relation betweenness. Segment defined, legally.',
+      'Build (b): an origin point plus one far direction along a line — ingredients: point, line, and the betweenness read that says which points lie beyond. Ray defined, legally.',
+      'Now, audit (c): "the set of ends of a segment, together with the segment they bound" — it defines candidate (c) using BOTH the segment and the segment\'s own ends.',
+      'Chase the loop: to know the ends you need the segment; to know the segment you need its ends. The chase from "segment" returns to "segment" at step 2 — a cycle of length 2.',
+      'Verdict: (a) and (b) are legal builds from primitives; (c) is circular and is rejected on sight — a definition that borrows the word being defined, wearing a costume.',
+      'Hence the planted circular definition is (c), the same 2-loop the engine pins for the exam-style exercise below: two arrows out of segment, both coming home.',
+    ] },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner — where this lands (exam-style)', text: 'School examinations — the NCERT class 9 chapter "Introduction to Euclid\'s Geometry" is the school canon this book modernises — ask the classification plainly: which words are undefined, how many endpoints a ray has, what the dimensional ladder reads. Olympiad logic and proof questions and university bridge courses ask the deeper shape: why the regress argument forces primitives, and how a renaming argument shows the words are labels. Nothing in this lesson claims a real paper; every item here and below is written as an exam-style drill in those two shapes, honestly labelled.' },
+
+    /* ---------------- vocabulary ---------------- */
+    { kind: 'terms', items: [
+      { term: 'undefined terms', def: 'Words adopted without definition — point, line and plane. Not unknowable: chosen. The axioms speak only through them, and the choice is forced by the regress argument.' },
+      { term: 'point', def: 'Undefined census word 1; dimension $0$. "That which has no part" is Euclid\'s description of it, not its definition.' },
+      { term: 'line', def: 'Undefined census word 2; dimension $1$; $0$ endpoints. Breadthless length is the discarded description; the assumption is the thing.' },
+      { term: 'plane', def: 'Undefined census word 3; dimension $2$. The flat setting in which lines lie and parallels are defined.' },
+      { term: 'incidence', def: 'The primitive relation of lying-on: a point lies on a line, a line lies in a plane. Four printed names — lies on, contains, passes through, incident with — one relation.' },
+      { term: 'betweenness', def: 'The primitive relation for "$B$ lies between $A$ and $C$" — the territory from which segments are built. Hilbert\'s axiom group II governs it.' },
+      { term: 'segment', def: 'Defined from point: two points plus every point between them. Exactly $2$ endpoints; everything else interior.' },
+      { term: 'ray', def: 'Defined from point and line: an origin plus one far direction. Exactly $1$ endpoint (the origin) and none in the far direction.' },
+      { term: 'parallel', def: 'Defined from line and plane: two lines in the same plane that never meet in either direction — Euclid\'s Definition 23, the first storey word that spends two primitives.' },
+      { term: 'the no-circularity law', def: 'A definition may spend only undefined words, primitive relations, and words defined earlier. Equation (1) of this lesson; every candidate violating it is rejected.' },
+    ] },
+
+    /* ---------------- formula cards ---------------- */
+    { kind: 'formula', name: 'The dimensional ladder', latex: '\\dim(\\text{point}) = 0, \\quad \\dim(\\text{line}) = 1, \\quad \\dim(\\text{plane}) = 2, \\quad \\dim(\\text{space}) = 3', note: 'each rung adds one independent direction; the paper you draw on is permanently rung $2$.' },
+    { kind: 'formula', name: 'The endpoint census', latex: '\\text{endpoints(segment)} = 2, \\quad \\text{endpoints(ray)} = 1, \\quad \\text{endpoints(line)} = 0', note: 'the classic examiner\'s triad; the ray\'s far direction names no second end.' },
+    { kind: 'formula', name: 'The primitive census', latex: '\\text{undefined words} = 3, \\quad \\text{primitive relations} = 3, \\quad \\text{total primitives} = 6', note: 'point, line, plane — incidence, betweenness, congruence: nothing else assumed.' },
+    { kind: 'formula', name: 'The no-circularity budget', latex: '\\text{allowed ingredients} = \\{\\text{primitives}\\} \\cup \\{\\text{earlier defined words}\\}', note: 'never the word itself; never a word defined later. Violations are 1-cycles or longer loops.' },
+
+    /* ---------------- quiz ---------------- */
+    { kind: 'quiz', title: 'Self-Check Quiz', items: [
+      { q: 'Which list contains ONLY undefined terms?', options: ['point, line, plane', 'point, segment, plane', 'line, ray, plane', 'point, line, segment'], answer: 0,
+        explain: 'The correct option is "point, line, plane": exactly the three words every axiomatic system adopts without definition. "point, segment, plane" fails because segment is defined from points. "line, ray, plane" fails because ray is defined from an origin point. "point, line, segment" fails for the same segment reason. Segment and ray are the first storey of defined words — they must never appear on the assumed list.' },
+      { q: 'How many endpoints does a ray have?', options: ['$2$, one at each end', '$1$ — its origin', '$0$, like a line', 'infinitely many'], answer: 1,
+        explain: 'The correct option is "$1$ — its origin": the definition names the origin and one far direction, so exactly one end exists. "$2$" describes a segment, whose two named points are both ends. "$0$" describes a full line, which runs on in both directions with no named end anywhere. "Infinitely many" confuses endpoints — named boundary points — with the unbounded collection of interior points the ray travels through.' },
+      { q: 'Euclid\'s Definition 2 — "a line is breadthless length" — fails as a definition because:', options: ['it is factually false about lines', 'it defines only straight lines, not all lines', 'it leans on breadth and length — words more primitive than line', 'Euclid never wrote any such definition'], answer: 2,
+        explain: 'The correct option is the leaning one: the phrase spends "breadth" and "length", which are more primitive than the word being defined, so using it starts an infinite regress. "Factually false" misreads the trouble as truth rather than logic — the trouble is that the ingredients are not in hand. "Only straight lines" is wrong because straightness arrives separately at Definition 4, so Definition 2 attempts all lines. "Euclid never wrote it" is false: it is Definition 2 of Book I, quoted here in paraphrase.' },
+      { q: 'Hilbert\'s beer-mug remark (recalled by his student Otto Blumenthal) makes which point about point, line and plane?', options: ['geometry is best taught with physical objects on the desk', 'points, lines and planes literally are tables, chairs and beer mugs', 'undefined terms may not appear inside proofs', 'the words are replaceable labels; the axioms carry everything'], answer: 3,
+        explain: 'The correct option is "the words are replaceable labels; the axioms carry everything": if tables, chairs and beer mugs satisfy the same axioms, they are points, lines and planes for that system — meaning lives in the rulebook, not the nouns. The teaching option misreads a formal remark as pedagogy. The literal option misses the "instead of": the remark says one must be ABLE to swap the words, not that the words are furniture. The third option is backwards — undefined terms appear in every proof; what is forbidden is defining them.' },
+      { q: 'The no-circularity law says a definition may use:', options: ['only the three undefined words', 'only words defined later in the book', 'undefined words and words defined earlier', 'any words of the language at all'], answer: 2,
+        explain: 'The correct option is "undefined words and words defined earlier": that is exactly the budget that keeps the build grounded while still allowing rich words — parallel spends line and plane, and a later lesson\'s midpoint will spend segment. "Only the three undefined words" is too strict: it would forbid ever using segment inside another definition. "Words defined later" is the forward-reference error: you cannot spend a word before it is earned. "Any words at all" reopens the circularity door — define segment by its own ends and nothing has been defined.' },
+    ] },
+
+    /* ---------------- exercises ---------------- */
+    { kind: 'exercises', title: 'Exercises — The Undefined Words and the Defined Ones', sets: [
+      { level: 'L1', questions: [
+        {
+          q: 'Classify each word of this list as undefined or defined, and name the primitive each defined word rides on: point, segment, plane, ray, collinear.',
+          solution: [
+            'Sort the five candidates against the lesson census: the undefined words are the ones adopted without definition.',
+            'point: undefined — census word 1.',
+            'plane: undefined — census word 3.',
+            'segment: defined — built from point, plus the betweenness territory between two of them.',
+            'ray: defined — built from point: an origin plus one far direction.',
+            'collinear: defined — built from line: several points sharing one line.',
+            'Hence the census reads $2$ undefined (point, plane) and $3$ defined (segment, ray, collinear) — and no defined word was built from anything but the primitives.',
+          ],
+          answer: '2 undefined (point, plane); 3 defined (segment, ray, collinear).',
+          figures: [{ caption: 'Exercise 1, sorted: the two assumed words against the three built ones.', svg: geo11BinsSvg() }],
+        },
+        {
+          q: 'How many endpoints has (i) a segment, (ii) a ray, (iii) a full line? Answer from the definitions, not from a drawing.',
+          solution: [
+            'Read each definition and count the named end points it forces.',
+            '(i) Segment: two points plus everything between them — the two named points are the ends: $2$ endpoints.',
+            '(ii) Ray: an origin plus one far direction — the origin is named, the far direction names no second point: $1$ endpoint.',
+            '(iii) Line: an undefined word running on in both directions — no named end anywhere: $0$ endpoints.',
+            'Check against the endpoint census $2, 1, 0$: the definition-free counts agree with the engine\'s pinned triad.',
+            'Hence segment $2$, ray $1$, line $0$.',
+          ],
+          answer: 'segment 2; ray 1; line 0.',
+        },
+        {
+          q: 'Give the dimension of point, line, plane and space as a tuple in the standard order, and say which rung of the ladder a drawing on paper itself sits at.',
+          solution: [
+            'Climb the ladder rung by rung, counting the independent directions each object needs.',
+            'Point: no directions at all — dimension $0$.',
+            'Line: one direction, along itself — dimension $1$.',
+            'Plane: two independent directions — dimension $2$.',
+            'Space: three independent directions — dimension $3$.',
+            'The tuple is $(0, 1, 2, 3)$; and a drawing on paper is itself a plane object — dimension $2$ — a picture of the line, never the line.',
+            'Hence $(0, 1, 2, 3)$, with the paper warning attached: the drawing is dimension $2$, the line is not.',
+          ],
+          answer: '(0, 1, 2, 3); a paper drawing sits at dimension 2.',
+        },
+      ] },
+      { level: 'L2', questions: [
+        {
+          q: 'The lesson gives four names for one primitive relation. List them, use each once for the same fact (point $P$ on line $\\ell$), and state how many distinct relations the four names describe.',
+          solution: [
+            'The four printed names: lies on, contains, passes through, incident with.',
+            '"$P$ lies on $\\ell$" — the point speaks first.',
+            '"$\\ell$ contains $P$" — the line speaks first, the same fact reversed.',
+            '"$\\ell$ passes through $P$" — the line in motion, the same fact again.',
+            '"$P$ and $\\ell$ are incident with each other" — the symmetric, formal register of the same fact.',
+            'Hence $4$ names, $1$ relation — four ways to say one incidence fact.',
+          ],
+          answer: '4 names; 1 relation.',
+        },
+        {
+          q: 'Euclid\'s Book I opens with 23 definitions, 5 postulates and 5 common notions, then proves 48 propositions. Compute the number of prefatory items and the total item count of Book I, and state how many books the Elements has.',
+          solution: [
+            'Prefatory items = definitions + postulates + common notions = $23 + 5 + 5$.',
+            'So, $23 + 5 + 5 = 33$ prefatory items.',
+            'Total items = prefatory + propositions = $33 + 48 = 81$.',
+            'The Elements runs $13$ books in all; Book I is the foundations opener of the thirteen.',
+            'Hence $33$ prefatory items, $81$ items in Book I, $13$ books — all engine-census values.',
+          ],
+          answer: '33 prefatory; 81 total; 13 books.',
+        },
+        {
+          q: 'For each of segment, ray and parallel (as defined in this lesson), list exactly which undefined words its definition spends, and give the three counts.',
+          solution: [
+            'Segment: "two points and everything between them" — the only undefined word spent is point: count $1$.',
+            'Ray: "an origin point and one far direction" — the direction runs along a line, but the only undefined word named in the definition is point: count $1$.',
+            'Parallel: "two lines in the same plane that never meet in either direction" — spends line and plane: count $2$.',
+            'Check the no-circularity law: every listed ingredient is an undefined word — no definition borrows itself or a later word.',
+            'Hence the counts run $1$, $1$, $2$ — and the heaviest build (parallel) still stands on primitives only.',
+          ],
+          answer: 'segment: point (1); ray: point (1); parallel: line and plane (2).',
+        },
+      ] },
+      { level: 'L3', questions: [
+        {
+          q: 'Apply the no-circularity law to three candidate definitions of ray: (i) "the part of a line that starts at a point and runs in one direction from it"; (ii) "a segment continued forever past its far end"; (iii) "the points from the origin to nowhere". Which are legal, which illegal, and why does the build order matter for (ii)?',
+          solution: [
+            'Test each candidate against the allowed budget: undefined words, primitive relations, and words defined EARLIER.',
+            '(i) spends line and point (both undefined) and the betweenness idea — all legal: verdict legal.',
+            '(ii) spends segment, which is a defined word — legal ONLY if segment was defined earlier in the build; verdict legal-after-segment.',
+            '(iii) spends "nowhere", which is neither undefined vocabulary nor any defined word — it is no term of the theory: verdict illegal.',
+            'Hence exactly $1$ of the $3$ candidates is illegal, and (ii) shows the law is order-sensitive: defined words may be spent, but only after they are earned.',
+          ],
+          answer: '1 illegal of 3; (i) legal; (ii) legal only after segment; (iii) illegal.',
+        },
+        {
+          q: 'A definition system says: A is defined from B, B from C, C from A. Chase the chain from A, exhibit the loop, and give its length; then contrast a system in which C is defined from point instead.',
+          solution: [
+            'Chase from A: the definition of A uses B.',
+            'The definition of B uses C.',
+            'The definition of C uses A — the chase returns to its start.',
+            'The trace reads A, B, C, A: position 3 repeats position 0.',
+            'The loop has length $3$; no word in it ever lands on a primitive, so nothing in it is ever actually defined.',
+            'Contrast: if C is defined from point instead, the chase runs A, B, C, point and stops on a primitive — grounded.',
+            'Hence the first system is circular with cycle length $3$; the second is a legal build.',
+          ],
+          answer: 'cycle length 3; the contrast build is grounded.',
+        },
+        {
+          q: 'Suppose you try to define every word, allowing each definition to introduce one new undefined-sounding word. After 4 rounds, how many words still owe definitions? Name the only two exits from the regress.',
+          solution: [
+            'Round $k$ defines one word but spends one new word, so after $k$ rounds the debt is $k + 1$.',
+            'Round 1: owe $2$. Round 2: owe $3$. Round 3: owe $4$.',
+            'Round 4: owe $5$.',
+            'The debt never shrinks — it grows by one per round, forever: the infinite regress.',
+            'Exit 1: stop the chain on chosen undefined words — the primitives — the honest exit this lesson takes.',
+            'Exit 2: let the chain close into a circle — definitions borrowing from each other, defining nothing.',
+            'Hence after 4 rounds you owe $5$, and the exits are: primitives, or a loop.',
+          ],
+          answer: '5 words still owe definitions; exits: primitives or a loop.',
+        },
+      ] },
+      { level: 'L4', questions: [
+        {
+          q: 'Euclid\'s Definitions 1, 2, 4 and 7 (in paraphrase) each lean on a phrase more primitive than the word defined. Name the four leaning phrases and state how many distinct ones there are.',
+          solution: [
+            'Definition 1, "a point is that which has no part": leans on part.',
+            'Definition 2, "a line is breadthless length": leans on breadth and on length.',
+            'Definition 4, a straight line "lies evenly with the points on itself": leans on lies evenly.',
+            'Definition 7, a plane surface "lies evenly with the straight lines on itself": leans on lies evenly again — the same phrase doing double duty.',
+            'The distinct phrases: part, breadth, length, lies evenly.',
+            'Hence 4 distinct leaning phrases — each one more primitive than the word it was meant to define.',
+          ],
+          answer: 'part, breadth, length, lies evenly — 4 distinct.',
+        },
+        {
+          q: '(Exam-style) One of these candidate definitions of segment is circular. Find it and exhibit the loop. (i) "the set consisting of two points and everything between them"; (ii) "the part of a line cut off by two points"; (iii) "the join of two points"; (iv) "a finite line whose endpoints are the two ends of the segment".',
+          solution: [
+            'Audit each candidate for ingredients that point back at the word being defined.',
+            '(i) spends two points and betweenness — clean.',
+            '(ii) spends line and points — clean.',
+            '(iii) spends two points — clean.',
+            '(iv) says the segment has "endpoints … the two ends of the segment": the definition of segment spends the ENDS OF THE SEGMENT.',
+            'The loop: segment defined by its endpoints, where the endpoints are the ends of the segment — the chase from segment returns at step 2, a cycle of length $2$.',
+            'Hence (iv) is circular: a $2$-loop that defines a word with the word itself wearing a costume.',
+          ],
+          answer: '(iv) is circular (segment ↔ its endpoints, cycle length 2).',
+          figures: [{ caption: 'Exercise 11: the planted definition loops on itself; the legal chain lands on point.', svg: geo11LoopSvg() }],
+        },
+        {
+          q: 'Judge each claim true or false, with a dimension reason: (i) a line contains points but has no breadth; (ii) a plane is 3-dimensional; (iii) space is the 3-dimensional setting of geometry; (iv) a point has dimension 0.',
+          solution: [
+            '(i) True: a line is dimension $1$ — length without breadth — and it contains points of dimension $0$.',
+            '(ii) False: a plane is dimension $2$ — two independent directions, not three; the claim swaps rung $2$ for rung $3$.',
+            '(iii) True: space is dimension $3$, the setting that contains planes, lines and points.',
+            '(iv) True: a point needs no directions — dimension $0$.',
+            'The verdicts are T, F, T, T — and the single False is a ladder-slip, one rung too high.',
+            'Hence T, F, T, T.',
+          ],
+          answer: 'T, F, T, T.',
+        },
+      ] },
+      { level: 'L5', questions: [
+        {
+          q: 'State Hilbert\'s 1899 census of primitives — how many undefined words and how many primitive relations — name them all, and give the total.',
+          solution: [
+            'Hilbert\'s Grundlagen der Geometrie (1899) adopts three undefined words.',
+            'The words: point, line, plane.',
+            'And three primitive relations: incidence (the lies-on relation), betweenness, congruence.',
+            'Total primitives: $3 + 3 = 6$.',
+            'These six carry every axiom group and every theorem — nothing else is assumed anywhere in the Grundlagen.',
+            'Hence $3$ words + $3$ relations = $6$ primitives.',
+          ],
+          answer: '3 words + 3 relations = 6 primitives.',
+        },
+        {
+          q: 'Take the triangle as an incidence model: points {a, b, c}, lines {ab, ac, bc}. Verify that every two points lie on exactly one line, count the total point-line incidences, then rename a→table, b→chair, c→beer mug and state precisely what changed and what did not.',
+          solution: [
+            'List the pairs: (a, b), (a, c), (b, c) — three pairs, matching $3 \\choose 2 = 3$.',
+            'Each pair lies on exactly one of the three lines: (a, b) on ab, (a, c) on ac, (b, c) on bc — uniqueness holds.',
+            'Count incidences: each line carries 2 points, and $3 \\times 2 = 6$.',
+            'Rename by the bijection a→table, b→chair, c→beer mug: the lines become table-chair, table-beer mug, chair-beer mug.',
+            'The census re-reads: 3 pairs, 3 lines, each pair on exactly 1 line, $6$ incidences — every number survives.',
+            'What changed: the labels. What did not: the structure — every incidence statement translates word for word.',
+            'Hence 3 pairs on 3 lines, $6$ incidences — invariant under renaming: the words are labels, the structure is the subject.',
+          ],
+          answer: '3 pairs on 3 lines; 6 incidences; renaming changes labels only.',
+          figures: [{ caption: 'Exercise 14: the triangle and its renaming — same structure, new labels.', svg: geo11RenameSvg() }],
+        },
+      ] },
+      { level: 'L6', questions: [
+        {
+          q: 'Build the depth table of the lesson\'s definition system (point, line, plane, segment, ray, collinear, parallel, midpoint — where midpoint is defined from segment). Then prove the chase lemma: in any finite system where every word is defined, starting from any word and following "uses" links, a word must repeat within $n$ steps ($n$ = the number of words); conclude the regress-or-loop dichotomy.',
+          solution: [
+            'Depth of a primitive is $0$ — nothing beneath it; depth of a defined word is 1 plus the deepest word it spends.',
+            'Table: point $0$, line $0$, plane $0$; segment $1$, ray $1$, collinear $1$, parallel $1$; midpoint $1 + 1 = 2$.',
+            'Now the chase lemma: let the system have $n$ words, every one defined, and chase $w_1 \\to w_2 \\to w_3 \\to \\cdots$, each step following a "uses" link.',
+            'Record the words visited: positions $0, 1, 2, \\ldots, n$ — that is $n + 1$ positions, drawn from only $n$ available words.',
+            'By the pigeonhole principle, some word repeats within the first $n + 1$ positions — the first revisit happens by step $n$.',
+            'A revisit closes a cycle of definitions borrowing from one another; nothing in the cycle is ever grounded, so "every word defined" is impossible for a finite system.',
+            'The engine brute-forces ALL functional "uses" maps on systems of up to 6 words — 50069 maps — and every chase indeed repeats within $n$ steps, the bound attained exactly by a pure 6-cycle.',
+            'Hence the depth table tops out at $2$, and the dichotomy holds: primitives or a loop.',
+          ],
+          answer: 'max depth 2; chase repeats within n steps; primitives or a loop.',
+        },
+      ] },
+    ] },
+
+    /* ---------------- closing ---------------- */
+    { kind: 'para', text: 'The silence has now been organised: three undefined words, three primitive relations, a no-circularity law that turns them into every other figure of the course, and a proof that no other arrangement is possible. The tower of Figure 1 will grow all chapter — angles onto rays, midpoints onto segments, configurations onto all of these — and every new storey will pay the same tax: build only from what is already in hand. Lesson 1.2 takes the next step: Euclid\'s five postulates, the first rules of the game, where the undefined words finally start doing work they cannot shirk.' },
+  ],
+}

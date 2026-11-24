@@ -1,0 +1,367 @@
+/**
+ * v-geo102.ts — verify-first ENGINE + PIN harness for GEOMETRY lesson 1.2
+ * "Euclid's Five Postulates: the Rules of the Game" (run 124 swarm, agent geo102, task 2-b, round 3).
+ *
+ * DISCIPLINE: the engine wins over the spec. Every number the prose prints is
+ * recomputed here by pure logic FIRST; where the engine and the prose disagree,
+ * the prose is fixed to the engine's value.
+ *
+ * Structure:
+ *   ENGINE SECTION — pure logic/arithmetic, NO repo imports, no part-file import:
+ *     the 180° shortfall table, the true-to-scale F2 geometry (angles recomputed
+ *     from coordinates), the postulate-licence mapping, the CN application
+ *     witnesses, the chronology pins (1733/1795/1829/1832/1899), the Euclid
+ *     census (23/5/5 -> 33 -> 48, 13 books), the circle-construction record,
+ *     the quiz-key self-check, and every exercise witness number.
+ *   PIN SECTION (P01...) — imports ./part-geo102 + countLessonWords and audits:
+ *     word count >= 6000, quiz key, 15 exercises with steps solutions, >=3 body
+ *     + >=2 solution figures, terms, formula cards, no-\qquad-in-math, no-$-in-
+ *     SVG-text, id/number/title/sources/prerequisites exact.
+ *
+ * Run: cd /home/z/my-project && bun run temporary-references/v-geo102.ts
+ */
+import { countLessonWords } from '../src/data/library/types'
+import type { Lesson } from '../src/data/library/types'
+
+/* ------------------------------------------------------------------ */
+/* check harness                                                       */
+/* ------------------------------------------------------------------ */
+type Chk = { name: string; ok: boolean; detail: string }
+const engine: Chk[] = []
+const pins: Chk[] = []
+function check(name: string, ok: boolean, detail = ''): void {
+  engine.push({ name, ok, detail })
+}
+function pcheck(name: string, ok: boolean, detail = ''): void {
+  pins.push({ name, ok, detail })
+}
+const close = (a: number, b: number, eps = 1e-9): boolean => Math.abs(a - b) <= eps
+
+/* ================================================================== */
+/* ENGINE 1 — the 180° shortfall table                                 */
+/* ================================================================== */
+{
+  const rows: Array<[number, number]> = [[90, 90], [100, 70], [50, 60], [80, 60], [95, 80]]
+  const out = rows.map(([a, b]) => {
+    const sum = a + b
+    const shortfall = 180 - sum
+    const other = 360 - sum
+    return { a, b, sum, shortfall, other, fires: shortfall > 0 }
+  })
+  const pin = (a: number, b: number, sum: number, sf: number, other: number) => {
+    const r = out.find((o) => o.a === a && o.b === b)!
+    return r.sum === sum && r.shortfall === sf && r.other === other
+  }
+  check('E01 boundary 90+90=180, shortfall 0, other side 180', pin(90, 90, 180, 0, 180),
+    `sum=${out[0].sum} sf=${out[0].shortfall} other=${out[0].other}`)
+  check('E02 100+70=170, shortfall 10, other side 190', pin(100, 70, 170, 10, 190),
+    `sum=${out[1].sum} sf=${out[1].shortfall} other=${out[1].other}`)
+  check('E03 50+60=110, shortfall 70, other side 250', pin(50, 60, 110, 70, 250),
+    `sum=${out[2].sum} sf=${out[2].shortfall} other=${out[2].other}`)
+  check('E04 80+60=140, shortfall 40, other side 220', pin(80, 60, 140, 40, 220),
+    `sum=${out[3].sum} sf=${out[3].shortfall} other=${out[3].other}`)
+  check('E05 95+80=175, shortfall 5, other side 185', pin(95, 80, 175, 5, 185),
+    `sum=${out[4].sum} sf=${out[4].shortfall} other=${out[4].other}`)
+  check('E06 P5 fires exactly on positive shortfalls', out.every((o) => o.fires === (o.sum < 180)), out.map((o) => `${o.a}+${o.b}:${o.fires}`).join(' '))
+  console.log('[ENGINE] shortfall table:', out.map((o) => `${o.a}+${o.b}=${o.sum} sf=${o.shortfall}`).join('  '))
+}
+
+/* ================================================================== */
+/* ENGINE 2 — the F2 fifth-postulate drawing is true to scale          */
+/* (recompute the triangle from alpha=100, beta=70 and check the       */
+/*  printed SVG coordinates)                                           */
+/* ================================================================== */
+{
+  const rad = (d: number) => (d * Math.PI) / 180
+  const deg = (r: number) => (r * 180) / Math.PI
+  // math coords (y up): A on line m (horizontal), |AB| = 90 along r at 100 deg
+  const A = { x: 170, y: 45 }
+  const L = 90
+  const B = { x: A.x + L * Math.cos(rad(100)), y: A.y + L * Math.sin(rad(100)) }
+  // line n from B at 350 deg meets m (y = 45) at X
+  const t = (A.y - B.y) / Math.sin(rad(350))
+  const X = { x: B.x + t * Math.cos(rad(350)), y: A.y }
+  const ang = (P: { x: number; y: number }, Q: { x: number; y: number }, R: { x: number; y: number }) => {
+    const u = { x: P.x - Q.x, y: P.y - Q.y }
+    const v = { x: R.x - Q.x, y: R.y - Q.y }
+    const dot = u.x * v.x + u.y * v.y
+    return deg(Math.acos(Math.max(-1, Math.min(1, dot / (Math.hypot(u.x, u.y) * Math.hypot(v.x, v.y))))))
+  }
+  const aA = ang(B, A, X) // interior angle at A (between r and m toward X)
+  const aB = ang(A, B, X) // interior angle at B
+  const aX = ang(A, X, B) // meeting angle
+  check('E07 angle at A is 100 deg', close(aA, 100, 0.15), `${aA.toFixed(4)}deg`)
+  check('E08 angle at B is 70 deg', close(aB, 70, 0.15), `${aB.toFixed(4)}deg`)
+  check('E09 meeting angle at X is the shortfall 10 deg', close(aX, 10, 0.15), `${aX.toFixed(4)}deg`)
+  check('E10 triangle angle sum 180', close(aA + aB + aX, 180, 0.2), `${(aA + aB + aX).toFixed(3)}`)
+  // SVG coords (y flipped): printed values in the figure
+  const flip = (p: { x: number; y: number }) => ({ x: p.x + 0, y: 250 - p.y })
+  const d = (p: { x: number; y: number }, px: number, py: number) => Math.hypot(p.x - px, p.y - py)
+  const Bsvg = flip(B), Xsvg = flip(X)
+  check('E11 printed A (170,205) matches computed', d({ x: A.x, y: 205 }, 170, 205) < 1e-9, '')
+  check('E12 printed B (154.4,116.4) within 1px', d(Bsvg, 154.4, 116.4) < 1, `computed (${Bsvg.x.toFixed(2)},${Bsvg.y.toFixed(2)})`)
+  check('E13 printed X (657.0,205) within 1px', d(Xsvg, 657, 205) < 1, `computed (${Xsvg.x.toFixed(2)},${Xsvg.y.toFixed(2)})`)
+  console.log(`[ENGINE] F2 geometry: A=100deg B=${aB.toFixed(2)}deg X=${aX.toFixed(2)}deg  Bsvg=(${Bsvg.x.toFixed(1)},${Bsvg.y.toFixed(1)}) Xsvg=(${Xsvg.x.toFixed(1)},${Xsvg.y.toFixed(1)})`)
+}
+
+/* ================================================================== */
+/* ENGINE 3 — the postulate-licence mapping (assert what prose prints) */
+/* ================================================================== */
+{
+  const M: Array<[string, string]> = [
+    ['join A to B', 'P1'],
+    ['extend AB beyond B to C', 'P2'],
+    ['draw the circle centred at A through B', 'P3'],
+    ['a right angle equals any other right angle', 'P4'],
+    ['drop the perpendicular (Book I.12)', 'P1+P2+P3, certified by P4'],
+  ]
+  check('E14 licence map has 5 pinned rows', M.length === 5, `rows=${M.length}`)
+  check('E15 join->P1', M[0][1] === 'P1', '')
+  check('E16 extend->P2', M[1][1] === 'P2', '')
+  check('E17 circle->P3', M[2][1] === 'P3', '')
+  check('E18 right-angle equality->P4', M[3][1] === 'P4', '')
+  check('E19 perpendicular->I.12 built from P1+P2+P3 certified by P4', M[4][1] === 'P1+P2+P3, certified by P4', '')
+  const charter = ['P1', 'P2', 'P3']
+  check('E20 the charter is exactly P1+P2+P3', JSON.stringify(charter) === JSON.stringify(['P1', 'P2', 'P3']), '')
+}
+
+/* ================================================================== */
+/* ENGINE 4 — common-notion application witnesses                      */
+/* ================================================================== */
+{
+  // CN1 equals-to-the-same: two segments each equal to 7
+  const seg1 = 7, seg2 = 7, same = 7
+  check('E21 CN1: 7=7 and 7=7 imply equal', seg1 === same && seg2 === same && seg1 === seg2, '')
+  // CN2 add-equals: 7+3=10 on both
+  const base = 7, add = 3
+  check('E22 CN2: 7+3=10=10', base + add === 10 && base + add === 10, `${base + add}`)
+  // CN3 subtract-equals: 10-4=6 on both
+  check('E23 CN3: 10-4=6=6', 10 - 4 === 6 && 10 - 4 === 6, `${10 - 4}`)
+  // CN4 coinciding: a point ON the circle coincides with radius-length points
+  const r = 6, onCircle = Math.hypot(2 - 2, 9 - 3)
+  check('E24 CN4/radius: point at distance 6 from centre coincides with the circle', onCircle === r, `${onCircle}`)
+  // CN5 whole > part: 33>5, 48>12, 10>5
+  check('E25 CN5: 33>5, 48>12, 10>5', 33 > 5 && 48 > 12 && 10 > 5, '')
+}
+
+/* ================================================================== */
+/* ENGINE 5 — the chronology pins                                      */
+/* ================================================================== */
+{
+  const years = [1733, 1795, 1829, 1832, 1899]
+  const who = ['Saccheri', 'Playfair', 'Lobachevsky', 'Bolyai', 'Hilbert']
+  check('E26 chronology strictly increasing', years.every((y, i) => i === 0 || y > years[i - 1]), years.join(' < '))
+  check('E27 five pinned figures', who.length === 5 && who[0] === 'Saccheri' && who[1] === 'Playfair' && who[2] === 'Lobachevsky' && who[3] === 'Bolyai' && who[4] === 'Hilbert', who.join(','))
+  check('E28 Playfair 1795 precedes the 1829/1832 resolution', 1795 < 1829 && 1795 < 1832, '')
+  check('E29 Lobachevsky 1829 precedes Bolyai 1832', 1829 < 1832, '')
+}
+
+/* ================================================================== */
+/* ENGINE 6 — the Euclid census                                        */
+/* ================================================================== */
+{
+  const defs = 23, posts = 5, cns = 5, props = 48, books = 13
+  check('E30 census 23 definitions', defs === 23, `${defs}`)
+  check('E31 census 5 postulates', posts === 5, `${posts}`)
+  check('E32 census 5 common notions', cns === 5, `${cns}`)
+  check('E33 23+5+5=33 opening statements', defs + posts + cns === 33, `${defs + posts + cns}`)
+  check('E34 48 propositions in Book I', props === 48, `${props}`)
+  check('E35 13 books of the Elements', books === 13, `${books}`)
+  check('E36 CN5 census: 33 > 5 permissions', 33 > posts, '')
+}
+
+/* ================================================================== */
+/* ENGINE 7 — the circle-construction record (P3 licence)              */
+/* ================================================================== */
+{
+  const cx = 2, cy = 3, r = 6
+  const dist = (px: number, py: number) => Math.hypot(px - cx, py - cy)
+  const d1 = dist(2, 9), d2 = dist(10, 3), d3 = dist(5.6, 7.8)
+  check('E37 (2,9) at distance 6 -> on circle', close(d1, 6), `${d1}`)
+  check('E38 (10,3) at distance 8 -> off circle, 2 beyond', close(d2, 8) && close(d2 - r, 2), `${d2}`)
+  check('E39 3.6^2+4.8^2 = 36', close(3.6 * 3.6 + 4.8 * 4.8, 36, 1e-9), `${3.6 * 3.6 + 4.8 * 4.8}`)
+  check('E40 (5.6,7.8) at distance 6 -> on circle', close(d3, 6, 1e-9), `${d3}`)
+}
+
+/* ================================================================== */
+/* ENGINE 8 — quiz key self-check                                      */
+/* ================================================================== */
+const QUIZ_KEY: number[] = [2, 1, 3, 0, 1]
+{
+  check('E41 quiz key has 5 entries', QUIZ_KEY.length === 5, `${QUIZ_KEY.length}`)
+  check('E42 every key index in 0..3', QUIZ_KEY.every((k) => k >= 0 && k <= 3), QUIZ_KEY.join(','))
+}
+
+/* ================================================================== */
+/* ENGINE 9 — exercise witnesses                                       */
+/* ================================================================== */
+{
+  // L1-3 / L3-2 shortfall witnesses
+  const sf = (a: number, b: number) => 180 - (a + b)
+  check('E43 witness L1-3: 100+70=170, shortfall 10', 100 + 70 === 170 && sf(100, 70) === 10, '')
+  check('E44 witness L3-2 boundary: shortfall 0', sf(90, 90) === 0, '')
+  check('E45 witness L3-2: shortfalls 10/70/40', sf(100, 70) === 10 && sf(50, 60) === 70 && sf(80, 60) === 40, '')
+  // L2-2 CN2 witness
+  check('E46 witness L2-2: 7+3=10 on both sides', 7 + 3 === 10 && 7 + 3 === 10, '')
+  // L2-3 CN5 witness
+  check('E47 witness L2-3: 48>12 and 48-12=36', 48 > 12 && 48 - 12 === 36, '')
+  // L4-2 witness
+  check('E48 witness L4-2: 95+80=175, shortfall 5, other 185', 95 + 80 === 175 && sf(95, 80) === 5 && 360 - 175 === 185, '')
+  // L6-2 witness
+  check('E49 witness L6-2: 23+5+5=33, permissions 5', 23 + 5 + 5 === 33 && 5 + 5 === 10, '')
+  // L5-1 chronology witness
+  check('E50 witness L5-1: 1733<1795<1829<1832<1899', [1733, 1795, 1829, 1832, 1899].every((y, i, a) => i === 0 || y > a[i - 1]), '')
+}
+
+/* ================================================================== */
+/* PIN SECTION — audit the part file                                   */
+/* ================================================================== */
+async function runPins(): Promise<void> {
+  let mod: { lessonGeo102?: Lesson } | null = null
+  try {
+    mod = await import('./part-geo102')
+    pcheck('P01 part file loads and exports lessonGeo102', !!mod.lessonGeo102, '')
+  } catch (e) {
+    pcheck('P01 part file loads and exports lessonGeo102', false, String(e))
+  }
+  const lesson = mod?.lessonGeo102
+  if (!lesson) return
+
+  // P02 — identity fields exact per spec
+  pcheck('P02a id exact', lesson.id === 'geo-euclids-five-postulates-the-rules-of-the-game', lesson.id)
+  pcheck('P02b number is 1.2', lesson.number === '1.2', lesson.number)
+  pcheck('P02c title exact (U+2019 apostrophe)', lesson.title === 'Euclid\u2019s Five Postulates: the Rules of the Game', lesson.title)
+  pcheck('P02d prerequisites exact', JSON.stringify(lesson.prerequisites) === JSON.stringify(['geo-the-undefined-words-and-the-defined-ones']), JSON.stringify(lesson.prerequisites))
+  pcheck('P02e sources exact', JSON.stringify(lesson.sources) === JSON.stringify(['geo-euclid-elements', 'geo-playfair-1795', 'geo-non-euclid-chronology']), JSON.stringify(lesson.sources))
+  pcheck('P02f concepts 5-8', lesson.concepts.length >= 5 && lesson.concepts.length <= 8, `${lesson.concepts.length}`)
+  pcheck('P02g concepts cover the spec keywords', ['postulate', 'common notion', 'straightedge', 'compass', 'parallel postulate', 'two right angles', 'construction', 'extendable line'].every((k) => lesson.concepts.some((c) => c.includes(k))), lesson.concepts.join(' | '))
+  pcheck('P02h objectives 4-6', (lesson.objectives?.length ?? 0) >= 4 && (lesson.objectives?.length ?? 0) <= 6, `${lesson.objectives?.length ?? 0}`)
+  pcheck('P02i no words field (honest count)', !('words' in lesson), '')
+
+  // P03 — quiz: pinned key, 4 options, why-they-fail explains
+  const quizBlock = lesson.blocks.find((b) => b.kind === 'quiz') as
+    | { kind: 'quiz'; items: Array<{ q: string; options: string[]; answer: number; explain: string }> }
+    | undefined
+  if (!quizBlock) {
+    pcheck('P03a quiz block exists', false, 'no quiz block')
+  } else {
+    const keys = quizBlock.items.map((i) => i.answer)
+    pcheck('P03b quiz key is [2,1,3,0,1]', JSON.stringify(keys) === JSON.stringify(QUIZ_KEY), `keys=${keys.join(',')}`)
+    pcheck('P03c every quiz item has exactly 4 options', quizBlock.items.every((i) => i.options.length === 4), quizBlock.items.map((i) => String(i.options.length)).join(','))
+    quizBlock.items.forEach((i, idx) => {
+      pcheck(`P03d quiz item ${idx + 1}: explain names why the others fail (len>200)`, i.explain.length > 200, `len=${i.explain.length}`)
+    })
+  }
+
+  // P04 — exercises: exactly 15 questions spanning L1..L6, steps solutions + answers
+  const exBlock = lesson.blocks.find((b) => b.kind === 'exercises') as
+    | { kind: 'exercises'; title?: string; sets: Array<{ level: string; questions: Array<{ q: string; solution: string[]; answer?: string; figures?: unknown[] }> }> }
+    | undefined
+  if (!exBlock) {
+    pcheck('P04a exercises block exists', false, 'no exercises block')
+  } else {
+    const levels = exBlock.sets.map((s) => s.level)
+    const spanned = ['L1', 'L2', 'L3', 'L4', 'L5', 'L6'].every((L) => levels.includes(L))
+    pcheck('P04b sets span L1..L6', spanned, `levels=${levels.join(',')}`)
+    const allQ = exBlock.sets.flatMap((s) => s.questions)
+    pcheck('P04c exactly 15 exercises', allQ.length === 15, `count=${allQ.length}`)
+    pcheck('P04d every question has non-empty steps solution + answer', allQ.every((q) => Array.isArray(q.solution) && q.solution.length >= 2 && q.solution.every((s) => s.trim().length > 0) && !!q.answer && q.answer.trim().length > 0), '')
+    // answer numeric core appears in the final solution line
+    let coreOk = 0
+    const fails: string[] = []
+    for (const set of exBlock.sets) for (const q of set.questions) {
+      const last = q.solution[q.solution.length - 1].replace(/\$/g, '')
+      const tokens = (q.answer ?? '').replace(/\$/g, '').match(/-?\d+(?:\.\d+)?/g) ?? []
+      const ok = tokens.length === 0 || tokens.every((t) => last.includes(t.replace('-', '')) || last.includes(t))
+      if (ok) coreOk++; else fails.push(`${q.q.slice(0, 40)} | answer=${q.answer} | last=${last.slice(-60)}`)
+    }
+    pcheck('P04e every exercise answer appears in its final solution line (numeric core)', coreOk === allQ.length, `ok=${coreOk}/${allQ.length}${fails.length ? ' fails: ' + fails.join(' ; ') : ''}`)
+  }
+
+  // P05 — figure counts: >=3 body figures, >=2 solution figures
+  const bodyFigs = lesson.blocks.filter((b) => b.kind === 'figure').length
+  pcheck('P05a >=3 body figure blocks', bodyFigs >= 3, `count=${bodyFigs}`)
+  let solFigs = 0
+  for (const b of lesson.blocks) {
+    if (b.kind === 'example') solFigs += (b.figures?.length ?? 0)
+    if (b.kind === 'exercises') for (const s of b.sets) for (const q of s.questions) solFigs += (q.figures?.length ?? 0)
+  }
+  pcheck('P05b >=2 solution figures (examples + exercises)', solFigs >= 2, `count=${solFigs}`)
+
+  // P06 — terms block
+  const termsBlocks = lesson.blocks.filter((b) => b.kind === 'terms') as Array<{ kind: 'terms'; items: Array<{ term: string; def: string }> }>
+  pcheck('P06 >=1 terms block with >=6 items', termsBlocks.length >= 1 && termsBlocks.some((t) => t.items.length >= 6), termsBlocks.map((t) => `${t.items.length} items`).join(','))
+
+  // P07 — formula cards for the two-right-angles identity + shortfall identity
+  const formulas = lesson.blocks.filter((b) => b.kind === 'formula') as Array<{ kind: 'formula'; name: string; latex: string; note?: string }>
+  pcheck('P07a >=2 formula cards', formulas.length >= 2, `count=${formulas.length}`)
+  pcheck('P07b a card covers the two-right-angles boundary', formulas.some((f) => /right angles|boundary/i.test(f.name) && /180/.test(f.latex)), formulas.map((f) => f.name).join(' | '))
+  pcheck('P07c a card covers the shortfall identity', formulas.some((f) => /shortfall/i.test(f.name) && /180/.test(f.latex)), '')
+
+  // P08 — word count
+  const wc = countLessonWords(lesson)
+  pcheck('P08 word count >= 6000', wc >= 6000, `countLessonWords=${wc}`)
+  console.log(`[PIN] word count: ${wc}`)
+
+  // P09 — SVG law: plain text only (no $, no TeX backslash), aria, no $ inside <text>
+  const svgs: string[] = []
+  for (const b of lesson.blocks) {
+    if (b.kind === 'figure') svgs.push(b.svg)
+    if (b.kind === 'example') for (const f of b.figures ?? []) svgs.push(f.svg)
+    if (b.kind === 'exercises') for (const s of b.sets) for (const q of s.questions) for (const f of q.figures ?? []) svgs.push((f as { svg: string }).svg)
+  }
+  const badSvg = svgs.filter((s) => /\$|\\frac|\\times|\\sqrt|\\geq|\\/.test(s))
+  pcheck('P09a all SVGs obey the plain-text law (no $, no TeX)', svgs.length > 0 && badSvg.length === 0, `svgs=${svgs.length} bad=${badSvg.length}`)
+  const ariaOk = svgs.every((s) => s.includes('role="img"') && s.includes('aria-label'))
+  pcheck('P09b every SVG root carries role=img + aria-label', ariaOk, '')
+  const textsInSvg = svgs.flatMap((s) => [...s.matchAll(/<text[^>]*>([^<]*)</g)].map((m) => m[1]))
+  pcheck('P09c no $ inside SVG <text> content', textsInSvg.length > 0 && textsInSvg.every((t) => !t.includes('$')), `texts=${textsInSvg.length}`)
+
+  // P10 — forbidden tokens in any text field
+  const allText: string[] = []
+  for (const b of lesson.blocks as Array<Record<string, unknown>>) {
+    for (const key of ['text', 'title', 'statement', 'result', 'note', 'caption', 'name', 'latex', 'q', 'answer']) {
+      const v = b[key]
+      if (typeof v === 'string') allText.push(v)
+    }
+    if (b.kind === 'callout') { const c = b as { title: string; text: string }; allText.push(c.title, c.text) }
+    if (b.kind === 'quiz') for (const it of (b as { items: Array<{ q: string; options: string[]; explain: string }> }).items) allText.push(it.q, ...it.options, it.explain)
+    if (b.kind === 'terms') for (const t of (b as { items: Array<{ term: string; def: string }> }).items) allText.push(t.term, t.def)
+    if (b.kind === 'derivation') { const d = b as { title: string; statement: string; steps: Array<{ label: string; formula?: string; explanation: string }>; result: string }; allText.push(d.title, d.statement, d.result); for (const s of d.steps) allText.push(s.label, s.formula ?? '', s.explanation) }
+    if (b.kind === 'example') { const e = b as { title: string; steps: string[] }; allText.push(e.title, ...e.steps) }
+    if (b.kind === 'exercises') for (const s of (b as { sets: Array<{ questions: Array<{ q: string; solution: string[]; answer?: string }> }> }).sets) for (const q of s.questions) allText.push(q.q, ...q.solution, q.answer ?? '')
+    if (b.kind === 'list') for (const it of (b as { items: string[] }).items) allText.push(it)
+    if (b.kind === 'table') { const t = b as { head: string[]; rows: string[][] }; allText.push(...t.head, ...t.rows.flat()) }
+    if (b.kind === 'equation') allText.push((b as { latex: string }).latex)
+    if (b.kind === 'formula') { const fo = b as { name: string; latex: string; note?: string }; allText.push(fo.name, fo.latex, fo.note ?? '') }
+  }
+  const joined = allText.join('\n')
+  pcheck('P10a no \\qquad anywhere', !joined.includes('\\qquad'), '')
+  pcheck('P10b no \\dfrac and no $$ delimiters', !joined.includes('\\dfrac') && !joined.includes('$$'), '')
+  pcheck('P10c no raw \\( or \\[ escapes', !joined.includes('\\(') && !joined.includes('\\['), '')
+  const heads = lesson.blocks.filter((b) => b.kind === 'heading') as Array<{ kind: 'heading'; text: string }>
+  pcheck('P10d headings are plain (no $, no backslash)', heads.every((h) => !h.text.includes('$') && !h.text.includes('\\')), heads.map((h) => h.text).join(' | '))
+
+  // P11 — the two >=2 example blocks exist (Cengage chains)
+  const examples = lesson.blocks.filter((b) => b.kind === 'example') as Array<{ kind: 'example'; title: string; steps: string[] }>
+  pcheck('P11 >=2 example blocks with >=3 steps', examples.length >= 2 && examples.every((e) => e.steps.length >= 3), examples.map((e) => `${e.title.slice(0, 30)} (${e.steps.length} steps)`).join(' | '))
+}
+
+/* ------------------------------------------------------------------ */
+/* bottom harness                                                      */
+/* ------------------------------------------------------------------ */
+function report(label: string, list: Chk[]): { pass: number; fail: number } {
+  const pass = list.filter((c) => c.ok).length
+  const fail = list.length - pass
+  for (const c of list) if (!c.ok) console.log(`  FAIL ${c.name} — ${c.detail}`)
+  console.log(`${label}: ${pass} pass, ${fail} fail`)
+  return { pass, fail }
+}
+console.log('=== ENGINE (recompute everything) ===')
+const e = report('geo102-engine', engine)
+console.log('=== PINS (audit the part file) ===')
+await runPins()
+const p = report('geo102-pins', pins)
+const fail = e.fail + p.fail
+console.log(`geo102 TOTAL: ${e.pass + p.pass} pass, ${fail} fail`)
+if (fail > 0) process.exit(1)

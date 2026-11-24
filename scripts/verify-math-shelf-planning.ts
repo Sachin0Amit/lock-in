@@ -43,7 +43,7 @@ const ok = (cond: boolean, label: string) => {
   if (cond) { pass++ } else { fail++; console.error(`  FAIL: ${label}`) }
 }
 
-const NEW_PREFIXES = ['geo-', 'cg-', 'tr-', 'dc-', 'ic-', 'mc-', 'de-', 'la-', 'dm-', 'nt-', 'st-', 'ml-', 'co-', 'pr-', 'stat-', 'ra-', 'ca-', 'ab-', 'top-', 'na-', 'em-', 'or-', 'af-', 'qa-']
+const NEW_PREFIXES = ['cg-', 'tr-', 'dc-', 'ic-', 'mc-', 'de-', 'la-', 'dm-', 'nt-', 'st-', 'ml-', 'co-', 'pr-', 'stat-', 'ra-', 'ca-', 'ab-', 'top-', 'na-', 'em-', 'or-', 'af-', 'qa-']
 const NEW_IDS = ['geometry', 'coordinate-geometry', 'trigonometry', 'differential-calculus', 'integral-calculus', 'multivariable-calculus', 'differential-equations', 'linear-algebra', 'discrete-mathematics', 'number-theory', 'set-theory', 'mathematical-logic', 'combinatorics', 'probability-theory', 'statistics', 'real-analysis', 'complex-analysis', 'abstract-algebra', 'topology', 'numerical-analysis', 'mathematical-methods-for-engineering', 'optimization-and-operations-research', 'advanced-mathematical-foundations', 'quantitative-aptitude']
 
 console.log('== A. shelf load & statuses ==')
@@ -54,8 +54,8 @@ const complete = math.filter((b) => b.status === 'complete')
 const planned = math.filter((b) => b.status === 'planned')
 const inprog = math.filter((b) => b.status === 'in-progress')
 ok(complete.length === 4, `4 complete FM+ANS+AL+AA (got ${complete.length})`) // amended honestly run 123: AA closed the book at 67 lessons
-ok(inprog.length === 0, `0 in-progress (got ${inprog.length}: ${inprog.map((b) => b.id).join(',')})`) // amended honestly run 123: AA complete
-ok(planned.length === 24, `24 planned (got ${planned.length})`)
+ok(inprog.length === 1 && inprog[0]?.id === 'geometry', `1 in-progress: geometry (run 124 opened ch.1; got ${inprog.length}: ${inprog.map((b) => b.id).join(',')})`) // amended honestly run 124
+ok(planned.length === 23, `23 planned (got ${planned.length})`) // amended honestly run 124: geometry opened
 
 console.log('== B. the honest census (per book) ==')
 const census: Record<string, { chapters: number; plannedLessons: number }> = {}
@@ -104,6 +104,9 @@ for (const p of ['fm-', 'ans-', 'al-']) {
   ok(count > 0, `existing prefix '${p}' still present (${count})`)
 }
 ok(writtenIds.some((id) => id.startsWith('aa-')), `prefix 'aa-' now in use by written AA lessons (${writtenIds.filter((id) => id.startsWith('aa-')).length} lessons)`)  
+// the 'geo-' prefix belongs to Geometry and is now IN USE by its written
+// lessons (run 124 opened the book: geo-the-undefined-words..., geo-euclids-...)
+ok(writtenIds.some((id) => id.startsWith('geo-')), `prefix 'geo-' now in use by written geometry lessons (${writtenIds.filter((id) => id.startsWith('geo-')).length} lessons)`)
 
 console.log('== F. book-level hygiene ==')
 const ids = new Set(allBooks.map((b) => b.id))

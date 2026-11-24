@@ -1,10 +1,12 @@
 import type { Book, Chapter } from '../../../types'
+import { chapter1 } from './ch-01'
 
 /**
  * Geometry — the fifth book of the Mathematics shelf.
  *
- * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 12 chapters /
- * 50 planned lessons, zero written. The research phase for this book was
+ * STATUS: IN-PROGRESS (run 124, 2026-11-25 — chapter 1 opened whole:
+ * 1.1 + 1.2 shipped by the authoring swarm, 1.3 + 1.4 ride run 125).
+ * Planning pass 2026-11-10: 12 chapters / 50 planned lessons. The research phase for this book was
  * web-audit based (the Drive's mathematics collection is JEE-centric: its
  * geometry lives inside the M3 Coordinate Geometry module and Khattar's
  * aptitude chapters — no dedicated classical-geometry reference; see
@@ -47,21 +49,7 @@ import type { Book, Chapter } from '../../../types'
  *   rigour repair — frame chapters 1 and 10.
  */
 const chapters: Chapter[] = [
-  {
-    number: 1,
-    slug: 'points-lines-and-planes',
-    title: 'Points, Lines and Planes: the Axiomatic Idea',
-    summary:
-      'Geometry restarts from zero — not from shapes but from RULES. The undefined words (point, line, plane), the definitions that ride on them, and Euclid\u2019s five postulates as the rules of the game. The reader meets the axiomatic method itself: a statement is believed only when proved, and everything before the first proof is either an agreement or a promise. Foundation Mathematics 8\u2019s shape vocabulary is recalled as the intuition this structure formalises.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'The Undefined Words and the Defined Ones',
-      'Euclid\u2019s Five Postulates: the Rules of the Game',
-      'Axioms, Theorems and the Shape of a Proof',
-      'Incidence: how Points, Lines and Planes Interlock',
-    ],
-  },
+  chapter1,
   {
     number: 2,
     slug: 'angles-and-parallel-lines',
@@ -240,7 +228,7 @@ export const geometry: Book = {
   level: 'Class 6\u201310 geometry \u2192 the olympiad doorstep',
   description:
     'The book where mathematics becomes proof. Foundation Mathematics banked the shapes and their measures; this book rebuilds geometry the way Euclid did — undefined words, postulates, and theorems earned one argument at a time. Congruence and the triangle criteria, similarity and a Pythagoras that is finally proved, the parallelogram family, the circle theorems olympiad problems run on, the ruler-and-compass discipline the rationalized syllabus dropped, Heron\u2019s formula and the solids — every formula either proved or honestly flagged. The book closes on the ideas that broke and rebuilt the subject: equivalents of the parallel postulate, Hilbert\u2019s rigour repair, and the non-Euclidean geometries born from denying Euclid\u2019s fifth. Cross-references Foundation Mathematics throughout; hands off to Coordinate Geometry, Trigonometry and the olympiad ladder.',
-  status: 'planned',
+  status: 'in-progress',
   accent: ['#d97706', '#b45309'],
   chapters,
 }

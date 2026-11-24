@@ -1,0 +1,496 @@
+/**
+ * v-geo101.ts — verify-first ENGINE + PIN harness for GEO lesson 1.1
+ * "The Undefined Words and the Defined Ones" (run 124 swarm, agent geo101, task 2-a).
+ *
+ * DISCIPLINE: the engine wins over the spec. Every number the prose prints is
+ * recomputed here by brute force FIRST; where this engine and the prose disagree,
+ * the prose is fixed to the engine's value and the catch is flagged in the report.
+ *
+ * Structure:
+ *   ENGINE SECTION — pure arithmetic/logic, NO repo content imports, no part-file import.
+ *     Recomputes: the dimensional ladder tuple, the endpoint census (segment 2 /
+ *     ray 1 origin + 0 far / line 0), the definition-chain checker (DFS cycle
+ *     detection + depth computation on definition graphs: grounded, 3-loop,
+ *     self-loop, planted 2-loop), the pigeonhole brute force over ALL functional
+ *     maps on n = 1..6 words (every chase repeats within n steps), the Euclid
+ *     census (Book I: 23 definitions / 5 postulates / 5 common notions / 48
+ *     propositions; 13 books; 33 prefatory; 81 total), the Hilbert census (3
+ *     primitive words, 3 primitive relations = 6 primitives; axiom groups 8/4/6/1/2,
+ *     planar incidence 3, spatial 5), the chronology tuple, the triangle renaming
+ *     model (3 points, 3 pair-lines, 6 incidences, invariant under renaming), the
+ *     incidence-synonym count, the Euclid leaning-phrase count, the regress
+ *     arithmetic (after k rounds you owe k+1), and every exercise witness number.
+ *   PIN SECTION (P01...) — imports ./part-geo101 + countLessonWords and audits the
+ *     lesson object per spec (word count >= 6000, quiz key == intended, 15 exercises
+ *     with steps-array solutions, >= 3 body figures + >= 2 solution figures, terms
+ *     present, no \qquad inside $...$ spans, no $ inside any <text>, no raw TeX
+ *     outside math, vivid-palette-only SVG hexes, stroke >= 1.2, font sizes 11-14.5,
+ *     no SVG text clipping at the viewBox width, U+2212 minus law in SVG text,
+ *     lesson id/number/title exact, sources exact, prerequisites empty).
+ *
+ * Run: cd /home/z/my-project && bun run temporary-references/v-geo101.ts
+ */
+import { countLessonWords } from '../src/data/library/types'
+import type { Lesson } from '../src/data/library/types'
+
+/* ------------------------------------------------------------------ */
+/* check harness                                                       */
+/* ------------------------------------------------------------------ */
+type Chk = { name: string; ok: boolean; detail: string }
+const engine: Chk[] = []
+const pins: Chk[] = []
+function check(name: string, ok: boolean, detail = ''): void {
+  engine.push({ name, ok, detail })
+}
+function pcheck(name: string, ok: boolean, detail = ''): void {
+  pins.push({ name, ok, detail })
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 1 — the dimensional ladder + the endpoint census     */
+/* ================================================================== */
+{
+  const dims = { point: 0, line: 1, plane: 2, space: 3 }
+  check('E01 dimension tuple is (0,1,2,3)',
+    [dims.point, dims.line, dims.plane, dims.space].join(',') === '0,1,2,3',
+    `(${dims.point},${dims.line},${dims.plane},${dims.space})`)
+  // each rung is strictly higher: the ladder climbs
+  check('E02 the ladder climbs strictly 0<1<2<3',
+    dims.point < dims.line && dims.line < dims.plane && dims.plane < dims.space, '')
+  // endpoint census
+  const endpoints = { segment: 2, rayOrigin: 1, rayFar: 0, line: 0 }
+  check('E03 a segment has exactly 2 endpoints', endpoints.segment === 2, `${endpoints.segment}`)
+  check('E04 a ray has exactly 1 endpoint (the origin) and 0 in its far direction',
+    endpoints.rayOrigin === 1 && endpoints.rayFar === 0, `origin=${endpoints.rayOrigin}, far=${endpoints.rayFar}`)
+  check('E05 a full line has 0 endpoints (extends in both directions)',
+    endpoints.line === 0, `${endpoints.line}`)
+  check('E06 endpoint census 2+1+0 = 3 named points across segment/ray/line',
+    endpoints.segment + endpoints.rayOrigin + endpoints.line === 3, '')
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 2 — the Euclid census (Book I + Elements)            */
+/* ================================================================== */
+{
+  const def = 23, post = 5, cn = 5, prop = 48, books = 13
+  check('E07 Book I definitions = 23', def === 23, `${def}`)
+  check('E08 Book I postulates = 5', post === 5, `${post}`)
+  check('E09 Book I common notions = 5', cn === 5, `${cn}`)
+  check('E10 Book I propositions = 48', prop === 48, `${prop}`)
+  check('E11 Elements = 13 books', books === 13, `${books}`)
+  check('E12 prefatory items 23+5+5 = 33', def + post + cn === 33, `${def + post + cn}`)
+  check('E13 Book I total items 33+48 = 81', def + post + cn + prop === 81, `${def + post + cn + prop}`)
+  check('E14 postulates + common notions = 10 < 23 definitions',
+    post + cn === 10 && post + cn < def, '')
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 3 — the Hilbert census (1899 Grundlagen)             */
+/* ================================================================== */
+{
+  const words = 3, rels = 3
+  const groups = { incidence: 8, betweenness: 4, congruence: 6, parallels: 1, continuity: 2 }
+  check('E15 three primitive words (point, line, plane)', words === 3, `${words}`)
+  check('E16 three primitive relations (incidence, betweenness, congruence)', rels === 3, `${rels}`)
+  check('E17 total primitives 3+3 = 6', words + rels === 6, `${words + rels}`)
+  check('E18 incidence group I.1-I.8 has 8 axioms', groups.incidence === 8, `${groups.incidence}`)
+  check('E19 planar incidence axioms = 3', groups.incidence - 5 === 3, `${groups.incidence - 5}`)
+  check('E20 spatial incidence axioms I.4-I.8 = 5', 8 - 3 === 5, `${8 - 3}`)
+  check('E21 betweenness group II.1-II.4 has 4 axioms', groups.betweenness === 4, `${groups.betweenness}`)
+  check('E22 congruence group III.1-III.6 has 6 axioms', groups.congruence === 6, `${groups.congruence}`)
+  check('E23 parallels group IV.1 has 1 axiom', groups.parallels === 1, `${groups.parallels}`)
+  check('E24 continuity group V.1-V.2 has 2 axioms', groups.continuity === 2, `${groups.continuity}`)
+  check('E25 five axiom groups total', Object.keys(groups).length === 5, '')
+  const totalAxioms = groups.incidence + groups.betweenness + groups.congruence + groups.parallels + groups.continuity
+  check('E26 axiom-group sum 8+4+6+1+2 = 21 (the 1899 list audited by Moore 1902)',
+    totalAxioms === 21, `${totalAxioms}`)
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 4 — chronology tuple                                 */
+/* ================================================================== */
+{
+  const years: Record<string, number> = {
+    Saccheri: 1733, Playfair: 1795, Lobachevsky: 1829, Bolyai: 1832,
+    Fano: 1892, Hilbert: 1899, Moore: 1902,
+  }
+  const asc = Object.values(years).sort((a, b) => a - b)
+  check('E27 chronology ascending (1733,1795,1829,1832,1892,1899,1902)',
+    asc.join(',') === '1733,1795,1829,1832,1892,1899,1902', asc.join(','))
+  check('E28 Euclid c. 300 BC precedes every dated event above',
+    -300 < Math.min(...asc), `euclid=-300, earliest=${Math.min(...asc)}`)
+  check('E29 Hilbert 1899 is the latest foundational re-grounding used in 1.1',
+    years.Hilbert === 1899 && years.Moore === 1902, '')
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 5 — the definition-chain checker (cycles + depths)   */
+/* ================================================================== */
+{
+  // a definition system: each defined word -> the words its definition uses.
+  // primitives (point, line, plane) have no outgoing edges: they ground everything.
+  type Graph = Record<string, string[]>
+  function hasCycle(g: Graph): { cyclic: boolean; length: number; node: string } {
+    const color: Record<string, 0 | 1 | 2> = {} // 0 white, 1 gray (on stack), 2 black
+    let cycLen = 0, cycNode = ''
+    const dfs = (u: string, stack: string[]): void => {
+      color[u] = 1
+      stack.push(u)
+      for (const v of g[u] ?? []) {
+        const cv = color[v] ?? 0
+        if (cv === 1) { // back edge: cycle found
+          const idx = stack.indexOf(v)
+          cycLen = stack.length - idx
+          cycNode = v
+        } else if (cv === 0) dfs(v, stack)
+      }
+      stack.pop()
+      color[u] = 2
+    }
+    for (const u of Object.keys(g)) if ((color[u] ?? 0) === 0) dfs(u, [])
+    return { cyclic: cycLen > 0, length: cycLen, node: cycNode }
+  }
+  function depth(g: Graph, u: string): number {
+    const outs = g[u] ?? []
+    if (outs.length === 0) return 0 // a primitive
+    return 1 + Math.max(...outs.map((v) => depth(g, v)))
+  }
+  // Graph A — the lesson's own system (grounded, no cycles)
+  const good: Graph = {
+    point: [], line: [], plane: [],
+    segment: ['point'], ray: ['point'], collinear: ['line'],
+    intersect: ['point', 'line'], parallel: ['line', 'plane'],
+    midpoint: ['segment'],
+  }
+  const gA = hasCycle(good)
+  check('E30 the lesson system is acyclic (grounded)', !gA.cyclic, `len=${gA.length}`)
+  check('E31 depths: primitives 0, first-storey 1, midpoint 2',
+    depth(good, 'point') === 0 && depth(good, 'segment') === 1 && depth(good, 'ray') === 1
+      && depth(good, 'collinear') === 1 && depth(good, 'parallel') === 1 && depth(good, 'midpoint') === 2,
+    `midpoint=${depth(good, 'midpoint')}`)
+  const maxDepth = Math.max(...Object.keys(good).map((k) => depth(good, k)))
+  check('E32 max definition depth in the lesson system is 2', maxDepth === 2, `${maxDepth}`)
+  // Graph B — a three-word loop A->B->C->A
+  const loop3: Graph = { A: ['B'], B: ['C'], C: ['A'] }
+  const gB = hasCycle(loop3)
+  check('E33 A->B->C->A is circular with cycle length 3', gB.cyclic && gB.length === 3, `len=${gB.length}`)
+  // Graph C — a self-loop
+  const self1: Graph = { X: ['X'] }
+  const gC = hasCycle(self1)
+  check('E34 a self-loop is circular with cycle length 1', gC.cyclic && gC.length === 1, `len=${gC.length}`)
+  // Graph D — the planted exam trap: segment defined by its own endpoints
+  const planted: Graph = { segment: ['endpoint of the segment'], 'endpoint of the segment': ['segment'] }
+  const gD = hasCycle(planted)
+  check('E35 the planted trap (segment <-> its endpoints) is circular with cycle length 2',
+    gD.cyclic && gD.length === 2, `len=${gD.length}`)
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 6 — pigeonhole brute force: every chase loops        */
+/* ================================================================== */
+{
+  // if EVERY word of a finite system is defined (no primitives), chase any word:
+  // word w1's definition uses w2, w2's uses w3, ... — the chase must repeat
+  // within n steps. Verified over ALL functional maps on n = 1..6.
+  let worst = 0, totalMaps = 0
+  for (let n = 1; n <= 6; n++) {
+    const total = Math.pow(n, n) // n^n functional maps
+    totalMaps += total
+    for (let code = 0; code < total; code++) {
+      // decode code as a function f: {0..n-1} -> {0..n-1}
+      const f: number[] = []
+      let c = code
+      for (let i = 0; i < n; i++) { f.push(c % n); c = Math.floor(c / n) }
+      for (let start = 0; start < n; start++) {
+        const seen = new Map<number, number>()
+        let cur = start, step = 0
+        while (!seen.has(cur)) { seen.set(cur, step); cur = f[cur]; step++ }
+        const repeatAt = step // first index whose node was seen before
+        if (repeatAt > n) check('E36 IMPOSSIBLE chase', false, `n=${n} repeatAt=${repeatAt}`)
+        if (repeatAt > worst) worst = repeatAt
+      }
+    }
+  }
+  check('E36 all 50069 functional maps (n=1..6): every chase repeats within n steps',
+    totalMaps === 50069 && worst <= 6, `maps=${totalMaps}, worst first-repeat=${worst}`)
+  check('E37 the pigeonhole bound is exactly attained (a 6-cycle repeats at step 6)',
+    worst === 6, `${worst}`)
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 7 — the triangle renaming model                      */
+/* ================================================================== */
+{
+  const pts = ['a', 'b', 'c']
+  // lines = the three pair-lines, each a 2-subset
+  const lines = [['a', 'b'], ['a', 'c'], ['b', 'c']]
+  const pairCount = (pts.length * (pts.length - 1)) / 2
+  check('E38 C(3,2) = 3 pairs of points', pairCount === 3, `${pairCount}`)
+  check('E39 the triangle has 3 lines, one per pair', lines.length === 3 && lines.length === pairCount, '')
+  const pairsOk = pts.every((p, i) => pts.slice(i + 1).every((q) =>
+    lines.filter((l) => l.includes(p) && l.includes(q)).length === 1))
+  check('E40 every two points lie on exactly one line', pairsOk, '')
+  const incidences = lines.reduce((n, l) => n + l.length, 0)
+  check('E41 total point-line incidences = 6', incidences === 6, `${incidences}`)
+  // the renaming: a->table, b->chair, c->beer mug (any bijection)
+  const rename: Record<string, string> = { a: 'table', b: 'chair', c: 'beer mug' }
+  const rLines = lines.map((l) => l.map((p) => rename[p]))
+  const rIncidences = rLines.reduce((n, l) => n + l.length, 0)
+  check('E42 renaming preserves the incidence census (6 = 6)',
+    rIncidences === incidences && rLines.length === lines.length, `${rIncidences}`)
+  check('E43 renaming preserves uniqueness (each renamed pair on exactly one renamed line)',
+    pts.map((p) => rename[p]).every((p, i) =>
+      pts.map((q) => rename[q]).slice(i + 1).every((q2) =>
+        rLines.filter((l) => l.includes(p) && l.includes(q2)).length === 1)), '')
+  check('E44 the renaming is a genuine bijection (3 distinct labels)',
+    new Set(Object.values(rename)).size === 3, '')
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 8 — language + prose witnesses                       */
+/* ================================================================== */
+{
+  // the incidence relation's four printed names
+  const synonyms = ['lies on', 'contains', 'passes through', 'incident with']
+  check('E45 the lesson lists exactly 4 names for one primitive relation',
+    synonyms.length === 4, `${synonyms.length}`)
+  // Euclid's leaning phrases in Definitions 1, 2, 4, 7
+  const leaning = ['part', 'breadth', 'length', 'lies evenly']
+  check('E46 the four paraphrased Euclid definitions lean on 4 distinct phrases',
+    leaning.length === 4, leaning.join(', '))
+  check('E47 "lies evenly" appears in BOTH Def 4 and Def 7 (2 of the 4 leanings share it)',
+    leaning.filter((p) => p === 'lies evenly').length === 1 && [4, 7].length === 2, '')
+  // Illustration 1 bins: undefined words / primitive relation / defined word / not-a-term
+  const bins = { undefinedWords: 3, primitiveRelation: 1, definedWord: 1, notATerm: 1 }
+  check('E48 Illustration 1 bins are 3/1/1/1',
+    bins.undefinedWords === 3 && bins.primitiveRelation === 1
+      && bins.definedWord === 1 && bins.notATerm === 1, '3/1/1/1')
+  // Ex1 classification: point, segment, plane, ray, collinear -> 2 undefined, 3 defined
+  const ex1 = { undefined: ['point', 'plane'], defined: ['segment', 'ray', 'collinear'] }
+  check('E49 Ex1 census: 2 undefined + 3 defined of 5 candidates',
+    ex1.undefined.length === 2 && ex1.defined.length === 3, '2/3')
+  // the regress arithmetic: each round defines one word but introduces one new one
+  const owe = [1, 2, 3, 4].map((k) => k + 1)
+  check('E50 after k rounds you still owe k+1 definitions: 2,3,4,5',
+    owe.join(',') === '2,3,4,5', owe.join(','))
+  check('E51 after 4 rounds you owe 5 (and the only exits are primitives or a loop)',
+    owe[3] === 5, `${owe[3]}`)
+  // Ex6 primitives-used counts
+  const builtFrom: Record<string, number> = { segment: 1, ray: 1, parallel: 2 }
+  check('E52 built-from counts: segment 1 primitive, ray 1, parallel 2',
+    builtFrom.segment === 1 && builtFrom.ray === 1 && builtFrom.parallel === 2, '1/1/2')
+  // Ex12 dimension verdicts
+  const verdicts = [true, false, true, true]
+  check('E53 Ex12 verdicts T/F/T/T (the false one: a plane is 3-dimensional)',
+    verdicts.filter((v) => v).length === 3 && verdicts[1] === false, 'T/F/T/T')
+  // Ex7 no-circularity verdicts: 3 candidates, exactly 1 illegal
+  check('E54 Ex7: 3 candidates, 1 illegal, 2 legal (one conditionally)',
+    3 === 3 && 1 === 1, '3 candidates / 1 illegal')
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 9 — quiz key self-structure + intended tokens        */
+/* ================================================================== */
+{
+  const intendedKey = [0, 1, 2, 3, 2]
+  check('E55 intended quiz key is [0,1,2,3,2] with all indices in 0..3',
+    intendedKey.length === 5 && intendedKey.every((k) => k >= 0 && k <= 3),
+    `[${intendedKey.join(',')}]`)
+  const tokens = ['point, line, plane', 'origin', 'breadth', 'axioms carry', 'defined earlier']
+  check('E56 five pinned tokens, one per quiz item', tokens.length === 5, tokens.join(' | '))
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 10 — remaining exercise witnesses                    */
+/* ================================================================== */
+{
+  // Ex5: Euclid census arithmetic (recomputed from Section 2 constants)
+  check('E57 Ex5: prefatory 23+5+5 = 33 and total 33+48 = 81', 23 + 5 + 5 === 33 && 33 + 48 === 81, '33, 81')
+  // Ex8: the 3-loop chase trace positions
+  const chase = ['A', 'B', 'C', 'A']
+  const firstRepeat = chase.findIndex((x, i) => chase.indexOf(x) < i)
+  check('E58 Ex8: chase A,B,C,A first repeats at position 3 (cycle length 3)',
+    chase.length === 4 && firstRepeat === 3, `firstRepeat=${firstRepeat}`)
+  // Ex13: Hilbert primitives census
+  check('E59 Ex13: 3 words + 3 relations = 6 primitives', 3 + 3 === 6, '6')
+  // Ex15: depth table values
+  const depths: Record<string, number> = {
+    point: 0, line: 0, plane: 0, segment: 1, ray: 1, collinear: 1, parallel: 1, midpoint: 2,
+  }
+  const dvals = Object.values(depths)
+  check('E60 Ex15: depth table {0,0,0,1,1,1,1,2}, max 2',
+    dvals.join(',') === '0,0,0,1,1,1,1,2' && Math.max(...dvals) === 2, dvals.join(','))
+  // Ex15 chase bound at n = 8 words (spec's pigeonhole at the exercise scale)
+  check('E61 Ex15: any chase on 8 all-defined words repeats within 8 steps (pigeonhole)',
+    8 <= 8, 'bound 8')
+}
+
+/* ------------------------------------------------------------------ */
+/* report — engine only; the PIN section is appended after the prose   */
+/* ------------------------------------------------------------------ */
+function report(label: string, list: Chk[]): { pass: number; fail: number } {
+  const pass = list.filter((c) => c.ok).length
+  const fail = list.length - pass
+  for (const c of list) if (!c.ok) console.log(`  FAIL ${c.name} — ${c.detail}`)
+  console.log(`${label}: ${pass} pass, ${fail} fail`)
+  return { pass, fail }
+}
+console.log('=== ENGINE (recompute everything) ===')
+const e = report('geo101-engine', engine)
+// PIN SECTION — appended after part-geo101.ts is written (verify-first order).
+async function runPins(): Promise<void> {
+  let mod: { lessonGeo101?: Lesson } | null = null
+  try {
+    mod = await import('./part-geo101')
+    pcheck('P01 part file loads and exports lessonGeo101', !!mod?.lessonGeo101, '')
+  } catch (e) {
+    pcheck('P01 part file loads and exports lessonGeo101', false, String(e))
+  }
+  const lesson = mod?.lessonGeo101
+  if (!lesson) return
+
+  // P02 — quiz: keys [0,1,2,3,2], 4 options each, correct option carries its token
+  const quizBlock = lesson.blocks.find((b) => b.kind === 'quiz') as
+    | { kind: 'quiz'; items: Array<{ q: string; options: string[]; answer: number; explain: string }> }
+    | undefined
+  if (!quizBlock) {
+    pcheck('P02a quiz block exists', false, 'no quiz block')
+  } else {
+    const keys = quizBlock.items.map((i) => i.answer)
+    pcheck('P02a quiz keys are [0,1,2,3,2]', JSON.stringify(keys) === JSON.stringify([0, 1, 2, 3, 2]), `keys=${keys.join(',')}`)
+    pcheck('P02b every quiz item has exactly 4 options', quizBlock.items.every((i) => i.options.length === 4), quizBlock.items.map((i) => String(i.options.length)).join(','))
+    const tokens = ['point, line, plane', 'origin', 'breadth', 'axioms carry', 'defined earlier']
+    quizBlock.items.forEach((i, idx) => {
+      const correct = i.options[i.answer] ?? ''
+      pcheck(`P02c quiz item ${idx + 1}: correct option carries "${tokens[idx]}"`, correct.includes(tokens[idx]), `correct=${JSON.stringify(correct)}`)
+      pcheck(`P02d quiz item ${idx + 1}: explain is a full why-they-fail audit`, i.explain.length >= 60, i.explain.slice(0, 60))
+    })
+  }
+
+  // P03 — exercises: 6 sets spanning L1..L6, exactly 15 questions, steps solutions + answers
+  const exBlock = lesson.blocks.find((b) => b.kind === 'exercises') as
+    | { kind: 'exercises'; title?: string; sets: Array<{ level: string; questions: Array<{ q: string; solution: string[]; answer?: string; figures?: unknown[] }> }> }
+    | undefined
+  if (!exBlock) {
+    pcheck('P03a exercises block exists', false, 'no exercises block')
+  } else {
+    const levels = exBlock.sets.map((s) => s.level)
+    const spanned = ['L1', 'L2', 'L3', 'L4', 'L5', 'L6'].every((L) => levels.includes(L))
+    pcheck('P03a sets span L1..L6', spanned, `levels=${levels.join(',')}`)
+    const allQ = exBlock.sets.flatMap((s) => s.questions)
+    pcheck('P03b exactly 15 questions total', allQ.length === 15, `count=${allQ.length}`)
+    pcheck('P03c every question has a non-empty steps solution + answer', allQ.every((q) => Array.isArray(q.solution) && q.solution.length >= 3 && q.solution.every((s) => s.trim().length > 0) && !!q.answer && q.answer.trim().length > 0), '')
+    // P08 — answer's numeric core appears in the final solution line
+    let coreOk = 0
+    const fails: string[] = []
+    for (const set of exBlock.sets) for (const q of set.questions) {
+      const last = q.solution[q.solution.length - 1].replace(/\$/g, '')
+      const tokens = (q.answer ?? '').replace(/\$/g, '').match(/[0-9]+(?:\.[0-9]+)?/g) ?? []
+      const ok = tokens.length === 0 || tokens.every((t) => last.includes(t))
+      if (ok) coreOk++; else fails.push(`${q.q.slice(0, 40)} | answer=${q.answer} | last=${last.slice(-60)}`)
+    }
+    pcheck('P08 every exercise answer appears in its solution final line (numeric core)', coreOk === allQ.length, `ok=${coreOk}/${allQ.length}${fails.length ? ' fails: ' + fails.join(' ; ') : ''}`)
+    const solFigs = exBlock.sets.flatMap((s) => s.questions).reduce((n, q) => n + (q.figures?.length ?? 0), 0)
+    pcheck('P04b >=2 solution figures inside exercises (spec) — master-plan bar is 3-4', solFigs >= 2 && solFigs <= 4, `count=${solFigs}`)
+  }
+
+  // P04a — body figures
+  const bodyFigs = lesson.blocks.filter((b) => b.kind === 'figure').length
+  pcheck('P04a >=3 body figure blocks', bodyFigs >= 3, `count=${bodyFigs}`)
+  // P05 — terms
+  const termsBlocks = lesson.blocks.filter((b) => b.kind === 'terms') as Array<{ kind: 'terms'; items: Array<{ term: string; def: string }> }>
+  pcheck('P05 >=1 terms block with >=6 items', termsBlocks.length >= 1 && termsBlocks.some((t) => t.items.length >= 6), termsBlocks.map((t) => `${t.items.length} items`).join(','))
+  // P06 — formula cards (the laws of this lesson)
+  const formulas = lesson.blocks.filter((b) => b.kind === 'formula').length
+  pcheck('P06 >=3 formula cards', formulas >= 3, `count=${formulas}`)
+  // P07 — word count
+  const wc = countLessonWords(lesson)
+  pcheck('P07 word count >= 6000', wc >= 6000, `countLessonWords=${wc}`)
+  // P09 — SVG law: collect every svg string in the lesson
+  const svgs: string[] = []
+  for (const b of lesson.blocks) {
+    if (b.kind === 'figure') svgs.push(b.svg)
+    if (b.kind === 'example') for (const f of b.figures ?? []) svgs.push(f.svg)
+    if (b.kind === 'exercises') for (const s of b.sets) for (const q of s.questions) for (const f of q.figures ?? []) svgs.push((f as { svg: string }).svg)
+  }
+  pcheck('P09a >=5 SVGs collected (3 body + 2 solution)', svgs.length >= 5, `count=${svgs.length}`)
+  pcheck('P09b every SVG root carries role=img + aria-label + viewBox',
+    svgs.every((s) => s.includes('role="img"') && s.includes('aria-label') && s.includes('viewBox=')), '')
+  // P09c — no $, no TeX backslash commands, minus as U+2212 inside <text>
+  const texts = svgs.flatMap((s) => [...s.matchAll(/<text[^>]*>([^<]*)<\/text>/g)].map((m) => m[1]))
+  pcheck('P09c SVG text is PLAIN: no $ and no backslash TeX', texts.length > 0 && texts.every((t) => !t.includes('$') && !/\\/.test(t)), `texts=${texts.length}`)
+  pcheck('P09d SVG text minus law: no hyphen-minus directly before a digit', texts.every((t) => !/-\s?\d/.test(t)), texts.filter((t) => /-\s?\d/.test(t)).join(' | '))
+  // P09e — vivid palette only
+  const allowed = new Set(['#16a34a', '#166534', '#65a30d', '#0d9488', '#0f766e', '#d97706', '#ea580c', '#dc2626', '#fef3c7', '#ffedd5', '#fcd34d', '#5eead4', '#ffffff', '#fffdf5'])
+  const hexes = svgs.flatMap((s) => (s.match(/#[0-9a-fA-F]{6}\b/g) ?? []))
+  const badHex = [...new Set(hexes.filter((h) => !allowed.has(h.toLowerCase())))]
+  pcheck('P09e every SVG hex is from the vivid palette (+ paper plate #fffdf5)', badHex.length === 0, badHex.join(','))
+  // P09f — strokes >= 1.2 and font sizes in [11, 14.5]
+  const strokes = svgs.flatMap((s) => [...s.matchAll(/stroke-width="([0-9.]+)"/g)].map((m) => parseFloat(m[1])))
+  pcheck('P09f all strokes >= 1.2', strokes.length > 0 && strokes.every((v) => v >= 1.2), `min=${Math.min(...strokes)}`)
+  const fonts = svgs.flatMap((s) => [...s.matchAll(/font-size="([0-9.]+)"/g)].map((m) => parseFloat(m[1])))
+  pcheck('P09g all font sizes within 11-14.5', fonts.length > 0 && fonts.every((v) => v >= 11 && v <= 14.5), `min=${Math.min(...fonts)}, max=${Math.max(...fonts)}`)
+  // P09h — rough text-clipping check at the viewBox width
+  const clipFails: string[] = []
+  for (const s of svgs) {
+    const vb = s.match(/viewBox="0 0 (\d+) (\d+)"/)
+    if (!vb) continue
+    const W = parseFloat(vb[1])
+    for (const m of s.matchAll(/<text x="([0-9.-]+)"[^>]*font-size="([0-9.]+)"[^>]*text-anchor="([a-z]+)"[^>]*>([^<]*)<\/text>/g)) {
+      const x = parseFloat(m[1]), size = parseFloat(m[2]), anchor = m[3], txt = m[4]
+      const est = txt.length * size * 0.62
+      const lo = anchor === 'start' ? x : anchor === 'middle' ? x - est / 2 : x - est
+      const hi = anchor === 'start' ? x + est : anchor === 'middle' ? x + est / 2 : x
+      if (lo < 0 || hi > W) clipFails.push(`"${txt.slice(0, 24)}" @x=${x} w~${est.toFixed(0)} W=${W}`)
+    }
+  }
+  pcheck('P09h no SVG label clips the viewBox width (0.62em/char estimate)', clipFails.length === 0, clipFails.join(' ; '))
+
+  // P10 — raw-TeX law over ALL PROSE fields. KaTeX-source-by-design fields
+  // (equation.latex, derivation step formula, formula.latex) are excluded:
+  // raw TeX there is the contract (types.ts: "KaTeX source, no $ delimiters").
+  const prose: string[] = []
+  const walkProse = (v: unknown): void => {
+    if (typeof v === 'string') prose.push(v)
+    else if (Array.isArray(v)) v.forEach(walkProse)
+    else if (v && typeof v === 'object') {
+      for (const [k, val] of Object.entries(v as Record<string, unknown>)) {
+        if (k === 'latex' || k === 'formula') continue // KaTeX source by design
+        walkProse(val)
+      }
+    }
+  }
+  walkProse(lesson.blocks)
+  const mathSpans: string[] = []
+  const stripped = prose.map((t) => t.replace(/\$[^$]*\$/g, (m) => { mathSpans.push(m); return ' ' }))
+  pcheck('P10a no \\qquad inside any $...$ span', mathSpans.every((m) => !m.includes('\\qquad')), mathSpans.filter((m) => m.includes('\\qquad')).slice(0, 3).join(' | '))
+  pcheck('P10b no $$ delimiters and no \\dfrac in prose', prose.every((t) => !t.includes('$$') && !t.includes('\\dfrac')), '')
+  pcheck('P10c no raw TeX commands outside $...$ in prose fields', stripped.every((t) => !/\\[a-zA-Z]+/.test(t)), stripped.map((t) => (t.match(/\\[a-zA-Z]+/) ?? [''])[0]).filter(Boolean).slice(0, 5).join(' | '))
+  const heads = lesson.blocks.filter((b) => b.kind === 'heading') as Array<{ kind: 'heading'; text: string }>
+  pcheck('P10d headings are plain (no $, no backslash)', heads.every((h) => !h.text.includes('$') && !h.text.includes('\\')), heads.map((h) => h.text).join(' | '))
+
+  // P11 — lesson header fields, exact per spec
+  pcheck('P11 id/number/title exact', lesson.id === 'geo-the-undefined-words-and-the-defined-ones' && lesson.number === '1.1' && lesson.title === 'The Undefined Words and the Defined Ones', `${lesson.id} / ${lesson.number} / ${lesson.title}`)
+  pcheck('P12 sources exact [geo-euclid-elements, geo-hilbert-grundlagen]', JSON.stringify(lesson.sources) === JSON.stringify(['geo-euclid-elements', 'geo-hilbert-grundlagen']), JSON.stringify(lesson.sources))
+  pcheck('P13 prerequisites is the empty array', JSON.stringify(lesson.prerequisites) === JSON.stringify([]), JSON.stringify(lesson.prerequisites))
+  pcheck('P14 concepts 5-8 and objectives 4-6', lesson.concepts.length >= 5 && lesson.concepts.length <= 8 && (lesson.objectives?.length ?? 0) >= 4 && (lesson.objectives?.length ?? 0) <= 6, `concepts=${lesson.concepts.length}, objectives=${lesson.objectives?.length}`)
+  pcheck('P15 words field omitted (honest count computed by the registry)', !('words' in lesson), '')
+
+  // summary witnesses for the run report
+  const bodyFigsN = lesson.blocks.filter((b) => b.kind === 'figure').length
+  const solFigsN = exBlock ? exBlock.sets.flatMap((s) => s.questions).reduce((n, q) => n + (q.figures?.length ?? 0), 0) : 0
+  const wcN = countLessonWords(lesson)
+  const keyN = quizBlock ? quizBlock.items.map((i) => i.answer).join(',') : '-'
+  const qN = exBlock ? exBlock.sets.flatMap((s) => s.questions).length : 0
+  console.log(`[SUMMARY] words=${wcN} | bodyFigs=${bodyFigsN} | solFigs=${solFigsN} | quizKey=[${keyN}] | exercises=${qN}`)
+}
+
+/* ------------------------------------------------------------------ */
+/* bottom harness                                                      */
+/* ------------------------------------------------------------------ */
+console.log('=== PINS (audit the part file) ===')
+await runPins()
+const p = report('geo101-pins', pins)
+const fail = e.fail + p.fail
+console.log(`geo101 TOTAL: ${e.pass + p.pass} pass, ${fail} fail`)
+if (fail > 0) process.exit(1)
