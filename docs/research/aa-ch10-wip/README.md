@@ -49,3 +49,13 @@ runs — the run-121 lesson).
    viewports, VLM audit light+dark), update the six ledgers, ship.
 5. The book then closes at 67 written lessons (62 banked + 5) — the honest
    census (PROGRESS's "57" and the pointer's "60" were stale arithmetic).
+
+## CLOSED (run 123, 2026-11-25)
+
+Run 123 (the owner's "finish advanced algebra book first" directive) completed
+this resume path: 10.1 finished (the exercises block, the quiz-key fix, the
+qquad strip), 10.2 authored whole from spec-aa102, the 10.R prose + pin
+section completed, 10.3 + 10.4 restored verbatim — the chapter shipped in
+ch-10.ts with verify-book4-ch10.ts 946/946 and the Advanced Algebra book
+CLOSED COMPLETE at 67 written lessons. This directory is now the provenance
+record (do not delete); the shipped truth is ch-10.ts + the verifier.

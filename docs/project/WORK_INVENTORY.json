@@ -9144,9 +9144,9 @@
         "discipline": "mathematics",
         "level": "Class 11–12 algebra → the doorstep of calculus",
         "description": "The book where algebra grows up a second time. Foundation Mathematics opened the doorstep and Arithmetic and Number Systems proved the ground; Elementary Algebra opened the door and ended at the function idea. This book walks through: functions become objects — relations as sets of pairs, machines classified one-one and onto, composed in series with their honest domains, and undone by inverses. The quadratic returns as a working object — optimized, settled as inequalities on the sign diagram, mined for symmetric reads, its roots located in intervals. The extension ladder climbs its most famous rung: complex numbers built from a closure failure, carried by the field laws, and handed back to the quadratic formula so every discriminant is kept. Inequalities become the classical engine (AM–GM, Cauchy–Schwarz, the triangle inequality — proved, not recited). Sequences and series run from the constant climb to the infinite tail; counting becomes the exact science of permutations and combinations; mathematical induction certifies statements for every n at once; the binomial theorem is proved for a positive integral index and worked to its approximation power; the theory of equations counts roots, prices symmetric functions and transforms old roots into new equations; and the exponential and logarithmic family is defined once and for all as inverse machines. Cross-references Foundation Mathematics, Arithmetic and Number Systems and Elementary Algebra throughout; hands off to Coordinate Geometry, Trigonometry, Calculus and Probability.",
-        "status": "in-progress",
+        "status": "complete",
         "chaptersPlanned": 10,
-        "chaptersWritten": 9,
+        "chaptersWritten": 10,
         "chapters": [
           {
             "number": 1,
@@ -13704,16 +13704,356 @@
             "slug": "the-synthesis-and-the-doorstep",
             "title": "The Synthesis and the Doorstep",
             "summary": "The closing synthesis, in the house manner. First the competition craft across all the new families — the substitution game on quadratics and symmetric reads, AM–GM maxima under constraints, series sums priced by difference and telescoping, binomial term hunts, log speed reads — the advanced sequel to AL 11.2. Then the book in one page: the honest map of what was built and what was only opened, the cross-references made good, the formula family gathered. And then the doorstep itself: the infinite tail’s limit met again, the changing output measured discretely along the new families (slopes of aˣ and log taken the honest, finite way AL 10.2 priced for lines), continuity named as a promise — the handoff to Calculus, with Coordinate Geometry (graphs reunited) and Trigonometry (the next family) named as the neighbouring doors.",
-            "status": "planned",
-            "lessonsWritten": 0,
-            "plannedLessons": [
-              "Competition Algebra: the Advanced Craft",
-              "Functional Equations: Building Functions from Rules",
-              "The Book in One Page: Synthesis",
-              "The Doorstep: Limits and the Changing Output"
+            "status": "complete",
+            "lessonsWritten": 5,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "aa-competition-algebra-the-advanced-craft",
+                "number": "10.1",
+                "title": "Competition Algebra: the Advanced Craft",
+                "authoredOn": "2026-11-25",
+                "authoredInCommit": "pending (run 123, ships in this commit)",
+                "unit": "chapter 10 (run 122 preserved + run 123 finished/authored)",
+                "words": 6020,
+                "readMins": 30,
+                "concepts": [
+                  "nested substitution",
+                  "the ladder recurrence",
+                  "the symmetric read",
+                  "AM–GM under constraints",
+                  "the telescoping split",
+                  "the general term",
+                  "the digit-count read"
+                ],
+                "objectives": [
+                  "Run nested quadratic substitutions beyond the single $t$-swap, down to four roots in two families.",
+                  "Read symmetric functions of the roots by Vieta without ever solving for the roots.",
+                  "Price AM–GM maxima and minima under constraints and always name the equality witness.",
+                  "Telescope reciprocal series and factorial-shifted sums into closed forms.",
+                  "Hunt binomial terms — specific coefficients, greatest terms, independent terms — and read digit counts and log duels off monotonicity."
+                ],
+                "prerequisites": [
+                  "al-competition-algebra-identities-and-substitutions",
+                  "aa-symmetric-reads-and-common-roots",
+                  "aa-the-arithmetic-geometric-mean-inequality",
+                  "aa-special-series-and-the-method-of-differences",
+                  "aa-binomial-coefficients-at-work",
+                  "aa-the-laws-of-logarithms-and-the-change-of-base"
+                ],
+                "sources": [
+                  "cengage-jee-style",
+                  "jee-main-2026-syllabus",
+                  "hall-knight-higher-algebra",
+                  "cengage-m1-01"
+                ],
+                "blockCounts": {
+                  "para": 20,
+                  "callout": 8,
+                  "heading": 7,
+                  "list": 1,
+                  "example": 16,
+                  "figure": 4,
+                  "equation": 11,
+                  "derivation": 2,
+                  "table": 1,
+                  "terms": 1,
+                  "formula": 6,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 2,
+                  "definition": 2,
+                  "warn": 3,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 16,
+                "termsDefined": 8
+              },
+              {
+                "id": "aa-functional-equations-building-functions-from-rules",
+                "number": "10.2",
+                "title": "Functional Equations: Building Functions from Rules",
+                "authoredOn": "2026-11-25",
+                "authoredInCommit": "pending (run 123, ships in this commit)",
+                "unit": "chapter 10 (run 122 preserved + run 123 finished/authored)",
+                "words": 6108,
+                "readMins": 31,
+                "concepts": [
+                  "the functional equation",
+                  "the value ladder",
+                  "the constant cleanup",
+                  "the product rule",
+                  "the involution",
+                  "the orbit cycle",
+                  "the solution census"
+                ],
+                "objectives": [
+                  "Read a functional equation as a rule the machine must obey at every admissible input pair, and solve for the machine itself.",
+                  "Climb the value ladder from one seed to naturals, negatives, and rationals — no continuity assumed.",
+                  "Clean a shifted rule by absorbing its constant, and regenerate polynomial solutions from cross-term rules.",
+                  "Census the product families with computed refutations for the impostor machines.",
+                  "Sweep iteration cycles of involutions and Mobius machines, and price remote iterates by cycle length."
+                ],
+                "prerequisites": [
+                  "aa-composition-machines-in-series",
+                  "aa-inverse-functions-the-machine-undone",
+                  "aa-mathematical-induction-the-domino-principle",
+                  "aa-logarithms-the-inverse-machine"
+                ],
+                "sources": [
+                  "cengage-jee-style",
+                  "jee-main-2026-syllabus",
+                  "hall-knight-higher-algebra"
+                ],
+                "blockCounts": {
+                  "para": 26,
+                  "callout": 10,
+                  "list": 3,
+                  "heading": 7,
+                  "derivation": 4,
+                  "example": 10,
+                  "figure": 3,
+                  "table": 1,
+                  "terms": 1,
+                  "formula": 6,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "historical": 1,
+                  "theorem": 1,
+                  "warn": 2,
+                  "insight": 3,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 16,
+                "termsDefined": 8
+              },
+              {
+                "id": "aa-the-book-in-one-page-synthesis",
+                "number": "10.3",
+                "title": "The Book in One Page: Synthesis",
+                "authoredOn": "2026-11-25",
+                "authoredInCommit": "pending (run 123, ships in this commit)",
+                "unit": "chapter 10 (run 122 preserved + run 123 finished/authored)",
+                "words": 6030,
+                "readMins": 30,
+                "concepts": [
+                  "the census of ten chapters and their witnesses",
+                  "the wiring — which chapter feeds which",
+                  "the formula shelf, gathered in one place",
+                  "the honesty ledger of deferred proofs",
+                  "cross-chapter chains as the audit bench",
+                  "the forward doors and backward anchors"
+                ],
+                "objectives": [
+                  "Read the ten-row census table and connect every witness to the chapter that owns it",
+                  "Reconstruct the wiring: why each chapter could not have been written before its predecessor",
+                  "Use the formula shelf as a one-page retrieval tool across all ten chapter families",
+                  "State honestly what the book used but never proved, and name the door that owns each debt",
+                  "Solve cross-chapter chain problems that visit three or more registers in one calculation"
+                ],
+                "prerequisites": [
+                  "aa-exponentials-and-logarithms-unit-9-review",
+                  "aa-unit-review-functions-as-objects",
+                  "al-the-function-idea-the-doorstep"
+                ],
+                "sources": [
+                  "cengage-jee-style",
+                  "jee-main-2026-syllabus",
+                  "hall-knight-higher-algebra"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "callout": 4,
+                  "heading": 7,
+                  "table": 2,
+                  "equation": 1,
+                  "list": 2,
+                  "figure": 3,
+                  "formula": 13,
+                  "derivation": 1,
+                  "example": 4,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 1,
+                  "warn": 2,
+                  "definition": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 16,
+                "termsDefined": 8
+              },
+              {
+                "id": "aa-the-doorstep-limits-and-the-changing-output",
+                "number": "10.4",
+                "title": "The Doorstep: Limits and the Changing Output",
+                "authoredOn": "2026-11-25",
+                "authoredInCommit": "pending (run 123, ships in this commit)",
+                "unit": "chapter 10 (run 122 preserved + run 123 finished/authored)",
+                "words": 7264,
+                "readMins": 36,
+                "concepts": [
+                  "the limit of the secant slopes",
+                  "the difference quotient and the secant ladder",
+                  "the ε–N promise for the infinite tail",
+                  "the derivative as a named machine",
+                  "the natural base e and the slope-1 ladder",
+                  "continuity named as a promise and the jump witnesses",
+                  "the four doors of the handoff"
+                ],
+                "objectives": [
+                  "state the ε–N form of the convergence promise and price it on the 0.9-tail",
+                  "compute secant slopes of x², 1/x, 2^x and log₂ x at pinned points for a chain of h values",
+                  "carry the quotient algebra of x² and 1/x to its exact exit and say precisely where it fails for 2^x",
+                  "name the derivative as the limit of secant slopes and read the four-family derivative table with its honest status marks",
+                  "separate the line rate (one number) from the curve rate (a new function) across the AL 10.2 seam",
+                  "witness continuity and its failure through the signum and GIF jumps"
+                ],
+                "prerequisites": [
+                  "aa-geometric-progressions-and-the-infinite-tail",
+                  "aa-exponential-and-logarithmic-series",
+                  "aa-function-zoo-modulus-signum-gif-elementary-catalog",
+                  "al-slope-the-steepness-theorem"
+                ],
+                "sources": [
+                  "cengage-jee-style",
+                  "jee-main-2026-syllabus",
+                  "openstax-college-algebra",
+                  "hall-knight-higher-algebra"
+                ],
+                "blockCounts": {
+                  "para": 28,
+                  "callout": 9,
+                  "heading": 11,
+                  "table": 10,
+                  "figure": 4,
+                  "equation": 2,
+                  "example": 4,
+                  "derivation": 2,
+                  "list": 1,
+                  "terms": 1,
+                  "formula": 6,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 2,
+                  "definition": 2,
+                  "warn": 2,
+                  "exam": 1,
+                  "theorem": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 16,
+                "termsDefined": 8
+              },
+              {
+                "id": "aa-the-synthesis-and-the-doorstep-unit-10-review",
+                "number": "10.R",
+                "title": "Unit 10 Completion Review",
+                "authoredOn": "2026-11-25",
+                "authoredInCommit": "pending (run 123, ships in this commit)",
+                "unit": "chapter 10 (run 122 preserved + run 123 finished/authored)",
+                "words": 5062,
+                "readMins": 25,
+                "concepts": [
+                  "the chapter census — craft, rules, map, limit",
+                  "the audit chain across lesson boundaries",
+                  "the formula shelf gathered",
+                  "the mixed bench of fresh witnesses",
+                  "the book handoff — four doors",
+                  "the honest boundaries — proved versus opened"
+                ],
+                "objectives": [
+                  "Consolidate the four lessons of the closing chapter in one table and one rail.",
+                  "Re-derive each essential in a single move, with its owner lesson cited.",
+                  "Run cross-lesson audit chains in which one number carries several chapters.",
+                  "Work a mixed bench of seventeen fresh witnesses from L1 to L6.",
+                  "Read the book handoff: the four doors, the honest boundaries, the census sentence."
+                ],
+                "prerequisites": [
+                  "aa-competition-algebra-the-advanced-craft",
+                  "aa-functional-equations-building-functions-from-rules",
+                  "aa-the-book-in-one-page-synthesis",
+                  "aa-the-doorstep-limits-and-the-changing-output"
+                ],
+                "sources": [
+                  "cengage-jee-style",
+                  "jee-main-2026-syllabus",
+                  "hall-knight-higher-algebra"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 6,
+                  "table": 1,
+                  "figure": 3,
+                  "formula": 10,
+                  "derivation": 4,
+                  "example": 6,
+                  "callout": 1,
+                  "exercises": 1,
+                  "terms": 1,
+                  "quiz": 1
+                },
+                "calloutTones": {
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 17,
+                "termsDefined": 8
+              }
             ],
-            "lessons": [],
-            "words": 0
+            "words": 30484
           }
         ]
       },

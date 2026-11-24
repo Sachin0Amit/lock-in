@@ -53,8 +53,8 @@ ok(math.length === 28, `28 mathematics books (got ${math.length})`)
 const complete = math.filter((b) => b.status === 'complete')
 const planned = math.filter((b) => b.status === 'planned')
 const inprog = math.filter((b) => b.status === 'in-progress')
-ok(complete.length === 3, `3 complete FM+ANS+AL (got ${complete.length})`)
-ok(inprog.length === 1, `1 in-progress AA (got ${inprog.length}: ${inprog.map((b) => b.id).join(',')})`)
+ok(complete.length === 4, `4 complete FM+ANS+AL+AA (got ${complete.length})`) // amended honestly run 123: AA closed the book at 67 lessons
+ok(inprog.length === 0, `0 in-progress (got ${inprog.length}: ${inprog.map((b) => b.id).join(',')})`) // amended honestly run 123: AA complete
 ok(planned.length === 24, `24 planned (got ${planned.length})`)
 
 console.log('== B. the honest census (per book) ==')

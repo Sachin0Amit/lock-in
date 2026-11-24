@@ -8,11 +8,22 @@ import { chapter06 } from './ch-06'
 import { chapter07 } from './ch-07'
 import { chapter08 } from './ch-08'
 import { chapter09 } from './ch-09'
+import { chapter10 } from './ch-10'
 
 /**
  * Advanced Algebra — the fourth book of the Mathematics shelf.
  *
- * STATUS: IN-PROGRESS — NINE chapters COMPLETE (chapters 1–9, each with
+ * STATUS: COMPLETE — TEN chapters, the book CLOSED at SIXTY-SEVEN
+ * written lessons (chapters 1–9 as banked; chapter 10 'The Synthesis
+ * and the Doorstep' OPENED by the run-122 swarm (10.3 + 10.4 delivered
+ * whole; 10.1 engines + partial prose; 10.2 + 10.R specs; the platform's
+ * subagent-deadline wall deferred the close with everything preserved in
+ * docs/research/aa-ch10-wip/) and CLOSED COMPLETE by the RUN 123
+ * resumption under the owner's 2026-11-25 directive "finish advanced
+ * algebra book first" — 10.1 finished (119/119), 10.2 authored whole
+ * (111/111), the 10.R prose + pins completed (267/267), the honest
+ * census 62 banked + 5 = 67 lessons, every number re-pinned in
+ * scripts/verify-book4-ch10.ts). Previously: chapters 1–9, each with
  * its unit review; chapter 9 'Exponentials and Logarithms' closed
  * COMPLETE by the RUN 121 WHOLE-CHAPTER SWARM — the first fire under the
  * owner's 2026-11-24 whole-chapter cadence directive: 9.3 + 9.4 + 9.5 +
@@ -130,21 +141,8 @@ const chapters: Chapter[] = [
   chapter07,
   chapter08,
   chapter09,
-  {
-    number: 10,
-    slug: 'the-synthesis-and-the-doorstep',
-    title: 'The Synthesis and the Doorstep',
-    summary:
-      'The closing synthesis, in the house manner. First the competition craft across all the new families — the substitution game on quadratics and symmetric reads, AM–GM maxima under constraints, series sums priced by difference and telescoping, binomial term hunts, log speed reads — the advanced sequel to AL 11.2. Then the book in one page: the honest map of what was built and what was only opened, the cross-references made good, the formula family gathered. And then the doorstep itself: the infinite tail’s limit met again, the changing output measured discretely along the new families (slopes of aˣ and log taken the honest, finite way AL 10.2 priced for lines), continuity named as a promise — the handoff to Calculus, with Coordinate Geometry (graphs reunited) and Trigonometry (the next family) named as the neighbouring doors.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'Competition Algebra: the Advanced Craft',
-      'Functional Equations: Building Functions from Rules',
-      'The Book in One Page: Synthesis',
-      'The Doorstep: Limits and the Changing Output',
-    ],
-  },
+  chapter10,
+
 ]
 
 export const advancedAlgebra: Book = {
@@ -155,7 +153,7 @@ export const advancedAlgebra: Book = {
   level: 'Class 11–12 algebra → the doorstep of calculus',
   description:
     'The book where algebra grows up a second time. Foundation Mathematics opened the doorstep and Arithmetic and Number Systems proved the ground; Elementary Algebra opened the door and ended at the function idea. This book walks through: functions become objects — relations as sets of pairs, machines classified one-one and onto, composed in series with their honest domains, and undone by inverses. The quadratic returns as a working object — optimized, settled as inequalities on the sign diagram, mined for symmetric reads, its roots located in intervals. The extension ladder climbs its most famous rung: complex numbers built from a closure failure, carried by the field laws, and handed back to the quadratic formula so every discriminant is kept. Inequalities become the classical engine (AM–GM, Cauchy–Schwarz, the triangle inequality — proved, not recited). Sequences and series run from the constant climb to the infinite tail; counting becomes the exact science of permutations and combinations; mathematical induction certifies statements for every n at once; the binomial theorem is proved for a positive integral index and worked to its approximation power; the theory of equations counts roots, prices symmetric functions and transforms old roots into new equations; and the exponential and logarithmic family is defined once and for all as inverse machines. Cross-references Foundation Mathematics, Arithmetic and Number Systems and Elementary Algebra throughout; hands off to Coordinate Geometry, Trigonometry, Calculus and Probability.',
-  status: 'in-progress',
+  status: 'complete',
   accent: ['#be123c', '#881337'],
   chapters,
 }
