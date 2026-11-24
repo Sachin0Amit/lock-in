@@ -12,25 +12,24 @@ import { chapter09 } from './ch-09'
 /**
  * Advanced Algebra — the fourth book of the Mathematics shelf.
  *
- * STATUS: IN-PROGRESS — EIGHT chapters COMPLETE (chapters 1–8, each with
- * its unit review; chapter 8 'The Theory of Equations' closed complete
- * by the run-119 WHOLE-UNIT SWARM — lessons 8.1–8.6 + 8.R, seven parallel
- * authoring agents — 51 written lessons in all), chapter 9 'Exponentials
- * and Logarithms' OPENED by the RUN 120 TWO-AGENT SWARM (9.1 'The
- * Exponential Family: Every Real Index' + 9.2 'Logarithms: the Inverse
- * Machine' shipped — engines green before prose, every number pinned in
- * scripts/verify-book4-ch09.ts; 9.3–9.6 + the 9.R review ride the next
- * fires), chapter 10 planned (the remaining 8 planned lessons: chapter 9
- * (4) + chapter 10 (4)) authoring on the one-unit-at-a-time cadence (run
- * 110 closed chapter 3; the 2026-11-18 PARALLEL-SWARM RUN — owner chat
- * directive "launch multiple agents for authoring lessons" — closed
- * chapter 4 whole-unit; the 2026-11-20 swarm closed chapter 5's remainder
- * + chapter 6 whole-unit; the 2026-11-21 v9.0 SWARM RUNS (owner directive
- * "use multiple agents or swarm of agents") authored chapter 7 (runs
- * 117-118) and chapter 8 WHOLE-UNIT (run 119, the "launch multiple
- * authoring agents" directive — seven parallel agents, one per lesson +
- * the review, recorded in WORKLOG); run 120 (2026-11-24) opened chapter 9
- * with the two-lesson swarm).
+ * STATUS: IN-PROGRESS — NINE chapters COMPLETE (chapters 1–9, each with
+ * its unit review; chapter 9 'Exponentials and Logarithms' closed
+ * COMPLETE by the RUN 121 WHOLE-CHAPTER SWARM — the first fire under the
+ * owner's 2026-11-24 whole-chapter cadence directive: 9.3 + 9.4 + 9.5 +
+ * 9.6 + the 9.R review authored by FIVE parallel agents (one per
+ * lesson, one DISTINCT deliverable each, verify-first engines green
+ * before prose, every number pinned in scripts/verify-book4-ch09.ts)
+ * after the run-120 two-agent swarm opened with 9.1 + 9.2 — 57 written
+ * lessons in all), chapter 10 'The Synthesis and the Doorstep' planned
+ * (the remaining 4 planned lessons) authoring on the whole-chapter
+ * cadence (run 110 closed chapter 3; the 2026-11-18 PARALLEL-SWARM RUN
+ * — owner chat directive "launch multiple agents for authoring
+ * lessons" — closed chapter 4 whole-unit; the 2026-11-20 swarm closed
+ * chapter 5's remainder + chapter 6 whole-unit; the 2026-11-21 v9.0
+ * SWARM RUNS (owner directive "use multiple agents or swarm of
+ * agents") authored chapter 7 (runs 117-118) and chapter 8 WHOLE-UNIT
+ * (run 119, seven agents); run 120 opened chapter 9; run 121 (2026-11-24)
+ * closed it whole under the whole-chapter cadence directive).
  * Lesson ids use the `aa-` prefix (verified unused across the library
  * at promotion time; globally unique, stable forever).
  *
