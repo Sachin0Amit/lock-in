@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-24 06:10:34 (Asia/Kolkata)",
+  "generated": "2026-11-24 09:24:07 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -4828,8 +4828,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5662,
-                "readMins": 28,
+                "words": 5764,
+                "readMins": 29,
                 "concepts": [
                   "Difference pairs (a, b)",
                   "The relation (a, b) ~ (c, d) ⟺ a + d = b + c",
@@ -4898,8 +4898,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 4890,
-                "readMins": 24,
+                "words": 5620,
+                "readMins": 28,
                 "concepts": [
                   "The laws derived from the construction",
                   "Distributivity through the boxes",
@@ -4931,7 +4931,7 @@
                   "para": 16,
                   "heading": 6,
                   "equation": 2,
-                  "example": 5,
+                  "example": 6,
                   "derivation": 2,
                   "callout": 6,
                   "table": 1,
@@ -4954,14 +4954,14 @@
                   "L2": 3,
                   "L3": 3,
                   "L4": 3,
-                  "L5": 1,
-                  "L6": 1
+                  "L5": 2,
+                  "L6": 2
                 },
-                "exerciseQuestions": 14,
+                "exerciseQuestions": 16,
                 "termsDefined": 8
               }
             ],
-            "words": 16701
+            "words": 17533
           },
           {
             "number": 7,
@@ -9146,7 +9146,7 @@
         "description": "The book where algebra grows up a second time. Foundation Mathematics opened the doorstep and Arithmetic and Number Systems proved the ground; Elementary Algebra opened the door and ended at the function idea. This book walks through: functions become objects — relations as sets of pairs, machines classified one-one and onto, composed in series with their honest domains, and undone by inverses. The quadratic returns as a working object — optimized, settled as inequalities on the sign diagram, mined for symmetric reads, its roots located in intervals. The extension ladder climbs its most famous rung: complex numbers built from a closure failure, carried by the field laws, and handed back to the quadratic formula so every discriminant is kept. Inequalities become the classical engine (AM–GM, Cauchy–Schwarz, the triangle inequality — proved, not recited). Sequences and series run from the constant climb to the infinite tail; counting becomes the exact science of permutations and combinations; mathematical induction certifies statements for every n at once; the binomial theorem is proved for a positive integral index and worked to its approximation power; the theory of equations counts roots, prices symmetric functions and transforms old roots into new equations; and the exponential and logarithmic family is defined once and for all as inverse machines. Cross-references Foundation Mathematics, Arithmetic and Number Systems and Elementary Algebra throughout; hands off to Coordinate Geometry, Trigonometry, Calculus and Probability.",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 8,
+        "chaptersWritten": 9,
         "chapters": [
           {
             "number": 1,
@@ -13184,14 +13184,9 @@
             "slug": "exponentials-and-logarithms",
             "title": "Exponentials and Logarithms",
             "summary": "The first great non-polynomial family inside algebra. The exponent laws AL banked on integer and rational indices are extended to every real index — the exponential function aˣ as a machine with a constant percent climb, its shape family, and the growth stories it prices. The logarithm is then defined once and for all as the inverse machine — chapter 1’s theory cashing its first big cheque: domain and range swap, log_a(aˣ) = x, and every log law DERIVED from the exponent law it mirrors instead of memorized. Change of base, the common and natural logarithms, and the chapter closes on equations: same-base discipline, exponent equations that hide quadratics, log equations with their domain discipline enforced (extraneous roots caught, not mourned), and the growth and decay problems that make the family famous.",
-            "status": "in-progress",
-            "lessonsWritten": 2,
-            "plannedLessons": [
-              "The Laws of Logarithms and the Change of Base",
-              "Logarithmic and Exponential Equations",
-              "Exponential and Logarithmic Series",
-              "Logarithm Tables: Characteristic, Mantissa and Antilogarithm"
-            ],
+            "status": "complete",
+            "lessonsWritten": 7,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "aa-the-exponential-family-every-real-index",
@@ -13338,9 +13333,371 @@
                 },
                 "exerciseQuestions": 17,
                 "termsDefined": 9
+              },
+              {
+                "id": "aa-the-laws-of-logarithms-and-the-change-of-base",
+                "number": "9.3",
+                "title": "The Laws of Logarithms and the Change of Base",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8710,
+                "readMins": 44,
+                "concepts": [
+                  "the three cardinal laws, derived from the exponent laws they mirror",
+                  "the base law log_(a^b) m = (1/b) log_a m and its combined form",
+                  "the change-of-base law log_a m = log_b m / log_b a",
+                  "the reciprocal law log_a m = 1/log_m a and the order flip",
+                  "the telescoping chain of consecutive-base logarithms",
+                  "comparing logarithms by the reciprocal route",
+                  "the cross-base identity and the cycle law",
+                  "the mirror-table discipline: every log law cashed from an exponent law"
+                ],
+                "objectives": [
+                  "Derive the three cardinal laws — product, quotient, power — from the exponent laws they mirror, and cash them at sight on witnesses such as $\\log_{10} 2 + \\log_{10} 5 = 1$, $\\log_2 48 - \\log_2 3 = 4$ and $\\log_3(\\sqrt{11} + \\sqrt{2}) + \\log_3(\\sqrt{11} - \\sqrt{2}) = 2$.",
+                  "Turn the base dial with the base law $\\log_{a^b} m = \\tfrac{1}{b}\\log_a m$ and its combined form $\\log_{a^b} m^c = \\tfrac{c}{b}\\log_a m$ — including the classics $\\log_{2\\sqrt{3}} 1728 = 6$, $\\log_{2\\sqrt{2}} 128 = \\tfrac{14}{3}$ and the sign case $\\log_{0.25} 32 = -\\tfrac{5}{2}$.",
+                  "Change bases at will with $\\log_a m = \\tfrac{\\log_b m}{\\log_b a}$ (any base serves), derive the reciprocal law $\\log_a m = \\tfrac{1}{\\log_m a}$ as its corollary, and prove the cross-base identity $a^{\\log_b c} = c^{\\log_b a}$ by taking $\\log_b$ of both sides.",
+                  "Collapse telescoping chains such as $\\log_3 4 \\cdot \\log_4 5 \\cdots \\log_8 9 = 2$ by writing every factor as a ratio of logs, and prove the general product $\\prod_{k=2}^{n} \\log_k(k+1) = \\log_2(n+1)$.",
+                  "Compare logarithms by the reciprocal route — $\\log_3 5$ against $\\log_{17} 25$, $\\log_7 11$ against $\\log_{11} 17$ — and sum prime-reciprocal chains to $\\log_n 210 = 1/\\log_{210} n$."
+                ],
+                "prerequisites": [
+                  "aa-logarithms-the-inverse-machine",
+                  "aa-the-exponential-family-every-real-index",
+                  "al-powers-and-the-laws-of-exponents"
+                ],
+                "sources": [
+                  "cengage-m1-01",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 24,
+                  "heading": 5,
+                  "derivation": 6,
+                  "callout": 6,
+                  "equation": 4,
+                  "table": 1,
+                  "list": 2,
+                  "example": 9,
+                  "terms": 1,
+                  "figure": 3,
+                  "formula": 6,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "theorem": 1,
+                  "definition": 1,
+                  "insight": 1,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 17,
+                "termsDefined": 8
+              },
+              {
+                "id": "aa-logarithmic-and-exponential-equations",
+                "number": "9.4",
+                "title": "Logarithmic and Exponential Equations",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8634,
+                "readMins": 43,
+                "concepts": [
+                  "same-base discipline",
+                  "hidden quadratic substitution",
+                  "extraneous roots and the domain court",
+                  "combine-then-exponentiate",
+                  "the monotonicity uniqueness argument",
+                  "logarithmic inequality direction law",
+                  "the flip law for bases below one"
+                ],
+                "objectives": [
+                  "Solve exponential equations by the same-base law and the hidden-quadratic substitution",
+                  "Solve logarithmic equations by the five-move program: domain, combine, exponentiate, solve, check",
+                  "Catch and refuse extraneous roots honestly, naming every refusal",
+                  "Prove uniqueness by the monotonicity argument, with existence by exhibit or sign bracket",
+                  "Solve logarithmic inequalities by the family-decides direction law, carrying the domain rider"
+                ],
+                "prerequisites": [
+                  "aa-the-laws-of-logarithms-and-the-change-of-base",
+                  "aa-quadratic-inequalities-and-the-sign-diagram",
+                  "aa-logarithms-the-inverse-machine"
+                ],
+                "sources": [
+                  "cengage-m1-01",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "heading": 5,
+                  "equation": 5,
+                  "callout": 10,
+                  "derivation": 3,
+                  "example": 11,
+                  "figure": 4,
+                  "list": 2,
+                  "terms": 1,
+                  "table": 2,
+                  "formula": 5,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "theorem": 2,
+                  "warn": 2,
+                  "definition": 1,
+                  "historical": 1,
+                  "insight": 3,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 17,
+                "termsDefined": 7
+              },
+              {
+                "id": "aa-exponential-and-logarithmic-series",
+                "number": "9.5",
+                "title": "Exponential and Logarithmic Series",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8358,
+                "readMins": 42,
+                "concepts": [
+                  "the exponential series for e to the x",
+                  "the exponential theorem for any base",
+                  "the logarithmic series and its validity interval",
+                  "the fast series for the log of a quotient",
+                  "the modulus mu and the common-log bridge",
+                  "table construction by consecutive differences"
+                ],
+                "objectives": [
+                  "Derive the exponential series $e^x = 1 + x + x^2/2! + x^3/3! + \\cdots$ from the binomial theorem of chapter 7 and the ladder of 9.2 — with the termwise limit honestly stated, not proved (chapter 10 named).",
+                  "State the logarithmic series $\\log(1+x) = x - x^2/2 + x^3/3 - \\cdots$ with its exact validity interval $-1 < x \\le 1$, price its convergence numerically on engine witnesses, and refuse it honestly outside the interval.",
+                  "Derive the fast series $\\ln\\frac{1+x}{1-x} = 2(x + x^3/3 + x^5/5 + \\cdots)$ and use it to compute $\\ln 2$ to six-place accuracy in five terms.",
+                  "Use the modulus $\\mu = \\log_{10} e = 0.4342944819$ to bridge natural and common logarithms, and run the table-construction route that builds $\\log_{10} 3$ from $\\log_{10} 2$ via the $n = 9$ consecutive difference.",
+                  "Cash the series into digit-count questions — the 20 digits of $2^{64}$ and the 31 digits of $2^{100}$ — the census that 9.6’s world of tables asks at scale."
+                ],
+                "prerequisites": [
+                  "aa-the-binomial-theorem-any-index",
+                  "aa-the-exponential-family-every-real-index",
+                  "aa-geometric-progressions-and-the-infinite-tail"
+                ],
+                "sources": [
+                  "hall-knight-higher-algebra",
+                  "cengage-jee-style",
+                  "jee-main-2026-syllabus",
+                  "cengage-m1-01"
+                ],
+                "blockCounts": {
+                  "para": 23,
+                  "heading": 4,
+                  "derivation": 5,
+                  "callout": 8,
+                  "equation": 2,
+                  "list": 2,
+                  "table": 3,
+                  "figure": 3,
+                  "example": 6,
+                  "terms": 2,
+                  "formula": 5,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 2,
+                  "definition": 2,
+                  "theorem": 1,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 17,
+                "termsDefined": 10
+              },
+              {
+                "id": "aa-logarithm-tables-characteristic-mantissa-and-antilogarithm",
+                "number": "9.6",
+                "title": "Logarithm Tables: Characteristic, Mantissa and Antilogarithm",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9261,
+                "readMins": 46,
+                "concepts": [
+                  "standard form and the two-part logarithm",
+                  "the characteristic read by inspection",
+                  "the mantissa and its invariance",
+                  "the four-figure table and mean differences",
+                  "bar notation for negative characteristics",
+                  "the antilogarithm and the five-step antilog method",
+                  "the digits-count craft",
+                  "four-figure precision and its honest limits"
+                ],
+                "objectives": [
+                  "Split any positive number as n = m × 10^p and read log n = p + log m: the integral part p — the characteristic — by inspection, the fractional part — the mantissa — from the significant digits.",
+                  "Apply both inspection rules: for n at least 1 the characteristic is one less than the digit count left of the decimal point; for n between 0 and 1 it is negative, with magnitude one more than the zero count after the point.",
+                  "Use bar notation correctly: log 0.023 = 2̄.36173 means −2 + 0.36173, never −2.36173 — and evaluate a bar-form logarithm as a single number.",
+                  "Look up a four-figure mantissa through the row of the first two digits, the column of the third, and the mean difference of the fourth — and audit the last-place gap against the engine.",
+                  "Run the five-step antilogarithm method, including the Step-I normalization of a negative decimal part (−2.5983 = 3̄.4017), to recover a number from its logarithm.",
+                  "Put the tables to work: multiplication, division, powers and roots, compound growth, and the digits-count craft (the number of digits in 2^64 read from 64 log 2).",
+                  "State the honest precision of a four-figure table: the route lands within about one unit of the correctly rounded value, and the gap is a design property, never a mistake."
+                ],
+                "prerequisites": [
+                  "aa-the-laws-of-logarithms-and-the-change-of-base",
+                  "aa-exponential-and-logarithmic-series",
+                  "fm-decimal-places-and-the-point"
+                ],
+                "sources": [
+                  "cengage-m1-01",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 5,
+                  "callout": 10,
+                  "equation": 3,
+                  "list": 3,
+                  "table": 4,
+                  "example": 10,
+                  "derivation": 1,
+                  "figure": 3,
+                  "terms": 1,
+                  "algorithm": 1,
+                  "formula": 6,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "theorem": 1,
+                  "warn": 2,
+                  "insight": 3,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 17,
+                "termsDefined": 8
+              },
+              {
+                "id": "aa-exponentials-and-logarithms-unit-9-review",
+                "number": "9.R",
+                "title": "Unit 9 Completion Review",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8627,
+                "readMins": 43,
+                "concepts": [
+                  "the arc: the family, the inverse, the laws, the equations, the series, the tables",
+                  "the master table: one row per lesson with its engine-verified witness",
+                  "the formula family gathered: definition pair, law family, series, modulus, digit law",
+                  "the one-move re-derivations: squeeze, inverse pair, product law, domain rider, fast series, two-part split",
+                  "the audit bench: cross-lesson chains, logs to bridge to digit law in one calculation",
+                  "the mixed bench: fresh witnesses crossing every lesson boundary",
+                  "the doorstep: convergence proofs deferred, the calculus life ahead"
+                ],
+                "objectives": [
+                  "Hold the whole unit in one hand — the wiring of its six lessons (the family, the inverse, the laws, the equations, the series, the tables), the master table with its engine-verified witnesses, and the formula family gathered from the definition pair to the digit-count law.",
+                  "Re-derive each essential in one move — the squeeze, the inverse pair, the product law, the domain rider, the fast series and the two-part split — citing the lesson that owns the full version, and rebuild any of them from its owner when memory fails.",
+                  "Run the cross-lesson chains: count the digits of a giant power by logs, the $\\mu$ bridge and the digit law together; solve mixed equations with the domain and monotonicity audits bolted on; and close the table craft’s antilog round trips.",
+                  "Solve the mixed bench — fresh witnesses crossing every lesson boundary, L1 through L6 — and diagnose every miss back to its home lesson by the shape it wore.",
+                  "State the unit’s honest boundaries — the convergence proofs deferred to chapter 10, the stated-not-proved status of the squeeze’s completeness — and the handoffs: chapter 10 \"The Synthesis and the Doorstep\" and the calculus doorstep beyond it, named, never taught here."
+                ],
+                "prerequisites": [
+                  "aa-the-exponential-family-every-real-index",
+                  "aa-logarithms-the-inverse-machine",
+                  "aa-the-laws-of-logarithms-and-the-change-of-base",
+                  "aa-logarithmic-and-exponential-equations",
+                  "aa-exponential-and-logarithmic-series",
+                  "aa-logarithm-tables-characteristic-mantissa-and-antilogarithm"
+                ],
+                "sources": [
+                  "cengage-m1-01",
+                  "cengage-jee-style",
+                  "hall-knight-higher-algebra",
+                  "jee-main-2026-syllabus"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "heading": 5,
+                  "table": 2,
+                  "list": 2,
+                  "callout": 9,
+                  "equation": 3,
+                  "formula": 9,
+                  "derivation": 6,
+                  "terms": 1,
+                  "example": 5,
+                  "figure": 2,
+                  "exercises": 1,
+                  "quiz": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 2,
+                  "insight": 2,
+                  "warn": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 2
+                },
+                "exerciseQuestions": 17,
+                "termsDefined": 11
               }
             ],
-            "words": 17116
+            "words": 60706
           },
           {
             "number": 10,
@@ -52252,14 +52609,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 515,
-      "totalLines": 189902,
+      "srcFilesTracked": 516,
+      "totalLines": 195398,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5860,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 151241,
+        "src/data/library (content model + books)": 156737,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -78897,13 +79254,13 @@
       ]
     },
     {
-      "sha": "9f696668246b6530c6ddb4b8c49275d570c6881a",
-      "short": "9f69666",
-      "date": "2026-11-23 15:31",
-      "message": "audit: ans-constructing-the-integers-from-the-naturals — A:1fig B:3sol C:2enrich",
-      "filesChanged": 8,
-      "insertions": 280,
-      "deletions": 51,
+      "sha": "9ca0e258e8e02287a3c04e6a83c2227ed0e3fcee",
+      "short": "9ca0e25",
+      "date": "2026-11-23 23:59",
+      "message": "audit: ans-constructing-the-integers-from-the-naturals — A:1fig B:4sol C:2enrich",
+      "filesChanged": 7,
+      "insertions": 256,
+      "deletions": 12,
       "files": [
         {
           "path": "docs/project/DETAILED_LOG.md",
@@ -78912,54 +79269,264 @@
         },
         {
           "path": "docs/project/ENHANCEMENT_LOG.md",
-          "add": 18,
+          "add": 17,
           "del": 0
         },
         {
           "path": "docs/project/FIGURE_AUDIT_LOG.md",
-          "add": 6,
-          "del": 0
-        },
-        {
-          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
-          "add": 34,
-          "del": 32
-        },
-        {
-          "path": "docs/project/SOURCE_LOG.md",
           "add": 4,
           "del": 0
         },
         {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 4,
+          "del": 2
+        },
+        {
           "path": "docs/project/WORKLOG.md",
-          "add": 8,
+          "add": 5,
           "del": 0
         },
         {
           "path": "scripts/verify-book2-ch06.ts",
-          "add": 76,
-          "del": 10
+          "add": 49,
+          "del": 7
         },
         {
           "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-06.ts",
-          "add": 112,
-          "del": 9
+          "add": 155,
+          "del": 3
         }
       ]
     },
     {
-      "sha": "6477fe813cfed584c3bf55bfd09e150d33ff05b3",
-      "short": "6477fe8",
-      "date": "2026-11-23 15:32",
-      "message": "47f9f534-3a52-4efa-9a08-5609f8617520",
-      "filesChanged": 1,
-      "insertions": 7,
+      "sha": "876d359eeeb3719ea1fbb9dda259506cf8b4d3e6",
+      "short": "876d359",
+      "date": "2026-11-23 23:59",
+      "message": "chore: restore 0644 modes on ch-06.ts + verify-book2-ch06.ts",
+      "filesChanged": 2,
+      "insertions": 0,
       "deletions": 0,
       "files": [
         {
-          "path": ".state/audit-state.json",
-          "add": 7,
+          "path": "scripts/verify-book2-ch06.ts",
+          "add": 0,
           "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-06.ts",
+          "add": 0,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "9057921f74c1746be6d519efbb0bb73f876bd4af",
+      "short": "9057921",
+      "date": "2026-11-24 00:43",
+      "message": "run 120 (the maths lane's v9.0 swarm): AA ch.9 'Exponentials and Logarithms' OPENED — 9.1 'The Exponential Family: Every Real Index' + 9.2 'Logarithms: the Inverse Machine' by the TWO-AGENT SWARM (engines A 203 + C 110 green pre-prose with five engine-wins over the spec; verify-book4-ch09 403/403; the 'Natural Logarithms' fold discharged inside 9.2 per the TOC fold ledger; 8,181 + 8,938 words; quiz 5/5 live on [1,1,1,1,2] + [1,1,2,1,0]; tsc 0, lint 0 err; pack+check PASS 190 lessons / 1,084,937 words; standing gates 667 + 4023 + 1240; E2E x2 x3 viewports ALL GREEN 48+48 with the raw-$ census catching three plain-title violations, fixed; VLM 28-crop audit: five real defects fixed + re-audited PASS both themes, two claims rejected on evidence; solution figures inside the exercises per the v9.0 amendment — 6 body + 6 solution + 2 illustration figures) — ground = the Cengage M1/01 module (new citation key cengage-m1-01, bands printed 1.1-1.10 vision-transcribed) + the banked Hall & Knight arc; the master plan banked at docs/research/AA_CH09_MASTER_PLAN.md; next: run 121 authors 9.3 (two hosted folds) + 9.4",
+      "filesChanged": 15,
+      "insertions": 3752,
+      "deletions": 69,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 21,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 360,
+          "del": 36
+        },
+        {
+          "path": "docs/research/AA_CH09_MASTER_PLAN.md",
+          "add": 51,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-91.page.js",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-91.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-92.page.js",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-92.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch09.ts",
+          "add": 1220,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/book.ts",
+          "add": 18,
+          "del": 27
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-09.ts",
+          "add": 1759,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "9959a3524c071fd1ddd848b0b8373e233a8b4d3b",
+      "short": "9959a35",
+      "date": "2026-11-24 00:45",
+      "message": "bookkeeping: run 120 push-time reconciliation per FIRST-SHIPPED-STANDS (remote advanced to 876d359 mid-flight — the audit sibling's own shipped ans-ch-06 fire; local redundant audit commits 9f69666 + 6477fe8 discarded, run 120 re-derived as 9057921, the SOURCE_LOG tail conflict resolved remote-side; post-reconciliation gates all green, honest pack 190 lessons / 1,085,039 words)",
+      "filesChanged": 2,
+      "insertions": 3,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "e0040ef9bf1f3fe32d7343f3a61d3a8860bd0af6",
+      "short": "e0040ef",
+      "date": "2026-11-24 00:46",
+      "message": "chore(bookkeeping): RUN 120 push record (fast-forward 876d359..9959a35 after the FIRST-SHIPPED-STANDS reconciliation, anonymous ls-remote verified 9959a35 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 6,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 6,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "570673a01dbe07f8d2d28059dc05eea77bb30fc1",
+      "short": "570673a",
+      "date": "2026-11-24 01:07",
+      "message": "audit: ans-the-laws-of-integer-arithmetic — A:1fig B:4sol C:3enrich",
+      "filesChanged": 7,
+      "insertions": 229,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 17,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch06.ts",
+          "add": 53,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-06.ts",
+          "add": 132,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "5302dd860447e77c5ea65400e345479e20d602ec",
+      "short": "5302dd8",
+      "date": "2026-11-24 02:32",
+      "message": "995f6ad4-b1e9-4a59-a5e6-91030c61e827-cron",
+      "filesChanged": 6,
+      "insertions": 6898,
+      "deletions": 104,
+      "files": [
+        {
+          "path": "docs/project/CS_AUTHORING_POINTER.json",
+          "add": 7,
+          "del": 7
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/RUN_PROTOCOL.md",
+          "add": 9,
+          "del": 7
+        },
+        {
+          "path": "scripts/verify-book4-ch09.ts",
+          "add": 3287,
+          "del": 50
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/book.ts",
+          "add": 18,
+          "del": 19
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-09.ts",
+          "add": 3576,
+          "del": 20
         }
       ]
     }
@@ -78968,28 +79535,28 @@
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 277,
     "booksLive": 269,
-    "chaptersWritten": 42,
-    "chaptersInProgress": 2,
-    "lessonsWritten": 190,
-    "wordsAuthored": 1084937,
-    "termsDefined": 1520,
-    "quizItems": 950,
-    "exerciseQuestions": 2588,
+    "chaptersWritten": 43,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 195,
+    "wordsAuthored": 1129359,
+    "termsDefined": 1564,
+    "quizItems": 975,
+    "exerciseQuestions": 2675,
     "blockTotals": {
-      "para": 2822,
-      "callout": 1289,
-      "heading": 1098,
-      "list": 241,
-      "terms": 202,
-      "equation": 414,
-      "figure": 395,
-      "derivation": 434,
-      "table": 262,
-      "example": 1148,
-      "quiz": 190,
-      "exercises": 190,
-      "formula": 787,
-      "algorithm": 34
+      "para": 2914,
+      "callout": 1332,
+      "heading": 1122,
+      "list": 252,
+      "terms": 208,
+      "equation": 431,
+      "figure": 410,
+      "derivation": 455,
+      "table": 274,
+      "example": 1190,
+      "quiz": 195,
+      "exercises": 195,
+      "formula": 818,
+      "algorithm": 35
     }
   }
 }

@@ -4444,7 +4444,7 @@ export const lesson96: Lesson = {
       'Step V on $\\operatorname{antilog} 0.3296$: characteristic $0$ — one digit left of the point: $2.136$.',
       'Step V on $\\operatorname{antilog} 1.3296$ and $\\operatorname{antilog} 3.3296$: characteristics $1$ and $3$ — two and four digits left of the point: $21.36$ and $2136$ (the engine: $10^{1.3296} = 21.3599386$ and $10^{3.3296} = 2135.9938602$, both rounding onto the route\'s answers).',
       'Step V on $\\operatorname{antilog} \\bar{1}.3296$ and $\\operatorname{antilog} \\bar{3}.3296$: bar $1$ means no digits left of the point and $1 - 1 = 0$ zeros after it — $0.2136$; bar $3$ means $3 - 1 = 2$ zeros after the point — $0.002136$ (the engine: $10^{-0.6704} = 0.2135994$ and $10^{-2.6704} = 0.0021360$).',
-      'Hence the family: $2.136,\\ 21.36,\\ 213.6,\\ 2136,\\ 0.2136,\\ 0.002136$ — one mantissa $0.3296$, five characteristics, the exact mirror of the log-side table above.',
+      'Hence the family: $2.136$, $21.36$, $213.6$, $2136$, $0.2136$, $0.002136$ — one mantissa $0.3296$, five characteristics, the exact mirror of the log-side table above.',
     ] },
     { kind: 'example', title: 'Find the antilog of −2.5983 — the Step-I normalization case', steps: [
       'Step I (normalize): the decimal part $-0.5983$ is negative, so add $1$ to it and subtract $1$ from the integral part: $-2.5983 = -2 - 0.5983 = -3 + 0.4017 = \\bar{3}.4017$ — characteristic $\\bar{3}$, mantissa $0.4017$.',
@@ -4579,7 +4579,7 @@ export const lesson96: Lesson = {
           'Now, antilog $\\bar{1}.3296$: characteristic $\\bar{1}$ — no digits left of the point and $1 - 1 = 0$ zeros after it — gives $0.2136$.',
           'Hence the family: $0.3296 \\to 2.136$; $1.3296 \\to 21.36$; $2.3296 \\to 213.6$; $3.3296 \\to 2136$; $\\bar{1}.3296 \\to 0.2136$; $\\bar{2}.3296 \\to 0.02136$; $\\bar{3}.3296 \\to 0.002136$ — one mantissa, every characteristic.',
           'Check: the engine gives $10^{3.3296} = 2135.9938602$ and $10^{-0.6704} = 0.2135994$ — both land on the route\'s answers at four figures.',
-        ], answer: 'antilog $3.3296 = 2136$ and antilog $\\bar{1}.3296 = 0.2136$ (family: $2.136, 21.36, 213.6, 2136, 0.2136, 0.02136, 0.002136$)', figures: [
+        ], answer: 'antilog $3.3296 = 2136$ and antilog $\\bar{1}.3296 = 0.2136$ — the family: $2.136$, $21.36$, $213.6$, $2136$, $0.2136$, $0.002136$', figures: [
           { caption: 'The five-characteristic fan: the mantissa box $0.3296$ with five amber arrows to the chips $2136$ (char $3$), $213.6$ (char $2$), $2.136$ (char $0$), $0.2136$ (char $\\bar{1}$) and $0.002136$ (char $\\bar{3}$) — the digits $2\\,1\\,3\\,6$ never change; only the point moves.', svg: charFanSvg() },
         ] },
         { q: 'How many digits does $5^{25}$ have? Confirm against the integer itself.', solution: [

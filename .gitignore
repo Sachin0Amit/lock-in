@@ -754,3 +754,14 @@ server.log
 !/scripts/e2e-aa-91.page.js
 !/scripts/e2e-aa-92.sh
 !/scripts/e2e-aa-92.page.js
+# RUN 121 (AA ch.9 whole-chapter close) — the per-lesson E2E pairs
+!/scripts/e2e-aa-93.sh
+!/scripts/e2e-aa-93.page.js
+!/scripts/e2e-aa-94.sh
+!/scripts/e2e-aa-94.page.js
+!/scripts/e2e-aa-95.sh
+!/scripts/e2e-aa-95.page.js
+!/scripts/e2e-aa-96.sh
+!/scripts/e2e-aa-96.page.js
+!/scripts/e2e-aa-9R.sh
+!/scripts/e2e-aa-9R.page.js
