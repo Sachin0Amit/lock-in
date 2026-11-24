@@ -739,6 +739,10 @@ server.log
 !/scripts/e2e-cf-21.page.js
 !/scripts/e2e-cf-22.sh
 !/scripts/e2e-cf-22.page.js
+!/scripts/e2e-cf-23.sh
+!/scripts/e2e-cf-23.page.js
+!/scripts/e2e-cf-2R.sh
+!/scripts/e2e-cf-2R.page.js
 !/scripts/collect_vlm_crops_cf2.sh
 !/scripts/e2e-cf-11.sh
 !/scripts/e2e-cf-11.page.js

@@ -8,12 +8,14 @@ import { chapter02 } from './ch-02'
  *
  * STATUS: IN-PROGRESS — chapter 1 COMPLETE (4 written lessons: 1.1 +
  * 1.2 by the CS RUN 1 SWARM, 1.3 + the 1.R unit completion review by
- * the CS RUN 2 SWARM), chapter 2 IN-PROGRESS (2.1 'Input Devices: the
+ * the CS RUN 2 SWARM), chapter 2 COMPLETE (2.1 'Input Devices: the
  * Human Handshake' + 2.2 'Output Devices: Screens, Printers and Sound'
- * by the CS RUN 3 SWARM, 2026-11-23 — 2.3 'Interacting Well: the First
- * Usability Instincts' + the 2.R review ride the next fires), chapters
- * 3–8 planned (the remaining 24 planned lessons), authoring on the
- * one-chapter-at-a-time cadence (CS RUN 4 delivers 2.3). Lesson ids
+ * by the CS RUN 3 SWARM, 2026-11-23; 2.3 'Interacting Well: the First
+ * Usability Instincts' + the 2.R 'Unit 2 Completion Review' by the CS
+ * RUN 4 SWARM, 2026-11-24 — the whole-chapter cadence, the chapter
+ * closed COMPLETE in one fire), chapters 3–8 planned (the remaining 24
+ * planned lessons), authoring on the whole-chapter cadence (CS RUN 5
+ * opens chapter 3 'Data Representation: a First Meeting'). Lesson ids
  * use the `cf-` prefix (verified unused across all existing lesson ids
  * at the planning pass; globally unique, stable forever).
  *

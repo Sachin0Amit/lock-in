@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-24 09:24:07 (Asia/Kolkata)",
+  "generated": "2026-11-24 16:29:24 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -17231,7 +17231,7 @@
         "description": "The zero-rung entry to the Computer Science shelf (its Foundation Mathematics). The information processing cycle priced on real machines; a census of hardware from desktops to embedded chips; interacting with computers — input and output devices and the first usability instincts; data representation as a first meeting (bits, codes, text/image/sound) that hands its theory to Arithmetic and Number Systems and Digital Logic Design; inside the box — motherboard, processor named honestly, the first memory hierarchy; the software families and the manager layer that Operating Systems will theorize; the network idea that Computer Networks takes over; files and digital space; and the synthesis with user-level security. Cross-references every core CS book as its doorstep; no prior knowledge assumed.",
         "status": "in-progress",
         "chaptersPlanned": 8,
-        "chaptersWritten": 1,
+        "chaptersWritten": 2,
         "chapters": [
           {
             "number": 1,
@@ -17512,11 +17512,9 @@
             "slug": "interacting-with-your-computer",
             "title": "Interacting with Your Computer",
             "summary": "The human side of the machine: input devices (keyboards, pointing devices, scanners, cameras, microphones) and output devices (monitors and their panels, printers, speakers) with how each actually works, plus the first usability instincts — the chapter hands off to Human-Computer Interaction later on the shelf.",
-            "status": "in-progress",
-            "lessonsWritten": 2,
-            "plannedLessons": [
-              "Interacting Well: the First Usability Instincts"
-            ],
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "cf-input-devices-the-human-handshake",
@@ -17652,9 +17650,137 @@
                 },
                 "exerciseQuestions": 15,
                 "termsDefined": 19
+              },
+              {
+                "id": "cf-interacting-well-the-first-usability-instincts",
+                "number": "2.3",
+                "title": "Interacting Well: the First Usability Instincts",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 10250,
+                "readMins": 51,
+                "concepts": [
+                  "usability: the quality question of the human–machine conversation",
+                  "the GUI lineage: Memex, Sketchpad, the Mother of All Demos, Alto, Star, Lisa, Macintosh, Windows",
+                  "WIMP: windows, icons, menus and the pointer",
+                  "Fitts’s law: bigger and closer is faster, priced in bits",
+                  "the design instincts: visibility, feedback, mapping, affordance, consistency",
+                  "accessibility: the widest door and the WCAG chain",
+                  "the 20-20-20 rule and the ergonomics of screen time",
+                  "the doorstep: Human-Computer Interaction"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can define usability and judge any machine against the four instinct-census axes: learnability, efficiency, error-tolerance and satisfaction.",
+                  "By the end of this lesson you can recite the GUI lineage from Bush’s Memex to Windows 1.0 with its pinned dates and prices, and say which instinct each witness taught.",
+                  "By the end of this lesson you can price a target in bits with Fitts’s index of difficulty, prove the one-bit law, and apply it to real button sizes and distances.",
+                  "By the end of this lesson you can test any interface against Norman’s design instincts and Nielsen’s heuristics, and name the failure when a machine fights its human.",
+                  "By the end of this lesson you can open the widest door — the WCAG chain and its dated links — and keep your own body part of the interface with the 20-20-20 rule."
+                ],
+                "prerequisites": [
+                  "cf-input-devices-the-human-handshake",
+                  "cf-output-devices-screens-printers-and-sound"
+                ],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "para": 32,
+                  "heading": 10,
+                  "callout": 7,
+                  "list": 4,
+                  "example": 8,
+                  "terms": 6,
+                  "table": 4,
+                  "figure": 3,
+                  "derivation": 1,
+                  "equation": 1,
+                  "formula": 1,
+                  "exercises": 1,
+                  "quiz": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 2,
+                  "historical": 1,
+                  "theorem": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 4,
+                  "L3": 4,
+                  "L4": 3
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 31
+              },
+              {
+                "id": "cf-unit-2-completion-review",
+                "number": "2.R",
+                "title": "Unit 2 Completion Review",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8731,
+                "readMins": 44,
+                "concepts": [
+                  "the chapter in one map: the interaction loop and its quality instincts",
+                  "input devices recap: the human handshake and its number streams",
+                  "output devices recap: screens, printers and sound, by their censuses",
+                  "usability recap: the GUI lineage, Fitts’s law and the design instincts",
+                  "the price ladder and the one-bit law, recomputed",
+                  "the chapter’s formula and vocabulary harvest",
+                  "the forward door: data representation as a first meeting"
+                ],
+                "objectives": [
+                  "by the end you can redraw the chapter’s one map — the human, the six input acts, the machine, the three output families and the quality band — from memory",
+                  "by the end you can restate the chapter’s engine-pinned censuses cold: the pixel counts, the ×4 law, the CD bitrate, the Fitts indexes and the price ladder",
+                  "by the end you can classify any device you meet by the boundary question — which physical act it converts, and into what number stream or human sense",
+                  "by the end you can price a usability claim with arithmetic — a Fitts index, a price ratio, a WCAG date — instead of an opinion",
+                  "by the end you can argue the chapter’s essay honestly: why the best interface is the one you stop noticing, and what that thesis costs"
+                ],
+                "prerequisites": [
+                  "cf-input-devices-the-human-handshake",
+                  "cf-output-devices-screens-printers-and-sound",
+                  "cf-interacting-well-the-first-usability-instincts"
+                ],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "heading": 8,
+                  "figure": 3,
+                  "callout": 7,
+                  "table": 4,
+                  "example": 9,
+                  "list": 1,
+                  "terms": 1,
+                  "exercises": 1,
+                  "quiz": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 2,
+                  "insight": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 4,
+                  "L3": 4,
+                  "L4": 3
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 12
               }
             ],
-            "words": 18086
+            "words": 37067
           },
           {
             "number": 3,
@@ -52610,13 +52736,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 516,
-      "totalLines": 195398,
+      "totalLines": 197015,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5860,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 156737,
+        "src/data/library (content model + books)": 158354,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -79529,33 +79655,272 @@
           "del": 20
         }
       ]
+    },
+    {
+      "sha": "d484452bc52353f6aa65f250b697cdf845969b8a",
+      "short": "d484452",
+      "date": "2026-11-24 03:54",
+      "message": "run 121 completion (the first WHOLE-CHAPTER fire, owner directive 2026-11-24): AA ch.9 'Exponentials and Logarithms' CLOSED COMPLETE — 9.3 'The Laws of Logarithms and the Change of Base' + 9.4 'Logarithmic and Exponential Equations' + 9.5 'Exponential and Logarithmic Series' + 9.6 'Logarithm Tables: Characteristic, Mantissa and Antilogarithm' + the 9.R 'Unit 9 Completion Review' by the FIVE-AGENT SWARM (engines 919 green pre-prose with fifteen engine-wins over the spec; verify-book4-ch09 1,578/1,578; the folds discharged on 9.3 and 9.6; 8,710+8,634+8,358+9,219+8,627 words; quiz 5/5 live on all five; tsc 0, lint 0 err; pack+check PASS 195 lessons / 1,129,359 words; standing gates 667+4023+1240; E2E x5 x3 viewports ALL GREEN with TWO real mobile-overflow catches fixed — the 305px unbreakable inline KaTeX family lists x2 in 9.6 split into per-member maths; VLM 64-crop audit clean with four claim-pairs rejected on 2x/source evidence) — ground = m1-01 bands printed 1.11-1.26 + H&K ch. XVI/XVII (first download); the interrupted session preserved by the auto-checkpoint 5302dd8, completed by this fire after the recycle wiped temporary-references/ (the five e2e pairs re-derived and whitelisted; the retention law satisfied — chapter complete, nothing left to delete); next: run 122 opens AA ch.10 'The Synthesis and the Doorstep' whole — the book's closing chapter",
+      "filesChanged": 19,
+      "insertions": 1422,
+      "deletions": 75,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 636,
+          "del": 69
+        },
+        {
+          "path": "docs/research/AA_CH09_MASTER_PLAN.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-93.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-93.sh",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-94.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-94.sh",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-95.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-95.sh",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-96.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-96.sh",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-9R.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-9R.sh",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-09.ts",
+          "add": 2,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "54bba848842bcaffb64d075e3d7d41cdcf83d31f",
+      "short": "54bba84",
+      "date": "2026-11-24 03:55",
+      "message": "chore(bookkeeping): RUN 121 push record (fast-forward 570673a..d484452 — the checkpoint + the completion, anonymous ls-remote verified d484452 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 6,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 6,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "a900cc082e688c1512e4c2b86f8ba577afdb5851",
+      "short": "a900cc0",
+      "date": "2026-11-24 06:07",
+      "message": "run 122 (the maths lane, whole-chapter cadence): AA ch.10 'The Synthesis and the Doorstep' NOT closed — the platform's subagent-deadline wall hit across three launch rounds; the run ended clean per the time budget with the swarm's landed work PRESERVED — aa103 DELIVERED (203/203 green, 6,030 words), aa104 DELIVERED (213/213 green, 7,264 words), aa101 engines 110/110 green with the prose incomplete at the kill (4,663 words, no exercises block yet), 10.2 + the 10.R prose unstarted — pin_check_122.py 117/117 green first (8 engine-wins over the spec drafts), the master plan banked, zero ch.10-hosted folds, the honest registry census 62 written (the book closes at 67); preservation: docs/research/aa-ch10-wip/ (README status + resume path, 5 specs, the pin checker, 7 .ts.txt records — recycle-proof per the run-121 lesson); RESUME_POINTER -> run 123 completes ch.10 from the preserved copies and ships the book COMPLETE; no book files touched (records-only ship)",
+      "filesChanged": 18,
+      "insertions": 4643,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 17,
+          "del": 0
+        },
+        {
+          "path": "docs/research/AA_CH10_MASTER_PLAN.md",
+          "add": 97,
+          "del": 0
+        },
+        {
+          "path": "docs/research/aa-ch10-wip/README.md",
+          "add": 51,
+          "del": 0
+        },
+        {
+          "path": "docs/research/aa-ch10-wip/part-aa101.ts.txt",
+          "add": 538,
+          "del": 0
+        },
+        {
+          "path": "docs/research/aa-ch10-wip/part-aa103.ts.txt",
+          "add": 583,
+          "del": 0
+        },
+        {
+          "path": "docs/research/aa-ch10-wip/part-aa104.ts.txt",
+          "add": 475,
+          "del": 0
+        },
+        {
+          "path": "docs/research/aa-ch10-wip/pin_check_122.py",
+          "add": 208,
+          "del": 0
+        },
+        {
+          "path": "docs/research/aa-ch10-wip/spec-aa101.md",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "docs/research/aa-ch10-wip/spec-aa102.md",
+          "add": 77,
+          "del": 0
+        },
+        {
+          "path": "docs/research/aa-ch10-wip/spec-aa103.md",
+          "add": 89,
+          "del": 0
+        },
+        {
+          "path": "docs/research/aa-ch10-wip/spec-aa104.md",
+          "add": 79,
+          "del": 0
+        },
+        {
+          "path": "docs/research/aa-ch10-wip/spec-aa10R.md",
+          "add": 88,
+          "del": 0
+        },
+        {
+          "path": "docs/research/aa-ch10-wip/v-aa101.ts.txt",
+          "add": 495,
+          "del": 0
+        },
+        {
+          "path": "docs/research/aa-ch10-wip/v-aa103.ts.txt",
+          "add": 630,
+          "del": 0
+        },
+        {
+          "path": "docs/research/aa-ch10-wip/v-aa104.ts.txt",
+          "add": 480,
+          "del": 0
+        },
+        {
+          "path": "docs/research/aa-ch10-wip/v-aa10R.ts.txt",
+          "add": 633,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "ec7fb74246c701b9275cf48eaf63a4fa13f38f61",
+      "short": "ec7fb74",
+      "date": "2026-11-24 06:08",
+      "message": "chore(bookkeeping): RUN 122 push record (fast-forward 54bba848..a900cc0, anonymous ls-remote verified a900cc0 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 6,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 6,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 277,
     "booksLive": 269,
-    "chaptersWritten": 43,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 195,
-    "wordsAuthored": 1129359,
-    "termsDefined": 1564,
-    "quizItems": 975,
-    "exerciseQuestions": 2675,
+    "chaptersWritten": 44,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 197,
+    "wordsAuthored": 1148340,
+    "termsDefined": 1607,
+    "quizItems": 985,
+    "exerciseQuestions": 2705,
     "blockTotals": {
-      "para": 2914,
-      "callout": 1332,
-      "heading": 1122,
-      "list": 252,
-      "terms": 208,
-      "equation": 431,
-      "figure": 410,
-      "derivation": 455,
-      "table": 274,
-      "example": 1190,
-      "quiz": 195,
-      "exercises": 195,
-      "formula": 818,
+      "para": 2961,
+      "callout": 1346,
+      "heading": 1140,
+      "list": 257,
+      "terms": 215,
+      "equation": 432,
+      "figure": 416,
+      "derivation": 456,
+      "table": 282,
+      "example": 1207,
+      "quiz": 197,
+      "exercises": 197,
+      "formula": 819,
       "algorithm": 35
     }
   }
