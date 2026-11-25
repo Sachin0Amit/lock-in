@@ -40,6 +40,7 @@
     "node_modules",
     "skills",
     "mini-services",
-    "docs/research/cf-ch03-wip"
+    "docs/research/cf-ch03-wip",
+    "docs/research/cf-ch04-wip"
   ]
 }

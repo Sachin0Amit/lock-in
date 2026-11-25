@@ -2,6 +2,7 @@ import type { Book, Chapter } from '../../../types'
 import { chapter01 } from './ch-01'
 import { chapter02 } from './ch-02'
 import { chapter3 } from './ch-03'
+import { chapter4 } from './ch-04'
 
 /**
  * Computer Fundamentals — the first book of the Computer Science shelf
@@ -16,29 +17,20 @@ import { chapter3 } from './ch-03'
  * by the CS RUN 4 SWARM, 2026-11-24 — the whole-chapter cadence, the
  * chapter closed COMPLETE in one fire), chapter 3 COMPLETE (3.2 +
  * 3.6 + 3.7 by the CS RUN 5 SWARM, 3.1 + 3.3 + 3.4 + 3.5 + 3.8 + the
- * 3.R review by the CS RUN 6 SWARM, 2026-11-25 — the chapter opened
- * and closed across two fires under the time-budget law, engines
- * green before prose in every seat), chapters 4–8 planned (the
- * remaining 19 planned lessons). */
+ * 3.R review by the CS RUN 6 SWARM, 2026-11-25 — engines green before
+ * prose in every seat), chapter 4 OPENED IN-PROGRESS (CS RUN 7,
+ * 2026-11-25: 4.3 'The First Memory Hierarchy' + 4.4 'Buses and
+ * Ports: How the Pieces Talk' + the 4.R review shipped whole by the
+ * swarm under the time-budget law; 4.1 'The Motherboard: the City
+ * Plan' and 4.2 'The Processor Named Honestly' deferred to CS RUN 8
+ * with their wip preserved TRACKED in docs/research/cf-ch04-wip/),
+ * chapters 5–8 planned (the remaining 15 planned lessons + the two
+ * deferred ch.4 titles). */
 const chapters: Chapter[] = [
   chapter01,
   chapter02,
   chapter3,
-  {
-    number: 4,
-    slug: 'inside-the-box',
-    title: 'Inside the Box',
-    summary:
-      'The motherboard as a city plan, the processor named honestly (cores, clock, cache — the vocabulary without the architecture theory), the first memory hierarchy (RAM, ROM, the storage ladder from registers to the cloud), and how the pieces talk: buses and ports at the first-meeting level; Computer Organization and Architecture takes the theory door.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'The Motherboard: the City Plan',
-      'The Processor Named Honestly',
-      'The First Memory Hierarchy',
-      'Buses and Ports: How the Pieces Talk',
-    ],
-  },
+  chapter4,
   {
     number: 5,
     slug: 'software-families',

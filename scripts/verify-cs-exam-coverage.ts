@@ -1273,7 +1273,7 @@ console.log('== III. census integrity ==')
   const totPl = cs.reduce((n, b) => n + b.chapters.reduce((m, c) => m + (c.plannedLessons?.length ?? 0) + c.lessons.length, 0), 0)
   ok(cs.length === 44, `44 CS books (got ${cs.length})`)
   ok(totCh === 364, `CS shelf census 364 chapters (got ${totCh})`)
-  ok(totPl === 1225, `CS shelf census 1,225 lessons (got ${totPl})`) // 1218->1222 2026-11-17 reorg; +1 the cf ch.1 1.R unit review (CS RUN 2, 2026-11-21); +1 the ch.2 2.R review (CS RUN 4, 2026-11-24 — this gate's pin was one behind the shelf-planning gate until CS RUN 5 caught it)
+  ok(totPl === 1226, `CS shelf census 1,225 lessons (got ${totPl})`) // 1218->1222 2026-11-17 reorg; +1 the cf ch.1 1.R unit review (CS RUN 2, 2026-11-21); +1 the ch.2 2.R review (CS RUN 4, 2026-11-24 — this gate's pin was one behind the shelf-planning gate until CS RUN 5 caught it)
   const ledger = readFileSync('docs/research/CS_EXAM_TOPIC_LEDGER.md', 'utf8')
   ok(ledger.includes('251'), 'the durable ledger records the 251-topic census')
   for (const id of ['gate2026.iitg.ac.in', 'ugcnetonline.in', 'ioinformatics.org', 'cuet.nta.nic.in', 'cambridgeinternational.org', 'apcentral.collegeboard.org', 'ibo.org']) {

@@ -810,3 +810,7 @@ server.log
 !/scripts/e2e-cf-3R.page.js
 !/scripts/assemble_cs6.py
 !/scripts/gen-cs6-e2e.py
+
+# CS RUN 7 — the ch.4 assembler + verifier (the established whitelist pattern)
+!/scripts/assemble_cs7.py
+!/scripts/verify-cs-book2-ch04.ts
