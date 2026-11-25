@@ -4,8 +4,8 @@ import { chapter1 } from './ch-01'
 /**
  * Geometry — the fifth book of the Mathematics shelf.
  *
- * STATUS: IN-PROGRESS (run 124, 2026-11-25 — chapter 1 opened whole:
- * 1.1 + 1.2 shipped by the authoring swarm, 1.3 + 1.4 ride run 125).
+ * STATUS: IN-PROGRESS (run 125, 2026-11-25 — chapter 1 CLOSED COMPLETE:
+ * all four lessons shipped by the authoring swarm; ch.2 rides next).
  * Planning pass 2026-11-10: 12 chapters / 50 planned lessons. The research phase for this book was
  * web-audit based (the Drive's mathematics collection is JEE-centric: its
  * geometry lives inside the M3 Coordinate Geometry module and Khattar's

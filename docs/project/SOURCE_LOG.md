@@ -3281,3 +3281,6 @@ No book scans; no working copies; this entry is the citation record. STUDY-NEVER
 ### 2026-11-25 (CS RUN 6) — the chapter-3 close consumed the banked ground; no new sources
 
 CS RUN 6 authored the six remaining chapter-3 seats entirely from the CS RUN 5 bank: the nine seat specs + SPEC_CORE, the 112/112 pre-flight pin checker and the web-verified `cs-cf-web-ground` citation key (every date/number pinned there — see the run-5 entry below for the full URL list). No new downloads, no new citations, no Drive reads this fire. The wip directory docs/research/cf-ch03-wip/ now carries the nine shipped parts + nine green engines as the tracked provenance record of the two-fire chapter.
+
+## 2026-11-25 — run 125 (geometry ch.1 close): no new sources
+The run consumed the banked run-124 web-verified ground (Euclid/Hilbert/Fano/de Bruijn–Erdős census pins in docs/research/geo-ch01-wip/pin_check_geo124.py + GEO_CH01_MASTER_PLAN.md); no new downloads or URLs. All URLs remain banked under the geo-* keys below.

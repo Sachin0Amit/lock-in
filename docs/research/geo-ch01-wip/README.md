@@ -1,9 +1,9 @@
 # geo-ch01-wip — RUN 124 preservation (GEOMETRY ch.1, opened 2026-11-25)
 
-STATUS: chapter 1 SHIPPED IN-PROGRESS — lessons 1.1 + 1.2 delivered whole,
-gated, pushed. Lessons 1.3 + 1.4 DEFERRED to run 125 (three agent rounds
-died empty against the platform wall; the protocol's time-budget law ended
-the run with the completed lessons shipped, never thinned).
+STATUS: chapter 1 CLOSED COMPLETE by run 125 — all four lessons delivered
+whole, gated, pushed (1.3 + 1.4 by the run-125 two-round swarm at 109/109
+and 101/101 green; the chapter-wide VLM figure sweep landed with fixes in
+all four lessons). This directory is now the tracked provenance record.
 
 ## What ships (already in ch-01.ts + verify-book5-ch01.ts)
 - lesson 1.1 geo-the-undefined-words-and-the-defined-ones — v-geo101 100/100, 7,532 words, quiz key [0,1,2,3,2], 3 body + 3 solution figures

@@ -14066,23 +14066,43 @@
         "description": "The book where mathematics becomes proof. Foundation Mathematics banked the shapes and their measures; this book rebuilds geometry the way Euclid did — undefined words, postulates, and theorems earned one argument at a time. Congruence and the triangle criteria, similarity and a Pythagoras that is finally proved, the parallelogram family, the circle theorems olympiad problems run on, the ruler-and-compass discipline the rationalized syllabus dropped, Heron’s formula and the solids — every formula either proved or honestly flagged. The book closes on the ideas that broke and rebuilt the subject: equivalents of the parallel postulate, Hilbert’s rigour repair, and the non-Euclidean geometries born from denying Euclid’s fifth. Cross-references Foundation Mathematics throughout; hands off to Coordinate Geometry, Trigonometry and the olympiad ladder.",
         "status": "in-progress",
         "chaptersPlanned": 12,
-        "chaptersWritten": 0,
+        "chaptersWritten": 1,
         "chapters": [
           {
             "number": 1,
             "slug": "points-lines-and-planes",
             "title": "Points, Lines and Planes: the Axiomatic Idea",
             "summary": "Geometry restarts from zero — not from shapes but from RULES. The undefined words (point, line, plane), the definitions that ride on them, and Euclid’s five postulates as the rules of the game. The reader meets the axiomatic method itself: a statement is believed only when proved, and everything before the first proof is either an agreement or a promise. Foundation Mathematics 8’s shape vocabulary is recalled as the intuition this structure formalises.",
-            "status": "planned",
-            "lessonsWritten": 0,
-            "plannedLessons": [
-              "The Undefined Words and the Defined Ones",
-              "Euclid’s Five Postulates: the Rules of the Game",
-              "Axioms, Theorems and the Shape of a Proof",
-              "Incidence: how Points, Lines and Planes Interlock"
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "number": "1.1",
+                "title": "The Undefined Words and the Defined Ones",
+                "id": "geo-the-undefined-words-and-the-defined-ones",
+                "words": 7532
+              },
+              {
+                "number": "1.2",
+                "title": "Euclid’s Five Postulates: the Rules of the Game",
+                "id": "geo-euclids-five-postulates-the-rules-of-the-game",
+                "words": 8524
+              },
+              {
+                "number": "1.3",
+                "title": "Axioms, Theorems and the Shape of a Proof",
+                "id": "geo-axioms-theorems-and-the-shape-of-a-proof",
+                "words": 10047
+              },
+              {
+                "number": "1.4",
+                "title": "Incidence: how Points, Lines and Planes Interlock",
+                "id": "geo-incidence-how-points-lines-and-planes-interlock",
+                "words": 9688
+              }
             ],
-            "lessons": [],
-            "words": 0
+            "words": 35791
           },
           {
             "number": 2,
@@ -18131,55 +18151,55 @@
             "lessonsWritten": 9,
             "plannedLessons": [],
             "lessons": [
-                {
+              {
                 "number": "3.1",
                 "title": "Bits: Why Two Symbols Carry Everything",
                 "id": "cf-bits-why-two-symbols-carry-everything",
                 "words": 9813
               },
-                {
+              {
                 "number": "3.2",
                 "title": "The Numbering Systems: Binary, Octal, Hexadecimal",
                 "id": "cf-the-numbering-systems-binary-octal-hexadecimal",
                 "words": 9389
               },
-                {
+              {
                 "number": "3.3",
                 "title": "Codes: ASCII, Unicode and BCD",
                 "id": "cf-codes-ascii-unicode-and-bcd",
                 "words": 11992
               },
-                {
+              {
                 "number": "3.4",
                 "title": "Text, Images and Sound as Bits",
                 "id": "cf-text-images-and-sound-as-bits",
                 "words": 9397
               },
-                {
+              {
                 "number": "3.5",
                 "title": "Compression: Lossless and Lossy",
                 "id": "cf-compression-lossless-and-lossy",
                 "words": 9166
               },
-                {
+              {
                 "number": "3.6",
                 "title": "Decimal to Binary Conversion",
                 "id": "cf-decimal-to-binary-conversion",
                 "words": 9502
               },
-                {
+              {
                 "number": "3.7",
                 "title": "Binary to Decimal Conversion",
                 "id": "cf-binary-to-decimal-conversion",
                 "words": 9777
               },
-                {
+              {
                 "number": "3.8",
                 "title": "Decimal and Binary Number System",
                 "id": "cf-decimal-and-binary-number-system",
                 "words": 8162
               },
-                {
+              {
                 "number": "3.R",
                 "title": "Unit 3 Completion Review",
                 "id": "cf-unit-3-completion-review",

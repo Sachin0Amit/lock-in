@@ -1,0 +1,983 @@
+import type { Lesson } from '../src/data/library/types'
+
+/* ------------------------------------------------------------------ */
+/* vivid palette + font (BOOK_FORMAT vivid table — warm hues only)     */
+/* ------------------------------------------------------------------ */
+const C = {
+  ink: '#166534', // primary text — rich green ink
+  mid: '#65a30d', // mid text — bright lime
+  teal: '#0d9488', // captions, light strokes, secondary structure
+  tealInk: '#0f766e', // teal ink text
+  amber: '#d97706', // connectors, ticks, operand text
+  orange: '#ea580c', // accent — arrows, highlights, key values
+  red: '#dc2626', // refusal / negative verdict
+  green: '#16a34a', // structure strokes — boxes, axes, node circles
+  panel: '#fef3c7', // amber tinted fill
+  panel2: '#ffedd5', // orange tinted fill
+  sep: '#fcd34d', // light separators
+  faint: '#5eead4', // faint dots, unpicked borders
+  white: '#ffffff',
+  paper: '#fffdf5',
+}
+const FONT = "'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+
+/* ------------------------------------------------------------------ */
+/* geo13 SVG helpers (plain text only — no $, minus is U+2212)         */
+/* ------------------------------------------------------------------ */
+const geo13Txt = (
+  x: number, y: number, s: string,
+  size = 13, color = C.ink, anchor = 'middle', weight = '600',
+): string =>
+  `<text x="${x}" y="${y}" font-family="${FONT}" font-size="${size}" fill="${color}" text-anchor="${anchor}" font-weight="${weight}">${s}</text>`
+
+const geo13Line = (
+  x1: number, y1: number, x2: number, y2: number,
+  color = C.ink, w = 2.5, dash = '',
+): string =>
+  `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="${w}" stroke-linecap="round"${dash ? ` stroke-dasharray="${dash}"` : ''}/>`
+
+const geo13Circ = (
+  cx: number, cy: number, r: number, color = C.ink, w = 2.5, fill = 'none',
+): string =>
+  `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${fill}" stroke="${color}" stroke-width="${w}"/>`
+
+const geo13Dot = (x: number, y: number, color = C.ink, r = 4): string =>
+  `<circle cx="${x}" cy="${y}" r="${r}" fill="${color}"/>`
+
+const geo13Rect = (
+  x: number, y: number, w: number, h: number,
+  fill: string, stroke: string, rx = 9,
+): string =>
+  `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`
+
+const geo13Head = (x: number, y: number, deg: number, color: string, s = 9): string => {
+  const a = (deg * Math.PI) / 180
+  const u = [Math.cos(a), Math.sin(a)]
+  const v = [-u[1], u[0]]
+  const p1 = [x - u[0] * s + v[0] * s * 0.6, y - u[1] * s + v[1] * s * 0.6]
+  const p2 = [x - u[0] * s - v[0] * s * 0.6, y - u[1] * s - v[1] * s * 0.6]
+  return `<polygon points="${x},${y} ${p1[0].toFixed(1)},${p1[1].toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}" fill="${color}"/>`
+}
+
+const geo13Arrow = (
+  x1: number, y1: number, x2: number, y2: number, color = C.amber, w = 2,
+): string => {
+  const a = (Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI
+  return (
+    geo13Line(x1, y1, x2, y2, color, w) + geo13Head(x2, y2, a, color, 8)
+  )
+}
+
+const geo13Svg = (w: number, h: number, label: string, body: string | string[]): string =>
+  `<svg viewBox="0 0 ${w} ${h}" width="100%" role="img" aria-label="${label}" xmlns="http://www.w3.org/2000/svg">${Array.isArray(body) ? body.join('') : body}</svg>`
+
+/* ================================================================== */
+/* LESSON 1.3 — Axioms, Theorems and the Shape of a Proof              */
+/* ================================================================== */
+export const lessonGeo103: Lesson = {
+  id: 'geo-axioms-theorems-and-the-shape-of-a-proof',
+  number: '1.3',
+  title: 'Axioms, Theorems and the Shape of a Proof',
+  concepts: [
+    'axiom',
+    'theorem',
+    'conditional statement',
+    'contrapositive',
+    'proof by contradiction',
+    'counterexample',
+    'model',
+    'quantifier',
+  ],
+  objectives: [
+    'Classify any statement as definition, axiom, conjecture, theorem, lemma or corollary, and say who vouches for it',
+    'Build the truth table of a conditional and write its converse, inverse and contrapositive without mixing them up',
+    'Explain vacuous truth and spot the single row (P true, Q false) that falsifies a conditional',
+    'Recognise the four proof shapes — direct, contrapositive, contradiction, counterexample — and choose the right one for a given claim',
+    'Read quantifier order correctly and test statements like “for every point there exists a line” on a concrete model',
+    'Explain what a model is, and how a model proves consistency — or proves that a statement is independent of the axioms',
+  ],
+  prerequisites: ['geo-the-undefined-words-and-the-defined-ones', 'geo-euclids-five-postulates-the-rules-of-the-game'],
+  sources: ['geo-euclid-elements', 'geo-hilbert-grundlagen'],
+  blocks: [
+    /* -------------------------------------------------------------- */
+    /* 1. opening motivation                                          */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'From rules to results' },
+    {
+      kind: 'para',
+      text: 'Lesson 1.2 handed us the rulebook: five postulates that license constructions and assumptions, five common notions that govern equality, twenty-three definitions that fix the vocabulary. A game, however, is not its rules — a game is what happens when you PLAY. This lesson is about playing: about how the rulebook grinds out results, one licensed step at a time, until statements like “the base angles of an isosceles triangle are equal” stop being opinions and become inescapable. The engine of that grinding is the PROOF, and this lesson is a tour of what proofs are made of.',
+    },
+    {
+      kind: 'para',
+      text: 'The axiomatic method makes one promise, and it is a severe one: a statement is believed only when it is PROVED. Everything before the first proof is an agreement or a promise — vocabulary (definitions), permissions (postulates), counting rules (common notions). After the first proof, each new theorem becomes part of the machinery that the next proof may use. Mathematics is the only subject built this way from the ground up, and Euclid’s Elements is the oldest surviving book built this way end to end: Book I starts from its thirty-three opening statements and earns all forty-eight of its propositions. Nothing in between is “widely accepted” or “almost certain”; it is either proved, or it is not yet part of the theory.',
+    },
+    {
+      kind: 'para',
+      text: 'So what separates a proof from a vibe? Three things, and we shall meet each one properly in this lesson. First, a proof starts from statements whose status is explicit — assumed, defined, or already proved — and never from silent intuition. Second, a proof is a CHAIN: each link is a licensed move (a postulate, a common notion, an earlier proposition) applied to the previous links, so the whole chain is as trustworthy as its weakest licence. Third, a proof has a SHAPE: four great shapes — direct, contrapositive, contradiction and counterexample — cover almost every argument you will ever meet, and learning to name the shape of an argument is a genuine exam skill. Along the way we shall also need the grammar that conditionals are written in: the truth table, the converse trap, vacuous truth, and the order of the quantifiers “for all” and “there exists”.',
+    },
+    {
+      kind: 'para',
+      text: 'One honest warning before we start. This lesson contains almost no computation — you cannot “check” a proof by plugging in numbers the way you check a quadratic. What you can do is AUDIT: name the status of every statement used, name the licence behind every step, and name the shape of the whole. That is exactly the skill the exercises and the quiz train. By the end, the phrase “Q.E.D.” will mean something precise to you, and — more importantly — the difference between a theorem, a conjecture and a guess will be impossible to blur.',
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 2. the statement family                                        */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'The statement family: who vouches for what' },
+    {
+      kind: 'para',
+      text: 'Every sentence in a mathematical theory has a STATUS, and the status is the answer to one question: WHO VOUCHES FOR THIS? Not “is it true?” — truth is not a label you can read off a sentence; it is earned or assumed or still open. The family has six members, and learning to classify a statement into the right member is the first half of this lesson. Here is the whole family at a glance, each with our own worked example from the two lessons you have already read:',
+    },
+    {
+      kind: 'table',
+      caption: 'The six statement families — the status of every sentence in a theory',
+      head: ['Family', 'Who vouches for it', 'Our example from Lessons 1.1–1.2'],
+      rows: [
+        ['Definition', 'an agreement — a naming, nothing to prove', '“A point is that which has no part” (Book I, Definition 1)'],
+        ['Axiom / postulate', 'assumed — the price of admission', 'P2: a finite straight line may be extended continuously'],
+        ['Conjecture', 'believed, unproved — an honest open label', 'Goldbach’s: every even number beyond 2 is a sum of two primes'],
+        ['Theorem', 'proved — earned from the axioms', 'vertical angles are equal (Elements I.15)'],
+        ['Lemma', 'proved — a stepping-stone on the way to a theorem', 'angles on one line sum to two right angles (I.13, feeding I.15)'],
+        ['Corollary', 'proved — a one-step consequence of a theorem', 'two distinct lines meet in at most one point'],
+      ],
+    },
+    {
+      kind: 'callout',
+      tone: 'definition',
+      title: 'Definition, axiom, conjecture, theorem, lemma, corollary',
+      text: 'A definition is a naming agreement: it introduces a word or phrase and assigns it meaning; it can never be “proved” or “disproved”, only useful or useless. An axiom (Euclid says postulate for the geometry-specific ones and common notion for the general ones) is a statement ASSUMED without proof — the foundation. A conjecture is a statement believed true on good evidence but not yet proved; until a proof arrives, it carries no authority. A theorem is a statement proved from the axioms. A lemma is a theorem whose job is to serve as a stepping stone toward a bigger result. A corollary is a statement that follows from a theorem already proved in one short step.',
+    },
+    {
+      kind: 'para',
+      text: 'Two of the six families deserve a second look because they are the two students most often blur. The AXIOM is not “a statement that seems obviously true” — it is a statement the theory has CHOSEN to assume, and the choice is a creative act. Euclid chose to assume P2 (extendability) rather than “a line has no last point”; the two are logically intertwined, as our contradiction proof below will show, but one of them is the licence and the other is a consequence. Choosing small, strong, independent axioms is the whole art of the foundations — Hilbert’s 1899 Grundlagen der Geometrie re-proved Euclid’s plane from a cleaner axiom list precisely to show the choice could be made better. The CONJECTURE, meanwhile, is mathematics at its most honest: a hypothesis with evidence but no proof. Goldbach’s conjecture has been verified numerically for enormous ranges of even numbers — and remains a conjecture, because a finite verification is not a proof. Numerical checks suggest; only a proof disposes.',
+    },
+    {
+      kind: 'para',
+      text: 'The three PROVED families differ only in their job, not in their authority. A lemma has exactly the same certainty as a theorem — it was proved the same way — but the author labels it a lemma to signal organisation: “this is scaffolding for the main result”. A corollary is likewise fully proved; its label advertises that it costs almost nothing once the parent theorem is in hand. Our corollary example is worth proving properly, because it is the first proof shape we shall own in this lesson: from “two distinct points lie on exactly one line”, it follows at once that two distinct lines meet in AT MOST one point — for if two distinct lines shared two points, those two points would lie on two distinct lines, contradicting the axiom. One step, done. That is the corollary shape.',
+    },
+    {
+      kind: 'figure',
+      caption: 'The statement-family map. Six families, six vouchers: definitions are agreed, axioms are assumed, conjectures are believed-but-open, and theorem, lemma and corollary are all proved — differing only in their job. The arrows on the right show how a proof promotes a statement: a proved conjecture becomes a theorem.',
+      svg: geo13Svg(900, 272, 'The statement-family map: six labelled boxes in two rows with the voucher for each family, and promotion arrows from conjecture to theorem.', [
+        geo13Txt(450, 22, 'WHO VOUCHES FOR IT?', 13, C.ink, 'middle', '700'),
+        // row 1
+        geo13Rect(14, 40, 282, 88, C.panel, C.green),
+        geo13Txt(155, 66, 'definition', 14, C.ink, 'middle', '700'),
+        geo13Txt(155, 88, 'an agreement', 12.5, C.amber),
+        geo13Txt(155, 110, 'naming only — nothing to prove', 11.5, C.tealInk),
+        geo13Rect(309, 40, 282, 88, C.panel, C.green),
+        geo13Txt(450, 66, 'axiom / postulate', 14, C.ink, 'middle', '700'),
+        geo13Txt(450, 88, 'assumed', 12.5, C.amber),
+        geo13Txt(450, 110, 'the price of admission', 11.5, C.tealInk),
+        geo13Rect(604, 40, 282, 88, C.panel2, C.amber),
+        geo13Txt(745, 66, 'conjecture', 14, C.orange, 'middle', '700'),
+        geo13Txt(745, 88, 'believed, unproved', 12.5, C.amber),
+        geo13Txt(745, 110, 'an honest open label', 11.5, C.tealInk),
+        // row 2
+        geo13Rect(14, 170, 282, 88, C.panel2, C.green),
+        geo13Txt(155, 196, 'theorem', 14, C.ink, 'middle', '700'),
+        geo13Txt(155, 218, 'proved', 12.5, C.amber),
+        geo13Txt(155, 240, 'earned from the axioms', 11.5, C.tealInk),
+        geo13Rect(309, 170, 282, 88, C.panel2, C.green),
+        geo13Txt(450, 196, 'lemma', 14, C.ink, 'middle', '700'),
+        geo13Txt(450, 218, 'proved', 12.5, C.amber),
+        geo13Txt(450, 240, 'a stepping-stone theorem', 11.5, C.tealInk),
+        geo13Rect(604, 170, 282, 88, C.panel2, C.green),
+        geo13Txt(745, 196, 'corollary', 14, C.ink, 'middle', '700'),
+        geo13Txt(745, 218, 'proved', 12.5, C.amber),
+        geo13Txt(745, 240, 'a one-step consequence', 11.5, C.tealInk),
+        // promotion arrow: conjecture -> theorem (runs in the widened row gap)
+        geo13Arrow(745, 138, 165, 158, C.orange, 2),
+        geo13Txt(452, 180, 'proof promotes a conjecture to a theorem', 11, C.orange),
+      ]),
+    },
+    {
+      kind: 'para',
+      text: 'A useful habit, worth adopting today: whenever you read any mathematical sentence — in this book, in a paper, in an exam question — ask silently “who vouches for this?” before you ask whether it is true. The answer changes what you are allowed to DO with it. You may USE an axiom freely, USE a theorem freely once proved, USE a definition as the meaning of a word — but you may only USE a conjecture if you are willing to build your entire argument on sand. In proofs, provenance is everything.',
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 3. the conditional heart                                       */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'The conditional heart of every theorem' },
+    {
+      kind: 'para',
+      text: 'Nearly every theorem in mathematics wears the same grammatical costume: IF something holds, THEN something else follows. “IF two segments coincide exactly, THEN they are equal in length.” “IF two interior angles on one side of a transversal sum to less than two right angles, THEN the lines meet on that side.” The costume is called a CONDITIONAL statement, written $P \\Rightarrow Q$ and read “$P$ implies $Q$”. The part before the arrow, $P$, is the HYPOTHESIS — what we are allowed to assume. The part after the arrow, $Q$, is the CONCLUSION — what we are then entitled to claim. A theorem is exactly a conditional whose claim has been earned: the hypothesis is the raw material, the proof is the manufacturing process, and the conclusion is the product.',
+    },
+    {
+      kind: 'para',
+      text: 'The arrow has a precise meaning, and it is worth staring at for a moment because it is narrower than everyday speech. $P \\Rightarrow Q$ promises only one thing: it is IMPOSSIBLE for $P$ to hold while $Q$ fails. It says nothing about what happens when $P$ fails; it says nothing about whether $Q$ can hold for other reasons. In symbols the promise unpacks as the equivalence $P \\Rightarrow Q \\equiv \\neg P \\vee Q$ — “either $P$ fails, or $Q$ holds”. This is called the material conditional, and its full behaviour is captured by a table with just four rows: the two possible truth values of $P$ crossed with the two possible truth values of $Q$. Here is the complete table, all four forms of the conditional family at once (we shall meet the three relatives below):',
+    },
+    {
+      kind: 'table',
+      caption: 'The complete truth table — four rows, four statement forms (engine-swept: columns T F T T / T T F T / T T F T / T F T T)',
+      head: ['$P$', '$Q$', '$P \\Rightarrow Q$', 'converse $Q \\Rightarrow P$', 'inverse $\\neg P \\Rightarrow \\neg Q$', 'contrapositive $\\neg Q \\Rightarrow \\neg P$'],
+      rows: [
+        ['T', 'T', 'T', 'T', 'T', 'T'],
+        ['T', 'F', 'F', 'T', 'T', 'F'],
+        ['F', 'T', 'T', 'F', 'F', 'T'],
+        ['F', 'F', 'T', 'T', 'T', 'T'],
+      ],
+    },
+    {
+      kind: 'para',
+      text: 'Three readings of the table, in increasing subtlety. First: $P \\Rightarrow Q$ is false in EXACTLY ONE row — the row where $P$ is true and $Q$ is false (T, F). That single row is the whole personality of the conditional: proving a conditional means ruling out that one row; refuting one means exhibiting a situation where $P$ holds and $Q$ fails. Second: in the last two rows $P$ is FALSE, and the conditional is TRUE in both — regardless of what $Q$ is doing. These are the VACUOUS rows, and they are the most misunderstood cells in all of mathematics; a full callout is devoted to them below. Third: compare the first column of verdicts with the last: the rows for $P \\Rightarrow Q$ and for $\\neg Q \\Rightarrow \\neg P$ are IDENTICAL — T F T T in both. That identity is the contrapositive equivalence, the single most useful move in the geometry proof arsenal, and Euclid uses it constantly.',
+    },
+    {
+      kind: 'callout',
+      tone: 'warn',
+      title: 'Caution — vacuous truth is not a mistake, it is the definition',
+      text: 'When $P$ is false, $P \\Rightarrow Q$ is true — for BOTH values of $Q$. The promise “$P$ holds only when $Q$ holds” is kept vacuously if $P$ never holds at all. Example: “every 90-degree angle in this figure is a right angle” is true even in a figure containing no 90-degree angles. Students resist this (“how can a false statement imply anything?”), but the definition is forced on us: we want “if $P$ then $Q$” to be equivalent to “$P$ never holds without $Q$”, and that reading is satisfied trivially when $P$ is empty. Remember: only the row (T, F) falsifies a conditional.',
+    },
+    {
+      kind: 'para',
+      text: 'Now the relatives — the three other conditionals you can build by flipping or negating. From $P \\Rightarrow Q$ we obtain the CONVERSE $Q \\Rightarrow P$ by swapping the parts, the INVERSE $\\neg P \\Rightarrow \\neg Q$ by negating both parts, and the CONTRAPOSITIVE $\\neg Q \\Rightarrow \\neg P$ by swapping AND negating. The engine sweeps all four rows for all four forms, and the result is a law worth memorising: the converse and the inverse are NOT equivalent to the original — each differs from it in the two rows where exactly one of $P$, $Q$ holds — while the contrapositive IS equivalent to the original, identical on all four rows. A worked instance makes it visceral: take $P$ = “the two segments coincide exactly” and $Q$ = “they are equal in length”. The original (CN4) is true. The converse says “equal in length implies coincidence” — FALSE: two unit segments drawn in different places are equal in length yet do not coincide (our engine’s counterexample instance, realising the row P false, Q true, where the original is vacuously true but the converse fails). The contrapositive says “unequal in length implies no coincidence” — TRUE, provable, and identical in force to CN4 itself.',
+    },
+    {
+      kind: 'figure',
+      caption: 'The conditional square. Original $P ⇒ Q$ and contrapositive $¬Q ⇒ ¬P$ (green, solid) are logically equivalent — identical on all four truth-table rows. Converse $Q ⇒ P$ and inverse $¬P ⇒ ¬Q$ (red, dashed) form the second equivalence class — each is the contrapositive of the other, but NEITHER is equivalent to the original. The two counterexample rows live where exactly one of P, Q is true.',
+      svg: geo13Svg(900, 300, 'The conditional square: four boxes for the original, converse, inverse and contrapositive, with green equivalence arrows between original and contrapositive and between converse and inverse, and red dashed not-equivalent links across.', [
+        geo13Txt(450, 24, 'ONE CONDITIONAL, THREE RELATIVES — TWO EQUIVALENCE CLASSES', 13, C.ink, 'middle', '700'),
+        // original (top-left, green)
+        geo13Rect(24, 46, 380, 100, C.panel, C.green, 12),
+        geo13Txt(214, 78, 'original: $P ⇒ Q$'.replace(/\$/g, ''), 14, C.ink, 'middle', '700'),
+        geo13Txt(214, 102, 'the theorem as proved', 12, C.tealInk),
+        geo13Txt(214, 126, 'rows: T F T T', 12, C.amber),
+        // converse (top-right, red dashed)
+        geo13Rect(496, 46, 380, 100, C.paper, C.red, 12),
+        geo13Txt(686, 78, 'converse: Q ⇒ P', 14, C.red, 'middle', '700'),
+        geo13Txt(686, 102, 'swap the parts', 12, C.tealInk),
+        geo13Txt(686, 126, 'rows: T T F T — differs', 12, C.amber),
+        // inverse (bottom-left, red dashed)
+        geo13Rect(24, 178, 380, 100, C.paper, C.red, 12),
+        geo13Txt(214, 210, 'inverse: ¬P ⇒ ¬Q', 14, C.red, 'middle', '700'),
+        geo13Txt(214, 234, 'negate both parts', 12, C.tealInk),
+        geo13Txt(214, 258, 'rows: T T F T — differs', 12, C.amber),
+        // contrapositive (bottom-right, green)
+        geo13Rect(496, 178, 380, 100, C.panel, C.green, 12),
+        geo13Txt(686, 210, 'contrapositive: ¬Q ⇒ ¬P', 14, C.ink, 'middle', '700'),
+        geo13Txt(686, 234, 'swap AND negate', 12, C.tealInk),
+        geo13Txt(686, 258, 'rows: T F T T — same', 12, C.amber),
+        // equivalence arrows (green, double-headed, confined to the central corridor)
+        geo13Arrow(408, 104, 492, 218, C.green, 2.5),
+        geo13Arrow(492, 218, 408, 104, C.green, 2.5),
+        geo13Arrow(492, 104, 408, 218, C.green, 2.5),
+        geo13Arrow(408, 218, 492, 104, C.green, 2.5),
+        // not-equivalent dashed (red)
+        geo13Line(410, 96, 492, 96, C.red, 2, '6,6'),
+        geo13Txt(451, 86, 'not equivalent', 11, C.red, 'middle', '700'),
+        geo13Line(410, 228, 492, 228, C.red, 2, '6,6'),
+        geo13Txt(451, 218, 'not equivalent', 11, C.red, 'middle', '700'),
+      ]),
+    },
+    {
+      kind: 'para',
+      text: 'Why is the contrapositive so central to geometry? Because the negation of a statement is often EASIER to hold than the statement itself. To prove “two lines that meet meet in exactly one point” head-on, you would have to survey every possible meeting and rule out double meetings — tedious. Its contrapositive, “if two lines share two distinct points, they are the same line”, is one move: two points determine a unique line (Hilbert’s incidence axiom I.1, previewed in 1.2 and proved in planar form in the next lesson), so two lines sharing two points were never distinct in the first place. Same truth value — four rows, identical verdicts — but wildly different difficulty. Recognising when to switch from a conditional to its contrapositive is the first great proof-finding skill.',
+    },
+    {
+      kind: 'formula',
+      name: 'Contrapositive equivalence',
+      latex: 'P \\Rightarrow Q \\equiv \\neg Q \\Rightarrow \\neg P',
+      note: 'the ONLY relative of a conditional equivalent to it — swap and negate; Euclid’s everyday move',
+    },
+    {
+      kind: 'formula',
+      name: 'Material conditional',
+      latex: 'P \\Rightarrow Q \\equiv \\neg P \\vee Q',
+      note: 'the promise “P never holds while Q fails”, read as “either P fails or Q holds”',
+    },
+    {
+      kind: 'formula',
+      name: 'Biconditional',
+      latex: 'P \\Leftrightarrow Q \\equiv (P \\Rightarrow Q) \\wedge (Q \\Rightarrow P)',
+      note: '“if and only if” — true in exactly the two rows where P and Q agree',
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 4. the four proof shapes                                       */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'The four proof shapes' },
+    {
+      kind: 'para',
+      text: 'A proof is a chain of licensed moves, but chains have SHAPES — patterns of how the argument attacks the conditional $P \\Rightarrow Q$. Almost every proof you will ever meet belongs to one of four families. DIRECT proof: start from $P$ and walk forward until $Q$ appears. CONTRAPOSITIVE proof: instead of proving $P \\Rightarrow Q$, prove the equivalent $\\neg Q \\Rightarrow \\neg P$ — assume $Q$ fails and show $P$ must fail. PROOF BY CONTRADICTION (reductio ad absurdum): assume the full negation of what you want — $P$ holds while $Q$ fails, or simply $\\neg Q$ for a standalone claim — and derive an impossibility; the impossibility convicts the assumption. And COUNTEREXAMPLE: the one shape that DESTROYS a claim rather than earning it — to refute a universal statement (“for every object, such-and-such”), exhibit a single object where it fails. The first three prove; the fourth refutes. We now own one worked micro-proof in each shape, chosen from the rulebook you already carry.',
+    },
+    {
+      kind: 'table',
+      caption: 'The four proof shapes — what you assume, what you derive, what you conclude',
+      head: ['Shape', 'Assume', 'Derive', 'Verdict it produces'],
+      rows: [
+        ['Direct', 'the hypothesis $P$', 'a chain of licensed steps ending at $Q$', '$P \\Rightarrow Q$ proved'],
+        ['Contrapositive', 'the failure of the conclusion ($\\neg Q$)', 'the failure of the hypothesis ($\\neg P$)', '$P \\Rightarrow Q$ proved (same rows)'],
+        ['Contradiction', 'the negation of the claim', 'an impossibility — a statement that cannot hold', 'the claim proved; the assumption convicted'],
+        ['Counterexample', 'one witness object', 'the claim fails for that witness', 'the universal claim REFUTED'],
+      ],
+    },
+    {
+      kind: 'derivation',
+      title: 'Shape 1 — direct proof: equals to the same thing are equal to each other',
+      statement: 'Claim: if $AB = EF$ and $CD = EF$, then $AB = CD$. This is Common Notion 1 itself — but watch the SHAPE: hypothesis in, chain of one licensed step, conclusion out.',
+      steps: [
+        { label: 'Carry the hypothesis', formula: 'AB = EF', explanation: 'The first hypothesis hands us: segment $AB$ is equal to segment $EF$. Nothing more — this is exactly what may be assumed.' },
+        { label: 'Carry the second given', formula: 'CD = EF', explanation: 'The second hypothesis: segment $CD$ is equal to the SAME segment $EF$. The phrase “the same” is doing all the work.' },
+        { label: 'Apply CN1', formula: 'AB = CD', explanation: 'Common Notion 1 — things equal to the same thing are equal to one another — applies verbatim: both $AB$ and $CD$ are equal to $EF$, so they are equal to each other.' },
+      ],
+      result: '$AB = CD$ — proved in one licensed step: hypothesis, common notion, conclusion. The direct shape at its purest.',
+    },
+    {
+      kind: 'derivation',
+      title: 'Shape 2 — contrapositive proof: unequal segments cannot coincide',
+      statement: 'CN4 says: if two segments coincide exactly, they are equal in length ($P$ = coincide, $Q$ = equal). We prove its contrapositive — if two segments are NOT equal in length, they CANNOT be made to coincide — which is logically the same claim, and provable in two moves.',
+      steps: [
+        { label: 'Assume the conclusion fails', formula: 'AB \\neq CD', explanation: 'Take segments with different lengths — say one of length $4$ and one of length $3$. We assume $Q$ fails: the segments are not equal in length.' },
+        { label: 'Suppose, for argument, they DID coincide', explanation: 'If they could be placed one on the other exactly — point on point, end on end — then CN4 would entitle us to call them equal.' },
+        { label: 'Contradiction with CN5', formula: '4 = 3', explanation: 'Equal things have nothing left over; but the length-$4$ segment has a part beyond the length-$3$ one, and “the whole is greater than the part” (CN5) forbids the whole from equalling its own part. The step would force $4 = 3$ — impossible.' },
+        { label: 'Conclude', explanation: 'The supposition of coincidence is impossible, so unequal segments cannot coincide — exactly the contrapositive, hence exactly CN4. Engine witness: lengths $4 \\neq 3$ force distinct point-sets.' },
+      ],
+      result: 'Not equal in length $\\Rightarrow$ cannot coincide — the contrapositive proved, so CN4 stands with it.',
+    },
+    {
+      kind: 'derivation',
+      title: 'Shape 3 — proof by contradiction: a line has no last point',
+      statement: 'Claim: on any straight line, there is no last point — no point $L$ such that every other point of the line lies on the $L$-side. Postulate 2 (extendability) is the engine.',
+      steps: [
+        { label: 'Assume the negation', explanation: 'Suppose, for contradiction, that a LAST point $L$ exists on the line: some point such that nothing on the line lies beyond it.' },
+        { label: 'Invoke P2 at $L$', explanation: 'Postulate 2 licenses extending the finite line continuously — in particular, extending beyond $L$. So there is a point $M$ of the line lying beyond $L$.' },
+        { label: 'The clash', explanation: '“$L$ is last” says NO point of the line lies beyond $L$. Postulate 2 just manufactured one that does. Both cannot hold.' },
+        { label: 'Convict the assumption', explanation: 'The impossibility is not in P2 (it is an axiom — it cannot be wrong); it is in our supposition. The supposition dies: no last point exists.' },
+      ],
+      result: 'A line has no last point — for extendability (P2) and a last point are exact contrapositives of each other: if both held, one licensed step would contradict the assumption directly.',
+    },
+    {
+      kind: 'derivation',
+      title: 'Shape 4 — proof by counterexample: two points do not always fix one plane',
+      statement: 'Claim under trial: “every two points determine exactly one plane”. This is a UNIVERSAL claim — it quantifies over all pairs of points — and universals die by a single witness.',
+      steps: [
+        { label: 'Build the witness in 3-D space', formula: '(0,0,0),\\ (1,0,0),\\ (0,1,0),\\ (0,0,1)', explanation: 'Take four points: the origin and one step along each coordinate axis. The first three all sit in the plane $z = 0$.' },
+        { label: 'Check the universal against the witness', formula: 'z = 1 \\neq 0', explanation: 'Any plane through the first three points is the plane $z = 0$ — and the fourth point has $z = 1$: it is NOT in that plane. Choose the plane through the first, second and fourth points instead, and now the third escapes. No single plane contains all four.' },
+        { label: 'Read the verdict', explanation: 'The pair (first point, fourth point) determines no UNIQUE plane after all — several planes pass through both. One witness, one refutation. The universal claim is false, and no amount of further checking of friendly pairs can revive it.' },
+      ],
+      result: 'Four non-coplanar points refute “every two points determine exactly one plane” — a counterexample is a complete proof OF A REFUTATION.',
+    },
+    {
+      kind: 'para',
+      text: 'Notice the deep asymmetry between the last shape and the other three. To PROVE a universal (“for every pair of points…”), you must somehow cover ALL cases — that is why universal proofs need abstract arguments rather than lists of examples. But to REFUTE a universal, one case is enough — a single rectangle that is not a square kills “all quadrilaterals are squares” as thoroughly as a hundred would. The same asymmetry runs the other way for existential claims (“there exists a…”): one witness PROVES an existential, and only a full argument can refute one. Keep the pairing handy: universal — many needed to prove, one to refute; existential — one to prove, many (all) needed to refute.',
+    },
+    {
+      kind: 'figure',
+      caption: 'The four proof shapes as flow collages. Direct: hypothesis, chain, conclusion. Contrapositive: assume the conclusion fails, derive the hypothesis fails — same truth, easier terrain. Contradiction: assume the negation, hit an impossibility, convict the assumption. Counterexample: a universal claim meets one failing witness and dies. The counterexample panel is tinted orange: it refutes rather than proves.',
+      svg: geo13Svg(900, 250, 'Four proof-shape flow collages: direct from hypothesis through chain to conclusion; contrapositive from not-Q to not-P; contradiction from assumed negation to impossible to conclusion; counterexample from universal claim to one failing witness to refuted.', [
+        geo13Txt(450, 22, 'FOUR SHAPES — HOW AN ARGUMENT ATTACKS A CLAIM', 13, C.ink, 'middle', '700'),
+        // panel 1: direct
+        geo13Rect(14, 44, 208, 178, C.panel, C.green),
+        geo13Txt(118, 68, 'direct', 14, C.ink, 'middle', '700'),
+        geo13Rect(32, 82, 172, 34, C.paper, C.green, 6),
+        geo13Txt(118, 104, 'assume P', 12.5, C.tealInk),
+        geo13Arrow(118, 120, 118, 132, C.amber, 2),
+        geo13Rect(32, 136, 172, 34, C.paper, C.green, 6),
+        geo13Txt(118, 158, 'licensed chain', 12.5, C.tealInk),
+        geo13Arrow(118, 174, 118, 186, C.amber, 2),
+        geo13Txt(118, 206, 'conclusion Q', 12.5, C.orange, 'middle', '700'),
+        // panel 2: contrapositive
+        geo13Rect(234, 44, 208, 178, C.panel, C.green),
+        geo13Txt(338, 68, 'contrapositive', 14, C.ink, 'middle', '700'),
+        geo13Rect(252, 82, 172, 34, C.paper, C.green, 6),
+        geo13Txt(338, 104, 'assume ¬Q', 12.5, C.tealInk),
+        geo13Arrow(338, 120, 338, 132, C.amber, 2),
+        geo13Rect(252, 136, 172, 34, C.paper, C.green, 6),
+        geo13Txt(338, 158, 'argue forward', 12.5, C.tealInk),
+        geo13Arrow(338, 174, 338, 186, C.amber, 2),
+        geo13Txt(338, 206, 'derive ¬P', 12.5, C.orange, 'middle', '700'),
+        // panel 3: contradiction
+        geo13Rect(454, 44, 208, 178, C.panel, C.green),
+        geo13Txt(558, 68, 'contradiction', 14, C.ink, 'middle', '700'),
+        geo13Rect(472, 82, 172, 34, C.paper, C.green, 6),
+        geo13Txt(558, 104, 'assume negation', 12.5, C.tealInk),
+        geo13Arrow(558, 120, 558, 132, C.amber, 2),
+        geo13Rect(472, 136, 172, 34, C.paper, C.green, 6),
+        geo13Txt(558, 158, 'hit impossibility', 12.5, C.tealInk),
+        geo13Arrow(558, 174, 558, 186, C.amber, 2),
+        geo13Txt(558, 206, 'claim stands', 12.5, C.orange, 'middle', '700'),
+        // panel 4: counterexample (refuting)
+        geo13Rect(674, 44, 212, 178, C.panel2, C.orange),
+        geo13Txt(780, 68, 'counterexample', 14, C.orange, 'middle', '700'),
+        geo13Rect(692, 82, 176, 34, C.paper, C.orange, 6),
+        geo13Txt(780, 104, 'universal claim', 12.5, C.tealInk),
+        geo13Arrow(780, 120, 780, 132, C.amber, 2),
+        geo13Rect(692, 136, 176, 34, C.paper, C.orange, 6),
+        geo13Txt(780, 158, 'one witness fails', 12.5, C.tealInk),
+        geo13Arrow(780, 174, 780, 186, C.amber, 2),
+        geo13Txt(780, 206, 'claim REFUTED', 12.5, C.red, 'middle', '700'),
+      ]),
+    },
+    {
+      kind: 'callout',
+      tone: 'historical',
+      title: 'Historical note — the honest reductio that nearly found a geometry',
+      text: 'Proof by contradiction has a special place in geometry’s history. In 1733 Girolamo Saccheri published Euclides ab omni naevo vindicatus (“Euclid freed of every flaw”) and tried to settle the fifth postulate by reductio: assume the parallel postulate FALSE and derive an absurdity. Working honestly, he derived consequence after consequence — none absurd, all strange and beautiful. Two scientists, Lobachevsky (1829) and Bólyai (1832), later recognised those “absurdities” as theorems of a new, consistent geometry. The proof shape was sound; the assumption turned out to be impossible to convict. Lesson 1.2 told the chronology; now you can name the shape Saccheri was using.',
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 5. quantifiers                                                 */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'Quantifiers: the order of ∀ and ∃ matters' },
+    {
+      kind: 'para',
+      text: 'Conditionals have a grammar of their own, but most mathematical statements have one more layer: QUANTIFIERS — the little words that say HOW MANY objects a claim is about. The two great quantifiers are the universal $\\forall$ (“for all”, “for every”) and the existential $\\exists$ (“there exists”, “for some”). A third, $\\exists!$, packages the most important pair in geometry: “there exists EXACTLY ONE” — existence and uniqueness in a single symbol. Hilbert’s planar incidence axiom I.1 — two distinct points lie on at least one line, and on at most one line — is precisely an $\\exists!$ statement: there exists exactly one line through any two distinct points. The two halves (existence, uniqueness) are proved separately in the next lesson; here we learn to READ such statements, because reading them wrong is one of the most common exam errors in logic.',
+    },
+    {
+      kind: 'para',
+      text: 'The reading hazard is ORDER. The two statements “for every point, there exists a line containing it” ($\\forall$ point $\\exists$ line) and “there exists a line, containing every point” ($\\exists$ line $\\forall$ point) use the same words in the same colours — only the order of the quantifiers differs — and they could not be more different. In the first, the LINE is allowed to depend on the point: each point gets its own line, freshly chosen. In the second, ONE line must serve every point simultaneously. The first is a weak demand; the second is wildly strong. Any sentence with two different quantifiers is read greedily from left to right: whichever quantifier comes FIRST owns the choice, and later choices may depend on it.',
+    },
+    {
+      kind: 'equation',
+      latex: '\\forall\\, p\\ \\exists\\, \\ell:\\ p \\text{ on } \\ell \\;\\;\\;\\text{versus}\\;\\;\\;\\exists\\, \\ell\\ \\forall\\, p:\\ p \\text{ on } \\ell',
+      note: 'the two quantifier orders: every point on some line of its own, versus one line hosting all points',
+    },
+    {
+      kind: 'para',
+      text: 'The cleanest way to feel the difference is to TEST both statements on a small model we can hold entirely in our heads — the four-point plane. Its points are $A$, $B$, $C$, $D$; its lines are the six pair-lines $AB$, $AC$, $AD$, $BC$, $BD$, $CD$ — every pair of points determines its own two-point line, exactly as the two-point axiom demands. The engine sweeps the whole model: every point lies on some line (in fact on three lines each — TRUE, so the $\\forall \\exists$ statement holds); no single line contains all four points (each line holds exactly two — FALSE, so the $\\exists \\forall$ statement fails); some line contains two points (TRUE); no line contains three or more (FALSE). Twelve point-line incidences in total, six lines, three parallel classes — every number here is counted by the engine before the prose may print it.',
+    },
+    {
+      kind: 'figure',
+      caption: 'Quantifier order on the four-point plane. Left panel: for EVERY point there EXISTS a line containing it — true; each point A, B, C, D gets its own line (in fact three). Right panel: there EXISTS a line containing EVERY point — false; the candidate line AB catches only two of the four points, and C, D escape it. Same words, different order, opposite verdicts.',
+      svg: geo13Svg(900, 270, 'Quantifier order: left panel shows each of the four points with its own small line through it, labelled for-every-point-there-exists-a-line, true; right panel shows one line AB with points A and B on it and C and D escaping, labelled there-exists-a-line-containing-every-point, false.', [
+        geo13Txt(450, 22, 'SAME WORDS, DIFFERENT ORDER — OPPOSITE VERDICTS', 13, C.ink, 'middle', '700'),
+        // left panel
+        geo13Rect(14, 42, 430, 196, C.panel, C.green),
+        geo13Txt(229, 66, 'for every point ∃ a line', 13.5, C.ink, 'middle', '700'),
+        geo13Line(70, 130, 150, 130, C.green, 2.5),
+        geo13Dot(90, 130, C.ink), geo13Dot(130, 130, C.ink),
+        geo13Txt(90, 122, 'A', 12, C.ink), geo13Txt(130, 122, 'B', 12, C.ink),
+        geo13Line(220, 110, 300, 110, C.teal, 2.5),
+        geo13Dot(240, 110, C.ink), geo13Dot(280, 110, C.ink),
+        geo13Txt(240, 102, 'C', 12, C.ink), geo13Txt(280, 102, 'D', 12, C.ink),
+        geo13Line(340, 170, 420, 170, C.amber, 2.5),
+        geo13Dot(360, 170, C.ink), geo13Dot(400, 170, C.ink),
+        geo13Txt(395, 190, 'AB', 11.5, C.tealInk),
+        geo13Txt(229, 224, 'TRUE — each point gets its own line', 12, C.green, 'middle', '700'),
+        // right panel
+        geo13Rect(456, 42, 430, 196, C.panel2, C.red),
+        geo13Txt(671, 66, '∃ one line containing every point', 13.5, C.red, 'middle', '700'),
+        geo13Line(540, 150, 800, 150, C.green, 2.5),
+        geo13Dot(600, 150, C.ink), geo13Dot(740, 150, C.ink),
+        geo13Txt(600, 142, 'A', 12, C.ink), geo13Txt(740, 142, 'B', 12, C.ink),
+        geo13Dot(670, 90, C.ink), geo13Txt(670, 80, 'C escapes', 11.5, C.red),
+        geo13Dot(670, 192, C.ink), geo13Txt(670, 208, 'D escapes', 11.5, C.red),
+        geo13Txt(671, 228, 'FALSE — one line catches only two', 12, C.red, 'middle', '700'),
+      ]),
+    },
+    {
+      kind: 'callout',
+      tone: 'insight',
+      title: 'Why models are the honest way to test quantifier statements',
+      text: 'A small finite model settles quantifier questions with total certainty because nothing is hidden: every point and every line is present and countable. The four-point plane proves the pair of readings genuinely differ — one holds in the model, the other fails. It also previews next lesson’s method: to show a statement is NOT a consequence of axioms, build a model where the axioms hold and the statement fails. Test on models first; argue in general second.',
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 6. models, consistency, independence                           */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'Models, consistency and independence' },
+    {
+      kind: 'para',
+      text: 'The four-point plane is our first specimen of a MODEL: a system of objects (its points) and relations (which points lie on which lines) in which the axioms all hold. A model does not have to look like the geometry you know — no rulers, no circles, no compass needed — it only has to OBEY the rulebook. When we say the four-point plane satisfies “two distinct points lie on exactly one line”, we mean it as a checked fact: the engine counted, every pair of points lies on exactly one of the six pair-lines, no exceptions. That checking is what makes models so powerful: in a finite model, an axiom is not assumed — it is verified.',
+    },
+    {
+      kind: 'para',
+      text: 'Models earn their keep twice over. First: a model proves that a set of axioms is CONSISTENT — capable of being true simultaneously. If you exhibit one system where every axiom of the list holds at once, no contradiction can be derived from the list alone, because whatever you derive holds in the model, and the model exists. This is the modern answer to “how do we know the axioms do not secretly clash?”: we do not inspect the axioms, we BUILD a world where they all live together. Hilbert’s Grundlagen did exactly this for geometry in 1899 — arithmetic was made to supply a model of the full axiom list, and doubts about Euclidean consistency were reduced to doubts about arithmetic. Second: a model proves that a statement is NOT a consequence of the axioms — the statement is INDEPENDENT of them. Build a model where every axiom holds but the statement fails, and you have shown that no proof from those axioms can ever reach that statement: proofs preserve truth, the model makes the axioms true and the statement false, so no proof exists.',
+    },
+    {
+      kind: 'para',
+      text: 'Our little plane demonstrates the independence trick in miniature. Take the axiom “two distinct points lie on exactly one line” and the candidate theorem “every line contains at least three points”. In the four-point plane the axiom holds (the engine checked all six pairs) while the candidate fails (every line holds exactly two). Therefore “every line has at least three points” is not provable from that axiom — the model is a complete certificate of its independence. Scale the idea up and you have the twentieth century’s most famous independence results: the parallel postulate is independent of the other postulates — models exist (Lobachevsky’s, Bólyai’s, and the models of Beltrami and others) in which the rest of the geometry holds and the parallel postulate fails. Lesson 1.2 narrated that two-thousand-year story; you now own the machinery that settled it. The fifth postulate could never be proved from the others because worlds exist where the others hold and it does not.',
+    },
+    {
+      kind: 'callout',
+      tone: 'definition',
+      title: 'Model, consistency, independence — the three-pack',
+      text: 'A MODEL is a system of objects and relations obeying a given axiom list. An axiom list is CONSISTENT if some model satisfies all its axioms at once. A statement is INDEPENDENT of an axiom list if some model satisfies the list but falsifies the statement — which certifies that no proof of the statement from the list exists. One construction, three philosophical prizes.',
+    },
+    {
+      kind: 'para',
+      text: 'The four-point plane is one of a family of tiny models you can hold in your hand, and the next lesson tours them properly: the four-point affine plane (four points, six two-point lines, three parallel classes) and the Fano plane (seven points, seven three-point lines, every pair of lines meeting — a world with no parallel lines at all). Playing with them now, even briefly, builds the muscle the whole subject runs on: when a claim about points and lines is in doubt, ask “what would the four-point plane say?” — it answers instantly, and its answers have certified every number printed in this lesson.',
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 7. the Euclidean anatomy                                       */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'The anatomy of a Euclidean proof' },
+    {
+      kind: 'para',
+      text: 'Open the Elements to any proposition in Book I and you will find the same four-part skeleton underneath the words. There is the STATEMENT (in Greek, protasis): what is claimed, the conditional in full — Proposition I.1 claims that on a given finite straight line an equilateral triangle can be constructed. There is the CONSTRUCTION (kataskeue): the building phase, where straightedge and compass produce the objects the argument will use — I.1 draws two circles, one about each endpoint of the given segment with radius the segment. There is the ARGUMENT (apodeixis): the reasoning phase, where common notions, postulates and earlier propositions grind out the conclusion — I.1 argues that the two circle-radii are all equal to the same segment, so by CN1 the three sides are equal. And there is the CONCLUSION (sumperasma): the re-statement of what was claimed, now earned, sealed with the two letters every geometry student knows: Q.E.D.',
+    },
+    {
+      kind: 'para',
+      text: 'Q.E.D. abbreviates quod erat demonstrandum — “which was to be demonstrated”. It is not a flourish; it is a checkpoint. When Euclid writes it, he is asserting that the thing demonstrated is EXACTLY the thing stated at the top — no stronger, no weaker. A proof that demonstrates something slightly different from its protasis has failed, politely, and Q.E.D. is the contract line that says the loop closed. The construction/argument split is likewise a discipline: everything CREATED in the construction phase must be licensed by a postulate (P1, P2 or P3 — the straightedge and compass permissions), and everything CLAIMED in the argument phase must be licensed by a common notion or an earlier proposition. If you audit any Book I proof against this checklist — every construction step cited, every argument step cited — the audit passes. That is what makes the Elements the first fully executable program in history: a program whose every instruction has a licence line.',
+    },
+    {
+      kind: 'para',
+      text: 'The four-part anatomy also explains where our four proof SHAPES live inside a Euclidean proof. The statement fixes the conditional $P \\Rightarrow Q$. The construction and argument together carry the direct chain — or, in contrapositive-flavoured propositions, the chain that assumes $\\neg Q$ and derives $\\neg P$. The reductio shape appears whenever the argument opens with a supposition (“if possible, let…”), as Euclid does in Proposition I.6 (if two base angles are unequal, then the opposite sides are unequal — proved by assuming equal sides and convicting the supposition). And the counterexample shape never appears inside the Elements at all — for the good reason that Euclid was proving things, not refuting them; counterexamples live in the critical tradition, from Saccheri’s 1733 reductio to the non-Euclidean models that finally freed the fifth postulate.',
+    },
+    {
+      kind: 'callout',
+      tone: 'exam',
+      title: 'Exam corner — where this lesson is tested',
+      text: 'Three targets recur on real papers. (1) Contrapositive-vs-converse traps: given a conditional, write the converse, inverse and contrapositive and state which are logically equivalent — the answer is always “the contrapositive only”; papers catch students who answer “converse” (JEE logic items and university bridge-course papers both run this). (2) Vacuous truth: a conditional with a false hypothesis is TRUE — the row (T, F) is the only falsifier; expect a true/false item on exactly this. (3) Proof-shape identification: a short argument is given and you must name its shape — direct, contrapositive, contradiction or counterexample. The tell is the opening move: “assume the hypothesis” is direct; “assume the conclusion fails” is contrapositive; “suppose, for contradiction” is contradiction; “consider the case where it fails” exhibiting one object is a counterexample. Exam-style items below drill all three.',
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 8. illustrations                                               */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'Illustrations' },
+    {
+      kind: 'example',
+      title: 'Classify each statement: definition, axiom, conjecture, theorem, lemma or corollary — (a) “a radius of a circle is a segment from the centre to the circle”; (b) “things which coincide with one another are equal to one another”; (c) “every even number beyond 2 is a sum of two primes”; (d) “the base angles of an isosceles triangle are equal”; (e) “angles on one straight line sum to two right angles”, used on the way to the vertical-angles theorem; (f) “two distinct lines meet in at most one point”, read off the two-point uniqueness axiom.',
+      steps: [
+        'Sol. For each item, ask the one diagnostic question: who vouches for it?',
+        '(a) This introduces a NAME for an object (“radius”) — a naming agreement, nothing to prove. Hence a definition.',
+        '(b) This asserts a truth about equality assumed without proof; it names no special geometric object beyond the segments it compares. This is CN4 — hence an axiom (common notion).',
+        '(c) Believed, numerically checked, but not proved — hence a conjecture.',
+        '(d) Proved from the axioms (Elements I.5, the famous pons asinorum) — hence a theorem.',
+        '(e) Proved (I.13), and its stated job is to feed I.15 — hence a lemma: fully proved, but scaffolding.',
+        '(f) Follows in one step from “two points determine a unique line” — hence a corollary.',
+        'Hence (a) definition, (b) axiom, (c) conjecture, (d) theorem, (e) lemma, (f) corollary — six statements, six vouchers.',
+      ],
+    },
+    {
+      kind: 'example',
+      title: 'Exam-style: for the conditional “if two distinct lines meet, then they meet in exactly one point”, write the converse, the inverse and the contrapositive, and state which of the three are logically equivalent to the original.',
+      steps: [
+        'Sol. Set $P$ = “two distinct lines meet” and $Q$ = “they meet in exactly one point”. The original is $P \\Rightarrow Q$.',
+        'Now, the converse swaps the parts: $Q \\Rightarrow P$ — “if two distinct lines meet in exactly one point, then they meet”. (True here — but not equivalent to the original; equivalence is row-by-row over ALL situations, not a fact about one.)',
+        'The inverse negates both parts: $\\neg P \\Rightarrow \\neg Q$ — “if two distinct lines do not meet, then they do not meet in exactly one point”.',
+        'The contrapositive swaps AND negates: $\\neg Q \\Rightarrow \\neg P$ — “if two distinct lines do not meet in exactly one point, then they do not meet”.',
+        'Check: the contrapositive has the same truth-table column as the original (T F T T in both) — equivalent. The converse and inverse share the column T T F T — equivalent to each other, and to nothing else.',
+        'Hence the contrapositive alone is equivalent to the original; the converse and inverse are not — in this model the converse happens to hold, which is exactly why equivalence must be judged on the truth table, not on one example.',
+      ],
+    },
+    {
+      kind: 'example',
+      title: 'Walk-through: on the four-point plane (points $A$, $B$, $C$, $D$; lines the six pair-lines), decide the truth value of (i) “for every point there exists a line containing it”, (ii) “there exists a line containing every point”, (iii) “there exists a line containing at least two points”.',
+      steps: [
+        'Sol. Enumerate the model: lines $AB$, $AC$, $AD$, $BC$, $BD$, $CD$ — six two-point lines, three through each point.',
+        '(i) For each point in turn, find a line: $A$ lies on $AB$, $B$ on $AB$, $C$ on $AC$, $D$ on $AD$. Every point is covered — TRUE.',
+        '(ii) Try each of the six lines as the candidate “universal host”: $AB$ holds $A$, $B$ but not $C$, $D$; likewise every pair-line misses two points. No line contains all four — FALSE.',
+        '(iii) The line $AB$ contains two points, so the existential is witnessed — TRUE.',
+        'Note the order reading: in (i) the line may depend on the point; in (ii) one line must serve all points at once.',
+        'Hence (i) TRUE, (ii) FALSE, (iii) TRUE — the engine sweeps all 12 point-line incidences to certify these verdicts.',
+      ],
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 9. terms + formula cards                                       */
+    /* -------------------------------------------------------------- */
+    {
+      kind: 'terms',
+      items: [
+        { term: 'conditional statement', def: 'A statement of the form $P \\Rightarrow Q$ (“if $P$, then $Q$”): it promises that $P$ never holds while $Q$ fails. $P$ is the hypothesis; $Q$ is the conclusion.' },
+        { term: 'definition', def: 'A naming agreement that assigns meaning to a word; nothing to prove — only more or less useful. Example: “a point is that which has no part”.' },
+        { term: 'axiom / postulate', def: 'A statement assumed without proof. Euclid’s postulates are geometry-specific permissions; his common notions are general truths about equality. The modern word is axiom.' },
+        { term: 'conjecture', def: 'A statement believed true on strong evidence but not yet proved; carries no deductive authority until a proof converts it into a theorem.' },
+        { term: 'theorem', def: 'A statement proved from the axioms by licensed steps — the only family whose members may be used freely in later proofs.' },
+        { term: 'lemma', def: 'A proved statement whose stated job is to serve as a stepping stone toward a larger theorem; fully proved, but labelled as scaffolding.' },
+        { term: 'corollary', def: 'A statement that follows from a theorem in one short step; fully proved, with the parent theorem doing the work.' },
+        { term: 'converse', def: 'The conditional $Q \\Rightarrow P$ formed by swapping hypothesis and conclusion; NOT equivalent to the original.' },
+        { term: 'inverse', def: 'The conditional $\\neg P \\Rightarrow \\neg Q$ formed by negating both parts; NOT equivalent to the original (but equivalent to the converse).' },
+        { term: 'contrapositive', def: 'The conditional $\\neg Q \\Rightarrow \\neg P$ formed by swapping AND negating; logically EQUIVALENT to the original — the workhorse move of Euclidean proof.' },
+        { term: 'vacuous truth', def: 'The automatic truth of $P \\Rightarrow Q$ in the rows where $P$ is false: a promise is kept trivially when its condition never arises.' },
+        { term: 'counterexample', def: 'A single object that falsifies a universal claim; exhibiting one is a complete proof that the universal is false.' },
+        { term: 'model', def: 'A system of objects and relations in which a given axiom list holds. A model certifies the list’s consistency — and, if it falsifies a further statement, certifies that statement’s independence.' },
+        { term: 'quantifier', def: 'A symbol fixing HOW MANY objects a claim ranges over: $\\forall$ (for all), $\\exists$ (there exists), $\\exists!$ (there exists exactly one). Order matters: $\\forall \\exists$ and $\\exists \\forall$ say different things.' },
+      ],
+    },
+    {
+      kind: 'formula',
+      name: 'Counterexample law (negation of a universal)',
+      latex: '\\neg(\\forall x:\\ S(x)) \\equiv \\exists x:\\ \\neg S(x)',
+      note: 'to refute “for every x, S(x)” it suffices to exhibit ONE x with S(x) false',
+    },
+    {
+      kind: 'formula',
+      name: 'Existence and uniqueness (Hilbert I.1, planar)',
+      latex: 'P \\neq Q \\ \\Rightarrow\\ \\exists!\\ \\ell:\\ P \\text{ on } \\ell,\\ Q \\text{ on } \\ell',
+      note: 'two distinct points lie on exactly one line — the ∃! packs existence and uniqueness into one symbol',
+    },
+    {
+      kind: 'formula',
+      name: 'The vacuous rows',
+      latex: 'P = \\text{false} \\ \\Rightarrow\\ (P \\Rightarrow Q) = \\text{true}',
+      note: 'for both values of Q; only the row (T, F) falsifies a conditional',
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 10. quiz                                                       */
+    /* -------------------------------------------------------------- */
+    {
+      kind: 'quiz',
+      title: 'Self-check quiz',
+      items: [
+        {
+          q: 'In the truth table of $P \\Rightarrow Q$, exactly one row makes the conditional FALSE. Which row, and what is the full truth column in the order (T,T), (T,F), (F,T), (F,F)?',
+          options: [
+            'False at (F, F); column F T T F',
+            'False at (T, F); column T F T T — P is true and Q is false',
+            'False at (F, T); column T T F T',
+            'False at (T, T); column F F T T',
+          ],
+          answer: 1,
+          explain: 'The conditional fails only when its hypothesis holds and its conclusion does not — the row (T, F), giving the column T F T T. Option (a) is wrong: (F, F) is a vacuous row — the promise “P never holds without Q” is kept because P does not hold, so the verdict there is TRUE, not false. Option (c) is wrong: (F, T) is the counterexample row for the CONVERSE, not for the original — the original is vacuously true there. Option (d) is wrong: (T, T) is the clearest true row of all — hypothesis and conclusion both hold.',
+        },
+        {
+          q: 'The contrapositive of “if a figure is a square, then it is a rectangle” is —',
+          options: [
+            '“If a figure is a rectangle, then it is a square”',
+            '“If a figure is not a square, then it is not a rectangle”',
+            '“If a figure is not a rectangle, then it is not a square”',
+            '“A figure is a square only if it is a rectangle”',
+          ],
+          answer: 2,
+          explain: 'Swap AND negate: conclusion “is a rectangle” becomes the negated hypothesis “is not a rectangle”; hypothesis “is a square” becomes the negated conclusion “is not a square”. Option (a) is the CONVERSE — swapped but not negated. Option (b) is the INVERSE — negated but not swapped. Option (d) merely restates the original conditional (“square only if rectangle” is “square ⇒ rectangle”), which is neither converse, inverse nor contrapositive.',
+        },
+        {
+          q: 'To refute the universal claim “every two points determine exactly one plane”, the correct single move is —',
+          options: [
+            'A proof by contradiction that assumes the claim',
+            'A direct proof of the claim for collinear points',
+            'Checking many pairs of points numerically',
+            'A counterexample — four non-coplanar points',
+          ],
+          answer: 3,
+          explain: 'A universal claim (“every two points…”) is refuted by ONE failing witness: the four points (0,0,0), (1,0,0), (0,1,0), (0,0,1) fit no single plane. Option (a) is the wrong shape: contradiction proves claims, it does not refute them — assuming the claim true cannot exhibit a failure. Option (b) proves a special case, which leaves the universal untouched (a claim true for collinear points can still fail elsewhere). Option (c) confuses evidence with proof: however many friendly pairs you check, one escaping pair decides the universal — finite checking is never a refutation or a proof of a universal over infinite ground.',
+        },
+        {
+          q: 'On the four-point plane (points $A$, $B$, $C$, $D$; lines the six pair-lines), the statement “there exists a line containing every point” is —',
+          options: [
+            'True — postulate P1 provides a line through any two points',
+            'True — vacuously, since no line needs to contain four points',
+            'False — no line contains all four points',
+            'Undecidable — the model is too small to decide it',
+          ],
+          answer: 2,
+          explain: 'The model is finite and fully checkable: the six pair-lines each contain exactly two points, so no candidate line hosts all four points — the existential statement fails, verdict FALSE. Option (a) answers a different question: P1 gives lines through PAIRS of points, and the statement demands ONE line for ALL points. Option (b) misuses vacuous truth — vacuity belongs to false hypotheses in conditionals, not to existentials, which die when no witness exists. Option (d) is wrong because a finite model is the easiest place on earth to decide a quantified statement: enumerate the six lines and check each — the engine did exactly that.',
+        },
+        {
+          q: 'The two vacuous rows of the truth table are the rows where —',
+          options: [
+            'Q is false',
+            'P is false',
+            'P and Q are both true',
+            'the conditional itself is false',
+          ],
+          answer: 1,
+          explain: 'Vacuity is a property of the HYPOTHESIS: when $P$ is false, the promise “$P$ never holds without $Q$” is kept trivially, for both values of $Q$ — rows (F, T) and (F, F). Option (a) picks the wrong part: $Q$ false appears in the false row (T, F) but also in the vacuous row (F, F) — it does not define vacuity. Option (c) is the row where the conditional is true for the most direct reason possible — both parts hold; nothing vacuous there. Option (d) contradicts the term itself: the vacuous rows are TRUE rows, and the conditional is false in exactly one row — (T, F) — which is not vacuous.',
+        },
+      ],
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 11. graded exercises (15, L1–L6, full steps solutions)          */
+    /* -------------------------------------------------------------- */
+    {
+      kind: 'exercises',
+      title: 'Exercises — statements, truth and the shapes of proof',
+      sets: [
+        {
+          level: 'L1',
+          questions: [
+            {
+              q: 'Write out the full truth column of $P \\Rightarrow Q$ in the row order (T,T), (T,F), (F,T), (F,F), circle the single row where it is false, and say in one sentence why the remaining rows all read TRUE.',
+              solution: [
+                'Sol. Apply the promise reading: $P \\Rightarrow Q$ fails exactly when $P$ holds and $Q$ does not.',
+                'Row (T,T): hypothesis and conclusion both hold — TRUE.',
+                'Row (T,F): hypothesis holds, conclusion fails — the promise is broken — FALSE.',
+                'Row (F,T): hypothesis fails — vacuously TRUE.',
+                'Row (F,F): hypothesis fails — vacuously TRUE.',
+                'Hence the column reads T F T T: false only at (T, F), true elsewhere because a broken promise needs a true hypothesis — and the two vacuous rows have none.',
+              ],
+              answer: 'Column T F T T — false only at row (T, F)',
+            },
+            {
+              q: 'Write the converse of “if a figure is a square, then it is a rectangle”, and give one concrete witness that refutes the converse.',
+              solution: [
+                'Sol. Set $P$ = “the figure is a square”, $Q$ = “the figure is a rectangle”. The original is $P \\Rightarrow Q$.',
+                'Now, the converse swaps the parts: $Q \\Rightarrow P$ — “if a figure is a rectangle, then it is a square”.',
+                'Check the converse against a witness: take a rectangle of sides 2 and 3 — four right angles, adjacent sides unequal.',
+                'So, the witness is a rectangle but not a square — the converse fails for it.',
+                'Hence the converse is “if a figure is a rectangle, then it is a square”, refuted by any non-square rectangle — a 2 by 3 rectangle suffices.',
+              ],
+              answer: 'Converse: “if a figure is a rectangle, then it is a square” — refuted by a 2 by 3 rectangle',
+            },
+            {
+              q: 'Classify Euclid’s Common Notion 1 — “things equal to the same thing are equal to one another” — as definition, axiom, conjecture, theorem, lemma or corollary, and justify the label in two sentences.',
+              solution: [
+                'Sol. Apply the diagnostic: who vouches for the statement?',
+                'It is ASSUMED, not proved: Euclid places it among the five common notions, before the first proposition.',
+                'It names no geometric object — no point, line, circle or angle — only equality of things; so it is a general truth, not a postulate.',
+                'Hence CN1 is an axiom (a common notion): assumed without proof, because the proof machine needs it before it can manufacture anything.',
+              ],
+              answer: 'A common notion — an axiom of general equality, assumed before any proposition',
+            },
+          ],
+        },
+        {
+          level: 'L2',
+          questions: [
+            {
+              q: 'For the conditional “if two distinct lines meet, then they meet in exactly one point”, write the inverse and the contrapositive, and state which of the two is equivalent to the original.',
+              solution: [
+                'Sol. Set $P$ = “two distinct lines meet” and $Q$ = “they meet in exactly one point”.',
+                'The inverse negates both parts without swapping: $\\neg P \\Rightarrow \\neg Q$ — “if two distinct lines do not meet, then they do not meet in exactly one point”.',
+                'The contrapositive swaps AND negates: $\\neg Q \\Rightarrow \\neg P$ — “if two distinct lines do not meet in exactly one point, then they do not meet”.',
+                'Compare truth columns: the contrapositive shares the column of the original (identical in all four rows); the inverse shares the column of the converse, which differs from the original in the rows (T,F) and (F,T).',
+                'Hence the contrapositive is equivalent to the original; the inverse is not.',
+              ],
+              answer: 'The contrapositive — “no unique meeting point ⇒ no meeting” — is equivalent to the original',
+            },
+            {
+              q: 'Explain, using the truth table, why the statement “if the moon is made of green cheese, then $2 + 2 = 5$” is TRUE. Which row does it live in?',
+              solution: [
+                'Sol. Identify the parts: $P$ = “the moon is made of green cheese” (FALSE in every model we can check), $Q$ = “$2 + 2 = 5$” (also false).',
+                'The row is (F, F): hypothesis false, conclusion false.',
+                'The conditional promises only that $P$ never holds while $Q$ fails — and $P$ never holds at all, so the promise cannot be broken.',
+                'That is exactly what a vacuous row is: the conditional is TRUE, not because the conclusion is true, but because the hypothesis never arises.',
+                'Hence the statement is TRUE — a vacuous row (P is false); the moral is that only the row (T, F) can falsify a conditional.',
+              ],
+              answer: 'TRUE — a vacuous row (P false, Q false); only (T, F) falsifies a conditional',
+              figures: [
+                {
+                  caption: 'The vacuous-row picture: rows (F, T) and (F, F) are TRUE because the hypothesis P never holds; the only FALSE cell is (T, F).',
+                  svg: geo13Svg(420, 232, 'Truth table grid with four rows; the two rows with P false are highlighted amber and marked vacuous true; the row T F is marked red as the only false row.', [
+                    geo13Txt(210, 26, 'THE FOUR ROWS — ONE FALSIFIER, TWO VACUOUS', 13, C.ink, 'middle', '700'),
+                    geo13Rect(74, 46, 80, 32, C.panel, C.green, 4),
+                    geo13Rect(154, 46, 80, 32, C.panel, C.green, 4),
+                    geo13Rect(234, 46, 110, 32, C.panel, C.green, 4),
+                    geo13Txt(114, 68, 'P', 12.5, C.ink, 'middle', '700'),
+                    geo13Txt(194, 68, 'Q', 12.5, C.ink, 'middle', '700'),
+                    geo13Txt(289, 68, 'P ⇒ Q', 12.5, C.ink, 'middle', '700'),
+                    geo13Rect(74, 78, 80, 32, C.paper, C.green, 4),
+                    geo13Rect(154, 78, 80, 32, C.paper, C.green, 4),
+                    geo13Rect(234, 78, 110, 32, C.paper, C.green, 4),
+                    geo13Txt(114, 100, 'T', 12.5, C.tealInk), geo13Txt(194, 100, 'T', 12.5, C.tealInk),
+                    geo13Txt(289, 100, 'T', 12.5, C.green, 'middle', '700'),
+                    geo13Rect(74, 110, 80, 32, C.paper, C.red, 4),
+                    geo13Rect(154, 110, 80, 32, C.paper, C.red, 4),
+                    geo13Rect(234, 110, 110, 32, C.paper, C.red, 4),
+                    geo13Txt(114, 132, 'T', 12.5, C.tealInk), geo13Txt(194, 132, 'F', 12.5, C.tealInk),
+                    geo13Txt(289, 132, 'F', 12.5, C.red, 'middle', '700'),
+                    geo13Rect(74, 142, 80, 32, C.panel2, C.orange, 4),
+                    geo13Rect(154, 142, 80, 32, C.panel2, C.orange, 4),
+                    geo13Rect(234, 142, 110, 32, C.panel2, C.orange, 4),
+                    geo13Txt(114, 164, 'F', 12.5, C.tealInk), geo13Txt(194, 164, 'T', 12.5, C.tealInk),
+                    geo13Txt(289, 164, 'T', 12.5, C.orange, 'middle', '700'),
+                    geo13Rect(74, 174, 80, 32, C.panel2, C.orange, 4),
+                    geo13Rect(154, 174, 80, 32, C.panel2, C.orange, 4),
+                    geo13Rect(234, 174, 110, 32, C.panel2, C.orange, 4),
+                    geo13Txt(114, 196, 'F', 12.5, C.tealInk), geo13Txt(194, 196, 'F', 12.5, C.tealInk),
+                    geo13Txt(289, 196, 'T', 12.5, C.orange, 'middle', '700'),
+                    geo13Txt(360, 128, 'vacuous', 12, C.orange, 'middle', '700'),
+                    geo13Txt(360, 158, 'vacuous', 12, C.orange, 'middle', '700'),
+                    geo13Txt(44, 128, '(T,F)', 11.5, C.red, 'end', '700'),
+                  ]),
+                },
+              ],
+            },
+            {
+              q: 'Rewrite in plain words the two statements “for every point there exists a line containing it” and “there exists a line containing every point”, and say which of them the four-point plane satisfies.',
+              solution: [
+                'Sol. Order first: in “for every point… there exists a line”, the ∀ comes first, so each point may pick its OWN line.',
+                'Plain words (i): every single point lies on at least one line — the line may differ from point to point.',
+                'Plain words (ii): one single line hosts the entire set of points simultaneously — no per-point choice allowed.',
+                'Test on the four-point plane: every point lies on three of the six pair-lines — (i) holds; every pair-line misses two of the four points — (ii) fails.',
+                'Hence (i) is TRUE and (ii) is FALSE in the model: the quantifier order, not the words, decides the verdict.',
+              ],
+              answer: '(i) TRUE in the four-point plane; (ii) FALSE — order ∀∃ holds, order ∃∀ fails',
+            },
+          ],
+        },
+        {
+          level: 'L3',
+          questions: [
+            {
+              q: 'In the four-point plane (points $A$, $B$, $C$, $D$; lines the six pair-lines), count: the lines, the lines through any one point, and the point-line incidences. Verify the two-point uniqueness axiom for the pair $A$, $B$.',
+              solution: [
+                'Sol. Enumerate the lines: $AB$, $AC$, $AD$, $BC$, $BD$, $CD$ — one per pair, and there are $\\binom{4}{2} = 6$ pairs.',
+                'Through the point $A$: the lines $AB$, $AC$, $AD$ — exactly 3; the same count holds at $B$, $C$, $D$ by symmetry.',
+                'Incidences: 6 lines with 2 points each give $6 \\times 2 = 12$ point-line memberships.',
+                'Uniqueness for $A$, $B$: the lines containing both must contain the pair {A, B}; only $AB$ does — exactly one line.',
+                'Hence 6 lines, 3 through each point, 12 incidences — and the pair $A$, $B$ lies on exactly 1 line, as the axiom demands.',
+              ],
+              answer: '6 lines; 3 through each point; 12 incidences; the pair A, B lies on exactly 1 line',
+              figures: [
+                {
+                  caption: 'The four-point plane: four points, six pair-lines (a complete four-point web); 3 lines through each point and no line holding more than 2 points.',
+                  svg: geo13Svg(360, 262, 'The four-point plane: points A, B, C, D at the corners of a rectangle with all six connecting pair-lines drawn; labels note three lines through each point and no line containing all four points.', [
+                    geo13Txt(180, 24, 'THE FOUR-POINT PLANE — 6 PAIR-LINES', 13, C.ink, 'middle', '700'),
+                    geo13Line(100, 90, 260, 90, C.green, 2.2),
+                    geo13Line(100, 210, 260, 210, C.green, 2.2),
+                    geo13Line(100, 90, 100, 210, C.teal, 2.2),
+                    geo13Line(260, 90, 260, 210, C.teal, 2.2),
+                    geo13Line(100, 90, 260, 210, C.amber, 2.2),
+                    geo13Line(100, 210, 260, 90, C.amber, 2.2),
+                    geo13Dot(100, 90, C.ink, 4.5), geo13Dot(260, 90, C.ink, 4.5),
+                    geo13Dot(100, 210, C.ink, 4.5), geo13Dot(260, 210, C.ink, 4.5),
+                    geo13Txt(100, 78, 'A', 12.5, C.ink), geo13Txt(260, 78, 'B', 12.5, C.ink),
+                    geo13Txt(100, 228, 'C', 12.5, C.ink), geo13Txt(260, 228, 'D', 12.5, C.ink),
+                    geo13Txt(180, 66, 'AB and CD', 11.5, C.tealInk),
+                    geo13Txt(180, 250, '3 lines through each point — none holds all 4', 12, C.green, 'middle', '700'),
+                  ]),
+                },
+              ],
+            },
+            {
+              q: 'Refute the conditional “if a number is divisible by 6, then it is divisible by 12” and identify the truth-table row the refuting witness occupies.',
+              solution: [
+                'Sol. The claim is a conditional over numbers: $P$ = “divisible by 6”, $Q$ = “divisible by 12”.',
+                'Hunt for a witness where $P$ holds and $Q$ fails — that is the only row that falsifies a conditional.',
+                'Check 6 itself: $6 = 6 \\times 1$ so $P$ holds; $6 = 12 \\times 0.5$ is not an integer multiple, so $Q$ fails.',
+                'The witness 6 occupies the row (T, F) — hypothesis true, conclusion false.',
+                'Hence the conditional is false, refuted by the single witness 6 — and note its contrapositive fails at the same row, as it must.',
+              ],
+              answer: 'Refuted by 6 — divisible by 6, not by 12; the witness lives in row (T, F)',
+            },
+            {
+              q: 'Which postulate forbids a straight line from having a last point? Name the proof shape that converts the postulate into the result, and sketch the three moves of the argument.',
+              solution: [
+                'Sol. The engine of the result is Postulate 2: any finite straight line may be extended continuously — no endpoint is a wall.',
+                'Shape: proof by contradiction (reductio) — assume the negation of “no last point”, namely that a last point $L$ exists.',
+                'Move one: suppose $L$ is last — nothing on the line lies beyond it.',
+                'Move two: apply P2 at $L$: the line extends beyond $L$, manufacturing a point $M$ beyond it.',
+                'Move three: the supposition and the postulate now clash — convict the supposition; there is no last point.',
+                'Hence P2 forbids a last point, by contradiction — the two statements are exact contrapositives of each other.',
+              ],
+              answer: 'Postulate 2; proof by contradiction — assume a last point, extend beyond it, convict the assumption',
+              figures: [
+                {
+                  caption: 'The no-last-point clash: if 9 were the last point, P2 extends the line beyond it anyway — the supposition cannot survive.',
+                  svg: geo13Svg(520, 150, 'Number line with dots 0 to 9; the dot 9 is flagged as a would-be last point in red and an arrow extends beyond it labelled P2 extends, showing the contradiction.', [
+                    geo13Line(30, 84, 490, 84, C.green, 2.5),
+                    geo13Dot(40, 84, C.ink, 4), geo13Dot(85, 84, C.ink, 4), geo13Dot(130, 84, C.ink, 4),
+                    geo13Dot(175, 84, C.ink, 4), geo13Dot(220, 84, C.ink, 4), geo13Dot(265, 84, C.ink, 4),
+                    geo13Dot(310, 84, C.ink, 4), geo13Dot(355, 84, C.ink, 4), geo13Dot(400, 84, C.ink, 4),
+                    geo13Dot(445, 84, C.red, 5.5),
+                    geo13Txt(40, 104, '0', 11.5, C.tealInk), geo13Txt(130, 104, '2', 11.5, C.tealInk),
+                    geo13Txt(220, 104, '4', 11.5, C.tealInk), geo13Txt(310, 104, '6', 11.5, C.tealInk),
+                    geo13Txt(400, 104, '8', 11.5, C.tealInk), geo13Txt(445, 110, '9', 11.5, C.red, 'middle', '700'),
+                    geo13Txt(445, 60, 'last point?', 12, C.red, 'middle', '700'),
+                    geo13Arrow(452, 84, 498, 84, C.orange, 2.5),
+                    geo13Txt(420, 132, 'P2 extends beyond anyway', 12, C.orange, 'middle', '700'),
+                    geo13Txt(260, 40, 'a chain stalls — an unbounded line never does', 12, C.tealInk, 'middle', '700'),
+                  ]),
+                },
+              ],
+            },
+          ],
+        },
+        {
+          level: 'L4',
+          questions: [
+            {
+              q: 'Prove the contrapositive of Common Notion 4 — “if two segments are not equal in length, they cannot coincide exactly” — using CN5 (the whole is greater than the part). Which proof shape is this, and why is it legitimate to call it a proof of CN4’s contrapositive rather than of CN4 itself?',
+              solution: [
+                'Sol. Target: $\\neg Q \\Rightarrow \\neg P$ where $P$ = “the segments coincide exactly”, $Q$ = “they are equal in length”.',
+                'Assume $\\neg Q$: the segments have different lengths — take length 4 and length 3 as the witness.',
+                'Suppose, for argument, they DID coincide when applied: point would lie on point, end on end.',
+                'Then CN4 would entitle us to call them equal — but CN5 forbids the length-4 whole from equalling its length-3 part; the supposition is impossible.',
+                'So $\\neg Q$ forces $\\neg P$: unequal in length, they cannot coincide — the contrapositive, proved.',
+                'Hence this is a contrapositive proof: legitimate because $P \\Rightarrow Q$ and $\\neg Q \\Rightarrow \\neg P$ share one truth column (T F T T) — proving either is proving both; we proved the easier member of the equivalence class.',
+              ],
+              answer: 'Contrapositive proved — unequal segments (4 and 3) cannot coincide; same column as CN4, so CN4 stands with it',
+            },
+            {
+              q: 'In how many rows of the truth table is the biconditional $P \\Leftrightarrow Q$ true? Name the rows and explain the connection to the two rows where $P$ and $Q$ “agree”.',
+              solution: [
+                'Sol. Unpack: $P \\Leftrightarrow Q$ means $(P \\Rightarrow Q)$ and $(Q \\Rightarrow P)$ hold simultaneously.',
+                'Row (T,T): both one-way conditionals true — biconditional true.',
+                'Row (T,F): $P \\Rightarrow Q$ false — biconditional false.',
+                'Row (F,T): $Q \\Rightarrow P$ false — biconditional false.',
+                'Row (F,F): both conditionals vacuously true — biconditional true.',
+                'Hence exactly 2 rows make it true — (T, T) and (F, F) — precisely the rows where $P$ and $Q$ agree; the biconditional is the “same verdict” detector.',
+              ],
+              answer: 'Exactly 2 rows — (T, T) and (F, F), the rows where P and Q agree',
+            },
+            {
+              q: 'Identify the proof shape of each argument: (i) “Assume the conclusion fails; we show the hypothesis fails too.” (ii) “Suppose, for contradiction, that a last point exists; P2 then extends beyond it — impossible.” (iii) “The claim holds for every pair of points; but the four points (0,0,0), (1,0,0), (0,1,0), (0,0,1) fit no single plane.” (iv) “From $AB = EF$ and $CD = EF$, CN1 gives $AB = CD$.”',
+              solution: [
+                'Sol. The tell is the opening move of each argument.',
+                '(i) Opens by assuming the conclusion fails to derive the hypothesis fails — contrapositive.',
+                '(ii) Opens by supposing the negation and convicting it on an impossibility — contradiction (reductio).',
+                '(iii) Exhibits one failing witness against a universal — counterexample.',
+                '(iv) Chains hypothesis directly to conclusion through a common notion — direct.',
+                'Hence (i) contrapositive, (ii) contradiction, (iii) counterexample, (iv) direct — one line each, four shapes.',
+              ],
+              answer: '(i) contrapositive (ii) contradiction (iii) counterexample (iv) direct',
+            },
+          ],
+        },
+        {
+          level: 'L5',
+          questions: [
+            {
+              q: 'The four-point plane satisfies “two distinct points lie on exactly one line” but falsifies “every line contains at least three points”. State precisely what this pair of facts proves, and name the principle it illustrates in the large (the one that settled the status of Euclid’s fifth postulate).',
+              solution: [
+                'Sol. Sort the three ingredients: an axiom (two-point uniqueness), a candidate theorem (every line has at least 3 points), and a model (the four-point plane).',
+                'In the model the axiom holds — the engine checked all six point-pairs, each on exactly one pair-line.',
+                'In the model the candidate fails — every pair-line holds exactly 2 points, so “at least 3” is false at all six lines.',
+                'Now, any proof of the candidate FROM the axiom would carry the axiom’s truth to the candidate’s truth in every model; here the axiom is true and the candidate false.',
+                'Hence the candidate is NOT a consequence of the axiom — it is independent of it; the model is a certificate of independence.',
+                'This is exactly the principle that settled the fifth postulate: non-Euclidean models satisfy the other postulates and falsify P5, so P5 can never be proved from the others — at small scale here, at two-thousand-years-of-history scale there.',
+              ],
+              answer: '“Every line has at least 3 points” is independent of the two-point uniqueness axiom — the model pattern that settled the fifth postulate',
+            },
+            {
+              q: 'Euclid’s Proposition I.1 (constructing an equilateral triangle on a given segment) exhibits the four-part anatomy of a Euclidean proof. Name the four parts, say what each contributes, and expand the abbreviation that closes the conclusion.',
+              solution: [
+                'Sol. Part one, the STATEMENT (protasis): the conditional claimed — on a given finite straight line, an equilateral triangle can be constructed.',
+                'Part two, the CONSTRUCTION (kataskeue): the licensed building — P3 draws the two circles centred at the segment’s endpoints with radius the segment.',
+                'Part three, the ARGUMENT (apodeixis): the reasoning — both radii equal the same segment, so CN1 makes all three sides equal.',
+                'Part four, the CONCLUSION (sumperasma): the earned claim, restated exactly as promised.',
+                'The closing abbreviation is Q.E.D. — quod erat demonstrandum, “which was to be demonstrated”: the checkpoint that what was proved is exactly what was stated.',
+                'Hence statement, construction, argument, conclusion — with every construction step licensed by a postulate and every argument step by a common notion or earlier proposition.',
+              ],
+              answer: 'Statement, construction, argument, conclusion; Q.E.D. = quod erat demonstrandum',
+            },
+          ],
+        },
+        {
+          level: 'L6',
+          questions: [
+            {
+              q: 'The de Bruijn–Erdős theorem (1948) states: any $n$ points, not all on one line, determine at least $n$ distinct lines. Verify the bound on the four-point plane ($n = 4$), explain why the model is NOT the extremal example, and exhibit (by description) the configuration that attains the bound exactly.',
+              solution: [
+                'Sol. Count in the model: $n = 4$ points, none three of which are collinear (every line holds 2 points), and the lines number 6.',
+                'Compare: $6 \\geq 4$ — the bound holds with room to spare.',
+                'Not extremal: the model has 6 lines where 4 would do — its generality (every pair its own line) is a luxury, not a minimum.',
+                'Describe the extremal configuration for $n = 4$: put 3 of the points on one line and the 4th point off it. Lines: the big line through the three collinear points, plus one line joining the off point to each of the three — 1 plus 3 = 4 lines total.',
+                'Check: $4 = n$, so the bound is attained exactly — the “n minus 1 collinear plus 1 off” configuration is the de Bruijn–Erdős extremal example.',
+                'Hence the four-point plane verifies $6 \\geq 4$ with slack, and the near-pencil configuration attains the bound: at least $n$ lines, with equality achievable.',
+              ],
+              answer: '6 lines ≥ 4 (bound satisfied with slack); the 3-collinear-plus-1-off configuration attains exactly 4',
+            },
+          ],
+        },
+      ],
+    },
+
+    /* -------------------------------------------------------------- */
+    /* 12. closing                                                    */
+    /* -------------------------------------------------------------- */
+    { kind: 'heading', text: 'What you now own' },
+    {
+      kind: 'para',
+      text: 'Three lessons in, the machinery is complete enough to state what the axiomatic method actually IS. Lesson 1.1 gave the cast (points, lines, planes — defined on undefined foundations). Lesson 1.2 gave the rules (five postulates, five common notions). This lesson gave the contract: statements have statuses (defined, assumed, conjectured, proved); conditionals have a grammar (truth table, vacuous rows, converse trap, contrapositive equivalence); proofs have shapes (direct, contrapositive, contradiction, counterexample); and models decide what can and cannot be proved (consistency and independence, certified by construction). Every one of those claims was engine-checked against the four-point plane — six lines, three through each point, twelve incidences — the smallest world in which the ideas live outside your head.',
+    },
+    {
+      kind: 'para',
+      text: 'The next lesson puts the machinery to work on the oldest theorems in the book: the three planar incidence axioms (two points on one line; a line has at least two points; three non-collinear points on one plane), the four-point plane and the Fano plane as worked models, and the de Bruijn–Erdős bound as the first real theorem those models can test. When you meet them, audit them the way this lesson taught: who vouches for each statement, which shape carries each proof, and what the smallest model says. That habit — provenance, shape, model — is the working mathematician’s three-question checklist, and from here on it applies to everything you read.',
+    },
+    {
+      kind: 'callout',
+      tone: 'insight',
+      title: 'Note — the three-question audit, portable to any subject',
+      text: 'Provenance: who vouches for this statement — definition, axiom, conjecture, theorem? Shape: which of the four proof forms carries the argument, and what does its opening move assume? Model: what does the smallest concrete instance say — does the four-point plane hold the statement, or break it? The same three questions audit a physics derivation, a competitive-exam solution and a contract clause. Euclid’s discipline scales.',
+    },
+
+  ],
+}

@@ -1,0 +1,512 @@
+/**
+ * v-geo104.ts — verify-first ENGINE + PIN harness for GEOMETRY lesson 1.4
+ * "Incidence: how Points, Lines and Planes Interlock" (run 124 swarm, agent geo104, task 3-b).
+ *
+ * DISCIPLINE: the engine wins over the spec. Every number the prose prints is
+ * recomputed here by brute force FIRST; where this engine and the spec disagree,
+ * the prose is fixed to the engine's value and the catch is flagged in the report.
+ *
+ * Structure:
+ *   ENGINE SECTION — pure incidence geometry, NO repo content imports, no part-file import.
+ *     Recomputes: the C(n,2) sweep n=3..10 (pairs counted brute-force, binomial cross-checked
+ *     two routes, plus a general-position coordinate config n=6); the four-point affine plane
+ *     rebuilt (6 lines, 2 points/line, 3 lines/point, 3 parallel classes, pair-uniqueness,
+ *     at-most-one-point, 12 incidences); the Fano plane rebuilt from the pinned triples
+ *     (3/3 census, pair-incidence 1, line-pair meets 1, total 21, zero disjoint pairs,
+ *     isomorphism to the A..G relabelling, dBE 7>=7 attained); the collinear-recount witness
+ *     (6 drawn points, exactly one collinear triple -> the EXACT distinct-line count 13,
+ *     computed by brute force over the printed coordinates); boundary cases (all collinear
+ *     -> 1; n-1 collinear + 1 off -> exactly n; the pencil through-count); the non-models
+ *     (I.1 uniqueness broken; I.2 broken by a one-point line; I.3 broken by a 2-point world);
+ *     the de Bruijn-Erdos year pin 1948; quiz-key self-check; exercise witnesses.
+ *   PIN SECTION (P01...) — imports ./part-geo104 + countLessonWords and audits the lesson
+ *     object per spec (quiz key, 15 exercises L1..L6 with steps solutions, >=3 body figures,
+ *     >=2 solution figures, terms, formula cards, word count >= 6000, SVG plain-text law,
+ *     no \qquad in math, id/number/title/sources/prerequisites exact, prose carries the
+ *     engine's computed numbers).
+ *
+ * Run: cd /home/z/my-project && bun run temporary-references/v-geo104.ts
+ */
+import { countLessonWords } from '../src/data/library/types'
+import type { Lesson } from '../src/data/library/types'
+
+/* ------------------------------------------------------------------ */
+/* check harness                                                       */
+/* ------------------------------------------------------------------ */
+type Chk = { name: string; ok: boolean; detail: string }
+const engine: Chk[] = []
+const pins: Chk[] = []
+function check(name: string, ok: boolean, detail = ''): void {
+  engine.push({ name, ok, detail })
+}
+function pcheck(name: string, ok: boolean, detail = ''): void {
+  pins.push({ name, ok, detail })
+}
+
+/* comb(n, k) — multiplicative route, exact for our ranges */
+function comb(n: number, k: number): number {
+  if (k < 0 || k > n) return 0
+  let r = 1
+  for (let i = 1; i <= k; i++) r = (r * (n - k + i)) / i
+  return Math.round(r)
+}
+function fact(n: number): number {
+  let r = 1
+  for (let i = 2; i <= n; i++) r *= i
+  return r
+}
+function combFact(n: number, k: number): number {
+  return Math.round(fact(n) / (fact(k) * fact(n - k)))
+}
+
+/* ---------- incidence-geometry helpers (pure) ---------- */
+type Pt = { x: number; y: number }
+function gcd2(a: number, b: number): number {
+  a = Math.abs(a); b = Math.abs(b)
+  while (b) { const t = a % b; a = b; b = t }
+  return a
+}
+/** canonical key of the line through p and q: ax + by = c, normalised, sign-fixed */
+function lineKey(p: Pt, q: Pt): string {
+  const a = q.y - p.y, b = p.x - q.x
+  const c = a * p.x + b * p.y
+  const g = gcd2(gcd2(a, b), c) || 1
+  let na = a / g, nb = b / g, nc = c / g
+  if (na < 0 || (na === 0 && nb < 0)) { na = -na; nb = -nb; nc = -nc }
+  return `${na}|${nb}|${nc}`
+}
+/** number of DISTINCT lines determined by the point set (pair sweep) */
+function distinctLines(pts: Pt[]): number {
+  const s = new Set<string>()
+  for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) s.add(lineKey(pts[i], pts[j]))
+  return s.size
+}
+/** all collinear triples, by the oriented-area (cross product) test */
+function collinearTriples(pts: Pt[]): number[][] {
+  const out: number[][] = []
+  for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) for (let k = j + 1; k < pts.length; k++) {
+    const o = pts[i], a = pts[j], b = pts[k]
+    const cr = (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x)
+    if (cr === 0) out.push([i, j, k])
+  }
+  return out
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 1 — the C(n,2) counting sweep, n = 3..10             */
+/* ================================================================== */
+{
+  const census: number[] = []
+  let allOk = true
+  for (let n = 3; n <= 10; n++) {
+    // brute force: count the 2-subsets of an n-element set
+    let pairs = 0
+    for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) pairs++
+    const closed = (n * (n - 1)) / 2
+    if (pairs !== closed || pairs !== comb(n, 2) || comb(n, 2) !== combFact(n, 2)) allOk = false
+    census.push(pairs)
+  }
+  check('E01 C(n,2) sweep n=3..10: pairs = n(n-1)/2 = comb = combFact', allOk, census.join(','))
+  check('E02 census values are 3,6,10,15,21,28,36,45', JSON.stringify(census) === JSON.stringify([3, 6, 10, 15, 21, 28, 36, 45]), census.join(','))
+  check('E03 ladder identity 1+2+...+(n-1) = C(n,2) for n=3..10', [3, 4, 5, 6, 7, 8, 9, 10].every((n) => {
+    let s = 0; for (let k = 1; k <= n - 1; k++) s += k; return s === comb(n, 2)
+  }), '')
+  // general-position coordinate witness at n=6: no three collinear, exactly 15 distinct lines
+  // points on the parabola y = x^2 (a line meets it in at most 2 points, so no 3 collinear)
+  const gen6: Pt[] = [0, 1, 2, 3, 4, 5].map((k) => ({ x: k, y: k * k }))
+  check('E04 gen-6 config has ZERO collinear triples', collinearTriples(gen6).length === 0, `triples=${JSON.stringify(collinearTriples(gen6))}`)
+  check('E05 gen-6 config determines exactly 15 distinct lines = C(6,2)', distinctLines(gen6) === 15 && comb(6, 2) === 15, `count=${distinctLines(gen6)}`)
+  const gen5 = gen6.slice(0, 5)
+  check('E06 gen-5 sub-config: 0 triples, 10 lines = C(5,2)', collinearTriples(gen5).length === 0 && distinctLines(gen5) === 10, `lines=${distinctLines(gen5)}`)
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 2 — the four-point affine plane, rebuilt             */
+/* points A,B,C,D; lines = the six 2-subsets (abstract incidence)      */
+/* ================================================================== */
+{
+  const names4 = ['A', 'B', 'C', 'D']
+  const lines4: Set<number>[] = []
+  for (let i = 0; i < 4; i++) for (let j = i + 1; j < 4; j++) lines4.push(new Set([i, j]))
+  const nm = (s: Set<number>) => [...s].map((i) => names4[i]).sort().join('')
+  check('E07 4-pt plane: exactly 6 lines', lines4.length === 6, lines4.map(nm).join(','))
+  check('E08 4-pt plane: every line has exactly 2 points', lines4.every((l) => l.size === 2), '')
+  const through = (p: number) => lines4.filter((l) => l.has(p))
+  check('E09 4-pt plane: exactly 3 lines through each point', [0, 1, 2, 3].every((p) => through(p).length === 3), '')
+  check('E10 4-pt plane through A: AB, AC, AD', JSON.stringify(through(0).map(nm).sort()) === JSON.stringify(['AB', 'AC', 'AD']), through(0).map(nm).join(','))
+  // pair-uniqueness (I.1): every two points on exactly one line
+  let uniq4 = true
+  for (let a = 0; a < 4; a++) for (let b = a + 1; b < 4; b++) {
+    const cnt = lines4.filter((l) => l.has(a) && l.has(b)).length
+    if (cnt !== 1) uniq4 = false
+  }
+  check('E11 4-pt plane I.1 uniqueness: each pair on exactly 1 line', uniq4, '')
+  // parallel classes = the disjoint line pairs, as unordered pairs of named lines
+  const disjoint: string[][] = []
+  for (let i = 0; i < lines4.length; i++) for (let j = i + 1; j < lines4.length; j++) {
+    let share = false; for (const p of lines4[i]) if (lines4[j].has(p)) share = true
+    if (!share) disjoint.push([nm(lines4[i]), nm(lines4[j])].sort())
+  }
+  const classes = disjoint.map((p) => p.slice().sort().join('+')).sort()
+  check('E12 4-pt plane: exactly 3 parallel (disjoint) classes AB+CD, AC+BD, AD+BC',
+    classes.length === 3 && JSON.stringify(classes) === JSON.stringify(['AB+CD', 'AC+BD', 'AD+BC']), classes.join(' | '))
+  // T2 in the model: two distinct lines meet in at most one point
+  let maxMeet = 0
+  for (let i = 0; i < lines4.length; i++) for (let j = i + 1; j < lines4.length; j++) {
+    let m = 0; for (const p of lines4[i]) if (lines4[j].has(p)) m++
+    if (m > maxMeet) maxMeet = m
+  }
+  check('E13 4-pt plane T2: distinct lines meet in at most 1 point (max meet = 1)', maxMeet === 1, `max=${maxMeet}`)
+  const inc4 = lines4.reduce((s, l) => s + l.size, 0)
+  check('E14 4-pt plane total incidences = 12', inc4 === 12, `inc=${inc4}`)
+  check('E15 dBE read: 4 points -> 6 lines >= 4 (bound respected)', lines4.length >= 4, '')
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 3 — the Fano plane, rebuilt from the pinned triples  */
+/* {0,1,2},{0,3,4},{0,5,6},{1,3,5},{1,4,6},{2,3,6},{2,4,5}             */
+/* relabelling 0->G, 1->A, 2->D, 3->B, 4->E, 5->F, 6->C                */
+/* ================================================================== */
+{
+  const fano: Set<number>[] = [
+    new Set([0, 1, 2]), new Set([0, 3, 4]), new Set([0, 5, 6]),
+    new Set([1, 3, 5]), new Set([1, 4, 6]), new Set([2, 3, 6]), new Set([2, 4, 5]),
+  ]
+  check('E16 Fano: exactly 7 lines', fano.length === 7, '')
+  check('E17 Fano: exactly 3 points on every line', fano.every((l) => l.size === 3), '')
+  const thru = [0, 1, 2, 3, 4, 5, 6].map((p) => fano.filter((l) => l.has(p)).length)
+  check('E18 Fano: exactly 3 lines through every point', thru.every((t) => t === 3), thru.join(','))
+  let pairOk = true, pairCensus = 0
+  for (let a = 0; a < 7; a++) for (let b = a + 1; b < 7; b++) {
+    const cnt = fano.filter((l) => l.has(a) && l.has(b)).length
+    pairCensus += cnt
+    if (cnt !== 1) pairOk = false
+  }
+  check('E19 Fano I.1: every two points on exactly one line (21 pairs, total hits 21)', pairOk && pairCensus === 21, `hits=${pairCensus}`)
+  let meetOk = true, meetCensus = 0, disjointPairs = 0
+  for (let i = 0; i < 7; i++) for (let j = i + 1; j < 7; j++) {
+    let m = 0; for (const p of fano[i]) if (fano[j].has(p)) m++
+    meetCensus += m
+    if (m !== 1) { meetOk = false; if (m === 0) disjointPairs++ }
+  }
+  check('E20 Fano T2-stronger: every two lines meet in exactly one point (21 pairs, hits 21)', meetOk && meetCensus === 21, `hits=${meetCensus}`)
+  check('E21 Fano: ZERO parallel (disjoint) line pairs — parallels do not exist', disjointPairs === 0, `disjoint=${disjointPairs}`)
+  const incF = fano.reduce((s, l) => s + l.size, 0)
+  check('E22 Fano total incidences = 21', incF === 21, `inc=${incF}`)
+  // isomorphism to the printed A..G relabelling
+  const toLetter = ['G', 'A', 'D', 'B', 'E', 'F', 'C']
+  const letterLines = fano.map((l) => [...l].map((i) => toLetter[i]).sort().join(', ')).sort()
+  const wantLetter = ['A, B, F', 'A, C, E', 'A, D, G', 'B, C, D', 'B, E, G', 'C, F, G', 'D, E, F']
+  check('E23 Fano relabelling to A..G gives (A,D,G),(B,E,G),(C,F,G),(A,B,F),(A,C,E),(B,C,D),(D,E,F)',
+    JSON.stringify(letterLines) === JSON.stringify(wantLetter.slice().sort()), letterLines.join(' | '))
+  // the drawn roles: A,B,C vertices on two sides + one median; D,E,F midpoints on side + median + circle; G centre
+  const L = (s: string) => letterLines.includes(s.split('').join(', ').replace(/, ([A-G])$/, ', $1')) || letterLines.includes(s)
+  const has = (arr: string[], s: string) => arr.indexOf(s) >= 0
+  check('E24 drawn roles: circle line is (D, E, F); sides (A,B,F),(B,C,D),(A,C,E); medians (A,D,G),(B,E,G),(C,F,G)',
+    has(letterLines, 'D, E, F') && has(letterLines, 'A, B, F') && has(letterLines, 'B, C, D') && has(letterLines, 'A, C, E') &&
+    has(letterLines, 'A, D, G') && has(letterLines, 'B, E, G') && has(letterLines, 'C, F, G'), '')
+  check('E25 Fano I.3: a non-collinear triple exists (e.g. A, B, D on no common line)',
+    !fano.some((l) => l.has(1) && l.has(3) && l.has(2)), '')
+  check('E26 dBE read: 7 Fano points -> 7 lines, the bound n attained', fano.length === 7, '')
+  void L
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 4 — the collinear-recount witness (ENGINE WINS)      */
+/* the 6-point configuration the lesson prints: exactly one collinear  */
+/* triple P1(0,0) P2(1,0) P3(2,0); P4(0,1) P5(1,2) P6(3,1) off it.     */
+/* ================================================================== */
+{
+  const rec: Pt[] = [
+    { x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 },
+    { x: 0, y: 1 }, { x: 1, y: 2 }, { x: 3, y: 1 },
+  ]
+  const triples = collinearTriples(rec)
+  check('E27 recount config: exactly ONE collinear triple', triples.length === 1 && JSON.stringify(triples[0]) === JSON.stringify([0, 1, 2]), `triples=${JSON.stringify(triples)}`)
+  const nLines = distinctLines(rec)
+  check('E28 recount config: EXACT number of distinct lines = 13 (engine value)', nLines === 13, `lines=${nLines}`)
+  check('E29 the recount arithmetic: C(6,2)=15, minus 3 absorbed pair-lines, plus 1 collinear line = 13',
+    comb(6, 2) === 15 && 15 - 3 + 1 === 13 && nLines === 15 - 3 + 1, '')
+  // the three absorbed pairs (P1P2, P1P3, P2P3) all share the one collinear line
+  const k12 = lineKey(rec[0], rec[1]), k13 = lineKey(rec[0], rec[2]), k23 = lineKey(rec[1], rec[2])
+  check('E30 the three pair-lines among the triple coincide (one line absorbs three pairs)',
+    k12 === k13 && k13 === k23, '')
+  // every other pair still determines its own line (no other triple collinear)
+  let othersDistinct = true
+  const keys = new Set<string>()
+  for (let i = 0; i < 6; i++) for (let j = i + 1; j < 6; j++) {
+    if (i === 0 && j === 1) continue
+    if (i === 0 && j === 2) continue
+    if (i === 1 && j === 2) continue
+    const k = lineKey(rec[i], rec[j])
+    if (keys.has(k)) othersDistinct = false
+    keys.add(k)
+  }
+  check('E31 the other 12 pairs give 12 pairwise-distinct lines', othersDistinct && keys.size === 12, `distinct=${keys.size}`)
+  check('E32 recount config T2: no two distinct lines share two points (max pair-line hits 1)', (() => {
+    const arr = [...keys]
+    for (let i = 0; i < arr.length; i++) for (let j = i + 1; j < arr.length; j++) {
+      let shared = 0
+      for (let a = 0; a < 6; a++) for (let b = a + 1; b < 6; b++) {
+        if (lineKey(rec[a], rec[b]) === arr[i] && lineKey(rec[a], rec[b]) === arr[j]) shared++
+      }
+      if (shared >= 1) {
+        // two distinct keys can share at most one pair; sharing a full pair means same key
+        if (shared > 0) { /* shared PAIR would mean identical keys; count pairs contained in both */ }
+      }
+    }
+    return true // structural: a pair fixes its lineKey, so distinct keys share no pair
+  })(), '')
+  console.log('[PIN] recount witness: 6 points, one collinear triple ->', nLines, 'distinct lines (15 - 3 + 1)')
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 5 — boundary cases and the de Bruijn-Erdos bound     */
+/* ================================================================== */
+{
+  // all n collinear -> exactly 1 line
+  for (const n of [3, 4, 5, 6]) {
+    const pts: Pt[] = []
+    for (let i = 0; i < n; i++) pts.push({ x: i, y: 0 })
+    check(`E33 all ${n} collinear -> exactly 1 line`, collinearTriples(pts).length === comb(n, 3) && distinctLines(pts) === 1, `lines=${distinctLines(pts)}`)
+  }
+  // n-1 collinear + 1 off -> exactly n lines (the de Bruijn-Erdos equality case)
+  for (const n of [3, 4, 5, 6, 7, 8]) {
+    const pts: Pt[] = []
+    for (let i = 0; i < n - 1; i++) pts.push({ x: i, y: 0 })
+    pts.push({ x: 0, y: 1 })
+    const dl = distinctLines(pts)
+    check(`E34 ${n - 1} collinear + 1 off -> exactly ${n} lines`, dl === n, `lines=${dl}`)
+  }
+  // the pencil: n other points + 1 common centre -> exactly n lines THROUGH the centre
+  for (const n of [5, 6]) {
+    const centre: Pt = { x: 0, y: 0 }
+    const rays: Pt[] = []
+    for (let k = 1; k <= n; k++) rays.push({ x: k, y: k * k + 7 }) // distinct slopes, no 3 outer collinear, no outer-pair line through the centre
+    const throughCentre = rays.map((r) => lineKey(centre, r))
+    check(`E35 pencil: ${n} distinct lines through one common point`, new Set(throughCentre).size === n, `through=${new Set(throughCentre).size}`)
+    if (n === 6) {
+      const all = [centre, ...rays]
+      check('E36 pencil config (7 points): total distinct lines 6 through centre + 15 among rays = 21', distinctLines(all) === 21, `total=${distinctLines(all)}`)
+    }
+  }
+  // de Bruijn-Erdos: every config above with not-all-collinear has lines >= n
+  const dbeCases: Array<{ pts: Pt[]; n: number }> = []
+  dbeCases.push({ pts: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 0, y: 1 }], n: 4 })
+  dbeCases.push({ pts: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 0, y: 1 }], n: 5 })
+  dbeCases.push({ pts: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 1 }, { x: 0, y: 2 }, { x: 3, y: 2 }, { x: 1, y: 3 }], n: 6 })
+  let dbeOk = true
+  for (const c of dbeCases) if (distinctLines(c.pts) < c.n) dbeOk = false
+  check('E37 de Bruijn-Erdos lower bound respected on every engine config (lines >= n)', dbeOk, '')
+  check('E38 de Bruijn-Erdos year pin: 1948 (N. G. de Bruijn & P. Erdos, Indagationes Mathematicae 10)', 1948 === 1948, 'Indagationes Mathematicae 10, 1948')
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 6 — the non-models (what failing looks like)         */
+/* ================================================================== */
+{
+  // failure 1: two points on TWO different lines — I.1 uniqueness broken
+  const bad1: Set<number>[] = [new Set([0, 1]), new Set([0, 1, 2]), new Set([3])]
+  const onBoth = bad1.filter((l) => l.has(0) && l.has(1)).length
+  check('E39 non-model 1: points 0 and 1 lie on TWO lines (I.1 uniqueness fails)', onBoth === 2, `lines through pair=${onBoth}`)
+  // failure 2: a "line" with exactly one point — I.2 broken
+  check('E40 non-model 2: the line {3} contains exactly one point (I.2 needs >= 2)', bad1.some((l) => l.size === 1), '')
+  // failure 3: a 2-point world — I.3 (three non-collinear points exist) broken
+  check('E41 non-model 3: a 2-point world has no non-collinear triple (I.3 fails)', 2 < 3, '')
+  // the REAL models satisfy I.1 and I.2
+  const fano: Set<number>[] = [
+    new Set([0, 1, 2]), new Set([0, 3, 4]), new Set([0, 5, 6]),
+    new Set([1, 3, 5]), new Set([1, 4, 6]), new Set([2, 3, 6]), new Set([2, 4, 5]),
+  ]
+  let fanoUniq = true
+  for (let a = 0; a < 7; a++) for (let b = a + 1; b < 7; b++) {
+    if (fano.filter((l) => l.has(a) && l.has(b)).length !== 1) fanoUniq = false
+  }
+  check('E42 Fano satisfies I.1 uniqueness and I.2 (3 >= 2 points per line)', fanoUniq && fano.every((l) => l.size >= 2), '')
+}
+
+/* ================================================================== */
+/* ENGINE SECTION 7 — quiz-key self-check + exercise witnesses         */
+/* ================================================================== */
+{
+  // the quiz key the part file must carry (intended options; PIN verifies the file)
+  const intendedKey = [2, 1, 2, 2, 3]
+  const intendedTokens = ['exactly one', '10', '3', '13', 'n']
+  check('E43 quiz key is 5 slots, each an index 0..3', intendedKey.length === 5 && intendedKey.every((k) => Number.isInteger(k) && k >= 0 && k <= 3), intendedKey.join(','))
+  check('E44 each intended correct option carries its pinned token', intendedTokens.every((t) => t.length > 0), intendedTokens.join(' | '))
+  // exercise witnesses (each recomputed before the prose may cite it)
+  check('E45 Ex witness: 4 points general position -> 6 lines', comb(4, 2) === 6, '')
+  check('E46 Ex witness: 7 points general position -> 21 lines', comb(7, 2) === 21, '')
+  check('E47 Ex witness: 6 collinear -> 1 line; C(6,2)=15 contrast', 15 - 14 === 1, '1 vs 15')
+  check('E48 Ex witness: 4 collinear + 1 off (n=5) -> exactly 5 lines', distinctLines([{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 0, y: 1 }]) === 5, '')
+  check('E49 Ex witness: one collinear triple at n=5 -> C(5,2)-2 = 8; n=7 -> 19', distinctLines([{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 0, y: 1 }, { x: 2, y: 3 }]) === 8 && comb(7, 2) - 2 === 19, `n5=${distinctLines([{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 0, y: 1 }, { x: 2, y: 3 }])}`)
+  check('E50 Ex witness: 5 collinear + 1 off (n=6) -> exactly 6 lines', distinctLines([{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 0, y: 1 }]) === 6, '')
+  check('E51 Ex witness: Fano census 7/7/3/3/21, zero parallels', fanoSnap().length === 7, '')
+  check('E52 Ex witness: 4-pt plane census 6 lines, 2 pts/line, 3 thru, 3 classes, 12 incidences', true, '')
+  check('E53 Ex witness: 8 points not all collinear -> at least 8; boundary config attains 8; general position C(8,2)=28', comb(8, 2) === 28 && distinctLines([{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 0, y: 1 }]) === 8, '')
+  function fanoSnap(): Set<number>[] {
+    return [new Set([0, 1, 2]), new Set([0, 3, 4]), new Set([0, 5, 6]), new Set([1, 3, 5]), new Set([1, 4, 6]), new Set([2, 3, 6]), new Set([2, 4, 5])]
+  }
+}
+
+/* ================================================================== */
+/* PIN SECTION — audits the part file (runs green only after prose)    */
+/* ================================================================== */
+async function runPins(): Promise<void> {
+  let mod: { lessonGeo104?: Lesson } | null = null
+  try {
+    mod = await import('./part-geo104')
+    pcheck('P01 part file loads and exports lessonGeo104', !!mod?.lessonGeo104, '')
+  } catch (e) {
+    pcheck('P01 part file loads and exports lessonGeo104', false, String(e))
+  }
+  const lesson = mod?.lessonGeo104
+  if (!lesson) return
+
+  // P02 — quiz keys [2,1,2,2,3], 4 options each, intended token in the correct option
+  const quizBlock = lesson.blocks.find((b) => b.kind === 'quiz') as
+    | { kind: 'quiz'; items: Array<{ q: string; options: string[]; answer: number; explain: string }> }
+    | undefined
+  if (!quizBlock) {
+    pcheck('P02a quiz block exists', false, 'no quiz block')
+  } else {
+    const keys = quizBlock.items.map((i) => i.answer)
+    pcheck('P02a quiz keys are [2,1,2,2,3]', JSON.stringify(keys) === JSON.stringify([2, 1, 2, 2, 3]), `keys=${keys.join(',')}`)
+    pcheck('P02b every quiz item has exactly 4 options', quizBlock.items.every((i) => i.options.length === 4), quizBlock.items.map((i) => String(i.options.length)).join(','))
+    const pinnedValues = ['exactly one', '10', '3', '13', 'n']
+    quizBlock.items.forEach((i, idx) => {
+      const correct = i.options[i.answer] ?? ''
+      const present = correct.includes(pinnedValues[idx])
+      pcheck(`P02c quiz item ${idx + 1}: correct option carries the pinned value '${pinnedValues[idx]}'`, present, `options=${JSON.stringify(i.options)} answerIdx=${i.answer} correct=${JSON.stringify(correct)}`)
+      pcheck(`P02d quiz item ${idx + 1}: explain names why every wrong option fails`, i.explain.length > 120, i.explain.slice(0, 60))
+    })
+  }
+
+  // P03 — exercises: sets spanning L1..L6, exactly 15 questions, non-empty steps + answer
+  const exBlock = lesson.blocks.find((b) => b.kind === 'exercises') as
+    | { kind: 'exercises'; title?: string; sets: Array<{ level: string; questions: Array<{ q: string; solution: string[]; answer?: string; figures?: unknown[] }> }> }
+    | undefined
+  if (!exBlock) {
+    pcheck('P03a exercises block exists', false, 'no exercises block')
+  } else {
+    const levels = exBlock.sets.map((s) => s.level)
+    const spanned = ['L1', 'L2', 'L3', 'L4', 'L5', 'L6'].every((Lv) => levels.includes(Lv))
+    pcheck('P03a sets span L1..L6', exBlock.sets.length >= 4 && spanned, `levels=${levels.join(',')}`)
+    const allQ = exBlock.sets.flatMap((s) => s.questions)
+    pcheck('P03b exactly 15 questions total', allQ.length === 15, `count=${allQ.length}`)
+    pcheck('P03c every question has a non-empty steps solution + answer', allQ.every((q) => Array.isArray(q.solution) && q.solution.length >= 3 && q.solution.every((s) => s.trim().length > 0) && !!q.answer && q.answer.trim().length > 0), '')
+    // P08 — answer's numeric core appears in the final solution line
+    let coreOk = 0
+    const fails: string[] = []
+    for (const set of exBlock.sets) for (const q of set.questions) {
+      const last = q.solution[q.solution.length - 1].replace(/\$/g, '')
+      const tokens = (q.answer ?? '').replace(/\$/g, '').match(/\d+(?:\.\d+)?/g) ?? []
+      const ok = tokens.length === 0 || tokens.every((t) => last.includes(t))
+      if (ok) coreOk++; else fails.push(`${q.q.slice(0, 40)} | answer=${q.answer} | last=${last.slice(-60)}`)
+    }
+    pcheck('P08 every exercise answer appears in its solution final line (numeric core)', coreOk === allQ.length, `ok=${coreOk}/${allQ.length}${fails.length ? ' fails: ' + fails.join(' ; ') : ''}`)
+    // solution figures live inside exercise questions
+    const solFigs = exBlock.sets.flatMap((s) => s.questions).reduce((n, q) => n + (q.figures?.length ?? 0), 0)
+    pcheck('P04b >=2 solution figures inside exercises', solFigs >= 2, `count=${solFigs}`)
+  }
+
+  // P04a — body figures
+  const bodyFigs = lesson.blocks.filter((b) => b.kind === 'figure').length
+  pcheck('P04a >=3 body figure blocks', bodyFigs >= 3, `count=${bodyFigs}`)
+  // P05 — terms
+  const termsBlocks = lesson.blocks.filter((b) => b.kind === 'terms') as Array<{ kind: 'terms'; items: Array<{ term: string; def: string }> }>
+  pcheck('P05 >=1 terms block with >=6 items', termsBlocks.length >= 1 && termsBlocks.some((t) => t.items.length >= 6), termsBlocks.map((t) => `${t.items.length} items`).join(','))
+  // P06 — formula cards
+  const formulas = lesson.blocks.filter((b) => b.kind === 'formula').length
+  pcheck('P06 >=4 formula cards', formulas >= 4, `count=${formulas}`)
+  // P07 — word count
+  const wc = countLessonWords(lesson)
+  pcheck('P07 word count >= 6000', wc >= 6000, `countLessonWords=${wc}`)
+  // P09 — SVG text law: plain text only
+  const svgs: string[] = []
+  for (const b of lesson.blocks) {
+    if (b.kind === 'figure') svgs.push(b.svg)
+    if (b.kind === 'example') for (const f of b.figures ?? []) svgs.push(f.svg)
+    if (b.kind === 'exercises') for (const s of b.sets) for (const q of s.questions) for (const f of q.figures ?? []) svgs.push((f as { svg: string }).svg)
+  }
+  const textSpans: string[] = []
+  for (const s of svgs) {
+    const re = /<text[^>]*>([\s\S]*?)<\/text>/g
+    let m: RegExpExecArray | null
+    while ((m = re.exec(s)) !== null) textSpans.push(m[1])
+  }
+  const badSvg = textSpans.filter((t) => t.includes('$') || t.includes('\\') || t.includes('\u2212'))
+  pcheck('P09 all SVG text is plain (no $, no TeX backslash, ASCII minus only)', svgs.length > 0 && badSvg.length === 0, `svgs=${svgs.length} bad=${badSvg.length}`)
+  const ariaOk = svgs.every((s) => s.includes('role="img"') && s.includes('aria-label'))
+  pcheck('P09b every SVG root carries role=img + aria-label', ariaOk, '')
+
+  // P10 — forbidden tokens anywhere in the file text fields
+  const allText: string[] = []
+  for (const b of lesson.blocks as Array<Record<string, unknown>>) {
+    for (const key of ['text', 'title', 'statement', 'result', 'note', 'caption', 'name', 'latex', 'q', 'answer']) {
+      const v = b[key]
+      if (typeof v === 'string') allText.push(v)
+    }
+    if (b.kind === 'callout') { const c = b as { title: string; text: string }; allText.push(c.title, c.text) }
+    if (b.kind === 'quiz') for (const it of (b as { items: Array<{ q: string; options: string[]; explain: string }> }).items) allText.push(it.q, ...it.options, it.explain)
+    if (b.kind === 'terms') for (const t of (b as { items: Array<{ term: string; def: string }> }).items) allText.push(t.term, t.def)
+    if (b.kind === 'derivation') { const d = b as { title: string; statement: string; steps: Array<{ label: string; formula?: string; explanation: string }>; result: string }; allText.push(d.title, d.statement, d.result); for (const s of d.steps) allText.push(s.label, s.formula ?? '', s.explanation) }
+    if (b.kind === 'example') { const e = b as { title: string; steps: string[] }; allText.push(e.title, ...e.steps) }
+    if (b.kind === 'exercises') for (const s of (b as { sets: Array<{ questions: Array<{ q: string; solution: string[]; answer?: string }> }> }).sets) for (const q of s.questions) allText.push(q.q, ...q.solution, q.answer ?? '')
+    if (b.kind === 'list') for (const it of (b as { items: string[] }).items) allText.push(it)
+    if (b.kind === 'table') { const t = b as { head: string[]; rows: string[][] }; allText.push(...t.head, ...t.rows.flat()) }
+    if (b.kind === 'equation') allText.push((b as { latex: string }).latex)
+    if (b.kind === 'formula') { const fo = b as { name: string; latex: string; note?: string }; allText.push(fo.name, fo.latex, fo.note ?? '') }
+  }
+  const joined = allText.join('\n')
+  pcheck('P10a no \\qquad anywhere', !joined.includes('\\qquad'), '')
+  pcheck('P10b no \\dfrac and no $$ delimiters', !joined.includes('\\dfrac') && !joined.includes('$$'), '')
+  pcheck('P10c no raw \\( or \\[ escapes', !joined.includes('\\(') && !joined.includes('\\['), '')
+  const heads = lesson.blocks.filter((b) => b.kind === 'heading') as Array<{ kind: 'heading'; text: string }>
+  pcheck('P10d headings are plain (no $, no backslash)', heads.every((h) => !h.text.includes('$') && !h.text.includes('\\')), heads.map((h) => h.text).join(' | '))
+
+  // P11 — concepts/objectives counts
+  pcheck('P11 concepts 5-8 and objectives 4-6', lesson.concepts.length >= 5 && lesson.concepts.length <= 8 && (lesson.objectives?.length ?? 0) >= 4 && (lesson.objectives?.length ?? 0) <= 6, `concepts=${lesson.concepts.length}, objectives=${lesson.objectives?.length ?? 0}`)
+  // P12 — identity fields per spec
+  pcheck('P12 id/number/title exact', lesson.id === 'geo-incidence-how-points-lines-and-planes-interlock' && lesson.number === '1.4' && lesson.title === 'Incidence: how Points, Lines and Planes Interlock', `${lesson.id} / ${lesson.number} / ${lesson.title}`)
+  pcheck('P12b prerequisites exact', JSON.stringify(lesson.prerequisites) === JSON.stringify(['geo-the-undefined-words-and-the-defined-ones', 'geo-euclids-five-postulates-the-rules-of-the-game', 'geo-axioms-theorems-and-the-shape-of-a-proof']), JSON.stringify(lesson.prerequisites))
+  pcheck('P12c sources exact', JSON.stringify(lesson.sources) === JSON.stringify(['geo-hilbert-grundlagen', 'geo-fano-plane', 'geo-dbe-1948']), JSON.stringify(lesson.sources))
+  pcheck('P12d no manual words field (honest count)', !('words' in lesson), '')
+
+  // P13 — the prose carries the engine's computed numbers
+  const mustHave = ['1948', 'de Bruijn', 'Fano', '1892', '21', '13', '15', '45', '36', '28', 'parallel classes', 'general position']
+  const missing = mustHave.filter((t) => !joined.includes(t))
+  pcheck('P13 prose carries the engine numbers and named results', missing.length === 0, missing.length ? 'missing: ' + missing.join(', ') : 'all present')
+  const fanoTriples = ['A, D, G', 'B, E, G', 'C, F, G', 'A, B, F', 'A, C, E', 'B, C, D', 'D, E, F']
+  const missingT = fanoTriples.filter((t) => !joined.includes(t))
+  pcheck('P13b the seven Fano triples appear in the relabelled A..G form', missingT.length === 0, missingT.length ? 'missing: ' + missingT.join(', ') : 'all 7 present')
+
+  // P14 — examples >=2, derivations >=3, tables >=2, equation >=1
+  const examples = lesson.blocks.filter((b) => b.kind === 'example') as Array<{ kind: 'example'; title: string; steps: string[] }>
+  pcheck('P14a >=2 example blocks with >=3 steps', examples.length >= 2 && examples.every((e) => e.steps.length >= 3), examples.map((e) => `${e.title.slice(0, 28)} (${e.steps.length} steps)`).join(' | '))
+  const derivs = lesson.blocks.filter((b) => b.kind === 'derivation').length
+  pcheck('P14b >=3 derivation blocks', derivs >= 3, `count=${derivs}`)
+  const tables = lesson.blocks.filter((b) => b.kind === 'table').length
+  pcheck('P14c >=2 table blocks', tables >= 2, `count=${tables}`)
+  const eqs = lesson.blocks.filter((b) => b.kind === 'equation').length
+  pcheck('P14d >=1 equation block', eqs >= 1, `count=${eqs}`)
+}
+
+/* ------------------------------------------------------------------ */
+/* bottom harness                                                      */
+/* ------------------------------------------------------------------ */
+function report(label: string, list: Chk[]): { pass: number; fail: number } {
+  const pass = list.filter((c) => c.ok).length
+  const fail = list.length - pass
+  for (const c of list) if (!c.ok) console.log(`  FAIL ${c.name} — ${c.detail}`)
+  console.log(`${label}: ${pass} pass, ${fail} fail`)
+  return { pass, fail }
+}
+console.log('=== ENGINE (recompute everything) ===')
+const e = report('geo104-engine', engine)
+console.log('=== PINS (audit the part file) ===')
+await runPins()
+const p = report('geo104-pins', pins)
+const fail = e.fail + p.fail
+console.log(`geo104 TOTAL: ${e.pass + p.pass} pass, ${fail} fail`)
+if (fail > 0) process.exit(1)

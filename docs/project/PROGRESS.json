@@ -2,7 +2,7 @@
   "$schema": "./PROGRESS.schema.json",
   "project": "LockIn Library",
   "updated": "2026-11-25",
-  "phase": "computer-fundamentals ch.3 COMPLETE (CS RUN 6 closed it whole from the tracked wip, 2026-11-25: 3.1 + 3.3 + 3.4 + 3.5 + 3.8 + the 3.R review shipped by the two-round six-seat swarm at 116/149/112/105/107/88 green — 56,670 words this fire, 85,338 across the nine-lesson chapter; the whole-chapter cadence honoured, the chapter opened and closed across two fires under the time-budget law); next: CS RUN 7 opens ch.4 'Inside the Box' whole per CS_AUTHORING_POINTER; maths lane: geometry ch.1 1.3 + 1.4 ride run 125 per its own pointer",
+  "phase": "geometry ch.1 COMPLETE (run 125 closed it whole from the preserved wip, 2026-11-25: 1.3 'Axioms, Theorems and the Shape of a Proof' + 1.4 'Incidence: how Points, Lines and Planes Interlock' shipped by the two-round swarm at 109/101 green — 19,735 words this fire, 35,791 across the four-lesson chapter; the chapter-wide VLM figure sweep landed with its fixes; verifier 431/431 with the closed census); next: run 126 opens geometry ch.2 WHOLE (one agent per lesson + the unit review); the cs lane: CS RUN 7 opens computer-fundamentals ch.4 'Inside the Box' whole per CS_AUTHORING_POINTER",
   "awaiting": "CS RUN 7 (the cs job) opens computer-fundamentals ch.4 'Inside the Box' whole (one agent per lesson + the 4.R review); run 125+ (maths) completes geometry ch.1 per RESUME_POINTER",
   "platform": {
     "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
@@ -1786,8 +1786,8 @@
         "notes": "PLANNED (full-shelf pass 2026-11-16) — 5 ch / 20 planned lessons, `cwrit-` prefix reserved; research: Kostka Tonal Harmony full TOC + Bordwell Film Art TOC + Gardner cross-references + the graded registers, web. Authoring opens in backlog order after Advanced Algebra completes."
       }
     ],
-    "lessonsWritten": 146,
-    "wordsAuthored": 730261,
+    "lessonsWritten": 215,
+    "wordsAuthored": 1299953,
     "termsAvailableForFlashcards": 1054,
     "totals": {
       "lessons": 139,
@@ -1796,8 +1796,8 @@
       "quiz": 695,
       "exercises": 1805
     },
-    "chaptersWritten": 35,
-    "chaptersInProgress": 1,
+    "chaptersWritten": 36,
+    "chaptersInProgress": 0,
     "termsDefined": 1083,
     "quizItems": 730,
     "exerciseQuestions": 1914,
