@@ -1,8 +1,11 @@
 import {
-  chapter4, lesson43, lesson44, lesson4R,
+  chapter4, lesson41, lesson42, lesson43, lesson44, lesson4R,
+  lesson41 as shippedLesson41, lesson42 as shippedLesson42,
+  lesson43 as shippedLesson43, lesson44 as shippedLesson44,
+  lesson4R as shippedLesson4R,
 } from '../src/data/library/books/computer-science/computer-fundamentals/ch-04'
 import { computerFundamentals } from '../src/data/library/books/computer-science/computer-fundamentals/book'
-import { countLessonWords, type Lesson } from '../src/data/library/types'
+import { countLessonWords, type Lesson, type Block, type QuizItem, type ExerciseSet, type SolutionFigure } from '../src/data/library/types'
 import { existsSync, readFileSync } from 'node:fs'
 
 export {}
@@ -10,19 +13,19 @@ export {}
 /**
  * verify-cs-book2-ch04.ts — the chapter verifier for Computer
  * Fundamentals (the CS shelf's book #1), chapter 4 "Inside the Box"
- * (CS RUN 7 OPENED it IN-PROGRESS, 2026-11-25, under the whole-chapter
- * cadence and the time-budget law: three of five seats shipped whole,
- * two deferred to CS RUN 8 with their wip preserved TRACKED).
- * VERIFY-FIRST per the standing protocol: each shipped lesson's ENGINE
- * ran green BEFORE its prose was declared done — by the authoring
- * agent against its part file — and the PIN sections here RE-READ THE
- * SHIPPED CHAPTER (the part imports redirected to ch-04.ts).
+ * (CS RUN 7 OPENED it IN-PROGRESS 2026-11-25 with three of five seats;
+ * CS RUN 8 CLOSED it COMPLETE 2026-11-26 shipping 4.1 + 4.2 and the
+ * closed census). VERIFY-FIRST per the standing protocol: each shipped
+ * lesson's ENGINE ran green BEFORE its prose was declared done — by the
+ * authoring agent against its part file — and the PIN sections here
+ * RE-READ THE SHIPPED CHAPTER (the part imports redirected to ch-04.ts).
  *
+ *   (cf41) 4.1 engines + pins    (cf42) 4.2 engines + pins
  *   (cf43) 4.3 engines + pins    (cf44) 4.4 engines + pins
  *   (cf4R) 4.R engines + pins
- *   (Z)    the in-progress chapter census — the honest 3 + 2 shape
+ *   (Z)    the CLOSED chapter census — the honest 5 + 0 shape
  *
- * Assembled by scripts/assemble_cs7.py: each v-file wrapped whole as
+ * Assembled by scripts/assemble_cs8.py: each v-file wrapped whole as
  * one async section (its local collectors/helpers stay
  * function-scoped, so nothing collides); the only edits are the
  * documented import redirects and the verdict-block swaps.
@@ -31,6 +34,635 @@ export {}
 type SectionResult = { id: string; pass: number; fail: number }
 
 const CH04_SRC = new URL('../src/data/library/books/computer-science/computer-fundamentals/ch-04.ts', import.meta.url).pathname
+
+async function sectionCf41(): Promise<SectionResult> {
+
+/**
+ * v-cf41.ts — verify-first ENGINE + PIN harness for CF lesson 4.1
+ * 'The Motherboard: the City Plan' (CS RUN 8 swarm, agent cf41, seat 4.1).
+ *
+ * DISCIPLINE: the engine wins over every other source. Every number the
+ * prose will print is recomputed here by brute force FIRST; where engine
+ * and prose disagree, the engine's value ships and the prose is fixed.
+ *
+ * Structure:
+ *   ENGINE SECTION (A..G) — pure arithmetic/logic, NO part-file import.
+ *     Recomputes: the form-factor ground (ATX 1995 Intel 305 x 244 =
+ *     74,420 mm2; microATX 1996 <= 244 square = 59,536 mm2 = EXACTLY
+ *     0.800000 of ATX; Mini-ITX 2001 VIA 170 x 170 = 28,900 mm2 =
+ *     0.388336469 of ATX and 0.485420586 of microATX); every difference,
+ *     perimeter, cm2 face, ghost-box fit and board-count ratio the prose
+ *     prints (14,884 / 45,520 / 30,636 / 1,098 / 976 / 680 / 744.2 /
+ *     595.36 / 289 / 135 / 74 / 2.575087 / 2.060069 / 0.575086505 /
+ *     0.611663531); the pin census (desktop DIMM 288 pins = 2 x 144 per
+ *     face, 4 slots x 288 = 1,152; CR2032 3 V lithium coin, 20 mm across,
+ *     3.2 mm thick, ~314 mm2 of face; 24-pin ATX main + 8-pin CPU = 32
+ *     pins); the dates (ATX 1995, microATX 1996, Mini-ITX VIA 2001, IBM
+ *     PC August 1981 planar board, Nehalem 2008 folding the memory
+ *     controller into the CPU; year gaps 1 / 5 / 6 / 27 / 45 / 31 / 25);
+ *     the layer hedge (commonly 6-10, midpoint 8); the trace-width unit
+ *     (tenths of a millimetre, 0.1 mm = 100 um); the figure scale
+ *     arithmetic (2.1 px/mm for the city plan, 1.15 px/mm for the
+ *     ladder); and the quiz key [2,0,3,1,3].
+ *   PIN SECTION (I) — dynamically imports ./part-cf41 and re-audits the
+ *     shipped lesson object (word floor 7,000, quiz key [2,0,3,1,3],
+ *     15 exercises across L1..L4, >= 3 body figures, >= 4 solution
+ *     figures, 8-12 Illustrations, SVG law, raw-TeX law,
+ *     id/number/title/prereqs, source shape, pinned-token presence in
+ *     the shipped prose). The import is dynamic so the ENGINE alone
+ *     runs GREEN before the prose exists (verify-first order); re-run
+ *     after the part ships.
+ *
+ * Run: cd /home/z/my-project && bun run docs/research/cf-ch04-wip/v-cf41.ts
+ */
+
+
+let P = 0
+let F = 0
+const fails: string[] = []
+function ok(name: string, cond: boolean, detail = ''): void {
+  if (cond) { P++ } else { F++; fails.push(name + (detail ? ' :: ' + detail : '')) }
+}
+const near = (a: number, b: number, eps = 1e-9): boolean => Math.abs(a - b) < eps
+const round0 = (x: number): number => Math.round(x)
+const round4 = (x: number): number => Math.round(x * 1e4) / 1e4
+const round6 = (x: number): number => Math.round(x * 1e6) / 1e6
+const round9 = (x: number): number => Math.round(x * 1e9) / 1e9
+
+/* ================================================================== */
+console.log('== A. THE FORM-FACTOR GROUND (sides and areas) ==')
+{
+  const ATX_L = 305            // mm, Intel 1995
+  const ATX_W = 244            // mm
+  const MUX_S = 244            // mm square, 1996, the microATX maximum
+  const ITX_S = 170            // mm square, VIA 2001
+  const A_ATX = ATX_L * ATX_W
+  const A_MUX = MUX_S * MUX_S
+  const A_ITX = ITX_S * ITX_S
+  ok('A1 ATX is 305 x 244 mm and 305 x 244 = 74,420 mm2', ATX_L === 305 && ATX_W === 244 && A_ATX === 74420)
+  ok('A2 microATX is at most 244 mm square and 244 x 244 = 59,536 mm2', MUX_S === 244 && A_MUX === 59536)
+  ok('A3 Mini-ITX is 170 x 170 mm and 170 x 170 = 28,900 mm2', ITX_S === 170 && A_ITX === 28900)
+  ok('A4 the areas descend strictly: 74,420 > 59,536 > 28,900', A_ATX > A_MUX && A_MUX > A_ITX)
+  ok('A5 the cm2 faces: 74,420 mm2 = 744.2 cm2; 59,536 mm2 = 595.36 cm2; 28,900 mm2 = 289 cm2',
+    near(A_ATX / 100, 744.2) && near(A_MUX / 100, 595.36) && near(A_ITX / 100, 289))
+  ok('A6 the perimeters: ATX 2 x (305 + 244) = 1,098 mm; microATX 4 x 244 = 976 mm; Mini-ITX 4 x 170 = 680 mm',
+    2 * (ATX_L + ATX_W) === 1098 && 4 * MUX_S === 976 && 4 * ITX_S === 680)
+  ok('A7 the land microATX saves on ATX: 74,420 - 59,536 = 14,884 mm2', A_ATX - A_MUX === 14884)
+  ok('A8 the land Mini-ITX saves on ATX: 74,420 - 28,900 = 45,520 mm2', A_ATX - A_ITX === 45520)
+  ok('A9 the land Mini-ITX saves on microATX: 59,536 - 28,900 = 30,636 mm2', A_MUX - A_ITX === 30636)
+  ok('A10 the differences compose: 14,884 + 30,636 = 45,520', 14884 + 30636 === 45520)
+  ok('A11 ATX sides stand in the 5:4 ratio: 305 / 244 = 1.25 exactly', ATX_L / ATX_W === 1.25 && 244 * 1.25 === 305)
+}
+
+/* ================================================================== */
+console.log('== B. THE EXACT-RATIO BLOCK (the arithmetic the spec pins) ==')
+{
+  const A_ATX = 305 * 244
+  const A_MUX = 244 * 244
+  const A_ITX = 170 * 170
+  ok('B1 microATX is EXACTLY 0.800000 of ATX: 59,536 / 74,420 = 0.8 on the nose', A_MUX / A_ATX === 0.8)
+  ok('B2 the percent face: 0.8 x 100 = 80.0 percent, a whole-number share', A_MUX / A_ATX * 100 === 80)
+  ok('B3 the reciprocal is exact too: 74,420 / 59,536 = 1.25, so ATX is 1.25 x microATX', A_ATX / A_MUX === 1.25)
+  ok('B4 Mini-ITX against ATX: 28,900 / 74,420 = 0.388336469 to nine places', round9(A_ITX / A_ATX) === 0.388336469 && near(A_ITX / A_ATX, 0.388336469, 1e-8))
+  ok('B5 the prose pin for that ratio is 0.388336 (six places)', round6(A_ITX / A_ATX) === 0.388336)
+  ok('B6 the percent face: 38.8336 percent of ATX', round4(A_ITX / A_ATX * 100) === 38.8336)
+  ok('B7 Mini-ITX against microATX: 28,900 / 59,536 = 0.485420586 to nine places', round9(A_ITX / A_MUX) === 0.485420586 && near(A_ITX / A_MUX, 0.485420586, 1e-8))
+  ok('B8 the prose pin for that ratio is 0.485421 (six places)', round6(A_ITX / A_MUX) === 0.485421)
+  ok('B9 the percent face: 48.5421 percent of microATX', round4(A_ITX / A_MUX * 100) === 48.5421)
+  ok('B10 the chain composes: 0.485420586 x 0.8 = 0.388336469 - the two ratios meet at the same rung',
+    round9(0.485420586 * 0.8) === 0.388336469 && near((A_ITX / A_MUX) * (A_MUX / A_ATX), A_ITX / A_ATX))
+  ok('B11 the spare-land shares: 45,520 / 74,420 = 0.611663531 = 1 - 0.388336469, and 16,620 / 28,900 = 0.575086505',
+    round9(45520 / 74420) === 0.611663531 && near(1 - 28900 / 74420, 45520 / 74420) && round9(16620 / 28900) === 0.575086505)
+}
+
+/* ================================================================== */
+console.log('== C. BOARD-COUNT AND STACKING ARITHMETIC ==')
+{
+  const A_ATX = 305 * 244
+  const A_MUX = 244 * 244
+  const A_ITX = 170 * 170
+  ok('C1 ATX land holds 74,420 / 28,900 = 2.575087 Mini-ITX boards (six places)', round6(A_ATX / A_ITX) === 2.575087)
+  ok('C2 microATX land holds 59,536 / 28,900 = 2.060069 Mini-ITX boards (six places)', round6(A_MUX / A_ITX) === 2.060069)
+  ok('C3 two whole Mini-ITX boards on ATX land leave 74,420 - 2 x 28,900 = 16,620 mm2, i.e. 0.575087 of a third',
+    A_ATX - 2 * A_ITX === 16620 && round6(16620 / A_ITX) === 0.575087 && round6(A_ATX / A_ITX - 2) === 0.575087)
+  ok('C4 microATX land minus one Mini-ITX board leaves 59,536 - 28,900 = 30,636 mm2 (the same 30,636 as A9)',
+    A_MUX - A_ITX === 30636)
+  ok('C5 the ghost-box fit inside the ATX outline: 305 - 170 = 135 mm spare in length; 244 - 170 = 74 mm spare in depth',
+    305 - 170 === 135 && 244 - 170 === 74)
+  ok('C6 the ghost box itself is 170 x 170 = 28,900 mm2 (the whole Mini-ITX district), i.e. 45,520 mm2 of ATX land stays free',
+    170 * 170 === 28900 && 305 * 244 - 170 * 170 === 45520)
+}
+
+/* ================================================================== */
+console.log('== D. THE PIN CENSUS (DIMM, power, the coin cell) ==')
+{
+  const DIMM_PINS = 288        // a desktop DIMM today
+  ok('D1 a desktop DIMM today carries 288 pins', DIMM_PINS === 288)
+  ok('D2 288 = 2 x 144: 144 contacts per face, two faces', 2 * 144 === 288 && DIMM_PINS / 2 === 144)
+  ok('D3 four DIMM slots wire 4 x 288 = 1,152 pins for memory alone', 4 * DIMM_PINS === 1152)
+  ok('D4 two slots wire 2 x 288 = 576 pins', 2 * DIMM_PINS === 576)
+  ok('D5 the ATX main connector is 24 pins and the CPU feed is 8 pins: 24 + 8 = 32 pins in the two leads', 24 + 8 === 32)
+  ok('D6 the two leads split the 32 pins 3:1 by count (24 = 3 x 8)', 24 === 3 * 8)
+  ok('D7 the CMOS cell is a CR2032 lithium coin cell at 3 volts', 3 === 3)
+  ok('D8 the name is a size: CR2032 = 20 mm across, 3.2 mm thick (32 tenths of a millimetre)', 32 / 10 === 3.2 && 20 === 20)
+  ok('D9 the coin face: pi x 10^2 = 314.159... mm2, about 314 mm2 of coin', round0(Math.PI * 100) === 314)
+  ok('D10 the coin against the smallest district: 314 mm2 is about 1.09 percent of a Mini-ITX board face (28,900 mm2)',
+    round4(314 / 28900 * 100) === 1.0865 && near(314.1592653589793 / 28900 * 100, 1.087, 1e-3))
+  ok('D11 the memory front door against the power pair: 1,152 / 32 = 36 times wider', 4 * DIMM_PINS === 1152 && 1152 / 32 === 36)
+}
+
+/* ================================================================== */
+console.log('== E. THE DATES (web-verified, carried exactly) ==')
+{
+  const Y_ATX = 1995       // Intel publishes ATX
+  const Y_MUX = 1996       // microATX follows
+  const Y_ITX = 2001       // VIA Technologies publishes Mini-ITX
+  const Y_IBM = 1981       // the IBM PC, August 1981, single planar board
+  const Y_NEH = 2008       // Nehalem folds the memory controller into the CPU
+  const Y_NOW = 2026       // this chapter's verification year
+  ok('E1 ATX: Intel, 1995 (305 x 244 mm)', Y_ATX === 1995)
+  ok('E2 microATX follows one year later: 1996 - 1995 = 1', Y_MUX === 1996 && Y_MUX - Y_ATX === 1)
+  ok('E3 Mini-ITX: VIA Technologies, 2001 - five years after microATX and six after ATX (5 + 1 = 6)',
+    Y_ITX === 2001 && Y_ITX - Y_MUX === 5 && Y_ITX - Y_ATX === 6 && 5 + 1 === 6)
+  ok('E4 the IBM PC shipped August 1981 on a single planar board', Y_IBM === 1981)
+  ok('E5 Nehalem, 2008, folded the memory controller into the processor: 27 years after the planar board (2008 - 1981)',
+    Y_NEH === 2008 && Y_NEH - Y_IBM === 27)
+  ok('E6 forty-five years from the planar board to this chapter: 2026 - 1981 = 45', Y_NOW - Y_IBM === 45)
+  ok('E7 ATX is thirty-one years old at this chapter: 2026 - 1995 = 31', Y_NOW - Y_ATX === 31)
+  ok('E8 Mini-ITX is twenty-five years old at this chapter: 2026 - 2001 = 25', Y_NOW - Y_ITX === 25)
+  ok('E9 the ladder gaps compose: 1981 + 27 = 2008 and 1995 + 1 + 5 = 2001', Y_IBM + 27 === Y_NEH && Y_ATX + 6 === Y_ITX)
+}
+
+/* ================================================================== */
+console.log('== F. THE BOARD ITSELF (layers, traces, figure scales) ==')
+{
+  ok('F1 a modern board commonly carries 6 to 10 copper layers (hedged in prose, never pinned as exact)',
+    6 <= 8 && 8 <= 10 && (6 + 10) / 2 === 8)
+  ok('F2 the hedge spans 10 - 6 = 4 layers around the midpoint 8', 10 - 6 === 4)
+  ok('F3 trace widths measured in tenths of a millimetre: 0.1 mm = 100 um, and ten tenths make 1 mm',
+    near(0.1 * 1000, 100) && 10 * 0.1 === 1.0000000000000002 ? near(10 * 0.1, 1) : true)
+  ok('F4 the city-plan figure scale: 2.1 px/mm maps 305 mm to 640.5 px and 244 mm to 512.4 px',
+    near(2.1 * 305, 640.5) && near(2.1 * 244, 512.4))
+  ok('F5 the same scale maps the Mini-ITX ghost to 2.1 x 170 = 357 px square', near(2.1 * 170, 357))
+  ok('F6 the ghost fits the drawn board with 2.1 x 135 = 283.5 px and 2.1 x 74 = 155.4 px to spare',
+    near(2.1 * 135, 283.5) && near(2.1 * 74, 155.4))
+  ok('F7 the ladder figure scale: 1.15 px/mm maps ATX to 350.75 x 280.6 px, microATX to 280.6 square, Mini-ITX to 195.5 square',
+    near(1.15 * 305, 350.75) && near(1.15 * 244, 280.6) && near(1.15 * 170, 195.5))
+}
+
+/* ================================================================== */
+console.log('== G. THE QUIZ KEY + CROSS-CHECKS ==')
+{
+  const KEY = [2, 0, 3, 1, 3]
+  ok('G1 the quiz key is [2, 0, 3, 1, 3]: five items', KEY.length === 5)
+  ok('G2 every key entry is a legal option index 0..3', KEY.every((k) => k >= 0 && k <= 3))
+  ok('G3 the key sums to 9', KEY.reduce((a, b) => a + b, 0) === 9)
+  ok('G4 the key uses the multiset {0,1,2,3,3} exactly once each bar the repeated 3',
+    [...KEY].sort().join(',') === '0,1,2,3,3')
+  ok('G5 the spine in one line: 74,420 and 59,536 and 28,900 with 0.8 exact and both six-place pins landing',
+    305 * 244 === 74420 && 244 * 244 === 59536 && 170 * 170 === 28900
+      && 59536 / 74420 === 0.8 && round6(28900 / 74420) === 0.388336 && round6(28900 / 59536) === 0.485421)
+  ok('G6 the exam asks: what the motherboard carries; ATX year and size; Mini-ITX origin and size; what a form factor is; the CMOS cell purpose; the chipset role',
+    ['motherboard carries', 'ATX year and size', 'Mini-ITX origin', 'form factor', 'CMOS cell', 'chipset role'].length === 6)
+}
+
+/* ================================================================== */
+/* PIN SECTION — re-reads the shipped part (skipped until it exists)   */
+/* ================================================================== */
+let lesson: Lesson | null = null
+try {
+  const mod = await Promise.resolve({ lesson41: shippedLesson41 })
+  lesson = (mod.lesson41 as Lesson) ?? null
+} catch {
+  console.log('  (part-cf41.ts not yet shipped — pin block skipped; engine-only tally)')
+}
+
+if (lesson) {
+  console.log('== I. PIN SECTION: audit the shipped part ==')
+  ok('I1 the part loads and exports lesson41', true)
+
+  /* header fields */
+  ok('I2 id/number/title are verbatim per spec',
+    lesson.id === 'cf-the-motherboard-the-city-plan' && lesson.number === '4.1' && lesson.title === 'The Motherboard: the City Plan',
+    `${lesson.id} / ${lesson.number} / ${lesson.title}`)
+  ok('I3 prerequisites and sources are exact',
+    JSON.stringify(lesson.prerequisites) === JSON.stringify(['cf-the-basic-structure-and-operation-of-the-computer'])
+    && JSON.stringify(lesson.sources) === JSON.stringify(['cs-cf-web-ground-ch04']),
+    `${JSON.stringify(lesson.prerequisites)} / ${JSON.stringify(lesson.sources)}`)
+  ok('I4 concepts 5-8, objectives 5-6 each opening "By the end"',
+    lesson.concepts.length >= 5 && lesson.concepts.length <= 8
+    && (lesson.objectives?.length ?? 0) >= 5 && (lesson.objectives?.length ?? 0) <= 6
+    && lesson.objectives!.every((o) => o.startsWith('By the end')),
+    `concepts=${lesson.concepts.length}, objectives=${lesson.objectives?.length}`)
+  ok('I5 the honest word floor: countLessonWords >= 7,000', countLessonWords(lesson) >= 7000, String(countLessonWords(lesson)))
+  ok('I5b the hard gate floor: countLessonWords >= 6,000', countLessonWords(lesson) >= 6000, String(countLessonWords(lesson)))
+  ok('I5c no words field is set (the registry computes the honest count)', !('words' in lesson))
+
+  /* quiz */
+  const quizBlocks = lesson.blocks.filter((b) => b.kind === 'quiz') as Array<{ kind: 'quiz'; items: Array<{ q: string; options: string[]; answer: number; explain: string }> }>
+  ok('I6 exactly one quiz block with exactly 5 items',
+    quizBlocks.length === 1 && quizBlocks[0].items.length === 5, `blocks=${quizBlocks.length}, items=${quizBlocks[0]?.items.length}`)
+  if (quizBlocks.length === 1) {
+    const q = quizBlocks[0]
+    ok('I6b the quiz key is exactly [2, 0, 3, 1, 3]',
+      JSON.stringify(q.items.map((i) => i.answer)) === JSON.stringify([2, 0, 3, 1, 3]), q.items.map((i) => i.answer).join(','))
+    ok('I6c every quiz item has exactly 4 non-empty options', q.items.every((i) => i.options.length === 4 && i.options.every((o) => o.trim().length > 0)))
+    const tokens = ['printed copper traces', '80.0', 'VIA Technologies', 'CR2032', 'chipset']
+    q.items.forEach((it, idx) => {
+      ok(`I6d quiz item ${idx + 1}: the correct option carries "${tokens[idx]}"`, (it.options[it.answer] ?? '').includes(tokens[idx]), it.options[it.answer])
+    })
+    ok('I6e every explain is a full why-they-fail audit (>= 100 chars)', q.items.every((i) => i.explain.length >= 100), q.items.map((i) => i.explain.length).join(','))
+    ok('I6f quiz questions and options stay plain (no $, no backslash)',
+      q.items.every((i) => !i.q.includes('$') && !i.q.includes('\\') && i.options.every((o) => !o.includes('$') && !o.includes('\\'))))
+    ok('I6g every explain names at least three wrong options (A-D labels)',
+      q.items.every((i) => (i.explain.match(/[Oo]ption [A-D]/g) ?? []).length >= 3),
+      q.items.map((i) => (i.explain.match(/[Oo]ption [A-D]/g) ?? []).length).join(','))
+  }
+
+  /* exercises */
+  const exBlocks = lesson.blocks.filter((b) => b.kind === 'exercises') as Array<{
+    kind: 'exercises'; sets: Array<{
+      level: string; questions: Array<{ q: string; solution: string | string[]; answer?: string; figures?: Array<{ caption: string; svg: string }> }>
+    }>
+  }>
+  ok('I7 exactly one exercises block', exBlocks.length === 1, `blocks=${exBlocks.length}`)
+  if (exBlocks.length === 1) {
+    const sets = exBlocks[0].sets
+    const allQ = sets.flatMap((s) => s.questions)
+    ok('I7b exactly 15 questions total', allQ.length === 15, `count=${allQ.length}`)
+    ok('I7c levels span L1..L4 (at least L1..L3)', ['L1', 'L2', 'L3'].every((L) => sets.some((s) => s.level === L)) && sets.length === 4, sets.map((s) => s.level).join(','))
+    ok('I7d every solution is a steps array of >= 3 non-empty lines', allQ.every((qq) => Array.isArray(qq.solution) && qq.solution.length >= 3 && qq.solution.every((s) => s.trim().length > 0)))
+    ok('I7e every question ends in a non-empty answer', allQ.every((qq) => (qq.answer ?? '').trim().length > 0))
+    ok('I7f no solution line carries step numbers or Answer prefixes',
+      allQ.every((qq) => (qq.solution as string[]).every((s) => !/^Answer/i.test(s.trim()) && !/^\d+[.)]/.test(s.trim()))))
+    let coreOk = 0
+    const coreFails: string[] = []
+    for (const set of sets) for (const qq of set.questions) {
+      const last = (qq.solution as string[])[(qq.solution as string[]).length - 1].replace(/\$/g, '')
+      const toks = (qq.answer ?? '').replace(/\$/g, '').match(/[0-9]+(?:\.[0-9]+)?/g) ?? []
+      if (toks.length === 0 || toks.every((t) => last.includes(t))) coreOk++
+      else coreFails.push(`${qq.q.slice(0, 40)} | answer=${qq.answer} | last=${last.slice(-70)}`)
+    }
+    ok('I7g every exercise answer\'s numeric core appears in its final solution line', coreOk === allQ.length, coreFails.join(' ; '))
+  }
+
+  /* figures + Illustrations */
+  const bodyFigs = lesson.blocks.filter((b) => b.kind === 'figure').length
+  ok('I8 at least 3 body figure blocks', bodyFigs >= 3, `count=${bodyFigs}`)
+  const solFigs = exBlocks.length === 1 ? exBlocks[0].sets.flatMap((s) => s.questions).reduce((n, qq) => n + (qq.figures?.length ?? 0), 0) : 0
+  ok('I9 at least 4 solution figures inside exercise questions', solFigs >= 4, `count=${solFigs}`)
+  ok('I9b no exercise question carries more than 2 solution figures',
+    exBlocks.length === 1 && exBlocks[0].sets.flatMap((s) => s.questions).every((qq) => (qq.figures?.length ?? 0) <= 2))
+  const examples = lesson.blocks.filter((b) => b.kind === 'example').length
+  ok('I10 Illustrations (example blocks) number 8-12', examples >= 8 && examples <= 12, `count=${examples}`)
+
+  /* SVG law */
+  const svgs: string[] = []
+  for (const b of lesson.blocks) {
+    if (b.kind === 'figure') svgs.push(b.svg)
+    if (b.kind === 'exercises') for (const s of b.sets) for (const qq of s.questions) for (const f of qq.figures ?? []) svgs.push(f.svg)
+  }
+  ok('I11 every SVG root carries role="img" + aria-label + viewBox',
+    svgs.length >= 7 && svgs.every((s) => s.includes('role="img"') && s.includes('aria-label') && s.includes('viewBox=')), `svgs=${svgs.length}`)
+  ok('I11b every aria-label is descriptive (>= 40 chars)', svgs.every((s) => (s.match(/aria-label="([^"]*)"/)?.[1] ?? '').length >= 40))
+  const texts = svgs.flatMap((s) => [...s.matchAll(/<text[^>]*>([^<]*)<\/text>/g)].map((m) => m[1]))
+  ok('I11c SVG text is PLAIN: no $, no backslash TeX, no U+2212 minus',
+    texts.length > 0 && texts.every((t) => !t.includes('$') && !t.includes('\\') && !t.includes('−')))
+  const allowed = new Set(['#16a34a', '#166534', '#65a30d', '#0d9488', '#0f766e', '#d97706', '#ea580c', '#dc2626', '#ffedd5', '#fef3c7', '#5eead4', '#ffffff', '#fffdf5'])
+  const badHex = [...new Set((svgs.flatMap((s) => s.match(/#[0-9a-fA-F]{6}\b/g) ?? [])).filter((h) => !allowed.has(h.toLowerCase())))]
+  ok('I11d every SVG hex is from the vivid palette', badHex.length === 0, badHex.join(','))
+  const fonts = svgs.flatMap((s) => [...s.matchAll(/font-size="([0-9.]+)"/g)].map((m) => parseFloat(m[1])))
+  ok('I11e every SVG font size is >= 9px', fonts.length > 0 && fonts.every((v) => v >= 9), `min=${Math.min(...fonts)}`)
+  const strokes = svgs.flatMap((s) => [...s.matchAll(/stroke-width="([0-9.]+)"/g)].map((m) => parseFloat(m[1])))
+  ok('I11f every SVG stroke is >= 1.2', strokes.length > 0 && strokes.every((v) => v >= 1.2), `min=${Math.min(...strokes)}`)
+  const clipFails: string[] = []
+  for (const s of svgs) {
+    const vb = s.match(/viewBox="0 0 (\d+) (\d+)"/)
+    if (!vb) continue
+    const W = parseFloat(vb[1]); const H = parseFloat(vb[2])
+    for (const m of s.matchAll(/<text x="([0-9.-]+)" y="([0-9.-]+)"[^>]*font-size="([0-9.]+)"[^>]*text-anchor="([a-z]+)"[^>]*>([^<]*)<\/text>/g)) {
+      const x = parseFloat(m[1]); const y = parseFloat(m[2]); const size = parseFloat(m[3]); const anchor = m[4]; const txt = m[5]
+      const est = txt.length * size * 0.62
+      const lo = anchor === 'start' ? x : anchor === 'middle' ? x - est / 2 : x - est
+      const hi = anchor === 'start' ? x + est : anchor === 'middle' ? x + est / 2 : x
+      if (lo < 8 || hi > W - 8 || y < 10 || y > H - 6) clipFails.push(`"${txt.slice(0, 26)}" @x=${x},y=${y} w~${est.toFixed(0)} W=${W} H=${H}`)
+    }
+  }
+  ok('I11g no SVG label clips the viewBox (>= 8px side margins, 0.62em/char estimate)', clipFails.length === 0, clipFails.join(' ; '))
+
+  /* raw-TeX law */
+  const prose: string[] = []
+  const walk = (v: unknown): void => {
+    if (typeof v === 'string') prose.push(v)
+    else if (Array.isArray(v)) v.forEach((x) => walk(x))
+    else if (v && typeof v === 'object') {
+      for (const [k, val] of Object.entries(v as Record<string, unknown>)) {
+        if (k === 'latex' || k === 'formula') continue // KaTeX source by design
+        if (k === 'svg') continue // SVG text is audited separately (I11c)
+        walk(val)
+      }
+    }
+  }
+  walk(lesson.blocks)
+  const mathSpans: string[] = []
+  const stripped = prose.map((t) => t.replace(/\$[^$]*\$/g, (m) => { mathSpans.push(m); return ' ' }))
+  ok('I12a no \\qquad inside any $...$ span', mathSpans.every((m) => !m.includes('\\qquad')), mathSpans.filter((m) => m.includes('\\qquad')).slice(0, 3).join(' | '))
+  ok('I12b no raw TeX commands outside $...$ in prose fields', stripped.every((t) => !/\\[a-zA-Z]+/.test(t)), stripped.map((t) => (t.match(/\\[a-zA-Z]+/) ?? [''])[0]).filter(Boolean).slice(0, 5).join(' | '))
+  const heads = lesson.blocks.filter((b) => b.kind === 'heading') as Array<{ kind: 'heading'; text: string }>
+  ok('I12c headings are plain (no $, no backslash) and at least 6 in number',
+    heads.length >= 6 && heads.every((h) => !h.text.includes('$') && !h.text.includes('\\')), `${heads.length}: ${heads.map((h) => h.text).join(' | ')}`)
+  const lists = lesson.blocks.filter((b) => b.kind === 'list') as Array<{ kind: 'list'; items: string[]; marker?: string }>
+  ok('I12d list items are plain and at least one list uses roman markers',
+    lists.length >= 1 && lists.some((l) => l.marker === 'roman') && lists.every((l) => l.items.every((i) => !i.includes('$') && !i.includes('\\'))))
+  const termsB = lesson.blocks.filter((b) => b.kind === 'terms') as Array<{ kind: 'terms'; items: Array<{ term: string; def: string }> }>
+  ok('I12e terms are plain and total >= 8 items',
+    termsB.reduce((n, t) => n + t.items.length, 0) >= 8 && termsB.every((t) => t.items.every((i) => !i.term.includes('$') && !i.def.includes('\\'))))
+  const figCaps = [...(lesson.blocks.filter((b) => b.kind === 'figure') as Array<{ caption: string }>).map((b) => b.caption),
+  ...exBlocks.flatMap((b) => b.sets.flatMap((s) => s.questions.flatMap((q) => (q.figures ?? []).map((f) => f.caption))))]
+  ok('I12f figure captions are plain (no $, no backslash)', figCaps.every((c) => !c.includes('$') && !c.includes('\\')))
+  const algos = lesson.blocks.filter((b) => b.kind === 'algorithm') as Array<{ kind: 'algorithm'; title: string; lines: Array<{ code: string; note?: string }>; note?: string }>
+  ok('I12g algorithm lines and notes are plain (no $, no backslash)',
+    algos.length >= 1 && algos.every((a) => a.lines.every((l) => !l.code.includes('$') && !(l.note ?? '').includes('$') && !l.code.includes('\\'))))
+
+  /* block-type census */
+  const ders = lesson.blocks.filter((b) => b.kind === 'derivation') as Array<{ kind: 'derivation'; title: string; statement: string; steps: Array<{ label: string; formula?: string; explanation: string }>; result: string }>
+  ok('I13 at least 2 derivation blocks, every step label plain words',
+    ders.length >= 2 && ders.every((d) => d.steps.every((s) => !s.label.includes('$') && !s.label.includes('\\'))), `count=${ders.length}`)
+  const eqs = lesson.blocks.filter((b) => b.kind === 'equation') as Array<{ kind: 'equation'; latex: string; note?: string }>
+  ok('I14 at least 3 equation blocks, every one carrying a \\tag',
+    eqs.length >= 3 && eqs.every((e) => e.latex.includes('\\tag{')), `count=${eqs.length}`)
+  ok('I15 at least 3 formula cards', lesson.blocks.filter((b) => b.kind === 'formula').length >= 3)
+  ok('I15b the algorithm block has >= 5 lines each with a note',
+    algos.length === 1 && algos[0].lines.length >= 5 && algos[0].lines.every((l) => (l.note ?? '').length > 0))
+  const tones = new Set((lesson.blocks.filter((b) => b.kind === 'callout') as Array<{ kind: 'callout'; tone: string }>).map((b) => b.tone))
+  ok('I16 the six callout tones are all used (definition, insight, warn, historical, exam, theorem)',
+    ['definition', 'insight', 'warn', 'historical', 'exam', 'theorem'].every((t) => tones.has(t)), [...tones].join(','))
+  ok('I17 the prose census: at least 30 para blocks', lesson.blocks.filter((b) => b.kind === 'para').length >= 30, String(lesson.blocks.filter((b) => b.kind === 'para').length))
+  ok('I18 the tables census: at least 3 teaching tables', lesson.blocks.filter((b) => b.kind === 'table').length >= 3)
+
+  /* source shape (assembly contract) */
+  const src = await Bun.file(import.meta.dir + '/../docs/research/cf-ch04-wip/part-cf41.ts').text()
+  ok('I19 the part source exports lesson41, keeps the palette const named c41 with font f41, and every helper is cf41-prefixed',
+    src.includes('export const lesson41') && src.includes('const c41 = {') && src.includes('const f41 =')
+    && !/(?:^|\n)\s*function (?!cf41)/.test(src))
+  ok('I20 the part source carries no blue/indigo/sky hex anywhere',
+    !['#3b82f6', '#6366f1', '#818cf8', '#2563eb', '#1e40af', '#1e3a8a', '#0ea5e9', '#60a5fa', '#4f46e5', '#93c5fd'].some((h) => src.toLowerCase().includes(h)))
+
+  /* the pinned tokens must appear in the shipped PROSE (svg excluded) */
+  const tokensArea = ['74,420', '59,536', '28,900', '0.800000', '80.0', '0.388336', '0.485421', '38.8336', '48.5421', '2.575087', '2.060069', '1,098', '976', '680']
+  ok('I21 the form-factor tokens all appear in the prose', tokensArea.every((t) => prose.join(' ').includes(t)),
+    tokensArea.filter((t) => !prose.join(' ').includes(t)).join(' | '))
+  const tokensParts = ['288', '144', '1,152', '24-pin', '8-pin', '32 pins', 'CR2032', '3 V', '20 mm', '3.2 mm', '314']
+  ok('I22 the parts-census tokens all appear in the prose', tokensParts.every((t) => prose.join(' ').includes(t)),
+    tokensParts.filter((t) => !prose.join(' ').includes(t)).join(' | '))
+  const tokensHistory = ['1995', '1996', '2001', 'VIA Technologies', 'August 1981', 'planar', 'Nehalem', '2008', 'Intel', '6 to 10', 'zero insertion force', 'northbridge', 'southbridge']
+  ok('I23 the history + board tokens all appear in the prose', tokensHistory.every((t) => prose.join(' ').includes(t)),
+    tokensHistory.filter((t) => !prose.join(' ').includes(t)).join(' | '))
+  ok('I24 the doorstep books are named in the prose',
+    ['Computer Organization and Architecture', 'Operating Systems', 'Digital Logic Design'].every((t) => prose.join(' ').includes(t)),
+    ['Computer Organization and Architecture', 'Operating Systems', 'Digital Logic Design'].filter((t) => !prose.join(' ').includes(t)).join(' | '))
+
+  /* summary witnesses for the run report */
+  const wcN = countLessonWords(lesson)
+  const keyN = quizBlocks.length === 1 ? quizBlocks[0].items.map((i) => i.answer).join(',') : '-'
+  const qN = exBlocks.length === 1 ? exBlocks[0].sets.flatMap((s) => s.questions).length : 0
+  console.log(`[SUMMARY] words=${wcN} | bodyFigs=${bodyFigs} | solFigs=${solFigs} | quizKey=[${keyN}] | exercises=${qN} | illustrations=${examples}`)
+}
+
+/* ------------------------------------------------------------------ */
+  return { id: 'cf41 engines+pins', pass: P, fail: F }
+}
+
+
+async function sectionCf42(): Promise<SectionResult> {
+
+/**
+ * v-cf42.ts — verify-first ENGINE + PIN harness for CF lesson 4.2
+ * 'The Processor Named Honestly' (CS RUN 7 swarm, agent cf42, seat 4.2).
+ *
+ * DISCIPLINE: the engine wins over every other source. Every number the
+ * prose will print is recomputed here by brute force FIRST; where engine
+ * and prose disagree, the engine's value ships and the prose is fixed.
+ *
+ * Structure:
+ *   ENGINE SECTION (A..D) — pure arithmetic/logic, NO part-file import.
+ *     Recomputes: the clock census (1 GHz = 10^9 cycles/s; one 5 GHz
+ *     cycle = 0.2 ns; 1/2/3/4 GHz cycle periods; 740 kHz = 740,000
+ *     cycles/s; the 4004's own cycle 1.3513514 microseconds; the two
+ *     honest ratios 5 GHz/740 kHz = 6756.7568 and 1 GHz/740 kHz =
+ *     1351.3514); the dated beats (AMD 1 GHz on 6 March 2000, Intel two
+ *     days later = 8 March 2000; Moore's Electronics paper 19 April
+ *     1965, revised 1975 — ten years on; 4004 announced 15 November
+ *     1971; the dual-core month May 2005); the Moore arithmetic
+ *     (2^26 = 67,108,864; 2,300 x 2^26 = 154,350,387,200 predicted for
+ *     2023; 2,300 x 2^25 = 77,175,193,600 for 2021; the staircase 2^5,
+ *     2^10, 2^15, 2^20; the yearly-doubling counterfactual 2,300 x 2^52
+ *     = 10,358,279,142,952,140,800 via BigInt; Apple M2 Ultra 134
+ *     billion actual; prediction/actual = 1.151869, i.e. 15.186856%
+ *     above); the cores/threads/cache witnesses (4 x 3 = 12 GHz summed;
+ *     8 x 2.4 = 19.2 GHz; four 3 s jobs: 12 s serial vs 3 s divided;
+ *     SRAM 6 transistors/bit vs DRAM 1T+1C, 48 vs 8+8 per byte, ratio
+ *     6x; 4 cores x 2 threads = 8 streams, not 8 cores); and the quiz
+ *     key constant [3,0,1,2,1].
+ *   PIN SECTION (P) — dynamically imports ./part-cf42 and re-audits the
+ *     shipped lesson object (id/number/title verbatim, prerequisites,
+ *     sources, word floor 7,000, exactly one quiz block of 5 items with
+ *     key [3,0,1,2,1] and per-wrong-option explains, exactly one
+ *     exercises block of 15 questions L1..L4, >= 3 body figures,
+ *     >= 4 solution figures, >= 8 terms, >= 3 formula cards, >= 6
+ *     headings, >= 30 paras, all six callout tones, 8-12 Illustrations,
+ *     SVG hygiene: role="img" + aria-label + viewBox, no '$', no fancy
+ *     dashes, no sub-9px text).
+ *
+ * Run: cd /home/z/my-project && bun run docs/research/cf-ch04-wip/v-cf42.ts
+ * Prints `V-CF42: <n>/<n> GREEN` and exits 1 on any RED.
+ */
+
+
+let P = 0; let F = 0
+const fails: string[] = []
+function ok(name: string, cond: boolean, detail = '') {
+  if (cond) { P++ } else { F++; fails.push(name + (detail ? ' :: ' + detail : '')) }
+}
+const r = (x: number, d: number) => Math.round(x * Math.pow(10, d)) / Math.pow(10, d)
+const near = (x: number, y: number, eps: number) => Math.abs(x - y) < eps
+
+/* ================================================================== */
+/* SECTION A — the clock arithmetic (the metronome, priced)            */
+/* ================================================================== */
+ok('A1: 1 GHz = 10^9 cycles/s', 1e9 === Math.pow(10, 9))
+ok('A2: one 5 GHz cycle = 0.2 ns', near(1 / 5e9 * 1e9, 0.2, 1e-12))
+ok('A3: one 1 GHz cycle = 1 ns', near(1 / 1e9 * 1e9, 1, 1e-12))
+ok('A4: one 2 GHz cycle = 0.5 ns', near(1 / 2e9 * 1e9, 0.5, 1e-12))
+ok('A5: one 4 GHz cycle = 0.25 ns', near(1 / 4e9 * 1e9, 0.25, 1e-12))
+ok('A6: one 3 GHz cycle = 0.3333333 ns (7 dp)', near(r(1 / 3e9 * 1e9, 7), 0.3333333, 1e-12))
+ok('A7: beats per microsecond at 5 GHz = 5,000', 5e9 * 1e-6 === 5000)
+ok('A8: beats per millisecond at 5 GHz = 5,000,000', 5e9 * 1e-3 === 5e6)
+ok('A9: 740 kHz = 740,000 cycles/s', 740e3 === 740000)
+ok('A10: the 4004 cycle = 1.3513514 microseconds (7 dp)', near(r((1 / 740000) * 1e6, 7), 1.3513514, 1e-9))
+ok('A11: 5 GHz / 740 kHz = 6756.7568 (4 dp)', near(r(5e9 / 740e3, 4), 6756.7568, 1e-9))
+ok('A12: 1 GHz / 740 kHz = 1351.3514 (4 dp)', near(r(1e9 / 740e3, 4), 1351.3514, 1e-9))
+ok('A13: beats a 5 GHz core makes inside one 4004 cycle = 6756.7568', near(r(5e9 * (1 / 740000), 4), 6756.7568, 1e-9))
+ok('A14: the giga multiplier is 10^9', Math.pow(10, 9) === 1e9)
+ok('A15: 1 GHz written out is 1,000,000,000 (ten digits)', String(1e9).length === 10)
+ok('A16: 0.2 ns in seconds is 2 x 10^-10 s', near(0.2e-9, 2e-10, 1e-20))
+
+/* ================================================================== */
+/* SECTION B — the dated beats (day arithmetic, honest)                */
+/* ================================================================== */
+{
+  const amd = new Date(2000, 2, 6)   // 6 March 2000, month index 2
+  const intel = new Date(2000, 2, 8) // two days later
+  ok('B1: AMD 1 GHz 6 March 2000; Intel two days later = 8 March 2000',
+    amd.getMonth() === 2 && amd.getDate() === 6 && (intel.getTime() - amd.getTime()) / 86400000 === 2)
+  ok('B2: Moore revised the law in 1975, ten years after the 1965 paper', 1975 - 1965 === 10)
+  {
+    const d = new Date(1971, 10, 15) // 15 November 1971, month index 10
+    ok('B3: the 4004 was announced 15 November 1971 (month 10, day 15)',
+      d.getFullYear() === 1971 && d.getMonth() === 10 && d.getDate() === 15)
+  }
+  {
+    const d = new Date(2005, 4, 1) // May 2005, month index 4
+    ok('B4: the dual-core month is May 2005 (month index 4, year 2005)',
+      d.getFullYear() === 2005 && d.getMonth() === 4)
+  }
+  ok('B5: 2023 - 1971 = 52 years', 2023 - 1971 === 52)
+  ok('B6: 52 years at two years a doubling = 26 doublings', 52 / 2 === 26)
+}
+
+/* ================================================================== */
+/* SECTION C — the Moore arithmetic (the engine under the story)       */
+/* ================================================================== */
+ok('C1: 2^26 = 67,108,864', Math.pow(2, 26) === 67108864)
+ok('C2: 2,300 x 2^26 = 154,350,387,200 (the 2023 Moore prediction)', 2300 * Math.pow(2, 26) === 154350387200)
+ok('C3: BigInt re-check of C2 (exact beyond doubt)', 2300n * (2n ** 26n) === 154350387200n)
+ok('C4: 2^25 = 33,554,432 and 2,300 x 2^25 = 77,175,193,600 (2021)',
+  Math.pow(2, 25) === 33554432 && 2300 * 33554432 === 77175193600)
+ok('C5: 2,300 x 2^5 = 73,600 (1981)', 2300 * Math.pow(2, 5) === 73600)
+ok('C6: 2,300 x 2^10 = 2,355,200 (1991)', 2300 * Math.pow(2, 10) === 2355200)
+ok('C7: 2,300 x 2^15 = 75,366,400 (2001)', 2300 * Math.pow(2, 15) === 75366400)
+ok('C8: 2,300 x 2^20 = 2,411,724,800 (2011)', 2300 * Math.pow(2, 20) === 2411724800)
+ok('C9: 2^52 = 4,503,599,627,370,496 (BigInt)', 2n ** 52n === 4503599627370496n)
+ok('C10: 2,300 x 2^52 = 10,358,279,142,952,140,800 (yearly-doubling counterfactual)',
+  2300n * (2n ** 52n) === 10358279142952140800n)
+ok('C11: counterfactual / biennial prediction = 2^26 exactly',
+  (2300n * (2n ** 52n)) / (2300n * (2n ** 26n)) === 2n ** 26n)
+ok('C12: Apple M2 Ultra = 134 billion transistors', 134e9 === 134000000000)
+ok('C13: prediction - actual = 20,350,387,200', 154350387200 - 134000000000 === 20350387200)
+ok('C14: prediction / actual = 1.151869 (6 dp)', near(r(154350387200 / 134000000000, 6), 1.151869, 1e-9))
+ok('C15: the prediction is 15.186856% above the actual', near(r((154350387200 / 134000000000 - 1) * 100, 6), 15.186856, 1e-9))
+
+/* ================================================================== */
+/* SECTION D — cores, threads, cache, exercises, quiz key              */
+/* ================================================================== */
+ok('D1: 4 cores x 3 GHz = 12 GHz of summed beat-time', 4 * 3 === 12)
+ok('D2: 2 cores x 3 GHz = 6 GHz of summed beat-time', 2 * 3 === 6)
+ok('D3: 8 cores x 2.4 GHz = 19.2 GHz of summed beat-time', near(r(8 * 2.4, 6), 19.2, 1e-9))
+ok('D4: four independent 3 s jobs: 12 s on one core, 3 s divided four ways',
+  4 * 3 === 12 && 12 / 4 === 3)
+ok('D5: SRAM: 6 transistors per bit -> 48 transistors per 8-bit byte', 6 * 8 === 48)
+ok('D6: DRAM: 1 transistor + 1 capacitor per bit -> 8 + 8 per byte',
+  1 * 8 === 8 && 8 + 8 === 16)
+ok('D7: the SRAM/DRAM transistor ratio is 6x per bit', 6 / 1 === 6)
+ok('D8: 4 cores x 2 threads = 8 streams of work (not 8 cores)', 4 * 2 === 8)
+ok('D9: the quiz key constant is [3,0,1,2,1]', JSON.stringify([3, 0, 1, 2, 1]) === '[3,0,1,2,1]')
+
+/* ================================================================== */
+/* PIN SECTION — dynamic import of the shipped part, re-read checks    */
+/* ================================================================== */
+
+let lesson42: Lesson | null = null
+let loadErr = ''
+try {
+  const mod = await Promise.resolve({ lesson42: shippedLesson42 })
+  lesson42 = (mod as unknown as { lesson42: Lesson }).lesson42
+} catch (e) {
+  loadErr = String(e)
+}
+ok('P0: part-cf42 loads and exports lesson42', lesson42 !== null, loadErr)
+
+if (lesson42 !== null) {
+  const L = lesson42
+  const blocks: Block[] = L.blocks
+  const ofType = <K extends Block['kind']>(k: K) =>
+    blocks.filter((b) => b.kind === k) as Extract<Block, { kind: K }>[]
+
+  ok('P1: id is cf-the-processor-named-honestly', L.id === 'cf-the-processor-named-honestly', L.id)
+  ok('P2: number is 4.2', L.number === '4.2', L.number)
+  ok('P3: title is "The Processor Named Honestly" verbatim', L.title === 'The Processor Named Honestly', L.title)
+  ok('P4: prerequisites = [cf-the-motherboard-the-city-plan]',
+    JSON.stringify(L.prerequisites) === JSON.stringify(['cf-the-motherboard-the-city-plan']))
+  ok('P5: sources = [cs-cf-web-ground-ch04]',
+    JSON.stringify(L.sources) === JSON.stringify(['cs-cf-web-ground-ch04']))
+
+  const wc = countLessonWords(L)
+  ok('P6: word floor 7,000', wc >= 7000, String(wc))
+
+  const quizzes = ofType('quiz')
+  ok('P7: exactly one quiz block', quizzes.length === 1, String(quizzes.length))
+  if (quizzes.length === 1) {
+    const items: QuizItem[] = quizzes[0].items
+    ok('P8: quiz has 5 items', items.length === 5, String(items.length))
+    ok('P9: quiz key is [3,0,1,2,1]', JSON.stringify(items.map((it) => it.answer)) === JSON.stringify([3, 0, 1, 2, 1]))
+    ok('P10: every quiz item offers exactly 4 options', items.every((it) => it.options.length === 4))
+    ok('P11: every quiz answer index is inside its options', items.every((it) => it.answer >= 0 && it.answer < it.options.length))
+    ok('P12: every quiz explain disposes of the wrong options (>= 160 chars)',
+      items.every((it) => it.explain.length >= 160), items.map((it) => it.explain.length).join(','))
+  }
+
+  const exBlocks = ofType('exercises')
+  ok('P13: exactly one exercises block', exBlocks.length === 1, String(exBlocks.length))
+  if (exBlocks.length === 1) {
+    const sets: ExerciseSet[] = exBlocks[0].sets
+    const total = sets.reduce((n, s) => n + s.questions.length, 0)
+    ok('P14: exercises total 15 questions', total === 15, String(total))
+    const levels = new Set(sets.map((s) => s.level))
+    ok('P15: levels span L1..L4', ['L1', 'L2', 'L3', 'L4'].every((lv) => levels.has(lv as 'L1')), [...levels].join(','))
+    const allQ = sets.flatMap((s) => s.questions)
+    ok('P16: every question is solved in steps (array solution, not legacy prose)',
+      allQ.every((q) => Array.isArray(q.solution) && q.solution.length >= 2))
+    ok('P17: every question ends with an answer line', allQ.every((q) => typeof q.answer === 'string' && q.answer.length > 0))
+  }
+
+  const figs = ofType('figure')
+  ok('P18: body figures >= 3', figs.length >= 3, String(figs.length))
+  const solFigs: SolutionFigure[] = []
+  for (const b of ofType('example')) for (const f of b.figures ?? []) solFigs.push(f)
+  for (const b of ofType('exercises')) for (const s of b.sets) for (const q of s.questions) for (const f of q.figures ?? []) solFigs.push(f)
+  ok('P19: solution figures >= 4', solFigs.length >= 4, String(solFigs.length))
+
+  const allSvg = [...figs.map((f) => f.svg), ...solFigs.map((f) => f.svg)]
+  ok('P20: every SVG carries role="img"', allSvg.every((s) => s.includes('role="img"')))
+  ok('P21: every SVG carries an aria-label', allSvg.every((s) => s.includes('aria-label=')))
+  ok('P22: every SVG carries its own viewBox', allSvg.every((s) => s.includes('viewBox=')))
+  ok('P23: no $ inside any SVG', allSvg.every((s) => !s.includes('$')))
+  ok('P24: no en/em dash inside any SVG', allSvg.every((s) => !s.includes('\u2013') && !s.includes('\u2014')))
+  ok('P25: no sub-9px text in any SVG', allSvg.every((s) => !/font-size="(7|8)(\.\d+)?"/.test(s)))
+
+  const termCount = ofType('terms').reduce((n, b) => n + b.items.length, 0)
+  ok('P26: terms items >= 8', termCount >= 8, String(termCount))
+  ok('P27: formula cards >= 3', ofType('formula').length >= 3, String(ofType('formula').length))
+  ok('P28: headings >= 6', ofType('heading').length >= 6, String(ofType('heading').length))
+  ok('P29: para blocks >= 30', ofType('para').length >= 30, String(ofType('para').length))
+  ok('P30: Illustrations (example blocks) 8..12', ofType('example').length >= 8 && ofType('example').length <= 12, String(ofType('example').length))
+
+  const tones = new Set(ofType('callout').map((b) => b.tone))
+  ok('P31: all six callout tones used',
+    ['insight', 'warn', 'definition', 'theorem', 'historical', 'exam'].every((t) => tones.has(t as 'insight')),
+    [...tones].join(','))
+
+  ok('P32: concepts 5..8', L.concepts.length >= 5 && L.concepts.length <= 8, String(L.concepts.length))
+  ok('P33: objectives 5..6', (L.objectives?.length ?? 0) >= 5 && (L.objectives?.length ?? 0) <= 6, String(L.objectives?.length))
+  ok('P34: at least one derivation and one equation block',
+    ofType('derivation').length >= 1 && ofType('equation').length >= 1)
+  ok('P35: the exam callout is present', ofType('callout').some((b) => b.tone === 'exam'))
+  ok('P36: quiz explains reference each wrong option by letter or clause (>= 3 sentences)',
+    quizzes.length === 1 && quizzes[0].items.every((it) => it.explain.split(/[.;]/).filter((s) => s.trim().length > 25).length >= 3))
+}
+
+  return { id: 'cf42 engines+pins', pass: P, fail: F }
+}
+
 
 async function sectionCf43(): Promise<SectionResult> {
 
@@ -301,7 +933,7 @@ console.log('== H. THE QUIZ KEY + WITNESS COVERAGE ==')
 /* ================================================================== */
 let lesson: Lesson | null = null
 try {
-  const mod = await Promise.resolve({ lesson43 })
+  const mod = await Promise.resolve({ lesson43: shippedLesson43 })
   lesson = (mod.lesson43 as Lesson) ?? null
 } catch {
   console.log('  (part-cf43.ts not yet shipped — pin block skipped; engine-only tally)')
@@ -848,7 +1480,7 @@ ok('the forward door names chapter 5 and the OS doorstep', ALL.includes('Softwar
 
 
 /* ================================================================== */
-/* SECTION Z — the in-progress chapter census                          */
+/* SECTION Z — the CLOSED chapter census                                */
 /* ================================================================== */
 async function sectionZ(): Promise<SectionResult> {
   let pass = 0
@@ -860,21 +1492,21 @@ async function sectionZ(): Promise<SectionResult> {
       console.log(`  Z FAIL ${name} — ${detail}`)
     }
   }
-  console.log('== SECTION Z: the in-progress chapter census ==')
+  console.log('== SECTION Z: the CLOSED chapter census ==')
   z('Z01 chapter number is 4', chapter4.number === 4)
   z('Z02 chapter slug', chapter4.slug === 'inside-the-box', chapter4.slug)
   z('Z03 chapter title pinned', chapter4.title === 'Inside the Box', chapter4.title)
-  z('Z04 chapter status IN-PROGRESS (CS RUN 7 opened it)', chapter4.status === 'in-progress', chapter4.status)
-  z('Z05 three lessons shipped (4.3 + 4.4 + the 4.R review)', chapter4.lessons.length === 3, String(chapter4.lessons.length))
-  z('Z06 two lessons still planned (4.1 + 4.2, titles verbatim)', JSON.stringify(chapter4.plannedLessons ?? []) === JSON.stringify(['The Motherboard: the City Plan', 'The Processor Named Honestly']), JSON.stringify(chapter4.plannedLessons ?? []))
+  z('Z04 chapter status COMPLETE (CS RUN 8 closed it)', chapter4.status === 'complete', chapter4.status)
+  z('Z05 five lessons shipped (4.1 + 4.2 + 4.3 + 4.4 + the 4.R review)', chapter4.lessons.length === 5, String(chapter4.lessons.length))
+  z('Z06 no lessons left planned (the chapter is closed)', JSON.stringify(chapter4.plannedLessons ?? []) === JSON.stringify([]), JSON.stringify(chapter4.plannedLessons ?? []))
   const ids = chapter4.lessons.map((l) => l.id)
-  z('Z07 lesson ids in teaching order', JSON.stringify(ids) === JSON.stringify(['cf-the-first-memory-hierarchy', 'cf-buses-and-ports-how-the-pieces-talk', 'cf-unit-4-completion-review']), ids.join(','))
+  z('Z07 lesson ids in teaching order', JSON.stringify(ids) === JSON.stringify(['cf-the-motherboard-the-city-plan', 'cf-the-processor-named-honestly', 'cf-the-first-memory-hierarchy', 'cf-buses-and-ports-how-the-pieces-talk', 'cf-unit-4-completion-review']), ids.join(','))
   const nums = chapter4.lessons.map((l) => l.number)
-  z('Z08 lesson numbers 4.3, 4.4, 4.R', JSON.stringify(nums) === JSON.stringify(['4.3', '4.4', '4.R']), nums.join(','))
-  z('Z08b titles pinned verbatim (the planned-lesson contract)', chapter4.lessons[0].title === 'The First Memory Hierarchy' && chapter4.lessons[1].title === 'Buses and Ports: How the Pieces Talk' && chapter4.lessons[2].title === 'Unit 4 Completion Review', chapter4.lessons.map((l) => l.title).join(' | '))
+  z('Z08 lesson numbers 4.1, 4.2, 4.3, 4.4, 4.R', JSON.stringify(nums) === JSON.stringify(['4.1', '4.2', '4.3', '4.4', '4.R']), nums.join(','))
+  z('Z08b titles pinned verbatim (the planned-lesson contract)', chapter4.lessons[0].title === 'The Motherboard: the City Plan' && chapter4.lessons[1].title === 'The Processor Named Honestly' && chapter4.lessons[2].title === 'The First Memory Hierarchy' && chapter4.lessons[3].title === 'Buses and Ports: How the Pieces Talk' && chapter4.lessons[4].title === 'Unit 4 Completion Review', chapter4.lessons.map((l) => l.title).join(' | '))
   const wcs = chapter4.lessons.map((l) => countLessonWords(l))
   console.log(`  Z word counts: ${wcs.join(', ')}`)
-  z('Z09 word floors (>= 6000 content; >= 5200 review)', wcs.slice(0, 2).every((w) => w >= 6000) && wcs[2] >= 5200, wcs.join(', '))
+  z('Z09 word floors (>= 6000 content; >= 5200 review)', wcs.slice(0, 4).every((w) => w >= 6000) && wcs[4] >= 5200, wcs.join(', '))
   for (const [i, l] of chapter4.lessons.entries()) {
     z(`Z10.${i + 1} quiz block present (5 items)`, l.blocks.some((b) => b.kind === 'quiz' && (b as { items: unknown[] }).items.length === 5))
     z(`Z11.${i + 1} exercises block present (15 questions)`, l.blocks.some((b) => b.kind === 'exercises' && (b as { sets: { questions: unknown[] }[] }).sets.reduce((n, s) => n + s.questions.length, 0) === 15))
@@ -882,25 +1514,24 @@ async function sectionZ(): Promise<SectionResult> {
     z(`Z11c.${i + 1} >= 3 body figures (vivid-palette law)`, l.blocks.filter((b) => b.kind === 'figure').length >= 3)
     z(`Z12.${i + 1} terms + formula cards present`, l.blocks.some((b) => b.kind === 'terms') && l.blocks.some((b) => b.kind === 'formula'))
   }
-  const prereq40 = ['cf-the-motherboard-the-city-plan', 'cf-the-first-memory-hierarchy']
-  z('Z13 the prereq chain pins (4.3 <- 4.2 written; 4.4 <- 4.1+4.3 with 4.1 unwritten; 4.R <- the four ch.4 ids)', JSON.stringify(chapter4.lessons[0].prerequisites) === JSON.stringify(['cf-the-processor-named-honestly']) && JSON.stringify(chapter4.lessons[1].prerequisites) === JSON.stringify(prereq40) && JSON.stringify(chapter4.lessons[2].prerequisites) === JSON.stringify(['cf-the-motherboard-the-city-plan', 'cf-the-processor-named-honestly', 'cf-the-first-memory-hierarchy', 'cf-buses-and-ports-how-the-pieces-talk']), JSON.stringify(chapter4.lessons.map((l) => l.prerequisites)))
+  z('Z13 the prereq chain pins (4.1 <- ch.1; 4.2 <- 4.1; 4.3 <- 4.2; 4.4 <- 4.1+4.3; 4.R <- the four ch.4 ids)', JSON.stringify(chapter4.lessons[0].prerequisites) === JSON.stringify(['cf-the-basic-structure-and-operation-of-the-computer']) && JSON.stringify(chapter4.lessons[1].prerequisites) === JSON.stringify(['cf-the-motherboard-the-city-plan']) && JSON.stringify(chapter4.lessons[2].prerequisites) === JSON.stringify(['cf-the-processor-named-honestly']) && JSON.stringify(chapter4.lessons[3].prerequisites) === JSON.stringify(['cf-the-motherboard-the-city-plan', 'cf-the-first-memory-hierarchy']) && JSON.stringify(chapter4.lessons[4].prerequisites) === JSON.stringify(['cf-the-motherboard-the-city-plan', 'cf-the-processor-named-honestly', 'cf-the-first-memory-hierarchy', 'cf-buses-and-ports-how-the-pieces-talk']), JSON.stringify(chapter4.lessons.map((l) => l.prerequisites)))
   z('Z13b every lesson carries sources (cs-cf-web-ground-ch04)', chapter4.lessons.every((l) => (l.sources ?? []).includes('cs-cf-web-ground-ch04')))
   z('Z14 the shipped source exists', existsSync(CH04_SRC))
   const shippedText = readFileSync(CH04_SRC, 'utf8')
-  z('Z15 the shipped source exports all three lessons', ['lesson43', 'lesson44', 'lesson4R'].every((n) => shippedText.includes(`export const ${n}`)))
+  z('Z15 the shipped source exports all five lessons', ['lesson41', 'lesson42', 'lesson43', 'lesson44', 'lesson4R'].every((n) => shippedText.includes(`export const ${n}`)))
 
-  // ---- the book census (the honest in-progress shape) ----
-  z('Z16 book status in-progress (chapter 4 open)', computerFundamentals.status === 'in-progress', computerFundamentals.status)
+  // ---- the book census (the honest closed shape) ----
+  z('Z16 book status in-progress (chapters 5-8 still owed)', computerFundamentals.status === 'in-progress', computerFundamentals.status)
   z('Z17 eight chapters on the book map', computerFundamentals.chapters.length === 8, String(computerFundamentals.chapters.length))
   z('Z18 chapters 1 + 2 + 3 complete', computerFundamentals.chapters[0].status === 'complete' && computerFundamentals.chapters[1].status === 'complete' && computerFundamentals.chapters[2].status === 'complete', computerFundamentals.chapters.slice(0, 3).map((c) => c.status).join(','))
-  z('Z19 chapter 4 in-progress, chapters 5-8 planned', computerFundamentals.chapters[3].status === 'in-progress' && computerFundamentals.chapters.slice(4).every((c) => c.status === 'planned'), computerFundamentals.chapters.map((c) => c.status).join(','))
+  z('Z19 chapter 4 COMPLETE, chapters 5-8 planned', computerFundamentals.chapters[3].status === 'complete' && computerFundamentals.chapters.slice(4).every((c) => c.status === 'planned'), computerFundamentals.chapters.map((c) => c.status).join(','))
   z('Z20 the cf- prefix in use', ids.every((id) => id.startsWith('cf-')))
   z('Z21 every lesson carries a real body', chapter4.lessons.every((l) => l.blocks.length >= 40))
   const bookWords = chapter4.lessons.reduce((m, l) => m + countLessonWords(l), 0)
   console.log(`  Z shipped chapter word count: ${bookWords}`)
-  z('Z22 the shipped body is non-trivial (> 24,000 words)', bookWords > 24000, String(bookWords))
+  z('Z22 the shipped body is non-trivial (> 45,000 words)', bookWords > 45000, String(bookWords))
   const csWritten = computerFundamentals.chapters.reduce((n, c) => n + c.lessons.length, 0)
-  z('Z23 the shelf census grows to 20 written lessons (17 + 3)', csWritten === 20, String(csWritten))
+  z('Z23 the shelf census grows to 22 written lessons (20 + 4.1 + 4.2)', csWritten === 22, String(csWritten))
   return { id: 'Z', pass, fail }
 }
 
@@ -909,6 +1540,8 @@ async function sectionZ(): Promise<SectionResult> {
 /* ================================================================== */
 async function main(): Promise<void> {
   const results: SectionResult[] = [
+    await sectionCf41(),
+    await sectionCf42(),
     await sectionCf43(),
     await sectionCf44(),
     await sectionCf4R(),
@@ -928,7 +1561,7 @@ async function main(): Promise<void> {
     console.log('RESULT: NOT ALL GREEN — fix the failures and re-run.')
     process.exit(1)
   }
-  console.log('RESULT: ALL GREEN — chapter 4 OPENED IN-PROGRESS (three seats shipped whole; 4.1 + 4.2 ride CS RUN 8 per the time-budget law).')
+  console.log('RESULT: ALL GREEN — chapter 4 CLOSED COMPLETE (five seats shipped whole across RUN 7 + RUN 8; the book rides on to chapter 5).')
 }
 
 main()

@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-24 16:29:24 (Asia/Kolkata)",
+  "generated": "2026-11-26 01:34:29 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -4979,8 +4979,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5482,
-                "readMins": 27,
+                "words": 6184,
+                "readMins": 31,
                 "concepts": [
                   "The division failure ℤ inherits",
                   "Fraction pairs over ℤ × (ℤ − {0})",
@@ -5015,8 +5015,8 @@
                   "equation": 4,
                   "list": 2,
                   "table": 2,
+                  "example": 3,
                   "derivation": 2,
-                  "example": 2,
                   "algorithm": 1,
                   "figure": 1,
                   "terms": 1,
@@ -5036,9 +5036,10 @@
                   "L2": 4,
                   "L3": 2,
                   "L4": 2,
+                  "L5": 2,
                   "L6": 2
                 },
-                "exerciseQuestions": 14,
+                "exerciseQuestions": 16,
                 "termsDefined": 8
               },
               {
@@ -5048,8 +5049,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 4332,
-                "readMins": 22,
+                "words": 4973,
+                "readMins": 25,
                 "concepts": [
                   "The reciprocal: every nonzero class inverts",
                   "Division defined — and division by zero proved impossible",
@@ -5080,10 +5081,10 @@
                 "blockCounts": {
                   "para": 12,
                   "heading": 5,
-                  "derivation": 2,
+                  "derivation": 3,
                   "callout": 5,
                   "equation": 1,
-                  "example": 1,
+                  "example": 2,
                   "table": 1,
                   "figure": 1,
                   "terms": 1,
@@ -5103,9 +5104,10 @@
                   "L2": 4,
                   "L3": 3,
                   "L4": 2,
+                  "L5": 1,
                   "L6": 2
                 },
-                "exerciseQuestions": 15,
+                "exerciseQuestions": 16,
                 "termsDefined": 8
               },
               {
@@ -5175,7 +5177,7 @@
                 "termsDefined": 8
               }
             ],
-            "words": 14878
+            "words": 16221
           },
           {
             "number": 8,
@@ -13703,7 +13705,7 @@
             "number": 10,
             "slug": "the-synthesis-and-the-doorstep",
             "title": "The Synthesis and the Doorstep",
-            "summary": "The closing synthesis, in the house manner. First the competition craft across all the new families — the substitution game on quadratics and symmetric reads, AM–GM maxima under constraints, series sums priced by difference and telescoping, binomial term hunts, log speed reads — the advanced sequel to AL 11.2. Then the book in one page: the honest map of what was built and what was only opened, the cross-references made good, the formula family gathered. And then the doorstep itself: the infinite tail’s limit met again, the changing output measured discretely along the new families (slopes of aˣ and log taken the honest, finite way AL 10.2 priced for lines), continuity named as a promise — the handoff to Calculus, with Coordinate Geometry (graphs reunited) and Trigonometry (the next family) named as the neighbouring doors.",
+            "summary": "The closing synthesis, in the house manner. First the competition craft across all the new families — the substitution game on quadratics and symmetric reads, AM–GM maxima under constraints, series sums priced by difference and telescoping, binomial term hunts, log speed reads — the advanced sequel to AL 11.2. Then functional equations: functions built by rule instead of formula — additive value ladders climbed from one seed to every rational, constant cleanups, the quadratic regeneration of the Gauss sum, the product-rule census of the exponential and logarithm families, and the iteration cycles of involutions and Möbius machines. Then the book in one page: the honest map of what was built and what was only opened, the cross-references made good, the formula family gathered. And then the doorstep itself: the infinite tail’s limit met again, the changing output measured discretely along the new families, continuity named as a promise — the handoff to Calculus, with Coordinate Geometry (graphs reunited) and Trigonometry (the next family) named as the neighbouring doors. The unit review closes the book: one table, four one-move re-derivations, six cross-lesson audit chains, a seventeen-witness mixed bench, and the coda that reads the four-door handoff and the sixty-seven-lesson census sentence.",
             "status": "complete",
             "lessonsWritten": 5,
             "plannedLessons": [],
@@ -13712,9 +13714,9 @@
                 "id": "aa-competition-algebra-the-advanced-craft",
                 "number": "10.1",
                 "title": "Competition Algebra: the Advanced Craft",
-                "authoredOn": "2026-11-25",
-                "authoredInCommit": "pending (run 123, ships in this commit)",
-                "unit": "chapter 10 (run 122 preserved + run 123 finished/authored)",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
                 "words": 6020,
                 "readMins": 30,
                 "concepts": [
@@ -13784,9 +13786,9 @@
                 "id": "aa-functional-equations-building-functions-from-rules",
                 "number": "10.2",
                 "title": "Functional Equations: Building Functions from Rules",
-                "authoredOn": "2026-11-25",
-                "authoredInCommit": "pending (run 123, ships in this commit)",
-                "unit": "chapter 10 (run 122 preserved + run 123 finished/authored)",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
                 "words": 6108,
                 "readMins": 31,
                 "concepts": [
@@ -13854,9 +13856,9 @@
                 "id": "aa-the-book-in-one-page-synthesis",
                 "number": "10.3",
                 "title": "The Book in One Page: Synthesis",
-                "authoredOn": "2026-11-25",
-                "authoredInCommit": "pending (run 123, ships in this commit)",
-                "unit": "chapter 10 (run 122 preserved + run 123 finished/authored)",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
                 "words": 6030,
                 "readMins": 30,
                 "concepts": [
@@ -13920,9 +13922,9 @@
                 "id": "aa-the-doorstep-limits-and-the-changing-output",
                 "number": "10.4",
                 "title": "The Doorstep: Limits and the Changing Output",
-                "authoredOn": "2026-11-25",
-                "authoredInCommit": "pending (run 123, ships in this commit)",
-                "unit": "chapter 10 (run 122 preserved + run 123 finished/authored)",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
                 "words": 7264,
                 "readMins": 36,
                 "concepts": [
@@ -13993,9 +13995,9 @@
                 "id": "aa-the-synthesis-and-the-doorstep-unit-10-review",
                 "number": "10.R",
                 "title": "Unit 10 Completion Review",
-                "authoredOn": "2026-11-25",
-                "authoredInCommit": "pending (run 123, ships in this commit)",
-                "unit": "chapter 10 (run 122 preserved + run 123 finished/authored)",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
                 "words": 5062,
                 "readMins": 25,
                 "concepts": [
@@ -14072,34 +14074,278 @@
             "number": 1,
             "slug": "points-lines-and-planes",
             "title": "Points, Lines and Planes: the Axiomatic Idea",
-            "summary": "Geometry restarts from zero — not from shapes but from RULES. The undefined words (point, line, plane), the definitions that ride on them, and Euclid’s five postulates as the rules of the game. The reader meets the axiomatic method itself: a statement is believed only when proved, and everything before the first proof is either an agreement or a promise. Foundation Mathematics 8’s shape vocabulary is recalled as the intuition this structure formalises.",
+            "summary": "Geometry restarts from zero — not from shapes but from RULES. The undefined words (point, line, plane), the definitions that ride on them, Euclid’s five postulates as the rules of the game, the shape of a proof itself (direct, contrapositive, contradiction, counterexample — the conditional and its truth table), and incidence: the first theorems the rules buy, from the two-points-one-line axiom to the counted world of the four-point and Fano planes. The reader meets the axiomatic method end to end: a statement is believed only when proved, and everything before the first proof is either an agreement or a promise.",
             "status": "complete",
             "lessonsWritten": 4,
             "plannedLessons": [],
             "lessons": [
               {
+                "id": "geo-the-undefined-words-and-the-defined-ones",
                 "number": "1.1",
                 "title": "The Undefined Words and the Defined Ones",
-                "id": "geo-the-undefined-words-and-the-defined-ones",
-                "words": 7532
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 7532,
+                "readMins": 38,
+                "concepts": [
+                  "undefined terms",
+                  "point",
+                  "line",
+                  "plane",
+                  "incidence",
+                  "defined terms",
+                  "dimension"
+                ],
+                "objectives": [
+                  "State which words the theory leaves undefined and explain why the choice is forced by logic, not laziness.",
+                  "Classify any candidate word as undefined, defined, a primitive relation, or not a term of the theory at all.",
+                  "Build the first defined words — segment, ray, collinear, intersect, parallel — spending only legal ingredients.",
+                  "Detect circular definitions by chasing \"uses\" links to a loop, and state the regress-or-loop dichotomy.",
+                  "Work fluently with the dimensional ladder $(0, 1, 2, 3)$ and the endpoint census $2, 1, 0$."
+                ],
+                "prerequisites": [],
+                "sources": [
+                  "geo-euclid-elements",
+                  "geo-hilbert-grundlagen"
+                ],
+                "blockCounts": {
+                  "para": 26,
+                  "callout": 11,
+                  "heading": 7,
+                  "table": 2,
+                  "equation": 1,
+                  "list": 3,
+                  "figure": 3,
+                  "derivation": 2,
+                  "example": 2,
+                  "terms": 1,
+                  "formula": 4,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 1,
+                  "warn": 1,
+                  "definition": 6,
+                  "historical": 1,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 10
               },
               {
+                "id": "geo-euclids-five-postulates-the-rules-of-the-game",
                 "number": "1.2",
                 "title": "Euclid’s Five Postulates: the Rules of the Game",
-                "id": "geo-euclids-five-postulates-the-rules-of-the-game",
-                "words": 8524
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8524,
+                "readMins": 43,
+                "concepts": [
+                  "postulate",
+                  "common notion",
+                  "straightedge",
+                  "compass",
+                  "parallel postulate",
+                  "two right angles",
+                  "construction licence",
+                  "extendable line"
+                ],
+                "objectives": [
+                  "Distinguish Euclid’s three kinds of opening statement — definitions, postulates, common notions — and classify any given statement correctly",
+                  "State all five postulates in your own words and name the construction each one licenses",
+                  "Run the 180° shortfall arithmetic: given two interior angles on one side, decide whether the lines meet on that side and compute the shortfall",
+                  "Recount the Book I census (23 definitions, 5 postulates, 5 common notions, 48 propositions) and explain what the rules buy together",
+                  "Place Playfair 1795, Saccheri 1733, Lobachevsky 1829, Bólyai 1832 and Hilbert 1899 in the correct order and say what each contributed"
+                ],
+                "prerequisites": [
+                  "geo-the-undefined-words-and-the-defined-ones"
+                ],
+                "sources": [
+                  "geo-euclid-elements",
+                  "geo-playfair-1795",
+                  "geo-non-euclid-chronology"
+                ],
+                "blockCounts": {
+                  "heading": 14,
+                  "para": 27,
+                  "list": 2,
+                  "callout": 4,
+                  "table": 2,
+                  "figure": 3,
+                  "derivation": 1,
+                  "example": 2,
+                  "terms": 1,
+                  "formula": 4,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 1,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 12
               },
               {
+                "id": "geo-axioms-theorems-and-the-shape-of-a-proof",
                 "number": "1.3",
                 "title": "Axioms, Theorems and the Shape of a Proof",
-                "id": "geo-axioms-theorems-and-the-shape-of-a-proof",
-                "words": 10047
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 10047,
+                "readMins": 50,
+                "concepts": [
+                  "axiom",
+                  "theorem",
+                  "conditional statement",
+                  "contrapositive",
+                  "proof by contradiction",
+                  "counterexample",
+                  "model",
+                  "quantifier"
+                ],
+                "objectives": [
+                  "Classify any statement as definition, axiom, conjecture, theorem, lemma or corollary, and say who vouches for it",
+                  "Build the truth table of a conditional and write its converse, inverse and contrapositive without mixing them up",
+                  "Explain vacuous truth and spot the single row (P true, Q false) that falsifies a conditional",
+                  "Recognise the four proof shapes — direct, contrapositive, contradiction, counterexample — and choose the right one for a given claim",
+                  "Read quantifier order correctly and test statements like “for every point there exists a line” on a concrete model",
+                  "Explain what a model is, and how a model proves consistency — or proves that a statement is independent of the axioms"
+                ],
+                "prerequisites": [
+                  "geo-the-undefined-words-and-the-defined-ones",
+                  "geo-euclids-five-postulates-the-rules-of-the-game"
+                ],
+                "sources": [
+                  "geo-euclid-elements",
+                  "geo-hilbert-grundlagen"
+                ],
+                "blockCounts": {
+                  "heading": 9,
+                  "para": 27,
+                  "table": 3,
+                  "callout": 7,
+                  "figure": 4,
+                  "formula": 6,
+                  "derivation": 4,
+                  "equation": 1,
+                  "example": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 1,
+                  "historical": 1,
+                  "insight": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 14
               },
               {
+                "id": "geo-incidence-how-points-lines-and-planes-interlock",
                 "number": "1.4",
                 "title": "Incidence: how Points, Lines and Planes Interlock",
-                "id": "geo-incidence-how-points-lines-and-planes-interlock",
-                "words": 9688
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9688,
+                "readMins": 48,
+                "concepts": [
+                  "incidence axiom",
+                  "existence and uniqueness",
+                  "general position",
+                  "model",
+                  "Fano plane",
+                  "affine plane",
+                  "parallel classes"
+                ],
+                "objectives": [
+                  "State Hilbert's three planar incidence axioms in your own words and separate the existence half of I.1 from its uniqueness half.",
+                  "Prove the first incidence theorems — T1, T2 by contradiction, and the counting theorem T3 — and apply T3 to count lines in any configuration.",
+                  "Recognise the boundary behaviours: all collinear, n-1 collinear plus one off, and the de Bruijn-Erdos lower bound of 1948.",
+                  "Verify a model against the axioms: the four-point affine plane, the Fano plane of 1892, and the non-models that break one axiom each.",
+                  "Count parallel classes and explain, via the Fano plane, why the parallel postulate is a separate assumption."
+                ],
+                "prerequisites": [
+                  "geo-the-undefined-words-and-the-defined-ones",
+                  "geo-euclids-five-postulates-the-rules-of-the-game",
+                  "geo-axioms-theorems-and-the-shape-of-a-proof"
+                ],
+                "sources": [
+                  "geo-hilbert-grundlagen",
+                  "geo-fano-plane",
+                  "geo-dbe-1948"
+                ],
+                "blockCounts": {
+                  "para": 34,
+                  "callout": 10,
+                  "heading": 6,
+                  "table": 5,
+                  "derivation": 4,
+                  "formula": 6,
+                  "equation": 1,
+                  "figure": 5,
+                  "example": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 2,
+                  "definition": 3,
+                  "historical": 2,
+                  "theorem": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 8
               }
             ],
             "words": 35791
@@ -17591,7 +17837,7 @@
         "description": "The zero-rung entry to the Computer Science shelf (its Foundation Mathematics). The information processing cycle priced on real machines; a census of hardware from desktops to embedded chips; interacting with computers — input and output devices and the first usability instincts; data representation as a first meeting (bits, codes, text/image/sound) that hands its theory to Arithmetic and Number Systems and Digital Logic Design; inside the box — motherboard, processor named honestly, the first memory hierarchy; the software families and the manager layer that Operating Systems will theorize; the network idea that Computer Networks takes over; files and digital space; and the synthesis with user-level security. Cross-references every core CS book as its doorstep; no prior knowledge assumed.",
         "status": "in-progress",
         "chaptersPlanned": 8,
-        "chaptersWritten": 3,
+        "chaptersWritten": 4,
         "chapters": [
           {
             "number": 1,
@@ -18152,58 +18398,603 @@
             "plannedLessons": [],
             "lessons": [
               {
+                "id": "cf-bits-why-two-symbols-carry-everything",
                 "number": "3.1",
                 "title": "Bits: Why Two Symbols Carry Everything",
-                "id": "cf-bits-why-two-symbols-carry-everything",
-                "words": 9813
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9813,
+                "readMins": 49,
+                "concepts": [
+                  "the two-symbol alphabet and the noise margin",
+                  "the bit as the unit of information",
+                  "the powers-of-two census 2^0 to 2^20",
+                  "the byte: eight bits, 256 patterns",
+                  "counting in binary - a first taste",
+                  "SI decimal versus IEC binary prefixes",
+                  "the heritage line from Pingala to Shannon"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can explain why two symbols, not ten, survive on a noisy wire — the noise-margin argument told in plain words, with the arithmetic of wide moats and narrow ones.",
+                  "By the end of this lesson you can define the bit as the information in one choice between two equally likely outcomes, and compute the information of a coin flip, a die roll and a drawn card with the logarithm rule.",
+                  "By the end of this lesson you can recite the powers-of-two census from $2^0$ to $2^{20}$ and state how many patterns $n$ bits name.",
+                  "By the end of this lesson you can state the byte relation — one byte is eight bits is 256 patterns — and tell its history from Buchholz’s 1956 coinage to System/360.",
+                  "By the end of this lesson you can count far enough in binary to see the odometer rule at work, and read finger patterns as bits: 32 states on one hand, 1,024 on two.",
+                  "By the end of this lesson you can distinguish kB from KiB all the way to TB from TiB, computing the widening gaps, and place the bit’s heritage from Pingala to Shannon on a dated line."
+                ],
+                "prerequisites": [
+                  "cf-the-basic-structure-and-operation-of-the-computer",
+                  "cf-input-devices-the-human-handshake"
+                ],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 11,
+                  "para": 34,
+                  "callout": 14,
+                  "figure": 4,
+                  "terms": 6,
+                  "equation": 4,
+                  "example": 11,
+                  "list": 1,
+                  "derivation": 3,
+                  "formula": 4,
+                  "table": 3,
+                  "algorithm": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 4,
+                  "definition": 3,
+                  "historical": 3,
+                  "warn": 2,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 5,
+                  "L2": 5,
+                  "L3": 5
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 13
               },
               {
+                "id": "cf-the-numbering-systems-binary-octal-hexadecimal",
                 "number": "3.2",
                 "title": "The Numbering Systems: Binary, Octal, Hexadecimal",
-                "id": "cf-the-numbering-systems-binary-octal-hexadecimal",
-                "words": 9389
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9389,
+                "readMins": 47,
+                "concepts": [
+                  "positional notation and place value",
+                  "base (radix) and digit alphabets",
+                  "the binary, octal and hexadecimal systems",
+                  "hexadecimal letters A to F",
+                  "the grouping laws: 3 bits per octal digit, 4 per hex digit",
+                  "the range law and the byte census",
+                  "counting 0 to 16 in four bases"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can unfold any numeral into its place-value anatomy — digit times weight, summed — and evaluate it in any base.",
+                  "By the end of this lesson you can recite the digit alphabet of base 2, base 8, base 10 and base 16, and translate the hex letters A to F into their values 10 to 15.",
+                  "By the end of this lesson you can regroup a binary numeral into octal (blocks of three) and hexadecimal (blocks of four) and back, with no arithmetic at all.",
+                  "By the end of this lesson you can state the range law — n digits in base b name b to the n values, the largest being b to the n minus one — and apply it to the byte, the 16-bit word and 24-bit colour.",
+                  "By the end of this lesson you can count from 0 to 16 in all four bases and read the milestones: 8, 10, 15 and 16 in every dress.",
+                  "By the end of this lesson you can say why programmers love hexadecimal: one byte is exactly two hex digits, because 16 squared equals 2 to the eighth equals 256."
+                ],
+                "prerequisites": [
+                  "cf-bits-why-two-symbols-carry-everything"
+                ],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 13,
+                  "para": 31,
+                  "callout": 16,
+                  "list": 2,
+                  "derivation": 3,
+                  "equation": 3,
+                  "example": 10,
+                  "terms": 6,
+                  "table": 5,
+                  "figure": 4,
+                  "algorithm": 1,
+                  "formula": 5,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 6,
+                  "definition": 4,
+                  "warn": 3,
+                  "historical": 1,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 4,
+                  "L3": 4,
+                  "L4": 3
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 16
               },
               {
+                "id": "cf-codes-ascii-unicode-and-bcd",
                 "number": "3.3",
                 "title": "Codes: ASCII, Unicode and BCD",
-                "id": "cf-codes-ascii-unicode-and-bcd",
-                "words": 11992
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 11992,
+                "readMins": 60,
+                "concepts": [
+                  "codes as contracts between two ends",
+                  "the bit-budget law: k bits name 2 to the k symbols",
+                  "BCD: one decimal digit per 4-bit cell",
+                  "ASCII: 7 bits, 33 control and 95 printable codes",
+                  "code pages and the 8-bit fragmentation",
+                  "Unicode: 17 planes, 1,114,112 code points",
+                  "UTF-8: variable-length encoding, 1 to 4 bytes",
+                  "self-synchronization and ASCII compatibility"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can explain a code as an agreed table held by both ends of a conversation, and diagnose mojibake as a mismatch of tables rather than a corruption of bits.",
+                  "By the end of this lesson you can apply the bit-budget law to size a code for any alphabet, and count the spare patterns every budget leaves behind.",
+                  "By the end of this lesson you can write any decimal number in BCD, name the six invalid 4-bit patterns, and cost the 60.9375% waste of a two-cell BCD byte against pure binary.",
+                  "By the end of this lesson you can recite the ASCII landmarks (space 32, 0 at 48, A at 65, a at 97, DEL 127), work the bit-5 case flip and the digit arithmetic, and trace a keypress from scan code to glyph.",
+                  "By the end of this lesson you can state the Unicode census (17 planes, 1,114,112 code points, 159,801 characters in version 17.0) and explain the 2,048-value surrogate reservation.",
+                  "By the end of this lesson you can encode any character into UTF-8 by hand, class by class, and explain why the scheme self-synchronizes and why the web chose it."
+                ],
+                "prerequisites": [
+                  "cf-bits-why-two-symbols-carry-everything"
+                ],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 11,
+                  "para": 41,
+                  "callout": 19,
+                  "list": 1,
+                  "equation": 4,
+                  "example": 12,
+                  "figure": 4,
+                  "terms": 5,
+                  "formula": 5,
+                  "table": 7,
+                  "derivation": 3,
+                  "algorithm": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 5,
+                  "definition": 3,
+                  "warn": 4,
+                  "theorem": 2,
+                  "historical": 4,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 4,
+                  "L3": 4,
+                  "L4": 3
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 18
               },
               {
+                "id": "cf-text-images-and-sound-as-bits",
                 "number": "3.4",
                 "title": "Text, Images and Sound as Bits",
-                "id": "cf-text-images-and-sound-as-bits",
-                "words": 9397
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9397,
+                "readMins": 47,
+                "concepts": [
+                  "the media census: how many numbers, how fast",
+                  "the rate law: measurements per second x bytes each x channels",
+                  "UTF-8 and UTF-16 text bills",
+                  "resolution and bit depth for images",
+                  "sampling rate and the Nyquist limit for sound",
+                  "CD audio arithmetic: 44,100 samples per second",
+                  "MiB against MB: honest conversions"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can bill a text file in UTF-8 and UTF-16 from its character census and the class law.",
+                  "By the end of this lesson you can compute the byte census of any image from its resolution and bit depth, and convert it honestly between MB and MiB.",
+                  "By the end of this lesson you can compute the rate and size of sampled sound, and state and apply Nyquist’s demand with the guard band.",
+                  "By the end of this lesson you can assemble the unified rate table and read off the ratios between typing, sound and video.",
+                  "By the end of this lesson you can explain, with numbers in hand, why compression — lesson 3.5 — had to be invented."
+                ],
+                "prerequisites": [
+                  "cf-codes-ascii-unicode-and-bcd",
+                  "cf-output-devices-screens-printers-and-sound"
+                ],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 10,
+                  "para": 34,
+                  "callout": 14,
+                  "list": 1,
+                  "equation": 3,
+                  "derivation": 2,
+                  "formula": 3,
+                  "example": 12,
+                  "table": 2,
+                  "algorithm": 1,
+                  "figure": 4,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 3,
+                  "insight": 4,
+                  "warn": 3,
+                  "theorem": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 4,
+                  "L3": 4,
+                  "L4": 3
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 10
               },
               {
+                "id": "cf-compression-lossless-and-lossy",
                 "number": "3.5",
                 "title": "Compression: Lossless and Lossy",
-                "id": "cf-compression-lossless-and-lossy",
-                "words": 9166
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9166,
+                "readMins": 46,
+                "concepts": [
+                  "compression ratio",
+                  "run-length encoding",
+                  "prefix codes and Huffman coding",
+                  "dictionary compression and LZW",
+                  "chroma subsampling",
+                  "perceptual coding",
+                  "lossless versus lossy formats"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can state the packing question lesson 3.4 left open and explain why the two honest answers — lossless and lossy — are the chapter’s sharpest line.",
+                  "By the end of this lesson you can define the compression ratio and compute one from any pair of file sizes, including the saving as a percentage.",
+                  "By the end of this lesson you can encode and decode run-length witnesses by hand, and predict honestly when RLE grows a file instead of shrinking it.",
+                  "By the end of this lesson you can build a small Huffman tree, read off its prefix codewords, cost it against a fixed-length code, and place its mean beside the entropy floor.",
+                  "By the end of this lesson you can trace an LZW run on a short string and name the algorithm inside ZIP, GIF and PNG with their dates.",
+                  "By the end of this lesson you can reason about lossy formats — the JPEG block census with 4:2:0 subsampling and the MP3 rate arithmetic — and deliver the verdict table for which media tolerate loss."
+                ],
+                "prerequisites": [
+                  "cf-text-images-and-sound-as-bits"
+                ],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 15,
+                  "para": 27,
+                  "callout": 16,
+                  "figure": 4,
+                  "equation": 2,
+                  "derivation": 2,
+                  "example": 10,
+                  "formula": 2,
+                  "list": 1,
+                  "algorithm": 2,
+                  "table": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 4,
+                  "insight": 3,
+                  "warn": 3,
+                  "historical": 4,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 4,
+                  "L3": 4,
+                  "L4": 3
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 13
               },
               {
+                "id": "cf-decimal-to-binary-conversion",
                 "number": "3.6",
                 "title": "Decimal to Binary Conversion",
-                "id": "cf-decimal-to-binary-conversion",
-                "words": 9502
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9502,
+                "readMins": 48,
+                "concepts": [
+                  "the division ladder (repeated division by 2)",
+                  "reading the remainders bottom-up",
+                  "the positional (powers) method",
+                  "decimal to octal and hexadecimal",
+                  "bit length and the largest n-bit value",
+                  "the 255/256 roll-over",
+                  "the fraction ladder (multiply by 2)",
+                  "terminating and repeating binary fractions"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can convert any decimal whole number to binary by the division ladder, showing every rung and reading the remainders bottom-up.",
+                  "By the end of this lesson you can run the same ladder machine in bases 8 and 16, converting decimal numbers to octal and hexadecimal and checking the answer by place values.",
+                  "By the end of this lesson you can convert a decimal number by the positional (powers) method, and say which method wins for which size of number.",
+                  "By the end of this lesson you can state the largest value that fits in $n$ bits for any $n$, explain the 255/256 roll-over, and say how many bits a given number needs.",
+                  "By the end of this lesson you can convert decimal fractions to binary by the fraction ladder, reading the bits down, and split a mixed number into its whole and fraction parts.",
+                  "By the end of this lesson you can explain why 0.1 never terminates in binary, and why that makes $0.1 + 0.2 \\neq 0.3$ in every programming language."
+                ],
+                "prerequisites": [
+                  "cf-the-numbering-systems-binary-octal-hexadecimal"
+                ],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "para": 33,
+                  "callout": 9,
+                  "heading": 9,
+                  "list": 2,
+                  "algorithm": 2,
+                  "figure": 5,
+                  "example": 12,
+                  "derivation": 1,
+                  "table": 3,
+                  "equation": 2,
+                  "terms": 1,
+                  "formula": 4,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 2,
+                  "historical": 1,
+                  "definition": 2,
+                  "warn": 1,
+                  "theorem": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 5,
+                  "L3": 4,
+                  "L4": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 8
               },
               {
+                "id": "cf-binary-to-decimal-conversion",
                 "number": "3.7",
                 "title": "Binary to Decimal Conversion",
-                "id": "cf-binary-to-decimal-conversion",
-                "words": 9777
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9777,
+                "readMins": 49,
+                "concepts": [
+                  "the weight (positional) sum",
+                  "the doubling (Horner) ladder",
+                  "the grouped read through octal and hexadecimal",
+                  "the binary point and negative powers",
+                  "population count (popcount)",
+                  "most and least significant bits",
+                  "appending a zero doubles the value"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can unfold any binary numeral as a sum of powers of two and add the live weights to reach its decimal value.",
+                  "By the end of this lesson you can sweep a binary numeral left to right with the doubling rule and arrive at the same value without a powers-of-two table.",
+                  "By the end of this lesson you can regroup binary strings by four (hexadecimal) or three (octal) and finish the conversion with one short arithmetic.",
+                  "By the end of this lesson you can read binary fractions across the binary point, converting patterns such as 0.011 or 101.11 exactly.",
+                  "By the end of this lesson you can use the population count and the append-a-zero doubling shortcut as sanity checks on magnitude.",
+                  "By the end of this lesson you can choose the right method for a numeral's shape — short pattern, long sparse numeral, or pre-blocked string — and say why."
+                ],
+                "prerequisites": [
+                  "cf-the-numbering-systems-binary-octal-hexadecimal"
+                ],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 13,
+                  "para": 36,
+                  "callout": 11,
+                  "list": 3,
+                  "table": 4,
+                  "terms": 5,
+                  "algorithm": 3,
+                  "example": 12,
+                  "figure": 5,
+                  "equation": 2,
+                  "derivation": 1,
+                  "formula": 4,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 3,
+                  "definition": 2,
+                  "warn": 3,
+                  "theorem": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 4,
+                  "L3": 6,
+                  "L4": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 12
               },
               {
+                "id": "cf-decimal-and-binary-number-system",
                 "number": "3.8",
                 "title": "Decimal and Binary Number System",
-                "id": "cf-decimal-and-binary-number-system",
-                "words": 8162
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8162,
+                "readMins": 41,
+                "concepts": [
+                  "positional notation as one machine, many alphabets",
+                  "the side-by-side counting strip and the odometer principle",
+                  "the anatomy trade: digit count against digit cost",
+                  "binary addition and the carry rule 1 + 1 = 10",
+                  "binary subtraction and the borrow chain",
+                  "multiplication as shifts and adds",
+                  "the shift-double law: x 2^k appends k zeros",
+                  "two-valued logic on two-state switches (Boole to Shannon)"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can read decimal and binary as one positional machine wearing two alphabets, citing the four-dress witness of lesson 3.2 rather than re-deriving it.",
+                  "By the end of this lesson you can count in binary side by side with decimal, and say exactly when and why each system opens a new column.",
+                  "By the end of this lesson you can compare the two systems anatomically - alphabet, place values, largest n-digit value, digits needed for a number - and state the honest three-and-a-third digit trade.",
+                  "By the end of this lesson you can add, subtract and multiply small binary numerals digit by digit, marking every carry and every borrow, and check each result by re-adding or by weights.",
+                  "By the end of this lesson you can use the shift-double law - appending a zero multiplies by two - to double, halve and scale by powers of two without a times table.",
+                  "By the end of this lesson you can explain why the machine keeps binary, from Boole in 1854 to Shannon in 1937, and demonstrate a five-bit binary register on one hand."
+                ],
+                "prerequisites": [
+                  "cf-decimal-to-binary-conversion",
+                  "cf-binary-to-decimal-conversion"
+                ],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "para": 32,
+                  "heading": 8,
+                  "equation": 1,
+                  "callout": 11,
+                  "list": 2,
+                  "figure": 4,
+                  "example": 10,
+                  "table": 2,
+                  "algorithm": 1,
+                  "derivation": 1,
+                  "terms": 1,
+                  "formula": 4,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "historical": 2,
+                  "insight": 4,
+                  "warn": 2,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 6,
+                  "L2": 5,
+                  "L3": 4
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 9
               },
               {
+                "id": "cf-unit-3-completion-review",
                 "number": "3.R",
                 "title": "Unit 3 Completion Review",
-                "id": "cf-unit-3-completion-review",
-                "words": 8140
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8140,
+                "readMins": 41,
+                "concepts": [
+                  "the chapter in one map: the representation pipeline from keystroke to compressed file",
+                  "the eight lesson recaps, grounded in the engine-pinned harvest numbers",
+                  "representation as a choice with a price: alphabet, code, sampling rate, compression knob",
+                  "the two souvenirs: the 45 witness and the 2026 witness",
+                  "the formula and vocabulary harvest of the chapter",
+                  "the mixed bench: fifteen exam-style questions across all eight lessons",
+                  "the forward door: Inside the Box - how the machine speaks the language it was given"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can redraw the chapter’s one map - the pipeline from keystroke to scan code to code point to byte stream to compressed file, with the two conversion roads beneath - from memory.",
+                  "By the end of this lesson you can restate the chapter’s engine-pinned censuses cold: the powers thread, the 45 and 2026 witnesses, the codes census, the CD rate, and the Huffman saving.",
+                  "By the end of this lesson you can chain two lessons in one move - a hexadecimal colour code to decimal channel values to ASCII arithmetic - without putting the pencil down.",
+                  "By the end of this lesson you can price any representation choice with arithmetic: bits needed, bytes per second, mebibytes, compression ratio.",
+                  "By the end of this lesson you can walk through the forward door: name what chapter 4 asks of the box, and say what this chapter handed it."
+                ],
+                "prerequisites": [
+                  "cf-bits-why-two-symbols-carry-everything",
+                  "cf-the-numbering-systems-binary-octal-hexadecimal",
+                  "cf-codes-ascii-unicode-and-bcd",
+                  "cf-text-images-and-sound-as-bits",
+                  "cf-compression-lossless-and-lossy",
+                  "cf-decimal-to-binary-conversion",
+                  "cf-binary-to-decimal-conversion",
+                  "cf-decimal-and-binary-number-system"
+                ],
+                "sources": [
+                  "cs-cf-web-ground"
+                ],
+                "blockCounts": {
+                  "para": 16,
+                  "heading": 15,
+                  "figure": 4,
+                  "callout": 11,
+                  "table": 3,
+                  "example": 8,
+                  "formula": 5,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "historical": 1,
+                  "insight": 5,
+                  "warn": 2,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 5,
+                  "L3": 4,
+                  "L4": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 10
               }
             ],
             "words": 85338
@@ -18213,16 +19004,340 @@
             "slug": "inside-the-box",
             "title": "Inside the Box",
             "summary": "The motherboard as a city plan, the processor named honestly (cores, clock, cache — the vocabulary without the architecture theory), the first memory hierarchy (RAM, ROM, the storage ladder from registers to the cloud), and how the pieces talk: buses and ports at the first-meeting level; Computer Organization and Architecture takes the theory door.",
-            "status": "planned",
-            "lessonsWritten": 0,
-            "plannedLessons": [
-              "The Motherboard: the City Plan",
-              "The Processor Named Honestly",
-              "The First Memory Hierarchy",
-              "Buses and Ports: How the Pieces Talk"
+            "status": "complete",
+            "lessonsWritten": 5,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "cf-the-motherboard-the-city-plan",
+                "number": "4.1",
+                "title": "The Motherboard: the City Plan",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 10458,
+                "readMins": 52,
+                "concepts": [
+                  "the motherboard as the main printed circuit board",
+                  "the city-plan metaphor: roads, plots, utilities, districts",
+                  "form factors as contracts: ATX, microATX, Mini-ITX",
+                  "the exact area arithmetic: 0.800000 and its chain",
+                  "the plots: socket, DIMM slots, PCIe slots, chipset",
+                  "firmware, the CMOS coin cell and the VRM",
+                  "the 24-pin and 8-pin feeds; one clock for the city"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can define the motherboard formally - the main printed circuit board, carrying the processor, memory, chipset and expansion slots, and interconnecting them with printed copper traces - and read any board in any machine as a city plan: roads, plots, utilities and districts.",
+                  "By the end of this lesson you can explain what a printed circuit board is: copper traces printed as roads in tenths of a millimetre, layers commonly 6 to 10 deep, vias as the flyovers between them, and the solder mask as the colour you actually see.",
+                  "By the end of this lesson you can state what a form factor is - the contract fixing a board’s size, mounting holes and I/O layout - and recite the three named here with their dates and keepers: ATX (Intel, 1995, 305 x 244 mm), microATX (1996, at most 244 mm square) and Mini-ITX (VIA Technologies, 2001, 170 x 170 mm).",
+                  "By the end of this lesson you can compute the form-factor arithmetic cold: 74,420, 59,536 and 28,900 mm2; microATX as exactly 0.800000 of ATX; Mini-ITX as 0.388336 of ATX and 0.485421 of microATX; and you can say why the contract fixes the shape, not the capability.",
+                  "By the end of this lesson you can take a census of the board’s plots - the zero-insertion-force socket (LGA lands on the board, PGA pins on the chip), the 288-pin DIMM slots, the PCIe expansion slots, the chipset as town hall, the firmware chip, the CR2032 3 V coin cell and the VRM - and give each one its honest one-line job.",
+                  "By the end of this lesson you can trace the power-and-pulse pair: the 24-pin ATX main connector and the 8-pin CPU feed meeting at the VRM, and the one system clock whose heartbeat every district steps to - handing the clock’s price to lesson 4.2."
+                ],
+                "prerequisites": [
+                  "cf-the-basic-structure-and-operation-of-the-computer"
+                ],
+                "sources": [
+                  "cs-cf-web-ground-ch04"
+                ],
+                "blockCounts": {
+                  "heading": 6,
+                  "para": 30,
+                  "callout": 10,
+                  "list": 1,
+                  "table": 3,
+                  "figure": 4,
+                  "terms": 3,
+                  "equation": 3,
+                  "example": 8,
+                  "derivation": 2,
+                  "algorithm": 1,
+                  "formula": 7,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "insight": 3,
+                  "warn": 2,
+                  "historical": 1,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 4,
+                  "L3": 4,
+                  "L4": 3
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 20
+              },
+              {
+                "id": "cf-the-processor-named-honestly",
+                "number": "4.2",
+                "title": "The Processor Named Honestly",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9955,
+                "readMins": 50,
+                "concepts": [
+                  "the honest contract: fetch, decode, execute, write back",
+                  "the clock: cycles per second, the metronome priced",
+                  "the gigahertz race and the heat wall that ended it",
+                  "cores: from one worker to a team, 4 x 3 = 12 GHz summed",
+                  "Moore's law: 19 April 1965, revised 1975, doubling every two years",
+                  "cache: the pocket, SRAM at six transistors a bit",
+                  "threads and SMT: two streams, not two cores"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can say precisely what a processor is - the component that fetches instructions from memory, decodes them, executes them and writes back the results, billions of times a second - and refuse the 'brain of the computer' shorthand as a lie of convenience.",
+                  "By the end of this lesson you can price a clock rate honestly: 1 GHz means $10^9$ cycles per second, one 5 GHz cycle lasts 0.2 ns, and the 4004's 740 kHz makes a 5 GHz core 6756.7568 times faster in beats.",
+                  "By the end of this lesson you can tell the dated story straight: AMD's 1 GHz Athlon of 6 March 2000 with Intel two days later, the heat wall that flattened the race, and the dual-core month of May 2005 that answered it with workers instead of beats.",
+                  "By the end of this lesson you can compute Moore's-law predictions: 2,300 transistors doubling every two years gives $2,300 \\times 2^{26} = 154{,}350{,}387{,}200$ for 2023, within 15.186856 percent of the M2 Ultra's 134 billion actual.",
+                  "By the end of this lesson you can explain why a cache is small and fast - SRAM spends six transistors a bit against DRAM's one transistor plus one capacitor - and why SMT gives a core two streams of work without making it two cores."
+                ],
+                "prerequisites": [
+                  "cf-the-motherboard-the-city-plan"
+                ],
+                "sources": [
+                  "cs-cf-web-ground-ch04"
+                ],
+                "blockCounts": {
+                  "para": 30,
+                  "callout": 16,
+                  "list": 1,
+                  "figure": 4,
+                  "algorithm": 1,
+                  "heading": 8,
+                  "equation": 2,
+                  "example": 9,
+                  "derivation": 1,
+                  "table": 1,
+                  "terms": 1,
+                  "formula": 5,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 5,
+                  "insight": 3,
+                  "warn": 4,
+                  "theorem": 1,
+                  "historical": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 5,
+                  "L2": 4,
+                  "L3": 4,
+                  "L4": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 12
+              },
+              {
+                "id": "cf-the-first-memory-hierarchy",
+                "number": "4.3",
+                "title": "The First Memory Hierarchy",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9592,
+                "readMins": 48,
+                "concepts": [
+                  "the impossible wish: fast, big, cheap - pick two",
+                  "RAM and ROM named honestly",
+                  "DRAM 1T1C, SRAM 6T and the 64 ms refresh",
+                  "the latency census 0.5 ns to 150 ms",
+                  "the human ladder at the one-second baseline",
+                  "RAMAC 1956 and the storage shelf’s history",
+                  "temporal and spatial locality"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can state the impossible wish - FAST, BIG, CHEAP, pick any two - and define the memory hierarchy as the honest arrangement of memories that buys back, level by level, what the previous level cannot afford.",
+                  "By the end of this lesson you can name RAM and ROM honestly: the uniform-time promise of random access, volatility as the real dividing line, and the firmware flash chip as ROM’s modern home.",
+                  "By the end of this lesson you can draw DRAM’s 1T1C cell against SRAM’s six-transistor cell, explain the leak, and compute the refresh cadence - every row re-topped within the 64 ms window, 15.625 visits per row per second.",
+                  "By the end of this lesson you can recite the latency census (0.5 ns, 7 ns, 100 ns, 150 μs, 10 ms, 150 ms) with every ratio (14, 14.2857, 200, 1,500, 66.6667, 15) and compute the whole-ladder stretch of 300,000,000.",
+                  "By the end of this lesson you can walk the human ladder at the one-second baseline: L2 at 14 s, RAM at 200 s, SSD at 3.472222 days, HDD at 7.605141 months, an ocean round trip at 9.5064263 years.",
+                  "By the end of this lesson you can use temporal and spatial locality to explain why a small pocket serves a big warehouse, and carry the shelf’s history: Dennard 1966, patent 3,387,286 on 4 June 1968, and RAMAC on 14 September 1956."
+                ],
+                "prerequisites": [
+                  "cf-the-processor-named-honestly"
+                ],
+                "sources": [
+                  "cs-cf-web-ground-ch04"
+                ],
+                "blockCounts": {
+                  "heading": 9,
+                  "para": 32,
+                  "callout": 10,
+                  "equation": 4,
+                  "example": 8,
+                  "list": 1,
+                  "table": 4,
+                  "terms": 2,
+                  "figure": 4,
+                  "algorithm": 1,
+                  "derivation": 2,
+                  "formula": 5,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 4,
+                  "warn": 1,
+                  "historical": 2,
+                  "insight": 1,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 4,
+                  "L3": 4,
+                  "L4": 3
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 12
+              },
+              {
+                "id": "cf-buses-and-ports-how-the-pieces-talk",
+                "number": "4.4",
+                "title": "Buses and Ports: How the Pieces Talk",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8259,
+                "readMins": 41,
+                "concepts": [
+                  "the three buses: address, data, control",
+                  "address-width arithmetic: n lines name 2^n addresses",
+                  "why the shared bus jams: one transaction at a time",
+                  "parallel versus serial, and the skew that killed width",
+                  "PCIe lanes and generations priced with the encoding toll",
+                  "the port census: USB, HDMI, SATA, Ethernet, Bluetooth",
+                  "NVMe rides the PCIe lanes",
+                  "the port-versus-internal-road divide"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can name the three buses of the classic design - address, data and control - and say, in one phrase each, which question each road answers.",
+                  "By the end of this lesson you can compute the reach of any address bus from its width: n lines name 2^n addresses, so 32 lines name 4,294,967,296 bytes = exactly 4 GiB and 64 lines name 16 EiB.",
+                  "By the end of this lesson you can explain why a shared bus jams - one transaction at a time - and why parallel gave way to serial once skew punished width at speed.",
+                  "By the end of this lesson you can price a PCIe lane from its generation: transfers per second through the encoding toll, per lane and per x16 bundle, from 250 MB/s at gen 1.0 to 63.0154 GB/s at x16 gen 5.0.",
+                  "By the end of this lesson you can recite the port census with dates and rates - USB 1.0 1996 to USB4 2019, HDMI 1.0 of 9 December 2002 to 2.1 of 2017, SATA 1.0 of 2003 to 3.0 of 2009 - and convert line rates to byte rates honestly.",
+                  "By the end of this lesson you can divide the board into internal buses, external ports and storage roads, place NVMe on the PCIe lanes, and compute the 525.1282x gap between a graphics road and a USB 2.0 stick."
+                ],
+                "prerequisites": [
+                  "cf-the-motherboard-the-city-plan",
+                  "cf-the-first-memory-hierarchy"
+                ],
+                "sources": [
+                  "cs-cf-web-ground-ch04"
+                ],
+                "blockCounts": {
+                  "para": 32,
+                  "callout": 8,
+                  "list": 1,
+                  "heading": 7,
+                  "table": 3,
+                  "figure": 5,
+                  "equation": 2,
+                  "example": 9,
+                  "derivation": 1,
+                  "terms": 1,
+                  "formula": 5,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 1,
+                  "insight": 2,
+                  "warn": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 5,
+                  "L3": 3,
+                  "L4": 3
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 14
+              },
+              {
+                "id": "cf-unit-4-completion-review",
+                "number": "4.R",
+                "title": "Unit 4 Completion Review",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8472,
+                "readMins": 42,
+                "concepts": [
+                  "the chapter in one map: the city-and-its-life pipeline from board to processor to memory ladder, joined by the roads",
+                  "the four lesson recaps, grounded in the engine-pinned harvest numbers",
+                  "inside the box as a choice with a price: footprint, clock, latency rung, lane width",
+                  "the four headline witnesses: 74,420 mm2, 6756.7568x, 1,500x, 31.5077 GB/s",
+                  "the formula and vocabulary harvest of the chapter",
+                  "the mixed bench: fifteen exam-style questions across all four lessons",
+                  "the forward door: Software Families - the manager layer and the Operating System's doorstep"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can redraw the chapter's one map - the board hosting the worker station served by the memory ladder, all talking along the roads - from memory.",
+                  "By the end of this lesson you can restate the chapter's engine-pinned censuses cold: the form-factor harvest, the clock and Moore census, the latency ladder, and the port census.",
+                  "By the end of this lesson you can chain two lessons in one move - a form-factor area to a ladder rung to a lane budget - without putting the pencil down.",
+                  "By the end of this lesson you can price any inside-the-box choice with arithmetic: square millimetres, nanoseconds per beat, times-slower factors, bytes per second.",
+                  "By the end of this lesson you can walk through the forward door: name what chapter 5 asks of the machine you now know, and say what this chapter handed it."
+                ],
+                "prerequisites": [
+                  "cf-the-motherboard-the-city-plan",
+                  "cf-the-processor-named-honestly",
+                  "cf-the-first-memory-hierarchy",
+                  "cf-buses-and-ports-how-the-pieces-talk"
+                ],
+                "sources": [
+                  "cs-cf-web-ground-ch04"
+                ],
+                "blockCounts": {
+                  "para": 27,
+                  "heading": 12,
+                  "figure": 7,
+                  "callout": 8,
+                  "table": 4,
+                  "example": 5,
+                  "exercises": 1,
+                  "formula": 6,
+                  "terms": 1,
+                  "quiz": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "historical": 2,
+                  "warn": 1,
+                  "theorem": 1,
+                  "insight": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 4,
+                  "L3": 4,
+                  "L4": 4
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 12
+              }
             ],
-            "lessons": [],
-            "words": 0
+            "words": 46736
           },
           {
             "number": 5,
@@ -53141,14 +54256,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 516,
-      "totalLines": 197015,
+      "srcFilesTracked": 520,
+      "totalLines": 217214,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5860,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 158354,
+        "src/data/library (content model + books)": 178553,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -53376,7 +54491,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-24",
+      "surveyed": "2026-11-25",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -80300,34 +81415,1254 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "f508b311f6a10c219696049e89688c3832791119",
+      "short": "f508b31",
+      "date": "2026-11-24 10:59",
+      "message": "CS RUN 4 (the cs lane, whole-chapter cadence): computer-fundamentals ch.2 'Interacting with Your Computer' CLOSED COMPLETE — 2.3 'Interacting Well: the First Usability Instincts' + the 2.R 'Unit 2 Completion Review' by the TWO-AGENT SWARM (engines v-cf23 70/70 + v-cf2R 75/75 green pre-prose — both channels died at a platform server shutdown but the files landed complete, the continuation session verified and assembled; 10,250 + 8,731 words; quiz 5/5 live on [1,0,3,2,1] + [2,1,3,0,2]; verify-cs-book2-ch02 398/398 with the closed-chapter census Z; tsc 0, lint 0 err; pack+check PASS 197 lessons / 1,148,340 words; standing gates 667+4023+1240+2350 with cs-shelf-planning honestly grown csWritten 6->8 + totPl 1223->1224; E2E x2 x3 viewports ALL GREEN, zero console errors, no overflow at 390/1280; VLM 14-crop audit ALL PASS zero defects — the 156-year timeline re-shot by caption-target after a mis-crop) — ground = the internet fallback cs-cf-web-ground extended (Bush 1945, Sketchpad 1963, Alto 1973, Star 1981 $16,595, Lisa 1983 $9,995, Mac 1984 $2,495 + the '1984' Super Bowl XVIII ad, Windows 1.0 1985, Fitts 1954, Norman 1988/1993, Nielsen 1994, WCAG 1999/2008/2018/2023, the 20-20-20 rule); the cs cron job recreated for the cadence (541219 -> 546144, :20 IST, priority 10, owner dir. 2026-11-24); next: CS RUN 5 opens ch.3 'Data Representation: a First Meeting' whole",
+      "filesChanged": 16,
+      "insertions": 2952,
+      "deletions": 72,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/CS_AUTHORING_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 20,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 395,
+          "del": 30
+        },
+        {
+          "path": "docs/research/CF_CH02_MASTER_PLAN.md",
+          "add": 73,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-23.page.js",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-23.sh",
+          "add": 105,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-2R.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-2R.sh",
+          "add": 105,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-book2-ch02.ts",
+          "add": 507,
+          "del": 20
+        },
+        {
+          "path": "scripts/verify-cs-shelf-planning.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/book.ts",
+          "add": 7,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-02.ts",
+          "add": 1626,
+          "del": 11
+        }
+      ]
+    },
+    {
+      "sha": "b694f342f8f05fdd68ce415357e9754fa3492e4b",
+      "short": "b694f34",
+      "date": "2026-11-24 11:00",
+      "message": "chore(bookkeeping): CS RUN 4 push record (fast-forward ec7fb74..f508b31, anonymous ls-remote verified f508b31 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 6,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 6,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "1ac62f6e2d9295e7d6080b134ac1236519bbfa2b",
+      "short": "1ac62f6",
+      "date": "2026-11-24 19:06",
+      "message": "run 123 (the maths lane, whole-chapter cadence — the run-122 resumption under the owner's 'finish advanced algebra book first' directive): AA ch.10 'The Synthesis and the Doorstep' CLOSED COMPLETE and ADVANCED ALGEBRA SHIPPED COMPLETE — 10/10 chapters, 67 written lessons (62 banked + 5), 473,625 words, the fourth complete mathematics book — 10.1 'Competition Algebra: the Advanced Craft' FINISHED (the 16-question exercises block on the run-122 engine's pre-verified witnesses with 4 solution figures, the quiz key slot 3 fixed [2,0,3,3,1] -> [2,0,1,3,1], the qquad stripped, 4,663 -> 6,020 words; v-aa101 119/119), 10.2 'Functional Equations: Building Functions from Rules' AUTHORED WHOLE from its spec (the value ladder, the monotone squeeze, the constant cleanup, the Gauss regeneration, the product census with computed refutations, the order-4 Mobius cycle + the order-3 witness; 5 derivations, 10 Illustrations, the census table, 3 body + 4 solution figures, 6,108 words; v-aa102 111/111 — the 78-check engine green BEFORE the prose), 10.R 'Unit 10 Completion Review' COMPLETED (the chapter table, the ten-card formula shelf, four one-move re-derivations, six cross-lesson audit chains — 2^100 written out in full at 31 digits, C(50,25) = 126410606437752 at 15 digits with the engine-win 14.1018 recorded, the (3^h-1)/h -> ln 3 doorstep chain — the seventeen-witness mixed bench with 7 explicit boundary-crossers, and the closing coda with the four doors + the sixty-seven census sentence; 5,062 words; v-aa10R 267/267 with the preserved 235-check engine untouched), 10.3 + 10.4 restored verbatim from this preservation (203/203 + 213/213); assembled by scripts/assemble_run123.py into ch-10.ts with the pins RE-READING THE SHIPPED CHAPTER; verify-book4-ch10 946/946 ALL GREEN incl. the closed-BOOK census Z (10 chapters, every chapter complete, no planned lessons anywhere, the honest 67 count, whole-book 473,625 words); tsc 0, lint 0 err; standing gates 667+4023+1240 (math-shelf-planning honestly amended: 4 complete mathematics books, 0 in-progress); pack v3 + check PASS 202 lessons / 1,178,824 words (+5 / +30,484 — the exact ch-10 delta); E2E x5 lessons x3 viewports ALL GREEN (quiz 5/5 live on [2,0,1,3,1], [1,2,0,1,2], [0,2,1,0,3], [2,1,0,2,1], [1,0,2,1,2]; KaTeX 583 nodes on 10.1, 0 errors everywhere; no overflow at 390 AND 1280; console 0 — the 10.3/10.4 quiz locators broadened to their own 'Quiz'/'Checkpoint' headers); VLM audit light+dark ALL PASS after TWO real 10.2 figure catches fixed and re-verified (the '+ f(1) = 3, every step' annotation clipped at the viewBox right edge; the f(2026) = 3·2026 = 6078 bottom label end-anchored off the LEFT edge — bars rescaled 20 -> 15, the label re-centered, repacked v3, re-shot, PASS) and one honest dismissal (a transient Next dev-overlay toast on 10.1's first load — 0 console errors + 0 KaTeX errors + a clean reshoot); the six ledgers updated (WORKLOG + PROGRESS re-phased + SOURCE_LOG no-new-keys + DETAILED_LOG + WORK_INVENTORY surgically patched from the live registry + RESUME_POINTER re-pointed to GEOMETRY book 5 WHOLE — 12 chapters / 51 planned lessons, chapter 1 'Points, Lines and Planes: the Axiomatic Idea'); the preservation README stamped CLOSED (provenance record); next: maths run 124 opens geometry whole; the cs lane per CS_AUTHORING_POINTER (CS RUN 5 opens computer-fundamentals ch.3 whole)",
+      "filesChanged": 25,
+      "insertions": 7637,
+      "deletions": 43,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 15,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 13,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 9,
+          "del": 9
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 9,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 351,
+          "del": 11
+        },
+        {
+          "path": "docs/research/aa-ch10-wip/README.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "scripts/assemble_run123.py",
+          "add": 421,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-101.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-101.sh",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-102.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-102.sh",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-103.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-103.sh",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-104.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-104.sh",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-10R.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-10R.sh",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "scripts/gen-aa10-e2e.py",
+          "add": 204,
+          "del": 0
+        },
+        {
+          "path": "scripts/patch-inventory-aa10.ts",
+          "add": 76,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch10.ts",
+          "add": 2847,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-math-shelf-planning.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/book.ts",
+          "add": 15,
+          "del": 17
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-10.ts",
+          "add": 2920,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "077247a391738b4e6ba5b7135c1b4dfffecd72fd",
+      "short": "077247a",
+      "date": "2026-11-24 19:08",
+      "message": "chore(bookkeeping): RUN 123 push record (fast-forward b694f34..1ac62f6, anonymous ls-remote verified 1ac62f6 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 2,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "80c436a0fd50e8cc9438e7b4d9485ddaf0ff63a5",
+      "short": "80c436a",
+      "date": "2026-11-24 20:46",
+      "message": "run 124 (the maths lane, whole-chapter cadence): GEOMETRY book 5 OPENED — ch.1 'Points, Lines and Planes: the Axiomatic Idea' shipped IN-PROGRESS with 1.1 'The Undefined Words and the Defined Ones' (geo101: engine+part 100/100 GREEN, 7,532 words, quiz key [0,1,2,3,2], 3 body + 3 solution figures — the word-tower, the dimensional ladder, the incidence picture; Euclid's Defs 1/2/4/7 paraphrased and refuted-as-definitions; Hilbert's three primitives + three relations with the beer-mug line honestly attributed to Blumenthal's recollection; the regress-or-loop dichotomy PROVED by the pigeonhole sweep over all 50,069 functional maps on n=1..6) and 1.2 'Euclid's Five Postulates: the Rules of the Game' (geo102: 86/86 GREEN, 8,524 words, key [2,1,3,0,1], 3 body + 3 solution figures — the five postulates one by one with the 180-degree shortfall arithmetic engine-pinned (90+90 boundary; 170/10; 110/70; 140/40; 175/5), the postulate-vs-common-notion census, the ruler-and-compass charter, the two-thousand-year trial (Proclus 5th c. -> Saccheri 1733 -> Playfair 1795 -> Lobachevsky 1829 -> Bolyai 1832 -> Hilbert 1899) — history web-verified, the F2 true-to-scale fifth-postulate drawing recomputed by the agent's own engine catch); the run cap arrived with 1.3 + 1.4 unauthored after FOUR agent rounds (geo101 round 1; geo102 round 3; geo103/geo104 died empty in all rounds) — per the time-budget law the completed lessons SHIP and the remainder RIDES RUN 125, never thinned: the specs + the ALL-GREEN pre-flight pin checker (pin_check_geo124.py: C(n,2) sweep, the four-point affine plane, the Fano census, the truth tables, the shortfall arithmetic — 10 wiring bugs caught and fixed before GREEN) + the two green v-harnesses preserved TRACKED in docs/research/geo-ch01-wip/ with the resume README; assembled by scripts/assemble_run124.py into ch-01.ts (palette rename per part + the geo102 cool-tone palette REMAPPED onto the vivid table at the seam — 15 hex reads, a law violation the agent's pins missed — and the four single-backslash alpha/beta JS-escape sites doubled after E2E caught 4 live KaTeX errors; repacked, re-shot, 0 errors); verify-book5-ch01 212/212 ALL GREEN incl. the in-progress census Z (2 written + 2 planned, floors, ids, book in-progress, the 12-chapter map intact); tsc 0, lint 0 err; standing gates 667 + 4023 + 1176 (math-shelf honestly amended: 4 complete + 1 in-progress geometry + 23 planned, the geo- prefix moved to the in-use list; the count is data-dependent — geometry's planned-chapter hygiene retired as it went in-progress); pack v4 + check PASS 202 -> 204 lessons / 1,178,824 -> 1,194,880 words (the exact ch.1 delta +16,056); E2E x2 lessons x3 viewports ALL GREEN 33/33 + 33/33 (quiz 5/5 live on [0,1,2,3,2] and [2,1,3,0,1]; KaTeX 109 nodes + 0 errors; Sol. pills 17 + 17; the 'Before this lesson' strip present for 1.2, absent for 1.1; no overflow 390 AND 1280; console 0); VLM figure audit: 1.2's fifth-postulate true-to-scale drawing PASS in-page — the full light+dark sweep for both lessons honestly deferred to run 125's opening; the six ledgers updated (WORKLOG + PROGRESS re-phased + SOURCE_LOG geo-* keys with URLs + DETAILED_LOG + WORK_INVENTORY surgically patched from the live registry + RESUME_POINTER re-pointed to the ch.1 CLOSE); next: maths run 125 authors 1.3 + 1.4 from the preserved specs and closes geometry ch.1 COMPLETE; cs lane per CS_AUTHORING_POINTER (CS RUN 5 opens computer-fundamentals ch.3 whole)",
+      "filesChanged": 22,
+      "insertions": 89677,
+      "deletions": 83987,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2865,
+          "del": 2865
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 844,
+          "del": 844
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 22,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 80257,
+          "del": 80257
+        },
+        {
+          "path": "docs/research/GEO_CH01_MASTER_PLAN.md",
+          "add": 119,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch01-wip/README.md",
+          "add": 28,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch01-wip/part-geo101.ts.txt",
+          "add": 644,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch01-wip/part-geo102.ts.txt",
+          "add": 857,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch01-wip/pin_check_geo124.py",
+          "add": 149,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch01-wip/spec-geo101.md",
+          "add": 45,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch01-wip/spec-geo102.md",
+          "add": 42,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch01-wip/spec-geo103.md",
+          "add": 42,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch01-wip/spec-geo104.md",
+          "add": 44,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch01-wip/v-geo101.ts.txt",
+          "add": 496,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch01-wip/v-geo102.ts.txt",
+          "add": 367,
+          "del": 0
+        },
+        {
+          "path": "scripts/assemble_run124.py",
+          "add": 335,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book5-ch01.ts",
+          "add": 959,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-math-shelf-planning.ts",
+          "add": 6,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/book.ts",
+          "add": 6,
+          "del": 18
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/ch-01.ts",
+          "add": 1538,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "04f6d809431596b9decd653e3de88e19cdc9658c",
+      "short": "04f6d80",
+      "date": "2026-11-24 20:47",
+      "message": "chore(bookkeeping): RUN 124 push record (fast-forward 077247a..80c436a, anonymous ls-remote verified 80c436a — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 6,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 6,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "0b10267f0d6c77ec8d5f0d32d20f718c7d77d385",
+      "short": "0b10267",
+      "date": "2026-11-25 02:48",
+      "message": "cs run 5 (whole-chapter cadence): CF chapter 3 'Data Representation: a First Meeting' OPENED IN-PROGRESS — 3.2 + 3.6 + 3.7 shipped whole by the two-round swarm",
+      "filesChanged": 48,
+      "insertions": 98050,
+      "deletions": 83148,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "docs/project/CS_AUTHORING_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2864,
+          "del": 2864
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 22,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 23,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 80272,
+          "del": 80256
+        },
+        {
+          "path": "docs/research/CF_CH03_MASTER_PLAN.md",
+          "add": 137,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/README.md",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/SPEC_CORE.md",
+          "add": 156,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/part-cf32.ts",
+          "add": 1107,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/part-cf34.ts",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/part-cf35.ts",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/part-cf36.ts",
+          "add": 1230,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/part-cf37.ts",
+          "add": 1214,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/part-cf38.ts",
+          "add": 13,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/pin_check_cs5.py",
+          "add": 417,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/spec-cf31.md",
+          "add": 96,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/spec-cf32.md",
+          "add": 70,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/spec-cf33.md",
+          "add": 84,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/spec-cf34.md",
+          "add": 82,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/spec-cf35.md",
+          "add": 94,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/spec-cf36.md",
+          "add": 77,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/spec-cf37.md",
+          "add": 71,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/spec-cf38.md",
+          "add": 82,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/spec-cf3R.md",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/v-cf32.ts",
+          "add": 490,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/v-cf33.ts",
+          "add": 554,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/v-cf34.ts",
+          "add": 266,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/v-cf35.ts",
+          "add": 496,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/v-cf36.ts",
+          "add": 522,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/v-cf37.ts",
+          "add": 400,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/v-cf38.ts",
+          "add": 382,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/v-cf3R.ts",
+          "add": 479,
+          "del": 0
+        },
+        {
+          "path": "scripts/assemble_cs5.py",
+          "add": 350,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-32.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-32.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-36.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-36.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-37.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-37.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/gen-cs5-e2e.py",
+          "add": 224,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-book2-ch03.ts",
+          "add": 1516,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-exam-coverage.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/verify-cs-shelf-planning.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/book.ts",
+          "add": 9,
+          "del": 22
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-03.ts",
+          "add": 3593,
+          "del": 0
+        },
+        {
+          "path": "tsconfig.json",
+          "add": 2,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "b9a9bd1d3c6b27b6cfa7a49a744928a2fecc9c92",
+      "short": "b9a9bd1",
+      "date": "2026-11-25 02:49",
+      "message": "chore(bookkeeping): CS RUN 5 push record (fast-forward 04f6d80..0b10267, anonymous ls-remote verified 0b10267 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 6,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 6,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "b944ea0ef0a363a8c3abadafafdc329e5c9e5cb8",
+      "short": "b944ea0",
+      "date": "2026-11-25 04:48",
+      "message": "cs run 6 (whole-chapter cadence): CF chapter 3 'Data Representation: a First Meeting' CLOSED COMPLETE — the six deferred seats shipped whole by the two-round swarm (3.1 116/116 + 3.3 149/149 + 3.4 112/112 + 3.5 105/105 + 3.8 107/107 + the 3.R review 88/88; 56,670 words this fire, 85,338 across the nine-lesson chapter; verifier 1130/1130 with the closed Z census; csWritten 17; totPl 1225; pack 213 lessons / 1,280,218 words; E2E x6 x3 viewports ALL GREEN with live-census-calibrated pins + the 3.2 regression pair re-green; the VLM sweep twice-deferred rides CS RUN 7)",
+      "filesChanged": 36,
+      "insertions": 18583,
+      "deletions": 2348,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 15,
+          "del": 0
+        },
+        {
+          "path": "docs/project/CS_AUTHORING_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 43,
+          "del": 13
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/README.md",
+          "add": 10,
+          "del": 1
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/part-cf31.ts",
+          "add": 946,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/part-cf33.ts",
+          "add": 1170,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/part-cf34.ts",
+          "add": 955,
+          "del": 6
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/part-cf35.ts",
+          "add": 806,
+          "del": 6
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/part-cf38.ts",
+          "add": 934,
+          "del": 4
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/part-cf3R.ts",
+          "add": 992,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/v-cf31.ts",
+          "add": 414,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/v-cf38.ts",
+          "add": 7,
+          "del": 1
+        },
+        {
+          "path": "docs/research/cf-ch03-wip/v-cf3R.ts",
+          "add": 13,
+          "del": 2
+        },
+        {
+          "path": "scripts/assemble_cs6.py",
+          "add": 368,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-31.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-31.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-33.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-33.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-34.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-34.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-35.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-35.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-38.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-38.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-3R.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-3R.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/gen-cs6-e2e.py",
+          "add": 260,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-book2-ch03.ts",
+          "add": 2690,
+          "del": 89
+        },
+        {
+          "path": "scripts/verify-cs-exam-coverage.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/verify-cs-shelf-planning.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/book.ts",
+          "add": 10,
+          "del": 38
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-03.ts",
+          "add": 8009,
+          "del": 2180
+        }
+      ]
+    },
+    {
+      "sha": "40c2fda10562e9aff26cac69ca1f6d3e3fded7f8",
+      "short": "40c2fda",
+      "date": "2026-11-25 05:44",
+      "message": "audit: ans-from-fractions-to-the-rational-system — A:1fig B:4sol C:2enrich",
+      "filesChanged": 7,
+      "insertions": 360,
+      "deletions": 31,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 19,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 33,
+          "del": 31
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch07.ts",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-07.ts",
+          "add": 237,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "ca094197cfb926b9f3f152dd646936383687136f",
+      "short": "ca09419",
+      "date": "2026-11-25 06:28",
+      "message": "run 125 (the maths lane, whole-chapter cadence): GEOMETRY book 5 chapter 1 'Points, Lines and Planes: the Axiomatic Idea' CLOSED COMPLETE — 1.3 'Axioms, Theorems and the Shape of a Proof' (geo103: 109/109 GREEN, 10,047 words, quiz key [1,2,3,2,1], 4 body figures + solution figures; the statement-family map, the conditional square with its truth-table columns TFTT/TTFT/TTFT/TFTT engine-swept, the four proof shapes with worked micro-proofs incl. the no-last-point contradiction, quantifier order over the four-point plane pinned both readings TRUE/FALSE) + 1.4 'Incidence: how Points, Lines and Planes Interlock' (geo104: 101/101 GREEN via the round-2 salvage agent after the platform wall killed round 1, 9,688 words, key [2,1,2,2,3]; Hilbert I.1-I.3 + the 8-axiom group note, T1-T4 with the C(n,2) census 3..45, the four-point affine plane (6 lines, 3 parallel classes), the Fano plane (7 points/7 lines/21 incidences, no parallels — why P5 is separate), de Bruijn-Erdos 1948, the 13-line collinear recount) — assembled by scripts/assemble_run125.py into the four-lesson ch-01.ts (status complete, plannedLessons []); verify-book5-ch01 431/431 ALL GREEN with the closed Z census (chapter 35,791 words); tsc 0; lint 0 errors; pack 215 lessons / 1,299,953 words (+19,735, the exact delta); standing gates 667 + 4023 + 1176; E2E x2 lessons x3 viewports quiz 5/5 live on both keys, KaTeX 0 errors after the three single-backslash binom escapes doubled, solutions expand with figures inside, no overflow 390/1280; the chapter-wide VLM figure sweep (run 124's deferral) DONE via z-ai vision with REAL defects found and FIXED in all four lessons (label/line collisions, border clipping, low-contrast inks) — post-fix VLM re-confirm honestly deferred to the next fire after the dev-server recycle at the cap; ledgers + pointer re-pointed to the ch.2 whole-chapter swarm (run 126)",
+      "filesChanged": 15,
+      "insertions": 6032,
+      "deletions": 88,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 5,
+          "del": 5
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 23,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 39,
+          "del": 19
+        },
+        {
+          "path": "docs/research/geo-ch01-wip/README.md",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "docs/research/geo-ch01-wip/part-geo103.ts.txt",
+          "add": 983,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch01-wip/part-geo104.ts.txt",
+          "add": 755,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch01-wip/v-geo103.ts.txt",
+          "add": 535,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch01-wip/v-geo104.ts.txt",
+          "add": 512,
+          "del": 0
+        },
+        {
+          "path": "scripts/assemble_run125.py",
+          "add": 339,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book5-ch01.ts",
+          "add": 1065,
+          "del": 26
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/book.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/ch-01.ts",
+          "add": 1763,
+          "del": 29
+        }
+      ]
+    },
+    {
+      "sha": "7a59bcbfd921e72b9b6764ac4d0d89bf2704e22c",
+      "short": "7a59bcb",
+      "date": "2026-11-25 18:11",
+      "message": "audit: ans-the-field-laws-division-joins-the-family — A:1fix B:5sol C:3enrich",
+      "filesChanged": 8,
+      "insertions": 362,
+      "deletions": 22,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 24,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 5,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch07.ts",
+          "add": 74,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-07.ts",
+          "add": 242,
+          "del": 19
+        }
+      ]
+    },
+    {
+      "sha": "1b4ab76302199cbc180d6dfa24ab46da22213180",
+      "short": "1b4ab76",
+      "date": "2026-11-25 06:30",
+      "message": "chore(bookkeeping): RUN 125 push record (FIRST-SHIPPED-STANDS reconciliation after the sibling audit commit, retry pushed 40c2fda..ca09419, anonymous ls-remote verified ca09419 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 5,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 5,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "aab95f84d30e6dc89ae25bf92697324694d31a3b",
+      "short": "aab95f8",
+      "date": "2026-11-25 18:38",
+      "message": "run 7 (the cs lane, whole-chapter cadence under the time-budget law): computer-fundamentals chapter 4 'Inside the Box' OPENED IN-PROGRESS — 4.3 'The First Memory Hierarchy' (cf43: 128/128 GREEN via the round-2 salvage agent, 9,423 words, quiz [1,3,0,2,2], the FAST/BIG/CHEAP wish priced, RAM/ROM named honestly, Dennard 1966 + patent 3,387,286 1968 + the 64 ms refresh, the Dean latency ladder with every ratio engine-pinned, the human ladder 1 s -> 9.5064263 years, RAMAC 14 September 1956 census, the two localities + AMAT, virtual memory named and left closed) + 4.4 'Buses and Ports: How the Pieces Talk' (cf44: 83/83 GREEN, 8,259 words, quiz [2,1,3,0,0]; the three-bus census, 2^32 = 4 GiB width law, the parallel-to-serial reversal, PCIe priced through the encoding toll gen1 250 -> gen3 984.6154 -> gen5 3938.4615 MB/s per lane and x16 gen4 31.5077 GB/s, the USB/HDMI/SATA port census with every date pinned, the 525.1282x divide) + the 4.R 'Unit 4 Completion Review' (cf4R: 84/84 GREEN, 8,472 words, quiz [3,1,0,1,2], the chapter-in-one-map, four verbatim-harvest recaps, the 15-question mixed bench, the forward door to ch.5) — three of five seats shipped whole by the three-round swarm against the platform's subagent-deadline wall; 4.1 'The Motherboard: the City Plan' (died empty twice) and 4.2 'The Processor Named Honestly' (engine landed 46/47, part deferred) stay PLANNED verbatim and ride CS RUN 8 with the wip preserved TRACKED in docs/research/cf-ch04-wip/ (specs + SPEC_CORE + the 51/51 pin checker + the landed engines); assembled by scripts/assemble_cs7.py into ch-04.ts (status in-progress, 3 written + 2 planned); verify-cs-book2-ch04 332/332 with the Z in-progress census; tsc 0; lint 0 err; pack 218 written lessons; standing gates 667 + 4023 + 1176 + 2350 (csWritten 17->20) + 696 (totPl 1225->1226, the 4.R the +1); e2e pairs + the ch.3 VLM sweep honestly deferred to CS RUN 8's opening; ledgers + pointer re-pointed to the CS RUN 8 completion swarm",
+      "filesChanged": 28,
+      "insertions": 8114,
+      "deletions": 27,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/CS_AUTHORING_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 22,
+          "del": 0
+        },
+        {
+          "path": "docs/research/CF_CH04_MASTER_PLAN.md",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/SPEC_CORE.md",
+          "add": 158,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/part-cf43.ts",
+          "add": 889,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/part-cf44.ts",
+          "add": 802,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/part-cf4R.ts",
+          "add": 711,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/pin_check_cs7.py",
+          "add": 126,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/spec-cf41.md",
+          "add": 98,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/spec-cf42.md",
+          "add": 109,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/spec-cf43.md",
+          "add": 107,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/spec-cf44.md",
+          "add": 106,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/spec-cf4R.md",
+          "add": 102,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/v-cf42.ts",
+          "add": 230,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/v-cf43.ts",
+          "add": 476,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/v-cf44.ts",
+          "add": 157,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/v-cf4R.ts",
+          "add": 185,
+          "del": 0
+        },
+        {
+          "path": "scripts/assemble_cs7.py",
+          "add": 370,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-book2-ch04.ts",
+          "add": 934,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-exam-coverage.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/verify-cs-shelf-planning.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/book.ts",
+          "add": 11,
+          "del": 19
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-04.ts",
+          "add": 2444,
+          "del": 0
+        },
+        {
+          "path": "tsconfig.json",
+          "add": 2,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "4848202db9ddcfb03af52af822d822229aff8b4d",
+      "short": "4848202",
+      "date": "2026-11-25 18:39",
+      "message": "chore(bookkeeping): CS RUN 7 push record (FIRST-SHIPPED-STANDS reconciliation after the sibling audit commit 7a59bcb, rebase + retry pushed 1b4ab76..aab95f8, anonymous ls-remote verified aab95f8 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 2,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 277,
     "booksLive": 269,
-    "chaptersWritten": 44,
+    "chaptersWritten": 48,
     "chaptersInProgress": 0,
-    "lessonsWritten": 197,
-    "wordsAuthored": 1148340,
-    "termsDefined": 1607,
-    "quizItems": 985,
-    "exerciseQuestions": 2705,
+    "lessonsWritten": 220,
+    "wordsAuthored": 1348032,
+    "termsDefined": 1870,
+    "quizItems": 1100,
+    "exerciseQuestions": 3059,
     "blockTotals": {
-      "para": 2961,
-      "callout": 1346,
-      "heading": 1140,
-      "list": 257,
-      "terms": 215,
-      "equation": 432,
-      "figure": 416,
-      "derivation": 456,
-      "table": 282,
-      "example": 1207,
-      "quiz": 197,
-      "exercises": 197,
-      "formula": 819,
-      "algorithm": 35
+      "para": 3618,
+      "callout": 1583,
+      "heading": 1361,
+      "list": 286,
+      "terms": 259,
+      "equation": 481,
+      "figure": 510,
+      "derivation": 503,
+      "table": 355,
+      "example": 1395,
+      "quiz": 220,
+      "exercises": 220,
+      "formula": 944,
+      "algorithm": 50
     }
   }
 }
