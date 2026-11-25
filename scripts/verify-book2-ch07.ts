@@ -1161,6 +1161,80 @@ for (let b = 1; b <= 6; b++)
 }
 
 /* ------------------------------------------------------------------ */
+/* (V) 2026-11-26 audit fire — 7.2 Pass B/C: the sign-test invariance   */
+/*     example, the order-compatibility derivation, the new L5          */
+/*     equation-solving question, and the five solution figures.        */
+/* ------------------------------------------------------------------ */
+{
+  // V1 — the sign-test invariance example: (−2,3) ~ (2,−3) ~ (−4,6),
+  //      all three names carry the same sign product
+  ok(eq(-2, 3, 2, -3) && eq(-2, 3, -4, 6), 'V: (−2,3) ~ (2,−3) (cross (−2)(−3)=6=3·2) and (−2,3) ~ (−4,6) (cross (−2)·6=−12=3·(−4)) ✓')
+  ok(((-2) * 3) < 0 && (2 * (-3)) < 0 && ((-4) * 6) < 0 && Math.sign((-2) * 3) === Math.sign(2 * (-3)) && Math.sign((-2) * 3) === Math.sign((-4) * 6), 'V: sign products agree in SIGN across all three names — every reading is negative ✓')
+  ok((-6) * 9 === (-6) * 9 && (-6) * 36 === (-24) * 9, 'V: the invariance engine ab·d² = cd·b²: (−6)·9 = (−6)·9 for (2,−3); (−6)·36 = (−24)·9 = −216 for (−4,6) ✓')
+
+  // V2 — compatibility derivation, worked instances from the printed chain
+  {
+    const addPos = qAdd(-3, 4, 2, 3)   // −3/4 + 2/3
+    const addNeg = qAdd(-1, 2, 2, 3)   // −1/2 + 2/3
+    ok(addPos[0] === -1 && addPos[1] === 12 && addNeg[0] === 1 && addNeg[1] === 6,
+      'V: +2/3 instance: −3/4+2/3 = (−9+8,12) = −1/12; −1/2+2/3 = (−3+4,6) = 1/6 ✓')
+    ok(addPos[0] * addNeg[1] < addNeg[0] * addPos[1],
+      'V: the shift preserved the order: −1/12 < 1/6 by −6 < 12 ✓')
+    const mulPosL = qMul(-3, 4, 2, 3)  // −3/4 · 2/3
+    const mulPosR = qMul(-1, 2, 2, 3)  // −1/2 · 2/3
+    ok(mulPosL[0] === -6 && mulPosL[1] === 12 && mulPosR[0] === -2 && mulPosR[1] === 6,
+      'V: ×2/3 instance: −3/4·2/3 = −6/12; −1/2·2/3 = −2/6 ✓')
+    ok(mulPosL[0] * mulPosR[1] < mulPosR[0] * mulPosL[1],
+      'V: ×positive preserved: −6/12 < −2/6 by cross −36 < −24 ✓')
+    const mulNegL = qMul(-3, 4, -2, 3) // −3/4 · (−2/3)
+    const mulNegR = qMul(-1, 2, -2, 3) // −1/2 · (−2/3)
+    ok(mulNegL[0] === 6 && mulNegL[1] === 12 && mulNegR[0] === 2 && mulNegR[1] === 6,
+      'V: ×(−2/3) instance: 6/12 = 1/2 and 2/6 = 1/3 ✓')
+    ok(mulNegL[0] * mulNegR[1] > mulNegR[0] * mulNegL[1],
+      'V: ×negative flipped: 1/2 > 1/3 by 18 > 12 — the mirror of the original ✓')
+  }
+
+  // V3 — the new L5 question: 3/4·x = 5/6 solves in ℚ, dies in ℤ
+  {
+    const x = qMul(5, 6, 4, 3)         // the mirror route: 5/6 · 4/3
+    ok(x[0] === 20 && x[1] === 18 && gcd(20, 18) === 2 && reduce(20, 18)[0] === 10 && reduce(20, 18)[1] === 9,
+      'V: L5 solve: 5/6·4/3 = (20,18) → (10,9), x = 10/9 ✓')
+    const chk = qMul(3, 4, 10, 9)
+    ok(chk[0] === 30 && chk[1] === 36 && reduce(30, 36)[0] === 5 && reduce(30, 36)[1] === 6,
+      'V: L5 check: 3/4·10/9 = 30/36 = 5/6 ✓')
+    ok(5 % 3 !== 0, 'V: in ℤ the same equation 3x = 5 is dead — 3 ∤ 5 ✓')
+  }
+
+  // V4 — solution figure (L2-Q1 thirds bar): 7 cells, 3 groups of 2 + 1
+  ok(2 * 3 + 1 === 7 && 7 / 2 === 3.5, 'V: thirds bar: three 2/3-groups + one half group = 3.5 = 7/2 groups; 3.5·(2/3) = 7/3 ✓')
+
+  // V5 — solution figure (L3-Q1 sign boxes): the three ab verdicts
+  ok((-7) * 12 === -84 && 0 * 9 === 0 && 5 * 6 === 30,
+    'V: sign-test boxes: (−7)·12 = −84 < 0; 0·9 = 0; 5·6 = 30 > 0 ✓')
+
+  // V6 — solution figure (L3-Q2 midpoint): (ps+rq)/(2qs) at (−1,2),(1,6)
+  {
+    const p = -1, q = 2, r = 1, s = 6
+    const num = p * s + r * q, den = 2 * q * s
+    ok(num === -4 && den === 24 && gcd(4, 24) === 4 && reduce(num, den)[0] === -1 && reduce(num, den)[1] === 6,
+      'V: midpoint of −1/2 and 1/6: (−6+2)/24 = −4/24 → −1/6 ✓')
+    ok((-3) * 6 < (-1) * 6 && (-1) * 6 < 1 * 6 && (-1) * 6 - (-3) * 6 === 1 * 6 - (-1) * 6,
+      'V: −3/6 < −1/6 < 1/6 with both halves exactly 2/6 — strictly between, bisected ✓')
+  }
+
+  // V7 — solution figure (L4-Q1 tank): 8/12 full, 3/12 drained, 5/12 remain
+  ok(5 + 3 + 4 === 12 && 2 * 12 === 8 * 3 && 8 - 3 === 5,
+    'V: tank zones 5+3+4 = 12; 2/3 = 8/12; draining 3/12 of the tank from 8/12 leaves 5/12 ✓')
+  ok(gcd(36, 60) === 12 && reduce(36, 60)[0] === 3 && reduce(36, 60)[1] === 5 && qMul(3, 12, 12, 5)[0] === 36 && qMul(3, 12, 12, 5)[1] === 60,
+    'V: drained share: (3/12) ÷ (5/12) = (3,12)·(12,5) = (36,60) → 3/5 — the drained 3 against the remaining 5 ✓')
+
+  // V8 — solution figure (L2-Q2 hops): six 3/8-steps from 0 reach −18/8
+  ok(6 * 3 === 18 && 456 - 18 * 22 === 60, 'V: hop figure: 6 hops × 3 eighths = 18 eighths; 456 − 18·22 = 60 = the amber landing tick ✓')
+  ok(qMul(-9, 4, 8, 3)[0] === -72 && gcd(72, 12) === 12 && reduce(-72, 12)[0] === -6 && reduce(-72, 12)[1] === 1,
+    'V: −9/4 ÷ 3/8 = (−9,4)·(8,3) = (−72,12) → −6 — the hops count ✓')
+}
+
+/* ------------------------------------------------------------------ */
 /* report                                                              */
 /* ------------------------------------------------------------------ */
 console.log(`\nverify-book2-ch07: ${pass} checks pass, ${fail} fail`)

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-25",
+  "updated": "2026-11-26",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
   "cursor": 65,
@@ -657,7 +657,9 @@
       "bookId": "arithmetic-and-number-systems",
       "chapter": 7,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-26",
+      "note": "fire 2026-11-26 (job 538572): body mirror-map FIXED (7 of 11 labels anchored to the mirror pair instead of the dot's own pair; diagonal drawn at screen slope -1.326 instead of the true mirror line through (1,1) — rebuilt at equal 48px/48px axis scales so the seat-swap is a Euclidean reflection, arrows re-rimmed rim-to-rim, axis-caption/dot collision caught by the offline DOM gate; VLM strict round-2 PASS light) + 5 solution figures added (4 first-pass VLM PASS, 1 after one clarity fix round); offline static XML + pixel-margin substitution (audit-svg-overlaps.sh NAV FAIL, 11th consecutive)"
     },
     {
       "lessonId": "ans-density-and-the-decimal-mirror-proven",

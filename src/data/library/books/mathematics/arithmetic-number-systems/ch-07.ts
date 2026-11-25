@@ -1084,8 +1084,53 @@ export const chapter07: Chapter = {
           text: 'The rationals inherit an ordering, and the inheritance must pass the same well-definedness test the operations passed. The candidate rule reads the seats’ signs: a class $\\tfrac{a}{b}$ is **positive** exactly when $ab > 0$ — numerator and denominator carry the same sign. The sweep checked it against every representative swap with entries $\\le 8$: the sign of $ab$ never depends on which name was chosen (if $ad = bc$, the pairs $(a,b)$ and $(c,d)$ have proportional seats, so their sign products agree — the integer $bd$ being nonzero is what makes the argument legal). Trichotomy follows immediately: $ab > 0$, $ab = 0$ (only $a = 0$), or $ab < 0$ — exactly one of the three, for every class.',
         },
         {
+          kind: 'example',
+          title: 'The sign test is class-invariant: two names, one verdict',
+          steps: [
+            'Take the class of $\\tfrac{−2}{3}$: the canonical name is $(−2, 3)$, and the sign test reads $ab = (−2)·3 = −6 < 0$ — negative.',
+            'Another name for the same class: $(2, −3)$, both seats negated — the cross-products agree ($(−2)(−3) = 6 = 3·2$), so the pair names the same class. Its sign product: $cd = 2·(−3) = −6 < 0$ — the same verdict.',
+            'A third name: $(−4, 6)$, both seats doubled — cross-products $(−2)·6 = −12 = 3·(−4)$ agree. Sign product: $cd = −24 < 0$ — again the same verdict.',
+            'Why agreement is forced, not lucky: $ad = bc$ multiplied through by $bd$ gives $ab·d^2 = cd·b^2$ — and $b^2, d^2 > 0$ in $\\mathbb{Z}$, so $ab$ and $cd$ carry one common sign. Here: $(−6)·9 = (−6)·9$, all three names at once.',
+            'Hence "ab > 0" is a property of the CLASS, not of a name — the test is legal, and trichotomy follows: $ab > 0$, $ab = 0$ (only when $a = 0$), or $ab < 0$, exactly one per class.',
+          ],
+        },
+        {
           kind: 'para',
           text: 'With positivity in hand, the comparisons run by the cross-rule FM 4.3 banked: for positive denominators, $\\tfrac{p}{q} < \\tfrac{r}{s}$ exactly when $ps < rq$. Compatibility sweeps came back clean — $x < y$ forces $x + z < y + z$ for every class $z$, and $x < y$ forces $xz < yz$ for every *positive* class $z$ (the sign of the multiplier matters: multiplying by a negative flips, the mirror law of 6.3 now living in $\\mathbb{Q}$). The printed chain, all verdicts through the construction: $−\\tfrac{3}{4} < −\\tfrac{1}{2} < 0 < \\tfrac{2}{3} < \\tfrac{5}{4}$.',
+        },
+        {
+          kind: 'derivation',
+          title: 'Order compatibility through the seats — and why the multiplier’s sign governs',
+          statement:
+            'Claim: $x < y$ forces $x + z < y + z$ for every class $z$, and $xz < yz$ for every positive class $z$ — while multiplying by a negative class flips the inequality.',
+          steps: [
+            {
+              label: 'Both comparisons reduce to one seat inequality',
+              formula: 'x = \\tfrac{a}{b},\\; y = \\tfrac{r}{s},\\; b, s > 0: \\quad x < y \\Longleftrightarrow as < rb',
+              explanation:
+                'The cross-rule with positive denominators — everything that follows hangs on this single inequality $as < rb$ and on the sign of what multiplies it.',
+            },
+            {
+              label: 'Addition shifts both sides equally',
+              formula: 'x + z = \\tfrac{ad + bc}{bd}, \\quad y + z = \\tfrac{rd + bs}{bd} \\quad (z = \\tfrac{c}{d},\\; d > 0)',
+              explanation:
+                'Same positive denominator $bd$, so the comparison is numerator against numerator: $ad + bc < rd + bs \\Longleftrightarrow ad < rb$ — the common $bc$ cancels in $\\mathbb{Z}$ (6.3), and the rest is the hypothesis. Addition never flips: there is no sign in it to govern.',
+            },
+            {
+              label: 'Multiplication: the sign of z decides',
+              formula: 'xz = \\tfrac{ac}{bd},\\; yz = \\tfrac{rc}{sd} \\Longrightarrow xz < yz \\Longleftrightarrow acsd < rcbd \\Longleftrightarrow as < rb \\;(cd > 0)',
+              explanation:
+                'Cross-multiply (denominators $bd$, $sd$ positive) and cancel $cd$ — legal exactly when $cd > 0$, which is the sign test reading $z > 0$. Cancel $cd < 0$ instead (negative $z$) and the inequality reverses: $xz < yz \\Longleftrightarrow as > rb$, that is, $x > y$. The multiplier’s sign is the whole story, and it enters through one cancellation.',
+            },
+            {
+              label: 'The worked instance, three ways',
+              formula: '−\\tfrac{3}{4} < −\\tfrac{1}{2}: \\quad +\\tfrac{2}{3} \\Rightarrow −\\tfrac{1}{12} < \\tfrac{1}{6}; \\quad ×\\tfrac{2}{3} \\Rightarrow −\\tfrac{1}{2} < −\\tfrac{1}{3}; \\quad ×(−\\tfrac{2}{3}) \\Rightarrow \\tfrac{1}{2} > \\tfrac{1}{3}',
+              explanation:
+                'The printed chain’s leading pair put through all three moves: shifting by $\\tfrac{2}{3}$ preserves, multiplying by the positive preserves, multiplying by its negation flips — each verdict exactly the seat algebra above, checked against the oracle.',
+            },
+          ],
+          result:
+            'Order on ℚ is translation-invariant, and multiplying by a positive preserves while multiplying by a negative flips — the sign of cd in the seats is the entire mechanism. The mirror law of 6.3 now lives in ℚ.',
         },
         {
           kind: 'derivation',
@@ -1128,14 +1173,14 @@ export const chapter07: Chapter = {
         {
           kind: 'figure',
           caption:
-            'The mirror map: each pair (a, b) and its seat-swapped partner (b, a) sit symmetric across the diagonal b = a (dashed) — slope 2/3 reflects to 3/2, 1/3 to 3, 1 to itself. Amber dots mark mirrored pairs; the reciprocal law is the geometry: reflecting a ray across the diagonal turns its slope into the reciprocal, and only the diagonal (slope 1) reflects to itself — which is why 1 is its own reciprocal and nothing else is.',
+            'The mirror map: each pair (a, b) and its seat-swapped partner (b, a) sit symmetric across the diagonal b = a (dashed) — slope 2/3 reflects to 3/2, 1/3 to 3, 1 to itself. Amber arrows trace mirrored pairs; the reciprocal law is the geometry: reflecting a ray across the diagonal turns its slope into the reciprocal, and only the diagonal (slope 1) reflects to itself — which is why 1 is its own reciprocal and nothing else is.',
           svg: `<svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lattice pairs and their seat-swapped mirrors across the diagonal: two thirds reflects to three halves, one third to three, one to itself">
   <defs>
     <marker id="q72-arrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 Z" fill="#ea580c"/>
     </marker>
   </defs>
-  <line x1="${80 + 28}" y1="${240 + 28}" x2="${80 + 200}" y2="${240 - 200}" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.6"/>
+  <line x1="${80 + 24}" y1="${240 - 24}" x2="${80 + 220}" y2="${240 - 220}" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.6"/>
   <line x1="60" y1="240" x2="490" y2="240" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
   <line x1="80" y1="260" x2="80" y2="40" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
   ${[
@@ -1153,37 +1198,44 @@ export const chapter07: Chapter = {
   ]
     .map(
       ([a, b]) =>
-        `<circle cx="${80 + 56 * b}" cy="${240 - 44 * a}" r="${a === b ? 5 : 4}" fill="${a === b ? '#ea580c' : 'currentColor'}" opacity="${a === b ? 1 : 0.75}"/>`
+        `<circle cx="${80 + 48 * b}" cy="${240 - 48 * a}" r="${a === b ? 5 : 4}" fill="${a === b ? '#ea580c' : 'currentColor'}" opacity="${a === b ? 1 : 0.75}"/>`
     )
     .join('\n  ')}
   ${[
-    { a: 2, b: 3, ma: 3, mb: 2, off: -30 },
-    { a: 1, b: 3, ma: 3, mb: 1, off: -30 },
-    { a: 1, b: 4, ma: 4, mb: 1, off: -30 },
+    { a: 2, b: 3, bx: -12, by: 12 },
+    { a: 1, b: 3, bx: 10, by: -10 },
+    { a: 1, b: 4, bx: 12, by: -12 },
   ]
     .map(
       (m) =>
-        `<path d="M ${80 + 56 * m.b} ${240 - 44 * m.a} Q ${(80 + 56 * m.b + 80 + 56 * m.mb) / 2 + m.off} ${(240 - 44 * m.a + 240 - 44 * m.ma) / 2} ${80 + 56 * m.mb} ${240 - 44 * m.ma}" fill="none" stroke="#ea580c" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#q72-arrow)"/>`
+        `<path d="M ${(80 + 48 * m.b - 4.6).toFixed(1)} ${(240 - 48 * m.a - 4.6).toFixed(1)} Q ${((80 + 48 * m.b - 4.6 + 80 + 48 * m.a + 4.6) / 2 + m.bx).toFixed(1)} ${((240 - 48 * m.a - 4.6 + 240 - 48 * m.b + 4.6) / 2 + m.by).toFixed(1)} ${(80 + 48 * m.a + 4.6).toFixed(1)} ${(240 - 48 * m.b + 4.6).toFixed(1)}" fill="none" stroke="#ea580c" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#q72-arrow)"/>`
     )
     .join('\n  ')}
   <g font-size="12.5" fill="#ea580c" text-anchor="middle">
-    <text x="${80 + 56 * 3 + 22}" y="${240 - 44 * 2 - 2}">3/2</text>
-    <text x="${80 + 56 * 2 - 24}" y="${240 - 44 * 2 + 18}">2/3</text>
-    <text x="${80 + 56 * 1 + 20}" y="${240 - 44 * 4 - 4}">1/4</text>
-    <text x="${80 + 56 * 4 - 20}" y="${240 - 44 * 1 + 14}">4</text>
-    <text x="${80 + 56 * 3 - 26}" y="${240 - 44 * 1 + 4}">3</text>
-    <text x="${80 + 56 * 1 - 24}" y="${240 - 44 * 3 + 4}">1/3</text>
-    <text x="${80 + 56 * 1 - 26}" y="${240 - 44 * 1 + 4}">1</text>
-    <text x="${80 + 56 * 1 + 16}" y="${240 - 44 * 2 + 4}">1/2</text>
-    <text x="${80 + 56 * 2 - 22}" y="${240 - 44 * 1 + 4}">2</text>
-    <text x="${80 + 56 * 3 + 20}" y="${240 - 44 * 4 + 4}">4/3</text>
-    <text x="${80 + 56 * 4 - 22}" y="${240 - 44 * 3 + 4}">3/4</text>
+    ${[
+      { t: '3/2', a: 3, b: 2, ox: 0, oy: -14 },
+      { t: '2/3', a: 2, b: 3, ox: 22, oy: 4 },
+      { t: '1/3', a: 1, b: 3, ox: 0, oy: 18 },
+      { t: '3', a: 3, b: 1, ox: -22, oy: 4 },
+      { t: '1/4', a: 1, b: 4, ox: 22, oy: 4 },
+      { t: '4', a: 4, b: 1, ox: -22, oy: 4 },
+      { t: '1', a: 1, b: 1, ox: -26, oy: 4 },
+      { t: '1/2', a: 1, b: 2, ox: 0, oy: -14 },
+      { t: '2', a: 2, b: 1, ox: -22, oy: 4 },
+      { t: '4/3', a: 4, b: 3, ox: 22, oy: 4 },
+      { t: '3/4', a: 3, b: 4, ox: 22, oy: 4 },
+    ]
+      .map(
+        (l) =>
+          `<text x="${80 + 48 * l.b + l.ox}" y="${240 - 48 * l.a + l.oy}">${l.t}</text>`
+      )
+      .join('\n    ')}
   </g>
   <text x="330" y="120" font-size="12.5" fill="currentColor" opacity="0.8">the diagonal b = a:</text>
   <text x="330" y="136" font-size="12.5" fill="currentColor" opacity="0.8">slope 1 reflects to itself</text>
   <text x="330" y="152" font-size="12.5" fill="currentColor" opacity="0.8">— 1 is its own reciprocal</text>
   <text x="482" y="256" font-size="12" fill="currentColor" opacity="0.75" text-anchor="end">denominator b →</text>
-  <text x="90" y="46" font-size="12" fill="currentColor" opacity="0.75">numerator a ↑</text>
+  <text x="90" y="28" font-size="12" fill="currentColor" opacity="0.75">numerator a ↑</text>
 </svg>`,
         },
         {
@@ -1351,6 +1403,31 @@ export const chapter07: Chapter = {
                     'Why the threes vanished: dividing by $\\tfrac{2}{3}$ asks "how many two-thirds in seven-thirds" — the common denominator cancels in the very statement of the question, and the algebra agrees: $\\tfrac{7/3}{2/3} = \\tfrac{7}{2}$.',
                   ],
                   answer: '$\\tfrac{7}{2}$',
+                  figures: [
+                    {
+                      caption: 'Seven thirds grouped two at a time: three whole 2/3-groups and one half group — the denominators cancel because the question counts thirds.',
+                      svg: `<svg viewBox="0 0 400 184" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Seven third-cells grouped two at a time: three full groups of two-thirds plus one half group, so seven thirds divided by two thirds is seven halves">
+    <rect x="36" y="78" width="46" height="34" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+    <rect x="82" y="78" width="46" height="34" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+    <rect x="128" y="78" width="46" height="34" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+    <rect x="174" y="78" width="46" height="34" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+    <rect x="220" y="78" width="46" height="34" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+    <rect x="266" y="78" width="46" height="34" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+    <rect x="312" y="78" width="46" height="34" fill="#ffedd5" stroke="#ea580c" stroke-width="1.3"/>
+    <path d="M 36 64 L 36 58 L 358 58 L 358 64" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="197" y="52" font-size="12" fill="#b45309" text-anchor="middle">seven thirds = 7/3</text>
+    <path d="M 39 126 L 39 132 L 125 132 L 125 126" fill="none" stroke="#0f766e" stroke-width="1.2"/>
+    <path d="M 131 126 L 131 132 L 217 132 L 217 126" fill="none" stroke="#0f766e" stroke-width="1.2"/>
+    <path d="M 223 126 L 223 132 L 309 132 L 309 126" fill="none" stroke="#0f766e" stroke-width="1.2"/>
+    <path d="M 315 126 L 315 132 L 355 132 L 355 126" fill="none" stroke="#ea580c" stroke-width="1.2"/>
+    <text x="82" y="146" font-size="11.5" fill="#0f766e" text-anchor="middle">one 2/3</text>
+    <text x="174" y="146" font-size="11.5" fill="#0f766e" text-anchor="middle">one 2/3</text>
+    <text x="266" y="146" font-size="11.5" fill="#0f766e" text-anchor="middle">one 2/3</text>
+    <text x="335" y="146" font-size="11.5" fill="#ea580c" text-anchor="middle">half a 2/3</text>
+    <text x="197" y="168" font-size="12.5" fill="#166534" text-anchor="middle">3 + 1/2 groups of 2/3 sit in 7/3, so 7/3 ÷ 2/3 = 7/2</text>
+  </svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Compute $\\tfrac{−9}{4} \\div \\tfrac{3}{8}$.',
@@ -1361,6 +1438,53 @@ export const chapter07: Chapter = {
                     'Hence the quotient of two fractions can be an integer: division crosses the shelves freely now.',
                   ],
                   answer: '$−6$',
+                  figures: [
+                    {
+                      caption: '−9/4 = −18/8 is six backward 3/8-steps from 0 — the quotient −6 counts the hops, sign and all.',
+                      svg: `<svg viewBox="0 0 500 132" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Eighths number line from minus twenty eighths to zero: six backward arcs of three eighths each run from zero to minus eighteen eighths, so minus nine quarters divided by three eighths is minus six">
+    <defs>
+      <marker id="q72b-arrow" markerWidth="9" markerHeight="7" refX="7.5" refY="3.5" orient="auto">
+        <path d="M0,0 L7,3.5 L0,7 Z" fill="#ea580c"/>
+      </marker>
+    </defs>
+    <line x1="14" y1="64" x2="486" y2="64" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+    <line x1="456" y1="56" x2="456" y2="72" stroke="currentColor" stroke-width="1.3" opacity="0.85"/>
+    <line x1="434" y1="60" x2="434" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <line x1="412" y1="60" x2="412" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <line x1="390" y1="60" x2="390" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <line x1="368" y1="56" x2="368" y2="72" stroke="currentColor" stroke-width="1.3" opacity="0.85"/>
+    <line x1="346" y1="60" x2="346" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <line x1="324" y1="60" x2="324" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <line x1="302" y1="60" x2="302" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <line x1="280" y1="56" x2="280" y2="72" stroke="currentColor" stroke-width="1.3" opacity="0.85"/>
+    <line x1="258" y1="60" x2="258" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <line x1="236" y1="60" x2="236" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <line x1="214" y1="60" x2="214" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <line x1="192" y1="56" x2="192" y2="72" stroke="currentColor" stroke-width="1.3" opacity="0.85"/>
+    <line x1="170" y1="60" x2="170" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <line x1="148" y1="60" x2="148" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <line x1="126" y1="60" x2="126" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <line x1="104" y1="56" x2="104" y2="72" stroke="currentColor" stroke-width="1.3" opacity="0.85"/>
+    <line x1="82" y1="60" x2="82" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <line x1="60" y1="60" x2="60" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <line x1="38" y1="60" x2="38" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+    <line x1="16" y1="56" x2="16" y2="72" stroke="currentColor" stroke-width="1.3" opacity="0.85"/>
+    <text x="456" y="86" font-size="12" fill="currentColor" text-anchor="middle">0</text>
+    <text x="280" y="86" font-size="12" fill="currentColor" text-anchor="middle">−1</text>
+    <text x="104" y="86" font-size="12" fill="currentColor" text-anchor="middle">−2</text>
+    <path d="M 456 59 Q 423 30 390 59" fill="none" stroke="#ea580c" stroke-width="1.4" marker-end="url(#q72b-arrow)"/>
+    <path d="M 390 59 Q 357 30 324 59" fill="none" stroke="#ea580c" stroke-width="1.4" marker-end="url(#q72b-arrow)"/>
+    <path d="M 324 59 Q 291 30 258 59" fill="none" stroke="#ea580c" stroke-width="1.4" marker-end="url(#q72b-arrow)"/>
+    <path d="M 258 59 Q 225 30 192 59" fill="none" stroke="#ea580c" stroke-width="1.4" marker-end="url(#q72b-arrow)"/>
+    <path d="M 192 59 Q 159 30 126 59" fill="none" stroke="#ea580c" stroke-width="1.4" marker-end="url(#q72b-arrow)"/>
+    <path d="M 126 59 Q 93 30 60 59" fill="none" stroke="#ea580c" stroke-width="1.4" marker-end="url(#q72b-arrow)"/>
+    <text x="93" y="24" font-size="11.5" fill="#ea580c" text-anchor="middle">six backward hops of 3/8</text>
+    <circle cx="60" cy="64" r="5" fill="#ea580c"/>
+    <text x="60" y="104" font-size="12" fill="#b45309" text-anchor="middle">−9/4 = −18/8</text>
+    <text x="250" y="120" font-size="12.5" fill="#166534" text-anchor="middle">six 3/8-steps: −9/4 ÷ 3/8 = −6</text>
+  </svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Compute $\\tfrac{2}{7} + \\tfrac{3}{5}$ and reduce.',
@@ -1393,6 +1517,32 @@ export const chapter07: Chapter = {
                     'Hence $−\\tfrac{7}{12} < \\tfrac{0}{9} < \\tfrac{5}{6}$ — each verdict through the construction, no decimals consulted.',
                   ],
                   answer: '$−\\tfrac{7}{12} < 0 < \\tfrac{5}{6}$',
+                  figures: [
+                    {
+                      caption: 'The sign test on each class: ab > 0 positive, ab = 0 zero, ab < 0 negative — trichotomy places all three with no common denominator consulted.',
+                      svg: `<svg viewBox="0 0 492 138" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sign test on three classes: minus seven twelfths has ab minus 84 less than zero so it is negative, zero ninths has ab zero, five sixths has ab 30 greater than zero so it is positive; trichotomy orders them on one number line">
+    <line x1="30" y1="96" x2="462" y2="96" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+    <line x1="129.3" y1="91" x2="129.3" y2="101" stroke="currentColor" stroke-width="1.4"/>
+    <text x="129.3" y="118" font-size="12" fill="currentColor" text-anchor="middle">−7/12</text>
+    <rect x="60" y="26" width="138.6" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <line x1="129.3" y1="56" x2="129.3" y2="90" stroke="#f59e0b" stroke-width="0.9" stroke-dasharray="2 2.5"/>
+    <text x="129.3" y="38.5" font-size="11.5" fill="currentColor" text-anchor="middle">(−7)·12 = −84 &lt; 0</text>
+    <text x="129.3" y="51.5" font-size="11.5" fill="#ea580c" font-weight="600" text-anchor="middle">negative</text>
+    <line x1="246" y1="91" x2="246" y2="101" stroke="currentColor" stroke-width="1.4"/>
+    <text x="246" y="118" font-size="12" fill="currentColor" text-anchor="middle">0</text>
+    <rect x="215.7" y="58" width="60.6" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <line x1="246" y1="88" x2="246" y2="90" stroke="#f59e0b" stroke-width="0.9" stroke-dasharray="2 2.5"/>
+    <text x="246" y="70.5" font-size="11.5" fill="currentColor" text-anchor="middle">0·9 = 0</text>
+    <text x="246" y="83.5" font-size="11.5" fill="#1c1917" font-weight="600" text-anchor="middle">zero</text>
+    <line x1="412.7" y1="91" x2="412.7" y2="101" stroke="currentColor" stroke-width="1.4"/>
+    <text x="412.7" y="118" font-size="12" fill="currentColor" text-anchor="middle">5/6</text>
+    <rect x="359.1" y="26" width="107.1" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <line x1="412.7" y1="56" x2="412.7" y2="90" stroke="#f59e0b" stroke-width="0.9" stroke-dasharray="2 2.5"/>
+    <text x="412.7" y="38.5" font-size="11.5" fill="currentColor" text-anchor="middle">5·6 = 30 &gt; 0</text>
+    <text x="412.7" y="51.5" font-size="11.5" fill="#16a34a" font-weight="600" text-anchor="middle">positive</text>
+  </svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Find the midpoint of $−\\tfrac{1}{2}$ and $\\tfrac{1}{6}$ and verify it lies strictly between.',
@@ -1403,6 +1553,26 @@ export const chapter07: Chapter = {
                     'Verify strictly: with a common denominator, $−\\tfrac{1}{2} = −\\tfrac{3}{6}$ and $\\tfrac{1}{6} = \\tfrac{1}{6}$ — so the chain reads $−\\tfrac{3}{6} < −\\tfrac{1}{6} < \\tfrac{1}{6}$, strict on both sides; the oracle agrees ($−0.5 < −0.1\\overline{6} < 0.1\\overline{6}$).',
                   ],
                   answer: '$−\\tfrac{1}{6}$',
+                  figures: [
+                    {
+                      caption: 'The midpoint −1/6 bisects the span from −3/6 to 1/6: both halves measure 2/6, so it lies strictly between on both sides.',
+                      svg: `<svg viewBox="0 0 500 146" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line from minus three sixths to one sixth with the midpoint minus one sixth marked: both halves measure two sixths, so the midpoint lies strictly between on both sides">
+    <line x1="30" y1="92" x2="470" y2="92" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+    <line x1="99.3" y1="86" x2="99.3" y2="98" stroke="#0f766e" stroke-width="1.4"/>
+    <line x1="395.6" y1="86" x2="395.6" y2="98" stroke="#0f766e" stroke-width="1.4"/>
+    <circle cx="247.5" cy="92" r="5" fill="#ea580c"/>
+    <path d="M 99.3 54 L 99.3 49 L 247.5 49 L 247.5 54" fill="none" stroke="#b45309" stroke-width="1.1"/>
+    <path d="M 247.5 54 L 247.5 49 L 395.6 49 L 395.6 54" fill="none" stroke="#b45309" stroke-width="1.1"/>
+    <text x="173.4" y="45" font-size="11.5" fill="#b45309" text-anchor="middle">2/6</text>
+    <text x="321.6" y="45" font-size="11.5" fill="#b45309" text-anchor="middle">2/6</text>
+    <text x="247.5" y="78" font-size="11.5" fill="#0f766e" text-anchor="middle">midpoint = (ps + rq)/(2qs) = −1/6</text>
+    <text x="99.3" y="114" font-size="12" fill="currentColor" text-anchor="middle">−1/2 = −3/6</text>
+    <text x="247.5" y="114" font-size="12" fill="#b45309" text-anchor="middle">−1/6</text>
+    <text x="395.6" y="114" font-size="12" fill="currentColor" text-anchor="middle">1/6</text>
+    <text x="220" y="132" font-size="12.5" fill="#166534" text-anchor="middle">−3/6 &lt; −1/6 &lt; 1/6 — strictly between, on both sides</text>
+  </svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Show that $\\tfrac{2}{3} < \\tfrac{5}{7}$ by cross-multiplication, and by locating both between 0 and 1 with a common denominator.',
@@ -1427,6 +1597,44 @@ export const chapter07: Chapter = {
                     'Hence the tank keeps $\\tfrac{5}{12}$, and the drained part is $\\tfrac{3}{5}$ of what remains — two divisions, one construction.',
                   ],
                   answer: '$\\tfrac{5}{12}$ remains; $\\tfrac{3}{5}$ of it was drained',
+                  figures: [
+                    {
+                      caption: 'Tank bookkeeping in twelfths: 8/12 full, 3/12 drained, 5/12 remains — and the drained 3 laid against the remaining 5 reads off 3/5.',
+                      svg: `<svg viewBox="0 0 480 248" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tank in twelfths: eight twelfths full, three twelfths drained, five twelfths remain; below, the drained three units laid against the remaining five units give three fifths">
+    <rect x="40" y="50" width="30" height="40" fill="#dcfce7" stroke="#16a34a" stroke-width="1.1"/>
+    <rect x="70" y="50" width="30" height="40" fill="#dcfce7" stroke="#16a34a" stroke-width="1.1"/>
+    <rect x="100" y="50" width="30" height="40" fill="#dcfce7" stroke="#16a34a" stroke-width="1.1"/>
+    <rect x="130" y="50" width="30" height="40" fill="#dcfce7" stroke="#16a34a" stroke-width="1.1"/>
+    <rect x="160" y="50" width="30" height="40" fill="#dcfce7" stroke="#16a34a" stroke-width="1.1"/>
+    <rect x="190" y="50" width="30" height="40" fill="#ffedd5" stroke="#ea580c" stroke-width="1.1" stroke-dasharray="3 2"/>
+    <rect x="220" y="50" width="30" height="40" fill="#ffedd5" stroke="#ea580c" stroke-width="1.1" stroke-dasharray="3 2"/>
+    <rect x="250" y="50" width="30" height="40" fill="#ffedd5" stroke="#ea580c" stroke-width="1.1" stroke-dasharray="3 2"/>
+    <rect x="280" y="50" width="30" height="40" fill="none" stroke="currentColor" stroke-width="1.1"/>
+    <rect x="310" y="50" width="30" height="40" fill="none" stroke="currentColor" stroke-width="1.1"/>
+    <rect x="340" y="50" width="30" height="40" fill="none" stroke="currentColor" stroke-width="1.1"/>
+    <rect x="370" y="50" width="30" height="40" fill="none" stroke="currentColor" stroke-width="1.1"/>
+    <text x="220" y="38" font-size="11.5" fill="currentColor" text-anchor="middle">the tank: capacity = 1 = 12/12</text>
+    <path d="M 43 100 L 43 105 L 187 105 L 187 100" fill="none" stroke="#16a34a" stroke-width="1.2"/>
+    <path d="M 193 100 L 193 105 L 277 105 L 277 100" fill="none" stroke="#ea580c" stroke-width="1.2"/>
+    <path d="M 283 100 L 283 105 L 397 105 L 397 100" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    <text x="115" y="117" font-size="11.5" fill="#16a34a" text-anchor="middle">remains: 5/12</text>
+    <text x="235" y="117" font-size="11.5" fill="#ea580c" text-anchor="middle">drained: 3/12</text>
+    <text x="340" y="117" font-size="11.5" fill="currentColor" text-anchor="middle">never filled: 4/12</text>
+    <line x1="30" y1="130" x2="450" y2="130" stroke="currentColor" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.45"/>
+    <text x="240" y="150" font-size="11.5" fill="#0f766e" text-anchor="middle">what fraction of the current content was drained?</text>
+    <rect x="40" y="160" width="36" height="32" fill="#ffedd5" stroke="#ea580c" stroke-width="1.2"/>
+    <rect x="76" y="160" width="36" height="32" fill="#ffedd5" stroke="#ea580c" stroke-width="1.2"/>
+    <rect x="112" y="160" width="36" height="32" fill="#ffedd5" stroke="#ea580c" stroke-width="1.2"/>
+    <rect x="148" y="160" width="36" height="32" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"/>
+    <rect x="184" y="160" width="36" height="32" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"/>
+    <path d="M 43 200 L 43 205 L 145 205 L 145 200" fill="none" stroke="#ea580c" stroke-width="1.2"/>
+    <path d="M 151 200 L 151 205 L 217 205 L 217 200" fill="none" stroke="#16a34a" stroke-width="1.2"/>
+    <text x="94" y="217" font-size="11.5" fill="#ea580c" text-anchor="middle">drained = 3</text>
+    <text x="184" y="217" font-size="11.5" fill="#16a34a" text-anchor="middle">rest = 2</text>
+    <text x="240" y="236" font-size="12.5" fill="#166534" text-anchor="middle">drained ÷ current content = (3/12) ÷ (5/12) = 3/5</text>
+  </svg>`,
+                    },
+                  ],
                 },
                 {
                   q: '(Exam-style) Simplify $\\left(\\tfrac{2}{3} \\div \\tfrac{4}{9}\\right) \\times \\tfrac{5}{6}$ and give the canonical result.',
@@ -1437,6 +1645,21 @@ export const chapter07: Chapter = {
                     'Check the oracle: $\\tfrac{2}{3} ÷ \\tfrac{4}{9} = \\tfrac{3}{2}$; $\\tfrac{3}{2} · \\tfrac{5}{6} = \\tfrac{15}{12} = \\tfrac{5}{4} = 1.25$ ✓.',
                   ],
                   answer: '$\\tfrac{5}{4}$',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Solve $\\tfrac{3}{4}x = \\tfrac{5}{6}$ in ℚ by the reciprocal law, and explain why the same equation has no solution in ℤ — one equation, two systems, one dividing line.',
+                  solution: [
+                    'Multiply both sides by the mirror of $\\tfrac{3}{4}$: $x = \\tfrac{5}{6} · \\tfrac{4}{3}$ — legal because $\\tfrac{3}{4} \\ne 0$ inverts.',
+                    'Through the seats: $(5, 6)·(4, 3) = (20, 18)$; gcd $2$ gives $(10, 9)$ — $x = \\tfrac{10}{9}$.',
+                    'Check: $\\tfrac{3}{4}·\\tfrac{10}{9} = \\tfrac{30}{36} = \\tfrac{5}{6}$ ✓ — the reciprocal consumed the coefficient.',
+                    'In ℤ the same equation $3x = 5$ is dead: $3 \\nmid 5$, and no integer inverts — ℤ lacks the bold row of the law inventory. In ℚ every nonzero coefficient inverts, so every $ax = b$ with $a \\ne 0$ solves uniquely as $x = b·a^{-1}$: the field laws are exactly what equation-solving was waiting for.',
+                  ],
+                  answer: '$x = \\tfrac{10}{9}$ in ℚ; no solution in ℤ — inversion is the difference',
                 },
               ],
             },

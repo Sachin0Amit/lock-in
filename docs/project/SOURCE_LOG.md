@@ -3284,3 +3284,7 @@ CS RUN 6 authored the six remaining chapter-3 seats entirely from the CS RUN 5 b
 
 ## 2026-11-25 — run 125 (geometry ch.1 close): no new sources
 The run consumed the banked run-124 web-verified ground (Euclid/Hilbert/Fano/de Bruijn–Erdős census pins in docs/research/geo-ch01-wip/pin_check_geo124.py + GEO_CH01_MASTER_PLAN.md); no new downloads or URLs. All URLs remain banked under the geo-* keys below.
+
+
+## 2026-11-26 — audit-bot run (ANS 7.2): no new sources
+No AI-generated images (all five solution figures and the body-figure rebuild are inline SVG per protocol §3.3 law — bars, hop lines, strips and cells are never texture-class); no new downloads or citations. The figure constants are pinned in scripts/audit-figs-7-2.py (committed provenance record, the audit-figs-6-1.py pattern).
