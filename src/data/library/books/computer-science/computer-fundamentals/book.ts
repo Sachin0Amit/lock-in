@@ -1,6 +1,7 @@
 import type { Book, Chapter } from '../../../types'
 import { chapter01 } from './ch-01'
 import { chapter02 } from './ch-02'
+import { chapter3 } from './ch-03'
 
 /**
  * Computer Fundamentals — the first book of the Computer Science shelf
@@ -13,9 +14,13 @@ import { chapter02 } from './ch-02'
  * by the CS RUN 3 SWARM, 2026-11-23; 2.3 'Interacting Well: the First
  * Usability Instincts' + the 2.R 'Unit 2 Completion Review' by the CS
  * RUN 4 SWARM, 2026-11-24 — the whole-chapter cadence, the chapter
- * closed COMPLETE in one fire), chapters 3–8 planned (the remaining 24
- * planned lessons), authoring on the whole-chapter cadence (CS RUN 5
- * opens chapter 3 'Data Representation: a First Meeting'). Lesson ids
+ * closed COMPLETE in one fire), chapter 3 OPENED IN-PROGRESS by the CS
+ * RUN 5 SWARM, 2026-11-25 (3.2 'The Numbering Systems: Binary, Octal,
+ * Hexadecimal' + 3.6 'Decimal to Binary Conversion' + 3.7 'Binary to
+ * Decimal Conversion' shipped whole; 3.1, 3.3, 3.4, 3.5, 3.8 + the 3.R
+ * review ride CS RUN 6 per the time-budget law — the preserved
+ * engines + specs live in docs/research/cf-ch03-wip/), chapters 4–8
+ * planned (the remaining 19 planned lessons). Lesson ids
  * use the `cf-` prefix (verified unused across all existing lesson ids
  * at the planning pass; globally unique, stable forever).
  *
@@ -46,25 +51,7 @@ import { chapter02 } from './ch-02'
 const chapters: Chapter[] = [
   chapter01,
   chapter02,
-  {
-    number: 3,
-    slug: 'data-representation-first-meeting',
-    title: 'Data Representation: a First Meeting',
-    summary:
-      'Bits, the binary language, and why two symbols carry everything: the numbering systems census (binary, octal and hexadecimal with the conversion craft), codes (ASCII and its characters, BCD), measuring information (bit, byte, KB to the honest SI ladder), text, images and sound as bits (the multimedia ground), and compression as the packing question (lossless versus lossy — what images and audio actually give up). The full theory hands off to Arithmetic and Number Systems and Digital Logic Design.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'Bits: Why Two Symbols Carry Everything',
-      'The Numbering Systems: Binary, Octal, Hexadecimal',
-      'Codes: ASCII, Unicode and BCD',
-      'Text, Images and Sound as Bits',
-      'Compression: Lossless and Lossy',
-      'Decimal to Binary Conversion',
-      'Binary to Decimal Conversion',
-      'Decimal and Binary Number System',
-    ],
-  },
+  chapter3,
   {
     number: 4,
     slug: 'inside-the-box',

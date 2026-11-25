@@ -784,3 +784,14 @@ server.log
 !/scripts/assemble_run123.py
 !/scripts/gen-aa10-e2e.py
 !/scripts/patch-inventory-aa10.ts
+# CS RUN 5 (CF ch.3 opened in-progress) — the per-lesson E2E pairs
+!/scripts/e2e-cf-32.sh
+!/scripts/e2e-cf-32.page.js
+!/scripts/e2e-cf-36.sh
+!/scripts/e2e-cf-36.page.js
+!/scripts/e2e-cf-37.sh
+!/scripts/e2e-cf-37.page.js
+!/scripts/assemble_cs5.py
+!/scripts/gen-cs5-e2e.py
+# CS RUN 5 — the chapter verifier + the shelf gates' amended pins
+!/scripts/verify-cs-book2-ch03.ts

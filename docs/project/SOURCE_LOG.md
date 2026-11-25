@@ -3255,3 +3255,25 @@ Drive sources extracted this pass: the 28 root classics + 96 Cengage chemistry/p
 - `geo-fano-plane` — Fano plane: smallest finite projective plane, 7 points / 7 lines / 3 points per line / 3 lines per point; named for Gino Fano (1892) — https://en.wikipedia.org/wiki/Fano_plane (2026-11-25).
 - `geo-dbe-1948` — N. G. de Bruijn & P. Erdős, "On a combinatorial problem", Indagationes Mathematicae 10 (1948): n points, not all collinear, determine at least n lines (2026-11-25; the boundary case computed in pin_check_geo124.py).
 - NCERT class 9 (rationalized) "Introduction to Euclid's Geometry" mapping: the book.ts research note (web-checked 2026-11-10) — not re-verified this run.
+
+### 2026-11-25 (CS RUN 5 — the cs job's fifth honored fire) — the internet fallback for chapter 3 'Data Representation: a First Meeting' (citation key `cs-cf-web-ground`, extended; the shipped seats 3.2 + 3.6 + 3.7)
+
+The ch.3 pins web-verified this fire (every one engine-asserted in scripts/verify-cs-book2-ch03.ts sections cf32/cf36/cf37 + the orchestrator's pre-flight pin_check_cs5.py 112/112):
+- Shannon, 'A Mathematical Theory of Communication', Bell System Technical Journal 1948 (July + October parts) — formally introduced the word 'bit', crediting the suggestion to John W. Tukey (en.wikipedia.org/wiki/A_Mathematical_Theory_of_Communication; ieeexplore.ieee.org/document/9357787).
+- Buchholz coined 'byte' June 1956 on IBM's Stretch project; the 8-bit byte settled with System/360 (blog.hnf.de/bitte-ein-byte; the 1962 'Planning a Computer System: Project Stretch' record).
+- IEC binary prefixes (kibi/mebi/gibi/tebi) approved December 1998 as the IEC 60027-2 amendment, published 1999 (physics.nist.gov/cuu/Units/binary.html; en.wikipedia.org/wiki/Binary_prefix).
+- Leibniz, 'Explication de l'arithmétique binaire', Mémoires de l'Académie Royale des Sciences, 1703, pp. 85–89 (leibniz-translations.com/binary).
+- Pingala's Chandaḥśāstra (Sanskrit prosody, circa 200 BCE, dates debated) — binary meter patterns, left-to-right, early śūnya (en.wikipedia.org/wiki/Pingala).
+- Hexadecimal: IBM standardized 0–9 + A–F in 1963; the Bendix G-15 (1956) used 0–9 + U–Z; 'sexadecimal' the Latin-correct rival (slideshare.net 'History of hexadecimal number system'; vcfed.org forum restoration thread).
+- ASCII: ASA X3.4-1963 approved 17 June 1963; 7-bit, 128 codes (33 control + 95 printable); 1967 revision (ethw.org ASCII milestone; historyofinformation.com/detail.php?id=803).
+- Unicode: 1.0.0 October 1991 (unicode.org/history/publicationdates.html); 17.0 released 9 September 2025, 159,801 characters, +4,803 (blog.unicode.org 17.0 release announcement); code space 17 × 65,536 = 1,114,112.
+- UTF-8: designed by Ken Thompson with Rob Pike, September 1992, on a placemat in a New Jersey diner; the FSS-UTF proposal followed within days (cl.cam.ac.uk/~mgk25/ucs/utf-8-history.txt — Rob Pike's account with the 1992 mail-archive dates).
+- CD audio: 44,100 Hz inherited from PCM adaptors (Sony PCM-1600, 1979) on U-matic video tape — 294 × 50 × 3 = 44,100 (en.wikipedia.org/wiki/44,100_Hz; cs.columbia.edu/~hgs/audio/44.1.html); Red Book (Sony + Philips) 1980; Sony's 16-bit won over Philips' 14; first player Sony CDP-101 1 October 1982 with Billy Joel's '52nd Street' the first album on CD (americansongwriter.com; historyofinformation.com).
+- Huffman, 'A Method for the Construction of Minimum-Redundancy Codes', Proc. IRE 40, pp. 1098–1101, 1952 (en.wikipedia.org/wiki/Huffman_coding; MathWorld).
+- Lempel–Ziv LZ77 1977 / LZ78 1978; Welch's LZW in Computer 17(6), June 1984, pp. 8–19 (courses.cs.duke.edu Welch PDF; loc.gov/preservation/digital/formats/fdd/fdd000135.shtml).
+- GIF: CompuServe, Bob Berry, 1987; PNG: W3C Recommendation 1 October 1996, patent-free DEFLATE replacement (libpng.org/pub/png/book/chapter07.html; w3.org TR REC-png-multi).
+- JPEG created 1992, ISO/IEC 10918-1 / ITU T.81, DCT-based (en.wikipedia.org/wiki/JPEG; jpeg.org/jpeg; the Wallace 1992 CACM paper); the DCT mainstream entry with Ahmed–Natarajan–Rao 1974.
+- MP3: MPEG-1 Audio Layer III published as ISO/IEC 11172-3:1993, developed largely by the Fraunhofer Society (en.wikipedia.org/wiki/MP3; loc.gov fdd000012); the .mp3 name 1995; Suzanne Vega's a cappella 'Tom's Diner' the development test track (law.marquette.edu; loc.gov Vega interview).
+- Boole, 'An Investigation of the Laws of Thought', 1854; Shannon's 1937 MIT master's thesis 'A Symbolic Analysis of Relay and Switching Circuits' (cs.virginia.edu shannon38.pdf).
+
+No book scans; no working copies; this entry is the citation record. STUDY-NEVER-REPRODUCE absolute: every roster, witness, figure, Illustration, quiz item and exercise in 3.2 + 3.6 + 3.7 is OUR OWN, pinned by scripts/verify-cs-book2-ch03.ts (424/424). The key `cs-cf-web-ground` rides the lesson footers of the shipped seats.

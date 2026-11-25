@@ -167,7 +167,7 @@ ok(survey.length > 40_000, `survey substantial (${survey.length} chars)`)
 
 console.log('== I. the authoring-era census (the cs lane opened the shelf 2026-11-21) ==')
 const csWritten = cs.reduce((n, b) => n + b.chapters.reduce((m, c) => m + c.lessons.length, 0), 0)
-ok(csWritten === 8, 'exactly 8 written lessons in the CS shelf (CS RUN 1 + RUN 2 + RUN 3 + RUN 4: computer-fundamentals 1.1 + 1.2 + 1.3 + the 1.R review + 2.1 + 2.2 + 2.3 + the 2.R review, chapters 1 AND 2 COMPLETE) — the pin grows with the cs lane')
+ok(csWritten === 11, 'exactly 11 written lessons in the CS shelf (CS RUN 1 + RUN 2 + RUN 3 + RUN 4 + RUN 5: computer-fundamentals 1.1 + 1.2 + 1.3 + the 1.R review + 2.1 + 2.2 + 2.3 + the 2.R review + 3.2 + 3.6 + 3.7, chapters 1 AND 2 COMPLETE, chapter 3 in-progress) — the pin grows with the cs lane')
 
 // ---- summary ----
 console.log(`\nverify-cs-shelf-planning: ${pass} checks passed, ${fail} failed`)
