@@ -955,10 +955,10 @@ for (let b = 1; b <= 6; b++)
     ok(0.14 < 1 / 7 && 1 / 7 < 0.15, 'P: 1/7 = 0.142857… sits inside (0.14, 0.15) — the first zoom window')
     ok(0.142 < 1 / 7 && 1 / 7 < 0.143, 'P: the second window (0.142, 0.143) narrows on the thousandths')
     ok(0.1428 < 1 / 7 && 1 / 7 < 0.1429, 'P: the third window (0.1428, 0.1429) — each bracket costs one digit of the expansion')
-    // figure ticks: window [0.14, 0.15] with 10 hundredths ticks; 1/7 lands between the 2nd and 3rd
-    const x = (v: number) => Math.round(80 + (v - 0.14) * 40000) // 0.14..0.15 → 80..480 (40 px per hundredth; float-safe)
+    // figure ticks: window [0.14, 0.15] with thousandth ticks every 40 px; 1/7 lands between the 2nd and 3rd thousandth ticks after 0.142
+    const x = (v: number) => Math.round(80 + (v - 0.14) * 40000) // 0.14..0.15 → 80..480 (40 px per thousandth; float-safe)
     ok(Math.abs(80 + (1 / 7 - 0.14) * 40000 - 194) < 1.5, `P: the 1/7 marker lands at x ≈ ${(80 + (1 / 7 - 0.14) * 40000).toFixed(1)} — between the 0.142 tick (160) and 0.143 tick (200), clear of both`)
-    ok(x(0.142) === 160 && x(0.143) === 200, 'P: the hundredths ticks sit at 40 px spacing — computed, not eyeballed')
+    ok(x(0.142) === 160 && x(0.143) === 200, 'P: the thousandth ticks sit at 40 px spacing — computed, not eyeballed')
   }
 }
 
@@ -1232,6 +1232,46 @@ for (let b = 1; b <= 6; b++)
   ok(6 * 3 === 18 && 456 - 18 * 22 === 60, 'V: hop figure: 6 hops × 3 eighths = 18 eighths; 456 − 18·22 = 60 = the amber landing tick ✓')
   ok(qMul(-9, 4, 8, 3)[0] === -72 && gcd(72, 12) === 12 && reduce(-72, 12)[0] === -6 && reduce(-72, 12)[1] === 1,
     'V: −9/4 ÷ 3/8 = (−9,4)·(8,3) = (−72,12) → −6 — the hops count ✓')
+}
+
+/* ------------------------------------------------------------------ */
+/* W — audit-bot fire 2026-11-26: 7.3 solution figures + L5 set pins   */
+/* ------------------------------------------------------------------ */
+{
+  // Pass B — L2-Q1 walk figure: 5/12 = digits 4, 1 free then self-loop 8→8 (d=6)
+  const l = longDivide(5, 12)
+  ok(l.digits.join(',') === '4,1,6' && l.pre === 2 && l.period === 1,
+    'W 7.3 B: 5/12 = 0.416… — digits 4,1,6, pre-period 2, period 1 (the L2-Q1 solution figure’s walk)')
+  ok(l.remSeq.join(',') === '5,2,8', 'W 7.3 B: the 5/12 remainder walk is 5→2→8 — the figure’s tail then self-loop on 8')
+  ok(50 === 4 * 12 + 2 && 20 === 1 * 12 + 8 && 80 === 6 * 12 + 8,
+    'W 7.3 B: 50 = 4·12+2, 20 = 1·12+8, 80 = 6·12+8 — the three engine steps drawn in the figure')
+
+  // Pass B — L3-Q2 figure: two names, one point (0.2999… and 0.3 both 3/10)
+  ok(reduce(27, 90)[0] === 3 && reduce(27, 90)[1] === 10, 'W 7.3 B: 27/90 → 3/10 — the pre-period formula’s mirror-edge instance (the L3-Q2 figure’s point)')
+  ok(longDivide(3, 10).terminating && decStr(3, 10) === '0.3', 'W 7.3 B: 3/10 = 0.3 exactly — the terminating name in the figure')
+
+  // Pass C — cyclic-number callout: every multiple is a rotation of the cycle
+  ok(142857 * 2 === 285714 && 142857 * 3 === 428571 && 142857 * 4 === 571428 && 142857 * 5 === 714285 && 142857 * 6 === 857142,
+    'W 7.3 C: 142857 × 2..6 = 285714/428571/571428/714285/857142 — the five rotations quoted in the callout')
+  ok(longDivide(2, 7).digits.join('') === '285714', 'W 7.3 C: 2/7 = 0.285714… — the walk re-enters the ring at r = 2 (callout claim)')
+  ok(longDivide(5, 7).digits.join('') === '714285', 'W 7.3 C: 5/7 = 0.714285… — the ring entered at r = 5 (callout claim)')
+
+  // Pass C — L5 set: the full-box sweep and the two-route sum
+  const full: number[] = []
+  for (let b = 2; b <= 20; b++) {
+    const l2 = longDivide(1, b)
+    if (!l2.terminating && l2.period === b - 1) full.push(b)
+  }
+  ok(full.join(',') === '7,17,19', `W 7.3 C: engine sweep b = 2..20 — full-box denominators = [${full.join(', ')}] (L5-Q1 answer)`)
+  const p13 = longDivide(1, 13).period
+  const p14 = longDivide(1, 14).period
+  ok(p13 === 6, 'W 7.3 C: 1/13 period 6 of 12 — a half-strength prime falls short (L5-Q1 step)')
+  ok(p14 === 6, 'W 7.3 C: 1/14 period 6 of 13 — a composite falls short (L5-Q1 step)')
+  ok(qAdd(2, 3, 1, 9)[0] === 21 && qAdd(2, 3, 1, 9)[1] === 27 && reduce(21, 27)[0] === 7 && reduce(21, 27)[1] === 9,
+    'W 7.3 C: [(2,3)] + [(1,9)] = (21,27) → 7/9 — the convert route of L5-Q2, reduced')
+  ok(longDivide(7, 9).digits.join(',') === '7' && longDivide(7, 9).period === 1,
+    'W 7.3 C: 7/9 = 0.777… period 1 — the digit route lands on the same rational (L5-Q2)')
+  ok(gcd(7, 9) === 1, 'W 7.3 C: 7/9 canonical (L5-Q2 reduce step)')
 }
 
 /* ------------------------------------------------------------------ */

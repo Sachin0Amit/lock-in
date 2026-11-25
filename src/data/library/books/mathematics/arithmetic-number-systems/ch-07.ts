@@ -1911,6 +1911,12 @@ export const chapter07: Chapter = {
           kind: 'para',
           text: 'Why "shadow"? Chapter 5.4 proved Fermat’s little theorem: $10^{p-1} \\equiv 1 \\pmod p$ for $p \\nmid 10$. The remainder engine’s cycle is exactly the orbit of $10$ in the multiplication table of $\\mathbb{Z}/p$; the orbit’s length (the *order* of $10$) always divides $p − 1$ — the same divisibility 5.4 drew for unit digits of powers. The lesson does not prove the order law (that is a chapter-13-size theorem), but the *evidence* is now mechanical: the engine computed every period, and every period obeyed. Some primes take the full box ($7, 17, 19, 23, 29, 47$ — six full-period primes in the table); others cycle quickly ($37$ in three steps). Which primes are full-period is a deep open question — a fine thing for a footnote in a foundations book to admit.',
         },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The cyclic number: 142857 wears every multiple as a rotation',
+          text: 'Multiply the cycle by 2: 285714. By 3: 428571. By 4: 571428, by 5: 714285, by 6: 857142 — every product is the same six digits, read from a different starting place. The engine explains it: multiplying $\\tfrac{1}{7}$ by $k$ just moves the walk to remainder $k$, and all six nonzero remainders live on the same machine — one ring, six doors. $\\tfrac{2}{7} = 0.\\overline{285714}$ enters at $r = 2$; $\\tfrac{5}{7} = 0.\\overline{714285}$ enters at $r = 5$. Even the classic identity $142857 \\times 7 = 999999$ is the same story closing: multiplying by the modulus 7 walks the ring all the way around, and the cycle number lands on the nines. A full-period expansion like 142857 is called a cyclic number — the deepest shelf in the mirror table, and the reason sevenths star in every recreational-mathematics corner.',
+        },
         { kind: 'heading', text: 'Reading the mirror backwards' },
         {
           kind: 'para',
@@ -2052,7 +2058,7 @@ export const chapter07: Chapter = {
     }
     return parts.join('\n  ')
   })()}
-  <text x="180" y="212" font-size="12.5" fill="currentColor" opacity="0.8" text-anchor="middle">1/7: six states, cycle of six — period 6 = 7 − 1</text>
+  <text x="180" y="212" font-size="12.5" fill="currentColor" opacity="0.8" text-anchor="middle">1/7: cycle of six — period 6 = 7 − 1</text>
   ${[
     { s: 3, x: 372, y: 70, d: 3, last: false },
     { s: 6, x: 424, y: 70, d: 7, last: false },
@@ -2067,10 +2073,10 @@ export const chapter07: Chapter = {
     .join('\n  ')}
   <line x1="389" y1="70" x2="405" y2="70" stroke="#ea580c" stroke-width="1.3" marker-end="url(#q73-amber)"/>
   <line x1="441" y1="70" x2="457" y2="70" stroke="#ea580c" stroke-width="1.3" marker-end="url(#q73-amber)"/>
-  <line x1="437" y1="83" x2="432" y2="122" stroke="#ea580c" stroke-width="1.3" marker-end="url(#q73-amber)"/>
+  <line x1="464.7" y1="85.3" x2="437.1" y2="122.3" stroke="#ea580c" stroke-width="1.3" marker-end="url(#q73-amber)"/>
   <text x="397" y="44" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="middle">d=3</text>
   <text x="449" y="44" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="middle">d=7</text>
-  <text x="468" y="102" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="middle">d=5</text>
+  <text x="466" y="114" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="middle">d=5</text>
   <text x="404" y="176" font-size="12.5" fill="currentColor" opacity="0.8" text-anchor="middle">3/8: the walk dies at the 0-sink</text>
   <text x="404" y="192" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="middle">0.375 — terminating</text>
   <text x="404" y="210" font-size="12" fill="currentColor" opacity="0.7" text-anchor="middle">arrows carry r → 10r mod b</text>
@@ -2079,8 +2085,8 @@ export const chapter07: Chapter = {
         {
           kind: 'figure',
           caption:
-            'Density zoomed: the window (0.14, 0.15) at forty pixels per hundredth. The tick marks are hundredths; 1/7 = 0.142857… lands between the 0.142 and 0.143 ticks — and every further digit of its expansion re-zooms the window: (0.142, 0.143), then (0.1428, 0.1429), forever. The decimal mirror is the midpoint wedge wearing place-value clothes.',
-          svg: `<svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A zoomed number line from 0.140 to 0.150 with hundredth ticks and the fraction one seventh marked between the 0.142 and 0.143 ticks">
+            'Density zoomed: the window (0.14, 0.15), its tick marks one thousandth apart. 1/7 = 0.142857… lands between the 0.142 and 0.143 ticks — and every further digit of its expansion re-zooms the window: (0.142, 0.143), then (0.1428, 0.1429), forever. The decimal mirror is the midpoint wedge wearing place-value clothes.',
+          svg: `<svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A zoomed number line from 0.140 to 0.150 with thousandth ticks and the fraction one seventh marked between the 0.142 and 0.143 ticks">
   <line x1="80" y1="70" x2="480" y2="70" stroke="currentColor" stroke-width="1.4"/>
   ${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     .map((i) => {
@@ -2097,8 +2103,8 @@ export const chapter07: Chapter = {
     .join('\n  ')}
   <line x1="194" y1="36" x2="194" y2="62" stroke="#ea580c" stroke-width="1.6"/>
   <circle cx="194" cy="28" r="4" fill="#ea580c"/>
-  <text x="480" y="20" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="end">1/7 = 0.142857…</text>
-  <text x="80" y="20" font-size="12" fill="currentColor" opacity="0.75">window (0.14, 0.15) — 40 px per hundredth</text>
+  <text x="184" y="34" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="end">1/7 = 0.142857…</text>
+  <text x="80" y="20" font-size="12" fill="currentColor" opacity="0.75">window (0.14, 0.15) — one tick per thousandth</text>
   <text x="480" y="118" font-size="11.5" fill="currentColor" opacity="0.7" text-anchor="end">every added digit re-zooms: (0.142, 0.143) → (0.1428, 0.1429) → …</text>
 </svg>`,
         },
@@ -2157,7 +2163,7 @@ export const chapter07: Chapter = {
               ],
               answer: 2,
               explain:
-                'The criterion reads the *reduced* denominator’s prime factors: $8 = 2^3$ — pure 2s — so the walk reaches the 0-sink (the engine confirms $0.375$, remainders $3 \\to 6 \\to 4 \\to 0$). Option 2: $12 = 2^2 \\cdot 3$ — the foreign prime 3 forces $0.08\\overline{3}$. Option 3 reasons from the answer it cannot yet know — the theorem predicts, not the printout. Option 4: $30 = 2 \\cdot 3 \\cdot 5$ — the 3 survives and $7/30 = 0.2\\overline{3}$ repeats; divisibility by ten is not the test.',
+                'The criterion reads the *reduced* denominator’s prime factors: $8 = 2^3$ — pure 2s — so the walk reaches the 0-sink (the engine confirms $0.375$, remainders $3 \\to 6 \\to 4 \\to 0$). The first option: $12 = 2^2 \\cdot 3$ — the foreign prime 3 forces $0.08\\overline{3}$. The second reasons from the answer it cannot yet know — the theorem predicts, not the printout. The fourth: $30 = 2 \\cdot 3 \\cdot 5$ — the 3 survives and $7/30 = 0.2\\overline{3}$ repeats; divisibility by ten is not the test.',
             },
             {
               q: 'The expansion of $\\tfrac{1}{12}$ is $0.08\\overline{3}$. What are the pre-period and period, and which remainders tell that story?',
@@ -2169,7 +2175,7 @@ export const chapter07: Chapter = {
               ],
               answer: 1,
               explain:
-                'The engine: $r = 1$ emits digit $0$ ($10 = 0·12 + 10$), $r = 10$ emits $8$ ($100 = 8·12 + 4$), $r = 4$ emits $3$ ($40 = 3·12 + 4$) — and the remainder $4$ repeats immediately: the walk $1 \\to 10 \\to 4 \\to 4$ has two free steps then a self-loop, digits $0, 8$ then cycle $(3)$. Option 1 reads the engine exactly. Option 2 swaps the counts. Option 3 ignores the free steps. Option 4 confuses prime count with cycle length — the loop is a *self-loop*, period 1.',
+                'The engine: $r = 1$ emits digit $0$ ($10 = 0·12 + 10$), $r = 10$ emits $8$ ($100 = 8·12 + 4$), $r = 4$ emits $3$ ($40 = 3·12 + 4$) — and the remainder $4$ repeats immediately: the walk $1 \\to 10 \\to 4 \\to 4$ has two free steps then a self-loop, digits $0, 8$ then cycle $(3)$. The second option reads the engine exactly. The first swaps the counts. The third ignores the free steps. The fourth confuses prime count with cycle length — the loop is a *self-loop*, period 1.',
             },
             {
               q: '$0.\\overline{142857}$ names which rational — and which identity is the conversion’s receipt?',
@@ -2181,7 +2187,7 @@ export const chapter07: Chapter = {
               ],
               answer: 3,
               explain:
-                'The conversion theorem: a pure $k$-digit cycle names $D/(10^k − 1)$ — here $\\tfrac{142857}{999999}$, and the famous identity $142857 \\times 7 = 999999$ reduces it to $\\tfrac{1}{7}$ (the engine then long-divides back to the same block: round trip closed). Option 2 treats the tail as terminating — one million is not the recurring denominator. Option 3 confuses the period with the denominator — cycle length is an upper-bound consequence, not the fraction. Option 4’s arithmetic does not even reduce: $142857/9 = 15873$ and $999999/9 = 111111$, still not $\\tfrac{7}{49}$.',
+                'The conversion theorem: a pure $k$-digit cycle names $D/(10^k − 1)$ — here $\\tfrac{142857}{999999}$, and the famous identity $142857 \\times 7 = 999999$ reduces it to $\\tfrac{1}{7}$ (the engine then long-divides back to the same block: round trip closed). The first option treats the tail as terminating — one million is not the recurring denominator. The second confuses the period with the denominator — cycle length is an upper-bound consequence, not the fraction. The third’s arithmetic does not even reduce: $142857/9 = 15873$ and $999999/9 = 111111$, still not $\\tfrac{7}{49}$.',
             },
             {
               q: 'Convert $0.4\\overline{7}$ exactly. Why is the pre-period handled by a *separate* factor?',
@@ -2193,7 +2199,7 @@ export const chapter07: Chapter = {
               ],
               answer: 1,
               explain:
-                'Two moves: freeze the pre-period (multiplying by $10^1 = 10$ slides $0.4\\overline{7}$ to $4.\\overline{7}$) and convert the pure cycle ($\\overline{7} = 7/9$). Assembling: $(4·9 + 7)/(9·10) = 43/90$ — the engine long-divides $43/90$ back to $0.4777\\dots$, closing the round trip. Option 1 is the formula with the two factors in their roles. Option 2 misreads the 4 as part of the cycle ($0.\\overline{47} = 47/99 \\ne 0.4777\\dots$). Options 3 and 4 are denominator games with no construction behind them.',
+                'Two moves: freeze the pre-period (multiplying by $10^1 = 10$ slides $0.4\\overline{7}$ to $4.\\overline{7}$) and convert the pure cycle ($\\overline{7} = 7/9$). Assembling: $(4·9 + 7)/(9·10) = 43/90$ — the engine long-divides $43/90$ back to $0.4777\\dots$, closing the round trip. The second option is the formula with the two factors in their roles. The first misreads the 4 as part of the cycle ($0.\\overline{47} = 47/99 \\ne 0.4777\\dots$). The third and fourth are denominator games with no construction behind them.',
             },
             {
               q: 'Is $0.\\overline{9}$ less than 1 — and what does the construction actually say?',
@@ -2268,6 +2274,44 @@ export const chapter07: Chapter = {
                     'Hence digits $4, 1$ free, then cycle $(6)$: $\\tfrac{5}{12} = 0.41\\overline{6}$ — pre-period 2, period 1.',
                   ],
                   answer: '$0.41\\overline{6}$',
+                  figures: [{
+                    caption:
+                      'The 5/12 walk drawn: two free steps — digit 4, then digit 1 — carry the remainders 5 → 2 → 8, and the third step returns to 8: the 8→8 self-loop emits 6 forever. In the strip the two amber cells are the free digits and the teal cells the cycle — pre-period 2, period 1, 0.41666…',
+                    svg: `<svg viewBox="0 0 520 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The remainder walk for five twelfths: three states r equals 5, 2, 8 with arrows emitting digits 4 and 1, then a self-loop on r equals 8 emitting 6 forever — two free steps then a cycle of one, so five twelfths is 0.41666 with pre-period 2 and period 1">
+  <defs>
+    <marker id="a73-arrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#ea580c"/>
+    </marker>
+  </defs>
+  <circle cx="110" cy="55" r="17" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <text x="110" y="60" font-size="14" font-weight="700" text-anchor="middle" fill="currentColor">r=5</text>
+  <circle cx="200" cy="55" r="17" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <text x="200" y="60" font-size="14" font-weight="700" text-anchor="middle" fill="currentColor">r=2</text>
+  <circle cx="290" cy="55" r="17" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <text x="290" y="60" font-size="14" font-weight="700" text-anchor="middle" fill="currentColor">r=8</text>
+  <line x1="129" y1="55" x2="178" y2="55" stroke="#ea580c" stroke-width="1.3" marker-end="url(#a73-arrow)"/>
+  <line x1="219" y1="55" x2="268" y2="55" stroke="#ea580c" stroke-width="1.3" marker-end="url(#a73-arrow)"/>
+  <path d="M 299.8 41.1 C 322 22, 348 42, 307.0 55.6" fill="none" stroke="#ea580c" stroke-width="1.3" marker-end="url(#a73-arrow)"/>
+  <text x="155.0" y="42" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="middle">d=4</text>
+  <text x="245.0" y="42" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="middle">d=1</text>
+  <text x="360" y="37" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="start">d=6</text>
+  <text x="290" y="21" font-size="11.5" fill="currentColor" opacity="0.75" text-anchor="middle">revisit: the walk re-enters r=8</text>
+  <rect x="120" y="112" width="30" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.4"/>
+  <text x="135.0" y="133" font-size="14" font-weight="700" text-anchor="middle" fill="#b45309">4</text>
+  <rect x="158" y="112" width="30" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.4"/>
+  <text x="173.0" y="133" font-size="14" font-weight="700" text-anchor="middle" fill="#b45309">1</text>
+  <rect x="196" y="112" width="30" height="30" rx="4" fill="none" stroke="#0f766e" stroke-width="1.4"/>
+  <text x="211.0" y="133" font-size="14" font-weight="700" text-anchor="middle" fill="#0f766e">6</text>
+  <rect x="234" y="112" width="30" height="30" rx="4" fill="none" stroke="#0f766e" stroke-width="1.4"/>
+  <text x="249.0" y="133" font-size="14" font-weight="700" text-anchor="middle" fill="#0f766e">6</text>
+  <rect x="272" y="112" width="30" height="30" rx="4" fill="none" stroke="#0f766e" stroke-width="1.4"/>
+  <text x="287.0" y="133" font-size="14" font-weight="700" text-anchor="middle" fill="#0f766e">6</text>
+  <text x="316" y="132" font-size="14" font-weight="700" fill="#0f766e" text-anchor="start">…</text>
+  <text x="149.5" y="160" font-size="11.5" font-weight="700" fill="#b45309" text-anchor="middle">pre-period 2</text>
+  <text x="241.0" y="160" font-size="11.5" font-weight="700" fill="#0f766e" text-anchor="middle">cycle (6)</text>
+  <text x="260.0" y="182" font-size="12.5" fill="currentColor" opacity="0.8" text-anchor="middle">5/12 = 0.41666… — two free digits, then 6 forever</text>
+</svg>`,
+                  }],
                 },
                 {
                   q: 'Show $\\tfrac{4}{33} = 0.\\overline{12}$ through the engine.',
@@ -2321,6 +2365,22 @@ export const chapter07: Chapter = {
                     'Interpretation: the recurring nine was a terminating decimal wearing a costume; the two numerals $0.2999\\dots$ and $0.3$ name one rational. The mirror edge of the Caution box, met in an ordinary exercise.',
                   ],
                   answer: '$\\tfrac{3}{10} = 0.3$',
+                  figures: [{
+                    caption:
+                      'Two numerals, one point: the terminating name 0.3 and the recurring-9 name 0.2999… both land on the same tick at 3/10 — the conversion (2·9 + 9)/90 = 27/90 = 3/10 is the mirror edge of the Caution box, met in an ordinary exercise.',
+                    svg: `<svg viewBox="0 0 520 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A number line window from 0.29 to 0.31 with one point marked: the terminating name 0.3 and the recurring-nine name 0.2999 both lead to the same dot at 0.30 — two numerals, one rational">
+  <line x1="70" y1="95" x2="450" y2="95" stroke="currentColor" stroke-width="1.4"/>
+  <line x1="70.0" y1="85" x2="70.0" y2="105" stroke="currentColor" stroke-width="1.6"/> <line x1="108.0" y1="89" x2="108.0" y2="101" stroke="currentColor" stroke-width="1.1"/> <line x1="146.0" y1="89" x2="146.0" y2="101" stroke="currentColor" stroke-width="1.1"/> <line x1="184.0" y1="89" x2="184.0" y2="101" stroke="currentColor" stroke-width="1.1"/> <line x1="222.0" y1="89" x2="222.0" y2="101" stroke="currentColor" stroke-width="1.1"/> <line x1="260.0" y1="85" x2="260.0" y2="105" stroke="currentColor" stroke-width="1.6"/> <line x1="298.0" y1="89" x2="298.0" y2="101" stroke="currentColor" stroke-width="1.1"/> <line x1="336.0" y1="89" x2="336.0" y2="101" stroke="currentColor" stroke-width="1.1"/> <line x1="374.0" y1="89" x2="374.0" y2="101" stroke="currentColor" stroke-width="1.1"/> <line x1="412.0" y1="89" x2="412.0" y2="101" stroke="currentColor" stroke-width="1.1"/> <line x1="450.0" y1="85" x2="450.0" y2="105" stroke="currentColor" stroke-width="1.6"/>
+  <text x="70.0" y="120" font-size="11.5" text-anchor="middle" fill="currentColor" opacity="0.75">0.29</text> <text x="260.0" y="120" font-size="11.5" text-anchor="middle" fill="currentColor" opacity="0.75">0.30</text> <text x="450.0" y="120" font-size="11.5" text-anchor="middle" fill="currentColor" opacity="0.75">0.31</text>
+  <circle cx="260.0" cy="95" r="5" fill="#ea580c"/>
+  <text x="250" y="40" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="end">0.3 = 3/10 — terminating name</text>
+  <line x1="252" y1="46" x2="259.0" y2="88" stroke="#ea580c" stroke-width="1.1"/>
+  <text x="266.0" y="150" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="start">0.2999… — the recurring-9 name</text>
+  <line x1="266.0" y1="142" x2="262.0" y2="102" stroke="#ea580c" stroke-width="1.1"/>
+  <text x="450" y="40" font-size="12" fill="currentColor" opacity="0.75" text-anchor="end">one point, two numerals</text>
+  <text x="260.0" y="176" font-size="12.5" fill="currentColor" opacity="0.8" text-anchor="middle">the recurring nine was a terminating decimal in costume</text>
+</svg>`,
+                  }],
                 },
                 {
                   q: 'Prove that $\\tfrac{6}{11} = 0.\\overline{54}$ by the engine, and explain the relation to $\\tfrac{1}{11} = 0.\\overline{09}$.',
@@ -2355,6 +2415,31 @@ export const chapter07: Chapter = {
                     'Hence the block is $39$ — the conversion theorem and the engine shaking hands.',
                   ],
                   answer: '$ab = 39$',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Sweep the engine over $b = 2, \\dots, 20$ (take $1/b$ reduced): which denominators give period exactly $b - 1$ — the full box? Connect each to the Fermat-shadow theorem.',
+                  solution: [
+                    'Terminating first: $b = 2, 4, 5, 8, 10, 16, 20$ are pure 2s-and-5s — the criterion kills them before any period can form.',
+                    'Read periods off the engine for the rest: $b = 3: 1$; $6: 1$; $7: 6$; $9: 1$; $11: 2$; $12: 1$; $13: 6$; $14: 6$; $15: 1$; $17: 16$; $18: 1$; $19: 18$.',
+                    'Compare with $b - 1$: only $7$ ($6 = 6$), $17$ ($16 = 16$), $19$ ($18 = 18$) fill the box. Thirteen manages $6$ of $12$, fourteen $6$ of $13$ — a half-strength prime and a composite fall short.',
+                    'Hence $b = 7, 17, 19$ — and the Fermat shadow says each period divides $b - 1$ (the L6 proof below): these are the primes $\\le 20$ where the order of 10 is maximal — 10 is a primitive root. Three of the six primes $\\ne 2, 5$ up to twenty: full boxes are rare.',
+                  ],
+                  answer: '$b = 7, 17, 19$ — the full-box primes $\\le 20$',
+                },
+                {
+                  q: 'Compute $0.\\overline{6} + 0.\\overline{1}$ two ways — convert-then-add, and digit by digit — and explain why the digit route is legal.',
+                  solution: [
+                    'Convert: $0.\\overline{6} = \\tfrac{6}{9} = \\tfrac{2}{3}$ and $0.\\overline{1} = \\tfrac{1}{9}$, so the sum is $\\tfrac{2}{3} + \\tfrac{1}{9} = \\tfrac{7}{9}$.',
+                    'Digits: $0.666\\dots + 0.111\\dots$ — every column is $6 + 1 = 7$ with no carry anywhere: $0.777\\dots = 0.\\overline{7}$.',
+                    'Reduce: $\\gcd(7, 9) = 1$ — canonical — and the engine confirms $\\tfrac{7}{9} = 0.\\overline{7}$: both routes land on one rational.',
+                    'Why legal: 7.2’s addition is exact for rationals, the mirror theorem guarantees both strings repeat forever, and two period-1 cycles align column-for-column — no borrow or carry to propagate. The conversion theorem is the audit that certifies the shortcut.',
+                  ],
+                  answer: '$0.\\overline{7} = \\tfrac{7}{9}$ by both routes',
                 },
               ],
             },
