@@ -155,6 +155,16 @@ export const chapter07: Chapter = {
           ],
         },
         {
+          kind: 'example',
+          title: 'Count the 14 patterns yourself — the census arithmetic, derived',
+          steps: [
+            'Take the absolute-value square: $|c|$ and $|d|$ each running from $1$ to $6$, with the deciding criterion $|c| \mid |d|$. Count the survivors column by column — that is, for each divisor size $|c|$, ask how many dividends it divides.',
+            'Now, the count: $|c| = 1$ divides all six dividends — six patterns. $|c| = 2$ divides $2, 4, 6$ — three. $|c| = 3$ divides $3, 6$ — two. And $|c| = 4, 5, 6$ divide only themselves — one each.',
+            'So, $6 + 3 + 2 + 1 + 1 + 1 = 14$ divisibility patterns — and each survives all four sign combinations of $(c, d)$, because the sign rules of 6.3 let a positive divisor divide a negative dividend: $14 \times 4 = 56$ live pairs out of $144$, exactly the table\u2019s census.',
+            'Hence the census is an inventory, not an estimate: $88$ of $144$ pairs die — three questions in five — and every dead pair is an intelligible question the integers cannot answer.',
+          ],
+        },
+        {
           kind: 'callout',
           tone: 'insight',
           title: 'How much of the map is water, again',
@@ -280,6 +290,51 @@ export const chapter07: Chapter = {
             'Take $\\tfrac{0}{5}$: gcd $5$ gives $\\tfrac{0}{1}$ — zero, in its unique canonical seat. The whole family $(0, b)$ is one class (verified swept: $0 \\cdot c = b \\cdot 0$ for all legal $b, c$).',
             'Now the refusal: $\\tfrac{5}{0}$ is *not an object* — the pair $(5, 0)$ is outside the domain by definition. This is not squeamishness: 7.2 will prove that any system containing a "number" that multiplied by anything gives itself would collide with the zero-product lemma and collapse the arithmetic. The wall is designed in, not patched later.',
           ],
+          figures: [{
+            caption: 'The reception desk at work: each inscription pair divides by its gcd to its canonical representative — and (5, 0) is refused at the door, because zero denominators lie outside the domain by design.',
+            svg: `<svg viewBox="0 0 536 276" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The reception desk of the rationals: four inscription pairs reduce along gcd arrows to their canonical representatives, and the pair five-comma-zero is refused because zero denominators lie outside the domain">
+  <rect x="24" y="30" width="92" height="34" rx="7" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <text x="70.0" y="51.5" font-size="14" text-anchor="middle" fill="currentColor">(12, 8)</text>
+  <line x1="128" y1="47.0" x2="218" y2="47.0" stroke="currentColor" stroke-width="1.6" opacity="0.85"/>
+  <polygon points="228,47.0 218,42.0 218,52.0" fill="currentColor" opacity="0.85"/>
+  <text x="178.0" y="38.0" font-size="12.5" text-anchor="middle" fill="currentColor" opacity="0.85">÷ gcd 4</text>
+  <rect x="228" y="30" width="92" height="34" rx="7" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+  <text x="274.0" y="51.5" font-size="14" font-weight="700" text-anchor="middle" fill="#ea580c">(3, 2)</text>
+  <text x="338" y="51.5" font-size="12.5" fill="currentColor" opacity="0.9">names 3/2</text>
+  <rect x="24" y="76" width="92" height="34" rx="7" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <text x="70.0" y="97.5" font-size="14" text-anchor="middle" fill="currentColor">(&#8722;6, 4)</text>
+  <line x1="128" y1="93.0" x2="218" y2="93.0" stroke="currentColor" stroke-width="1.6" opacity="0.85"/>
+  <polygon points="228,93.0 218,88.0 218,98.0" fill="currentColor" opacity="0.85"/>
+  <text x="178.0" y="84.0" font-size="12.5" text-anchor="middle" fill="currentColor" opacity="0.85">÷ gcd 2</text>
+  <rect x="228" y="76" width="92" height="34" rx="7" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+  <text x="274.0" y="97.5" font-size="14" font-weight="700" text-anchor="middle" fill="#ea580c">(&#8722;3, 2)</text>
+  <text x="338" y="97.5" font-size="12.5" fill="currentColor" opacity="0.9">names &#8722;3/2</text>
+  <rect x="24" y="122" width="92" height="34" rx="7" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <text x="70.0" y="143.5" font-size="14" text-anchor="middle" fill="currentColor">(6, 3)</text>
+  <line x1="128" y1="139.0" x2="218" y2="139.0" stroke="currentColor" stroke-width="1.6" opacity="0.85"/>
+  <polygon points="228,139.0 218,134.0 218,144.0" fill="currentColor" opacity="0.85"/>
+  <text x="178.0" y="130.0" font-size="12.5" text-anchor="middle" fill="currentColor" opacity="0.85">÷ gcd 3</text>
+  <rect x="228" y="122" width="92" height="34" rx="7" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+  <text x="274.0" y="143.5" font-size="14" font-weight="700" text-anchor="middle" fill="#ea580c">(2, 1)</text>
+  <text x="338" y="143.5" font-size="12.5" fill="currentColor" opacity="0.9">names 2 (the shelf)</text>
+  <rect x="24" y="168" width="92" height="34" rx="7" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <text x="70.0" y="189.5" font-size="14" text-anchor="middle" fill="currentColor">(0, 5)</text>
+  <line x1="128" y1="185.0" x2="218" y2="185.0" stroke="currentColor" stroke-width="1.6" opacity="0.85"/>
+  <polygon points="228,185.0 218,180.0 218,190.0" fill="currentColor" opacity="0.85"/>
+  <text x="178.0" y="176.0" font-size="12.5" text-anchor="middle" fill="currentColor" opacity="0.85">÷ gcd 5</text>
+  <rect x="228" y="168" width="92" height="34" rx="7" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+  <text x="274.0" y="189.5" font-size="14" font-weight="700" text-anchor="middle" fill="#ea580c">(0, 1)</text>
+  <text x="338" y="189.5" font-size="12.5" fill="currentColor" opacity="0.9">names 0 (zero family)</text>
+  <rect x="24" y="214" width="92" height="34" rx="7" fill="none" stroke="#dc2626" stroke-width="1.4"/>
+  <text x="70.0" y="235.5" font-size="14" text-anchor="middle" fill="#dc2626">(5, 0)</text>
+  <line x1="128" y1="231.0" x2="190" y2="231.0" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="198" y1="225.0" x2="210" y2="237.0" stroke="#dc2626" stroke-width="2.2"/>
+  <line x1="198" y1="237.0" x2="210" y2="225.0" stroke="#dc2626" stroke-width="2.2"/>
+  <line x1="274.0" y1="217" x2="274.0" y2="245" stroke="#dc2626" stroke-width="3.5"/>
+  <text x="274.0" y="262" font-size="11.5" text-anchor="middle" fill="#dc2626">not an object</text>
+  <text x="338" y="235.5" font-size="12.5" fill="#dc2626" opacity="0.9">refused: b = 0</text>
+</svg>`,
+          }],
         },
         {
           kind: 'algorithm',
@@ -558,6 +613,47 @@ export const chapter07: Chapter = {
                     'Check against the cross-products: no reduction was possible, so the desk is reached. (FM 4.4 computed the same sum by the common denominator $6$ — the pair formula is that computation, generalised.)',
                   ],
                   answer: '$\\tfrac{5}{6}$',
+                  figures: [{
+                    caption: 'The pair formula is the common-denominator picture: halves and thirds both cut into sixths — 3 sixths + 2 sixths = 5 sixths — and the shaded counts are exactly the numerator seats of (1·3 + 2·1, 2·3) = (5, 6).',
+                    svg: `<svg viewBox="0 0 536 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar model over a common six-column grid: one half shades three of six cells, one third shades two of six, and the sum shades five of six: five sixths, the pair five comma six">
+  <text x="66" y="47.5" font-size="14" font-weight="700" text-anchor="end" fill="currentColor">1/2</text>
+    <rect x="78" y="26" width="48" height="34" fill="#f59e0b" opacity="0.85"/>
+    <rect x="78" y="26" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+    <rect x="126" y="26" width="48" height="34" fill="#f59e0b" opacity="0.85"/>
+    <rect x="126" y="26" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+    <rect x="174" y="26" width="48" height="34" fill="#f59e0b" opacity="0.85"/>
+    <rect x="174" y="26" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+    <rect x="222" y="26" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+    <rect x="270" y="26" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+    <rect x="318" y="26" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+  <text x="378" y="47.5" font-size="13" fill="currentColor" opacity="0.9">= 3 sixths</text>
+  <text x="66" y="105.5" font-size="14" font-weight="700" text-anchor="end" fill="currentColor">1/3</text>
+    <rect x="78" y="84" width="48" height="34" fill="#0f766e" opacity="0.85"/>
+    <rect x="78" y="84" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+    <rect x="126" y="84" width="48" height="34" fill="#0f766e" opacity="0.85"/>
+    <rect x="126" y="84" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+    <rect x="174" y="84" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+    <rect x="222" y="84" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+    <rect x="270" y="84" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+    <rect x="318" y="84" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+  <text x="378" y="105.5" font-size="13" fill="currentColor" opacity="0.9">= 2 sixths</text>
+  <text x="66" y="163.5" font-size="14" font-weight="700" text-anchor="end" fill="currentColor">sum</text>
+    <rect x="78" y="142" width="48" height="34" fill="#16a34a" opacity="0.85"/>
+    <rect x="78" y="142" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+    <rect x="126" y="142" width="48" height="34" fill="#16a34a" opacity="0.85"/>
+    <rect x="126" y="142" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+    <rect x="174" y="142" width="48" height="34" fill="#16a34a" opacity="0.85"/>
+    <rect x="174" y="142" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+    <rect x="222" y="142" width="48" height="34" fill="#16a34a" opacity="0.85"/>
+    <rect x="222" y="142" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+    <rect x="270" y="142" width="48" height="34" fill="#16a34a" opacity="0.85"/>
+    <rect x="270" y="142" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+    <rect x="318" y="142" width="48" height="34" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+  <text x="378" y="163.5" font-size="13" fill="currentColor" opacity="0.9">= 5 sixths = 5/6</text>
+  <text x="222.0" y="208" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.9">the pair formula: (1&#183;3 + 2&#183;1,&#8201;2&#183;3) = (5, 6)</text>
+  <text x="222.0" y="226" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.9">the shaded counts are the numerator seats</text>
+</svg>`,
+                  }],
                 },
                 {
                   q: 'Compute $\\tfrac{2}{3} + (−\\tfrac{1}{6})$ through the pair formula, and reduce.',
@@ -593,6 +689,43 @@ export const chapter07: Chapter = {
                     'Hence one class, $\\tfrac{2}{5}$, infinitely many names.',
                   ],
                   answer: '$\\tfrac{2}{5}$',
+                  figures: [{
+                    caption: 'One ray, one class: the slope-2/5 ray through the amber seed (2, 5); every hop of (+2, +5) names the same value, and (10, 25) — four hops out — sits on the same ray: 2 · 25 = 50 = 5 · 10.',
+                    svg: `<svg viewBox="0 0 514 262" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zoom on one ray of the fraction lattice: the slope two-fifths ray from the origin through the amber seed pair two comma five, with four hops of plus two plus five marking the equivalent pairs four comma ten, six comma fifteen, eight comma twenty, up to ten comma twenty five, all on the same ray">
+  <line x1="56" y1="196" x2="488" y2="196" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+  <line x1="56" y1="212" x2="56" y2="28.0" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
+  <text x="46" y="20" font-size="12" text-anchor="end" fill="currentColor" opacity="0.75">a &#8593;</text>
+  <text x="486" y="216" font-size="12" text-anchor="end" fill="currentColor" opacity="0.75">b &#8594;</text>
+  <line x1="136" y1="196" x2="136" y2="201" stroke="currentColor" stroke-width="1.1" opacity="0.6"/>
+  <text x="136" y="215" font-size="11.5" text-anchor="middle" fill="currentColor" opacity="0.7">5</text>
+  <line x1="216" y1="196" x2="216" y2="201" stroke="currentColor" stroke-width="1.1" opacity="0.6"/>
+  <text x="216" y="215" font-size="11.5" text-anchor="middle" fill="currentColor" opacity="0.7">10</text>
+  <line x1="296" y1="196" x2="296" y2="201" stroke="currentColor" stroke-width="1.1" opacity="0.6"/>
+  <text x="296" y="215" font-size="11.5" text-anchor="middle" fill="currentColor" opacity="0.7">15</text>
+  <line x1="376" y1="196" x2="376" y2="201" stroke="currentColor" stroke-width="1.1" opacity="0.6"/>
+  <text x="376" y="215" font-size="11.5" text-anchor="middle" fill="currentColor" opacity="0.7">20</text>
+  <line x1="456" y1="196" x2="456" y2="201" stroke="currentColor" stroke-width="1.1" opacity="0.6"/>
+  <text x="456" y="215" font-size="11.5" text-anchor="middle" fill="currentColor" opacity="0.7">25</text>
+  <line x1="51" y1="116" x2="56" y2="116" stroke="currentColor" stroke-width="1.1" opacity="0.6"/>
+  <text x="47" y="120" font-size="11.5" text-anchor="end" fill="currentColor" opacity="0.7">5</text>
+  <line x1="51" y1="36" x2="56" y2="36" stroke="currentColor" stroke-width="1.1" opacity="0.6"/>
+  <text x="47" y="40" font-size="11.5" text-anchor="end" fill="currentColor" opacity="0.7">10</text>
+  <line x1="56" y1="196" x2="468.8" y2="30.9" stroke="#ea580c" stroke-width="1.8" stroke-opacity="0.85"/>
+  <line x1="136" y1="164" x2="216" y2="132" stroke="#ea580c" stroke-width="1" stroke-dasharray="3 3" stroke-opacity="0.55"/>
+  <line x1="216" y1="132" x2="296" y2="100" stroke="#ea580c" stroke-width="1" stroke-dasharray="3 3" stroke-opacity="0.55"/>
+  <line x1="296" y1="100" x2="376" y2="68" stroke="#ea580c" stroke-width="1" stroke-dasharray="3 3" stroke-opacity="0.55"/>
+  <line x1="376" y1="68" x2="456" y2="36" stroke="#ea580c" stroke-width="1" stroke-dasharray="3 3" stroke-opacity="0.55"/>
+  <circle cx="136" cy="164" r="5.2" fill="#ea580c"/>
+  <circle cx="216" cy="132" r="3.4" fill="currentColor" opacity="0.55"/>
+  <circle cx="296" cy="100" r="3.4" fill="currentColor" opacity="0.55"/>
+  <circle cx="376" cy="68" r="3.4" fill="currentColor" opacity="0.55"/>
+  <circle cx="456" cy="36" r="4.6" fill="currentColor" opacity="0.85"/>
+  <text x="130" y="184" font-size="13" font-weight="700" fill="#ea580c">seed (2, 5)</text>
+  <text x="444" y="22" font-size="13" font-weight="700" text-anchor="end" fill="currentColor">(10, 25) &#8212; four hops out</text>
+  <text x="56" y="228" font-size="12.5" fill="currentColor" opacity="0.85">2 &#183; 25 = 50 = 5 &#183; 10 &#8212; same ray, same class</text>
+  <text x="56" y="246" font-size="12.5" fill="currentColor" opacity="0.85">four hops of (+2, +5) carry the seed (2, 5) to (10, 25)</text>
+</svg>`,
+                  }],
                 },
                 {
                   q: 'Show that every pair $(0, b)$ with $b \\ne 0$ is equivalent to $(0, 1)$, and that no zero pair is equivalent to $(1, 1)$.',
@@ -631,6 +764,33 @@ export const chapter07: Chapter = {
               ],
             },
             {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Compute the class sum $\\left[\\tfrac{2}{3}\\right] + \\left[\\tfrac{1}{2}\\right]$ twice — once through the representatives $(2,3)$ and $(1,2)$, once through $(4,6)$ and $(3,6)$ — and confirm both landings name one class. Which property of the construction guarantees the agreement, and where was it established?',
+                  solution: [
+                    'Split the two computations: same classes, different names — exactly the stress the definition must survive before it can be called a definition.',
+                    'Now, the first names: $(2,3) + (1,2) = (2 \\cdot 2 + 3 \\cdot 1,\\; 3 \\cdot 2) = (7, 6)$.',
+                    'So, the second names: $(4,6) + (3,6) = (4 \\cdot 6 + 6 \\cdot 3,\\; 6 \\cdot 6) = (42, 36)$.',
+                    'Check the landings against each other: $7 \\cdot 36 = 252$ and $6 \\cdot 42 = 252$ — the cross-products agree, so $(7,6) \\sim (42,36)$: one class, $\\tfrac{7}{6}$. The desk confirms it — reduce $(42, 36)$ by gcd $6$ and the canonical form $\\tfrac{7}{6}$ falls out.',
+                    'Hence the agreement is not luck but \\emph{well-definedness} — the property swept right after the definitions, when every representative swap with entries $\\le 4$ landed on the same class. The rule $\\tfrac{a}{b} + \\tfrac{c}{d} = \\tfrac{ad + bc}{bd}$ operates on classes; the pairs are just the names the classes were reached by.',
+                  ],
+                  answer: 'both names land on 7/6; well-definedness, swept after the definitions',
+                },
+                {
+                  q: 'State the general repair: for integers $c \\ne 0$ and $d$, which class answers $x \\cdot c = d$ — and prove the candidate through the pair algebra. Then check it against the two probes the chapter has already met.',
+                  solution: [
+                    'Take the candidate: the class $\\tfrac{d}{c} = [(d, c)]$ — numerator the dividend, denominator the divisor, the second seat nonzero because $c \\ne 0$ by hypothesis.',
+                    'Now, prove it works: $(d, c) \\cdot (c, 1) = (dc,\\; c \\cdot 1) = (dc, c)$, and $(dc, c) \\sim (d, 1)$ because the cross-products agree — $dc \\cdot 1 = c \\cdot d$. So $\\tfrac{d}{c} \\cdot \\tfrac{c}{1} = \\tfrac{d}{1}$, the embedded integer $d$: the candidate passes the very test that generated the question.',
+                    'So, probe one: $x \\cdot 2 = 3$ is answered by $\\tfrac{3}{2}$ — the chapter\\u2019s opening debt, paid in full. Probe two: $x \\cdot 5 = 13$ is answered by $\\tfrac{13}{5}$ — the L2 witness, now a special case of a theorem.',
+                    'Take the uniqueness question honestly: if two classes both multiplied by $\\tfrac{c}{1}$ gave $\\tfrac{d}{1}$, their difference would multiply by $\\tfrac{c}{1}$ to give zero — and whether that forces the difference itself to be zero is exactly the no-zero-divisors question lesson 7.2 settles for $\\mathbb{Q}$.',
+                    'Hence division by any nonzero integer is total on $\\mathbb{Q}$: every dead pair of the census has a home, and the one wall that remains — $x \\cdot 0 = d \\ne 0$ — is the wall 7.2 proves permanent.',
+                  ],
+                  answer: 'the class [(d, c)]; it proves itself: (d,c)·(c,1) = (dc,c) ~ (d,1)',
+                },
+              ],
+            },
+            {
               level: 'L6',
               questions: [
                 {
@@ -643,6 +803,83 @@ export const chapter07: Chapter = {
                     'Hence the domain exclusion $b \\neq 0$ is not bureaucratic: it is the wall that keeps the cancellation engine legal and the classes distinct. Lesson 7.2 proves the exclusion is also *forced* by the arithmetic — no extension containing a legal $\\tfrac{1}{0}$ can keep the laws.',
                   ],
                   answer: 'the exclusion of zero denominators is what blocks the collapse',
+                  figures: [{
+                    caption: 'Why b = 0 must stay excluded: with the domain law, every dot sits on exactly one ray — the classes partition the plane, transitivity drawn. Admit (a, 0) and every cross-product against (0, 0) vanishes: one universal class swallows everything, the unit included — sameness collapses.',
+                    svg: `<svg viewBox="0 0 500 296" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels contrast: on the left, with zero denominators excluded, lattice dots sit on distinct rays through the origin and the classes partition the plane; on the right, if pairs with zero denominator were admitted, every dot connects to the pair zero comma zero because all those cross-products vanish, and one universal red class swallows everything including the unit">
+  <rect x="12" y="14" width="226" height="270" rx="10" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/>
+  <text x="125.0" y="38" font-size="12.5" font-weight="700" text-anchor="middle" fill="currentColor">the domain keeps b &#8800; 0</text>
+  <line x1="56" y1="208" x2="234.2" y2="208" stroke="currentColor" stroke-width="1.1" opacity="0.7"/>
+  <line x1="56" y1="218" x2="56" y2="105.4" stroke="currentColor" stroke-width="1.1" opacity="0.7"/>
+  <line x1="56" y1="208" x2="151.8" y2="112.2" stroke="#ea580c" stroke-width="1.5" stroke-opacity="0.75"/>
+  <line x1="56" y1="208" x2="103.9" y2="112.2" stroke="#ea580c" stroke-width="1.5" stroke-opacity="0.75"/>
+  <line x1="56" y1="208" x2="234.2" y2="148.6" stroke="#ea580c" stroke-width="1.5" stroke-opacity="0.75"/>
+  <circle cx="83" cy="181" r="4.6" fill="#ea580c"/>
+  <circle cx="110" cy="181" r="4.6" fill="#ea580c"/>
+  <circle cx="137" cy="181" r="4.6" fill="#ea580c"/>
+  <circle cx="164" cy="181" r="4.6" fill="#ea580c"/>
+  <circle cx="191" cy="181" r="4.6" fill="#ea580c"/>
+  <circle cx="218" cy="181" r="4.6" fill="#ea580c"/>
+  <circle cx="83" cy="154" r="4.6" fill="#ea580c"/>
+  <circle cx="110" cy="154" r="4.0" fill="currentColor"/>
+  <circle cx="137" cy="154" r="4.6" fill="#ea580c"/>
+  <circle cx="164" cy="154" r="4.0" fill="currentColor"/>
+  <circle cx="191" cy="154" r="4.6" fill="#ea580c"/>
+  <circle cx="218" cy="154" r="4.0" fill="currentColor"/>
+  <circle cx="83" cy="127" r="4.6" fill="#ea580c"/>
+  <circle cx="110" cy="127" r="4.6" fill="#ea580c"/>
+  <circle cx="137" cy="127" r="4.0" fill="currentColor"/>
+  <circle cx="164" cy="127" r="4.6" fill="#ea580c"/>
+  <circle cx="191" cy="127" r="4.6" fill="#ea580c"/>
+  <circle cx="218" cy="127" r="4.0" fill="currentColor"/>
+  <text x="125.0" y="256" font-size="11.5" text-anchor="middle" fill="currentColor" opacity="0.85">one ray per class</text>
+  <text x="125.0" y="272" font-size="11.5" text-anchor="middle" fill="currentColor" opacity="0.85">the partition holds</text>
+  <rect x="262" y="14" width="226" height="270" rx="10" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/>
+  <text x="375.0" y="38" font-size="12.5" font-weight="700" text-anchor="middle" fill="currentColor">if (a, 0) were allowed</text>
+  <line x1="306" y1="208" x2="484.2" y2="208" stroke="currentColor" stroke-width="1.1" opacity="0.7"/>
+  <line x1="306" y1="218" x2="306" y2="105.4" stroke="currentColor" stroke-width="1.1" opacity="0.7"/>
+  <line x1="306" y1="208" x2="333" y2="181" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="333" cy="181" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="360" y2="181" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="360" cy="181" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="387" y2="181" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="387" cy="181" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="414" y2="181" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="414" cy="181" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="441" y2="181" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="441" cy="181" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="468" y2="181" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="468" cy="181" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="333" y2="154" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="333" cy="154" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="360" y2="154" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="360" cy="154" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="387" y2="154" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="387" cy="154" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="414" y2="154" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="414" cy="154" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="441" y2="154" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="441" cy="154" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="468" y2="154" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="468" cy="154" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="333" y2="127" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="333" cy="127" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="360" y2="127" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="360" cy="127" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="387" y2="127" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="387" cy="127" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="414" y2="127" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="414" cy="127" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="441" y2="127" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="441" cy="127" r="3.4" fill="currentColor"/>
+  <line x1="306" y1="208" x2="468" y2="127" stroke="#dc2626" stroke-width="1.1" stroke-opacity="0.6"/>
+  <circle cx="468" cy="127" r="3.4" fill="currentColor"/>
+  <ellipse cx="376" cy="154" rx="102" ry="90" fill="none" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <circle cx="306" cy="208" r="5" fill="#dc2626"/>
+  <text x="314" y="224" font-size="11.5" fill="#dc2626" font-weight="700">(0, 0)</text>
+  <text x="375.0" y="256" font-size="11.5" text-anchor="middle" fill="#dc2626">every pair ~ (0, 0)</text>
+  <text x="375.0" y="272" font-size="11.5" text-anchor="middle" fill="#dc2626">sameness collapses</text>
+</svg>`,
+                  }],
                 },
                 {
                   q: 'The integers were built from difference pairs, the rationals from fraction pairs. Compare the two constructions term by term: domain, sameness relation, zero, unit, embedding of the previous system.',

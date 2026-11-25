@@ -1100,6 +1100,67 @@ for (let b = 1; b <= 6; b++)
 }
 
 /* ------------------------------------------------------------------ */
+/* (U) audit-run 2026-11-25 pins: 7.1 enrichment (L5 set, census        */
+/* example) + the four solution figures (verify-first: every number    */
+/* the new prose/SVGs assert, pinned BEFORE writing)                   */
+/* ------------------------------------------------------------------ */
+{
+  // U1 — the 14 divisibility patterns on the |c|,|d| ≤ 6 square, derived
+  //      (the census table asserts "14 patterns × 4 sign combinations";
+  //      the new example walks the count row by row)
+  let pat = 0
+  const perRow: number[] = []
+  for (let c = 1; c <= 6; c++) {
+    let row = 0
+    for (let d = 1; d <= 6; d++) if (d % c === 0) row++
+    perRow.push(row)
+    pat += row
+  }
+  ok(perRow.join(',') === '6,3,2,1,1,1', 'U: the 14 patterns derived: |c|=1→6, =2→3, =3→2, =4→1, =5→1, =6→1 ✓')
+  ok(pat === 14 && pat * 4 === 56, 'U: 6+3+2+1+1+1 = 14 patterns, × 4 sign combinations = 56 — the census count cashed ✓')
+
+  // U2 — L5-Q1: the class sum [(2,3)] + [(1,2)] by two representative
+  //      choices; both landings must agree (well-definedness instance)
+  const s1 = qAdd(2, 3, 1, 2)
+  const s2 = qAdd(4, 6, 3, 6)
+  ok(s1[0] === 7 && s1[1] === 6, 'U: (2·2+3·1, 3·2) = (7, 6) — first-name sum ✓')
+  ok(s2[0] === 42 && s2[1] === 36, 'U: (4·6+6·3, 6·6) = (42, 36) — second-name sum ✓')
+  ok(eq(s1[0], s1[1], s2[0], s2[1]), 'U: 7·36 = 252 = 6·42 — one class, 7/6, either name ✓')
+  ok(reduce(42, 36)[0] === 7 && reduce(42, 36)[1] === 6, 'U: the desk confirms: reduce(42,36) = (7,6) ✓')
+
+  // U3 — L5-Q2: the general repair statement — for c ≠ 0 the class
+  //      [(d,c)] answers x·c = d, because (d,c)·(c,1) = (dc, c) ~ (d,1)
+  for (const [c, d] of [[2, 3], [5, 13], [4, -7], [-6, 5]] as [number, number][]) {
+    const w = qMul(d, c, c, 1)
+    ok(w[0] === d * c && w[1] === c && eq(w[0], w[1], d, 1), `U: x·${c} = ${d} answered by [(${d},${c})]: (${d},${c})·(${c},1) = (${d * c},${c}) ~ (${d},1) ✓`)
+  }
+
+  // U4 — solution figure (L2-Q2 bar model): 1/2 + 1/3 = 5/6 through
+  //      sixths; the shaded counts ARE the pair-formula terms
+  ok(val(1, 2) === 3 / 6 && val(1, 3) === 2 / 6 && 3 + 2 === 5, 'U: 1/2 = 3 sixths, 1/3 = 2 sixths, 3+2 = 5 sixths ✓')
+  const b = qAdd(1, 2, 1, 3)
+  ok(b[0] === 1 * 3 + 2 * 1 && b[1] === 2 * 3 && b[0] === 5 && b[1] === 6, 'U: the pair formula (1·3 + 2·1, 2·3) = (5, 6) — the bar counts and the pair seats agree ✓')
+
+  // U5 — solution figure (L3-Q1 ray zoom): the slope-2/5 class marching
+  //      out the ray — four hops of (+2,+5) from the seed (2,5)
+  const hops: [number, number][] = [[2, 5], [4, 10], [6, 15], [8, 20], [10, 25]]
+  ok(eq(2, 5, 10, 25) && 2 * 25 === 50 && 5 * 10 === 50, 'U: (2,5) ~ (10,25): cross-products 50 = 50 ✓')
+  for (let i = 0; i < hops.length - 1; i++) {
+    ok(eq(hops[i][0], hops[i][1], hops[i + 1][0], hops[i + 1][1]), `U: hop ${i + 1}: (${hops[i][0]},${hops[i][1]}) ~ (${hops[i + 1][0]},${hops[i + 1][1]}) — every hop stays on the ray ✓`)
+  }
+  ok(reduce(10, 25)[0] === 2 && reduce(10, 25)[1] === 5, 'U: reduce(10,25) = (2,5) — the seed is the desk of the multiple ✓')
+
+  // U6 — solution figure (Example-1 desk panel): gcd labels on the arrows
+  ok(gcd(12, 8) === 4 && gcd(6, 3) === 3 && gcd(6, 4) === 2 && gcd(0, 5) === 5, 'U: the desk arrows: gcd(12,8)=4, gcd(6,3)=3, gcd(6,4)=2, gcd(0,5)=5 ✓')
+  ok(reduce(12, 8)[0] === 3 && reduce(12, 8)[1] === 2 && reduce(-6, 4)[0] === -3 && reduce(-6, 4)[1] === 2, 'U: desk rows: (12,8)→(3,2), (−6,4)→(−3,2) ✓')
+
+  // U7 — solution figure (L6-Q1 collapse panel): with (0,0) admitted,
+  //      every pair relates to (0,0) — the universal class swallows all
+  ok(3 * 0 === 0 * 3 && (-5) * 0 === 7 * 0, 'U: (a,b) ~ (0,0) reads a·0 = b·0 = 0 — true for EVERY pair, signs irrelevant ✓')
+  ok(1 * 0 === 1 * 0, 'U: even the unit (1,1) ~ (0,0) — the collapse swallows the unit class too ✓')
+}
+
+/* ------------------------------------------------------------------ */
 /* report                                                              */
 /* ------------------------------------------------------------------ */
 console.log(`\nverify-book2-ch07: ${pass} checks pass, ${fail} fail`)

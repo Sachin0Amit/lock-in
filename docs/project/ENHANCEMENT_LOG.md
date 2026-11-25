@@ -1041,3 +1041,22 @@ clean). RESUME_POINTER / PROGRESS / WORK_INVENTORY / DETAILED_LOG untouched
 
 **Verification:** VERIFY-FIRST — verify-book2-ch06.ts extended with section V4 (10 new pins: V4a–V4e the inventory example, V4f the wall case 5 − 5 = [(7,7)], V4g–V4h the factoring routes, V4i–V4j the existence/uniqueness sweeps) BEFORE any prose was written; 244 → 254/254 green. All SVG coordinates computed from named constants (generator /home/z/my-project/scripts/audit-figs-6-3.py). VLM strict: body figure PASS (one terminology false-positive trail recorded — have/owe is house vocabulary), 4 solution figures PASS (2 first time, 2 after one fix round each; one spatial flag disproven by pixel measurement). npx tsc unavailable (node_modules missing — pulled the wrong stub; established fallback: bun-import syntax + shape validation of ch-06.ts — 47 blocks, 1 body figure, 2 example figures + 2 question figures, 16 questions, all SVGs viewBox+aria'd). Static XML + pixel-margin DOM-gate substitution (audit-svg-overlaps.sh NAV FAIL — dev server not running, 9th consecutive precedent). No AI-generated images (nothing texture-class — walks/bars/lines/pair-spaces are all SVG by law).
 
+
+
+---
+
+## 2026-11-25 — audit-bot run: ans-from-fractions-to-the-rational-system (ANS 7.1 'From Fractions to the Rational System')
+
+**Pass B — 4 solution figures added** (schema: `figures: SolutionFigure[]`):
+1. **Example-1** (canonical reduction of four inscriptions + the refusal) — *the reception desk*: five lanes, inscription chip -> gcd arrow -> canonical chip in chapter orange, the fifth lane refused in red at a wall ('not an object').
+2. **L2-Q2** (1/2 + 1/3 through the pair formula) — *the common-denominator bar model*: three bars over one six-column grid, 3 amber + 2 teal = 5 green sixths; the note ties the shaded counts to the numerator seats of (5, 6).
+3. **L3-Q1** ((2,5) ~ (10,25)) — *the slope-2/5 ray zoom*: amber seed, four dashed hops of (+2,+5), the emphasized multiple 'four hops out', the cross-product witness.
+4. **L6-Q1** (transitivity needs d != 0) — *partition vs collapse*: left the 18-dot lattice with three example rays (the partition, transitivity drawn); right every dot bound to (0,0) inside one red universal class (the collapse, the failure witness in house red).
+
+12 candidate solutions judged and refused with reasons (see FIGURE_AUDIT_LOG INFO line).
+
+**Pass C — 2 enrichments INTO the existing lesson:**
+1. New example *'Count the 14 patterns yourself — the census arithmetic, derived'* after the division-census table (the 6+3+2+1+1+1 = 14 column walk, x 4 sign combinations = 56 of 144).
+2. New **L5 exercise set** (2 questions) — the ladder's missing level: the two-name class-sum landing on 7/6 (well-definedness, named) and the general repair statement [(d,c)] answers x*c = d (proved through the pair algebra, both chapter probes checked, uniqueness forward-referenced to 7.2).
+
+**Verification:** VERIFY-FIRST — verify-book2-ch07.ts extended with section U (22 new pins: U1 the 14-pattern derivation; U2 the two-name sum landings (7,6)/(42,36); U3 the general witness (d,c)*(c,1) ~ (d,1) swept on four sign cases; U4 the bar-model counts; U5 the five ray hops each equivalent; U6 the desk gcd labels; U7 the collapse cross-products) BEFORE any prose — 239 -> 261/261 green. All SVG coordinates computed from named constants (generator /home/z/my-project/scripts/audit-figs-7-1.py, text-extent margin asserts, offline static XML gate with <g> attribute inheritance, pixel-margin measurement per figure). VLM strict: body figure PASS light+dark untouched; 4 solution figures PASS (1 first time, 3 after fix rounds — one real generator axis-swap caught by the offline gate, one real ray-terminus-short caught by VLM, one arrowhead-attach ambiguity fixed, three colour claims disproven by direct pixel census and logged). npx tsc unavailable (node_modules missing — the wrong-stub pull; established fallback): bun-import syntax + shape validation of ch-07.ts — 48 blocks, 1 body figure + 4 solution figures, 3 examples, 16 questions L1-L6 complete, all SVGs viewBox'd + aria'd, braces 1683/1683 balanced, backticks even. No AI-generated images (nothing texture-class — desks, bars, rays and panel contrasts are all SVG by law).
