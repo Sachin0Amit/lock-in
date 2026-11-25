@@ -7491,3 +7491,7 @@ audit-bot run — lesson ans-the-field-laws-division-joins-the-family: A=1 figur
 **The dev-compile wall (operational fact for RUN 9):** a fresh dev server compiles the grown 479KB ch-04 module slowly (~5-10 min per lesson route observed; queued requests wedge the server) — warm the fire's routes in a BACKGROUND curl immediately after assembly and run the cheap gates while they compile. RUN 9 opens with the warm-up first, then the riders.
 
 **Lane-convergence note (honest record):** this fire ran through a context rollover with the owner in-channel; the pre-rollover agent batch and the post-rollover orchestrator converged on ONE chapter close without loss — first-shipped-stands applied within the lane, the run-8 commit `425b42a` carrying both sides' work (the alias-the-chapter-import verifier hardening, the type-import restoration, the cf41/cf42 typing fixes, the shelf-gate apostrophe repair, and the ghost batch's assembly + ledgers + v9.1 amendments 5-8). No work was discarded; the tree stayed clean throughout.
+
+## 2026-11-26 — CS RUN 8 post-push addendum push record (no token)
+
+**Push verified:** the addendum commit `5612a6c` pushed as `192b063..5612a6c`; anonymous ls-remote confirms the synced HEAD sha is `5612a6c65e9c6ed939cc48ea8cc54ca8b9b96df3` — SYNCED. The tree is clean; RUN 9 opens riders-first (2 VLM re-captures, e2e 4.1/4.2 both modes + the 4.R desktop recheck, warm-first) then ch.5 'Software Families' WHOLE.
