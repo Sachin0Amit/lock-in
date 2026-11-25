@@ -96,7 +96,7 @@ for (const b of cs) {
   ok(EXPECTED_CHAPTERS[b.id] === b.chapters.length, `${b.id} chapter count pins ${EXPECTED_CHAPTERS[b.id]} (got ${b.chapters.length})`)
 }
 ok(totCh === 364, `shelf total 364 chapters (got ${totCh})`)
-ok(totPl === 1224, `shelf total 1224 planned lessons + reviews (got ${totPl})`) // 1222 planned + the cf ch.1 1.R and ch.2 2.R unit reviews (authored CS RUN 2 + CS RUN 4; every closed chapter adds one review beyond the planned census)
+ok(totPl === 1225, `shelf total 1224 planned lessons + reviews (got ${totPl})`) // 1222 planned + the cf ch.1 1.R and ch.2 2.R unit reviews (authored CS RUN 2 + CS RUN 4; every closed chapter adds one review beyond the planned census)
 
 console.log('== C. planned-chapter hygiene ==')
 for (const b of cs) {
@@ -167,7 +167,7 @@ ok(survey.length > 40_000, `survey substantial (${survey.length} chars)`)
 
 console.log('== I. the authoring-era census (the cs lane opened the shelf 2026-11-21) ==')
 const csWritten = cs.reduce((n, b) => n + b.chapters.reduce((m, c) => m + c.lessons.length, 0), 0)
-ok(csWritten === 11, 'exactly 11 written lessons in the CS shelf (CS RUN 1 + RUN 2 + RUN 3 + RUN 4 + RUN 5: computer-fundamentals 1.1 + 1.2 + 1.3 + the 1.R review + 2.1 + 2.2 + 2.3 + the 2.R review + 3.2 + 3.6 + 3.7, chapters 1 AND 2 COMPLETE, chapter 3 in-progress) — the pin grows with the cs lane')
+ok(csWritten === 17, 'exactly 17 written lessons in the CS shelf (CS RUN 1..6: computer-fundamentals 1.1 + 1.2 + 1.3 + the 1.R review + 2.1 + 2.2 + 2.3 + the 2.R review + the full chapter 3 — 3.1..3.8 + the 3.R review, chapters 1, 2 AND 3 COMPLETE) — the pin grows with the cs lane')
 
 // ---- summary ----
 console.log(`\nverify-cs-shelf-planning: ${pass} checks passed, ${fail} failed`)

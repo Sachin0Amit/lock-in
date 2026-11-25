@@ -795,3 +795,18 @@ server.log
 !/scripts/gen-cs5-e2e.py
 # CS RUN 5 — the chapter verifier + the shelf gates' amended pins
 !/scripts/verify-cs-book2-ch03.ts
+# CS RUN 6 (CF ch.3 closed COMPLETE) — the per-lesson E2E pairs
+!/scripts/e2e-cf-31.sh
+!/scripts/e2e-cf-31.page.js
+!/scripts/e2e-cf-33.sh
+!/scripts/e2e-cf-33.page.js
+!/scripts/e2e-cf-34.sh
+!/scripts/e2e-cf-34.page.js
+!/scripts/e2e-cf-35.sh
+!/scripts/e2e-cf-35.page.js
+!/scripts/e2e-cf-38.sh
+!/scripts/e2e-cf-38.page.js
+!/scripts/e2e-cf-3R.sh
+!/scripts/e2e-cf-3R.page.js
+!/scripts/assemble_cs6.py
+!/scripts/gen-cs6-e2e.py

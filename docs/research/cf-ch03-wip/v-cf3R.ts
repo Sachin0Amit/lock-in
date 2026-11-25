@@ -158,7 +158,12 @@ ok('B5  the regroup check: 2D spreads to 0010 1101; 101101 groups in threes to 5
   ['2', 'D'].map((d) => val(d, 16).toString(2).padStart(4, '0')).join('') === '00101101' &&
   ['101', '101'].map((g) => val(g, 2).toString()).join('') === '55')
 ok('B6  the grouping law: one octal digit = 3 bits (2^3 = 8); one hex digit = 4 bits (2^4 = 16)',
-  2 ** 3 === 8 && 8 === toBase(8, 2).length + 5 && 2 ** 4 === 16)
+  // repaired 2026-11-25 (cf3R seat): the shipped condition
+  // `8 === toBase(8, 2).length + 5` is arithmetically impossible
+  // (toBase(8,2) = '1000', length 4). The grouping law, verified
+  // honestly: the LARGEST octal digit 7 is 111 (3 bits) and the
+  // LARGEST hex digit F = 15 is 1111 (4 bits).
+  2 ** 3 === 8 && toBase(7, 2).length === 3 && 2 ** 4 === 16 && toBase(15, 2).length === 4)
 ok('B7  two hex digits = the byte: 16^2 = 256 = 2^8; 16^4 = 65,536; 16^6 = 16,777,216',
   16 ** 2 === 256 && 256 === 2 ** 8 && 16 ** 4 === 65536 && 16 ** 6 === 16777216)
 ok('B8  hex beyond the byte: 1,000 = 3E8; FFF = 16^3 - 1 = 4,095',
@@ -248,7 +253,13 @@ ok('E1  RLE: AABBCCCCCD (10 chars) -> 2A2B5C1D (8 chars); "AB" -> "1A1B" doubles
   rle('AABBCCCCCD') === '2A2B5C1D' && 'AABBCCCCCD'.length === 10 && '2A2B5C1D'.length === 8 &&
   rle('AB') === '1A1B' && '1A1B'.length === 2 * 2)
 ok('E2  Huffman depths on {A:5, B:2, C:1, D:1}: A = 1, B = 2, C = 3, D = 3',
-  JSON.stringify(huffDepths({ A: 5, B: 2, C: 1, D: 1 })) === JSON.stringify({ A: 1, B: 2, C: 3, D: 3 }))
+  // repaired 2026-11-25 (cf3R seat): JSON.stringify compares KEY
+  // ORDER, and huffDepths emits {B,C,D,A} insertion order, so the
+  // original string equality could never hold. Compare per key.
+  (() => {
+    const d = huffDepths({ A: 5, B: 2, C: 1, D: 1 })
+    return d.A === 1 && d.B === 2 && d.C === 3 && d.D === 3
+  })())
 ok('E3  the counts: fixed 2-bit code = 9 x 2 = 18 bits; Huffman = 5+4+3+3 = 15 bits; the saving 3 bits = 16.67%',
   9 * 2 === 18 && 5 * 1 + 2 * 2 + 1 * 3 + 1 * 3 === 15 && (((18 - 15) / 18) * 100).toFixed(2) === '16.67')
 ok('E4  the canonical code A=0, B=10, C=110, D=111 is prefix-free and round-trips the 9-symbol message in 15 bits',

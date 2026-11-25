@@ -18127,36 +18127,66 @@
             "slug": "data-representation-first-meeting",
             "title": "Data Representation: a First Meeting",
             "summary": "Bits, the binary language, and why two symbols carry everything: the numbering systems census (binary, octal and hexadecimal with the conversion craft), codes (ASCII and its characters, BCD), measuring information (bit, byte, KB to the honest SI ladder), text, images and sound as bits (the multimedia ground), and compression as the packing question (lossless versus lossy — what images and audio actually give up). The full theory hands off to Arithmetic and Number Systems and Digital Logic Design.",
-            "status": "in-progress",
-            "lessonsWritten": 3,
-            "plannedLessons": [
-              "Bits: Why Two Symbols Carry Everything",
-              "Codes: ASCII, Unicode and BCD",
-              "Text, Images and Sound as Bits",
-              "Compression: Lossless and Lossy",
-              "Decimal and Binary Number System"
-            ],
+            "status": "complete",
+            "lessonsWritten": 9,
+            "plannedLessons": [],
             "lessons": [
-              {
+                {
+                "number": "3.1",
+                "title": "Bits: Why Two Symbols Carry Everything",
+                "id": "cf-bits-why-two-symbols-carry-everything",
+                "words": 9813
+              },
+                {
                 "number": "3.2",
                 "title": "The Numbering Systems: Binary, Octal, Hexadecimal",
                 "id": "cf-the-numbering-systems-binary-octal-hexadecimal",
                 "words": 9389
               },
-              {
+                {
+                "number": "3.3",
+                "title": "Codes: ASCII, Unicode and BCD",
+                "id": "cf-codes-ascii-unicode-and-bcd",
+                "words": 11992
+              },
+                {
+                "number": "3.4",
+                "title": "Text, Images and Sound as Bits",
+                "id": "cf-text-images-and-sound-as-bits",
+                "words": 9397
+              },
+                {
+                "number": "3.5",
+                "title": "Compression: Lossless and Lossy",
+                "id": "cf-compression-lossless-and-lossy",
+                "words": 9166
+              },
+                {
                 "number": "3.6",
                 "title": "Decimal to Binary Conversion",
                 "id": "cf-decimal-to-binary-conversion",
                 "words": 9502
               },
-              {
+                {
                 "number": "3.7",
                 "title": "Binary to Decimal Conversion",
                 "id": "cf-binary-to-decimal-conversion",
                 "words": 9777
+              },
+                {
+                "number": "3.8",
+                "title": "Decimal and Binary Number System",
+                "id": "cf-decimal-and-binary-number-system",
+                "words": 8162
+              },
+                {
+                "number": "3.R",
+                "title": "Unit 3 Completion Review",
+                "id": "cf-unit-3-completion-review",
+                "words": 8140
               }
             ],
-            "words": 28668
+            "words": 85338
           },
           {
             "number": 4,

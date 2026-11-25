@@ -352,8 +352,14 @@ ok('G21 svg census: 4 body + 5 solution = 9 svgs present', allSvgs.length === 9,
 ok('G22 svg hygiene: no $, no backslash, no unicode subscript or minus signs',
   allSvgs.every((s) => !s.includes('$') && !s.includes('\\') && !s.includes('\u2082') && !s.includes('\u2212') && !s.includes('\u00d7') && !s.includes('\u00b7')))
 {
+  /* repair (this seat, CS RUN 6): the original regex carried a stray
+   * trailing apostrophe — /font-size="(\d+(?:\.\d+)?)"'/ — which can never
+   * match a well-formed SVG attribute list (it matched 0 sizes against the
+   * shipped part, "min Infinity"). Aligned with the sibling engines
+   * (v-cf36/v-cf37 both use /font-size="([\d.]+)"/g). Intent unchanged:
+   * every font size >= 9px across > 40 text elements. */
   const sizes: number[] = []
-  for (const s of allSvgs) for (const m of s.matchAll(/font-size="(\d+(?:\.\d+)?)"'/g)) sizes.push(Number(m[1]))
+  for (const s of allSvgs) for (const m of s.matchAll(/font-size="([\d.]+)"/g)) sizes.push(Number(m[1]))
   ok('G23 svg text is at least 9px everywhere', sizes.length > 40 && sizes.every((x) => x >= 9), `min ${Math.min(...sizes)}`)
 }
 

@@ -1,4 +1,4 @@
-# cf-ch03-wip — the CS RUN 5 preservation directory (TRACKED, recycle-proof)
+# cf-ch03-wip — the chapter-3 provenance directory (TRACKED) — CLOSED COMPLETE by CS RUN 6
 
 Computer Fundamentals chapter 3 'Data Representation: a First Meeting'
 — the CS RUN 5 ship (2026-11-25) and the CS RUN 6 resumption kit.
@@ -44,3 +44,12 @@ Computer Fundamentals chapter 3 'Data Representation: a First Meeting'
 Ground: the sanctioned internet fallback, citation key
 `cs-cf-web-ground` (docs/project/SOURCE_LOG.md, the 2026-11-25 entry
 carries every URL). STUDY-NEVER-REPRODUCE absolute.
+
+## CLOSED — the CS RUN 6 stamp (2026-11-25)
+
+All six remaining seats shipped green this fire: cf31 116/116 (9,813 w), cf33 149/149 (11,992 w),
+cf34 112/112 (9,397 w), cf35 105/105 (9,166 w — its round-2 agent was killed by a platform
+server_shutdown yet landed complete), cf38 107/107 (8,162 w), cf3R 88/88 (8,140 w). The
+assembler scripts/assemble_cs6.py folded the nine parts into the shipped ch-03.ts (status
+complete, plannedLessons []) and grew the verifier to 1130/1130. This directory now stands as
+the tracked provenance record of the two-fire chapter — do not delete.

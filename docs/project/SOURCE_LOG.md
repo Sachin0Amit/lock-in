@@ -3277,3 +3277,7 @@ The ch.3 pins web-verified this fire (every one engine-asserted in scripts/verif
 - Boole, 'An Investigation of the Laws of Thought', 1854; Shannon's 1937 MIT master's thesis 'A Symbolic Analysis of Relay and Switching Circuits' (cs.virginia.edu shannon38.pdf).
 
 No book scans; no working copies; this entry is the citation record. STUDY-NEVER-REPRODUCE absolute: every roster, witness, figure, Illustration, quiz item and exercise in 3.2 + 3.6 + 3.7 is OUR OWN, pinned by scripts/verify-cs-book2-ch03.ts (424/424). The key `cs-cf-web-ground` rides the lesson footers of the shipped seats.
+
+### 2026-11-25 (CS RUN 6) — the chapter-3 close consumed the banked ground; no new sources
+
+CS RUN 6 authored the six remaining chapter-3 seats entirely from the CS RUN 5 bank: the nine seat specs + SPEC_CORE, the 112/112 pre-flight pin checker and the web-verified `cs-cf-web-ground` citation key (every date/number pinned there — see the run-5 entry below for the full URL list). No new downloads, no new citations, no Drive reads this fire. The wip directory docs/research/cf-ch03-wip/ now carries the nine shipped parts + nine green engines as the tracked provenance record of the two-fire chapter.

@@ -10,44 +10,16 @@ import { chapter3 } from './ch-03'
  * STATUS: IN-PROGRESS — chapter 1 COMPLETE (4 written lessons: 1.1 +
  * 1.2 by the CS RUN 1 SWARM, 1.3 + the 1.R unit completion review by
  * the CS RUN 2 SWARM), chapter 2 COMPLETE (2.1 'Input Devices: the
- * Human Handshake' + 2.2 'Output Devices: Screens, Printers and Sound'
- * by the CS RUN 3 SWARM, 2026-11-23; 2.3 'Interacting Well: the First
- * Usability Instincts' + the 2.R 'Unit 2 Completion Review' by the CS
- * RUN 4 SWARM, 2026-11-24 — the whole-chapter cadence, the chapter
- * closed COMPLETE in one fire), chapter 3 OPENED IN-PROGRESS by the CS
- * RUN 5 SWARM, 2026-11-25 (3.2 'The Numbering Systems: Binary, Octal,
- * Hexadecimal' + 3.6 'Decimal to Binary Conversion' + 3.7 'Binary to
- * Decimal Conversion' shipped whole; 3.1, 3.3, 3.4, 3.5, 3.8 + the 3.R
- * review ride CS RUN 6 per the time-budget law — the preserved
- * engines + specs live in docs/research/cf-ch03-wip/), chapters 4–8
- * planned (the remaining 19 planned lessons). Lesson ids
- * use the `cf-` prefix (verified unused across all existing lesson ids
- * at the planning pass; globally unique, stable forever).
- *
- * POSITIONING (no-duplication contract): the binary/codes chapter defers
- * the full number-systems theory to Arithmetic and Number Systems and the
- * gate-level view to Digital Logic Design (both named as doorsteps); this
- * book keeps only the first-meeting treatment. The network chapter hands
- * off to Computer Networks; the security chapter to Cybersecurity. It
- * cross-references the whole CS shelf as the zero-rung entry.
- *
- * RESEARCH PHASE (2026-11-15):
- * - Drive (docs/research/CS_TOC_SURVEY.md): no dedicated fundamentals
- *   reference on the Drive (honest note) — web-researched.
- * - Web-checked 2026-11-15: Peter Norton, 'Introduction to Computers' 6e
- *   (ch. 1 Introducing Computer Systems; 2 Interacting with Your
- *   Computer; the software/storage/networks/security arcs) — the classic
- *   fundamentals arc.
- * - Syllabus audit: the CBSE/beginner computer-science arcs and the GATE
- *   CSE register's expectation of machine literacy before the core.
- * - Exam types: school/board descriptive + the aptitude-style reasoning
- *   found in banking/SSC computer-awareness papers.
- * - EXAM-TOPIC COVERAGE PASS (2026-11-15, owner directive: "make sure
- *   those exams topics are to be covered in the books see if any topics
- *   is missing in cs books"): the Cambridge 9618 + IOI lines audited — the numbering-systems and compression lessons added. The routing/verdict record is
- *   docs/research/CS_EXAM_TOPIC_LEDGER.md; the standing gate is
- *   scripts/verify-cs-exam-coverage.ts.
- */
+ * Human Handshake' + 2.2 'Output Devices: Screens, Printers and
+ * Sound' by the CS RUN 3 SWARM, 2026-11-23; 2.3 'Interacting Well:
+ * the First Usability Instincts' + the 2.R 'Unit 2 Completion Review'
+ * by the CS RUN 4 SWARM, 2026-11-24 — the whole-chapter cadence, the
+ * chapter closed COMPLETE in one fire), chapter 3 COMPLETE (3.2 +
+ * 3.6 + 3.7 by the CS RUN 5 SWARM, 3.1 + 3.3 + 3.4 + 3.5 + 3.8 + the
+ * 3.R review by the CS RUN 6 SWARM, 2026-11-25 — the chapter opened
+ * and closed across two fires under the time-budget law, engines
+ * green before prose in every seat), chapters 4–8 planned (the
+ * remaining 19 planned lessons). */
 const chapters: Chapter[] = [
   chapter01,
   chapter02,
