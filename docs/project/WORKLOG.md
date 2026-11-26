@@ -7614,3 +7614,7 @@ scripts/.zai-runtime/ and scripts/.hero-audit/.
 **The deferral:** the chapter is NOT closed and MUST NOT be half-assembled — ch-03.ts is not touched this run (the run-126 pattern: banked wip, assembly on close). Lessons 3.2 (criteria + the SSA witness), 3.3 (isosceles/pons asinorum), 3.4 (inequalities), 3.5 (Ceva/Menelaus), 3.6 (Stewart) ride run 129 as a five-seat swarm, then the chapter assembles, gates and closes whole.
 
 **Bookkeeping:** SOURCE_LOG run-128 block (the full reference record incl. both honesty catches); RESUME_POINTER re-pointed (run 129 = the five remaining seats, then assemble + gates + close per the assemble_run127 pattern); PROGRESS phase/awaiting refreshed; WORK_INVENTORY regenerated (wip is not counted — 224 written stands); DETAILED_LOG row appended. No commit of temporary-references/ (gitignored — the reference PDFs stay local until unit completion).
+
+## 2026-11-27 — RUN 128 push record (no token)
+
+**Push verified:** the run's commit `50d78a6` pushed as a clean fast-forward `fd8250c..50d78a6`; anonymous ls-remote confirms refs/heads/main == `50d78a61a083e7fcbfb1bffd92f1cfd5bf5ac41b` == local HEAD — **SYNCED**. The PAT lived only inside the single push command's URL — never written to any file, config, log or message, never echoed or printed. The tree is clean. RUN 129 continues GEOMETRY ch.3 (the five remaining seats from their banked specs, solo relaunch on any empty subagent response, then assemble + gates + close whole).
