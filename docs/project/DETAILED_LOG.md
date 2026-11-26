@@ -3905,3 +3905,10 @@ GREEN; verify-cs-book2-ch02 GREEN; verify-cs-book2-ch04 542/542 GREEN;
 verify-cs-book2-ch03 1128 pass / 2 fail — Z19 + Z23 proven pre-existing
 (stash-and-rerun proof recorded in WORKLOG/ENHANCEMENT_LOG), stale
 shelf-census pins owned by the CS RUN 9 riders.
+
+## CS RUN 9 (2026-11-26) — row
+
+- Step-0 ff bd4dee1 → 727b0e5 (hero pass); the DB-pack staleness diagnosed + repacked (221 lessons).
+- Riders: ch.3 verifier Z-pins refreshed 1130/1130; 2 VLM re-captures PASS (ch.3 sweep 18/18); e2e chain regenerated + calibrated but reaped twice — rides RUN 10 (5th deferral).
+- Ch.5 swarm 4/4 engine-green in docs/research/cf-ch05-wip/ (129/111/136/118; words 12,689 + 9,911 + 11,041 + 9,304 = 42,945; quiz keys pairwise distinct); pin_check_cs9 54/54 pre-flight.
+- The cap call: assembly + gates + close ride RUN 10 riders-first (never half-gated).

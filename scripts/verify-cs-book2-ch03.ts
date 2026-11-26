@@ -4071,13 +4071,13 @@ async function sectionZ(): Promise<SectionResult> {
   z('Z16 book status in-progress (chapters 4-8 remain)', computerFundamentals.status === 'in-progress', computerFundamentals.status)
   z('Z17 eight chapters on the book map', computerFundamentals.chapters.length === 8, String(computerFundamentals.chapters.length))
   z('Z18 chapters 1 + 2 + 3 complete', computerFundamentals.chapters[0].status === 'complete' && computerFundamentals.chapters[1].status === 'complete' && computerFundamentals.chapters[2].status === 'complete', computerFundamentals.chapters.slice(0, 3).map((c) => c.status).join(','))
-  z('Z19 chapters 4-8 still planned', computerFundamentals.chapters.slice(3).every((c) => c.status === 'planned'))
+  z('Z19 chapters 5-8 still planned (ch.4 closed by RUN 8)', computerFundamentals.chapters.slice(4).every((c) => c.status === 'planned'))
   z('Z20 the cf- prefix in use', ids.every((id) => id.startsWith('cf-')))
   z('Z21 every lesson carries a real body', chapter3.lessons.every((l) => l.blocks.length >= 40))
   const bookWords = chapter3.lessons.reduce((m, l) => m + countLessonWords(l), 0)
   console.log(`  Z shipped chapter word count: ${bookWords}`)
   z('Z22 the shipped body is non-trivial (> 80,000 words)', bookWords > 80000, String(bookWords))
-  z('Z23 the shelf census grows to 17 written lessons (8 + 9)', computerFundamentals.chapters.reduce((n, c) => n + c.lessons.length, 0) === 17, String(computerFundamentals.chapters.reduce((n, c) => n + c.lessons.length, 0)))
+  z('Z23 the shelf census grows to 22 written lessons (8 + 9 + 5)', computerFundamentals.chapters.reduce((n, c) => n + c.lessons.length, 0) === 22, String(computerFundamentals.chapters.reduce((n, c) => n + c.lessons.length, 0)))
   return { id: 'Z', pass, fail }
 }
 

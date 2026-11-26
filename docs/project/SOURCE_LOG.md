@@ -3317,3 +3317,32 @@ No AI-generated images (all five solution figures and the body-figure rebuild ar
   copied or traced. (For the record, the two content-filter blocks hit
   during generation — a hard-disk close-up phrasing and one processor
   phrasing — were reworded and regenerated, not sourced elsewhere.)
+
+## cs-cf-web-ground-ch05 — the chapter 5 'Software Families' internet fallback (CS RUN 9, 2026-11-26)
+
+The Drive holds no computer-fundamentals source (the standing survey); the
+sanctioned internet fallback per the CS pointer, banked before the swarm
+launched. Consulted and study-never-reproduced (concepts and canonical
+censuses verified; every roster, figure, Illustration, quiz item and
+exercise is OUR OWN):
+
+- Wikipedia, 'System software' — system software as the platform for other
+  software; kernel, device drivers, utilities as the canonical members.
+  https://en.wikipedia.org/wiki/System_software
+- eCampusOntario Pressbooks, 'Information Systems for Business and Beyond'
+  (Canadian ed.) 4.3 Application Software — the productivity family
+  (word processors, email clients, presentation and spreadsheet editors).
+  https://ecampusontario.pressbooks.pub/informationsystemscdn/chapter/4-3-application-software
+- Zylo, 'What Is a Software License? Types, Models, and Examples' — the
+  licence-family census shape (proprietary, open source, freeware,
+  shareware). https://zylo.com/blog/software-license
+- Coderus, 'A Complete Guide to Different Types of Software' — content
+  access software and application suites as distinct families.
+  https://www.coderus.com/software-101-a-complete-guide-to-the-different-types-of-software
+
+Dated beats carried into the lessons are canonical public knowledge,
+cross-checked at write time: GM-NAA I/O 1956 (IBM 704); UNIX 1969 (Bell
+Labs); Xerox Alto 1973; Apple Macintosh 1984; VisiCalc 1979; Photoshop
+1990; GNU Project announced 1983; FSF 1985; Linux announced 1991; Apple
+App Store July 2008 (~500 apps); Windows XP end of support 8 April 2014;
+Windows 10 end of support 14 October 2025.
