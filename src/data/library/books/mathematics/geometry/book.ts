@@ -1,11 +1,13 @@
 import type { Book, Chapter } from '../../../types'
 import { chapter1 } from './ch-01'
+import { chapter2 } from './ch-02'
 
 /**
  * Geometry — the fifth book of the Mathematics shelf.
  *
- * STATUS: IN-PROGRESS (run 125, 2026-11-25 — chapter 1 CLOSED COMPLETE:
- * all four lessons shipped by the authoring swarm; ch.2 rides next).
+ * STATUS: IN-PROGRESS (run 126, 2026-11-26 — chapter 2 OPENED 1/4 with
+ * 2.1 'Angles: Types, Pairs and Measures'; 2.3 and 2.4 landed whole and
+ * banked green in the wip; run 127 salvages 2.2 and closes the chapter).
  * Planning pass 2026-11-10: 12 chapters / 50 planned lessons. The research phase for this book was
  * web-audit based (the Drive's mathematics collection is JEE-centric: its
  * geometry lives inside the M3 Coordinate Geometry module and Khattar's
@@ -50,21 +52,7 @@ import { chapter1 } from './ch-01'
  */
 const chapters: Chapter[] = [
   chapter1,
-  {
-    number: 2,
-    slug: 'angles-and-parallel-lines',
-    title: 'Angles, Parallel Lines and the Transversal',
-    summary:
-      'Angles measured, named and paired; then the parallel line and the transversal — the eight-angle census (corresponding, alternate, co-interior) that powers half of school geometry. The angle-sum of a triangle is DERIVED from the parallel postulate, and the exterior-angle inequality follows — the first classic theorems proved the honest way.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'Angles: Types, Pairs and Measures',
-      'Parallel Lines and the Fifth Postulate',
-      'The Transversal: the Eight-Angle Census',
-      'Angle Sum of a Triangle and Its Consequences',
-    ],
-  },
+  chapter2,
   {
     number: 3,
     slug: 'triangles-congruence-and-proof',

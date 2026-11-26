@@ -782,6 +782,8 @@ server.log
 !/scripts/e2e-aa-10R.sh
 !/scripts/e2e-aa-10R.page.js
 !/scripts/assemble_run123.py
+!/scripts/assemble_run126.py
+!/scripts/verify-book5-ch02.ts
 !/scripts/gen-aa10-e2e.py
 !/scripts/patch-inventory-aa10.ts
 # CS RUN 5 (CF ch.3 opened in-progress) — the per-lesson E2E pairs
