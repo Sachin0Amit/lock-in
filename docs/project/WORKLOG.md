@@ -7586,3 +7586,7 @@ scripts/.zai-runtime/ and scripts/.hero-audit/.
 **The amendment-8 call:** the close + the VLM fix cycle consumed the budget honestly — no ch.3 opening this run (run 128 opens 'Triangles: Congruence and the Craft of Proof' WHOLE per the re-pointed pointer).
 
 **Bookkeeping:** this WORKLOG entry; RESUME_POINTER re-pointed (run 128 = GEOMETRY ch.3 whole-chapter open, six planned lessons); PROGRESS phase/awaiting refreshed; DETAILED_LOG row appended; RUN_PROTOCOL's CURRENT STATE SNAPSHOT brought current (both lanes); WORK_INVENTORY regenerated. No new sources consumed (the run-126 geo-ch02-web-ground register stands; this run was salvage, assembly and gates).
+
+## 2026-11-26 — RUN 127 push record (no token)
+
+**Push verified:** the run's commit `b908a63` pushed as a clean fast-forward `a93627f..b908a63`; anonymous ls-remote confirms refs/heads/main == `b908a63f984f1163699b74c583609c11dc44d7dd` == local HEAD — **SYNCED**. The PAT lived only inside the single push command's URL — never written to any file, config, log or message, never echoed or printed. The tree is clean; RUN 128 opens GEOMETRY ch.3 'Triangles: Congruence and the Craft of Proof' WHOLE per the re-pointed RESUME_POINTER (six planned lessons, one agent per lesson, staged seats per amendment 5).
