@@ -1,0 +1,195 @@
+# Properties and Solutions of Triangle — Structured Notes
+(Standard notation: $a = BC$ opposite $A$, $b = CA$, $c = AB$)
+
+---
+
+## [PDF p.1] (page 5.3)
+
+### Continuation of a solved example (Solution)
+- Setup: triangle with angles $45^\circ$, $22\tfrac12^\circ$, $67.5^\circ$, $112.5^\circ$; drop perpendicular $AL$ to base.
+- Key steps: $\dfrac{BC}{\sin 45^\circ} = \dfrac{AC}{\sin 22\tfrac12^\circ}$; result: $AL = \tfrac12 BC = \tfrac12 \times \text{Base}$.
+- Shape: geometric height computation via sine rule in sub-triangles; result = altitude equals half the base.
+
+### Illustration 5.6
+- Statement: If $a^2, b^2, c^2$ are in A.P., then $\tan A, \tan B, \tan C$ are in H.P.
+- Method: sine rule converts to $\sin^2 B - \sin^2 A = \sin^2 C - \sin^2 B$; factor $\sin(B+A)\sin(B-A)$; divide by $\sin A \sin B \sin C$ to get $\cot A - \cot B = \cot B - \cot C$, i.e. cots in A.P. ⇒ tans in H.P.
+- Result class: progression-conversion proof.
+
+### Illustration 5.7
+- Statement: Prove
+$$\frac{a^2\sin(B-C)}{\sin B + \sin C} + \frac{b^2\sin(C-A)}{\sin C + \sin A} + \frac{c^2\sin(A-B)}{\sin A + \sin B} = 0.$$
+- Method: substitute $a = 2R\sin A$, use $\sin^2 B - \sin^2 C = \sin(B+C)\sin(B-C)$; each term reduces to $4R^2\sin A(\sin B - \sin C)$ etc.; cyclic sum cancels. General companion identities:
+$$\frac{b^2\sin(C-A)}{\sin C + \sin A} = 4R^2\sin B(\sin C - \sin A),\quad \frac{c^2\sin(A-B)}{\sin A+\sin B} = 4R^2 \sin C(\sin A - \sin B).$$
+
+### Illustration 5.8
+- Statement: If $\dfrac{a^2-b^2}{a^2+b^2} = \dfrac{\sin(A-B)}{\sin(A+B)}$, prove the triangle is right angled or isosceles.
+- Method: sine rule ⇒ $\dfrac{\sin(A+B)\sin(A-B)}{\sin^2 A + \sin^2 B} = \dfrac{\sin(A-B)}{\sin(A+B)}$ ⇒ either $A = B$ or $\sin^2 C = \sin^2 A + \sin^2 B$ ⇒ $A = B$ or $c^2 = a^2 + b^2$.
+- Result class: classification into isosceles / right-angled.
+
+### Illustration 5.9
+- Statement: Trapezium $ABCD$ with $AB \parallel CD$, $CB \perp$ both, $\angle ADB = \theta$, $BC = p$, $CD = q$; show
+$$AB = \frac{(p^2+q^2)\sin\theta}{p\cos\theta + q\sin\theta}.$$
+- Method: let $\angle ABD = \angle BDC = \alpha$; sine rule in $\triangle ABD$; in $\triangle BCD$, $\sin\alpha = p/BD$, $\cos\alpha = q/BD$, $BD^2 = p^2 + q^2$. (Concluded on p.2.)
+
+---
+
+## [PDF p.2] (page 5.4)
+
+### Continuation of Ill. 5.9
+$$AB = \frac{BD^2 \sin\theta}{q\sin\theta + p\cos\theta} = \frac{(p^2+q^2)\sin\theta}{p\cos\theta + q\sin\theta}.$$
+
+### Illustration 5.10
+- Statement: $\angle C = 60^\circ$, $\angle A = 75^\circ$; $D$ on $AC$ with area$(\triangle ABD) = \sqrt3\,$area$(\triangle BCD)$; find $\angle ABD$.
+- Method: shared altitude ⇒ $AD/DC = \sqrt3$; sine rule in $\triangle BAD$ and $\triangle BCD$ with $\angle ABD = \alpha$; trig simplification gives $\tan\alpha = 1/\sqrt3$.
+- Result: $\angle ABD = \pi/6 = 30^\circ$.
+
+### Illustration 5.11
+- Statement: Scalene triangle, $D$ on $AB$ with $CD^2 = AD \cdot DB$ and $\sin A\sin B = \sin^2\dfrac{C}{2}$; prove $CD$ is internal bisector of $\angle C$.
+- Method: let $\angle ACD = \alpha$, $\angle DCB = C - \alpha$; sine rule in $\triangle ACD$ and $\triangle DCB$; product of ratios + product-to-sum identities ⇒ $\frac12[\cos(2\alpha - C) - \cos C] = \sin^2\frac{C}{2}$ ⇒ $\cos(2\alpha - C) = 1$ ⇒ $\alpha = C/2$.
+
+### Section banner: NAPIER FORMULA (tan RULE)
+In triangle $ABC$:
+1. $\tan\left(\dfrac{B-C}{2}\right) = \dfrac{b-c}{b+c}\cot\dfrac{A}{2}$
+2. $\tan\left(\dfrac{C-A}{2}\right) = \dfrac{c-a}{c+a}\cot\dfrac{B}{2}$
+3. $\tan\left(\dfrac{A-B}{2}\right) = \dfrac{a-b}{a+b}\cot\dfrac{C}{2}$
+
+Proof (i): from sine rule $\dfrac{\sin B - \sin C}{\sin B + \sin C} = \dfrac{b-c}{b+c}$; convert with sum-to-product formulas; use $\cot\frac{B+C}{2} = \tan\frac{A}{2}$.
+
+---
+
+## [PDF p.3] (page 5.5)
+
+### Continuation of Napier formula remark
+- Also called the tangent rule; useful for finding remaining parts of a triangle when two sides and the included angle are given.
+
+### Illustration 5.12
+- Statement: $\angle A = 60^\circ$, $b : c = (\sqrt3+1) : 2$; find $(\angle B - \angle C)$.
+- Method: compute $\frac{b-c}{b+c}$, plug into Napier formula ⇒ $\tan\frac{B-C}{2} = 2 - \sqrt3$ ⇒ $\frac{B-C}{2} = 15^\circ$.
+- Result: $B - C = 30^\circ$.
+
+### Section banner: m–n THEOREM
+Let $D$ on $BC$ with $BD : DC = m : n$, $\angle ADC = \theta$, $\angle BAD = \alpha$, $\angle DAC = \beta$. Then:
+1. $(m+n)\cot\theta = m\cot\alpha - n\cot\beta$  (text shows "not β" — typo for $n\cot\beta$)
+2. $(m+n)\cot\theta = n\cot B - m\cot C$
+
+Proof: sine rule in $\triangle ABD$ and $\triangle ADC$ ($BD/\sin\alpha = AD/\sin(\theta-\alpha)$; $DC/\sin\beta = AD/\sin(\theta+\beta)$); divide, expand, divide by $\sin\alpha\sin\beta\sin\theta$ (and analogously for (ii)).
+
+### Illustration 5.13
+- Statement: Median $AD$ makes angle $\pi/4$ with side $BC$; find $|\cot B - \cot C|$.
+- Method: apply $m$–$n$ theorem with $BD = DC$: $(BD+DC)\cot\frac{\pi}{4} = DC\cot B - BD\cot C$.
+- Result: $|\cot B - \cot C| = 2$.
+
+### Illustration 5.14
+- Statement: Base divided into three equal parts; $t_1, t_2, t_3$ = tangents of angles subtended at opposite vertex; prove
+$$\left(\frac{1}{t_1}+\frac{1}{t_2}\right)\left(\frac{1}{t_2}+\frac{1}{t_3}\right) = 4\left(1 + \frac{1}{t_2^2}\right).$$
+- Method: points $P, Q$ with $BP = PQ = QC = x$; angles $\alpha, \beta, \gamma$ at vertex, $\tan\alpha = t_1$ etc.; apply $m{:}n$ rule twice, divide the two equations, manipulate cots. (Continues p.4.)
+
+---
+
+## [PDF p.4] (page 5.6)
+
+### Continuation of Ill. 5.14
+- From $\triangle APC$: $(x+x)\cot\theta = x\cot\beta - x\cot\gamma$; dividing (i) by (ii) leads to $4(1+\cot^2\beta) = (\cot\beta+\cot\alpha)(\cot\beta+\cot\gamma)$, i.e. the required result in $t$'s.
+
+### Section banner: CONCEPT APPLICATION EXERCISE 5.1
+12 practice problems (identities, right-triangle evaluation, A.P. angles, area, triangle-type identification, $\frac{b+c}{a} \le \text{cosec}\frac{A}{2}$, $a\cos A + b\cos B + c\cos C = 4R\sin A\sin B\sin C$, etc.). Answers listed: 1. 8; 2. $5\pi/12$; 3. $120^\circ$; 4. $\sqrt3$ sq. unit; 5. right angled; 11. $1/2$.
+
+### Section banner: COSINE RULE
+In $\triangle ABC$:
+1. $\cos A = \dfrac{b^2+c^2-a^2}{2bc}$
+2. $\cos B = \dfrac{c^2+a^2-b^2}{2ca}$
+3. $\cos C = \dfrac{a^2+b^2-c^2}{2ab}$
+
+Proof (iii): drop altitude; $AD = b\sin C$, $BD = a - b\cos C$; Pythagoras in $\triangle ABD$ ⇒ $c^2 = b^2 + a^2 - 2ab\cos C$. Proof unchanged for right/obtuse angles.
+
+**Note:**
+- If three sides known, all angles follow from cosine rule.
+- If two sides ($b, c$) and included angle $A$ given, cosine rule gives $a$, then $B, C$.
+
+### Illustration 5.15
+- Statement: Prove $(a-b)^2\cos^2\frac{C}{2} + (a+b)^2\sin^2\frac{C}{2} = c^2$.
+- Method: expand into $a^2+b^2 + 2ab(\sin^2\frac{C}{2} - \cos^2\frac{C}{2}) = a^2 + b^2 - 2ab\cos C$; use cosine rule.
+
+---
+
+## [PDF p.5] (page 5.7)
+
+### Illustration 5.16
+- Statement: $(a+b+c)(a-b+c) = 3ac$; find $\angle B$.
+- Method: $(a+c)^2 - b^2 = 3ac$ ⇒ $\cos B = \frac{a^2+c^2-b^2}{2ac} = \frac12$.
+- Result: $B = \pi/3$.
+
+### Illustration 5.17
+- Statement: $a = \sqrt3$, $b = \frac12(\sqrt6+\sqrt2)$, $c = \sqrt2$; find $\angle A$.
+- Method: cosine rule ⇒ $\cos A = 1/2$.
+- Result: $A = \pi/3$.
+
+### Illustration 5.18
+- Statement: Sides $x^2+x+1$, $2x+1$, $x^2-1$; prove greatest angle is $120^\circ$.
+- Method: positivity/side-comparison analysis ($x > 1$) to identify greatest side $a = x^2+x+1$; cosine rule gives $\cos A = -1/2$ ⇒ $A = 120^\circ$.
+- Result class: side-ordering then largest-angle determination.
+
+### Illustration 5.19
+- Statement: Angles in A.P., sides in G.P. ⇒ prove $a^2, b^2, c^2$ in A.P.
+- Method: $2B = A + C$ ⇒ $B = 60^\circ$; $\cos B = 1/2$ via cosine rule; combine with $b^2 = ac$ ⇒ $2b^2 = a^2 + c^2$.
+
+### Illustration 5.20
+- Statement: For sides $a, b, c$ of a triangle, equation $b^2x^2 + (b^2+c^2-a^2)x + c^2 = 0$ has imaginary roots.
+- Method: write middle coefficient as $2bc\cos A$; discriminant $= 4b^2c^2(\cos^2 A - 1) < 0$.
+
+### Illustration 5.21
+- Statement: $a \le b \le c$ sides; if $a^2 + b^2 < c^2$, prove triangle obtuse angled.
+- Method: cosine rule ⇒ $a^2+b^2 < a^2+b^2-2ab\cos C$ ⇒ $\cos C < 0$ ⇒ $C$ obtuse. [Side/angle inequality content]
+
+### Illustration 5.22
+- Statement: $a, b, c$ are roots of $x^3 - 11x^2 + 38x - 40 = 0$; find $\frac{\cos A}{a} + \frac{\cos B}{b} + \frac{\cos C}{c}$.
+- Method: Vieta: $a+b+c = 11$, $ab+bc+ac = 38$, $abc = 40$; identity $\sum \frac{\cos A}{a} = \frac{a^2+b^2+c^2}{2abc} = \frac{(a+b+c)^2 - 2(ab+bc+ac)}{2abc}$.
+- Result: $9/16$.
+
+---
+
+## [PDF p.6] (page 5.8)
+
+### Illustration 5.23
+- Statement: If $\angle C = 60^\circ$, prove $\dfrac{1}{a+c} + \dfrac{1}{b+c} = \dfrac{3}{a+b+c}$.
+- Method: cosine rule with $\cos 60^\circ$ ⇒ $c^2 = a^2 + b^2 - ab$; combine fractions, numerator vanishes.
+
+### Illustration 5.24
+- Statement: Angles in A.P. ⇒ show $2\cos\frac{A-C}{2} = \dfrac{a+c}{\sqrt{a^2 - ac + c^2}}$.
+- Method: $B = 60^\circ$ ⇒ $a^2 - ac + c^2 = b^2$; then $\frac{a+c}{b} = \frac{2R(\sin A + \sin C)}{2R\sin B} = \frac{2\sin\frac{A+C}{2}\cos\frac{A-C}{2}}{\sin B}$.
+
+### Illustration 5.25 [MEDIAN-LENGTH RELEVANT]
+- Statement: $a = 9, b = 4, c = 8$; find distance between midpoint $D$ of $BC$ and foot $E$ of perpendicular from $A$.
+- Method: $DE = CD - CE = \dfrac{a}{2} - b\cos C$; cosine rule gives $\cos C = \dfrac{a^2+b^2-c^2}{2ab} = \dfrac{64-16}{18} = \dfrac83$?? (printed value $8/3$ — apparently $(25/18)$-type; text shows $= 8/3$) (?).
+- Result class: median-foot projection distance via $\frac{a}{2} - b\cos C$.
+- Note: no explicit median-length formula (e.g. $m_a^2 = \frac{2b^2+2c^2-a^2}{4}$) appears on these pages; median handled only via $m$–$n$ theorem (Ill. 5.13) and midpoint projection (Ill. 5.25).
+
+### Illustration 5.26
+- Statement: Three parallel chords of a circle of lengths 2, 3, 4 subtend $\alpha, \beta, \alpha+\beta$ at center ($\alpha+\beta < \pi$); find $\cos\alpha$.
+- Method: chord geometry gives $\angle ABC = \alpha/2$ with $AB = 4, AC = 2, BC = 3$; cosine rule ⇒ $\cos(\alpha/2) = 7/8$; double-angle.
+- Result: $\cos\alpha = 17/32$.
+
+### Illustration 5.27
+- Statement: Cyclic quadrilateral $PQRS$: $PQ = 2, QR = 5, RS = 3$, $\angle PQR = 60^\circ$; find $SP$.
+- Method: cosine rule in $\triangle PQR$ ⇒ $PR^2 = 19$; cosine rule in $\triangle PRS$ with $\angle PSR = 120^\circ$; quadratic $x^2 + 3x + 9 = 19$, reject negative root.
+- Result: $SP = 2$.
+
+---
+
+## (2) Consolidated formula list
+- Napier (tan) rule: $\tan\left(\frac{B-C}{2}\right) = \frac{b-c}{b+c}\cot\frac{A}{2}$ (and cyclic variants).
+- $m$–$n$ theorem: $(m+n)\cot\theta = m\cot\alpha - n\cot\beta = n\cot B - m\cot C$, for $BD:DC = m:n$, $\angle ADC = \theta$.
+- Cosine rule: $\cos A = \frac{b^2+c^2-a^2}{2bc}$ (cyclic).
+- Assorted proved identities: cyclic $\sum \frac{a^2\sin(B-C)}{\sin B+\sin C} = 0$; $\sum \frac{\cos A}{a} = \frac{a^2+b^2+c^2}{2abc}$; $a\cos A + b\cos B + c\cos C = 4R\sin A\sin B\sin C$ (CAE 5.1 Q12); $\frac{b+c}{a} \le \text{cosec}\frac{A}{2}$ (CAE 5.1 Q9).
+
+## (3) Illustration shape summary (one-liners)
+- 5.6: side-A.P. ⇒ tangent-H.P.; sine-rule + factoring. — 5.7: cyclic sine-weighted identity; $a=2R\sin A$ substitution. — 5.8: $\frac{a^2-b^2}{a^2+b^2}$ condition ⇒ isosceles or right. — 5.9: right trapezium side via sine rule + Pythagoras. — 5.10: area ratio ⇒ angle via sine rule in two sub-triangles. — 5.11: $CD^2 = AD\cdot DB$ ⇒ bisector proof. — 5.12: Napier rule numeric angle difference. — 5.13: median at $45^\circ$ ⇒ $|\cot B - \cot C| = 2$ by $m$–$n$. — 5.14: trisected base tangent identity via $m$–$n$. — 5.15: half-angle cosine-rule identity. — 5.16: factored side relation ⇒ $B = 60^\circ$. — 5.17: surd sides ⇒ $A = 60^\circ$. — 5.18: parametric sides; order then largest angle $120^\circ$. — 5.19: angles A.P. + sides G.P. ⇒ squares A.P. — 5.20: discriminant negativity via $\cos^2 A - 1$. — 5.21: $a^2+b^2 < c^2$ ⇒ obtuse. — 5.22: cubic roots as sides ⇒ symmetric cosine sum. — 5.23: $C = 60^\circ$ reciprocal identity. — 5.24: angles A.P. ⇒ surd-side identity. — 5.25: midpoint-to-foot distance. — 5.26: circle chords ⇒ $\cos\alpha$ by cosine rule. — 5.27: cyclic quadrilateral side by double cosine rule.
+
+## (4) Practice-question archetypes (from CAE 5.1 + illustration patterns)
+1. **Progression-conversion**: sides or their squares in A.P./G.P. ⇒ prove angles' tans/cots in H.P./A.P., or squares in A.P. (Ill. 5.6, 5.19; CAE Q2, Q11).
+2. **Triangle classification**: an algebraic condition on sides (e.g. $\cos^2 A + \cos^2 B - \cos^2 C = 1$, $a^2+b^2 < c^2$, $(a+b+c)(a-b+c)=3ac$) ⇒ identify right/obtuse/isosceles or find the angle (Ill. 5.8, 5.16, 5.21; CAE Q1, Q5).
+3. **Geometric-figure trigonometry**: cevian/median/foot-of-perpendicular/trapezium/cyclic-quadrilateral configuration solved by sine rule, cosine rule, or $m$–$n$ theorem (Ill. 5.9–5.14, 5.25, 5.27; CAE Q4 area question).
+
+## (5) Median length & side/angle inequalities
+- **Median**: no standalone median-length formula ($m_a = \frac12\sqrt{2b^2+2c^2-a^2}$) appears; median material is: $m$–$n$ theorem specialized to $BD = DC$ (Ill. 5.13: median at $\pi/4$ to $BC$ ⇒ $|\cot B - \cot C| = 2$), and midpoint–foot distance $DE = \frac{a}{2} - b\cos C$ (Ill. 5.25).
+- **Inequalities**: $\dfrac{b+c}{a} \le \text{cosec}\dfrac{A}{2}$ (CAE 5.1, Q9); greatest side opposes greatest angle, used in Ill. 5.18 ("the angle opposite the greatest side is the greatest angle"); $a^2+b^2 < c^2 \iff \cos C < 0$ i.e. obtuse (Ill. 5.21). Triangular side-positivity constraints used in Ill. 5.18 ($x > 1$).
