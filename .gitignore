@@ -816,3 +816,17 @@ server.log
 # CS RUN 7 — the ch.4 assembler + verifier (the established whitelist pattern)
 !/scripts/assemble_cs7.py
 !/scripts/verify-cs-book2-ch04.ts
+
+# RUN 127 (maths lane, GEOMETRY ch.2 close) — the assembler, the e2e generator + four pairs, the VLM sweep tooling
+!/scripts/assemble_run127.py
+!/scripts/gen-geo127-e2e.py
+!/scripts/e2e-geo-21.sh
+!/scripts/e2e-geo-21.page.js
+!/scripts/e2e-geo-22.sh
+!/scripts/e2e-geo-22.page.js
+!/scripts/e2e-geo-23.sh
+!/scripts/e2e-geo-23.page.js
+!/scripts/e2e-geo-24.sh
+!/scripts/e2e-geo-24.page.js
+!/scripts/sweep_vlm_geo127.sh
+!/scripts/audit_vlm_geo127.sh

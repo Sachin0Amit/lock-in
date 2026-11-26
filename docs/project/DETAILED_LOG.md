@@ -3912,3 +3912,10 @@ shelf-census pins owned by the CS RUN 9 riders.
 - Riders: ch.3 verifier Z-pins refreshed 1130/1130; 2 VLM re-captures PASS (ch.3 sweep 18/18); e2e chain regenerated + calibrated but reaped twice — rides RUN 10 (5th deferral).
 - Ch.5 swarm 4/4 engine-green in docs/research/cf-ch05-wip/ (129/111/136/118; words 12,689 + 9,911 + 11,041 + 9,304 = 42,945; quiz keys pairwise distinct); pin_check_cs9 54/54 pre-flight.
 - The cap call: assembly + gates + close ride RUN 10 riders-first (never half-gated).
+
+### run 127 (maths lane, :50 IST, 2026-11-26) — GEOMETRY ch.2 CLOSED COMPLETE 4/4
+- Step-0 synced (a93627f == remote); tree clean. Riders-first: the 2.2 salvage split into two seats (127-a prose in-place +7,669... final 7,769 words, all prose pins green; 127-b back half landed 47KB whole on disk despite the agent's wall — write-early-often); splice -> v-geo202 72/72, 11,909 words.
+- assemble_run127.py: ch-02.ts (4,492 lines) + verify-book5-ch02 (4 sections + Z closed census) + book.ts STATUS. Verifier 435/435; pack v3 224 written / 1,387,927 words; standing gates 667 + 4023 + 1176; tsc lane-scoped 0 (10 pre-existing errors in the CS lane's cf-ch05-wip, owned by CS RUN 10); lint 0 err.
+- E2E x4 x3 viewports 192/192 (gen-geo127-e2e.py, live-probe-calibrated pins; quiz 5/5 live on [1,2,0,1,2]/[1,2,0,3,1]/[2,0,3,1,2]/[1,3,0,2,1]; harness regex broadened for custom quiz titles).
+- VLM sweep 44 crops / 8 calls: 2.2 + 2.4 clean; 2 defects (2.1 protractor label overlap; 2.3 I.27-box clip) fixed at part level, re-assembled, re-verified 435/435, re-audited PASS.
+- Run 128 per RESUME_POINTER: GEOMETRY ch.3 'Triangles: Congruence and the Craft of Proof' whole-chapter open.

@@ -510,7 +510,7 @@ export const lessonGeo203: Lesson = {
     {
       kind: 'figure',
       caption: 'The reduction graph. Three converse hypotheses (green boxes) each fold through one free vertex fact (amber boxes) onto the alternate-interior equality a3 = a5 (orange box), which Euclid I.27 converts into parallelism. The alternate-exterior route passes through the corresponding equality on its way down. No route touches the fifth postulate.',
-      svg: geo23Svg(880, 486, 'A flow diagram: three given-condition boxes at the top, each with an arrow through a vertex-fact box, all converging on one landing box stating a3 equals a5, with a final note that I.27 finishes the job.', [
+      svg: geo23Svg(880, 512, 'A flow diagram: three given-condition boxes at the top, each with an arrow through a vertex-fact box, all converging on one landing box stating a3 equals a5, with a final note that I.27 finishes the job.', [
         geo23Txt(440, 26, 'EVERY CONVERSE ROUTE LANDS ON a3 = a5', 13.5, c23.ink, 'middle', '700'),
         geo23Rect(40, 48, 230, 64, c23.panel, c23.green),
         geo23Txt(155, 74, 'GIVEN corresponding', 13, c23.ink),
@@ -540,9 +540,9 @@ export const lessonGeo203: Lesson = {
         geo23Txt(440, 338, 'a3 = a5 \u2014 alternate interior equality', 13.5, c23.orange, 'middle', '700'),
         geo23Txt(440, 360, 'the Z-pattern certificate', 12, c23.mid),
         geo23Arrow(440, 382, 440, 420, c23.green, 2.4),
-        geo23Rect(230, 424, 420, 50, c23.panel, c23.green),
+        geo23Rect(230, 424, 420, 72, c23.panel, c23.green),
         geo23Txt(440, 446, 'Euclid I.27 \u2014 no fifth postulate: m \u2225 n', 13, c23.ink, 'middle', '700'),
-        geo23Txt(440, 476, 'all three routes: converse direction only', 11.5, c23.tealInk),
+        geo23Txt(440, 484, 'all three routes: converse direction only', 11.5, c23.tealInk),
       ]),
     },
     {

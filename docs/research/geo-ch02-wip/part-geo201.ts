@@ -203,11 +203,14 @@ export const lessonGeo201: Lesson = {
         }
         for (let d = 0; d <= 180; d += 30) {
           const [x, y] = p(R + 24, -d)
-          parts.push(geo21Txt(x, y + 4, String(d), 11.5, c21.tealInk))
+          /* the end labels (d = 0, 180) sit clear of the baseline stroke (VLM fix, run 127) */
+          const dy = d === 0 || d === 180 ? 18 : 4
+          parts.push(geo21Txt(x, y + dy, String(d), 11.5, c21.tealInk))
         }
         for (let d = 0; d <= 180; d += 30) {
           const [x, y] = p(R - 56, -d)
-          parts.push(geo21Txt(x, y + 4, String(180 - d), 11.5, c21.mid))
+          const dy = d === 0 || d === 180 ? 18 : 4
+          parts.push(geo21Txt(x, y + dy, String(180 - d), 11.5, c21.mid))
         }
         const [rx, ry] = p(R, -50)
         parts.push(geo21Line(ox, oy, rx, ry, c21.orange, 3))
@@ -220,7 +223,10 @@ export const lessonGeo201: Lesson = {
         const [wx, wy] = p(R - 56, -50)
         parts.push(geo21Line(wx - 6, wy - 6, wx + 6, wy + 6, c21.red, 2))
         parts.push(geo21Line(wx + 6, wy - 6, wx - 6, wy + 6, c21.red, 2))
-        parts.push(geo21Txt(wx + 10, wy + 24, 'wrong scale: 130°', 12, c21.red, 'start', '700'))
+        /* the wrong-scale label moved below the ray, clear of the 30 tick and the
+           inner-scale arc (VLM fix, run 127): a thin leader ties it to the X mark */
+        parts.push(geo21Line(553, 190, 560, 238, c21.red, 1.4))
+        parts.push(geo21Txt(566, 252, 'wrong scale: 130°', 12, c21.red, 'start', '700'))
         parts.push(geo21Txt(450, 356, 'outer scale runs 0 → 180 left to right; inner scale runs 180 → 0 — one reading is right, the other is its supplement', 12, c21.tealInk))
         return geo21Svg(900, 370, 'A half-circle protractor with two rim scales and a ray at fifty degrees: the correct outer-scale reading of fifty degrees in green and the wrong inner-scale reading of one hundred thirty degrees crossed out in red.', parts)
       })(),

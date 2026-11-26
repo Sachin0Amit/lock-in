@@ -5,50 +5,10 @@ import { chapter2 } from './ch-02'
 /**
  * Geometry — the fifth book of the Mathematics shelf.
  *
- * STATUS: IN-PROGRESS (run 126, 2026-11-26 — chapter 2 OPENED 1/4 with
- * 2.1 'Angles: Types, Pairs and Measures'; 2.3 and 2.4 landed whole and
- * banked green in the wip; run 127 salvages 2.2 and closes the chapter).
- * Planning pass 2026-11-10: 12 chapters / 50 planned lessons. The research phase for this book was
- * web-audit based (the Drive's mathematics collection is JEE-centric: its
- * geometry lives inside the M3 Coordinate Geometry module and Khattar's
- * aptitude chapters — no dedicated classical-geometry reference; see
- * docs/research/DRIVE_TOC_SURVEY.md). Lesson ids will use the `geo-`
- * prefix (verified unused across all existing lesson ids). The book flips
- * to 'in-progress' with its first written lesson; the one-book-at-a-time
- * authoring order is unchanged (Advanced Algebra opens first).
- *
- * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Foundation
- * Mathematics chapter 8 'Geometry Foundations' banked the shape vocabulary
- * — the point/line/plane words, the basic figures, the first measurement
- * instincts — and FM 9 'Measurement' banked perimeter, area and volume
- * formulas as facts. THIS book rebuilds geometry as a PROOF-DRIVEN subject:
- * Euclid's axiomatic method, the congruence criteria as theorems with
- * proofs, similarity as FM 6's ratio ground made geometric, Pythagoras
- * PROVED (not quoted), the circle theorems, and the classical
- * ruler-and-compass discipline that the rationalized NCERT dropped from
- * the textbook (an honest note this book records while restoring it — the
- * classic canon keeps it). It hands off to Coordinate Geometry (figures
- * meet algebra), Trigonometry (the triangle measured), and — for the proof
- * craft at the frontier — the olympiad ladder.
- *
- * RESEARCH PHASE (2026-11-10, web-checked):
- * - School canon: NCERT class 9 (rationalized) — Introduction to Euclid's
- *   Geometry, Lines and Angles, Triangles, Quadrilaterals, Circles, Heron's
- *   Formula, Surface Areas and Volumes (chapter list web-checked
- *   2026-11-10; the NEP-transition class 9 book 'Ganita Manjari' rolls out
- *   2025-26 with reorganised chapters — noted, the rationalized list
- *   remains the mapping reference); NCERT class 10 (rationalized) —
- *   Triangles, Circles, Areas Related to Circles, Surface Areas and
- *   Volumes (Constructions dropped in rationalization, restored here per
- *   the classic canon).
- * - Competitive scope: JEE Main folds school geometry into Coordinate
- *   Geometry (unit 4) and Trigonometry (unit 7) — the pure-geometry
- *   anchors are the olympiad ladder (RMO/IMO geometry is proof-driven) and
- *   aptitude geometry (SSC/banking mensuration, Khattar QA's geometry
- *   chapters, Drive id recorded in the survey).
- * - Classic arc: Euclid's Elements Book I (triangles, parallels,
- *   Pythagoras I.47) and Hilbert's Grundlagen der Geometrie (1899) — the
- *   rigour repair — frame chapters 1 and 10.
+ * STATUS: IN-PROGRESS (run 127, 2026-11-26 — chapters 1 AND 2 CLOSED
+ * COMPLETE: ch.2 'Angles, Parallel Lines and the Transversal' shipped
+ * all four lessons — 2.1 (run 126), the 2.2 two-seat salvage, 2.3 and
+ * 2.4 (banked run 126, assembled run 127); ch.3 rides the next fire).
  */
 const chapters: Chapter[] = [
   chapter1,

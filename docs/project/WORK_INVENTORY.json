@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-26 01:34:29 (Asia/Kolkata)",
+  "generated": "2026-11-26 22:28:53 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5117,8 +5117,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5064,
-                "readMins": 25,
+                "words": 5573,
+                "readMins": 28,
                 "concepts": [
                   "Density without bound: infinitely many rationals between any two",
                   "The long-division engine r → 10r mod b",
@@ -5147,7 +5147,7 @@
                 ],
                 "blockCounts": {
                   "para": 11,
-                  "callout": 4,
+                  "callout": 5,
                   "heading": 6,
                   "derivation": 4,
                   "example": 2,
@@ -5161,7 +5161,7 @@
                 },
                 "calloutTones": {
                   "historical": 1,
-                  "insight": 1,
+                  "insight": 2,
                   "warn": 1,
                   "exam": 1
                 },
@@ -5171,13 +5171,14 @@
                   "L2": 4,
                   "L3": 3,
                   "L4": 2,
+                  "L5": 2,
                   "L6": 2
                 },
-                "exerciseQuestions": 15,
+                "exerciseQuestions": 17,
                 "termsDefined": 8
               }
             ],
-            "words": 16221
+            "words": 16730
           },
           {
             "number": 8,
@@ -14068,7 +14069,7 @@
         "description": "The book where mathematics becomes proof. Foundation Mathematics banked the shapes and their measures; this book rebuilds geometry the way Euclid did — undefined words, postulates, and theorems earned one argument at a time. Congruence and the triangle criteria, similarity and a Pythagoras that is finally proved, the parallelogram family, the circle theorems olympiad problems run on, the ruler-and-compass discipline the rationalized syllabus dropped, Heron’s formula and the solids — every formula either proved or honestly flagged. The book closes on the ideas that broke and rebuilt the subject: equivalents of the parallel postulate, Hilbert’s rigour repair, and the non-Euclidean geometries born from denying Euclid’s fifth. Cross-references Foundation Mathematics throughout; hands off to Coordinate Geometry, Trigonometry and the olympiad ladder.",
         "status": "in-progress",
         "chaptersPlanned": 12,
-        "chaptersWritten": 1,
+        "chaptersWritten": 2,
         "chapters": [
           {
             "number": 1,
@@ -14355,16 +14356,286 @@
             "slug": "angles-and-parallel-lines",
             "title": "Angles, Parallel Lines and the Transversal",
             "summary": "Angles measured, named and paired; then the parallel line and the transversal — the eight-angle census (corresponding, alternate, co-interior) that powers half of school geometry. The angle-sum of a triangle is DERIVED from the parallel postulate, and the exterior-angle inequality follows — the first classic theorems proved the honest way.",
-            "status": "planned",
-            "lessonsWritten": 0,
-            "plannedLessons": [
-              "Angles: Types, Pairs and Measures",
-              "Parallel Lines and the Fifth Postulate",
-              "The Transversal: the Eight-Angle Census",
-              "Angle Sum of a Triangle and Its Consequences"
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "geo-angles-types-pairs-and-measures",
+                "number": "2.1",
+                "title": "Angles: Types, Pairs and Measures",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 8798,
+                "readMins": 44,
+                "concepts": [
+                  "angle",
+                  "vertex",
+                  "degree",
+                  "angle bisector",
+                  "complementary angles",
+                  "supplementary angles",
+                  "linear pair",
+                  "vertically opposite angles"
+                ],
+                "objectives": [
+                  "Name an angle in all three notations, and identify its vertex, arms, interior and exterior",
+                  "Convert freely between degrees, minutes and seconds, and read a protractor without falling for the two-scale trap",
+                  "Classify any measure into the seven-family census, with honest treatment of the boundary values 90°, 180° and 360°",
+                  "Solve for unknown angles in complementary, supplementary, linear-pair and vertically-opposite configurations, including ratio problems",
+                  "Prove the two results of the lesson — vertically opposite angles are equal, and the bisectors of a linear pair are perpendicular",
+                  "Compute the angle between clock hands from the hand speeds 6° and 0.5° per minute"
+                ],
+                "prerequisites": [
+                  "geo-incidence-how-points-lines-and-planes-interlock"
+                ],
+                "sources": [
+                  "geo-euclid-elements",
+                  "geo-ch02-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 13,
+                  "para": 33,
+                  "callout": 15,
+                  "equation": 3,
+                  "figure": 4,
+                  "table": 1,
+                  "list": 3,
+                  "formula": 6,
+                  "derivation": 3,
+                  "example": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 6,
+                  "historical": 1,
+                  "warn": 3,
+                  "insight": 2,
+                  "theorem": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 11
+              },
+              {
+                "id": "geo-parallel-lines-and-the-fifth-postulate",
+                "number": "2.2",
+                "title": "Parallel Lines and the Fifth Postulate",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 11909,
+                "readMins": 60,
+                "concepts": [
+                  "parallel lines",
+                  "parallel postulate",
+                  "Playfair's axiom",
+                  "transversal",
+                  "same-side interior angles",
+                  "equidistant lines",
+                  "non-Euclidean geometry"
+                ],
+                "objectives": [
+                  "Define parallel lines precisely and explain why \"never meeting\" is a claim about the infinite that no drawing can settle",
+                  "Restate Euclid's fifth postulate in angle-arithmetic form and apply the meet-side verdict (sum under 180 degrees) with reasons",
+                  "Use the side-sum law — the two same-side interior sums add to 360 degrees — to convert any one-sided reading into the full verdict",
+                  "Unpack Playfair's 'exactly one' into its existence and uniqueness halves and say which half costs the fifth postulate",
+                  "Recount the historical ladder from Proclus to Bolyai with the pinned year gaps, and explain why the proof hunt had to fail",
+                  "State the parallel census across the Euclidean, spherical and hyperbolic geometries and explain the equidistance character of parallels"
+                ],
+                "prerequisites": [
+                  "geo-incidence-how-points-lines-and-planes-interlock",
+                  "geo-angles-types-pairs-and-measures"
+                ],
+                "sources": [
+                  "geo-euclid-elements",
+                  "geo-hilbert-grundlagen",
+                  "geo-ch02-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 8,
+                  "para": 30,
+                  "callout": 8,
+                  "equation": 1,
+                  "derivation": 2,
+                  "figure": 3,
+                  "formula": 4,
+                  "example": 2,
+                  "table": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 2,
+                  "insight": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 11
+              },
+              {
+                "id": "geo-the-transversal-the-eight-angle-census",
+                "number": "2.3",
+                "title": "The Transversal: the Eight-Angle Census",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9193,
+                "readMins": 46,
+                "concepts": [
+                  "transversal",
+                  "corresponding angles",
+                  "alternate interior angles",
+                  "alternate exterior angles",
+                  "co-interior angles",
+                  "vertically opposite angles",
+                  "the converse direction"
+                ],
+                "objectives": [
+                  "State the definition of a transversal and label all eight angles it creates under the chapter’s a1..a8 convention",
+                  "Recite and use the full eight-angle census when the lines are parallel: four corresponding pairs equal, two alternate pairs equal, two co-interior pairs supplementary",
+                  "Name the family of any angle pair by POSITION alone, without waiting for a recognisable picture",
+                  "Distinguish the fifth-free converse direction (Euclid I.27 and I.28) from the forward direction (I.29, the fifth postulate’s first appearance)",
+                  "Reduce every converse route to the alternate-interior equality a3 = a5 using only vertical and linear facts",
+                  "Solve one-angle, zigzag and expression-on-the-census problems with a licensed reason for every step"
+                ],
+                "prerequisites": [
+                  "geo-incidence-how-points-lines-and-planes-interlock",
+                  "geo-angles-types-pairs-and-measures",
+                  "geo-parallel-lines-and-the-fifth-postulate"
+                ],
+                "sources": [
+                  "geo-euclid-elements",
+                  "geo-ch02-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 7,
+                  "para": 21,
+                  "callout": 9,
+                  "figure": 4,
+                  "table": 2,
+                  "list": 1,
+                  "derivation": 2,
+                  "example": 3,
+                  "terms": 1,
+                  "formula": 5,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 2,
+                  "theorem": 4,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 14
+              },
+              {
+                "id": "geo-angle-sum-of-a-triangle-and-its-consequences",
+                "number": "2.4",
+                "title": "Angle Sum of a Triangle and Its Consequences",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9083,
+                "readMins": 45,
+                "concepts": [
+                  "angle sum property",
+                  "exterior angle",
+                  "remote interior angles",
+                  "interior angle sum of a polygon",
+                  "exterior angle sum",
+                  "spherical excess",
+                  "triangle classification"
+                ],
+                "objectives": [
+                  "Reproduce the proof of Euclid I.32 — the 180° angle sum — naming every licence it uses, above all the one parallel line through the vertex",
+                  "State and apply the exterior angle theorem: the exterior angle equals the sum of the two remote interior angles, and exceeds each of them",
+                  "Classify triangles as acute, right or obtuse, and explain why a triangle can carry at most one non-acute angle",
+                  "Compute interior and exterior angle sums of any convex polygon by dissection and by the walk-around, including the honest decimals for the regular 7-gon and 11-gon",
+                  "Solve regular-polygon problems as two-equation systems built on interior + exterior = 180",
+                  "Describe the octant triangle on a sphere, compute its spherical excess, and explain why the 180° sum and the parallel postulate stand or fall together"
+                ],
+                "prerequisites": [
+                  "geo-incidence-how-points-lines-and-planes-interlock",
+                  "geo-angles-types-pairs-and-measures",
+                  "geo-parallel-lines-and-the-fifth-postulate",
+                  "geo-the-transversal-the-eight-angle-census"
+                ],
+                "sources": [
+                  "geo-euclid-elements",
+                  "geo-ch02-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 9,
+                  "para": 23,
+                  "callout": 8,
+                  "derivation": 4,
+                  "figure": 4,
+                  "example": 3,
+                  "formula": 6,
+                  "table": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "theorem": 1,
+                  "historical": 1,
+                  "definition": 1,
+                  "insight": 3,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 9
+              }
             ],
-            "lessons": [],
-            "words": 0
+            "words": 38983
           },
           {
             "number": 3,
@@ -17855,8 +18126,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 7865,
-                "readMins": 39,
+                "words": 7905,
+                "readMins": 40,
                 "concepts": [
                   "the information processing cycle: input, processing, output, storage",
                   "the five functional units of the von Neumann machine",
@@ -17880,6 +18151,7 @@
                 ],
                 "blockCounts": {
                   "para": 24,
+                  "image": 1,
                   "heading": 11,
                   "callout": 17,
                   "example": 8,
@@ -17920,7 +18192,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 8248,
+                "words": 8280,
                 "readMins": 41,
                 "concepts": [
                   "the hardware families census",
@@ -17944,6 +18216,7 @@
                 ],
                 "blockCounts": {
                   "para": 32,
+                  "image": 1,
                   "heading": 8,
                   "callout": 19,
                   "figure": 3,
@@ -17984,7 +18257,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 8659,
+                "words": 8692,
                 "readMins": 43,
                 "concepts": [
                   "software: the instructions, their data and their documentation",
@@ -18012,6 +18285,7 @@
                 ],
                 "blockCounts": {
                   "para": 21,
+                  "image": 1,
                   "heading": 8,
                   "callout": 14,
                   "example": 9,
@@ -18111,7 +18385,7 @@
                 "termsDefined": 15
               }
             ],
-            "words": 32372
+            "words": 32477
           },
           {
             "number": 2,
@@ -18129,7 +18403,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 9369,
+                "words": 9401,
                 "readMins": 47,
                 "concepts": [
                   "input devices and the input unit",
@@ -18159,6 +18433,7 @@
                 "blockCounts": {
                   "heading": 12,
                   "para": 33,
+                  "image": 1,
                   "callout": 19,
                   "figure": 3,
                   "terms": 6,
@@ -18198,7 +18473,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 8717,
+                "words": 8746,
                 "readMins": 44,
                 "concepts": [
                   "output devices",
@@ -18224,6 +18499,7 @@
                 ],
                 "blockCounts": {
                   "para": 34,
+                  "image": 1,
                   "figure": 3,
                   "callout": 13,
                   "list": 3,
@@ -18264,7 +18540,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 10250,
+                "words": 10280,
                 "readMins": 51,
                 "concepts": [
                   "usability: the quality question of the human–machine conversation",
@@ -18292,6 +18568,7 @@
                 ],
                 "blockCounts": {
                   "para": 32,
+                  "image": 1,
                   "heading": 10,
                   "callout": 7,
                   "list": 4,
@@ -18386,7 +18663,7 @@
                 "termsDefined": 12
               }
             ],
-            "words": 37067
+            "words": 37158
           },
           {
             "number": 3,
@@ -18404,7 +18681,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 9813,
+                "words": 9848,
                 "readMins": 49,
                 "concepts": [
                   "the two-symbol alphabet and the noise margin",
@@ -18433,6 +18710,7 @@
                 "blockCounts": {
                   "heading": 11,
                   "para": 34,
+                  "image": 1,
                   "callout": 14,
                   "figure": 4,
                   "terms": 6,
@@ -18603,7 +18881,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 9397,
+                "words": 9430,
                 "readMins": 47,
                 "concepts": [
                   "the media census: how many numbers, how fast",
@@ -18631,6 +18909,7 @@
                 "blockCounts": {
                   "heading": 10,
                   "para": 34,
+                  "image": 1,
                   "callout": 14,
                   "list": 1,
                   "equation": 3,
@@ -18997,7 +19276,7 @@
                 "termsDefined": 10
               }
             ],
-            "words": 85338
+            "words": 85406
           },
           {
             "number": 4,
@@ -19015,7 +19294,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 10458,
+                "words": 10490,
                 "readMins": 52,
                 "concepts": [
                   "the motherboard as the main printed circuit board",
@@ -19043,6 +19322,7 @@
                 "blockCounts": {
                   "heading": 6,
                   "para": 30,
+                  "image": 1,
                   "callout": 10,
                   "list": 1,
                   "table": 3,
@@ -19081,7 +19361,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 9955,
+                "words": 9992,
                 "readMins": 50,
                 "concepts": [
                   "the honest contract: fetch, decode, execute, write back",
@@ -19107,6 +19387,7 @@
                 ],
                 "blockCounts": {
                   "para": 30,
+                  "image": 1,
                   "callout": 16,
                   "list": 1,
                   "figure": 4,
@@ -19146,7 +19427,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 9592,
+                "words": 9627,
                 "readMins": 48,
                 "concepts": [
                   "the impossible wish: fast, big, cheap - pick two",
@@ -19174,6 +19455,7 @@
                 "blockCounts": {
                   "heading": 9,
                   "para": 32,
+                  "image": 1,
                   "callout": 10,
                   "equation": 4,
                   "example": 8,
@@ -19212,7 +19494,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 8259,
+                "words": 8294,
                 "readMins": 41,
                 "concepts": [
                   "the three buses: address, data, control",
@@ -19241,6 +19523,7 @@
                 ],
                 "blockCounts": {
                   "para": 32,
+                  "image": 1,
                   "callout": 8,
                   "list": 1,
                   "heading": 7,
@@ -19337,7 +19620,7 @@
                 "termsDefined": 12
               }
             ],
-            "words": 46736
+            "words": 46875
           },
           {
             "number": 5,
@@ -54256,21 +54539,21 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 520,
-      "totalLines": 217214,
+      "srcFilesTracked": 521,
+      "totalLines": 221785,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
-        "src/components/library (reader platform)": 5860,
+        "src/components/library (reader platform)": 5880,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 178553,
+        "src/data/library (content model + books)": 183104,
         "src/hooks": 214,
         "src/lib": 9819
       },
       "libraryComponents": [
         {
           "file": "blocks.tsx",
-          "lines": 956
+          "lines": 976
         },
         {
           "file": "latex-plot.ts",
@@ -82621,17 +82904,733 @@
       ]
     },
     {
-      "sha": "4848202db9ddcfb03af52af822d822229aff8b4d",
-      "short": "4848202",
+      "sha": "c1bb876a3759fbf7a202b92861b7c5cfa026f1e0",
+      "short": "c1bb876",
+      "date": "2026-11-25 19:29",
+      "message": "audit: ans-density-and-the-decimal-mirror-proven — A:2fig B:2sol C:3enrich",
+      "filesChanged": 7,
+      "insertions": 1274,
+      "deletions": 1102,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 23,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 13,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 1090,
+          "del": 1088
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch07.ts",
+          "add": 43,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-07.ts",
+          "add": 96,
+          "del": 11
+        }
+      ]
+    },
+    {
+      "sha": "928e90d0e88bdaa6b962c563eb8b1f1f713d5f9b",
+      "short": "928e90d",
       "date": "2026-11-25 18:39",
       "message": "chore(bookkeeping): CS RUN 7 push record (FIRST-SHIPPED-STANDS reconciliation after the sibling audit commit 7a59bcb, rebase + retry pushed 1b4ab76..aab95f8, anonymous ls-remote verified aab95f8 — SYNCED)",
       "filesChanged": 1,
-      "insertions": 2,
+      "insertions": 1,
       "deletions": 0,
       "files": [
         {
           "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "425b42ab22a1e6a7af58616ddb9dd45df70fd76e",
+      "short": "425b42a",
+      "date": "2026-11-25 20:05",
+      "message": "run 8 (the cs lane, whole-chapter close under v9.1): computer-fundamentals chapter 4 'Inside the Box' CLOSED COMPLETE — 4.1 'The Motherboard: the City Plan' (cf41: 117/117 GREEN first try under the staged spec, 10,458 words, quiz [2,0,3,1,3], 4 + 5 figures, the city plan priced: ATX 74,420 mm2, microATX exactly 0.800000, Mini-ITX 0.388336/0.485421, DIMM 288, CR2032, Nehalem 2008) + 4.2 'The Processor Named Honestly' (cf42: 83/83 GREEN, the landed 46/47 engine completed by its part, 9,955 words, quiz [3,0,1,2,1], 4 + 5 figures, the 0.2 ns beat, 6756.7568/1351.3514, Moore 2,300 x 2^26 = 154,350,387,200 vs M2 Ultra 134 bn = 1.151869, the May 2005 dual-core month, SRAM 6T vs DRAM 1T+1C) — five lessons, plannedLessons [], 46,736 chapter words; assembled by scripts/assemble_cs8.py (two lessons banked: alias the chapter import for engines that pre-declare a local lesson binding; touch generated files before gating against same-mtime stale transpiles); verify-cs-book2-ch04 542/542 with the CLOSED Z census; tsc 0; lint 0 err; pack 220 written / 9,683 planned (+2/+0, the net-zero close); standing gates 667 + 4023 + 1176 + 2350 (csWritten 22) + 696 (totPl 1226 — the RUN 7 pointer's 1227 prediction corrected as an arithmetic slip); all five lesson routes 200; e2e pairs + the ch.3 VLM sweep deferred a FOURTH time — RUN 9 opens riders-first with split specs; RUN_PROTOCOL v9.1 (the owner's 2026-11-26 'do as you please but don't compromise quality and quantity' codified as amendments 5-8: staged seats, debt-first riders, ledger economy, next-chapter-on-clean-close); ledgers + pointer re-pointed to the CS RUN 9 riders-first + ch.5 'Software Families' whole-chapter swarm",
+      "filesChanged": 17,
+      "insertions": 7559,
+      "deletions": 190,
+      "files": [
+        {
+          "path": "docs/project/CS_AUTHORING_POINTER.json",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "docs/project/RUN_PROTOCOL.md",
+          "add": 8,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 15,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 2448,
+          "del": 113
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/part-cf41.ts",
+          "add": 945,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/part-cf42.ts",
+          "add": 800,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch04-wip/v-cf41.ts",
+          "add": 402,
+          "del": 0
+        },
+        {
+          "path": "scripts/assemble_cs8.py",
+          "add": 358,
+          "del": 0
+        },
+        {
+          "path": "scripts/closeout_cs8.py",
+          "add": 132,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-book2-ch04.ts",
+          "add": 663,
+          "del": 30
+        },
+        {
+          "path": "scripts/verify-cs-exam-coverage.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/verify-cs-shelf-planning.ts",
           "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/book.ts",
+          "add": 7,
+          "del": 8
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-04.ts",
+          "add": 1766,
+          "del": 25
+        }
+      ]
+    },
+    {
+      "sha": "192b063e878f5adc66517daffb1db9dc13c79a19",
+      "short": "192b063",
+      "date": "2026-11-25 20:06",
+      "message": "chore(bookkeeping): CS RUN 8 push record (FIRST-SHIPPED-STANDS rebase after the sibling audit commit c1bb876, pushed c1bb876..425b42a, anonymous ls-remote verified 425b42a — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "5612a6c65e9c6ed939cc48ea8cc54ca8b9b96df3",
+      "short": "5612a6c",
+      "date": "2026-11-25 20:25",
+      "message": "chore(bookkeeping): CS RUN 8 post-push addendum — the ch.3 VLM sweep COMPLETED 16/18 PASS (2 compile-wall re-captures ride RUN 9); rider e2e evidence verified (43+44 PASS both modes, 4.R PASS dark, desktop raced compile); e2e debt narrowed to 4.1+4.2 both modes + the 4.R desktop recheck; the dev-compile wall recorded for RUN 9's warm-first opening",
+      "filesChanged": 2,
+      "insertions": 13,
+      "deletions": 3,
+      "files": [
+        {
+          "path": "docs/project/CS_AUTHORING_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 10,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "6b2e14c0d9fb1fdac203f71cbaf9620e1b7de1fc",
+      "short": "6b2e14c",
+      "date": "2026-11-25 20:25",
+      "message": "chore(bookkeeping): CS RUN 8 post-push addendum push record (anonymous ls-remote verified 5612a6c — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "96476954cb9c56f5e99b675ba681aa7079db350e",
+      "short": "9647695",
+      "date": "2026-11-26 03:01",
+      "message": "run 126 (the maths lane, whole-chapter open under v9.1): GEOMETRY ch.2 'Angles, Parallel Lines and the Transversal' OPENED 1/4 — 2.1 'Angles: Types, Pairs and Measures' (geo-angles-types-pairs-and-measures: 96/96 GREEN — the agent died after finishing, before reporting; the write-early-often law made it count — 8,798 words, quiz [1,2,0,1,2], 3 body + 3 solution figures, the Babylonian 360 ground banked, the type census, the vertical-angle theorem proved via linear pairs, the clock arithmetic 90/130/50/180); 2.3 'The Transversal: the Eight-Angle Census' (106/106, 9,193 words — caught the spec's a1/a6 cross-pair defect, repaired to a1/a5 and weaponized as the taught trap) and 2.4 'Angle Sum of a Triangle and Its Consequences' (125/125, 9,083 words — the I.32 proof walk verified to 1e-9, both exterior sweeps over 15,931 pairs, the honest decimals 128.571429/147.272727, the octant 270) landed WHOLE first-try and stay BANKED GREEN in docs/research/geo-ch02-wip/; 2.2 died at the wall at ~15% (the salvage with a smaller fast-tier spec rides run 127 riders-first per amendment 5); pin_check_geo126 104/104 pre-flight (the checker caught two orchestrator slips: the V4 composition is the across-the-line linear pairing; the non-acute sweep must exclude degenerate zero-angle triangles); assembled by scripts/assemble_run126.py (one lesson + the in-progress Z census; generated files touched per amendment 7); verify-book5-ch02 119/119; tsc 0; lint 0 err; pack 221 written / 9,683 planned (+1/+0); standing gates 667 + 4023 + 1176; route 200 warm; e2e x3 viewports + the chapter-wide VLM light+dark sweep ride run 127 riders-first; the CS cron job rebuilt 546144 -> 549015 at :05 IST (the owner-approved stagger from the :50 maths fire) + RUN_PROTOCOL lane lines updated; ledgers + both pointers re-pointed to the run-127 close",
+      "filesChanged": 27,
+      "insertions": 8212,
+      "deletions": 24,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/RUN_PROTOCOL.md",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 24,
+          "del": 0
+        },
+        {
+          "path": "docs/research/GEO_CH02_MASTER_PLAN.md",
+          "add": 93,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/README.md",
+          "add": 26,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/part-geo201.ts",
+          "add": 1194,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/part-geo202.ts",
+          "add": 198,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/part-geo203.ts",
+          "add": 1071,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/part-geo204.ts",
+          "add": 1079,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/pin_check_geo126.py",
+          "add": 234,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/spec-geo201.md",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/spec-geo202.md",
+          "add": 54,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/spec-geo203.md",
+          "add": 56,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/spec-geo204.md",
+          "add": 54,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/v-geo201.ts",
+          "add": 434,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/v-geo202.ts",
+          "add": 379,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/v-geo203.ts",
+          "add": 624,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/v-geo204.ts",
+          "add": 545,
+          "del": 0
+        },
+        {
+          "path": "scripts/assemble_run126.py",
+          "add": 304,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book5-ch02.ts",
+          "add": 536,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/book.ts",
+          "add": 5,
+          "del": 17
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/ch-02.ts",
+          "add": 1234,
+          "del": 0
+        },
+        {
+          "path": "tsconfig.json",
+          "add": 2,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "bd4dee1977c94723c590b2ab8715e8bdf0fb0984",
+      "short": "bd4dee1",
+      "date": "2026-11-26 03:02",
+      "message": "chore(bookkeeping): maths RUN 126 push record (anonymous ls-remote verified 9647695 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "7386e224847f99de1f4716267bbcc6ff4d27d5a9",
+      "short": "7386e22",
+      "date": "2026-11-26 04:03",
+      "message": "enrich: CS hero images — computer-fundamentals 12 lessons (AI-generated, VLM-audited)",
+      "filesChanged": 23,
+      "insertions": 208,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 52,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 43,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 28,
+          "del": 0
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 22,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "public/figures/computer-fundamentals/cf-1-1-structure.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/figures/computer-fundamentals/cf-1-2-census.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/figures/computer-fundamentals/cf-1-3-software.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/figures/computer-fundamentals/cf-2-1-input.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/figures/computer-fundamentals/cf-2-2-output.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/figures/computer-fundamentals/cf-2-3-usability.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/figures/computer-fundamentals/cf-3-1-bits.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/figures/computer-fundamentals/cf-3-4-parade.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/figures/computer-fundamentals/cf-4-1-motherboard.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/figures/computer-fundamentals/cf-4-2-processor.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/figures/computer-fundamentals/cf-4-3-hierarchy.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/figures/computer-fundamentals/cf-4-4-ports.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/blocks.tsx",
+          "add": 20,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-01.ts",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-02.ts",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-03.ts",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-04.ts",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/types.ts",
+          "add": 13,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "727b0e5d519ccff28b693c937446fcd23cdc0fd5",
+      "short": "727b0e5",
+      "date": "2026-11-26 04:04",
+      "message": "chore: restore 644 modes on the hero-image pass files (stash-dance artifact)",
+      "filesChanged": 10,
+      "insertions": 0,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/blocks.tsx",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-01.ts",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-02.ts",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-03.ts",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/types.ts",
+          "add": 0,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "31b33e2e5d75a3f7d4aa757f6a111d002232eeeb",
+      "short": "31b33e2",
+      "date": "2026-11-26 11:03",
+      "message": "run 9 (the cs lane, riders + the ch.5 authoring swarm): riders-first cleared the ch.3 verifier Z-pins (1130/1130, the hero-pass stale shelf-census failures closed) and the 2 compile-wall VLM re-captures (both PASS - the ch.3 light+dark sweep now 18/18); the ch.4 e2e pairs regenerated + calibrated (gen-cs9-e2e.py, hero-img pins) but the background chain was reaped twice with the dev server - rides run 10 foreground (5th deferral, recorded); chapter 5 'Software Families' AUTHORED WHOLE by a four-seat swarm, engine-green in the tracked wip: 5.1 V-CF51 129/129 (12,689 words), 5.2 V-CF52 111/111 (9,911), 5.3 V-CF53 136/136 (11,041 - the seat hit the wall at ~70% and was salvaged in-run by the orchestrator on the engine's precise defect list), 5.R V-CF5R 118/118 (9,304); pin_check_cs9 54/54 pre-flight; 42,945 chapter words, quiz keys pairwise distinct; the assembly + full gates + COMPLETE close could not honestly fit the cap's last minutes and ride run 10 riders-first (never half-gated); the DB-pack staleness class diagnosed + fixed (repack after pull, 221 lessons)",
+      "filesChanged": 29,
+      "insertions": 6901,
+      "deletions": 4,
+      "files": [
+        {
+          "path": "docs/project/CS_AUTHORING_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 29,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 23,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/SPEC_CORE.md",
+          "add": 158,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/part-cf51.ts",
+          "add": 947,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/part-cf52.ts",
+          "add": 950,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/part-cf53.ts",
+          "add": 832,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/part-cf5R.ts",
+          "add": 688,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/pin_check_cs9.py",
+          "add": 147,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/spec-cf51.md",
+          "add": 109,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/spec-cf52.md",
+          "add": 93,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/spec-cf53.md",
+          "add": 111,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/spec-cf5R.md",
+          "add": 82,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/v-cf51.ts",
+          "add": 510,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/v-cf52.ts",
+          "add": 428,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/v-cf53.ts",
+          "add": 406,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/v-cf5R.ts",
+          "add": 296,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-41.page.js",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-41.sh",
+          "add": 106,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-42.page.js",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-42.sh",
+          "add": 106,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-4R.page.js",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cf-4R.sh",
+          "add": 106,
+          "del": 0
+        },
+        {
+          "path": "scripts/gen-cs9-e2e.py",
+          "add": 233,
+          "del": 0
+        },
+        {
+          "path": "scripts/run9_cf53_complete.py",
+          "add": 231,
+          "del": 0
+        },
+        {
+          "path": "scripts/run9_probe.sh",
+          "add": 82,
+          "del": 0
+        },
+        {
+          "path": "scripts/run9_recap.sh",
+          "add": 67,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-book2-ch03.ts",
+          "add": 2,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "a93627f039d08ef2595a3a0da4b881fb49c1fe2e",
+      "short": "a93627f",
+      "date": "2026-11-26 11:04",
+      "message": "chore(bookkeeping): CS RUN 9 push record (anonymous ls-remote verified 31b33e2 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
           "del": 0
         }
       ]
@@ -82641,28 +83640,29 @@
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 277,
     "booksLive": 269,
-    "chaptersWritten": 48,
+    "chaptersWritten": 49,
     "chaptersInProgress": 0,
-    "lessonsWritten": 220,
-    "wordsAuthored": 1348032,
-    "termsDefined": 1870,
-    "quizItems": 1100,
-    "exerciseQuestions": 3059,
+    "lessonsWritten": 224,
+    "wordsAuthored": 1387927,
+    "termsDefined": 1915,
+    "quizItems": 1120,
+    "exerciseQuestions": 3121,
     "blockTotals": {
-      "para": 3618,
-      "callout": 1583,
-      "heading": 1361,
-      "list": 286,
-      "terms": 259,
-      "equation": 481,
-      "figure": 510,
-      "derivation": 503,
-      "table": 355,
-      "example": 1395,
-      "quiz": 220,
-      "exercises": 220,
-      "formula": 944,
-      "algorithm": 50
+      "para": 3725,
+      "callout": 1624,
+      "heading": 1398,
+      "list": 290,
+      "terms": 263,
+      "equation": 485,
+      "figure": 525,
+      "derivation": 514,
+      "table": 362,
+      "example": 1405,
+      "quiz": 224,
+      "exercises": 224,
+      "formula": 965,
+      "algorithm": 50,
+      "image": 12
     }
   }
 }
