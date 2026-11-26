@@ -7523,3 +7523,21 @@ audit-bot run — lesson ans-the-field-laws-division-joins-the-family: A=1 figur
 ## 2026-11-26 — maths RUN 126 push record (no token)
 
 **Push verified:** the run's commit `9647695` pushed as a clean fast-forward `6b2e14c..9647695` with all pending local commits; anonymous ls-remote confirms refs/heads/main == `96476954cb9c56f5e99b675ba681aa7079db350e` == local HEAD — **SYNCED**. The PAT lived only inside the single push command's URL — never written to any file, config, log or message, never echoed or printed. The tree is clean; run 127 opens riders-first (the 2.2 salvage with a smaller fast-tier spec, the e2e pairs, the chapter-wide VLM sweep) then assembles all four lessons and CLOSES geometry ch.2.
+
+## 2026-11-26 — CS hero-image pass (owner directive, in-channel)
+
+Owner asked for very high quality, clear, generated images across the
+already-authored computer-science lessons wherever required. Judged
+required: 12 of the 22 written computer-fundamentals lessons (the
+physical/scene-setting content lessons; reviews and pure-procedure
+conversion lessons stay SVG-only by design). Added the `image` block kind
+(types.ts + blocks.tsx renderer, outside the Figure N numbering),
+generated 12 text-free 2048x1024 heroes -> .webp q90 under
+public/figures/computer-fundamentals/, spliced each after its lesson's
+opening paragraph (insert-cf-heroes.py, anchor-unique, idempotent), and
+VLM-audited every one to PASS on a 5-point rubric (6 needed regeneration
+rounds; processor took 5 rounds — trail in FIGURE_AUDIT_LOG). tsc 0,
+eslint 0, CF verifiers ch01/ch02/ch04 GREEN (ch03's 2 Z failures proven
+pre-existing — stale shelf-census pins from RUN 7/8, owned by RUN 9
+riders). Generation + audit tooling preserved outside the repo at
+scripts/.zai-runtime/ and scripts/.hero-audit/.

@@ -3295,3 +3295,25 @@ No AI-generated images (all five solution figures and the body-figure rebuild ar
 - The two RUN 8 seats (4.1 'The Motherboard: the City Plan', 4.2 'The Processor Named Honestly') wrote against the `cs-cf-web-ground-ch04` key banked 2026-11-25 (the entry above): every date and number they carry comes from that web-verified pin list (ATX Intel 1995 305x244; microATX <= 244 square 1996; Mini-ITX VIA 2001 170x170; IBM PC planar August 1981; DIMM 288 pins; CR2032 3 V lithium; 24-pin ATX + 8-pin CPU; Nehalem 2008; 4004 15 November 1971, 740 kHz, 2,300 transistors; Moore 'Cramming more components onto integrated circuits', Electronics, 19 April 1965, revised 1975 to two years; AMD Athlon 1 GHz 6 March 2000, Intel two days later; May 2005 Pentium D + Athlon 64 X2; Apple M2 Ultra 134 billion transistors 2023; SRAM 6 transistors/bit vs DRAM 1 transistor + 1 capacitor; L1/L2/L3 size bands prose-hedged). Engine-pinned in v-cf41 (117/117) and v-cf42 (83/83) and re-pinned against the SHIPPED chapter by scripts/verify-cs-book2-ch04.ts (542/542). The key rides the lesson footers of 4.1 and 4.2. STUDY-NEVER-REPRODUCE absolute: every roster, figure, Illustration, quiz item and exercise is OUR OWN. No book scans; no working copies; this entry is the citation record.
 
 - `geo-ch02-web-ground` — the run-126 web-verified ground for GEOMETRY ch.2 'Angles, Parallel Lines and the Transversal': Euclid does not use the fifth postulate until Proposition I.29 (D. E. Joyce's Elements, https://aleph0.clarku.edu/~djoyce/elements/bookI/post5.html); the I.29 statement 'a straight line falling on parallel straight lines makes the alternate angles equal...' (Joyce https://aleph0.clarku.edu/~djoyce/elements/bookI/propI-29.htm + https://www.themathpage.com/aBookI/propI-29-30.htm); the Babylonian sexagesimal origin of the 360-degree circle — base-60 astronomy, 60 divisible by 2/3/4/5/6, the year's ~360 days, the Greeks standardizing the measured angle (https://www.historytoday.com/archive/history-matters/why-circle-has-360-degrees; https://hsm.stackexchange.com/questions/1884/origin-of-360-degrees); Proclus c. 450 CE on the fifth postulate — it 'ought even to be struck out of the Postulates altogether; for it is a theorem involving many difficulties' (https://www.famousscientists.org/proclus; the Ursinus Lodder mini-project, https://digitalcommons.ursinus.edu/cgi/viewcontent.cgi?article=1000&context=triumphs_geometry) (all opened 2026-11-26). Playfair 1795 / Saccheri 1733 / Lobachevsky 1829 / Bolyai 1832 carried from run 124's banked geo-euclid-elements / geo-hilbert-grundlagen keys. STUDY-NEVER-REPRODUCE: every roster, witness, figure and exercise ours.
+
+### 2026-11-26 (owner-directive CS hero pass) — 12 AI-generated hero images for computer-fundamentals
+
+- Generated via the image-generation skill (z-ai-web-dev-sdk
+  `images.generations.create`), size 2048x1024 — the API's size law
+  (each side 512-2880, multiple of 32, <= 2^22 px) rejects the CLI
+  allowlist's 1440x720, so generation went through the SDK directly.
+- Converted to .webp quality 90 (the public/covers asset pattern) with
+  PIL; PNG intermediates discarded. 12 files under
+  `public/figures/computer-fundamentals/`.
+- Prompts are text-free BY DESIGN (no letters, numbers, logos — AI raster
+  text garbles; every label in the book stays in its SVG diagram). The
+  verbatim prompts are preserved in the generator script
+  /home/z/my-project/scripts/.zai-runtime/gen-cf-heroes.mjs (outside the
+  repo); the audit driver is audit-cf-heroes.mjs beside it; VLM
+  transcripts in /home/z/my-project/scripts/.hero-audit/*.vlm.txt.
+- NO external photographs, book scans or downloads were used: every image
+  is OUR OWN generated asset. STUDY-NEVER-REPRODUCE: the 12 images and
+  their captions are original to this project; no source material was
+  copied or traced. (For the record, the two content-filter blocks hit
+  during generation — a hard-disk close-up phrasing and one processor
+  phrasing — were reworded and regenerated, not sourced elsewhere.)

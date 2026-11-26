@@ -212,6 +212,16 @@ export type Block =
     }
   | { kind: 'example'; title: string; steps: string[]; figures?: SolutionFigure[] }
   | { kind: 'figure'; caption: string; svg: string }
+  /**
+   * Photographic hero illustration — a high-resolution AI-generated raster
+   * image (text-free, VLM-audited per FIGURE_VERIFICATION_PROTOCOL provenance
+   * rules) for subjects an inline SVG cannot carry: hardware close-ups,
+   * machine halls, physical devices, scene-setting. `src` is a public path
+   * (public/figures/<book>/<slug>.png). Deliberately NOT part of the numbered
+   * Figure N sequence — diagrams keep that; the caption stands alone beneath
+   * the image.
+   */
+  | { kind: 'image'; caption: string; src: string; alt: string }
   | { kind: 'table'; caption?: string; head: string[]; rows: string[][] }
   | { kind: 'list'; items: string[]; ordered?: boolean; marker?: 'disc' | 'decimal' | 'roman' }
   | { kind: 'quiz'; title?: string; items: QuizItem[] }
@@ -275,6 +285,9 @@ export function countLessonWords(lesson: Lesson): number {
         for (const f of b.figures ?? []) n += words(clean(f.caption))
         break
       case 'figure':
+        n += words(clean(b.caption))
+        break
+      case 'image':
         n += words(clean(b.caption))
         break
       case 'table':

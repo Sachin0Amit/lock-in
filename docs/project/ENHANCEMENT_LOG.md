@@ -1097,3 +1097,46 @@ The mirror-map figure failed the strict label-anchor audit on recompute: 7 of 11
 3. **Accuracy catch (4 fixes, keys untouched):** the quiz explanations' option references were scrambled — Q1/Q3 references shifted +1 off their targets, Q2/Q4 transposed the correct option's label with a distractor's (each explain's "Option N" no longer matched the option it described; Q5 alone was consistent). All four explains reworded to unambiguous ordinal references ("the first/second/third/fourth option") with the mathematical content unchanged. Quiz answers/keys untouched.
 
 **Verification:** verify-ans-7-3.py (78 checks) ran BEFORE authoring — every number of the lesson (mirror table, 13-prime period list, criterion sweep to 60, all conversions, all 15 existing exercise answers, quiz keys) plus the planned L5/callout numbers; 0 failures. verify-book2-ch07.ts extended with section W (14 new pins: the 5/12 walk, the 27/90 point, the five rotations + 2/7/5/7 entries, the full-box sweep, the (21,27)→7/9 reduction) → 281 → 295/295 green; npx tsc --noEmit 0 errors. Both solution figures embedded byte-identical to their VLM-audited files (sha256 in the splice script). audit-svg-overlaps.sh NAV FAIL (12th consecutive) — offline substitution logged. No AI-generated images (machine diagrams and number lines stay SVG by law). No new lesson authored; RESUME_POINTER/PROGRESS/WORK_INVENTORY/TOC_FOLD_LEDGER/ENHANCEMENT_POINTER untouched.
+
+
+## 2026-11-26 — owner-directive run: AI hero images for the authored CS lessons (computer-fundamentals, 12 of 22)
+
+**Directive (owner, in-channel 2026-11-26):** use very high quality and clear
+AI-generated images for the already-authored computer-science lessons
+wherever required.
+
+**What was judged "required" — and what was not.** The 12 content lessons
+whose subject is physical or scene-setting: all of ch.1 (1.1 structure,
+1.2 hardware census, 1.3 software), all of ch.2 (2.1 input, 2.2 output,
+2.3 usability) and all of ch.4 (4.1 motherboard, 4.2 processor, 4.3 memory
+hierarchy, 4.4 buses and ports), plus the two ch.3 lessons with a genuinely
+visual anchor (3.1 bits — the two-symbol switches; 3.4 the parade — the
+RGB subpixel macro). The four Unit Review lessons (1.R, 2.R, 3.R, 4.R) and
+the six pure-procedure lessons of ch.3 (3.2, 3.3, 3.5, 3.6, 3.7, 3.8) were
+judged NOT to need a raster hero: their SVG diagrams, ladders and tables
+carry the pedagogy, and a decorative photograph would add noise, not
+understanding.
+
+**Schema (one-time, additive):** new block kind
+`{ kind: 'image'; caption: string; src: string; alt: string }` in
+src/data/library/types.ts (with its `countLessonWords` case — captions
+count as read prose), and a `case 'image'` renderer in
+src/components/library/blocks.tsx (next/image `fill`, aspect 2:1,
+max-w-3xl, caption beneath — the figure block's furniture). The image is
+deliberately OUTSIDE the Figure N numbering: `figureNumbers` counts only
+`kind:'figure'`, so no existing figure number, verifier pin or caption
+reference moved.
+
+**Images:** 12 wide heroes, 2048x1024, .webp q90, text-free prompts,
+placed immediately after each lesson's opening paragraph. Fix rounds until
+VLM PASS: 6 first-pass, 6 after regeneration (worst case the 4.2 processor
+at round 5 — full trail in FIGURE_AUDIT_LOG).
+
+**Verification:** `tsc --noEmit` 0 errors; eslint 0 on the two touched src
+files; verify-cs-book1-ch01 GREEN; verify-cs-book2-ch02 GREEN;
+verify-cs-book2-ch04 542/542 GREEN; verify-cs-book2-ch03 carries 2
+PRE-EXISTING Z failures (Z19 "chapters 4-8 still planned", Z23 "17 written
+lessons" vs the 22 that RUN 7/8 shipped) — proven pre-existing by stashing
+this pass's ch-03.ts edits and re-running (identical failures); that ledger
+belongs to the CS RUN 9 riders. No rotation state was touched: this pass
+does not bump lastAuditedLessonId.

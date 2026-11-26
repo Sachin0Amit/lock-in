@@ -30,6 +30,7 @@ import {
 } from '@/components/ui/table'
 import { headingAnchor } from '@/data/library/derive'
 import { LEVEL_LABELS, type Block, type CalloutTone, type QuizItem, type SolutionFigure } from '@/data/library/types'
+import Image from 'next/image'
 import { Math, RichText } from './math'
 import { useProgress } from './progress-store'
 import { useLedgerSync } from '@/components/revision/use-ledger-sync'
@@ -828,6 +829,25 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
               </figure>
             )
           }
+          case 'image':
+            // Photographic hero illustration (AI-generated raster, text-free,
+            // VLM-audited) — deliberately outside the Figure N numbering.
+            return (
+              <figure key={i} className="my-8">
+                <div className="relative mx-auto aspect-[2/1] w-full max-w-3xl overflow-hidden rounded-lg border border-stone-300/80 bg-muted shadow-sm dark:border-stone-700">
+                  <Image
+                    src={b.src}
+                    alt={b.alt}
+                    fill
+                    sizes="(min-width: 768px) 768px, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mx-auto mt-2.5 max-w-3xl text-center text-sm leading-6 text-muted-foreground">
+                  <RichText text={b.caption} host={`${i}.im`} />
+                </figcaption>
+              </figure>
+            )
           case 'table':
             return (
               <figure key={i} className="my-7">

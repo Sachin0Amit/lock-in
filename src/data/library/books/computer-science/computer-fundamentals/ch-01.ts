@@ -370,6 +370,7 @@ const lesson11: Lesson = {
   blocks: [
     // ---------------- opening ----------------
     { kind: 'para', text: 'A pocket calculator and a room-sized machine share one arithmetic trick: both of them add. Press $62 + 48$ on the calculator and $110$ comes back; feed the same numbers to the giant and its circuits return the same $110$. Yet nobody calls the calculator a computer, and everybody called the giant one — ENIAC, properly met below, was announced to the world on 14 February 1946. The difference is not speed and not size; it is structure: five functional units, four stages, and one quiet idea (the stored program) that lets the same box become a different machine overnight. This lesson names the parts, traces one program’s life through them, and measures the machine — clock, word, bus and address space — answering the chapter’s honest question: how does a box of switches come to seem thoughtful?' },
+    { kind: 'image', src: '/figures/computer-fundamentals/cf-1-1-structure.webp', alt: 'A desktop computer setup on a wooden desk: tower, monitor, keyboard and mouse.', caption: 'The machine this book takes apart: a desktop computer in its plainest dress — tower, screen, keyboard and mouse. Five functional units hide inside this ordinary desk scene, and the whole of chapter 1 is the act of naming them.' },
 
     // ---------------- data and information ----------------
     { kind: 'heading', text: 'Data and Information' },
@@ -1088,6 +1089,7 @@ const lesson12: Lesson = {
       kind: 'para',
       text: 'One word now stretches across an absurd range: the noun that names a warehouse of racks blinking in a machine hall also names a chip hiding inside a washing machine, silently timing a drum. Lesson 1.1, "The Basic Structure and Operation of the Computer", showed that every machine runs the same information processing cycle — input, processing, output, storage — so the word itself cannot tell them apart. A census can: a count of the families and an honest look at what separates them. By the end you will classify any machine you meet into an honest family and state the axis that put it there.',
     },
+    { kind: 'image', src: '/figures/computer-fundamentals/cf-1-2-census.webp', alt: 'A data-centre aisle with server racks and small status lights.', caption: 'One noun, two worlds: aisles of blinking racks like these and a silent chip timing a washing-machine drum both answer to the word *computer* — the census of families this lesson takes.' },
 
     // ---------- the census axes ----------
     { kind: 'heading', text: 'The Census Axes' },
@@ -2200,6 +2202,7 @@ const lesson13: Lesson = {
   blocks: [
     // ---------------- opening ----------------
     { kind: 'para', text: 'The machine census of lesson 1.2 named every family on the hardware side — the desktop on the desk, the laptop beside it, the phone in the pocket, the console under the television, the server rack in the basement, the quiet chip inside the washing machine. Yet every one of them is furniture until the invisible half arrives: a piano no one plays. Recall ENIAC from lesson 1.1: the visible machine was complete — a room of tubes, arithmetic and memory — but the invisible half barely existed, and setting a new problem meant days of physical switch-patching and cable-plugging while the machine sat idle. The stored-program concept fixed that: instructions became data in one memory, and the machine’s personality became something you could load. This lesson meets that personality properly. Software is the half of the machine you cannot touch, and — the honest surprise — it is the half that does nearly everything you actually want done. By the end you can classify any program you meet, say what the operating system actually does all day, walk the boot sequence from the power button to the login screen, read a software license honestly, and state the scale of the largest commonly shared software ever written.' },
+    { kind: 'image', src: '/figures/computer-fundamentals/cf-1-3-software.webp', alt: 'A desk with a monitor showing softly blurred, unreadable code.', caption: 'The invisible half, glimpsed: a program at rest on a screen. Software cannot be touched with a screwdriver — it is instructions, data and documentation — and this lesson meets that personality properly.' },
 
     // ---------------- what software is ----------------
     { kind: 'heading', text: 'What Software Is' },

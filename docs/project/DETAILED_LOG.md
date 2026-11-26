@@ -3853,3 +3853,55 @@ The owner directed the comprehensive double-layer pass. Layer 1 (drive TOC): the
 - 2026-11-26 | correction to the entry above | INFO | the audit tooling for this fire (scripts/audit-figs-7-3.py, scripts/embed-figs-7-3.py, scripts/verify-ans-7-3.py) lives in the sandbox workspace scripts dir alongside audit-figs-5-1..6-1.py — repo-external per the never-edit-scripts/ constraint, NOT committed; the "(audit tooling, committed)" phrase in the detailed entry was wrong
 | 2026-11-26 | CS RUN 8 | computer-fundamentals ch.4 'Inside the Box' CLOSED COMPLETE | 4.1 'The Motherboard: the City Plan' (10,458 w, quiz [2,0,3,1,3], 117/117, 4+5 figures) + 4.2 'The Processor Named Honestly' (9,955 w, quiz [3,0,1,2,1], 83/83, 4+5 figures) — five lessons, plannedLessons [], 46,736 chapter words | verify-cs-book2-ch04 542/542; tsc 0; lint 0 err; pack 220 written; standing gates 667+4023+1176+2350+696; routes 200; e2e + VLM deferred (4th) to RUN 9 riders-first |
 | 2026-11-26 | maths RUN 126 | geometry ch.2 'Angles, Parallel Lines and the Transversal' OPENED 1/4 | 2.1 'Angles: Types, Pairs and Measures' (8,798 w, quiz [1,2,0,1,2], 96/96, 3+3 figures); 2.3 (9,193 w, 106/106) + 2.4 (9,083 w, 125/125) banked green in the wip; the 2.2 salvage rides 127 riders-first | verify-book5-ch02 119/119; tsc 0; lint 0 err; pack 221 written; standing gates 667+4023+1176; route 200; e2e + VLM ride 127 |
+
+
+## 2026-11-26 — CS hero-image pass (owner directive): detailed change list
+
+**Repo files changed (7 + 12 new assets):**
+
+1. `src/data/library/types.ts` — added the `image` block kind
+   (`caption`/`src`/`alt`) to the Block union with a doc comment stating
+   the class rules (AI-generated raster, text-free, VLM-audited, public
+   path, outside Figure N numbering); added `case 'image'` to
+   `countLessonWords` (caption words count).
+2. `src/components/library/blocks.tsx` — `import Image from 'next/image'`;
+   new `case 'image'` in `BlockRenderer`: `<figure>` with a 2:1
+   `max-w-3xl` rounded frame, `next/image fill + object-cover`, caption
+   beneath via RichText — matching the figure block's furniture, without
+   a Figure number.
+3. `src/data/library/books/computer-science/computer-fundamentals/ch-01.ts`
+   — 3 image blocks inserted (1.1 after the opening para, 1.2 after the
+   cold-open para block, 1.3 after the opening para).
+4. `.../ch-02.ts` — 3 image blocks (2.1 after opening para; 2.2 after the
+   FIRST opening para so "The figure below shows the crossing" still
+   points at Figure 1; 2.3 after the opening para).
+5. `.../ch-03.ts` — 2 image blocks (3.1 after the chapter-question para,
+   3.4 after the census-question para).
+6. `.../ch-04.ts` — 4 image blocks (4.1, 4.2, 4.3, 4.4, each after the
+   lesson's opening para).
+7. `public/figures/computer-fundamentals/*.webp` — 12 new assets
+   (cf-1-1-structure, cf-1-2-census, cf-1-3-software, cf-2-1-input,
+   cf-2-2-output, cf-2-3-usability, cf-3-1-bits, cf-3-4-parade,
+   cf-4-1-motherboard, cf-4-2-processor, cf-4-3-hierarchy, cf-4-4-ports).
+
+**Deliberate non-changes:** no `kind:'figure'` block, SVG, figure number
+or caption touched anywhere (CS verifiers pin those); no lesson/chapter
+id, title or placement changed; word-count floors only ever rise
+(captions add ~30-45 words per touched lesson); FIGURE_AUDIT_QUEUE.json
+untouched (no SVG queue items involved); rotation state
+(`.state/audit-state.json`) untouched — this is an enrichment pass, not a
+rotation audit, so the ANS rotation resumes exactly where it stood.
+
+**Tooling (outside the repo, /home/z/my-project/scripts/):**
+`.zai-runtime/gen-cf-heroes.mjs` (SDK generation at 2048x1024 — the CLI's
+1440x720 allowlist entry fails the API's 32-multiple law — plus PIL webp
+q90 conversion, idempotent), `.zai-runtime/audit-cf-heroes.mjs` (strict
+5-point VLM rubric, transcripts to `.hero-audit/`),
+`insert-cf-heroes.py` (anchor-unique, idempotent splicing),
+`docs-cf-heroes.py` (this append).
+
+**Gates:** tsc 0; eslint 0 (types.ts, blocks.tsx); verify-cs-book1-ch01
+GREEN; verify-cs-book2-ch02 GREEN; verify-cs-book2-ch04 542/542 GREEN;
+verify-cs-book2-ch03 1128 pass / 2 fail — Z19 + Z23 proven pre-existing
+(stash-and-rerun proof recorded in WORKLOG/ENHANCEMENT_LOG), stale
+shelf-census pins owned by the CS RUN 9 riders.
