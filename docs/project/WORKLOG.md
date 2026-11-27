@@ -7749,3 +7749,7 @@ scripts/.zai-runtime/ and scripts/.hero-audit/.
 **Also fixed in passing:** assemble_run129.py's Z-census carried the run-129-era book expectation (Z19 'chapters 4-12 planned') — stale after ch.4 shipped; updated to the run-130 truth (chapters 1-4 complete, 5-12 planned). verify-book5-ch03 **677/677 ALL GREEN** after the figure fixes.
 
 **Ledgers:** RESUME_POINTER → run 131 (riders-first: the ch.3 figure-fix debt + the ch.4 VLM sweep, then ch.5 'Transformations and Symmetry' WHOLE); WORK_INVENTORY regenerated; SOURCE_LOG + DETAILED_LOG carried the dead fire's accurate run-130 rows (verified, not duplicated).
+
+## 2026-11-28 — RUN 130 push record (no token)
+
+**Push verified:** the run-130 continuation commit `0dbdbf9` pushed as a clean fast-forward `70cce27..0dbdbf9` (it carried tonight's full delta on top of the 18:59 fire's already-pushed `3ad084f` + `70cce27` — the shared volume's mid-night step-0 reset to FIRST-SHIPPED-STANDS is acknowledged in the run-130 block); anonymous ls-remote confirms refs/heads/main == `0dbdbf9f0adc...` == local HEAD — **SYNCED**. The PAT lived only inside the single push command's URL — never written to any file, config, log or message, never echoed or printed. RUN 131: riders-first (the ch.3 figure-fix debt per vlm-sweep-run130-verdicts/ + the ch.4 VLM sweep), then GEOMETRY ch.5 'Transformations and Symmetry' opened WHOLE per RESUME_POINTER.
