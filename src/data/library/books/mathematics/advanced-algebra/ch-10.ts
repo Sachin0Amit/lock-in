@@ -2101,6 +2101,98 @@ const dr104ExpLadderSol = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 
   <text x="430" y="268" font-size="11" text-anchor="middle" fill="#ea580c">h = 0.0001</text>
 </svg>`
 
+/* Body-figure helpers for the 10.4 content patch (run 130): the      */
+/* exponential portrait and the mirror pair. Geometry computed from    */
+/* the named windows below (SVG text stays PLAIN: no TeX, U+2212 only)*/
+
+const dr104ExpGraph = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="Graph of y = 2 to the x on the window from x = minus 1.2 to 3.1: the exponential curve rises through the marked points (0, 1), (1, 2) and (2, 4) and leaves the dashed comparison line y = 2x behind after the second crossing">
+  <rect x="0" y="0" width="600" height="400" fill="#ffffff"/>
+  <text x="315" y="22" font-size="14" text-anchor="middle" fill="#166534">the exponential 2^x against the line y = 2x — both own (1, 2) and (2, 4)</text>
+  <line x1="60.0" y1="335.2" x2="570.0" y2="335.2" stroke="#166534" stroke-width="1.4"/>
+  <line x1="196.0" y1="356.0" x2="196.0" y2="34.0" stroke="#166534" stroke-width="1.4"/>
+  <line x1="82.7" y1="335.2" x2="82.7" y2="341.2" stroke="#166534" stroke-width="1.2"/>
+  <text x="82.7" y="355.2" font-size="11.5" text-anchor="middle" fill="#166534">−1</text>
+  <line x1="309.3" y1="335.2" x2="309.3" y2="341.2" stroke="#166534" stroke-width="1.2"/>
+  <text x="309.3" y="355.2" font-size="11.5" text-anchor="middle" fill="#166534">1</text>
+  <line x1="422.7" y1="335.2" x2="422.7" y2="341.2" stroke="#166534" stroke-width="1.2"/>
+  <text x="422.7" y="355.2" font-size="11.5" text-anchor="middle" fill="#166534">2</text>
+  <line x1="536.0" y1="335.2" x2="536.0" y2="341.2" stroke="#166534" stroke-width="1.2"/>
+  <text x="536.0" y="355.2" font-size="11.5" text-anchor="middle" fill="#166534">3</text>
+  <line x1="190.0" y1="266.0" x2="196.0" y2="266.0" stroke="#166534" stroke-width="1.2"/>
+  <text x="186.0" y="270.0" font-size="11.5" text-anchor="end" fill="#166534">2</text>
+  <line x1="190.0" y1="196.7" x2="196.0" y2="196.7" stroke="#166534" stroke-width="1.2"/>
+  <text x="186.0" y="200.7" font-size="11.5" text-anchor="end" fill="#166534">4</text>
+  <line x1="190.0" y1="127.5" x2="196.0" y2="127.5" stroke="#166534" stroke-width="1.2"/>
+  <text x="186.0" y="131.5" font-size="11.5" text-anchor="end" fill="#166534">6</text>
+  <line x1="190.0" y1="58.2" x2="196.0" y2="58.2" stroke="#166534" stroke-width="1.2"/>
+  <text x="186.0" y="62.2" font-size="11.5" text-anchor="end" fill="#166534">8</text>
+  <line x1="162.0" y1="356.0" x2="570.0" y2="106.7" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <polyline points="60.0,320.2 71.1,319.1 82.3,318.0 93.4,316.7 104.5,315.4 115.6,314.0 126.8,312.6 137.9,311.0 149.0,309.2 160.2,307.4 171.3,305.5 182.4,303.4 193.6,301.1 204.7,298.7 215.8,296.1 226.9,293.4 238.1,290.4 249.2,287.3 260.3,283.9 271.5,280.3 282.6,276.4 293.7,272.3 304.9,267.8 316.0,263.1 327.1,258.0 338.2,252.6 349.4,246.8 360.5,240.5 371.6,233.9 382.8,226.7 393.9,219.1 405.0,210.9 416.2,202.1 427.3,192.8 438.4,182.7 449.5,172.0 460.7,160.5 471.8,148.2 482.9,135.0 494.1,120.9 505.2,105.8 516.3,89.6 527.5,72.3 538.6,53.8 549.7,34.0" fill="none" stroke="#16a34a" stroke-width="2.4"/>
+  <line x1="309.3" y1="335.2" x2="309.3" y2="266.0" stroke="#65a30d" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="196.0" y1="266.0" x2="309.3" y2="266.0" stroke="#65a30d" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="422.7" y1="335.2" x2="422.7" y2="196.7" stroke="#65a30d" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="196.0" y1="196.7" x2="422.7" y2="196.7" stroke="#65a30d" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <circle cx="196.0" cy="300.6" r="3.5" fill="#0f766e"/>
+  <text x="206.0" y="314.6" font-size="11" fill="#166534">(0, 1)</text>
+  <circle cx="309.3" cy="266.0" r="3.5" fill="#0f766e"/>
+  <text x="319.3" y="258.0" font-size="11" fill="#166534">(1, 2)</text>
+  <circle cx="422.7" cy="196.7" r="3.5" fill="#0f766e"/>
+  <text x="432.7" y="188.7" font-size="11" fill="#166534">(2, 4)</text>
+  <text x="485.0" y="96.3" font-size="12.5" fill="#166534">y = 2^x</text>
+  <text x="446" y="225" font-size="12.5" fill="#dc2626">y = 2x (dashed)</text>
+  <text x="315" y="385" font-size="11.5" text-anchor="middle" fill="#65a30d">each step of +1 in x doubles the curve but only adds 2 to the line</text>
+  </svg>`
+
+const dr104LogMirror = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 460" role="img" aria-label="The mirror pair: y = 2 to the x and y = log base 2 of x reflected across the dashed line y = x, with the marked points (1, 0), (0, 1), (2, 1) and (1, 2)">
+  <rect x="0" y="0" width="600" height="460" fill="#ffffff"/>
+  <text x="300" y="20" font-size="14" text-anchor="middle" fill="#166534">the exponential and the logarithm: one picture, folded along y = x</text>
+  <line x1="110.0" y1="286.2" x2="474.0" y2="286.2" stroke="#166534" stroke-width="1.4"/>
+  <line x1="223.8" y1="400.0" x2="223.8" y2="36.0" stroke="#166534" stroke-width="1.4"/>
+  <line x1="132.8" y1="286.2" x2="132.8" y2="292.2" stroke="#166534" stroke-width="1.2"/>
+  <text x="132.8" y="306.2" font-size="11" text-anchor="middle" fill="#166534">−2</text>
+  <line x1="178.2" y1="286.2" x2="178.2" y2="292.2" stroke="#166534" stroke-width="1.2"/>
+  <text x="178.2" y="306.2" font-size="11" text-anchor="middle" fill="#166534">−1</text>
+  <line x1="269.2" y1="286.2" x2="269.2" y2="292.2" stroke="#166534" stroke-width="1.2"/>
+  <text x="269.2" y="306.2" font-size="11" text-anchor="middle" fill="#166534">1</text>
+  <line x1="314.8" y1="286.2" x2="314.8" y2="292.2" stroke="#166534" stroke-width="1.2"/>
+  <text x="314.8" y="306.2" font-size="11" text-anchor="middle" fill="#166534">2</text>
+  <line x1="360.2" y1="286.2" x2="360.2" y2="292.2" stroke="#166534" stroke-width="1.2"/>
+  <text x="360.2" y="306.2" font-size="11" text-anchor="middle" fill="#166534">3</text>
+  <line x1="405.8" y1="286.2" x2="405.8" y2="292.2" stroke="#166534" stroke-width="1.2"/>
+  <text x="405.8" y="306.2" font-size="11" text-anchor="middle" fill="#166534">4</text>
+  <line x1="451.2" y1="286.2" x2="451.2" y2="292.2" stroke="#166534" stroke-width="1.2"/>
+  <text x="451.2" y="306.2" font-size="11" text-anchor="middle" fill="#166534">5</text>
+  <line x1="217.8" y1="377.2" x2="223.8" y2="377.2" stroke="#166534" stroke-width="1.2"/>
+  <text x="213.8" y="381.2" font-size="11" text-anchor="end" fill="#166534">−2</text>
+  <line x1="217.8" y1="331.8" x2="223.8" y2="331.8" stroke="#166534" stroke-width="1.2"/>
+  <text x="213.8" y="335.8" font-size="11" text-anchor="end" fill="#166534">−1</text>
+  <line x1="217.8" y1="240.8" x2="223.8" y2="240.8" stroke="#166534" stroke-width="1.2"/>
+  <text x="213.8" y="244.8" font-size="11" text-anchor="end" fill="#166534">1</text>
+  <line x1="217.8" y1="195.2" x2="223.8" y2="195.2" stroke="#166534" stroke-width="1.2"/>
+  <text x="213.8" y="199.2" font-size="11" text-anchor="end" fill="#166534">2</text>
+  <line x1="217.8" y1="149.8" x2="223.8" y2="149.8" stroke="#166534" stroke-width="1.2"/>
+  <text x="213.8" y="153.8" font-size="11" text-anchor="end" fill="#166534">3</text>
+  <line x1="217.8" y1="104.2" x2="223.8" y2="104.2" stroke="#166534" stroke-width="1.2"/>
+  <text x="213.8" y="108.2" font-size="11" text-anchor="end" fill="#166534">4</text>
+  <line x1="217.8" y1="58.8" x2="223.8" y2="58.8" stroke="#166534" stroke-width="1.2"/>
+  <text x="213.8" y="62.8" font-size="11" text-anchor="end" fill="#166534">5</text>
+  <line x1="110.0" y1="400.0" x2="474.0" y2="36.0" stroke="#d97706" stroke-width="1.6" stroke-dasharray="7 5"/>
+  <polyline points="110.0,278.2 115.6,277.5 121.3,276.7 126.9,275.8 132.6,274.9 138.2,273.9 143.8,272.8 149.5,271.6 155.1,270.3 160.8,268.8 166.4,267.3 172.1,265.5 177.7,263.7 183.3,261.7 189.0,259.5 194.6,257.1 200.3,254.4 205.9,251.6 211.5,248.5 217.2,245.1 222.8,241.4 228.5,237.4 234.1,233.0 239.8,228.2 245.4,223.0 251.0,217.3 256.7,211.1 262.3,204.4 268.0,197.0 273.6,189.0 279.2,180.3 284.9,170.8 290.5,160.4 296.2,149.1 301.8,136.8 307.4,123.4 313.1,108.8 318.7,92.9 324.4,75.5 330.0,56.6 335.7,36.0" fill="none" stroke="#16a34a" stroke-width="2.4"/>
+  <polyline points="231.8,400.0 237.8,363.2 243.9,339.7 250.0,322.5 256.0,308.8 262.1,297.5 268.1,287.9 274.2,279.5 280.2,272.1 286.3,265.4 292.3,259.3 298.4,253.8 304.5,248.6 310.5,243.9 316.6,239.5 322.6,235.3 328.7,231.4 334.7,227.7 340.8,224.2 346.8,220.9 352.9,217.8 359.0,214.8 365.0,211.9 371.1,209.1 377.1,206.5 383.2,203.9 389.2,201.5 395.3,199.1 401.3,196.9 407.4,194.7 413.4,192.5 419.5,190.5 425.6,188.5 431.6,186.5 437.7,184.6 443.7,182.8 449.8,181.0 455.8,179.3 461.9,177.6 467.9,176.0 474.0,174.3" fill="none" stroke="#0d9488" stroke-width="2.4"/>
+  <circle cx="269.2" cy="286.2" r="3.5" fill="#0f766e"/>
+  <text x="278.2" y="302.2" font-size="11" fill="#166534">(1, 0)</text>
+  <circle cx="223.8" cy="240.8" r="3.5" fill="#0f766e"/>
+  <text x="233.8" y="234.8" font-size="11" fill="#166534">(0, 1)</text>
+  <circle cx="314.8" cy="240.8" r="3.5" fill="#0f766e"/>
+  <text x="323.8" y="256.8" font-size="11" fill="#166534">(2, 1)</text>
+  <circle cx="269.2" cy="195.2" r="3.5" fill="#0f766e"/>
+  <text x="279.2" y="189.2" font-size="11" fill="#166534">(1, 2)</text>
+  <text x="116.8" y="261.2" font-size="12.5" fill="#166534">y = 2^x</text>
+  <text x="468" y="152" font-size="12.5" text-anchor="end" fill="#0f766e">y = log₂ x</text>
+  <text x="367.1" y="115.6" font-size="12" fill="#d97706">y = x (the mirror)</text>
+  <text x="300" y="448" font-size="11.5" text-anchor="middle" fill="#65a30d">fold along y = x: (0, 1) mirrors to (1, 0), (1, 2) to (2, 1) — the upside down made visible</text>
+  </svg>`
+
 /* ------------------------------------------------------------------ */
 /* The lesson                                                          */
 /* ------------------------------------------------------------------ */
@@ -2226,6 +2318,25 @@ export const lesson104: Lesson = {
     { kind: 'figure', caption: 'Figure 3 — the base ladder (2^h − 1)/h closes on ln 2 = 0.6931472; each halving of h shrinks the gap roughly tenfold', svg: dr104LadderBars },
     { kind: 'para', text: 'This ladder prices a fact we shall use in a moment: $(2^h - 1)/h \\to \\ln 2$. Note what the wall means for exam honesty: when an examination item asks for the slope of $2^x$ at a point, the expected work is to READ the named rule and price it numerically — exactly what we do here — because the quotient cannot be simplified by hand.' },
 
+    /* ---------- the exponential family: portrait + growth chain (run 130) ---------- */
+    { kind: 'para', text: 'The wall is a statement about RATES, so before leaving the family give it the portrait the other named families earned in their chapters. The exponential $2^x$ is the DOUBLING machine: every step of $+1$ in the input multiplies the output by $2$, while the line $y = 2x$ — the line through the curve\'s two integer points $(1, 2)$ and $(2, 4)$ — merely ADDS $2$ per step. The engine prices both machines on one chain of inputs:' },
+    { kind: 'table', caption: 'The growth chain of f(x) = 2^x priced against the line y = 2x — both own (1, 2) and (2, 4)', head: ['x', '2^x (each +1 doubles)', '2x (each +1 adds 2)', 'gap 2^x − 2x'], rows: [
+      ['−1', '0.5', '−2', '2.5'],
+      ['0', '1', '0', '1'],
+      ['1', '2', '2', '0'],
+      ['2', '4', '4', '0'],
+      ['5', '32', '10', '22'],
+      ['10', '1024', '20', '1004'],
+    ] },
+    { kind: 'para', text: 'Read the gap column as the race itself. The two machines tie exactly at $x = 1$ and $x = 2$ — $2^1 = 2 = 2 \\cdot 1$ and $2^2 = 4 = 2 \\cdot 2$ — and between those two ties the line leads, for instance $2^{1.5} = 2.8284271 < 3 = 2 \\cdot 1.5$. Beyond the second tie there is no contest: the gap is $22$ at $x = 5$ and $1004$ at $x = 10$, because five doublings build $1$ into $32$ where five line-steps build only $10$. The graph draws the same story geometrically — the curve through its $y$-intercept $(0, 1)$, the dashed line pinned to the two shared points, and the bend away after $(2, 4)$.' },
+    { kind: 'figure', caption: 'The exponential y = 2^x with its y-intercept (0, 1) marked, against the dashed line y = 2x through the two shared points (1, 2) and (2, 4) — beyond the second crossing the curve doubles away from the line for good', svg: dr104ExpGraph },
+    { kind: 'example', title: 'The doubling chain: 2^x priced against the line y = 2x', steps: [
+      'Take the chain the engine prices: $2^{-1} = 0.5$, $2^0 = 1$, $2^1 = 2$, $2^2 = 4$, $2^5 = 32$, $2^{10} = 1024$ — every step of $+1$ in $x$ MULTIPLIES the output by $2$, so ten steps from $x = 0$ build $1$ into $1024$.',
+      'Now, price the line $y = 2x$ on the same six inputs: $-2, 0, 2, 4, 10, 20$ — every step of $+1$ only ADDS $2$, so the same ten steps build $0$ into a mere $20$, and the gap $2^x - 2x$ reads $2.5, 1, 0, 0, 22, 1004$.',
+      'So, the two machines agree exactly at $x = 1$ and $x = 2$ and at no other input of the table; between those ties the line leads ($2^{1.5} = 2.8284271 < 3$), and past $x = 2$ the curve leads forever ($32 > 10$ at $x = 5$, $1024 > 20$ at $x = 10$).',
+      'Hence the wall family is the growth family, and the named rates explain the picture: the rule $(a^x)\' = a^x \\ln a$ prices the curve\'s rate as $2 \\ln 2 = 1.3862944$ at $x = 1$ — GENTLER than the line\'s constant $2$ — but as $4 \\ln 2 = 2.7725887$ at $x = 2$, already steeper and climbing at every step beyond; a line owns one rate, a curve owns a rate FUNCTION — the AL 10.2 seam this lesson walks below.',
+    ] },
+
     /* ---------- the natural base revealed ---------- */
     { kind: 'heading', text: 'The Natural Base Revealed' },
     { kind: 'para', text: 'Run the same base ladder for the other famous base — Lesson 9.5\'s priced constant $e = 2.7182818$:' },
@@ -2246,6 +2357,22 @@ export const lesson104: Lesson = {
       ['0.001', '1.4419742'],
     ] },
     { kind: 'para', text: 'The ladder $1.3750352 < 1.4355293 < 1.4419742$ climbs and closes on $1/\\ln 2 = 1.4426950$ — the exponential\'s landing value INVERTED, exactly as the upside-down shape suggests: the slope of the log at $1$ is the reciprocal of the slope of the exponential at $1$. The target is priced by 9.5\'s series ($\\ln 2 = 0.6931472$) and the numerics certify the approach; the algebraic evaluation is behind the wall with the exponential\'s.' },
+
+    /* ---------- the mirror portrait + the log crafts (run 130) ---------- */
+    { kind: 'para', text: 'The upside-down deserves its portrait too, and the fold that draws it is old property: Lesson 9.2\'s mirror law traded the coordinates of a function and its inverse, so the exponential\'s $(0, 1)$ and $(1, 2)$ become the logarithm\'s $(1, 0)$ and $(2, 1)$ — $\\log_2 1 = 0$ because $2^0 = 1$, and $\\log_2 2 = 1$ because $2^1 = 2$. The picture below folds the two curves along the dashed line $y = x$, drawn from computed points at equal scale so the fold is honest. What the exponential does upward the logarithm does rightward: one hugs the $x$-axis far left, the other plunges below it, each the other\'s reflection.' },
+    { kind: 'figure', caption: 'The mirror pair y = 2^x and y = log₂ x folded along the dashed line y = x, drawn true to scale from computed points — the marked points (0, 1), (1, 0), (1, 2) and (2, 1) trade coordinates across the fold', svg: dr104LogMirror },
+    { kind: 'example', title: 'Solve $2^x = 10$: the logarithm names what the wall hides', steps: [
+      'Take the equation and bracket it first: $2^3 = 8 < 10 < 16 = 2^4$, so the exponent that builds $10$ lives strictly between $3$ and $4$.',
+      'Now, apply the upside-down machine to both sides — $\\log_2$ undoes the power exactly, so $x = \\log_2 10$, and the change-of-base law of Lesson 9.3 re-prices it in the natural base: $x = \\frac{\\ln 10}{\\ln 2} = \\frac{2.3025851}{0.6931472} = 3.3219281$.',
+      'So, certify the price by substitution, rung by rung: $2^{3.32} = 9.9866444$ falls short, $2^{3.3219} = 9.9998053$ closes in, and $2^{3.3219281} = 10.0000000$ to seven decimals — the rungs settle onto the answer exactly as the secant ladders of this lesson settle onto their landing values.',
+      'Hence the equation has an exact answer in LOG dress and a priced decimal: $x = \\log_2 10 = 3.3219281$. No school-algebra exhibit writes that exponent in radicals — the logarithm is simply the NAME of the exponent the wall hides.',
+    ] },
+    { kind: 'example', title: 'The log laws on base 2: condense, expand, go negative', steps: [
+      'Take the sum $\\log_2 8 + \\log_2 4$ and read each term as an exponent: $8 = 2^3$ and $4 = 2^2$, so the sum is $3 + 2 = 5$.',
+      'Now, the product law of Lesson 9.3 condenses the same sum without expanding it: $\\log_2 8 + \\log_2 4 = \\log_2(8 \\cdot 4) = \\log_2 32$, and $32 = 2^5$ certifies the value $5$ — condense or expand, the answer never moves.',
+      'So, run the negative direction: $\\log_2 \\frac{1}{8} = -3$, because $2^{-3} = \\frac{1}{8} = 0.125$ — arguments below $1$ price negative outputs, which is precisely the stretch of the teal curve below the $x$-axis in the mirror picture, the fold of the exponential\'s left tail where the outputs sit below $1$.',
+      'Hence the family\'s arithmetic is exponent arithmetic in disguise: adding logarithms multiplies arguments ($3 + 2 = 5$ matches $8 \\cdot 4 = 32$), and every value in the chain is an exponent first — the logarithm only reads aloud what power of $2$ a number is.',
+    ] },
 
     /* ---------- 3. the derivative, named ---------- */
     { kind: 'heading', text: 'The Derivative, Named' },
