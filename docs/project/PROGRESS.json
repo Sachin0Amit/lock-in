@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-26",
- "phase": "geometry ch.3 OPENED 1/6 (maths run 128, 2026-11-27, v9.2's first fire: the reference layer fetched per amendment 9 — Cengage M1-05 downloaded + vision-extracted, NCERT class-7 ch.7 read, the Ceva/Menelaus/Stewart/pons-asinorum web ground banked; pin_check_geo128 57/57 with four wrong pins caught pre-spec; six specs written; lesson 3.1 'Congruence: the Idea of Same Shape and Size' landed WHOLE — v-geo301 96/96 GREEN, 11,741 words, 4 body + 6 solution SVGs, quiz [1,3,0,2,1]; the whole-chapter swarm was BLOCKED — 6-up all empty, 2-up 1/2, solo empty, zero partials — so 3.2-3.6 ride run 129 with everything banked and nothing re-derived; ch-03.ts untouched, never half-assembled); cs lane: cf ch.5 rides CS RUN 10 per CS_AUTHORING_POINTER",
- "awaiting": "run 129 (the maths job): GEOMETRY ch.3 continues — the five remaining seats from their banked specs (3.2 criteria 02132, 3.3 isosceles 20310, 3.4 inequalities 31203, 3.5 Ceva/Menelaus 10231, 3.6 Stewart 03120), solo relaunch on any empty subagent response, then assemble (assemble_run127 pattern) + full gates + the chapter close; the CS lane (CS RUN 10: the ch.5 assembly + close) is untouched by the maths pointer",
+ "phase": "geometry ch.3 CLOSED COMPLETE 6/6 (maths run 129, 2026-11-27: the five-seat swarm landed whole — 3.3/3.4 first-wave, 302/305/306 continuation seats; verify-book5-ch03 677/677; 62,804 chapter words; E2E 288/288; the VLM sweep deferred to run 130 as a debt-first rider)",
+ "awaiting": "run 130 (the maths job): riders-first (the ch.3 VLM sweep + the five pre-existing aa-10.4 topic-depth errors), then GEOMETRY ch.4 'Similarity and Proportion' opened WHOLE per RESUME_POINTER",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG library routes + dynamic builder routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk · Prisma/SQLite (Custom Book Builder user data) · pdfjs-dist + poppler/tesseract (syllabus PDF extraction)",

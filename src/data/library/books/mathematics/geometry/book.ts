@@ -1,35 +1,21 @@
 import type { Book, Chapter } from '../../../types'
 import { chapter1 } from './ch-01'
 import { chapter2 } from './ch-02'
+import { chapter3 } from './ch-03'
 
 /**
  * Geometry — the fifth book of the Mathematics shelf.
  *
- * STATUS: IN-PROGRESS (run 127, 2026-11-26 — chapters 1 AND 2 CLOSED
- * COMPLETE: ch.2 'Angles, Parallel Lines and the Transversal' shipped
- * all four lessons — 2.1 (run 126), the 2.2 two-seat salvage, 2.3 and
- * 2.4 (banked run 126, assembled run 127); ch.3 rides the next fire).
+ * STATUS: IN-PROGRESS (run 129, 2026-11-27 — chapters 1, 2 AND 3 CLOSED
+ * COMPLETE: ch.3 'Triangles: Congruence and the Craft of Proof' shipped
+ * all six lessons — 3.1 (run 128), 3.2-3.6 (the run-129 swarm: 3.3/3.4
+ * first-wave seats, 302/305/306 continuation seats after the transcript
+ * wall); ch.4 'Similarity and Proportion' rides the next fire).
  */
 const chapters: Chapter[] = [
   chapter1,
   chapter2,
-  {
-    number: 3,
-    slug: 'triangles-congruence-and-proof',
-    title: 'Triangles: Congruence and the Craft of Proof',
-    summary:
-      'The chapter that makes geometers: congruence as exact coincidence, the five criteria (SAS, ASA, AAS, SSS, RHS) stated as postulates-of-method and used with discipline, and the classic consequences PROVED — isosceles triangles, the equilateral case, and the side/angle inequalities. Every proof is written the Euclidean way: statement, construction, argument, conclusion.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'Congruence: the Idea of Same Shape and Size',
-      'The Congruence Criteria: SAS, ASA, AAS, SSS, RHS',
-      'Isosceles Triangles: the Classic Consequences',
-      'Inequalities in a Triangle: Sides and Angles',
-      'The Cevian Theorems: Ceva and Menelaus',
-      'Stewart\u2019s Theorem and the Median Relation',
-    ],
-  },
+  chapter3,
   {
     number: 4,
     slug: 'similarity-and-proportion',

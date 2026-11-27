@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-26 22:28:53 (Asia/Kolkata)",
+  "generated": "2026-11-27 09:43:46 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -14069,7 +14069,7 @@
         "description": "The book where mathematics becomes proof. Foundation Mathematics banked the shapes and their measures; this book rebuilds geometry the way Euclid did — undefined words, postulates, and theorems earned one argument at a time. Congruence and the triangle criteria, similarity and a Pythagoras that is finally proved, the parallelogram family, the circle theorems olympiad problems run on, the ruler-and-compass discipline the rationalized syllabus dropped, Heron’s formula and the solids — every formula either proved or honestly flagged. The book closes on the ideas that broke and rebuilt the subject: equivalents of the parallel postulate, Hilbert’s rigour repair, and the non-Euclidean geometries born from denying Euclid’s fifth. Cross-references Foundation Mathematics throughout; hands off to Coordinate Geometry, Trigonometry and the olympiad ladder.",
         "status": "in-progress",
         "chaptersPlanned": 12,
-        "chaptersWritten": 2,
+        "chaptersWritten": 3,
         "chapters": [
           {
             "number": 1,
@@ -14642,18 +14642,417 @@
             "slug": "triangles-congruence-and-proof",
             "title": "Triangles: Congruence and the Craft of Proof",
             "summary": "The chapter that makes geometers: congruence as exact coincidence, the five criteria (SAS, ASA, AAS, SSS, RHS) stated as postulates-of-method and used with discipline, and the classic consequences PROVED — isosceles triangles, the equilateral case, and the side/angle inequalities. Every proof is written the Euclidean way: statement, construction, argument, conclusion.",
-            "status": "planned",
-            "lessonsWritten": 0,
-            "plannedLessons": [
-              "Congruence: the Idea of Same Shape and Size",
-              "The Congruence Criteria: SAS, ASA, AAS, SSS, RHS",
-              "Isosceles Triangles: the Classic Consequences",
-              "Inequalities in a Triangle: Sides and Angles",
-              "The Cevian Theorems: Ceva and Menelaus",
-              "Stewart’s Theorem and the Median Relation"
+            "status": "complete",
+            "lessonsWritten": 6,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "geo-congruence-the-idea-of-same-shape-and-size",
+                "number": "3.1",
+                "title": "Congruence: the Idea of Same Shape and Size",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 11741,
+                "readMins": 59,
+                "concepts": [
+                  "congruence",
+                  "superposition",
+                  "correspondence",
+                  "rigid motion",
+                  "orientation",
+                  "mirror image",
+                  "SSS distance check"
+                ],
+                "objectives": [
+                  "Decide whether two figures are congruent using the superposition idea, and state the definition formally with its symbolic restatement",
+                  "Read a congruence statement as an ORDERED correspondence and extract all six facts (three sides, three angles) it carries",
+                  "Run the SSS distance check on a coordinate pair: compute the side multiset, match it, and name the unique correspondence of a scalene pair",
+                  "Classify motions as direct or opposite by their effect on orientation, and explain why mirror images are congruent but not by a direct move",
+                  "Refute the perimeter, area and angle shortcuts with the pinned counterexamples"
+                ],
+                "prerequisites": [
+                  "geo-angle-sum-of-a-triangle-and-its-consequences"
+                ],
+                "sources": [
+                  "geo-euclid-elements",
+                  "ncert-math7-ch7-congruence",
+                  "geo-ch03-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 8,
+                  "para": 28,
+                  "callout": 10,
+                  "list": 1,
+                  "derivation": 2,
+                  "figure": 4,
+                  "table": 4,
+                  "example": 3,
+                  "formula": 5,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 3,
+                  "historical": 1,
+                  "insight": 2,
+                  "theorem": 1,
+                  "warn": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 15
+              },
+              {
+                "id": "geo-the-congruence-criteria-sas-asa-aas-sss-rhs",
+                "number": "3.2",
+                "title": "The Congruence Criteria: SAS, ASA, AAS, SSS, RHS",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 10853,
+                "readMins": 54,
+                "concepts": [
+                  "SAS",
+                  "ASA",
+                  "AAS",
+                  "SSS",
+                  "RHS",
+                  "included angle",
+                  "the SSA failure",
+                  "the AAA failure"
+                ],
+                "objectives": [
+                  "State each of the five congruence criteria formally and explain, in our own words, the classical argument behind it (superposition for SAS, the angle-sum repair for AAS, the squeeze for SSS, the Pythagoras closure for RHS)",
+                  "Name the criterion that licenses a given congruence, checking the included-angle discipline before writing any conclusion",
+                  "Refute AAA and SSA as criteria with the pinned witnesses (the equilateral pair side 1 vs side 2; the ambiguous case with third sides about 5.27 and 16.44)",
+                  "Repair angle-side data that arrives in the wrong shape: compute the missing angle by the angle sum and re-read the data as ASA or SAS",
+                  "Write two-triangle proofs correspondence-first: map named, criterion cited by name, conclusion licensed"
+                ],
+                "prerequisites": [
+                  "geo-congruence-the-idea-of-same-shape-and-size"
+                ],
+                "sources": [
+                  "geo-euclid-elements",
+                  "ncert-math7-ch7-congruence",
+                  "cengage-m1-05",
+                  "geo-ch03-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 9,
+                  "para": 23,
+                  "callout": 10,
+                  "derivation": 3,
+                  "figure": 3,
+                  "table": 3,
+                  "example": 3,
+                  "formula": 7,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 1,
+                  "theorem": 5,
+                  "historical": 1,
+                  "warn": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 10
+              },
+              {
+                "id": "geo-isosceles-triangles-the-classic-consequences",
+                "number": "3.3",
+                "title": "Isosceles Triangles: the Classic Consequences",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9976,
+                "readMins": 50,
+                "concepts": [
+                  "isosceles triangle",
+                  "pons asinorum",
+                  "base angles",
+                  "the converse",
+                  "equilateral",
+                  "apex axis",
+                  "altitude-median-bisector coincidence"
+                ],
+                "objectives": [
+                  "Define isosceles, scalene and equilateral triangles, and name the apex, the base, the legs and the base angles under the chapter notation law",
+                  "Prove Euclid I.5 (the pons asinorum) by the doubled-triangle SAS reading and state Pappus’s no-construction observation honestly",
+                  "Prove the converse I.6 both by the doubled ASA reading and by Euclid’s reductio, and cite the right direction in an exam chain",
+                  "Derive the equilateral corollary (all sides equal forces all angles 60 degrees) and the height sqrt(3)/2 times side reflex",
+                  "Use the axis package: in an isosceles triangle the apex-to-midpoint line is median, altitude and angle bisector at once, by SSS",
+                  "Solve witness, base-angle-walk and roof-truss problems with the half-angle toolkit (base angle = 90 − t, height = leg cos t)"
+                ],
+                "prerequisites": [
+                  "geo-congruence-the-idea-of-same-shape-and-size",
+                  "geo-the-congruence-criteria-sas-asa-aas-sss-rhs"
+                ],
+                "sources": [
+                  "geo-euclid-elements",
+                  "geo-ch03-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 10,
+                  "para": 26,
+                  "callout": 5,
+                  "list": 1,
+                  "derivation": 4,
+                  "figure": 4,
+                  "equation": 2,
+                  "table": 2,
+                  "example": 3,
+                  "terms": 1,
+                  "formula": 6,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 1,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 14
+              },
+              {
+                "id": "geo-inequalities-in-a-triangle-sides-and-angles",
+                "number": "3.4",
+                "title": "Inequalities in a Triangle: Sides and Angles",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9630,
+                "readMins": 48,
+                "concepts": [
+                  "triangle inequality",
+                  "degenerate triangle",
+                  "exterior angle inequality",
+                  "larger side larger angle",
+                  "larger angle larger side",
+                  "hinge theorem",
+                  "converse of the hinge"
+                ],
+                "objectives": [
+                  "State the triangle inequality (Euclid I.20) and use it as an existence screen on triples of lengths, refusing the short and the degenerate cases with named reasons",
+                  "Convert the three pair-sum inequalities into the bound $|b - c| < a < b + c$ and apply it as an instant eliminator on multiple-choice items",
+                  "State the exterior angle inequality (Euclid I.16) and distinguish its strict verdict on EACH remote interior angle from the equality with their SUM",
+                  "Use the ordering theorems I.18 and I.19 in both directions to pair the longest side with the largest angle without any computation",
+                  "State and apply the hinge theorem and its converse to compare third sides of triangles with two pairwise equal sides"
+                ],
+                "prerequisites": [
+                  "geo-congruence-the-idea-of-same-shape-and-size",
+                  "geo-the-congruence-criteria-sas-asa-aas-sss-rhs",
+                  "geo-isosceles-triangles-the-classic-consequences"
+                ],
+                "sources": [
+                  "geo-euclid-elements",
+                  "cengage-m1-05",
+                  "geo-ch03-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 7,
+                  "para": 18,
+                  "callout": 11,
+                  "derivation": 4,
+                  "figure": 4,
+                  "table": 3,
+                  "equation": 1,
+                  "example": 3,
+                  "formula": 5,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "theorem": 6,
+                  "definition": 1,
+                  "insight": 2,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 14
+              },
+              {
+                "id": "geo-the-cevian-theorems-ceva-and-menelaus",
+                "number": "3.5",
+                "title": "The Cevian Theorems: Ceva and Menelaus",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 10587,
+                "readMins": 53,
+                "concepts": [
+                  "cevian",
+                  "Ceva's theorem",
+                  "Menelaus's theorem",
+                  "directed ratio",
+                  "concurrence",
+                  "collinearity",
+                  "area telescoping"
+                ],
+                "objectives": [
+                  "State the definition of a cevian and fix the chapter’s ratio convention: $BD/DC$, $CE/EA$ and $AF/FB$, each measured in its own side’s direction",
+                  "Prove Ceva’s theorem by area telescoping and use the product test $(BD/DC)(CE/EA)(AF/FB) = 1$ to decide concurrence",
+                  "Prove the converse of Ceva and manufacture a concurrent triple of cevians by choosing the third ratio to make the product 1",
+                  "Use directed ratios (between positive, outside negative) and apply Menelaus’s product $-1$ to decide collinearity of three side-points",
+                  "Recognise the duality: the same three ratios, product $1$ for concurrence and product $-1$ for collinearity, with the sign census (an odd number of outside points)",
+                  "Solve concurrency, collinearity and converse problems with a licensed reason for every step"
+                ],
+                "prerequisites": [
+                  "geo-the-congruence-criteria-sas-asa-aas-sss-rhs",
+                  "geo-inequalities-in-a-triangle-sides-and-angles"
+                ],
+                "sources": [
+                  "geo-ch03-web-ground",
+                  "geo-euclid-elements"
+                ],
+                "blockCounts": {
+                  "heading": 14,
+                  "para": 25,
+                  "callout": 11,
+                  "list": 2,
+                  "derivation": 3,
+                  "figure": 4,
+                  "table": 4,
+                  "example": 3,
+                  "terms": 1,
+                  "formula": 4,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "theorem": 2,
+                  "insight": 3,
+                  "warn": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 9
+              },
+              {
+                "id": "geo-stewarts-theorem-and-the-median-relation",
+                "number": "3.6",
+                "title": "Stewart's Theorem and the Median Relation",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 10252,
+                "readMins": 51,
+                "concepts": [
+                  "Stewart's theorem",
+                  "cevian length",
+                  "Apollonius's theorem",
+                  "median relation",
+                  "centroid 2:1 split",
+                  "angle-bisector length",
+                  "the three-cevian comparison"
+                ],
+                "objectives": [
+                  "State and apply Stewart’s theorem $b^2 m + c^2 n = a(d^2 + mn)$ for a cevian of any split, under the chapter’s notation law",
+                  "Derive Apollonius’s median formula from Stewart and run the three-median census with the median-sum identity",
+                  "Locate the centroid by coordinates and prove the 2 : 1 split on every median",
+                  "Derive the angle-bisector length from Stewart by the ratio substitution and compute it on witnesses",
+                  "Order the altitude, the bisector and the median from one vertex, naming the equality cases honestly",
+                  "Read the cevian census parabola $d^2 = h^2 + (m - x)^2$ as the complete list of cevian lengths from one vertex"
+                ],
+                "prerequisites": [
+                  "geo-the-congruence-criteria-sas-asa-aas-sss-rhs",
+                  "geo-inequalities-in-a-triangle-sides-and-angles"
+                ],
+                "sources": [
+                  "geo-ch03-web-ground",
+                  "cengage-m1-05"
+                ],
+                "blockCounts": {
+                  "heading": 9,
+                  "para": 23,
+                  "callout": 9,
+                  "derivation": 4,
+                  "formula": 5,
+                  "figure": 4,
+                  "example": 5,
+                  "table": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "theorem": 2,
+                  "insight": 2,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 4
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 13
+              }
             ],
-            "lessons": [],
-            "words": 0
+            "words": 63039
           },
           {
             "number": 4,
@@ -54539,14 +54938,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 521,
-      "totalLines": 221785,
+      "srcFilesTracked": 522,
+      "totalLines": 228866,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5880,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 183104,
+        "src/data/library (content model + books)": 190185,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -54774,7 +55173,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-25",
+      "surveyed": "2026-11-27",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -83634,33 +84033,354 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "b908a63f984f1163699b74c583609c11dc44d7dd",
+      "short": "b908a63",
+      "date": "2026-11-26 16:59",
+      "message": "run 127 (the maths lane, whole-chapter close under v9.1): GEOMETRY chapter 2 'Angles, Parallel Lines and the Transversal' CLOSED COMPLETE 4/4 — the 2.2 'Parallel Lines and the Fifth Postulate' salvage realized amendment 5 as a TWO-SEAT SPLIT (127-a prose in-place, 7,769 words at hand-off, all prose pins green; 127-b back half on a separate file hit the wall but write-early-often left it WHOLE on disk, 47KB — quiz [1,2,0,3,1] with the five pinned tokens, 15 exercises L1-L6 with E23-E27 at their pinned positions, 3 solution figures; the orchestrator splice -> v-geo202 72/72, 11,909 words); assembled by scripts/assemble_run127.py with 2.3 (106/106) + 2.4 (125/125) from the run-126 bank; verify-book5-ch02 435/435 ALL GREEN with the Z closed census (floors 8,798/11,909/9,193/9,083, chapter 38,983 words, quiz keys 12012|12031|20312|13021 pairwise distinct); tsc lane-scoped 0 (10 pre-existing errors in the CS lane's in-flight cf-ch05-wip ride CS RUN 10, untouched per the two-lane law); lint 0 err; lib:pack v3 + check PASS (224 written / 1,387,927 words / 9,683 planned, the exact +3 delta); standing gates topic 667 + toc 4023 + math-shelf 1176; all four routes 200 warm; E2E x4 lessons x3 viewports 192/192 (gen-geo127-e2e.py, live-probe-calibrated pins; quiz 5/5 live on all four keys; KaTeX 344-516 nodes, 0 errors; the quiz-section regex broadened to SELF-CHECK for custom quiz titles); the chapter-wide VLM light+dark sweep (44 crops, 8 audits) found two real defects — 2.1's protractor label overlap + baseline labels, 2.3's I.27-box sub-caption clip — both FIXED at the part level, re-assembled, re-verified 435/435 and re-audited PASS; ledgers + both-lane protocol snapshot refreshed; RESUME_POINTER re-pointed to the run-128 ch.3 'Triangles: Congruence and the Craft of Proof' whole-chapter open",
+      "filesChanged": 29,
+      "insertions": 11715,
+      "deletions": 3043,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 14,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2865,
+          "del": 2865
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 5,
+          "del": 4
+        },
+        {
+          "path": "docs/project/RUN_PROTOCOL.md",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 1062,
+          "del": 62
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/part-geo201.ts",
+          "add": 9,
+          "del": 3
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/part-geo202-back.ts",
+          "add": 539,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/part-geo202.ts",
+          "add": 898,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/part-geo203.ts",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/spec-geo202-s1.md",
+          "add": 88,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/spec-geo202-s2.md",
+          "add": 90,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch02-wip/splice_geo202_back.py",
+          "add": 60,
+          "del": 0
+        },
+        {
+          "path": "scripts/assemble_run127.py",
+          "add": 299,
+          "del": 0
+        },
+        {
+          "path": "scripts/audit_vlm_geo127.sh",
+          "add": 21,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-geo-21.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-geo-21.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-geo-22.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-geo-22.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-geo-23.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-geo-23.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-geo-24.page.js",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-geo-24.sh",
+          "add": 103,
+          "del": 0
+        },
+        {
+          "path": "scripts/gen-geo127-e2e.py",
+          "add": 239,
+          "del": 0
+        },
+        {
+          "path": "scripts/sweep_vlm_geo127.sh",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book5-ch02.ts",
+          "add": 1549,
+          "del": 30
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/book.ts",
+          "add": 4,
+          "del": 44
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/ch-02.ts",
+          "add": 3289,
+          "del": 31
+        }
+      ]
+    },
+    {
+      "sha": "0d324ea316280605ff54c450a166749bac22d8c4",
+      "short": "0d324ea",
+      "date": "2026-11-26 17:00",
+      "message": "chore(bookkeeping): maths RUN 127 push record (anonymous ls-remote verified b908a63 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "6ed633767ab7898585bdde25226c1bc6f0e9868b",
+      "short": "6ed6337",
+      "date": "2026-11-26 17:32",
+      "message": "protocol v9.2 (owner directive 2026-11-27): reference-scan-first multi-book grounding, books+internet both, body-figure bar (good SVG + sanctioned AI images), solution figures strengthened — both lane payloads to follow",
+      "filesChanged": 2,
+      "insertions": 16,
+      "deletions": 5,
+      "files": [
+        {
+          "path": "docs/project/RUN_PROTOCOL.md",
+          "add": 10,
+          "del": 5
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 6,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "fd8250cf4aa087fbddde5a9b6fa247a4183da65a",
+      "short": "fd8250c",
+      "date": "2026-11-26 17:32",
+      "message": "chore(bookkeeping): v9.2 amendment push record (anonymous ls-remote verified 6ed6337 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "50d78a61a083e7fcbfb1bffd92f1cfd5bf5ac41b",
+      "short": "50d78a6",
+      "date": "2026-11-26 19:43",
+      "message": "run 128 (the maths lane, v9.2's first fire): GEOMETRY ch.3 'Triangles: Congruence and the Craft of Proof' OPENED 1/6 — the reference-scan-first amendment exercised whole: temporary-references/ was empty so the fire FETCHED its references first (Cengage M1-05 'Properties and Solutions of Triangle' downloaded from the Drive library, 51 MB, vision-extracted over 6 body pages to cengage-m105-extract.txt 13.4 KB; NCERT class-7 ch.7 'Congruence of Triangles' read from text layer — the superposition ground; the Ceva/Menelaus/Stewart/pons-asinorum history ground via WebSearch+WebFetch banked in the master plan's register; Euclid re-fetch failed — clarku converter errors + gutenberg down for maintenance — the banked geo-euclid-elements ground stands); verify-first held: pin_check_geo128.py 57/57 ALL GREEN with FOUR wrong first-draft pins caught before any spec shipped (the 6-permutation correspondence census is EXACTLY 1 valid — realized by the y=x reflection, orientation-reversing; perimeters 24 not 12; the exact SSA third sides sqrt(149 -+ 70*sqrt(3)) = 5.268438/16.439086; the integer-triangle census 1..10 = 125 not 50); GEO_CH03_MASTER_PLAN.md (census, arc, binding notation law, ground register, integration plan) + six self-contained specs spec-geo301..306 each carrying the v9.2 figure plan (>= 3 body + >= 3 solution computed-SVG figures per lesson, no AI rasters needed in the triangle chapter), pinned quiz keys 13021|02132|20310|31203|10231|03120, staged-seat law; the whole-chapter swarm (six seats) was BLOCKED — 6-up all six empty, 2-up 1/2, solo retry empty, zero partial files — logged per the blocked-run law; lesson 3.1 'Congruence: the Idea of Same Shape and Size' landed WHOLE (agent geo301): v-geo301.ts 96/96 GREEN (orchestrator re-verified: engine 50/50 + pins 46/46), part-geo301.ts 11,741 words, 4 body + 6 solution figures (10 SVGs), quiz [1,3,0,2,1], 15 exercises L1-L6 full step chains, 2 derivations, 3 Illustrations >= 6 steps, 5 formula cards; engine catches banked (Ex12 double-area +-12, quiz-token gate 3->2, a raw unicode-escape repair, tsc self-census type); tsc lane-scoped 0 geo errors (the CS lane's pre-existing wip errors ride CS RUN 10, untouched per the two-lane law), lint 0 errors; the chapter is NOT closed and ch-03.ts untouched (never half-assembled — the run-126 banking pattern); 3.2-3.6 ride run 129 with specs+pins+references banked (solo relaunch on any empty subagent response); ledgers: SOURCE_LOG run-128 block (both honesty catches recorded: the positional-args vision call attached nothing — the -i flag form is the working invocation; the four pin catches), WORKLOG entry, RESUME_POINTER -> run 129, PROGRESS refreshed, WORK_INVENTORY regenerated",
+      "filesChanged": 17,
+      "insertions": 2780,
+      "deletions": 4,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 14,
+          "del": 0
+        },
+        {
+          "path": "docs/research/GEO_CH03_MASTER_PLAN.md",
+          "add": 188,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/cengage-m105-extract.txt",
+          "add": 195,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/cengage-m105-extract.txt.raw",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/part-geo301.ts",
+          "add": 1149,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/pin_check_geo128.py",
+          "add": 137,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/spec-geo301.md",
+          "add": 63,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/spec-geo302.md",
+          "add": 63,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/spec-geo303.md",
+          "add": 65,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/spec-geo304.md",
+          "add": 63,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/spec-geo305.md",
+          "add": 66,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/spec-geo306.md",
+          "add": 64,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/v-geo301.ts",
+          "add": 663,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "755d24731d851f3dd3db82e6ff2b873d12f88e56",
+      "short": "755d247",
+      "date": "2026-11-26 19:44",
+      "message": "chore(bookkeeping): maths RUN 128 push record (anonymous ls-remote verified 50d78a6 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 277,
     "booksLive": 269,
-    "chaptersWritten": 49,
+    "chaptersWritten": 50,
     "chaptersInProgress": 0,
-    "lessonsWritten": 224,
-    "wordsAuthored": 1387927,
-    "termsDefined": 1915,
-    "quizItems": 1120,
-    "exerciseQuestions": 3121,
+    "lessonsWritten": 230,
+    "wordsAuthored": 1450966,
+    "termsDefined": 1990,
+    "quizItems": 1150,
+    "exerciseQuestions": 3211,
     "blockTotals": {
-      "para": 3725,
-      "callout": 1624,
-      "heading": 1398,
-      "list": 290,
-      "terms": 263,
-      "equation": 485,
-      "figure": 525,
-      "derivation": 514,
-      "table": 362,
-      "example": 1405,
-      "quiz": 224,
-      "exercises": 224,
-      "formula": 965,
+      "para": 3868,
+      "callout": 1680,
+      "heading": 1455,
+      "list": 294,
+      "terms": 269,
+      "equation": 488,
+      "figure": 548,
+      "derivation": 534,
+      "table": 380,
+      "example": 1425,
+      "quiz": 230,
+      "exercises": 230,
+      "formula": 997,
       "algorithm": 50,
       "image": 12
     }
