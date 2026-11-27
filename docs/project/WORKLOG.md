@@ -7648,3 +7648,7 @@ scripts/.zai-runtime/ and scripts/.hero-audit/.
 - Both cron jobs created via the gateway with payloads modeled on the cs job's (pull-first, RUN_PROTOCOL v9.2, lane pointer as the WHAT, shared-ledger law, four-lane no-touch law, FIRST-SHIPPED-STANDS, run-end PAT push).
 
 **No lessons were authored this turn** — this is the setup commit; ENG RUN 1 and HSS RUN 1 author their first chapters on their first honored fires. Both shelves open at 100% planned / zero written (Engineering: 38 books, engineering-mechanics 10 ch / 136 planned lessons, `mech-` prefix; Humanities & Social Sciences: 16 books, world-history 11 ch / 80 planned lessons, `wh-` prefix).
+
+## 2026-11-27 — LANE SETUP push record (no token)
+
+**Push verified:** the setup commit `5c49ea7` pushed as a clean fast-forward `7076b7e..5c49ea7`; anonymous ls-remote confirms refs/heads/main == `5c49ea77323c53675c1611abc616cd8b9e902fcc` == local HEAD — **SYNCED**. The PAT lived only inside the single push command's URL (the anonymous origin push failed first, as expected) — never written to any file, config, log or message, never echoed or printed. The tree is clean. The eng job's first honored ODD-hour :35 IST fire opens ENG RUN 1 (engineering-mechanics ch.1 'The Statics Frame' whole, per ENG_AUTHORING_POINTER.json); the hss job's first honored EVEN-hour :35 IST fire opens HSS RUN 1 (world-history ch.1 'The Historian's Craft' whole, per HSS_AUTHORING_POINTER.json).
