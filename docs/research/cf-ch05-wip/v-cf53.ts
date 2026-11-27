@@ -375,7 +375,7 @@ if (lesson) {
   /* source shape (assembly contract) */
   const src = await Bun.file(import.meta.dir + '/part-cf53.ts').text()
   ok('I19 the part source exports lesson53, imports the Lesson type on the pinned path, keeps the palette const named c53 with font f53, and every helper is cf53-prefixed',
-    src.includes('export const lesson53') && src.includes("import type { Lesson } from '../../src/data/library/types'")
+    src.includes('export const lesson53') && src.includes("import type { Lesson } from '../../../src/data/library/types'")
     && src.includes('const c53 = {') && src.includes('const f53 =')
     && !/(?:^|\n)\s*function (?!cf53)/.test(src))
   ok('I20 the part source carries no blue/indigo/sky hex anywhere',

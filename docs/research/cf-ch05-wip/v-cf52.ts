@@ -116,7 +116,7 @@ console.log('== C. STORAGE HONESTY (THE MODELLED GRID) ==')
   ok('C6 the cells-per-KiB route agrees: 1,024 / 8 = 128 cells per KiB, and 2,600 / 128 = 20.3125 KiB',
     1024 / 8 === 128 && near(2600 / 128, 20.3125))
   ok('C7 the SI face of the same cargo disagrees honestly: 20,800 / 1,000 = 20.8 KB against 20.3125 KiB - chapter 3\'s lesson restated',
-    near(20800 / 1000, 20.8) && 20.8 !== 20.3125)
+    near(20800 / 1000, 20.8) && (20.8 as number) !== 20.3125)
   ok('C8 the hedge is part of the pin: a real spreadsheet file stores far more than 8 bytes a cell (formats, formulas, fonts) - the model pins the ARITHMETIC, and the prose says so',
     true)
 }

@@ -1273,7 +1273,7 @@ console.log('== III. census integrity ==')
   const totPl = cs.reduce((n, b) => n + b.chapters.reduce((m, c) => m + (c.plannedLessons?.length ?? 0) + c.lessons.length, 0), 0)
   ok(cs.length === 44, `44 CS books (got ${cs.length})`)
   ok(totCh === 364, `CS shelf census 364 chapters (got ${totCh})`)
-  ok(totPl === 1226, `CS shelf census 1,226 lessons (got ${totPl})`) // unchanged by the CS RUN 8 ch.4 close (2 planned slots became 2 written lessons — net zero; the 4.R review was already counted in CS RUN 7)
+  ok(totPl === 1227, `CS shelf census 1,227 lessons (got ${totPl})`) // 1226 + the net +1 of the CS RUN 10 ch.5 close (3 planned slots became 3 written lessons; the 5.R review was never in the planned census)
   const ledger = readFileSync('docs/research/CS_EXAM_TOPIC_LEDGER.md', 'utf8')
   ok(ledger.includes('251'), 'the durable ledger records the 251-topic census')
   for (const id of ['gate2026.iitg.ac.in', 'ugcnetonline.in', 'ioinformatics.org', 'cuet.nta.nic.in', 'cambridgeinternational.org', 'apcentral.collegeboard.org', 'ibo.org']) {

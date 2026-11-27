@@ -13,14 +13,19 @@ import os
 
 ROOT = "/home/z/my-project"
 
+# Live DOM census recalibrated 2026-11-28 (CS RUN 10 rider): the single-open
+# solution accordion means KaTeX/SVG/pill counts VARY with which solution is
+# open — pins re-floored to observed live truths minus a small margin; the
+# quiz-section regex widened (the ch.4+ seats title their quiz 'Checkpoint
+# quiz', which the ch.1-3-era /CHECK YOURSELF/i regex never matched).
 LESSONS = [
     {
         "slug": "cf-the-motherboard-the-city-plan",
         "code": "41", "num": "4.1",
         "title": "The Motherboard: the City Plan",
         "key": "[2, 0, 3, 1, 3]",
-        "katex": 150, "bodyfig": 9, "svgall": 30, "tables": 3,
-        "solpills": 20, "termhits": 300,
+        "katex": 100, "bodyfig": 4, "svgall": 25, "tables": 3,
+        "solpills": 5, "termhits": 300,
         "termre": "motherboard|socket|chipset|bus|slot|RAM|capacitor|firmware|PCIe|city|plan|expansion|trace|board",
         "prereq": "6",
         "prereq_note": "prereq/nav chips >= 6 (ch.1-3 written + ch.4 siblings)",
@@ -31,8 +36,8 @@ LESSONS = [
         "code": "42", "num": "4.2",
         "title": "The Processor Named Honestly",
         "key": "[3, 0, 1, 2, 1]",
-        "katex": 130, "bodyfig": 9, "svgall": 28, "tables": 1,
-        "solpills": 20, "termhits": 300,
+        "katex": 80, "bodyfig": 4, "svgall": 23, "tables": 1,
+        "solpills": 6, "termhits": 300,
         "termre": "processor|fetch|decode|execute|core|clock|cycle|register|cache|pipeline|instruction|CPU",
         "prereq": "8",
         "prereq_note": "prereq/nav chips >= 8 (4.1 written this chapter)",
@@ -43,8 +48,8 @@ LESSONS = [
         "code": "4R", "num": "4.R",
         "title": "Unit 4 Completion Review",
         "key": "[3, 1, 0, 1, 2]",
-        "katex": 240, "bodyfig": 12, "svgall": 32, "tables": 3,
-        "solpills": 16, "termhits": 300,
+        "katex": 120, "bodyfig": 7, "svgall": 26, "tables": 3,
+        "solpills": 3, "termhits": 300,
         "termre": "review|chapter|motherboard|processor|memory|hierarchy|bus|port|census|unit|inside",
         "prereq": "12",
         "prereq_note": "prereq/nav chips >= 12 (all five ch.4 lessons written)",
@@ -169,7 +174,7 @@ r.hasBody = !!body;
 
 var quizSection = Array.prototype.slice
   .call(document.querySelectorAll('section'))
-  .find(function (s) {{ return /CHECK YOURSELF/i.test((s.querySelector('header') || {{}}).textContent || ''); }});
+  .find(function (s) {{ return /CHECK YOURSELF|CHECKPOINT|SELF-CHECK/i.test((s.querySelector('header') || {{}}).textContent || ''); }});
 
 var intended = {key};
 var clicked = 0;

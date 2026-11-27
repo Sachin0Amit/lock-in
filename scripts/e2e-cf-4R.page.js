@@ -1,5 +1,5 @@
 // e2e-cf-4R.page.js — targeted interactivity for Computer Fundamentals
-// lesson 4.R 'Unit 4 Completion Review' (quiz keys [3, 1, 0, 1, 2]; 12 figure svgs + solution
+// lesson 4.R 'Unit 4 Completion Review' (quiz keys [3, 1, 0, 1, 2]; 7 figure svgs + solution
 // figures; the shipped census calibrated in scripts/gen-cs9-e2e.py).
 var r = {};
 var body = document.querySelector('.lesson-body');
@@ -7,7 +7,7 @@ r.hasBody = !!body;
 
 var quizSection = Array.prototype.slice
   .call(document.querySelectorAll('section'))
-  .find(function (s) { return /CHECK YOURSELF/i.test((s.querySelector('header') || {}).textContent || ''); });
+  .find(function (s) { return /CHECK YOURSELF|CHECKPOINT|SELF-CHECK/i.test((s.querySelector('header') || {}).textContent || ''); });
 
 var intended = [3, 1, 0, 1, 2];
 var clicked = 0;

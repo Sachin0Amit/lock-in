@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-27 22:40:28 (Asia/Kolkata)",
+  "generated": "2026-11-28 01:28:59 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -13926,8 +13926,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 7264,
-                "readMins": 36,
+                "words": 8176,
+                "readMins": 41,
                 "concepts": [
                   "the limit of the secant slopes",
                   "the difference quotient and the secant ladder",
@@ -13958,13 +13958,13 @@
                   "hall-knight-higher-algebra"
                 ],
                 "blockCounts": {
-                  "para": 28,
+                  "para": 31,
                   "callout": 9,
                   "heading": 11,
-                  "table": 10,
-                  "figure": 4,
+                  "table": 11,
+                  "figure": 6,
                   "equation": 2,
-                  "example": 4,
+                  "example": 7,
                   "derivation": 2,
                   "list": 1,
                   "terms": 1,
@@ -14056,7 +14056,7 @@
                 "termsDefined": 8
               }
             ],
-            "words": 30484
+            "words": 31396
           }
         ]
       },
@@ -14069,7 +14069,7 @@
         "description": "The book where mathematics becomes proof. Foundation Mathematics banked the shapes and their measures; this book rebuilds geometry the way Euclid did — undefined words, postulates, and theorems earned one argument at a time. Congruence and the triangle criteria, similarity and a Pythagoras that is finally proved, the parallelogram family, the circle theorems olympiad problems run on, the ruler-and-compass discipline the rationalized syllabus dropped, Heron’s formula and the solids — every formula either proved or honestly flagged. The book closes on the ideas that broke and rebuilt the subject: equivalents of the parallel postulate, Hilbert’s rigour repair, and the non-Euclidean geometries born from denying Euclid’s fifth. Cross-references Foundation Mathematics throughout; hands off to Coordinate Geometry, Trigonometry and the olympiad ladder.",
         "status": "in-progress",
         "chaptersPlanned": 12,
-        "chaptersWritten": 3,
+        "chaptersWritten": 4,
         "chapters": [
           {
             "number": 1,
@@ -15059,16 +15059,285 @@
             "slug": "similarity-and-proportion",
             "title": "Similarity: the Geometry of Proportion",
             "summary": "Foundation Mathematics 6’s ratio and proportion return as geometry’s scaling law. The Basic Proportionality (Thales) theorem proved, the similarity criteria (AA, SAS, SSS) built on it, and Pythagoras’s theorem PROVED by similarity and again by areas — the theorem the reader has used since Foundation Mathematics is finally earned. Areas scale as the square of the ratio; volumes as the cube.",
-            "status": "planned",
-            "lessonsWritten": 0,
-            "plannedLessons": [
-              "Similar Figures: Same Shape at Any Scale",
-              "The Basic Proportionality Theorem (Thales)",
-              "The Similarity Criteria: AA, SAS, SSS",
-              "Pythagoras Proved: the Theorem Earned"
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "geo-similar-figures-same-shape-at-any-scale",
+                "number": "4.1",
+                "title": "Similar Figures: Same Shape at Any Scale",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 11164,
+                "readMins": 56,
+                "concepts": [
+                  "similar figures",
+                  "scale factor",
+                  "similarity statement",
+                  "corresponding parts",
+                  "perimeter and area scaling",
+                  "scale drawings",
+                  "similar solids"
+                ],
+                "objectives": [
+                  "Define similar figures precisely: all corresponding angles equal AND all corresponding sides in one common ratio k, with k stated with its direction",
+                  "Read and write a similarity statement triangle ABC ~ triangle DEF as an ordered correspondence, extracting the side ratios and angle equalities it licenses",
+                  "Apply the k, k² machine: perimeters and every length scale by k, areas by k², and use the direction discipline to invert reads",
+                  "Refute the false certificates of similarity (equal angles alone, equal area, equal perimeter) with the pinned 2×6 vs 3×4 and 2×6 vs 5×3 witnesses",
+                  "Run map-scale conversions in one and two dimensions (1:50000 lengths and areas), and state the similar-solids k³ teaser"
+                ],
+                "prerequisites": [
+                  "geo-congruence-the-idea-of-same-shape-and-size",
+                  "geo-the-congruence-criteria-sas-asa-aas-sss-rhs"
+                ],
+                "sources": [
+                  "geo-euclid-elements",
+                  "ncert-math10-ch6-triangles",
+                  "geo-ch04-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 9,
+                  "para": 27,
+                  "callout": 8,
+                  "figure": 4,
+                  "table": 3,
+                  "list": 1,
+                  "derivation": 3,
+                  "example": 3,
+                  "formula": 5,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 1,
+                  "warn": 2,
+                  "definition": 1,
+                  "theorem": 1,
+                  "exam": 2,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 13
+              },
+              {
+                "id": "geo-the-basic-proportionality-theorem-thales",
+                "number": "4.2",
+                "title": "The Basic Proportionality Theorem (Thales)",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 11371,
+                "readMins": 57,
+                "concepts": [
+                  "basic proportionality theorem",
+                  "equal-altitude area lemma",
+                  "converse of the BPT",
+                  "intercept theorem",
+                  "midsegment theorem",
+                  "ratio arithmetic",
+                  "Thales configuration"
+                ],
+                "objectives": [
+                  "State the Basic Proportionality Theorem precisely: a line parallel to one side of a triangle divides the other two sides in the same ratio, and read it in both ratio forms (part-to-part and part-to-whole)",
+                  "Prove the BPT from the equal-altitude area lemma: join BE and CD, observe the equal areas [BDE] = [CDE], and divide through by the common-altitude triangles",
+                  "Convert between the two ratio reads by componendo and dividendo, and state the scale factor k of the parallel line with its direction (k and 1/k)",
+                  "Apply the converse of the BPT to certify or refute parallels, including the pinned 3/4-against-4/5 refusal",
+                  "Use the intercept ladder to divide a segment into any number of equal parts, and derive the midsegment theorem as the k = 1/2 case with its converse"
+                ],
+                "prerequisites": [
+                  "geo-similar-figures-same-shape-at-any-scale",
+                  "geo-the-congruence-criteria-sas-asa-aas-sss-rhs"
+                ],
+                "sources": [
+                  "geo-euclid-elements",
+                  "ncert-math10-ch6-triangles",
+                  "geo-ch04-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 10,
+                  "para": 24,
+                  "callout": 10,
+                  "figure": 4,
+                  "derivation": 4,
+                  "table": 3,
+                  "list": 2,
+                  "example": 3,
+                  "formula": 5,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "historical": 1,
+                  "theorem": 3,
+                  "insight": 3,
+                  "warn": 1,
+                  "exam": 2
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 11
+              },
+              {
+                "id": "geo-the-similarity-criteria-aa-sas-sss",
+                "number": "4.3",
+                "title": "The Similarity Criteria: AA, SAS, SSS",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 10882,
+                "readMins": 54,
+                "concepts": [
+                  "similarity criterion",
+                  "AA (angle-angle)",
+                  "SAS-similarity",
+                  "SSS-similarity",
+                  "RHS-similarity",
+                  "included angle",
+                  "indirect measurement",
+                  "the ambiguous case"
+                ],
+                "objectives": [
+                  "Explain why a criterion is a short gate: the full check demands six measurements (three angles and three ratios), and AA needs only two because the angle sum forces the third angle",
+                  "Prove the AA criterion with the construction on the shared angle: the copied angle forces the parallel, and the Basic Proportionality Theorem forces every ratio",
+                  "Apply SAS-similarity and SSS-similarity with the common-ratio discipline, computing third sides by the law of cosines and areas by the k-squared law",
+                  "Refute the false gates: SSA re-armed for similarity (the ambiguous pair), the AAA relabelling, and the honest k = 1 collapse of the congruence criteria",
+                  "Run the shadow method for indirect measurement and choose the right criterion for a given figure"
+                ],
+                "prerequisites": [
+                  "geo-similar-figures-same-shape-at-any-scale",
+                  "geo-the-basic-proportionality-theorem-thales",
+                  "geo-the-congruence-criteria-sas-asa-aas-sss-rhs"
+                ],
+                "sources": [
+                  "geo-euclid-elements",
+                  "ncert-math10-ch6-triangles",
+                  "geo-ch04-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 8,
+                  "para": 21,
+                  "callout": 9,
+                  "table": 3,
+                  "derivation": 3,
+                  "figure": 4,
+                  "example": 3,
+                  "terms": 1,
+                  "formula": 5,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 2,
+                  "theorem": 2,
+                  "definition": 1,
+                  "warn": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 8
+              },
+              {
+                "id": "geo-pythagoras-proved-the-theorem-earned",
+                "number": "4.4",
+                "title": "Pythagoras Proved: the Theorem Earned",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 10776,
+                "readMins": 54,
+                "concepts": [
+                  "Pythagoras’ theorem",
+                  "altitude on the hypotenuse",
+                  "geometric mean",
+                  "right-triangle similarity",
+                  "Pythagorean triples",
+                  "special right triangles",
+                  "converse of Pythagoras"
+                ],
+                "objectives": [
+                  "Name the debt precisely: state what has been borrowed about $a^2 + b^2 = c^2$ since Foundation Mathematics, and what it means for this chapter to pay it back",
+                  "Perform the altitude-on-hypotenuse construction and walk ALL THREE similarity statements ($\\triangle ABC \\sim \\triangle ACH \\sim \\triangle CBH$) by AA, with the scale factors of each piece read with their directions",
+                  "Read Euclid VI.8 off the split: each leg is the geometric mean of the hypotenuse and its adjacent segment, and the altitude is the geometric mean of the two segments",
+                  "Prove Pythagoras twice — by similarity (VI.31: $a^2 = cp$, $b^2 = cq$, add) and by areas (the squares on the sides, $9 + 16 = 25$) — and place Euclid I.47’s windmill as the classic cousin",
+                  "Apply the $k$, $k^2$ machine with Euclid VI.19’s duplicate ratio to similar figures, and cash the tree-shadow application with the AA licence from Lesson 4.3",
+                  "Run the primitive-triple census with hypotenuse at most $100$ (exactly $16$), use the $45$-$45$-$90$ and $30$-$60$-$90$ similarity families, and test triples with the converse ($8, 15, 17$ yes; $4, 5, 7$ no) — the carpenter’s $3$-$4$-$5$ check included"
+                ],
+                "prerequisites": [
+                  "geo-similar-figures-same-shape-at-any-scale",
+                  "geo-the-basic-proportionality-theorem-thales",
+                  "geo-the-similarity-criteria-aa-sas-sss"
+                ],
+                "sources": [
+                  "geo-euclid-elements",
+                  "ncert-math10-ch6-triangles",
+                  "geo-ch04-web-ground"
+                ],
+                "blockCounts": {
+                  "heading": 9,
+                  "para": 25,
+                  "callout": 6,
+                  "figure": 4,
+                  "derivation": 4,
+                  "table": 4,
+                  "example": 4,
+                  "terms": 1,
+                  "formula": 5,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 1,
+                  "definition": 1,
+                  "theorem": 1,
+                  "historical": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 10
+              }
             ],
-            "lessons": [],
-            "words": 0
+            "words": 44193
           },
           {
             "number": 5,
@@ -18507,7 +18776,7 @@
         "description": "The zero-rung entry to the Computer Science shelf (its Foundation Mathematics). The information processing cycle priced on real machines; a census of hardware from desktops to embedded chips; interacting with computers — input and output devices and the first usability instincts; data representation as a first meeting (bits, codes, text/image/sound) that hands its theory to Arithmetic and Number Systems and Digital Logic Design; inside the box — motherboard, processor named honestly, the first memory hierarchy; the software families and the manager layer that Operating Systems will theorize; the network idea that Computer Networks takes over; files and digital space; and the synthesis with user-level security. Cross-references every core CS book as its doorstep; no prior knowledge assumed.",
         "status": "in-progress",
         "chaptersPlanned": 8,
-        "chaptersWritten": 4,
+        "chaptersWritten": 5,
         "chapters": [
           {
             "number": 1,
@@ -20026,15 +20295,271 @@
             "slug": "software-families",
             "title": "Software Families",
             "summary": "System software versus application software priced on the reader’s own machine: what an operating system visibly does (the manager layer — the full story is Operating Systems’), utilities, productivity and creative families, and the practical craft of installing, updating and licensing software honestly.",
-            "status": "planned",
-            "lessonsWritten": 0,
-            "plannedLessons": [
-              "System Software: the Manager Layer",
-              "Application Software: the Worker Families",
-              "Installing, Updating and Licensing Honestly"
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "cf-system-software-the-manager-layer",
+                "number": "5.1",
+                "title": "System Software: the Manager Layer",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 12689,
+                "readMins": 63,
+                "concepts": [
+                  "software as instructions for the box",
+                  "the two families: system and application",
+                  "the four-layer stack and its neighbour rule",
+                  "the OS's five jobs and multitasking's 0.005% illusion",
+                  "utilities, drivers and firmware named honestly",
+                  "the boot handoff: 5 stages, 4 handoffs",
+                  "GM-NAA I/O 1956, UNIX 1969, and the GUI lineage"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can define software as the set of instructions, and the data they work on, that tells the hardware what to do - and sort every program you meet into the two families: system software, which runs the machine and provides the platform, and application software, which does the user's own job.",
+                  "By the end of this lesson you can draw the four-layer stack (user, application software, system software, hardware) and state its neighbour rule: each layer talks only to its neighbours, and the manager layer hides the hardware's dialect from the workers.",
+                  "By the end of this lesson you can list the operating system's five visible jobs - process management, memory management, the file system, device input/output through drivers, and the user interface - and distinguish the kernel (the core) from the shell (the face).",
+                  "By the end of this lesson you can compute the price of the multitasking illusion: 10 ms slices with 2 processes make a 20 ms round, so 50 switches a second at about 1 μs each cost 50 μs of every second - 0.005% of the wall clock - and 4 jobs on 1 core leave each waiting 30 ms between turns.",
+                  "By the end of this lesson you can name the six-utility census, the driver census (7 devices need 7 drivers; 2 operating systems need 14), and firmware as software stored permanently on a chip inside the device.",
+                  "By the end of this lesson you can walk the five-stage boot handoff (power on, firmware POST, bootloader, OS kernel, login prompt) and carry the dated beats honestly: GM-NAA I/O in 1956 for the IBM 704, UNIX in 1969 at Bell Labs, the Xerox Alto in 1973 and the Macintosh in 1984."
+                ],
+                "prerequisites": [
+                  "cf-unit-4-completion-review"
+                ],
+                "sources": [
+                  "cs-cf-web-ground-ch05"
+                ],
+                "blockCounts": {
+                  "heading": 9,
+                  "para": 40,
+                  "callout": 16,
+                  "list": 1,
+                  "terms": 4,
+                  "figure": 4,
+                  "table": 4,
+                  "derivation": 2,
+                  "equation": 3,
+                  "example": 8,
+                  "algorithm": 1,
+                  "formula": 4,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 8,
+                  "insight": 1,
+                  "warn": 2,
+                  "theorem": 1,
+                  "historical": 3,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 5,
+                  "L3": 6
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 21
+              },
+              {
+                "id": "cf-application-software-the-worker-families",
+                "number": "5.2",
+                "title": "Application Software: the Worker Families",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9911,
+                "readMins": 50,
+                "concepts": [
+                  "the worker test: whose job does it do",
+                  "the census of seven worker families",
+                  "the spreadsheet close-up: 2,600 cells and the recipe",
+                  "three uniforms: desktop, web, mobile",
+                  "suites against single-purpose workers",
+                  "choosing honestly: formats, export, lock-in",
+                  "VisiCalc 1979 and Photoshop 1990"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can define application software as the worker that performs the user's own task while standing on the platform the system software keeps, and run the one-question sorting test - whose job does it do - on any program you are shown.",
+                  "By the end of this lesson you can recite the census of the seven worker families with each family's verb and a named example, including the four core kinds of the productivity family.",
+                  "By the end of this lesson you can walk one family close, the spreadsheet: 26 columns by 100 rows is 2,600 cells, one SUM over a 100-cell column is 99 additions, and the storage-honesty model prices the grid at 2,600 x 8 = 20,800 bytes = 20.3125 KiB.",
+                  "By the end of this lesson you can tell the three uniforms apart - desktop installable, web app, mobile app - by the three questions: where it lives, who updates it, and when it needs the network.",
+                  "By the end of this lesson you can price a suite against singles honestly (four singles at four licences against one suite licence) and say when a suite's spare apps are dead weight and when they are the point.",
+                  "By the end of this lesson you can choose with the lock-in question - can your work leave? - export before you commit, and carry the two dated beats honestly: VisiCalc in 1979 and Photoshop in 1990, eleven years apart."
+                ],
+                "prerequisites": [
+                  "cf-system-software-the-manager-layer"
+                ],
+                "sources": [
+                  "cs-cf-web-ground-ch05"
+                ],
+                "blockCounts": {
+                  "heading": 9,
+                  "para": 32,
+                  "callout": 9,
+                  "list": 1,
+                  "example": 10,
+                  "terms": 4,
+                  "figure": 3,
+                  "table": 3,
+                  "equation": 3,
+                  "derivation": 2,
+                  "algorithm": 1,
+                  "formula": 4,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "insight": 1,
+                  "theorem": 1,
+                  "warn": 2,
+                  "historical": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 5,
+                  "L3": 4,
+                  "L4": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 24
+              },
+              {
+                "id": "cf-installing-updating-and-licensing-honestly",
+                "number": "5.3",
+                "title": "Installing, Updating and Licensing Honestly",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 11041,
+                "readMins": 55,
+                "concepts": [
+                  "the install census: five steps, one contract",
+                  "three ways to bring software home",
+                  "semantic versioning: MAJOR.MINOR.PATCH",
+                  "update against upgrade, and end of life",
+                  "the uninstall leftovers census",
+                  "six licence families and the four freedoms",
+                  "the arithmetic of permission: trials, seats, subscriptions"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can state the install census - the five steps of copy, register, associate, settings, driver-or-service - and explain why installing is a contract with the operating system rather than a mere copy of files.",
+                  "By the end of this lesson you can name the three ways to bring software home - the installer wizard, the store or package manager, and portable software - and state the honest trade each one makes.",
+                  "By the end of this lesson you can read a version number under semantic versioning: from 2.4.1 a bug fix gives 2.4.2, a feature gives 2.5.0, a breaking change gives 3.0.0, and from 1.9.9 a feature gives 1.10.0 because the fields are counters, not decimals.",
+                  "By the end of this lesson you can distinguish an update from an upgrade, read an end-of-life date honestly (Windows XP supported to 8 April 2014, 13 years; Windows 10 to 14 October 2025, 10 years), and say what changes for a machine after support ends.",
+                  "By the end of this lesson you can sort any software offer into its licence family among the six - proprietary, freeware, shareware, free and open-source, public domain, subscription - and recite the four freedoms that belong to the free and open-source family.",
+                  "By the end of this lesson you can do the arithmetic of permission: the 25 years to parity between a 120-a-year subscription and a 3,000 perpetual licence, the day 31 that ends a 30-day trial, and the machines beyond the grant when one licence meets three machines."
+                ],
+                "prerequisites": [
+                  "cf-application-software-the-worker-families"
+                ],
+                "sources": [
+                  "cs-cf-web-ground-ch05"
+                ],
+                "blockCounts": {
+                  "heading": 11,
+                  "para": 40,
+                  "list": 7,
+                  "callout": 12,
+                  "figure": 3,
+                  "algorithm": 1,
+                  "example": 8,
+                  "table": 3,
+                  "equation": 3,
+                  "derivation": 2,
+                  "formula": 4,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 3,
+                  "historical": 2,
+                  "insight": 3,
+                  "warn": 2,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 5,
+                  "L2": 5,
+                  "L3": 5
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 12
+              },
+              {
+                "id": "cf-unit-5-completion-review",
+                "number": "5.R",
+                "title": "Unit 5 Completion Review",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 9304,
+                "readMins": 47,
+                "concepts": [
+                  "the chapter in one map: the two-family tree - system side and application side joined by the craft bridge",
+                  "the 24-entry catalogue: 5 OS jobs, 6 utilities, 7 worker families, 6 licence kinds",
+                  "the cross-lesson threads: one program's journey, the classify-12 roster, the boot-to-login walk",
+                  "the honest re-checks: time-slicing at 0.005%, the 2,600-cell grid, 20.3125 KiB, 25 years to parity, the EOL spans",
+                  "the formula and vocabulary harvest of the chapter",
+                  "the mixed bench: fifteen exam-style questions across all three lessons",
+                  "the doorsteps recap: what chapter 5 deliberately left closed"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can redraw the chapter's one map - the two families joined by the craft bridge, 24 catalogued entries placed - from memory.",
+                  "By the end of this lesson you can restate the chapter's engine-pinned censuses cold: the four-layer stack, the five jobs, the six utilities, the seven families, the six licences.",
+                  "By the end of this lesson you can chain the lessons in one move - a licence choice to an install census to a semver walk - without putting the pencil down.",
+                  "By the end of this lesson you can re-derive the chapter's arithmetic witnesses: 120 orderings, 0.005% overhead, 2,600 cells, 20.3125 KiB, 25 years to parity.",
+                  "By the end of this lesson you can sit the mixed bench: fifteen questions across all three lessons, at least three of them honest exam-style asks."
+                ],
+                "prerequisites": [
+                  "cf-system-software-the-manager-layer",
+                  "cf-application-software-the-worker-families",
+                  "cf-installing-updating-and-licensing-honestly"
+                ],
+                "sources": [
+                  "cs-cf-web-ground-ch05"
+                ],
+                "blockCounts": {
+                  "para": 30,
+                  "heading": 13,
+                  "figure": 3,
+                  "callout": 11,
+                  "table": 2,
+                  "example": 7,
+                  "derivation": 1,
+                  "exercises": 1,
+                  "formula": 7,
+                  "terms": 1,
+                  "quiz": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 2,
+                  "warn": 3,
+                  "historical": 3,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 5,
+                  "L3": 6
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 16
+              }
             ],
-            "lessons": [],
-            "words": 0
+            "words": 42945
           },
           {
             "number": 6,
@@ -55128,14 +55653,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 523,
-      "totalLines": 230578,
+      "srcFilesTracked": 524,
+      "totalLines": 235569,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5880,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 191897,
+        "src/data/library (content model + books)": 196888,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -55363,374 +55888,12 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-27",
-      "rootFileCount": 85,
-      "subfolders": [
-        "_DPPs",
-        "CHEMISTRY",
-        "MATHS",
-        "PHYSICS"
-      ],
+      "surveyed": "2026-11-03",
+      "rootFileCount": 0,
+      "subfolders": [],
       "approxTotalSizeMB": 0,
       "fullMachineListing": "temporary-references/inventory.json (gitignored — survey metadata)",
-      "rootItems": [
-        {
-          "name": "_DPPs [folder]",
-          "size": ""
-        },
-        {
-          "name": "CHEMISTRY [folder]",
-          "size": ""
-        },
-        {
-          "name": "MATHS [folder]",
-          "size": ""
-        },
-        {
-          "name": "PHYSICS [folder]",
-          "size": ""
-        },
-        {
-          "name": "A-Brief-History-of-Modern-India-Spectrum.pdf",
-          "size": ""
-        },
-        {
-          "name": "A-History-of-Western-Philosophy-Bertrand-Russell.pdf",
-          "size": ""
-        },
-        {
-          "name": "A-Tour-of-C++-2nd-Edition-Bjarne-Stroustrup.pdf",
-          "size": ""
-        },
-        {
-          "name": "Abraham-Silberschatz-Operating-System-Concepts-10th-2018.pdf",
-          "size": ""
-        },
-        {
-          "name": "advanced-engineering-mathematics.pdf",
-          "size": ""
-        },
-        {
-          "name": "Alfred-V.-Aho-Monica-S.-Lam-Ravi-Sethi-Jeffrey-D.-Ullman-Compilers-Principles-Techniques-and-Tools-Pearson_Addison-Wesley-2007.pdf",
-          "size": ""
-        },
-        {
-          "name": "Algorithms-4th-Edition-Sedgewick-Wayne.pdf",
-          "size": ""
-        },
-        {
-          "name": "applied-physics-11th-edition - Copy.pdf",
-          "size": ""
-        },
-        {
-          "name": "atkins-physical-chemistry-12th-12nbsped-9780198847816_compress - Copy.pdf",
-          "size": ""
-        },
-        {
-          "name": "C++-Primer-5th-Edition-Lippman.pdf",
-          "size": ""
-        },
-        {
-          "name": "Calculus Early Transcendentals 9th Edition SOLUTIONS (James Stewart, Daniel K. Clegg etc.) (z-library.sk, 1lib.sk, z-lib.sk)-1.pdf",
-          "size": ""
-        },
-        {
-          "name": "calculus-10th-edition-anton.pdf",
-          "size": ""
-        },
-        {
-          "name": "Calculus-11th-Edition-Larson-Edwards.pdf",
-          "size": ""
-        },
-        {
-          "name": "Calculus-Early-Transcendental-Functions-7th-Larson.pdf",
-          "size": ""
-        },
-        {
-          "name": "calculus-early-transcendentals-international-metric-edition.pdf",
-          "size": ""
-        },
-        {
-          "name": "Campbell-Biology-11th-Edition.pdf",
-          "size": ""
-        },
-        {
-          "name": "Chemistry-11th-Edition-Steven-Zumdahl.pdf",
-          "size": ""
-        },
-        {
-          "name": "Classical-Mechanics-3rd-Edition-Goldstein.pdf",
-          "size": ""
-        },
-        {
-          "name": "Computer-Networking-A-Top-Down-Approach-Kurose-8th.pdf",
-          "size": ""
-        },
-        {
-          "name": "computer-networks-tanenbaum-5th-edition.pdf",
-          "size": ""
-        },
-        {
-          "name": "Computer-Organization-Architecture-11th.pdf",
-          "size": ""
-        },
-        {
-          "name": "Computer-Systems-A-Programmers-Perspective-3rd.pdf",
-          "size": ""
-        },
-        {
-          "name": "core-java-volume-1-fundamental-volume-2-twelfth-edition.pdf",
-          "size": ""
-        },
-        {
-          "name": "Database-System-Concepts-Silberschatz-Korth-7th.pdf",
-          "size": ""
-        },
-        {
-          "name": "Deep-Learning-Ian-Goodfellow-MIT-Press.pdf",
-          "size": ""
-        },
-        {
-          "name": "Design-Patterns-Elements-of-Reusable-Object-Oriented-Software-GoF.pdf",
-          "size": ""
-        },
-        {
-          "name": "desktop.ini",
-          "size": ""
-        },
-        {
-          "name": "Digital Logic and Computer Design. (M. Morris Mano.) (Z-Library).pdf",
-          "size": ""
-        },
-        {
-          "name": "Digital-Logic-Computer-Design.pdf",
-          "size": ""
-        },
-        {
-          "name": "dokumen.pub_atkins-physical-chemistry-12th-12nbsped-9780198847816.pdf",
-          "size": ""
-        },
-        {
-          "name": "dokumen.pub_calculus-8thnbsped-1285740629-9781285740621.pdf",
-          "size": ""
-        },
-        {
-          "name": "dokumen.pub_full-stack-web-development-the-comprehensive-guide-1159836532-1682920144-2023024562-9781493224371-9781493224388-9781493224395.epub",
-          "size": ""
-        },
-        {
-          "name": "dokumen.pub_halliday-amp-resnick-fundamentals-of-physics-11th-ed-extended-edition-9781119460138-1119460131.pdf",
-          "size": ""
-        },
-        {
-          "name": "dokumen.pub_javascript-the-definitive-guide-7nbsped-1491952024-9781491952023.pdf",
-          "size": ""
-        },
-        {
-          "name": "dokumen.pub_linear-algebra-done-right-4nbsped-3031410254-9783031410253-9783031410260.pdf",
-          "size": ""
-        },
-        {
-          "name": "Effective-Java-3rd-Edition-Bloch.pdf",
-          "size": ""
-        },
-        {
-          "name": "electric-circuits-12nbsped-9780137648375-0137648375-013764843x-9780137648436.pdf",
-          "size": ""
-        },
-        {
-          "name": "Electrical &amp; Electronic Technology Hughes 12th Ed.pdf",
-          "size": ""
-        },
-        {
-          "name": "Elementary-Algebra_text.pdf",
-          "size": ""
-        },
-        {
-          "name": "English-Grammar-in-Use-Raymond-Murphy.pdf",
-          "size": ""
-        },
-        {
-          "name": "Genki-Elementary-Japanese-I.pdf",
-          "size": ""
-        },
-        {
-          "name": "Grokking-Algorithms-Aditya-Bhargava.pdf",
-          "size": ""
-        },
-        {
-          "name": "halliday-amp-resnick-fundamentals-of-physics-11th-ed-extended-edition-.pdf",
-          "size": ""
-        },
-        {
-          "name": "Hammers-German-Grammar-and-Usage.pdf",
-          "size": ""
-        },
-        {
-          "name": "Head-First-Design-Patterns-2nd-Freeman.pdf",
-          "size": ""
-        },
-        {
-          "name": "Higher Algebra - Hall _ Knight.pdf",
-          "size": ""
-        },
-        {
-          "name": "HigherAlgebra_10021865.pdf",
-          "size": ""
-        },
-        {
-          "name": "How-Linux-Works-3rd-Edition-Brian-Ward.pdf",
-          "size": ""
-        },
-        {
-          "name": "Indian-Polity-Laxmikanth.pdf",
-          "size": ""
-        },
-        {
-          "name": "Introduction-To-Algorithms-CLRS.pdf",
-          "size": ""
-        },
-        {
-          "name": "Introduction-to-Electrodynamics-Griffiths.pdf",
-          "size": ""
-        },
-        {
-          "name": "Introduction-to-Linear-Algebra-Gilbert-Strang-5th.pdf",
-          "size": ""
-        },
-        {
-          "name": "Introduction-to-Quantum-Mechanics-Griffiths-3rd.pdf",
-          "size": ""
-        },
-        {
-          "name": "Introduction-To-The-Theory-Of-Computation-Michael-Sipser.pdf",
-          "size": ""
-        },
-        {
-          "name": "Invoice order .pdf",
-          "size": ""
-        },
-        {
-          "name": "Java-Concurrency-in-Practice-Goetz.pdf",
-          "size": ""
-        },
-        {
-          "name": "Lee-JD-Concise-inorganic-Chemistry_lee-5ed.pdf_18-2-2022.pdf",
-          "size": ""
-        },
-        {
-          "name": "Lehninger-Principles-of-Biochemistry-8th.pdf",
-          "size": ""
-        },
-        {
-          "name": "Lin-Algebra-Schaum-6th-Edition.pdf",
-          "size": ""
-        },
-        {
-          "name": "Linear-Algebra-and-Its-Applications-4th-Strang.pdf",
-          "size": ""
-        },
-        {
-          "name": "Linear-Algebra-and-Its-Applications-Lay-5th.pdf",
-          "size": ""
-        },
-        {
-          "name": "Microelectronic Circuits (8th Ed.).pdf",
-          "size": ""
-        },
-        {
-          "name": "microelectronic-circuits-8th-edition.pdf",
-          "size": ""
-        },
-        {
-          "name": "organic-chemistry-by-jonathan-clayden-nick-greeves-stuart-warren-z-lib.org_-847123c1.pdf",
-          "size": ""
-        },
-        {
-          "name": "physics-fundamental.pdf",
-          "size": ""
-        },
-        {
-          "name": "Principles-of-Economics-Mankiw-8th-Edition.pdf",
-          "size": ""
-        },
-        {
-          "name": "Principles-of-Mathematical-Analysis-Rudin-3rd.pdf",
-          "size": ""
-        },
-        {
-          "name": "prompt.tex",
-          "size": ""
-        },
-        {
-          "name": "Python-Crash-Course-2nd-Edition.pdf",
-          "size": ""
-        },
-        {
-          "name": "Quantitative-Aptitude-Competitive-Examinations-Khattar.pdf",
-          "size": ""
-        },
-        {
-          "name": "RosenDiscreteMath8Ed.pdf",
-          "size": ""
-        },
-        {
-          "name": "sachincertificate.pdf",
-          "size": ""
-        },
-        {
-          "name": "Spring-in-Action-6th-Edition-Craig-Walls.pdf",
-          "size": ""
-        },
-        {
-          "name": "The Feynman Lectures on Physics, Vol. I,II,III The New Millennium Edition by Richard P. Feynman (z-lib.org).pdf",
-          "size": ""
-        },
-        {
-          "name": "The-Algorithm-Design-Manual-Skiena-3rd.pdf",
-          "size": ""
-        },
-        {
-          "name": "the-art-of-electronics.pdf",
-          "size": ""
-        },
-        {
-          "name": "The-Elements-of-Style-4th-Strunk-White.pdf",
-          "size": ""
-        },
-        {
-          "name": "The-Linux-Programming-Interface-Kerrisk.pdf",
-          "size": ""
-        },
-        {
-          "name": "Thinking-in-Java-4th-Edition-Bruce-Eckel.pdf",
-          "size": ""
-        },
-        {
-          "name": "Thomas-Calculus-14th-Edition.pdf",
-          "size": ""
-        },
-        {
-          "name": "toaz.info-jd-leepdf-pr_dcdf23d5207402daeb1e78917ebbb825.pdf",
-          "size": ""
-        },
-        {
-          "name": "Trigonometry-Loney.pdf",
-          "size": ""
-        },
-        {
-          "name": "University Physics with Modern Physics 15th Edition By Hugh D. Young_compressed.pdf",
-          "size": ""
-        },
-        {
-          "name": "University-Chemistry-by-Bruce-H.-Mahan.pdf",
-          "size": ""
-        },
-        {
-          "name": "Wileys Solomons, Fryhle  Snyder Organ... (iitjeebooks.com).pdf",
-          "size": ""
-        }
-      ]
+      "rootItems": []
     },
     "citationKeys": [
       {
@@ -84961,34 +85124,441 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "789e8623928022cacd58d36362b976ecd546d49a",
+      "short": "789e862",
+      "date": "2026-11-27 12:08",
+      "message": "chore(bookkeeping): HSS RUN 1 push record (anonymous ls-remote verified c53ab85 — SYNCED)",
+      "filesChanged": 3,
+      "insertions": 164,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/FIX_QUEUE_130A.md",
+          "add": 35,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-10.ts",
+          "add": 127,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "84aaff8c8822700d07c07dec3fbf06bbb0343637",
+      "short": "84aaff8",
+      "date": "2026-11-27 17:10",
+      "message": "hss run 2 (humanities & social sciences lane): WORLD-HISTORY ch.1 'The Historian's Craft' CLOSED COMPLETE 3/3 — riders cleared FIRST (the true-390px mobile check via the ROOT-CAUSED fix: agent-browser 'set viewport 390 844' — the open --viewport flag is dead; e2e ALL PASS at true 390; the chapter-wide VLM light+dark sweep for 1.1 — 7 shots, 2 flags DOM-arbitrated as scroll-fold false positives, CLEAN); the swarm wall answered a 3rd and 4th time (context deadline exceeded, zero bytes; 8 consecutive dead responses across runs 1-2) so the amendment-5 SOLO RELAUNCH authored both seats: 1.2 'Sources: Literary and Archaeological' 55/55 (6,062+ words, 3 body + 3 solution SVGs incl. the source-taxonomy tree / stratigraphy section / radiocarbon decay curve / travellers timeline 700+216 / Rosetta census / Ashokan pillar, the witnesses table, the radiocarbon derivation, 3 worked examples, 12 terms, 4 formulas, quiz [2,3,1,0,2], 15 exercises L1-L6; harness caught quiz-key order + word floor, e2e caught the missing witnesses table) and 1.3 'Time, Periodisation and the Calendar' 61/61 (6,557 words, 3 body + 3 solution SVGs incl. the no-year-zero magnifier / reform-jump panel / periodisation timeline / era chart / century ladder / calendar-reform timeline, the span-rule witness table, 2 derivations, 11 terms, 5 formulas, quiz [0,2,3,1,0], 15 exercises L1-L6, chapter-closing para); assembled by the CLOSE version of assemble_hss1.py (ch-01.ts 1,715 lines, status complete, plannedLessons []; verify-wh-ch01.ts three wrapped sections + the CLOSED 3-of-3 Z census); gates ALL GREEN: verify-wh-ch01 205/205, tsc 0 humanities errors (22 sibling-wip pre-existing), lint 0 errors, lib:pack PASS (pack v32, 233 written lessons) + lib:check PASS, routes 200 x3, e2e desktop + TRUE-390 + dark x both lessons ALL PASS, VLM sweep 6/6 PASS; chapter 19,014 words; build_work_inventory.ts ROOT-path bug fixed (sandbox moved repo to lock-in/ — the script was writing WORK_INVENTORY.json to the parent dir); ledgers re-pointed, HSS pointer -> ch.2 'The World Before 1200' with the artifact-reconcile instruction (Gs-iii + Industrialization leak lines)",
+      "filesChanged": 18,
+      "insertions": 34285,
+      "deletions": 3897,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/HSS_AUTHORING_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2864,
+          "del": 2864
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 20,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 28619,
+          "del": 816
+        },
+        {
+          "path": "docs/research/wh-ch01-wip/part-wh102.ts",
+          "add": 435,
+          "del": 0
+        },
+        {
+          "path": "docs/research/wh-ch01-wip/part-wh103.ts",
+          "add": 412,
+          "del": 0
+        },
+        {
+          "path": "docs/research/wh-ch01-wip/v-wh102.ts",
+          "add": 154,
+          "del": 0
+        },
+        {
+          "path": "docs/research/wh-ch01-wip/v-wh103.ts",
+          "add": 159,
+          "del": 0
+        },
+        {
+          "path": "scripts/assemble_hss1.py",
+          "add": 183,
+          "del": 133
+        },
+        {
+          "path": "scripts/build_work_inventory.ts",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "scripts/e2e-wh-12-13.sh",
+          "add": 87,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-wh-12.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-wh-13.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-wh-ch01.ts",
+          "add": 355,
+          "del": 46
+        },
+        {
+          "path": "src/data/library/books/humanities/world-history/book.ts",
+          "add": 7,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/humanities/world-history/ch-01.ts",
+          "add": 881,
+          "del": 27
+        }
+      ]
+    },
+    {
+      "sha": "5188e9a868ba0c69f766c7da881b53b43b7315dd",
+      "short": "5188e9a",
+      "date": "2026-11-27 17:11",
+      "message": "chore(bookkeeping): HSS RUN 2 push record (anonymous ls-remote verified 84aaff8 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "77e1a60973974afef4048b0f6eaa6f9f1b31685c",
+      "short": "77e1a60",
+      "date": "2026-11-27 18:37",
+      "message": "merge remote main (hss runs 1-2 + bookkeeping) into local main; keeps untracked geo-ch04-wip staged seats intact",
+      "filesChanged": 0,
+      "insertions": 0,
+      "deletions": 0,
+      "files": []
+    },
+    {
+      "sha": "3ad084f07e37a505c4344f630719d6cbcb5e7268",
+      "short": "3ad084f",
+      "date": "2026-11-27 18:58",
+      "message": "run 130 close (the maths lane): GEOMETRY ch.4 CLOSED COMPLETE 4/4 — ledgers re-pointed (run 131 = riders-first: the ch.3 FIX_QUEUE_130A fixes + the ch.4 E2E grid + VLM sweep, then ch.5 'Transformations and Symmetry' whole); ch-04.ts + book.ts swap + master plan + the four-part wip (95/96/116/97 engines, 44,193 chapter words, quiz keys 21304|13042|04213|30421); verify-book5-ch04 442/442 ALL GREEN; aa-10.4 debt PAID the same run (verify-book4-ch10 946/946); pin_check_geo130 62/62 with four first-draft catches (the cm2->km2 slip, the SAS k=3/2 image trap twice, a float artifact)",
+      "filesChanged": 20,
+      "insertions": 12166,
+      "deletions": 27,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 5,
+          "del": 5
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/research/GEO_CH04_MASTER_PLAN.md",
+          "add": 25,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/part-geo401.ts",
+          "add": 1131,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/part-geo402.ts",
+          "add": 1287,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/part-geo403.ts",
+          "add": 1233,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/part-geo404.ts",
+          "add": 1184,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/spec-geo401.md",
+          "add": 40,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/spec-geo402.md",
+          "add": 32,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/spec-geo403.md",
+          "add": 33,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/spec-geo404.md",
+          "add": 37,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/v-geo401.ts",
+          "add": 511,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/v-geo402.ts",
+          "add": 602,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/v-geo403.ts",
+          "add": 620,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/v-geo404.ts",
+          "add": 509,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/book.ts",
+          "add": 8,
+          "del": 20
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/ch-04.ts",
+          "add": 4882,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "70cce27d837dcb2517ab8857d4cd631a6d3c177c",
+      "short": "70cce27",
+      "date": "2026-11-27 18:59",
+      "message": "chore(bookkeeping): maths RUN 130 push record (anonymous ls-remote verified 3ad084f — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "0dbdbf9f0adc9342939ef14336a989f3ed397dd2",
+      "short": "0dbdbf9",
+      "date": "2026-11-27 19:26",
+      "message": "run 130 continuation (the 00:05 IST nightly fire, job 552081): the run-130 gate battery + two real catches + the twice-deferred ch.3 VLM sweep EXECUTED — gates: verify-book5-ch04 442/442 ALL GREEN (44,193 chapter words; quiz keys 21304|13042|04213|30421), verify-book5-ch03 677/677 after the fixes, tsc lane-scoped 0 (10 pre-existing cs cf-ch05-wip ride CS RUN 10), lint 0, lib:pack 237 written, content-completeness 0 errors, E2E x4x3 viewports ALL PASS (gen-geo130-e2e.py, live-probe pins; quiz 5/5 on all four keys; 0 console errors; no overflow 390/1280; dark clean); CATCH 1: part-geo403's SINGLE-backslash TeX escapes ('\\f' = JS form-feed etc. — 245 fracs + 71 sqrts + 25 more classes corrupted, 70 KaTeX errors live) fixed by fix_geo403_escapes.py (lambda replacement — a plain re.sub template re-emits one backslash and undoes itself) + the PACK LAW recorded: the site serves the packed db — lib:pack must re-run after any content fix before E2E is honest; CATCH 2 (amendment 7): the first harness runs' 2+11 fails were phantom stale-transpiles — fresh re-runs 95/95, 96/96, 116/116, 97/97 with zero edits; RIDER: sweep_vlm_geo130.sh + audit_vlm_geo130.sh over 80 ch.3 crops (6 vision audits), verdicts banked in vlm-sweep-run130-verdicts/, 4 surgical label fixes landed at part level and re-audited (3.1 '(8,0)' y-nudge, 3.2 'a = 5' end-anchored off the green CB1, 3.4 21.79+38.21 white halos, 3.6 'd = 3sqrt17' white halo — 3 confirmed PASS, 3.1's original collision cleared); residual figure debt logged as run-131 riders (3.3's six systemic figures, 3.2 fig4, 3.4 21.79 needs a coordinate move, 3.5's two F-label collisions, 3.1's A=A'/B/C touches); assemble_run129.py Z-census updated to the run-130 book truth (ch.1-4 complete); ledgers re-pointed (run 131 = the figure-fix riders + the ch.4 VLM sweep, then ch.5 'Transformations and Symmetry' whole)",
+      "filesChanged": 20,
+      "insertions": 3459,
+      "deletions": 3188,
+      "files": [
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2864,
+          "del": 2864
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/part-geo301.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/part-geo302.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/part-geo304.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/part-geo306.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/vlm-sweep-run130-verdicts/31.txt",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/vlm-sweep-run130-verdicts/32.txt",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/vlm-sweep-run130-verdicts/33.txt",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/vlm-sweep-run130-verdicts/34.txt",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/vlm-sweep-run130-verdicts/35.txt",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/vlm-sweep-run130-verdicts/36.txt",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/vlm-sweep-run130-verdicts/SUMMARY.md",
+          "add": 29,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/fix_geo403_escapes.py",
+          "add": 38,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/part-geo403.ts",
+          "add": 154,
+          "del": 154
+        },
+        {
+          "path": "scripts/assemble_run129.py",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "scripts/verify-book5-ch03.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/ch-03.ts",
+          "add": 5,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/ch-04.ts",
+          "add": 154,
+          "del": 154
+        }
+      ]
+    },
+    {
+      "sha": "3a6517022101955e39dd452aaa64fafaa21522d5",
+      "short": "3a65170",
+      "date": "2026-11-27 19:27",
+      "message": "chore(bookkeeping): maths RUN 130 push record (anonymous ls-remote verified 0dbdbf9 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 277,
     "booksLive": 269,
-    "chaptersWritten": 51,
+    "chaptersWritten": 53,
     "chaptersInProgress": 0,
-    "lessonsWritten": 233,
-    "wordsAuthored": 1470076,
-    "termsDefined": 2023,
-    "quizItems": 1165,
-    "exerciseQuestions": 3256,
+    "lessonsWritten": 241,
+    "wordsAuthored": 1558126,
+    "termsDefined": 2138,
+    "quizItems": 1205,
+    "exerciseQuestions": 3376,
     "blockTotals": {
-      "para": 3926,
-      "callout": 1695,
-      "heading": 1475,
-      "list": 297,
-      "terms": 272,
-      "equation": 488,
-      "figure": 561,
-      "derivation": 539,
-      "table": 384,
-      "example": 1432,
-      "quiz": 233,
-      "exercises": 233,
-      "formula": 1011,
-      "algorithm": 50,
+      "para": 4168,
+      "callout": 1776,
+      "heading": 1553,
+      "list": 309,
+      "terms": 286,
+      "equation": 497,
+      "figure": 592,
+      "derivation": 560,
+      "table": 410,
+      "example": 1481,
+      "quiz": 241,
+      "exercises": 241,
+      "formula": 1050,
+      "algorithm": 53,
       "image": 12
     }
   }

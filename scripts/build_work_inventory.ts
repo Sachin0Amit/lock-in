@@ -14,7 +14,7 @@ import { allBooks } from '../src/data/library'
 import { countLessonWords } from '../src/data/library/types'
 import type { Lesson } from '../src/data/library/types'
 
-const ROOT = '/home/z/my-project/lock-in'
+const ROOT = '/home/z/my-project'
 const OUT = `${ROOT}/docs/project/WORK_INVENTORY.json`
 
 function sh(cmd: string[]): string {
@@ -40,7 +40,7 @@ interface CommitRec {
   sha: string; short: string; date: string; message: string
   files: { path: string; add: number; del: number }[]
 }
-const rawLog = sh(['git', 'log', '--numstat', '--format=@@|%H|%h|%ad|%s', '--date=format:%Y-%m-%d %H:%M'])
+const rawLog = sh(['/usr/bin/git', 'log', '--numstat', '--format=@@|%H|%h|%ad|%s', '--date=format:%Y-%m-%d %H:%M'])
 const commits: CommitRec[] = []
 for (const line of rawLog.split('\n')) {
   if (!line) continue
@@ -69,7 +69,10 @@ const gitHistory = commits.map((c) => ({
 /* ------------------------------------------------------------------ */
 /* Drive survey artifact (gitignored; summary gets committed here)     */
 /* ------------------------------------------------------------------ */
-const inv: any = await Bun.file(`/home/z/my-project/temporary-references/inventory.json`).json()
+let inv: any = { rootItems: [] }
+if (await Bun.file(`/home/z/my-project/temporary-references/inventory.json`).exists()) {
+  inv = await Bun.file(`/home/z/my-project/temporary-references/inventory.json`).json()
+} // the gitignored Drive-survey working artifact — tolerate its absence in a recycled sandbox
 const rootItems: { name: string; size: string }[] = inv.rootItems ?? []
 const driveFolders = rootItems.filter((i) => i.name.includes('[folder]')).map((i) => i.name.replace(' [folder]', ''))
 const driveFiles = rootItems.filter((i) => !i.name.includes('[folder]'))
@@ -205,7 +208,7 @@ const bookRecords = allLiveBooks.map(bookRecordOf)
 /* ------------------------------------------------------------------ */
 /* Codebase statistics                                                 */
 /* ------------------------------------------------------------------ */
-const srcFiles = sh(['git', 'ls-files', 'src']).trim().split('\n').filter(Boolean)
+const srcFiles = sh(['/usr/bin/git', 'ls-files', 'src']).trim().split('\n').filter(Boolean)
 const areaOf = (f: string): string => {
   if (f.startsWith('src/app/')) return 'src/app (routes, pages)'
   if (f.startsWith('src/components/library/')) return 'src/components/library (reader platform)'

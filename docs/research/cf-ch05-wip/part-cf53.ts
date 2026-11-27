@@ -1,4 +1,4 @@
-import type { Lesson } from '../../src/data/library/types'
+import type { Lesson } from '../../../src/data/library/types'
 
 /**
  * part-cf53.ts — CS RUN 9 seat cf53 (the LIBRARY lesson).
@@ -322,7 +322,7 @@ function cf53SolParitySvg(): string {
   s.push(`<line x1="${crossX.toFixed(2)}" y1="${perpY.toFixed(2)}" x2="${crossX.toFixed(2)}" y2="${yBase}" stroke="${c53.conn}" stroke-width="1.6" stroke-dasharray="5 4"/>`)
   s.push(`<circle cx="${crossX.toFixed(2)}" cy="${perpY.toFixed(2)}" r="5" fill="${c53.accent}"/>`)
   s.push(`<rect x="${(crossX - 66).toFixed(2)}" y="66" width="132" height="14" rx="3" fill="${c53.paper}"/>`)
-  s.push(cf53T((crossX - 18).toFixed(2), 77, 10, c53.ink, 'middle', 'parity: year 25', true))
+  s.push(cf53T(crossX - 18, 77, 10, c53.ink, 'middle', 'parity: year 25', true))
   s.push(`<rect x="16" y="316" width="${W - 32}" height="36" rx="8" fill="${c53.panelB}" stroke="${c53.conn}" stroke-width="2"/>`)
   s.push(cf53T(W / 2, 331, 9.5, c53.ink, 'middle', 'after 10 years the rent has paid 1,200 - still 1,800 below the perpetual price'))
   s.push(cf53T(W / 2, 346, 9.5, c53.tealInk, 'middle', 'parity: 3,000 / 120 = 25 years; year 26 is the first the rent costs more'))

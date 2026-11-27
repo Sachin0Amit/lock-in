@@ -96,7 +96,7 @@ for (const b of cs) {
   ok(EXPECTED_CHAPTERS[b.id] === b.chapters.length, `${b.id} chapter count pins ${EXPECTED_CHAPTERS[b.id]} (got ${b.chapters.length})`)
 }
 ok(totCh === 364, `shelf total 364 chapters (got ${totCh})`)
-ok(totPl === 1226, `shelf total planned lessons + reviews (got ${totPl})`) // 1222 planned + the cf ch.1 1.R, ch.2 2.R, ch.3 3.R and ch.4 4.R unit reviews; CS RUN 8 closing ch.4 nets ZERO (2 planned slots became 2 written lessons — the RUN 7 pointer's 1227 prediction was an arithmetic slip, corrected 2026-11-26)
+ok(totPl === 1227, `shelf total planned lessons + reviews (got ${totPl})`) // 1226 + the net +1 of the CS RUN 10 ch.5 close: the 3 planned slots became 3 written lessons (net zero) and the 5.R unit review was never in the planned census — it joins as written (the RUN 8-era pin held 1226; corrected 2026-11-28)
 
 console.log('== C. planned-chapter hygiene ==')
 for (const b of cs) {
@@ -167,7 +167,7 @@ ok(survey.length > 40_000, `survey substantial (${survey.length} chars)`)
 
 console.log('== I. the authoring-era census (the cs lane opened the shelf 2026-11-21) ==')
 const csWritten = cs.reduce((n, b) => n + b.chapters.reduce((m, c) => m + c.lessons.length, 0), 0)
-ok(csWritten === 22, 'exactly 22 written lessons in the CS shelf (CS RUN 1..8: computer-fundamentals chapters 1, 2, 3 and 4 COMPLETE (4 + 4 + 9 + 5 written) — chapter 4 closed by CS RUN 8 shipping 4.1 + 4.2 alongside the RUN 7 seats 4.3 + 4.4 + the 4.R review — the pin grows with the cs lane')
+ok(csWritten === 26, 'exactly 26 written lessons in the CS shelf (CS RUN 1..10: computer-fundamentals chapters 1, 2, 3, 4 and 5 COMPLETE (4 + 4 + 9 + 5 + 4 written) — chapter 5 closed by CS RUN 10 shipping all four seats whole in one fire (5.1 + 5.2 + 5.3 + the 5.R review) — the pin grows with the cs lane')
 
 // ---- summary ----
 console.log(`\nverify-cs-shelf-planning: ${pass} checks passed, ${fail} failed`)

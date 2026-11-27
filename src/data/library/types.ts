@@ -210,7 +210,7 @@ export type Block =
       steps: DerivationStep[]
       result: string
     }
-  | { kind: 'example'; title: string; steps: string[]; figures?: SolutionFigure[] }
+  | { kind: 'example'; title: string; steps: string[]; figures?: SolutionFigure[]; answer?: string }
   | { kind: 'figure'; caption: string; svg: string }
   /**
    * Photographic hero illustration — a high-resolution AI-generated raster

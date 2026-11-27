@@ -3,6 +3,7 @@ import { chapter01 } from './ch-01'
 import { chapter02 } from './ch-02'
 import { chapter3 } from './ch-03'
 import { chapter4 } from './ch-04'
+import { chapter5 } from './ch-05'
 
 /**
  * Computer Fundamentals — the first book of the Computer Science shelf
@@ -23,27 +24,19 @@ import { chapter4 } from './ch-04'
  * Pieces Talk' + the 4.R review shipped whole under the time-budget
  * law; CS RUN 8, 2026-11-26: 4.1 'The Motherboard: the City Plan' +
  * 4.2 'The Processor Named Honestly' shipped whole and the chapter
- * CLOSED — five lessons, plannedLessons empty), chapters 5-8 planned
- * (the remaining 15 planned lessons). */
+ * CLOSED — five lessons, plannedLessons empty), chapter 5 COMPLETE
+ * (CS RUN 10, 2026-11-28: the whole-chapter cadence honored in ONE
+ * fire — 5.1 'System Software: the Manager Layer', 5.2 'Application
+ * Software: the Worker Families', 5.3 'Installing, Updating and
+ * Licensing Honestly' and the 5.R 'Unit 5 Completion Review' all
+ * shipped whole; four lessons, plannedLessons empty), chapters 6-8
+ * planned (9 planned body lessons + their unit reviews). */
 const chapters: Chapter[] = [
   chapter01,
   chapter02,
   chapter3,
   chapter4,
-  {
-    number: 5,
-    slug: 'software-families',
-    title: 'Software Families',
-    summary:
-      'System software versus application software priced on the reader\u2019s own machine: what an operating system visibly does (the manager layer — the full story is Operating Systems\u2019), utilities, productivity and creative families, and the practical craft of installing, updating and licensing software honestly.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'System Software: the Manager Layer',
-      'Application Software: the Worker Families',
-      'Installing, Updating and Licensing Honestly',
-    ],
-  },
+  chapter5,
   {
     number: 6,
     slug: 'connecting-computers',
