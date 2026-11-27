@@ -3000,7 +3000,7 @@ export const lessonGeo403: Lesson = {
       kind: 'callout',
       tone: 'insight',
       title: 'A criterion is a short gate, not a weaker contract',
-      text: 'Be precise about what a criterion does and does not do. It does NOT weaken the definition of similarity \u2014 the contract is still three equal angles and one common ratio $k$ across all three sides. It CERTIFIES the full contract from a fragment of the data, the way a signature certifies a whole document. When we write triangle $ABC \sim DEF$ by AA, we have not lowered the bar; we have shown that two measurements drag the other four along by mathematical force. The discipline of this lesson is watching that force at work \u2014 and, just as carefully, watching where it FAILS, because SSA-style data will refuse to certify anything and the lesson will refuse to look away.',
+      text: 'Be precise about what a criterion does and does not do. It does NOT weaken the definition of similarity \u2014 the contract is still three equal angles and one common ratio $k$ across all three sides. It CERTIFIES the full contract from a fragment of the data, the way a signature certifies a whole document. When we write triangle $ABC \\sim DEF$ by AA, we have not lowered the bar; we have shown that two measurements drag the other four along by mathematical force. The discipline of this lesson is watching that force at work \u2014 and, just as carefully, watching where it FAILS, because SSA-style data will refuse to certify anything and the lesson will refuse to look away.',
     },
     {
       kind: 'table',
@@ -3025,7 +3025,7 @@ export const lessonGeo403: Lesson = {
     { kind: 'heading', text: 'AA: two angles are enough' },
     {
       kind: 'para',
-      text: 'Begin with the frugal one, because its engine is a theorem the reader has owned since Lesson 2.4. Suppose triangle $ABC$ and triangle $PQR$ share two angles: $\u2220A = \u2220P = 40^\\circ$ and $\u2220B = \u2220Q = 60^\\circ$, say. The angle sum of a triangle is $180^\\circ$, so the third angles are FORCED: $\u2220C = 180^\\circ - 40^\\circ - 60^\\circ = 80^\\circ$ and $\u2220R = 180^\\circ - 40^\\circ - 60^\\circ = 80^\\circ$. One dependency, exploited: two angle equalities dragged a third along for free. What is remarkable \u2014 and what the construction proof below will establish \u2014 is that this is the whole story for the SHAPE. Any two triangles with the same two angles have the same three angles, and triangles with the same three angles are similar: the side ratios are not an extra freedom the triangles enjoy; they are locked to the angles. The engine verified it brutally before this paragraph was allowed to exist: at the pinned pair $40^\\circ$-$60^\\circ$-$80^\\circ$, the sides are proportional to $\sin 40^\\circ$, $\sin 60^\\circ$, $\sin 80^\\circ$ \u2014 namely $0.6427876$, $0.8660254$, $0.9848078$ at unit size \u2014 and at ANY scale factor $k$ the three side ratios between the enlarged copy and the original all read exactly $k$. Same angles, any size, one common $k$: similar, always.',
+      text: 'Begin with the frugal one, because its engine is a theorem the reader has owned since Lesson 2.4. Suppose triangle $ABC$ and triangle $PQR$ share two angles: $\u2220A = \u2220P = 40^\\circ$ and $\u2220B = \u2220Q = 60^\\circ$, say. The angle sum of a triangle is $180^\\circ$, so the third angles are FORCED: $\u2220C = 180^\\circ - 40^\\circ - 60^\\circ = 80^\\circ$ and $\u2220R = 180^\\circ - 40^\\circ - 60^\\circ = 80^\\circ$. One dependency, exploited: two angle equalities dragged a third along for free. What is remarkable \u2014 and what the construction proof below will establish \u2014 is that this is the whole story for the SHAPE. Any two triangles with the same two angles have the same three angles, and triangles with the same three angles are similar: the side ratios are not an extra freedom the triangles enjoy; they are locked to the angles. The engine verified it brutally before this paragraph was allowed to exist: at the pinned pair $40^\\circ$-$60^\\circ$-$80^\\circ$, the sides are proportional to $\\sin 40^\\circ$, $\\sin 60^\\circ$, $\\sin 80^\\circ$ \u2014 namely $0.6427876$, $0.8660254$, $0.9848078$ at unit size \u2014 and at ANY scale factor $k$ the three side ratios between the enlarged copy and the original all read exactly $k$. Same angles, any size, one common $k$: similar, always.',
     },
     {
       kind: 'callout',
@@ -3035,12 +3035,12 @@ export const lessonGeo403: Lesson = {
     },
     {
       kind: 'para',
-      text: 'Notice what the criterion does not say, because the omission is the power. It says nothing about sides. The triangles may be the size of a fingernail and the size of a football pitch; the criterion is deaf to size. It also does not ask WHICH two angles \u2014 any pair works, since knowing any two determines the third. And it quietly forbids a misreading: the equality must be read in a correspondence. $\u2220A = 40^\\circ$ answers $\u2220P = 40^\\circ$; $\u2220B = 60^\\circ$ answers $\u2220R = 60^\\circ$ if those are the two that match \u2014 the letters in the similarity statement triangle $ABC \sim PRQ$ would then carry the correspondence, exactly as the letter discipline of Chapter 3 demands. A student who matches the $40$s but pairs the $60^\\circ$ with an $80^\\circ$ has not found a counterexample; they have misfiled the letters.',
+      text: 'Notice what the criterion does not say, because the omission is the power. It says nothing about sides. The triangles may be the size of a fingernail and the size of a football pitch; the criterion is deaf to size. It also does not ask WHICH two angles \u2014 any pair works, since knowing any two determines the third. And it quietly forbids a misreading: the equality must be read in a correspondence. $\u2220A = 40^\\circ$ answers $\u2220P = 40^\\circ$; $\u2220B = 60^\\circ$ answers $\u2220R = 60^\\circ$ if those are the two that match \u2014 the letters in the similarity statement triangle $ABC \\sim PRQ$ would then carry the correspondence, exactly as the letter discipline of Chapter 3 demands. A student who matches the $40$s but pairs the $60^\\circ$ with an $80^\\circ$ has not found a counterexample; they have misfiled the letters.',
     },
     {
       kind: 'derivation',
       title: 'The AA criterion proved: construct the copy, let the parallel force the ratios',
-      statement: 'Let triangle $ABC$ and triangle $PQR$ have $\u2220A = \u2220P$ and $\u2220B = \u2220Q$. Then triangle $ABC \sim PQR$: all three angles agree and the three side ratios share one common $k$.',
+      statement: 'Let triangle $ABC$ and triangle $PQR$ have $\u2220A = \u2220P$ and $\u2220B = \u2220Q$. Then triangle $ABC \\sim PQR$: all three angles agree and the three side ratios share one common $k$.',
       steps: [
         {
           label: 'Reduce to a shared vertex',
@@ -3054,21 +3054,21 @@ export const lessonGeo403: Lesson = {
         {
           label: 'The parallel forces the ratios (the BPT)',
           formula: 'AD/AB = AE/AC',
-          explanation: 'Now the Basic Proportionality Theorem of Lesson 4.2 \u2014 Thales\u2019 theorem, Euclid VI.2 \u2014 takes over: a line parallel to one side of a triangle cuts the other two sides proportionally. So $\frac{AD}{DB}$... no, in its cleanest form: $\frac{AD}{AB} = \frac{AE}{AC}$. Two of the three ratios are forced equal, and the engine\u2019s numbers below pin the value.',
+          explanation: 'Now the Basic Proportionality Theorem of Lesson 4.2 \u2014 Thales\u2019 theorem, Euclid VI.2 \u2014 takes over: a line parallel to one side of a triangle cuts the other two sides proportionally. So $\\frac{AD}{DB}$... no, in its cleanest form: $\\frac{AD}{AB} = \\frac{AE}{AC}$. Two of the three ratios are forced equal, and the engine\u2019s numbers below pin the value.',
         },
         {
           label: 'The third ratio rides along',
           formula: 'DE/BC = AD/AB',
-          explanation: 'The same parallelism, read with the intercept machinery of Lesson 4.2, gives the third ratio: the segment $DE$ cut off between the parallel lines is the SAME fraction of $BC$. So all three ratios agree \u2014 one common $k$, which is $\frac{AD}{AB}$ here, a number between 0 and 1 read small-to-big as the copy sits inside the original.',
+          explanation: 'The same parallelism, read with the intercept machinery of Lesson 4.2, gives the third ratio: the segment $DE$ cut off between the parallel lines is the SAME fraction of $BC$. So all three ratios agree \u2014 one common $k$, which is $\\frac{AD}{AB}$ here, a number between 0 and 1 read small-to-big as the copy sits inside the original.',
         },
         {
           label: 'Conclude and transplant',
-          explanation: 'Triangle $ADE$ has the angles of triangle $ABC$ (shared at $A$, copied at $D$, forced at $E$ by the angle sum) and all three sides in the common ratio $\frac{AD}{AB}$: triangle $ADE \sim ABC$. Any triangle sharing two angles with $ABC$ is a relocated, rescaled copy of this construction, so the proof is complete \u2014 AA is a criterion.',
+          explanation: 'Triangle $ADE$ has the angles of triangle $ABC$ (shared at $A$, copied at $D$, forced at $E$ by the angle sum) and all three sides in the common ratio $\\frac{AD}{AB}$: triangle $ADE \\sim ABC$. Any triangle sharing two angles with $ABC$ is a relocated, rescaled copy of this construction, so the proof is complete \u2014 AA is a criterion.',
         },
         {
           label: 'The engine\u2019s numerical witness',
-          formula: 'A=(0,0),\ B=(10,0),\ C = 8\text{ at } 40^\\circ,\ D=(6,0)',
-          explanation: 'With $\u2220A = 40^\\circ$, $AB = 10$, $AC = 8$ and $AD = 6$, the brute coordinate intersection puts $E$ at exactly $0.6$ of the way to $C$: $AE = 4.8$, $DE \approx 3.8621031$ against $BC \approx 6.4368384$, and all three ratios read $3/5$ to the last digit. The parallel did the work; the arithmetic merely watched.',
+          formula: 'A=(0,0),\ B=(10,0),\ C = 8\\text{ at } 40^\\circ,\ D=(6,0)',
+          explanation: 'With $\u2220A = 40^\\circ$, $AB = 10$, $AC = 8$ and $AD = 6$, the brute coordinate intersection puts $E$ at exactly $0.6$ of the way to $C$: $AE = 4.8$, $DE \\approx 3.8621031$ against $BC \\approx 6.4368384$, and all three ratios read $3/5$ to the last digit. The parallel did the work; the arithmetic merely watched.',
         },
       ],
       result: 'AA is a criterion: two shared angles force the third (angle sum) and force all three side ratios into one common $k$ (the parallel-line construction plus the BPT). On the witness: $AD/AB = AE/AC = DE/BC = 3/5$.',
@@ -3089,7 +3089,7 @@ export const lessonGeo403: Lesson = {
     { kind: 'heading', text: 'SAS-similarity: the included angle holds the scale' },
     {
       kind: 'para',
-      text: 'The congruence chapter\u2019s hardest-working criterion was SAS: two sides and the angle they enclose. Its similarity twin keeps the included angle EQUAL but relaxes the sides to a common RATIO \u2014 and the placement discipline survives untouched. The criterion: if $\u2220A = \u2220A\u2032$ and the two sides forming that angle satisfy $\frac{A\u2032B\u2032}{AB} = \frac{A\u2032C\u2032}{AC} = k$, the SAME $k$ on both pairs, then the triangles are similar. The included angle is not a decorative detail; it is the clamp that fixes the triangle\u2019s shape while the two sides stretch. Change the angle and the same two sides build a different triangle \u2014 that is exactly why the angle must be the included one, between the two sides whose ratio you took.',
+      text: 'The congruence chapter\u2019s hardest-working criterion was SAS: two sides and the angle they enclose. Its similarity twin keeps the included angle EQUAL but relaxes the sides to a common RATIO \u2014 and the placement discipline survives untouched. The criterion: if $\u2220A = \u2220A\u2032$ and the two sides forming that angle satisfy $\\frac{A\u2032B\u2032}{AB} = \\frac{A\u2032C\u2032}{AC} = k$, the SAME $k$ on both pairs, then the triangles are similar. The included angle is not a decorative detail; it is the clamp that fixes the triangle\u2019s shape while the two sides stretch. Change the angle and the same two sides build a different triangle \u2014 that is exactly why the angle must be the included one, between the two sides whose ratio you took.',
     },
     {
       kind: 'callout',
@@ -3099,7 +3099,7 @@ export const lessonGeo403: Lesson = {
     },
     {
       kind: 'para',
-      text: 'The pinned witness pair deserves to be computed slowly, because every number in it is engine-verified and each one teaches. Small triangle: sides $4$ and $6$ enclosing $60^\\circ$. Large triangle: sides $6$ and $9$ enclosing $60^\\circ$. The ratio discipline first: $\frac{6}{4} = \frac{3}{2}$ and $\frac{9}{6} = \frac{3}{2}$ \u2014 the SAME $k$ on both pairs, $k = \frac{3}{2}$ read small-to-big. The included angles agree at $60^\\circ$. SAS-similarity applies, and now the machine pays out. Third sides by the law of cosines: the small one is $\sqrt{4^2 + 6^2 - 2 \u00b7 4 \u00b7 6 \u00b7 \cos 60^\\circ} = \sqrt{16 + 36 - 24} = \sqrt{28} = 5.2915026$, and the large one is $\sqrt{6^2 + 9^2 - 2 \u00b7 6 \u00b7 9 \u00b7 \cos 60^\\circ} = \sqrt{36 + 81 - 54} = \sqrt{63} = 7.9372539$. The third ratio: $\frac{\sqrt{63}}{\sqrt{28}} = \sqrt{\frac{63}{28}} = \sqrt{2.25} = 1.5$ EXACTLY \u2014 not approximately, exactly, because $63 = 2.25 \u00b7 28$ and the law of cosines is linear in the squares. The angle echo: both triangles carry the angles $60^\\circ$, $40.8933946^\\circ$, $79.1066054^\\circ$ (sum $180^\\circ$), because a triangle with all three sides in the ratio $k$ has all its angles cloned \u2014 the engine checks $\sin \alpha = \frac{4 \sin 60^\\circ}{\sqrt{28}} = \sqrt{3/7} = 0.6546537$ in BOTH triangles, the same fraction from the same law of sines.',
+      text: 'The pinned witness pair deserves to be computed slowly, because every number in it is engine-verified and each one teaches. Small triangle: sides $4$ and $6$ enclosing $60^\\circ$. Large triangle: sides $6$ and $9$ enclosing $60^\\circ$. The ratio discipline first: $\\frac{6}{4} = \\frac{3}{2}$ and $\\frac{9}{6} = \\frac{3}{2}$ \u2014 the SAME $k$ on both pairs, $k = \\frac{3}{2}$ read small-to-big. The included angles agree at $60^\\circ$. SAS-similarity applies, and now the machine pays out. Third sides by the law of cosines: the small one is $\\sqrt{4^2 + 6^2 - 2 \u00b7 4 \u00b7 6 \u00b7 \\cos 60^\\circ} = \\sqrt{16 + 36 - 24} = \\sqrt{28} = 5.2915026$, and the large one is $\\sqrt{6^2 + 9^2 - 2 \u00b7 6 \u00b7 9 \u00b7 \\cos 60^\\circ} = \\sqrt{36 + 81 - 54} = \\sqrt{63} = 7.9372539$. The third ratio: $\\frac{\\sqrt{63}}{\\sqrt{28}} = \\sqrt{\\frac{63}{28}} = \\sqrt{2.25} = 1.5$ EXACTLY \u2014 not approximately, exactly, because $63 = 2.25 \u00b7 28$ and the law of cosines is linear in the squares. The angle echo: both triangles carry the angles $60^\\circ$, $40.8933946^\\circ$, $79.1066054^\\circ$ (sum $180^\\circ$), because a triangle with all three sides in the ratio $k$ has all its angles cloned \u2014 the engine checks $\\sin \\alpha = \\frac{4 \\sin 60^\\circ}{\\sqrt{28}} = \\sqrt{3/7} = 0.6546537$ in BOTH triangles, the same fraction from the same law of sines.',
     },
     {
       kind: 'figure',
@@ -3113,7 +3113,7 @@ export const lessonGeo403: Lesson = {
       steps: [
         {
           label: 'Write both areas with the included angle',
-          formula: 'A_1 = \tfrac{1}{2}ab\sin C,\quad A_2 = \tfrac{1}{2}(ka)(kb)\sin C',
+          formula: 'A_1 = \\tfrac{1}{2}ab\\sin C,\\quad A_2 = \\tfrac{1}{2}(ka)(kb)\\sin C',
           explanation: 'The area formula needs two sides and the angle they enclose \u2014 exactly the data the criterion controls. If the small triangle has sides $a$ and $b$ enclosing angle $C$, the large one has $ka$ and $kb$ enclosing the SAME angle $C$ (that is the criterion\u2019s clause).',
         },
         {
@@ -3123,32 +3123,32 @@ export const lessonGeo403: Lesson = {
         },
         {
           label: 'Witness it on the pinned pair',
-          formula: 'A_1 = \tfrac{1}{2} \u00b7 4 \u00b7 6 \u00b7 \sin 60^\\circ = 6\sqrt{3} = 10.3923048',
-          explanation: 'The small area is $6\sqrt{3}$; the large area is $\tfrac{1}{2} \u00b7 6 \u00b7 9 \u00b7 \sin 60^\\circ = 13.5\sqrt{3} = 23.3826859$; and the ratio is $\frac{13.5\sqrt{3}}{6\sqrt{3}} = 2.25 = \left(\frac{3}{2}\right)^2$ exactly. The engine recomputed all three numbers before this line was written.',
+          formula: 'A_1 = \\tfrac{1}{2} \u00b7 4 \u00b7 6 \u00b7 \\sin 60^\\circ = 6\\sqrt{3} = 10.3923048',
+          explanation: 'The small area is $6\\sqrt{3}$; the large area is $\\tfrac{1}{2} \u00b7 6 \u00b7 9 \u00b7 \\sin 60^\\circ = 13.5\\sqrt{3} = 23.3826859$; and the ratio is $\\frac{13.5\\sqrt{3}}{6\\sqrt{3}} = 2.25 = \\left(\\frac{3}{2}\\right)^2$ exactly. The engine recomputed all three numbers before this line was written.',
         },
         {
           label: 'Read the direction honestly',
-          explanation: 'The ratio $k^2 = 2.25$ here is read SMALL to BIG, because $k = \frac{3}{2}$ was stated small-to-big. Reversing the read gives $\frac{4}{9}$ \u2014 the reciprocal squared. The direction discipline of Lesson 4.1 is not pedantry; half the area errors in examinations are direction errors.',
+          explanation: 'The ratio $k^2 = 2.25$ here is read SMALL to BIG, because $k = \\frac{3}{2}$ was stated small-to-big. Reversing the read gives $\\frac{4}{9}$ \u2014 the reciprocal squared. The direction discipline of Lesson 4.1 is not pedantry; half the area errors in examinations are direction errors.',
         },
       ],
-      result: 'Areas scale by $k^2$ under any similarity, and SAS-similarity shows it directly: $A_2 = k^2 A_1$. On the witness: $10.3923048 \to 23.3826859$ with ratio $9/4$.',
+      result: 'Areas scale by $k^2$ under any similarity, and SAS-similarity shows it directly: $A_2 = k^2 A_1$. On the witness: $10.3923048 \\to 23.3826859$ with ratio $9/4$.',
     },
     {
       kind: 'callout',
       tone: 'warn',
       title: 'The two ways SAS-similarity dies',
-      text: 'First, the ratios must AGREE: against sides $4, 6$ enclosing $60^\\circ$, the pair $6, 8$ enclosing $60^\\circ$ has ratios $\frac{6}{4} = \frac{3}{2}$ but $\frac{8}{6} = \frac{4}{3}$ \u2014 no common $k$, no criterion. The engine\u2019s verdict on the third sides is unambiguous: $\sqrt{28} = 5.2915026$ against $\sqrt{52} = 7.2111026$, ratio $1.3627703$, which is NOT $1.5$, and the angles opposite the second side read $79.1066054^\\circ$ against $73.8978862^\\circ$. Second, the angle must be INCLUDED: slide the same $60^\\circ$ to a non-included position and you have SSA data \u2014 the section on the negative census will show two different triangles living on exactly that data set. And a warning from the run-130 pin engine, recorded here so the reader never makes it: the $k = \frac{3}{2}$ image of the side pair $(4, 6)$ is $(6, 9)$ \u2014 multiply BOTH sides by $\frac{3}{2}$. The pair $(9, 13.5)$ is the image under $k = \frac{9}{4}$, a different scale entirely; swapping the two was a first-draft error the engine caught, and the lesson keeps the scar as a caution.',
+      text: 'First, the ratios must AGREE: against sides $4, 6$ enclosing $60^\\circ$, the pair $6, 8$ enclosing $60^\\circ$ has ratios $\\frac{6}{4} = \\frac{3}{2}$ but $\\frac{8}{6} = \\frac{4}{3}$ \u2014 no common $k$, no criterion. The engine\u2019s verdict on the third sides is unambiguous: $\\sqrt{28} = 5.2915026$ against $\\sqrt{52} = 7.2111026$, ratio $1.3627703$, which is NOT $1.5$, and the angles opposite the second side read $79.1066054^\\circ$ against $73.8978862^\\circ$. Second, the angle must be INCLUDED: slide the same $60^\\circ$ to a non-included position and you have SSA data \u2014 the section on the negative census will show two different triangles living on exactly that data set. And a warning from the run-130 pin engine, recorded here so the reader never makes it: the $k = \\frac{3}{2}$ image of the side pair $(4, 6)$ is $(6, 9)$ \u2014 multiply BOTH sides by $\\frac{3}{2}$. The pair $(9, 13.5)$ is the image under $k = \\frac{9}{4}$, a different scale entirely; swapping the two was a first-draft error the engine caught, and the lesson keeps the scar as a caution.',
     },
     {
       kind: 'example',
       title: 'The SAS third-side ladder. For the pair $4, 6$ enclosing $60^\\circ$ against $6, 9$ enclosing $60^\\circ$: verify the criterion\u2019s hypotheses, compute both third sides by the law of cosines, confirm the third ratio, and read off both areas and their ratio.',
       steps: [
-        'Sol. Check the gate first: the included angles are both $60^\\circ$, and the side ratios read $\frac{6}{4} = \frac{3}{2}$ and $\frac{9}{6} = \frac{3}{2}$ \u2014 one common $k = \frac{3}{2}$ (small $\to$ big). SAS-similarity applies.',
-        'Compute the small third side: $c^2 = 4^2 + 6^2 - 2 \u00b7 4 \u00b7 6 \u00b7 \cos 60^\\circ = 16 + 36 - 24 = 28$, so $c = \sqrt{28} = 5.2915026$.',
-        'Compute the large third side: $c\u2032^2 = 6^2 + 9^2 - 2 \u00b7 6 \u00b7 9 \u00b7 \cos 60^\\circ = 36 + 81 - 54 = 63$, so $c\u2032 = \sqrt{63} = 7.9372539$.',
-        'Confirm the third ratio: $\frac{c\u2032}{c} = \frac{\sqrt{63}}{\sqrt{28}} = \sqrt{\frac{63}{28}} = \sqrt{2.25} = 1.5$ exactly \u2014 the common $k$ holds on the pair the criterion never measured.',
-        'Read the areas: $\tfrac{1}{2} \u00b7 4 \u00b7 6 \u00b7 \sin 60^\\circ = 6\sqrt{3} = 10.3923048$ and $\tfrac{1}{2} \u00b7 6 \u00b7 9 \u00b7 \sin 60^\\circ = 13.5\sqrt{3} = 23.3826859$.',
-        'Conclude: ratio of areas $= \frac{23.3826859}{10.3923048} = 2.25 = \left(\frac{3}{2}\right)^2 = k^2$ \u2014 areas by $k^2$, lengths by $k$, exactly as the scaling laws demand.',
+        'Sol. Check the gate first: the included angles are both $60^\\circ$, and the side ratios read $\\frac{6}{4} = \\frac{3}{2}$ and $\\frac{9}{6} = \\frac{3}{2}$ \u2014 one common $k = \\frac{3}{2}$ (small $\\to$ big). SAS-similarity applies.',
+        'Compute the small third side: $c^2 = 4^2 + 6^2 - 2 \u00b7 4 \u00b7 6 \u00b7 \\cos 60^\\circ = 16 + 36 - 24 = 28$, so $c = \\sqrt{28} = 5.2915026$.',
+        'Compute the large third side: $c\u2032^2 = 6^2 + 9^2 - 2 \u00b7 6 \u00b7 9 \u00b7 \\cos 60^\\circ = 36 + 81 - 54 = 63$, so $c\u2032 = \\sqrt{63} = 7.9372539$.',
+        'Confirm the third ratio: $\\frac{c\u2032}{c} = \\frac{\\sqrt{63}}{\\sqrt{28}} = \\sqrt{\\frac{63}{28}} = \\sqrt{2.25} = 1.5$ exactly \u2014 the common $k$ holds on the pair the criterion never measured.',
+        'Read the areas: $\\tfrac{1}{2} \u00b7 4 \u00b7 6 \u00b7 \\sin 60^\\circ = 6\\sqrt{3} = 10.3923048$ and $\\tfrac{1}{2} \u00b7 6 \u00b7 9 \u00b7 \\sin 60^\\circ = 13.5\\sqrt{3} = 23.3826859$.',
+        'Conclude: ratio of areas $= \\frac{23.3826859}{10.3923048} = 2.25 = \\left(\\frac{3}{2}\\right)^2 = k^2$ \u2014 areas by $k^2$, lengths by $k$, exactly as the scaling laws demand.',
       ],
       figures: [
         {
@@ -3164,11 +3164,11 @@ export const lessonGeo403: Lesson = {
     { kind: 'heading', text: 'SSS-similarity: the honest ratio census' },
     {
       kind: 'para',
-      text: 'The third gate asks for all three sides \u2014 and pays back the whole angle list. The criterion: if the three sides of one triangle and the three sides of another stand in one common ratio $k$ \u2014 $\frac{a\u2032}{a} = \frac{b\u2032}{b} = \frac{c\u2032}{c}$, the SAME $k$ across all three pairs, in the correspondence your letters name \u2014 the triangles are similar. The proof idea is the law of cosines run in reverse: the angle opposite side $a$ satisfies $\cos A = \frac{b^2 + c^2 - a^2}{2bc}$, and if every side in that fraction carries a factor of $k$, the $k$s cancel top and bottom \u2014 the cosine, hence the angle, is identical in the two triangles. Three ratios in, three angles out, and the third ratio confirms the contract the first two only promised.',
+      text: 'The third gate asks for all three sides \u2014 and pays back the whole angle list. The criterion: if the three sides of one triangle and the three sides of another stand in one common ratio $k$ \u2014 $\\frac{a\u2032}{a} = \\frac{b\u2032}{b} = \\frac{c\u2032}{c}$, the SAME $k$ across all three pairs, in the correspondence your letters name \u2014 the triangles are similar. The proof idea is the law of cosines run in reverse: the angle opposite side $a$ satisfies $\\cos A = \\frac{b^2 + c^2 - a^2}{2bc}$, and if every side in that fraction carries a factor of $k$, the $k$s cancel top and bottom \u2014 the cosine, hence the angle, is identical in the two triangles. Three ratios in, three angles out, and the third ratio confirms the contract the first two only promised.',
     },
     {
       kind: 'para',
-      text: 'The pinned witness is the oldest triple in this book. Small triangle $6, 8, 10$; large triangle $9, 12, 15$. The census, pair by pair: $\frac{9}{6} = \frac{3}{2}$, $\frac{12}{8} = \frac{3}{2}$, $\frac{15}{10} = \frac{3}{2}$ \u2014 one common $k = \frac{3}{2}$, small to big, all three rows green. The law of cosines then hands back the angles, and they are old friends: opposite the $6$-side (and the $9$) sits $\arccos 0.8 = 36.8698976^\\circ$; opposite the $8$-side (and the $12$) sits $\arccos 0.6 = 53.1301024^\\circ$; opposite the $10$ (and the $15$) sits $90^\\circ$ \u2014 both are right triangles, the $3$-$4$-$5$ shape doubled and tripled. The engine verified the fractions directly: $\frac{36 + 100 - 64}{2 \u00b7 6 \u00b7 10} = \frac{72}{120} = 0.6$ and $\frac{81 + 225 - 144}{2 \u00b7 9 \u00b7 15} = \frac{162}{270} = 0.6$ \u2014 identical cosine fractions from scaled sides, which is the whole proof in two lines of arithmetic.',
+      text: 'The pinned witness is the oldest triple in this book. Small triangle $6, 8, 10$; large triangle $9, 12, 15$. The census, pair by pair: $\\frac{9}{6} = \\frac{3}{2}$, $\\frac{12}{8} = \\frac{3}{2}$, $\\frac{15}{10} = \\frac{3}{2}$ \u2014 one common $k = \\frac{3}{2}$, small to big, all three rows green. The law of cosines then hands back the angles, and they are old friends: opposite the $6$-side (and the $9$) sits $\\arccos 0.8 = 36.8698976^\\circ$; opposite the $8$-side (and the $12$) sits $\\arccos 0.6 = 53.1301024^\\circ$; opposite the $10$ (and the $15$) sits $90^\\circ$ \u2014 both are right triangles, the $3$-$4$-$5$ shape doubled and tripled. The engine verified the fractions directly: $\\frac{36 + 100 - 64}{2 \u00b7 6 \u00b7 10} = \\frac{72}{120} = 0.6$ and $\\frac{81 + 225 - 144}{2 \u00b7 9 \u00b7 15} = \\frac{162}{270} = 0.6$ \u2014 identical cosine fractions from scaled sides, which is the whole proof in two lines of arithmetic.',
     },
     {
       kind: 'figure',
@@ -3179,18 +3179,18 @@ export const lessonGeo403: Lesson = {
       kind: 'callout',
       tone: 'warn',
       title: 'The honest check: k must be the SAME across ALL pairs',
-      text: 'Two matching ratios do not license the third. Take $6, 8, 11$ against $9, 12, 15$: the census reads $\frac{9}{6} = \frac{3}{2}$ and $\frac{12}{8} = \frac{3}{2}$ \u2014 two green rows \u2014 but the third reads $\frac{15}{11} = 1.3636364$, and $1.3636364 \ne 1.5$. No common $k$, so no similarity, and the failure is visible in the angles: the angle opposite the $11$-side has cosine $\frac{36 + 64 - 121}{96} = \frac{-21}{96} = -0.21875$, an obtuse $102.6356251^\\circ$, while the angle opposite the $15$ is exactly $90^\\circ$. Both triangles are genuine (the engine checks all six triangle inequalities \u2014 $6 + 8 = 14 > 11$ and $9 + 12 = 21 > 15$), so nothing dismisses the witness on a technicality: it stands as the permanent counterexample to reading two ratios and stopping.',
+      text: 'Two matching ratios do not license the third. Take $6, 8, 11$ against $9, 12, 15$: the census reads $\\frac{9}{6} = \\frac{3}{2}$ and $\\frac{12}{8} = \\frac{3}{2}$ \u2014 two green rows \u2014 but the third reads $\\frac{15}{11} = 1.3636364$, and $1.3636364 \\ne 1.5$. No common $k$, so no similarity, and the failure is visible in the angles: the angle opposite the $11$-side has cosine $\\frac{36 + 64 - 121}{96} = \\frac{-21}{96} = -0.21875$, an obtuse $102.6356251^\\circ$, while the angle opposite the $15$ is exactly $90^\\circ$. Both triangles are genuine (the engine checks all six triangle inequalities \u2014 $6 + 8 = 14 > 11$ and $9 + 12 = 21 > 15$), so nothing dismisses the witness on a technicality: it stands as the permanent counterexample to reading two ratios and stopping.',
     },
     {
       kind: 'example',
       title: 'The SSS check, pair by pair. For triangles with sides $6, 8, 10$ and $9, 12, 15$: run the full ratio census, confirm the angles by the law of cosines, and then run the honest swap \u2014 the same census on $6, 8, 11$ against $9, 12, 15$ \u2014 and state both verdicts with reasons.',
       steps: [
-        'Sol. Run the census: $\frac{9}{6} = \frac{3}{2}$, $\frac{12}{8} = \frac{3}{2}$, $\frac{15}{10} = \frac{3}{2}$ \u2014 three green rows, one common $k = \frac{3}{2}$ (small $\to$ big). SSS-similarity applies.',
-        'Confirm an angle: opposite the $8$-side, $\cos B = \frac{6^2 + 10^2 - 8^2}{2 \u00b7 6 \u00b7 10} = \frac{72}{120} = 0.6$; opposite the $12$-side, $\cos B\u2032 = \frac{9^2 + 15^2 - 12^2}{2 \u00b7 9 \u00b7 15} = \frac{162}{270} = 0.6$ \u2014 equal cosines from scaled sides.',
+        'Sol. Run the census: $\\frac{9}{6} = \\frac{3}{2}$, $\\frac{12}{8} = \\frac{3}{2}$, $\\frac{15}{10} = \\frac{3}{2}$ \u2014 three green rows, one common $k = \\frac{3}{2}$ (small $\\to$ big). SSS-similarity applies.',
+        'Confirm an angle: opposite the $8$-side, $\\cos B = \\frac{6^2 + 10^2 - 8^2}{2 \u00b7 6 \u00b7 10} = \\frac{72}{120} = 0.6$; opposite the $12$-side, $\\cos B\u2032 = \\frac{9^2 + 15^2 - 12^2}{2 \u00b7 9 \u00b7 15} = \\frac{162}{270} = 0.6$ \u2014 equal cosines from scaled sides.',
         'Read the whole angle list: $36.8698976^\\circ$, $53.1301024^\\circ$, $90^\\circ$ in both triangles \u2014 the $3$-$4$-$5$ shape at two scales, with the right angle opposite the $10$ and the $15$.',
-        'Now the honest swap: replace the $10$-side by $11$. The census reads $\frac{9}{6} = \frac{3}{2}$, $\frac{12}{8} = \frac{3}{2}$, $\frac{15}{11} = 1.3636364$ \u2014 the third row breaks the pattern.',
-        'Diagnose in the angles: $\cos = \frac{36 + 64 - 121}{96} = -0.21875$ gives $102.6356251^\\circ$ opposite the $11$, while the $15$ still faces $90^\\circ$ \u2014 obtuse against right, shapes genuinely different.',
-        'Conclude: $6, 8, 10 \sim 9, 12, 15$ by SSS-similarity with $k = \frac{3}{2}$; $6, 8, 11$ is NOT similar to $9, 12, 15$ \u2014 two green rows and one red is a refusal, not a majority vote.',
+        'Now the honest swap: replace the $10$-side by $11$. The census reads $\\frac{9}{6} = \\frac{3}{2}$, $\\frac{12}{8} = \\frac{3}{2}$, $\\frac{15}{11} = 1.3636364$ \u2014 the third row breaks the pattern.',
+        'Diagnose in the angles: $\\cos = \\frac{36 + 64 - 121}{96} = -0.21875$ gives $102.6356251^\\circ$ opposite the $11$, while the $15$ still faces $90^\\circ$ \u2014 obtuse against right, shapes genuinely different.',
+        'Conclude: $6, 8, 10 \\sim 9, 12, 15$ by SSS-similarity with $k = \\frac{3}{2}$; $6, 8, 11$ is NOT similar to $9, 12, 15$ \u2014 two green rows and one red is a refusal, not a majority vote.',
       ],
       figures: [
         {
@@ -3201,7 +3201,7 @@ export const lessonGeo403: Lesson = {
     },
     {
       kind: 'para',
-      text: 'One more piece of honesty belongs to SSS-similarity, because it is the criterion students most often run sloppily. The three ratios must be taken in the CORRESPONDENCE the letters name \u2014 $\frac{a\u2032}{a}$ against $\frac{b\u2032}{b}$ against $\frac{c\u2032}{c}$, not a sorted comparison of multisets. For the witness pair the sorted reading happens to work because both triangles are right and the correspondence is legible; in general, the discipline is Chapter 3\u2019s: name the correspondence first, then check what it demands. And notice the pleasing economy of the three gates so far: AA measures NO sides, SAS-similarity measures two sides and one angle, SSS-similarity measures three sides and no angles. Between them they cover every way a triangle\u2019s data can arrive \u2014 which is exactly what makes them worth naming.',
+      text: 'One more piece of honesty belongs to SSS-similarity, because it is the criterion students most often run sloppily. The three ratios must be taken in the CORRESPONDENCE the letters name \u2014 $\\frac{a\u2032}{a}$ against $\\frac{b\u2032}{b}$ against $\\frac{c\u2032}{c}$, not a sorted comparison of multisets. For the witness pair the sorted reading happens to work because both triangles are right and the correspondence is legible; in general, the discipline is Chapter 3\u2019s: name the correspondence first, then check what it demands. And notice the pleasing economy of the three gates so far: AA measures NO sides, SAS-similarity measures two sides and one angle, SSS-similarity measures three sides and no angles. Between them they cover every way a triangle\u2019s data can arrive \u2014 which is exactly what makes them worth naming.',
     },
 
     /* -------------------------------------------------------------- */
@@ -3210,7 +3210,7 @@ export const lessonGeo403: Lesson = {
     { kind: 'heading', text: 'RHS-similarity: the right-angle short gate' },
     {
       kind: 'para',
-      text: 'Chapter 3 gave right triangles their own congruence gate \u2014 RHS: right angle, hypotenuse, one side \u2014 and the similarity family inherits it. The criterion: if two right triangles have their hypotenuses in a ratio $k$ and ONE pair of legs in the same ratio $k$, the triangles are similar, and the remaining legs are forced into the ratio $k$ by Pythagoras. The engine\u2019s witness is the $(5, 12, 13)$ triangle against its double $(10, 24, 26)$: $10^2 + 24^2 = 100 + 576 = 676 = 26^2$, so the large one is genuinely right; the ratios read $\frac{10}{5} = \frac{24}{12} = \frac{26}{13} = 2$ on hypotenuse and BOTH legs; $k = 2$, small to big. The forcing is worth seeing written out, because it is Pythagoras doing criterion work a chapter before the next lesson proves Pythagoras BY similarity \u2014 a circularity we shall enjoy openly. If $\frac{h\u2032}{h} = \frac{a\u2032}{a} = k$, then $b\u2032 = \sqrt{h\u2032^2 - a\u2032^2} = \sqrt{k^2 h^2 - k^2 a^2} = k\sqrt{h^2 - a^2} = k \u00b7 b$: the subtraction under the square root is linear in the squares, so the square root hands back exactly one factor of $k$. The engine confirms it on a second family: $8, 15, 17$ at $k = 1.5$ gives $12, 22.5, 25.5$, and indeed $12^2 + 22.5^2 = 144 + 506.25 = 650.25 = 25.5^2$.',
+      text: 'Chapter 3 gave right triangles their own congruence gate \u2014 RHS: right angle, hypotenuse, one side \u2014 and the similarity family inherits it. The criterion: if two right triangles have their hypotenuses in a ratio $k$ and ONE pair of legs in the same ratio $k$, the triangles are similar, and the remaining legs are forced into the ratio $k$ by Pythagoras. The engine\u2019s witness is the $(5, 12, 13)$ triangle against its double $(10, 24, 26)$: $10^2 + 24^2 = 100 + 576 = 676 = 26^2$, so the large one is genuinely right; the ratios read $\\frac{10}{5} = \\frac{24}{12} = \\frac{26}{13} = 2$ on hypotenuse and BOTH legs; $k = 2$, small to big. The forcing is worth seeing written out, because it is Pythagoras doing criterion work a chapter before the next lesson proves Pythagoras BY similarity \u2014 a circularity we shall enjoy openly. If $\\frac{h\u2032}{h} = \\frac{a\u2032}{a} = k$, then $b\u2032 = \\sqrt{h\u2032^2 - a\u2032^2} = \\sqrt{k^2 h^2 - k^2 a^2} = k\\sqrt{h^2 - a^2} = k \u00b7 b$: the subtraction under the square root is linear in the squares, so the square root hands back exactly one factor of $k$. The engine confirms it on a second family: $8, 15, 17$ at $k = 1.5$ gives $12, 22.5, 25.5$, and indeed $12^2 + 22.5^2 = 144 + 506.25 = 650.25 = 25.5^2$.',
     },
     {
       kind: 'callout',
@@ -3229,7 +3229,7 @@ export const lessonGeo403: Lesson = {
     { kind: 'heading', text: 'The negative census: SSA dies, AAA is AA, congruence is k = 1' },
     {
       kind: 'para',
-      text: 'A chapter that names the true gates owes the reader the false ones, named with equal care. The negative census has three entries, and the first is the old enemy from Lesson 3.2, re-armed for similarity. SSA data \u2014 two sides and an angle NOT included between them \u2014 fails for congruence because one data set can carry two triangles; it fails for similarity for the same reason, and the failure is sharper to state: TWO sides in a common ratio plus an equal non-included angle do NOT force similarity. The witness is the ambiguous pair itself, used at $k = 1$. Fix $\u2220A = 30^\\circ$, the adjacent side $b = 7$, and the opposite side $a = 5$. The law of cosines, written as a quadratic in the third side $c$, reads $c^2 - 7\sqrt{3} \u00b7 c + 24 = 0$, and BOTH roots are positive: $c = \frac{7\sqrt{3} - \sqrt{51}}{2} = 2.4914636$ and $c = \frac{7\sqrt{3} + \sqrt{51}}{2} = 9.6328920$ (sum $7\sqrt{3} = 12.1243557$, product $24$ \u2014 the engine checks both). Each root builds a genuine triangle \u2014 all six triangle inequalities hold \u2014 and the two triangles share $a = 5$, $b = 7$ and $\u2220A = 30^\\circ$ exactly. Two sides in common ratio $1$; an equal angle; and the triangles are NOT similar, because $c$ differs (the ratio $\frac{9.6328920}{2.4914636} = 3.8663$ is not $1$) and the angles disagree: $\u2220B = 135.5729960^\\circ$ in the fat triangle, $\u2220B = 44.4270040^\\circ$ in the thin one \u2014 a supplementary pair, which is the algebra\u2019s way of saying both roots share a sine.',
+      text: 'A chapter that names the true gates owes the reader the false ones, named with equal care. The negative census has three entries, and the first is the old enemy from Lesson 3.2, re-armed for similarity. SSA data \u2014 two sides and an angle NOT included between them \u2014 fails for congruence because one data set can carry two triangles; it fails for similarity for the same reason, and the failure is sharper to state: TWO sides in a common ratio plus an equal non-included angle do NOT force similarity. The witness is the ambiguous pair itself, used at $k = 1$. Fix $\u2220A = 30^\\circ$, the adjacent side $b = 7$, and the opposite side $a = 5$. The law of cosines, written as a quadratic in the third side $c$, reads $c^2 - 7\\sqrt{3} \u00b7 c + 24 = 0$, and BOTH roots are positive: $c = \\frac{7\\sqrt{3} - \\sqrt{51}}{2} = 2.4914636$ and $c = \\frac{7\\sqrt{3} + \\sqrt{51}}{2} = 9.6328920$ (sum $7\\sqrt{3} = 12.1243557$, product $24$ \u2014 the engine checks both). Each root builds a genuine triangle \u2014 all six triangle inequalities hold \u2014 and the two triangles share $a = 5$, $b = 7$ and $\u2220A = 30^\\circ$ exactly. Two sides in common ratio $1$; an equal angle; and the triangles are NOT similar, because $c$ differs (the ratio $\\frac{9.6328920}{2.4914636} = 3.8663$ is not $1$) and the angles disagree: $\u2220B = 135.5729960^\\circ$ in the fat triangle, $\u2220B = 44.4270040^\\circ$ in the thin one \u2014 a supplementary pair, which is the algebra\u2019s way of saying both roots share a sine.',
     },
     {
       kind: 'figure',
@@ -3267,7 +3267,7 @@ export const lessonGeo403: Lesson = {
         },
         {
           label: 'SAS-similarity at k = 1',
-          formula: '\u2220A = \u2220A\u2032,\ \tfrac{A\u2032B\u2032}{AB} = \tfrac{A\u2032C\u2032}{AC} = 1',
+          formula: '\u2220A = \u2220A\u2032,\ \\tfrac{A\u2032B\u2032}{AB} = \\tfrac{A\u2032C\u2032}{AC} = 1',
           explanation: 'The included angle equal, both side ratios $1$: SAS congruence, Euclid I.4 \u2014 the proposition the congruence chapter proved by superposition.',
         },
         {
@@ -3280,7 +3280,7 @@ export const lessonGeo403: Lesson = {
         },
         {
           label: 'The reverse reading',
-          explanation: 'The collapse runs one way only: the similarity criteria are STRICT generalisations. SAS congruence does not know what $\frac{3}{2}$ means; SAS-similarity does, and at $k = 1$ it forgets on purpose. This is the cleanest example in elementary geometry of a theorem family generalising by freeing a parameter.',
+          explanation: 'The collapse runs one way only: the similarity criteria are STRICT generalisations. SAS congruence does not know what $\\frac{3}{2}$ means; SAS-similarity does, and at $k = 1$ it forgets on purpose. This is the cleanest example in elementary geometry of a theorem family generalising by freeing a parameter.',
         },
       ],
       result: 'Congruence is similarity at $k = 1$: SSS, SAS and RHS collapse onto their Chapter 3 twins, and AA at $k = 1$ is the ASA/AAS family. One subject, two scales.',
@@ -3298,7 +3298,7 @@ export const lessonGeo403: Lesson = {
     { kind: 'heading', text: 'The shadow method: Thales cashed' },
     {
       kind: 'para',
-      text: 'Lesson 4.1 told the story and deferred the arithmetic; the criteria now pay for the deferral. A stick of height $1.5$ m stands on level ground and casts a shadow $2$ m long; at the same moment, a tree casts a shadow $12$ m long. How tall is the tree? The criterion analysis first, because the computation is only licensed by it. Each object with its shadow and its sunbeam forms a triangle: a right angle at the ground (vertical object on level ground), the sun\u2019s elevation angle at the tip of the shadow, and the object as the third side. The two triangles share the right angle AND the elevation angle \u2014 the same sun, at the same moment, rays effectively parallel \u2014 so the third angles agree too, and AA applies. Similar triangles: corresponding ratios equal. The height answers the height and the shadow answers the shadow, so $\frac{h}{12} = \frac{1.5}{2}$, and $h = 12 \times 0.75 = 9$ m. The tree is nine metres tall, measured without touching it.',
+      text: 'Lesson 4.1 told the story and deferred the arithmetic; the criteria now pay for the deferral. A stick of height $1.5$ m stands on level ground and casts a shadow $2$ m long; at the same moment, a tree casts a shadow $12$ m long. How tall is the tree? The criterion analysis first, because the computation is only licensed by it. Each object with its shadow and its sunbeam forms a triangle: a right angle at the ground (vertical object on level ground), the sun\u2019s elevation angle at the tip of the shadow, and the object as the third side. The two triangles share the right angle AND the elevation angle \u2014 the same sun, at the same moment, rays effectively parallel \u2014 so the third angles agree too, and AA applies. Similar triangles: corresponding ratios equal. The height answers the height and the shadow answers the shadow, so $\\frac{h}{12} = \\frac{1.5}{2}$, and $h = 12 \\times 0.75 = 9$ m. The tree is nine metres tall, measured without touching it.',
     },
     {
       kind: 'example',
@@ -3306,9 +3306,9 @@ export const lessonGeo403: Lesson = {
       steps: [
         'Sol. Name the triangles: stick-triangle and tree-triangle, each with the right angle at the ground and the sun angle at the shadow tip.',
         'Open the gate: both are right (vertical on level ground) and share the sun\u2019s elevation (parallel rays, one moment) \u2014 two angles equal, so AA applies and the triangles are similar.',
-        'Write the correspondence honestly: height answers height, shadow answers shadow, so $\frac{h}{12} = \frac{1.5}{2}$.',
-        'Compute: $\frac{1.5}{2} = 0.75$, so $h = 12 \times 0.75 = 9$ m \u2014 the tree stands $9$ m.',
-        'Bonus read, the elevation: $\tan \theta = \frac{1.5}{2} = 0.75$, so $\theta = 36.8698976^\\circ$ \u2014 the $3$-$4$-$5$ angle again, since $1.5 : 2 = 3 : 4$.',
+        'Write the correspondence honestly: height answers height, shadow answers shadow, so $\\frac{h}{12} = \\frac{1.5}{2}$.',
+        'Compute: $\\frac{1.5}{2} = 0.75$, so $h = 12 \\times 0.75 = 9$ m \u2014 the tree stands $9$ m.',
+        'Bonus read, the elevation: $\\tan \\theta = \\frac{1.5}{2} = 0.75$, so $\\theta = 36.8698976^\\circ$ \u2014 the $3$-$4$-$5$ angle again, since $1.5 : 2 = 3 : 4$.',
         'Check the third angle for consistency: $90^\\circ + 36.8698976^\\circ = 126.8698976^\\circ$, leaving $53.1301024^\\circ$ at the treetop \u2014 the angle sum closes the audit.',
       ],
       figures: [
@@ -3320,7 +3320,7 @@ export const lessonGeo403: Lesson = {
     },
     {
       kind: 'para',
-      text: 'The method deserves its historical weight, because it is the oldest similar-triangles computation in the tradition \u2014 the story of Thales at the Great Pyramid, told in Lesson 4.1, is exactly this gate opened in Egypt around 600 BCE. And the method\u2019s fine print deserves the same weight. The ground must be LEVEL and the objects VERTICAL, or the right angles fail. The shadows must be measured AT THE SAME MOMENT, or the elevation angles drift apart \u2014 the sun moves about $15^\\circ$ an hour, which is more than enough to wreck the ratio. And the two triangles must be read in the right correspondence: the stick\u2019s height answers the tree\u2019s height, each shadow answers the other shadow; a student who divides a height by a shadow across the pair has not made a small error, they have answered a different question. Exercise 6 runs the workshop version \u2014 a $2.4$ m pole, a $3.2$ m shadow, a building whose shadow reads $24$ m \u2014 and the engine notes the pleasing fact that $\frac{2.4}{3.2} = 0.75$ again: same sun, same ratios, $18$ m of building.',
+      text: 'The method deserves its historical weight, because it is the oldest similar-triangles computation in the tradition \u2014 the story of Thales at the Great Pyramid, told in Lesson 4.1, is exactly this gate opened in Egypt around 600 BCE. And the method\u2019s fine print deserves the same weight. The ground must be LEVEL and the objects VERTICAL, or the right angles fail. The shadows must be measured AT THE SAME MOMENT, or the elevation angles drift apart \u2014 the sun moves about $15^\\circ$ an hour, which is more than enough to wreck the ratio. And the two triangles must be read in the right correspondence: the stick\u2019s height answers the tree\u2019s height, each shadow answers the other shadow; a student who divides a height by a shadow across the pair has not made a small error, they have answered a different question. Exercise 6 runs the workshop version \u2014 a $2.4$ m pole, a $3.2$ m shadow, a building whose shadow reads $24$ m \u2014 and the engine notes the pleasing fact that $\\frac{2.4}{3.2} = 0.75$ again: same sun, same ratios, $18$ m of building.',
     },
     {
       kind: 'callout',
@@ -3342,8 +3342,8 @@ export const lessonGeo403: Lesson = {
       caption: 'The gate census \u2014 what the figure hands you, which gate opens, and this lesson\u2019s engine-witnessed example of each row',
       head: ['The data in the figure', 'The gate', 'Engine-witnessed row'],
       rows: [
-        ['two angle pairs (marked, vertical, shared or parallel-derived)', 'AA', 'the $40^\\circ$-$60^\\circ$-$80^\\circ$ pair: similar at any size, sides $\propto \sin$ of angles'],
-        ['two side ratios agreeing + the INCLUDED angle marked', 'SAS', '$4, 6 @ 60^\\circ$ against $6, 9 @ 60^\\circ$: thirds $\sqrt{28}$, $\sqrt{63}$, ratio exactly $1.5$'],
+        ['two angle pairs (marked, vertical, shared or parallel-derived)', 'AA', 'the $40^\\circ$-$60^\\circ$-$80^\\circ$ pair: similar at any size, sides $\\propto \\sin$ of angles'],
+        ['two side ratios agreeing + the INCLUDED angle marked', 'SAS', '$4, 6 @ 60^\\circ$ against $6, 9 @ 60^\\circ$: thirds $\\sqrt{28}$, $\\sqrt{63}$, ratio exactly $1.5$'],
         ['all three side pairs', 'SSS', '$6, 8, 10$ against $9, 12, 15$: ratios $3/2$, $3/2$, $3/2$, angles cloned'],
         ['right angles + hypotenuse ratio + one leg ratio', 'RHS', '$5, 12, 13$ against $10, 24, 26$: $k = 2$, third leg forced $24$'],
         ['two side ratios + angle OPPOSITE one of them', 'NO GATE', '$A = 30^\\circ$, $b = 7$, $a = 5$: the ambiguous pair, not similar'],
@@ -3353,11 +3353,11 @@ export const lessonGeo403: Lesson = {
       kind: 'callout',
       tone: 'exam',
       title: 'Exam corner: cite the gate, then cash it',
-      text: 'The marking scheme for a similarity problem is almost always two marks for the criterion and the rest for the arithmetic \u2014 and the criterion marks are the cheapest in the paper when the audit above is automatic. Write the citation BEFORE the computation: \u201ctriangle $ABC \sim PQR$ by AA ($\u2220A = \u2220P$ given, $\u2220B = \u2220Q$ vertically opposite)\u201d \u2014 naming the correspondence in the statement, as Chapter 3 drilled. Then cash: read the proportion in the same order the letters taught you, solve, and box the scale factor\u2019s DIRECTION with the answer. The three most expensive habits in examination similarity: citing SSA as SAS, stopping at two of three ratios in an SSS census, and multiplying by $k$ in the wrong direction on the area law. Each has a witness in this lesson; each costs nothing to avoid once it has a face.',
+      text: 'The marking scheme for a similarity problem is almost always two marks for the criterion and the rest for the arithmetic \u2014 and the criterion marks are the cheapest in the paper when the audit above is automatic. Write the citation BEFORE the computation: \u201ctriangle $ABC \\sim PQR$ by AA ($\u2220A = \u2220P$ given, $\u2220B = \u2220Q$ vertically opposite)\u201d \u2014 naming the correspondence in the statement, as Chapter 3 drilled. Then cash: read the proportion in the same order the letters taught you, solve, and box the scale factor\u2019s DIRECTION with the answer. The three most expensive habits in examination similarity: citing SSA as SAS, stopping at two of three ratios in an SSS census, and multiplying by $k$ in the wrong direction on the area law. Each has a witness in this lesson; each costs nothing to avoid once it has a face.',
     },
     {
       kind: 'para',
-      text: 'One last figure-first skill, because the wild rarely labels its triangles in correspondence order. When two triangles overlap \u2014 sharing a vertex, or nested one inside the other with a parallel side \u2014 redrawing them SEPARATELY, in the same orientation, is worth more than any formula. The shared angle marks itself; the parallel side pair converts to equal angles by Chapter 2\u2019s corresponding-angle law; and the separated picture makes the correspondence writable in letters, which is what the citation demands. The workshop\u2019s nested figures (Exercise 11\u2019s shared-vertex pair, Exercise 13\u2019s inner triangle) both yield to the same move: redraw, name, cite, cash. The engine verified both witnesses \u2014 Exercise 11\u2019s pair carries $\frac{AD}{AB} = \frac{12}{8} = \frac{3}{2}$ with $AE = 15$ forced, and Exercise 13\u2019s construction reads $\frac{AD}{AB} = \frac{AE}{AC} = \frac{DE}{BC} = \frac{2}{5}$ on fresh numbers \u2014 before either exercise was written.',
+      text: 'One last figure-first skill, because the wild rarely labels its triangles in correspondence order. When two triangles overlap \u2014 sharing a vertex, or nested one inside the other with a parallel side \u2014 redrawing them SEPARATELY, in the same orientation, is worth more than any formula. The shared angle marks itself; the parallel side pair converts to equal angles by Chapter 2\u2019s corresponding-angle law; and the separated picture makes the correspondence writable in letters, which is what the citation demands. The workshop\u2019s nested figures (Exercise 11\u2019s shared-vertex pair, Exercise 13\u2019s inner triangle) both yield to the same move: redraw, name, cite, cash. The engine verified both witnesses \u2014 Exercise 11\u2019s pair carries $\\frac{AD}{AB} = \\frac{12}{8} = \\frac{3}{2}$ with $AE = 15$ forced, and Exercise 13\u2019s construction reads $\\frac{AD}{AB} = \\frac{AE}{AC} = \\frac{DE}{BC} = \\frac{2}{5}$ on fresh numbers \u2014 before either exercise was written.',
     },
     {
       kind: 'para',
@@ -3380,11 +3380,11 @@ export const lessonGeo403: Lesson = {
         { term: 'indirect measurement', def: 'Computing an unreachable length by building a similar, measurable triangle (the shadow method) and reading the proportion \u2014 Thales\u2019 pyramid, the surveyor\u2019s tree, the workshop\u2019s building.' },
       ],
     },
-    { kind: 'formula', name: 'AA criterion', latex: '\u2220A = \u2220D \\text{ and } \u2220B = \u2220E \u21d2 \u25b3ABC \sim \u25b3DEF', note: 'Two angles in, the full contract out: the third angle is forced by the angle sum, the ratios by the BPT.' },
-    { kind: 'formula', name: 'SAS-similarity criterion', latex: '\u2220A = \u2220D \\text{ and } \\frac{DE}{AB} = \\frac{DF}{AC} = k \u21d2 \u25b3ABC \sim \u25b3DEF', note: 'The angle must be INCLUDED between the two sides whose ratios agree; areas then stand in the ratio $k^2$.' },
-    { kind: 'formula', name: 'SSS-similarity criterion', latex: '\\frac{DE}{AB} = \\frac{EF}{BC} = \\frac{FD}{CA} = k \u21d2 \u25b3ABC \sim \u25b3DEF', note: 'All three ratios, one common $k$ \u2014 two green rows and a red is a refusal ($6, 8, 11$ against $9, 12, 15$).' },
-    { kind: 'formula', name: 'RHS-similarity criterion', latex: '\\text{right angles} + \\frac{h\u2032}{h} = \\frac{a\u2032}{a} = k \u21d2 \u25b3 \sim \u25b3,\\ \\tfrac{b\u2032}{b} = k \\text{ forced}', note: 'Pythagoras builds the missing leg at scale $k$; at $k = 1$ this is Chapter 3\u2019s RHS congruence.' },
-    { kind: 'formula', name: 'The shadow proportion', latex: '\\frac{\\text{height}}{\\text{shadow}} = \\frac{\\text{stick}}{\\text{stick shadow}}', note: 'AA in the field: $\frac{h}{12} = \frac{1.5}{2}$ gives $h = 9$ m \u2014 same sun, same moment, level ground.' },
+    { kind: 'formula', name: 'AA criterion', latex: '\u2220A = \u2220D \\text{ and } \u2220B = \u2220E \u21d2 \u25b3ABC \\sim \u25b3DEF', note: 'Two angles in, the full contract out: the third angle is forced by the angle sum, the ratios by the BPT.' },
+    { kind: 'formula', name: 'SAS-similarity criterion', latex: '\u2220A = \u2220D \\text{ and } \\frac{DE}{AB} = \\frac{DF}{AC} = k \u21d2 \u25b3ABC \\sim \u25b3DEF', note: 'The angle must be INCLUDED between the two sides whose ratios agree; areas then stand in the ratio $k^2$.' },
+    { kind: 'formula', name: 'SSS-similarity criterion', latex: '\\frac{DE}{AB} = \\frac{EF}{BC} = \\frac{FD}{CA} = k \u21d2 \u25b3ABC \\sim \u25b3DEF', note: 'All three ratios, one common $k$ \u2014 two green rows and a red is a refusal ($6, 8, 11$ against $9, 12, 15$).' },
+    { kind: 'formula', name: 'RHS-similarity criterion', latex: '\\text{right angles} + \\frac{h\u2032}{h} = \\frac{a\u2032}{a} = k \u21d2 \u25b3 \\sim \u25b3,\\ \\tfrac{b\u2032}{b} = k \\text{ forced}', note: 'Pythagoras builds the missing leg at scale $k$; at $k = 1$ this is Chapter 3\u2019s RHS congruence.' },
+    { kind: 'formula', name: 'The shadow proportion', latex: '\\frac{\\text{height}}{\\text{shadow}} = \\frac{\\text{stick}}{\\text{stick shadow}}', note: 'AA in the field: $\\frac{h}{12} = \\frac{1.5}{2}$ gives $h = 9$ m \u2014 same sun, same moment, level ground.' },
 
     /* -------------------------------------------------------------- */
     /* quiz                                                           */
@@ -3394,52 +3394,52 @@ export const lessonGeo403: Lesson = {
       title: 'Check yourself: the four gates and the two refusals',
       items: [
         {
-          q: 'Triangle $ABC$ has $\u2220A = 40^\circ$ and $\u2220B = 60^\circ$; triangle $PQR$ has $\u2220P = 40^\circ$ and $\u2220Q = 80^\circ$. The licensed verdict is \u2014',
+          q: 'Triangle $ABC$ has $\u2220A = 40^\\circ$ and $\u2220B = 60^\\circ$; triangle $PQR$ has $\u2220P = 40^\\circ$ and $\u2220Q = 80^\\circ$. The licensed verdict is \u2014',
           options: [
-            'similar by AA \u2014 the 40° at $A$ answers the 40° at $P$, the 60° at $B$ answers $\u2220R = 60^\circ$ (forced, since $180 - 40 - 80 = 60$), and the two 80° angles answer each other; no side is needed',
+            'similar by AA \u2014 the 40° at $A$ answers the 40° at $P$, the 60° at $B$ answers $\u2220R = 60^\\circ$ (forced, since $180 - 40 - 80 = 60$), and the two 80° angles answer each other; no side is needed',
             'not similar \u2014 the 60° at $B$ has no partner, because triangle $PQR$ contains no 60° angle',
             'similar, but only after measuring one side in each triangle \u2014 angles alone never certify similarity',
             'congruent by ASA \u2014 two angles and the shared 40° fix both triangles completely',
-            'not similar \u2014 the angle sums differ, $180^\circ$ in one and $188^\circ$ in the other',
+            'not similar \u2014 the angle sums differ, $180^\\circ$ in one and $188^\\circ$ in the other',
           ],
           answer: 0,
-          explain: 'Option (a) is the AA gate: the angle sum forces $\u2220C = 180 - 40 - 60 = 80^\circ$ and $\u2220R = 180 - 40 - 80 = 60^\circ$, so the triples read $40, 60, 80$ in both triangles and the correspondence $A \leftrightarrow P$, $B \leftrightarrow R$, $C \leftrightarrow Q$ matches all three. Option (b) forgets $\u2220R$: the third angle of $PQR$ is exactly the missing $60^\circ$. Option (c) is the definition-level anxiety this lesson retired \u2014 AA is precisely the criterion that certifies similarity from two angles with no side data. Option (d) invents side equalities: congruence would need a side, and even then $k$ is unknown. Option (e) is arithmetic fiction \u2014 every triangle\u2019s angles sum to $180^\circ$.',
+          explain: 'Option (a) is the AA gate: the angle sum forces $\u2220C = 180 - 40 - 60 = 80^\\circ$ and $\u2220R = 180 - 40 - 80 = 60^\\circ$, so the triples read $40, 60, 80$ in both triangles and the correspondence $A \\leftrightarrow P$, $B \\leftrightarrow R$, $C \\leftrightarrow Q$ matches all three. Option (b) forgets $\u2220R$: the third angle of $PQR$ is exactly the missing $60^\\circ$. Option (c) is the definition-level anxiety this lesson retired \u2014 AA is precisely the criterion that certifies similarity from two angles with no side data. Option (d) invents side equalities: congruence would need a side, and even then $k$ is unknown. Option (e) is arithmetic fiction \u2014 every triangle\u2019s angles sum to $180^\\circ$.',
         },
         {
-          q: 'One triangle has sides 4 and 6 enclosing $60^\circ$; another has sides 6 and 9 enclosing $60^\circ$. The third sides and their ratio are \u2014',
+          q: 'One triangle has sides 4 and 6 enclosing $60^\\circ$; another has sides 6 and 9 enclosing $60^\\circ$. The third sides and their ratio are \u2014',
           options: [
-            '$\sqrt{28} = 5.2915026$ and $\sqrt{63} = 7.9372539$, with ratio $2.25$ \u2014 the area-ratio law',
+            '$\\sqrt{28} = 5.2915026$ and $\\sqrt{63} = 7.9372539$, with ratio $2.25$ \u2014 the area-ratio law',
             '$5.2915026$ and $7.9372539$, but the pair is not similar \u2014 SAS-similarity would need all three sides given',
-            '$5.2915026$ and $7.2111026$, with ratio $\approx 1.3628$ \u2014 the scale drifts on the third pair',
+            '$5.2915026$ and $7.2111026$, with ratio $\\approx 1.3628$ \u2014 the scale drifts on the third pair',
             '6 and 9 \u2014 the equal included angle forces the third sides to copy the given sides exactly',
-            '$\sqrt{28} = 5.2915026$ and $\sqrt{63} = 7.9372539$ by the law of cosines, and the ratio is exactly $1.5 = k$ \u2014 SAS-similarity applies',
+            '$\\sqrt{28} = 5.2915026$ and $\\sqrt{63} = 7.9372539$ by the law of cosines, and the ratio is exactly $1.5 = k$ \u2014 SAS-similarity applies',
           ],
           answer: 4,
-          explain: 'Option (e) is the engine-verified read: $c^2 = 16 + 36 - 24 = 28$ and $c\u2032^2 = 36 + 81 - 54 = 63$, so $\frac{\sqrt{63}}{\sqrt{28}} = \sqrt{2.25} = 1.5$ EXACTLY \u2014 the common $k$ holds on the pair the criterion never measured. Option (a) quotes the AREA ratio $2.25 = k^2$, not the length ratio \u2014 the classic dimension slip. Option (b) misstates the criterion: two sides in a common ratio plus the included angle certify the whole contract, third side included. Option (c) describes a DIFFERENT pair \u2014 the failure witness $6, 8 @ 60^\circ$, whose ratios $3/2$ and $4/3$ disagree. Option (d) confuses equality with ratio: the thirds are not 6 and 9.',
+          explain: 'Option (e) is the engine-verified read: $c^2 = 16 + 36 - 24 = 28$ and $c\u2032^2 = 36 + 81 - 54 = 63$, so $\\frac{\\sqrt{63}}{\\sqrt{28}} = \\sqrt{2.25} = 1.5$ EXACTLY \u2014 the common $k$ holds on the pair the criterion never measured. Option (a) quotes the AREA ratio $2.25 = k^2$, not the length ratio \u2014 the classic dimension slip. Option (b) misstates the criterion: two sides in a common ratio plus the included angle certify the whole contract, third side included. Option (c) describes a DIFFERENT pair \u2014 the failure witness $6, 8 @ 60^\\circ$, whose ratios $3/2$ and $4/3$ disagree. Option (d) confuses equality with ratio: the thirds are not 6 and 9.',
         },
         {
           q: 'Triangles with sides $6, 8, 11$ and $9, 12, 15$. The verdict is \u2014',
           options: [
             'similar by SSS-similarity \u2014 two of the three ratios already read $3/2$, and the third follows along',
             'similar by SSS-similarity \u2014 the perimeters $25$ and $36$ are in a clean ratio',
-            'not similar \u2014 the census reads $\frac{9}{6} = \frac{3}{2}$ and $\frac{12}{8} = \frac{3}{2}$, but 15/11 $\approx 1.3636$: the common $k$ must be the SAME on all three pairs',
+            'not similar \u2014 the census reads $\\frac{9}{6} = \\frac{3}{2}$ and $\\frac{12}{8} = \\frac{3}{2}$, but 15/11 $\\approx 1.3636$: the common $k$ must be the SAME on all three pairs',
             'similar by RHS-similarity \u2014 both triangles are right-angled',
             'undecidable from side data \u2014 only angles can open a gate',
           ],
           answer: 2,
-          explain: 'Option (c) is the honest census: two green rows and one red is a REFUSAL, not a majority vote \u2014 $6, 8, 11$ against $9, 12, 15$ fails on $\frac{15}{11}$, and the angles confirm it ($102.6356251^\circ$ opposite the $11$ against $90^\circ$ opposite the $15$). Option (a) is exactly the trap the warn callout pinned: the third ratio is not free to follow; it is a demand. Option (b) leans on perimeters, which Lesson 4.1 retired as certificates (the $2 \times 6$ against $3 \times 4$ witness). Option (d) is false on the data: $36 + 64 = 100 \ne 121$, so the small triangle is not right. Option (e) is backwards \u2014 SSS-similarity is the all-sides gate, and it decides this pair firmly in the negative.',
+          explain: 'Option (c) is the honest census: two green rows and one red is a REFUSAL, not a majority vote \u2014 $6, 8, 11$ against $9, 12, 15$ fails on $\\frac{15}{11}$, and the angles confirm it ($102.6356251^\\circ$ opposite the $11$ against $90^\\circ$ opposite the $15$). Option (a) is exactly the trap the warn callout pinned: the third ratio is not free to follow; it is a demand. Option (b) leans on perimeters, which Lesson 4.1 retired as certificates (the $2 \\times 6$ against $3 \\times 4$ witness). Option (d) is false on the data: $36 + 64 = 100 \\ne 121$, so the small triangle is not right. Option (e) is backwards \u2014 SSS-similarity is the all-sides gate, and it decides this pair firmly in the negative.',
         },
         {
           q: 'A stick of height 1.5 m casts a 2 m shadow; at the same moment, a tree casts a 12 m shadow. The tree\u2019s height is \u2014',
           options: [
-            '6 m \u2014 heights and shadows exchange roles, so $12 \div 2$',
-            '9 m \u2014 AA gives $\frac{h}{12} = \frac{1.5}{2} = 0.75$, so $h = 12 \times 0.75 = 9$ m',
-            '16 m \u2014 the proportion read backwards: $12 \times \frac{2}{1.5}$',
+            '6 m \u2014 heights and shadows exchange roles, so $12 \\div 2$',
+            '9 m \u2014 AA gives $\\frac{h}{12} = \\frac{1.5}{2} = 0.75$, so $h = 12 \\times 0.75 = 9$ m',
+            '16 m \u2014 the proportion read backwards: $12 \\times \\frac{2}{1.5}$',
             '12 m \u2014 at this sun angle every object equals its own shadow',
             'not computable \u2014 the sun\u2019s elevation angle is not given',
           ],
           answer: 1,
-          explain: 'Option (b) is the shadow method: two right angles (level ground, vertical objects) plus the shared sun angle open the AA gate, height answers height and shadow answers shadow, and $\frac{h}{12} = \frac{1.5}{2}$ gives $h = 9$ m. Option (a) divides instead of multiplying by the shadow ratio $6$. Option (c) is the DIRECTION error \u2014 $\frac{2}{1.5}$ is the reciprocal read, and $16$ m is what you get from it; the ratio must be taken in the order the correspondence names. Option (d) describes the special $45^\circ$ moment when shadow equals height \u2014 the elevation here is $\arctan 0.75 = 36.8698976^\circ$, not $45^\circ$. Option (e) misses the entire point of AA: the method works precisely BECAUSE the elevation cancels \u2014 both triangles share it, whatever it is.',
+          explain: 'Option (b) is the shadow method: two right angles (level ground, vertical objects) plus the shared sun angle open the AA gate, height answers height and shadow answers shadow, and $\\frac{h}{12} = \\frac{1.5}{2}$ gives $h = 9$ m. Option (a) divides instead of multiplying by the shadow ratio $6$. Option (c) is the DIRECTION error \u2014 $\\frac{2}{1.5}$ is the reciprocal read, and $16$ m is what you get from it; the ratio must be taken in the order the correspondence names. Option (d) describes the special $45^\\circ$ moment when shadow equals height \u2014 the elevation here is $\\arctan 0.75 = 36.8698976^\\circ$, not $45^\\circ$. Option (e) misses the entire point of AA: the method works precisely BECAUSE the elevation cancels \u2014 both triangles share it, whatever it is.',
         },
         {
           q: 'The exact relation between Chapter 3\u2019s congruence criteria and this lesson\u2019s similarity criteria is \u2014',
@@ -3467,20 +3467,20 @@ export const lessonGeo403: Lesson = {
           level: 'L1',
           questions: [
             {
-              q: 'Triangle $ABC$ has $\u2220A = 40^\circ$ and $\u2220B = 60^\circ$; triangle $PQR$ has $\u2220P = 40^\circ$ and $\u2220Q = 80^\circ$. Decide whether the triangles are similar, and if so, name the full correspondence.',
+              q: 'Triangle $ABC$ has $\u2220A = 40^\\circ$ and $\u2220B = 60^\\circ$; triangle $PQR$ has $\u2220P = 40^\\circ$ and $\u2220Q = 80^\\circ$. Decide whether the triangles are similar, and if so, name the full correspondence.',
               solution: [
-                'Sol. Compute the forced thirds: $\u2220C = 180^\circ - 40^\circ - 60^\circ = 80^\circ$ and $\u2220R = 180^\circ - 40^\circ - 80^\circ = 60^\circ$.',
-                'Match the angles: the $40^\circ$ pair answers itself, $\u2220A \leftrightarrow \u2220P$; the $60^\circ$ at $B$ answers the forced $60^\circ$ at $R$; the two $80^\circ$ angles ($C$ and $Q$) answer each other.',
+                'Sol. Compute the forced thirds: $\u2220C = 180^\\circ - 40^\\circ - 60^\\circ = 80^\\circ$ and $\u2220R = 180^\\circ - 40^\\circ - 80^\\circ = 60^\\circ$.',
+                'Match the angles: the $40^\\circ$ pair answers itself, $\u2220A \\leftrightarrow \u2220P$; the $60^\\circ$ at $B$ answers the forced $60^\\circ$ at $R$; the two $80^\\circ$ angles ($C$ and $Q$) answer each other.',
                 'Cite the gate: two angle pairs match, so AA applies \u2014 no side data is needed or used.',
-                'Hence the triangles are similar, with the correspondence $A \leftrightarrow P$, $B \leftrightarrow R$, $C \leftrightarrow Q$ \u2014 the statement to write is triangle $ABC \sim PRQ$, in that order.',
+                'Hence the triangles are similar, with the correspondence $A \\leftrightarrow P$, $B \\leftrightarrow R$, $C \\leftrightarrow Q$ \u2014 the statement to write is triangle $ABC \\sim PRQ$, in that order.',
               ],
-              answer: 'similar by AA: $A \leftrightarrow P$ (40°), $B \leftrightarrow R$ (60°), $C \leftrightarrow Q$ (80°) \u2014 triangle $ABC \sim PRQ$',
+              answer: 'similar by AA: $A \\leftrightarrow P$ (40°), $B \\leftrightarrow R$ (60°), $C \\leftrightarrow Q$ (80°) \u2014 triangle $ABC \\sim PRQ$',
             },
             {
-              q: 'Triangle $ABC \sim PQR$ with scale factor $k = \frac{3}{2}$ read $ABC \to PQR$. Given $AB = 8$ and $AC = 10$, find $PQ$ and $PR$, and state what the criterion licenses about the angles.',
+              q: 'Triangle $ABC \\sim PQR$ with scale factor $k = \\frac{3}{2}$ read $ABC \\to PQR$. Given $AB = 8$ and $AC = 10$, find $PQ$ and $PR$, and state what the criterion licenses about the angles.',
               solution: [
-                'Sol. Read the direction first: $k = \frac{3}{2}$ from $ABC$ to $PQR$ means every side of $PQR$ is $\frac{3}{2}$ times its answering side in $ABC$.',
-                'Compute the sides: $PQ = \frac{3}{2} \times 8 = 12$ (answering $AB$) and $PR = \frac{3}{2} \times 10 = 15$ (answering $AC$).',
+                'Sol. Read the direction first: $k = \\frac{3}{2}$ from $ABC$ to $PQR$ means every side of $PQR$ is $\\frac{3}{2}$ times its answering side in $ABC$.',
+                'Compute the sides: $PQ = \\frac{3}{2} \\times 8 = 12$ (answering $AB$) and $PR = \\frac{3}{2} \\times 10 = 15$ (answering $AC$).',
                 'License the angles: the similarity statement carries $\u2220P = \u2220A$, $\u2220Q = \u2220B$, $\u2220R = \u2220C$ \u2014 equal, not scaled; angles never carry $k$.',
                 'Hence $PQ = 12$ and $PR = 15$, with all three angle pairs equal by the correspondence the statement names.',
               ],
@@ -3492,35 +3492,35 @@ export const lessonGeo403: Lesson = {
           level: 'L2',
           questions: [
             {
-              q: 'The SAS screen. One triangle has sides 5 and 10 enclosing $45^\circ$; another has sides 6 and 12 enclosing $45^\circ$. Decide similarity, find $k$, and compute both third sides, confirming the third ratio.',
+              q: 'The SAS screen. One triangle has sides 5 and 10 enclosing $45^\\circ$; another has sides 6 and 12 enclosing $45^\\circ$. Decide similarity, find $k$, and compute both third sides, confirming the third ratio.',
               solution: [
-                'Sol. Check the ratios: $\frac{6}{5} = 1.2$ and $\frac{12}{10} = 1.2$ \u2014 one common $k = \frac{6}{5}$, with the included angles equal at $45^\circ$. SAS-similarity applies.',
-                'Compute the small third side: $c^2 = 25 + 100 - 2 \u00b7 5 \u00b7 10 \u00b7 \cos 45^\circ = 125 - 50\sqrt{2}$, so $c \approx 7.3681288$.',
-                'Compute the large third side: $c\u2032^2 = 36 + 144 - 2 \u00b7 6 \u00b7 12 \u00b7 \cos 45^\circ = 180 - 72\sqrt{2}$, so $c\u2032 \approx 8.8417545$.',
-                'Confirm the third ratio: $\frac{8.8417545}{7.3681288} = 1.2$ exactly (its square is $\frac{180 - 72\sqrt{2}}{125 - 50\sqrt{2}} = 1.44 = k^2$).',
-                'Hence the triangles are similar by SAS-similarity with $k = \frac{6}{5} = 1.2$ (small $\to$ big), third sides $\approx 7.3681288$ and $\approx 8.8417545$ in the same ratio.',
+                'Sol. Check the ratios: $\\frac{6}{5} = 1.2$ and $\\frac{12}{10} = 1.2$ \u2014 one common $k = \\frac{6}{5}$, with the included angles equal at $45^\\circ$. SAS-similarity applies.',
+                'Compute the small third side: $c^2 = 25 + 100 - 2 \u00b7 5 \u00b7 10 \u00b7 \\cos 45^\\circ = 125 - 50\\sqrt{2}$, so $c \\approx 7.3681288$.',
+                'Compute the large third side: $c\u2032^2 = 36 + 144 - 2 \u00b7 6 \u00b7 12 \u00b7 \\cos 45^\\circ = 180 - 72\\sqrt{2}$, so $c\u2032 \\approx 8.8417545$.',
+                'Confirm the third ratio: $\\frac{8.8417545}{7.3681288} = 1.2$ exactly (its square is $\\frac{180 - 72\\sqrt{2}}{125 - 50\\sqrt{2}} = 1.44 = k^2$).',
+                'Hence the triangles are similar by SAS-similarity with $k = \\frac{6}{5} = 1.2$ (small $\\to$ big), third sides $\\approx 7.3681288$ and $\\approx 8.8417545$ in the same ratio.',
               ],
-              answer: 'similar by SAS-similarity, $k = \frac{6}{5} = 1.2$; third sides $\approx 7.3681288$ and $\approx 8.8417545$, third ratio exactly 1.2',
+              answer: 'similar by SAS-similarity, $k = \\frac{6}{5} = 1.2$; third sides $\\approx 7.3681288$ and $\\approx 8.8417545$, third ratio exactly 1.2',
             },
             {
               q: 'The SSS census. Triangles with sides $8, 10, 14$ and $12, 15, 21$: run the full three-row ratio census, verify one angle by the law of cosines, and state the verdict.',
               solution: [
-                'Sol. Run the census: $\frac{12}{8} = \frac{3}{2}$, $\frac{15}{10} = \frac{3}{2}$, $\frac{21}{14} = \frac{3}{2}$ \u2014 three green rows, one common $k = \frac{3}{2}$ (small $\to$ big).',
-                'Verify an angle: opposite the $14$-side, $\cos = \frac{64 + 100 - 196}{2 \u00b7 8 \u00b7 10} = \frac{-32}{160} = -0.2$, an obtuse angle $\approx 101.5369590^\circ$.',
-                'Check the answering angle: opposite the $21$-side, $\cos = \frac{144 + 225 - 441}{2 \u00b7 12 \u00b7 15} = \frac{-72}{360} = -0.2$ \u2014 the same cosine, hence the same angle $\approx 101.5369590^\circ$.',
-                'Hence similar by SSS-similarity with $k = \frac{3}{2}$: the equal cosines from scaled sides are the criterion\u2019s proof running in front of your eyes.',
+                'Sol. Run the census: $\\frac{12}{8} = \\frac{3}{2}$, $\\frac{15}{10} = \\frac{3}{2}$, $\\frac{21}{14} = \\frac{3}{2}$ \u2014 three green rows, one common $k = \\frac{3}{2}$ (small $\\to$ big).',
+                'Verify an angle: opposite the $14$-side, $\\cos = \\frac{64 + 100 - 196}{2 \u00b7 8 \u00b7 10} = \\frac{-32}{160} = -0.2$, an obtuse angle $\\approx 101.5369590^\\circ$.',
+                'Check the answering angle: opposite the $21$-side, $\\cos = \\frac{144 + 225 - 441}{2 \u00b7 12 \u00b7 15} = \\frac{-72}{360} = -0.2$ \u2014 the same cosine, hence the same angle $\\approx 101.5369590^\\circ$.',
+                'Hence similar by SSS-similarity with $k = \\frac{3}{2}$: the equal cosines from scaled sides are the criterion\u2019s proof running in front of your eyes.',
               ],
-              answer: 'similar by SSS-similarity with $k = \frac{3}{2}$; the angles opposite the $14$-side and the $21$-side both read $\approx 101.5369590^\circ$ (cos $= -0.2$ in both)',
+              answer: 'similar by SSS-similarity with $k = \\frac{3}{2}$; the angles opposite the $14$-side and the $21$-side both read $\\approx 101.5369590^\\circ$ (cos $= -0.2$ in both)',
             },
             {
               q: 'The refusal. Triangles with sides $5, 6, 10$ and $10, 12, 15$: run the census, give the verdict, and exhibit the disagreement in the angles.',
               solution: [
-                'Sol. Run the census: $\frac{10}{5} = 2$, $\frac{12}{6} = 2$, but $\frac{15}{10} = 1.5$ \u2014 the third row breaks the pattern; no common $k$ exists.',
-                'Confirm in the angles: opposite the $10$-side, $\cos = \frac{25 + 36 - 100}{60} = \frac{-39}{60} = -0.65$, so the angle is $\approx 130.5416019^\circ$ (very obtuse).',
-                'Opposite the $15$-side: $\cos = \frac{100 + 144 - 225}{240} = \frac{19}{240} \approx 0.0792$, so the angle is $\approx 85.4593327^\circ$ \u2014 acute against very obtuse.',
-                'Hence NOT similar: two matching ratios do not license the third, and the $130.5416019^\circ$ against $85.4593327^\circ$ is the shape disagreement made visible.',
+                'Sol. Run the census: $\\frac{10}{5} = 2$, $\\frac{12}{6} = 2$, but $\\frac{15}{10} = 1.5$ \u2014 the third row breaks the pattern; no common $k$ exists.',
+                'Confirm in the angles: opposite the $10$-side, $\\cos = \\frac{25 + 36 - 100}{60} = \\frac{-39}{60} = -0.65$, so the angle is $\\approx 130.5416019^\\circ$ (very obtuse).',
+                'Opposite the $15$-side: $\\cos = \\frac{100 + 144 - 225}{240} = \\frac{19}{240} \\approx 0.0792$, so the angle is $\\approx 85.4593327^\\circ$ \u2014 acute against very obtuse.',
+                'Hence NOT similar: two matching ratios do not license the third, and the $130.5416019^\\circ$ against $85.4593327^\\circ$ is the shape disagreement made visible.',
               ],
-              answer: 'NOT similar \u2014 the ratios read $2, 2, 1.5$: the third pair breaks the common $k$, and the big angles disagree ($\approx 130.5416019^\circ$ against $\approx 85.4593327^\circ$)',
+              answer: 'NOT similar \u2014 the ratios read $2, 2, 1.5$: the third pair breaks the common $k$, and the big angles disagree ($\\approx 130.5416019^\\circ$ against $\\approx 85.4593327^\\circ$)',
             },
           ],
         },
@@ -3532,12 +3532,12 @@ export const lessonGeo403: Lesson = {
               solution: [
                 'Sol. Name the triangles: pole-triangle and building-triangle, each right-angled at the ground (vertical objects, level ground) and sharing the sun\u2019s elevation at the shadow tip.',
                 'Open the gate: two angles equal \u2014 the right angles and the shared elevation \u2014 so AA applies and the triangles are similar.',
-                'Write the proportion: height answers height, shadow answers shadow, so $\frac{h}{24} = \frac{2.4}{3.2} = \frac{3}{4} = 0.75$.',
-                'Compute: $h = 24 \times 0.75 = 18$ \u2014 the building stands 18 m.',
-                'State the elevation: $\tan \theta = \frac{2.4}{3.2} = 0.75$, so $\theta = 36.8698976^\circ$ \u2014 the same sun as the lesson\u2019s tree example, since $\frac{1.5}{2} = 0.75$ as well.',
-                'Hence the building is 18 m tall, measured without leaving the ground, with the elevation $36.8698976^\circ$ as a free bonus of the same proportion.',
+                'Write the proportion: height answers height, shadow answers shadow, so $\\frac{h}{24} = \\frac{2.4}{3.2} = \\frac{3}{4} = 0.75$.',
+                'Compute: $h = 24 \\times 0.75 = 18$ \u2014 the building stands 18 m.',
+                'State the elevation: $\\tan \\theta = \\frac{2.4}{3.2} = 0.75$, so $\\theta = 36.8698976^\\circ$ \u2014 the same sun as the lesson\u2019s tree example, since $\\frac{1.5}{2} = 0.75$ as well.',
+                'Hence the building is 18 m tall, measured without leaving the ground, with the elevation $36.8698976^\\circ$ as a free bonus of the same proportion.',
               ],
-              answer: 'the building stands 18 m; the sun\u2019s elevation is $\arctan 0.75 = 36.8698976^\circ$ \u2014 the same 0.75 as the stick example ($2.4/3.2 = 3/4$)',
+              answer: 'the building stands 18 m; the sun\u2019s elevation is $\\arctan 0.75 = 36.8698976^\\circ$ \u2014 the same 0.75 as the stick example ($2.4/3.2 = 3/4$)',
               figures: [
                 {
                   caption: 'The workshop figure: the 2.4 m pole with its 3.2 m shadow against the 18 m building with its 24 m shadow, the dashed parallel sun rays, right angles at the ground, and the proportion h/24 = 2.4/3.2 = 3/4 \u2014 the AA gate opened in the field.',
@@ -3546,27 +3546,27 @@ export const lessonGeo403: Lesson = {
               ],
             },
             {
-              q: 'The SAS ladder, recomputed. For sides 4 and 6 enclosing $60^\circ$ against 6 and 9 enclosing $60^\circ$: verify the hypotheses, compute both third sides by the law of cosines, confirm the third ratio, and read both areas with their ratio.',
+              q: 'The SAS ladder, recomputed. For sides 4 and 6 enclosing $60^\\circ$ against 6 and 9 enclosing $60^\\circ$: verify the hypotheses, compute both third sides by the law of cosines, confirm the third ratio, and read both areas with their ratio.',
               solution: [
-                'Sol. Verify the gate: the included angles are both $60^\circ$; the ratios read $\frac{6}{4} = \frac{3}{2}$ and $\frac{9}{6} = \frac{3}{2}$ \u2014 one common $k = \frac{3}{2}$ (small $\to$ big). SAS-similarity applies.',
-                'Small third side: $c^2 = 16 + 36 - 24 = 28$, so $c = \sqrt{28} = 5.2915026$.',
-                'Large third side: $c\u2032^2 = 36 + 81 - 54 = 63$, so $c\u2032 = \sqrt{63} = 7.9372539$.',
-                'Third ratio: $\frac{\sqrt{63}}{\sqrt{28}} = \sqrt{\frac{63}{28}} = \sqrt{2.25} = 1.5$ exactly \u2014 the $k$ the criterion promised.',
-                'Areas: $\frac{1}{2} \u00b7 4 \u00b7 6 \u00b7 \sin 60^\circ = 6\sqrt{3} = 10.3923048$ and $\frac{1}{2} \u00b7 6 \u00b7 9 \u00b7 \sin 60^\circ = 13.5\sqrt{3} = 23.3826859$.',
-                'Area ratio: $\frac{23.3826859}{10.3923048} = 2.25 = \frac{9}{4} = k^2$ \u2014 lengths by $k$, areas by $k^2$, both directions stated.',
+                'Sol. Verify the gate: the included angles are both $60^\\circ$; the ratios read $\\frac{6}{4} = \\frac{3}{2}$ and $\\frac{9}{6} = \\frac{3}{2}$ \u2014 one common $k = \\frac{3}{2}$ (small $\\to$ big). SAS-similarity applies.',
+                'Small third side: $c^2 = 16 + 36 - 24 = 28$, so $c = \\sqrt{28} = 5.2915026$.',
+                'Large third side: $c\u2032^2 = 36 + 81 - 54 = 63$, so $c\u2032 = \\sqrt{63} = 7.9372539$.',
+                'Third ratio: $\\frac{\\sqrt{63}}{\\sqrt{28}} = \\sqrt{\\frac{63}{28}} = \\sqrt{2.25} = 1.5$ exactly \u2014 the $k$ the criterion promised.',
+                'Areas: $\\frac{1}{2} \u00b7 4 \u00b7 6 \u00b7 \\sin 60^\\circ = 6\\sqrt{3} = 10.3923048$ and $\\frac{1}{2} \u00b7 6 \u00b7 9 \u00b7 \\sin 60^\\circ = 13.5\\sqrt{3} = 23.3826859$.',
+                'Area ratio: $\\frac{23.3826859}{10.3923048} = 2.25 = \\frac{9}{4} = k^2$ \u2014 lengths by $k$, areas by $k^2$, both directions stated.',
               ],
-              answer: 'thirds $\sqrt{28} = 5.2915026$ and $\sqrt{63} = 7.9372539$ (ratio exactly 1.5); areas $10.3923048$ and $23.3826859$ (ratio $\frac{9}{4} = k^2$)',
+              answer: 'thirds $\\sqrt{28} = 5.2915026$ and $\\sqrt{63} = 7.9372539$ (ratio exactly 1.5); areas $10.3923048$ and $23.3826859$ (ratio $\\frac{9}{4} = k^2$)',
             },
             {
               q: 'Both halves of the SSS story. First run the census on $6, 8, 10$ against $9, 12, 15$ and confirm one angle. Then swap the $10$-side for an $11$-side and show exactly where the census refuses.',
               solution: [
-                'Sol. First census: $\frac{9}{6} = \frac{3}{2}$, $\frac{12}{8} = \frac{3}{2}$, $\frac{15}{10} = \frac{3}{2}$ \u2014 three green rows, $k = \frac{3}{2}$, SSS-similarity applies.',
-                'Confirm an angle: opposite the $10$-side, $\cos = \frac{36 + 64 - 100}{96} = 0$, so the angle is $90^\circ$; opposite the $15$, the same computation gives $90^\circ$ \u2014 both right, the $3$-$4$-$5$ family at two scales, with the full lists reading $36.8698976^\circ$, $53.1301024^\circ$, $90^\circ$ in both triangles.',
-                'Now the swap: $6, 8, 11$ against $9, 12, 15$. The census reads $\frac{9}{6} = \frac{3}{2}$, $\frac{12}{8} = \frac{3}{2}$, but $\frac{15}{11} = 1.3636364 \ne 1.5$ \u2014 the third row refuses.',
-                'See it in the angles: opposite the $11$, $\cos = \frac{36 + 64 - 121}{96} = -0.21875$, an obtuse $\approx 102.6356251^\circ$; the $15$ still faces $90^\circ$.',
-                'Hence the first pair is similar with $k = \frac{3}{2}$, and the swapped pair is NOT similar \u2014 two green rows and one red is a refusal, and both triangles in the second pair are genuine (all six inequalities hold).',
+                'Sol. First census: $\\frac{9}{6} = \\frac{3}{2}$, $\\frac{12}{8} = \\frac{3}{2}$, $\\frac{15}{10} = \\frac{3}{2}$ \u2014 three green rows, $k = \\frac{3}{2}$, SSS-similarity applies.',
+                'Confirm an angle: opposite the $10$-side, $\\cos = \\frac{36 + 64 - 100}{96} = 0$, so the angle is $90^\\circ$; opposite the $15$, the same computation gives $90^\\circ$ \u2014 both right, the $3$-$4$-$5$ family at two scales, with the full lists reading $36.8698976^\\circ$, $53.1301024^\\circ$, $90^\\circ$ in both triangles.',
+                'Now the swap: $6, 8, 11$ against $9, 12, 15$. The census reads $\\frac{9}{6} = \\frac{3}{2}$, $\\frac{12}{8} = \\frac{3}{2}$, but $\\frac{15}{11} = 1.3636364 \\ne 1.5$ \u2014 the third row refuses.',
+                'See it in the angles: opposite the $11$, $\\cos = \\frac{36 + 64 - 121}{96} = -0.21875$, an obtuse $\\approx 102.6356251^\\circ$; the $15$ still faces $90^\\circ$.',
+                'Hence the first pair is similar with $k = \\frac{3}{2}$, and the swapped pair is NOT similar \u2014 two green rows and one red is a refusal, and both triangles in the second pair are genuine (all six inequalities hold).',
               ],
-              answer: '$6, 8, 10 \sim 9, 12, 15$ with $k = \frac{3}{2}$ (angles $36.8698976^\circ$, $53.1301024^\circ$, $90^\circ$ in both); $6, 8, 11$ is refused \u2014 the third ratio $\frac{15}{11} \approx 1.3636364$ breaks the pattern',
+              answer: '$6, 8, 10 \\sim 9, 12, 15$ with $k = \\frac{3}{2}$ (angles $36.8698976^\\circ$, $53.1301024^\\circ$, $90^\\circ$ in both); $6, 8, 11$ is refused \u2014 the third ratio $\\frac{15}{11} \\approx 1.3636364$ breaks the pattern',
             },
           ],
         },
@@ -3576,25 +3576,25 @@ export const lessonGeo403: Lesson = {
             {
               q: 'The RHS gate. Two right triangles have hypotenuses 13 and 26, with one pair of legs 5 and 10. Verify the right angles, find $k$, compute the remaining legs, and cite the criterion.',
               solution: [
-                'Sol. Verify the right angles from the data: the small triangle\u2019s missing leg is $\sqrt{169 - 25} = \sqrt{144} = 12$, and $5^2 + 12^2 = 169 = 13^2$ \u2014 genuinely right.',
-                'The large triangle\u2019s missing leg is $\sqrt{676 - 100} = \sqrt{576} = 24$, and $10^2 + 24^2 = 676 = 26^2$ \u2014 genuinely right.',
-                'Read the ratios: $\frac{26}{13} = 2$ on the hypotenuses and $\frac{10}{5} = 2$ on the given legs \u2014 the same $k = 2$ (small $\to$ big).',
-                'The remaining legs confirm: $\frac{24}{12} = 2$ \u2014 Pythagoras forced the third ratio, exactly as the criterion promises.',
+                'Sol. Verify the right angles from the data: the small triangle\u2019s missing leg is $\\sqrt{169 - 25} = \\sqrt{144} = 12$, and $5^2 + 12^2 = 169 = 13^2$ \u2014 genuinely right.',
+                'The large triangle\u2019s missing leg is $\\sqrt{676 - 100} = \\sqrt{576} = 24$, and $10^2 + 24^2 = 676 = 26^2$ \u2014 genuinely right.',
+                'Read the ratios: $\\frac{26}{13} = 2$ on the hypotenuses and $\\frac{10}{5} = 2$ on the given legs \u2014 the same $k = 2$ (small $\\to$ big).',
+                'The remaining legs confirm: $\\frac{24}{12} = 2$ \u2014 Pythagoras forced the third ratio, exactly as the criterion promises.',
                 'Hence similar by RHS-similarity with $k = 2$: right angles, hypotenuse ratio, one leg ratio \u2014 the whole contract from three checkpoints.',
               ],
-              answer: 'similar by RHS-similarity with $k = 2$: the remaining legs are $12$ and $24$ ($\sqrt{169 - 25} = 12$ and $\sqrt{676 - 100} = 24$, ratio 2 forced by Pythagoras)',
+              answer: 'similar by RHS-similarity with $k = 2$: the remaining legs are $12$ and $24$ ($\\sqrt{169 - 25} = 12$ and $\\sqrt{676 - 100} = 24$, ratio 2 forced by Pythagoras)',
             },
             {
-              q: 'The SSA refusal, armed. With $\u2220A = 30^\circ$, the adjacent side $b = 7$ and the opposite side $a = 5$: show that the data carries TWO genuine triangles, compute both third sides, and explain why the pair refutes \u201cSSA-similarity\u201d.',
+              q: 'The SSA refusal, armed. With $\u2220A = 30^\\circ$, the adjacent side $b = 7$ and the opposite side $a = 5$: show that the data carries TWO genuine triangles, compute both third sides, and explain why the pair refutes \u201cSSA-similarity\u201d.',
               solution: [
-                'Sol. Write the law of cosines as a quadratic in the third side: $a^2 = b^2 + c^2 - 2bc\cos A$ becomes $25 = 49 + c^2 - 7\sqrt{3}\,c$, that is, $c^2 - 7\sqrt{3}\,c + 24 = 0$.',
-                'Solve: $c = \frac{7\sqrt{3} \pm \sqrt{51}}{2}$, so $c \approx 2.4914636$ or $c \approx 9.6328920$ \u2014 both roots positive (product $24 > 0$, sum $7\sqrt{3} > 0$).',
+                'Sol. Write the law of cosines as a quadratic in the third side: $a^2 = b^2 + c^2 - 2bc\\cos A$ becomes $25 = 49 + c^2 - 7\\sqrt{3}\,c$, that is, $c^2 - 7\\sqrt{3}\,c + 24 = 0$.',
+                'Solve: $c = \\frac{7\\sqrt{3} \\pm \\sqrt{51}}{2}$, so $c \\approx 2.4914636$ or $c \\approx 9.6328920$ \u2014 both roots positive (product $24 > 0$, sum $7\\sqrt{3} > 0$).',
                 'Both are genuine: all six triangle inequalities hold ($5 + 2.4914636 > 7$ and $5 + 9.6328920 > 7$ among them) \u2014 no technicality dismisses either triangle.',
-                'Compare them: the two triangles share $a = 5$, $b = 7$ and $\u2220A = 30^\circ$ \u2014 two sides in common ratio $1$ and an equal NON-included angle.',
-                'But they are not similar: the $c$-ratio is $\frac{9.6328920}{2.4914636} \approx 3.8663 \ne 1$, and the angles at $B$ read $\approx 135.5729960^\circ$ and $\approx 44.4270040^\circ$ \u2014 a supplementary pair sharing a sine, not an angle.',
+                'Compare them: the two triangles share $a = 5$, $b = 7$ and $\u2220A = 30^\\circ$ \u2014 two sides in common ratio $1$ and an equal NON-included angle.',
+                'But they are not similar: the $c$-ratio is $\\frac{9.6328920}{2.4914636} \\approx 3.8663 \\ne 1$, and the angles at $B$ read $\\approx 135.5729960^\\circ$ and $\\approx 44.4270040^\\circ$ \u2014 a supplementary pair sharing a sine, not an angle.',
                 'Hence the pair is the permanent refutation: two proportional sides plus an equal opposite angle certify NOTHING \u2014 and scaling both triangles by any $k$ preserves the hypotheses and the failure.',
               ],
-              answer: 'two triangles: $c \approx 2.4914636$ ($\u2220B \approx 135.5729960^\circ$) and $c \approx 9.6328920$ ($\u2220B \approx 44.4270040^\circ$) \u2014 two sides in ratio 1 plus an equal non-included angle, and still not similar',
+              answer: 'two triangles: $c \\approx 2.4914636$ ($\u2220B \\approx 135.5729960^\\circ$) and $c \\approx 9.6328920$ ($\u2220B \\approx 44.4270040^\\circ$) \u2014 two sides in ratio 1 plus an equal non-included angle, and still not similar',
               figures: [
                 {
                   caption: 'The ambiguous pair on the number line: the quadratic c\u00b2 \u2212 7\u221a3\u00b7c + 24 = 0 has two positive roots c \u2248 2.4914636 (fat triangle, \u2220B \u2248 135.5729960\u00b0) and c \u2248 9.6328920 (thin, \u2220B \u2248 44.4270040\u00b0), with sum 7\u221a3 = 12.1243557 and product 24 \u2014 both genuine, neither similar to the other.',
@@ -3603,16 +3603,16 @@ export const lessonGeo403: Lesson = {
               ],
             },
             {
-              q: 'AA in the wild, nested figure. Triangles $ABC$ and $ADE$ share the angle at $A$; a further pair of equal angles $\u2220B = \u2220D$ is marked. Given $AB = 8$, $AC = 10$ and $AD = 12$, cite the criterion and find $AE$ and the ratio $\frac{DE}{BC}$.',
+              q: 'AA in the wild, nested figure. Triangles $ABC$ and $ADE$ share the angle at $A$; a further pair of equal angles $\u2220B = \u2220D$ is marked. Given $AB = 8$, $AC = 10$ and $AD = 12$, cite the criterion and find $AE$ and the ratio $\\frac{DE}{BC}$.',
               solution: [
-                'Sol. Redraw the triangles separately, sharing the vertex $A$: the correspondence is $A \leftrightarrow A$, $B \leftrightarrow D$, $C \leftrightarrow E$.',
+                'Sol. Redraw the triangles separately, sharing the vertex $A$: the correspondence is $A \\leftrightarrow A$, $B \\leftrightarrow D$, $C \\leftrightarrow E$.',
                 'Cite the gate: $\u2220A$ is common and $\u2220B = \u2220D$ is given \u2014 two angle pairs, so AA applies (the third pair is forced by the angle sum).',
-                'Read the scale on the sides that straddle the shared angle: $\frac{AD}{AB} = \frac{12}{8} = \frac{3}{2}$, so $k = \frac{3}{2}$ (big $ADE$ $\to$ small $ABC$ read backwards; state your direction).',
-                'Compute: $\frac{AE}{AC} = \frac{3}{2}$ gives $AE = \frac{3}{2} \times 10 = 15$.',
-                'The remaining ratio rides along: $\frac{DE}{BC} = \frac{3}{2}$ \u2014 the third pair needs no measurement once the gate is open.',
-                'Hence $AE = 15$ and $\frac{DE}{BC} = \frac{3}{2}$, both forced by AA with $k = \frac{AD}{AB}$.',
+                'Read the scale on the sides that straddle the shared angle: $\\frac{AD}{AB} = \\frac{12}{8} = \\frac{3}{2}$, so $k = \\frac{3}{2}$ (big $ADE$ $\\to$ small $ABC$ read backwards; state your direction).',
+                'Compute: $\\frac{AE}{AC} = \\frac{3}{2}$ gives $AE = \\frac{3}{2} \\times 10 = 15$.',
+                'The remaining ratio rides along: $\\frac{DE}{BC} = \\frac{3}{2}$ \u2014 the third pair needs no measurement once the gate is open.',
+                'Hence $AE = 15$ and $\\frac{DE}{BC} = \\frac{3}{2}$, both forced by AA with $k = \\frac{AD}{AB}$.',
               ],
-              answer: '$AE = 15$ (AA with $k = \frac{AD}{AB} = \frac{12}{8} = \frac{3}{2}$), and $\frac{DE}{BC} = \frac{3}{2}$ \u2014 the third ratio rides the gate',
+              answer: '$AE = 15$ (AA with $k = \\frac{AD}{AB} = \\frac{12}{8} = \\frac{3}{2}$), and $\\frac{DE}{BC} = \\frac{3}{2}$ \u2014 the third ratio rides the gate',
             },
           ],
         },
@@ -3620,27 +3620,27 @@ export const lessonGeo403: Lesson = {
           level: 'L5',
           questions: [
             {
-              q: 'The $k, k^2$ machine with a stated direction. Triangle $T\u2032$ is similar to triangle $T$ with $k = \frac{5}{2}$ read $T \to T\u2032$. If $T$ has area 12 and perimeter 18, find the area and perimeter of $T\u2032$, and explain why the two multipliers differ.',
+              q: 'The $k, k^2$ machine with a stated direction. Triangle $T\u2032$ is similar to triangle $T$ with $k = \\frac{5}{2}$ read $T \\to T\u2032$. If $T$ has area 12 and perimeter 18, find the area and perimeter of $T\u2032$, and explain why the two multipliers differ.',
               solution: [
-                'Sol. Read the direction: $k = \frac{5}{2}$ from $T$ to $T\u2032$ means every LENGTH of $T\u2032$ is $\frac{5}{2}$ times its answering length in $T$.',
-                'Perimeter: it is a sum of lengths, so it scales like a length \u2014 $18 \times \frac{5}{2} = 45$.',
-                'Area: it is a product of two lengths, so the scale factor enters twice \u2014 $12 \times \left(\frac{5}{2}\right)^2 = 12 \times \frac{25}{4} = 75$.',
+                'Sol. Read the direction: $k = \\frac{5}{2}$ from $T$ to $T\u2032$ means every LENGTH of $T\u2032$ is $\\frac{5}{2}$ times its answering length in $T$.',
+                'Perimeter: it is a sum of lengths, so it scales like a length \u2014 $18 \\times \\frac{5}{2} = 45$.',
+                'Area: it is a product of two lengths, so the scale factor enters twice \u2014 $12 \\times \\left(\\frac{5}{2}\\right)^2 = 12 \\times \\frac{25}{4} = 75$.',
                 'Explain the difference: perimeters are one-dimensional (one factor of $k$), areas two-dimensional ($k^2$) \u2014 the SAS-similarity derivation of this lesson shows the sines cancelling and the two side factors each contributing one $k$.',
-                'Hence $T\u2032$ has perimeter 45 and area 75 \u2014 and reversing the direction would give the reciprocals $\frac{2}{5}$ and $\frac{4}{25}$.',
+                'Hence $T\u2032$ has perimeter 45 and area 75 \u2014 and reversing the direction would give the reciprocals $\\frac{2}{5}$ and $\\frac{4}{25}$.',
               ],
-              answer: 'perimeter $45$ (lengths by $k = \frac{5}{2}$) and area $75$ (areas by $k^2 = \frac{25}{4}$): one factor of $k$ per dimension',
+              answer: 'perimeter $45$ (lengths by $k = \\frac{5}{2}$) and area $75$ (areas by $k^2 = \\frac{25}{4}$): one factor of $k$ per dimension',
             },
             {
-              q: 'The construction proof at fresh numbers. In triangle $ABC$, $\u2220A = 50^\circ$, $AB = 10$, $AC = 9$; $D$ lies on $AB$ with $AD = 4$, and $DE$ is drawn parallel to $BC$ meeting $AC$ at $E$. Compute $AE$, $BC$, $DE$, and check all three ratios.',
+              q: 'The construction proof at fresh numbers. In triangle $ABC$, $\u2220A = 50^\\circ$, $AB = 10$, $AC = 9$; $D$ lies on $AB$ with $AD = 4$, and $DE$ is drawn parallel to $BC$ meeting $AC$ at $E$. Compute $AE$, $BC$, $DE$, and check all three ratios.',
               solution: [
-                'Sol. The parallel through $D$ meets $AC$ at $E$; by the BPT (Lesson 4.2), $\frac{AD}{AB} = \frac{AE}{AC}$.',
-                'Compute the ratio: $\frac{AD}{AB} = \frac{4}{10} = \frac{2}{5}$.',
-                'Compute $AE$: $\frac{AE}{9} = \frac{2}{5}$, so $AE = \frac{2}{5} \times 9 = 3.6$.',
-                'Compute $BC$ by the law of cosines: $BC^2 = 100 + 81 - 2 \u00b7 10 \u00b7 9 \u00b7 \cos 50^\circ = 181 - 180\cos 50^\circ$, so $BC \approx 8.0807320$.',
-                'Compute $DE$: the intercept machinery gives $\frac{DE}{BC} = \frac{2}{5}$, so $DE \approx 0.4 \times 8.0807320 = 3.2322928$.',
-                'Check all three ratios: $\frac{AD}{AB} = \frac{AE}{AC} = \frac{DE}{BC} = \frac{2}{5}$ \u2014 triangle $ADE \sim ABC$ by the AA construction, with the copied angle at $D$ equal to $\u2220B \approx 58.5603484^\circ$.',
+                'Sol. The parallel through $D$ meets $AC$ at $E$; by the BPT (Lesson 4.2), $\\frac{AD}{AB} = \\frac{AE}{AC}$.',
+                'Compute the ratio: $\\frac{AD}{AB} = \\frac{4}{10} = \\frac{2}{5}$.',
+                'Compute $AE$: $\\frac{AE}{9} = \\frac{2}{5}$, so $AE = \\frac{2}{5} \\times 9 = 3.6$.',
+                'Compute $BC$ by the law of cosines: $BC^2 = 100 + 81 - 2 \u00b7 10 \u00b7 9 \u00b7 \\cos 50^\\circ = 181 - 180\\cos 50^\\circ$, so $BC \\approx 8.0807320$.',
+                'Compute $DE$: the intercept machinery gives $\\frac{DE}{BC} = \\frac{2}{5}$, so $DE \\approx 0.4 \\times 8.0807320 = 3.2322928$.',
+                'Check all three ratios: $\\frac{AD}{AB} = \\frac{AE}{AC} = \\frac{DE}{BC} = \\frac{2}{5}$ \u2014 triangle $ADE \\sim ABC$ by the AA construction, with the copied angle at $D$ equal to $\u2220B \\approx 58.5603484^\\circ$.',
               ],
-              answer: '$AE = 3.6$, $BC \approx 8.0807320$, $DE \approx 3.2322928$, and $\frac{AD}{AB} = \frac{AE}{AC} = \frac{DE}{BC} = \frac{2}{5}$',
+              answer: '$AE = 3.6$, $BC \\approx 8.0807320$, $DE \\approx 3.2322928$, and $\\frac{AD}{AB} = \\frac{AE}{AC} = \\frac{DE}{BC} = \\frac{2}{5}$',
               figures: [
                 {
                   caption: 'The construction at fresh numbers: triangle ABC with the 50\u00b0 angle at A, AB = 10, AC = 9, and the inner triangle ADE with AD = 4 and DE parallel to BC \u2014 the engine\u2019s coordinate intersection gives AE = 3.6 and DE \u2248 3.2322928, all three ratios 2/5.',
@@ -3656,26 +3656,26 @@ export const lessonGeo403: Lesson = {
             {
               q: 'Prove the AA criterion in full: given $\u2220A = \u2220P$ and $\u2220B = \u2220Q$ for triangles $ABC$ and $PQR$, show that all three angles agree and that the three side ratios share one common $k$. Support the proof with the construction and a numerical witness.',
               solution: [
-                'Sol. Third angle: $\u2220C = 180^\circ - \u2220A - \u2220B = 180^\circ - \u2220P - \u2220Q = \u2220R$ \u2014 the angle sum forces the third equality (Lesson 2.4).',
-                'Construct the copy: on triangle $ABC$ itself, pick $D$ on $AB$ and copy $\u2220B$ at $D$ on the side toward $A$; the copy meets $AC$ at $E$. Then $\u2220ADE = \u2220ABC$ in the corresponding position, so $DE \parallel BC$ by the converse of the corresponding-angles law.',
-                'Force two ratios: by the Basic Proportionality Theorem (Lesson 4.2, Euclid VI.2), the parallel gives $\frac{AD}{AB} = \frac{AE}{AC}$.',
-                'Force the third: the same parallelism, read with the intercept ladder, gives $\frac{DE}{BC} = \frac{AD}{AB}$ \u2014 one common ratio $k = \frac{AD}{AB}$ on all three sides.',
-                'Conclude the similarity: triangle $ADE$ has the angles of $ABC$ and all sides in the common ratio $k$, so triangle $ADE \sim ABC$; and any triangle sharing two angles with $ABC$ is a relocated, rescaled copy of this construction, so triangle $ABC \sim PQR$.',
-                'Numerical witness: with $\u2220A = 40^\circ$, $AB = 10$, $AC = 8$, $AD = 6$, the coordinate intersection lands $E$ at exactly $0.6$ of the way along $AC$: $AE = 4.8$, $BC \approx 6.4368384$, $DE \approx 3.8621031$, and all three ratios read $\frac{3}{5}$ \u2014 the engine\u2019s brute-force check of every step above.',
+                'Sol. Third angle: $\u2220C = 180^\\circ - \u2220A - \u2220B = 180^\\circ - \u2220P - \u2220Q = \u2220R$ \u2014 the angle sum forces the third equality (Lesson 2.4).',
+                'Construct the copy: on triangle $ABC$ itself, pick $D$ on $AB$ and copy $\u2220B$ at $D$ on the side toward $A$; the copy meets $AC$ at $E$. Then $\u2220ADE = \u2220ABC$ in the corresponding position, so $DE \\parallel BC$ by the converse of the corresponding-angles law.',
+                'Force two ratios: by the Basic Proportionality Theorem (Lesson 4.2, Euclid VI.2), the parallel gives $\\frac{AD}{AB} = \\frac{AE}{AC}$.',
+                'Force the third: the same parallelism, read with the intercept ladder, gives $\\frac{DE}{BC} = \\frac{AD}{AB}$ \u2014 one common ratio $k = \\frac{AD}{AB}$ on all three sides.',
+                'Conclude the similarity: triangle $ADE$ has the angles of $ABC$ and all sides in the common ratio $k$, so triangle $ADE \\sim ABC$; and any triangle sharing two angles with $ABC$ is a relocated, rescaled copy of this construction, so triangle $ABC \\sim PQR$.',
+                'Numerical witness: with $\u2220A = 40^\\circ$, $AB = 10$, $AC = 8$, $AD = 6$, the coordinate intersection lands $E$ at exactly $0.6$ of the way along $AC$: $AE = 4.8$, $BC \\approx 6.4368384$, $DE \\approx 3.8621031$, and all three ratios read $\\frac{3}{5}$ \u2014 the engine\u2019s brute-force check of every step above.',
               ],
-              answer: 'AA proved: the copy on the shared angle runs $DE \parallel BC$, the BPT forces $\frac{AD}{AB} = \frac{AE}{AC} = \frac{DE}{BC}$ (witness $\frac{3}{5}$), and the angle sum forces the third angle \u2014 triangle $ADE \sim ABC$, hence any two-angle pair is similar',
+              answer: 'AA proved: the copy on the shared angle runs $DE \\parallel BC$, the BPT forces $\\frac{AD}{AB} = \\frac{AE}{AC} = \\frac{DE}{BC}$ (witness $\\frac{3}{5}$), and the angle sum forces the third angle \u2014 triangle $ADE \\sim ABC$, hence any two-angle pair is similar',
             },
             {
               q: 'Refute \u201cSSA-similarity\u201d in full: show that two sides in a common ratio plus an equal angle NOT included between them cannot certify similarity, prove that the failure persists at every scale $k$, and identify the structural reason the angle data goes wrong.',
               solution: [
-                'Sol. State the claimed criterion: if $\frac{a\u2032}{a} = \frac{b\u2032}{b} = k$ and $\u2220A = \u2220A\u2032$ (the angle opposite $a$, NOT included), then \u2014 allegedly \u2014 the triangles are similar.',
-                'Deploy the witness at $k = 1$: $A = 30^\circ$, $b = 7$, $a = 5$ gives the quadratic $c^2 - 7\sqrt{3}\,c + 24 = 0$ with roots $c \approx 2.4914636$ and $c \approx 9.6328920$ \u2014 two genuine triangles, both carrying the claimed data.',
-                'Verify the failure: the two triangles share $a$, $b$ and $\u2220A$ yet are not similar \u2014 their third sides differ (ratio $\approx 3.8663 \ne 1$) and their angles at $B$ read $\approx 135.5729960^\circ$ against $\approx 44.4270040^\circ$.',
-                'Prove scale-invariance of the failure: multiply all sides of BOTH witness triangles by any $k > 0$. The side ratios stay $1$, the shared angle stays $30^\circ$, and the two scaled triangles are still not similar (each is similar only to its own scaling). So no choice of $k$ rescues the criterion.',
-                'Identify the structural fault: the law of cosines ties $a^2 = b^2 + c^2 - 2bc\cos A$ \u2014 with $a$, $b$, $A$ fixed, this is a QUADRATIC in $c$, and when the discriminant $b^2\sin^2 A \cdot$-window admits two positive roots, both close the triangle. The equal angle lives opposite one measured side, so it cannot clamp the third side the way an included angle does.',
+                'Sol. State the claimed criterion: if $\\frac{a\u2032}{a} = \\frac{b\u2032}{b} = k$ and $\u2220A = \u2220A\u2032$ (the angle opposite $a$, NOT included), then \u2014 allegedly \u2014 the triangles are similar.',
+                'Deploy the witness at $k = 1$: $A = 30^\\circ$, $b = 7$, $a = 5$ gives the quadratic $c^2 - 7\\sqrt{3}\,c + 24 = 0$ with roots $c \\approx 2.4914636$ and $c \\approx 9.6328920$ \u2014 two genuine triangles, both carrying the claimed data.',
+                'Verify the failure: the two triangles share $a$, $b$ and $\u2220A$ yet are not similar \u2014 their third sides differ (ratio $\\approx 3.8663 \\ne 1$) and their angles at $B$ read $\\approx 135.5729960^\\circ$ against $\\approx 44.4270040^\\circ$.',
+                'Prove scale-invariance of the failure: multiply all sides of BOTH witness triangles by any $k > 0$. The side ratios stay $1$, the shared angle stays $30^\\circ$, and the two scaled triangles are still not similar (each is similar only to its own scaling). So no choice of $k$ rescues the criterion.',
+                'Identify the structural fault: the law of cosines ties $a^2 = b^2 + c^2 - 2bc\\cos A$ \u2014 with $a$, $b$, $A$ fixed, this is a QUADRATIC in $c$, and when the discriminant $b^2\\sin^2 A \\cdot$-window admits two positive roots, both close the triangle. The equal angle lives opposite one measured side, so it cannot clamp the third side the way an included angle does.',
                 'Hence SSA-similarity is refuted: the $k = 1$ ambiguous pair is a permanent counterexample, scaling cannot launder it, and the included-angle demand in SAS-similarity is precisely the clause that kills the ambiguity.',
               ],
-              answer: 'SSA-similarity refuted: the ambiguous pair ($c \approx 2.4914636$ or $9.6328920$ on the data $A = 30^\circ$, $b = 7$, $a = 5$) shares two sides in ratio 1 and the angle, yet is not similar \u2014 and scaling both triangles preserves both the hypotheses and the failure',
+              answer: 'SSA-similarity refuted: the ambiguous pair ($c \\approx 2.4914636$ or $9.6328920$ on the data $A = 30^\\circ$, $b = 7$, $a = 5$) shares two sides in ratio 1 and the angle, yet is not similar \u2014 and scaling both triangles preserves both the hypotheses and the failure',
             },
           ],
         },

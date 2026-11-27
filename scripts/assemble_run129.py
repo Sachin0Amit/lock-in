@@ -197,8 +197,8 @@ async function sectionZ(): Promise<SectionResult> {
   // ---- the book census (the honest closed-chapter shape) ----
   z('Z16 book status in-progress (9 chapters remain)', geometry.status === 'in-progress', geometry.status)
   z('Z17 twelve chapters planned', geometry.chapters.length === 12, String(geometry.chapters.length))
-  z('Z18 chapters 1, 2 AND 3 complete', geometry.chapters[0].status === 'complete' && geometry.chapters[1].status === 'complete' && geometry.chapters[2].status === 'complete', `${geometry.chapters[0].status}/${geometry.chapters[1].status}/${geometry.chapters[2].status}`)
-  z('Z19 chapters 4-12 still planned', geometry.chapters.slice(3).every((c) => c.status === 'planned'))
+  z('Z18 chapters 1, 2, 3 AND 4 complete', geometry.chapters.slice(0, 4).every((c) => c.status === 'complete'), geometry.chapters.slice(0, 4).map((c) => c.status).join('/'))
+  z('Z19 chapters 5-12 still planned', geometry.chapters.slice(4).every((c) => c.status === 'planned'))
   z('Z20 the geo- prefix in use', ids.every((id) => id.startsWith('geo-')))
   z('Z21 every lesson carries a real body', chapter3.lessons.every((l) => l.blocks.length >= 10))
   const chapterWords = chapter3.lessons.reduce((m, l) => m + countLessonWords(l), 0)

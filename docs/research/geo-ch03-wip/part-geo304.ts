@@ -201,10 +201,10 @@ const geo34Exterior = (aria: string): string => {
   const dAB = Math.atan2(B[1] - A[1], B[0] - A[0]) // ray A->B
   const dAC = Math.atan2(C[1] - A[1], C[0] - A[0]) // ray A->C
   parts.push(geo34Arc(A[0], A[1], 42, dAC, dAB, c34.tealInk, 2.2))
-  parts.push(geo34Txt(256, 166, '21.79°', 12, c34.tealInk))
+  parts.push(`<text x="256" y="166" font-family="${f34}" font-size="12" fill="${c34.tealInk}" text-anchor="middle" font-weight="600" stroke="#ffffff" stroke-width="3" paint-order="stroke">21.79°</text>`)
   const dBA = Math.atan2(A[1] - B[1], A[0] - B[0]) // ray B->A
   parts.push(geo34Arc(B[0], B[1], 46, dBA, 0, c34.tealInk, 2.2))
-  parts.push(geo34Txt(122, 286, '38.21°', 12, c34.tealInk))
+  parts.push(`<text x="122" y="286" font-family="${f34}" font-size="12" fill="${c34.tealInk}" text-anchor="middle" font-weight="600" stroke="#ffffff" stroke-width="3" paint-order="stroke">38.21°</text>`)
   // the sum-vs-each annotation (the exam-gold distinction)
   parts.push(geo34Txt(486, 120, 'exterior at C = 60°', 12.5, c34.ink))
   parts.push(geo34Txt(486, 142, '60 = 21.79 + 38.21 (angle sum)', 12, c34.mid))

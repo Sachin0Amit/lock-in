@@ -271,7 +271,7 @@ const geo32Amb5 = (aria: string): string => {
   parts.push(geo32Arc(ax, ay, 44, 0, -Math.PI / 6, c32.amber, 2.4))
   parts.push(geo32Txt(228, 346, '30°', 12.5, c32.amber))
   parts.push(geo32Txt(282, 282, 'b = 7', 12, c32.amber, 'end'))
-  parts.push(geo32Txt(322, 300, 'a = 5', 12, c32.amber))
+  parts.push(geo32Txt(318, 300, 'a = 5', 12, c32.amber, 'end'))
   parts.push(geo32Txt(496, 292, 'a = 5', 12, c32.amber, 'start'))
   parts.push(geo32Txt(205, 380, 'c1 = 2.491464', 12, c32.amber))
   parts.push(geo32Txt(363, 380, 'c2 = 9.632892', 12, c32.amber))

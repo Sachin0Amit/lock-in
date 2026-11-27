@@ -239,7 +239,7 @@ const geo31Mirror = (o: { aria: string; title: string }): string => {
   parts.push(geo31Txt(296, 368, 'B (6, 0)', 13, c31.ink, 'start'))
   parts.push(geo31Txt(156, 178, 'C (0, 8)', 13, c31.ink, 'end'))
   parts.push(geo31Txt(158, 234, '(0, 6)', 13, c31.orange, 'end'))
-  parts.push(geo31Txt(336, 368, '(8, 0)', 13, c31.orange, 'start'))
+  parts.push(geo31Txt(336, 388, '(8, 0)', 13, c31.orange, 'start'))
   parts.push(geo31Dot(ox, oy, c31.ink, 4.5))
   parts.push(geo31Dot(290, 350, c31.green, 4))
   parts.push(geo31Dot(170, 190, c31.green, 4))

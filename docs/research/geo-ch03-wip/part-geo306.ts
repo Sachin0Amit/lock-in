@@ -86,7 +86,7 @@ const geo36F1 = (): string => {
   parts.push(geo36Txt((B[0] + D[0]) / 2, 412, 'm = 6', 12.5, c36.mid))
   parts.push(geo36Txt((D[0] + C[0]) / 2, 412, 'n = 8', 12.5, c36.mid))
   parts.push(geo36Txt((B[0] + C[0]) / 2, 436, 'a = 14', 12.5, c36.ink))
-  parts.push(geo36Txt(266, 234, 'd = 3\u221a17 \u2248 12.37', 12.5, c36.orange, 'end'))
+  parts.push(`<text x="266" y="234" font-family="${f36}" font-size="12.5" fill="${c36.orange}" text-anchor="end" font-weight="600" stroke="#ffffff" stroke-width="3" paint-order="stroke">d = 3\u221a17 \u2248 12.37</text>`)
   parts.push(geo36Txt(326, 234, 'h = 12', 12.5, c36.teal, 'start'))
   parts.push(geo36Txt(395, 234, 'b = 13', 12.5, c36.ink, 'start'))
   parts.push(geo36Txt(188, 210, 'c = 15', 12.5, c36.ink, 'end'))
