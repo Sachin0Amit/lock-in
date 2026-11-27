@@ -7727,3 +7727,7 @@ scripts/.zai-runtime/ and scripts/.hero-audit/.
 **Deferred (debt-first riders for run 131, per amendment 6 — never silent):** the ch.4 E2E grid (x4 lessons x3 viewports, the gen-geo129-e2e.py live-DOM-calibrated pattern) · the ch.4 VLM light+dark sweep (the sweep_vlm_geo130.sh rerun on the shipped chapter) · the ch.3 figure fixes (FIX_QUEUE_130A.md, 19 items).
 
 **Bookkeeping:** RESUME_POINTER re-pointed (run 131 = riders-first then ch.5 'Transformations and Symmetry' whole); PROGRESS geometry phase refreshed; SOURCE_LOG run-130 block (Euclid VI.19 fetched; NCERT PDF blocked; the four pin catches; sibling books); DETAILED_LOG row; WORK_INVENTORY regenerated. The ch-04 wip stays banked in docs/research/geo-ch04-wip/.
+
+## 2026-11-27 — RUN 130 push record (no token)
+
+**Push verified:** the run's commits pushed as a clean fast-forward 5188e9a..3ad084f (the hss merge 77e1a60 + the run-130 close 3ad084f); anonymous ls-remote confirms refs/heads/main == 3ad084f07e37a505c4344f630719d6cbcb5e7268 == local HEAD — **SYNCED**. The PAT lived only inside the single push command's URL — never written to any file, config, log or message, never echoed or printed. The tree is clean. RUN 131: riders-first (the ch.3 FIX_QUEUE_130A figure fixes + the ch.4 E2E grid + the ch.4 VLM sweep), then GEOMETRY ch.5 'Transformations and Symmetry: the Rigid-Motion Idea' opened WHOLE per RESUME_POINTER.
