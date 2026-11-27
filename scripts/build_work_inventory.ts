@@ -8,13 +8,13 @@
  * detail"). Re-run after every unit ship / platform change, then update
  * docs/project/DETAILED_LOG.md (the human-readable mirror) to match.
  *
- * Usage: cd /home/z/my-project && bun run scripts/build_work_inventory.ts
+ * Usage: cd /home/z/my-project/lock-in && bun run scripts/build_work_inventory.ts
  */
 import { allBooks } from '../src/data/library'
 import { countLessonWords } from '../src/data/library/types'
 import type { Lesson } from '../src/data/library/types'
 
-const ROOT = '/home/z/my-project'
+const ROOT = '/home/z/my-project/lock-in'
 const OUT = `${ROOT}/docs/project/WORK_INVENTORY.json`
 
 function sh(cmd: string[]): string {
@@ -69,7 +69,7 @@ const gitHistory = commits.map((c) => ({
 /* ------------------------------------------------------------------ */
 /* Drive survey artifact (gitignored; summary gets committed here)     */
 /* ------------------------------------------------------------------ */
-const inv: any = await Bun.file(`${ROOT}/temporary-references/inventory.json`).json()
+const inv: any = await Bun.file(`/home/z/my-project/temporary-references/inventory.json`).json()
 const rootItems: { name: string; size: string }[] = inv.rootItems ?? []
 const driveFolders = rootItems.filter((i) => i.name.includes('[folder]')).map((i) => i.name.replace(' [folder]', ''))
 const driveFiles = rootItems.filter((i) => !i.name.includes('[folder]'))
