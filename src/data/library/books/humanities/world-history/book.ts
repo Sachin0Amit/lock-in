@@ -3,9 +3,12 @@ import type { Book, Chapter } from '../../../types'
 /**
  * World History — the first book of the Humanities & Social Sciences shelf (History branch).
  *
- * STATUS: PLANNED (Humanities & Social Sciences full-shelf planning pass, 2026-11-16) — 11 chapters /
- * 80 planned lessons, zero written. Lesson ids will use the `wh-` prefix
- * (verified unused across all existing lesson ids).
+ * STATUS: IN-PROGRESS (HSS RUN 1, 2026-11-27 — the humanities & social
+ * sciences lane's first fire: ch.1 'The Historian's Craft' OPENED with
+ * lesson 1.1 'How History Is Written' (57/57 seat-green, amendment-5
+ * solo relaunch); 1.2/1.3 ride the next fire; the planning census's
+ * four artifact lines are trimmed to the honest 3-lesson shape).
+
  *
  * POSITIONING (no-duplication contract): World History owns the world register — every region, every era, at survey depth. Indian History owns the national register (the two cross-reference at the colonial bridge); International Relations owns the post-1945 order’s political science; the Anthropology book owns the deep human past below writing. The political philosophies (communism, capitalism, socialism) are priced here as history’s engines and cross-referenced to Political Science and Philosophy for their theory.
  *
@@ -16,25 +19,10 @@ import type { Book, Chapter } from '../../../types'
  * - Norman Lowe, Mastering Modern World History (Macmillan Master Series — the UPSC-tuned pole, checked this pass via the amazon.com record).
  * - AP World History: Modern (apstudents.collegeboard.org — the nine-unit register read this pass: The Global Tapestry; Networks of Exchange; Land-Based Empires; Transoceanic Interconnections; Revolutions; Consequences of Industrialization; Global Conflict; Cold War and Decolonization; Globalization) supplies the modern spine.
  */
+import { chapter1 } from './ch-01'
+
 const chapters: Chapter[] = [
-  {
-    number: 1,
-    slug: 'the-historian-s-craft',
-    title: 'The Historian\u2019s Craft',
-    summary:
-      'How history is actually written: primary against secondary sources, the literary against the archaeological register, external and internal criticism of a document, the archaeologist\u2019s sherd against the court chronicle; periodisation as a CONVENTION (the ancient/medieval/modern triad interrogated, not assumed) and the BC/BCE-CE dating census; and the map of this book\u2019s arc stated honestly — why world history is taught as one story and what that choice costs.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'How History Is Written',
-      'Sources: Literary and Archaeological',
-      'Time, Periodisation and the Calendar',
-      'Acknowledgements (duplicate)',
-      'Chapter XIII. The Sources of Plato\'s Opinions',
-      'Part I. The Fathers',
-      'Part II. The Schoolmen'
-    ],
-  },
+  chapter1,
   {
     number: 2,
     slug: 'before-1200',
@@ -218,7 +206,7 @@ export const worldHistory: Book = {
   discipline: 'humanities',
   level: 'Secondary school world history → university survey + UPSC/AP exam readiness',
   description: 'The world\u2019s story told as one arc rather than a parade of nations. The historian\u2019s craft first — sources, periodisation, the BC/CE convention, the difference between a document and a ruin; then the pre-1200 world (the Neolithic revolution, the first cities of Mesopotamia, Egypt, the Indus and China, the classical Mediterranean, the Silk Roads); the early-modern crossings (the Ottoman-Safavid-Mughal-Ming-Qing land empires, the Indian Ocean and trans-Saharan exchange networks, the European voyages and the Columbian exchange); the Atlantic revolutions (the Enlightenment, America, France, Haiti, Latin America); the industrial revolution and capitalism\u2019s forms; nationalism and the age of imperialism 1870-1914; the world wars with the Russian Revolution, fascism and the Holocaust; the Cold War, decolonisation and the redrawal of national boundaries; and globalisation with the political philosophies — communism, capitalism, socialism — the UPSC register prices. Cross-references Indian History (the colonial and imperial bridge where the two arcs meet) and hands off to Political Science (the nation-state\u2019s ideas) and to the reader\u2019s own present.',
-  status: 'planned',
+  status: 'in-progress',
   accent: ['#b45309', '#78350f'],
   chapters,
 }

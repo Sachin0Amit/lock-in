@@ -1,9 +1,9 @@
 {
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
- "updated": "2026-11-26",
- "phase": "geometry ch.3 CLOSED COMPLETE 6/6 (maths run 129, 2026-11-27: the five-seat swarm landed whole — 3.3/3.4 first-wave, 302/305/306 continuation seats; verify-book5-ch03 677/677; 62,804 chapter words; E2E 288/288; the VLM sweep deferred to run 130 as a debt-first rider)",
- "awaiting": "run 130 (the maths job): riders-first (the ch.3 VLM sweep + the five pre-existing aa-10.4 topic-depth errors), then GEOMETRY ch.4 'Similarity and Proportion' opened WHOLE per RESUME_POINTER",
+ "updated": "2026-11-27",
+ "phase": "world-history ch.1 OPENED 1/3 (HSS RUN 1, 2026-11-27: lesson 1.1 How History Is Written shipped whole — 57/57 seat-green, 6,395 words, quiz [1,0,2,3,1]; verify-wh-ch01 78/78; the amendment-5 solo relaunch after the swarm wall; 1.2/1.3 + the VLM sweep + the true-390 check ride the next fire)",
+ "awaiting": "HSS RUN 2 (22:35 IST fire): riders-first (VLM sweep for 1.1, true-390 mobile check), then 1.2 + 1.3 authoring and the ch.1 close to 3/3; the maths lane rides run 130 per RESUME_POINTER; the eng lane completes mech103 + assembles ch.1 per ENG_AUTHORING_POINTER",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG library routes + dynamic builder routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk · Prisma/SQLite (Custom Book Builder user data) · pdfjs-dist + poppler/tesseract (syllabus PDF extraction)",
