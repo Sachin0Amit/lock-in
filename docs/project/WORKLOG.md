@@ -7630,3 +7630,7 @@ scripts/.zai-runtime/ and scripts/.hero-audit/.
 **Deferred (debt-first rider for run 130, per amendment 6):** the chapter-wide VLM light+dark figure sweep (the sweep_vlm_geo127.sh + audit_vlm_geo127.sh pattern) — the run budget closed at the E2E chain; logged here as the standing deferral, never silent.
 
 **Bookkeeping:** RESUME_POINTER re-pointed (run 130 = riders-first then ch.4 'Similarity and Proportion' whole); PROGRESS phase/awaiting refreshed; SOURCE_LOG run-129 block (no NEW sources — the reference layer was banked whole by run 128 per amendment 9; this run consumed it); DETAILED_LOG row appended; WORK_INVENTORY regenerated. The ch-03 wip files stay banked in docs/research/geo-ch03-wip/ (the run-126 pattern: wip is history, assembly is the shipped artifact).
+
+## 2026-11-27 — RUN 129 push record (no token)
+
+**Push verified:** the run's commit `1880025` pushed as a clean fast-forward `755d247..1880025`; anonymous ls-remote confirms refs/heads/main == `18800250f02aa1a1a5a455bae3c16d167277323f` == local HEAD — **SYNCED**. The PAT lived only inside the single push command's URL — never written to any file, config, log or message, never echoed or printed. The tree is clean. RUN 130: riders-first (the ch.3 VLM sweep + the aa-10.4 topic-depth debt), then GEOMETRY ch.4 'Similarity and Proportion' opened WHOLE per RESUME_POINTER.
