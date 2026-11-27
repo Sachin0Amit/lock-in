@@ -1312,7 +1312,7 @@ const geo32SSA = (o: { aria: string; title: string }): string => {
   parts.push(geo32Txt(410, 288, 'h = 3.5', 12, c32.tealInk, 'end'))
   parts.push(geo32Txt(354, 268, '7', 13, c32.amber))
   parts.push(geo32Txt(150, 272, '7', 13, c32.amber))
-  parts.push(geo32Txt(496, 316, 'c1 = 5.268438', 12, c32.amber, 'start'))
+  parts.push(geo32Txt(524, 316, 'c1 = 5.268438', 12, c32.amber, 'start'))
   parts.push(geo32Txt(290, 258, 'c2 = 16.439086', 12, c32.amber))
   parts.push(geo32Txt(240, 352, 'B', 13, c32.ink, 'end'))
   parts.push(geo32Txt(538, 350, 'C', 13, c32.ink, 'start'))
@@ -1420,8 +1420,8 @@ const geo32Corr = (aria: string): string => {
   parts.push(geo32Txt(545, 316, '75°', 12, c32.amber))
   parts.push(geo32CurveArrow(A[0] + 14, A[1] - 6, D[0] - 14, D[1] - 6, 384, 70, c32.orange, 2.4))
   parts.push(geo32Txt(384, 62, 'A → D', 12.5, c32.orange))
-  parts.push(geo32Txt(230, 148, 'AB', 12.5, c32.tealInk))
-  parts.push(geo32Txt(478, 148, 'DC', 12.5, c32.tealInk))
+  parts.push(geo32Txt(206, 148, 'AB', 12.5, c32.tealInk))
+  parts.push(geo32Txt(454, 148, 'DC', 12.5, c32.tealInk))
   parts.push(geo32Txt(200, 364, 'BC', 12.5, c32.tealInk))
   parts.push(geo32Txt(480, 364, 'CB', 12.5, c32.tealInk))
   parts.push(geo32Txt(244.5, 116, '∠BAC = 50°', 11.5, c32.ink))
@@ -2428,6 +2428,9 @@ const geo33Tri = (o: {
   apexLabSide?: boolean
   note?: string
   halfApexLab?: string
+  halfApexAt?: [number, number]
+  halfApexAnchor?: 'start' | 'end' | 'middle'
+  cAngAt?: [number, number]
 }): string => {
   const k = o.scale ?? 15
   const W = o.W ?? 640
@@ -2470,7 +2473,7 @@ const geo33Tri = (o: {
   if (o.baseL) parts.push(geo33Txt(cx, yB + 44, o.baseL, 13, c33.tealInk))
   if (o.halfL) parts.push(geo33Txt(cx - o.hb * k / 2, yB + 20, o.halfL, 12.5, c33.mid))
   if (o.halfR) parts.push(geo33Txt(cx + o.hb * k / 2, yB + 20, o.halfR, 12.5, c33.mid))
-  if (o.hLab) parts.push(geo33Txt(cx + 14, yB - (o.h * k) / 2, o.hLab, 13, c33.tealInk, 'start'))
+  if (o.hLab) parts.push(`<text x="${cx + 14}" y="${yB - 26}" font-family="${f33}" font-size="13" fill="${c33.tealInk}" text-anchor="start" font-weight="600" stroke="#ffffff" stroke-width="3" paint-order="stroke">${o.hLab}</text>`)
   // angle arcs
   const angBA = Math.atan2(B[1] - A[1], B[0] - A[0]) // ray A->B (down-left, screen angle in (90,180)deg)
   const angCA = Math.atan2(C[1] - A[1], C[0] - A[0]) // ray A->C (down-right)
@@ -2486,8 +2489,12 @@ const geo33Tri = (o: {
   }
   if (o.halfApexLab) {
     parts.push(geo33Arc(A[0], A[1], 40, angCA, (angCA + angBA) / 2, c33.orange, 2.2))
-    const bis2 = (angCA + angBA) / 2
-    parts.push(geo33Txt(A[0] + Math.cos((angCA + bis2) / 2) * 62, A[1] + Math.sin((angCA + bis2) / 2) * 62, o.halfApexLab, 11.5, c33.orange))
+    if (o.halfApexAt) {
+      parts.push(geo33Txt(o.halfApexAt[0], o.halfApexAt[1], o.halfApexLab, 11.5, c33.orange, o.halfApexAnchor ?? 'start'))
+    } else {
+      const bis2 = (angCA + angBA) / 2
+      parts.push(geo33Txt(A[0] + Math.cos((angCA + bis2) / 2) * 62, A[1] + Math.sin((angCA + bis2) / 2) * 62, o.halfApexLab, 11.5, c33.orange))
+    }
   }
   const angAB = Math.atan2(A[1] - B[1], A[0] - B[0]) // ray B->A (up-right, negative screen angle)
   parts.push(geo33Arc(B[0], B[1], 24, 0, angAB, c33.green, 2.4))
@@ -2499,9 +2506,13 @@ const geo33Tri = (o: {
   const angAC = Math.atan2(A[1] - C[1], A[0] - C[0]) // ray C->A (up-left)
   parts.push(geo33Arc(C[0], C[1], 24, Math.PI, angAC, c33.green, 2.4))
   if (o.cAngLab) {
-    const bis = (Math.PI + angAC) / 2
-    const cx2 = C[0] + Math.cos(bis) * 48
-    parts.push(geo33Txt(cx2, C[1] + Math.sin(bis) * 48, o.cAngLab, 12.5, c33.green, cx2 < 70 ? 'start' : cx2 > W - 70 ? 'end' : 'middle'))
+    if (o.cAngAt) {
+      parts.push(geo33Txt(o.cAngAt[0], o.cAngAt[1], o.cAngLab, 12.5, c33.green))
+    } else {
+      const bis = (Math.PI + angAC) / 2
+      const cx2 = C[0] + Math.cos(bis) * 48
+      parts.push(geo33Txt(cx2, C[1] + Math.sin(bis) * 48, o.cAngLab, 12.5, c33.green, cx2 < 70 ? 'start' : cx2 > W - 70 ? 'end' : 'middle'))
+    }
   }
   if (o.note) parts.push(geo33Txt(cx, yB + (o.baseL ? 70 : 48), o.note, 12.5, c33.tealInk))
   const H = Math.max(yB + (o.baseL ? 84 : 60) + (o.note ? 4 : 0), yB - o.h * k + padTop + 30)
@@ -2512,7 +2523,7 @@ const geo33Tri = (o: {
 /* F2 — the doubled-triangle proof diagram with correspondence arrows   */
 /* ------------------------------------------------------------------ */
 const geo33Doubled = (): string => {
-  const W = 640, H = 470
+  const W = 640, H = 626
   const yB = 330
   const B: [number, number] = [235, yB]
   const C: [number, number] = [385, yB]
@@ -2535,22 +2546,22 @@ const geo33Doubled = (): string => {
   parts.push(geo33Arc(310, yB + 90, 180, (150 * Math.PI) / 180, (30 * Math.PI) / 180, c33.amber, 2.4, '6 5'))
   parts.push(geo33Head(310 + 180 * Math.cos((150 * Math.PI) / 180), yB + 90 + 180 * Math.sin((150 * Math.PI) / 180), 100, c33.amber, 9))
   parts.push(geo33Txt(310, yB + 118, 'C \u2192 B', 13, c33.amber))
-  // the SAS data panel
-  parts.push(geo33Rect(20, 96, 330, 190, c33.panel, c33.sep))
-  parts.push(geo33Txt(185, 124, 'THE DOUBLED READING', 13, c33.ink, 'middle', '700'))
-  parts.push(geo33Txt(185, 144, 'one figure, two names', 12, c33.tealInk))
-  parts.push(geo33Txt(185, 166, 'triangle ABC  \u2194  triangle ACB', 13, c33.tealInk))
-  parts.push(geo33Txt(40, 192, 'AB = AC   (given, read left)', 12.5, c33.mid, 'start'))
-  parts.push(geo33Txt(40, 214, 'AC = AB   (given, read again)', 12.5, c33.mid, 'start'))
-  parts.push(geo33Txt(40, 236, 'angle BAC = angle CAB (shared, included)', 12.5, c33.mid, 'start'))
-  parts.push(geo33Txt(40, 258, 'SAS (I.4): the triangles are congruent', 12.5, c33.ink, 'start'))
-  parts.push(geo33Txt(40, 280, 'so angle ABC = angle ACB', 12.5, c33.orange, 'start'))
+  // the SAS data panel (narrowed so the apex A stays fully visible)
+  parts.push(geo33Rect(20, 96, 240, 190, c33.panel, c33.sep))
+  parts.push(geo33Txt(140, 124, 'THE DOUBLED READING', 13, c33.ink, 'middle', '700'))
+  parts.push(geo33Txt(140, 144, 'one figure, two names', 12, c33.tealInk))
+  parts.push(geo33Txt(140, 166, 'triangle ABC  \u2194  triangle ACB', 13, c33.tealInk))
+  parts.push(geo33Txt(30, 192, 'AB = AC   (given, read left)', 11, c33.mid, 'start'))
+  parts.push(geo33Txt(30, 214, 'AC = AB   (given, read again)', 11, c33.mid, 'start'))
+  parts.push(geo33Txt(30, 236, 'angle BAC = angle CAB (shared, included)', 11, c33.mid, 'start'))
+  parts.push(geo33Txt(30, 258, 'SAS (I.4): the triangles are congruent', 11, c33.ink, 'start'))
+  parts.push(geo33Txt(30, 280, 'so angle ABC = angle ACB', 11, c33.orange, 'start'))
   // conclusion banner
   parts.push(geo33Rect(372, 96, 246, 76, c33.panel2, c33.sep))
   parts.push(geo33Txt(495, 124, 'PONS ASINORUM \u2014 EUCLID I.5', 12.5, c33.ink, 'middle', '700'))
   parts.push(geo33Txt(495, 148, 'equal legs,', 12.5, c33.tealInk))
   parts.push(geo33Txt(495, 168, 'equal base angles', 12.5, c33.tealInk))
-  parts.push(geo33Txt(310, 452, 'no auxiliary construction: SAS on the two namings of one triangle', 12.5, c33.tealInk))
+  parts.push(geo33Txt(310, 616, 'no auxiliary construction: SAS on the two namings of one triangle', 12.5, c33.tealInk))
   return geo33Svg(W, H, 'An isosceles triangle ABC with equal legs marked by ticks, orange and amber curved arrows swapping vertices B and C and fixing A, and side panels stating the doubled SAS reading that proves the base angles equal.', parts)
 }
 
@@ -2564,6 +2575,8 @@ const geo33Equi = (o: {
   sideLab?: string
   halfLab?: string
   hLab?: string
+  hLabX?: number
+  hLabY?: number
   note?: string
 }): string => {
   const k = o.scale
@@ -2593,9 +2606,9 @@ const geo33Equi = (o: {
   const angBA = Math.atan2(B[1] - A[1], B[0] - A[0])
   const angCA = Math.atan2(C[1] - A[1], C[0] - A[0])
   parts.push(geo33Arc(A[0], A[1], 26, angCA, angBA, c33.green, 2.4))
-  parts.push(geo33Txt(A[0] + 4, A[1] + 52, '60\u00b0', 12.5, c33.green))
+  parts.push(geo33Txt(A[0] - 42, A[1] + 56, '60\u00b0', 12.5, c33.green, 'end'))
   parts.push(geo33Arc(A[0], A[1], 44, angCA, (angCA + angBA) / 2, c33.orange, 2.2))
-  parts.push(geo33Txt(A[0] + Math.cos((angCA + (angCA + angBA) / 2) / 2) * 66, A[1] + Math.sin((angCA + (angCA + angBA) / 2) / 2) * 66, '30\u00b0', 11.5, c33.orange))
+  parts.push(geo33Txt(A[0] + 6, A[1] + 80, '30\u00b0', 11.5, c33.orange, 'start'))
   const angAB = Math.atan2(A[1] - B[1], A[0] - B[0])
   parts.push(geo33Arc(B[0], B[1], 24, 0, angAB, c33.green, 2.4))
   parts.push(geo33Txt(B[0] + Math.cos(angAB / 2) * 48, B[1] + Math.sin(angAB / 2) * 48, '60\u00b0', 12.5, c33.green))
@@ -2608,7 +2621,9 @@ const geo33Equi = (o: {
   parts.push(geo33Txt(cx, yB + 44, o.sideLab ?? '1', 13, c33.tealInk))
   parts.push(geo33Txt(cx - (o.side / 4) * k, yB + 20, o.halfLab ?? '1/2', 12.5, c33.mid))
   parts.push(geo33Txt(cx + (o.side / 4) * k, yB + 20, o.halfLab ?? '1/2', 12.5, c33.mid))
-  parts.push(geo33Txt(cx + 14, yB - h / 2, o.hLab ?? '\u221a3/2 \u2248 0.866025', 13, c33.tealInk, 'start'))
+  const hLabX = o.hLabX ?? cx + 14
+  const hLabY = o.hLabY ?? yB - h / 2
+  parts.push(geo33Txt(hLabX, hLabY, o.hLab ?? '\u221a3/2 \u2248 0.866025', 13, c33.tealInk, 'start'))
   if (o.note) parts.push(geo33Txt(cx, yB + 70, o.note, 12.5, c33.tealInk))
   return geo33Svg(W, 460, o.aria, parts)
 }
@@ -2617,14 +2632,14 @@ const geo33Equi = (o: {
 /* F4 — the sweep family: four isosceles triangles, t = 10, 22.62, 30, 40 */
 /* ------------------------------------------------------------------ */
 const geo33Sweep = (): string => {
-  const W = 640, H = 430
+  const W = 680, H = 430
   const L = 148 // leg length in px
   const yB = 322
   const ts = [10, 22.62, 30, 40]
   const centers = [102, 254, 420, 570]
   const parts: string[] = []
   parts.push(geo33Txt(W / 2, 30, 'ONE LAW, FOUR SHAPES \u2014 APEX 2t, BASE ANGLES 90\u00b0 \u2212 t', 13, c33.ink, 'middle', '700'))
-  parts.push(geo33Line(24, yB, 616, yB, c33.tealInk, 2))
+  parts.push(geo33Line(24, yB, 656, yB, c33.tealInk, 2))
   ts.forEach((t, i) => {
     const cx = centers[i]
     const rad = (t * Math.PI) / 180
@@ -2926,6 +2941,8 @@ export const lessonGeo303: Lesson = {
         sideLab: '1',
         halfLab: '1/2',
         hLab: '\u221a3/2 \u2248 0.866025',
+        hLabX: 326,
+        hLabY: 354,
         note: 'the 30\u221260\u221290 half: half-base 1/2, height \u221a3/2, leg 1 \u2014 and 3 \u00d7 60\u00b0 = 180\u00b0',
       }),
     },
@@ -2969,9 +2986,11 @@ export const lessonGeo303: Lesson = {
         halfR: '5',
         hLab: 'h = 12',
         apexLab: '45.24\u00b0',
+        apexLabSide: true,
         bAngLab: '67.38\u00b0',
         cAngLab: '67.38\u00b0',
         halfApexLab: 't = 22.62\u00b0',
+        halfApexAt: [360, 274],
         note: 'the 5\u221212\u221213 halves: area = (1/2)(10)(12) = 60; cos(apex) = 119/169',
       }),
     },
@@ -3096,9 +3115,11 @@ export const lessonGeo303: Lesson = {
             halfR: '5',
             hLab: 'h = 12',
             apexLab: '45.24\u00b0',
+            apexLabSide: true,
             bAngLab: '67.38\u00b0',
             cAngLab: '67.38\u00b0',
             halfApexLab: 't = 22.62\u00b0',
+            halfApexAt: [360, 274],
             note: 'area 60; angle sum 45.24 + 67.38 + 67.38 = 180',
           }),
         },
@@ -3133,9 +3154,11 @@ export const lessonGeo303: Lesson = {
             halfR: '8',
             hLab: 'h = 8',
             apexLab: '90\u00b0',
+            apexLabSide: true,
             bAngLab: '45\u00b0',
             cAngLab: '45\u00b0',
             halfApexLab: 't = 45\u00b0',
+            halfApexAt: [324, 338],
             note: 'tan 45\u00b0 = 8/8 = 1; \u2113 = 8/sin 45\u00b0 = 8\u221a2 \u2248 11.313708; area = 64',
           }),
         },
@@ -3177,6 +3200,7 @@ export const lessonGeo303: Lesson = {
             apexLab: '134.76\u00b0',
             bAngLab: '22.62\u00b0',
             cAngLab: '22.62\u00b0',
+            cAngAt: [602, 372],
             note: 'half-triangle 5\u221212\u221213 laid flat; gable area = (1/2)(24)(5) = 60',
           }),
         },
@@ -3413,6 +3437,7 @@ export const lessonGeo303: Lesson = {
                     halfR: '15',
                     hLab: 'h = 20',
                     apexLab: '73.74\u00b0',
+                    apexLabSide: true,
                     bAngLab: '53.13\u00b0',
                     cAngLab: '53.13\u00b0',
                     note: 'halves 15\u221220\u221225; area = (1/2)(30)(20) = 300',
@@ -3543,6 +3568,8 @@ export const lessonGeo303: Lesson = {
                     sideLab: '6',
                     halfLab: '3',
                     hLab: 'h = 3\u221a3 \u2248 5.196152',
+                    hLabX: 486,
+                    hLabY: 430,
                     note: 'area = (\u221a3/4)(36) = 9\u221a3; height = 3\u221a3 \u2248 5.196152',
                   }),
                 },
@@ -3760,12 +3787,12 @@ const geo34Hinge = (aria: string): string => {
   parts.push(geo34Txt(P1[0] + 12, P1[1] + 6, 'T', 13, c34.ink))
   // labels: arm lengths, openings, third-side values
   parts.push(geo34Txt(208, 322, '5', 13, c34.mid))
-  parts.push(geo34Txt(206, 246, '5', 13, c34.mid))
+  parts.push(geo34Txt(150, 246, '5', 13, c34.mid, 'end'))
   parts.push(geo34Txt(146, 226, '5', 13, c34.mid))
   parts.push(geo34Txt(186, 281, '40°', 12.5, c34.amber, 'end'))
   parts.push(geo34Txt(204, 254, '60°', 12.5, c34.orange, 'start'))
   parts.push(geo34Txt(316, 252, '≈ 3.42', 12.5, c34.amber, 'start'))
-  parts.push(geo34Txt(244, 214, '= 5', 12.5, c34.orange, 'end'))
+  parts.push(geo34Txt(222, 214, '= 5', 12.5, c34.orange, 'end'))
   parts.push(geo34Txt(320, 331, 'THIRD SIDES: 10 sin 20° ≈ 3.42 (DASHED) AND 10 sin 30° = 5', 12, c34.ink))
   return geo34Svg(640, 344, aria, parts)
 }
@@ -3805,7 +3832,7 @@ const geo34Exterior = (aria: string): string => {
   const dAB = Math.atan2(B[1] - A[1], B[0] - A[0]) // ray A->B
   const dAC = Math.atan2(C[1] - A[1], C[0] - A[0]) // ray A->C
   parts.push(geo34Arc(A[0], A[1], 42, dAC, dAB, c34.tealInk, 2.2))
-  parts.push(`<text x="256" y="166" font-family="${f34}" font-size="12" fill="${c34.tealInk}" text-anchor="middle" font-weight="600" stroke="#ffffff" stroke-width="3" paint-order="stroke">21.79°</text>`)
+  parts.push(`<text x="284" y="170" font-family="${f34}" font-size="12" fill="${c34.tealInk}" text-anchor="start" font-weight="600" stroke="#ffffff" stroke-width="3" paint-order="stroke">21.79°</text>`)
   const dBA = Math.atan2(A[1] - B[1], A[0] - B[0]) // ray B->A
   parts.push(geo34Arc(B[0], B[1], 46, dBA, 0, c34.tealInk, 2.2))
   parts.push(`<text x="122" y="286" font-family="${f34}" font-size="12" fill="${c34.tealInk}" text-anchor="middle" font-weight="600" stroke="#ffffff" stroke-width="3" paint-order="stroke">38.21°</text>`)
@@ -3840,7 +3867,7 @@ const geo34I20 = (aria: string): string => {
   parts.push(geo34Txt(A[0] - 14, A[1] - 8, 'A', 13, c34.ink))
   // side values + the equal-length ticks on CA and CD
   parts.push(geo34Txt(110, y0 + 34, '3', 13, c34.amber))
-  parts.push(geo34Txt(214, 208, '5', 13, c34.amber))
+  parts.push(geo34Txt(208, 252, '5', 13, c34.amber))
   parts.push(geo34Txt(142, 208, '7', 13, c34.amber))
   parts.push(geo34Txt(270, y0 + 34, '5', 13, c34.amber))
   parts.push(geo34Txt(334, 210, '5', 13, c34.amber))
@@ -3856,9 +3883,9 @@ const geo34I20 = (aria: string): string => {
   parts.push(geo34Arc(A[0], A[1], 34, dAD, dAC, c34.amber, 2.4))
   parts.push(geo34Txt(A[0], A[1] + 46, '60°', 12.5, c34.amber))
   parts.push(geo34Arc(A[0], A[1], 66, dAD, dAB, c34.orange, 2.6))
-  parts.push(geo34Txt(A[0] - 18, A[1] + 76, '81.79°', 12.5, c34.orange))
+  parts.push(geo34Txt(A[0] + 6, A[1] + 111, '81.79°', 12.5, c34.orange))
   parts.push(geo34Arc(A[0], A[1], 88, dAC, dAB, c34.tealInk, 2))
-  parts.push(geo34Txt(A[0] + 34, A[1] - 26, '21.79°', 12, c34.tealInk))
+  parts.push(geo34Txt(A[0] + 56, A[1] - 27, '21.79°', 12, c34.tealInk, 'start'))
   // the BD verdict line under the base
   parts.push(geo34Line(B[0], y0 + 46, D[0], y0 + 46, c34.faint, 1.4, '4 4'))
   parts.push(geo34Txt(210, y0 + 66, 'BD = BC + CD = 3 + 5 = 8', 12.5, c34.red))
@@ -4837,12 +4864,12 @@ const geo35Menelaus = (): string => {
   parts.push(geo35Txt(X(gA[0]) - 12, Y(gA[1]) + 18, 'A', 13.5, c35.ink))
   parts.push(geo35Txt(X(gB[0]) + 2, Y(gB[1]) + 20, 'B', 13.5, c35.ink))
   parts.push(geo35Txt(X(gC[0]) - 12, Y(gC[1]) - 10, 'C', 13.5, c35.ink))
-  parts.push(geo35Txt(X(gDm[0]) + 10, Y(gDm[1]) + 3, 'D(24, \u22129)', 12.5, c35.red, 'start'))
+  parts.push(geo35Txt(X(gDm[0]) + 10, Y(gDm[1]) - 14, 'D(24, \u22129)', 12.5, c35.red, 'start'))
   parts.push(geo35Txt(X(gEm[0]) + 9, Y(gEm[1]) - 12, 'E(0, 3)', 12.5, c35.ink, 'start'))
   parts.push(geo35Txt(X(gFm[0]) - 2, Y(gFm[1]) + 20, 'F(6, 0)', 12.5, c35.ink))
   parts.push(geo35Txt(X(-2.7), Y(5), 'y = \u2212x/2 + 3', 12.5, c35.orange, 'start'))
   parts.push(geo35Txt(X(1.6), Y(4.5), 'CE/EA = 2', 12.5, c35.green, 'start'))
-  parts.push(geo35Txt(X(gFm[0]) - 2, Y(-1.15), 'AF/FB = 1', 12.5, c35.green))
+  parts.push(geo35Txt(X(gFm[0]) - 2, Y(-1.85), 'AF/FB = 1', 12.5, c35.green))
   parts.push(geo35Txt(X(19), Y(-2.4), 'directed BD/DC = \u22121/2', 12.5, c35.red))
   parts.push(geo35Txt(W / 2, H - 16, 'directed product: (\u22121/2) \u00d7 2 \u00d7 1 = \u22121 \u2014 the three side-points COLLINEAR on one line', 12.5, c35.ink))
   return geo35Svg(W, H, 'The same triangle with the side BC extended beyond B to the point D(24, minus 9); the transversal y equals minus x over 2 plus 3 passes through D, E(0,3) and F(6,0), with directed ratios minus one half, 2 and 1 marked.', parts)
@@ -4905,7 +4932,7 @@ const geo35Duality = (): string => {
     parts.push(geo35Txt(X(gA[0]) - 11, Y(gA[1]) + 16, 'A', 12, c35.ink))
     parts.push(geo35Txt(X(gB[0]) + 12, Y(gB[1]) + 16, 'B', 12, c35.ink))
     parts.push(geo35Txt(X(gC[0]) - 11, Y(gC[1]) - 8, 'C', 12, c35.ink))
-    parts.push(geo35Txt(X(gO[0]) + 9, Y(gO[1]) + 3, 'O(2, 3)', 12, c35.orange, 'start'))
+    parts.push(geo35Txt(X(gO[0]) + 14, Y(gO[1]) - 6, 'O(2, 3)', 12, c35.orange, 'start'))
     parts.push(geo35Txt(X(gD[0]) + 9, Y(gD[1]) + 3, 'D', 11.5, c35.ink, 'start'))
     parts.push(geo35Txt(X(gE[0]) - 8, Y(gE[1]) + 3, 'E', 11.5, c35.ink, 'end'))
     parts.push(geo35Txt(X(gF[0]) + 9, Y(gF[1]) + 3, 'F', 11.5, c35.ink, 'start'))
@@ -4923,7 +4950,7 @@ const geo35Duality = (): string => {
     parts.push(geo35Txt(X(gC[0]) - 10, Y(gC[1]) - 8, 'C', 12, c35.ink))
     parts.push(geo35Txt(X(gDm[0]) - 4, Y(gDm[1]) + 17, 'D(24, \u22129)', 11.5, c35.red, 'end'))
     parts.push(geo35Txt(X(gEm[0]) + 8, Y(gEm[1]) - 10, 'E(0, 3)', 11.5, c35.ink, 'start'))
-    parts.push(geo35Txt(X(gFm[0]) + 8, Y(gFm[1]) + 4, 'F(6, 0)', 11.5, c35.ink, 'start'))
+    parts.push(geo35Txt(X(gFm[0]) - 8, Y(gFm[1]) + 24, 'F(6, 0)', 11.5, c35.ink, 'end'))
     parts.push(geo35Txt(670, 412, 'three side-points \u2014 ONE transversal', 12.5, c35.tealInk))
   }
   return geo35Svg(W, H, 'Two panels with the same triangle: on the left the Ceva configuration with product plus one and three cevians meeting at O(2,3); on the right the Menelaus configuration with directed product minus one and the three side-points on one transversal through D beyond B.', parts)
@@ -4969,7 +4996,7 @@ const geo35Slope = (): string => {
   parts.push(geo35Txt(X(gA[0]) - 12, Y(gA[1]) + 18, 'A', 13.5, c35.ink))
   parts.push(geo35Txt(X(gB[0]) + 2, Y(gB[1]) + 20, 'B', 13.5, c35.ink))
   parts.push(geo35Txt(X(gC[0]) - 12, Y(gC[1]) - 10, 'C', 13.5, c35.ink))
-  parts.push(geo35Txt(X(gDm[0]) + 10, Y(gDm[1]) + 3, 'D(24, \u22129)', 12.5, c35.red, 'start'))
+  parts.push(geo35Txt(X(gDm[0]) + 10, Y(gDm[1]) - 14, 'D(24, \u22129)', 12.5, c35.red, 'start'))
   parts.push(geo35Txt(X(gEm[0]) + 9, Y(gEm[1]) - 12, 'E(0, 3)', 12.5, c35.ink, 'start'))
   parts.push(geo35Txt(X(gFm[0]) - 2, Y(gFm[1]) + 20, 'F(6, 0)', 12.5, c35.ink))
   parts.push(geo35Txt(X(-2.7), Y(5), 'y = \u2212x/2 + 3', 12.5, c35.orange, 'start'))
@@ -5957,7 +5984,7 @@ const geo36F1 = (): string => {
   parts.push(geo36RightAngle(F[0], F[1], 1))
   parts.push(geo36Dot(B[0], B[1], c36.ink, 4) + geo36Dot(C[0], C[1], c36.ink, 4) + geo36Dot(A[0], A[1], c36.ink, 4.5))
   parts.push(geo36Dot(D[0], D[1], c36.orange, 4.5) + geo36Dot(F[0], F[1], c36.teal, 4))
-  parts.push(geo36Txt(A[0], A[1] - 16, 'A', 13.5, c36.ink))
+  parts.push(geo36Txt(A[0] - 16, A[1] - 6, 'A', 13.5, c36.ink))
   parts.push(geo36Txt(B[0] - 12, B[1] + 22, 'B', 13.5, c36.ink))
   parts.push(geo36Txt(C[0] + 12, C[1] + 22, 'C', 13.5, c36.ink))
   parts.push(geo36Txt(D[0], D[1] + 22, 'D', 13, c36.orange))
@@ -5965,7 +5992,7 @@ const geo36F1 = (): string => {
   parts.push(geo36Txt((B[0] + D[0]) / 2, 412, 'm = 6', 12.5, c36.mid))
   parts.push(geo36Txt((D[0] + C[0]) / 2, 412, 'n = 8', 12.5, c36.mid))
   parts.push(geo36Txt((B[0] + C[0]) / 2, 436, 'a = 14', 12.5, c36.ink))
-  parts.push(`<text x="266" y="234" font-family="${f36}" font-size="12.5" fill="${c36.orange}" text-anchor="end" font-weight="600" stroke="#ffffff" stroke-width="3" paint-order="stroke">d = 3\u221a17 \u2248 12.37</text>`)
+  parts.push(`<text x="186" y="234" font-family="${f36}" font-size="12.5" fill="${c36.orange}" text-anchor="end" font-weight="600" stroke="#ffffff" stroke-width="3" paint-order="stroke">d = 3\u221a17 \u2248 12.37</text>`)
   parts.push(geo36Txt(326, 234, 'h = 12', 12.5, c36.teal, 'start'))
   parts.push(geo36Txt(395, 234, 'b = 13', 12.5, c36.ink, 'start'))
   parts.push(geo36Txt(188, 210, 'c = 15', 12.5, c36.ink, 'end'))
@@ -6046,7 +6073,7 @@ const geo36F3 = (): string => {
   parts.push(geo36Txt(N[0] + 14, N[1] - 2, 'N', 12.5, c36.tealInk, 'start'))
   parts.push(geo36Txt(P[0] - 14, P[1] - 2, 'P', 12.5, c36.tealInk, 'end'))
   parts.push(geo36Txt(G[0] + 14, G[1] - 2, 'G', 13.5, c36.orange, 'start', '700'))
-  parts.push(geo36Txt(272, 274, '2 : 1', 11.5, c36.orange, 'end'))
+  parts.push(geo36Txt(246, 274, '2 : 1', 11.5, c36.orange, 'end'))
   parts.push(geo36Txt(242, 304, '2 : 1', 11.5, c36.tealInk, 'end'))
   parts.push(geo36Txt(334, 314, '2 : 1', 11.5, c36.amber, 'start'))
   parts.push(geo36Rect(105, 424, 360, 54, c36.panel, c36.green))
@@ -6162,7 +6189,7 @@ const geo36S2 = (): string => {
   parts.push(geo36Txt(C[0] + 12, C[1] + 22, 'C', 13.5, c36.ink))
   parts.push(geo36Txt(M[0], M[1] + 22, 'M', 12.5, c36.tealInk))
   parts.push(geo36Txt(G[0] + 13, G[1] - 2, 'G', 13.5, c36.orange, 'start', '700'))
-  parts.push(geo36Txt(262, 196, 'AG = 4\u221a37/3 \u2248 8.11', 12, c36.orange, 'end'))
+  parts.push(geo36Txt(200, 196, 'AG = 4\u221a37/3 \u2248 8.11', 12, c36.orange, 'end'))
   parts.push(geo36Txt(230, 346, 'GD = 2\u221a37/3 \u2248 4.06', 12, c36.amber, 'end'))
   parts.push(geo36Txt(276, 254, '2 : 1', 11.5, c36.ink, 'start'))
   parts.push(geo36Txt(280, 430, 'median AM = 2\u221a37 \u2248 12.17; AG : GD = 2 : 1', 11.5, c36.tealInk))

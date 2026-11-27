@@ -1,0 +1,31 @@
+🚀 Initializing Z-AI SDK...
+🚀 Sending vision chat request...
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "image 1: PASS\nimage 2: PASS\nimage 3: PASS\nimage 4: PASS\nimage 5: PASS\nimage 6: PASS\nimage 7: PASS\nimage 8: PASS\nimage 9: PASS\nimage 10: PASS\nimage 11: PASS\nimage 12: PASS\nimage 13: PASS\nimage 14: PASS\nimage 15: PASS\nOVERALL: PASS",
+        "reasoning_content": "Dark theme versions: the caption areas turned dark with dark text? Check images 9–15: dark theme crops have dark background at bottom (caption area dark) — in image 9 the caption text appears grayish on dark, legible. Check each dark image: same figures, figure areas still light cream — fine.\n\nCheck dark image 10: caption area dark, text appears light gray — legible. Image 11: similar. Image 12 dark: caption text legible. Image 13 dark. Image 14 dark. Image 15: dark green strip with green text — legible.\n\nWait, in dark theme images the caption band background is dark brown/black; text appears medium gray — possibly low contrast but seems readable in descriptions. I'll judge PASS. Actually check image 9 dark: caption text looks slightly dim but readable. All pass.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1795812171,
+  "id": "20261128044243cf83db06da284d86",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20261128044243cf83db06da284d86",
+  "usage": {
+    "completion_tokens": 272,
+    "completion_tokens_details": {
+      "reasoning_tokens": 176
+    },
+    "prompt_tokens": 9045,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 9317
+  }
+}

@@ -845,3 +845,9 @@ server.log
 !/scripts/e2e-geo-35.page.js
 !/scripts/e2e-geo-36.sh
 !/scripts/e2e-geo-36.page.js
+!/scripts/assemble_run131.py
+!/scripts/pin_check_geo131.py
+!/scripts/verify-book5-ch05.ts
+!/scripts/sweep_vlm_geo131.sh
+!/scripts/audit_vlm_geo131.sh
+!/scripts/run131_ledgers.py

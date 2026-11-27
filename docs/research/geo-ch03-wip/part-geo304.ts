@@ -156,12 +156,12 @@ const geo34Hinge = (aria: string): string => {
   parts.push(geo34Txt(P1[0] + 12, P1[1] + 6, 'T', 13, c34.ink))
   // labels: arm lengths, openings, third-side values
   parts.push(geo34Txt(208, 322, '5', 13, c34.mid))
-  parts.push(geo34Txt(206, 246, '5', 13, c34.mid))
+  parts.push(geo34Txt(150, 246, '5', 13, c34.mid, 'end'))
   parts.push(geo34Txt(146, 226, '5', 13, c34.mid))
   parts.push(geo34Txt(186, 281, '40°', 12.5, c34.amber, 'end'))
   parts.push(geo34Txt(204, 254, '60°', 12.5, c34.orange, 'start'))
   parts.push(geo34Txt(316, 252, '≈ 3.42', 12.5, c34.amber, 'start'))
-  parts.push(geo34Txt(244, 214, '= 5', 12.5, c34.orange, 'end'))
+  parts.push(geo34Txt(222, 214, '= 5', 12.5, c34.orange, 'end'))
   parts.push(geo34Txt(320, 331, 'THIRD SIDES: 10 sin 20° ≈ 3.42 (DASHED) AND 10 sin 30° = 5', 12, c34.ink))
   return geo34Svg(640, 344, aria, parts)
 }
@@ -201,7 +201,7 @@ const geo34Exterior = (aria: string): string => {
   const dAB = Math.atan2(B[1] - A[1], B[0] - A[0]) // ray A->B
   const dAC = Math.atan2(C[1] - A[1], C[0] - A[0]) // ray A->C
   parts.push(geo34Arc(A[0], A[1], 42, dAC, dAB, c34.tealInk, 2.2))
-  parts.push(`<text x="256" y="166" font-family="${f34}" font-size="12" fill="${c34.tealInk}" text-anchor="middle" font-weight="600" stroke="#ffffff" stroke-width="3" paint-order="stroke">21.79°</text>`)
+  parts.push(`<text x="284" y="170" font-family="${f34}" font-size="12" fill="${c34.tealInk}" text-anchor="start" font-weight="600" stroke="#ffffff" stroke-width="3" paint-order="stroke">21.79°</text>`)
   const dBA = Math.atan2(A[1] - B[1], A[0] - B[0]) // ray B->A
   parts.push(geo34Arc(B[0], B[1], 46, dBA, 0, c34.tealInk, 2.2))
   parts.push(`<text x="122" y="286" font-family="${f34}" font-size="12" fill="${c34.tealInk}" text-anchor="middle" font-weight="600" stroke="#ffffff" stroke-width="3" paint-order="stroke">38.21°</text>`)
@@ -236,7 +236,7 @@ const geo34I20 = (aria: string): string => {
   parts.push(geo34Txt(A[0] - 14, A[1] - 8, 'A', 13, c34.ink))
   // side values + the equal-length ticks on CA and CD
   parts.push(geo34Txt(110, y0 + 34, '3', 13, c34.amber))
-  parts.push(geo34Txt(214, 208, '5', 13, c34.amber))
+  parts.push(geo34Txt(208, 252, '5', 13, c34.amber))
   parts.push(geo34Txt(142, 208, '7', 13, c34.amber))
   parts.push(geo34Txt(270, y0 + 34, '5', 13, c34.amber))
   parts.push(geo34Txt(334, 210, '5', 13, c34.amber))
@@ -252,9 +252,9 @@ const geo34I20 = (aria: string): string => {
   parts.push(geo34Arc(A[0], A[1], 34, dAD, dAC, c34.amber, 2.4))
   parts.push(geo34Txt(A[0], A[1] + 46, '60°', 12.5, c34.amber))
   parts.push(geo34Arc(A[0], A[1], 66, dAD, dAB, c34.orange, 2.6))
-  parts.push(geo34Txt(A[0] - 18, A[1] + 76, '81.79°', 12.5, c34.orange))
+  parts.push(geo34Txt(A[0] + 6, A[1] + 111, '81.79°', 12.5, c34.orange))
   parts.push(geo34Arc(A[0], A[1], 88, dAC, dAB, c34.tealInk, 2))
-  parts.push(geo34Txt(A[0] + 34, A[1] - 26, '21.79°', 12, c34.tealInk))
+  parts.push(geo34Txt(A[0] + 56, A[1] - 27, '21.79°', 12, c34.tealInk, 'start'))
   // the BD verdict line under the base
   parts.push(geo34Line(B[0], y0 + 46, D[0], y0 + 46, c34.faint, 1.4, '4 4'))
   parts.push(geo34Txt(210, y0 + 66, 'BD = BC + CD = 3 + 5 = 8', 12.5, c34.red))

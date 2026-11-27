@@ -264,10 +264,10 @@ const geo42Numeric = (aria: string): string => {
   }
   parts.push(geo42Txt(158, 100, 'AD = 6', 12.5, c42.tealInk, 'end'))
   parts.push(geo42Txt(132, 258, 'DB = 8', 12.5, c42.tealInk, 'end'))
-  parts.push(geo42Txt(112, 342, 'AB = 14', 12.5, c42.tealInk, 'end'))
+  parts.push(geo42Txt(92, 366, 'AB = 14', 12.5, c42.tealInk, 'end'))
   parts.push(geo42Txt(484, 100, 'AE = 9', 12.5, c42.tealInk, 'start'))
   parts.push(geo42Txt(514, 258, 'EC = 12', 12.5, c42.tealInk, 'start'))
-  parts.push(geo42Txt(534, 342, 'AC = 21', 12.5, c42.tealInk, 'start'))
+  parts.push(geo42Txt(556, 366, 'AC = 21', 12.5, c42.tealInk, 'start'))
   parts.push(geo42Txt(320, 348, 'BC = 28', 12.5, c42.tealInk))
   parts.push(geo42Txt(320, 146, 'DE = 12', 13, c42.orange, 'middle', '700'))
   parts.push(geo42Txt(320, 376, 'checks: 6/8 = 9/12 = 3/4 and 6/14 = 9/21 = 12/28 = 3/7', 13, c42.red, 'middle', '700'))

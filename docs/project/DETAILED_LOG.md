@@ -3938,3 +3938,5 @@ Step-0 pull ff 1d6527b..744eb56 (run-1 commits; mode-flip artifact reset). RIDER
 - The tsc debt paid whole: types.ts `answer?: string` additive; part-cf53 import path + cf53T arg; I19 pin re-pointed; v-cf52 C7 widened — tsc 0 repo-wide (the maths lane's rides cleared).
 - Gates: pack v7 241 written + check PASS; shelf 2,350/2,350; exam 696/696; completeness 0; routes 4x200; lint 0 err.
 - Deferred to RUN 11 riders-first: ch.5 E2E grid + ch.5 VLM light+dark sweep (clock).
+
+| 2026-11-28 | RUN 131 | maths | geometry ch.5 'Transformations and Symmetry: the Rigid-Motion Idea' | CLOSED COMPLETE 4/4 | swarm 4 seats one wave (geo501 84/84, geo502 92/92, geo503 84/84, geo504 96/96), verify-book5-ch05 392/392, pin_check_geo131 81/81 (8 catches), 44,238 words, 40 body + 17 solution figures, keys 30412|14203|41032|03241; riders: ch.3 figure debt (19 items + 1 new) fixed 677/677 6/6 PASS, ch.4 VLM sweep 62 crops -> 5+1 defects fixed + vision-verified PASS; tsc 0, lint 0, pack v5 245 written, completeness 0, routes 200 | deferred: ch.5 E2E grid + ch.5 VLM sweep -> run 132 |

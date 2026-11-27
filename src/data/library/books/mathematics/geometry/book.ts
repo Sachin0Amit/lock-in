@@ -3,37 +3,27 @@ import { chapter1 } from './ch-01'
 import { chapter2 } from './ch-02'
 import { chapter3 } from './ch-03'
 import { chapter4 } from './ch-04'
+import { chapter5 } from './ch-05'
 
 /**
  * Geometry — the fifth book of the Mathematics shelf.
  *
- * STATUS: IN-PROGRESS (run 130, 2026-11-27 — chapters 1, 2, 3 AND 4 CLOSED
- * COMPLETE: ch.4 'Similarity: the Geometry of Proportion' shipped all four
- * lessons by the run-130 swarm — 4.1 'Similar Figures', 4.2 'Thales', 4.3
- * 'The Similarity Criteria', 4.4 'Pythagoras Proved' — every seat landed
- * engine-green on the run-130 master pin set; ch.5 'Transformations and
- * Symmetry' rides the next fire).
+ * STATUS: IN-PROGRESS (run 131, 2026-11-28 — chapters 1-5 CLOSED
+ * COMPLETE: ch.5 'Transformations and Symmetry: the Rigid-Motion Idea'
+ * shipped all four lessons by the run-131 first-wave swarm — 5.1
+ * 'The Rigid Motions: Slides, Flips and Turns', 5.2 'Composing
+ * Transformations and the Isometry Idea', 5.3 'Line and Rotational
+ * Symmetry', 5.4 'Dilations, Scale Factors and Similarity Re-Read' —
+ * every seat landed engine-green on the run-131 master pin set
+ * (scripts/pin_check_geo131.py 81/81); ch.6 'Quadrilaterals and
+ * Polygons' rides the next fire).
  */
 const chapters: Chapter[] = [
   chapter1,
   chapter2,
   chapter3,
   chapter4,
-  {
-    number: 5,
-    slug: 'transformations-and-symmetry',
-    title: 'Transformations and Symmetry: the Rigid-Motion Idea',
-    summary:
-      'Congruence and similarity earn their machine definitions: translations, reflections and rotations written as functions of the plane \u2014 the rigid motions \u2014 their compositions read as the isometry idea, line and rotational symmetry found as the fixed sets of those motions, and dilations as the scale engines that re-derive similarity. The Common Core\u2019s transformation-first route and NCERT\u2019s symmetry chapters are both honoured: SAS/ASA/SSS are re-read as invariances under motion, and the ground is laid for the homothety reading of centres of similitude in the circle chapter and for the shifting of axes in Coordinate Geometry.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'The Rigid Motions: Slides, Flips and Turns',
-      'Composing Transformations and the Isometry Idea',
-      'Line and Rotational Symmetry',
-      'Dilations, Scale Factors and Similarity Re-Read',
-    ],
-  },
+  chapter5,
   {
     number: 6,
     slug: 'quadrilaterals-and-polygons',

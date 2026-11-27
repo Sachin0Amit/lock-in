@@ -254,7 +254,7 @@ const geo44Census = (aria: string): string => {
   // axes
   parts.push(geo44Arrow(x0, y0, x0 + 396, y0, c44.ink, 2))
   parts.push(geo44Arrow(x0, y0, x0, 66, c44.ink, 2))
-  parts.push(geo44Txt(470, 464, 'a (shorter leg)', 11.5, c44.ink, 'middle'))
+  parts.push(geo44Txt(470, 486, 'a (shorter leg)', 11.5, c44.ink, 'middle'))
   parts.push(geo44Txt(142, 58, 'b (longer leg)', 11.5, c44.ink, 'end'))
   // the 16 pinned points
   const pts: Array<[number, number]> = [
@@ -271,7 +271,7 @@ const geo44Census = (aria: string): string => {
   parts.push(geo44Txt(418, 92, 'every dot: a primitive triple', 11.5, c44.tealInk, 'start'))
   parts.push(geo44Txt(418, 112, '(a, b, c) with c ≤ 100', 11.5, c44.tealInk, 'start'))
   parts.push(geo44Txt(418, 132, 'exactly 16 survive the sieve', 11.5, c44.tealInk, 'start'))
-  return geo44Svg(640, 470, aria, parts)
+  return geo44Svg(640, 492, aria, parts)
 }
 
 /* ------------------------------------------------------------------ */
@@ -319,7 +319,7 @@ const geo44Shadow = (aria: string): string => {
   parts.push(geo44RA(150, 270, 1, 0, 0, -1, 9, c44.ink))
   parts.push(geo44Txt(138, 252, '1.5 m', 12, c44.ink, 'end'))
   parts.push(geo44Line(150, 262, 194, 262, c44.amber, 3.4))
-  parts.push(geo44Txt(172, 254, '2 m', 11.5, c44.amber))
+  parts.push(geo44Txt(140, 268, '2 m', 11.5, c44.amber, 'end'))
   // the tree: 9 m
   parts.push(geo44Line(370, 270, 370, 72, c44.green, 4))
   parts.push(geo44RA(370, 270, 1, 0, 0, -1, 9, c44.ink))

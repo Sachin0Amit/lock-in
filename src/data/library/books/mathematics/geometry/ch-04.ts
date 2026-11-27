@@ -1427,10 +1427,10 @@ const geo42Numeric = (aria: string): string => {
   }
   parts.push(geo42Txt(158, 100, 'AD = 6', 12.5, c42.tealInk, 'end'))
   parts.push(geo42Txt(132, 258, 'DB = 8', 12.5, c42.tealInk, 'end'))
-  parts.push(geo42Txt(112, 342, 'AB = 14', 12.5, c42.tealInk, 'end'))
+  parts.push(geo42Txt(92, 366, 'AB = 14', 12.5, c42.tealInk, 'end'))
   parts.push(geo42Txt(484, 100, 'AE = 9', 12.5, c42.tealInk, 'start'))
   parts.push(geo42Txt(514, 258, 'EC = 12', 12.5, c42.tealInk, 'start'))
-  parts.push(geo42Txt(534, 342, 'AC = 21', 12.5, c42.tealInk, 'start'))
+  parts.push(geo42Txt(556, 366, 'AC = 21', 12.5, c42.tealInk, 'start'))
   parts.push(geo42Txt(320, 348, 'BC = 28', 12.5, c42.tealInk))
   parts.push(geo42Txt(320, 146, 'DE = 12', 13, c42.orange, 'middle', '700'))
   parts.push(geo42Txt(320, 376, 'checks: 6/8 = 9/12 = 3/4 and 6/14 = 9/21 = 12/28 = 3/7', 13, c42.red, 'middle', '700'))
@@ -2728,8 +2728,8 @@ const geo43SSAFail = (aria: string): string => {
   parts.push(geo43Txt(134, 312, '30\u00b0', 12.5, c43.amber))
   // side labels
   parts.push(geo43Txt(140, 240, 'b = 7', 12.5, c43.ink))
-  parts.push(geo43Txt(196, 300, 'c \u2248 2.4914636', 11.5, c43.green))
-  parts.push(geo43Txt(322, 352, 'c \u2248 9.6328920', 11.5, c43.orange))
+  parts.push(geo43Txt(232, 326, 'c \u2248 2.4914636', 11.5, c43.green))
+  parts.push(geo43Txt(240, 344, 'c \u2248 9.6328920', 11.5, c43.orange))
   parts.push(geo43Txt(150, 280, 'a = 5', 11.5, c43.tealInk))
   parts.push(geo43Txt(346, 268, 'a = 5', 11.5, c43.tealInk))
   // vertices
@@ -2784,7 +2784,8 @@ const geo43Shadow = (aria: string): string => {
   // the proportion
   parts.push(geo43Rect(150, 62, 340, 44, c43.panel, 0.9, c43.tealInk, 2))
   parts.push(geo43Txt(320, 90, 'h/12 = 1.5/2, so h = 12 \u00d7 0.75 = 9 m', 13.5, c43.tealInk, 'middle', '700'))
-  parts.push(geo43Txt(320, 130, 'AA: right angle at the ground + the shared sun angle', 12, c43.tealInk))
+  parts.push(geo43Txt(40, 44, 'AA: right angle at the ground', 12, c43.tealInk, 'start'))
+  parts.push(geo43Txt(40, 58, '+ the shared sun angle', 12, c43.tealInk, 'start'))
   return geo43Svg(640, 352, aria, parts)
 }
 
@@ -3941,7 +3942,7 @@ const geo44Census = (aria: string): string => {
   // axes
   parts.push(geo44Arrow(x0, y0, x0 + 396, y0, c44.ink, 2))
   parts.push(geo44Arrow(x0, y0, x0, 66, c44.ink, 2))
-  parts.push(geo44Txt(470, 464, 'a (shorter leg)', 11.5, c44.ink, 'middle'))
+  parts.push(geo44Txt(470, 486, 'a (shorter leg)', 11.5, c44.ink, 'middle'))
   parts.push(geo44Txt(142, 58, 'b (longer leg)', 11.5, c44.ink, 'end'))
   // the 16 pinned points
   const pts: Array<[number, number]> = [
@@ -3958,7 +3959,7 @@ const geo44Census = (aria: string): string => {
   parts.push(geo44Txt(418, 92, 'every dot: a primitive triple', 11.5, c44.tealInk, 'start'))
   parts.push(geo44Txt(418, 112, '(a, b, c) with c ≤ 100', 11.5, c44.tealInk, 'start'))
   parts.push(geo44Txt(418, 132, 'exactly 16 survive the sieve', 11.5, c44.tealInk, 'start'))
-  return geo44Svg(640, 470, aria, parts)
+  return geo44Svg(640, 492, aria, parts)
 }
 
 /* ------------------------------------------------------------------ */
@@ -4006,7 +4007,7 @@ const geo44Shadow = (aria: string): string => {
   parts.push(geo44RA(150, 270, 1, 0, 0, -1, 9, c44.ink))
   parts.push(geo44Txt(138, 252, '1.5 m', 12, c44.ink, 'end'))
   parts.push(geo44Line(150, 262, 194, 262, c44.amber, 3.4))
-  parts.push(geo44Txt(172, 254, '2 m', 11.5, c44.amber))
+  parts.push(geo44Txt(140, 268, '2 m', 11.5, c44.amber, 'end'))
   // the tree: 9 m
   parts.push(geo44Line(370, 270, 370, 72, c44.green, 4))
   parts.push(geo44RA(370, 270, 1, 0, 0, -1, 9, c44.ink))

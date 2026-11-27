@@ -276,8 +276,8 @@ const geo43SSAFail = (aria: string): string => {
   parts.push(geo43Txt(134, 312, '30\u00b0', 12.5, c43.amber))
   // side labels
   parts.push(geo43Txt(140, 240, 'b = 7', 12.5, c43.ink))
-  parts.push(geo43Txt(196, 300, 'c \u2248 2.4914636', 11.5, c43.green))
-  parts.push(geo43Txt(322, 352, 'c \u2248 9.6328920', 11.5, c43.orange))
+  parts.push(geo43Txt(232, 326, 'c \u2248 2.4914636', 11.5, c43.green))
+  parts.push(geo43Txt(240, 344, 'c \u2248 9.6328920', 11.5, c43.orange))
   parts.push(geo43Txt(150, 280, 'a = 5', 11.5, c43.tealInk))
   parts.push(geo43Txt(346, 268, 'a = 5', 11.5, c43.tealInk))
   // vertices
@@ -332,7 +332,8 @@ const geo43Shadow = (aria: string): string => {
   // the proportion
   parts.push(geo43Rect(150, 62, 340, 44, c43.panel, 0.9, c43.tealInk, 2))
   parts.push(geo43Txt(320, 90, 'h/12 = 1.5/2, so h = 12 \u00d7 0.75 = 9 m', 13.5, c43.tealInk, 'middle', '700'))
-  parts.push(geo43Txt(320, 130, 'AA: right angle at the ground + the shared sun angle', 12, c43.tealInk))
+  parts.push(geo43Txt(40, 44, 'AA: right angle at the ground', 12, c43.tealInk, 'start'))
+  parts.push(geo43Txt(40, 58, '+ the shared sun angle', 12, c43.tealInk, 'start'))
   return geo43Svg(640, 352, aria, parts)
 }
 

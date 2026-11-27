@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-28 01:28:59 (Asia/Kolkata)",
+  "generated": "2026-11-28 03:43:01 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -14069,7 +14069,7 @@
         "description": "The book where mathematics becomes proof. Foundation Mathematics banked the shapes and their measures; this book rebuilds geometry the way Euclid did — undefined words, postulates, and theorems earned one argument at a time. Congruence and the triangle criteria, similarity and a Pythagoras that is finally proved, the parallelogram family, the circle theorems olympiad problems run on, the ruler-and-compass discipline the rationalized syllabus dropped, Heron’s formula and the solids — every formula either proved or honestly flagged. The book closes on the ideas that broke and rebuilt the subject: equivalents of the parallel postulate, Hilbert’s rigour repair, and the non-Euclidean geometries born from denying Euclid’s fifth. Cross-references Foundation Mathematics throughout; hands off to Coordinate Geometry, Trigonometry and the olympiad ladder.",
         "status": "in-progress",
         "chaptersPlanned": 12,
-        "chaptersWritten": 4,
+        "chaptersWritten": 5,
         "chapters": [
           {
             "number": 1,
@@ -15344,16 +15344,283 @@
             "slug": "transformations-and-symmetry",
             "title": "Transformations and Symmetry: the Rigid-Motion Idea",
             "summary": "Congruence and similarity earn their machine definitions: translations, reflections and rotations written as functions of the plane — the rigid motions — their compositions read as the isometry idea, line and rotational symmetry found as the fixed sets of those motions, and dilations as the scale engines that re-derive similarity. The Common Core’s transformation-first route and NCERT’s symmetry chapters are both honoured: SAS/ASA/SSS are re-read as invariances under motion, and the ground is laid for the homothety reading of centres of similitude in the circle chapter and for the shifting of axes in Coordinate Geometry.",
-            "status": "planned",
-            "lessonsWritten": 0,
-            "plannedLessons": [
-              "The Rigid Motions: Slides, Flips and Turns",
-              "Composing Transformations and the Isometry Idea",
-              "Line and Rotational Symmetry",
-              "Dilations, Scale Factors and Similarity Re-Read"
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "geo-rigid-motions-slides-flips-and-turns",
+                "number": "5.1",
+                "title": "The Rigid Motions: Slides, Flips and Turns",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 10089,
+                "readMins": 50,
+                "concepts": [
+                  "transformation",
+                  "image and preimage",
+                  "rigid motion",
+                  "translation",
+                  "reflection",
+                  "rotation",
+                  "invariants",
+                  "orientation"
+                ],
+                "objectives": [
+                  "Read a transformation of the plane as a FUNCTION: every point in, exactly one point out, and the output called the image of the input",
+                  "Run the three slide/flip/turn machines by their coordinate rules — T_(a,b), the four mirrors, and the 90/180/270 turns about the origin and about any centre",
+                  "Verify rigidity numerically: distances, angles, midpoints, parallelism and lines survive every motion, and only the mirror flips the signed-area orientation (+6 to −6)",
+                  "Draw the image of a figure vertex by vertex on graph paper, and identify the motion that carries a given preimage onto a given image",
+                  "Re-state congruence as “carried by a rigid motion” and recognise a symmetry as a motion that leaves a figure fixed (the doorstep to Lesson 5.3)"
+                ],
+                "prerequisites": [
+                  "geo-congruence-the-idea-of-same-shape-and-size",
+                  "fm-angles-and-their-measurement",
+                  "al-the-coordinate-plane-and-linear-graphs"
+                ],
+                "sources": [
+                  "geo-common-core-gco-ground-131",
+                  "geo-im-rigid-motion-ground-131"
+                ],
+                "blockCounts": {
+                  "heading": 7,
+                  "para": 29,
+                  "callout": 4,
+                  "figure": 9,
+                  "derivation": 3,
+                  "table": 2,
+                  "example": 3,
+                  "formula": 5,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 12
+              },
+              {
+                "id": "geo-composing-transformations-and-the-isometry-idea",
+                "number": "5.2",
+                "title": "Composing Transformations and the Isometry Idea",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 10668,
+                "readMins": 53,
+                "concepts": [
+                  "composition of transformations",
+                  "glide reflection",
+                  "isometry",
+                  "parity of reflections",
+                  "double-mirror laws",
+                  "inverse motion",
+                  "congruence by rigid motion",
+                  "fixed points"
+                ],
+                "objectives": [
+                  "Compute compositions (S ∘ T)(P) = S(T(P)) with the right-hand-first reading, and prove by counterexample that order matters",
+                  "Derive and apply the double-mirror laws: parallel mirrors give a translation by twice the gap, crossing mirrors give a rotation by twice the angle, identical mirrors give the identity",
+                  "Recognise and compute glide reflections, and run the parity census that predicts the motion family from the number of mirrors",
+                  "State the isometry laws (G-CO.6): distances, angles, lines and parallelism survive; compositions of rigid motions are rigid; every rigid motion has a rigid inverse (the undo law)",
+                  "Re-read congruence (G-CO.7/8) as congruence-by-motion with distance-matrix witnesses, and refute the dilation as an honest non-isometry"
+                ],
+                "prerequisites": [
+                  "geo-rigid-motions-slides-flips-and-turns",
+                  "geo-the-congruence-criteria-sas-asa-aas-sss-rhs"
+                ],
+                "sources": [
+                  "geo-common-core-gco-ground-131",
+                  "geo-im-rigid-motion-ground-131"
+                ],
+                "blockCounts": {
+                  "heading": 8,
+                  "para": 23,
+                  "callout": 7,
+                  "figure": 11,
+                  "derivation": 3,
+                  "list": 1,
+                  "table": 2,
+                  "formula": 5,
+                  "example": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 2,
+                  "theorem": 2,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 12
+              },
+              {
+                "id": "geo-line-and-rotational-symmetry",
+                "number": "5.3",
+                "title": "Line and Rotational Symmetry",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 12303,
+                "readMins": 62,
+                "concepts": [
+                  "line symmetry",
+                  "mirror line",
+                  "rotational symmetry",
+                  "order of rotational symmetry",
+                  "angle of rotation",
+                  "centre of rotation",
+                  "regular polygon symmetry",
+                  "rotational-only symmetry"
+                ],
+                "objectives": [
+                  "Define a symmetry as a rigid motion that carries a figure onto itself, and split it into line symmetry (a reflection fixes the figure) and rotational symmetry (a non-identity turn fixes it)",
+                  "Run the mirror census: a regular n-gon carries exactly n mirror lines and rotational order n, with angle of rotation 360/n (120°, 90°, 72°, 60°, 45°, 36° for n = 3, 4, 5, 6, 8, 10)",
+                  "Classify the quadrilaterals: square 4 lines + order 4; rectangle exactly 2 (the midlines); rhombus exactly 2 (the diagonals); generic parallelogram 0 lines yet order 2 — rotational-only",
+                  "Prove censuses with the brute-force mirror sweep through the centroid, and run the vertex-chase contradiction (the unequal adjacent sides 5 and √5) that kills every parallelogram mirror",
+                  "Classify the triangles (equilateral 3 + order 3, isosceles exactly 1, scalene nothing) and the alphabet archetypes into the four-way scheme: both, only line, only rotational, neither",
+                  "Explain why a dilation is the one motion that is a symmetry of nothing but a point, bridging to Lesson 5.4"
+                ],
+                "prerequisites": [
+                  "geo-rigid-motions-slides-flips-and-turns",
+                  "geo-composing-transformations-and-the-isometry-idea"
+                ],
+                "sources": [
+                  "geo-ncert-symmetry-ground-131",
+                  "geo-common-core-gco-ground-131"
+                ],
+                "blockCounts": {
+                  "heading": 11,
+                  "para": 24,
+                  "callout": 7,
+                  "figure": 10,
+                  "table": 4,
+                  "derivation": 3,
+                  "formula": 5,
+                  "list": 1,
+                  "terms": 1,
+                  "example": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "historical": 1,
+                  "theorem": 1,
+                  "warn": 2,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 16
+              },
+              {
+                "id": "geo-dilations-scale-factors-and-similarity-re-read",
+                "number": "5.4",
+                "title": "Dilations, Scale Factors and Similarity Re-Read",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 11178,
+                "readMins": 56,
+                "concepts": [
+                  "dilation",
+                  "centre of dilation",
+                  "scale factor",
+                  "area scaling k²",
+                  "ray structure",
+                  "similarity re-read",
+                  "centre of similitude"
+                ],
+                "objectives": [
+                  "Run the dilation machine D(O, k)(P) = O + k(P − O) in coordinates, for centres at the origin and anywhere else, in both directions (forward and inverse reads)",
+                  "State what scales and what does not: distances and perimeters by |k|, areas by k², angles never — with the right-angle dot-product witness",
+                  "Refute the false certificates of similarity with the 2×6 vs 3×4 audit (ratios 2/3 and 3/2, no single k) and confirm the honest 1:3 family by dilation",
+                  "Re-read Lessons 4.1–4.4 mechanically: similarity as dilation + motion, Thales as the shadow dilation (k = 18/2.4 = 7.5), the 3-4-5 altitude segments as scale arithmetic",
+                  "Construct the external and internal centres of similitude of two circles and read their direct (k = +3) and opposite (k = −3) homotheties"
+                ],
+                "prerequisites": [
+                  "geo-rigid-motions-slides-flips-and-turns",
+                  "geo-composing-transformations-and-the-isometry-idea",
+                  "geo-similar-figures-same-shape-at-any-scale",
+                  "geo-the-basic-proportionality-theorem-thales",
+                  "geo-the-similarity-criteria-aa-sas-sss",
+                  "geo-pythagoras-proved-the-theorem-earned"
+                ],
+                "sources": [
+                  "geo-common-core-gco-ground-131",
+                  "geo-im-rigid-motion-ground-131"
+                ],
+                "blockCounts": {
+                  "heading": 9,
+                  "para": 25,
+                  "callout": 7,
+                  "figure": 10,
+                  "table": 4,
+                  "derivation": 3,
+                  "example": 3,
+                  "formula": 5,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 2,
+                  "insight": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 12
+              }
             ],
-            "lessons": [],
-            "words": 0
+            "words": 44238
           },
           {
             "number": 6,
@@ -55653,14 +55920,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 524,
-      "totalLines": 235569,
+      "srcFilesTracked": 525,
+      "totalLines": 239037,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5880,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 196888,
+        "src/data/library (content model + books)": 200356,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -85531,33 +85798,191 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "a97897d09c0354019f1783fc84670e6c9b74563b",
+      "short": "a97897d",
+      "date": "2026-11-27 19:59",
+      "message": "CS RUN 10: computer-fundamentals ch.5 'Software Families' CLOSED COMPLETE 4/4 + the ch.4 e2e debt paid — assemble_cs9.py (re-run-safe): ch-05.ts 3,449 lines from the four self-namespaced seats, verify-cs-book2-ch05.ts 538/538 ALL GREEN (Z 44 incl. the banked quiz keys 10321|23013|02132|31201; 42,945 words; 13 body + 21 solution figures), book.ts swapped + STATUS refreshed; the 5-times-deferred ch.4 e2e chain ran AND passed (3 lessons x 3 viewports, quiz 5/5 live on [2,0,3,1,3]/[3,0,1,2,1]/[3,1,0,1,2]) after two honest probe fixes in gen-cs9-e2e.py (the 'Checkpoint quiz' regex gap; single-open-accordion pin recalibration from bounded live census, census-cf41.sh + census-cf42-4R.sh); the 10-error tsc debt paid whole at source (types.ts answer?: string additive; part-cf53 import path + cf53T arg; v-cf53 I19 pin re-pointed; v-cf52 C7 widened) — tsc 0 errors repo-wide; gates: pack v7 241 written + check PASS, shelf 2,350/2,350 (csWritten 26, totPl 1,227 — the +1 close), exam 696/696, completeness 0, routes 4x200, lint 0 err; ledgers appended (WORKLOG/SOURCE_LOG/DETAILED_LOG), PROGRESS re-pointed, WORK_INVENTORY regenerated (build_work_inventory.ts ROOT/git-abs/absence-tolerant fixes), CS_AUTHORING_POINTER -> RUN 11 (ch.5 E2E+VLM riders first, then ch.6 'Connecting Computers' whole)",
+      "filesChanged": 22,
+      "insertions": 7394,
+      "deletions": 3346,
+      "files": [
+        {
+          "path": "docs/project/CS_AUTHORING_POINTER.json",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2864,
+          "del": 2864
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 986,
+          "del": 416
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/part-cf53.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/v-cf52.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/v-cf53.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/build_work_inventory.ts",
+          "add": 7,
+          "del": 4
+        },
+        {
+          "path": "scripts/e2e-cf-41.page.js",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "scripts/e2e-cf-41.sh",
+          "add": 7,
+          "del": 7
+        },
+        {
+          "path": "scripts/e2e-cf-42.page.js",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "scripts/e2e-cf-42.sh",
+          "add": 7,
+          "del": 7
+        },
+        {
+          "path": "scripts/e2e-cf-4R.page.js",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "scripts/e2e-cf-4R.sh",
+          "add": 7,
+          "del": 7
+        },
+        {
+          "path": "scripts/gen-cs9-e2e.py",
+          "add": 12,
+          "del": 7
+        },
+        {
+          "path": "scripts/verify-cs-exam-coverage.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/verify-cs-shelf-planning.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/book.ts",
+          "add": 9,
+          "del": 16
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-05.ts",
+          "add": 3449,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/types.ts",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "945b4c68d5c776cc76944d5e7b8bc9d57d317967",
+      "short": "945b4c6",
+      "date": "2026-11-27 20:04",
+      "message": "CS RUN 10 late rider: the ch.5 E2E grid PAID — gen-cs10-e2e.py on the recalibrated gen-cs9 pattern, pins from the live ch.5 census (census-cf5.sh: katex 77/56/44/98, figSvg 4/3/3/3, svgAll 25/24/24/26, katexErr 0 everywhere); e2e-cf-51/52/53/5R ALL PASS — 4 lessons x 3 viewports, quiz 5/5 live on [1,0,3,2,1]/[2,3,0,1,3]/[0,2,1,3,2]/[3,1,2,0,1], 0 FAIL lines; WORKLOG + pointer updated — RUN 11 = the ch.5 VLM sweep ONLY, then ch.6 'Connecting Computers' whole",
+      "filesChanged": 2,
+      "insertions": 4,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/CS_AUTHORING_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "b0c45d84bb5a47a38001bcd746b2bab1b47cbc11",
+      "short": "b0c45d8",
+      "date": "2026-11-27 20:05",
+      "message": "chore(bookkeeping): cs RUN 10 push record (anonymous ls-remote verified 945b4c6 — SYNCED)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 277,
     "booksLive": 269,
-    "chaptersWritten": 53,
+    "chaptersWritten": 54,
     "chaptersInProgress": 0,
-    "lessonsWritten": 241,
-    "wordsAuthored": 1558126,
-    "termsDefined": 2138,
-    "quizItems": 1205,
-    "exerciseQuestions": 3376,
+    "lessonsWritten": 245,
+    "wordsAuthored": 1602364,
+    "termsDefined": 2190,
+    "quizItems": 1225,
+    "exerciseQuestions": 3436,
     "blockTotals": {
-      "para": 4168,
-      "callout": 1776,
-      "heading": 1553,
-      "list": 309,
-      "terms": 286,
+      "para": 4269,
+      "callout": 1801,
+      "heading": 1588,
+      "list": 311,
+      "terms": 290,
       "equation": 497,
-      "figure": 592,
-      "derivation": 560,
-      "table": 410,
-      "example": 1481,
-      "quiz": 241,
-      "exercises": 241,
-      "formula": 1050,
+      "figure": 632,
+      "derivation": 572,
+      "table": 422,
+      "example": 1493,
+      "quiz": 245,
+      "exercises": 245,
+      "formula": 1070,
       "algorithm": 53,
       "image": 12
     }
