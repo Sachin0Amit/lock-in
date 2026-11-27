@@ -3,11 +3,13 @@ import type { Book, Chapter } from '../../../types'
 /**
  * World History — the first book of the Humanities & Social Sciences shelf (History branch).
  *
- * STATUS: IN-PROGRESS (HSS RUN 1, 2026-11-27 — the humanities & social
- * sciences lane's first fire: ch.1 'The Historian's Craft' OPENED with
- * lesson 1.1 'How History Is Written' (57/57 seat-green, amendment-5
- * solo relaunch); 1.2/1.3 ride the next fire; the planning census's
- * four artifact lines are trimmed to the honest 3-lesson shape).
+ * STATUS: IN-PROGRESS (HSS RUN 2, 2026-11-27 — ch.1 'The Historian's
+ * Craft' CLOSED COMPLETE 3 of 3: 1.1 'How History Is Written' (run 1,
+ * 57/57), 1.2 'Sources: Literary and Archaeological' (55/55) and 1.3
+ * 'Time, Periodisation and the Calendar' (61/61) — both run-2 seats by
+ * the amendment-5 solo relaunch; verify-wh-ch01 3-section + CLOSED-Z
+ * census green; the four artifact lines trimmed to the honest shape).
+
 
  *
  * POSITIONING (no-duplication contract): World History owns the world register — every region, every era, at survey depth. Indian History owns the national register (the two cross-reference at the colonial bridge); International Relations owns the post-1945 order’s political science; the Anthropology book owns the deep human past below writing. The political philosophies (communism, capitalism, socialism) are priced here as history’s engines and cross-referenced to Political Science and Philosophy for their theory.
