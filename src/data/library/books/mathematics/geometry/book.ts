@@ -2,35 +2,23 @@ import type { Book, Chapter } from '../../../types'
 import { chapter1 } from './ch-01'
 import { chapter2 } from './ch-02'
 import { chapter3 } from './ch-03'
+import { chapter4 } from './ch-04'
 
 /**
  * Geometry — the fifth book of the Mathematics shelf.
  *
- * STATUS: IN-PROGRESS (run 129, 2026-11-27 — chapters 1, 2 AND 3 CLOSED
- * COMPLETE: ch.3 'Triangles: Congruence and the Craft of Proof' shipped
- * all six lessons — 3.1 (run 128), 3.2-3.6 (the run-129 swarm: 3.3/3.4
- * first-wave seats, 302/305/306 continuation seats after the transcript
- * wall); ch.4 'Similarity and Proportion' rides the next fire).
+ * STATUS: IN-PROGRESS (run 130, 2026-11-27 — chapters 1, 2, 3 AND 4 CLOSED
+ * COMPLETE: ch.4 'Similarity: the Geometry of Proportion' shipped all four
+ * lessons by the run-130 swarm — 4.1 'Similar Figures', 4.2 'Thales', 4.3
+ * 'The Similarity Criteria', 4.4 'Pythagoras Proved' — every seat landed
+ * engine-green on the run-130 master pin set; ch.5 'Transformations and
+ * Symmetry' rides the next fire).
  */
 const chapters: Chapter[] = [
   chapter1,
   chapter2,
   chapter3,
-  {
-    number: 4,
-    slug: 'similarity-and-proportion',
-    title: 'Similarity: the Geometry of Proportion',
-    summary:
-      'Foundation Mathematics 6\u2019s ratio and proportion return as geometry\u2019s scaling law. The Basic Proportionality (Thales) theorem proved, the similarity criteria (AA, SAS, SSS) built on it, and Pythagoras\u2019s theorem PROVED by similarity and again by areas — the theorem the reader has used since Foundation Mathematics is finally earned. Areas scale as the square of the ratio; volumes as the cube.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'Similar Figures: Same Shape at Any Scale',
-      'The Basic Proportionality Theorem (Thales)',
-      'The Similarity Criteria: AA, SAS, SSS',
-      'Pythagoras Proved: the Theorem Earned',
-    ],
-  },
+  chapter4,
   {
     number: 5,
     slug: 'transformations-and-symmetry',

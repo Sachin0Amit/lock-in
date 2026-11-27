@@ -122,12 +122,12 @@
       {
         "id": "geometry",
         "title": "Geometry",
-        "status": "planned",
+        "status": "in-progress",
         "chaptersPlanned": 11,
-        "chaptersWritten": 0,
-        "lessonsWritten": 0,
+        "chaptersWritten": 4,
+        "lessonsWritten": 18,
         "termsAvailableForFlashcards": 0,
-        "notes": "PLANNED (full-shelf pass 2026-11-10) — 11 ch / 38 planned lessons, `geo-` prefix reserved; research: web-audited school canon + Euclid/Hilbert arcs. Authoring opens in backlog order after Advanced Algebra completes."
+        "notes": "IN-PROGRESS (run 130, 2026-11-27) — chapters 1-4 CLOSED COMPLETE (14 lessons + ch.4's four: similar-figures 11,164w / thales 11,371w / aa-sas-sss 10,882w / pythagoras 10,776w; verify-book5-ch04 442/442; chapter 44,193 words; aa-10.4 debt PAID same run); NEXT per RESUME_POINTER: run 131 riders-first (ch.3 figure fixes + ch.4 E2E/VLM sweeps) then ch.5 'Transformations and Symmetry' whole"
       },
       {
         "id": "coordinate-geometry",
@@ -2133,7 +2133,7 @@
     "completionReview": "BOOK_FORMAT checklist 7/7; exam corners 3/3; ids unique book-wide 48/48; ch-11 flipped complete + plannedLessons emptied; book.ts status → complete; totals recomputed by scripts/build_work_inventory.ts",
     "citationKeys": "NEW ncert-math7-gp-ch4 (gegp104) + ncert-math6-ch11 (matchstick charter) + ncert-math7-ch4 (Simple Equations, the balance-method charter); zero downloads"
   },
-  "lastCompleted": "RUN 123 (2026-11-25): AA ch.10 closed COMPLETE and the Advanced Algebra book SHIPPED COMPLETE — 67 written lessons / 10 chapters / 473,625 words (verify-book4-ch10 946/946; the honest closed-BOOK census; E2E x5 x3 GREEN; VLM light+dark with two real figure catches fixed). 202 written lessons library-wide.",
+  "lastCompleted": "run 130 (maths lane, 2026-11-27): GEOMETRY ch.4 'Similarity: the Geometry of Proportion' CLOSED COMPLETE 4/4 + aa-10.4 topic-depth debt PAID",
   "run55Extras": {
     "fired": "2026-11-05 23:11 IST from job 504365 (the correct two-lesson job; job 498279 idle this window — no ninth fire logged)",
     "delivered": "ANS ch. 4 opens 2/4: 4.1 The Primes Never End: Euclid's Proof and the Sieve (5,233 words) + 4.2 The Fundamental Theorem of Arithmetic (5,117 words), verify-first with 167 checks (sections A–V)",
