@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-28 08:32:20 (Asia/Kolkata)",
+  "generated": "2026-11-28 10:14:38 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -19043,7 +19043,7 @@
         "description": "The zero-rung entry to the Computer Science shelf (its Foundation Mathematics). The information processing cycle priced on real machines; a census of hardware from desktops to embedded chips; interacting with computers — input and output devices and the first usability instincts; data representation as a first meeting (bits, codes, text/image/sound) that hands its theory to Arithmetic and Number Systems and Digital Logic Design; inside the box — motherboard, processor named honestly, the first memory hierarchy; the software families and the manager layer that Operating Systems will theorize; the network idea that Computer Networks takes over; files and digital space; and the synthesis with user-level security. Cross-references every core CS book as its doorstep; no prior knowledge assumed.",
         "status": "in-progress",
         "chaptersPlanned": 8,
-        "chaptersWritten": 5,
+        "chaptersWritten": 6,
         "chapters": [
           {
             "number": 1,
@@ -20833,15 +20833,273 @@
             "slug": "connecting-computers",
             "title": "Connecting Computers",
             "summary": "The network idea at first-meeting level: why two machines want to talk, LANs and WANs, the Internet as a network of networks, the Web as one application riding it, and the vocabulary (IP, DNS, browsers) a citizen of the field must own — the theory hands off to Computer Networks.",
-            "status": "planned",
-            "lessonsWritten": 0,
-            "plannedLessons": [
-              "The Network Idea",
-              "The Internet: a Network of Networks",
-              "Browsing the Web: the Citizen’s Vocabulary"
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "cf-the-network-idea",
+                "number": "6.1",
+                "title": "The Network Idea",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 10918,
+                "readMins": 55,
+                "concepts": [
+                  "why machines talk: files, printers, one Internet connection",
+                  "the five components: sender, receiver, medium, message, protocol",
+                  "the distance census: PAN, LAN, MAN, WAN",
+                  "wired and wireless media",
+                  "topology and the link count: star, bus, ring, mesh",
+                  "bandwidth and latency, named honestly",
+                  "packets, headers and overhead",
+                  "the device census: NIC to modem"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can state the five components of data communication - sender, receiver, message, communication medium and protocol - and name all five in any conversation you are shown, including one passed by notes through a corridor.",
+                  "By the end of this lesson you can sort any network into the distance census by asking one dividing question, how far does it reach: a PAN of about 10 m, a LAN of up to 1 km, a MAN of 30-40 km across a city, or a WAN joining countries and continents - and you can say why the Internet is the largest WAN.",
+                  "By the end of this lesson you can count the wiring bill of each topology: a star of $n$ computers needs $n-1$ links, a bus needs 1 shared backbone, a ring needs $n$, and a full mesh needs $n(n-1)/2$ - so for $n = 6$ you get 5, 1, 6 and 15, and for ten computers 45 direct cables against 10 through a switch.",
+                  "By the end of this lesson you can convert the bandwidth ladder honestly ($1$ Kbps $= 1{,}024$ bps up to $1$ Tbps $= 2^{40}$ bps), refuse the classic trap ($1$ MBps $= 8$ Mbps), and compute the required rate of a transfer in the 6,400 bps genre: pages x characters x 8 bits divided by seconds.",
+                  "By the end of this lesson you can slice a message into packets and price the overhead: a 750-byte message in 250-byte payloads with 20-byte headers travels as 3 packets of 270 bytes, 810 bytes on the wire, 60 bytes of pure header - 7.41% overhead - and you can re-run the arithmetic for any message size.",
+                  "By the end of this lesson you can add latency hop by hop (4 hops x 25 ms = 100 ms one way, 200 ms round trip, which is what ping measures) and name the six-member device census - NIC, repeater, hub, switch, router, modem - one honest line each."
+                ],
+                "prerequisites": [
+                  "cf-unit-5-completion-review"
+                ],
+                "sources": [
+                  "cs-cf-web-ground-ch06"
+                ],
+                "blockCounts": {
+                  "heading": 10,
+                  "para": 35,
+                  "callout": 18,
+                  "list": 1,
+                  "figure": 4,
+                  "example": 10,
+                  "table": 5,
+                  "terms": 2,
+                  "derivation": 3,
+                  "equation": 4,
+                  "formula": 6,
+                  "algorithm": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 7,
+                  "insight": 5,
+                  "warn": 3,
+                  "theorem": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 6,
+                  "L2": 5,
+                  "L3": 4
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 28
+              },
+              {
+                "id": "cf-the-internet-a-network-of-networks",
+                "number": "6.2",
+                "title": "The Internet: a Network of Networks",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 11513,
+                "readMins": 58,
+                "concepts": [
+                  "the Internet as a network of networks",
+                  "the six-rung tier ladder from device to backbone",
+                  "TCP/IP: the one protocol family every member speaks",
+                  "IPv4, IPv6 and MAC: the three numbering schemes",
+                  "DNS resolution: 8 steps, 4 server kinds, port 53",
+                  "routers, hops and accumulated delay",
+                  "client and server: request-maker and answer-keeper",
+                  "the dated beats from ARPANET 1969 to VSNL 1995"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can define the Internet as the worldwide network of networks - millions of independent networks agreeing to exchange traffic by speaking one common protocol family - and walk the six-rung tier ladder from your device through the modem, the local ISP, the regional and national networks to the backbone.",
+                  "By the end of this lesson you can carry the dated beats honestly and do their gap arithmetic: ARPANET's 'lo' message on 29 October 1969, the TCP/IP flag day on 1 January 1983, DNS in November 1983, ERNET in 1986, the Web proposal in March 1989, the first site on 6 August 1991, the public-domain release in April 1993 and VSNL's gateway on 15 August 1995 - with the gaps 14, 3, 9, 26, 2, 2 and 2 years.",
+                  "By the end of this lesson you can anatomise the three numbering schemes: an IPv4 address as four dot-separated octets of 8 bits (32 bits, $2^{32}$ = 4,294,967,296 addresses, just under 4.3 billion), an IPv6 address as eight colon-separated hex groups of 16 bits (128 bits, $2^{128}$ addresses), and a MAC address as 48 bits in 12 hex digits - a 24-bit maker code plus a 24-bit serial.",
+                  "By the end of this lesson you can walk the DNS ladder: name the 8 steps of a lookup, the 4 server kinds it visits (recursive resolver, root, TLD, authoritative), the 13 root name servers A to M, and port 53; and you can say why names are for humans while routing is done on numbers.",
+                  "By the end of this lesson you can compute the price of distance and of patience: 4 hops at 25 ms each make 100 ms one-way (200 ms round trip), and a 60 MB file at 9.6 kbit/s took 50,000 s - 13.9 hours - while an hour online under the 1995 GIAS tariff cost 5,200 rupees over 250 hours = 20.80 rupees.",
+                  "By the end of this lesson you can distinguish client from server and Internet from Web, and name the doorstep books honestly: 'Computer Networks' owns switching theory, routing algorithms and the full protocol stack, and 'Cybersecurity' owns the attack surface."
+                ],
+                "prerequisites": [
+                  "cf-the-network-idea"
+                ],
+                "sources": [
+                  "cs-cf-web-ground-ch06"
+                ],
+                "blockCounts": {
+                  "heading": 11,
+                  "para": 31,
+                  "callout": 19,
+                  "figure": 4,
+                  "table": 3,
+                  "example": 10,
+                  "terms": 7,
+                  "list": 2,
+                  "equation": 5,
+                  "derivation": 2,
+                  "algorithm": 1,
+                  "formula": 5,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 8,
+                  "insight": 4,
+                  "historical": 3,
+                  "warn": 2,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 5,
+                  "L2": 5,
+                  "L3": 5
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 14
+              },
+              {
+                "id": "cf-browsing-the-web-the-citizens-vocabulary",
+                "number": "6.3",
+                "title": "Browsing the Web: the Citizen's Vocabulary",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 13307,
+                "readMins": 67,
+                "concepts": [
+                  "the Internet as infrastructure, the Web as one service riding it",
+                  "the browser census and the anatomy walk",
+                  "the URL: 5 top-level parts, an authority of 3, ports 80 and 443",
+                  "HTTP: the two-message dance, stateless, 404 honest",
+                  "HTTPS: the same dance wrapped in TLS",
+                  "search engines against typed URLs",
+                  "cookies: the memory patches of a stateless protocol",
+                  "phishing and the lookalike-domain trick"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can draw the citizen's first distinction: the Internet is the infrastructure - the wires, routers and protocols of lesson 6.2 - and the Web is ONE service built on top, a world of pages written in HTML, found by URLs, moved by HTTP; email is a different service riding the same infrastructure, and MDN's honest line says the Internet is the backbone of the Web.",
+                  "By the end of this lesson you can define the browser as the software application that fetches, renders and displays pages - text, images, audio, video, hyperlinks - and carry the five-browser census (Chrome, Firefox, Safari, Opera, Edge) with the honest note that Edge is Internet Explorer's successor of the 1995 browser-war generation, and that Mosaic (NCSA, 1993) was the first popular graphical browser.",
+                  "By the end of this lesson you can dissect a URL into its 5 top-level parts (scheme, authority, path, parameters, anchor), split the authority into its 3 sub-parts (subdomain, domain, port), and pin the port census: 80 = HTTP, 443 = HTTPS, 53 = DNS.",
+                  "By the end of this lesson you can walk HTTP's two-message dance - the browser's request, the server's response - state the protocol's statelessness (each request stands alone), read 404 as the honest page-not-found answer, and order the 5 beats of every fetch: DNS lookup, TCP connection, HTTP request, HTTP response, render.",
+                  "By the end of this lesson you can state that HTTPS is HTTP over TLS (the old name SSL survives in speech), read the padlock in the address bar, and explain why plain HTTP on public Wi-Fi is sniffable.",
+                  "By the end of this lesson you can explain cookies as the memory patches of a stateless protocol (Netscape, 1994, first-time against returning visitors), state their honest limits - they cannot read your hard disk or carry viruses, but they do track - and run the phishing checklist: read the domain, look for the padlock, never click through fear."
+                ],
+                "prerequisites": [
+                  "cf-the-internet-a-network-of-networks"
+                ],
+                "sources": [
+                  "cs-cf-web-ground-ch06"
+                ],
+                "blockCounts": {
+                  "heading": 10,
+                  "para": 32,
+                  "callout": 19,
+                  "figure": 4,
+                  "table": 5,
+                  "terms": 8,
+                  "example": 11,
+                  "derivation": 1,
+                  "equation": 2,
+                  "algorithm": 1,
+                  "formula": 5,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 9,
+                  "warn": 4,
+                  "insight": 3,
+                  "historical": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 5,
+                  "L2": 5,
+                  "L3": 5
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 19
+              },
+              {
+                "id": "cf-unit-6-completion-review",
+                "number": "6.R",
+                "title": "Unit 6 Completion Review",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 10154,
+                "readMins": 51,
+                "concepts": [
+                  "the chapter in one map: the network idea, the Internet, the Web - three lessons, one teaching chain",
+                  "the census re-run: five components, four spans, four topologies, the units ladder, the address census, the URL five",
+                  "the Classify-12 board: twelve items sorted 3-3-3-3 across span, topology, protocol-speaker and web-word",
+                  "the honest re-checks: 15 links at n = 6, 810 bytes and 7.41%, the gap arithmetic 14/3/9/26/2/2/2, 13.9 hours of 1995 patience",
+                  "the formula and vocabulary harvest of the chapter",
+                  "the mixed bench: fifteen exam-style questions across all three lessons",
+                  "the doorsteps recap: what chapter 6 deliberately left closed"
+                ],
+                "objectives": [
+                  "By the end of this lesson you can redraw the chapter's one map - 6.1's five-component path and topology census, 6.2's tier ladder, DNS and dated beats, 6.3's Web stack, URL anatomy and two-message dance - from memory.",
+                  "By the end of this lesson you can restate the chapter's engine-pinned censuses cold: the span census, the topology arithmetic at n = 4, 6 and 10, the units ladder, the address census, the URL five and the ports 80/443/53.",
+                  "By the end of this lesson you can sort the Classify-12 board without hesitating - twelve items, four families, 3-3-3-3 - and say the reason for every placement.",
+                  "By the end of this lesson you can re-derive the chapter's arithmetic witnesses: mesh 15 at n = 6 and 45 at n = 10, 810 bytes at 7.41% overhead, the gaps 14/3/9/26/2/2/2, 13.9 hours at 9.6 kbit/s, and the new 2,400 bps instance.",
+                  "By the end of this lesson you can sit the mixed bench: fifteen questions across all three lessons, at least three of them honest exam-style asks."
+                ],
+                "prerequisites": [
+                  "cf-the-network-idea",
+                  "cf-the-internet-a-network-of-networks",
+                  "cf-browsing-the-web-the-citizens-vocabulary"
+                ],
+                "sources": [
+                  "cs-cf-web-ground-ch06"
+                ],
+                "blockCounts": {
+                  "para": 28,
+                  "heading": 13,
+                  "figure": 3,
+                  "callout": 14,
+                  "example": 8,
+                  "table": 10,
+                  "list": 1,
+                  "derivation": 1,
+                  "equation": 1,
+                  "formula": 8,
+                  "exercises": 1,
+                  "terms": 1,
+                  "quiz": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 3,
+                  "warn": 7,
+                  "historical": 1,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 5,
+                  "L2": 5,
+                  "L3": 5
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 21
+              }
             ],
-            "lessons": [],
-            "words": 0
+            "words": 45892
           },
           {
             "number": 7,
@@ -55920,14 +56178,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 526,
-      "totalLines": 244178,
+      "srcFilesTracked": 527,
+      "totalLines": 247932,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5880,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 205497,
+        "src/data/library (content model + books)": 209251,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -86228,34 +86486,327 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "8b8e2840f0db0f636b525384b3c6a328fe567b72",
+      "short": "8b8e284",
+      "date": "2026-11-28 03:10",
+      "message": "MATHS RUN 132 (close-out): ch.5 riders PAID/RUN (E2E grid ALL PASS 4x3 viewports quiz 5/5 on all four keys; VLM sweep 94 crops -> ~24 defects, verdicts re-banked) + geo504's six FIX_QUEUE fixes landed harness-verified 96/96 + tsc 0; ch.6 'Quadrilaterals and Polygons' WAS authored whole by the swarm (geo601 99/99, geo602 86/86, geo603 69/69; 34,488 words; verify-book5-ch06 286/286 ALL GREEN; tsc 0; lint 0; pack 248 written; completeness 0; 3 routes 200) BUT a rogue concurrent agent operation destroyed the uncommitted artifacts at ~02:45 before the run-end commit (ch-06.ts, geo-ch06-wip, the run-132 scripts, the book.ts swap; db re-packed without ch.6) — chapter NOT shipped, everything durable RE-BANKED from the orchestrator's context: GEO_CH06_MASTER_PLAN + the three PROVEN specs + pin_check_geo132.py 58/58 + spec-FIX_QUEUE_132B + the 8 VLM verdicts verbatim; NEW LAW recorded: commit per chapter close IMMEDIATELY on ALL GREEN, never only at run end; ledgers corrected to the truth (pointer -> run 133 re-author + close + COMMIT EARLY, then FIX_QUEUE remainder + ch.6 E2E/VLM); the run-131 close commit ad7e74d still rides this push",
+      "filesChanged": 27,
+      "insertions": 1558,
+      "deletions": 26,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 15,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 28,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 276,
+          "del": 4
+        },
+        {
+          "path": "docs/research/GEO_CH06_MASTER_PLAN.md",
+          "add": 26,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/part-geo504.ts",
+          "add": 8,
+          "del": 8
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/spec-FIX_QUEUE_132B.md",
+          "add": 57,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/vlm-sweep-run132-verdicts/51-dark.txt",
+          "add": 14,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/vlm-sweep-run132-verdicts/51-light.txt",
+          "add": 14,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/vlm-sweep-run132-verdicts/52-dark.txt",
+          "add": 15,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/vlm-sweep-run132-verdicts/52-light.txt",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/vlm-sweep-run132-verdicts/53-dark.txt",
+          "add": 14,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/vlm-sweep-run132-verdicts/53-light.txt",
+          "add": 14,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/vlm-sweep-run132-verdicts/54-dark.txt",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/vlm-sweep-run132-verdicts/54-light.txt",
+          "add": 14,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch06-wip/spec-geo601.md",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch06-wip/spec-geo602.md",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch06-wip/spec-geo603.md",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/pin_check_geo132.py",
+          "add": 185,
+          "del": 0
+        },
+        {
+          "path": "scripts/recover_run132_artifacts.py",
+          "add": 178,
+          "del": 0
+        },
+        {
+          "path": "scripts/recover_run132_artifacts2.py",
+          "add": 368,
+          "del": 0
+        },
+        {
+          "path": "scripts/recover_run132_ledgers.py",
+          "add": 59,
+          "del": 0
+        },
+        {
+          "path": "scripts/run132_ledgers.py",
+          "add": 75,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/ch-05.ts",
+          "add": 8,
+          "del": 8
+        }
+      ]
+    },
+    {
+      "sha": "10b21cb9ff3567fe5975beeb6c287e86a0c1c723",
+      "short": "10b21cb",
+      "date": "2026-11-28 03:10",
+      "message": "chore(bookkeeping): maths RUN 132 push record (anonymous ls-remote verified 8b8e284 — SYNCED; carried the run-131 close ad7e74d + the run-132 close-out)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "acc60b14a1706357254d7e0bb670a510ddec4a41",
+      "short": "acc60b1",
+      "date": "2026-11-28 04:43",
+      "message": "CS RUN 11: computer-fundamentals ch.6 'Connecting Computers' CLOSED COMPLETE 4/4 in ONE first-wave swarm + the ch.5 VLM sweep rider paid — 6.1 'The Network Idea' (V-CF61 132/132, 10,918 words), 6.2 'The Internet: a Network of Networks' (V-CF62 122/122, 11,513), 6.3 'Browsing the Web: the Citizen's Vocabulary' (V-CF63 98/98, 13,307), 6.R review (V-CF6R 155/155, 10,154); verify-cs-book2-ch06 Z census 41/41 GREEN, 45,892 chapter words, 15 body + 21 solution figures, quiz keys 30241|14203|21430|03142 pairwise distinct; reference-scan-first: NCERT XII CS ch10-12 + XII IP ch5 (real books) + Kurose/Tanenbaum arcs + MDN + Cloudflare + ISOC + Wikipedia + CBSE 165, banked cs-cf-web-ground-ch06; pin_check_cs11 64/64; RIDER PAID: the ch.5 VLM light+dark sweep (68 crops via sweep_vlm_cs11c — the show-solution buttons click ONCE, a re-query loop re-collapses them; vision audits by subagent swarm, 5.3 split-retried on the fast tier) — 5.1/5.3/5.R ALL PASS, 5.2's uniforms-figure caption overflows fixed at part level + ch-05.ts twin (DOM-verified clearances >= 7.7px, v-cf52 111/111 re-green, re-audit PASS both themes); assemble_cs11.py rebuilt (the RUN 10 copy died with the sandbox) with the terminator-safe STATUS swap; tsc 0 repo-wide, lint 0 err (5 standing warnings), pack v4 249 written + verify PASS, 4 routes 200",
+      "filesChanged": 24,
+      "insertions": 10125,
+      "deletions": 46,
+      "files": [
+        {
+          "path": "docs/research/cf-ch05-wip/part-cf52.ts",
+          "add": 6,
+          "del": 5
+        },
+        {
+          "path": "docs/research/cf-ch05-wip/vlm-sweep-run11-verdicts/SUMMARY.md",
+          "add": 27,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch06-wip/CF_CH06_MASTER_PLAN.md",
+          "add": 25,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch06-wip/SPEC_CORE.md",
+          "add": 158,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch06-wip/part-cf61.ts",
+          "add": 884,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch06-wip/part-cf62.ts",
+          "add": 999,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch06-wip/part-cf63.ts",
+          "add": 1024,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch06-wip/part-cf6R.ts",
+          "add": 839,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch06-wip/spec-cf61.md",
+          "add": 104,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch06-wip/spec-cf62.md",
+          "add": 92,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch06-wip/spec-cf63.md",
+          "add": 98,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch06-wip/spec-cf6R.md",
+          "add": 74,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch06-wip/v-cf61.ts",
+          "add": 521,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch06-wip/v-cf62.ts",
+          "add": 516,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch06-wip/v-cf63.ts",
+          "add": 236,
+          "del": 0
+        },
+        {
+          "path": "docs/research/cf-ch06-wip/v-cf6R.ts",
+          "add": 343,
+          "del": 0
+        },
+        {
+          "path": "scripts/assemble_cs11.py",
+          "add": 116,
+          "del": 0
+        },
+        {
+          "path": "scripts/audit_vlm_cs11.sh",
+          "add": 21,
+          "del": 0
+        },
+        {
+          "path": "scripts/pin_check_cs11.py",
+          "add": 110,
+          "del": 0
+        },
+        {
+          "path": "scripts/sweep_vlm_cs11c.sh",
+          "add": 72,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-cs-book2-ch06.ts",
+          "add": 66,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/book.ts",
+          "add": 8,
+          "del": 36
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-05.ts",
+          "add": 6,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/computer-science/computer-fundamentals/ch-06.ts",
+          "add": 3780,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 277,
     "booksLive": 269,
-    "chaptersWritten": 54,
+    "chaptersWritten": 55,
     "chaptersInProgress": 0,
-    "lessonsWritten": 245,
-    "wordsAuthored": 1602364,
-    "termsDefined": 2190,
-    "quizItems": 1225,
-    "exerciseQuestions": 3436,
+    "lessonsWritten": 249,
+    "wordsAuthored": 1648256,
+    "termsDefined": 2272,
+    "quizItems": 1245,
+    "exerciseQuestions": 3496,
     "blockTotals": {
-      "para": 4269,
-      "callout": 1801,
-      "heading": 1588,
-      "list": 311,
-      "terms": 290,
-      "equation": 497,
-      "figure": 632,
-      "derivation": 572,
-      "table": 422,
-      "example": 1493,
-      "quiz": 245,
-      "exercises": 245,
-      "formula": 1070,
-      "algorithm": 53,
+      "para": 4395,
+      "callout": 1871,
+      "heading": 1632,
+      "list": 315,
+      "terms": 308,
+      "equation": 509,
+      "figure": 647,
+      "derivation": 579,
+      "table": 445,
+      "example": 1532,
+      "quiz": 249,
+      "exercises": 249,
+      "formula": 1094,
+      "algorithm": 56,
       "image": 12
     }
   }
