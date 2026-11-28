@@ -1,0 +1,14 @@
+# RE-BANKED 2026-11-28 (run-132 close): the original verdict file was destroyed with the untracked artifacts at ~02:45; this is the verbatim audit output preserved by the orchestrator. Crop files /tmp/vlm-geo132/ were wiped — re-shoot via scripts/sweep_vlm_geo132.sh if a re-audit needs them.
+
+image 1: FAIL - the length label "√26 ≈ 5.0990199" is struck through by the teal segment stroke, reducing legibility.
+image 2: PASS
+image 3: PASS
+image 4: FAIL - the orange arc stroke passes through the title text "THE THREE TURNS ABOUT O..." and collides with the top axis label, overlapping text.
+image 5: PASS
+image 6: FAIL - the y-axis tick label "4" overlaps the point label "B (1, 4)", rendering as a merged "4B(1,-4)" jumble.
+image 7: PASS
+image 8: FAIL - the label "image (0, 0), (−4, 0), (−4, −3)" is crossed by the dashed orange diagonal stroke of the image triangle.
+image 9: FAIL - the foot labels overlap geometry: "foot (3.5, 3.5)" is struck by the teal segment and dashed join, and "foot (2, 2)" collides with the dashed mirror join.
+image 10: PASS
+
+OVERALL: FAIL

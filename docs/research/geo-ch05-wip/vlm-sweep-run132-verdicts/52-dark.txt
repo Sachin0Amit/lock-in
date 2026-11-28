@@ -1,0 +1,15 @@
+# RE-BANKED 2026-11-28 (run-132 close): the original verdict file was destroyed with the untracked artifacts at ~02:45; this is the verbatim audit output preserved by the orchestrator. Crop files /tmp/vlm-geo132/ were wiped — re-shoot via scripts/sweep_vlm_geo132.sh if a re-audit needs them.
+
+image 1: PASS
+image 2: PASS
+image 3: FAIL - "length 3" label overlaps the orange dashed segment strokes
+image 4: PASS
+image 5: PASS
+image 6: FAIL - the bottom caption text collides with the "(3, 2)" point label ("come(3, 2)me" overlap)
+image 7: PASS
+image 8: PASS
+image 9: FAIL - "mirror y = 0" label overlaps the "(0, 0)" point label
+image 10: FAIL - "B′ (10, 5)" label sits on top of the triangle's orange edge stroke
+image 11: PASS
+image 12: PASS
+OVERALL: FAIL

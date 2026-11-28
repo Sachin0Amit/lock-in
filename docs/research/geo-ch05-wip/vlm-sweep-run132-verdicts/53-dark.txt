@@ -1,0 +1,14 @@
+# RE-BANKED 2026-11-28 (run-132 close): the original verdict file was destroyed with the untracked artifacts at ~02:45; this is the verbatim audit output preserved by the orchestrator. Crop files /tmp/vlm-geo132/ were wiped — re-shoot via scripts/sweep_vlm_geo132.sh if a re-audit needs them.
+
+image 1: PASS
+image 2: PASS
+image 3: PASS
+image 4: FAIL - red caption "attempted mirror: diagonal AC" overlaps the dashed diagonal stroke
+image 5: PASS
+image 6: FAIL - green "180°" label sits on/clips the top edge stroke, and "(3,1)" label overlaps the centre dot and diagonal lines
+image 7: PASS
+image 8: PASS
+image 9: FAIL - bottom-row labels overlap: "O: infinite / every diameter" and "F: nothing / no symmetry" collide with the summary strip text at the bottom edge
+image 10: FAIL - text "square 4 · rectangle 2 · rhombus 2 / regular n-gons · H I X" overlaps the square thumbnail's mirror lines
+image 11: PASS
+OVERALL: FAIL

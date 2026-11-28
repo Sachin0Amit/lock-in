@@ -1,0 +1,14 @@
+# RE-BANKED 2026-11-28 (run-132 close): the original verdict file was destroyed with the untracked artifacts at ~02:45; this is the verbatim audit output preserved by the orchestrator. Crop files /tmp/vlm-geo132/ were wiped — re-shoot via scripts/sweep_vlm_geo132.sh if a re-audit needs them.
+
+image 1: PASS
+image 2: PASS
+image 3: FAIL - label "P (3,5)" overlaps the teal ray stroke near the point
+image 4: PASS
+image 5: PASS
+image 6: PASS
+image 7: FAIL - stray "O" marker overlaps the caption text "4/12" at bottom left
+image 8: FAIL - label "O (2.4, shadow tip)" collides with the "2.4" tick text and the ground line
+image 9: FAIL - "h = 2.4" label overlaps the orange altitude stroke and the "ABF: scale 0.6" text crowds vertex A
+image 10: PASS
+image 11: PASS
+OVERALL: FAIL

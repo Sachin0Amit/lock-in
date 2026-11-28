@@ -851,3 +851,8 @@ server.log
 !/scripts/sweep_vlm_geo131.sh
 !/scripts/audit_vlm_geo131.sh
 !/scripts/run131_ledgers.py
+!/scripts/pin_check_geo132.py
+!/scripts/run132_ledgers.py
+!/scripts/recover_run132_artifacts.py
+!/scripts/recover_run132_artifacts2.py
+!/scripts/recover_run132_ledgers.py

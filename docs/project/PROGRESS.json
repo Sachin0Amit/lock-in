@@ -1,9 +1,9 @@
 {
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
- "updated": "2026-11-28 (run 131: geometry ch.5 'Transformations and Symmetry: the Rigid-Motion Idea' CLOSED COMPLETE 4/4 — 44,238 words, verify-book5-ch05 392/392, pack v5 245 written; ch.3 figure debt + ch.4 sweep defects all fixed and vision-verified)",
- "phase": "maths lane: geometry ch.5 'Transformations and Symmetry: the Rigid-Motion Idea' CLOSED COMPLETE 4/4 (run 131, one first-wave swarm, 44,238 words; book 5 of 12 chapters closed); run 132 = ch.5 E2E + VLM riders FIRST, then ch.6 'Quadrilaterals and Polygons' whole; cs lane run 10 closed ch.5 'Software Families' 4/4 (26 written), run 11 = ch.5 VLM sweep only, then ch.6 'Connecting Computers' whole",
- "awaiting": "next maths fire (run 132, 04:05 IST nightly job 552081): riders-first (ch.5 E2E grid + ch.5 VLM sweep), then geometry ch.6 whole",
+ "updated": "2026-11-28 (run 132 CLOSE-OUT: ch.6 was authored+assembled+verified 286/286 green but a rogue agent operation destroyed the uncommitted artifacts before the run-end commit — chapter NOT shipped, all specs/pins/verdicts re-banked PROVEN; ch.5 E2E grid RUN ALL PASS; ch.5 VLM sweep RUN (~24 defects, verdicts re-banked); geo504's six figure fixes landed harness-verified)",
+ "phase": "maths lane: run 132 closed out with ch.6 UNSHIPPED (authored green, destroyed uncommitted by a rogue concurrent agent, everything durable re-banked); run 133 = re-author ch.6 'Quadrilaterals and Polygons' from the PROVEN specs + re-assemble + CLOSE + COMMIT-EARLY (the new law) + FIX_QUEUE_132B remainder + ch.6 E2E/VLM; ch.7 'The Circle: Chords, Angles and Tangents' rides after ch.6 ships; cs lane: run 11 next per the CS pointer",
+ "awaiting": "next maths fire (run 133, nightly job 552081): re-author + close ch.6 from the re-banked specs (COMMIT EARLY per the new law), riders FIX_QUEUE_132B remainder + ch.6 E2E + ch.6 VLM",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG library routes + dynamic builder routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk · Prisma/SQLite (Custom Book Builder user data) · pdfjs-dist + poppler/tesseract (syllabus PDF extraction)",

@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-28 03:43:01 (Asia/Kolkata)",
+  "generated": "2026-11-28 08:32:20 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -55920,14 +55920,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 525,
-      "totalLines": 239037,
+      "srcFilesTracked": 526,
+      "totalLines": 244178,
       "byArea": {
         "src/app (routes, pages)": 2361,
         "other": 14962,
         "src/components/library (reader platform)": 5880,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 200356,
+        "src/data/library (content model + books)": 205497,
         "src/hooks": 214,
         "src/lib": 9819
       },
@@ -85953,6 +85953,278 @@
         {
           "path": "docs/project/WORKLOG.md",
           "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "8be1eb780b06b4418265757bc6e2d420785ca702",
+      "short": "8be1eb7",
+      "date": "2026-11-27 22:13",
+      "message": "MATHS RUN 131: geometry ch.5 'Transformations and Symmetry: the Rigid-Motion Idea' CLOSED COMPLETE 4/4 in ONE first-wave swarm — geo501 84/84 (10,089 words), geo502 92/92 (10,668; the perpendicular-slide 'glide' collapse taught honestly), geo503 84/84 (12,303; the secretly-isosceles census triangle replaced with an honest scalene), geo504 96/96 (11,178; similitude centres k-signs caught in the pin engine); verify-book5-ch05 392/392, pin_check_geo131 81/81 (8 first-draft catches), 44,238 chapter words, keys 30412|14203|41032|03241; reference-scan-first: Common Core G-CO.1-9 verbatim + IM Geometry U1 + NCERT class-7 symmetry + siblings (SOURCE_LOG run-131 block); RIDERS PAID: the ch.3 19-item figure debt (FIX_QUEUE_130A) + 1 new defect, verify-book5-ch03 677/677, re-audit 6/6 lessons PASS; the ch.4 VLM light+dark sweep (62 crops, verdicts banked) + ALL 5 FIX_QUEUE_131B defects fixed at part level + mirrored into the ch-04.ts twin and vision-verified PASS, ch.4 harnesses re-green 95/96/116/97; the assembler's */ STATUS-terminator eater struck and is now hardened in assemble_run131.py; tsc 0 repo-wide, lint 0, pack v5 245 written (+4), completeness 0, 4 routes 200; ledgers + pointer re-pointed to run 132 (riders: ch.5 E2E grid + ch.5 VLM sweep, then ch.6 'Quadrilaterals and Polygons' whole)",
+      "filesChanged": 49,
+      "insertions": 20155,
+      "deletions": 3018,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2864,
+          "del": 2864
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 457,
+          "del": 32
+        },
+        {
+          "path": "docs/research/GEO_CH05_MASTER_PLAN.md",
+          "add": 64,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/FIX_REPORT_131A.md",
+          "add": 53,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/part-geo302.ts",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/part-geo303.ts",
+          "add": 50,
+          "del": 23
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/part-geo304.ts",
+          "add": 6,
+          "del": 6
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/part-geo305.ts",
+          "add": 5,
+          "del": 5
+        },
+        {
+          "path": "docs/research/geo-ch03-wip/part-geo306.ts",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/FIX_QUEUE_131B.md",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/fix_geo131b.py",
+          "add": 62,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/part-geo402.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/part-geo403.ts",
+          "add": 4,
+          "del": 3
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/part-geo404.ts",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/vlm-sweep-run131-verdicts/41.txt",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/vlm-sweep-run131-verdicts/42.txt",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/vlm-sweep-run131-verdicts/43.txt",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/vlm-sweep-run131-verdicts/44.txt",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch04-wip/vlm-sweep-run131-verdicts/SUMMARY.md",
+          "add": 38,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/REPORT-geo501.md",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/REPORT-geo502.md",
+          "add": 53,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/REPORT-geo503.md",
+          "add": 56,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/REPORT-geo504.md",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/part-geo501.ts",
+          "add": 1223,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/part-geo502.ts",
+          "add": 1260,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/part-geo503.ts",
+          "add": 1325,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/part-geo504.ts",
+          "add": 1280,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/spec-geo501.md",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/spec-geo502.md",
+          "add": 54,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/spec-geo503.md",
+          "add": 52,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/spec-geo504.md",
+          "add": 57,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/v-geo501.ts",
+          "add": 562,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/v-geo502.ts",
+          "add": 597,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/v-geo503.ts",
+          "add": 557,
+          "del": 0
+        },
+        {
+          "path": "docs/research/geo-ch05-wip/v-geo504.ts",
+          "add": 657,
+          "del": 0
+        },
+        {
+          "path": "scripts/assemble_run131.py",
+          "add": 328,
+          "del": 0
+        },
+        {
+          "path": "scripts/audit_vlm_geo131.sh",
+          "add": 21,
+          "del": 0
+        },
+        {
+          "path": "scripts/pin_check_geo131.py",
+          "add": 292,
+          "del": 0
+        },
+        {
+          "path": "scripts/run131_ledgers.py",
+          "add": 74,
+          "del": 0
+        },
+        {
+          "path": "scripts/sweep_vlm_geo131.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book5-ch05.ts",
+          "add": 2441,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/book.ts",
+          "add": 11,
+          "del": 21
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/ch-03.ts",
+          "add": 68,
+          "del": 41
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/ch-04.ts",
+          "add": 9,
+          "del": 8
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/ch-05.ts",
+          "add": 5140,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "ad7e74dd360e1c2d3f617d93de9172aca9e7a970",
+      "short": "ad7e74d",
+      "date": "2026-11-27 22:14",
+      "message": "0ea8ff10-6799-4cd4-b99a-f1c25aa0d250-cron",
+      "filesChanged": 1,
+      "insertions": 24,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "WORKLOG.md",
+          "add": 24,
           "del": 0
         }
       ]

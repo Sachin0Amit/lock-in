@@ -1,0 +1,14 @@
+# RE-BANKED 2026-11-28 (run-132 close): the original verdict file was destroyed with the untracked artifacts at ~02:45; this is the verbatim audit output preserved by the orchestrator. Crop files /tmp/vlm-geo132/ were wiped — re-shoot via scripts/sweep_vlm_geo132.sh if a re-audit needs them.
+
+image 1: FAIL - label "√26 = 5.0990199" overlaps/crosses the teal segment stroke between Q and P.
+image 2: PASS
+image 3: PASS
+image 4: FAIL - title text overlaps the grid/arc strokes at the top; duplicate origin markers (red dot with both "O" and a stray red "O" label).
+image 5: FAIL - label "R (5, 0)" collides with the x-axis stroke and the "6" tick, partially obscured.
+image 6: FAIL - the point/dot at (1, 4) overlaps the "B (1, 4)" label text.
+image 7: PASS
+image 8: FAIL - "image (0, 0), (−4, 0), (−4, −3)" label sits over the dashed orange strokes and shaded fill; red origin dot/"O" collides with the "preimage" label area.
+image 9: FAIL - both "foot (2, 2)" and "foot (3.5, 3.5)" labels overlap the y = x line and dashed join strokes, and collide with the "(3, 4)" label area.
+image 10: FAIL - truncated/broken element: only a single "Σ Remember" line renders, the rest of the summary box is blank/empty.
+
+OVERALL: FAIL

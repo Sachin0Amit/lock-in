@@ -1,0 +1,16 @@
+# RE-BANKED 2026-11-28 (run-132 close): the original verdict file was destroyed with the untracked artifacts at ~02:45; this is the verbatim audit output preserved by the orchestrator. Crop files /tmp/vlm-geo132/ were wiped — re-shoot via scripts/sweep_vlm_geo132.sh if a re-audit needs them.
+
+image 1: PASS
+image 2: PASS
+image 3: FAIL - "length 3" label overlaps the dashed segment strokes it describes
+image 4: PASS
+image 5: PASS
+image 6: FAIL - label "(3, −2)" collides with the caption text "every point comes back"
+image 7: PASS
+image 8: PASS
+image 9: PASS
+image 10: FAIL - "mirror y = 0" text overlaps the "(0, 0)" point label at the left mirror foot
+image 11: FAIL - "B′ (10, 5)" label touches/overlaps the orange triangle edge stroke at the vertex
+image 12: PASS
+
+OVERALL: FAIL
