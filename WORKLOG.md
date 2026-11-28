@@ -40,3 +40,7 @@
 **Deferred (debt-first riders for run 12, per amendment 6 — never silent):** the ch.6 E2E grid (4 lessons x 3 viewports, the gen-cs10-e2e.py live-DOM-calibrated pattern — regenerate on the ch.6 census) · the ch.6 VLM light+dark sweep (the sweep_vlm_cs11c.sh pattern on the new chapter). The clock stood at the cap's last stretch after the gate battery; both ride run 12 FIRST.
 
 **Bookkeeping:** CS_AUTHORING_POINTER re-pointed (run 12 = riders-first then ch.7 'Files and Your Digital Space' whole); SOURCE_LOG run-11 block; DETAILED_LOG row; PROGRESS csRun11 block; WORK_INVENTORY regenerated. The ch-06 wip stays banked in docs/research/cf-ch06-wip/.
+
+## 2026-11-28 — RUN 11 push record (no token)
+
+**Push verified:** the run's two commits pushed as a clean fast-forward 10b21cb..402b568 (the chapter close acc60b1 + the bookkeeping 402b568); ls-remote confirms refs/heads/main == 402b56852382cfa6d882a74f70c333953df2cca3 == local HEAD — **SYNCED**. The PAT lived only inside the two single git commands' URLs (fetch at step-0, this push) — never written to any file, config, log or message, never echoed or printed. The tree is clean. RUN 12: riders-first (the ch.6 E2E grid + the ch.6 VLM light+dark sweep), then CF ch.7 'Files and Your Digital Space' opened WHOLE per CS_AUTHORING_POINTER.
