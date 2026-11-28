@@ -4,53 +4,25 @@ import { chapter02 } from './ch-02'
 import { chapter3 } from './ch-03'
 import { chapter4 } from './ch-04'
 import { chapter5 } from './ch-05'
+import { chapter6 } from './ch-06'
 
 /**
  * Computer Fundamentals — the first book of the Computer Science shelf
  * (the shelf's own 'Foundation Mathematics').
  *
- * STATUS: IN-PROGRESS — chapter 1 COMPLETE (4 written lessons: 1.1 +
- * 1.2 by the CS RUN 1 SWARM, 1.3 + the 1.R unit completion review by
- * the CS RUN 2 SWARM), chapter 2 COMPLETE (2.1 'Input Devices: the
- * Human Handshake' + 2.2 'Output Devices: Screens, Printers and
- * Sound' by the CS RUN 3 SWARM, 2026-11-23; 2.3 'Interacting Well:
- * the First Usability Instincts' + the 2.R 'Unit 2 Completion Review'
- * by the CS RUN 4 SWARM, 2026-11-24 — the whole-chapter cadence, the
- * chapter closed COMPLETE in one fire), chapter 3 COMPLETE (3.2 +
- * 3.6 + 3.7 by the CS RUN 5 SWARM, 3.1 + 3.3 + 3.4 + 3.5 + 3.8 + the
- * 3.R review by the CS RUN 6 SWARM, 2026-11-25 — engines green before
- * prose in every seat), chapter 4 COMPLETE (CS RUN 7, 2026-11-25:
- * 4.3 'The First Memory Hierarchy' + 4.4 'Buses and Ports: How the
- * Pieces Talk' + the 4.R review shipped whole under the time-budget
- * law; CS RUN 8, 2026-11-26: 4.1 'The Motherboard: the City Plan' +
- * 4.2 'The Processor Named Honestly' shipped whole and the chapter
- * CLOSED — five lessons, plannedLessons empty), chapter 5 COMPLETE
- * (CS RUN 10, 2026-11-28: the whole-chapter cadence honored in ONE
- * fire — 5.1 'System Software: the Manager Layer', 5.2 'Application
- * Software: the Worker Families', 5.3 'Installing, Updating and
- * Licensing Honestly' and the 5.R 'Unit 5 Completion Review' all
- * shipped whole; four lessons, plannedLessons empty), chapters 6-8
- * planned (9 planned body lessons + their unit reviews). */
+ * STATUS: chapters 1-6 COMPLETE (26 written lessons: ch.1 4 lessons, ch.2 4,
+ * ch.3 8, ch.4 5, ch.5 4 by CS RUN 10, ch.6 4 by CS RUN 11 — 6.1 'The
+ * Network Idea', 6.2 'The Internet: a Network of Networks', 6.3 'Browsing
+ * the Web: the Citizen's Vocabulary' + the 6.R review, the whole-chapter
+ * cadence honored in ONE first-wave swarm, 2026-11-28), chapters 7-8
+ * planned (6 planned body lessons + their unit reviews). */
 const chapters: Chapter[] = [
   chapter01,
   chapter02,
   chapter3,
   chapter4,
   chapter5,
-  {
-    number: 6,
-    slug: 'connecting-computers',
-    title: 'Connecting Computers',
-    summary:
-      'The network idea at first-meeting level: why two machines want to talk, LANs and WANs, the Internet as a network of networks, the Web as one application riding it, and the vocabulary (IP, DNS, browsers) a citizen of the field must own — the theory hands off to Computer Networks.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'The Network Idea',
-      'The Internet: a Network of Networks',
-      'Browsing the Web: the Citizen\u2019s Vocabulary',
-    ],
-  },
+  chapter6,
   {
     number: 7,
     slug: 'files-and-your-digital-space',

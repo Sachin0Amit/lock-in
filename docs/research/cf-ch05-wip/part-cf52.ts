@@ -192,9 +192,9 @@ function cf52UniformsSvg(): string {
     s.push(`<rect x="${p.x}" y="44" width="232" height="268" fill="${c52.paper}" stroke="${p.stroke}" stroke-width="2"/>`)
     s.push(cf52T(p.x + 116, 68, 11, c52.ink, 'middle', p.title, true))
     if (p.title.startsWith('DESKTOP')) {
-      s.push(`<rect x="${p.x + 66}" y="86" width="100" height="62" fill="${c52.white}" stroke="${c52.ink}" stroke-width="2"/>`)
+      s.push(`<rect x="${p.x + 56}" y="86" width="120" height="62" fill="${c52.white}" stroke="${c52.ink}" stroke-width="2"/>`)
       s.push(`<rect x="${p.x + 101}" y="148" width="30" height="10" fill="${c52.paper}" stroke="${c52.ink}" stroke-width="1.5"/>`)
-      s.push(`<line x1="${p.x + 81}" y1="162" x2="${p.x + 151}" y2="162" stroke="${c52.ink}" stroke-width="2.5"/>`)
+      s.push(`<line x1="${p.x + 71}" y1="162" x2="${p.x + 161}" y2="162" stroke="${c52.ink}" stroke-width="2.5"/>`)
       s.push(cf52T(p.x + 116, 122, 9.5, c52.tealInk, 'middle', 'a window of your own'))
     } else if (p.title.startsWith('WEB APP')) {
       s.push(`<rect x="${p.x + 48}" y="78" width="64" height="12" fill="${c52.paper}" stroke="${c52.ink}" stroke-width="1.5"/>`)
@@ -205,10 +205,11 @@ function cf52UniformsSvg(): string {
       s.push(`<rect x="${p.x + 94}" y="94" width="92" height="12" fill="${c52.panelB}" stroke="${c52.faint}" stroke-width="1.5"/>`)
       s.push(cf52T(p.x + 116, 130, 9.5, c52.tealInk, 'middle', 'a tab in someone\'s browser'))
     } else {
-      s.push(`<rect x="${p.x + 86}" y="84" width="60" height="96" rx="8" fill="${c52.white}" stroke="${c52.ink}" stroke-width="2"/>`)
-      s.push(`<rect x="${p.x + 92}" y="94" width="48" height="70" fill="${c52.paper}" stroke="${c52.faint}" stroke-width="1.5"/>`)
+      s.push(`<rect x="${p.x + 74}" y="84" width="84" height="96" rx="8" fill="${c52.white}" stroke="${c52.ink}" stroke-width="2"/>`)
+      s.push(`<rect x="${p.x + 80}" y="94" width="72" height="70" fill="${c52.paper}" stroke="${c52.faint}" stroke-width="1.5"/>`)
       s.push(`<circle cx="${p.x + 116}" cy="172" r="4" fill="${c52.white}" stroke="${c52.ink}" stroke-width="1.5"/>`)
-      s.push(cf52T(p.x + 116, 132, 9.5, c52.tealInk, 'middle', 'a worker in your pocket'))
+      s.push(cf52T(p.x + 116, 126, 9.5, c52.tealInk, 'middle', 'a worker in'))
+      s.push(cf52T(p.x + 116, 140, 9.5, c52.tealInk, 'middle', 'your pocket'))
     }
     p.lines.forEach((l, i) => s.push(cf52T(p.x + 16, 196 + i * 20, 9.5, c52.ink, 'start', l)))
   })
